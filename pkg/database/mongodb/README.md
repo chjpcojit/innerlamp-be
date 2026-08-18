@@ -1,0 +1,11 @@
+# mongodb Directory
+
+This directory is part of `base_project` and corresponds to `pkg/database/mongodb`.
+
+## Contents
+
+- `mongodb.go`
+
+## Notes
+
+Update this README when the folder structure or responsibilities change.
