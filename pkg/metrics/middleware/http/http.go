@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"base_project/pkg/metrics"
+	"chjpcoj.com.innerlamp/pkg/metrics"
 )
 
 // Metrics provides HTTP metrics collection

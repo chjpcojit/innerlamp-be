@@ -1,577 +1,99 @@
-# Metrics Package
+# Metrics — pkg/metrics
 
-A production-ready metrics collection package for Go applications with **Google Cloud Monitoring (GCP)** backend support.
+## Mục đích
+Thu thập và xuất metric (counter, gauge, histogram, summary) từ service sang Google Cloud Monitoring, qua một interface `Collector` chung cộng thêm middleware HTTP/gRPC tự động đo request count/duration/size mà không cần chỉnh sửa handler.
 
-## Features
+## Khi nào dùng / không dùng
+- Dùng khi: service chạy trên GCP (Cloud Run/GKE/GCE) và cần custom metric cho Cloud Monitoring, hoặc muốn tự động có `requests_total`/`request_duration_seconds`/... cho HTTP handler hay gRPC service qua middleware có sẵn.
+- Không dùng khi: cần backend Prometheus/OpenTelemetry/Datadog — package này **chỉ hỗ trợ backend GCP** (`Config.Validate()` từ chối mọi `Backend` khác `BackendGCP`); cũng không dùng cho tracing (dùng `pkg/tracing`) hay logging (dùng `pkg/logging`).
 
-✅ **GCP Cloud Monitoring** - Native Google Cloud Monitoring integration  
-✅ **Protocol Support** - HTTP and gRPC automatic instrumentation  
-✅ **Metric Types** - Counter, Gauge, Histogram, Summary  
-✅ **Automatic Collection** - Middleware and interceptors  
-✅ **Type-Safe** - Strong typing throughout  
-✅ **Production-Ready** - Battle-tested patterns  
-✅ **Cloud Run Ready** - Automatic resource detection  
-✅ **Batching & Flushing** - Efficient metric delivery  
+## API chính
 
----
-
-## Table of Contents
-
-- [Quick Start](#quick-start)
-- [Architecture](#architecture)
-- [HTTP Metrics](#http-metrics)
-- [gRPC Metrics](#grpc-metrics)
-- [Configuration](#configuration)
-- [Examples](#examples)
-- [Best Practices](#best-practices)
-
----
-
-## Quick Start
-
-### 1. Install Dependencies
-
-```bash
-# For GCP Cloud Monitoring
-go get cloud.google.com/go/monitoring/apiv3/v2
-
-# For gRPC (if using gRPC metrics)
-go get google.golang.org/grpc
-```
-
-### 2. Basic Usage with GCP
-
+### `NewCollector(config *Config) (Collector, error)` (factory.go)
+Tạo collector theo `config.Backend`. Nếu `config.Enabled == false` trả về `NoOpCollector` (mọi thao tác no-op, không lỗi). Nếu `Enabled == true` và backend GCP chưa được đăng ký (chưa blank-import `pkg/metrics/gcp`) sẽ trả lỗi `"GCP backend not initialized"`.
 ```go
-package main
-
 import (
-    "context"
-    "log"
-    
-    "base_project/pkg/metrics"
-    
-    // Import to register GCP backend
-    _ "base_project/pkg/metrics/gcp"
+    "chjpcoj.com.innerlamp/pkg/metrics"
+    _ "chjpcoj.com.innerlamp/pkg/metrics/gcp" // đăng ký backend GCP qua init()
 )
 
-func main() {
-    // Create GCP metrics collector
-    config := &metrics.Config{
-        Backend:   metrics.BackendGCP,
-        Namespace: "my_app",
-        Enabled:   true,
-        GCP: &metrics.GCPConfig{
-            ProjectID:             "my-gcp-project",
-            UseDefaultCredentials: true,
-            MetricPrefix:          "custom.googleapis.com",
-            ResourceType:          "generic_task",
-            ResourceLabels: map[string]string{
-                "project_id": "my-gcp-project",
-                "location":   "us-central1",
-                "namespace":  "my-app",
-                "job":        "my-service",
-                "task_id":    "default",
-            },
-        },
-    }
-    
-    collector, err := metrics.NewCollector(config)
-    if err != nil {
-        log.Fatal(err)
-    }
-    
-    // Start the collector (required for GCP)
-    ctx := context.Background()
-    if err := collector.Start(ctx); err != nil {
-        log.Fatal(err)
-    }
-    defer collector.Stop(ctx)
-    
-    // Register metrics
-    collector.RegisterMetric(metrics.MetricDefinition{
-        Name:        "requests_total",
-        Type:        metrics.Counter,
-        Description: "Total number of requests",
-        Labels:      []string{"method", "status"},
-    })
-    
-    // Record metrics
-    labels := metrics.Labels{"method": "GET", "status": "200"}
-    collector.IncrementCounter("requests_total", labels)
-    
-    // Flush metrics to GCP
-    collector.Flush(ctx)
-}
-```
-
-### 3. HTTP Server with Metrics
-
-```go
-package main
-
-import (
-    "context"
-    "net/http"
-    
-    "base_project/pkg/metrics"
-    httpMetrics "base_project/pkg/metrics/middleware/http"
-    _ "base_project/pkg/metrics/gcp"
-)
-
-func main() {
-    // Initialize collector
-    config := &metrics.Config{
-        Backend:   metrics.BackendGCP,
-        Namespace: "my_app",
-        Enabled:   true,
-        GCP: &metrics.GCPConfig{
-            ProjectID:             "my-gcp-project",
-            UseDefaultCredentials: true,
-        },
-    }
-    
-    collector, _ := metrics.NewCollector(config)
-    collector.Start(context.Background())
-    defer collector.Stop(context.Background())
-    
-    // Create HTTP metrics
-    httpMet, _ := httpMetrics.NewMetrics(collector, "my_app", "http")
-    
-    // Setup routes
-    mux := http.NewServeMux()
-    mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        w.Write([]byte("Hello, World!"))
-    })
-    
-    // Wrap with metrics middleware
-    handler := httpMet.Middleware(mux)
-    
-    http.ListenAndServe(":8080", handler)
-}
-```
-
----
-
-## Architecture
-
-### Package Structure
-
-```
-pkg/metrics/
-├── metrics.go          # Core interfaces and types
-├── factory.go          # Collector factory
-├── registry.go         # Collector registry
-├── helpers.go          # Helper functions
-├── gcp/                # GCP Cloud Monitoring implementation
-│   └── gcp.go
-├── http/               # HTTP middleware
-│   └── middleware.go
-├── grpc/               # gRPC interceptors
-│   └── interceptors.go
-└── examples/           # Example usage
-```
-
-### Core Concepts
-
-1. **Collector Interface** - Unified API for all metric operations
-2. **Metric Types** - Counter, Gauge, Histogram, Summary
-3. **Labels** - Key-value pairs for dimensional metrics
-4. **Resource Detection** - Automatic Cloud Run/GKE/GCE detection
-5. **Batching** - Efficient metric delivery to GCP
-
----
-
-## GCP Cloud Monitoring Backend
-
-### Features
-
-- ✅ **Custom Metrics** - Creates custom metrics in your GCP project
-- ✅ **Multiple Resource Types** - Cloud Run, GKE, GCE, Generic Task
-- ✅ **Automatic Resource Detection** - Detects Cloud Run/GKE/GCE automatically
-- ✅ **Batching** - Batches TimeSeries writes for efficiency
-- ✅ **Background Flushing** - Periodic background flush
-- ✅ **Graceful Shutdown** - Flushes pending metrics on Stop()
-- ✅ **Distribution Support** - Histograms mapped to GCP Distributions
-
-### Authentication
-
-The GCP backend supports multiple authentication methods:
-
-1. **Application Default Credentials (ADC)** - Recommended for Cloud Run/GKE
-   ```go
-   GCP: &metrics.GCPConfig{
-       ProjectID:             "my-project",
-       UseDefaultCredentials: true,
-   }
-   ```
-
-2. **Service Account File**
-   ```go
-   GCP: &metrics.GCPConfig{
-       ProjectID:       "my-project",
-       CredentialsFile: "/path/to/service-account.json",
-   }
-   ```
-
-3. **Service Account JSON**
-   ```go
-   GCP: &metrics.GCPConfig{
-       ProjectID:       "my-project",
-       CredentialsJSON: []byte(`{...service account json...}`),
-   }
-   ```
-
-### Resource Types
-
-The GCP backend automatically detects the resource type:
-
-- **Cloud Run** - Detected via `K_SERVICE` env var
-- **GKE (Kubernetes)** - Detected via `KUBERNETES_SERVICE_HOST` env var
-- **GCE** - Detected via `GCE_INSTANCE_ID` env var
-- **Generic Task** - Default fallback
-
-### Configuration
-
-```go
-config := &metrics.Config{
+collector, err := metrics.NewCollector(&metrics.Config{
     Backend:   metrics.BackendGCP,
     Namespace: "my_app",
+    Enabled:   true,
     GCP: &metrics.GCPConfig{
-        // Required
-        ProjectID: "my-gcp-project",
-        
-        // Authentication (choose one)
+        ProjectID:             "my-gcp-project",
         UseDefaultCredentials: true,
-        // OR
-        CredentialsFile: "/path/to/sa.json",
-        // OR
-        CredentialsJSON: []byte(`{...}`),
-        
-        // Optional
-        MetricPrefix:   "custom.googleapis.com",
-        Timeout:        30 * time.Second,
-        BatchSize:      200,
-        ResourceType:   "generic_task",
-        ResourceLabels: map[string]string{
-            "project_id": "my-project",
-            "location":   "us-central1",
-            "namespace":  "default",
-            "job":        "my-job",
-            "task_id":    "task-1",
-        },
     },
     FlushInterval: 60 * time.Second,
-}
+})
 ```
 
----
-
-## HTTP Metrics
-
-### Automatic Instrumentation
-
-The HTTP middleware automatically collects:
-
-- Request count by method, status, endpoint
-- Request duration (histogram)
-- Request size (histogram)
-- Response size (histogram)
-- In-flight requests (gauge)
-
-### Usage
-
+### `Collector` interface (metrics.go)
+API chính mà mọi code tiêu thụ package dùng: `RegisterMetric(def MetricDefinition) error`, `IncrementCounter/IncrementCounterBy`, `SetGauge/IncrementGauge/DecrementGauge/IncrementGaugeBy/DecrementGaugeBy`, `ObserveHistogram`, `ObserveSummary`, và lifecycle `Start(ctx)/Stop(ctx)/Flush(ctx)`. Phải `RegisterMetric` trước, nếu không các hàm ghi giá trị trả `ErrMetricNotRegistered`.
 ```go
-import (
-    "base_project/pkg/metrics"
-    httpMetrics "base_project/pkg/metrics/middleware/http"
-    _ "base_project/pkg/metrics/gcp"
-)
+_ = collector.RegisterMetric(metrics.NewCounterMetric(
+    "orders_total", "Total orders", []string{"status"},
+))
+_ = collector.IncrementCounter("orders_total", metrics.Labels{"status": "paid"})
+```
 
-// Create collector
-collector, _ := metrics.NewCollector(config)
-collector.Start(context.Background())
+### `DefaultConfig() *Config`
+Config mặc định: backend GCP, `FlushInterval` 10s, `MaxBatchSize` 100, `GCP.ResourceType` `"generic_task"`, `GCP.UseDefaultCredentials` true. Dùng làm điểm khởi đầu rồi override field cần thiết.
 
-// Create HTTP metrics
-httpMet, _ := httpMetrics.NewMetrics(collector, "my_app", "http")
+### `NewCounterMetric/NewGaugeMetric/NewHistogramMetric/NewHistogramMetricWithBuckets/NewSummaryMetric/NewSummaryMetricWithObjectives(...)`
+Helper tạo `MetricDefinition` đúng loại (histogram/summary mặc định dùng `DefaultDurationBuckets`/`DefaultSummaryObjectives`).
 
-// Apply middleware
-handler := httpMet.Middleware(yourHandler)
+### `NewTimer(collector, name, labels) *Timer` / `ObserveDuration(collector, name, labels, fn)`
+Đo duration rồi ghi vào histogram khi `Stop()` (hoặc tự động khi `fn` chạy xong với `ObserveDuration`).
 
+### `MetricBuilder` — `NewMetricBuilder(collector, name) *MetricBuilder`
+Fluent API: `.WithLabel(k, v)`, `.WithLabels(labels)`, `.Increment()`, `.IncrementBy(v)`, `.Set(v)`, `.Observe(v)` (thử histogram trước, fallback summary nếu `ErrMetricNotRegistered`), `.Time(fn)`.
+
+### `NewRegistry() Registry` / biến `DefaultRegistry`
+Quản lý nhiều collector cùng lúc theo tên (`Register/Get/Unregister/List/Default/SetDefault`) — chỉ cần khi service có nhiều collector song song; phần lớn trường hợp chỉ cần một `Collector` truyền tay qua constructor, không cần registry.
+
+### `RegisterStandardHTTPMetrics(collector)` / `RegisterStandardGRPCMetrics(collector)` (helpers.go)
+Đăng ký sẵn bộ metric chuẩn (`http_requests_total`, `http_request_duration_seconds`, ... / `grpc_requests_total`, ...). Được middleware HTTP/gRPC gọi tự động trong `NewMetrics(...)`, hiếm khi cần gọi tay.
+
+### `gcp.NewCollector(config *metrics.Config) (*gcp.Collector, error)` (gcp/gcp.go)
+Implementation `Collector` ghi TimeSeries vào Google Cloud Monitoring. Blank-import `pkg/metrics/gcp` để nó tự `init()` gọi `metrics.RegisterGCPBackend(...)`, sau đó gọi `metrics.NewCollector` như bình thường thay vì gọi `gcp.NewCollector` trực tiếp.
+```go
+import _ "chjpcoj.com.innerlamp/pkg/metrics/gcp"
+```
+
+### `httpMetrics.NewMetrics(collector, namespace, subsystem) (*Metrics, error)` (middleware/http/http.go)
+Tự động gọi `RegisterStandardHTTPMetrics`. Dùng `.Middleware(next http.Handler) http.Handler` để wrap handler, tự đo method/path/status/duration/size + in-flight gauge. Có thêm `.HandlerWithConfig(HandlerConfig{PathPattern, Labels, SkipMetrics}, handler)` khi cần gắn label tuỳ chỉnh hoặc bỏ qua route, và `.NewTimer(method, path)` để đo thủ công.
+```go
+httpMet, err := httpMetrics.NewMetrics(collector, "my_app", "http")
+handler := httpMet.Middleware(mux)
 http.ListenAndServe(":8080", handler)
 ```
 
-### Collected Metrics
-
-| Metric | Type | Labels | Description |
-|--------|------|--------|-------------|
-| `requests_total` | Counter | method, status, endpoint | Total requests |
-| `request_duration_seconds` | Histogram | method, status, endpoint | Request duration |
-| `request_size_bytes` | Histogram | method, endpoint | Request body size |
-| `response_size_bytes` | Histogram | method, status, endpoint | Response body size |
-| `requests_in_flight` | Gauge | - | Current in-flight requests |
-
----
-
-## gRPC Metrics
-
-### Automatic Instrumentation
-
-The gRPC interceptors automatically collect:
-
-- RPC count by service, method, status
-- RPC duration (histogram)
-- Error rates by status code
-- Stream message counts
-- In-flight requests (gauge)
-
-### Usage
-
+### `grpcMetrics.NewMetrics(collector, namespace, subsystem) (*Metrics, error)` (middleware/grpc/grpc.go)
+Tự động gọi `RegisterStandardGRPCMetrics`. Cung cấp `.UnaryServerInterceptor()`, `.StreamServerInterceptor()` cho server, `.UnaryClientInterceptor()`, `.StreamClientInterceptor()` cho client — đo service/method/code/duration + đếm stream message (sent/received).
 ```go
-import (
-    "base_project/pkg/metrics"
-    grpcMetrics "base_project/pkg/metrics/middleware/grpc"
-    _ "base_project/pkg/metrics/gcp"
-    "google.golang.org/grpc"
-)
-
-// Create collector
-collector, _ := metrics.NewCollector(config)
-collector.Start(context.Background())
-
-// Create gRPC metrics
-grpcMet, _ := grpcMetrics.NewMetrics(collector, "my_app", "grpc")
-
-// Create server with interceptors
+grpcMet, err := grpcMetrics.NewMetrics(collector, "my_app", "grpc")
 server := grpc.NewServer(
     grpc.UnaryInterceptor(grpcMet.UnaryServerInterceptor()),
     grpc.StreamInterceptor(grpcMet.StreamServerInterceptor()),
 )
 ```
 
-### Collected Metrics
+## Cấu hình / dependency
+- `Config` (metrics.go): `Backend` (chỉ `BackendGCP`), `Namespace`/`Subsystem` (ghép thành tiền tố tên metric qua `Config.MetricName`), `Enabled`, `ConstLabels`, `GCP *GCPConfig`, `FlushInterval`, `MaxBatchSize`.
+- `GCPConfig`: `ProjectID` (bắt buộc), một trong `UseDefaultCredentials`/`CredentialsFile`/`CredentialsJSON` (bắt buộc khi `Enabled`), `MetricPrefix` (mặc định `custom.googleapis.com`), `Timeout`, `BatchSize`, `ResourceType` (mặc định `generic_task`), `ResourceLabels`.
+- Không tự động đọc biến môi trường (`GCP_PROJECT_ID`, `K_SERVICE`, `KUBERNETES_SERVICE_HOST`, ...) trong code package — việc đọc env var và suy ra `ResourceType`/`ResourceLabels` chỉ được minh hoạ trong `examples/complete_example.go`, caller phải tự làm tương tự nếu cần detect Cloud Run/GKE.
+- Phụ thuộc thư viện ngoài: `cloud.google.com/go/monitoring/apiv3/v2`, `google.golang.org/grpc` (chỉ cần khi dùng `middleware/grpc`).
+- Import path đúng trong repo này: `chjpcoj.com.innerlamp/pkg/metrics`, `.../pkg/metrics/gcp`, `.../pkg/metrics/middleware/http`, `.../pkg/metrics/middleware/grpc` (README/USAGE.md cũ trong thư mục này còn ghi `base_project/pkg/metrics...` — tàn dư từ template, đừng copy).
 
-| Metric | Type | Labels | Description |
-|--------|------|--------|-------------|
-| `grpc_requests_total` | Counter | service, method, code | Total RPCs |
-| `grpc_request_duration_seconds` | Histogram | service, method, code | RPC duration |
-| `grpc_requests_in_flight` | Gauge | - | Current in-flight RPCs |
-| `grpc_stream_messages_total` | Counter | service, method, direction | Stream messages |
-
----
-
-## Configuration
-
-### Environment Variables
-
-```bash
-# GCP Configuration
-export GCP_PROJECT_ID="my-gcp-project"
-export GCP_CREDENTIALS_FILE="/path/to/sa.json"  # Optional if using ADC
-
-# Cloud Run (auto-detected)
-# K_SERVICE, K_REVISION, K_CONFIGURATION automatically set by Cloud Run
-
-# GKE (auto-detected)
-# KUBERNETES_SERVICE_HOST automatically set by Kubernetes
-
-# Optional overrides
-export ENVIRONMENT="production"
-export VERSION="1.0.0"
-export LOCATION="us-central1"
-```
-
-### Full Configuration Example
-
-```go
-config := &metrics.Config{
-    Backend:   metrics.BackendGCP,
-    Namespace: "users_service",
-    Subsystem: "api",
-    Enabled:   true,
-    ConstLabels: metrics.Labels{
-        "service":     "users",
-        "environment": "production",
-        "version":     "1.0.0",
-    },
-    FlushInterval: 60 * time.Second,
-    MaxBatchSize:  100,
-    GCP: &metrics.GCPConfig{
-        ProjectID:             "my-gcp-project",
-        UseDefaultCredentials: true,
-        MetricPrefix:          "custom.googleapis.com",
-        Timeout:               30 * time.Second,
-        BatchSize:             200,
-        ResourceType:          "cloud_run_revision",
-        ResourceLabels: map[string]string{
-            "project_id":         "my-project",
-            "service_name":       "users-service",
-            "revision_name":      "users-service-v1",
-            "location":           "us-central1",
-            "configuration_name": "users-service",
-        },
-    },
-}
-```
-
----
-
-## Examples
-
-See the `examples/` directory for complete working examples:
-
-- `examples/http_server.go` - HTTP server with metrics
-- `examples/grpc_server.go` - gRPC server with metrics
-- `examples/custom_metrics.go` - Custom metric recording
-
----
-
-## Best Practices
-
-### 1. Use Appropriate Flush Intervals
-
-- **Development**: 10-30 seconds for faster feedback
-- **Production**: 60-120 seconds to reduce API calls and costs
-
-```go
-FlushInterval: 60 * time.Second,  // Production
-```
-
-### 2. Control Cardinality
-
-Keep label cardinality low to avoid excessive costs:
-
-```go
-// ✅ Good - Low cardinality
-labels := metrics.Labels{
-    "method": "GET",
-    "status": "200",
-}
-
-// ❌ Bad - High cardinality
-labels := metrics.Labels{
-    "user_id": "user-12345",  // Avoid unique IDs
-    "url":     "/api/v1/users/12345",  // Avoid full URLs
-}
-```
-
-### 3. Use Resource Labels Correctly
-
-Set resource labels once at initialization:
-
-```go
-ResourceLabels: map[string]string{
-    "service_name": "users-service",  // ✅ Low cardinality
-    "environment":  "production",     // ✅ Low cardinality
-}
-```
-
-### 4. Graceful Shutdown
-
-Always flush metrics before shutdown:
-
-```go
-defer func() {
-    ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-    defer cancel()
-    collector.Flush(ctx)
-    collector.Stop(ctx)
-}()
-```
-
-### 5. Register Metrics Early
-
-Register all metrics at startup:
-
-```go
-func initMetrics(collector metrics.Collector) error {
-    metrics := []metrics.MetricDefinition{
-        metrics.NewCounterMetric("requests_total", "Total requests", []string{"method", "status"}),
-        metrics.NewHistogramMetric("request_duration", "Request duration", []string{"method"}),
-    }
-    
-    for _, m := range metrics {
-        if err := collector.RegisterMetric(m); err != nil {
-            return err
-        }
-    }
-    return nil
-}
-```
-
-### 6. Cost Optimization
-
-Monitor and optimize GCP costs:
-
-- Increase `FlushInterval` to reduce API calls
-- Reduce label cardinality
-- Use appropriate `BatchSize` (100-200 recommended)
-- Monitor Cloud Monitoring API quotas
-
-```go
-// Cost-optimized configuration
-FlushInterval: 120 * time.Second,
-MaxBatchSize:  200,
-```
-
----
-
-## Performance Characteristics
-
-### Overhead
-
-- **Counter increment**: ~50ns
-- **Histogram observation**: ~500ns
-- **HTTP middleware**: ~2-6ms per request
-- **gRPC interceptor**: ~1-3ms per RPC
-
-### Memory Usage
-
-- Base: ~50KB per collector
-- Per metric: ~1-2KB
-- Pending batch: ~100-500KB (depending on batch size)
-
----
-
-## Troubleshooting
-
-### Metrics Not Appearing in GCP
-
-1. **Check Authentication**
-   ```bash
-   gcloud auth application-default print-access-token
-   ```
-
-2. **Verify Project ID**
-   ```bash
-   echo $GCP_PROJECT_ID
-   ```
-
-3. **Check IAM Permissions**
-   - Ensure service account has `roles/monitoring.metricWriter`
-
-4. **Enable Cloud Monitoring API**
-   ```bash
-   gcloud services enable monitoring.googleapis.com
-   ```
-
-### High Costs
-
-1. Reduce flush frequency
-2. Lower label cardinality
-3. Use sampling for high-traffic endpoints
-4. Monitor quotas in Cloud Console
-
----
-
-## Additional Resources
-
-- [GCP Cloud Monitoring Documentation](https://cloud.google.com/monitoring/docs)
-- [Custom Metrics Guide](https://cloud.google.com/monitoring/custom-metrics)
-- [Cloud Monitoring Pricing](https://cloud.google.com/stackdriver/pricing)
-- [Best Practices for Custom Metrics](https://cloud.google.com/monitoring/custom-metrics/creating-metrics)
-
----
-
-## License
-
-This package is part of the base_project and follows the same license.
+## Lưu ý / lỗi hay gặp
+- Quên blank-import `pkg/metrics/gcp` → `metrics.NewCollector` báo lỗi `"GCP backend not initialized"` dù config hợp lệ.
+- Quên `RegisterMetric` trước khi `IncrementCounter`/`SetGauge`/`ObserveHistogram`/`ObserveSummary` → trả `ErrMetricNotRegistered` (không panic, nhưng bị bỏ qua âm thầm nếu không check lỗi).
+- `gcp.NewCollector` (được gọi gián tiếp qua `metrics.NewCollector`) tạo `monitoring.MetricClient` **ngay trong constructor**, không tách riêng bước connect như convention `Connect(ctx)` của các package khác trong repo (`pkg/database`, `pkg/storage`, ...) — service vẫn cần gọi thêm `collector.Start(ctx)`, nhưng `Start` chỉ khởi động goroutine flush định kỳ theo `FlushInterval`, không mở kết nối.
+- Nếu không bao giờ gọi `collector.Start(ctx)`, gọi `collector.Stop(ctx)` sẽ **block vô thời hạn** — `Stop` chờ trên `doneCh`, vốn chỉ được đóng khi goroutine `flushWorker` (chạy bởi `Start`) kết thúc.
+- `IncrementGaugeBy`/`DecrementGaugeBy` trên GCP backend **không thực sự cộng dồn** — implementation hiện tại gọi thẳng `SetGauge` với giá trị truyền vào, tức là ghi đè chứ không đọc giá trị hiện tại rồi cộng thêm; đừng dùng để tăng/giảm gauge tương đối nhiều lần liên tiếp mà kỳ vọng cộng dồn đúng.
+- Metric tự flush khi `pendingData` đạt `GCP.BatchSize`, hoặc theo chu kỳ `FlushInterval` nếu đã `Start(ctx)`, hoặc khi gọi `Flush`/`Stop` thủ công — nếu tắt service đột ngột mà không gọi `Stop`/`Flush`, dữ liệu batch chưa đủ ngưỡng sẽ mất.
+- `Config.Enabled == false` khiến `Validate()` bỏ qua mọi kiểm tra khác và `NewCollector` trả về `NoOpCollector` — hữu ích để tắt metrics ở môi trường dev mà không cần đổi code, nhưng cũng nghĩa là config sai (thiếu `ProjectID`, ...) sẽ không bị phát hiện cho tới khi `Enabled: true`.
+- Tên package con `middleware/http` trùng tên với `net/http` — luôn import alias, ví dụ `httpMetrics "chjpcoj.com.innerlamp/pkg/metrics/middleware/http"`.
+- `pkg/metrics` chỉ hỗ trợ backend GCP: truyền `Backend` khác `BackendGCP` (khi `Enabled: true`) khiến `Config.Validate()` trả lỗi ngay khi tạo collector — fail fast lúc khởi tạo, không phải lúc gửi metric.

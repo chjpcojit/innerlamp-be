@@ -1,480 +1,65 @@
-# Session Management Package
+# Session — pkg/session
 
-Secure session management with JWT rotation, device fingerprinting, and TTL-based cleanup for MongoDB.
+## Mục đích
+Quản lý session người dùng trên MongoDB: tạo/lưu session gắn với access + refresh token (sinh qua `pkg/jwt`), rotate token, revoke, và giới hạn số session đồng thời theo device fingerprint.
 
-## Features
+## Khi nào dùng / không dùng
+- Dùng khi: service cần session có trạng thái (stateful) lưu trên MongoDB — theo dõi thiết bị đăng nhập, cho phép revoke từng session/tất cả session của user, giới hạn số thiết bị đăng nhập cùng lúc, hoặc cần rotate access+refresh token theo cặp gắn với một session cụ thể.
+- Không dùng khi: chỉ cần verify JWT stateless không cần lưu trạng thái server-side (dùng thẳng `pkg/jwt` + middleware của nó), hoặc datastore của service không phải MongoDB (package này chỉ có implementation Mongo, chưa có driver khác).
 
-- **JWT Token Rotation** - Automatic access and refresh token rotation
-- **Device Fingerprinting** - Unique device identification and tracking
-- **Session TTL** - Automatic session expiration and cleanup
-- **Multi-Device Support** - Manage concurrent sessions across devices
-- **Session Revocation** - Revoke individual or all user sessions
-- **Activity Tracking** - Track last activity for security monitoring
-- **Session Limits** - Enforce maximum concurrent sessions per user
+## API chính
 
-## Installation
-
+### `NewMongoSessionManager(db *mongo.Database, jwtService jwt.Service, config *Config) (Manager, error)`
+Khởi tạo session manager, tạo các index MongoDB cần thiết (`session_id` unique, `user_id`, `refresh_token`, `device_id`, TTL index trên `expires_at`, index kép `user_id+is_active`, `user_id+device_id`). `config` truyền `nil` sẽ dùng `DefaultConfig()`.
 ```go
-import "base_project/pkg/session"
+sessionMgr, err := session.NewMongoSessionManager(mongoDB, jwtService, session.DefaultConfig())
 ```
 
-## Quick Start
-
-### Initialize Session Manager
-
+### `Manager.CreateSession(ctx, userID, email, role string, deviceInfo *DeviceInfo, ipAddress, userAgent string) (*Session, error)`
+Sinh device fingerprint (SHA-256), enforce giới hạn `MaxSessionsPerUser` (revoke session cũ nhất nếu vượt), sinh cặp access/refresh token qua `jwtService`, rồi lưu session vào MongoDB.
 ```go
-import (
-    "base_project/pkg/session"
-    "base_project/pkg/jwt"
-)
-
-// Create JWT service
-jwtConfig := &jwt.Config{
-    SecretKey:        "your-secret-key",
-    AccessTokenTTL:   15 * time.Minute,
-    RefreshTokenTTL:  7 * 24 * time.Hour,
-    Issuer:           "movil-app",
-}
-jwtService, _ := jwt.New(jwtConfig)
-
-// Create session manager
-sessionConfig := session.DefaultConfig()
-sessionConfig.MaxSessionsPerUser = 5
-
-sessionMgr, _ := session.NewMongoSessionManager(
-    database,
-    jwtService,
-    sessionConfig,
-)
+sess, err := sessionMgr.CreateSession(ctx, "user-123", "user@example.com", "member", deviceInfo, "1.2.3.4", "Mozilla/5.0...")
 ```
 
-### Create New Session
-
+### `Manager.ValidateSession(ctx, sessionID, accessToken string) error`
+Lấy session theo `sessionID`, verify `accessToken` qua `jwtService.ValidateToken`, so khớp với token đang lưu trong session, rồi cập nhật `last_activity_at`.
 ```go
-// Device information from client
-deviceInfo := &session.DeviceInfo{
-    Platform:     "iOS",
-    OSVersion:    "17.0",
-    AppVersion:   "1.0.0",
-    DeviceModel:  "iPhone 15 Pro",
-    DeviceName:   "My iPhone",
-    ScreenSize:   "1179x2556",
-    Timezone:     "America/Mexico_City",
-    Language:     "es-MX",
-}
-
-// Create session
-newSession, err := sessionMgr.CreateSession(
-    ctx,
-    "user123",                    // User ID
-    "user@example.com",           // Email
-    "customer",                   // Role
-    deviceInfo,                   // Device info
-    "192.168.1.1",               // IP address
-    "Mozilla/5.0...",            // User agent
-)
-
-if err != nil {
-    // Handle error
-}
-
-// Session contains access_token and refresh_token
-fmt.Printf("Access Token: %s\n", newSession.AccessToken)
-fmt.Printf("Refresh Token: %s\n", newSession.RefreshToken)
+if err := sessionMgr.ValidateSession(ctx, sessionID, accessToken); err != nil { /* unauthorized */ }
 ```
 
-### Validate Session
-
+### `Manager.RotateTokens(ctx, sessionID string) (*Session, error)`
+Validate refresh token đang lưu, sinh cặp access/refresh token mới, tăng `TokenVersion`, cập nhật session.
 ```go
-// On each request, validate session
-err := sessionMgr.ValidateSession(
-    ctx,
-    sessionID,
-    accessToken,
-)
-
-if err == session.ErrSessionExpired {
-    // Rotate tokens
-} else if err != nil {
-    // Handle other errors
-}
+newSess, err := sessionMgr.RotateTokens(ctx, sessionID)
 ```
 
-### Rotate Tokens
-
-```go
-// When access token expires
-rotatedSession, err := sessionMgr.RotateTokens(ctx, sessionID)
-if err != nil {
-    // Handle error
-}
-
-// Use new tokens
-newAccessToken := rotatedSession.AccessToken
-newRefreshToken := rotatedSession.RefreshToken
-```
-
-### Revoke Session
-
-```go
-// Logout - revoke current session
-err := sessionMgr.RevokeSession(ctx, sessionID, "user logout")
-
-// Revoke all user sessions (password change, security breach)
-count, err := sessionMgr.RevokeAllUserSessions(ctx, userID, "password changed")
-fmt.Printf("Revoked %d sessions\n", count)
-
-// Revoke other sessions (keep current active)
-count, err := sessionMgr.RevokeOtherSessions(ctx, userID, currentSessionID, "logout other devices")
-```
-
-### Get User Sessions
-
-```go
-// Get all active sessions for a user
-sessions, err := sessionMgr.GetUserActiveSessions(ctx, userID)
-
-for _, sess := range sessions {
-    fmt.Printf("Device: %s, Last Activity: %v\n",
-        sess.DeviceInfo.DeviceName,
-        sess.LastActivityAt,
-    )
-}
-```
-
-### Cleanup Expired Sessions
-
-```go
-// Periodic cleanup (run as background job)
-go func() {
-    ticker := time.NewTicker(1 * time.Hour)
-    defer ticker.Stop()
-
-    for range ticker.C {
-        count, err := sessionMgr.CleanupExpiredSessions(context.Background())
-        if err != nil {
-            log.Printf("Cleanup failed: %v", err)
-        } else {
-            log.Printf("Cleaned up %d expired sessions", count)
-        }
-    }
-}()
-```
-
-## Configuration
-
-### Default Configuration
-
-```go
-config := session.DefaultConfig()
-// Returns:
-// SessionTTL:         24 hours
-// AccessTokenTTL:     15 minutes
-// RefreshTokenTTL:    7 days
-// MaxSessionsPerUser: 5
-// Note: MongoDB TTL index handles cleanup automatically - no CleanupInterval needed
-```
-
-### Custom Configuration
-
-```go
-config := &session.Config{
-    SessionTTL:         48 * time.Hour,      // Longer session
-    AccessTokenTTL:     30 * time.Minute,    // Longer access token
-    RefreshTokenTTL:    14 * 24 * time.Hour, // 2 weeks refresh
-    MaxSessionsPerUser: 10,                  // More concurrent sessions
-}
-// Note: MongoDB TTL index handles cleanup automatically - no CleanupInterval needed
-```
-
-## Device Fingerprinting
-
-### How It Works
-
-Device fingerprints are generated using:
-
-- Platform (iOS, Android, Web)
-- OS Version
-- Device Model
-- Screen Size
-- User Agent
-
-The fingerprint is a SHA-256 hash of these combined values.
-
-### Example
-
-```go
-deviceInfo := &session.DeviceInfo{
-    Platform:     "iOS",
-    OSVersion:    "17.0",
-    DeviceModel:  "iPhone 15 Pro",
-    ScreenSize:   "1179x2556",
-}
-userAgent := "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)"
-
-// Fingerprint automatically generated:
-// SHA256("iOS|17.0|iPhone 15 Pro|1179x2556|Mozilla/5.0...")
-```
-
-### Use Cases
-
-1. **Detect device changes** - Same user, different device
-2. **Security alerts** - New device login notifications
-3. **Session binding** - Tie session to specific device
-4. **Analytics** - Track device usage patterns
-
-## Session Lifecycle
-
-### 1. Creation
-
-```
-User Login
-    ↓
-Create Session
-    ↓
-Generate Tokens (Access + Refresh)
-    ↓
-Store in MongoDB
-    ↓
-Return Tokens to Client
-```
-
-### 2. Validation
-
-```
-Client Request
-    ↓
-Extract Access Token
-    ↓
-Validate Session
-    ↓
-Update Last Activity
-    ↓
-Process Request
-```
-
-### 3. Rotation
-
-```
-Access Token Expired
-    ↓
-Client Sends Refresh Token
-    ↓
-Validate Refresh Token
-    ↓
-Generate New Tokens
-    ↓
-Increment Token Version
-    ↓
-Return New Tokens
-```
-
-### 4. Revocation
-
-```
-Logout / Security Event
-    ↓
-Revoke Session
-    ↓
-Mark as Revoked
-    ↓
-Set Revoked Timestamp
-    ↓
-Invalidate Tokens
-```
-
-### 5. Cleanup
-
-```
-MongoDB TTL Index (Automatic)
-    ↓
-Monitor expires_at field
-    ↓
-Auto-delete expired documents
-
-Optional: Cloud Scheduler + HTTP Endpoint
-    ↓
-CleanupExpiredSessions()
-    ↓
-Manual cleanup trigger
-```
-
-## Security Best Practices
-
-### 1. Token Storage
-
-**Client-Side:**
-
-```javascript
-// DO: Store in secure storage (iOS Keychain, Android KeyStore)
-await SecureStore.setItemAsync("access_token", token);
-
-// DON'T: Store in AsyncStorage or localStorage
-```
-
-### 2. Token Transmission
-
-```go
-// Always use HTTPS
-// Never log tokens
-// Use Authorization header
-Authorization: Bearer <access_token>
-```
-
-### 3. Session Revocation Scenarios
-
-```go
-// Password changed
-sessionMgr.RevokeAllUserSessions(ctx, userID, "password changed")
-
-// Suspicious activity detected
-sessionMgr.RevokeSession(ctx, sessionID, "suspicious activity")
-
-// User requests logout from all devices
-sessionMgr.RevokeAllUserSessions(ctx, userID, "user logout all")
-
-// Keep current, revoke others
-sessionMgr.RevokeOtherSessions(ctx, userID, currentSessionID, "logout other devices")
-```
-
-### 4. Session Limits
-
-```go
-// Enforce maximum concurrent sessions
-config := &session.Config{
-    MaxSessionsPerUser: 3, // Max 3 devices
-}
-
-// When limit reached, oldest session is automatically revoked
-```
-
-## MongoDB Indexes
-
-The package automatically creates these indexes:
-
-```javascript
-// Unique session ID
-db.user_sessions.createIndex({ session_id: 1 }, { unique: true });
-
-// User lookup
-db.user_sessions.createIndex({ user_id: 1 });
-
-// Refresh token lookup
-db.user_sessions.createIndex({ refresh_token: 1 });
-
-// Device tracking
-db.user_sessions.createIndex({ device_id: 1 });
-
-// TTL index for automatic cleanup
-db.user_sessions.createIndex({ expires_at: 1 }, { expireAfterSeconds: 0 });
-
-// Active user sessions
-db.user_sessions.createIndex({ user_id: 1, is_active: 1 });
-
-// User-device combo
-db.user_sessions.createIndex({ user_id: 1, device_id: 1 });
-```
-
-## Error Handling
-
-```go
-switch err {
-case session.ErrSessionNotFound:
-    // Session doesn't exist - redirect to login
-case session.ErrSessionExpired:
-    // Session expired - rotate tokens or re-login
-case session.ErrSessionRevoked:
-    // Session revoked - force re-login
-case session.ErrInvalidDeviceID:
-    // Device mismatch - security alert
-case session.ErrInvalidRefreshToken:
-    // Invalid refresh token - force re-login
-default:
-    // Other errors
-}
-```
-
-## Integration Examples
-
-### HTTP Middleware
-
-```go
-func SessionMiddleware(sessionMgr session.Manager) func(http.Handler) http.Handler {
-    return func(next http.Handler) http.Handler {
-        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-            // Extract token from header
-            authHeader := r.Header.Get("Authorization")
-            token := strings.TrimPrefix(authHeader, "Bearer ")
-
-            // Get session ID from context (set by JWT middleware)
-            sessionID := r.Context().Value("session_id").(string)
-
-            // Validate session
-            err := sessionMgr.ValidateSession(r.Context(), sessionID, token)
-            if err != nil {
-                http.Error(w, "Unauthorized", http.StatusUnauthorized)
-                return
-            }
-
-            next.ServeHTTP(w, r)
-        })
-    }
-}
-```
-
-### gRPC Interceptor
-
-```go
-func SessionUnaryInterceptor(sessionMgr session.Manager) grpc.UnaryServerInterceptor {
-    return func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
-        // Extract metadata
-        md, ok := metadata.FromIncomingContext(ctx)
-        if !ok {
-            return nil, status.Error(codes.Unauthenticated, "missing metadata")
-        }
-
-        tokens := md.Get("authorization")
-        if len(tokens) == 0 {
-            return nil, status.Error(codes.Unauthenticated, "missing token")
-        }
-
-        token := strings.TrimPrefix(tokens[0], "Bearer ")
-        sessionID := md.Get("session-id")[0]
-
-        // Validate session
-        err := sessionMgr.ValidateSession(ctx, sessionID, token)
-        if err != nil {
-            return nil, status.Error(codes.Unauthenticated, "invalid session")
-        }
-
-        return handler(ctx, req)
-    }
-}
-```
-
-## Performance Considerations
-
-- **Index Optimization**: All common queries use indexes
-- **TTL Index**: MongoDB automatically deletes expired sessions
-- **MongoDB TTL Index**: Automatic cleanup - no application overhead
-- **Connection Pooling**: Use MongoDB connection pooling
-- **Token Caching**: Consider Redis for high-traffic scenarios
-- **Cloud Run**: Stateless design - no background jobs needed
-
-## Testing
-
-Run tests:
-
-```bash
-go test ./pkg/session/... -v -cover
-```
-
-## Related Packages
-
-- [pkg/jwt](../jwt/README.md) - JWT token generation and validation
-- [pkg/audit](../audit/README.md) - Audit logging for session events
-- [pkg/logging](../logging/README.md) - Structured logging with correlation IDs
-
-## License
-
-Part of base_project microservices architecture.
+### `Manager.RevokeSession(ctx, sessionID, reason string) error` / `RevokeAllUserSessions(ctx, userID, reason string) (int64, error)` / `RevokeOtherSessions(ctx, userID, currentSessionID, reason string) (int64, error)`
+Đánh dấu session `is_revoked=true`, set `revoked_at`/`revoked_reason`. Dùng cho logout (session hiện tại), đổi mật khẩu/nghi ngờ xâm nhập (toàn bộ session của user), hoặc "đăng xuất thiết bị khác" (giữ session hiện tại).
+
+### `Manager.GetSession(ctx, sessionID string) (*Session, error)` / `GetSessionByRefreshToken(ctx, refreshToken string) (*Session, error)`
+Trả `ErrSessionNotFound`/`ErrSessionRevoked`/`ErrSessionExpired` tương ứng thay vì session đã hết hạn/bị thu hồi.
+
+### `Manager.GetUserActiveSessions(ctx, userID string) ([]*Session, error)`
+Liệt kê session còn hoạt động (chưa hết hạn, chưa revoke) của một user, sắp theo `last_activity_at` giảm dần — dùng cho màn "thiết bị đang đăng nhập".
+
+### `Manager.CleanupExpiredSessions(ctx context.Context) (int64, error)`
+Xoá thủ công session đã hết hạn hoặc đã revoke quá 30 ngày. MongoDB TTL index trên `expires_at` đã tự xoá session hết hạn, hàm này chỉ cần thiết nếu muốn dọn thêm session revoked lâu ngày hoặc chạy cleanup job thủ công.
+
+### `DefaultConfig() *Config`
+`SessionTTL: 24h`, `AccessTokenTTL: 15m`, `RefreshTokenTTL: 7 ngày`, `MaxSessionsPerUser: 5`.
+
+## Cấu hình / dependency
+- `Config` (session.go): `SessionTTL`, `AccessTokenTTL`, `RefreshTokenTTL`, `MaxSessionsPerUser` (`<= 0` nghĩa là không giới hạn số session đồng thời).
+- Phụ thuộc nội bộ: chỉ `pkg/jwt` (`jwt.Service` để sinh/validate token). Package **không** dùng `pkg/database` (giao tiếp thẳng qua `go.mongodb.org/mongo-driver/mongo`, không qua interface `Database` của repo) và **không** dùng `pkg/tracing` — session không tự propagate trace context, tự thêm nếu service cần.
+- Phụ thuộc thư viện ngoài: `go.mongodb.org/mongo-driver` (bson, mongo, options, primitive).
+- Cần một `*mongo.Database` đã kết nối (dùng `mongo.Connect` trực tiếp, package này không đi qua `pkg/database/mongodb`) và một `jwt.Service` đã khởi tạo từ `pkg/jwt`.
+- Import path đúng trong repo này: `chjpcoj.com.innerlamp/pkg/session` (README cũ ghi `base_project/pkg/session` — tàn dư template, đừng copy). Xem thêm `QUICK_START.md` và `CLOUD_RUN.md` trong cùng thư mục cho ví dụ triển khai — cả hai cũng cần rà lại import path trước khi copy.
+
+## Lưu ý / lỗi hay gặp
+- `NewMongoSessionManager` tạo index đồng bộ lúc khởi tạo (timeout 30s) — gọi 1 lần lúc service start, không gọi lại mỗi request.
+- `ValidateSession` so khớp `accessToken` truyền vào với token **đang lưu** trong session — nếu client giữ access token cũ sau khi đã `RotateTokens`, `ValidateSession` sẽ trả `ErrInvalidRefreshToken` (không phải lỗi JWT-level) dù chữ ký token vẫn hợp lệ.
+- `RotateTokens` không kiểm tra session đã bị revoke trước khi tạo token mới nếu gọi trực tiếp `GetSession` trả lỗi trước — nhưng nếu `GetSession` thành công (session còn active), hàm luôn sinh token mới, không có cơ chế phát hiện refresh-token-reuse (không lưu lịch sử token cũ để so sánh).
+- `MaxSessionsPerUser` chỉ enforce **lúc tạo session mới** (`CreateSession` → `enforceSessionLimit`) — không có job nền tự động thu hồi khi limit thay đổi cấu hình.
+- Session hết hạn tự bị MongoDB TTL index xoá khỏi collection — `CleanupExpiredSessions()` không bắt buộc phải chạy định kỳ để giữ collection sạch, chỉ cần nếu muốn dọn sớm session đã revoke quá 30 ngày.
+- `DeviceInfo` là con trỏ optional trong `CreateSession` — truyền `nil` vẫn tạo được session, fingerprint khi đó chỉ hash từ `userAgent` (kém phân biệt hơn, dễ đụng fingerprint giữa các thiết bị dùng chung user agent).
+- Struct `Session`/`DeviceInfo` dùng tag `bson`, không có tag `json` — nếu serialize thẳng ra API response cần tự thêm struct/DTO khác (đừng trả `AccessToken`/`RefreshToken` ra ngoài log hay response không cần thiết).

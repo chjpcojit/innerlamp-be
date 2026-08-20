@@ -3,7 +3,7 @@ package context
 import (
 	"context"
 
-	"base_project/pkg/jwt/claims"
+	"chjpcoj.com.innerlamp/pkg/jwt/claims"
 )
 
 // contextKey is a private type for context keys to avoid collisions

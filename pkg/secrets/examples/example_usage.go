@@ -14,9 +14,9 @@ import (
 	"syscall"
 	"time"
 
-	"base_project/pkg/secrets"
-	_ "base_project/pkg/secrets/aws" // Import to register AWS provider
-	_ "base_project/pkg/secrets/gcp" // Import to register GCP provider
+	"chjpcoj.com.innerlamp/pkg/secrets"
+	_ "chjpcoj.com.innerlamp/pkg/secrets/aws" // Import to register AWS provider
+	_ "chjpcoj.com.innerlamp/pkg/secrets/gcp" // Import to register GCP provider
 )
 
 // DatabaseCredentials represents database connection credentials

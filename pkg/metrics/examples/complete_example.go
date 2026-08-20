@@ -12,10 +12,10 @@ import (
 	"syscall"
 	"time"
 
-	"base_project/pkg/metrics"
-	httpMetrics "base_project/pkg/metrics/middleware/http"
+	"chjpcoj.com.innerlamp/pkg/metrics"
+	httpMetrics "chjpcoj.com.innerlamp/pkg/metrics/middleware/http"
 
-	_ "base_project/pkg/metrics/gcp"
+	_ "chjpcoj.com.innerlamp/pkg/metrics/gcp"
 )
 
 func main() {

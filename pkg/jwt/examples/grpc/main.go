@@ -17,10 +17,10 @@ import (
 	"net"
 	"time"
 
-	"base_project/pkg/jwt"
-	"base_project/pkg/jwt/middleware"
-	"base_project/pkg/logging"
-	"base_project/pkg/logging/formatter"
+	"chjpcoj.com.innerlamp/pkg/jwt"
+	"chjpcoj.com.innerlamp/pkg/jwt/middleware"
+	"chjpcoj.com.innerlamp/pkg/logging"
+	"chjpcoj.com.innerlamp/pkg/logging/formatter"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

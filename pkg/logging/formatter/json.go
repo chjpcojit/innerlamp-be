@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"base_project/pkg/logging"
+	"chjpcoj.com.innerlamp/pkg/logging"
 )
 
 // JSONFormatter formats logs as JSON

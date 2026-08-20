@@ -13,9 +13,9 @@ import (
 	"strings"
 	"time"
 
-	"base_project/pkg/storage"
-	_ "base_project/pkg/storage/gcs" // Register GCS backend
-	_ "base_project/pkg/storage/s3"  // Register S3 backend
+	"chjpcoj.com.innerlamp/pkg/storage"
+	_ "chjpcoj.com.innerlamp/pkg/storage/gcs" // Register GCS backend
+	_ "chjpcoj.com.innerlamp/pkg/storage/s3"  // Register S3 backend
 )
 
 // ExampleGCSBasic demonstrates basic GCS operations.

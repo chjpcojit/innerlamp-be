@@ -6,7 +6,7 @@ import (
 	"sort"
 	"time"
 
-	"base_project/pkg/logging"
+	"chjpcoj.com.innerlamp/pkg/logging"
 )
 
 // TextFormatter formats logs as text

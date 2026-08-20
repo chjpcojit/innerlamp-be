@@ -6,7 +6,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"base_project/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/ratelimit"
 )
 
 // RedisAlgorithm defines the interface for Redis-based rate limiting algorithms

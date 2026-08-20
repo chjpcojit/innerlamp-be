@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"base_project/pkg/jwt/claims"
-	jwtcontext "base_project/pkg/jwt/context"
+	"chjpcoj.com.innerlamp/pkg/jwt/claims"
+	jwtcontext "chjpcoj.com.innerlamp/pkg/jwt/context"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

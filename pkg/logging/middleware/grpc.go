@@ -10,8 +10,8 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"base_project/pkg/logging"
-	logctx "base_project/pkg/logging/context"
+	"chjpcoj.com.innerlamp/pkg/logging"
+	logctx "chjpcoj.com.innerlamp/pkg/logging/context"
 )
 
 // gRPC metadata keys for correlation ID (lowercase as per gRPC metadata spec)

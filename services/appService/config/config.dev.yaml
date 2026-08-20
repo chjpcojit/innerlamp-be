@@ -1,0 +1,38 @@
+# Local/dev configuration for appService.
+#
+# Non-sensitive settings are plain values below. Sensitive fields
+# (database.password_secret, jwt.secret_key_secret) name a secret to resolve
+# at startup instead of storing the value here — see dev_secrets at the
+# bottom for how the *dev-only* mock resolver satisfies those names.
+#
+# ⚠️ DEV ONLY: dev_secrets stores literal secret values in plaintext.
+# Point Load() at a real secrets.Client (GCP Secret Manager, etc.) in any
+# non-local environment instead of the mock resolver.
+
+server:
+  addr: ":8080"
+
+database:
+  host: "localhost"
+  port: 5432
+  username: "postgres"
+  password_secret: "appservice-db-password"
+  database: "innerlamp"
+  ssl_mode: "disable"
+
+jwt:
+  algorithm: "HS256"
+  secret_key_secret: "appservice-jwt-secret-key"
+  access_token_expiration: "15m"
+  refresh_token_expiration: "168h"
+  issuer: "innerlamp"
+  audience: "innerlamp_users"
+
+storage:
+  backend: "gcs"
+  project_id: "innerlamp-dev"
+  default_bucket: "innerlamp-avatars-dev"
+
+dev_secrets:
+  appservice-db-password: "postgres"
+  appservice-jwt-secret-key: "innerlamp-dev-secret-key-please-rotate-32c"

@@ -13,7 +13,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 
-	"base_project/pkg/jwt"
+	"chjpcoj.com.innerlamp/pkg/jwt"
 )
 
 // Errors

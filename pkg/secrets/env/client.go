@@ -9,7 +9,7 @@
 //
 // Usage:
 //
-//	import secretsenv "base_project/pkg/secrets/env"
+//	import secretsenv "chjpcoj.com.innerlamp/pkg/secrets/env"
 //	client := secretsenv.New()
 //	// Set env vars: ELCORA_MONGODB_URI=mongodb://...
 package env
@@ -21,7 +21,7 @@ import (
 	"strings"
 	"time"
 
-	"base_project/pkg/secrets"
+	"chjpcoj.com.innerlamp/pkg/secrets"
 )
 
 type client struct{}

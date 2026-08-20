@@ -3,7 +3,7 @@ package context
 import (
 	"context"
 
-	"base_project/pkg/logging"
+	"chjpcoj.com.innerlamp/pkg/logging"
 )
 
 type contextKey struct{}

@@ -1,517 +1,96 @@
-# Database Package
+# Database — pkg/database
 
-A comprehensive database abstraction layer for Go that supports multiple database systems with a unified interface.
+## Mục đích
+Lớp trừu tượng database provider-agnostic: một interface `Database` chung cho MySQL, PostgreSQL, MongoDB, chọn driver lúc runtime qua factory/registry (`Register`/`New`) thay vì import cứng một driver cụ thể vào code nghiệp vụ.
 
-## Features
+## Khi nào dùng / không dùng
+- Dùng khi: service cần kết nối MySQL/PostgreSQL/MongoDB nhưng muốn code gọi (repository, usecase) không phụ thuộc trực tiếp vào driver cụ thể — đổi DB type chỉ cần đổi `Config.Type` + blank import.
+- Không dùng khi: cần ORM/query builder cấp cao (package này chỉ bọc `database/sql`/`mongo.Client` thô, không có model mapping); hoặc cần các API đặc thù nâng cao của một DB (transaction MongoDB qua session, connection stats MySQL/PostgreSQL...) — khi đó phải lấy connection gốc qua `GetSQLDB()`/`GetMongoClient()` hoặc type-assert sang struct driver cụ thể (`*mysql.MySQL`, `*postgresql.PostgreSQL`, `*mongodb.MongoDB`) để dùng thêm các method riêng (`GetStats`, `HealthCheck`, `Collection`, `StartSession`...).
 
-- **Multi-Database Support**: MySQL, PostgreSQL, and MongoDB
-- **Unified Interface**: Common interface for all database operations
-- **Factory Pattern**: Runtime database selection based on configuration
-- **Connection Management**: Built-in connection pooling and lifecycle management
-- **Error Handling**: Consistent error handling across all database types
-- **Connection Pool**: Manage multiple database connections simultaneously
-- **Health Checks**: Built-in health check functionality
-- **Simple API**: Easy to use with minimal boilerplate
+## API chính
 
-## Supported Databases
-
-- **MySQL** - Using `github.com/go-sql-driver/mysql`
-- **PostgreSQL** - Using `github.com/lib/pq`
-- **MongoDB** - Using `go.mongodb.org/mongo-driver`
-
-## Installation
-
-```bash
-go get base_project/pkg/database
-```
-
-## Quick Start
-
-### MySQL
-
+### `database.New(config *Config) (Database, error)`
+Tạo instance DB theo `config.Type`, dựa trên factory đã đăng ký qua `Register` (driver subpackage tự đăng ký trong `init()`). Điền default cho các field còn thiếu (port, pool size, timeout...) ngay trên `config` truyền vào — **không** tự mở kết nối.
 ```go
-package main
-
 import (
-    "context"
-    "log"
-    "time"
-    
-    "base_project/pkg/database"
-    _ "base_project/pkg/database/mysql"
+    "chjpcoj.com.innerlamp/pkg/database"
+    _ "chjpcoj.com.innerlamp/pkg/database/postgresql" // blank import để driver tự Register trong init()
 )
 
-func main() {
-    // Create configuration
-    config := &database.Config{
-        Type:            database.MySQL,
-        Host:            "localhost",
-        Port:            3306,
-        Username:        "root",
-        Password:        "password",
-        Database:        "mydb",
-        MaxOpenConns:    25,
-        MaxIdleConns:    5,
-        ConnMaxLifetime: 5 * time.Minute,
-        Timeout:         10 * time.Second,
-    }
+config := database.DefaultConfig(database.PostgreSQL)
+config.Username = "postgres"
+config.Password = "secret"
+config.Database = "innerlamp"
 
-    // Create database instance
-    db, err := database.New(config)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Connect
-    ctx := context.Background()
-    if err := db.Connect(ctx); err != nil {
-        log.Fatal(err)
-    }
-    defer db.Close()
-
-    // Query
-    rows, err := db.Query(ctx, "SELECT id, name FROM users WHERE active = ?", true)
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer rows.Close()
-
-    for rows.Next() {
-        var id int
-        var name string
-        if err := rows.Scan(&id, &name); err != nil {
-            log.Fatal(err)
-        }
-        log.Printf("User: %d - %s", id, name)
-    }
+db, err := database.New(config)
+if err != nil {
+    // config.Type rỗng/không hỗ trợ → ErrInvalidConfig / ErrUnsupportedDriver
 }
-```
 
-### PostgreSQL
-
-```go
-package main
-
-import (
-    "context"
-    "log"
-    
-    "base_project/pkg/database"
-    _ "base_project/pkg/database/postgresql"
-)
-
-func main() {
-    // Create configuration
-    config := database.DefaultConfig(database.PostgreSQL)
-    config.Username = "postgres"
-    config.Password = "password"
-    config.Database = "mydb"
-    config.SSLMode = "disable"
-
-    // Create and connect
-    db, err := database.New(config)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    ctx := context.Background()
-    if err := db.Connect(ctx); err != nil {
-        log.Fatal(err)
-    }
-    defer db.Close()
-
-    // PostgreSQL uses $1, $2 placeholders
-    var count int
-    err = db.QueryRow(ctx, "SELECT COUNT(*) FROM users WHERE active = $1", true).Scan(&count)
-    if err != nil {
-        log.Fatal(err)
-    }
-    log.Printf("Active users: %d", count)
+ctx := context.Background()
+if err := db.Connect(ctx); err != nil { // kết nối thật sự diễn ra ở đây
+    // ErrConnectionFailed
 }
+defer db.Close()
 ```
+Nếu quên blank import driver tương ứng, `New` trả `ErrUnsupportedDriver` (factory chưa được đăng ký).
 
-### MongoDB
+### `database.Register(dbType DBType, factory FactoryFunc)`
+Đăng ký một factory cho `DBType`. Được gọi trong `init()` của mỗi driver subpackage (`mysql.init()`, `postgresql.init()`, `mongodb.init()`) — bản thân code dùng package không cần gọi trực tiếp, chỉ cần blank import driver muốn dùng.
 
-```go
-package main
+### `database.DefaultConfig(dbType DBType) *Config`
+Trả `*Config` với default hợp lý: port theo `dbType` (MySQL 3306, PostgreSQL 5432, MongoDB 27017), `MaxOpenConns=25`, `MaxIdleConns=5`, `ConnMaxLifetime=5m`, `ConnMaxIdleTime=10m`, `Timeout=10s`, `SSLMode="disable"`.
 
-import (
-    "context"
-    "log"
-    
-    "base_project/pkg/database"
-    _ "base_project/pkg/database/mongodb"
-    "go.mongodb.org/mongo-driver/mongo"
-)
-
-func main() {
-    // Create configuration
-    config := &database.Config{
-        Type:     database.MongoDB,
-        Host:     "localhost",
-        Port:     27017,
-        Username: "admin",
-        Password: "password",
-        Database: "mydb",
-        Timeout:  10 * time.Second,
-    }
-
-    // Create and connect
-    db, err := database.New(config)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    ctx := context.Background()
-    if err := db.Connect(ctx); err != nil {
-        log.Fatal(err)
-    }
-    defer db.Close()
-
-    // Get MongoDB client
-    clientInterface, err := db.GetMongoClient()
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Type assert to MongoDB client
-    client := clientInterface.(*mongo.Client)
-    collection := client.Database("mydb").Collection("users")
-    
-    // Use MongoDB operations
-    // ...
-}
-```
-
-## Configuration
-
-### Config Structure
-
-```go
-type Config struct {
-    Type            DBType            // Database type (MySQL, PostgreSQL, MongoDB)
-    Host            string            // Database host
-    Port            int               // Database port
-    Username        string            // Username
-    Password        string            // Password
-    Database        string            // Database name
-    SSLMode         string            // SSL mode (PostgreSQL)
-    MaxOpenConns    int               // Maximum open connections
-    MaxIdleConns    int               // Maximum idle connections
-    ConnMaxLifetime time.Duration     // Connection max lifetime
-    ConnMaxIdleTime time.Duration     // Connection max idle time
-    Timeout         time.Duration     // Connection timeout
-    Options         map[string]string // Additional options
-}
-```
-
-### Default Configuration
-
-Use `DefaultConfig()` to get sensible defaults:
-
-```go
-config := database.DefaultConfig(database.MySQL)
-config.Username = "root"
-config.Password = "password"
-config.Database = "mydb"
-```
-
-Default values:
-- **Port**: 3306 (MySQL), 5432 (PostgreSQL), 27017 (MongoDB)
-- **MaxOpenConns**: 25
-- **MaxIdleConns**: 5
-- **ConnMaxLifetime**: 5 minutes
-- **ConnMaxIdleTime**: 10 minutes
-- **Timeout**: 10 seconds
-- **SSLMode**: "disable" (PostgreSQL)
-
-## Interface
-
-### Database Interface
-
+### `Database` interface (pkg/database/database.go)
+Interface chung mà cả 3 driver implement:
 ```go
 type Database interface {
-    // Connection management
     Connect(ctx context.Context) error
     Close() error
     Ping(ctx context.Context) error
     IsConnected() bool
 
-    // SQL database operations (MySQL and PostgreSQL)
     Query(ctx context.Context, query string, args ...any) (*sql.Rows, error)
     QueryRow(ctx context.Context, query string, args ...any) *sql.Row
     Exec(ctx context.Context, query string, args ...any) (sql.Result, error)
-
-    // Transaction support (SQL databases)
     Begin(ctx context.Context) (*sql.Tx, error)
 
-    // Get underlying connection
     GetSQLDB() (*sql.DB, error)
     GetMongoClient() (any, error)
 
-    // Metadata
     GetType() DBType
     GetConfig() *Config
 }
 ```
+- Với MySQL/PostgreSQL: `Query`/`QueryRow`/`Exec`/`Begin`/`GetSQLDB` hoạt động bình thường, `GetMongoClient` trả `ErrOperationNotSupported`.
+- Với MongoDB: ngược lại — `Query`/`QueryRow`/`Exec`/`Begin`/`GetSQLDB` trả `ErrOperationNotSupported`, phải lấy client qua `GetMongoClient()` rồi type-assert `*mongo.Client`, hoặc dùng thêm method riêng của struct `mongodb.MongoDB` (`Collection`, `StartSession`, `RunCommand`, `ListCollections`...).
 
-## Transactions
-
-### SQL Databases (MySQL, PostgreSQL)
-
+### `database.NewConnectionPool() *ConnectionPool`
+Quản lý nhiều connection cùng lúc theo tên (`Add`, `Get`, `Remove`, `CloseAll`, `List`) — hữu ích khi service cần đồng thời một DB chính và một DB analytics chẳng hạn.
 ```go
-// Begin transaction
-tx, err := db.Begin(ctx)
-if err != nil {
-    log.Fatal(err)
-}
-
-// Execute queries
-_, err = tx.ExecContext(ctx, "UPDATE accounts SET balance = balance - 100 WHERE id = ?", 1)
-if err != nil {
-    tx.Rollback()
-    log.Fatal(err)
-}
-
-_, err = tx.ExecContext(ctx, "UPDATE accounts SET balance = balance + 100 WHERE id = ?", 2)
-if err != nil {
-    tx.Rollback()
-    log.Fatal(err)
-}
-
-// Commit
-if err := tx.Commit(); err != nil {
-    log.Fatal(err)
-}
-```
-
-### MongoDB Sessions
-
-```go
-// For MongoDB, you need to access the client directly
-clientInterface, _ := db.GetMongoClient()
-client := clientInterface.(*mongo.Client)
-
-session, err := client.StartSession()
-if err != nil {
-    log.Fatal(err)
-}
-defer session.EndSession(ctx)
-
-// Use session for transactions
-// ...
-```
-
-## Connection Pool
-
-Manage multiple database connections:
-
-```go
-// Create pool
 pool := database.NewConnectionPool()
-
-// Add MySQL connection
-mysqlDB, _ := database.New(mysqlConfig)
-mysqlDB.Connect(ctx)
-pool.Add("mysql_primary", mysqlDB)
-
-// Add PostgreSQL connection
-pgDB, _ := database.New(pgConfig)
-pgDB.Connect(ctx)
-pool.Add("postgres_analytics", pgDB)
-
-// Get connection
-db, err := pool.Get("mysql_primary")
-if err != nil {
-    log.Fatal(err)
-}
-
-// Use connection
-db.Query(ctx, "SELECT * FROM users")
-
-// List all connections
-connections := pool.List() // ["mysql_primary", "postgres_analytics"]
-
-// Remove specific connection
-pool.Remove("mysql_primary")
-
-// Close all connections
-pool.CloseAll()
+pool.Add("primary", db)
+conn, err := pool.Get("primary")
+defer pool.CloseAll()
 ```
 
-## Error Handling
+### Driver constructors (`mysql.NewMySQL`, `postgresql.NewPostgreSQL`, `mongodb.NewMongoDB`)
+Không cần gọi trực tiếp trong code nghiệp vụ bình thường — `database.New` sẽ gọi qua factory đã `Register`. Chỉ cần biết: constructor chỉ validate `config != nil` rồi trả struct, **chưa** mở kết nối mạng.
 
-The package defines common errors:
+## Cấu hình / dependency
+- `database.Config`: `Type` (`MySQL`/`PostgreSQL`/`MongoDB`), `Host`, `Port`, `Username`, `Password`, `Database`, `SSLMode` (chỉ PostgreSQL dùng), `MaxOpenConns`, `MaxIdleConns`, `ConnMaxLifetime`, `ConnMaxIdleTime`, `Timeout`, `Options map[string]string`.
+- `Options["dsn"]` (MySQL/PostgreSQL) hoặc `Options["uri"]` (MongoDB) cho phép ghi đè hoàn toàn chuỗi kết nối tự build từ các field trên; các key khác trong `Options` được nối thêm vào DSN/URI làm param bổ sung.
+- Không tự đọc biến môi trường — `Config` truyền trực tiếp vào code (secret/mật khẩu thường lấy qua `pkg/secrets` rồi build `Config`).
+- Import path đúng trong repo này: `chjpcoj.com.innerlamp/pkg/database`, `chjpcoj.com.innerlamp/pkg/database/{mysql,postgresql,mongodb}` — README cũ/rễ template còn ghi `base_project/pkg/database`, đó là tàn dư, đừng copy.
+- Phụ thuộc thư viện ngoài: `github.com/go-sql-driver/mysql`, `github.com/lib/pq`, `go.mongodb.org/mongo-driver/mongo`.
+- Muốn thêm driver mới: implement `Database` interface trong subpackage mới, gọi `database.Register(database.DBType("..."), NewXxx)` trong `init()`, không block I/O trong constructor (theo đúng convention `Connect(ctx)` tách biệt).
 
-```go
-var (
-    ErrUnsupportedDriver     = errors.New("unsupported database driver")
-    ErrNotConnected          = errors.New("database not connected")
-    ErrInvalidConfig         = errors.New("invalid database configuration")
-    ErrConnectionFailed      = errors.New("failed to connect to database")
-    ErrOperationNotSupported = errors.New("operation not supported for this database type")
-)
-```
-
-Example error handling:
-
-```go
-if err := db.Connect(ctx); err != nil {
-    switch {
-    case errors.Is(err, database.ErrConnectionFailed):
-        log.Println("Connection failed - check credentials")
-    case errors.Is(err, database.ErrInvalidConfig):
-        log.Println("Invalid configuration")
-    default:
-        log.Printf("Unexpected error: %v", err)
-    }
-}
-```
-
-## Health Checks
-
-```go
-// Simple ping
-if err := db.Ping(ctx); err != nil {
-    log.Printf("Database unhealthy: %v", err)
-}
-
-// Check connection status
-if db.IsConnected() {
-    log.Println("Database is connected")
-}
-
-// Get database type
-dbType := db.GetType()
-log.Printf("Database type: %s", dbType)
-```
-
-## Advanced Usage
-
-### Custom Options
-
-```go
-config := database.DefaultConfig(database.MySQL)
-config.Options["charset"] = "utf8mb4"
-config.Options["parseTime"] = "true"
-config.Options["loc"] = "Local"
-```
-
-### Direct DSN/URI
-
-```go
-// MySQL
-config.Options["dsn"] = "user:password@tcp(localhost:3306)/dbname?charset=utf8mb4"
-
-// PostgreSQL
-config.Options["dsn"] = "host=localhost port=5432 user=postgres password=secret dbname=mydb"
-
-// MongoDB
-config.Options["uri"] = "mongodb://user:password@localhost:27017/dbname"
-```
-
-### Getting Underlying Connection
-
-```go
-// For SQL databases (MySQL, PostgreSQL)
-sqlDB, err := db.GetSQLDB()
-if err != nil {
-    log.Fatal(err)
-}
-
-// Now you can use sql.DB directly
-stats := sqlDB.Stats()
-log.Printf("Open connections: %d", stats.OpenConnections)
-
-// For MongoDB
-clientInterface, err := db.GetMongoClient()
-if err != nil {
-    log.Fatal(err)
-}
-
-mongoClient := clientInterface.(*mongo.Client)
-// Use MongoDB client directly
-```
-
-## Best Practices
-
-1. **Always close connections**: Use `defer db.Close()`
-2. **Use contexts**: Always pass context for cancellation support
-3. **Handle errors**: Check all errors, especially connection errors
-4. **Connection pooling**: Configure appropriate pool sizes for your workload
-5. **Health checks**: Implement regular health checks in production
-6. **Transactions**: Use transactions for operations that must be atomic
-7. **Timeouts**: Set appropriate timeouts based on your requirements
-
-## Examples
-
-See `example_usage.go` for complete examples:
-- `ExampleMySQL()` - MySQL usage
-- `ExamplePostgreSQL()` - PostgreSQL usage
-- `ExampleMongoDB()` - MongoDB usage
-- `ExampleConnectionPool()` - Connection pool usage
-- `ExampleWithDefaultConfig()` - Using default configuration
-- `ExampleErrorHandling()` - Error handling patterns
-
-## Testing
-
-```go
-func TestDatabaseConnection(t *testing.T) {
-    config := database.DefaultConfig(database.MySQL)
-    config.Username = "test"
-    config.Password = "test"
-    config.Database = "test_db"
-
-    db, err := database.New(config)
-    if err != nil {
-        t.Fatalf("Failed to create database: %v", err)
-    }
-
-    ctx := context.Background()
-    if err := db.Connect(ctx); err != nil {
-        t.Fatalf("Failed to connect: %v", err)
-    }
-    defer db.Close()
-
-    if !db.IsConnected() {
-        t.Error("Database should be connected")
-    }
-
-    if err := db.Ping(ctx); err != nil {
-        t.Errorf("Ping failed: %v", err)
-    }
-}
-```
-
-## Contributing
-
-When adding a new database implementation:
-
-1. Create a new package under `pkg/database/`
-2. Implement the `Database` interface
-3. Register the factory function in `init()`
-4. Add tests and documentation
-
-Example:
-
-```go
-package mydb
-
-import "base_project/pkg/database"
-
-func init() {
-    database.Register(database.DBType("mydb"), NewMyDB)
-}
-
-type MyDB struct {
-    // implementation
-}
-
-func NewMyDB(config *database.Config) (database.Database, error) {
-    // create and return instance
-}
-```
-
-## License
-
-See the project's main LICENSE file.
+## Lưu ý / lỗi hay gặp
+- **Constructor không kết nối** — `database.New()`/`NewMySQL`/`NewPostgreSQL`/`NewMongoDB` chỉ validate config, kết nối thật sự chỉ xảy ra khi gọi `db.Connect(ctx)` (fail-fast tách biệt khỏi khởi tạo). Quên gọi `Connect` thì mọi `Query`/`Exec`/`Ping` đều trả `ErrNotConnected`.
+- **Quên blank import driver** → `database.New` trả `ErrUnsupportedDriver` dù `Config.Type` hợp lệ, vì factory chưa được `Register` trong `init()`.
+- **`QueryRow` khi chưa connect trả `&sql.Row{}` rỗng, không trả lỗi qua kênh error** — gọi `.Scan(...)` trên đó sẽ panic (rows nội bộ là nil) thay vì trả lỗi gọn gàng. Luôn kiểm tra `IsConnected()`/gọi `Connect` trước khi `QueryRow`.
+- **`New()` mutate ngay trên con trỏ `*Config` truyền vào** (điền default cho `Port`, `MaxOpenConns`, `Timeout`...) — đừng dùng lại cùng một `*Config` cho hai lần `New()` với kỳ vọng giá trị gốc không đổi.
+- **MongoDB dùng nhầm field cho pool idle time**: `ConnMaxLifetime` được map sang `SetMaxConnIdleTime` của driver Mongo, còn `ConnMaxIdleTime` của `Config` không được dùng ở driver này — khác với MySQL/PostgreSQL (dùng cả `ConnMaxLifetime` lẫn `ConnMaxIdleTime` đúng nghĩa qua `database/sql`).
+- **`ConnectionPool` không thread-safe** — `Add`/`Get`/`Remove`/`CloseAll`/`List` thao tác trực tiếp trên map không có mutex; nếu dùng pool từ nhiều goroutine phải tự đồng bộ hoá bên ngoài.
+- **`GetSQLDB()`/`GetMongoClient()` trả `ErrOperationNotSupported` chéo nhau** — gọi `GetMongoClient()` trên MySQL/PostgreSQL hoặc `GetSQLDB()` trên MongoDB đều lỗi, không phải bug, đúng theo thiết kế "một interface, DB nào không hỗ trợ thì trả lỗi rõ ràng thay vì panic".
+- `GetConfig()` trả về con trỏ `*Config` gốc (không phải bản copy) — sửa qua con trỏ này sẽ ảnh hưởng trực tiếp đến config đang dùng của connection.

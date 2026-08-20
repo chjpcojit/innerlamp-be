@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"base_project/pkg/tracing/gcp"
-	"base_project/pkg/tracing/types"
+	"chjpcoj.com.innerlamp/pkg/tracing/gcp"
+	"chjpcoj.com.innerlamp/pkg/tracing/types"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/exporters/stdout/stdouttrace"

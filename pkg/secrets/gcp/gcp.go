@@ -17,7 +17,7 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/fieldmaskpb"
 
-	"base_project/pkg/secrets"
+	"chjpcoj.com.innerlamp/pkg/secrets"
 )
 
 func init() {

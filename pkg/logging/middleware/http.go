@@ -8,8 +8,8 @@ import (
 
 	"github.com/google/uuid"
 
-	"base_project/pkg/logging"
-	logctx "base_project/pkg/logging/context"
+	"chjpcoj.com.innerlamp/pkg/logging"
+	logctx "chjpcoj.com.innerlamp/pkg/logging/context"
 )
 
 // Common correlation ID header names to check (in order of priority)

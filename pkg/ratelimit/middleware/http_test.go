@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"base_project/pkg/ratelimit"
-	"base_project/pkg/ratelimit/store"
+	"chjpcoj.com.innerlamp/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/ratelimit/store"
 )
 
 func TestHTTPMiddleware(t *testing.T) {

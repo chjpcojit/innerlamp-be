@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
-	"base_project/pkg/jwt"
-	"base_project/pkg/jwt/claims"
-	jwtcontext "base_project/pkg/jwt/context"
-	"base_project/pkg/logging"
+	"chjpcoj.com.innerlamp/pkg/jwt"
+	"chjpcoj.com.innerlamp/pkg/jwt/claims"
+	jwtcontext "chjpcoj.com.innerlamp/pkg/jwt/context"
+	"chjpcoj.com.innerlamp/pkg/logging"
 )
 
 // HTTPAuthMiddleware provides HTTP authentication middleware

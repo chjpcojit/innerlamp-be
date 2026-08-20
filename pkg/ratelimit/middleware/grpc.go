@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"base_project/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/ratelimit"
 )
 
 const (

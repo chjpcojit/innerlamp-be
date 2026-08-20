@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"base_project/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/ratelimit"
 )
 
 // Context keys

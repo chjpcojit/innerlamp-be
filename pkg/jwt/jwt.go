@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"base_project/pkg/jwt/claims"
+	"chjpcoj.com.innerlamp/pkg/jwt/claims"
 
 	"github.com/golang-jwt/jwt/v5"
 )

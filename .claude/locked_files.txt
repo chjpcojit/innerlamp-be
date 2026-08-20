@@ -1,0 +1,40 @@
+# .claude/locked_files.txt
+#
+# One glob pattern per line. Lines starting with # are comments and ignored.
+# Uncomment (remove the leading #) any pattern below once you decide it
+# should be off-limits to agent edits. Add your own lines as needed.
+#
+# Patterns are matched against the file_path Claude Code reports in the
+# hook's JSON input — usually relative to the project root.
+
+# --- Dependency / supply-chain risk ---
+go.sum
+go.mod
+
+# --- Database migrations already applied to production ---
+# Adjust the path to wherever your migration files actually live.
+# migrations/*.sql
+# db/migrations/*
+
+# --- Secrets, credentials, environment config ---
+*.env
+*.pem
+*.key
+# config/secrets*
+# config/production*
+
+# --- CI/CD and deploy pipeline definitions ---
+# Changing these silently could alter what gets deployed and how.
+.github/workflows/*
+Dockerfile
+docker-compose*.yml
+# cloudbuild.yaml
+
+# --- Compliance / audit-sensitive code ---
+# Fill in with actual paths once identified — e.g. code implementing
+# CNBV-mandated controls, KYC/AML logic, encryption key handling.
+# internal/compliance/*
+# internal/kyc/*
+
+# --- Version control / git internals (defense in depth) ---
+# .git/*

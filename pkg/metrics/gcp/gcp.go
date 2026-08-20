@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"base_project/pkg/metrics"
+	"chjpcoj.com.innerlamp/pkg/metrics"
 
 	monitoring "cloud.google.com/go/monitoring/apiv3/v2"
 	"cloud.google.com/go/monitoring/apiv3/v2/monitoringpb"

@@ -7,11 +7,11 @@ import (
 	"testing"
 	"time"
 
-	"base_project/pkg/jwt"
-	"base_project/pkg/jwt/claims"
-	jwtcontext "base_project/pkg/jwt/context"
-	"base_project/pkg/logging"
-	"base_project/pkg/logging/formatter"
+	"chjpcoj.com.innerlamp/pkg/jwt"
+	"chjpcoj.com.innerlamp/pkg/jwt/claims"
+	jwtcontext "chjpcoj.com.innerlamp/pkg/jwt/context"
+	"chjpcoj.com.innerlamp/pkg/logging"
+	"chjpcoj.com.innerlamp/pkg/logging/formatter"
 )
 
 func createTestJWTService() jwt.Service {

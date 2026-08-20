@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"base_project/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/ratelimit"
 )
 
 // MemoryStore implements an in-memory rate limit store

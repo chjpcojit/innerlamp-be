@@ -1,0 +1,185 @@
+package config
+
+import (
+	"context"
+	"errors"
+	"os"
+	"path/filepath"
+	"testing"
+	"time"
+
+	pkgconfig "chjpcoj.com.innerlamp/pkg/config"
+	"chjpcoj.com.innerlamp/pkg/secrets"
+)
+
+// fakeSecretGetter is a test double for SecretGetter — narrower than the
+// full secrets.Client, so no need to stub 20+ unused methods.
+type fakeSecretGetter struct {
+	values map[string]string
+	err    error
+	calls  []string
+}
+
+func (f *fakeSecretGetter) Get(_ context.Context, name string, _ *secrets.GetOptions) (*secrets.SecretValue, error) {
+	f.calls = append(f.calls, name)
+	if f.err != nil {
+		return nil, f.err
+	}
+	v, ok := f.values[name]
+	if !ok {
+		return nil, secrets.ErrSecretNotFound
+	}
+	return &secrets.SecretValue{Name: name, Value: []byte(v)}, nil
+}
+
+func writeYAML(t *testing.T, content string) pkgconfig.LoadSource {
+	t.Helper()
+	path := filepath.Join(t.TempDir(), "appservice.yaml")
+	if err := os.WriteFile(path, []byte(content), 0o600); err != nil {
+		t.Fatalf("write fixture: %v", err)
+	}
+	return pkgconfig.LoadSource(path)
+}
+
+const validYAML = `
+server:
+  addr: ":8080"
+database:
+  host: "localhost"
+  port: 5432
+  username: "postgres"
+  password_secret: "innerlamp-db-password"
+  database: "innerlamp"
+  ssl_mode: "disable"
+jwt:
+  algorithm: "HS256"
+  secret_key_secret: "innerlamp-jwt-secret"
+  access_token_expiration: "15m"
+  refresh_token_expiration: "168h"
+  issuer: "innerlamp"
+  audience: "innerlamp_users"
+storage:
+  backend: "gcs"
+  project_id: "innerlamp-dev"
+  default_bucket: "innerlamp-avatars-dev"
+`
+
+func TestLoad_ParsesYAMLAndResolvesSecrets(t *testing.T) {
+	source := writeYAML(t, validYAML)
+	sg := &fakeSecretGetter{values: map[string]string{
+		"innerlamp-db-password": "s3cret-db-pass",
+		"innerlamp-jwt-secret":  "s3cret-jwt-key",
+	}}
+
+	cfg, err := Load(context.Background(), source, sg)
+	if err != nil {
+		t.Fatalf("Load returned error: %v", err)
+	}
+
+	if cfg.Server.Addr != ":8080" {
+		t.Errorf("Server.Addr = %q, want %q", cfg.Server.Addr, ":8080")
+	}
+	if cfg.Database.Host != "localhost" || cfg.Database.Port != 5432 {
+		t.Errorf("Database host/port = %q/%d, want localhost/5432", cfg.Database.Host, cfg.Database.Port)
+	}
+	if cfg.Database.Password != "s3cret-db-pass" {
+		t.Errorf("Database.Password = %q, want resolved secret value", cfg.Database.Password)
+	}
+	if cfg.JWT.SecretKey != "s3cret-jwt-key" {
+		t.Errorf("JWT.SecretKey = %q, want resolved secret value", cfg.JWT.SecretKey)
+	}
+	if cfg.JWT.AccessTokenExpiration.Duration() != 15*time.Minute {
+		t.Errorf("JWT.AccessTokenExpiration = %s, want 15m", cfg.JWT.AccessTokenExpiration.Duration())
+	}
+	if cfg.JWT.RefreshTokenExpiration.Duration() != 168*time.Hour {
+		t.Errorf("JWT.RefreshTokenExpiration = %s, want 168h", cfg.JWT.RefreshTokenExpiration.Duration())
+	}
+	if cfg.Storage.DefaultBucket != "innerlamp-avatars-dev" {
+		t.Errorf("Storage.DefaultBucket = %q, want innerlamp-avatars-dev", cfg.Storage.DefaultBucket)
+	}
+
+	// Secret names must never leak into the resolved struct's plaintext fields
+	// under any other name, and the fake must have been asked for exactly
+	// the two secrets referenced by the YAML.
+	if len(sg.calls) != 2 {
+		t.Errorf("secret lookups = %v, want exactly 2 calls", sg.calls)
+	}
+}
+
+func TestLoad_MissingSecretReturnsError(t *testing.T) {
+	source := writeYAML(t, validYAML)
+	sg := &fakeSecretGetter{values: map[string]string{
+		// db password secret intentionally absent
+		"innerlamp-jwt-secret": "s3cret-jwt-key",
+	}}
+
+	_, err := Load(context.Background(), source, sg)
+	if err == nil {
+		t.Fatal("Load should fail when a referenced secret is missing")
+	}
+	if !errors.Is(err, secrets.ErrSecretNotFound) {
+		t.Errorf("Load error = %v, want wrapped secrets.ErrSecretNotFound", err)
+	}
+}
+
+func TestLoad_SecretProviderErrorIsWrapped(t *testing.T) {
+	source := writeYAML(t, validYAML)
+	wantErr := errors.New("secret manager unavailable")
+	sg := &fakeSecretGetter{err: wantErr}
+
+	_, err := Load(context.Background(), source, sg)
+	if err == nil {
+		t.Fatal("Load should fail when the secrets provider errors")
+	}
+	if !errors.Is(err, wantErr) {
+		t.Errorf("Load error = %v, want wrapped %v", err, wantErr)
+	}
+}
+
+func TestLoad_NoSecretRefsSkipsLookup(t *testing.T) {
+	const yaml = `
+database:
+  host: "localhost"
+jwt:
+  algorithm: "HS256"
+  access_token_expiration: "15m"
+  refresh_token_expiration: "168h"
+`
+	source := writeYAML(t, yaml)
+	sg := &fakeSecretGetter{values: map[string]string{}}
+
+	cfg, err := Load(context.Background(), source, sg)
+	if err != nil {
+		t.Fatalf("Load returned error: %v", err)
+	}
+	if cfg.Database.Password != "" || cfg.JWT.SecretKey != "" {
+		t.Errorf("expected empty resolved secrets when no *_secret refs given, got db=%q jwt=%q", cfg.Database.Password, cfg.JWT.SecretKey)
+	}
+	if len(sg.calls) != 0 {
+		t.Errorf("secrets provider should not be called when no secret refs present, got calls=%v", sg.calls)
+	}
+}
+
+func TestLoad_InvalidYAMLSourceReturnsError(t *testing.T) {
+	missing := pkgconfig.LoadSource(filepath.Join(t.TempDir(), "does-not-exist.yaml"))
+	sg := &fakeSecretGetter{}
+
+	_, err := Load(context.Background(), missing, sg)
+	if err == nil {
+		t.Fatal("Load should fail for a nonexistent YAML source")
+	}
+}
+
+func TestLoad_InvalidDurationReturnsError(t *testing.T) {
+	const yaml = `
+jwt:
+  access_token_expiration: "not-a-duration"
+`
+	source := writeYAML(t, yaml)
+	sg := &fakeSecretGetter{}
+
+	_, err := Load(context.Background(), source, sg)
+	if err == nil {
+		t.Fatal("Load should fail when a duration field is not parseable")
+	}
+}

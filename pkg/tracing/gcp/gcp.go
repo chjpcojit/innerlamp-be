@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"base_project/pkg/tracing/types"
+	"chjpcoj.com.innerlamp/pkg/tracing/types"
 
 	texporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/trace"
 	"go.opentelemetry.io/otel/sdk/trace"

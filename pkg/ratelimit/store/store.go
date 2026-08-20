@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"base_project/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/ratelimit"
 )
 
 var (

@@ -18,7 +18,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/s3/types"
 	"github.com/aws/smithy-go"
 
-	storagepkg "base_project/pkg/storage"
+	storagepkg "chjpcoj.com.innerlamp/pkg/storage"
 )
 
 func init() {

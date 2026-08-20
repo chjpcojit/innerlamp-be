@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"base_project/pkg/database"
+	"chjpcoj.com.innerlamp/pkg/database"
 
 	_ "github.com/lib/pq"
 )

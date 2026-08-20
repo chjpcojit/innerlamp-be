@@ -1,0 +1,116 @@
+{
+  "timestamp": "2026-08-18T16:55:25Z",
+  "schema": "null",
+  "total_violations": 18,
+  "passed": false,
+  "violations": [
+    {
+      "type": "MISSING_TEST",
+      "detail": "Test file missing for services/appService/cmd/main.go",
+      "hint": "Create services/appService/cmd/main_test.go with table-driven tests",
+      "file": "services/appService/cmd/main.go"
+    },
+    {
+      "type": "MISSING_TEST",
+      "detail": "Test file missing for services/appService/delivery/http/auth_context.go",
+      "hint": "Create services/appService/delivery/http/auth_context_test.go with table-driven tests",
+      "file": "services/appService/delivery/http/auth_context.go"
+    },
+    {
+      "type": "MISSING_TEST",
+      "detail": "Test file missing for services/appService/domain/mock_user_repository.go",
+      "hint": "Create services/appService/domain/mock_user_repository_test.go with table-driven tests",
+      "file": "services/appService/domain/mock_user_repository.go"
+    },
+    {
+      "type": "GOSEC_VIOLATION",
+      "detail": "/Users/chjpcoj/Documents/Programming/Go/workspaces/src/innerlamp/services/appService/delivery/http/reset_password_handler.go:17 [HIGH] G101: Potential hardcoded credentials",
+      "hint": "Review gosec output and fix security issue",
+      "file": "services/appService/delivery/http/reset_password_handler.go"
+    },
+    {
+      "type": "GOSEC_VIOLATION",
+      "detail": "/Users/chjpcoj/Documents/Programming/Go/workspaces/src/innerlamp/services/appService/delivery/http/forgot_password_handler.go:18 [HIGH] G101: Potential hardcoded credentials",
+      "hint": "Review gosec output and fix security issue",
+      "file": "services/appService/delivery/http/forgot_password_handler.go"
+    },
+    {
+      "type": "GOSEC_VIOLATION",
+      "detail": "/Users/chjpcoj/Documents/Programming/Go/workspaces/src/innerlamp/pkg/config/loader.go:63 [MEDIUM] G304: Potential file inclusion via variable",
+      "hint": "Review gosec output and fix security issue",
+      "file": "unknown"
+    },
+    {
+      "type": "GOSEC_VIOLATION",
+      "detail": "/Users/chjpcoj/Documents/Programming/Go/workspaces/src/innerlamp/pkg/utils/http.go:214 [LOW] G104: Errors unhandled",
+      "hint": "Review gosec output and fix security issue",
+      "file": "unknown"
+    },
+    {
+      "type": "GOSEC_VIOLATION",
+      "detail": "/Users/chjpcoj/Documents/Programming/Go/workspaces/src/innerlamp/pkg/utils/http.go:196 [LOW] G104: Errors unhandled",
+      "hint": "Review gosec output and fix security issue",
+      "file": "unknown"
+    },
+    {
+      "type": "STALE_GO_MOD",
+      "detail": "go.mod or go.sum not in sync with imports: go.mod",
+      "hint": "Run 'go mod tidy' and commit the updated go.mod and go.sum files",
+      "file": "unknown"
+    },
+    {
+      "type": "HARDCODED_CONFIG",
+      "detail": "Hardcoded config value (port/host/DSN) in source code | File: services/appService/cmd/main.go:115",
+      "hint": "Load all operational config from config/config.yaml — never hardcode host, port, or connection strings. Reference: goalng.md Section 10",
+      "file": "services/appService/cmd/main.go"
+    },
+    {
+      "type": "TRANSACTION_IN_REPOSITORY",
+      "detail": "Repository layer is managing DB transactions — transaction ownership belongs to usecase | File: services/appService/repository/postgres_user_repository.go",
+      "hint": "Move BeginTx/Commit/Rollback to the usecase layer. Repository methods should accept an optional *sql.Tx or mongo.Session parameter injected from usecase.",
+      "file": "services/appService/repository/postgres_user_repository.go"
+    },
+    {
+      "type": "HARDCODED_GCP_PROJECT",
+      "detail": "Hardcoded GCP project ID in source code | File: services/appService/cmd/main.go:30",
+      "hint": "Load from config: cfg.GCP.ProjectID — never hardcode project IDs. Wrong project in production = data written to wrong environment.",
+      "file": "services/appService/cmd/main.go"
+    },
+    {
+      "type": "HARDCODED_GCS_BUCKET",
+      "detail": "Hardcoded Cloud Storage bucket name | File: services/appService/cmd/main.go:74",
+      "hint": "Load from config: cfg.Storage.DocumentsBucket. Using prod bucket in dev = real user documents in test environment.",
+      "file": "services/appService/cmd/main.go"
+    },
+    {
+      "type": "UNFINISHED_TODO",
+      "detail": "TODO/FIXME comment in production code | File: services/appService/cmd/main.go:5 | Code: // TODO before deploying:",
+      "hint": "Resolve the TODO before merging to production. If intentional, track in Jira and remove from code.",
+      "file": "services/appService/cmd/main.go"
+    },
+    {
+      "type": "MOCK_IN_PRODUCTION",
+      "detail": "Mock/fake/stub pattern found in production code | File: services/appService/cmd/main.go:10 | Code: // MOCK_DATA_MARKER: dbConfig, jwtConfig placeholder values",
+      "hint": "Replace mock implementation with a real implementation. See pkg/ for available clients (pkg/sms/, pkg/email/, etc.).",
+      "file": "services/appService/cmd/main.go"
+    },
+    {
+      "type": "MOCK_IN_PRODUCTION",
+      "detail": "Mock/fake/stub pattern found in production code | File: services/appService/delivery/http/login_handler.go:26 | Code: // mock instead of the real use-case.",
+      "hint": "Replace mock implementation with a real implementation. See pkg/ for available clients (pkg/sms/, pkg/email/, etc.).",
+      "file": "services/appService/delivery/http/login_handler.go"
+    },
+    {
+      "type": "MOCK_IN_PRODUCTION",
+      "detail": "Mock/fake/stub pattern found in production code | File: services/appService/delivery/http/avatar_handler.go:15 | Code: // mock instead of the real use-case.",
+      "hint": "Replace mock implementation with a real implementation. See pkg/ for available clients (pkg/sms/, pkg/email/, etc.).",
+      "file": "services/appService/delivery/http/avatar_handler.go"
+    },
+    {
+      "type": "MOCK_IN_PRODUCTION",
+      "detail": "Mock/fake/stub pattern found in production code | File: services/appService/delivery/http/profile_handler.go:41 | Code: // mock instead of the real use-case.",
+      "hint": "Replace mock implementation with a real implementation. See pkg/ for available clients (pkg/sms/, pkg/email/, etc.).",
+      "file": "services/appService/delivery/http/profile_handler.go"
+    }
+  ]
+}

@@ -14,9 +14,9 @@ import (
 	"net/http"
 	"time"
 
-	"base_project/pkg/ratelimit"
-	"base_project/pkg/ratelimit/middleware"
-	"base_project/pkg/ratelimit/store"
+	"chjpcoj.com.innerlamp/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/ratelimit/middleware"
+	"chjpcoj.com.innerlamp/pkg/ratelimit/store"
 )
 
 func main() {

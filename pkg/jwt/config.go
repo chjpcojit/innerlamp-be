@@ -98,7 +98,7 @@ func DefaultConfig(secretKey string) *Config {
 		SecretKey:              secretKey,
 		AccessTokenExpiration:  15 * time.Minute,
 		RefreshTokenExpiration: 7 * 24 * time.Hour, // 7 days
-		Issuer:                 "base_project",
-		Audience:               "base_project_users",
+		Issuer:                 "innerlamp",
+		Audience:               "innerlamp_users",
 	}
 }

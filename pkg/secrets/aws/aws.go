@@ -15,7 +15,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/secretsmanager"
 	"github.com/aws/aws-sdk-go-v2/service/secretsmanager/types"
 
-	"base_project/pkg/secrets"
+	"chjpcoj.com.innerlamp/pkg/secrets"
 )
 
 func init() {
