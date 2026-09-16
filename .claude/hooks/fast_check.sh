@@ -12,11 +12,18 @@
 
 set -uo pipefail
 
-MAX_RETRIES=3
-RETRY_STATE_FILE=".claude/fast_check_retry_count"
-LOG_FILE=".claude/hook_log.jsonl"
+# Anchor every state/log path to the project root, never the current working
+# directory. Without this, running from a subdirectory creates a stray
+# .claude/ folder there and splits the retry counter across locations
+# (which silently disables the MAX_RETRIES guard).
+ROOT="${CLAUDE_PROJECT_DIR:-$(git rev-parse --show-toplevel 2>/dev/null)}"
+[[ -z "$ROOT" ]] && exit 0
 
-mkdir -p "$(dirname "$RETRY_STATE_FILE")"
+MAX_RETRIES=3
+RETRY_STATE_FILE="$ROOT/.claude/fast_check_retry_count"
+LOG_FILE="$ROOT/.claude/hook_log.jsonl"
+
+mkdir -p "$ROOT/.claude"
 
 # log_event <result> <stage> <detail>
 # Appends one compact JSON line. Best-effort — logging must never break the hook.
@@ -41,6 +48,10 @@ FILE_PATH="$(echo "$INPUT_JSON" | jq -r '.tool_input.file_path // empty')"
 if [[ -z "$FILE_PATH" || "$FILE_PATH" != *.go ]]; then
   exit 0
 fi
+
+# Make the path absolute before moving, so `gofmt -w` below still finds the file.
+[[ "$FILE_PATH" != /* ]] && FILE_PATH="$PWD/$FILE_PATH"
+cd "$ROOT" || exit 0
 
 RETRY_COUNT=0
 if [[ -f "$RETRY_STATE_FILE" ]]; then

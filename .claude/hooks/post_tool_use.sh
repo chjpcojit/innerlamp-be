@@ -10,19 +10,28 @@
 #
 # Expected input: Claude Code passes hook context as JSON on stdin.
 # We only need the list of changed file paths from it.
-echo "$INPUT_JSON" >> /tmp/hook_debug.log
-
 set -uo pipefail
+
+# Anchor every state/log path to the project root, never the current working
+# directory. Without this, running from a subdirectory creates a stray
+# .claude/ folder there and splits the retry counter across locations
+# (which silently disables the MAX_RETRIES guard).
+ROOT="${CLAUDE_PROJECT_DIR:-$(git rev-parse --show-toplevel 2>/dev/null)}"
+[[ -z "$ROOT" ]] && exit 0
 
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
 MAX_RETRIES=3
-RETRY_STATE_FILE=".claude/hook_retry_count"
-LOCK_FILE=".claude/hook.lock"
+RETRY_STATE_FILE="$ROOT/.claude/hook_retry_count"
+LOCK_FILE="$ROOT/.claude/hook.lock"
 GOLANGCI_TIMEOUT="2m"
 
-mkdir -p "$(dirname "$RETRY_STATE_FILE")"
+mkdir -p "$ROOT/.claude"
+
+# Lint and test must run against the module root, not whatever directory the
+# session happened to be sitting in.
+cd "$ROOT" || exit 0
 
 # ---------------------------------------------------------------------------
 # Read changed file paths from stdin (JSON) — expects a field like

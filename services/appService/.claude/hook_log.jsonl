@@ -1,4 +1,0 @@
-{"timestamp":"2026-09-16T10:09:40Z","hook":"full_check","result":"pass","stage":"golangci-lint+test","retry_count":0,"detail":""}
-{"timestamp":"2026-09-16T10:10:40Z","hook":"full_check","result":"pass","stage":"golangci-lint+test","retry_count":0,"detail":""}
-{"timestamp":"2026-09-16T10:13:57Z","hook":"full_check","result":"pass","stage":"golangci-lint+test","retry_count":0,"detail":""}
-{"timestamp":"2026-09-16T10:17:38Z","hook":"full_check","result":"pass","stage":"golangci-lint+test","retry_count":0,"detail":""}

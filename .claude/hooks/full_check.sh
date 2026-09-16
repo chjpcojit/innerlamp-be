@@ -13,12 +13,23 @@
 
 set -uo pipefail
 
+# Anchor every state/log path to the project root, never the current working
+# directory. Without this, running from a subdirectory creates a stray
+# .claude/ folder there and splits the retry counter across locations
+# (which silently disables the MAX_RETRIES guard).
+ROOT="${CLAUDE_PROJECT_DIR:-$(git rev-parse --show-toplevel 2>/dev/null)}"
+[[ -z "$ROOT" ]] && echo '{"ok": true}' && exit 0
+
 MAX_RETRIES=3
-RETRY_STATE_FILE=".claude/full_check_retry_count"
-LOG_FILE=".claude/hook_log.jsonl"
+RETRY_STATE_FILE="$ROOT/.claude/full_check_retry_count"
+LOG_FILE="$ROOT/.claude/hook_log.jsonl"
 GOLANGCI_TIMEOUT="3m"
 
-mkdir -p "$(dirname "$RETRY_STATE_FILE")"
+mkdir -p "$ROOT/.claude"
+
+# Lint and test must run against the module root, not whatever directory the
+# session happened to be sitting in.
+cd "$ROOT" || { echo '{"ok": true}'; exit 0; }
 
 # log_event <result> <stage> <detail>
 # Best-effort — logging must never break the hook.
@@ -43,6 +54,18 @@ if [[ "$STOP_HOOK_ACTIVE" == "true" ]]; then
   # Claude Code is already re-invoking us because we blocked last time.
   # Do NOT block again without checking retry count below — fall through.
   :
+fi
+
+# ---------------------------------------------------------------------------
+# Only run for Go code. If no .go file is modified/untracked in the repo, this
+# is a docs/config-only turn — lint and `go test` would report on code the turn
+# never touched, so skip entirely and let Claude stop.
+# ---------------------------------------------------------------------------
+CHANGED_GO_FILES="$(git status --porcelain 2>/dev/null | awk '{print $2}' | grep -E '\.go$' || true)"
+if [[ -z "$CHANGED_GO_FILES" ]]; then
+  log_event "skip" "no-go-changes" "no .go file changed, stopping"
+  echo '{"ok": true}'
+  exit 0
 fi
 
 RETRY_COUNT=0

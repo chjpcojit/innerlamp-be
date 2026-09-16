@@ -71,3 +71,11 @@ go.sum
 .ssh/
 .github
 vendor
+
+# Claude Code hook runtime state (not config — regenerated on every hook run)
+# Keep .claude/settings.json, hooks/, skills/, locked_files.txt tracked:
+# they are matched by the *.json / *.sh / *.txt rules above but stay tracked
+# because git only ignores untracked files.
+.claude/hook_log.jsonl
+.claude/*_retry_count
+.claude/hook.lock

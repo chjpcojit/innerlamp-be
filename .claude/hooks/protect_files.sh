@@ -13,8 +13,13 @@
 
 set -uo pipefail
 
-LOCKED_FILES_LIST=".claude/locked_files.txt"
-LOG_FILE=".claude/hook_log.jsonl"
+# Anchor every path to the project root, never the current working directory.
+# Otherwise running from a subdirectory creates a stray .claude/ folder there.
+ROOT="${CLAUDE_PROJECT_DIR:-$(git rev-parse --show-toplevel 2>/dev/null)}"
+[[ -z "$ROOT" ]] && exit 0
+
+LOCKED_FILES_LIST="$ROOT/.claude/locked_files.txt"
+LOG_FILE="$ROOT/.claude/hook_log.jsonl"
 
 # log_event <result> <detail>
 # Best-effort — logging must never break the hook.
@@ -61,5 +66,9 @@ while IFS= read -r pattern; do
   fi
 done < "$LOCKED_FILES_LIST"
 
-log_event "pass" ""
+# Only log the happy path for Go files — otherwise every .md edit appends a
+# useless "pass" line and the log fills with noise.
+if [[ "$FILE_PATH" == *.go ]]; then
+  log_event "pass" ""
+fi
 exit 0
