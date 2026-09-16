@@ -1,0 +1,102 @@
+# Design — {{feature}}
+
+Version: 1.0
+Last updated: {{date}}
+Status: <!-- one-line status, mirror requirements.md's Status line -->
+Module: `{{feature}}`
+
+> See `changelog.md` in this folder for the version history of this spec.
+
+## Overview
+
+<!--
+2-4 sentences: whether every route is RequireAuth-protected or public read, which Clean Architecture
+layers this feature touches (domain / usecase / repository / delivery), which migration it owns, and
+which existing feature it most closely follows as a shape reference (e.g. "matches the content
+feature's public-read list+detail shape" or "matches onboarding's user-scoped write shape").
+-->
+
+## Layers & components
+
+<!--
+One row per file/component this feature owns or introduces. tasks.md's Phases are broken down
+directly from this table — every task must trace back to a row here. Mark anything not yet built
+as "not yet created" / "needs modification" (Prospective mode, or a pending part of Retroactive
+mode) rather than omitting it.
+
+Dependency rule: delivery → usecase → domain. repository → domain. domain imports nothing from
+the outer layers. Never put HTTP DTOs into domain/ or usecase/.
+-->
+
+| Layer | File | Responsibility |
+|---|---|---|
+| Domain / Entity | `services/appService/domain/{{feature}}.go` | Pure business fields only. No JSON tags, no HTTP shapes. |
+| Domain / Errors | `services/appService/domain/errors.go` | Sentinel errors this feature adds (e.g. `ErrXxxNotFound`, `ErrXxxConflict`). Handler maps these to HTTP status. |
+| Domain / Repository interface | `services/appService/domain/{{feature}}.go` | Repository interface implemented by `repository/`. Defined here, not in `repository/`. |
+| Domain / Mock | `services/appService/domain/mock_{{feature}}_repository.go` | Hand-written mock for usecase tests. |
+| Usecase | `services/appService/usecase/{{verb}}_{{feature}}_usecase.go` | Validation rules and business orchestration. Depends on the domain interface, never a concrete repository. |
+| Repository | `services/appService/repository/postgres_{{feature}}_repository.go` | SQL, transactions, row↔entity mapping. Knows nothing about HTTP. |
+| Delivery / Handler | `services/appService/delivery/http/{{feature}}_handler.go` | Parse request → call usecase → map domain error to status code. No business logic. |
+| Delivery / DTO | `services/appService/delivery/http/{{feature}}_handler.go` | Request/response DTOs live here (or a sibling dto file), never in domain/usecase. |
+| Wiring | `services/appService/cmd/main.go` | Route registration + constructor injection. Flag any `⚠️ DEV ONLY` block touched. |
+| Migration | `migrations/000N_{{feature}}.sql` | Schema delta, if any. Delete this row if the feature adds no schema. |
+| API spec | `docs/specs/api/openapi.yaml` | Endpoint contract, updated in the same change as the handler. |
+
+## Request flow
+
+<!--
+ASCII diagram: from the HTTP entry point down to the database, naming the middleware that guards it
+and where the usecase boundary sits. See the existing design.md files for the exact style to reuse.
+-->
+
+```
+<METHOD> /v1/<path>
+  └─ <RequireAuth middleware | public>
+       └─ {{Feature}}Handler.<Action>   (delivery/http)
+            ├─ decode + validate request DTO
+            └─ {{Action}}{{Feature}}Usecase.Execute(ctx, ...)   (usecase)
+                 ├─ domain validation → sentinel error on failure
+                 └─ {{Feature}}Repository.<Method>(ctx, ...)     (repository)
+                      └─ SQL against <table>
+```
+
+## Step-by-step Flow — <!-- name the overall flow, e.g. "Full Registration" -->
+
+<!--
+MANDATORY whenever this feature's main action triggers 2+ sequential external calls or persistent
+side effects, even if some of those belong to a different module. See
+references/step_by_step_flow.md for the required per-step shape and a worked example. If this
+feature has only one query and no writes, this whole section may be omitted in favor of the
+Request flow section above.
+
+Any step whose contract isn't confirmed yet gets an inline marker:
+  ⚠️ Not confirmed: <question> — <what it blocks>.
+-->
+
+```
+Step 1 — <name> (this module)
+- Trigger: <what the caller does, or what state causes this step to run>
+- Pre-condition: <what must already be true — validation passed, session valid, row exists>
+- Call: <usecase method> → <repository method> | <METHOD> <path> | <external service>
+    - Success →
+    - Failure (<case>) →
+    - Transaction boundary: <which steps share one tx, and what rolls back>
+```
+
+## Deliberately stubbed for now (if applicable)
+
+<!--
+For any usecase/repository method that has no real implementation yet, explain what's missing and
+point to the tasks.md Phase that tracks completing it. Delete this section if nothing is stubbed.
+-->
+
+## Known gaps carried by this feature
+
+<!--
+Anything true today that the spec must not paper over — e.g. a route documented as RequireAuth but
+not yet wrapped in cmd/main.go, a handler that accepts requests unauthenticated, a repository method
+without its test. Cite `docs/ARCHITECTURE.md` §4 for the repo-wide list where relevant. Delete if
+none.
+-->
+
+-

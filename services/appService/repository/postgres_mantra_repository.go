@@ -21,7 +21,7 @@ func NewMantraRepository(db database.Database) domain.MantraRepository {
 }
 
 // ListMantras returns mantras matching input, ordered by updated_at
-// ascending — US-007 AC1/AC2/AC3/AC5.
+// ascending — US-007 AC1/AC2/AC3/AC3b/AC5.
 func (r *mantraRepository) ListMantras(ctx context.Context, input domain.ListMantrasInput) ([]*domain.Mantra, error) {
 	var conditions []string
 	var args []any
@@ -34,8 +34,12 @@ func (r *mantraRepository) ListMantras(ctx context.Context, input domain.ListMan
 		args = append(args, input.BodhisattvaID)
 		conditions = append(conditions, fmt.Sprintf("bodhisattva_id = $%d", len(args)))
 	}
+	if input.Sect != "" {
+		args = append(args, input.Sect)
+		conditions = append(conditions, fmt.Sprintf("sect = $%d", len(args)))
+	}
 
-	query := `SELECT id, slug, title, body, audio_url, bodhisattva_id, version, created_at, updated_at FROM mantras`
+	query := `SELECT id, slug, title, sect, body, audio_url, bodhisattva_id, version, created_at, updated_at FROM mantras`
 	if len(conditions) > 0 {
 		query += " WHERE " + strings.Join(conditions, " AND ")
 	}
@@ -50,10 +54,11 @@ func (r *mantraRepository) ListMantras(ctx context.Context, input domain.ListMan
 	mantras := []*domain.Mantra{}
 	for rows.Next() {
 		m := &domain.Mantra{}
-		var audioURL, bodhisattvaID sql.NullString
-		if err := rows.Scan(&m.ID, &m.Slug, &m.Title, &m.Body, &audioURL, &bodhisattvaID, &m.Version, &m.CreatedAt, &m.UpdatedAt); err != nil {
+		var sect, audioURL, bodhisattvaID sql.NullString
+		if err := rows.Scan(&m.ID, &m.Slug, &m.Title, &sect, &m.Body, &audioURL, &bodhisattvaID, &m.Version, &m.CreatedAt, &m.UpdatedAt); err != nil {
 			return nil, fmt.Errorf("scan mantra: %w", err)
 		}
+		m.Sect = sect.String
 		m.AudioURL = audioURL.String
 		m.BodhisattvaID = bodhisattvaID.String
 		mantras = append(mantras, m)
@@ -68,20 +73,21 @@ func (r *mantraRepository) ListMantras(ctx context.Context, input domain.ListMan
 // GetMantraBySlug returns the full mantra for slug — US-008 AC1.
 func (r *mantraRepository) GetMantraBySlug(ctx context.Context, slug string) (*domain.Mantra, error) {
 	m := &domain.Mantra{}
-	var audioURL, bodhisattvaID sql.NullString
+	var sect, audioURL, bodhisattvaID sql.NullString
 
 	row := r.db.QueryRow(ctx,
-		`SELECT id, slug, title, body, audio_url, bodhisattva_id, version, created_at, updated_at
+		`SELECT id, slug, title, sect, body, audio_url, bodhisattva_id, version, created_at, updated_at
 		 FROM mantras WHERE slug = $1`,
 		slug,
 	)
-	err := row.Scan(&m.ID, &m.Slug, &m.Title, &m.Body, &audioURL, &bodhisattvaID, &m.Version, &m.CreatedAt, &m.UpdatedAt)
+	err := row.Scan(&m.ID, &m.Slug, &m.Title, &sect, &m.Body, &audioURL, &bodhisattvaID, &m.Version, &m.CreatedAt, &m.UpdatedAt)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			return nil, domain.ErrMantraNotFound
 		}
 		return nil, fmt.Errorf("get mantra by slug: %w", err)
 	}
+	m.Sect = sect.String
 	m.AudioURL = audioURL.String
 	m.BodhisattvaID = bodhisattvaID.String
 

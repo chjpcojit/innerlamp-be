@@ -80,6 +80,27 @@ func TestListBodhisattvas_DeltaSync(t *testing.T) {
 	repo.AssertExpectations(t)
 }
 
+// TestListBodhisattvas_SectFilter covers US-009 AC2b: sect is passed through to repo.
+func TestListBodhisattvas_SectFilter(t *testing.T) {
+	repo := &domain.MockBodhisattvaRepository{}
+	logger := newLogger()
+
+	input := domain.ListBodhisattvasInput{Sect: "bac_tong"}
+	filtered := []*domain.Bodhisattva{{ID: "bodhisattva-1", Sect: "bac_tong"}}
+	repo.On("ListBodhisattvas", mock.Anything, input).Return(filtered, nil)
+
+	uc := NewListBodhisattvasUsecase(repo, logger)
+
+	got, err := uc.ListBodhisattvas(context.Background(), input)
+	if err != nil {
+		t.Fatalf("ListBodhisattvas() unexpected error: %v", err)
+	}
+	if len(got) != 1 || got[0].Sect != "bac_tong" {
+		t.Errorf("ListBodhisattvas() = %+v, want only bac_tong bodhisattvas", got)
+	}
+	repo.AssertExpectations(t)
+}
+
 // TestListBodhisattvas_RepositoryErrorPropagates ensures repo errors
 // surface unchanged rather than being swallowed.
 func TestListBodhisattvas_RepositoryErrorPropagates(t *testing.T) {

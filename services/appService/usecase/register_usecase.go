@@ -5,7 +5,6 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"regexp"
 	"strings"
 
 	"golang.org/x/crypto/bcrypt"
@@ -15,11 +14,6 @@ import (
 	"chjpcoj.com.innerlamp/pkg/validation"
 	"chjpcoj.com.innerlamp/services/appService/domain"
 )
-
-// phoneE164Regex matches E.164 numbers, e.g. +84912345678 (US-001 field notes).
-var phoneE164Regex = regexp.MustCompile(`^\+[1-9]\d{6,14}$`)
-
-const minPasswordLength = 8
 
 // tokenRole is the JWT "role" claim assigned to every newly registered user.
 // There is no role system yet at MVP — this is a placeholder default.
@@ -37,22 +31,16 @@ func NewRegisterUsecase(users domain.UserRepository, jwtService jwt.Service, log
 	return &RegisterUsecase{users: users, jwtService: jwtService, logger: logger}
 }
 
-// Register validates input, hashes the password, persists the user/device/
-// session, and returns the freshly issued JWT pair — AC1/AC6/AC7.
+// Register hashes the password, persists the user/device/session, and returns
+// the freshly issued JWT pair — AC1/AC6/AC7.
+//
+// Input format (email shape, phone format, password length) is enforced by the
+// delivery layer's struct tags before this is called; what stays here is
+// canonicalization the business needs — lowercasing the email so uniqueness is
+// case-insensitive — not format checking.
 func (uc *RegisterUsecase) Register(ctx context.Context, input domain.RegisterInput) (*domain.RegisterResult, error) {
 	email := validation.NormalizeEmail(input.Email)
-	if err := validation.ValidateEmail(email); err != nil {
-		return nil, fmt.Errorf("%w: %v", domain.ErrInvalidEmail, err)
-	}
-
 	phone := strings.TrimSpace(input.PhoneNumber)
-	if !phoneE164Regex.MatchString(phone) {
-		return nil, domain.ErrInvalidPhone
-	}
-
-	if len(input.Password) < minPasswordLength {
-		return nil, domain.ErrInvalidPassword
-	}
 
 	passwordHash, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.DefaultCost)
 	if err != nil {

@@ -6,15 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `innerlamp` (module `chjpcoj.com.innerlamp`, Go 1.26) is a shared Go backend framework: a collection of reusable infrastructure packages under `pkg/` (config, secrets, database, storage, JWT, session, HTTP client, rate limiting, logging, metrics, tracing, validation), built for containerized/serverless services (GCP Cloud Run, GKE, AWS Fargate).
 
-`services/appService` is the one consuming service — a Clean Architecture app implementing the InnerLamp onboarding user stories (register, login, forgot/reset password, profile, avatar) end-to-end against Postgres + GCS. `cmd/main.go` wiring is real but uses hardcoded dev config (search for `MOCK_DATA_MARKER`) — not production-ready as-is. See `services/appService/README.md` for layout and what's implemented.
+`services/appService` is the one consuming service — a Clean Architecture app implementing the InnerLamp onboarding user stories (US-001..004: register, login, forgot/reset password, profile, avatar) and content user stories (US-005..010: sutras, mantras, bodhisattvas) end-to-end against Postgres + GCS. `cmd/main.go` wiring is real but uses dev-only config/secrets/mailer (search `⚠️ DEV ONLY`) — not production-ready as-is. See [`services/appService/README.md`](services/appService/README.md) for layout and what's implemented.
 
 `docs/specs/onboarding/onboarding.md` holds product user-stories (Vietnamese) for a planned meditation/dharma-tracking app ("InnerLamp") — identity/auth flows (register, login, JWT access+refresh tokens). Not implementation, just spec.
 
 ## Known broken state — read before building
 
-- **`go.sum` now present** (previously missing — if you recall it not existing, that's stale, re-check rather than trust memory). Still run `go mod tidy` after touching `go.mod`/imports.
-- **Import path mismatch across ~44 files.** `go.mod` declares module `chjpcoj.com.innerlamp`, but internal imports throughout `pkg/` reference `base_project/pkg/...` (e.g. `pkg/jwt/jwt.go`, `pkg/database/mysql/mysql.go`, `pkg/session/session.go`). This is a known leftover from cloning a `base_project` template — do not "fix" it opportunistically in an unrelated change; if asked to correct it, it requires a coordinated rename across every affected file, not a spot fix.
-- Before relying on either bullet above, verify with `ls go.sum` / `grep -rl base_project/pkg pkg/` — this section drifts as the repo evolves and is exactly the kind of fact that goes stale silently.
+- **`go.sum` present.** Still run `go mod tidy` after touching `go.mod`/imports.
+- **`base_project/pkg/...` import mismatch is fixed in code** — all `.go` files correctly import `chjpcoj.com.innerlamp/...`. Stale `base_project/pkg/...` references only remain in a few docs (`QUICK_START.md`, some subpackage `README.md`/`INDEX.md`), each already self-flagged as leftover template text — don't copy import lines from those docs.
+- **`cmd/main.go` dev-only wiring is marked, not hidden.** Search `⚠️ DEV ONLY` / `⚠️ DEV CONFIG` (not `MOCK_DATA_MARKER`, which no longer appears in `main.go`) for the spots to swap before production: `config.MockSecretGetter` (plaintext `dev_secrets` from YAML instead of `pkg/secrets/gcp`/`aws`) and `mailer.NewLogMailer` (logs instead of sending).
+- **JWT auth middleware exists but isn't wired to `/v1/users/me` or `/v1/users/me/avatar`** in `cmd/main.go` — `pkg/jwt/middleware.NewHTTPAuthMiddleware(...).Authenticate(...)` is never wrapped around those routes, so those handlers currently accept requests without enforcing auth despite being documented as requiring it. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) §4 for the full known-gaps list.
+- Before relying on any bullet above, re-verify (`ls go.sum`, `grep -rl base_project/pkg --include=*.go .`, `grep -n users/me services/appService/cmd/main.go`) — this section drifts as the repo evolves and is exactly the kind of fact that goes stale silently.
 
 ## Commands
 

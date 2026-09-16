@@ -33,13 +33,13 @@ func bodhisattvasRequest(t *testing.T, rawQuery string) *http.Request {
 	return httptest.NewRequest(http.MethodGet, url, nil)
 }
 
-// TestBodhisattvasHandler_ListSuccess covers AC1: name and image_url are
+// TestBodhisattvasHandler_ListSuccess covers AC1: name, sect, and image_url are
 // present in the response.
 func TestBodhisattvasHandler_ListSuccess(t *testing.T) {
 	uc := &mockListBodhisattvasUsecase{}
 	now := time.Now()
 	uc.On("ListBodhisattvas", mock.Anything, domain.ListBodhisattvasInput{}).Return([]*domain.Bodhisattva{
-		{ID: "bodhisattva-1", Slug: "quan-the-am", Name: "Quán Thế Âm Bồ Tát", ImageURL: "https://cdn.example.com/qta.png", CreatedAt: now, UpdatedAt: now},
+		{ID: "bodhisattva-1", Slug: "quan-the-am", Name: "Quán Thế Âm Bồ Tát", Sect: "bac_tong", ImageURL: "https://cdn.example.com/qta.png", CreatedAt: now, UpdatedAt: now},
 	}, nil)
 
 	h := NewBodhisattvasHandler(uc)
@@ -51,7 +51,7 @@ func TestBodhisattvasHandler_ListSuccess(t *testing.T) {
 	}
 	data := decodeResponse(t, rec)["data"].([]any)
 	row := data[0].(map[string]any)
-	if row["name"] != "Quán Thế Âm Bồ Tát" || row["image_url"] != "https://cdn.example.com/qta.png" {
+	if row["name"] != "Quán Thế Âm Bồ Tát" || row["image_url"] != "https://cdn.example.com/qta.png" || row["sect"] != "bac_tong" {
 		t.Errorf("data[0] = %v, unexpected fields", row)
 	}
 }
@@ -75,6 +75,21 @@ func TestBodhisattvasHandler_NoImageURLNoError(t *testing.T) {
 	if v, ok := row["image_url"]; !ok || v != "" {
 		t.Errorf("data[0].image_url = %v (present=%v), want empty string present", v, ok)
 	}
+}
+
+// TestBodhisattvasHandler_SectFilter covers US-009 AC2b: filtering by sect.
+func TestBodhisattvasHandler_SectFilter(t *testing.T) {
+	uc := &mockListBodhisattvasUsecase{}
+	uc.On("ListBodhisattvas", mock.Anything, domain.ListBodhisattvasInput{Sect: "bac_tong"}).Return([]*domain.Bodhisattva{}, nil)
+
+	h := NewBodhisattvasHandler(uc)
+	rec := httptest.NewRecorder()
+	h.ServeHTTP(rec, bodhisattvasRequest(t, "sect=bac_tong"))
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("status = %d, want %d (body=%s)", rec.Code, http.StatusOK, rec.Body.String())
+	}
+	uc.AssertExpectations(t)
 }
 
 // TestBodhisattvasHandler_UpdatedSinceParsed covers AC4: a valid RFC3339

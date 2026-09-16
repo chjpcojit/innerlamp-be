@@ -34,12 +34,12 @@ func mantrasRequest(t *testing.T, rawQuery string) *http.Request {
 }
 
 // TestMantrasHandler_ListSuccess covers AC1: a plain GET with no query
-// params returns the full list, including bodhisattva_id when set.
+// params returns the full list, including bodhisattva_id and sect when set.
 func TestMantrasHandler_ListSuccess(t *testing.T) {
 	uc := &mockListMantrasUsecase{}
 	now := time.Now()
 	uc.On("ListMantras", mock.Anything, domain.ListMantrasInput{}).Return([]*domain.Mantra{
-		{ID: "mantra-1", Slug: "chu-dai-bi", Title: "Chú Đại Bi", BodhisattvaID: "bodhisattva-1", CreatedAt: now, UpdatedAt: now},
+		{ID: "mantra-1", Slug: "chu-dai-bi", Title: "Chú Đại Bi", Sect: "bac_tong", BodhisattvaID: "bodhisattva-1", CreatedAt: now, UpdatedAt: now},
 	}, nil)
 
 	h := NewMantrasHandler(uc)
@@ -55,7 +55,7 @@ func TestMantrasHandler_ListSuccess(t *testing.T) {
 		t.Fatalf("data field missing, wrong type, or wrong length: %v", got["data"])
 	}
 	row := data[0].(map[string]any)
-	if row["title"] != "Chú Đại Bi" || row["bodhisattva_id"] != "bodhisattva-1" {
+	if row["title"] != "Chú Đại Bi" || row["bodhisattva_id"] != "bodhisattva-1" || row["sect"] != "bac_tong" {
 		t.Errorf("data[0] = %v, unexpected fields", row)
 	}
 }
@@ -90,6 +90,21 @@ func TestMantrasHandler_BodhisattvaFilter(t *testing.T) {
 	h := NewMantrasHandler(uc)
 	rec := httptest.NewRecorder()
 	h.ServeHTTP(rec, mantrasRequest(t, "bodhisattva_id=bodhisattva-1"))
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("status = %d, want %d (body=%s)", rec.Code, http.StatusOK, rec.Body.String())
+	}
+	uc.AssertExpectations(t)
+}
+
+// TestMantrasHandler_SectFilter covers US-007 AC3b: sect query param is passed through to use-case.
+func TestMantrasHandler_SectFilter(t *testing.T) {
+	uc := &mockListMantrasUsecase{}
+	uc.On("ListMantras", mock.Anything, domain.ListMantrasInput{Sect: "kim_cuong_thua"}).Return([]*domain.Mantra{}, nil)
+
+	h := NewMantrasHandler(uc)
+	rec := httptest.NewRecorder()
+	h.ServeHTTP(rec, mantrasRequest(t, "sect=kim_cuong_thua"))
 
 	if rec.Code != http.StatusOK {
 		t.Fatalf("status = %d, want %d (body=%s)", rec.Code, http.StatusOK, rec.Body.String())

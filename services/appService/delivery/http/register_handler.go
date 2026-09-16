@@ -116,10 +116,6 @@ func writeRegisterError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusConflict, "EMAIL_TAKEN", "Email đã được sử dụng", nil)
 	case errors.Is(err, domain.ErrPhoneTaken):
 		utils.WriteBusinessError(w, http.StatusConflict, "PHONE_TAKEN", "Số điện thoại đã được sử dụng", nil)
-	case errors.Is(err, domain.ErrInvalidEmail):
-		utils.WriteValidationError(w, "INVALID_EMAIL", err.Error(), map[string]any{"field": "email"})
-	case errors.Is(err, domain.ErrInvalidPhone):
-		utils.WriteValidationError(w, "INVALID_PHONE", err.Error(), map[string]any{"field": "phone_number"})
 	case errors.Is(err, domain.ErrInvalidPassword):
 		utils.WriteValidationError(w, "INVALID_PASSWORD", err.Error(), map[string]any{"field": "password"})
 	default:

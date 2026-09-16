@@ -16,6 +16,7 @@ type mantraResponse struct {
 	ID            string `json:"id"`
 	Slug          string `json:"slug"`
 	Title         string `json:"title"`
+	Sect          string `json:"sect"`
 	Body          string `json:"body"`
 	AudioURL      string `json:"audio_url"`
 	BodhisattvaID string `json:"bodhisattva_id"`
@@ -29,6 +30,7 @@ func newMantraResponse(m *domain.Mantra) mantraResponse {
 		ID:            m.ID,
 		Slug:          m.Slug,
 		Title:         m.Title,
+		Sect:          m.Sect,
 		Body:          m.Body,
 		AudioURL:      m.AudioURL,
 		BodhisattvaID: m.BodhisattvaID,
@@ -63,7 +65,10 @@ func (h *MantrasHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	query := r.URL.Query()
-	input := domain.ListMantrasInput{BodhisattvaID: query.Get("bodhisattva_id")}
+	input := domain.ListMantrasInput{
+		BodhisattvaID: query.Get("bodhisattva_id"),
+		Sect:          query.Get("sect"),
+	}
 
 	if raw := query.Get("updated_since"); raw != "" {
 		parsed, err := time.Parse(time.RFC3339, raw)

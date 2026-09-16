@@ -28,3 +28,13 @@ func (m *MockBodhisattvaRepository) GetBodhisattvaBySlug(ctx context.Context, sl
 	}
 	return nil, args.Error(1)
 }
+
+// GetBodhisattvaByID mocks the GetBodhisattvaByID method.
+func (m *MockBodhisattvaRepository) GetBodhisattvaByID(ctx context.Context, id string) (*Bodhisattva, error) {
+	args := m.Called(ctx, id)
+	if s := args.Get(0); s != nil {
+		return s.(*Bodhisattva), args.Error(1)
+	}
+	return nil, args.Error(1)
+}
+

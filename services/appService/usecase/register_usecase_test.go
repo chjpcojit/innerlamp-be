@@ -96,71 +96,38 @@ func TestRegister_Success(t *testing.T) {
 	jwtSvc.AssertExpectations(t)
 }
 
-// TestRegister_Validation covers AC2 (dedupe surfaced from repo), AC3
-// (password length) and AC4 (phone format) — all must fail before the
-// repository is ever called.
-func TestRegister_Validation(t *testing.T) {
-	tests := []struct {
-		name    string
-		mutate  func(*domain.RegisterInput)
-		wantErr error
-	}{
-		{
-			name:    "empty email",
-			mutate:  func(in *domain.RegisterInput) { in.Email = "" },
-			wantErr: domain.ErrInvalidEmail,
-		},
-		{
-			name:    "malformed email",
-			mutate:  func(in *domain.RegisterInput) { in.Email = "not-an-email" },
-			wantErr: domain.ErrInvalidEmail,
-		},
-		{
-			name:    "empty phone",
-			mutate:  func(in *domain.RegisterInput) { in.PhoneNumber = "" },
-			wantErr: domain.ErrInvalidPhone,
-		},
-		{
-			name:    "phone missing plus prefix",
-			mutate:  func(in *domain.RegisterInput) { in.PhoneNumber = "84912345678" },
-			wantErr: domain.ErrInvalidPhone,
-		},
-		{
-			name:    "phone with letters",
-			mutate:  func(in *domain.RegisterInput) { in.PhoneNumber = "+84abc45678" },
-			wantErr: domain.ErrInvalidPhone,
-		},
-		{
-			name:    "password too short",
-			mutate:  func(in *domain.RegisterInput) { in.Password = "short1" },
-			wantErr: domain.ErrInvalidPassword,
-		},
-		{
-			name:    "password empty",
-			mutate:  func(in *domain.RegisterInput) { in.Password = "" },
-			wantErr: domain.ErrInvalidPassword,
-		},
-	}
+// TestRegister_NormalizesInput covers what the use-case still owns after
+// format validation moved to the delivery layer's struct tags: canonicalizing
+// the values the business persists — a lowercased/trimmed email so uniqueness
+// is case-insensitive, and a trimmed phone.
+func TestRegister_NormalizesInput(t *testing.T) {
+	repo := &domain.MockUserRepository{}
+	jwtSvc := &jwt.MockService{}
+	logger := newLogger()
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			repo := &domain.MockUserRepository{}
-			jwtSvc := &jwt.MockService{}
-			logger := newLogger()
-			uc := NewRegisterUsecase(repo, jwtSvc, logger)
-
-			input := validInput()
-			tt.mutate(&input)
-
-			_, err := uc.Register(context.Background(), input)
-			if !errors.Is(err, tt.wantErr) {
-				t.Fatalf("Register() error = %v, want wrapping %v", err, tt.wantErr)
+	repo.On("Register", mock.Anything, mock.AnythingOfType("*domain.User"), mock.AnythingOfType("*domain.Device"), mock.AnythingOfType("domain.TokenIssuer")).
+		Run(func(args mock.Arguments) {
+			user := args.Get(1).(*domain.User)
+			if user.Email != "new.user@example.com" {
+				t.Errorf("persisted email = %q, want normalized lowercase", user.Email)
 			}
+			if user.PhoneNumber != "+84912345678" {
+				t.Errorf("persisted phone = %q, want trimmed %q", user.PhoneNumber, "+84912345678")
+			}
+		}).
+		Return(&domain.Session{AccessToken: "at", RefreshToken: "rt"}, nil)
+	jwtSvc.On("GenerateAccessToken", mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return("at", nil)
+	jwtSvc.On("GenerateRefreshToken", mock.Anything, mock.Anything).Return("rt", nil)
 
-			// Validation failures must short-circuit before hitting the repo.
-			repo.AssertNotCalled(t, "Register", mock.Anything, mock.Anything, mock.Anything, mock.Anything)
-		})
+	uc := NewRegisterUsecase(repo, jwtSvc, logger)
+
+	input := validInput()
+	input.PhoneNumber = "  +84912345678  "
+	if _, err := uc.Register(context.Background(), input); err != nil {
+		t.Fatalf("Register() unexpected error: %v", err)
 	}
+
+	repo.AssertExpectations(t)
 }
 
 // TestRegister_OptionalFieldsEmpty covers AC5: dharma name / ordination

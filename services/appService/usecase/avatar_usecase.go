@@ -33,7 +33,7 @@ func NewAvatarUsecase(users domain.UserRepository, storage AvatarStorage, logger
 // UpdateAvatar uploads a new avatar image and persists its URL — AC3. The
 // object key is deterministic per user (avatars/{userID}), so re-uploading
 // naturally overwrites the previous image in storage rather than leaving
-// orphaned files behind.
+// orphaned files behind.bạn 
 func (uc *AvatarUsecase) UpdateAvatar(ctx context.Context, userID int64, reader io.Reader, contentType string) (*domain.User, error) {
 	objectName := fmt.Sprintf("avatars/%d", userID)
 

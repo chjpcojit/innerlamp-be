@@ -38,6 +38,32 @@ Mỗi handler có constructor `New*Handler(uc <interface>) *XxxHandler` trả v�
 ### `authenticatedUserID(r *http.Request) (int64, bool)` (auth_context.go)
 Helper dùng chung cho Profile/Avatar handler: đọc userID (string) mà middleware auth gắn vào context qua `jwtcontext.GetUserID`, `strconv.ParseInt` sang `int64`. Trả `false` nếu context không có userID hoặc parse lỗi — không panic, không dùng `MustGetUserID`.
 
+### `NewRequestValidator(v *validation.Validator) *RequestValidator` (request_validation.go)
+Bọc instance đã dựng sẵn từ `pkg/validation` (do `cmd/main.go` tạo và truyền vào). `Validate(w, req)` check request struct theo tag `validate:"..."`, fail thì ghi envelope 400 chuẩn và trả `false`; chỉ báo field lỗi **đầu tiên**, khớp shape `{"field": ...}` của các lỗi khác.
+
+⚠️ `requestFieldError` switch theo **tên JSON** (`"email"`, `"phone"`, `"password"`), có được là nhờ `cmd/main.go` gọi `validate.SetFieldNameTag("json")`. Bỏ dòng đó → thư viện trả tên field Go (`PhoneNumber`), mọi field rơi vào nhánh `default` `INVALID_REQUEST_BODY` thay vì mã lỗi đúng.
+
+Handler **không** tự dựng validator: dựng ở đây nghĩa là mỗi layer tự quyết định tập tag, không còn một chỗ duy nhất nói service này validate theo gì.
+
+### `PhoneTag` / `PhoneRule` (phone_rule.go)
+Custom tag `phone` — rule của **service này**, không nằm trong `pkg/validation` (package đó chỉ giữ instance thư viện, không ship rule nào). `cmd/main.go` đăng ký:
+
+```go
+validate := validation.New()
+validate.SetFieldNameTag("json")
+if err := validate.Register(deliveryhttp.PhoneTag, deliveryhttp.PhoneRule); err != nil { ... }
+```
+
+```go
+PhoneNumber string `json:"phone" validate:"required,phone"`
+```
+
+Hành vi: cho `+` ở đầu (không bắt buộc), theo sau 8–15 chữ số ASCII; bỏ qua dấu phân cách người dùng hay gõ (khoảng trắng, `-`, `.`, `(`, `)`) ở bất kỳ đâu sau `+`. Hợp lệ: `+84912345678`, `+84 912 345 678`, `(912) 345-678`. Chuỗi rỗng **không** hợp lệ → ghép với `required`. Không giả định quốc gia nào — check hình dạng, không check số có thật.
+
+Tag `e164` sẵn có của thư viện chỉ check hình dạng chung; `phone` siết hơn ở chỗ loại bỏ chữ cái, dấu `+` thứ hai, ký tự điều khiển.
+
+Thêm custom tag mới = thêm file dáng như `phone_rule.go` + một dòng `Register` ở main.
+
 ## Cấu hình / dependency
 - Phụ thuộc `pkg/jwt/context` (`jwtcontext.GetUserID`/`WithUserID`) để đọc/set userID trong `context.Context` — do middleware `pkg/jwt/middleware.NewHTTPAuthMiddleware(...).Authenticate(handler)` gắn vào khi request đi qua. Bản thân package này **không tự xác thực** — nó chỉ đọc context, không verify token.
 - Phụ thuộc `pkg/utils` cho toàn bộ hạ tầng handler dùng chung: `DecodeJSONBodyStrict` (decode + reject unknown field), `WriteSuccessResponse`/`WriteSuccessResponseWithStatus`, `WriteValidationError`/`WriteBusinessError`/`WriteSystemError`, `IsRequestTooLarge`, `GetDecodeErrorDetails`.

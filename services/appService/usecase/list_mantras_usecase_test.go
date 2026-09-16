@@ -101,6 +101,27 @@ func TestListMantras_DeltaSync(t *testing.T) {
 	repo.AssertExpectations(t)
 }
 
+// TestListMantras_SectFilter covers US-007 AC3b: sect is passed through to repo.
+func TestListMantras_SectFilter(t *testing.T) {
+	repo := &domain.MockMantraRepository{}
+	logger := newLogger()
+
+	input := domain.ListMantrasInput{Sect: "kim_cuong_thua"}
+	filtered := []*domain.Mantra{{ID: "mantra-2", Sect: "kim_cuong_thua"}}
+	repo.On("ListMantras", mock.Anything, input).Return(filtered, nil)
+
+	uc := NewListMantrasUsecase(repo, logger)
+
+	got, err := uc.ListMantras(context.Background(), input)
+	if err != nil {
+		t.Fatalf("ListMantras() unexpected error: %v", err)
+	}
+	if len(got) != 1 || got[0].Sect != "kim_cuong_thua" {
+		t.Errorf("ListMantras() = %+v, want only kim_cuong_thua mantras", got)
+	}
+	repo.AssertExpectations(t)
+}
+
 // TestListMantras_RepositoryErrorPropagates ensures repo errors surface
 // unchanged rather than being swallowed.
 func TestListMantras_RepositoryErrorPropagates(t *testing.T) {

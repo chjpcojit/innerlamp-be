@@ -1,78 +1,212 @@
 package validation
 
 import (
+	"errors"
 	"strings"
 	"testing"
+
+	"github.com/go-playground/validator/v10"
 )
 
-func TestValidateMexicanPhone(t *testing.T) {
-	tests := []struct {
-		name    string
-		phone   string
-		wantErr bool
-	}{
-		{"Valid 10 digits", "5512345678", false},
-		{"Valid with +52", "+525512345678", false},
-		{"Empty", "", true},
-		{"Too short", "12345", true},
-		{"Too long", "123456789012", true},
+// dto exercises the tags the wrapper is expected to pass straight through to
+// the library, plus the field-name tag fallbacks.
+type dto struct {
+	Email    string `json:"email" validate:"required,email"`
+	Phone    string `json:"phone" validate:"required,phone"`
+	Nickname string `json:"nickname,omitempty" validate:"omitempty,min=2"`
+	Untagged string `json:"untagged"`
+	Hidden   string `json:"-" validate:"omitempty,min=2"`
+	NoName   string `json:",omitempty" validate:"omitempty,min=2"`
+}
+
+// newTestValidator mirrors what cmd/main.go does: build, pick the wire format,
+// register the service's custom tags — all before the first validate.
+func newTestValidator(t *testing.T) *Validator {
+	t.Helper()
+
+	v := New()
+	v.SetFieldNameTag("json")
+	if err := v.Register(PhoneTag, PhoneRule); err != nil {
+		t.Fatalf("Register(%q) error = %v", PhoneTag, err)
+	}
+	return v
+}
+
+func TestNewRegistersNothing(t *testing.T) {
+	// A fresh Validator must not know `phone` — the tag only exists once the
+	// caller registers it. The library panics on an unregistered tag used in a
+	// struct, which is how this surfaces (loudly, at the first request).
+	v := New()
+
+	defer func() {
+		if recover() == nil {
+			t.Error("expected panic validating a struct that uses an unregistered tag")
+		}
+	}()
+
+	_ = v.Struct(struct {
+		Phone string `validate:"phone"`
+	}{Phone: "5512345678"})
+}
+
+func TestStructUsesJSONFieldNames(t *testing.T) {
+	v := newTestValidator(t)
+
+	err := v.Struct(dto{})
+	if err == nil {
+		t.Fatal("expected validation errors for an empty dto")
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateMexicanPhone(tt.phone)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateMexicanPhone() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
+	var fieldErrs validator.ValidationErrors
+	if !errors.As(err, &fieldErrs) {
+		t.Fatalf("error = %v, want validator.ValidationErrors", err)
+	}
+
+	// Empty dto fails on email and phone; both must be reported under their
+	// JSON names, not the Go field names.
+	got := map[string]string{}
+	for _, fe := range fieldErrs {
+		got[fe.Field()] = fe.Tag()
+	}
+
+	if tag, ok := got["email"]; !ok || tag != "required" {
+		t.Errorf("errors = %v, want an entry email=required", got)
+	}
+	if tag, ok := got["phone"]; !ok || tag != "required" {
+		t.Errorf("errors = %v, want an entry phone=required", got)
 	}
 }
 
-func TestNormalizeMexicanPhone(t *testing.T) {
-	tests := []struct {
-		name  string
-		phone string
-		want  string
-	}{
-		{"Clean number", "5512345678", "5512345678"},
-		{"With +52", "+525512345678", "5512345678"},
-		{"With spaces", "55 1234 5678", "5512345678"},
-		{"With dashes", "55-1234-5678", "5512345678"},
+func TestFieldNameFallsBackToGoName(t *testing.T) {
+	v := newTestValidator(t)
+
+	// Hidden and NoName both carry `json:"-"` / `json:",omitempty"`, which
+	// resolve to no usable name → the library must fall back to the Go field
+	// name so the error is never keyed by an empty string.
+	err := v.Struct(dto{Hidden: "x", NoName: "y"})
+	if err == nil {
+		t.Fatal("expected validation errors")
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := NormalizeMexicanPhone(tt.phone)
-			if got != tt.want {
-				t.Errorf("NormalizeMexicanPhone() = %v, want %v", got, tt.want)
-			}
-		})
+	var fieldErrs validator.ValidationErrors
+	if !errors.As(err, &fieldErrs) {
+		t.Fatalf("error = %v, want validator.ValidationErrors", err)
+	}
+
+	got := map[string]bool{}
+	for _, fe := range fieldErrs {
+		got[fe.Field()] = true
+	}
+
+	if !got["Hidden"] {
+		t.Errorf("errors = %v, want field name Hidden", got)
+	}
+	if !got["NoName"] {
+		t.Errorf("errors = %v, want field name NoName", got)
 	}
 }
 
-func TestValidateEmail(t *testing.T) {
-	tests := []struct {
-		name    string
-		email   string
-		wantErr bool
-	}{
-		{"Valid simple", "test@example.com", false},
-		{"Valid with subdomain", "user@mail.example.com", false},
-		{"Valid with plus", "user+tag@example.com", false},
-		{"Valid with dots", "first.last@example.com", false},
-		{"Empty", "", true},
-		{"No @", "testexample.com", true},
-		{"No domain", "test@", true},
-		{"No local part", "@example.com", true},
+func TestStructWithoutFieldNameTagUsesGoNames(t *testing.T) {
+	// No SetFieldNameTag call → errors carry Go field names.
+	v := New()
+
+	err := v.Struct(struct {
+		Email string `json:"email" validate:"required"`
+	}{})
+	if err == nil {
+		t.Fatal("expected a validation error")
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateEmail(tt.email)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateEmail() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
+	var fieldErrs validator.ValidationErrors
+	if !errors.As(err, &fieldErrs) {
+		t.Fatalf("error = %v, want validator.ValidationErrors", err)
+	}
+	if fieldErrs[0].Field() != "Email" {
+		t.Errorf("field = %q, want %q", fieldErrs[0].Field(), "Email")
+	}
+}
+
+func TestStructAccepts(t *testing.T) {
+	v := newTestValidator(t)
+
+	err := v.Struct(dto{
+		Email:    "user@example.com",
+		Phone:    "+84 912 345 678",
+		Nickname: "an",
+	})
+	if err != nil {
+		t.Errorf("Struct() error = %v, want nil", err)
+	}
+}
+
+func TestVar(t *testing.T) {
+	v := newTestValidator(t)
+
+	if err := v.Var("+84912345678", PhoneTag); err != nil {
+		t.Errorf("Var(%q) error = %v, want nil", "+84912345678", err)
+	}
+	if err := v.Var("not-a-phone", PhoneTag); err == nil {
+		t.Error("Var(\"not-a-phone\") error = nil, want an error")
+	}
+}
+
+func TestRegisterRejectsEmptyTag(t *testing.T) {
+	v := New()
+
+	if err := v.Register("", PhoneRule); err == nil {
+		t.Error("Register(\"\") error = nil, want an error")
+	}
+}
+
+func TestRegisterRejectsNilFunc(t *testing.T) {
+	v := New()
+
+	if err := v.Register("custom", nil); err == nil {
+		t.Error("Register with a nil rule error = nil, want an error")
+	}
+}
+
+func TestRegisterPanicsOnBuiltinTag(t *testing.T) {
+	v := New()
+
+	defer func() {
+		if recover() == nil {
+			t.Error("expected panic registering a tag that shadows a built-in")
+		}
+	}()
+
+	_ = v.Register("required", PhoneRule)
+}
+
+func TestRegisterPanicsOnReservedCharacters(t *testing.T) {
+	v := New()
+
+	defer func() {
+		if recover() == nil {
+			t.Error("expected panic registering a tag with reserved characters")
+		}
+	}()
+
+	_ = v.Register("pho|ne", PhoneRule)
+}
+
+func TestRegisterOverwritesSilently(t *testing.T) {
+	v := New()
+
+	alwaysTrue := func(validator.FieldLevel) bool { return true }
+	alwaysFalse := func(validator.FieldLevel) bool { return false }
+
+	if err := v.Register("custom", alwaysTrue); err != nil {
+		t.Fatalf("first Register error = %v", err)
+	}
+	// The library does not report a duplicate registration — it overwrites.
+	if err := v.Register("custom", alwaysFalse); err != nil {
+		t.Fatalf("second Register error = %v, want nil (silent overwrite)", err)
+	}
+
+	err := v.Var("anything", "custom")
+	if err == nil {
+		t.Error("Var() error = nil, want the second rule to have taken effect")
 	}
 }
 
@@ -85,330 +219,59 @@ func TestNormalizeEmail(t *testing.T) {
 		{"Uppercase", "TEST@EXAMPLE.COM", "test@example.com"},
 		{"Mixed case", "TeSt@ExAmPlE.CoM", "test@example.com"},
 		{"With spaces", "  test@example.com  ", "test@example.com"},
+		{"Already normalized", "test@example.com", "test@example.com"},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := NormalizeEmail(tt.email)
-			if got != tt.want {
-				t.Errorf("NormalizeEmail() = %v, want %v", got, tt.want)
+			if got := NormalizeEmail(tt.email); got != tt.want {
+				t.Errorf("NormalizeEmail() = %q, want %q", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestValidateCURP(t *testing.T) {
+func TestPhoneRule(t *testing.T) {
 	tests := []struct {
-		name    string
-		curp    string
-		wantErr bool
+		name  string
+		phone string
+		want  bool
 	}{
-		{"Valid male", "HEGG560427MVZRRL04", false},
-		{"Valid female", "MACE920715MDFRRL09", false},
-		{"Valid lowercase", "hegg560427mvzrrl04", false},
-		{"Empty", "", true},
-		{"Too short", "HEGG560427MVZ", true},
-		{"Too long", "HEGG560427MVZRRL0400", true},
-		{"Invalid format", "1234567890123456", true},
-		{"Invalid sex", "HEGG560427XVZRRL04", true},
-	}
+		{"Plain digits", "84912345678", true},
+		{"With country code", "+84912345678", true},
+		{"Spaces", "+84 912 345 678", true},
+		{"Dashes and parens", "(912) 345-678", true},
+		{"Dots", "912.345.678", true},
+		{"Minimum digits", "12345678", true},
+		{"Maximum digits", "123456789012345", true},
+		{"Trimmed", "  +84912345678  ", true},
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateCURP(tt.curp)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateCURP() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestNormalizeCURP(t *testing.T) {
-	tests := []struct {
-		name string
-		curp string
-		want string
-	}{
-		{"Lowercase", "hegg560427mvzrrl04", "HEGG560427MVZRRL04"},
-		{"With spaces", "  HEGG560427MVZRRL04  ", "HEGG560427MVZRRL04"},
-		{"Mixed", "  hegg560427MVZRRL04  ", "HEGG560427MVZRRL04"},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := NormalizeCURP(tt.curp)
-			if got != tt.want {
-				t.Errorf("NormalizeCURP() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestValidateNoXSS(t *testing.T) {
-	tests := []struct {
-		name    string
-		input   string
-		wantErr bool
-	}{
-		{"Clean text", "Hello World", false},
-		{"Script tag", "<script>alert('xss')</script>", true},
-		{"Iframe", "<iframe src='evil.com'></iframe>", true},
-		{"JavaScript protocol", "javascript:alert('xss')", true},
-		{"Onclick event", "<div onclick='alert()'>test</div>", true},
-		{"Embed tag", "<embed src='evil.swf'>", true},
-		{"Object tag", "<object data='evil.swf'>", true},
 		{"Empty", "", false},
+		{"Whitespace only", "   ", false},
+		{"Too few digits", "1234567", false},
+		{"Too many digits", "1234567890123456", false},
+		{"Letters", "8491234abcd", false},
+		{"Second plus", "+84+912345678", false},
+		{"Plus alone", "+", false},
+		{"Plus with separators", "+ - . ( )", false},
+		{"Non-ASCII digits", "+84٩١٢٣٤٥٦٧٨", false},
+		{"Control character", "+8491234\x005678", false},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateNoXSS(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateNoXSS() error = %v, wantErr %v", err, tt.wantErr)
+			if got := IsValidPhone(tt.phone); got != tt.want {
+				t.Errorf("IsValidPhone(%q) = %v, want %v", tt.phone, got, tt.want)
 			}
 		})
 	}
 }
 
-func TestSanitizeString(t *testing.T) {
-	tests := []struct {
-		name  string
-		input string
-		want  string
-	}{
-		{"HTML tags", "<b>Hello</b>", "&lt;b&gt;Hello&lt;/b&gt;"},
-		{"Script tag", "<script>alert('xss')</script>", "&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;"},
-		{"Quotes", `"Hello"`, "&#34;Hello&#34;"},
-		{"Ampersand", "A & B", "A &amp; B"},
-		{"Null bytes", "Hello\x00World", "HelloWorld"},
-		{"Empty", "", ""},
+func TestPhoneTagMatchesRule(t *testing.T) {
+	if PhoneTag == "" {
+		t.Fatal("PhoneTag must not be empty")
 	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := SanitizeString(tt.input)
-			if got != tt.want {
-				t.Errorf("SanitizeString() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func TestSanitizeInput(t *testing.T) {
-	tests := []struct {
-		name  string
-		input string
-		check func(string) bool
-	}{
-		{"Trims whitespace", "  Hello  ", func(s string) bool { return s == "Hello" }},
-		{"Removes control chars", "Hello\x01\x02World", func(s string) bool { return !strings.Contains(s, "\x01") }},
-		{"Preserves newlines", "Hello\nWorld", func(s string) bool { return strings.Contains(s, "\n") }},
-		{"Removes null bytes", "Hello\x00World", func(s string) bool { return !strings.Contains(s, "\x00") }},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := SanitizeInput(tt.input)
-			if !tt.check(got) {
-				t.Errorf("SanitizeInput() = %v, failed check", got)
-			}
-		})
-	}
-}
-
-func TestValidateStringLength(t *testing.T) {
-	tests := []struct {
-		name    string
-		value   string
-		min     int
-		max     int
-		wantErr bool
-	}{
-		{"Within range", "Hello", 3, 10, false},
-		{"Too short", "Hi", 5, 10, true},
-		{"Too long", "Hello World!", 3, 10, true},
-		{"Exact min", "Hello", 5, 10, false},
-		{"Exact max", "HelloWorld", 5, 10, false},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateStringLength(tt.value, "field", tt.min, tt.max)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateStringLength() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestValidateRequired(t *testing.T) {
-	tests := []struct {
-		name    string
-		value   string
-		wantErr bool
-	}{
-		{"Valid", "Hello", false},
-		{"Empty", "", true},
-		{"Whitespace only", "   ", true},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateRequired(tt.value, "field")
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateRequired() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestValidateAlphanumeric(t *testing.T) {
-	tests := []struct {
-		name    string
-		value   string
-		wantErr bool
-	}{
-		{"Valid", "Hello123", false},
-		{"With space", "Hello 123", true},
-		{"With special char", "Hello@123", true},
-		{"Letters only", "Hello", false},
-		{"Numbers only", "123", false},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateAlphanumeric(tt.value, "field")
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateAlphanumeric() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestValidateAlpha(t *testing.T) {
-	tests := []struct {
-		name    string
-		value   string
-		wantErr bool
-	}{
-		{"Valid", "Hello", false},
-		{"With space", "Hello World", false},
-		{"With number", "Hello1", true},
-		{"With special char", "Hello!", true},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateAlpha(tt.value, "field")
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateAlpha() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestValidateNumeric(t *testing.T) {
-	tests := []struct {
-		name    string
-		value   string
-		wantErr bool
-	}{
-		{"Valid", "12345", false},
-		{"With letter", "123a5", true},
-		{"With space", "123 45", true},
-		{"With special char", "123-45", true},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateNumeric(tt.value, "field")
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateNumeric() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestValidatePostalCode(t *testing.T) {
-	tests := []struct {
-		name    string
-		code    string
-		wantErr bool
-	}{
-		{"Valid", "03940", false},
-		{"Too short", "0394", true},
-		{"Too long", "039400", true},
-		{"With letters", "0394A", true},
-		{"Empty", "", true},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidatePostalCode(tt.code)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidatePostalCode() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestValidateINEKey(t *testing.T) {
-	tests := []struct {
-		name    string
-		ineKey  string
-		wantErr bool
-	}{
-		{"Valid 13 digits", "1234567890123", false},
-		{"Valid 18 digits", "123456789012345678", false},
-		{"Too short", "12345", true},
-		{"Invalid length", "12345678901234", true},
-		{"With letters", "12345678901A3", true},
-		{"Empty", "", true},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			err := ValidateINEKey(tt.ineKey)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("ValidateINEKey() error = %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
-func TestValidator(t *testing.T) {
-	v := NewValidator()
-
-	v.ValidateField(ValidateRequired("", "name"))
-	v.ValidateField(ValidateEmail("invalid-email"))
-	v.ValidateField(ValidateCURP("invalid"))
-
-	if !v.HasErrors() {
-		t.Error("Expected validator to have errors")
-	}
-
-	if len(v.Errors()) != 3 {
-		t.Errorf("Expected 3 errors, got %d", len(v.Errors()))
-	}
-
-	err := v.Error()
-	if err == nil {
-		t.Error("Expected error from validator")
-	}
-}
-
-func TestValidatorNoErrors(t *testing.T) {
-	v := NewValidator()
-
-	v.ValidateField(ValidateRequired("value", "name"))
-	v.ValidateField(ValidateEmail("test@example.com"))
-
-	if v.HasErrors() {
-		t.Error("Expected validator to have no errors")
-	}
-
-	err := v.Error()
-	if err != nil {
-		t.Errorf("Expected no error, got %v", err)
+	if strings.ContainsAny(PhoneTag, `.[],|=+()~!@#$%^&*"/?<>{}`) {
+		t.Errorf("PhoneTag %q contains characters reserved by the library", PhoneTag)
 	}
 }

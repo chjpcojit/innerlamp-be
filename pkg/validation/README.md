@@ -1,88 +1,105 @@
 # Validation — pkg/validation
 
 ## Mục đích
-Validate và sanitize input dạng chuỗi: email, số điện thoại/CURP/postal code/INE key kiểu Mexico, phát hiện/loại bỏ XSS, cùng vài validator chuỗi chung (required, length, alpha, numeric...). Có `Validator` fluent để gom nhiều lỗi validate thành một lần trả về.
+Bọc `github.com/go-playground/validator/v10` trong struct `Validator`: đây là nơi **khởi tạo và giữ** instance của thư viện. Không chỗ nào ngoài package này gọi `validator.New()`.
+
+Package **không quyết định tên field trong lỗi**, và **không tự đăng ký rule nào**. Tag có sẵn của thư viện (`required`, `email`, `min`, `max`, `e164`, `oneof`, ...) dùng thẳng làm struct tag ở delivery layer — package này **không** bọc lại. Rule thư viện không có thì đăng ký qua `Register(tag, fn)`; tên field trong lỗi lấy theo struct tag nào thì caller khai qua `SetFieldNameTag("json")`. Cả tập tag lẫn wire format đều là quyết định của composition root — `New()` không tự làm gì.
+
+Hai file:
+- `validation.go` — struct `Validator` (giữ instance), `New()`, `Register`, `SetFieldNameTag`, `Struct`/`Var`, và helper không phải validator (`NormalizeEmail`).
+- `phone.go` — rule `phone` mẫu: `PhoneTag` + `PhoneRule` + `IsValidPhone`. Đây là **ví dụ duy nhất package ship sẵn**, không tự động đăng ký; muốn dùng thì `Register` ở main.
+
+Thêm custom tag mới: viết hàm `validator.Func` (đặt trong package nào cũng được — service cần thì để ở service), rồi thêm một dòng `Register` ở main. Rule nào thuộc nghiệp vụ riêng của một service thì **đặt ở service đó**, không thêm vào package dùng chung này.
+
+## Ai khởi tạo
+`main.go` (composition root) là nơi duy nhất gọi `New()`, khai wire format (`SetFieldNameTag`) và custom field nào được đăng ký (`Register(tag, fn)` với rule của chính service), rồi truyền instance xuống các layer cần. Delivery handler nhận instance qua constructor, **không** tự dựng `validator.New()` — nếu tự dựng thì tag `phone` sẽ không tồn tại và request mang tag đó fail toàn bộ.
+
+```go
+// services/appService/cmd/main.go
+validate := validation.New()
+validate.SetFieldNameTag("json")
+if err := validate.Register(validation.PhoneTag, validation.PhoneRule); err != nil {
+    log.Fatalf("failed to register phone validation: %v", err)
+}
+requestValidator := deliveryhttp.NewRequestValidator(validate)
+```
 
 ## Khi nào dùng / không dùng
-- Dùng khi: cần validate format email hoặc sanitize/kiểm tra XSS cho text field do user nhập trước khi lưu/hiển thị; hoặc cần validate dữ liệu định danh/địa chỉ theo chuẩn Mexico (phone, CURP, postal code, INE key) — các hàm này hard-code theo format Mexico, không tổng quát cho quốc gia khác.
-- Không dùng khi: cần validate struct bằng tag (`validate:"required,email"`) — package này không có reflection/tag-based validation, phải tự gọi từng hàm; cũng không dùng cho input số điện thoại/CMND/mã bưu chính của Việt Nam hay quốc gia khác — logic hiện tại chỉ đúng cho Mexico (`ValidateMexicanPhone`, `ValidateCURP`, `ValidatePostalCode`, `ValidateINEKey`).
+- Dùng khi: service dựng validator instance cho delivery layer (dù có custom tag hay không); hoặc cần chuẩn hoá email trước khi so trùng/tra cứu; hoặc dùng luôn rule `phone` mẫu ở `phone.go`.
+- Rule **dùng chung** (nhiều service cần, không gắn nghiệp vụ của riêng ai) thì để trong package này; rule gắn với một service thì đặt ở service đó — cả hai đều đăng ký qua `Register` ở composition root.
+- Không dùng cho rule theo thị trường cụ thể (bắt buộc mã quốc gia nào, độ dài số nội địa bao nhiêu) — đó là business rule, thuộc use-case, không phải struct tag.
 
 ## API chính
 
-### `ValidateEmail(email string) error`
-Kiểm tra format email (regex + độ dài ≤254 + local/domain part hợp lệ). Trả `*ValidationError` nếu sai.
+### `type Validator struct{ ... }`
+Struct giữ instance của thư viện — thứ được truyền giữa các layer. Field bên trong **không export**: mọi thứ đi qua `Struct`/`Var`/`Register`/`SetFieldNameTag`, nên bề mặt của thư viện chạm vào repo qua đúng một cửa thay vì lan ra mọi chỗ nhận `*validator.Validate`.
+
+Thư viện tự mô tả instance của nó là **thread-safe và nên dùng như singleton** (nó cache tag/struct đã parse sau lock riêng), nên mỗi service dựng một `Validator` rồi chia sẻ. Ngoại lệ là cấu hình: thư viện ghi rõ các hàm `Register*` của nó (gồm cả `RegisterTagNameFunc`) **không** thread-safe và phải chạy hết **trước** lần validate đầu tiên — lý do `Register` và `SetFieldNameTag` thuộc về composition root.
+
+### `New() *Validator`
+Dựng `Validator`. **Không** đăng ký custom tag nào và **không** chọn wire format — cả hai là quyết định của caller. Trước khi composition root gọi `Register`/`SetFieldNameTag`: chỉ tag built-in chạy được, và lỗi mang **tên field Go**.
+
+### `(*Validator) Register(tag string, fn validator.Func) error`
+Bind một tên struct-tag với hàm thực thi nó, cho rule thư viện không có:
+
 ```go
-if err := validation.ValidateEmail("user@example.com"); err != nil {
-    // xử lý lỗi
-}
+v.Register(validation.PhoneTag, validation.PhoneRule)
+// struct tag: `validate:"required,phone"`
 ```
 
+Hàm là của caller — package này không giữ danh sách "service nên có tag gì", và `New()` không tự đăng ký gì.
+
+Thư viện báo lỗi đăng ký sai theo **ba kiểu khác nhau** (đã verify với v10, không phải suy đoán):
+
+| Trường hợp | Thư viện làm gì |
+|---|---|
+| Tag rỗng, hoặc hàm `nil` | Trả `error` → `RegisterXxx()` bọc lại và trả về |
+| Tag trùng tên tag có sẵn (`required`, `dive`, `omitempty`, ...) hoặc chứa ký tự dành riêng ``.[],\|=+()`~!@#$%^&*\"/?<>{}`` | **Panic**, không trả error → `Register` không chuyển thành error được |
+| Tag đã đăng ký rồi | Không error, không panic — **âm thầm ghi đè** hàm cũ |
+
+Cả ba đều là lỗi lập trình và đều lộ lúc khởi động (main), nên đặt các lời gọi `Register` ở composition root.
+
+`SetFieldNameTag` không trả lỗi — thư viện chỉ nhận hàm đặt tên, không validate gì. Truyền tên tag không tồn tại thì mọi field lặng lẽ rơi về tên Go.
+
+Wrapper **không** truyền tham số `callValidationEvenIfNull` của thư viện → giữ mặc định: field con trỏ `nil` không chạy vào hàm rule. Muốn nói "thiếu giá trị nghĩa là gì" thì ghép tag với `required`/`omitempty`, đừng xử lý `nil` bên trong rule.
+
+### `(*Validator) SetFieldNameTag(tag string)`
+Cho lỗi validate gọi field theo struct tag chỉ định, thay vì tên field Go.
+
+```go
+v.SetFieldNameTag("json")
+// PhoneNumber string `json:"phone_number"`  →  lỗi báo "phone_number"
+```
+
+⚠️ Thư viện **không** tự đọc tag `json`. Mặc định nó báo tên field Go (`PhoneNumber`) — `json:"..."` chỉ có nghĩa với `encoding/json`, không package nào hiểu tag của package khác. Không gọi hàm này thì lỗi mang tên Go.
+
+Truyền tag nào là quyết định của delivery: `"json"`, `"form"`, `"xml"`... Package chỉ áp dụng thứ được đưa, không ôm sẵn thiên vị nào.
+
+Quy tắc lấy tên: cắt ở dấu phẩy đầu tiên, nên `json:"nickname,omitempty"` → `nickname`. Không có tag đó, tên rỗng (`json:",omitempty"`), hoặc `json:"-"` → **giữ tên field Go**, để response luôn có key chứ không rỗng.
+
+Giống `Register`, hàm này **không** thread-safe, và thư viện cache tên field ngay lần validate struct đầu tiên → gọi ở composition root, trước khi validate lần đầu.
+
+### `(*Validator) Struct(s any) error` / `(*Validator) Var(field any, tag string) error`
+`Struct` validate theo tag `validate:"..."` của struct; `Var` validate một giá trị lẻ không nằm trong struct (path/query param). Lỗi trả về là lỗi gốc của thư viện — `validator.ValidationErrors` khi field fail — nên caller vẫn `errors.As` để lấy field/tag nào hỏng.
+
 ### `NormalizeEmail(email string) string`
-Chuẩn hoá email về lowercase và trim khoảng trắng.
+Lowercase và trim khoảng trắng. Mọi thao tác so trùng/tra cứu email **phải** đi qua hàm này để `User@Example.com` và `user@example.com` là cùng một tài khoản. Hàm không kiểm tra email có đúng định dạng không — đó là việc của tag `email` ở delivery layer.
+
 ```go
 email := validation.NormalizeEmail("  USER@Example.com  ") // "user@example.com"
 ```
 
-### `ValidateMexicanPhone(phone string) error` / `NormalizeMexicanPhone(phone string) string`
-Validate số điện thoại Mexico (10 số, hoặc có prefix `+52`/`52`), chấp nhận dấu `-`, ` `, `()`. `Normalize` trả về đúng 10 số cuối.
-```go
-err := validation.ValidateMexicanPhone("+52 55-1234-5678")
-normalized := validation.NormalizeMexicanPhone("55-1234-5678") // "5512345678"
-```
-
-### `ValidateCURP(curp string) error` / `NormalizeCURP(curp string) string`
-Validate CURP Mexico (18 ký tự, đúng format `AAAA######[H|M]AAAAA#0`, ký tự vị trí 10 phải là `H`/`M`). Chỉ check format, không check checksum thật.
-
-### `ValidatePostalCode(postalCode string) error`
-Postal code Mexico: đúng 5 chữ số.
-
-### `ValidateINEKey(ineKey string) error`
-Số thẻ cử tri (credential) Mexico: 13 hoặc 18 chữ số (sau khi bỏ khoảng trắng).
-
-### `ValidateNoXSS(input string) error`
-Check chuỗi có chứa pattern XSS phổ biến không (`<script>`, `<iframe>`, `javascript:`, `on*=`, `<embed>`, `<object>` — case-insensitive). Trả lỗi nếu match, không sửa input.
-```go
-if err := validation.ValidateNoXSS(comment); err != nil {
-    // từ chối input, không lưu
-}
-```
-
-### `SanitizeString(input string) string`
-HTML-escape input (`html.EscapeString`) + loại null byte. Không trim, không loại control char khác.
-
-### `SanitizeInput(input string) string`
-Sanitize toàn diện hơn: trim whitespace, HTML-escape, loại control character (giữ lại `\n`, `\t`), loại null byte. Dùng trước khi lưu text field tự do (tên, địa chỉ, ghi chú...).
-```go
-clean := validation.SanitizeInput("  <script>alert(1)</script>  ")
-```
-
-### `ValidateRequired(value, field string) error` / `ValidateStringLength(value, field string, min, max int) error` / `ValidateAlphanumeric` / `ValidateAlpha` / `ValidateNumeric(value, field string) error`
-Các validator chuỗi chung, không phụ thuộc quốc gia — required (sau trim), độ dài min/max, chỉ chữ+số, chỉ chữ (cho phép space), chỉ số.
-
-### `Validator` (`NewValidator()`, `.ValidateField(err error) *Validator`, `.HasErrors() bool`, `.Errors() []*ValidationError`, `.Error() error`)
-Fluent API gom nhiều lỗi validate lại thành một `error` duy nhất, thay vì return sớm ở lỗi đầu tiên.
-```go
-v := validation.NewValidator()
-v.ValidateField(validation.ValidateRequired(email, "email"))
-v.ValidateField(validation.ValidateEmail(email))
-v.ValidateField(validation.ValidateNoXSS(name))
-
-if v.HasErrors() {
-    return v.Error() // "validation failed: email: ...; input: ..."
-}
-```
-
-### `ValidationError` (`Field`, `Message string`) / `NewValidationError(field, message string) *ValidationError`
-Kiểu lỗi trả về từ mọi hàm `Validate*` trong package, implement `error` với format `"<field>: <message>"`.
-
 ## Cấu hình / dependency
-- Không có config, không có state ngoài các regex pre-compiled ở package scope (`MexicanPhoneRegex`, `MexicanPhoneWithCountryCodeRegex`, `EmailRegex`, `CURPRegex`, `XSSPatterns`) — các biến này exported nên có thể tái dùng trực tiếp nếu cần.
-- Chỉ dùng thư viện chuẩn (`regexp`, `strings`, `unicode`, `html`, `fmt`), không có dependency ngoài, không phụ thuộc package nội bộ nào khác trong repo.
-- Import path đúng trong repo này: `chjpcoj.com.innerlamp/pkg/validation` (README cũ của package này ghi `base_project/pkg/validation` — đó là tàn dư từ template, đừng copy).
+- Không có config struct.
+- Phụ thuộc ngoài duy nhất: `github.com/go-playground/validator/v10`.
+- Không import package nội bộ nào khác trong `pkg/` — package "lá" (leaf).
+- Import path: `chjpcoj.com.innerlamp/pkg/validation`.
+- Caller hiện tại: `services/appService/cmd/main.go` (gọi `New()` + `SetFieldNameTag("json")` + `Register`, truyền xuống `deliveryhttp.NewRequestValidator`) và các usecase `register`/`login`/`password_reset` (gọi `NormalizeEmail`).
 
 ## Lưu ý / lỗi hay gặp
-- Các hàm `ValidateMexicanPhone`, `ValidateCURP`, `ValidatePostalCode`, `ValidateINEKey` hard-code theo chuẩn Mexico — dùng sai bối cảnh (ví dụ validate số điện thoại Việt Nam) sẽ luôn báo lỗi hoặc pass sai.
-- `Validator.ValidateField` chỉ append lỗi nếu type-assert được về `*ValidationError` — nếu truyền vào một `error` thường (không phải do các hàm `Validate*` trong package này trả về) thì lỗi đó bị **âm thầm bỏ qua**, không có trong `Errors()`/`Error()`.
-- `ValidateNoXSS` chỉ nhận diện các pattern trong `XSSPatterns` (script/iframe/javascript:/on*=/embed/object) — không phải bộ lọc XSS toàn diện, không thay thế được sanitize khi output ra HTML thật sự (dùng thêm `SanitizeString`/`SanitizeInput`, hoặc escape đúng context lúc render).
-- `SanitizeString` chỉ escape HTML, không trim và không loại control character khác ngoài null byte — muốn sanitize đầy đủ hơn (trim + loại control char) thì dùng `SanitizeInput`.
-- `ValidateCURP` chỉ check đúng format bằng regex, không tính checksum thật của CURP — chuỗi đúng định dạng nhưng vô nghĩa vẫn pass.
+- Thư viện **không** báo lỗi khi đăng ký trùng tên tag — nó âm thầm ghi đè hàm cũ, và `register` không phát hiện được. Vì vậy hãy gọi `New()` **một lần cho mỗi service** rồi truyền `*Validator` đi, đừng dựng lại ở từng layer.
+- Đặt tên tag mới tránh trùng tag built-in và tránh ký tự dành riêng — trùng thì **panic** ngay lúc đăng ký chứ không trả error.
+- `New()` gọi `validator.New()` **không kèm option**. Đáng chú ý là `WithRequiredStructEnabled()`: upstream khuyến nghị bật và sẽ là mặc định ở v11 — nó làm tag `required` áp lên field struct lồng (non-pointer) thay vì bị bỏ qua. Hiện các request DTO đều phẳng nên chưa ảnh hưởng; nếu thêm DTO có struct lồng thì cân nhắc bật.
+- Quên gọi `RegisterXxx()` mà struct vẫn mang tag đó → thư viện **panic** ("Undefined validation function"), không phải trả lỗi. Lỗi này lộ ngay ở request đầu tiên chứ không âm thầm bỏ qua rule.
+- Ba kiểu lỗi đăng ký ở trên, cộng với các fallback của `SetFieldNameTag`, được pin bằng test trong `validation_test.go` — thư viện đổi hành vi thì test gãy chứ README không âm thầm sai.
+- Quên gọi `SetFieldNameTag("json")` → lỗi trả về tên field Go (`PhoneNumber`). `requestFieldError` phía delivery switch theo tên JSON (`phone`) nên sẽ rơi hết vào nhánh `default` `INVALID_REQUEST_BODY` thay vì mã lỗi đúng.

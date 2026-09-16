@@ -143,8 +143,6 @@ func TestRegisterHandler_ErrorMapping(t *testing.T) {
 	}{
 		{"email taken", domain.ErrEmailTaken, http.StatusConflict, "business", "EMAIL_TAKEN"},
 		{"phone taken", domain.ErrPhoneTaken, http.StatusConflict, "business", "PHONE_TAKEN"},
-		{"invalid email", domain.ErrInvalidEmail, http.StatusBadRequest, "validation", "INVALID_EMAIL"},
-		{"invalid phone", domain.ErrInvalidPhone, http.StatusBadRequest, "validation", "INVALID_PHONE"},
 		{"invalid password", domain.ErrInvalidPassword, http.StatusBadRequest, "validation", "INVALID_PASSWORD"},
 		{"unexpected error", bytes.ErrTooLarge, http.StatusInternalServerError, "system", "INTERNAL_ERROR"},
 	}

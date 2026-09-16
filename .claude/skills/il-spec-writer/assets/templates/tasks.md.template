@@ -1,0 +1,66 @@
+# Tasks — {{feature}}
+
+Version: 1.0
+Last updated: {{date}}
+Status: <!-- one-line status, mirror requirements.md/design.md's Status line -->
+Module: `{{feature}}`
+
+> See `changelog.md` in this folder for the version history of this spec.
+
+<!--
+Every item below must trace back to a row in design.md's "Layers & components" table or a step in
+its "Step-by-step Flow" section — do not invent a task that isn't grounded in design.md.
+Never check `[x]` an item unless it is verified as actually implemented in the codebase.
+-->
+
+## Phase 1 — Domain
+
+- [ ] Add `{{Feature}}` entity to `services/appService/domain/{{feature}}.go` (business fields only)
+- [ ] Declare sentinel errors for this feature in `services/appService/domain/errors.go`
+- [ ] Define the `{{Feature}}Repository` interface in `domain/{{feature}}.go`
+- [ ] Write `domain/mock_{{feature}}_repository.go` for usecase tests
+
+## Phase 2 — Usecase
+
+- [ ] Create `usecase/{{verb}}_{{feature}}_usecase.go` with constructor injection of the domain
+      interface
+      <!-- list concrete validation/business methods; mark any method that has no real repository
+      call yet as "— stub only" -->
+- [ ] Map repository errors to domain sentinel errors (`errors.Is`-compatible wrapping)
+- [ ] Unit tests: `usecase/{{verb}}_{{feature}}_usecase_test.go`, table-driven, `testify/assert` +
+      `testify/require`, using the hand-written mock — no real DB
+
+## Phase 3 — Repository
+
+- [ ] `migrations/000N_{{feature}}.sql` — schema delta
+      <!-- delete if the feature adds no schema; if kept, mirror the change into the matching
+      docs/specs/db/ ERD -->
+- [ ] Create `repository/postgres_{{feature}}_repository.go` implementing the domain interface
+- [ ] Explicit column lists, `context` propagation, `%w` error wrapping
+- [ ] Repository tests: `repository/postgres_{{feature}}_repository_test.go`
+
+## Phase 4 — Delivery
+
+- [ ] Request/response DTOs in `delivery/http/{{feature}}_handler.go` (JSON tags live here only)
+- [ ] Handler: decode → validate → call usecase → map domain error to HTTP status
+- [ ] Route registration in `services/appService/cmd/main.go`
+- [ ] Wire `RequireAuth` middleware around the route(s), if `design.md` says the feature is
+      user-scoped — verify it is actually wrapped, not merely documented as required
+- [ ] Update `docs/specs/api/openapi.yaml` in the same change
+- [ ] Handler tests: `delivery/http/{{feature}}_handler_test.go` — success, each error branch,
+      malformed body
+
+## Phase 5 — Integration & documentation
+
+- [ ] End-to-end check against a real/staging Postgres once available
+- [ ] `go test -short ./...` and `go vet ./...` clean
+- [ ] Note in the changelog which OKF concept under
+      `docs/knowledge/features/{{feature}}*.md` needs refreshing by `bdd-okf-docs` now that
+      behavior has shipped
+
+## Deferred (separate feature, not blocking {{feature}})
+
+<!-- Anything named in requirements.md's "Out of scope" section that has its own tracked work
+elsewhere, for cross-reference only. -->
+
+-

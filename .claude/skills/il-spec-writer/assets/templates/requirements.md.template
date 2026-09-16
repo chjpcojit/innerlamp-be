@@ -1,0 +1,101 @@
+# Requirements — {{feature}}
+
+Version: 1.0
+Last updated: {{date}}
+Status: <!-- e.g. "in-progress — handler done, auth middleware pending" or "not started" -->
+Module: `{{feature}}`
+Code: `services/appService/`
+
+> See `changelog.md` in this folder for the version history of this spec.
+
+<!--
+If this spec is Retroactive (written from an already-implemented feature), add a note here like:
+"This spec is written retroactively from the already-implemented {{feature}} feature." See
+references/modes.md.
+-->
+
+## User Story
+
+<!--
+One sentence per user story, in Vietnamese, in this exact blockquote shape (matches the existing
+files under docs/specs/features/):
+
+> Là một **<actor>**,
+> Tôi muốn **<action>**,
+> Để **<goal>**.
+
+Keep the existing US-NNN numbering from the module's original user-story file — do not renumber.
+One section per US-NNN below, each with its own Acceptance Criteria.
+-->
+
+## Acceptance Criteria (EARS notation)
+
+<!--
+Every bullet must follow: WHEN <trigger>, THE SYSTEM SHALL <behavior>.
+Mixed-language is correct here: the EARS line stays English, any clarifying parenthetical can be
+Vietnamese. See references/ears_notation.md for the full pattern + good/bad examples.
+
+Do not describe hidden validation/duplicate-check/side-effect steps only in prose here — name that
+a check happens and what the caller sees; the *how* (which query, which write, in what order,
+inside which transaction) belongs in design.md's Step-by-step Flow.
+-->
+
+- WHEN <!-- trigger -->, THE SYSTEM SHALL <!-- behavior -->.
+
+## API contract (confirmed surface for this feature)
+
+<!--
+Fill from docs/specs/api/openapi.yaml once a contract is confirmed. One row per endpoint. Anything
+not yet in openapi.yaml is ⚠️ Not confirmed — see "Pending" below.
+-->
+
+| Method | Path | Auth | Success | Failure codes |
+|---|---|---|---|---|
+| <!-- GET --> | <!-- /v1/... --> | <!-- RequireAuth / public --> | <!-- 200 + shape --> | <!-- 400 / 401 / 409 ... --> |
+
+## Out of scope (this feature boundary, not tracked here)
+
+<!--
+Things intentionally not covered by this feature — e.g. owned by a different module/feature, or a
+deliberately deferred milestone. Point to where they are tracked instead.
+-->
+
+-
+
+## Pending (not yet implemented)
+
+<!--
+Anything described above that is not yet built — reference the specific tasks.md Phase that tracks
+it. This is different from "Out of scope": Pending items are required for the feature to be
+considered complete; Out of scope items are permanently someone else's responsibility.
+-->
+
+-
+
+## Ghi chú kỹ thuật liên quan
+
+<!--
+The closing technical-notes section every file under docs/specs/ carries. Free-form Vietnamese
+prose: endpoints, schema deltas, module/service naming, middleware requirements, existing
+conventions this feature must follow. Anything that is an open decision goes to "Open questions"
+below instead of being asserted here as fact.
+-->
+
+-
+
+## Open questions (resolved during implementation)
+
+<!--
+Strikethrough the question, then the resolution + date. See references/gathering_questions.md for
+how these get here — a question starts as a "⚠️ Not confirmed" marker somewhere relevant in this
+file (commonly under Pending), and only moves here once the user has actually answered it.
+-->
+
+- ~~<!-- question -->~~ → <!-- resolution -->. Resolved {{date}}.
+
+<!--
+Any question still unanswered as of this version stays as an inline marker in the relevant section
+above, in this exact format — never omitted, never silently assumed:
+
+> ⚠️ Not confirmed: <question, one sentence> — <what it blocks>.
+-->

@@ -143,7 +143,7 @@ func TestProfileHandler_PatchRejectsEmailOrPhone(t *testing.T) {
 		body string
 	}{
 		{"email field", `{"email":"new@example.com"}`},
-		{"phone_number field", `{"phone_number":"+84900000000"}`},
+		{"phone field", `{"phone":"+84900000000"}`},
 	}
 
 	for _, tt := range tests {

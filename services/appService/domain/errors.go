@@ -2,12 +2,14 @@ package domain
 
 import "errors"
 
-// Register errors — US-001 AC2/AC3/AC4.
+// Register errors — US-001 AC2/AC4. There is no ErrInvalidEmail/ErrInvalidPhone
+// here: input format is rejected by the delivery layer's struct tags
+// (`validate:"required,email"`, `validate:"required,e164"`) before the use-case
+// runs, so malformed input never reaches this layer. What is left are the
+// conflicts only the repository can detect.
 var (
 	ErrEmailTaken      = errors.New("email already in use")
 	ErrPhoneTaken      = errors.New("phone number already in use")
-	ErrInvalidEmail    = errors.New("invalid email format")
-	ErrInvalidPhone    = errors.New("invalid phone number format, expected E.164 e.g. +84...")
 	ErrInvalidPassword = errors.New("password must be at least 8 characters")
 )
 

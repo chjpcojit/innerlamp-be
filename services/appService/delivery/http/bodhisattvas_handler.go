@@ -15,6 +15,7 @@ type bodhisattvaResponse struct {
 	ID          string `json:"id"`
 	Slug        string `json:"slug"`
 	Name        string `json:"name"`
+	Sect        string `json:"sect"`
 	Description string `json:"description"`
 	ImageURL    string `json:"image_url"`
 	Version     int    `json:"version"`
@@ -27,6 +28,7 @@ func newBodhisattvaResponse(b *domain.Bodhisattva) bodhisattvaResponse {
 		ID:          b.ID,
 		Slug:        b.Slug,
 		Name:        b.Name,
+		Sect:        b.Sect,
 		Description: b.Description,
 		ImageURL:    b.ImageURL,
 		Version:     b.Version,
@@ -59,8 +61,12 @@ func (h *BodhisattvasHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	var input domain.ListBodhisattvasInput
-	if raw := r.URL.Query().Get("updated_since"); raw != "" {
+	query := r.URL.Query()
+	input := domain.ListBodhisattvasInput{
+		Sect: query.Get("sect"),
+	}
+
+	if raw := query.Get("updated_since"); raw != "" {
 		parsed, err := time.Parse(time.RFC3339, raw)
 		if err != nil {
 			utils.WriteValidationError(w, "INVALID_UPDATED_SINCE", "updated_since must be RFC3339", map[string]any{"field": "updated_since"})

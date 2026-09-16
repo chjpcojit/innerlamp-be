@@ -1,0 +1,73 @@
+# These are some examples of commonly ignored file patterns.
+# You should customize this list as applicable to your project.
+# Learn more about .gitignore:
+#     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+
+# Node artifact files
+node_modules/
+dist/
+
+# Compiled Java class files
+*.class
+
+# Compiled Python bytecode
+*.py[cod]
+
+# Log files
+*.log
+
+# Package files
+*.jar
+
+# Maven
+target/
+
+pb/
+
+# IDEs & Editors
+.idea/
+.vscode/
+
+# Unit test reports
+TEST*.xml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Go specific (output application binary)
+bin/
+vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+# Go module files
+go.sum
+
+# Applications
+*.app
+*.exe
+*.war
+
+# Large media files
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+
+# Sensitive file
+*.pem
+*.json
+*.yaml
+*-adminsdk-*.json
+*.sh
+*.p8
+*.txt
+*.env
+*.bat
+.ssh/
+.github
+vendor

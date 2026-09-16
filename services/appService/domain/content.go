@@ -50,6 +50,7 @@ type Mantra struct {
 	ID            string
 	Slug          string
 	Title         string
+	Sect          string
 	Body          string
 	AudioURL      string
 	BodhisattvaID string
@@ -62,10 +63,11 @@ type Mantra struct {
 // means a full sync, mirroring ListSutrasInput. BodhisattvaID empty means no
 // filter; non-empty applies the "thần chú của vị này" filter — AC3 — and is
 // reused as-is by GetBodhisattvaUsecase (US-010) to fetch a vị's related
-// mantras.
+// mantras. Sect empty means no filter; non-empty applies the tông phái filter (AC3b).
 type ListMantrasInput struct {
 	UpdatedSince  time.Time
 	BodhisattvaID string
+	Sect          string
 }
 
 // MantraRepository lists and looks up mantras — US-007/US-008.
@@ -84,6 +86,7 @@ type Bodhisattva struct {
 	ID          string
 	Slug        string
 	Name        string
+	Sect        string
 	Description string
 	ImageURL    string
 	Version     int
@@ -92,9 +95,11 @@ type Bodhisattva struct {
 }
 
 // ListBodhisattvasInput is the use-case input for US-009. UpdatedSince
-// zero-valued means a full sync, mirroring ListSutrasInput.
+// zero-valued means a full sync, mirroring ListSutrasInput. Sect empty
+// means no filter; non-empty applies the tông phái filter (AC2b).
 type ListBodhisattvasInput struct {
 	UpdatedSince time.Time
+	Sect         string
 }
 
 // BodhisattvaRepository lists and looks up bodhisattvas — US-009/US-010.
@@ -110,4 +115,8 @@ type BodhisattvaRepository interface {
 	// here, keeping this repository single-table. Returns
 	// ErrBodhisattvaNotFound if no bodhisattva has that slug.
 	GetBodhisattvaBySlug(ctx context.Context, slug string) (*Bodhisattva, error)
+
+	// GetBodhisattvaByID returns the bodhisattva for its UUID — US-008 AC1
+	// (embedded link in mantra detail). Returns ErrBodhisattvaNotFound if not found.
+	GetBodhisattvaByID(ctx context.Context, id string) (*Bodhisattva, error)
 }

@@ -14,7 +14,7 @@ import (
 type profileResponse struct {
 	ID              int64  `json:"id"`
 	Email           string `json:"email"`
-	PhoneNumber     string `json:"phone_number"`
+	PhoneNumber     string `json:"phone"`
 	DharmaName      string `json:"dharma_name"`
 	OrdinationPlace string `json:"ordination_place"`
 	AvatarURL       string `json:"avatar_url"`

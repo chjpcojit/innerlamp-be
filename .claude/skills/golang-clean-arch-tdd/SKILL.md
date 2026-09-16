@@ -1,68 +1,55 @@
 ---
 name: golang-clean-arch-tdd
-description: Implement a feature in a Go service that follows Clean Architecture (domain / usecase / repository / delivery layers), driven by a markdown spec doc and backed by full unit + integration test coverage using gomock/mockery-style mocks. Use this whenever the user asks to implement, add, or extend a feature in a Go backend that follows Clean Architecture, references a spec file (e.g. something in /docs), or asks for a feature to be built "with tests" / "with full coverage" / "theo TDD" in a Go codebase. Also use when the user asks to review whether an existing Go feature respects layer boundaries and dependency direction, or asks to add missing tests to an existing usecase/repository.
+description: This skill should be used when implementing, extending, or reviewing a feature in a Go service that follows this repo's Clean Architecture layout (domain / usecase / repository / delivery, wired from a cmd composition root), with tests written alongside the code rather than bolted on afterward. Use it when the user asks to implement a use case or endpoint "theo TDD" / "với test đầy đủ", add a new feature to services/appService (or a future service with the same layout), review whether existing code respects the domain→usecase→repository/delivery dependency direction, or add missing tests to a usecase/repository/handler.
 ---
 
-# Go Clean Architecture — Spec-Driven TDD Implementation
+# Go Clean Architecture — TDD Implementation
 
 ## Purpose
 
-This skill implements a single feature (or a well-scoped slice of one) in a Go service that follows Clean Architecture, starting from a written spec, and produces both the implementation and its test suite together. The goal is not just "code that works" — it's code where every layer's responsibility is testable in isolation, and where the dependency direction (domain → usecase → repository/delivery, never the reverse) is never violated, because that's what makes the architecture worth having.
+Implement a feature end-to-end across all four layers — `domain`, `usecase`, `repository`, `delivery` — plus its wiring in the composition root, producing the implementation and its tests together, one layer at a time, inside-out. The Dependency Rule (inner layers never import outer layers) is not a style preference here — `domain` genuinely has zero non-stdlib imports in this repo today, and every layer above it depends on the one below only through an interface. Treat any violation of that as a bug, not a nitpick.
 
-Don't treat this as "write code, then bolt tests on at the end." Write the test for a unit of behavior right alongside the code that implements it, one layer at a time, so that by the time a layer is "done" its tests already prove it does what the spec says — not what you assume it does.
+## Build order — always inside-out
 
-## Step 1 — Read the spec before touching code
+Code the layers in this order. Each step only needs the interface the previous step already defined, never a not-yet-written concrete type:
 
-The spec is almost always a markdown file in the repo (commonly under `/docs`). Read it fully before writing anything. Extract:
+1. **`domain`** — entity struct(s), the repository interface (port) the use case needs, use-case input/output structs, sentinel errors (`var ErrX = errors.New(...)`).
+2. **Hand-write the mock** for any new/changed repository interface — see `references/mocking_convention.md`. This repo does not use gomock/mockery or `go:generate`; do not introduce either without being asked.
+3. **`usecase`** — write the test first against the mock from step 2 (red), then the minimal usecase code to pass it (green), then refactor. The usecase must only import `domain` (plus reusable `pkg/*` infra abstractions like `pkg/jwt`, `pkg/logging` — never a concrete `repository` or `delivery` type).
+4. **`repository`** — implement the `domain` interface for real (Postgres/GCS/...). Test this layer against real infrastructure (or the pattern already used by sibling `*_repository_test.go` files in the target service), not by re-mocking it — a mocked-DB test proves nothing about SQL correctness.
+5. **`delivery/http`** — handler. Declare a small consumer-defined interface for the subset of the usecase it calls (see `references/layer_conventions.md`), so the handler can be unit-tested with a mock without importing the concrete usecase struct. Define a dedicated response struct — never serialize a `domain` entity directly.
+6. **`cmd/main.go`** — composition root. Wire the real repository, real usecase, real handler together here, last. This is the only place allowed to know every concrete type.
 
-- The business rule(s) in plain terms — what should happen, and what should explicitly NOT happen (edge cases, validation rules, error conditions the spec mentions).
-- Any acceptance criteria or examples given — these become your first test cases.
-- Which existing domain entities / usecases / repositories this touches, versus what's genuinely new.
+Skip a step only when the feature genuinely doesn't touch that layer (e.g. a pure business-rule change confined to an existing usecase needs no new domain port).
 
-If the spec is ambiguous or missing an important detail (e.g., what error to return when a record isn't found, whether an operation should be idempotent), don't guess silently — surface the ambiguity to the user before implementing. A wrong assumption here propagates into every layer.
+## Per-layer rules
 
-If the user pastes the requirement directly into chat instead of pointing at a file, treat that message as the spec and apply the same extraction.
+Full detail, including what each layer must NOT contain, is in `references/layer_conventions.md`. Load it before writing `domain` or `delivery` code — those two are where violations are easiest to introduce (a stray `json` tag on a `domain` struct, or a handler that calls a repository directly).
 
-## Step 2 — Map the change onto the four layers
+Quick reference:
 
-This codebase's Clean Architecture uses four layers, each with a single direction of dependency:
+| Layer | Depends on | Test style | Mocks what |
+|---|---|---|---|
+| `domain` | stdlib only (+ testify in `mock_*.go` files) | table-driven, no mocks | — |
+| `usecase` | `domain` interfaces, reusable `pkg/*` | `t.Run` subtests + mocks | the `domain` repository interface(s) it consumes |
+| `repository` | `domain` (implements it), `pkg/database`/`pkg/storage` | integration-style, real backend | nothing — this layer IS the real thing |
+| `delivery/http` | `domain` types, a consumer-defined usecase interface | `t.Run` subtests + mock | the usecase interface it declares |
+| `cmd` | everything (composition root) | none (wiring only) | — |
 
-```
-domain  <--  usecase  <--  repository (implementation)
-                <--  delivery
-```
+## Mocking convention
 
-- **domain**: entities, value objects, domain errors, and the *interfaces* usecases depend on — repository interfaces are defined here, in `domain`, not in `usecase`. `repository` implements these interfaces; `usecase` only ever imports the interface from `domain`, never a concrete repository struct. No dependency on any other layer, no framework imports, no I/O.
-- **usecase**: application business logic. Orchestrates domain entities and calls repository interfaces (never concrete implementations). This is where the feature's actual behavior lives, and where most of the unit test value is.
-- **repository**: concrete implementation of the interfaces usecase depends on — DB, cache, external API clients. Talks to real infrastructure.
-- **delivery**: the entrypoint — HTTP handler, gRPC handler, whatever calls into usecase. Thin: parse/validate input, call usecase, map output/errors to the transport format.
+This repo hand-writes `testify.Mock`-based mocks **inside the same package as the interface** (e.g. `domain/mock_user_repository.go` implements `domain.UserRepository`), not in a separate `mocks/` package, and not via `gomock`/`mockery` codegen — there is no `go:generate` directive anywhere in `services/appService` or `pkg/`. When a repository interface gains a method, update its mock by hand in the same PR. Full pattern and a worked example: `references/mocking_convention.md`.
 
-Before writing code, decide explicitly which layers this feature touches. A common mistake is putting business logic in delivery or repository "because it's convenient" — if you catch yourself doing that, stop and move it to usecase.
+## Verification before calling a layer done
 
-## Step 3 — Implement and test layer by layer
-
-Work domain outward: domain → usecase → repository → delivery. For each layer:
-
-1. Write the unit (function/method) and its test together — it's fine to iterate between the two rather than strictly writing the test first, but don't consider a unit finished until its test exists and passes.
-2. Mock the layer below using the existing gomock/mockery-generated mocks in the repo (look for a `mocks/` directory or `//go:generate mockery` / `//go:generate mockgen` directives near the interface). **Do not generate new mocks yourself** — if a new interface needs a mock that doesn't exist yet, tell the user which interface needs one and let them run mockery/mockgen; use whatever mock stubbing you need in the meantime or ask before proceeding.
-3. Use table-driven tests (`t.Run` subtests) as the default style for usecase and domain logic — it's the idiomatic way to cover multiple scenarios per unit without duplicating setup, and it matches most existing Go codebases' conventions. Check a couple of existing `_test.go` files in the repo first and match their exact style (naming, assertion style, table field names) rather than inventing a new one.
-4. For every unit under test, cover at minimum: the happy path, each validation/error condition mentioned in the spec, and boundary conditions implied by the domain rule (empty input, nil, zero values, already-exists, not-found).
-
-### Layer-specific testing notes
-
-- **domain**: pure unit tests, no mocks needed — these are the cheapest and most valuable tests to get right.
-- **usecase**: unit tests with the repository interface mocked. This is where most of the business-rule coverage should live, because usecase is where the business rule actually is.
-- **repository**: this layer benefits from integration tests against a real dependency (e.g. testcontainers for the DB) rather than mocks, since its whole job is talking to real infrastructure correctly — a mocked-DB test here doesn't prove much. Check whether the repo already has a testcontainer/integration-test setup (often behind a build tag like `//go:build integration` or a separate `_test` package) and follow that pattern; don't introduce a new integration-test harness without flagging it to the user first.
-- **delivery**: unit test the handler with the usecase mocked — assert request parsing/validation and status-code/error-mapping behavior, not business logic (that's already covered at the usecase layer).
-
-## Step 4 — Verify before calling it done
-
-Run the test suite for the packages you touched (`go test ./... -run <package>` or equivalent) and confirm everything passes. Then do a quick self-check against the spec: for each acceptance criterion or rule you extracted in Step 1, can you point to the specific test that proves it? If not, that's a gap — add the missing test rather than assuming the existing ones cover it implicitly.
-
-Also sanity-check the dependency direction one more time: does domain import anything from usecase/repository/delivery? Does usecase import a concrete repository struct instead of the interface defined in `domain`? Either of those is a layering violation worth flagging and fixing even if it "works."
+1. `go test ./services/<service>/... -run <Pkg>` for every package touched — must pass.
+2. Run `scripts/check_dependency_rule.sh <path-to-service>` to catch an accidental inward-pointing import (`domain` importing `usecase`/`repository`/`delivery`, or `usecase` importing `repository`/`delivery`) before it's easy to forget about.
+3. Re-read the acceptance criteria (from the user story / spec, if one exists) one by one and point to the specific test proving each — a gap here means a missing test, not an assumption that "it's probably covered."
+4. Confirm no `domain` struct grew a `json`/`db` tag, and no handler response is a bare `domain` entity — see the "Entity vs response model" rule in `references/layer_conventions.md`.
 
 ## What this skill does NOT do
 
-- It does not run `mockery generate` / `mockgen` on its own — new mocks are the user's call.
-- It does not decide the project's overall folder/package layout from scratch — it follows the existing convention in the repo it's working in.
-- It is not a strict red-green-refactor enforcer — writing code and its test close together, in either order, is fine as long as coverage ends up complete.
+- Does not generate mocks via `mockery`/`mockgen` — this repo hand-writes them (see above).
+- Does not invent a new folder layout — it follows `services/appService`'s existing one (`domain/usecase/repository/delivery/http/cmd`).
+- Does not enforce strict single-test-before-any-code red/green/refactor at the letter — writing a unit and its test in close succession, in either order, is fine as long as no unit is considered finished until its test exists and passes.
+- Does not decide production-readiness concerns (secrets, mailer, auth middleware wiring) — those are `cmd/main.go` composition-root gaps, tracked separately, not a layering issue this skill's checks catch.

@@ -21,6 +21,12 @@ import (
 // ("có hiệu lực trong thời gian giới hạn (ví dụ 15 phút)").
 const resetTokenTTL = 15 * time.Minute
 
+// minPasswordLength is the shortest password the reset flow accepts. The
+// delivery layer already rejects a shorter one through the request struct's
+// `validate:"min=8"` tag; this is the backstop for Reset being called
+// directly, not a replacement for it.
+const minPasswordLength = 8
+
 // PasswordResetUsecase implements US-003 (Quên mật khẩu).
 type PasswordResetUsecase struct {
 	users  domain.UserRepository

@@ -143,17 +143,18 @@ func main() {
 	getSutraUsecase := usecase.NewGetSutraUsecase(sutraRepo, logger)
 	sutraDetailHandler := deliveryhttp.NewSutraDetailHandler(getSutraUsecase)
 
-	mantraRepo := repository.NewMantraRepository(db)
-	listMantrasUsecase := usecase.NewListMantrasUsecase(mantraRepo, logger)
-	mantrasHandler := deliveryhttp.NewMantrasHandler(listMantrasUsecase)
-	getMantraUsecase := usecase.NewGetMantraUsecase(mantraRepo, logger)
-	mantraDetailHandler := deliveryhttp.NewMantraDetailHandler(getMantraUsecase)
-
 	bodhisattvaRepo := repository.NewBodhisattvaRepository(db)
+	mantraRepo := repository.NewMantraRepository(db)
+
 	listBodhisattvasUsecase := usecase.NewListBodhisattvasUsecase(bodhisattvaRepo, logger)
 	bodhisattvasHandler := deliveryhttp.NewBodhisattvasHandler(listBodhisattvasUsecase)
 	getBodhisattvaUsecase := usecase.NewGetBodhisattvaUsecase(bodhisattvaRepo, mantraRepo, logger)
 	bodhisattvaDetailHandler := deliveryhttp.NewBodhisattvaDetailHandler(getBodhisattvaUsecase)
+
+	listMantrasUsecase := usecase.NewListMantrasUsecase(mantraRepo, logger)
+	mantrasHandler := deliveryhttp.NewMantrasHandler(listMantrasUsecase)
+	getMantraUsecase := usecase.NewGetMantraUsecase(mantraRepo, bodhisattvaRepo, logger)
+	mantraDetailHandler := deliveryhttp.NewMantraDetailHandler(getMantraUsecase)
 
 	mux := http.NewServeMux()
 	mux.Handle("/v1/auth/register", registerHandler)
