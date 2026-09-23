@@ -1,0 +1,142 @@
+# Local development stack for appService.
+#
+# Brings up a Postgres that matches services/appService/config/config.dev.yaml
+# (localhost:5432, user/password postgres, database innerlamp, sslmode disable)
+# and applies every migration in migrations/ in filename order. It also runs a
+# log stack (Loki + Alloy + Grafana) so appService logs can be queried without
+# grepping a terminal.
+#
+# Migrations are bare `000N_*.sql` files applied with `psql -f`, NOT through
+# golang-migrate — see migrations/README.md for why. The `migrate` service runs
+# inside the postgres image so psql is available without installing PostgreSQL
+# client tooling on the host.
+#
+# appService itself is deliberately NOT in this file: it runs on the host with
+# `go run` for a fast edit/run loop (see README §7 for the reasoning). Because
+# of that, Alloy cannot read its stdout as a container log — the run command
+# tees it into observability/logs/, which Alloy tails.
+#
+# Usage, from the repo root:
+#   docker compose up -d          # Postgres + migrations + Loki/Alloy/Grafana
+#   go run ./services/appService/cmd 2>&1 | tee -a observability/logs/appservice.log
+#
+# After adding a migration, re-apply it without recreating Postgres:
+#   docker compose run --rm migrate
+#
+# Data lives in named volumes, so it survives a one-shot migrate run and an
+# ordinary `docker compose down`. Use `docker compose down -v` to wipe
+# Postgres, Loki and Grafana state and start clean.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: innerlamp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      # The migrate service waits on this, and appService's own db.Connect has a
+      # 10s ceiling, so fail fast rather than let the server race the database.
+      test: ["CMD-SHELL", "pg_isready -U postgres -d innerlamp"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+
+  # One-shot: applies migrations/0001..0003 (shell glob order == numeric order)
+  # then exits. ON_ERROR_STOP=1 makes a broken migration fail the step instead
+  # of silently leaving a half-applied schema.
+  migrate:
+    image: postgres:16-alpine
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: postgres
+      # Suppress the "already exists, skipping" NOTICEs on a re-apply, so a
+      # rerun prints just the applied files. ON_ERROR_STOP=1 still fails the
+      # step on a real error — only NOTICE-level chatter is hidden.
+      PGOPTIONS: -c client_min_messages=warning
+    volumes:
+      - ./migrations:/migrations:ro
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        for f in /migrations/*.sql; do
+          case "$$f" in
+            # Guard against a future *.down.sql pair: the glob would otherwise
+            # match it, and "x.down.sql" sorts before "x.up.sql", so the
+            # rollback would run before the migration. Today every file is a
+            # bare 000N_*.sql with no down counterpart.
+            *.down.sql) echo "skipping $$f (down migration)"; continue ;;
+          esac
+          echo "applying $$f"
+          psql -h postgres -U postgres -d innerlamp -v ON_ERROR_STOP=1 -f "$$f"
+        done
+        echo "migrations applied"
+    restart: "no"
+
+  # --- log stack -----------------------------------------------------------
+  #
+  # Log flow: appService (host) -> observability/logs/*.log -> Alloy (tails the
+  # file) -> Loki -> Grafana. Grafana is reachable at http://localhost:3000 and
+  # comes up with the Loki datasource already provisioned, so no manual setup.
+
+  loki:
+    image: grafana/loki:3.7.8
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./observability/loki/config.yml:/etc/loki/config.yml:ro
+      - loki-data:/loki
+    command: -config.file=/etc/loki/config.yml
+
+  # Alloy is the successor to Promtail (EOL). It cannot collect appService's
+  # stdout because appService is not a container here, so it tails the log file
+  # the run command tees into. The bind mount is read-only and the directory is
+  # committed via observability/logs/.gitkeep, so the host `tee` (running as
+  # your user) owns it rather than a root-owned dir Docker would create.
+  alloy:
+    image: grafana/alloy:v1.19.2
+    command:
+      - run
+      - --server.http.listen-addr=0.0.0.0:12345
+      - --storage.path=/var/lib/alloy/data
+      - /etc/alloy/config.alloy
+    ports:
+      - "12345:12345"
+    volumes:
+      - ./observability/alloy/config.alloy:/etc/alloy/config.alloy:ro
+      - ./observability/logs:/var/log/innerlamp:ro
+      - alloy-data:/var/lib/alloy/data
+    depends_on:
+      - loki
+
+  # Anonymous admin is a LOCAL DEV convenience so a fresh `up` needs no manual
+  # click-through. Never expose this Grafana or copy these env vars anywhere
+  # non-local — anyone reaching port 3000 gets full admin.
+  grafana:
+    image: grafana/grafana:13.2.2
+    ports:
+      - "3000:3000"
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - loki
+
+volumes:
+  postgres-data:
+  loki-data:
+  grafana-data:
+  alloy-data:

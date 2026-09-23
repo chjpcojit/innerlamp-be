@@ -57,6 +57,9 @@ type AppConfig struct {
 	Database DatabaseConfig `yaml:"database"`
 	JWT      JWTConfig      `yaml:"jwt"`
 	Storage  StorageConfig  `yaml:"storage"`
+	OTP      OTPConfig      `yaml:"otp"`
+	SMS      SMSConfig      `yaml:"sms"`
+	Login    LoginConfig    `yaml:"login"`
 }
 
 // ServerConfig holds HTTP server settings.
@@ -94,6 +97,93 @@ type StorageConfig struct {
 	Backend       string `yaml:"backend"`
 	ProjectID     string `yaml:"project_id"`
 	DefaultBucket string `yaml:"default_bucket"`
+}
+
+// SMSConfig selects which pkg/sms provider the composition root wires up —
+// "log" (pkg/sms/logsms, the only implementation today) in every
+// environment until a real provider (Twilio, AWS SNS, a GCP equivalent)
+// ships its own subpackage.
+type SMSConfig struct {
+	Provider string `yaml:"provider"`
+}
+
+// OTPConfig holds the OTP policy: how long a code lives, how often a code may
+// be sent, and when a number gets locked.
+//
+// These numbers used to be a const block inside the registration use case,
+// justified there as "business decisions, not configuration". That reasoning is
+// wrong for all of them: each is a number a dev environment shortens to exercise
+// expiry and production lengthens under load, which is the definition of
+// configuration. The use case now takes them through its constructor, the way
+// it already took sessionTTL.
+//
+// v5.0 split the old "resend" cap into a per-phone *send* policy: the first
+// send of a cycle is free, every later request-otp AND resend-otp counts, and
+// hitting the cap locks sending for SendLockDuration. See design.md
+// §"OTP send-limit policy".
+type OTPConfig struct {
+	// TTL is how long an issued code can be verified.
+	TTL Duration `yaml:"ttl"`
+
+	// SendCooldown is the floor between two sends for one number (AC5), applied
+	// to both request-otp and resend-otp.
+	SendCooldown Duration `yaml:"send_cooldown"`
+
+	// MaxSendAttempts caps the counted sends in one cycle (AC5). The first send
+	// is free, so a cycle produces at most MaxSendAttempts+1 codes: the free
+	// first plus the counted ones. It does NOT count wrong-code guesses — that
+	// is MaxAttempts.
+	MaxSendAttempts int `yaml:"max_send_attempts"`
+
+	// SendLockDuration is how long sending is blocked once a cycle hits the cap
+	// (AC5), and also how long a quiet cycle's counter survives before it resets.
+	// The two use the same number so "the lock expired" and "the counter aged
+	// out" are one boundary.
+	SendLockDuration Duration `yaml:"send_lock_duration"`
+
+	// MaxAttempts is how many wrong codes lock the number (AC12).
+	MaxAttempts int `yaml:"max_attempts"`
+
+	// LockDuration is how long that lock holds (AC12).
+	LockDuration Duration `yaml:"lock_duration"`
+
+	// PendingRegistrationTTL is how long the captured account payload survives
+	// an abandoned registration. v5.1 decoupled it from TTL: the payload now
+	// outlives the 30-minute send lock by a wide margin (24h) so a caller can
+	// resume by resending after the lock lifts, and so a reinstall can restart
+	// by re-requesting (request-otp overwrites the payload).
+	//
+	// The cost is a bcrypt password hash sitting on the server for that long.
+	// The cleanup job (Deferred) deletes expired rows; this TTL is the backstop
+	// for when that job is not running yet.
+	PendingRegistrationTTL Duration `yaml:"pending_registration_ttl"`
+}
+
+// LoginConfig holds US-002's brute-force policy: how many consecutive wrong
+// passwords lock a phone number, for how long, and how much idle time resets
+// the counter.
+//
+// Same reasoning as OTPConfig: these are numbers a dev environment shortens to
+// exercise the lock and production lengthens under real traffic, so they are
+// configuration rather than constants in the use case. The refresh token's own
+// lifetime is not here — it is JWTConfig.RefreshTokenExpiration, the same value
+// the signed token and the stored session row both use.
+type LoginConfig struct {
+	// MaxFailedAttempts is how many consecutive failures lock the number (AC7).
+	// The failure that reaches this count still answers 401; only the next
+	// request sees 429.
+	MaxFailedAttempts int `yaml:"max_failed_attempts"`
+
+	// LockDuration is how long the lock holds (AC7), measured from the failure
+	// that tripped it.
+	LockDuration Duration `yaml:"lock_duration"`
+
+	// FailureResetWindow is how long a failure stays "consecutive" (AC7). A
+	// failure arriving more than this long after the previous one starts the
+	// count over at 1. Shipped equal to LockDuration — an expired lock and a
+	// stale counter are the same boundary — but settable separately because the
+	// equality is a default, not a constraint.
+	FailureResetWindow Duration `yaml:"failure_reset_window"`
 }
 
 // Load reads YAML from source (local file, s3://, or gs:// — see

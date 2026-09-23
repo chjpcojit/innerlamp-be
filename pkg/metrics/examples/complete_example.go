@@ -14,6 +14,7 @@ import (
 
 	"chjpcoj.com.innerlamp/pkg/metrics"
 	httpMetrics "chjpcoj.com.innerlamp/pkg/metrics/middleware/http"
+	"chjpcoj.com.innerlamp/pkg/utils"
 
 	_ "chjpcoj.com.innerlamp/pkg/metrics/gcp"
 )
@@ -226,39 +227,29 @@ func startHTTPServer(collector metrics.Collector) {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write([]byte(`{"message":"Hello from metrics example","backend":"gcp"}`)) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"message": "Hello from metrics example", "backend": "gcp"})
 	})
 
 	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write([]byte(`{"status":"healthy"}`)) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"status": "healthy"})
 	})
 
 	mux.HandleFunc("/api/users", func(w http.ResponseWriter, r *http.Request) {
 		// Simulate some processing
 		time.Sleep(time.Duration(rand.Intn(100)) * time.Millisecond) // #nosec
 
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write([]byte(`{"users":["alice","bob","charlie"]}`)) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"users": []string{"alice", "bob", "charlie"}})
 	})
 
 	mux.HandleFunc("/api/orders", func(w http.ResponseWriter, r *http.Request) {
 		// Simulate some processing
 		time.Sleep(time.Duration(rand.Intn(200)) * time.Millisecond) // #nosec
 		if rand.Float32() < 0.1 {                                    // #nosec
-			w.Header().Set("Content-Type", "application/json")
-			w.WriteHeader(http.StatusInternalServerError)
-			_, _ = w.Write([]byte(`{"error":"Internal server error"}`)) // #nosec
+			utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
 			return
 		}
 
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write([]byte(`{"orders":[{"id":1,"total":99.99}]}`)) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"orders": []map[string]any{{"id": 1, "total": 99.99}}})
 	})
 
 	// Wrap with metrics middleware

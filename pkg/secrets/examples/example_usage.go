@@ -5,6 +5,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
@@ -17,6 +18,7 @@ import (
 	"chjpcoj.com.innerlamp/pkg/secrets"
 	_ "chjpcoj.com.innerlamp/pkg/secrets/aws" // Import to register AWS provider
 	_ "chjpcoj.com.innerlamp/pkg/secrets/gcp" // Import to register GCP provider
+	"chjpcoj.com.innerlamp/pkg/utils"
 )
 
 // DatabaseCredentials represents database connection credentials
@@ -612,16 +614,17 @@ func makeConfigHandler(client secrets.Client) http.HandlerFunc {
 		value, err := client.Get(ctx, "app-config", nil)
 		if err != nil {
 			if errors.Is(err, secrets.ErrSecretNotFound) {
-				http.Error(w, "Configuration not found", http.StatusNotFound)
+				utils.WriteBusinessError(w, http.StatusNotFound, "NOT_FOUND", "configuration not found", nil)
 				return
 			}
 			log.Printf("Failed to get config: %v", err)
-			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
 			return
 		}
 
-		w.Header().Set("Content-Type", "application/json")
-		_, _ = w.Write(value.Value) // #nosec
+		// The secret holds a JSON document; embed it as data rather than
+		// writing it raw, so the reply keeps the utils.ApiResponse envelope.
+		utils.WriteSuccessResponse(w, json.RawMessage(value.Value))
 	}
 }
 
@@ -633,7 +636,7 @@ func makeDatabaseHandler(client secrets.Client) http.HandlerFunc {
 		value, err := client.Get(ctx, "database-credentials", nil)
 		if err != nil {
 			log.Printf("Failed to get database credentials: %v", err)
-			http.Error(w, "Failed to get credentials", http.StatusInternalServerError)
+			utils.WriteSystemError(w, "INTERNAL_ERROR", "failed to get credentials", nil)
 			return
 		}
 
@@ -641,7 +644,7 @@ func makeDatabaseHandler(client secrets.Client) http.HandlerFunc {
 		// to connect to the database
 		_ = value.Value
 
-		_, _ = w.Write([]byte("Database connection successful")) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"message": "Database connection successful"})
 	}
 }
 

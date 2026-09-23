@@ -1,0 +1,57 @@
+---
+type: Domain Entity
+title: {{Title}}
+description: {{One sentence — what this model represents in the business domain.}}
+resource: services/appService/domain/{{entity}}.go
+tags: [domain, entity, {{tag3}}]
+status: draft
+generated: { by: {{author}}, at: {{ISO8601}} }
+sources:
+  - path: services/appService/domain/{{entity}}.go
+    kind: code
+---
+
+# Summary
+
+{{What real-world thing this struct represents, and which usecases construct
+or consume it. An entity is shared vocabulary — say who else depends on it,
+because that is what makes changing it expensive.}}
+
+# Fields
+
+| Field | Go type | Notes |
+|---|---|---|
+| `{{Name}}` | `{{string}}` | {{what it means, nullability, and any invariant (non-empty after trimming, E.164, ...)}} |
+
+{{Pointer fields (`*string`, `*time.Time`) are the repo's way of expressing SQL
+NULL. Say explicitly which fields are nullable and what NULL means for each —
+the type alone will mislead the next reader. State that the struct carries no
+`json:`/`db:` tags and why (delivery owns the wire shape, `repository` owns the
+column mapping).}}
+
+# Invariants
+
+{{Rules that must hold for every instance — not the format validation the
+handler performs, but what makes the entity well-formed. If there are none, say
+"None enforced today" rather than deleting the section, since its absence is
+itself information.}}
+
+# Where it flows
+
+```
+{{handler}} (delivery/http)
+   → {{Usecase.Method}}          (validates, uses as input)
+   → {{Repository}}              (maps to/from columns)
+   → {{table}}
+```
+
+{{Call out any mismatch between the entity and its table explicitly — a column
+the struct drops, a NOT NULL the Go type does not reflect, a value the
+repository reformats. That mismatch is a bug factory and the single most
+valuable thing this concept can record. Link the Migration concept for the
+table.}}
+
+# Related concepts
+
+{{Entities this one is composed of or confused with, the Migration that creates
+its table, and the UseCase concepts that operate on it.}}

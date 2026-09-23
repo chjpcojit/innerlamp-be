@@ -1,7 +1,9 @@
 package jwt
 
 import (
+	"crypto/rand"
 	"crypto/rsa"
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"time"
@@ -29,6 +31,21 @@ type Service interface {
 	RefreshAccessToken(refreshToken string, email, role string) (string, error)
 }
 
+// tokenIDBytes is the entropy of a jti: 128 bits, so a collision between two
+// tokens is not a practical concern.
+const tokenIDBytes = 16
+
+// newTokenID returns a fresh jti (JWT ID, RFC 7519 §4.1.7): 128 random bits from
+// crypto/rand as 32 lowercase hex characters. It is a package variable so a test
+// can inject an entropy failure; production code never reassigns it.
+var newTokenID = func() (string, error) {
+	b := make([]byte, tokenIDBytes)
+	if _, err := rand.Read(b); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(b), nil
+}
+
 // jwtService implements the Service interface
 type jwtService struct {
 	config *Config
@@ -51,6 +68,11 @@ func (s *jwtService) GenerateAccessToken(userID, email, role string, extra map[s
 		return "", fmt.Errorf("userID is required")
 	}
 
+	tokenID, err := newTokenID()
+	if err != nil {
+		return "", fmt.Errorf("generate token id: %w", err)
+	}
+
 	now := time.Now()
 	expiresAt := now.Add(s.config.AccessTokenExpiration)
 
@@ -61,6 +83,10 @@ func (s *jwtService) GenerateAccessToken(userID, email, role string, extra map[s
 		TokenType: claims.TokenTypeAccess,
 		Extra:     extra,
 		RegisteredClaims: jwt.RegisteredClaims{
+			// jti makes every token unique: iat/exp only have 1-second precision, so
+			// without it two tokens for the same user minted in the same second are
+			// byte-identical (see docs/specs/features/jwt-token-uniqueness).
+			ID:        tokenID,
 			ExpiresAt: jwt.NewNumericDate(expiresAt),
 			IssuedAt:  jwt.NewNumericDate(now),
 			NotBefore: jwt.NewNumericDate(now),
@@ -79,6 +105,11 @@ func (s *jwtService) GenerateRefreshToken(userID string, extra map[string]any) (
 		return "", fmt.Errorf("userID is required")
 	}
 
+	tokenID, err := newTokenID()
+	if err != nil {
+		return "", fmt.Errorf("generate token id: %w", err)
+	}
+
 	now := time.Now()
 	expiresAt := now.Add(s.config.RefreshTokenExpiration)
 
@@ -87,6 +118,10 @@ func (s *jwtService) GenerateRefreshToken(userID string, extra map[string]any) (
 		TokenType: claims.TokenTypeRefresh,
 		Extra:     extra,
 		RegisteredClaims: jwt.RegisteredClaims{
+			// jti makes every token unique: iat/exp only have 1-second precision, so
+			// without it two tokens for the same user minted in the same second are
+			// byte-identical (see docs/specs/features/jwt-token-uniqueness).
+			ID:        tokenID,
 			ExpiresAt: jwt.NewNumericDate(expiresAt),
 			IssuedAt:  jwt.NewNumericDate(now),
 			NotBefore: jwt.NewNumericDate(now),

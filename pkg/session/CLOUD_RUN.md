@@ -89,11 +89,11 @@ If you need explicit control over cleanup timing or want to run custom cleanup l
 package http
 
 import (
-    "encoding/json"
     "net/http"
 
     "base_project/pkg/logging"
     "base_project/pkg/session"
+    "chjpcoj.com.innerlamp/pkg/utils" // envelope response chuẩn — xem pkg/utils/README.md
 )
 
 type SessionHandler struct {
@@ -113,7 +113,7 @@ func (h *SessionHandler) CleanupHandler(w http.ResponseWriter, r *http.Request) 
     // 1. Verify request is from Cloud Scheduler
     if r.Header.Get("X-CloudScheduler") != "true" {
         h.logger.Warn("Unauthorized cleanup attempt")
-        http.Error(w, "Forbidden", http.StatusForbidden)
+        utils.WriteBusinessError(w, http.StatusForbidden, "FORBIDDEN", "forbidden", nil)
         return
     }
 
@@ -121,7 +121,7 @@ func (h *SessionHandler) CleanupHandler(w http.ResponseWriter, r *http.Request) 
     count, err := h.sessionMgr.CleanupExpiredSessions(r.Context())
     if err != nil {
         h.logger.WithError(err).Error("Session cleanup failed")
-        http.Error(w, err.Error(), http.StatusInternalServerError)
+        utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil) // không trả err.Error() cho client
         return
     }
 
@@ -130,9 +130,7 @@ func (h *SessionHandler) CleanupHandler(w http.ResponseWriter, r *http.Request) 
         "sessions_cleaned": count,
     }).Info("Session cleanup completed")
 
-    w.WriteHeader(http.StatusOK)
-    json.NewEncoder(w).Encode(map[string]interface{}{
-        "success": true,
+    utils.WriteSuccessResponse(w, map[string]interface{}{
         "cleaned": count,
     })
 }
@@ -191,7 +189,7 @@ import (
 func (h *SessionHandler) CleanupHandler(w http.ResponseWriter, r *http.Request) {
     // Option 1: Verify Cloud Scheduler header
     if r.Header.Get("X-CloudScheduler") != "true" {
-        http.Error(w, "Forbidden", http.StatusForbidden)
+        utils.WriteBusinessError(w, http.StatusForbidden, "FORBIDDEN", "forbidden", nil)
         return
     }
 
@@ -199,7 +197,7 @@ func (h *SessionHandler) CleanupHandler(w http.ResponseWriter, r *http.Request) 
     token := r.Header.Get("X-Cleanup-Token")
     expected := os.Getenv("CLEANUP_SECRET_TOKEN")
     if subtle.ConstantTimeCompare([]byte(token), []byte(expected)) != 1 {
-        http.Error(w, "Forbidden", http.StatusForbidden)
+        utils.WriteBusinessError(w, http.StatusForbidden, "FORBIDDEN", "forbidden", nil)
         return
     }
 

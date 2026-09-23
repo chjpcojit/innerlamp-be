@@ -9,6 +9,7 @@ import (
 	"chjpcoj.com.innerlamp/pkg/ratelimit"
 	"chjpcoj.com.innerlamp/pkg/ratelimit/middleware"
 	"chjpcoj.com.innerlamp/pkg/ratelimit/store"
+	"chjpcoj.com.innerlamp/pkg/utils"
 )
 
 func main() {
@@ -61,7 +62,7 @@ func main() {
 
 	// Login Handler
 	loginHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		_, _ = w.Write([]byte("Login successful!")) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"message": "Login successful!"})
 	})
 
 	// Wrap Login Handler with Rate Limit
@@ -70,7 +71,7 @@ func main() {
 
 	// Other endpoints might have no limit or a different limit
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		_, _ = w.Write([]byte("Home page (no limit)")) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"message": "Home page (no limit)"})
 	})
 
 	fmt.Println("Server started at :8080")

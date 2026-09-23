@@ -1,0 +1,82 @@
+---
+type: API Endpoint
+title: {{METHOD}} {{/v1/path}}
+description: {{One sentence — what this route does and which feature calls it.}}
+resource: services/appService/delivery/http/{{feature}}_handler.go
+tags: [api, {{domain}}]
+status: draft
+generated: { by: {{author}}, at: {{ISO8601}} }
+sources:
+  - path: docs/specs/features/{{feature}}/requirements.md
+    kind: spec
+  - path: {{docs/specs/api/openapi.yaml — only if it exists; drop this entry otherwise}}
+    kind: openapi
+---
+
+# Summary
+
+{{Which feature owns this route, at which step of the flow, and what the caller
+gets on success/failure. Link the feature concept:
+`[Register](/features/register.md)`.}}
+
+> ⚠️ **Contract status**: {{Either "Confirmed against
+> `docs/specs/features/<feature>/requirements.md` on <date>." or "Not
+> confirmed — this shape is inferred from the handler's structs, and
+> the OpenAPI spec does not exist yet. Re-check against the spec
+> before promoting the feature to `stable`."}}
+
+# Request
+
+```
+{{METHOD}} {{/v1/path}}
+```
+
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `{{field}}` | `{{string}}` | {{yes}} | {{struct tag constraint, format, source of the value}} |
+
+**Judgement body shape**: the Go struct is not the wire contract on its own —
+state the JSON tag names, and whether decoding is strict
+(`DecodeJSONBodyStrict`, i.e. unknown fields rejected) or permissive.
+
+**Headers**: {{Authorization bearer via `pkg/jwt/middleware`, locale,
+idempotency key — whatever is actually enforced. Say "none beyond the default
+`pkg/middleware` headers" if that is the truth.}}
+
+# Response
+
+## Success
+
+```json
+{{The real envelope as it goes on the wire, not a guessed one. If a shared
+error helper wraps failures, show its shape too under Error cases — that is the
+part a reader will otherwise get wrong.}}
+```
+
+| Field | Type | Notes |
+|---|---|---|
+| `{{field}}` | `{{string}}` | {{}} |
+
+## Error cases
+
+| Case | Trigger | Sentinel | Status |
+|---|---|---|---|
+| {{409}} | {{phone already registered}} | `domain.ErrPhoneTaken` | {{handler mapping}} |
+
+{{The sentinel→status mapping lives in the handler. Name the mapping function
+if there is one shared across handlers.}}
+
+# Call sites
+
+| Layer | File | Notes |
+|---|---|---|
+| Handler | `services/appService/delivery/http/{{feature}}_handler.go` | {{handler struct + its consumer-defined usecase interface}} |
+| Usecase | `services/appService/usecase/{{feature}}_usecase.go` | {{the method this route reaches}} |
+| Repository | `services/appService/repository/postgres_{{feature}}_repository.go` | {{the SQL behind it}} |
+| Wiring | `services/appService/cmd/main.go` | {{`mux.Handle` line, auth middleware presence}} |
+
+# Related concepts
+
+{{Feature concepts that call this route, and sibling routes in the same flow.
+Spell out the sequence — this is the one place a multi-call flow is visible in
+full.}}

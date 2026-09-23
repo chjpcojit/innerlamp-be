@@ -1,12 +1,12 @@
 package middleware
 
 import (
-	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"runtime/debug"
 	"time"
+
+	"chjpcoj.com.innerlamp/pkg/utils"
 )
 
 func Logger(next http.Handler) http.Handler {
@@ -24,8 +24,12 @@ func CORS(next http.Handler) http.Handler {
 		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 
+		// Preflight stops here and goes through the same envelope writer as
+		// every other response, so a client parses OPTIONS with the same
+		// utils.ApiResponse decoder it uses for real responses. The CORS
+		// headers are set above, before WriteHeader, so they survive.
 		if r.Method == "OPTIONS" {
-			w.WriteHeader(http.StatusOK)
+			utils.WriteSuccessResponseWithStatus(w, http.StatusOK, nil)
 			return
 		}
 
@@ -41,15 +45,9 @@ func Recovery(next http.Handler) http.Handler {
 				stack := debug.Stack()
 				log.Printf("PANIC recovered: %v\n%s", rec, stack) // #nosec
 
-				w.Header().Set("Content-Type", "application/json")
-				w.WriteHeader(http.StatusInternalServerError)
-				_ = json.NewEncoder(w).Encode(map[string]interface{}{ //nolint:errcheck
-					"status": "error",
-					"error": map[string]string{
-						"code":    "ERR_INTERNAL",
-						"message": fmt.Sprintf("internal server error: panic recovered"),
-					},
-				})
+				// Same envelope and code as any other unexpected failure, so a
+				// panic is indistinguishable from a 500 to the client.
+				utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
 			}
 		}()
 		next.ServeHTTP(w, r)

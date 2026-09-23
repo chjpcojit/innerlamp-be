@@ -170,9 +170,9 @@ func TestDecodeJSONBody_BodyTooLarge(t *testing.T) {
 		t.Fatal("expected error for body too large, got nil")
 	}
 
-	// The error could be either body too large or invalid JSON (truncated)
-	if !IsDecodeError(err, ErrBodyTooLarge) && !IsDecodeError(err, ErrInvalidJSON) {
-		t.Errorf("expected ErrBodyTooLarge or ErrInvalidJSON, got %v", err)
+	// AC6: an oversized body is its own failure, never a truncated decode.
+	if !IsDecodeError(err, ErrBodyTooLarge) {
+		t.Errorf("expected ErrBodyTooLarge, got %v", err)
 	}
 }
 
@@ -194,19 +194,27 @@ func TestDecodeJSONBody_MultipleJSONObjects(t *testing.T) {
 }
 
 func TestDecodeJSONBody_WrongContentType(t *testing.T) {
-	body := `{"email": "test@example.com"}`
-	req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(body))
-	req.Header.Set("Content-Type", "text/plain")
+	// AC4: a non-JSON media type is rejected even when the body is valid JSON.
+	for _, contentType := range []string{
+		"text/plain",
+		"application/x-www-form-urlencoded",
+	} {
+		t.Run(contentType, func(t *testing.T) {
+			body := `{"email": "test@example.com"}`
+			req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(body))
+			req.Header.Set("Content-Type", contentType)
 
-	var dst TestRequest
-	err := DecodeJSONBody(req, &dst, nil)
+			var dst TestRequest
+			err := DecodeJSONBody(req, &dst, nil)
 
-	if err == nil {
-		t.Fatal("expected error for wrong content type, got nil")
-	}
+			if err == nil {
+				t.Fatal("expected error for wrong content type, got nil")
+			}
 
-	if !IsDecodeError(err, ErrInvalidJSON) {
-		t.Errorf("expected ErrInvalidJSON for wrong content type, got %v", err)
+			if !IsDecodeError(err, ErrInvalidJSON) {
+				t.Errorf("expected ErrInvalidJSON for wrong content type, got %v", err)
+			}
+		})
 	}
 }
 
@@ -238,6 +246,154 @@ func TestDecodeJSONBody_ContentTypeWithCharset(t *testing.T) {
 
 	if err != nil {
 		t.Fatalf("expected no error for Content-Type with charset, got %v", err)
+	}
+}
+
+func TestDecodeJSONBody_ContentTypeJSONSuffix(t *testing.T) {
+	// AC4: any media type whose subtype ends in +json is accepted.
+	body := `{"email": "test@example.com"}`
+	req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/vnd.api+json")
+
+	var dst TestRequest
+	err := DecodeJSONBody(req, &dst, nil)
+
+	if err != nil {
+		t.Fatalf("expected no error for +json media type, got %v", err)
+	}
+
+	if dst.Email != "test@example.com" {
+		t.Errorf("expected email 'test@example.com', got '%s'", dst.Email)
+	}
+}
+
+func TestDecodeJSONBody_ContentTypeCaseInsensitive(t *testing.T) {
+	// AC4: normalisation goes through mime.ParseMediaType, so casing does not matter.
+	body := `{"email": "test@example.com"}`
+	req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(body))
+	req.Header.Set("Content-Type", "APPLICATION/JSON")
+
+	var dst TestRequest
+	err := DecodeJSONBody(req, &dst, nil)
+
+	if err != nil {
+		t.Fatalf("expected no error for uppercase media type, got %v", err)
+	}
+}
+
+func TestDecodeJSONBody_MalformedContentType(t *testing.T) {
+	// AC4: a header that does not parse is treated as unsupported.
+	body := `{"email": "test@example.com"}`
+	req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/json; charset=")
+
+	var dst TestRequest
+	err := DecodeJSONBody(req, &dst, nil)
+
+	if err == nil {
+		t.Fatal("expected error for unparseable content type, got nil")
+	}
+
+	if !IsDecodeError(err, ErrInvalidJSON) {
+		t.Errorf("expected ErrInvalidJSON, got %v", err)
+	}
+}
+
+func TestDecodeJSONBody_TrailingGarbage(t *testing.T) {
+	// AC3: anything other than whitespace after the first JSON value is a failure.
+	tests := []struct {
+		name string
+		body string
+	}{
+		{"second object", `{"email": "test@example.com"}{"email": "another@example.com"}`},
+		{"trailing garbage", `{"email": "test@example.com"}garbage`},
+		{"trailing comma", `{"email": "test@example.com"},`},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(tt.body))
+			req.Header.Set("Content-Type", "application/json")
+
+			var dst TestRequest
+			err := DecodeJSONBody(req, &dst, nil)
+
+			if err == nil {
+				t.Fatal("expected error, got nil")
+			}
+
+			if !IsDecodeError(err, ErrInvalidJSON) {
+				t.Errorf("expected ErrInvalidJSON, got %v", err)
+			}
+		})
+	}
+}
+
+func TestDecodeJSONBody_TrailingWhitespace(t *testing.T) {
+	// AC3: trailing whitespace is still valid.
+	body := "{\"email\": \"test@example.com\"}  \n\t "
+	req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/json")
+
+	var dst TestRequest
+	err := DecodeJSONBody(req, &dst, nil)
+
+	if err != nil {
+		t.Fatalf("expected no error for trailing whitespace, got %v", err)
+	}
+}
+
+func TestDecodeJSONBody_BodyExactlyAtLimit(t *testing.T) {
+	// AC6: a body of exactly MaxBodySize bytes is within the limit, not over it.
+	body := `{"email": "a@b.c"}`
+	req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(body))
+	req.Header.Set("Content-Type", "application/json")
+
+	var dst TestRequest
+	opts := &DecodeOptions{
+		MaxBodySize: int64(len(body)),
+	}
+	err := DecodeJSONBody(req, &dst, opts)
+
+	if err != nil {
+		t.Fatalf("expected no error at exactly the limit, got %v", err)
+	}
+}
+
+func TestDecodeJSONBody_TruncatedAtValidBoundary(t *testing.T) {
+	// AC6: the defect this spec exists for — defect [D]. The limit cuts the
+	// body exactly where the bytes read so far form a complete, valid JSON
+	// value, so a plain io.LimitReader decodes it successfully and the
+	// request is accepted with the rest silently dropped.
+	valid := `{"email":"a@b.c"}`
+	tests := []struct {
+		name string
+		body string
+	}{
+		{"trailing whitespace", valid + "      "},
+		{"second object", valid + `{"email":"evil@example.com"}`},
+		{"trailing garbage", valid + "garbage"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req := httptest.NewRequest(http.MethodPost, "/test", strings.NewReader(tt.body))
+			req.Header.Set("Content-Type", "application/json")
+
+			var dst TestRequest
+			opts := &DecodeOptions{
+				MaxBodySize: int64(len(valid)), // the cut lands right after "}"
+			}
+			err := DecodeJSONBody(req, &dst, opts)
+
+			if err == nil {
+				t.Fatalf("expected ErrBodyTooLarge for a truncated body, decoded %+v", dst)
+			}
+
+			if !IsDecodeError(err, ErrBodyTooLarge) {
+				t.Errorf("expected ErrBodyTooLarge, got %v", err)
+			}
+		})
 	}
 }
 

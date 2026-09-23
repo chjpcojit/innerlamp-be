@@ -434,8 +434,7 @@ func main() {
 }
 
 func handleHealth(w http.ResponseWriter, r *http.Request) {
-    w.WriteHeader(http.StatusOK)
-    w.Write([]byte("OK"))
+    utils.WriteSuccessResponse(w, map[string]string{"status": "ok"}) // envelope chuẩn — pkg/utils/README.md
 }
 
 func handleUsers(w http.ResponseWriter, r *http.Request) {
@@ -446,9 +445,8 @@ func handleUsers(w http.ResponseWriter, r *http.Request) {
     // Context will propagate trace information
     users := fetchUsers(ctx)
     
-    // Return response
-    w.Header().Set("Content-Type", "application/json")
-    json.NewEncoder(w).Encode(users)
+    // Return response in the shared envelope: {"success": true, "data": users}
+    utils.WriteSuccessResponse(w, users)
 }
 ```
 

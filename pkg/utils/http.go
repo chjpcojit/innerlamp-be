@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"mime"
 	"net/http"
 	"strings"
 )
@@ -72,16 +73,83 @@ func DefaultDecodeOptions() *DecodeOptions {
 	}
 }
 
-// DecodeJSONBody decodes JSON request body with error handling
+// isJSONContentType reports whether the Content-Type header names a JSON
+// media type. The media type is normalised through mime.ParseMediaType, so
+// casing and parameters (charset, ...) do not matter: "APPLICATION/JSON" and
+// "application/json; charset=utf-8" both pass. A media type whose subtype
+// ends in "+json" (application/vnd.api+json, ...) passes too.
+//
+// An empty header returns true: a request with no Content-Type at all stays
+// lenient, which is the behaviour TestDecodeJSONBody_NoContentType pins. A
+// header that fails to parse is treated as unsupported.
+func isJSONContentType(header string) bool {
+	if header == "" {
+		return true
+	}
+
+	mediaType, _, err := mime.ParseMediaType(header)
+	if err != nil {
+		return false
+	}
+
+	if mediaType == "application/json" {
+		return true
+	}
+
+	return strings.HasSuffix(mediaType, "+json")
+}
+
+// unknownFieldName extracts the field name from the message of an
+// encoding/json "unknown field" error, which is an *errors.errorString
+// shaped `json: unknown field "x"` — not a *json.UnmarshalTypeError, so the
+// field name is only available in the message text.
+func unknownFieldName(msg string) string {
+	_, after, found := strings.Cut(msg, `unknown field "`)
+	if !found {
+		return ""
+	}
+	name, _, found := strings.Cut(after, `"`)
+	if !found {
+		return ""
+	}
+	return name
+}
+
+// DecodeJSONBody decodes JSON request body with error handling.
+//
+// The gates run in a fixed order, and that order is part of the contract:
+// reversing two of them changes the error returned for the same request.
+//
+//  1. Content-Type — non-JSON media type → ErrInvalidJSON ("unsupported
+//     content type"); a missing header passes.
+//  2. Read the body, capped at MaxBodySize+1 bytes (MaxBodySize <= 0 means
+//     no limit).
+//  3. Over the cap → ErrBodyTooLarge, even when the bytes read happen to
+//     end on a valid JSON boundary.
+//  4. Empty / whitespace-only → ErrEmptyBody.
+//  5. Decode → ErrUnknownField (Field set), ErrInvalidFieldType (Field set)
+//     or ErrInvalidJSON.
+//  6. Anything but whitespace after the first JSON value → ErrInvalidJSON.
 func DecodeJSONBody(r *http.Request, dst any, opts *DecodeOptions) error {
 	if opts == nil {
 		opts = DefaultDecodeOptions()
 	}
 
-	// Read body
+	// Gate 1: Content-Type
+	if !isJSONContentType(r.Header.Get("Content-Type")) {
+		return &DecodeError{
+			Message: "unsupported content type",
+			Err:     ErrInvalidJSON,
+		}
+	}
+
+	// Gate 2: read body, capped one byte past the limit so gate 3 can tell
+	// "exactly at the limit" from "over it". io.LimitReader truncates
+	// silently, so reading the extra byte is the only signal available
+	// without http.MaxBytesReader (which would close the connection).
 	var reader io.Reader = r.Body
 	if opts.MaxBodySize > 0 {
-		reader = io.LimitReader(r.Body, opts.MaxBodySize)
+		reader = io.LimitReader(r.Body, opts.MaxBodySize+1)
 	}
 
 	data, err := io.ReadAll(reader)
@@ -92,7 +160,15 @@ func DecodeJSONBody(r *http.Request, dst any, opts *DecodeOptions) error {
 		}
 	}
 
-	// Check if body is empty
+	// Gate 3: over the limit
+	if opts.MaxBodySize > 0 && int64(len(data)) > opts.MaxBodySize {
+		return &DecodeError{
+			Message: ErrBodyTooLarge.Error(),
+			Err:     ErrBodyTooLarge,
+		}
+	}
+
+	// Gate 4: empty / whitespace-only
 	trimmed := strings.TrimSpace(string(data))
 	if trimmed == "" {
 		return &DecodeError{
@@ -101,7 +177,7 @@ func DecodeJSONBody(r *http.Request, dst any, opts *DecodeOptions) error {
 		}
 	}
 
-	// Decode JSON
+	// Gate 5: decode
 	decoder := json.NewDecoder(strings.NewReader(trimmed))
 	if opts.DisallowUnknownFields {
 		decoder.DisallowUnknownFields()
@@ -110,13 +186,8 @@ func DecodeJSONBody(r *http.Request, dst any, opts *DecodeOptions) error {
 	if err := decoder.Decode(dst); err != nil {
 		// Check for specific error types
 		if strings.Contains(err.Error(), "unknown field") {
-			// Extract field name from error message
-			var field string
-			if ue, ok := err.(*json.UnmarshalTypeError); ok {
-				field = ue.Field
-			}
 			return &DecodeError{
-				Field:   field,
+				Field:   unknownFieldName(err.Error()),
 				Message: ErrUnknownField.Error(),
 				Err:     ErrUnknownField,
 			}
@@ -124,7 +195,8 @@ func DecodeJSONBody(r *http.Request, dst any, opts *DecodeOptions) error {
 
 		if strings.Contains(err.Error(), "cannot unmarshal") {
 			var field string
-			if ute, ok := err.(*json.UnmarshalTypeError); ok {
+			var ute *json.UnmarshalTypeError
+			if errors.As(err, &ute) {
 				field = ute.Field
 			}
 			return &DecodeError{
@@ -134,6 +206,18 @@ func DecodeJSONBody(r *http.Request, dst any, opts *DecodeOptions) error {
 			}
 		}
 
+		return &DecodeError{
+			Message: ErrInvalidJSON.Error(),
+			Err:     ErrInvalidJSON,
+		}
+	}
+
+	// Gate 6: trailing content. A second Decode into an empty struct is
+	// io.EOF when only whitespace remains (valid) and nil or a syntax error
+	// when a further value follows. decoder.More() is not usable here: it is
+	// defined for elements inside an array/object, not for a top-level
+	// stream.
+	if err := decoder.Decode(&struct{}{}); !errors.Is(err, io.EOF) {
 		return &DecodeError{
 			Message: ErrInvalidJSON.Error(),
 			Err:     ErrInvalidJSON,
@@ -172,7 +256,8 @@ func IsDecodeError(err error, target error) bool {
 
 // GetDecodeErrorDetails extracts field name and message from DecodeError
 func GetDecodeErrorDetails(err error) (field string, message string) {
-	if de, ok := err.(*DecodeError); ok {
+	var de *DecodeError
+	if errors.As(err, &de) {
 		return de.Field, de.Message
 	}
 	return "", ""
@@ -193,7 +278,11 @@ func WriteSuccessResponseWithStatus(w http.ResponseWriter, statusCode int, data 
 		Data:    data,
 	}
 
-	json.NewEncoder(w).Encode(response)
+	// The status line is already sent, so an encode failure (a dropped
+	// connection, or a data value that cannot marshal) cannot be answered
+	// with a different response; appending a plain-text body would only
+	// corrupt the JSON the client is reading.
+	_ = json.NewEncoder(w).Encode(response)
 }
 
 // WriteErrorResponse writes an error response
@@ -211,7 +300,11 @@ func WriteErrorResponse(w http.ResponseWriter, statusCode int, errorType, code, 
 		Details: details,
 	}
 
-	json.NewEncoder(w).Encode(response)
+	// The status line is already sent, so an encode failure (a dropped
+	// connection, or a data value that cannot marshal) cannot be answered
+	// with a different response; appending a plain-text body would only
+	// corrupt the JSON the client is reading.
+	_ = json.NewEncoder(w).Encode(response)
 }
 
 // WriteValidationError writes a validation error response (400 Bad Request)

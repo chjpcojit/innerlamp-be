@@ -1,0 +1,34 @@
+// Alloy config: tail appService's local log file and push it to Loki.
+//
+// appService runs on the host with `go run` (see README §7), not as a
+// container, so loki.source.docker / the Docker log driver cannot see it. The
+// documented run command tees stdout+stderr into observability/logs/, and this
+// tails that directory instead.
+
+// Where to push. "loki" is the compose service name, resolvable only on the
+// stack's network — that is why this URL differs from the host-facing
+// http://localhost:3100 used in a browser.
+loki.write "local" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
+
+// Discover *.log files under the mounted directory. The extra keys become
+// stream labels, so queries can filter by them.
+local.file_match "appservice" {
+  path_targets = [{
+    __path__ = "/var/log/innerlamp/*.log",
+    service  = "appservice",
+    env      = "local",
+  }]
+}
+
+// tail_from_end is intentionally left at its default (false): on an Alloy
+// restart the whole file is replayed from the beginning, which is what a
+// local dev stack wants. Set it true and a restart would skip everything
+// already written.
+loki.source.file "appservice" {
+  targets    = local.file_match.appservice.targets
+  forward_to = [loki.write.local.receiver]
+}

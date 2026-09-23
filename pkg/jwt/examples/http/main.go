@@ -22,6 +22,7 @@ import (
 	"chjpcoj.com.innerlamp/pkg/jwt/middleware"
 	"chjpcoj.com.innerlamp/pkg/logging"
 	"chjpcoj.com.innerlamp/pkg/logging/formatter"
+	"chjpcoj.com.innerlamp/pkg/utils"
 )
 
 // User represents a user in the system
@@ -78,11 +79,6 @@ type RefreshRequest struct {
 // RefreshResponse represents token refresh response
 type RefreshResponse struct {
 	AccessToken string `json:"access_token"`
-}
-
-// ErrorResponse represents an error response
-type ErrorResponse struct {
-	Error string `json:"error"`
 }
 
 // ProfileResponse represents user profile response
@@ -162,7 +158,7 @@ func main() {
 // loginHandler handles user login
 func (s *Server) loginHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		s.sendError(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
@@ -217,7 +213,7 @@ func (s *Server) loginHandler(w http.ResponseWriter, r *http.Request) {
 // refreshHandler handles token refresh
 func (s *Server) refreshHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		s.sendError(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
 
@@ -373,14 +369,25 @@ func (s *Server) healthHandler(w http.ResponseWriter, r *http.Request) {
 	}, http.StatusOK)
 }
 
-// sendJSON sends a JSON response
+// sendJSON sends a success response in the framework's utils.ApiResponse
+// envelope: {"success": true, "data": ...}.
 func (s *Server) sendJSON(w http.ResponseWriter, data any, statusCode int) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(statusCode)
-	_ = json.NewEncoder(w).Encode(data) // #nosec
+	utils.WriteSuccessResponseWithStatus(w, statusCode, data)
 }
 
-// sendError sends an error response
+// sendError sends an error response in the same envelope:
+// {"success": false, "error": {"code", "message", "type"}}.
 func (s *Server) sendError(w http.ResponseWriter, message string, statusCode int) {
-	s.sendJSON(w, ErrorResponse{Error: message}, statusCode)
+	switch statusCode {
+	case http.StatusBadRequest:
+		utils.WriteValidationError(w, "VALIDATION_ERROR", message, nil)
+	case http.StatusUnauthorized:
+		utils.WriteBusinessError(w, statusCode, "UNAUTHORIZED", message, nil)
+	case http.StatusNotFound:
+		utils.WriteBusinessError(w, statusCode, "NOT_FOUND", message, nil)
+	case http.StatusMethodNotAllowed:
+		utils.WriteBusinessError(w, statusCode, "METHOD_NOT_ALLOWED", message, nil)
+	default:
+		utils.WriteSystemError(w, "INTERNAL_ERROR", message, nil)
+	}
 }

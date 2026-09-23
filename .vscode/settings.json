@@ -6,9 +6,15 @@
     "chjpcoj",
     "deliveryhttp",
     "GOLANGCI",
+    "healthcheck",
     "innerlamp",
+    "isready",
+    "jwtclaims",
     "jwtcontext",
+    "normalises",
     "nosec",
+    "stretchr",
+    "subtest",
     "usecase"
   ]
 }

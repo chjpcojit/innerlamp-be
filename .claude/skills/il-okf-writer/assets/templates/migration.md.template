@@ -1,0 +1,62 @@
+---
+type: Migration
+title: {{0001_register_onboarding}}
+description: {{One sentence — which tables/schema this migration creates or alters, and for which feature.}}
+resource: migrations/{{0001_register_onboarding.sql}}
+tags: [migration, schema, {{domain}}]
+status: draft
+generated: { by: {{author}}, at: {{ISO8601}} }
+sources:
+  - path: docs/specs/db/{{domain}}-erd.md
+    kind: erd
+  - path: {{the spec or ERD doc this schema came from, if any; drop the entry if none}}
+    kind: implementation-notes
+---
+
+# Summary
+
+{{What schema change this file applies, for which feature, and whether it is the
+baseline or an incremental change on top of an earlier migration. Name the
+forward-only vs reversible choice — and if there is no `DOWN` section, say so
+explicitly, because a reader will otherwise assume the migration can be rolled
+back.}}
+
+# Tables
+
+| Table | Operation | Purpose |
+|---|---|---|
+| `{{users}}` | `CREATE TABLE` | {{}} |
+| `{{user_sessions}}` | `ALTER TABLE` | {{which columns, and why}} |
+
+{{For each table, the columns and constraints that matter: PRIMARY KEY shape
+(UUID vs bigserial), NOT NULL, UNIQUE with its exact constraint name (the
+repository translates unique-violation codes by name, so the name is
+load-bearing), CHECK constraints, and foreign keys with their ON DELETE
+behavior.}}
+
+# Indexes
+
+| Index | Columns | Why it exists |
+|---|---|---|
+| `{{idx_users_email}}` | `{{(email)}}` | {{which query depends on it}} |
+
+# Seed data
+
+{{Any INSERT of reference rows (content tables, lookup rows). State whether the
+seed is idempotent (`ON CONFLICT DO NOTHING`) or would fail on re-run — that
+determines whether the migration can be applied twice. Delete this section if
+the migration seeds nothing.}}
+
+# Applied by
+
+{{How this migration actually reaches a database: an external migration tool, a
+manual `psql` invocation, the service at startup — or "no runner exists in this
+repo; the file is applied by hand". Do not assume a runner; check
+the migration folder and `cmd/main.go` and say what is actually there.}}
+
+# Related concepts
+
+{{The Domain Entity concepts whose structs map to these tables, and the Feature
+concepts whose flows write them. Where the schema and the Go struct disagree,
+that mismatch is the most valuable thing this concept can record — link both
+sides and state it.}}

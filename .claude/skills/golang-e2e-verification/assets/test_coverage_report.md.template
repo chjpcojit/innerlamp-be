@@ -1,0 +1,26 @@
+# Test Coverage Report — {{feature}}
+
+AC coverage audits and E2E wiring findings for this feature, run by `golang-e2e-verification`.
+Newest run first. This file is an audit log, not part of the requirements→design→tasks cascade —
+it needs no version number and no `changelog.md` entry of its own.
+
+## {{date}}
+
+### AC coverage
+
+| AC | Requirement (short) | Covered by | Status |
+|----|---------------------|-----------|--------|
+| AC1 | ... | `path/to/test.go:NN` `TestName` | ✅ covered |
+| AC4 | ... | — | ❌ gap — usecase layer, not E2E |
+
+### E2E findings
+
+<!--
+List any wiring bug an E2E test caught this run (route missing middleware, wrong handler wired,
+config not reaching the running server), with the test name that caught it and whether it was
+fixed in this same pass or flagged for follow-up. Write "None this run." if there were none.
+-->
+
+### Follow-ups
+
+<!-- Gaps routed elsewhere (e.g. "AC4 needs a usecase-layer test — see golang-clean-arch-tdd"). -->

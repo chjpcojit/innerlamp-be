@@ -17,6 +17,7 @@ import (
 	"chjpcoj.com.innerlamp/pkg/ratelimit"
 	"chjpcoj.com.innerlamp/pkg/ratelimit/middleware"
 	"chjpcoj.com.innerlamp/pkg/ratelimit/store"
+	"chjpcoj.com.innerlamp/pkg/utils"
 )
 
 func main() {
@@ -61,7 +62,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		_, _ = w.Write([]byte("Request allowed!")) // #nosec
+		utils.WriteSuccessResponse(w, map[string]any{"message": "Request allowed!"})
 	})
 
 	// Chain: Request -> Global Limit -> IP Limit -> Handler

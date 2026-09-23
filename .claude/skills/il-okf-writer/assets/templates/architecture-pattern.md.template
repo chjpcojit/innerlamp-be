@@ -1,0 +1,55 @@
+---
+type: Architecture Pattern
+title: {{Title}}
+description: {{One sentence — the pattern and the problem it solves.}}
+resource: {{pkg/database/database.go | services/appService/domain/ | ...}}
+tags: [architecture]
+status: stable
+generated: { by: {{author}}, at: {{ISO8601}} }
+sources:
+  - path: {{the package README that documents the pattern}}
+    kind: implementation-notes
+---
+
+# Summary
+
+{{The pattern in 2-3 sentences: what problem it solves, and the one rule a
+contributor must follow to stay consistent with it. Architecture concepts are
+written once and rarely updated — optimise for a reader who will never read the
+source, not for changelog accuracy.}}
+
+# The rule
+
+{{The single non-negotiable, stated imperatively, followed by why it exists —
+the why is what stops the next contributor from making a locally reasonable
+exception. E.g. "a constructor validates config and never dials the network;
+connections happen only in Connect(ctx)/Start(ctx), so a service fails at
+startup rather than mid-request."}}
+
+# Shape
+
+```
+{{ASCII diagram of the moving parts and the direction of calls. Reuse the
+diagram style of the relevant README so they read as one document.}}
+```
+
+# Canonical example
+
+{{Point at the single most representative real implementation by path, and say
+why it is representative. If something in the repo deviates, name it and say
+whether the deviation is deliberate or drift. If a script enforces the rule
+(`.claude/skills/golang-clean-arch-tdd/scripts/check_dependency_rule.sh` for the dependency direction),
+say exactly
+what it catches and what it does not — the gaps are the valuable part.}}
+
+# Common mistakes
+
+- {{The mistake, and the symptom that reveals it. E.g. "opening a connection in
+  the constructor — `go build` passes, but the service dies at startup when the
+  DB is unreachable instead of failing the health check."}}
+
+# Related concepts
+
+{{Other architecture concepts this one depends on or is easily confused with;
+the Package concepts that follow it; the feature concepts affected if it
+changes.}}

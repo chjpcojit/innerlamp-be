@@ -17,13 +17,13 @@ handler := middleware.Logger(mux)
 ```
 
 ### `CORS(next http.Handler) http.Handler`
-Set cứng `Access-Control-Allow-Origin: *`, `Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS`, `Access-Control-Allow-Headers: Content-Type, Authorization`; trả `200 OK` ngay cho request `OPTIONS` (preflight) mà không gọi tiếp `next`.
+Set cứng `Access-Control-Allow-Origin: *`, `Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS`, `Access-Control-Allow-Headers: Content-Type, Authorization`; request `OPTIONS` (preflight) được trả ngay `200` + `Content-Type: application/json` + body envelope `{"success": true}` qua `utils.WriteSuccessResponseWithStatus` mà không gọi tiếp `next`. Preflight dùng cùng envelope với mọi response khác nên client parse bằng một bộ `utils.ApiResponse` duy nhất (xem `docs/specs/features/http-middleware-wiring/`).
 ```go
 handler := middleware.CORS(mux)
 ```
 
 ### `Recovery(next http.Handler) http.Handler`
-Recover panic trong handler, log stack trace bằng `log.Printf`, trả response `500` dạng JSON `{"status":"error","error":{"code":"ERR_INTERNAL","message":"..."}}`.
+Recover panic trong handler, log stack trace bằng `log.Printf`, trả `500` qua `utils.WriteSystemError` — envelope chuẩn `{"success":false,"error":{"code":"INTERNAL_ERROR","message":"internal server error","type":"system"}}` (xem `pkg/utils/README.md` §Envelope). Client không phân biệt được panic với một 500 thường; nguyên nhân chỉ nằm trong log.
 ```go
 handler := middleware.Recovery(mux)
 ```
@@ -51,9 +51,9 @@ Bản tương đương `RecoveryWithLoggerInterceptor` cho stream gRPC handler.
 ## Cấu hình / dependency
 - Không có config struct, không đọc biến môi trường — mọi hàm đều nhận tham số trực tiếp (handler kế tiếp, hoặc `logFunc`).
 - Phụ thuộc thư viện ngoài: `google.golang.org/grpc` (chỉ `grpc.go` cần).
-- Không phụ thuộc package nội bộ nào khác trong repo (không import `pkg/logging`, `pkg/jwt`, ...).
+- Phụ thuộc nội bộ duy nhất: `pkg/utils` (`Recovery` ghi response 500 qua `utils.WriteSystemError`). Không import `pkg/logging`, `pkg/jwt`, ...
 - Import path đúng: `chjpcoj.com.innerlamp/pkg/middleware`.
-- **Hiện chưa có nơi nào trong repo import package này** (`grep -rn "pkg/middleware\"" --include="*.go" .` không ra kết quả) — `services/appService` chưa dùng các middleware ở đây.
+- `services/appService/cmd/main.go` dùng `Recovery`, `CORS` và `Logger` (alias `httpmiddleware`) qua `newHandler(mux)`, chain thật là `Recovery(CORS(Logger(WithAPIFallback(mux))))` — thứ tự này load-bearing: `Recovery` ngoài cùng bắt panic mọi tầng, `CORS` ngoài `Logger` để preflight `OPTIONS` được trả ngay và không sinh log line, `Logger` ngoài fallback/mux để cả route khớp lẫn `404`/`405` đều có log. Các interceptor gRPC chưa có nơi nào dùng.
 
 ## Lưu ý / lỗi hay gặp
 - `Logger` và `Recovery` (bản HTTP) dùng `log.Printf` thẳng ra stdout/stderr — không có log level, không structured, không gắn trace ID. Nếu service đã dùng `pkg/logging`, hai middleware này sẽ tạo log không đồng nhất định dạng với phần còn lại của service.

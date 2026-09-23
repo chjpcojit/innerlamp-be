@@ -78,7 +78,7 @@ Khác với Om Mani, Tâm Đăng chọn:
 
 | Quyết định | Tâm Đăng | Om Mani |
 |---|---|---|
-| Auth | Auth thật (JWT, email/password) | Không cần tài khoản (iCloud ẩn danh) |
+| Auth | Auth thật (JWT; định danh **số điện thoại + mật khẩu**, verify qua OTP) | Không cần tài khoản (iCloud ẩn danh) |
 | Content | Tải từ server, sync theo `updated_since` | Bundle sẵn trong app |
 | Lý do | Mở đường cho community/dana và kinh doanh sau này; cập nhật nội dung không cần release app mới | Đơn giản, không cross-platform |
 
@@ -96,19 +96,13 @@ Chia theo bounded context, mỗi module giữ nguyên Clean Architecture (domain
 
 ### Cấu trúc thư mục Go (backend)
 
-```
-/cmd/api
-/internal
-  /identity
-    /domain
-    /usecase
-    /repository
-  /content
-  /practice
-  /journal
-  /calendar
-  /platform      // shared: db, pubsub, auth middleware
-/pkg             // shared kernel nếu cần expose ra ngoài sau này
+Thực tế hiện tại (khác bản đề xuất `/cmd/api` + `/internal` ban đầu): `pkg/` là shared framework, `services/appService/` là service duy nhất theo Clean Architecture. Cây thư mục thật xem `AGENTS.md` §2.
+
+```text
+/pkg                      shared infrastructure (config, database, jwt, sms, utils, validation, ...)
+/services/appService/     service duy nhất
+  cmd/  config/  domain/  usecase/  repository/  delivery/http/  e2e/
+/migrations/              SQL migrations (0001–0003)
 ```
 
 ### Cấu trúc thư mục Flutter (mobile)
@@ -138,53 +132,39 @@ Pattern shell + feature module — mỗi tính năng độc lập, giao tiếp v
 
 ## 4. Module `identity`
 
-### Schema Postgres
+**Trạng thái: đã implement US-001 (đăng ký) + US-002 (đăng nhập).** Nguồn sự thật:
+- `docs/specs/features/onboarding/requirements.md` — US-001: đăng ký 2 bước qua OTP (`request-otp` → `verify-otp`), endpoint dùng chung `resend-otp`
+- `docs/specs/features/login/requirements.md` — US-002: `login` / `refresh` / `logout`
+- `docs/specs/api/openapi.yaml` — contract 6 route (nguồn cho client)
+- `migrations/README.md` + `migrations/0001`–`0003` — schema thật
+- `docs/knowledge/features/{register,login}.md` — tài liệu OKF sau implement
 
-```sql
-CREATE TABLE users (
-    id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    email           VARCHAR(255) UNIQUE NOT NULL,
-    password_hash   VARCHAR(255) NOT NULL,
-    dharma_name     VARCHAR(100),
-    avatar_url      TEXT,
-    email_verified  BOOLEAN NOT NULL DEFAULT false,
-    created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
-);
+Khác bản thiết kế ban đầu: định danh là **số điện thoại + mật khẩu** (đã verify OTP), không phải email/password; session nằm ở `user_sessions`, không phải bảng `refresh_tokens`. Bảng thật: `users`, `pending_registration`, `otp_codes`, `otp_send_limits`, `user_devices`, `user_sessions`, `login_attempts`.
 
-CREATE TABLE refresh_tokens (
-    id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id         UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    token_hash      VARCHAR(255) NOT NULL,
-    expires_at      TIMESTAMPTZ NOT NULL,
-    revoked_at      TIMESTAMPTZ,
-    created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-
-CREATE INDEX idx_refresh_tokens_user_id ON refresh_tokens(user_id);
-```
-
-Lưu ý: `token_hash` lưu SHA-256 hash của refresh token, không lưu raw token — DB leak không đủ để hijack session.
-
-### API endpoints
+### API endpoints (thật)
 
 ```
-POST   /v1/auth/register        { email, password, dharma_name? }
-POST   /v1/auth/login           { email, password } → { access_token, refresh_token }
-POST   /v1/auth/refresh         { refresh_token } → { access_token, refresh_token }
-POST   /v1/auth/logout          { refresh_token } → revoke
-GET    /v1/users/me             (auth required) → user profile
-PATCH  /v1/users/me             { dharma_name?, avatar_url? }
+POST /v1/auth/register/request-otp   { phone_number, email, password, dharma_name?, ordination_place? }
+POST /v1/auth/register/verify-otp    { phone_number, otp_code }         → 201 + access/refresh token
+POST /v1/auth/resend-otp             { phone_number, purpose }          (dùng chung mọi purpose; hiện chỉ register)
+POST /v1/auth/login                  { phone_number, password, device } → access/refresh token
+POST /v1/auth/refresh                { refresh_token }                  → cặp token mới (rotation)
+POST /v1/auth/logout                 Authorization: Bearer <access_token> → 200 {"success": true}
 ```
 
-- Access token JWT: sống ngắn (15 phút)
-- Refresh token: sống dài (30 ngày), **rotate mỗi lần dùng** (refresh token cũ bị revoke ngay khi cấp cái mới, chống replay attack)
+- Access token JWT: 15 phút. Refresh token: **7 ngày** (`JWTConfig.RefreshTokenExpiration` = `168h`), **rotate mỗi lần dùng**; dùng lại token cũ → revoke session của thiết bị đó (chống replay).
+- OTP: TTL 90 giây; tối đa 4 lượt gửi rồi khoá-gửi 30 phút; nhập sai 3 lần khoá xác thực 30 phút; payload `pending_registration` sống 24h.
+- ⚠️ Dev-only: OTP hardcode `111111`, SMS chỉ log qua `pkg/sms/logsms`, secret đọc từ YAML (`⚠️ DEV ONLY`/`⚠️ DEV CONFIG` trong `cmd/main.go`).
+
+> `GET/PATCH /v1/users/me` (profile/avatar) và module `content` **chưa được implement** — xem mục 5 và mục 7.
 
 ---
 
 ## 5. Module `content`
 
-### Schema Postgres
+> ⚠️ **Chưa implement.** Phần này là thiết kế dự kiến; spec prospective ở `docs/specs/features/content/requirements.md`. Hiện chỉ module `identity` (US-001/US-002) có code.
+
+### Schema Postgres (dự kiến)
 
 ```sql
 CREATE TABLE bodhisattvas (
@@ -232,7 +212,7 @@ CREATE INDEX idx_bodhisattvas_updated_at ON bodhisattvas(updated_at);
 
 Lưu ý thứ tự migration: tạo `bodhisattvas` trước vì `mantras` reference tới nó.
 
-### API endpoints
+### API endpoints (dự kiến)
 
 ```
 GET  /v1/content/sutras?updated_since=<RFC3339>&sect=<optional>
@@ -284,11 +264,89 @@ Client lưu `synced_at` local, gọi lại với `updated_since=<synced_at cũ>`
 
 ---
 
-## 7. Việc cần làm tiếp theo
+## 7. Chạy local (dev)
+
+Stack local nằm ở `docker-compose.yml`:
+
+- `postgres` khớp nguyên `services/appService/config/config.dev.yaml` + `migrate` one-shot apply `migrations/0001`–`0003` bằng `psql -f`.
+- `loki` + `alloy` + `grafana` để gom log (xem mục dưới).
+
+Tài liệu đầy đủ: [`docs/development/local-stack.md`](docs/development/local-stack.md) (mô tả cấu hình compose + hướng dẫn chạy) và [`docs/development/database-cli.md`](docs/development/database-cli.md) (CLI Docker + xem dữ liệu Postgres).
+
+```bash
+# Từ repo root (bắt buộc — cmd/main.go đọc config theo đường dẫn tương đối)
+docker compose up -d          # Postgres + migrations + Loki/Alloy/Grafana
+
+# Chạy app và tee log ra file để Alloy tail — appService chạy trên host, không
+# nằm trong compose (xem "Vì sao không gộp appService vào compose" bên dưới)
+go run ./services/appService/cmd 2>&1 | tee -a observability/logs/appservice.log
+```
+
+Hoặc dùng `Makefile` (chạy `make help` để xem hết target):
+
+```bash
+make up           # dựng stack
+make run          # chạy appService + tee log (tự gọi `make up` trước)
+make db-accounts  # xem tài khoản đã đăng ký
+make reset        # xoá sạch Postgres + Loki + Grafana rồi dựng lại
+```
+
+Server nghe ở `http://localhost:8080`. Sau khi thêm migration mới, apply lại không cần tạo lại Postgres:
+
+```bash
+docker compose run --rm migrate
+```
+
+Xoá sạch Postgres + Loki + Grafana để chạy lại từ đầu:
+
+```bash
+docker compose down -v && docker compose up -d
+```
+
+Vài điểm cần biết khi tích hợp frontend:
+
+- **CORS**: middleware hardcode `Access-Control-Allow-Origin: *` — FE gọi thẳng, không cần cấu hình thêm.
+- **OTP**: đang hardcode `111111`; SMS chỉ ghi log ra stdout của server (`pkg/sms/logsms`), không gửi thật.
+- **Contract**: `docs/specs/api/openapi.yaml` (server base `/v1`) là nguồn để generate API client.
+- **Token**: access 15 phút, refresh 7 ngày và **rotate mỗi lần dùng**; dùng lại refresh token cũ sẽ revoke session thiết bị đó.
+- ⚠️ Các điểm `⚠️ DEV ONLY`/`⚠️ DEV CONFIG` trong `cmd/main.go` (secret đọc từ `dev_secrets` trong YAML) **chỉ dành cho local**, không dùng cho môi trường thật.
+
+### Gom log: Loki + Grafana (+ Alloy)
+
+appService chạy trên host nên Alloy **không** đọc được stdout của nó như log container. Luồng log là:
+
+```
+go run (host) --tee--> observability/logs/*.log --tail--> Alloy --> Loki --> Grafana
+```
+
+- **Grafana**: http://localhost:3000 — datasource Loki đã provision sẵn; mở **Explore**, query `{service="appservice"}`.
+- **Loki API**: http://localhost:3100, **Alloy UI**: http://localhost:12345.
+- Query nhanh không cần UI:
+
+```bash
+curl -G 'http://localhost:3100/loki/api/v1/query_range' \
+  --data-urlencode 'query={service="appservice"}' --data-urlencode 'limit=20'
+```
+
+- File config: `observability/loki/config.yml`, `observability/alloy/config.alloy`, `observability/grafana/provisioning/datasources/loki.yml`.
+- Log ghi thêm (append) vào `observability/logs/` — đã gitignore qua `*.log`.
+
+⚠️ Grafana đang bật **anonymous admin** (`GF_AUTH_ANONYMOUS_*` trong `docker-compose.yml`) để `up -d` không cần đăng nhập. Chỉ dùng local, tuyệt đối không expose port 3000 ra ngoài.
+
+### Vì sao không gộp appService vào compose
+
+`postgres` publish `5432:5432`, nên process trên host vẫn kết nối được qua `localhost:5432` — đúng như `config.dev.yaml` khai báo. Việc app nằm trong Docker hay không **không** quyết định nó có chạm được Postgres hay không. Giữ app trên host để vòng lặp sửa–chạy nhanh (`go run` restart vài giây thay vì rebuild image mỗi lần sửa một dòng), và vì repo chưa có Dockerfile nào. Hệ quả duy nhất là log phải `tee` ra file cho Alloy tail, như ở trên.
+
+Kiểm thử nhanh không cần Docker: `go test -short ./...` (bỏ qua e2e dùng testcontainers).
+
+---
+
+## 8. Việc cần làm tiếp theo
 
 - [ ] Chốt domain, bundle ID, repo name
-- [ ] Setup Postgres, chạy migration cho `identity` + `content`
-- [ ] Implement module `identity` (register/login/refresh/logout/me)
+- [x] Setup Postgres, chạy migration cho `identity` (`migrations/0001`–`0003`)
+- [x] Implement module `identity` phần register/login/refresh/logout (US-001/US-002)
+- [ ] Implement nốt `identity`: `GET/PATCH /v1/users/me` (profile/avatar) + quên/đặt lại mật khẩu
 - [ ] Implement module `content` (CRUD + delta sync API)
 - [ ] Dựng Flutter shell + feature module đầu tiên (`practice` hoặc `content`)
 - [ ] Quay lại xử lý vấn đề bản quyền nguồn nội dung trước khi public rộng rãi

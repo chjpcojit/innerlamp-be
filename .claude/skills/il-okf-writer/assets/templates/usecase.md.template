@@ -1,0 +1,59 @@
+---
+type: UseCase
+title: {{Title}}
+description: {{One sentence — the business action this usecase performs.}}
+resource: services/appService/usecase/{{feature}}_usecase.go
+tags: [usecase, {{domain}}]
+status: draft
+generated: { by: {{author}}, at: {{ISO8601}} }
+sources:
+  - path: docs/specs/features/{{feature}}/design.md
+    kind: spec
+---
+
+# Summary
+
+{{The business action, in one paragraph, described by what it guarantees rather
+than by which methods it delegates to. Name the handlers that call it.}}
+
+# Interface
+
+| Method | Signature | Behaviour |
+|---|---|---|
+| `{{Method}}` | `{{func (u *XUsecase) M(ctx context.Context, in domain.XInput) (*domain.XResult, error)}}` | {{what it returns, which sentinel errors it can produce}} |
+
+**Constructor**: `{{func NewXUsecase(users domain.UserRepository, jwtSvc jwt.Service, logger logging.Logger) *XUsecase}}`
+— wired in `services/appService/cmd/main.go`. List the exact dependencies and
+whether each is a `domain` port or a `pkg/` abstraction; a usecase importing a
+concrete `repository` or `delivery` type is a layering bug.
+
+# Business rules
+
+{{The rules that live here rather than in the handler or the repository. This
+is the section that justifies the usecase existing — if it is empty, the layer
+is a pass-through and that is worth stating plainly.}}
+
+{{Name owned constants explicitly (TTLs, cooldowns, attempt counters, retry
+caps) with their values — they are the rules. Note any rule that maps one
+sentinel error to a different caller-facing one (e.g. `ErrUserNotFound` →
+`ErrInvalidCredentials`, so unknown-email and wrong-password are
+indistinguishable to the caller).}}
+
+# Transaction boundary
+
+{{Which repository method opens the transaction, what has to happen inside it,
+and what must happen after it commits. The repo convention is
+`Begin` → `defer Rollback` → ... → `Commit`. If the usecase orchestrates
+multiple writes, spell out the ordering and what happens on partial failure.}}
+
+# Stub status
+
+{{For each method that is not fully implemented, state it exactly, quoting the
+body: "`VerifyOTP` returns `errors.New(\"not implemented\")` — it performs no
+repository call and no OTP comparison." Delete this section only when every
+method is real. Note whether tests exist and what they actually exercise.}}
+
+# Related concepts
+
+{{The entity it consumes, the repository interface it depends on, the endpoint
+it ultimately serves, and the feature concepts that call it.}}

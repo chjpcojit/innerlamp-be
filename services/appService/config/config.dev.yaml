@@ -33,6 +33,34 @@ storage:
   project_id: "innerlamp-dev"
   default_bucket: "innerlamp-avatars-dev"
 
+# ⚠️ DEV ONLY: "log" writes the SMS body to the service log instead of
+# sending it. Point at a real provider's ProviderType once one exists.
+sms:
+  provider: "log"
+
+# OTP policy for the registration flow. Every key here is required — a missing
+# one decodes to the Go zero value, and a zero TTL means "already expired"
+# rather than "use a sensible default".
+otp:
+  ttl: "90s"
+  send_cooldown: "60s"
+  max_send_attempts: 3
+  send_lock_duration: "30m"
+  max_attempts: 3
+  lock_duration: "30m"
+  # v5.1: decoupled from ttl (was 90s). The pending payload must outlive the
+  # 30-minute send lock so an attempt can be resumed by resending. Cleanup is
+  # the (deferred) job's responsibility; this is the backstop.
+  pending_registration_ttl: "24h"
+
+# Login brute-force policy (AC7). Every key is required, for the same reason
+# the otp block's are: a missing one decodes to the Go zero value, and a zero
+# lock duration means "locked for no time at all".
+login:
+  max_failed_attempts: 5
+  lock_duration: "15m"
+  failure_reset_window: "15m"
+
 dev_secrets:
   appservice-db-password: "postgres"
   appservice-jwt-secret-key: "innerlamp-dev-secret-key-please-rotate-32c"

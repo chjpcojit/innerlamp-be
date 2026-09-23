@@ -95,7 +95,7 @@ point to the tasks.md Phase that tracks completing it. Delete this section if no
 <!--
 Anything true today that the spec must not paper over — e.g. a route documented as RequireAuth but
 not yet wrapped in cmd/main.go, a handler that accepts requests unauthenticated, a repository method
-without its test. Cite `docs/ARCHITECTURE.md` §4 for the repo-wide list where relevant. Delete if
+without its test. There is no central gap list to cite; spell the gap out here. Delete if
 none.
 -->
 

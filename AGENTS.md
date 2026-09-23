@@ -11,7 +11,7 @@ Tài liệu này cung cấp toàn bộ ngữ cảnh kiến trúc, cấu trúc th
 - **Mục tiêu**: Nền tảng backend cho ứng dụng theo dõi thực hành tâm linh/Phật pháp (InnerLamp), xây dựng theo hướng microservice-ready và serverless/containerized (GCP Cloud Run, GKE, AWS Fargate).
 - **Kiến trúc gồm 2 phần chính**:
   1. `pkg/`: Shared framework / thư viện hạ tầng dùng chung (provider-agnostic).
-  2. `services/appService`: Service ứng dụng cốt lõi tuân thủ **Clean Architecture** tiêu thụ `pkg/`, kết nối PostgreSQL và Google Cloud Storage (GCS).
+  2. `services/appService`: Service ứng dụng cốt lõi tuân thủ **Clean Architecture** tiêu thụ `pkg/`, hiện kết nối PostgreSQL (chưa dùng GCS). Đã implement US-001 (đăng ký 2 bước qua OTP) + US-002 (login/refresh/logout); các module content/journal/practice còn ở mức spec.
 
 ---
 
@@ -19,13 +19,13 @@ Tài liệu này cung cấp toàn bộ ngữ cảnh kiến trúc, cấu trúc th
 
 ```text
 .
-├── cmd/                          # Entrypoints
-├── docs/                         # Tài liệu đặc tả và kiến trúc
-│   ├── ARCHITECTURE.md           # Điểm vào chính mô tả quan hệ giữa các layer/package
-│   ├── api/                      # OpenAPI spec (openapi.yaml)
-│   ├── db/                       # ERD diagrams (register-erd.md, content-erd.md)
-│   └── specs/                    # User stories & Functional specs (onboarding, content, journal, practice)
-├── migrations/                   # SQL migration scripts (0001_... -> 0007_...)
+├── docs/                         # Tài liệu
+│   ├── knowledge/                # OKF bundle sau implement (features/{register,login}.md)
+│   └── specs/                    # Specs (work order)
+│       ├── api/openapi.yaml      # OpenAPI contract (identity: 6 route)
+│       ├── db/                   # ERD (hiện rỗng)
+│       └── features/             # onboarding, login, content, journal, practice + spec cross-cutting
+├── migrations/                   # SQL migration scripts (0001_... -> 0003_...)
 ├── pkg/                          # Shared Infrastructure Framework (Provider-Agnostic)
 │   ├── config/                   # Quản lý cấu hình (hỗ trợ local file, S3, GCS)
 │   ├── database/                 # Database abstraction & drivers (postgresql, mysql, mongodb)
@@ -38,26 +38,29 @@ Tài liệu này cung cấp toàn bộ ngữ cảnh kiến trúc, cấu trúc th
 │   ├── ratelimit/                # Token bucket / Redis / In-memory rate limiting
 │   ├── secrets/                  # Secret managers (env, aws secrets manager, gcp secret manager)
 │   ├── session/                  # Redis & In-memory session management
+│   ├── sms/                      # SMS abstraction + `logsms` driver (dev: chỉ log)
 │   ├── storage/                  # Object storage abstraction (AWS S3, GCP GCS)
 │   ├── tracing/                  # OpenTelemetry & GCP Cloud Trace
 │   ├── utils/                    # Common HTTP response helpers, JSON decoders, pagination
 │   └── validation/               # Request validation using go-playground/validator
+├── scripts/                      # check-*.sh, migrate.sh, ...
 └── services/
     └── appService/               # Core Application Service (Clean Architecture)
         ├── cmd/                  # main.go: dependency injection wiring & server start
-        ├── config/               # AppConfig loader & secret resolver
+        ├── config/               # AppConfig/OTPConfig/LoginConfig loader & secret resolver
         ├── domain/               # Core domain entities, interfaces, and sentinel errors
         ├── usecase/              # Application business logic & usecases
-        ├── repository/           # Concrete DB & Storage repositories (Postgres, GCS)
-        └── delivery/
-            └── http/             # HTTP Handlers, DTOs, Routing
+        ├── repository/           # Concrete Postgres repositories
+        ├── delivery/
+        │   └── http/             # HTTP Handlers, DTOs, Routing
+        └── e2e/                  # Black-box E2E (binary thật + testcontainers Postgres)
 ```
 
 ---
 
 ## 3. Quy Ước Kiến Trúc & Thiết Kế (Core Architectural Patterns)
 
-> Chi tiết đầy đủ (sơ đồ phụ thuộc thật từ import, danh sách khoảng hở đã biết): [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). Phần dưới đây chỉ tóm tắt.
+> Phần dưới đây tóm tắt các quy ước; quan hệ phụ thuộc thật giữa package/layer phải kiểm bằng import trong code (`grep`), không tin tài liệu cũ.
 
 ### 3.1. Pattern Interface + Factory Registry trong `pkg/`
 Mọi package hạ tầng trong `pkg/` đều tuân theo chuẩn:
@@ -73,7 +76,8 @@ Mọi package hạ tầng trong `pkg/` đều tuân theo chuẩn:
 ### 3.2. Clean Architecture trong `services/appService`
 Quy tắc phụ thuộc một chiều (Dependency Rule):
 - `delivery/http` ➜ `usecase` ➜ `domain`
-- `repository` ➜ `domain` (và implement interfaces do `usecase`/`domain` yêu cầu).
+- `repository` ➜ `domain` (và implement interfaces do `usecase`/`domain` yêu cầu); `repository` import `pkg/database`, **không** import `usecase`.
+- `usecase` import `config` để lấy con số policy (`OTPConfig`, `LoginConfig`) — ngoại lệ có chủ đích để policy chỉ có một định nghĩa.
 - `domain` **tuyệt đối không phụ thuộc** vào các tầng bên ngoài hoặc các framework cụ thể.
 - **Mỗi feature/story**: gồm 1 domain entity/spec + 1 usecase + 1 repository method + 1 handler + unit test tương ứng.
 
@@ -83,18 +87,12 @@ Quy tắc phụ thuộc một chiều (Dependency Rule):
 
 | User Story | Usecase | Handler | Route / Endpoint | Auth Req |
 |---|---|---|---|---|
-| **US-001: Đăng ký tài khoản** | `RegisterUsecase` | `register_handler.go` | `POST /v1/auth/register` | No |
-| **US-002: Đăng nhập** | `LoginUsecase` | `login_handler.go` | `POST /v1/auth/login` | No |
-| **US-003: Quên/Đặt lại mật khẩu** | `PasswordResetUsecase` | `forgot_password_handler.go`, `reset_password_handler.go` | `POST /v1/auth/forgot-password`<br>`POST /v1/auth/reset-password` | No |
-| **US-004: Hồ sơ & Avatar** | `ProfileUsecase`, `AvatarUsecase` | `profile_handler.go`, `avatar_handler.go` | `GET /v1/users/me`<br>`PATCH /v1/users/me`<br>`POST /v1/users/me/avatar` | Yes |
-| **US-005: Danh sách Kinh điển** | `ListSutrasUsecase` | `sutras_handler.go` | `GET /v1/content/sutras` | No |
-| **US-006: Chi tiết Bài kinh** | `GetSutraUsecase` | `sutra_detail_handler.go` | `GET /v1/content/sutras/{slug}` | No |
-| **US-007: Danh sách Thần chú** | `ListMantrasUsecase` | `mantras_handler.go` | `GET /v1/content/mantras` | No |
-| **US-008: Chi tiết Thần chú** | `GetMantraUsecase` | `mantra_detail_handler.go` | `GET /v1/content/mantras/{slug}` | No |
-| **US-009: Danh sách Chư Phật/Bồ Tát** | `ListBodhisattvasUsecase` | `bodhisattvas_handler.go` | `GET /v1/content/bodhisattvas` | No |
-| **US-010: Chi tiết Chư Phật/Bồ Tát** | `GetBodhisattvaUsecase` | `bodhisattva_detail_handler.go` | `GET /v1/content/bodhisattvas/{slug}` | No |
+| **US-001: Đăng ký tài khoản** | `RegisterUsecase` | `register_handler.go` | `POST /v1/auth/register/request-otp`<br>`POST /v1/auth/resend-otp`<br>`POST /v1/auth/register/verify-otp` | No |
+| **US-002: Đăng nhập** | `LoginUsecase` | `login_handler.go` | `POST /v1/auth/login`<br>`POST /v1/auth/refresh`<br>`POST /v1/auth/logout` (Bearer access token) | No / No / Yes |
 
-> ⚠️ **US-004 "Auth Req: Yes" là thiết kế dự kiến, chưa được thực thi thật.** `pkg/jwt/middleware` tồn tại nhưng `cmd/main.go` chưa wrap nó quanh route `/v1/users/me` và `/v1/users/me/avatar` — 2 route này hiện nhận request không kiểm tra token. Đừng giả định auth đã hoạt động khi sửa/mở rộng 2 handler này; xem [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#4-khoảng-hở-kiến-trúc-đã-biết-đọc-trước-khi-tưởng-đã-production-ready) mục 4.
+> Đây là toàn bộ route đang chạy (đối chiếu `services/appService/cmd/main.go`). US-003–US-010 (quên/đặt lại mật khẩu, profile/avatar, sutras/mantras/bodhisattvas) **chưa có code**, chỉ còn ở mức spec — đừng giả định có handler cũ.
+
+Spec: `docs/specs/features/onboarding/requirements.md` (US-001), `docs/specs/features/login/requirements.md` (US-002). Schema DB: `migrations/README.md`.
 
 ---
 
@@ -111,7 +109,7 @@ Quy tắc phụ thuộc một chiều (Dependency Rule):
    - Không đưa struct I/O HTTP (Request/Response DTO) vào `domain` hoặc `usecase`.
    - Sentinel errors khai báo trong `domain/errors.go` hoặc `domain/<feature>.go`. Tầng HTTP handler chịu trách nhiệm map domain error sang HTTP status code tương ứng.
 4. **Nhận thức về Môi trường Development vs Production**:
-   - Trong `cmd/main.go`, cấu hình mặc định dùng `config.MockSecretGetter` đọc từ `dev_secrets` trong file YAML và `mailer.NewLogMailer`. Khi bổ sung code, luôn tôn trọng các vị trí đánh dấu `⚠️ DEV ONLY`.
+   - Trong `cmd/main.go`, cấu hình dev dùng `appConfig.NewMockSecretGetterFromYAML` đọc `dev_secrets` từ file YAML (`⚠️ DEV ONLY`) và `pkg/sms/logsms` (`⚠️ DEV CONFIG`, chỉ log SMS không gửi). OTP đang hardcode `111111`. Khi bổ sung code, luôn tôn trọng các vị trí đánh dấu `⚠️ DEV ONLY`/`⚠️ DEV CONFIG`.
 5. **Ưu tiên chạy kiểm thử hẹp và nhanh**:
    - Sử dụng cờ `-short` khi chạy test toàn bộ để bỏ qua các bài test phụ thuộc vào cloud credentials thực tế.
 
@@ -136,6 +134,8 @@ go test -v ./pkg/jwt/...
 # Kiểm tra lỗi tĩnh / static analysis
 go vet ./...
 ```
+
+Local stack (Postgres + Loki/Alloy/Grafana, và appService chạy host) có sẵn qua `make`: `make help`, `make up`, `make run`, `make db-accounts`. Chi tiết: `docs/development/local-stack.md` và `docs/development/database-cli.md`.
 
 ---
 

@@ -8,6 +8,7 @@ Fast implementation guide for secure session management with JWT rotation and de
 import (
     "base_project/pkg/session"
     "base_project/pkg/jwt"
+    "chjpcoj.com.innerlamp/pkg/utils" // envelope response chuẩn — xem pkg/utils/README.md
 )
 
 // 1. Create JWT service
@@ -153,7 +154,7 @@ config := &session.Config{
 func CleanupHandler(sessionMgr session.Manager) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
         count, _ := sessionMgr.CleanupExpiredSessions(r.Context())
-        json.NewEncoder(w).Encode(map[string]int{"cleaned": count})
+        utils.WriteSuccessResponse(w, map[string]int{"cleaned": count})
     }
 }
 
@@ -242,7 +243,7 @@ func SessionMiddleware(sessionMgr session.Manager) func(http.Handler) http.Handl
 
             err := sessionMgr.ValidateSession(r.Context(), sessionID, token)
             if err != nil {
-                http.Error(w, "Unauthorized", http.StatusUnauthorized)
+                utils.WriteBusinessError(w, http.StatusUnauthorized, "UNAUTHORIZED", "unauthorized", nil)
                 return
             }
 
@@ -279,7 +280,7 @@ func LoginHandler(sessionMgr session.Manager) http.HandlerFunc {
         // 1. Authenticate user
         user, err := authenticateUser(r)
         if err != nil {
-            http.Error(w, "Invalid credentials", http.StatusUnauthorized)
+            utils.WriteBusinessError(w, http.StatusUnauthorized, "INVALID_CREDENTIALS", "invalid credentials", nil)
             return
         }
 
@@ -300,7 +301,7 @@ func LoginHandler(sessionMgr session.Manager) http.HandlerFunc {
             r.UserAgent(),
         )
         if err != nil {
-            http.Error(w, "Failed to create session", http.StatusInternalServerError)
+            utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
             return
         }
 
@@ -312,7 +313,7 @@ func LoginHandler(sessionMgr session.Manager) http.HandlerFunc {
             "session_id":    newSession.SessionID,
         }
 
-        json.NewEncoder(w).Encode(response)
+        utils.WriteSuccessResponse(w, response)
     }
 }
 ```

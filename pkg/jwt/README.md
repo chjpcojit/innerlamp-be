@@ -24,6 +24,8 @@ jwtService, err := jwt.New(&jwt.Config{
 
 ### `Service.GenerateAccessToken(userID, email, role string, extra map[string]any) (string, error)`
 Sinh access token. `userID` bắt buộc, `email`/`role`/`extra` optional.
+
+Mọi token (access lẫn refresh, HS256 lẫn RS256) mang claim **`jti`** (`claims.CustomClaims.ID`): 128 bit ngẫu nhiên từ `crypto/rand`, dạng 32 ký tự hex. Nhờ đó hai token sinh liên tiếp cho cùng user **luôn khác nhau** — trước đây `iat`/`exp` chỉ chính xác 1 giây nên hai token cùng user trong cùng giây giống hệt từng byte, làm vỡ mọi ràng buộc `UNIQUE` trên hash token. `jti` nằm ngoài `extra`: `extra` không ghi đè được nó. Nếu `crypto/rand` lỗi, hàm trả error (`generate token id: ...`) chứ không ký token thiếu `jti`.
 ```go
 token, err := jwtService.GenerateAccessToken("user-123", "user@example.com", "member", nil)
 ```
@@ -31,8 +33,10 @@ token, err := jwtService.GenerateAccessToken("user-123", "user@example.com", "me
 ### `Service.GenerateRefreshToken(userID string, extra map[string]any) (string, error)`
 Sinh refresh token (thời hạn dài hơn access token — bắt buộc theo `Config.Validate`).
 
+Cũng mang `jti` riêng như access token (xem trên).
+
 ### `Service.ValidateToken(tokenString string) (*claims.CustomClaims, error)`
-Verify chữ ký + hạn dùng + thuật toán. Lỗi trả về là các sentinel error trong `errors.go` (`ErrTokenExpired`, `ErrInvalidSignature`, `ErrAlgorithmMismatch`, `ErrNoneAlgorithm`, ...), dùng `errors.Is` để phân biệt.
+Verify chữ ký + hạn dùng + thuật toán. `jti` **không bắt buộc** khi verify: token phát hành trước khi có `jti` vẫn hợp lệ (`claims.ID == ""`), để không làm vô hiệu hàng loạt token đang sống. Lỗi trả về là các sentinel error trong `errors.go` (`ErrTokenExpired`, `ErrInvalidSignature`, `ErrAlgorithmMismatch`, `ErrNoneAlgorithm`, ...), dùng `errors.Is` để phân biệt.
 ```go
 claims, err := jwtService.ValidateToken(tokenString)
 if errors.Is(err, jwt.ErrTokenExpired) { /* yêu cầu refresh */ }
@@ -55,13 +59,14 @@ Mock `Service` bằng `testify/mock`, dùng trong unit test của service tiêu 
 
 ### Middleware (pkg/jwt/middleware)
 - `middleware.NewHTTPAuthMiddleware(jwtService, logger)` → `.Authenticate(handler)` cho `net/http`.
+- Lỗi HTTP mặc định dùng envelope chuẩn `utils.ApiResponse` (xem `pkg/utils/README.md` §Envelope): token thiếu/sai/hết hạn → `401` `UNAUTHORIZED`; `RequireRole` không có claims → `401` `UNAUTHORIZED`, sai role → `403` `FORBIDDEN`. `HTTPAuthOptions.ErrorHandler` ghi đè được nhánh `401` của `Authenticate` — nếu ghi đè, vẫn phải trả cùng envelope (appService dùng `deliveryhttp.WriteAuthError`).
 - `middleware.NewGRPCAuthInterceptor(jwtService, logger)` → `UnaryServerInterceptor()`/`StreamServerInterceptor()` cho gRPC.
 
 ## Cấu hình / dependency
 - `Config` (pkg/jwt/config.go): `Algorithm` (`AlgorithmHS256`/`AlgorithmRS256`), `SecretKey` (HS256, ≥32 ký tự), `PrivateKey`/`PublicKey` (RS256, `*rsa.PrivateKey`/`*rsa.PublicKey`), `AccessTokenExpiration`, `RefreshTokenExpiration` (phải > access), `Issuer`, `Audience`.
 - Không đọc biến môi trường trực tiếp — config truyền vào code (secret/key thường lấy qua `pkg/secrets` rồi build `Config`).
 - Phụ thuộc thư viện ngoài: `github.com/golang-jwt/jwt/v5`.
-- Phụ thuộc nội bộ: `pkg/jwt/claims` (định nghĩa `CustomClaims`, `TokenType`), `pkg/jwt/context` (context helper), `pkg/jwt/middleware` (HTTP/gRPC).
+- Phụ thuộc nội bộ: `pkg/jwt/claims` (định nghĩa `CustomClaims`, `TokenType`), `pkg/jwt/context` (context helper), `pkg/jwt/middleware` (HTTP/gRPC). `pkg/jwt/middleware` import thêm `pkg/logging` và `pkg/utils` (envelope response lỗi).
 - Import path đúng trong repo này: `chjpcoj.com.innerlamp/pkg/jwt` (một số doc cũ như QUICK_START.md/examples/README.md còn ghi `base_project/pkg/jwt` — đó là tàn dư từ template, đừng copy).
 
 ## Lưu ý / lỗi hay gặp

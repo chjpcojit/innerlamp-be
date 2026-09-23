@@ -1,0 +1,45 @@
+# Minimal single-binary Loki config for local development.
+#
+# Filesystem-backed (no S3/GCS), single tenant, no retention enforcement —
+# this exists so `docker compose up -d` gives a working Loki with nothing to
+# edit. It is not a production topology (no object storage, no replication,
+# no auth): see https://grafana.com/docs/loki/latest/configure/ before reusing
+# any of it beyond a laptop.
+
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9096
+  log_level: warn
+
+common:
+  instance_addr: 127.0.0.1
+  path_prefix: /loki
+  storage:
+    filesystem:
+      chunks_directory: /loki/chunks
+      rules_directory: /loki/rules
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+schema_config:
+  configs:
+    - from: 2024-01-01
+      store: tsdb
+      object_store: filesystem
+      schema: v13
+      index:
+        prefix: index_
+        period: 24h
+
+limits_config:
+  # Dev only: without a generous window, a batch that arrives with older
+  # timestamps (e.g. Alloy replaying a log file from the start) is rejected as
+  # "too old" and silently never shows up in Grafana.
+  reject_old_samples_max_age: 168h
+
+analytics:
+  reporting_enabled: false

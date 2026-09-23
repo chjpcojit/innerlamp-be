@@ -56,13 +56,25 @@ curl -X POST http://localhost:8080/api/login \
 Response:
 ```json
 {
-  "access_token": "eyJhbGc...",
-  "refresh_token": "eyJhbGc...",
-  "user": {
-    "id": "user-1",
-    "email": "admin@example.com",
-    "role": "admin"
+  "success": true,
+  "data": {
+    "access_token": "eyJhbGc...",
+    "refresh_token": "eyJhbGc...",
+    "user": {
+      "id": "user-1",
+      "email": "admin@example.com",
+      "role": "admin"
+    }
   }
+}
+```
+
+Every reply uses the `pkg/utils` envelope (see `pkg/utils/README.md`). A failure looks like:
+
+```json
+{
+  "success": false,
+  "error": { "code": "UNAUTHORIZED", "message": "Invalid credentials", "type": "business" }
 }
 ```
 
@@ -77,9 +89,12 @@ curl http://localhost:8080/api/profile \
 Response:
 ```json
 {
-  "user_id": "user-1",
-  "email": "admin@example.com",
-  "role": "admin"
+  "success": true,
+  "data": {
+    "user_id": "user-1",
+    "email": "admin@example.com",
+    "role": "admin"
+  }
 }
 ```
 
@@ -107,7 +122,10 @@ curl -X POST http://localhost:8080/api/refresh \
 Response:
 ```json
 {
-  "access_token": "eyJhbGc..."
+  "success": true,
+  "data": {
+    "access_token": "eyJhbGc..."
+  }
 }
 ```
 

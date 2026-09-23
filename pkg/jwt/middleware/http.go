@@ -9,6 +9,7 @@ import (
 	"chjpcoj.com.innerlamp/pkg/jwt/claims"
 	jwtcontext "chjpcoj.com.innerlamp/pkg/jwt/context"
 	"chjpcoj.com.innerlamp/pkg/logging"
+	"chjpcoj.com.innerlamp/pkg/utils"
 )
 
 // HTTPAuthMiddleware provides HTTP authentication middleware
@@ -162,7 +163,7 @@ func (m *HTTPAuthMiddleware) RequireRole(roles ...string) func(http.Handler) htt
 			claims, ok := jwtcontext.GetClaims(r.Context())
 			if !ok {
 				m.logger.WithContext(r.Context()).Warn("No claims in context for role check")
-				http.Error(w, "Unauthorized", http.StatusUnauthorized)
+				utils.WriteBusinessError(w, http.StatusUnauthorized, "UNAUTHORIZED", "unauthorized", nil)
 				return
 			}
 
@@ -173,7 +174,7 @@ func (m *HTTPAuthMiddleware) RequireRole(roles ...string) func(http.Handler) htt
 					"user_role":      claims.Role,
 					"required_roles": roles,
 				}).Warn("Insufficient permissions")
-				http.Error(w, "Forbidden", http.StatusForbidden)
+				utils.WriteBusinessError(w, http.StatusForbidden, "FORBIDDEN", "forbidden", nil)
 				return
 			}
 
@@ -222,10 +223,9 @@ func (m *HTTPAuthMiddleware) handleError(w http.ResponseWriter, r *http.Request,
 		return
 	}
 
-	// Default error handling
-	statusCode := http.StatusUnauthorized
-	message := "Unauthorized"
-
+	// Default error handling: the same utils.ApiResponse envelope every other
+	// response in the framework uses, so a caller never sees two error shapes.
+	var message string
 	switch err {
 	case jwt.ErrMissingToken:
 		message = "Missing authentication token"
@@ -241,9 +241,7 @@ func (m *HTTPAuthMiddleware) handleError(w http.ResponseWriter, r *http.Request,
 		message = "Authentication failed"
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(statusCode)
-	_, _ = w.Write([]byte(`{"error":"` + message + `"}`)) // #nosec
+	utils.WriteBusinessError(w, http.StatusUnauthorized, "UNAUTHORIZED", message, nil)
 }
 
 // GetClaimsFromContext retrieves JWT claims from the request context

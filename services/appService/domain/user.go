@@ -1,0 +1,26 @@
+package domain
+
+import "time"
+
+// User is a registered account. It maps the users table.
+//
+// Plain data: no json/db tag. The wire shape belongs to delivery's response
+// structs and the DB shape to repository's SQL — a tag here would force one
+// JSON shape on every consumer and make the entity change whenever an
+// unrelated API contract moves.
+//
+// EmailVerifiedAt is deliberately nullable and stays NULL at registration:
+// US-001 verifies the *phone number* by OTP, not the email, so the column
+// records an email-verification step that does not exist yet. Nothing in this
+// feature depends on it being set.
+type User struct {
+	ID              int64
+	Email           string
+	EmailVerifiedAt *time.Time
+	PhoneNumber     string
+	PasswordHash    string
+	DharmaName      *string
+	OrdinationPlace *string
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
+}

@@ -68,7 +68,7 @@ Variants used in this project's specs:
    requires a valid access token, or requires ownership of the resource. If token verification is
    designed but not yet wired into the route, that is a "Pending" fact, not a done criterion — it
    belongs in `requirements.md`'s Pending section and `tasks.md`, not silently folded into a
-   passing criteria list. (This mirrors the real known gap for `/v1/users/me` — see
-   `docs/ARCHITECTURE.md` §4.)
+   passing criteria list. (This used to cite a real `/v1/users/me` gap; those routes no longer
+   exist, so treat it as an example only.)
 6. **Out of scope / Pending / Open questions are not EARS-phrased** — those are plain prose
    sections; EARS applies specifically to the "Acceptance Criteria" section.

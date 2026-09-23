@@ -90,6 +90,7 @@ import (
     "net/http"
     "base_project/pkg/jwt/middleware"
     "base_project/pkg/logging"
+    "chjpcoj.com.innerlamp/pkg/utils" // envelope response chuẩn — xem pkg/utils/README.md
 )
 
 func main() {
@@ -121,7 +122,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
     // Validate credentials (pseudo-code)
     user := authenticateUser(r)
     if user == nil {
-        http.Error(w, "Invalid credentials", http.StatusUnauthorized)
+        utils.WriteBusinessError(w, http.StatusUnauthorized, "INVALID_CREDENTIALS", "invalid credentials", nil)
         return
     }
     
@@ -136,7 +137,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
     refreshToken, _ := jwtService.GenerateRefreshToken(user.ID, nil)
     
     // Return tokens
-    json.NewEncoder(w).Encode(map[string]string{
+    utils.WriteSuccessResponse(w, map[string]string{
         "access_token":  accessToken,
         "refresh_token": refreshToken,
     })
@@ -152,7 +153,7 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
     // Get claims from context (set by middleware)
     claims, ok := middleware.GetClaimsFromContext(r.Context())
     if !ok {
-        http.Error(w, "Unauthorized", http.StatusUnauthorized)
+        utils.WriteBusinessError(w, http.StatusUnauthorized, "UNAUTHORIZED", "unauthorized", nil)
         return
     }
     
@@ -162,7 +163,7 @@ func profileHandler(w http.ResponseWriter, r *http.Request) {
     role := claims.Role
     
     // Your business logic here
-    json.NewEncoder(w).Encode(map[string]interface{}{
+    utils.WriteSuccessResponse(w, map[string]interface{}{
         "user_id": userID,
         "email":   email,
         "role":    role,
@@ -358,13 +359,13 @@ func handleRefresh(w http.ResponseWriter, r *http.Request) {
     // Validate refresh token
     claims, err := jwtService.ValidateToken(refreshToken)
     if err != nil {
-        http.Error(w, "Invalid refresh token", http.StatusUnauthorized)
+        utils.WriteBusinessError(w, http.StatusUnauthorized, "REFRESH_TOKEN_INVALID", "invalid refresh token", nil)
         return
     }
     
     // Verify it's a refresh token
     if claims.TokenType != "refresh" {
-        http.Error(w, "Invalid token type", http.StatusUnauthorized)
+        utils.WriteBusinessError(w, http.StatusUnauthorized, "UNAUTHORIZED", "invalid token type", nil)
         return
     }
     
@@ -383,7 +384,7 @@ func handleRefresh(w http.ResponseWriter, r *http.Request) {
     newRefreshToken, err := jwtService.GenerateRefreshToken(user.ID, nil)
     
     // Return new tokens
-    json.NewEncoder(w).Encode(map[string]string{
+    utils.WriteSuccessResponse(w, map[string]string{
         "access_token":  newAccessToken,
         "refresh_token": newRefreshToken,
     })
@@ -462,13 +463,13 @@ func optionalAuthHandler(w http.ResponseWriter, r *http.Request) {
 func adminOnlyHandler(w http.ResponseWriter, r *http.Request) {
     claims, ok := middleware.GetClaimsFromContext(r.Context())
     if !ok {
-        http.Error(w, "Unauthorized", http.StatusUnauthorized)
+        utils.WriteBusinessError(w, http.StatusUnauthorized, "UNAUTHORIZED", "unauthorized", nil)
         return
     }
     
     // Check role
     if claims.Role != "admin" {
-        http.Error(w, "Forbidden", http.StatusForbidden)
+        utils.WriteBusinessError(w, http.StatusForbidden, "FORBIDDEN", "forbidden", nil)
         return
     }
     

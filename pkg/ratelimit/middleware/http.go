@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"chjpcoj.com.innerlamp/pkg/ratelimit"
+	"chjpcoj.com.innerlamp/pkg/utils"
 )
 
 // Context keys
@@ -54,8 +55,10 @@ func (m *HTTPMiddleware) Handler(next http.Handler) http.Handler {
 		w.Header().Set("X-RateLimit-Reset", strconv.FormatInt(res.ResetTime.Unix(), 10))
 
 		if !res.Allowed {
-			w.Header().Set("Retry-After", strconv.FormatInt(int64(res.RetryAfter.Seconds()), 10))
-			http.Error(w, "Too Many Requests", http.StatusTooManyRequests)
+			retryAfter := int64(res.RetryAfter.Seconds())
+			w.Header().Set("Retry-After", strconv.FormatInt(retryAfter, 10))
+			utils.WriteBusinessError(w, http.StatusTooManyRequests, "RATE_LIMITED", "too many requests",
+				map[string]any{"retry_after_seconds": retryAfter})
 			return
 		}
 

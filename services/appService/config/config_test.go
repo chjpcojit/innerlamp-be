@@ -183,3 +183,82 @@ jwt:
 		t.Fatal("Load should fail when a duration field is not parseable")
 	}
 }
+
+// TestLoad_DevYAMLLoginPolicy loads the shipped config.dev.yaml and checks the
+// login block arrives intact. A missing key would decode to a Go zero value —
+// and a zero LockDuration means "locked for no time at all" — so the failure
+// this guards against is silent: nothing errors, the brute-force lock just
+// stops working.
+func TestLoad_DevYAMLLoginPolicy(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+
+	if cfg.Login.MaxFailedAttempts != 5 {
+		t.Errorf("MaxFailedAttempts = %d, want 5", cfg.Login.MaxFailedAttempts)
+	}
+	if got := cfg.Login.LockDuration.Duration(); got != 15*time.Minute {
+		t.Errorf("LockDuration = %v, want 15m", got)
+	}
+	if got := cfg.Login.FailureResetWindow.Duration(); got != 15*time.Minute {
+		t.Errorf("FailureResetWindow = %v, want 15m", got)
+	}
+}
+
+// TestLoad_DevYAMLOTPPolicy loads the shipped config.dev.yaml and checks the
+// otp block arrives intact after the v5.0 rename/split. A missing key decodes
+// to a Go zero value, and a zero lock or cooldown silently disables the rate
+// limit instead of erroring — so the failure this guards against is quiet.
+func TestLoad_DevYAMLOTPPolicy(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+
+	if got := cfg.OTP.TTL.Duration(); got != 90*time.Second {
+		t.Errorf("TTL = %v, want 90s", got)
+	}
+	if got := cfg.OTP.SendCooldown.Duration(); got != 60*time.Second {
+		t.Errorf("SendCooldown = %v, want 60s", got)
+	}
+	if cfg.OTP.MaxSendAttempts != 3 {
+		t.Errorf("MaxSendAttempts = %d, want 3", cfg.OTP.MaxSendAttempts)
+	}
+	if got := cfg.OTP.SendLockDuration.Duration(); got != 30*time.Minute {
+		t.Errorf("SendLockDuration = %v, want 30m", got)
+	}
+	if cfg.OTP.MaxAttempts != 3 {
+		t.Errorf("MaxAttempts = %d, want 3", cfg.OTP.MaxAttempts)
+	}
+	if got := cfg.OTP.LockDuration.Duration(); got != 30*time.Minute {
+		t.Errorf("LockDuration = %v, want 30m", got)
+	}
+	if got := cfg.OTP.PendingRegistrationTTL.Duration(); got != 24*time.Hour {
+		t.Errorf("PendingRegistrationTTL = %v, want 24h", got)
+	}
+}

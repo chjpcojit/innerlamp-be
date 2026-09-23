@@ -1,0 +1,71 @@
+---
+type: Package
+title: {{pkg/name}}
+description: {{One sentence — the infrastructure concern this package abstracts.}}
+resource: pkg/{{name}}/{{name}}.go
+tags: [pkg, {{infra-tag}}]
+status: draft
+generated: { by: {{author}}, at: {{ISO8601}} }
+sources:
+  - path: pkg/{{name}}/README.md
+    kind: implementation-notes
+---
+
+# Summary
+
+{{What infrastructure concern this package hides from consumers, and the one
+canonical reason to reach for it instead of talking to the provider SDK
+directly. State the pattern it follows — interface + `Register(type,
+FactoryFunc)` / `New(config)` backed by a package-level map, with drivers
+self-registering in subpackage `init()` and consumers activating one via blank
+import. If the package is a leaf with no drivers (e.g. `utils`, `validation`),
+say so instead of forcing the shape onto it.}}
+
+# Interface
+
+| Member | Signature | Behaviour |
+|---|---|---|
+| `{{Interface}}` | `{{type X interface { ... }}}` | {{what a consumer gets}} |
+| `Register` | `{{func Register(t Type, f FactoryFunc)}}` | {{registration side of the factory map}} |
+| `New` | `{{func New(cfg *Config) (X, error)}}` | {{validates config; does not dial}} |
+
+# Drivers / providers
+
+| Driver | Subpackage | Status |
+|---|---|---|
+| `{{postgresql}}` | `pkg/{{database}}/{{postgresql}}/` | {{implemented — registers itself via init()}} |
+
+{{Consumers activate a driver with a blank import:
+`import _ "chjpcoj.com.innerlamp/pkg/{{database}}/{{postgresql}}"`. Say which
+drivers are real and which are stubs or unused.}}
+
+# Lifecycle
+
+{{Whether construction is synchronous and validates only, with connection
+happening in `Connect(ctx)`/`Start(ctx)`. This repo's convention is that it is —
+say whether this package follows it, and what the consumer must call in which
+order. Note anything safe to reuse concurrently (connection pooling, mutexes)
+and what is not.}}
+
+# Dependencies
+
+{{Which other `pkg/` packages this one actually imports, established from the
+real imports (`grep`), not the README, which has a documented history of
+claiming dependencies that do not exist in the code. Most `pkg/` roots have no
+internal deps; the current exceptions are
+`jwt → jwt/claims`, `session → jwt`, `mailer → logging`, `sms → logging` +
+`sms/logsms`, `tracing → tracing/gcp` + `tracing/types`, `middleware → utils`,
+and the middleware subpackages (`jwt/middleware → jwt, jwt/claims, jwt/context,
+logging, utils`; `ratelimit/middleware → ratelimit, ratelimit/store, utils`).
+If the README and the import graph disagree, say so — that is a finding.}}
+
+# Consumers
+
+{{Which `services/` code uses this today, or "no consumer yet in
+`services/appService`" if that is the truth. This is the blast radius for any
+change and the most useful reason to keep the concept current.}}
+
+# Related concepts
+
+{{Sibling packages it is easily confused with, and any Architecture Pattern
+concept it exemplifies.}}

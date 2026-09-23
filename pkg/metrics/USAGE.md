@@ -321,7 +321,7 @@ The HTTP middleware automatically collects:
 func handleUsers(w http.ResponseWriter, r *http.Request) {
     // The middleware automatically uses the request path
     // To customize, you can set a context value
-    w.Write([]byte("Users response"))
+    utils.WriteSuccessResponse(w, map[string]string{"message": "Users response"}) // envelope chuẩn — pkg/utils/README.md
 }
 ```
 

@@ -1,0 +1,99 @@
+%% InnerLamp — ERD schema Postgres (appService)
+%% Nguồn: migrations/0001_register_onboarding.sql, 0002_login_devices_and_rate_limit.sql,
+%%        0003_otp_send_limits.sql
+%% Quy ước: quan hệ nét liền (--) = FK có cưỡng chế; nét đứt (..) = ràng buộc logic, KHÔNG FK.
+erDiagram
+    users {
+        bigint id PK "BIGSERIAL"
+        varchar(255) email UK "NOT NULL, users_email_key"
+        timestamptz email_verified_at "NULL - US-001 verify phone_number, khong verify email"
+        varchar(20) phone_number UK "NOT NULL, users_phone_number_key"
+        varchar(255) password_hash "NOT NULL, bcrypt"
+        varchar(255) dharma_name "NULL"
+        varchar(255) ordination_place "NULL"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    otp_codes {
+        bigint id PK "BIGSERIAL"
+        varchar(20) phone_number "NOT NULL, khong FK"
+        varchar(20) purpose "NOT NULL, CHECK (register, login, reset_password, verify_email)"
+        varchar(255) otp_hash "NOT NULL, bcrypt"
+        int attempts "NOT NULL DEFAULT 0"
+        timestamptz locked_until "NULL, khoa-nhap-sai (chan verify-otp)"
+        timestamptz expires_at "NOT NULL"
+        timestamptz used_at "NULL, set khi thanh cong hoac bi khoa"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+    }
+
+    otp_send_limits {
+        bigint id PK "BIGSERIAL"
+        varchar(20) phone_number "NOT NULL, khong FK, UNIQUE (phone_number, purpose)"
+        varchar(20) purpose "NOT NULL, CHECK, UNIQUE (phone_number, purpose)"
+        int send_count "NOT NULL DEFAULT 0, dem theo cycle"
+        timestamptz last_sent_at "NULL, moc cooldown + reset cycle"
+        timestamptz locked_until "NULL, khoa-GUI (khong chan verify-otp)"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    pending_registration {
+        bigint id PK "BIGSERIAL"
+        varchar(20) phone_number UK "NOT NULL, target ON CONFLICT khi resend"
+        varchar(255) email "NOT NULL, co y KHONG unique"
+        varchar(255) password_hash "NOT NULL, bcrypt"
+        varchar(255) dharma_name "NULL"
+        varchar(255) ordination_place "NULL"
+        timestamptz expires_at "NOT NULL, cung TTL voi OTP"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+    }
+
+    login_attempts {
+        varchar(20) phone_number PK "co y KHONG FK toi users"
+        int failed_count "NOT NULL DEFAULT 0"
+        timestamptz locked_until "NULL khi chua bi khoa"
+        timestamptz last_failed_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    user_devices {
+        bigint id PK "BIGSERIAL"
+        bigint user_id FK "NOT NULL, ON DELETE CASCADE, UNIQUE (user_id, device_id)"
+        varchar(64) device_id "server-side SHA-256 fingerprint, UNIQUE (user_id, device_id)"
+        varchar(32) platform "NOT NULL"
+        varchar(128) device_model "NOT NULL"
+        varchar(64) os_version "NULL"
+        varchar(32) app_version "NULL"
+        varchar(128) device_name "NULL"
+        varchar(45) ip_address "NULL, IPv6 max"
+        varchar(512) user_agent "NULL"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz last_seen_at "NOT NULL DEFAULT now()"
+    }
+
+    user_sessions {
+        bigint id PK "BIGSERIAL"
+        bigint user_id FK "NOT NULL, ON DELETE CASCADE"
+        varchar(64) session_id UK "NOT NULL"
+        varchar(64) refresh_token_hash UK "NOT NULL, SHA-256 hex, khong luu token tho"
+        int token_version "NOT NULL DEFAULT 1"
+        boolean is_active "NOT NULL DEFAULT true"
+        boolean is_revoked "NOT NULL DEFAULT false"
+        timestamptz revoked_at "NULL"
+        varchar(255) revoked_reason "NULL"
+        timestamptz last_activity_at "NOT NULL DEFAULT now()"
+        timestamptz expires_at "NOT NULL, now() + JWTConfig.RefreshTokenExpiration"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+        bigint device_id FK "NULL, ON DELETE SET NULL, partial UNIQUE khi is_revoked = false"
+        varchar(64) previous_refresh_token_hash "NULL, phat hien reuse"
+    }
+
+    users ||--o{ user_devices : "user_id, ON DELETE CASCADE"
+    users ||--o{ user_sessions : "user_id, ON DELETE CASCADE"
+    user_devices |o--o{ user_sessions : "device_id nullable, ON DELETE SET NULL"
+    users ||..o{ otp_codes : "phone_number, khong FK"
+    users ||..o| pending_registration : "phone_number UNIQUE, khong FK"
+    users ||..o| login_attempts : "phone_number PK, khong FK"
+    otp_send_limits ||..o{ otp_codes : "chung (phone_number, purpose)"

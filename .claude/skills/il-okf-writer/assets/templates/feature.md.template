@@ -1,0 +1,95 @@
+---
+type: Feature
+title: {{Title}}
+description: {{One sentence — what the flow does, from the API consumer's perspective.}}
+resource: services/appService/
+tags: [{{tag1}}, {{tag2}}]
+status: draft
+generated: { by: {{author}}, at: {{ISO8601}} }
+sources:
+  - path: docs/specs/features/{{feature}}/requirements.md
+    kind: spec
+  - path: docs/specs/features/{{feature}}/design.md
+    kind: spec
+  - path: services/appService/{{layer}}/README.md
+    kind: implementation-notes
+---
+
+# Summary
+
+{{2-4 sentences: which routes expose this flow, what the caller provides, what
+happens on success, what happens on failure. Name the module (`identity`,
+`content`, `journal`, `practice`) if the spec assigns one.}}
+
+**Current limitation**: {{the one thing a reader must know is not real yet —
+e.g. "the usecase method returns errors.New(\"not implemented\"); the SQL layer
+is written but nothing calls it". Delete this line only when there is genuinely
+no stub left.}}
+
+# Architecture
+
+{{Clean Architecture inside `services/appService/`, with the dependency
+direction `delivery → usecase → domain` and `repository → domain`. State which
+layer owns the transaction boundary and which layers are skipped entirely for
+this feature, if any.}}
+
+| Layer | Type | File |
+|---|---|---|
+| Domain / Entity | Domain Entity | `services/appService/domain/{{entity}}.go` — {{what it holds}} |
+| Domain / Errors | sentinel errors | `services/appService/domain/errors.go` — {{which errors this feature adds or maps}} |
+| Usecase | UseCase | `services/appService/usecase/{{feature}}_usecase.go` — {{what it guarantees}} |
+| Repository | Repository | `services/appService/repository/postgres_{{feature}}_repository.go` — {{the SQL it owns}} |
+| Delivery / Handler | Handler | `services/appService/delivery/http/{{feature}}_handler.go` — {{routes + error→status mapping}} |
+| Wiring | composition root | `services/appService/cmd/main.go` — {{route registration, middleware, which `⚠️ DEV ONLY` blocks it touches}} |
+
+{{`pkg/` imports this feature relies on — name them and link their Package
+concepts. If a package was created for this feature, it deserves its own
+concept under packages/.}}
+
+# API surface
+
+| Method | Path | Auth | Handler |
+|---|---|---|---|
+| `{{POST}}` | `{{/v1/...}}` | {{public \| `pkg/jwt/middleware` bearer}} | `{{Handler.Method}}` |
+
+{{Link the endpoint concepts: `[POST /v1/auth/register/request-otp](/api/auth-register-request-otp.md)`.
+If a route is documented as requiring auth but is not actually wrapped with the
+middleware in `cmd/main.go`, say so here and repeat it under Pending work.}}
+
+# Request flow
+
+```
+{{POST /v1/...}}
+  └─ {{public | auth middleware}}
+       └─ {{Handler.Method}}                        (delivery/http)
+            ├─ decode + validate (struct tags)
+            └─ {{Usecase.Method}}(ctx, input)        (usecase)
+                 ├─ {{business rules}}
+                 ├─ {{Repository.Method}}            (repository)
+                 └─ {{side effects}}
+```
+
+# Validation rules
+
+{{One bullet per validated field: where the rule lives (delivery struct tag vs
+usecase business rule), the exact rule, and what sentinel error it produces.
+Delete this section if the feature takes no input. Input *format* belongs to
+delivery tags; business rules belong to the usecase — say which is which.}}
+
+# Pending work
+
+{{Bulleted list of what is stubbed, unwired, or missing — with the file and
+symbol of the stub and what would replace it. Quote the stub body where it is
+short. Each item should be checkable later; "promote to stable once X lands"
+belongs at the end of this section.}}
+
+# Known gaps vs. design
+
+{{Where the shipped behavior differs from `docs/specs/features/{{feature}}/design.md`.
+Delete if there are none — an empty section is worse than no section.}}
+
+# Related concepts
+
+{{Markdown links to sibling concepts: `[Register](/features/register.md)`. If a
+related concept does not exist yet, say so explicitly rather than linking to a
+file that does not exist.}}

@@ -1,0 +1,18 @@
+# Grafana datasource provisioning. Loaded at startup, so a fresh
+# `docker compose up -d` already has Loki wired up — no manual click-through.
+#
+# Note: Grafana scans provisioning files with a .yaml OR .yml extension; this
+# uses .yml because the repo's .gitignore ignores *.yaml.
+apiVersion: 1
+
+datasources:
+  - name: Loki
+    type: loki
+    access: proxy
+    # Compose service name — Grafana reaches Loki on the stack's network. The
+    # host-facing http://localhost:3100 is a different address and would fail
+    # here.
+    url: http://loki:3100
+    isDefault: true
+    jsonData:
+      maxLines: 5000

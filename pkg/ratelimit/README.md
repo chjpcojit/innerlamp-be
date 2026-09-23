@@ -25,7 +25,7 @@ result, err := limiter.Allow(ctx) // result.Allowed, result.Remaining, result.Re
 ```
 
 ### `middleware.NewHTTPMiddleware(config ratelimit.Config) (*HTTPMiddleware, error)`
-Middleware `net/http`. `.Handler(next http.Handler) http.Handler` bọc handler, set header `X-RateLimit-Limit`/`X-RateLimit-Remaining`/`X-RateLimit-Reset`, trả `429 Too Many Requests` + header `Retry-After` khi vượt hạn mức.
+Middleware `net/http`. `.Handler(next http.Handler) http.Handler` bọc handler, set header `X-RateLimit-Limit`/`X-RateLimit-Remaining`/`X-RateLimit-Reset`, khi vượt hạn mức trả `429` + header `Retry-After` và body envelope chuẩn `{"success":false,"error":{"code":"RATE_LIMITED","message":"too many requests","type":"business"},"details":{"retry_after_seconds":N}}` (qua `utils.WriteBusinessError`, xem `pkg/utils/README.md` §Envelope).
 ```go
 mw, err := middleware.NewHTTPMiddleware(ratelimit.Config{
     Rate: 5, Burst: 5, Window: time.Minute,
@@ -65,6 +65,7 @@ config.Store = store.NewRedisStore(rdb)
 - `store.NewMemoryStore()`: chỉ cần `sync`, không phụ thuộc thư viện ngoài — phù hợp một instance duy nhất hoặc test.
 - `store.NewRedisStore(client)`: cần `github.com/redis/go-redis/v9` và một `redis.UniversalClient` đã kết nối — dùng khi service chạy nhiều instance (Cloud Run/GKE scale >1) và cần đếm request thống nhất giữa các instance.
 - `middleware.NewGRPCMiddleware`: phụ thuộc `google.golang.org/grpc`.
+- `middleware.NewHTTPMiddleware`: import `pkg/utils` để ghi response `429` theo envelope chuẩn.
 - Nếu không set `Config.Store`, `middleware.NewLimiter` tự dùng `MemoryStore` — không tự chọn Redis, phải truyền tay khi cần distributed.
 
 ## Lưu ý / lỗi hay gặp
