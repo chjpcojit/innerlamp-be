@@ -218,10 +218,52 @@ func TestLoad_DevYAMLLoginPolicy(t *testing.T) {
 	}
 }
 
-// TestLoad_DevYAMLOTPPolicy loads the shipped config.dev.yaml and checks the
-// otp block arrives intact after the v5.0 rename/split. A missing key decodes
-// to a Go zero value, and a zero lock or cooldown silently disables the rate
-// limit instead of erroring — so the failure this guards against is quiet.
+// TestLoad_DevYAMLAttestationConfig loads the shipped config.dev.yaml and checks
+// the attestation block arrives intact. A missing key decodes to a Go zero
+// value — and a zero challenge_ttl / freshness_window would mint nonces that
+// expire the instant they are issued — so the failure this guards against is
+// silent: nothing errors, attestation just never verifies.
+func TestLoad_DevYAMLAttestationConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+
+	if cfg.Attestation.Android.Provider != "mock" {
+		t.Errorf("Android.Provider = %q, want mock", cfg.Attestation.Android.Provider)
+	}
+	if cfg.Attestation.IOS.Provider != "mock" {
+		t.Errorf("IOS.Provider = %q, want mock", cfg.Attestation.IOS.Provider)
+	}
+	if got := cfg.Attestation.ChallengeTTL.Duration(); got != 5*time.Minute {
+		t.Errorf("ChallengeTTL = %v, want 5m", got)
+	}
+	if got := cfg.Attestation.FreshnessWindow.Duration(); got != 5*time.Minute {
+		t.Errorf("FreshnessWindow = %v, want 5m", got)
+	}
+	if cfg.Attestation.Android.PackageName != "com.innerlamp.app" {
+		t.Errorf("Android.PackageName = %q, want com.innerlamp.app", cfg.Attestation.Android.PackageName)
+	}
+	if cfg.Attestation.Android.RequiredAppRecognitionVerdict != "PLAY_RECOGNIZED" {
+		t.Errorf("RequiredAppRecognitionVerdict = %q, want PLAY_RECOGNIZED", cfg.Attestation.Android.RequiredAppRecognitionVerdict)
+	}
+	if cfg.Attestation.IOS.AppID == "" {
+		t.Errorf("IOS.AppID is empty; want the {team_id}.{bundle_id} placeholder")
+	}
+}
+
 func TestLoad_DevYAMLOTPPolicy(t *testing.T) {
 	ctx := context.Background()
 	source := pkgconfig.LoadSource("config.dev.yaml")

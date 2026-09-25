@@ -1,6 +1,6 @@
 %% InnerLamp — ERD schema Postgres (appService)
 %% Nguồn: migrations/0001_register_onboarding.sql, 0002_login_devices_and_rate_limit.sql,
-%%        0003_otp_send_limits.sql
+%%        0003_otp_send_limits.sql, 0004_attestation.sql
 %% Quy ước: quan hệ nét liền (--) = FK có cưỡng chế; nét đứt (..) = ràng buộc logic, KHÔNG FK.
 erDiagram
     users {
@@ -97,3 +97,27 @@ erDiagram
     users ||..o| pending_registration : "phone_number UNIQUE, khong FK"
     users ||..o| login_attempts : "phone_number PK, khong FK"
     otp_send_limits ||..o{ otp_codes : "chung (phone_number, purpose)"
+    users |o--o{ attestation_keys : "user_id nullable, ON DELETE SET NULL"
+
+    attestation_challenges {
+        bigint id PK "BIGSERIAL"
+        varchar(255) challenge UK "NOT NULL, nonce base64 (>= 16 byte tho), lookup key"
+        varchar(16) platform "NOT NULL, CHECK (android, ios)"
+        varchar(16) purpose "NOT NULL, CHECK (attest, assert)"
+        timestamptz used_at "NULL, set khi consume (thanh cong hoac verdict am)"
+        timestamptz expires_at "NOT NULL, now() + challenge_ttl"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+    }
+
+    attestation_keys {
+        bigint id PK "BIGSERIAL"
+        varchar(255) key_id UK "NOT NULL, keyId base64 cua iOS (hash public key)"
+        varchar(16) platform "NOT NULL, CHECK (ios)"
+        bytea public_key "NOT NULL, COSE ES256"
+        bytea receipt "NULL, luu cho fraud-risk (deferred)"
+        bigint sign_counter "NOT NULL DEFAULT 0, chong replay/rollback"
+        varchar(16) environment "NOT NULL, CHECK (development, production)"
+        bigint user_id FK "NULL, ON DELETE SET NULL, device-scoped"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }

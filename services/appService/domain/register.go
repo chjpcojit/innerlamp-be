@@ -111,9 +111,17 @@ func (c RegistrationConflicts) HasEmailConflict() bool {
 // the use case passes in is the only thing that knows how a token is built.
 type TokenIssuer func(userID, sessionID string) (accessToken, refreshToken string, err error)
 
-// RegistrationRepository persists everything US-001 touches: the pending
-// registration payload, the OTP rows, the user row, and the login session that
-// registration creates (AC1/AC7).
+// RegistrationRepository persists the register flow's own state: the pending
+// registration payload, the user row, and the login session that registration
+// creates (AC1/AC7).
+//
+// The generic OTP mechanism (otp_codes rows, wrong-guess counters, send limits)
+// lives behind domain.OTPRepository instead, so a future OTP flow can inject
+// that narrower port without dragging register's conflict-checking and
+// account-creation along. The one OTP-shaped write that stays here is
+// SavePendingAndIssueOTP, because it must commit the pending payload and a fresh
+// OTP in the *same* transaction — an atomicity that a standalone
+// OTPRepository.IssueOTP cannot express.
 //
 // Every write that must not be observed half-done is a single method wrapping
 // one transaction, rather than a set of primitives the use case sequences —
@@ -143,38 +151,11 @@ type RegistrationRepository interface {
 	// flow.
 	SavePendingAndIssueOTP(ctx context.Context, pending *PendingRegistration, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error)
 
-	// ReissueOTP invalidates the active OTP and issues a replacement — AC5.
-	//
-	// Like SavePendingAndIssueOTP it applies the send policy first, in the same
-	// transaction, and returns *OTPResendTooSoonError / *OTPSendLimitedError
-	// when the send is refused. Unlike SavePendingAndIssueOTP it does not touch
-	// the pending payload at all: the email and password hash were already
-	// stored at step 1, a resend must not require (or allow) changing them, and
-	// that payload's own TTL already outlives the code by a wide margin (v5.1).
-	ReissueOTP(ctx context.Context, phoneNumber string, purpose OTPPurpose, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error)
-
 	// FindPendingRegistration loads the payload waiting for phoneNumber.
 	// Returns ErrPendingRegistrationNotFound if none exists, and
 	// ErrPendingRegistrationExpired if the stored payload is past
 	// ExpiresAt — the caller treats both as "start over from step 1".
 	FindPendingRegistration(ctx context.Context, phoneNumber string) (*PendingRegistration, error)
-
-	// FindActiveOTP loads the OTP a verify or resend call should act on:
-	// the most recent row for phoneNumber/purpose that is neither used nor
-	// locked. Returns ErrOTPInvalid if there is none, so the caller cannot
-	// tell "never issued" from "already used" from "locked" — the caller
-	// learns about a lock from LockedUntil on a row it did load.
-	FindActiveOTP(ctx context.Context, phoneNumber string, purpose OTPPurpose) (*OTPCode, error)
-
-	// IncrementOTPAttempts records one wrong OTP guess against otpID and
-	// returns the new total — AC4/AC12. It returns the count rather than
-	// taking a threshold so the rule for when to lock stays in the use case.
-	IncrementOTPAttempts(ctx context.Context, otpID int64) (int, error)
-
-	// LockOTP marks otpID unusable until lockedUntil, and also marks it used
-	// so it can never be replayed — AC12. Locking is not a counter the
-	// caller can forget to consult; the row itself is dead.
-	LockOTP(ctx context.Context, otpID int64, lockedUntil time.Time) error
 
 	// CreateUserAndSession consumes the pending payload and turns it into a
 	// real account plus its first login session, in one transaction —
@@ -193,13 +174,6 @@ type RegistrationRepository interface {
 	// production verify path does not need it: CreateUserAndSession deletes
 	// the pending row as part of its own transaction.
 	DeletePendingRegistration(ctx context.Context, pendingID int64) error
-
-	// ReleaseSendLimit drops the send counter for phoneNumber/purpose, so a
-	// completed registration leaves no rate-limit state behind. Called inside
-	// CreateUserAndSession's transaction on success; correctness does not
-	// depend on it (the counter also ages out), but a fresh registration for
-	// the same number should not inherit a stale one.
-	ReleaseSendLimit(ctx context.Context, phoneNumber string, purpose OTPPurpose) error
 }
 
 // OTPSender delivers a one-time password to a phone number.

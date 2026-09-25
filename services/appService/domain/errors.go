@@ -139,6 +139,35 @@ var (
 	// maps it to ErrInvalidCredentials and keeps going through the bcrypt
 	// comparison so the response time does not betray the miss (AC2).
 	ErrUserNotFound = errors.New("user not found")
+
+	// ErrAttestationChallengeInvalid — the challenge (nonce) referenced by a
+	// verify or assertion is unknown, expired, or already used (AC6/AC14).
+	// One sentinel for all three states on purpose: a distinguishable response
+	// would let a caller probe which challenges are live. The verify endpoint
+	// maps it to 400; the assertion middleware maps it to 401.
+	ErrAttestationChallengeInvalid = errors.New("attestation challenge is invalid")
+
+	// ErrAttestationUpstreamError — the attestation backend (Google's Play
+	// Integrity decode) could not be reached or timed out (AC7). The verify
+	// endpoint maps it to 502, and the challenge is NOT consumed so the caller
+	// can retry the same nonce.
+	ErrAttestationUpstreamError = errors.New("attestation upstream error")
+
+	// ErrAttestationKeyNotFound — no registered key for the key_id an
+	// assertion named (AC13). The assertion middleware maps it to 401 with
+	// reason unknown_key.
+	ErrAttestationKeyNotFound = errors.New("attestation key not found")
+
+	// ErrAttestationCounterNotIncreased — the assertion's authenticator counter
+	// is not strictly greater than the stored one, i.e. a replay or rollback
+	// (AC12). The assertion middleware maps it to 401 with reason
+	// counter_not_increased, and the stored counter is NOT updated.
+	ErrAttestationCounterNotIncreased = errors.New("attestation counter did not increase")
+
+	// ErrAttestationAssertionInvalid — the assertion signature or RP ID did not
+	// verify against the stored public key (design.md assertion flow Step 3).
+	// The assertion middleware maps it to 401 with reason assertion_invalid.
+	ErrAttestationAssertionInvalid = errors.New("attestation assertion is invalid")
 )
 
 // OTPLockedError reports that an OTP is locked and when it unlocks.

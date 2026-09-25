@@ -1,13 +1,13 @@
 # Design — onboarding
 
-Version: 5.2
-Last updated: 2026-09-22
+Version: 6.1
+Last updated: 2026-09-25
 Status: done (US-001) — `domain/`, `usecase/`, `repository/`, `delivery/http/`, `cmd/main.go`,
 `pkg/sms/`, `migrations/0001`+`0003` và `docs/specs/api/openapi.yaml` đều đã có code/tài liệu thật,
 và đã chạy thật end-to-end (request-otp → resend-otp → verify-otp) qua Postgres. `tasks.md` không còn
 `[ ]`: `go test -short ./...` toàn repo xanh; repository + E2E chạy Postgres thật xanh; job dọn hàng
 hết hạn chốt chấp nhận ở MVP (Deferred). **Không còn marker `⚠️ Not confirmed`** — nhánh reset bộ đếm
-gửi đã chốt ở v5.1. (v5.2: sửa hai chỗ tài liệu cũ — helper `hashRefreshToken()` của repository nay là `domain.HashRefreshToken` (`domain/session_token.go`), và câu "refresh token 30 ngày" ở `requirements.md` đã thành **7 ngày**; không đổi code/AC. v5.1: **tách `PendingRegistrationTTL` khỏi OTP TTL (24h thay 90s)**;
+gửi đã chốt ở v5.1. (v6.1: chuẩn hoá theo quy ước `il-spec-writer` hiện hành — thêm `flow.md` (bản vẽ Mermaid mirror 1:1 ba Step-by-step Flow), đổi Request flow ASCII thành con trỏ `flow.md`, AC của `requirements.md` viết lại sang EARS; không đổi code/AC/behavior. v5.2: sửa hai chỗ tài liệu cũ — helper `hashRefreshToken()` của repository nay là `domain.HashRefreshToken` (`domain/session_token.go`), và câu "refresh token 30 ngày" ở `requirements.md` đã thành **7 ngày**; không đổi code/AC. v5.1: **tách `PendingRegistrationTTL` khỏi OTP TTL (24h thay 90s)**;
 `FindConflicts` không còn chặn bằng pending của chính SĐT — request-otp ghi đè payload để làm lại;
 resend-otp cấp OTP mới kể cả khi OTP cũ đã hết hạn, miễn payload còn; đổi AC6 + thêm AC15; code +
 test xong. v5.0: **đổi AC5/AC12** — bỏ trần resend carry-forward chặn vĩnh viễn, thay bằng
@@ -190,48 +190,7 @@ Hai đường làm lại, cùng bị khoá-gửi gác (còn trong 30 phút → 4
 
 ## Request flow
 
-```
-POST /v1/auth/register/request-otp
-  └─ public (không middleware)
-       └─ RegisterHandler.RequestOTP                      (delivery/http)
-            ├─ DecodeJSONBodyStrict → requestOTPRequest
-            ├─ validation.Validator.Struct(...)   ← tag `phone` đã đăng ký ở composition root
-            └─ RegisterUsecase.RequestOTP(ctx, input)     (usecase)
-                 ├─ normalize + validate (email, phone, password >= 8)
-                 ├─ RegistrationRepository.FindConflicts  (users + pending của SĐT khác)
-                 ├─ bcrypt.GenerateFromPassword
-                 ├─ RegistrationRepository.SavePendingAndIssueOTP  (repository, 1 tx)
-                 │    └─ SQL: áp send-limit (otp_send_limits) → UPSERT pending_registration
-                 │            → invalidate OTP cũ → INSERT otp_codes
-                 └─ OTPSender.SendOTP(..., OTPPurposeRegister) → pkg/sms → LogSMS (log-only)
-
-POST /v1/auth/register/verify-otp
-  └─ public (không middleware)
-       └─ RegisterHandler.VerifyOTP
-            ├─ DecodeJSONBodyStrict → verifyOTPRequest
-            └─ RegisterUsecase.VerifyOTP(ctx, input)
-                 ├─ RegistrationRepository.FindPendingRegistration
-                 ├─ RegistrationRepository.FindActiveOTP(phone, purpose='register')
-                 ├─ bcrypt.CompareHashAndPassword(otp_hash)   → sai thì tăng attempts / lock
-                 └─ RegistrationRepository.CreateUserAndSession(ctx, pending, issuer)
-                      └─ 1 tx: re-check users.email → INSERT users → DELETE pending_registration
-                               → UPDATE otp_codes.used_at → INSERT user_sessions
-                               (JWT mint trong tx qua closure TokenIssuer)
-
-POST /v1/auth/resend-otp                    (dùng chung mọi purpose; US-001 dùng purpose='register')
-  └─ public (không middleware)
-       └─ RegisterHandler.ResendOTP
-            ├─ DecodeJSONBodyStrict → resendOTPRequest { phone_number, purpose }
-            ├─ validation.Validator.Struct(...)
-            └─ RegisterUsecase.ResendOTP(ctx, input)
-                 ├─ normalizePhone (cùng hàm với flow 1)
-                 ├─ RegistrationRepository.FindPendingRegistration  → ErrPendingRegistrationExpired nếu hết hạn
-                 ├─ RegistrationRepository.FindActiveOTP            → kiểm khoá-nhập-sai (ErrOTPInvalid thì bỏ qua — v5.1)
-                 └─ RegistrationRepository.ReissueOTP (repository, 1 tx)
-                      └─ SQL: áp send-limit (otp_send_limits) → invalidate OTP cũ
-                               → INSERT otp_codes mới (không đụng payload — v5.1)
-                 └─ OTPSender.SendOTP → pkg/sms → LogSMS (log-only)
-```
+> Xem `flow.md` cho sơ đồ sequence Mermaid (mirror 1:1 của Step-by-step Flow bên dưới).
 
 ## Step-by-step Flow — Đăng ký bước 1: yêu cầu OTP
 

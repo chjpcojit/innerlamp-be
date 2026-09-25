@@ -39,15 +39,6 @@ func (m *MockRegistrationRepository) SavePendingAndIssueOTP(ctx context.Context,
 	return nil, args.Error(1)
 }
 
-// ReissueOTP mocks the ReissueOTP method.
-func (m *MockRegistrationRepository) ReissueOTP(ctx context.Context, phoneNumber string, purpose OTPPurpose, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error) {
-	args := m.Called(ctx, phoneNumber, purpose, otpHash, expiresAt, limits)
-	if s := args.Get(0); s != nil {
-		return s.(*SendState), args.Error(1)
-	}
-	return nil, args.Error(1)
-}
-
 // FindPendingRegistration mocks the FindPendingRegistration method.
 func (m *MockRegistrationRepository) FindPendingRegistration(ctx context.Context, phoneNumber string) (*PendingRegistration, error) {
 	args := m.Called(ctx, phoneNumber)
@@ -55,27 +46,6 @@ func (m *MockRegistrationRepository) FindPendingRegistration(ctx context.Context
 		return p.(*PendingRegistration), args.Error(1)
 	}
 	return nil, args.Error(1)
-}
-
-// FindActiveOTP mocks the FindActiveOTP method.
-func (m *MockRegistrationRepository) FindActiveOTP(ctx context.Context, phoneNumber string, purpose OTPPurpose) (*OTPCode, error) {
-	args := m.Called(ctx, phoneNumber, purpose)
-	if o := args.Get(0); o != nil {
-		return o.(*OTPCode), args.Error(1)
-	}
-	return nil, args.Error(1)
-}
-
-// IncrementOTPAttempts mocks the IncrementOTPAttempts method.
-func (m *MockRegistrationRepository) IncrementOTPAttempts(ctx context.Context, otpID int64) (int, error) {
-	args := m.Called(ctx, otpID)
-	return args.Int(0), args.Error(1)
-}
-
-// LockOTP mocks the LockOTP method.
-func (m *MockRegistrationRepository) LockOTP(ctx context.Context, otpID int64, lockedUntil time.Time) error {
-	args := m.Called(ctx, otpID, lockedUntil)
-	return args.Error(0)
 }
 
 // CreateUserAndSession mocks the CreateUserAndSession method.
@@ -90,11 +60,5 @@ func (m *MockRegistrationRepository) CreateUserAndSession(ctx context.Context, p
 // DeletePendingRegistration mocks the DeletePendingRegistration method.
 func (m *MockRegistrationRepository) DeletePendingRegistration(ctx context.Context, pendingID int64) error {
 	args := m.Called(ctx, pendingID)
-	return args.Error(0)
-}
-
-// ReleaseSendLimit mocks the ReleaseSendLimit method.
-func (m *MockRegistrationRepository) ReleaseSendLimit(ctx context.Context, phoneNumber string, purpose OTPPurpose) error {
-	args := m.Called(ctx, phoneNumber, purpose)
 	return args.Error(0)
 }

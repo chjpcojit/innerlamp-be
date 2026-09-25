@@ -45,8 +45,15 @@ the outer layers. Never put HTTP DTOs into domain/ or usecase/.
 ## Request flow
 
 <!--
-ASCII diagram: from the HTTP entry point down to the database, naming the middleware that guards it
-and where the usecase boundary sits. See the existing design.md files for the exact style to reuse.
+If the feature's main flow triggers 2+ sequential external calls or side effects (rule 5/6), the
+Mermaid sequence diagram in `flow.md` is the authoritative visual — replace this whole ASCII block
+with a one-line pointer:
+
+    > Xem `flow.md` cho sơ đồ sequence Mermaid (mirror 1:1 của Step-by-step Flow bên dưới).
+
+Keep this ASCII trace only for a single-query feature with no Step-by-step Flow and no `flow.md`.
+The ASCII shows: HTTP entry point down to the database, naming the middleware that guards it and
+where the usecase boundary sits. See the existing design.md files for the exact style to reuse.
 -->
 
 ```

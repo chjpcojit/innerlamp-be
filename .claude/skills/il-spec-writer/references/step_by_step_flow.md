@@ -1,5 +1,10 @@
 # Step-by-step Flow trong design.md
 
+> Mỗi section "Step-by-step Flow" trong `design.md` có một **bản vẽ Mermaid tương ứng trong
+> `flow.md`** (sequence diagram là chính, flowchart cho nhánh rẽ logic). Đọc
+> `flow_diagram.md` để biết quy ước vẽ và quy tắc "mirror 1:1, không thêm/bớt bước". File này chỉ
+> quy định phần text trong `design.md`.
+
 ## Vì sao section này tồn tại
 
 Một user story một câu ("người dùng đăng ký bằng email + mật khẩu") không thể mô tả chính xác

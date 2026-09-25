@@ -1,22 +1,25 @@
 ---
 name: il-spec-writer
-description: This skill should be used when the user wants a written spec (requirements, design, or task breakdown) for an InnerLamp backend feature — before, during, or retroactively after building it — covering the four-file convention under `docs/specs/features/<feature>/` (requirements.md, design.md, tasks.md) plus a changelog.md. It enforces a strict one-way cascade (requirements → design → tasks: a requirement change always updates design, which always updates tasks, never the reverse), EARS-notation acceptance criteria in requirements.md, a mandatory "Step-by-step Flow" section in design.md for any flow with 2+ sequential external calls or persistent side effects (spelling out trigger/pre-condition/call/success-failure per step so hidden steps like a duplicate check, a transaction boundary, or a secondary write are never silently assumed), version headers + changelog entries on every file for every update, and a hard rule that any unanswered question from the user is recorded inline as "⚠️ Not confirmed" — never skipped, never guessed, never silently defaulted. It is a docs-only skill: it never writes Go code (that is `go-clean-architecture`'s job) and never writes to `docs/knowledge/` (the separate, post-implementation-only OKF convention, owned by `bdd-okf-docs`).
+description: This skill should be used when the user wants a written spec (requirements, design, task breakdown, or flow diagram) for an InnerLamp backend feature — before, during, or retroactively after building it — covering the five-file convention under `docs/specs/features/<feature>/` (requirements.md, design.md, tasks.md, flow.md) plus a changelog.md. It enforces a strict one-way cascade (requirements → design → tasks: a requirement change always updates design, which always updates tasks, never the reverse), EARS-notation acceptance criteria in requirements.md, a mandatory "Step-by-step Flow" section in design.md for any flow with 2+ sequential external calls or persistent side effects (spelling out trigger/pre-condition/call/success-failure per step so hidden steps like a duplicate check, a transaction boundary, or a secondary write are never silently assumed), a matching Mermaid flow diagram in flow.md that mirrors that Step-by-step Flow 1:1 (sequence diagram by default, flowchart only for branching logic like a rate-limit/lock state machine), version headers + changelog entries on every file for every update, and a hard rule that any unanswered question from the user is recorded inline as "⚠️ Not confirmed" — never skipped, never guessed, never silently defaulted. It is a docs-only skill: it never writes Go code (that is `go-clean-architecture`'s job) and never writes to `docs/knowledge/` (the separate, post-implementation-only OKF convention, owned by `bdd-okf-docs`).
 ---
 
 # InnerLamp Backend Spec Writer
 
 ## Overview
 
-Generates and maintains the four-file spec convention for an InnerLamp backend feature under
+Generates and maintains the five-file spec convention for an InnerLamp backend feature under
 `docs/specs/features/<feature>/`:
 
 - `requirements.md` — **what** the system must do, from the API consumer's perspective (user story +
   EARS-notation acceptance criteria + confirmed API contract notes).
 - `design.md` — **how** it is built and how it operates (Clean Architecture layers/components,
   request flow, and a step-by-step technical sequence for any multi-call flow).
+- `flow.md` — **the visual of the flow**, a Mermaid sequence diagram (or flowchart for branching
+  logic) that mirrors `design.md`'s Step-by-step Flow 1:1 — no new steps, none dropped. Omitted when
+  the feature has no multi-call flow.
 - `tasks.md` — **what to actually do, in order**, broken down directly from `design.md`'s layers,
   organized into numbered Phases, each item a checkbox (`[ ]` pending / `[x]` done).
-- `changelog.md` — one shared version history for all three files above (they change together as
+- `changelog.md` — one shared version history for all four files above (they change together as
   one spec unit).
 
 This skill is modeled on the existing `docs/specs/features/onboarding/` and
@@ -64,7 +67,13 @@ which paths are stale.
    → page query. See `references/step_by_step_flow.md` for why and how — this is the mechanism that
    prevents hidden steps (a duplicate-email check, a transaction boundary, a secondary write) from
    being silently assumed away in a one-sentence user story.
-6. **Questions asked to the user must be short, concrete, and easy to answer** — one topic per
+6. **Whenever rule 5 applies, a matching Mermaid flow diagram in `flow.md` is mandatory too.** It
+   mirrors the Step-by-step Flow 1:1 — every arrow traces to a Step in `design.md`, every Step
+   appears in the diagram; it never invents or drops a step. Sequence diagram is the default;
+   flowchart only for pure branching logic (rate-limit/lock state machine, retry loops). A change
+   to `design.md`'s flow requires updating `flow.md` in the same version bump. See
+   `references/flow_diagram.md`.
+7. **Questions asked to the user must be short, concrete, and easy to answer** — one topic per
    question, with an example or a suggested default where possible. See
    `references/gathering_questions.md` for the required question set and phrasing style.
 
@@ -78,6 +87,7 @@ Read these as needed — don't load all upfront if the task is narrow.
 | `references/gathering_questions.md` | The exact question set to ask before generating anything, phrasing rules, and the "never skip, mark ⚠️" rule for unanswered ones |
 | `references/ears_notation.md` | How to phrase `requirements.md` acceptance criteria in EARS notation, with good/bad examples |
 | `references/step_by_step_flow.md` | When and how to write the `design.md` Step-by-step Flow section; the per-step fields required (trigger/pre-condition/API/success/failure) |
+| `references/flow_diagram.md` | When and how to write the `flow.md` Mermaid diagram (participant naming, arrow/transaction/branch notation, flowchart vs sequence, Vietnamese labels, the "mirror 1:1, never invent" rule) |
 | `references/versioning_and_changelog.md` | Version bump rule (patch vs minor), required header format, and the `changelog.md` entry format with a worked multi-version example |
 
 ## Workflow
@@ -100,8 +110,8 @@ generation until each question has either an answer or an explicit "skip, mark u
    intended middleware wiring as if it exists.
 5. **Does the main flow involve more than one sequential external call or persistent side effect**
    (e.g. this feature's own insert plus a follow-on write owned by another module, or a
-   storage/email call after a DB write)? If yes, the Step-by-step Flow section (rule 5 above) is
-   mandatory.
+   storage/email call after a DB write)? If yes, the Step-by-step Flow section in `design.md`
+   (rule 5) **and** the matching Mermaid diagram in `flow.md` (rule 6) are both mandatory.
 6. **Confirmed contracts?** For each endpoint identified in step 5, is the exact contract (method,
    path, request/response shape, error cases, status codes) already confirmed and reflected in
    `docs/specs/api/openapi.yaml`, or still unknown? Unknown ones become `⚠️ Not confirmed` items,
@@ -109,7 +119,7 @@ generation until each question has either an answer or an explicit "skip, mark u
 7. **Schema impact?** Does this feature add/alter tables or columns? If yes, which `migrations/000N_*.sql`
    file is expected, and is the ERD under `docs/specs/db/` affected?
 
-### 2. Populate the three files + changelog
+### 2. Populate the four files + changelog
 
 Copy each file in `assets/templates/` to `docs/specs/features/<feature>/`, replacing `{{feature}}`
 with the lowercase feature name, then fill in real content:
@@ -118,6 +128,7 @@ with the lowercase feature name, then fill in real content:
 |---|---|---|
 | `assets/templates/requirements.md.template` | `docs/specs/features/<feature>/requirements.md` | User Story, EARS Acceptance Criteria (`references/ears_notation.md`), Out of scope, Pending, Open questions |
 | `assets/templates/design.md.template` | `docs/specs/features/<feature>/design.md` | Overview, Layers & components table, Request flow, Step-by-step Flow (if rule 5 applies), Deliberately-stubbed-for-now section for any unconfirmed endpoint |
+| `assets/templates/flow.md.template` | `docs/specs/features/<feature>/flow.md` | One Mermaid sequence diagram per Step-by-step Flow section, mirroring it 1:1; optional flowchart for branching logic (`references/flow_diagram.md`). Omit this file entirely if rule 5 does not apply |
 | `assets/templates/tasks.md.template` | `docs/specs/features/<feature>/tasks.md` | Phases broken down 1:1 from `design.md`'s Layers & components table — never invent a task that doesn't trace back to something named in `design.md` |
 | `assets/templates/changelog.md.template` | `docs/specs/features/<feature>/changelog.md` | Single `v1.0 (initial)` entry describing what this first version covers |
 
@@ -139,13 +150,15 @@ generation:
    `requirements.md`. A newly-discovered technical detail (e.g. confirming an endpoint shape) may
    resolve directly in `design.md`/`requirements.md` without necessarily changing behavior.
 2. Cascade per rule 1 above: `requirements.md` change → check/update `design.md` → check/update
-   `tasks.md`. Explicitly state in your response (and in the changelog entry) if a downstream file
-   did *not* need to change, and why — don't silently skip it without noting that you checked.
+   `flow.md` (if it exists, or add it if rule 5/6 now applies) → check/update `tasks.md`. Explicitly
+   state in your response (and in the changelog entry) if a downstream file did *not* need to
+   change, and why — don't silently skip it without noting that you checked. A change to
+   `design.md`'s Step-by-step Flow always changes `flow.md` in the same bump (rule 6).
 3. Bump version + add a changelog entry per `references/versioning_and_changelog.md`, describing
    what changed and why in plain language (not just "updated file").
 4. If the change resolves a `⚠️ Not confirmed` item, move it to "Open questions (resolved)" in
    `requirements.md` with the resolution, and explicitly check (and state) whether it simplifies,
-   expands, or leaves unchanged the affected part of `design.md`/`tasks.md`.
+   expands, or leaves unchanged the affected part of `design.md`/`flow.md`/`tasks.md`.
 5. If the change touches an HTTP contract, flag `docs/specs/api/openapi.yaml` for the same change
    (it is generated from the handlers and must not drift). If it touches schema, flag
    `migrations/` and the matching `docs/specs/db/` ERD. If it changes shipped behavior, flag the
@@ -166,5 +179,10 @@ generation:
   entry per version bump, in reverse-chronological order (newest first).
 - If the flow involves 2+ sequential external calls or side effects and no Step-by-step Flow
   section exists yet, add one before reporting done — this is not optional (rule 5).
+- If a Step-by-step Flow section exists, `flow.md` exists too, with one sequence diagram per flow
+  section that mirrors it 1:1 — no diagram step without a matching `design.md` Step, and no
+  `design.md` Step missing from the diagram (rule 6). Mermaid keywords are English, labels are
+  Vietnamese; transaction boundaries are marked with `rect` + `Note`, and any `⚠️ Not confirmed`
+  step appears as a `Note`, not drawn as settled.
 - Cross-file follow-ups (`docs/specs/api/openapi.yaml`, `migrations/`, `docs/specs/db/`,
   `docs/knowledge/`) are listed in the response and in the changelog entry.

@@ -30,7 +30,8 @@ Hỏi theo thứ tự, từng câu một hoặc gộp thành một form ngắn �
 5. **Có bảng DB mới không, hay chỉ dùng bảng đã có?** Nếu có: đã có migration chưa, hay cần thêm?
 6. **Flow chính có nhiều hơn một lời gọi ra ngoài theo thứ tự không** (nhiều query, transaction
    nhiều bảng, gọi external service, upload storage, gửi mail)? Có/Không — nếu có, bắt buộc có
-   section Step-by-step Flow trong `design.md` (xem `step_by_step_flow.md`).
+   section Step-by-step Flow trong `design.md` (xem `step_by_step_flow.md`) **và** sơ đồ Mermaid
+   trong `flow.md` (xem `flow_diagram.md`).
 7. **Với mỗi lời gọi ở câu 6: contract đã chốt chưa** (schema request/response, mã lỗi, HTTP
    status), hay còn chưa rõ? Cái gì "chưa rõ" trở thành marker `⚠️ Not confirmed`, không được viết
    như thể đã có.

@@ -1,14 +1,14 @@
 # Versioning and changelog rules
 
-Every spec file (`requirements.md`, `design.md`, `tasks.md`) carries a version header, and every
-update to any of them adds a corresponding entry to the shared `changelog.md` in the same folder.
-This exists so a reviewer (human or AI) can tell at a glance whether a spec they're reading is
-current, and *why* it changed since they last read it — without diffing git history.
+Every spec file (`requirements.md`, `design.md`, `flow.md`, `tasks.md`) carries a version header, and
+every update to any of them adds a corresponding entry to the shared `changelog.md` in the same
+folder. This exists so a reviewer (human or AI) can tell at a glance whether a spec they're reading
+is current, and *why* it changed since they last read it — without diffing git history.
 
-## Header format (top of each of the three files)
+## Header format (top of each of the four files)
 
 ```markdown
-# <Requirements|Design|Tasks> — <Feature>
+# <Requirements|Design|Flow|Tasks> — <Feature>
 
 Version: <major>.<minor>
 Last updated: <YYYY-MM-DD>
@@ -16,10 +16,12 @@ Status: <one-line status, e.g. "in-progress — repository layer done, handler n
 Feature folder: `services/appService/` + `docs/specs/features/<feature>/`
 ```
 
-All three files share the **same version number** at any given time — they are versioned as one
-unit, not independently. If only `design.md` changes, still bump the version number in all three
+All four files share the **same version number** at any given time — they are versioned as one
+unit, not independently. If only `design.md` changes, still bump the version number in all four
 files' headers (even if `requirements.md`'s content didn't change) so it's obvious they were last
-reviewed together as of that version.
+reviewed together as of that version. `flow.md` is the visual mirror of `design.md`'s Step-by-step
+Flow, so a change to one that is not reflected in the other is a bug — always bump both in the same
+version.
 
 ## Bump rule
 
@@ -35,13 +37,15 @@ communicates the change; the version number is a rough marker, not a precise sem
 ## changelog.md entry format
 
 Newest version first (reverse chronological). One entry per version, referencing which of the
-three files changed and why:
+four files changed and why:
 
 ```markdown
 ## v<version> (<date>)
 
 - `requirements.md`: <what changed and why, in plain language>.
 - `design.md`: <what changed and why — or explicitly "no change needed, verified">.
+- `flow.md`: <what changed and why — or explicitly "no change needed, verified". Omitted only if
+  the feature has no flow.md at all>.
 - `tasks.md`: <what changed and why — new Phase, item(s) checked off, item(s) removed>.
 - Reason: <one or two sentences on the underlying cause — a new user requirement, an answered
   open question, a corrected assumption after reading the real code, etc.>

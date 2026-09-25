@@ -1,0 +1,86 @@
+# Flow — {{feature}}
+
+Version: 1.0
+Last updated: {{date}}
+Status: <!-- one-line status, mirror design.md's Status line -->
+Module: `{{feature}}`
+
+> See `changelog.md` in this folder for the version history of this spec.
+
+<!--
+File này là **bản vẽ** (visual) của các section "Step-by-step Flow" trong `design.md`. Nó không
+thêm bước mới, không bỏ bước — mỗi mũi tên/message ở đây phải trace 1:1 về một Step trong
+`design.md`. Ngược lại, mỗi Step trong `design.md` phải xuất hiện ở đây. Thấy chỗ lệch là bug của
+chính file này. Quy ước đầy đủ: xem `references/flow_diagram.md`.
+
+Quy tắc của file này:
+- Một section `###` cho MỖI section "Step-by-step Flow — ..." trong `design.md` (cùng tên, cùng thứ
+  tự). Không gộp nhiều flow vào một diagram, không tách một flow ra nhiều diagram.
+- Mặc định là **sequence diagram**. Chỉ thêm **flowchart** cho nhánh rẽ logic mà sequence vẽ gượng —
+  ví dụ state machine send-limit/khoá, vòng lặp retry. Flowchart phải trỏ về đúng bảng quyết
+  định/block trong `design.md`, không tự bịa nhánh. Xem `references/flow_diagram.md` cho mẫu flowchart.
+- Feature chỉ có đúng MỘT query và không có write (không có Step-by-step Flow trong `design.md`):
+  **bỏ cả file này** — section "Request flow" trong `design.md` giữ nguyên bản trace ASCII gọn.
+- Nhãn message/participant viết tiếng Việt ngắn; keyword Mermaid (`participant`, `alt`, `loop`, ...)
+  giữ tiếng Anh — khớp quy ước mixed-language của spec và comment `%%` của `erd.mmd`.
+- Mọi `⚠️ Not confirmed` ở một bước trong `design.md` xuất hiện ở đây dưới dạng `Note` trên đúng
+  message tương ứng — không được vẽ nó như thể đã chốt.
+-->
+
+## Sequence — <!-- tên flow 1, trùng heading "Step-by-step Flow — ..." trong design.md -->
+
+<!--
+Mỗi participant đứng cho một layer/actor. Dùng alias ngắn + tên file thật trong dấu ngoặc:
+  - C: Client
+  - H: <Feature>Handler (delivery/http)
+  - U: <Verb><Feature>Usecase
+  - R: <Feature>Repository
+  - DB: Postgres
+  - Thêm participant cho external service nếu flow chạm tới (pkg/sms, pkg/mailer, GCS, ...).
+Transaction boundary: bọc các message trong `rect rgb(...)` + `Note over R,DB: MỘT transaction`.
+Nhánh lỗi: `alt`/`else`/`end`; return lỗi dùng mũi tên `--x`.
+-->
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as Client
+    participant H as {{Feature}}Handler<br/>(delivery/http)
+    participant U as {{Verb}}{{Feature}}Usecase
+    participant R as {{Feature}}Repository
+    participant DB as Postgres
+    %% participant S as pkg/sms  (thêm nếu flow gọi external service)
+
+    C->>H: POST /v1/{{path}}
+    H->>H: DecodeJSONBodyStrict + validate DTO
+    H->>U: Execute(ctx, input)
+    U->>U: domain validation → sentinel error nếu fail
+    U->>R: <Method>(ctx, ...)
+
+    rect rgb(235, 240, 255)
+        Note over R,DB: MỘT transaction
+        R->>DB: SELECT / INSERT / UPDATE / DELETE ...
+        alt success
+            R-->>U: entity / id
+        else unique violation / lỗi DB
+            R--xU: domain sentinel error → rollback
+        end
+    end
+
+    alt success
+        U-->>H: result
+        H-->>C: 200 / 201 {...}
+    else failure
+        U--xH: sentinel error
+        H-->>C: 4xx / 5xx {code, message}
+    end
+```
+
+<!--
+Mỗi flow bổ sung là một section `### Sequence — ...` mới (đặt ngay dưới đây), theo đúng thứ tự các
+section Step-by-step Flow trong design.md.
+
+Nếu một flow có nhánh rẽ logic thuần (state machine, retry), thêm section `### Flowchart — ...` với
+khối mermaid `flowchart TB` (hoặc `LR`), và trong phần mở đầu ghi rõ nó vẽ bảng quyết định nào của
+design.md. Mẫu flowchart đầy đủ nằm ở `references/flow_diagram.md` (phần "Khi nào dùng flowchart").
+-->

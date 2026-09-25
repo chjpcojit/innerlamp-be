@@ -8,21 +8,22 @@
 // inside step two's transaction: there is no window in which a half-registered
 // account can be observed.
 //
+// The OTP mechanism itself (generate, hash, send, verify, count wrong guesses,
+// lock) lives in OTPService (otp_service.go), which knows nothing about the
+// register flow. RegisterUsecase keeps only what is register-specific — the
+// validation, the conflict check, the pending payload, and turning a verified
+// phone into a user + session — and calls OTPService for the code parts.
+//
 // This package imports domain (its ports, inputs and sentinels) plus the
 // reusable pkg/ abstractions it needs — jwt for signing, logging for
 // observability, validation for shape checks. It never imports repository or
 // delivery: the concrete Postgres repository is injected as a
 // domain.RegistrationRepository, and the HTTP shape of an error is decided one
 // layer further out.
-//
-// It also names config.OTPConfig, for the OTP policy's shape only. Every value
-// still arrives as a constructor parameter — the use case never reads a
-// package-level config singleton, which is the property that matters.
 package usecase
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -30,7 +31,6 @@ import (
 	"chjpcoj.com.innerlamp/pkg/jwt"
 	"chjpcoj.com.innerlamp/pkg/logging"
 	"chjpcoj.com.innerlamp/pkg/validation"
-	"chjpcoj.com.innerlamp/services/appService/config"
 	"chjpcoj.com.innerlamp/services/appService/domain"
 
 	"golang.org/x/crypto/bcrypt"
@@ -52,7 +52,7 @@ const (
 // RegisterUsecase implements US-001.
 type RegisterUsecase struct {
 	registrations domain.RegistrationRepository
-	otpSender     domain.OTPSender
+	otpService    *OTPService
 	jwtService    jwt.Service
 	logger        logging.Logger
 
@@ -63,60 +63,41 @@ type RegisterUsecase struct {
 	// disagree, and the row would outlive or underlive its token.
 	sessionTTL time.Duration
 
-	// otpPolicy is the tunable policy behind every code this use case issues:
-	// TTL, resend cooldown and cap, attempt limit, lock duration and the pending
-	// payload's lifetime.
-	//
-	// The type is config's rather than a local mirror. These six numbers used to
-	// be a const block here, justified as "business decisions, not
-	// configuration"; they are not — each is a number a dev environment shortens
-	// to exercise expiry and production lengthens under load. A local struct
-	// would then have to be filled in by hand at the composition root, and a
-	// field missed there decodes to a zero value: an OTP TTL of 0 is a code that
-	// is expired the instant it is issued, which is a silent failure. Naming the
-	// config type directly means there is no second definition and no mapping to
-	// get wrong.
-	//
-	// Named otpPolicy rather than otp because every method here also has a local
-	// *domain.OTPCode called otp — the two would shadow, and a reader would have
-	// to check which one a bare `otp` meant.
-	otpPolicy config.OTPConfig
+	// pendingRegistrationTTL is the lifetime of the captured account payload
+	// (PendingRegistration). It is a register-specific concern — the pending
+	// payload, not the OTP code — so it stays here while the OTP policy (TTL,
+	// cooldown, caps, lockout) moves to OTPService. It comes from
+	// OTPConfig.PendingRegistrationTTL, the same way sessionTTL comes from
+	// JWTConfig.RefreshTokenExpiration.
+	pendingRegistrationTTL time.Duration
 }
 
 // NewRegisterUsecase wires the use case. Every collaborator is a port, a pkg
 // abstraction, or a plain value read from config; no concrete repository, sender
 // or signing implementation is visible here.
 //
-// sessionTTL and otpPolicy both come from services/appService/config/ and are
-// passed through rather than declared here — a use case that reaches for a
-// package-level config singleton has broken dependency injection, and a TTL
-// baked in as a const cannot be shortened for a dev environment.
+// The shared OTP mechanism arrives as a constructed *OTPService (built in the
+// composition root from repository.NewOTPRepository + the SMS sender + the OTP
+// policy). sessionTTL and pendingRegistrationTTL are plain values read from
+// config and passed through rather than declared here — a use case that reaches
+// for a package-level config singleton has broken dependency injection, and a
+// TTL baked in as a const cannot be shortened for a dev environment.
 func NewRegisterUsecase(
 	registrations domain.RegistrationRepository,
-	otpSender domain.OTPSender,
+	otpService *OTPService,
 	jwtService jwt.Service,
 	logger logging.Logger,
 	sessionTTL time.Duration,
-	otpPolicy config.OTPConfig,
+	pendingRegistrationTTL time.Duration,
 ) *RegisterUsecase {
 	return &RegisterUsecase{
-		registrations: registrations,
-		otpSender:     otpSender,
-		jwtService:    jwtService,
-		logger:        logger,
-		sessionTTL:    sessionTTL,
-		otpPolicy:     otpPolicy,
+		registrations:          registrations,
+		otpService:             otpService,
+		jwtService:             jwtService,
+		logger:                 logger,
+		sessionTTL:             sessionTTL,
+		pendingRegistrationTTL: pendingRegistrationTTL,
 	}
-}
-
-// generateOTP returns the code sent to the user.
-//
-// It is a constant today (US-001 technical notes: 111111 in dev) and that is a
-// deliberate placeholder, not an oversight — isolated in this one function so
-// that switching to a cryptographically random six-digit code touches nothing
-// else. Every caller treats the return value as opaque.
-func generateOTP() string {
-	return "111111"
 }
 
 // RequestOTP runs step 1: validate the payload, make sure neither unique key is
@@ -166,12 +147,8 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 	// weaker lock and is applied inside SavePendingAndIssueOTP in the same
 	// transaction as the OTP write — it must NOT block verifying the last code,
 	// so it cannot live on the OTP row read here.
-	otp, err := u.registrations.FindActiveOTP(ctx, phoneNumber, domain.OTPPurposeRegister)
-	if err != nil && !errors.Is(err, domain.ErrOTPInvalid) {
-		return nil, fmt.Errorf("find active otp: %w", err)
-	}
-	if otp != nil && isLocked(otp, time.Now()) {
-		return nil, &domain.OTPLockedError{LockedUntil: *otp.LockedUntil}
+	if err := u.otpService.EnsureNotLocked(ctx, phoneNumber, domain.OTPPurposeRegister); err != nil {
+		return nil, err
 	}
 
 	// The hash, not the password, is what leaves this function. bcrypt's cost
@@ -189,29 +166,29 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 		PasswordHash:    string(passwordHash),
 		DharmaName:      optionalString(input.DharmaName),
 		OrdinationPlace: optionalString(input.OrdinationPlace),
-		ExpiresAt:       now.Add(u.otpPolicy.PendingRegistrationTTL.Duration()),
+		ExpiresAt:       now.Add(u.pendingRegistrationTTL),
 	}
 
-	otpHash, err := bcrypt.GenerateFromPassword([]byte(generateOTP()), bcrypt.DefaultCost)
+	code, otpHash, err := u.otpService.Generate()
 	if err != nil {
-		return nil, fmt.Errorf("hash otp: %w", err)
+		return nil, err
 	}
 
-	if _, err := u.registrations.SavePendingAndIssueOTP(ctx, pending, string(otpHash), now.Add(u.otpPolicy.TTL.Duration()), u.sendLimits()); err != nil {
+	if _, err := u.registrations.SavePendingAndIssueOTP(ctx, pending, otpHash, u.otpService.CodeExpiry(now), u.otpService.SendLimits()); err != nil {
 		return nil, wrapSendError("save pending registration", err)
 	}
 
 	// Sent only after the transaction committed. An OTP the user is holding
 	// while its row rolled back is a code nothing can verify.
-	if err := u.sendOTP(ctx, phoneNumber); err != nil {
+	if err := u.otpService.Send(ctx, phoneNumber, code, domain.OTPPurposeRegister); err != nil {
 		return nil, err
 	}
 
 	u.logger.Info("registration otp requested", "phone_number", phoneNumber)
 
 	return &domain.RequestOTPResult{
-		ExpiresInSeconds:   int(u.otpPolicy.TTL.Duration().Seconds()),
-		ResendAfterSeconds: int(u.otpPolicy.SendCooldown.Duration().Seconds()),
+		ExpiresInSeconds:   u.otpService.ExpiresInSeconds(),
+		ResendAfterSeconds: u.otpService.ResendAfterSeconds(),
 	}, nil
 }
 
@@ -243,46 +220,26 @@ func (u *RegisterUsecase) ResendOTP(ctx context.Context, input domain.ResendOTPI
 		return nil, err
 	}
 
-	// An expired or already-consumed code is not a reason to refuse a resend:
-	// the pending payload is the precondition, and issuing a fresh code is
-	// exactly what resend is for. This is what lets a caller resume after the
-	// 30-minute send lock (their last code is long expired) instead of being
-	// told to start over (v5.1). ErrOTPInvalid therefore means "no row to
-	// lock-check", not "dead attempt".
-	otp, err := u.registrations.FindActiveOTP(ctx, phoneNumber, input.Purpose)
-	if err != nil && !errors.Is(err, domain.ErrOTPInvalid) {
-		return nil, fmt.Errorf("find active otp: %w", err)
-	}
-
 	// The wrong-guess lock (AC12) is checked here because it lives on the OTP
 	// row. The send policy (AC5) — cooldown, cap, send lock — is applied by
-	// ReissueOTP in its own transaction, so a blocked send writes nothing and
+	// IssueOTP in its own transaction, so a blocked send writes nothing and
 	// the two locks stay independent: this one blocks verify too, the send one
 	// must not.
-	if otp != nil && isLocked(otp, time.Now()) {
-		return nil, &domain.OTPLockedError{LockedUntil: *otp.LockedUntil}
+	if err := u.otpService.EnsureNotLocked(ctx, phoneNumber, input.Purpose); err != nil {
+		return nil, err
 	}
 
-	otpHash, err := bcrypt.GenerateFromPassword([]byte(generateOTP()), bcrypt.DefaultCost)
+	result, err := u.otpService.Issue(ctx, phoneNumber, input.Purpose)
 	if err != nil {
-		return nil, fmt.Errorf("hash otp: %w", err)
-	}
-
-	state, err := u.registrations.ReissueOTP(ctx, phoneNumber, input.Purpose, string(otpHash), time.Now().Add(u.otpPolicy.TTL.Duration()), u.sendLimits())
-	if err != nil {
-		return nil, wrapSendError("reissue otp", err)
-	}
-
-	if err := u.sendOTP(ctx, phoneNumber); err != nil {
 		return nil, err
 	}
 
 	u.logger.Info("registration otp resent", "phone_number", phoneNumber)
 
 	return &domain.ResendOTPResult{
-		ExpiresInSeconds:   int(u.otpPolicy.TTL.Duration().Seconds()),
-		ResendAfterSeconds: int(u.otpPolicy.SendCooldown.Duration().Seconds()),
-		ResendRemaining:    state.Remaining,
+		ExpiresInSeconds:   result.ExpiresInSeconds,
+		ResendAfterSeconds: result.ResendAfterSeconds,
+		ResendRemaining:    result.ResendRemaining,
 	}, nil
 }
 
@@ -294,6 +251,10 @@ func (u *RegisterUsecase) ResendOTP(ctx context.Context, input domain.ResendOTPI
 // itself re-checks email uniqueness inside its own transaction, because two
 // people can hold pending registrations for the same unverified address and
 // only a completed account is authoritative for that claim.
+//
+// The code check runs inside the shared OTPService.Verify; on success it returns
+// the verified OTP row, and register's own completion step — CreateUserAndSession
+// — consumes it (marking the row used) while creating the account.
 func (u *RegisterUsecase) VerifyOTP(ctx context.Context, input domain.VerifyRegisterOTPInput) (*domain.RegisterResult, error) {
 	phoneNumber := validation.NormalizePhone(input.PhoneNumber)
 	if phoneNumber == "" {
@@ -305,24 +266,9 @@ func (u *RegisterUsecase) VerifyOTP(ctx context.Context, input domain.VerifyRegi
 		return nil, err
 	}
 
-	otp, err := u.registrations.FindActiveOTP(ctx, phoneNumber, domain.OTPPurposeRegister)
+	otp, err := u.otpService.Verify(ctx, phoneNumber, domain.OTPPurposeRegister, input.OTPCode)
 	if err != nil {
-		if errors.Is(err, domain.ErrOTPInvalid) {
-			return nil, domain.ErrOTPExpired
-		}
-		return nil, fmt.Errorf("find active otp: %w", err)
-	}
-
-	// Checked before the comparison: while the lock holds, the code is not
-	// examined and no attempt is recorded, so an attacker can neither extend
-	// the lock by guessing nor keep trying for free.
-	now := time.Now()
-	if isLocked(otp, now) {
-		return nil, &domain.OTPLockedError{LockedUntil: *otp.LockedUntil}
-	}
-
-	if err := bcrypt.CompareHashAndPassword([]byte(otp.OTPHash), []byte(input.OTPCode)); err != nil {
-		return nil, u.recordFailedAttempt(ctx, otp)
+		return nil, err
 	}
 
 	result, err := u.registrations.CreateUserAndSession(
@@ -339,31 +285,6 @@ func (u *RegisterUsecase) VerifyOTP(ctx context.Context, input domain.VerifyRegi
 	u.logger.Info("registration verified", "phone_number", phoneNumber, "user_id", result.User.ID)
 
 	return result, nil
-}
-
-// recordFailedAttempt counts a wrong code and locks the number once the limit
-// is reached, then reports the failure.
-//
-// The returned error is always ErrOTPInvalid and never says how many tries
-// remain: that number is exactly what someone brute-forcing a 10^6 keyspace
-// would use to pace themselves. Once the count crosses MaxAttempts the lock is
-// set for LockDuration from this failure, not from the first one.
-func (u *RegisterUsecase) recordFailedAttempt(ctx context.Context, otp *domain.OTPCode) error {
-	attempts, err := u.registrations.IncrementOTPAttempts(ctx, otp.ID)
-	if err != nil {
-		// The guess was wrong either way, so the caller still gets the same
-		// answer; the failure to record it is what an operator needs to see.
-		u.logger.Error("failed to record otp attempt", "error", err, "otp_id", otp.ID)
-		return domain.ErrOTPInvalid
-	}
-
-	if attempts >= u.otpPolicy.MaxAttempts {
-		if err := u.registrations.LockOTP(ctx, otp.ID, time.Now().Add(u.otpPolicy.LockDuration.Duration())); err != nil {
-			u.logger.Error("failed to lock otp", "error", err, "otp_id", otp.ID)
-		}
-	}
-
-	return domain.ErrOTPInvalid
 }
 
 // tokenIssuer builds the closure the repository calls inside its transaction,
@@ -391,52 +312,6 @@ func (u *RegisterUsecase) tokenIssuer(pending *domain.PendingRegistration) domai
 
 		return accessToken, refreshToken, nil
 	}
-}
-
-// sendOTP delivers a code, translating any sender failure into ErrSMSSendFailed.
-//
-// The failure is reported rather than swallowed even though the OTP row is
-// already committed: a registration whose code never arrived is not a success,
-// and answering 200 would leave the caller waiting for an SMS that is not
-// coming. The wrapped sentinel is what lets the handler pick 500 SMS_SEND_FAILED
-// without matching on message text; the cause is kept for the log only.
-func (u *RegisterUsecase) sendOTP(ctx context.Context, phoneNumber string) error {
-	if err := u.otpSender.SendOTP(ctx, phoneNumber, generateOTP(), domain.OTPPurposeRegister); err != nil {
-		return fmt.Errorf("%w: %v", domain.ErrSMSSendFailed, err)
-	}
-	return nil
-}
-
-// sendLimits projects the OTP policy onto the shape the repository applies.
-// Kept as one method so the three send-policy numbers can never be threaded
-// inconsistently (e.g. a cap paired with the wrong lock duration).
-func (u *RegisterUsecase) sendLimits() domain.SendLimits {
-	return domain.SendLimits{
-		Cooldown:     u.otpPolicy.SendCooldown.Duration(),
-		LockDuration: u.otpPolicy.SendLockDuration.Duration(),
-		MaxAttempts:  u.otpPolicy.MaxSendAttempts,
-	}
-}
-
-// wrapSendError passes the send policy's typed refusals through unchanged and
-// wraps everything else as infrastructure. The typed errors are business
-// outcomes the handler maps to 429 with locked_until / retry_after_seconds;
-// folding them into a generic message would make the handler answer 500 for a
-// request that was merely too soon.
-func wrapSendError(op string, err error) error {
-	if _, ok := errors.AsType[*domain.OTPResendTooSoonError](err); ok {
-		return err
-	}
-	if _, ok := errors.AsType[*domain.OTPSendLimitedError](err); ok {
-		return err
-	}
-	return fmt.Errorf("%s: %w", op, err)
-}
-
-// isLocked reports whether the row's lock is still in force. A nil deadline
-// means the row was never locked.
-func isLocked(otp *domain.OTPCode, now time.Time) bool {
-	return otp.LockedUntil != nil && otp.LockedUntil.After(now)
 }
 
 // optionalString trims a free-text profile field and turns "nothing" into a nil

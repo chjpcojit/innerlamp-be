@@ -121,6 +121,10 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadRequest, "UNSUPPORTED_OTP_PURPOSE", err.Error(), nil)
 	case errors.Is(err, domain.ErrSMSSendFailed):
 		utils.WriteSystemError(w, "SMS_SEND_FAILED", err.Error(), nil)
+	case errors.Is(err, domain.ErrAttestationChallengeInvalid):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "ATTESTATION_CHALLENGE_INVALID", err.Error(), nil)
+	case errors.Is(err, domain.ErrAttestationUpstreamError):
+		utils.WriteBusinessError(w, http.StatusBadGateway, "ATTESTATION_UPSTREAM_ERROR", err.Error(), nil)
 	default:
 		utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
 	}

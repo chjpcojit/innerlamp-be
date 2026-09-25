@@ -15,6 +15,10 @@ import (
 	"os"
 	"time"
 
+	"chjpcoj.com.innerlamp/pkg/attestation"
+	"chjpcoj.com.innerlamp/pkg/attestation/appattest"
+	"chjpcoj.com.innerlamp/pkg/attestation/mock"
+	"chjpcoj.com.innerlamp/pkg/attestation/playintegrity"
 	pkgconfig "chjpcoj.com.innerlamp/pkg/config"
 	"chjpcoj.com.innerlamp/pkg/database"
 	_ "chjpcoj.com.innerlamp/pkg/database/postgresql"
@@ -122,14 +126,16 @@ func main() {
 	}
 
 	registrationRepo := repository.NewRegistrationRepository(db)
+	otpRepo := repository.NewOTPRepository(db)
 	otpSender := repository.NewSMSOTPSender(smsSender)
+	otpService := usecase.NewOTPService(otpRepo, otpSender, logger, cfg.OTP)
 	registerUsecase := usecase.NewRegisterUsecase(
 		registrationRepo,
-		otpSender,
+		otpService,
 		jwtService,
 		logger,
 		cfg.JWT.RefreshTokenExpiration.Duration(),
-		cfg.OTP,
+		cfg.OTP.PendingRegistrationTTL.Duration(),
 	)
 	registerHandler := deliveryhttp.NewRegisterHandler(registerUsecase, validator)
 
@@ -142,6 +148,49 @@ func main() {
 		cfg.Login,
 	)
 	loginHandler := deliveryhttp.NewLoginHandler(loginUsecase)
+
+	// Attestation: each platform selects its own pkg/attestation driver, because
+	// the two backends are asymmetric — android is playintegrity (server-to-
+	// server decode), ios is appattest (local crypto). In dev both are the mock
+	// driver (⚠️ DEV ONLY — it fakes results and echoes the configured package
+	// name / verdict back so the verify flow round-trips). Point at the real
+	// drivers via cfg.Attestation.*.Provider once service-account credentials
+	// and the published app id exist.
+	attestationAndroid, err := attestation.New(&attestation.Config{
+		Provider: attestation.ProviderType(cfg.Attestation.Android.Provider),
+		Options: map[string]string{
+			mock.OptionPackageName:              cfg.Attestation.Android.PackageName,
+			mock.OptionAppRecognitionVerdict:    cfg.Attestation.Android.RequiredAppRecognitionVerdict,
+			playintegrity.OptionCredentialsJSON: cfg.Attestation.Android.Credentials,
+		},
+	})
+	if err != nil {
+		log.Fatalf("failed to create android attestation verifier: %v", err)
+	}
+
+	attestationIOS, err := attestation.New(&attestation.Config{
+		Provider: attestation.ProviderType(cfg.Attestation.IOS.Provider),
+		Options: map[string]string{
+			appattest.OptionAppID: cfg.Attestation.IOS.AppID,
+		},
+	})
+	if err != nil {
+		log.Fatalf("failed to create ios attestation verifier: %v", err)
+	}
+
+	attestationRepo := repository.NewAttestationRepository(db)
+	attestationUsecase := usecase.NewAttestationUsecase(
+		attestationRepo,
+		repository.NewAttestationVerifier(attestationAndroid, attestationIOS),
+		logger,
+		cfg.Attestation,
+	)
+	attestationHandler := deliveryhttp.NewAttestationHandler(attestationUsecase, validator)
+
+	// The RequireAttestation middleware is provided but deliberately NOT wired
+	// to any route yet: choosing which routes to gate is a business decision
+	// that belongs to a future feature (design.md "Out of scope"). It is built
+	// and tested in delivery/http/attestation_middleware_test.go.
 
 	// logout is the one route in this service that requires an access token. It
 	// must be accepted only as type "access" (so a refresh token cannot be used
@@ -165,6 +214,13 @@ func main() {
 	mux.HandleFunc("POST /v1/auth/login", loginHandler.Login)
 	mux.HandleFunc("POST /v1/auth/refresh", loginHandler.Refresh)
 	mux.HandleFunc("POST /v1/auth/logout", authMiddleware.AuthenticateFunc(loginHandler.Logout))
+
+	// attestation: all three routes are public — the caller has no account yet.
+	// They mint challenges and return a verdict; the per-request gate is the
+	// (unwired) RequireAttestation middleware, not these routes.
+	mux.HandleFunc("POST /v1/attestation/challenge", attestationHandler.Challenge)
+	mux.HandleFunc("POST /v1/assertion/challenge", attestationHandler.AssertionChallenge)
+	mux.HandleFunc("POST /v1/attestation/verify", attestationHandler.Verify)
 
 	addr := cfg.Server.Addr
 	logger.Info("starting appService", "addr", addr)

@@ -21,7 +21,7 @@ import (
 
 // otpPurposeRegister is used wherever a statement is hardcoded to the
 // register flow (SavePendingAndIssueOTP is only ever called by step 1 of
-// US-001). ReissueOTP and FindActiveOTP take purpose as a parameter instead,
+// US-001). IssueOTP and FindActiveOTP take purpose as a parameter instead,
 // since the endpoint they serve is shared with US-002/US-003.
 const otpPurposeRegister = domain.OTPPurposeRegister
 
@@ -40,9 +40,26 @@ type registrationRepository struct {
 	db database.Database
 }
 
+// The concrete store implements both the register-only port and the generic
+// OTP port from one struct. These lines are what make that true at compile
+// time: adding a method to either interface without implementing it here fails
+// the build rather than failing later, at the first call site.
+var (
+	_ domain.RegistrationRepository = (*registrationRepository)(nil)
+	_ domain.OTPRepository          = (*registrationRepository)(nil)
+)
+
 // NewRegistrationRepository returns the Postgres-backed
 // domain.RegistrationRepository for US-001.
 func NewRegistrationRepository(db database.Database) domain.RegistrationRepository {
+	return &registrationRepository{db: db}
+}
+
+// NewOTPRepository returns the same Postgres-backed store, typed as the
+// generic domain.OTPRepository — the purpose-agnostic OTP mechanism's
+// persistence port. It is a second view of the same concrete struct, not a
+// separate repository, so the OTP SQL helpers are shared between the two.
+func NewOTPRepository(db database.Database) domain.OTPRepository {
 	return &registrationRepository{db: db}
 }
 
@@ -137,14 +154,17 @@ func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pen
 	return state, nil
 }
 
-// ReissueOTP is the resend flow's write: apply the send policy, invalidate the
-// active OTP, and insert its replacement — design.md flow 3 Step 4.
+// IssueOTP is the shared OTP send flow's write: apply the send policy,
+// invalidate the active OTP, and insert its replacement — design.md flow for
+// Issue OTP Step 2.
 //
 // Like SavePendingAndIssueOTP the send policy runs first and inside this
-// transaction, so a refused resend writes nothing and does not burn a slot.
+// transaction, so a refused send writes nothing and does not burn a slot.
 // It does NOT touch pending_registration: the payload request-otp wrote is left
-// as it is, and its own (much longer) TTL bounds the attempt.
-func (r *registrationRepository) ReissueOTP(ctx context.Context, phoneNumber string, purpose domain.OTPPurpose, otpHash string, expiresAt time.Time, limits domain.SendLimits) (*domain.SendState, error) {
+// as it is, and its own (much longer) TTL bounds the attempt. "Issue" rather
+// than "reissue" because this is the generic path — a future feature's first
+// send goes through here too, and resend is just one more issue.
+func (r *registrationRepository) IssueOTP(ctx context.Context, phoneNumber string, purpose domain.OTPPurpose, otpHash string, expiresAt time.Time, limits domain.SendLimits) (*domain.SendState, error) {
 	tx, err := r.db.Begin(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("begin tx: %w", err)
@@ -165,7 +185,7 @@ func (r *registrationRepository) ReissueOTP(ctx context.Context, phoneNumber str
 	}
 
 	if err := tx.Commit(); err != nil {
-		return nil, fmt.Errorf("commit reissue otp: %w", err)
+		return nil, fmt.Errorf("commit issue otp: %w", err)
 	}
 	return state, nil
 }
@@ -379,8 +399,8 @@ func (r *registrationRepository) ReleaseSendLimit(ctx context.Context, phoneNumb
 
 // invalidateActiveOTP marks every unused row for phoneNumber/purpose as used,
 // without touching rows already locked or spent. Shared by
-// SavePendingAndIssueOTP (flow 1 Step 4(d)) and ReissueOTP (flow 3 Step
-// 4(c)) — both invalidate exactly the same way, so this is written once.
+// SavePendingAndIssueOTP (flow 1 Step 4(d)) and IssueOTP (Issue OTP Step 2(c))
+// — both invalidate exactly the same way, so this is written once.
 func invalidateActiveOTP(ctx context.Context, tx *sql.Tx, phoneNumber string, purpose domain.OTPPurpose) error {
 	const query = `
 		UPDATE otp_codes SET used_at = now()

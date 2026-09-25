@@ -53,13 +53,14 @@ func (d Duration) Duration() time.Duration {
 
 // AppConfig is appService's full runtime configuration.
 type AppConfig struct {
-	Server   ServerConfig   `yaml:"server"`
-	Database DatabaseConfig `yaml:"database"`
-	JWT      JWTConfig      `yaml:"jwt"`
-	Storage  StorageConfig  `yaml:"storage"`
-	OTP      OTPConfig      `yaml:"otp"`
-	SMS      SMSConfig      `yaml:"sms"`
-	Login    LoginConfig    `yaml:"login"`
+	Server      ServerConfig      `yaml:"server"`
+	Database    DatabaseConfig    `yaml:"database"`
+	JWT         JWTConfig         `yaml:"jwt"`
+	Storage     StorageConfig     `yaml:"storage"`
+	OTP         OTPConfig         `yaml:"otp"`
+	SMS         SMSConfig         `yaml:"sms"`
+	Login       LoginConfig       `yaml:"login"`
+	Attestation AttestationConfig `yaml:"attestation"`
 }
 
 // ServerConfig holds HTTP server settings.
@@ -186,6 +187,63 @@ type LoginConfig struct {
 	FailureResetWindow Duration `yaml:"failure_reset_window"`
 }
 
+// AttestationConfig holds the attestation policy and backend selection for the
+// attestation feature. It mirrors the shape of the other policy blocks
+// (OTPConfig, LoginConfig): values a dev environment shortens (the challenge
+// TTL, the freshness window) and a real deployment fills in (the package name /
+// app id) are configuration, never constants in the use case.
+//
+// Each platform selects its own pkg/attestation provider, because the two
+// backends are asymmetric and implemented by different drivers: android is
+// playintegrity (server-to-server), ios is appattest (local crypto). Both
+// default to "mock" in dev.
+type AttestationConfig struct {
+	// ChallengeTTL is how long a minted nonce can be used (AC1/AC3).
+	ChallengeTTL Duration `yaml:"challenge_ttl"`
+
+	// FreshnessWindow is how recent a Play Integrity token's timestampMillis
+	// must be to pass (AC5).
+	FreshnessWindow Duration `yaml:"freshness_window"`
+
+	Android AttestationAndroidConfig `yaml:"android"`
+	IOS     AttestationIOSConfig     `yaml:"ios"`
+}
+
+// AttestationAndroidConfig holds Play Integrity settings.
+type AttestationAndroidConfig struct {
+	// Provider selects the pkg/attestation driver for Android — "mock" in dev,
+	// "playintegrity" in a real deployment.
+	Provider string `yaml:"provider"`
+
+	// PackageName is the app's real Play package; the decoded token's
+	// requestPackageName must match it (AC5). Empty until the app is published.
+	PackageName string `yaml:"package_name"`
+
+	// RequiredAppRecognitionVerdict is the threshold the decoded token's
+	// appRecognitionVerdict must meet (AC5). Defaults to PLAY_RECOGNIZED; kept
+	// in config so raising the bar (MEETS_DEVICE_INTEGRITY, ...) later is a
+	// config edit, not a code change (design.md decision #11).
+	RequiredAppRecognitionVerdict string `yaml:"required_app_recognition_verdict"`
+
+	// CredentialsSecret names the service-account JSON secret the playintegrity
+	// driver uses to authenticate the decode call; resolved into Credentials at
+	// load time. Empty in dev (the mock ignores it).
+	CredentialsSecret string `yaml:"credentials_secret"`
+	Credentials       string `yaml:"-"`
+}
+
+// AttestationIOSConfig holds App Attest settings.
+type AttestationIOSConfig struct {
+	// Provider selects the pkg/attestation driver for iOS — "mock" in dev,
+	// "appattest" in a real deployment.
+	Provider string `yaml:"provider"`
+
+	// AppID is the {team_id}.{bundle_id} used to compute the RP ID hash —
+	// SHA256(app_id) is what the attestation's authenticatorData must carry.
+	// Empty until the app is published.
+	AppID string `yaml:"app_id"`
+}
+
 // Load reads YAML from source (local file, s3://, or gs:// — see
 // pkg/config.LoadYAML) and resolves every *_secret reference against sg.
 func Load(ctx context.Context, source pkgconfig.LoadSource, sg SecretGetter) (*AppConfig, error) {
@@ -216,6 +274,14 @@ func (c *AppConfig) resolveSecrets(ctx context.Context, sg SecretGetter) error {
 			return fmt.Errorf("jwt.secret_key_secret %q: %w", c.JWT.SecretKeySecret, err)
 		}
 		c.JWT.SecretKey = v
+	}
+
+	if c.Attestation.Android.CredentialsSecret != "" {
+		v, err := getSecret(ctx, sg, c.Attestation.Android.CredentialsSecret)
+		if err != nil {
+			return fmt.Errorf("attestation.android.credentials_secret %q: %w", c.Attestation.Android.CredentialsSecret, err)
+		}
+		c.Attestation.Android.Credentials = v
 	}
 
 	return nil

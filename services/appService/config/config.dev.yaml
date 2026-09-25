@@ -61,6 +61,23 @@ login:
   lock_duration: "15m"
   failure_reset_window: "15m"
 
+# Attestation (Play Integrity + App Attest). Each platform selects its own
+# driver — "mock" in dev (fakes results), "playintegrity"/"appattest" in a real
+# deployment. package_name / app_id are placeholders to fill when the app is
+# published; credentials_secret (optional) names the Play Integrity service
+# account once one exists.
+attestation:
+  challenge_ttl: "5m"
+  freshness_window: "5m"
+  android:
+    provider: "mock"
+    package_name: "com.innerlamp.app"
+    required_app_recognition_verdict: "PLAY_RECOGNIZED"
+    # credentials_secret: "attestation-play-integrity-service-account"
+  ios:
+    provider: "mock"
+    app_id: "TEAMID.com.innerlamp.app"
+
 dev_secrets:
   appservice-db-password: "postgres"
   appservice-jwt-secret-key: "innerlamp-dev-secret-key-please-rotate-32c"

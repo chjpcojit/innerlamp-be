@@ -66,6 +66,11 @@ const (
 	testRefreshToken = "refresh-token"
 
 	testSessionTTL = 168 * time.Hour
+
+	// testPendingTTL mirrors OTPConfig.PendingRegistrationTTL from
+	// config.dev.yaml — the pending payload's own lifetime, a register-specific
+	// value now threaded to RegisterUsecase separately from the OTP policy.
+	testPendingTTL = 24 * time.Hour
 )
 
 // testOTPPolicy mirrors the values in config.dev.yaml's `otp:` block. The use
@@ -87,6 +92,7 @@ var testOTPPolicy = config.OTPConfig{
 type registerFixture struct {
 	usecase *RegisterUsecase
 	repo    *domain.MockRegistrationRepository
+	otpRepo *domain.MockOTPRepository
 	sender  *domain.MockOTPSender
 	jwt     *jwt.MockService
 	logger  *logging.MockLogger
@@ -94,13 +100,16 @@ type registerFixture struct {
 
 func newRegisterFixture() *registerFixture {
 	repo := &domain.MockRegistrationRepository{}
+	otpRepo := &domain.MockOTPRepository{}
 	sender := &domain.MockOTPSender{}
 	jwtService := &jwt.MockService{}
 	logger := newLogger()
+	otpService := NewOTPService(otpRepo, sender, logger, testOTPPolicy)
 
 	return &registerFixture{
-		usecase: NewRegisterUsecase(repo, sender, jwtService, logger, testSessionTTL, testOTPPolicy),
+		usecase: NewRegisterUsecase(repo, otpService, jwtService, logger, testSessionTTL, testPendingTTL),
 		repo:    repo,
+		otpRepo: otpRepo,
 		sender:  sender,
 		jwt:     jwtService,
 		logger:  logger,
@@ -183,7 +192,7 @@ func TestRequestOTP_HappyPath(t *testing.T) {
 
 	f.repo.On("FindConflicts", mock.Anything, testPhoneNumber, testEmail).
 		Return(noConflicts(), nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.AnythingOfType("*domain.PendingRegistration"), mock.AnythingOfType("string"), mock.AnythingOfType("time.Time"), mock.AnythingOfType("domain.SendLimits")).
 		Run(func(args mock.Arguments) {
@@ -271,7 +280,7 @@ func TestRequestOTP_OptionalFields(t *testing.T) {
 
 			var captured *domain.PendingRegistration
 			f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
-			f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
+			f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 			f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 				Run(func(args mock.Arguments) {
 					captured = args.Get(1).(*domain.PendingRegistration)
@@ -433,7 +442,7 @@ func TestRequestOTP_LockedNumber(t *testing.T) {
 	locked.LockedUntil = &lockedUntil
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(locked, nil)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(locked, nil)
 
 	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
 
@@ -455,7 +464,7 @@ func TestRequestOTP_Cooldown(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(activeOTP(time.Now().Add(-30*time.Second)), nil)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return(nil, &domain.OTPResendTooSoonError{RetryAfterSeconds: 30})
@@ -481,7 +490,7 @@ func TestRequestOTP_SendLimited(t *testing.T) {
 
 	lockedUntil := time.Now().Add(30 * time.Minute)
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
-	f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return(nil, &domain.OTPSendLimitedError{LockedUntil: lockedUntil})
 
@@ -505,7 +514,7 @@ func TestRequestOTP_AfterCooldownProceeds(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(activeOTP(time.Now().Add(-5*time.Minute)), nil)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{Remaining: 3}, nil)
 	f.sender.On("SendOTP", mock.Anything, mock.Anything, testOTPCode, domain.OTPPurposeRegister).Return(nil)
@@ -522,7 +531,7 @@ func TestRequestOTP_NoActiveOTPProceeds(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
-	f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{Remaining: 3}, nil)
 	f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil)
 
@@ -538,7 +547,7 @@ func TestRequestOTP_SMSFailure(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
-	f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{Remaining: 3}, nil)
 	f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return(errors.New("carrier said no"))
@@ -610,11 +619,11 @@ func TestResendOTP_HappyPath(t *testing.T) {
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 		Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber, Email: testEmail}, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(activeOTP(time.Now().Add(-5*time.Minute)), nil)
-	f.repo.On("ReissueOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister, mock.AnythingOfType("string"), mock.AnythingOfType("time.Time"), mock.AnythingOfType("domain.SendLimits")).
+	f.otpRepo.On("IssueOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister, mock.AnythingOfType("string"), mock.AnythingOfType("time.Time"), mock.AnythingOfType("domain.SendLimits")).
 		Run(func(args mock.Arguments) {
-			order = append(order, "reissue")
+			order = append(order, "issue")
 			capturedHash = args.String(3)
 			capturedExpiry = args.Get(4).(time.Time)
 		}).
@@ -630,7 +639,7 @@ func TestResendOTP_HappyPath(t *testing.T) {
 	})
 	require.NoError(t, err)
 
-	assert.Equal(t, []string{"reissue", "send"}, order)
+	assert.Equal(t, []string{"issue", "send"}, order)
 
 	require.NotNil(t, result)
 	assert.Equal(t, 90, result.ExpiresInSeconds)
@@ -673,7 +682,7 @@ func TestResendOTP_UnsupportedPurpose(t *testing.T) {
 			assert.ErrorIs(t, err, domain.ErrUnsupportedOTPPurpose)
 			assert.Nil(t, result)
 			f.repo.AssertNotCalled(t, "FindPendingRegistration")
-			f.repo.AssertNotCalled(t, "ReissueOTP")
+			f.otpRepo.AssertNotCalled(t, "IssueOTP")
 			f.sender.AssertNotCalled(t, "SendOTP")
 		})
 	}
@@ -713,7 +722,7 @@ func TestResendOTP_PendingFailures(t *testing.T) {
 			})
 
 			assert.ErrorIs(t, err, tt.wantErr)
-			f.repo.AssertNotCalled(t, "ReissueOTP")
+			f.otpRepo.AssertNotCalled(t, "IssueOTP")
 			f.sender.AssertNotCalled(t, "SendOTP")
 		})
 	}
@@ -728,9 +737,9 @@ func TestResendOTP_AfterCodeExpired(t *testing.T) {
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 		Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber}, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(nil, domain.ErrOTPInvalid)
-	f.repo.On("ReissueOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister, mock.AnythingOfType("string"), mock.AnythingOfType("time.Time"), mock.AnythingOfType("domain.SendLimits")).
+	f.otpRepo.On("IssueOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister, mock.AnythingOfType("string"), mock.AnythingOfType("time.Time"), mock.AnythingOfType("domain.SendLimits")).
 		Return(&domain.SendState{SendCount: 1, Remaining: 2}, nil)
 	f.sender.On("SendOTP", mock.Anything, testPhoneNumber, testOTPCode, domain.OTPPurposeRegister).Return(nil)
 
@@ -742,7 +751,7 @@ func TestResendOTP_AfterCodeExpired(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 90, result.ExpiresInSeconds)
 	assert.Equal(t, 2, result.ResendRemaining)
-	f.repo.AssertCalled(t, "ReissueOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister, mock.Anything, mock.Anything, mock.Anything)
+	f.otpRepo.AssertCalled(t, "IssueOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister, mock.Anything, mock.Anything, mock.Anything)
 }
 
 // TestResendOTP_Blocked covers AC12's wrong-guess lockout on the resend path:
@@ -759,7 +768,7 @@ func TestResendOTP_Blocked(t *testing.T) {
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 		Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber}, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(otp, nil)
 
 	_, err := f.usecase.ResendOTP(context.Background(), domain.ResendOTPInput{
@@ -774,12 +783,12 @@ func TestResendOTP_Blocked(t *testing.T) {
 	assert.WithinDuration(t, lockedUntil, lockedErr.LockedUntil, time.Second)
 
 	// Nothing is written on a blocked branch.
-	f.repo.AssertNotCalled(t, "ReissueOTP")
+	f.otpRepo.AssertNotCalled(t, "IssueOTP")
 	f.sender.AssertNotCalled(t, "SendOTP")
 }
 
 // TestResendOTP_SendLimitRefusals covers AC5's cooldown and cap on the resend
-// path. Both are decided by the repository inside ReissueOTP's transaction, so
+// path. Both are decided by the repository inside IssueOTP's transaction, so
 // the use case must surface the typed errors unchanged — the handler needs
 // retry_after_seconds / locked_until to answer 429, and wrapping either into a
 // generic error would turn it into a 500.
@@ -815,9 +824,9 @@ func TestResendOTP_SendLimitRefusals(t *testing.T) {
 
 			f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 				Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber}, nil)
-			f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
+			f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 				Return(activeOTP(time.Now().Add(-5*time.Minute)), nil)
-			f.repo.On("ReissueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+			f.otpRepo.On("IssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 				Return(nil, tt.repoErr)
 
 			_, err := f.usecase.ResendOTP(context.Background(), domain.ResendOTPInput{
@@ -839,9 +848,9 @@ func TestResendOTP_SMSFailure(t *testing.T) {
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 		Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber}, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).
 		Return(activeOTP(time.Now().Add(-5*time.Minute)), nil)
-	f.repo.On("ReissueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+	f.otpRepo.On("IssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return(&domain.SendState{SendCount: 1, Remaining: 2}, nil)
 	f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return(errors.New("carrier said no"))
@@ -852,7 +861,7 @@ func TestResendOTP_SMSFailure(t *testing.T) {
 	})
 
 	assert.ErrorIs(t, err, domain.ErrSMSSendFailed)
-	f.repo.AssertCalled(t, "ReissueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+	f.otpRepo.AssertCalled(t, "IssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 }
 
 // ---------------------------------------------------------------------------
@@ -876,7 +885,7 @@ func TestVerifyOTP_HappyPath(t *testing.T) {
 	otp := activeOTP(time.Now().Add(-10 * time.Second))
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).Return(pending, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(otp, nil)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(otp, nil)
 
 	var capturedTTL time.Duration
 	f.repo.On("CreateUserAndSession", mock.Anything, pending, otp.ID, mock.AnythingOfType("time.Duration"), mock.AnythingOfType("domain.TokenIssuer")).
@@ -909,8 +918,8 @@ func TestVerifyOTP_HappyPath(t *testing.T) {
 	assert.Equal(t, testSessionTTL, capturedTTL)
 
 	// A correct guess costs nothing — no attempt is recorded and no lock is set.
-	f.repo.AssertNotCalled(t, "IncrementOTPAttempts", mock.Anything, mock.Anything)
-	f.repo.AssertNotCalled(t, "LockOTP", mock.Anything, mock.Anything, mock.Anything)
+	f.otpRepo.AssertNotCalled(t, "IncrementOTPAttempts", mock.Anything, mock.Anything)
+	f.otpRepo.AssertNotCalled(t, "LockOTP", mock.Anything, mock.Anything, mock.Anything)
 }
 
 // TestVerifyOTP_TokenIssuerContract proves the issuer handed to the repository
@@ -923,7 +932,7 @@ func TestVerifyOTP_TokenIssuerContract(t *testing.T) {
 	otp := activeOTP(time.Now())
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).Return(pending, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(otp, nil)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(otp, nil)
 	// The access token must carry the session id as claim "sid" — logout finds
 	// the session through it. Pinning the exact extra map (not mock.Anything)
 	// is what makes this test fail if the claim is dropped or renamed.
@@ -963,7 +972,7 @@ func TestVerifyOTP_TokenIssuerFailure(t *testing.T) {
 	otp := activeOTP(time.Now())
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).Return(pending, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(otp, nil)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(otp, nil)
 	f.jwt.On("GenerateAccessToken", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return("", errors.New("signing key missing"))
 
@@ -1011,11 +1020,11 @@ func TestVerifyOTP_WrongOTP(t *testing.T) {
 			otp := activeOTP(time.Now())
 
 			f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).Return(pending, nil)
-			f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(otp, nil)
-			f.repo.On("IncrementOTPAttempts", mock.Anything, otp.ID).Return(tt.attempts, nil)
+			f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(otp, nil)
+			f.otpRepo.On("IncrementOTPAttempts", mock.Anything, otp.ID).Return(tt.attempts, nil)
 
 			if tt.wantLocked {
-				f.repo.On("LockOTP", mock.Anything, otp.ID, mock.AnythingOfType("time.Time")).
+				f.otpRepo.On("LockOTP", mock.Anything, otp.ID, mock.AnythingOfType("time.Time")).
 					Run(func(args mock.Arguments) {
 						lockedUntil := args.Get(2).(time.Time)
 						// AC12: thirty minutes from the moment of the third
@@ -1039,12 +1048,12 @@ func TestVerifyOTP_WrongOTP(t *testing.T) {
 			assert.NotContains(t, err.Error(), "remaining")
 			assert.Less(t, time.Since(before), 30*time.Second)
 
-			f.repo.AssertCalled(t, "IncrementOTPAttempts", mock.Anything, otp.ID)
+			f.otpRepo.AssertCalled(t, "IncrementOTPAttempts", mock.Anything, otp.ID)
 			// No account is created on a wrong code, no matter how close.
 			f.repo.AssertNotCalled(t, "CreateUserAndSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 
 			if !tt.wantLocked {
-				f.repo.AssertNotCalled(t, "LockOTP", mock.Anything, mock.Anything, mock.Anything)
+				f.otpRepo.AssertNotCalled(t, "LockOTP", mock.Anything, mock.Anything, mock.Anything)
 			}
 		})
 	}
@@ -1062,7 +1071,7 @@ func TestVerifyOTP_Locked(t *testing.T) {
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 		Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber}, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(locked, nil)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(locked, nil)
 
 	_, err := f.usecase.VerifyOTP(context.Background(), domain.VerifyRegisterOTPInput{
 		PhoneNumber: testPhoneNumberRaw,
@@ -1075,7 +1084,7 @@ func TestVerifyOTP_Locked(t *testing.T) {
 	require.ErrorAs(t, err, &lockedErr)
 	assert.WithinDuration(t, lockedUntil, lockedErr.LockedUntil, time.Second)
 
-	f.repo.AssertNotCalled(t, "IncrementOTPAttempts")
+	f.otpRepo.AssertNotCalled(t, "IncrementOTPAttempts")
 	f.repo.AssertNotCalled(t, "CreateUserAndSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 }
 
@@ -1112,7 +1121,7 @@ func TestVerifyOTP_PendingFailures(t *testing.T) {
 			})
 
 			assert.ErrorIs(t, err, tt.wantErr)
-			f.repo.AssertNotCalled(t, "FindActiveOTP")
+			f.otpRepo.AssertNotCalled(t, "FindActiveOTP")
 			f.repo.AssertNotCalled(t, "CreateUserAndSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 		})
 	}
@@ -1126,7 +1135,7 @@ func TestVerifyOTP_NoActiveOTP(t *testing.T) {
 
 	f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 		Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber}, nil)
-	f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).
 		Return(nil, domain.ErrOTPInvalid)
 
 	_, err := f.usecase.VerifyOTP(context.Background(), domain.VerifyRegisterOTPInput{
@@ -1187,7 +1196,7 @@ func TestVerifyOTP_ConflictRace(t *testing.T) {
 			otp := activeOTP(time.Now())
 			f.repo.On("FindPendingRegistration", mock.Anything, testPhoneNumber).
 				Return(&domain.PendingRegistration{ID: 1, PhoneNumber: testPhoneNumber, Email: testEmail}, nil)
-			f.repo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(otp, nil)
+			f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(otp, nil)
 			f.repo.On("CreateUserAndSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 				Return(nil, tt.repoErr)
 

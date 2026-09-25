@@ -30,3 +30,5 @@ removed as stale. Read the code, the per-package `pkg/<name>/README.md` files an
 | [features/register.md](features/register.md) | Feature | draft (OTP `111111` + log-only SMS are dev placeholders; no cleanup job for the 24h-lived pending payload; US-001 ACs not fully audited end-to-end) |
 | [features/login.md](features/login.md) | Feature | stable |
 | [packages/middleware.md](packages/middleware.md) | Package | draft (appService chain and CORS preflight covered by unit tests only — never exercised on a running binary; gRPC interceptors untested and unused) |
+| [features/attestation.md](features/attestation.md) | Feature | draft (both platform drivers are `mock` ⚠️ DEV ONLY; `RequireAttestation` not wired to any route; real drivers never exercised end-to-end) |
+| [packages/attestation.md](packages/attestation.md) | Package | draft (playintegrity's server-to-server Google decode is untested and no deployment selects the real drivers; only `mock` is consumed) |

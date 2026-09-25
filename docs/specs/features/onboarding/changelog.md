@@ -1,7 +1,69 @@
 # Changelog — onboarding Spec
 
-Tracks version history for `requirements.md`, `design.md`, and `tasks.md` in this folder. All three
-files share one changelog since they change together as one spec unit. Newest version first.
+Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
+All four files share one changelog since they change together as one spec unit. Newest version first.
+
+## v6.1 (2026-09-25)
+
+Đưa spec `onboarding` vào đúng quy ước `il-spec-writer` hiện hành. **Không đổi behavior, không đổi
+AC, không đổi code, không tick/untick task** — chỉ chuẩn hoá hình thức: thêm `flow.md` (bản vẽ
+Mermaid bắt buộc theo rule 5/6 khi `design.md` có Step-by-step Flow — spec cũ viết trước khi skill
+cập nhật quy ước nên thiếu file), viết lại AC sang EARS, đồng bộ version 4 file.
+
+- `flow.md` (mới): ba sequence diagram mirror 1:1 ba section "Step-by-step Flow" của `design.md` —
+  `request-otp` (6 bước), `verify-otp` (6 bước), `resend-otp` (5 bước). Mỗi Step xuất hiện dưới dạng
+  message/alt/rect; transaction của repository (`SavePendingAndIssueOTP`, `CreateUserAndSession`,
+  `ReissueOTP`) được bọc bằng `rect` + `Note`; bước gửi SMS ghi `Note` "thuộc pkg/sms, ngoài scope
+  feature này" (không vẽ nội bộ của nó); Step 6 flow 1 (dọn dẹp định kỳ, ngoài request path) ghi
+  `Note` Deferred. Không có `⚠️ Not confirmed` nào cần vẽ (mọi câu hỏi đã chốt từ v5.1).
+- `requirements.md`: **viết lại 15 AC từ Given/When/Then sang EARS** (`WHEN … THE SYSTEM SHALL …`) —
+  15 AC cũ gộp/tách thành 17 tiêu chí EARS, giữ đúng behavior và tham chiếu AC cũ (AC1–AC15) trong
+  ngoặc để không mất liên kết với `design.md`/`tasks.md`/`changelog` cũ. Thêm bảng "API contract"
+  (3 endpoint) và header chuẩn (`# Requirements — onboarding`). Prose (bảng trường, luồng 2 bước,
+  gate email, Ghi chú kỹ thuật) giữ nguyên ý. US-004 giữ nguyên Given/When/Then (chưa design), kèm
+  ghi chú rõ.
+- `design.md`: thay ASCII "Request flow" bằng con trỏ `> Xem flow.md ...` (theo `flow_diagram.md` —
+  không giữ hai bản vẽ cùng một thứ để tránh drift). Các section "Step-by-step Flow" giữ nguyên nội
+  dung, chỉ bump version.
+- `tasks.md`: no change needed — không thêm Phase (`flow.md` là bản vẽ sinh từ `design.md`, không
+  phải việc implement); chỉ bump version.
+- `changelog.md`: sửa header "three files" → "four files" (thêm `flow.md`).
+- Reason: skill `il-spec-writer` được cập nhật để bắt buộc EARS + `flow.md` khi có Step-by-step Flow;
+  spec `onboarding` viết trước bản cập nhật nên thiếu `flow.md` và AC còn ở dạng Given/When/Then.
+  Đồng thời sửa lệch version từ v6.0 (requirements) vs v5.2 (design/tasks) — v6.0 đã bỏ sót việc
+  bump `design.md`/`tasks.md`, vi phạm rule "cùng một version cho cả 4 file".
+
+### Cross-file follow-ups
+
+- **Không có follow-up nào.** Lần này chỉ chuẩn hoá hình thức spec, **không đổi behavior/contract/schema**:
+  `docs/specs/api/openapi.yaml` (không đổi contract), `migrations/` (không đổi schema),
+  `docs/knowledge/features/register.md` (OKF concept — không cần `bdd-okf-docs` refresh vì hành vi
+  không đổi) đều giữ nguyên. Đã kiểm, không bỏ sót.
+
+## v6.0 (2026-09-25)
+
+US-003 (quên mật khẩu) được **chuyển ra** khỏi folder này sang `docs/specs/features/password-reset/`
+(v1.0, prospective). Đổi scope của spec unit → major bump (cùng cách v4.0 đã chuyển US-002 sang
+`login/`). US-004 còn lại giữ nguyên ở đây.
+
+- `requirements.md`: **xoá toàn bộ section US-003** (user story email-based cũ, 5 AC, Out of scope,
+  Ghi chú kỹ thuật + bảng `password_reset_tokens`) và thay bằng khối con trỏ sang
+  `../password-reset/requirements.md`. Sửa tham chiếu chéo: bảng "Gate email chưa verify" (dòng US-003
+  nay ghi reset dùng SMS OTP, trỏ `password-reset/`); mục Out of scope US-001 (quên mật khẩu → trỏ
+  `password-reset/`); header Status (US-003 đã chuyển). Prose của US-001 và US-004 không đổi.
+- `design.md` / `tasks.md`: **không đổi nội dung kỹ thuật** — các ghi chú "US-002/US-003 sẽ gọi
+  `OTPSender`/`resend-otp`..." vẫn đúng về mặt tương lai (password-reset dùng `OTPService.Issue`, không
+  dùng `resend-otp`; đây là ghi chú lịch sử). Sửa một dòng Deferred trong `tasks.md` trỏ US-003 sang
+  folder mới.
+- Reason: anh muốn đặc tả US-003 thành spec riêng (`password-reset/`) và chốt kênh SMS OTP (email bị
+  gate chưa verify); đây là bước tách thứ hai sau US-002.
+
+### Cross-file follow-ups
+
+- `docs/specs/features/password-reset/` — 2 path openapi, OKF concept, primitive `ApplySendLimit` trên
+  `otp-mechanism` — xem `../password-reset/changelog.md`.
+- `docs/specs/features/otp-mechanism/` — cần thêm method `ApplySendLimit` (bổ sung additive, không đổi
+  contract hiện có).
 
 ## v5.2 (2026-09-22)
 

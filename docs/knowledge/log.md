@@ -1,5 +1,55 @@
 # Knowledge Bundle Update Log
 
+## 2026-09-25 (2)
+
+- Added `packages/attestation.md` (`type: Package`, `status: draft`) for `pkg/attestation`, the
+  provider-agnostic verification package the attestation feature consumes.
+  - Read the root (`pkg/attestation/attestation.go`) and all three drivers (`mock`, `playintegrity`,
+    `appattest`) plus their tests, and confirmed the registry shape: `Verifier` interface +
+    `Register(ProviderType, FactoryFunc)` / `New(Config)` backed by a package-level map, drivers
+    self-registering in `init()`, the same pattern as `pkg/sms`/`pkg/database`.
+  - Established the dependency graph from the real imports: the root is a **stdlib-only leaf** (no
+    internal `pkg/` imports); the drivers import only their parent + external deps
+    (`google.golang.org/api/playintegrity/v1` for playintegrity, `github.com/fxamacker/cbor/v2` for
+    appattest). No `pkg/utils`/`pkg/logging` dependency, unlike `middleware`/`sms`.
+  - Marked `draft` because the package is **not a pure library**: `playintegrity.VerifyAndroid` does
+    the untested Google `DecodeIntegrityToken` call (only `mapPayload` is unit-tested), and no
+    deployment selects the real drivers — `services/appService` wires `mock` for both platforms. The
+    "own test suite passing" shortcut to `stable` therefore does not apply.
+  - `index.md`: appended the `packages/attestation.md` row.
+  - `features/attestation.md`: rewrote the Related-concepts bullet that previously said "no Package
+    concept exists yet" into a link to the new file, and corrected its Pending-work list accordingly.
+- This closes the scope question from the previous entry: the feature and package concepts are now
+  both written.
+
+## 2026-09-25
+
+- Documented US-006 and added `features/attestation.md` (`type: Feature`, `status: draft`). This is
+  the concept the spec's `changelog.md` has been asking for since v1.0 ("concept `attestation` cần
+  `il-okf-writer` tạo sau khi flow chạy end-to-end").
+  - Read the whole vertical slice against the code: `domain/attestation.go` (entities, enums, the
+    `AttestationRepository` + `AttestationVerifier` ports, `Reason*` constants), `domain/errors.go`
+    (the five attestation sentinels), `usecase/attestation_usecase.go`, `repository/
+    postgres_attestation_repository.go` + `attestation_verifier.go` (adapter), `delivery/http/
+    attestation_handler.go` + `attestation_middleware.go`, `cmd/main.go` wiring, `config/config.go`
+    + `config.dev.yaml` (`attestation:` block), `pkg/attestation/*` (interface + `mock` /
+    `playintegrity` / `appattest` drivers), `migrations/0004_attestation.sql`, and the
+    `docs/specs/features/attestation/` spec (requirements/design/tasks/changelog).
+  - Marked `draft` because the flow has only been exercised with the **mock** driver: both
+    `attestation.android.provider` and `attestation.ios.provider` are `"mock"` in `config.dev.yaml`
+    (⚠️ DEV ONLY), the real `playintegrity`/`appattest` drivers are implemented and unit-tested but
+    never wired or run, and `RequireAttestation` is built but deliberately not attached to any route
+    (gate policy is a deferred business decision). There is also no automated E2E test for
+    attestation (`services/appService/e2e/` has only register/login). Promote to `stable` once the
+    flow runs end-to-end against the real drivers / a staging backend and the ACs are audited.
+  - Recorded the deferred items (fraud-risk receipt, `attestation_challenges` cleanup, iOS key
+    lifecycle) and the still-open "⚠️ Not confirmed" design question (`environment=development`
+    rejection) in Pending work / Known gaps.
+  - `index.md`: appended the `features/attestation.md` row to the concept table.
+- Scope note: wrote the **Feature** concept only. `pkg/attestation` (interface + 3 drivers, the
+  provider-agnostic registry pattern shared with `pkg/sms`) deserves its own `packages/attestation.md`
+  `Package` concept — flagged in the concept's Related concepts as not yet written.
+
 ## 2026-09-22 (4)
 
 - Added `packages/middleware.md` (`type: Package`, `status: draft`) for `pkg/middleware`, which

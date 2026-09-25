@@ -13,8 +13,10 @@
     "jwtcontext",
     "normalises",
     "nosec",
+    "playintegrity",
     "stretchr",
     "subtest",
-    "usecase"
+    "usecase",
+    "verrs"
   ]
 }

@@ -3,7 +3,7 @@
 ## Mục đích
 Tầng entity của Clean Architecture cho appService: struct nghiệp vụ thuần (`User`, `PendingRegistration`, `OTPCode`), interface repository mà `usecase/` phụ thuộc và `repository/` implement, port `OTPSender`, các Input/Result của use-case, và sentinel error dùng chung toàn service.
 
-Package này là **tầng trong cùng** — mọi tầng khác phụ thuộc nó, nó không phụ thuộc tầng nào. Đây không phải quy ước cho vui: `domain` hiện có **zero import ngoài thư viện chuẩn** (cộng `testify/mock` trong 2 file `mock_*.go`). Ai thêm một import `pkg/*` hay `net/http` vào đây là làm hỏng kiến trúc, không phải "hơi lệch convention".
+Package này là **tầng trong cùng** — mọi tầng khác phụ thuộc nó, nó không phụ thuộc tầng nào. Đây không phải quy ước cho vui: `domain` hiện có **zero import ngoài thư viện chuẩn** (cộng `testify/mock` trong các file `mock_*.go`). Ai thêm một import `pkg/*` hay `net/http` vào đây là làm hỏng kiến trúc, không phải "hơi lệch convention".
 
 Phạm vi hiện tại: **US-001 (đăng ký tài khoản, verify OTP qua SMS)**. Chưa có `Device`/`Session` entity — `user_sessions` không có `device_id` ở story này (xem `docs/specs/features/onboarding/design.md` §Known gaps).
 
@@ -38,23 +38,59 @@ Struct biên của use-case nằm ở `domain` (không phải `usecase`) để `
 - **`RegistrationConflicts`** — `PhoneInUsers`, `EmailInUsers`, `EmailInPending` + helper `HasPhoneConflict()` / `HasEmailConflict()`. Là struct chứ không phải nhiều boolean ở nhiều lần gọi vì bước 1 cần mọi câu trả lời từ **một** query; tách ra thì giữa hai lần đọc có khe hở dữ liệu đã đổi. `EmailInPending` (v5.1) chỉ tính hàng pending của SĐT **khác**; pending của chính SĐT đang gọi không phải trùng (request-otp ghi đè nó).
 
 ### Port `RegistrationRepository` (`register.go`)
-10 method. Mọi thao tác ghi không được phép quan sát ở trạng thái nửa vời đều là **một method bọc một transaction**, không phải một bộ primitive để use-case tự ghép — crash giữa hai lời gọi sẽ để lại pending không OTP, hoặc user không session.
+5 method, thuần register. Mọi thao tác ghi không được phép quan sát ở trạng thái nửa vời đều là
+**một method bọc một transaction**, không phải một bộ primitive để use-case tự ghép — crash giữa
+hai lời gọi sẽ để lại pending không OTP, hoặc user không session.
+
+Các method OTP dùng chung (`IssueOTP`, `FindActiveOTP`, …) đã chuyển sang port `OTPRepository` bên
+dưới (refactor `otp-mechanism`). Method duy nhất còn đụng `otp_codes` ở đây là
+`SavePendingAndIssueOTP`, vì nó phải commit pending + OTP trong **một** transaction — atomicity mà
+một `OTPRepository.IssueOTP` đứng riêng không thể biểu đạt.
 
 | Method | Ghi chú |
 |---|---|
 | `FindConflicts(ctx, phoneNumber, email)` | Một query, ba `EXISTS`: `users.phone_number`, `users.email`, và `pending_registration.email` của SĐT **khác** — AC6 |
 | `SavePendingAndIssueOTP(ctx, pending, otpHash, expiresAt, limits)` | Áp send-limit → UPSERT pending theo `phone_number` (ghi đè) → vô hiệu OTP cũ → chèn OTP mới. Trả `*SendState`. Không ghi `users` |
-| `ReissueOTP(ctx, phoneNumber, purpose, otpHash, expiresAt, limits)` | Áp send-limit → vô hiệu OTP cũ → chèn OTP mới. **Không** đụng payload pending (v5.1). Trả `*SendState` — AC5 |
 | `FindPendingRegistration(ctx, phoneNumber)` | `ErrPendingRegistrationNotFound` nếu không có; `ErrPendingRegistrationExpired` nếu quá hạn |
+| `CreateUserAndSession(ctx, pending, otpID, sessionTTL, issueTokens)` | Một transaction: re-check email → INSERT users (`email_verified_at` NULL) → DELETE pending → UPDATE OTP `used_at` → INSERT session. JWT mint **trong** transaction — AC2/AC3/AC7 |
+| `DeletePendingRegistration(ctx, pendingID)` | Export theo `design.md`; đường production không cần vì `CreateUserAndSession` xoá pending trong tx của nó |
+
+### Port `OTPRepository` (`otp_repository.go`)
+5 method, **không biết gì về `pending_registration`/`users`**. Đây là port cơ chế OTP dùng chung —
+feature OTP tương lai (`reset_password`, login bằng OTP, `verify_email`) chỉ inject port này, không
+kéo theo `FindConflicts`/`CreateUserAndSession`. Mọi method nhận `purpose` và scope theo cặp
+`(phone_number, purpose)`, nên hai purpose cùng một SĐT không bao giờ chung hàng `otp_codes`, chung
+bộ đếm gửi, hay chung lock nhập sai.
+
+| Method | Ghi chú |
+|---|---|
+| `IssueOTP(ctx, phoneNumber, purpose, otpHash, expiresAt, limits)` | Áp send-limit → vô hiệu OTP cũ → chèn OTP mới. **Không** đụng payload pending (v5.1). Trả `*SendState` — AC5 |
 | `FindActiveOTP(ctx, phoneNumber, purpose)` | Hàng mới nhất **chưa dùng và chưa lock**; không có → `ErrOTPInvalid` |
 | `IncrementOTPAttempts(ctx, otpID)` | Trả tổng mới; ngưỡng lock do use-case quyết, không nhét vào repository — AC4/AC12 |
 | `LockOTP(ctx, otpID, lockedUntil)` | Set **cả** `locked_until` **và** `used_at` — AC12 |
-| `CreateUserAndSession(ctx, pending, otpID, sessionTTL, issueTokens)` | Một transaction: re-check email → INSERT users (`email_verified_at` NULL) → DELETE pending → UPDATE OTP `used_at` → INSERT session. JWT mint **trong** transaction — AC2/AC3/AC7 |
-| `DeletePendingRegistration(ctx, pendingID)` | Export theo `design.md`; đường production không cần vì `CreateUserAndSession` xoá pending trong tx của nó |
 | `ReleaseSendLimit(ctx, phoneNumber, purpose)` | Xoá bộ đếm gửi; `CreateUserAndSession` gọi inline trong tx khi đăng ký xong — AC5 |
+
+Concrete `registrationRepository` (`repository/postgres_registration_repository.go`) implement **cả
+hai** interface từ một struct; `NewRegistrationRepository(db)` và `NewOTPRepository(db)` chỉ là hai
+cách nhìn cùng một store (cùng chia sẻ SQL helper `applySendLimits`/`invalidateActiveOTP`/`insertOTP`).
 
 ### Port `OTPSender` (`register.go`)
 Một method duy nhất: `SendOTP(ctx, phoneNumber, otpCode string, purpose OTPPurpose) error`. Một method cho mọi purpose vì resend dùng chung đường gửi với lần gửi đầu, và US-002/US-003 sẽ gọi đúng method này với `purpose` khác. Use-case phụ thuộc port này thay vì `pkg/sms` để `domain` không dính hạ tầng cụ thể và test khẳng định được "đã gửi gì" mà không cần mạng.
+
+### Attestation (`attestation.go`)
+Entity + port cho feature attestation (Play Integrity + App Attest), cùng pattern thuần-domain:
+
+- **Entity** `AttestationChallenge` (nonce dùng-một-lần), `AttestationKey` (khoá iOS bền), `Verdict`
+  (`Attested`, `Signals`, `Reason` — verdict âm tính là kết quả, **không** phải error), enum
+  `Platform` (`android`/`ios`) và `ChallengePurpose` (`attest`/`assert`).
+- **Port `AttestationRepository`** (`SaveChallenge`, `FindChallenge`, `MarkChallengeUsed`,
+  `SaveKey`, `FindKey`, `UpdateKeyCounter`) — `SaveKey`/`UpdateKeyCounter` nhận thêm `challenge` để
+  đóng nonce cùng MỘT tx (atomicity). Implement ở `repository/postgres_attestation_repository.go`.
+- **Port `AttestationVerifier`** (`VerifyAndroid`, `VerifyIOSAttestation`, `VerifyIOSAssertion`) —
+  seam tới `pkg/attestation`; use-case không import `pkg/attestation` trực tiếp. Adapter ở
+  `repository/attestation_verifier.go`.
+- **Mock** `MockAttestationRepository` (`mock_attestation_repository.go`) +
+  `MockAttestationVerifier` (`mock_attestation_verifier.go`) cho test use-case.
 
 ### Callback-port `TokenIssuer` (`register.go`)
 ```go
@@ -92,15 +128,16 @@ Cố ý **không** có cặp "email không tồn tại" / "SĐT không tồn t�
 
 ### Mock cho unit test
 - **`MockRegistrationRepository`** (`mock_registration_repository.go`) — mock tay `RegistrationRepository` bằng `testify/mock`.
+- **`MockOTPRepository`** (`mock_otp_repository.go`) — mock tay `OTPRepository`, phục vụ test `OTPService`.
 - **`MockOTPSender`** (`mock_otp_sender.go`) — mock tay `OTPSender`; trả error ở đây là cách test nhánh `ErrSMSSendFailed`.
 
-Cả hai khai `var _ Interface = (*MockX)(nil)` ở đầu file: interface đổi mà mock không cập nhật thì **fail lúc compile**, không đợi tới lúc test tình cờ chạm method mới.
+Cả ba khai `var _ Interface = (*MockX)(nil)` ở đầu file: interface đổi mà mock không cập nhật thì **fail lúc compile**, không đợi tới lúc test tình cờ chạm method mới.
 
 ## Cấu hình / dependency
 - **Không có config, không đọc biến môi trường.** Package chỉ chứa định nghĩa kiểu dữ liệu và interface.
 - Import: thư viện chuẩn (`context`, `errors`, `fmt`, `time`) + `github.com/stretchr/testify/mock` **chỉ trong 2 file `mock_*.go`** (code hỗ trợ test, không phải logic domain).
 - Import path: `chjpcoj.com.innerlamp/services/appService/domain`.
-- Consumer: `usecase/` (dùng interface + input/result + sentinel), `repository/` (implement `RegistrationRepository`, adapter `OTPSender`), `delivery/http/` (dùng input/result + sentinel để map status).
+- Consumer: `usecase/` (dùng interface + input/result + sentinel), `repository/` (implement `RegistrationRepository` + `OTPRepository`, adapter `OTPSender`), `delivery/http/` (dùng input/result + sentinel để map status).
 - Kiểm tra chiều phụ thuộc: `bash .claude/skills/golang-clean-arch-tdd/scripts/check_dependency_rule.sh services/appService`.
 
 ## Lưu ý / lỗi hay gặp
