@@ -88,7 +88,6 @@ Chia theo bounded context, mỗi module giữ nguyên Clean Architecture (domain
 
 - `identity` — auth, user profile
 - `content` — kinh điển, thần chú, Chư Phật/Bồ Tát, audio
-- `practice` — timer thiền, chuông/mõ, đếm chuỗi hạt, chanting player
 - `journal` — lịch sử tụng/thiền, thống kê hành trì
 - `calendar` — lịch âm, ngày lễ, nhắc nhở
 - `community` (giai đoạn sau) — thảo luận, chia sẻ
@@ -113,7 +112,6 @@ Pattern shell + feature module — mỗi tính năng độc lập, giao tiếp v
 /lib
   /shell           // navigation, theme, DI container
   /features
-    /practice
     /content
     /journal
     /calendar
@@ -124,9 +122,8 @@ Pattern shell + feature module — mỗi tính năng độc lập, giao tiếp v
 
 1. `identity` trước (mọi module khác cần user context)
 2. `content`
-3. `practice` (chủ yếu logic client, gọi API `content`)
-4. `journal`, `calendar`
-5. `community`, `dana` — chỉ khi có nhu cầu thật
+3. `journal`, `calendar`
+4. `community, `dana` — chỉ khi có nhu cầu thật
 
 ---
 
@@ -156,13 +153,13 @@ POST /v1/auth/logout                 Authorization: Bearer <access_token> → 20
 - OTP: TTL 90 giây; tối đa 4 lượt gửi rồi khoá-gửi 30 phút; nhập sai 3 lần khoá xác thực 30 phút; payload `pending_registration` sống 24h.
 - ⚠️ Dev-only: OTP hardcode `111111`, SMS chỉ log qua `pkg/sms/logsms`, secret đọc từ YAML (`⚠️ DEV ONLY`/`⚠️ DEV CONFIG` trong `cmd/main.go`).
 
-> `GET/PATCH /v1/users/me` (profile/avatar) và module `content` **chưa được implement** — xem mục 5 và mục 7.
+> `GET/PATCH /v1/users/me` (profile/avatar) **chưa được implement**; kinh điển (`sutra`) và Phật/Bồ Tát (`deity`) đã có API đọc riêng, phần đồng bộ delta/audio của module `content` thì chưa — xem mục 5 và mục 7.
 
 ---
 
 ## 5. Module `content`
 
-> ⚠️ **Chưa implement.** Phần này là thiết kế dự kiến; spec prospective ở `docs/specs/features/content/requirements.md`. Hiện chỉ module `identity` (US-001/US-002) có code.
+> ⚠️ **Chưa implement.** Phần này là thiết kế dự kiến; spec ở `docs/specs/features/{sutra,deity,temple,article}/`. Hiện chỉ module `identity` (US-001/US-002) có code.
 
 ### Schema Postgres (dự kiến)
 
@@ -331,7 +328,7 @@ curl -G 'http://localhost:3100/loki/api/v1/query_range' \
 - File config: `observability/loki/config.yml`, `observability/alloy/config.alloy`, `observability/grafana/provisioning/datasources/loki.yml`.
 - Log ghi thêm (append) vào `observability/logs/` — đã gitignore qua `*.log`.
 
-⚠️ Grafana đang bật **anonymous admin** (`GF_AUTH_ANONYMOUS_*` trong `docker-compose.yml`) để `up -d` không cần đăng nhập. Chỉ dùng local, tuyệt đối không expose port 3000 ra ngoài.
+Grafana yêu cầu đăng nhập (`admin` / `admin` mặc định, hoặc mật khẩu đã đổi trong volume `grafana-data`). Chỉ dùng local, không expose port 3000 ra ngoài.
 
 ### Vì sao không gộp appService vào compose
 
@@ -347,7 +344,7 @@ Kiểm thử nhanh không cần Docker: `go test -short ./...` (bỏ qua e2e dù
 - [x] Setup Postgres, chạy migration cho `identity` (`migrations/0001`–`0003`)
 - [x] Implement module `identity` phần register/login/refresh/logout (US-001/US-002)
 - [ ] Implement nốt `identity`: `GET/PATCH /v1/users/me` (profile/avatar) + quên/đặt lại mật khẩu
-- [ ] Implement module `content` (CRUD + delta sync API)
-- [ ] Dựng Flutter shell + feature module đầu tiên (`practice` hoặc `content`)
+- [ ] Đồng bộ delta + `audio_url` cho nội dung kinh (kinh/Phật/Bồ Tát đã có API đọc riêng: `sutra`, `deity`)
+- [ ] Dựng Flutter shell + feature module đầu tiên (`content`)
 - [ ] Quay lại xử lý vấn đề bản quyền nguồn nội dung trước khi public rộng rãi
 - [ ] Soạn văn bản xin phép sử dụng nội dung (nếu chọn hướng xin phép chùa/dịch giả)

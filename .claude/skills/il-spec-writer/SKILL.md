@@ -23,7 +23,7 @@ Generates and maintains the five-file spec convention for an InnerLamp backend f
   one spec unit).
 
 This skill is modeled on the existing `docs/specs/features/onboarding/` and
-`docs/specs/features/content/` files — read them first as the canonical worked examples before
+`docs/specs/features/article/` files — read them first as the canonical worked examples before
 generating a new spec, especially to see the expected tone/format (Vietnamese prose, user-story
 blockquote shape, "Ghi chú kỹ thuật liên quan" closing section).
 

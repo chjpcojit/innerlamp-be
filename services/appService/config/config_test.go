@@ -5,6 +5,7 @@ import (
 	"errors"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
@@ -302,5 +303,101 @@ func TestLoad_DevYAMLOTPPolicy(t *testing.T) {
 	}
 	if got := cfg.OTP.PendingRegistrationTTL.Duration(); got != 24*time.Hour {
 		t.Errorf("PendingRegistrationTTL = %v, want 24h", got)
+	}
+}
+
+func TestSutraConfig_Validate(t *testing.T) {
+	ok := SutraConfig{PageSize: 20, LinesPageSize: 200, LinesMaxPageSize: 500}
+	tests := []struct {
+		name    string
+		mutate  func(c *SutraConfig)
+		wantErr string
+	}{
+		{"valid", func(c *SutraConfig) {}, ""},
+		{"default equal to cap is fine", func(c *SutraConfig) { c.LinesPageSize = 500 }, ""},
+		{"zero page size", func(c *SutraConfig) { c.PageSize = 0 }, "sutra.page_size"},
+		{"negative page size", func(c *SutraConfig) { c.PageSize = -1 }, "sutra.page_size"},
+		{"zero lines page size", func(c *SutraConfig) { c.LinesPageSize = 0 }, "sutra.lines_page_size"},
+		{"zero lines max", func(c *SutraConfig) { c.LinesMaxPageSize = 0 }, "sutra.lines_max_page_size"},
+		{"default above cap", func(c *SutraConfig) { c.LinesPageSize = 501 }, "must not exceed"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := ok
+			tt.mutate(&c)
+			err := c.Validate()
+			if tt.wantErr == "" {
+				if err != nil {
+					t.Fatalf("Validate() = %v, want nil", err)
+				}
+				return
+			}
+			if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+				t.Fatalf("Validate() = %v, want error containing %q", err, tt.wantErr)
+			}
+		})
+	}
+}
+
+// A missing sutra block decodes to the zero value, which Validate must reject —
+// that is what makes cmd/main.go fail fast on a config.<env>.yaml without it.
+func TestSutraConfig_ZeroValueIsInvalid(t *testing.T) {
+	if err := (SutraConfig{}).Validate(); err == nil {
+		t.Fatal("zero SutraConfig must be invalid")
+	}
+}
+
+func TestLoad_DevYAMLSutraConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+	want := SutraConfig{PageSize: 20, LinesPageSize: 200, LinesMaxPageSize: 500}
+	if cfg.Sutra != want {
+		t.Errorf("Sutra = %+v, want %+v", cfg.Sutra, want)
+	}
+	if err := cfg.Sutra.Validate(); err != nil {
+		t.Errorf("shipped config.dev.yaml must be valid: %v", err)
+	}
+}
+
+func TestDharmaTalkConfig_Validate(t *testing.T) {
+	if err := (DharmaTalkConfig{PageSize: 10}).Validate(); err != nil {
+		t.Errorf("PageSize 10 should be valid: %v", err)
+	}
+	for _, n := range []int{0, -1} {
+		if err := (DharmaTalkConfig{PageSize: n}).Validate(); err == nil {
+			t.Errorf("PageSize %d should be rejected", n)
+		}
+	}
+}
+
+func TestLoad_DevYAMLDharmaTalkConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+	if want := (DharmaTalkConfig{PageSize: 10}); cfg.DharmaTalk != want {
+		t.Errorf("DharmaTalk = %+v, want %+v", cfg.DharmaTalk, want)
 	}
 }

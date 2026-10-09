@@ -11,6 +11,7 @@ package e2e
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
 	"net"
 	"net/http"
@@ -40,6 +41,9 @@ const cmdDir = "../cmd"
 // migrationsGlob matches every repo migration, relative to this package.
 const migrationsGlob = "../../../migrations/*.sql"
 
+// deitySeedPath is the deity data cmd/seeddeities loads, relative to this package.
+const deitySeedPath = "../../../assets/data/phat_botat.json"
+
 // baseConfigPath is the dev config cmd/main.go loads by default — copied and
 // overridden per test run rather than pointed at directly.
 const baseConfigPath = "../config/config.dev.yaml"
@@ -57,10 +61,17 @@ func requireE2E(t *testing.T) {
 // --- binary build (once per test run) ---------------------------------
 
 var (
+	buildDirOnce sync.Once
+	buildDir     string
+	buildDirErr  error
+
 	buildOnce sync.Once
-	buildDir  string
 	binPath   string
 	buildErr  error
+
+	seedSutrasOnce sync.Once
+	seedSutrasPath string
+	seedSutrasErr  error
 )
 
 // cleanupBuild removes the shared build directory. TestMain calls it after
@@ -71,32 +82,58 @@ func cleanupBuild() {
 	}
 }
 
-func binaryPath(t *testing.T) string {
+// sharedBuildDir creates, once, the directory every built binary goes into. Not
+// t.TempDir(): that directory is removed when the test that created it finishes,
+// and the binaries are shared by every test in the package. TestMain removes this
+// one after the whole run.
+func sharedBuildDir(t *testing.T) string {
 	t.Helper()
-	buildOnce.Do(func() {
-		// Not t.TempDir(): that directory is removed when the test that
-		// created it finishes, and the binary is shared by every test in the
-		// package. TestMain removes this one after the whole run.
+	buildDirOnce.Do(func() {
 		dir, err := os.MkdirTemp("", "appservice-e2e-")
 		if err != nil {
-			buildErr = fmt.Errorf("create build dir: %w", err)
+			buildDirErr = fmt.Errorf("create build dir: %w", err)
 			return
 		}
 		buildDir = dir
+	})
+	require.NoError(t, buildDirErr)
+	return buildDir
+}
+
+// goBuild compiles the main package in pkgDir (relative to this package) to out.
+func goBuild(pkgDir, out string) error {
+	cmd := exec.Command("go", "build", "-o", out, ".")
+	cmd.Dir = pkgDir
+	var stderr bytes.Buffer
+	cmd.Stderr = &stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("go build %s failed: %w\n%s", pkgDir, err, stderr.String())
+	}
+	return nil
+}
+
+func binaryPath(t *testing.T) string {
+	t.Helper()
+	dir := sharedBuildDir(t)
+	buildOnce.Do(func() {
 		binPath = filepath.Join(dir, "service")
-		cmd := exec.Command("go", "build", "-o", binPath, ".")
-		cmd.Dir = cmdDir
-		var stderr bytes.Buffer
-		cmd.Stderr = &stderr
-		if err := cmd.Run(); err != nil {
-			buildErr = fmt.Errorf("go build failed: %w\n%s", err, stderr.String())
-		}
+		buildErr = goBuild(cmdDir, binPath)
 	})
 	require.NoError(t, buildErr)
 	return binPath
 }
 
-// --- Postgres container -------------------------------------------------
+// seedSutrasBinaryPath builds cmd/seedsutras once, like binaryPath does for the service.
+func seedSutrasBinaryPath(t *testing.T) string {
+	t.Helper()
+	dir := sharedBuildDir(t)
+	seedSutrasOnce.Do(func() {
+		seedSutrasPath = filepath.Join(dir, "seedsutras")
+		seedSutrasErr = goBuild(filepath.Join(cmdDir, "seedsutras"), seedSutrasPath)
+	})
+	require.NoError(t, seedSutrasErr)
+	return seedSutrasPath
+}
 
 // startPostgres starts an ephemeral Postgres via testcontainers and applies
 // every migration under migrationsGlob, sorted by filename (the numbered
@@ -104,6 +141,18 @@ func binaryPath(t *testing.T) string {
 // isn't reachable, mirroring connectTestDB's behavior when no local
 // Postgres answers.
 func startPostgres(t *testing.T) (host, port string, cleanup func()) {
+	t.Helper()
+	return startPostgresSeeded(t, true)
+}
+
+// startPostgresWithoutDeities is startPostgres minus the deities seed, for the tests
+// that prove the service refuses its first start without them.
+func startPostgresWithoutDeities(t *testing.T) (host, port string, cleanup func()) {
+	t.Helper()
+	return startPostgresSeeded(t, false)
+}
+
+func startPostgresSeeded(t *testing.T, withDeities bool) (host, port string, cleanup func()) {
 	t.Helper()
 	ctx := context.Background()
 
@@ -126,8 +175,48 @@ func startPostgres(t *testing.T) (host, port string, cleanup func()) {
 	port = mappedPort.Port()
 
 	applyAllMigrations(t, host, port)
+	if withDeities {
+		seedDeities(t, host, port)
+	}
 
 	return host, port, func() { _ = pgContainer.Terminate(ctx) }
+}
+
+// seedDeities loads the Phật / Bồ tát catalogue the way a real deployment does
+// before the first start (cmd/seeddeities): the service's first-run sutra seed links
+// every sutra to deities and refuses to start without them. It inserts the columns the
+// links and cards need (id, type, order, name, thumbnail), not the full deity record.
+func seedDeities(t *testing.T, host, port string) {
+	t.Helper()
+	raw, err := os.ReadFile(deitySeedPath)
+	require.NoError(t, err)
+	var deities []struct {
+		ID           string `json:"id"`
+		Type         string `json:"type"`
+		NameVI       string `json:"name_vi"`
+		ThumbnailURL string `json:"thumbnail_url"`
+	}
+	require.NoError(t, json.Unmarshal(raw, &deities))
+	require.NotEmpty(t, deities, "no deities in %s", deitySeedPath)
+
+	portNum, err := strconv.Atoi(port)
+	require.NoError(t, err)
+	db, err := database.New(&database.Config{
+		Type: database.PostgreSQL, Host: host, Port: portNum,
+		Username: "postgres", Password: "postgres", Database: "innerlamp", SSLMode: "disable",
+	})
+	require.NoError(t, err)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	require.NoError(t, db.Connect(ctx))
+	defer func() { _ = db.Close() }()
+
+	for i, d := range deities {
+		_, err := db.Exec(ctx,
+			`INSERT INTO deities (id, type, sort_order, name_vi, thumbnail_url) VALUES ($1, $2, $3, $4, $5)
+			 ON CONFLICT (id) DO NOTHING`, d.ID, d.Type, i, d.NameVI, d.ThumbnailURL)
+		require.NoErrorf(t, err, "seeding deity %s", d.ID)
+	}
 }
 
 func applyAllMigrations(t *testing.T, host, port string) {
@@ -202,6 +291,12 @@ func writeTempConfig(t *testing.T, dbHost, dbPort, appPort string, overrides con
 
 	server, _ := doc["server"].(map[string]any)
 	server["addr"] = ":" + appPort
+	// The dev config's static_images_dir is relative to the repo root, but the binary
+	// starts elsewhere: an absolute path keeps the /static/images route mounted, and
+	// exercised, under test (a configured-but-missing folder stops the service).
+	imagesDir, err := filepath.Abs("../../../assets/images")
+	require.NoError(t, err)
+	server["static_images_dir"] = imagesDir
 	doc["server"] = server
 
 	for block, keys := range overrides {
@@ -222,7 +317,9 @@ func writeTempConfig(t *testing.T, dbHost, dbPort, appPort string, overrides con
 	return path
 }
 
-func waitForReady(t *testing.T, baseURL string, timeout time.Duration) {
+// waitForReady polls until baseURL accepts a TCP connection and reports whether it did
+// within timeout. The caller decides how to fail, so it can attach the server's stderr.
+func waitForReady(t *testing.T, baseURL string, timeout time.Duration) bool {
 	t.Helper()
 	addr := strings.TrimPrefix(baseURL, "http://")
 	deadline := time.Now().Add(timeout)
@@ -230,11 +327,11 @@ func waitForReady(t *testing.T, baseURL string, timeout time.Duration) {
 		conn, err := net.DialTimeout("tcp", addr, 200*time.Millisecond)
 		if err == nil {
 			_ = conn.Close()
-			return
+			return true
 		}
 		time.Sleep(100 * time.Millisecond)
 	}
-	t.Fatalf("server at %s did not become ready within %s", baseURL, timeout)
+	return false
 }
 
 // startServer builds (if needed) and runs the service binary against the
@@ -253,7 +350,16 @@ func startServer(t *testing.T, dbHost, dbPort string, overrides configOverrides)
 	require.NoError(t, cmd.Start())
 
 	baseURL = "http://127.0.0.1:" + appPort
-	waitForReady(t, baseURL, 10*time.Second)
+	kill := func() {
+		_ = cmd.Process.Kill()
+		_ = cmd.Wait()
+	}
+	if !waitForReady(t, baseURL, 10*time.Second) {
+		// A binary that exits at startup (bad config, missing seed) would otherwise
+		// surface only as a timeout; its stderr is the actual reason.
+		kill()
+		t.Fatalf("server at %s did not become ready within 10s; server stderr:\n%s", baseURL, stderr.String())
+	}
 
 	return baseURL, func() {
 		_ = cmd.Process.Kill()
@@ -287,4 +393,77 @@ func newE2EServerWithConfig(t *testing.T, overrides configOverrides) (baseURL st
 	t.Cleanup(cleanupSrv)
 
 	return url, &http.Client{Timeout: 5 * time.Second}
+}
+
+// openDB opens a connection to the E2E Postgres so a test can assert on, or change,
+// stored state the API does not expose. It is closed when the test ends.
+func openDB(t *testing.T, host, port string) database.Database {
+	t.Helper()
+	portNum, err := strconv.Atoi(port)
+	require.NoError(t, err)
+	db, err := database.New(&database.Config{
+		Type: database.PostgreSQL, Host: host, Port: portNum,
+		Username: "postgres", Password: "postgres", Database: "innerlamp", SSLMode: "disable",
+	})
+	require.NoError(t, err)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	require.NoError(t, db.Connect(ctx))
+	t.Cleanup(func() { _ = db.Close() })
+	return db
+}
+
+// countRows returns count(*) of a table.
+func countRows(t *testing.T, db database.Database, table string) int {
+	t.Helper()
+	var n int
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	require.NoError(t, db.QueryRow(ctx, "SELECT count(*) FROM "+table).Scan(&n))
+	return n
+}
+
+// execSQL runs a statement against the E2E Postgres.
+func execSQL(t *testing.T, db database.Database, query string, args ...any) {
+	t.Helper()
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	_, err := db.Exec(ctx, query, args...)
+	require.NoError(t, err)
+}
+
+// runResult is what a process that was expected to stop on its own left behind.
+type runResult struct {
+	stderr   string
+	exitCode int
+	timedOut bool
+}
+
+// runUntilExit runs bin with CONFIG_PATH=cfgPath and waits for it to exit, killing it
+// after timeout. It is for the commands and startup failures that end by themselves:
+// a service that is meant to keep running is startServer's job, not this one's.
+func runUntilExit(t *testing.T, bin, cfgPath string, timeout time.Duration) runResult {
+	t.Helper()
+	cmd := exec.Command(bin)
+	cmd.Env = append(os.Environ(), "CONFIG_PATH="+cfgPath)
+	var stderr bytes.Buffer
+	cmd.Stderr = &stderr
+	require.NoError(t, cmd.Start())
+
+	done := make(chan error, 1)
+	go func() { done <- cmd.Wait() }()
+	select {
+	case err := <-done:
+		code := 0
+		if err != nil {
+			exitErr, ok := err.(*exec.ExitError)
+			require.Truef(t, ok, "waiting for %s: %v", bin, err)
+			code = exitErr.ExitCode()
+		}
+		return runResult{stderr: stderr.String(), exitCode: code}
+	case <-time.After(timeout):
+		_ = cmd.Process.Kill()
+		<-done
+		return runResult{stderr: stderr.String(), exitCode: -1, timedOut: true}
+	}
 }

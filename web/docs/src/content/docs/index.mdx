@@ -1,0 +1,50 @@
+---
+title: InnerLamp API
+description: Tài liệu tích hợp API InnerLamp cho client (mobile/web) và admin.
+template: splash
+hero:
+  tagline: Kết nối, xác thực và tích hợp vào backend InnerLamp. Từ lần gọi API đầu tiên đến luồng đăng ký, đăng nhập và attestation.
+  actions:
+    - text: Bắt đầu
+      link: /guides/getting-started/
+      icon: right-arrow
+    - text: API Reference
+      link: /api-reference/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Bạn muốn làm gì?
+
+<CardGrid stagger>
+	<Card title="Gọi API lần đầu" icon="rocket">
+		Base URL, định dạng response và cách gửi request. Xem [Kết nối](/guides/getting-started/).
+	</Card>
+	<Card title="Đăng ký và đăng nhập" icon="approve-check">
+		Luồng OTP 2 bước, đăng nhập, làm mới token, đăng xuất, kèm code mẫu Swift, Kotlin, JavaScript. Xem [Đăng ký và đăng nhập](/guides/register-and-login/).
+	</Card>
+	<Card title="Sổ giỗ chạp" icon="pencil">
+		Thêm, sửa, xoá người đã mất kèm ngày giỗ và nhắc nhở (cần đăng nhập). Xem [Sổ giỗ chạp](/guides/catalogues/memorials/).
+	</Card>
+	<Card title="Kinh, kệ, chú" icon="open-book">
+		Thư viện kinh có bộ lọc, tìm kiếm và đọc nội dung theo trang dòng. Xem [Kinh, kệ, chú](/guides/catalogues/sutras/).
+	</Card>
+	<Card title="Xác thực thiết bị" icon="seti:lock">
+		Play Integrity cho Android, App Attest cho iOS. Xem [Attestation](/guides/attestation/).
+	</Card>
+	<Card title="Hiểu hệ thống" icon="puzzle">
+		Các lớp của backend và đường đi của một request. Xem [Kiến trúc](/architecture/overview/).
+	</Card>
+</CardGrid>
+
+<LinkCard
+	title="API Reference"
+	description="Toàn bộ 39 endpoint (34 của appService, 5 của backoffice), có nút gọi thử và code mẫu nhiều ngôn ngữ. Tải file openapi.yaml để sinh SDK hoặc import vào Postman."
+	href="/api-reference/"
+/>
+
+:::note
+Tài liệu này mô tả những gì **đang có trong code**. Hồ sơ/avatar và đặt lại mật khẩu mới có spec, chưa có route nên chưa nằm ở đây.
+:::

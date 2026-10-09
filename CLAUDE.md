@@ -8,14 +8,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `services/appService` is the one consuming service — a Clean Architecture app that currently implements US-001 (register: 2-step OTP over SMS) and US-002 (login / refresh / logout) end-to-end against Postgres. There is no GCS usage yet. `cmd/main.go` wiring is real but uses dev-only config/secrets/SMS (search `⚠️ DEV ONLY` / `⚠️ DEV CONFIG`) — not production-ready as-is (the OTP is hardcoded `111111`). Profile/avatar, password reset and the content user stories are still specs only, not code.
 
-`docs/specs/features/onboarding/requirements.md` and `docs/specs/features/login/requirements.md` hold the implemented identity specs (Vietnamese); `docs/specs/features/{content,journal,practice}/requirements.md` are prospective product specs for the planned meditation/dharma-tracking app. `docs/knowledge/` is the post-implementation OKF reference bundle (`features/register.md`, `features/login.md`), distinct from `docs/specs/`.
+`docs/specs/features/onboarding/requirements.md` and `docs/specs/features/login/requirements.md` hold the implemented identity specs (Vietnamese); `docs/specs/features/journal/requirements.md` is a prospective product spec for the planned meditation/dharma-tracking app. `docs/knowledge/` is the post-implementation OKF reference bundle (`features/register.md`, `features/login.md`), distinct from `docs/specs/`.
 
 ## Known broken state — read before building
 
 - **`go.sum` present.** Still run `go mod tidy` after touching `go.mod`/imports.
 - **`base_project/pkg/...` import mismatch is fixed in code** — all `.go` files correctly import `chjpcoj.com.innerlamp/...`. Stale `base_project/pkg/...` references only remain in a few docs (`QUICK_START.md`, some subpackage `README.md`/`INDEX.md`), each already self-flagged as leftover template text — don't copy import lines from those docs.
 - **`cmd/main.go` dev-only wiring is marked, not hidden.** Search `⚠️ DEV ONLY` / `⚠️ DEV CONFIG` (not `MOCK_DATA_MARKER`, which no longer appears in `main.go`) for the spots to swap before production: `appConfig.NewMockSecretGetterFromYAML` (plaintext `dev_secrets` from YAML instead of `pkg/secrets/gcp`/`aws`) and `pkg/sms/logsms` (logs the OTP instead of sending SMS). Also `generateOTP()` in `usecase/register_usecase.go` returns the constant `111111`.
-- **JWT auth middleware is wired to exactly one route**: `POST /v1/auth/logout` in `cmd/main.go` (`pkg/jwt/middleware` with `RequireTokenType: "access"`). Register/login/refresh are public by design. There are no `/v1/users/me` routes in the tree.
+- **JWT auth middleware (`pkg/jwt/middleware`, `RequireTokenType: "access"`) is wired to six routes** in `cmd/main.go`: `POST /v1/auth/logout` and the five `/v1/memorials` routes (sổ giỗ chạp; user-scoped, owner = the token's `user_id`). Register/login/refresh and the catalogue reads are public by design. There are no `/v1/users/me` routes in the tree. Memorial photo upload is not built (GCS) — `docs/tech-debt/memorial/TD-001`.
 - Before relying on any bullet above, re-verify (`ls go.sum`, `grep -rl base_project/pkg --include=*.go .`, `grep -n users/me services/appService/cmd/main.go`) — this section drifts as the repo evolves and is exactly the kind of fact that goes stale silently.
 
 ## Commands

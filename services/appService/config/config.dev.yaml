@@ -11,6 +11,12 @@
 
 server:
   addr: ":8080"
+  # ⚠️ DEV ONLY: serve assets/images at /static/images/ (no CDN yet). Path is relative to the
+  # working directory, so run from the repo root (make run does). Leave empty in production.
+  static_images_dir: "assets/images"
+  # Origin prepended to "/static/images/..." paths in responses. Empty = derive from the request
+  # Host (fine on a LAN); set to the CDN/public origin in production.
+  public_base_url: ""
 
 database:
   host: "localhost"
@@ -77,6 +83,48 @@ attestation:
   ios:
     provider: "mock"
     app_id: "TEAMID.com.innerlamp.app"
+
+# Temple catalogue paging. Both keys are required: zero would mean empty pages.
+temple:
+  top_limit: 10
+  page_size: 20
+
+# Phật / Bồ tát catalogue paging. Both keys are required: zero would mean empty pages.
+deity:
+  top_limit: 10
+  page_size: 20
+
+# Ảnh đẹp Phật giáo (gallery) paging. Both keys are required: zero would mean empty pages.
+gallery:
+  top_limit: 10
+  page_size: 20
+
+# Ảnh Phật theo ngày cho màn Lịch âm. timezone is required (the "today" used when the request has no date).
+# ⚠️ DEV ONLY: empty image_base_url builds image_url from the request's host; set a CDN URL in production.
+calendar:
+  timezone: "Asia/Ho_Chi_Minh"
+  image_base_url: ""
+
+# Bài viết Phật pháp paging. Both keys are required: zero would mean empty pages.
+article:
+  top_limit: 5
+  page_size: 10
+
+# Sổ giỗ chạp. max_per_user is required: zero would mean nobody can add a memorial.
+memorial:
+  max_per_user: 100
+
+# Pháp thoại paging. page_size is required: zero would mean empty pages.
+dharma_talk:
+  page_size: 10
+
+# Kinh / kệ / chú paging. All three keys are required and must be >= 1:
+# lines_page_size is the default lines per page of GET /v1/sutras/{id}/lines and
+# lines_max_page_size caps a caller-supplied page_size.
+sutra:
+  page_size: 20
+  lines_page_size: 200
+  lines_max_page_size: 500
 
 dev_secrets:
   appservice-db-password: "postgres"

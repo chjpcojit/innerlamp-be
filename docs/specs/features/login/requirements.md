@@ -1,8 +1,8 @@
 # Requirements — login
 
-Version: 1.10
-Last updated: 2026-09-22
-Status: implemented (2026-09-21) — login, refresh, logout chạy thật qua binary + Postgres 16; AC1–AC15 đã có test (usecase, repository trên DB thật, handler) và đã kiểm bằng curl. Audit AC bằng E2E tự động xong (`test-coverage-report.md`). Không còn marker `⚠️ Not confirmed`. (v1.10: sửa tài liệu cũ — openapi đã có 3 path; dòng "refresh token 30 ngày" ở onboarding đã được sửa. Không đổi AC.)
+Version: 1.11
+Last updated: 2026-09-29
+Status: implemented (2026-09-21) — login, refresh, logout chạy thật qua binary + Postgres 16; AC1–AC15 đã có test (usecase, repository trên DB thật, handler) và đã kiểm bằng curl. Audit AC bằng E2E tự động xong (`test-coverage-report.md`). Không còn marker `⚠️ Not confirmed`. (v1.11: không đổi nội dung file này — bump theo `design.md`/`flow.md` vì `flow.md` được thêm vào cùng version. Không đổi AC.)
 Module: `identity`
 Code: `services/appService/`
 

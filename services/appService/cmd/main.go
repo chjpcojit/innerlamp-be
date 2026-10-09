@@ -10,10 +10,12 @@ package main
 
 import (
 	"context"
+	"io/fs"
 	"log"
 	"net/http"
 	"os"
 	"time"
+	_ "time/tzdata" // memorial reminders name IANA zones; runtime images may ship no zoneinfo
 
 	"chjpcoj.com.innerlamp/pkg/attestation"
 	"chjpcoj.com.innerlamp/pkg/attestation/appattest"
@@ -31,13 +33,22 @@ import (
 	_ "chjpcoj.com.innerlamp/pkg/sms/logsms"
 	"chjpcoj.com.innerlamp/pkg/validation"
 
+	"chjpcoj.com.innerlamp/assets"
 	appConfig "chjpcoj.com.innerlamp/services/appService/config"
 	deliveryhttp "chjpcoj.com.innerlamp/services/appService/delivery/http"
+	"chjpcoj.com.innerlamp/services/appService/domain"
 	"chjpcoj.com.innerlamp/services/appService/repository"
 	"chjpcoj.com.innerlamp/services/appService/usecase"
 )
 
 const defaultConfigPath = "services/appService/config/config.dev.yaml"
+
+// sutraSeedTimeout bounds the first-run seed of the sutra library (~64,000 lines in
+// one transaction). It has its own budget because connectCtx's 10s is shared with
+// config loading, the DB connection and the article seed, and the sutra seed is
+// by far the heaviest of them (about a second on a local Postgres).
+// TD-008: hardcoded, and repeated in cmd/seedsutras; not yet in config.
+const sutraSeedTimeout = 2 * time.Minute
 
 func main() {
 	logger := logging.New(logging.Config{
@@ -69,6 +80,15 @@ func main() {
 	cfg, err := appConfig.Load(connectCtx, configSource, secretGetter)
 	if err != nil {
 		log.Fatalf("failed to load app config: %v", err)
+	}
+	// A zero here would make every sutra page empty and divide by zero in total_pages,
+	// so a config.<env>.yaml without a valid sutra block must stop the service now.
+	if err := cfg.Sutra.Validate(); err != nil {
+		log.Fatalf("invalid sutra config: %v", err)
+	}
+	// Same for dharma_talk.page_size: zero would divide by zero in total_pages.
+	if err := cfg.DharmaTalk.Validate(); err != nil {
+		log.Fatalf("invalid dharma_talk config: %v", err)
 	}
 
 	dbConfig := &database.Config{
@@ -187,6 +207,103 @@ func main() {
 	)
 	attestationHandler := deliveryhttp.NewAttestationHandler(attestationUsecase, validator)
 
+	// Temple catalogue: read-only browse endpoints (top / paged list / detail).
+	templeRepo := repository.NewTempleRepository(db)
+	templeUsecase := usecase.NewTempleUsecase(templeRepo, cfg.Temple)
+	// Catalogue image paths are stored root-relative and resolved per response, so a new
+	// network, host or CDN is a config change, not a data change.
+	imageBase := deliveryhttp.WithImageBase(cfg.Server.PublicBaseURL)
+	templeHandler := deliveryhttp.NewTempleHandler(templeUsecase, imageBase)
+
+	// Deity catalogue (Phật / Bồ tát): read-only top / bodhisattva list / detail.
+	deityRepo := repository.NewDeityRepository(db)
+	deityUsecase := usecase.NewDeityUsecase(deityRepo, cfg.Deity)
+	deityHandler := deliveryhttp.NewDeityHandler(deityUsecase, imageBase)
+
+	// Gallery (ảnh đẹp Phật giáo): read-only top / paged list (optional type filter) / detail.
+	// Data is loaded by cmd/seedgallery, never at startup.
+	galleryRepo := repository.NewGalleryRepository(db)
+	galleryUsecase := usecase.NewGalleryUsecase(galleryRepo, cfg.Gallery)
+	galleryHandler := deliveryhttp.NewGalleryHandler(galleryUsecase, imageBase)
+
+	// Calendar image (ảnh Phật theo ngày cho màn Lịch âm): no database — the list comes from
+	// the embedded assets/images/home-calendar/manifest.json, validated here so a bad manifest
+	// or time zone stops the service now instead of failing per request.
+	calendarImages, err := repository.ParseCalendarManifest(assets.CalendarManifestJSON)
+	if err != nil {
+		log.Fatalf("invalid calendar manifest: %v", err)
+	}
+	calendarUsecase, err := usecase.NewCalendarUsecase(calendarImages, cfg.Calendar, time.Now)
+	if err != nil {
+		log.Fatalf("invalid calendar config: %v", err)
+	}
+	calendarHandler := deliveryhttp.NewCalendarHandler(calendarUsecase, cfg.Calendar.ImageBaseURL)
+
+	// Article catalogue (bài viết Phật pháp): read-only top / paged list / detail.
+	// First run only: seed from the embedded assets/data/buddhist_articles.json
+	// when the table is empty (needs migrations/0012 applied). A restart never
+	// re-seeds, so it cannot overwrite or resurrect edited rows.
+	articleRepo := repository.NewArticleRepository(db)
+	articleUsecase := usecase.NewArticleUsecase(articleRepo, cfg.Article)
+	seeded, err := articleUsecase.SeedIfEmpty(connectCtx, func() ([]domain.Article, error) {
+		return repository.ParseArticleSeed(assets.BuddhistArticlesJSON)
+	})
+	if err != nil {
+		log.Fatalf("failed to seed articles: %v", err)
+	}
+	if seeded > 0 {
+		logger.Info("seeded articles on first run", "count", seeded)
+	}
+	articleHandler := deliveryhttp.NewArticleHandler(articleUsecase, imageBase)
+
+	// Dharma talks (pháp thoại): read-only paged list / detail. First run only: seed
+	// from the embedded assets/data/dharma_talks.json when the table is empty
+	// (needs migrations/0014 applied). Talks flagged needs_review are stored but
+	// never served; the emptiness check counts them so a restart cannot reseed.
+	dharmaTalkRepo := repository.NewDharmaTalkRepository(db)
+	dharmaTalkUsecase := usecase.NewDharmaTalkUsecase(dharmaTalkRepo, cfg.DharmaTalk)
+	seededTalks, err := dharmaTalkUsecase.SeedIfEmpty(connectCtx, func() ([]domain.DharmaTalk, error) {
+		return repository.ParseDharmaTalkSeed(assets.DharmaTalksJSON)
+	})
+	if err != nil {
+		log.Fatalf("failed to seed dharma talks: %v", err)
+	}
+	if seededTalks > 0 {
+		logger.Info("seeded dharma talks on first run", "count", seededTalks)
+	}
+	dharmaTalkHandler := deliveryhttp.NewDharmaTalkHandler(dharmaTalkUsecase)
+
+	// Sutra library (kinh / kệ / chú): read-only list / detail / lines, plus the sutras
+	// linked to a deity. First run only: seed from the embedded assets/data/sutras when
+	// the table is empty (needs migrations/0013 applied and the deities seeded with
+	// cmd/seeddeities, because every sutra links to deities; a missing deity stops the
+	// service rather than dropping links the seed could never add later). A restart
+	// never re-seeds, so it cannot overwrite or resurrect edited rows.
+	sutraRepo := repository.NewSutraRepository(db)
+	sutraUsecase := usecase.NewSutraUsecase(sutraRepo, deityRepo, cfg.Sutra)
+	seedCtx, cancelSeed := context.WithTimeout(context.Background(), sutraSeedTimeout)
+	sutraSeed, err := sutraUsecase.SeedIfEmpty(seedCtx, func() ([]domain.SutraSeed, error) {
+		dir, err := fs.Sub(assets.SutrasFS, "data/sutras")
+		if err != nil {
+			return nil, err
+		}
+		return repository.ParseSutraSeed(dir)
+	})
+	cancelSeed()
+	if err != nil {
+		log.Fatalf("failed to seed sutras: %v", err)
+	}
+	if sutraSeed.Sutras > 0 {
+		logger.Info("seeded sutras on first run", "sutras", sutraSeed.Sutras, "translations", sutraSeed.Translations,
+			"lines", sutraSeed.Lines, "deity_links", sutraSeed.DeityLinks)
+	}
+	sutraHandler := deliveryhttp.NewSutraHandler(sutraUsecase, imageBase)
+
+	// memorials (sổ giỗ chạp): per-user data, so every route below is wrapped by authMiddleware.
+	memorialRepo := repository.NewMemorialRepository(db)
+	memorialUsecase := usecase.NewMemorialUsecase(memorialRepo, cfg.Memorial)
+	memorialHandler := deliveryhttp.NewMemorialHandler(memorialUsecase)
+
 	// The RequireAttestation middleware is provided but deliberately NOT wired
 	// to any route yet: choosing which routes to gate is a business decision
 	// that belongs to a future feature (design.md "Out of scope"). It is built
@@ -215,12 +332,71 @@ func main() {
 	mux.HandleFunc("POST /v1/auth/refresh", loginHandler.Refresh)
 	mux.HandleFunc("POST /v1/auth/logout", authMiddleware.AuthenticateFunc(loginHandler.Logout))
 
+	// memorials: private to the logged-in user. The owner is the access token's user_id claim;
+	// there is no route that takes a user id. The photo routes are not here yet (TD-001, memorial).
+	mux.HandleFunc("POST /v1/memorials", authMiddleware.AuthenticateFunc(memorialHandler.Create))
+	mux.HandleFunc("GET /v1/memorials", authMiddleware.AuthenticateFunc(memorialHandler.List))
+	mux.HandleFunc("GET /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Get))
+	mux.HandleFunc("PUT /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Update))
+	mux.HandleFunc("DELETE /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Delete))
+
 	// attestation: all three routes are public — the caller has no account yet.
 	// They mint challenges and return a verdict; the per-request gate is the
 	// (unwired) RequireAttestation middleware, not these routes.
 	mux.HandleFunc("POST /v1/attestation/challenge", attestationHandler.Challenge)
 	mux.HandleFunc("POST /v1/assertion/challenge", attestationHandler.AssertionChallenge)
 	mux.HandleFunc("POST /v1/attestation/verify", attestationHandler.Verify)
+
+	// temples: all three routes are public — browsing needs no account. "/top"
+	// is a literal segment, so ServeMux prefers it over "/{id}".
+	mux.HandleFunc("GET /v1/temples/top", templeHandler.Top)
+	mux.HandleFunc("GET /v1/temples", templeHandler.List)
+	mux.HandleFunc("GET /v1/temples/{id}", templeHandler.Get)
+
+	// deities: public, like temples. "/top" is a literal segment, so ServeMux
+	// prefers it over "/{id}".
+	mux.HandleFunc("GET /v1/deities/top", deityHandler.Top)
+	mux.HandleFunc("GET /v1/deities/{id}", deityHandler.Get)
+	mux.HandleFunc("GET /v1/deities", deityHandler.ListDeities)
+
+	// gallery: public, like temples. "/top" is a literal segment, so ServeMux
+	// prefers it over "/{id}".
+	mux.HandleFunc("GET /v1/gallery/top", galleryHandler.Top)
+	mux.HandleFunc("GET /v1/gallery", galleryHandler.List)
+	mux.HandleFunc("GET /v1/gallery/{id}", galleryHandler.Get)
+
+	// calendar image: public, like gallery.
+	mux.HandleFunc("GET /v1/calendar/image", calendarHandler.Image)
+
+	// articles: public, like temples. "/top" is a literal segment, so ServeMux
+	// prefers it over "/{id}".
+	mux.HandleFunc("GET /v1/articles/top", articleHandler.Top)
+	mux.HandleFunc("GET /v1/articles", articleHandler.List)
+	mux.HandleFunc("GET /v1/articles/{id}", articleHandler.Get)
+
+	// dharma talks: public, like articles.
+	mux.HandleFunc("GET /v1/dharma-talks", dharmaTalkHandler.List)
+	mux.HandleFunc("GET /v1/dharma-talks/{id}", dharmaTalkHandler.Get)
+
+	// sutras: public, like articles. /lines is a longer pattern than /{id}, so the two
+	// do not collide; /v1/deities/{id}/sutras is a longer pattern than
+	// /v1/deities/{id}, so the deity routes above keep answering exactly as before.
+	mux.HandleFunc("GET /v1/sutras", sutraHandler.List)
+	mux.HandleFunc("GET /v1/sutras/{id}", sutraHandler.Get)
+	mux.HandleFunc("GET /v1/sutras/{id}/lines", sutraHandler.Lines)
+	mux.HandleFunc("GET /v1/deities/{id}/sutras", sutraHandler.ListByDeity)
+
+	// ⚠️ DEV ONLY: images are served from disk until there is a CDN. Enabled by
+	// server.static_images_dir; a configured-but-missing folder stops the service now
+	// instead of leaving every image_url answering 404.
+	if cfg.Server.StaticImagesDir != "" {
+		images, err := deliveryhttp.NewStaticImages(cfg.Server.StaticImagesDir)
+		if err != nil {
+			log.Fatalf("invalid server.static_images_dir: %v", err)
+		}
+		mux.Handle("GET /static/images/", http.StripPrefix("/static/images", images))
+		logger.Info("serving static images", "dir", cfg.Server.StaticImagesDir, "route", "/static/images/")
+	}
 
 	addr := cfg.Server.Addr
 	logger.Info("starting appService", "addr", addr)

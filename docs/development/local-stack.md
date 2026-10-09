@@ -70,6 +70,10 @@ make run        # chạy appService trên host (tự gọi `make up` trước), 
 
 Sau đó: appService `http://localhost:8080`, Grafana `http://localhost:3000`.
 
+> **Lần chạy đầu trên DB trống — `make run` tự lo phần seed `deities`.** Khi `sutras` còn rỗng, appService tự nạp thư viện kinh (153 văn bản) và mỗi kinh liên kết tới Phật/Bồ tát, nên `deities` phải có sẵn, nếu không service dừng với `failed to seed sutras: … (run cmd/seeddeities first)`. Vì vậy `make run` chạy thêm `make ensure-deities`: nó seed `deities` **chỉ khi bảng đang rỗng** và để yên khi đã có dữ liệu (nên không ghi đè chỉnh sửa tay). Sau `make reset` hay `docker compose down -v` (data bị xoá sạch), `make run` cũng tự làm lại bước này.
+>
+> Muốn làm bằng tay hoặc nạp riêng: `make seed` (deities nếu rỗng, rồi kinh), `make seed-sutras` (không làm gì nếu bảng `sutras` đã có dữ liệu), `make seed-deities` (upsert thật từ `assets/data/phat_botat.json`, **ghi đè** chỉnh sửa tay trong bảng `deities`). Khi **không** dùng `make` (chạy `go run` trực tiếp), phải tự chạy `go run ./services/appService/cmd/seeddeities` một lần trước lần chạy đầu. `go run ./services/appService/cmd/seedsutras -dir <thư mục>` đọc dữ liệu kinh từ đĩa thay vì bản nhúng trong binary.
+
 Danh sách target:
 
 | Target | Việc nó làm |
@@ -79,10 +83,14 @@ Danh sách target:
 | `make up` / `make down` / `make restart` | Dựng / dừng (giữ data) / dựng lại |
 | `make reset` | `down -v` rồi `up` — **xoá sạch** data Postgres + Loki + Grafana |
 | `make status` / `make logs` | `docker compose ps` / `logs -f` mọi container |
-| `make run` | `go run ./services/appService/cmd`, tee vào `observability/logs/appservice.log` |
+| `make run` | `make up` + `make ensure-deities`, rồi `go run ./services/appService/cmd`, tee vào `observability/logs/appservice.log` |
 | `make build` / `test` / `vet` | `go build ./...` / `go test -short ./...` / `go vet ./...` |
 | `make db-up` | Chỉ dựng Postgres + apply migrations (không Loki/Grafana/Alloy) |
 | `make migrate` | Apply lại `migrations/` vào Postgres đang chạy |
+| `make ensure-deities` | Seed `deities` chỉ khi bảng rỗng (an toàn khi lặp lại, giữ chỉnh sửa tay) |
+| `make seed-deities` | Upsert `deities` từ `assets/data/phat_botat.json` (ghi đè chỉnh sửa tay) |
+| `make seed-sutras` | Nạp thư viện kinh bằng tay (không làm gì nếu `sutras` đã có dữ liệu); tự gọi `ensure-deities` trước |
+| `make seed` | `ensure-deities` rồi `seed-sutras` — thứ tự một DB mới cần |
 | `make psql` | Mở shell `psql` tương tác |
 | `make db-tables` / `db-counts` | Liệt kê bảng / số hàng ước lượng |
 | `make db-accounts` / `db-sessions` / `db-otp` | Xem users / sessions / OTP + send limits |
@@ -132,7 +140,7 @@ Hệ quả duy nhất: app không phải container nên Alloy **không** đọc 
 
 Các điểm sau **chỉ dùng local**, tuyệt đối không copy sang môi trường thật:
 
-- Grafana bật **anonymous admin**: `GF_AUTH_ANONYMOUS_ENABLED=true` + `GF_AUTH_ANONYMOUS_ORG_ROLE=Admin` + `GF_AUTH_DISABLE_LOGIN_FORM=true`. Ai chạm được port 3000 là có full admin — đừng expose port này.
+- Grafana bật form đăng nhập (`GF_AUTH_ANONYMOUS_ENABLED=false`): tài khoản mặc định `admin` / `admin` (hoặc mật khẩu đã đổi, lưu trong volume `grafana-data`). Chỉ dùng local — đừng expose port 3000.
 - Loki `auth_enabled: false`, không retention, lưu trên filesystem.
 - Postgres dùng `postgres/postgres`, không TLS.
 - Bên phía app (không thuộc compose): secret đọc từ `dev_secrets` trong YAML (`⚠️ DEV ONLY`), SMS chỉ log (`pkg/sms/logsms`), OTP hardcode `111111`.
@@ -147,6 +155,7 @@ Các điểm sau **chỉ dùng local**, tuyệt đối không copy sang môi tr�
 | `bind: address already in use` khi `up` | Port 5432/3000/3100/12345 đã bị chiếm. Kiểm tra `lsof -nP -iTCP:<port> -sTCP:LISTEN`, hoặc dừng Postgres local. |
 | `loki /ready` trả `503` ngay sau `up` | Bình thường trong vài giây đầu (ring chưa sẵn sàng). Chờ rồi thử lại. |
 | Log không thấy trong Grafana | Alloy chỉ thấy file **sau khi** file tồn tại. Đảm bảo app chạy bằng lệnh có `tee` (target `make run`), và thư mục `observability/logs/` do user sở hữu (đã commit `.gitkeep`). |
+| `failed to seed sutras: … (run cmd/seeddeities first)` | `deities` chưa được seed trên DB này. Với `make run` không nên xảy ra (nó tự seed khi bảng rỗng); nếu chạy `go run` trực tiếp thì chạy `make seed-deities` (hoặc `make ensure-deities`) rồi chạy lại — xem khung ở §2. |
 | `migrate` báo lỗi schema | Xem log: `docker compose logs migrate`. Nếu schema đang dở dang, `make reset` để làm lại từ đầu. |
 | `0002 ... column already exists` | Không còn xảy ra với file hiện tại. Nếu gặp, bạn đang dùng bản migration cũ. |
 | Muốn xoá sạch mọi thứ | `make reset` (= `docker compose down -v && docker compose up -d`). |

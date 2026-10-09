@@ -88,6 +88,17 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		return
 	}
 
+	if bad, ok := errors.AsType[*domain.MemorialValidationError](err); ok {
+		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
+		return
+	}
+
+	if bad, ok := errors.AsType[*domain.InvalidSutraFilterError](err); ok {
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_FILTER", domain.ErrInvalidSutraFilter.Error(),
+			map[string]any{"field": bad.Field})
+		return
+	}
+
 	switch {
 	case errors.Is(err, domain.ErrPhoneTaken):
 		utils.WriteBusinessError(w, http.StatusConflict, "PHONE_TAKEN", err.Error(), nil)
@@ -125,6 +136,34 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadRequest, "ATTESTATION_CHALLENGE_INVALID", err.Error(), nil)
 	case errors.Is(err, domain.ErrAttestationUpstreamError):
 		utils.WriteBusinessError(w, http.StatusBadGateway, "ATTESTATION_UPSTREAM_ERROR", err.Error(), nil)
+	case errors.Is(err, domain.ErrTempleNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "TEMPLE_NOT_FOUND", domain.ErrTempleNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrDeityNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "DEITY_NOT_FOUND", domain.ErrDeityNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrGalleryImageNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "GALLERY_IMAGE_NOT_FOUND", domain.ErrGalleryImageNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrMemorialNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "MEMORIAL_NOT_FOUND", domain.ErrMemorialNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrMemorialLimitReached):
+		utils.WriteBusinessError(w, http.StatusConflict, "MEMORIAL_LIMIT_REACHED", domain.ErrMemorialLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrArticleNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "ARTICLE_NOT_FOUND", domain.ErrArticleNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrDharmaTalkNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "DHARMA_TALK_NOT_FOUND", domain.ErrDharmaTalkNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrSutraNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "SUTRA_NOT_FOUND", domain.ErrSutraNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrSutraTranslationNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "TRANSLATION_NOT_FOUND", domain.ErrSutraTranslationNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrInvalidPageSize):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_PAGE_SIZE", domain.ErrInvalidPageSize.Error(), map[string]any{"field": "page_size"})
+	case errors.Is(err, domain.ErrInvalidTranslation):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_TRANSLATION", domain.ErrInvalidTranslation.Error(), map[string]any{"field": "translation"})
+	case errors.Is(err, domain.ErrInvalidGalleryType):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_GALLERY_TYPE", domain.ErrInvalidGalleryType.Error(), map[string]any{"field": "type"})
+	case errors.Is(err, domain.ErrInvalidPage):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_PAGE", domain.ErrInvalidPage.Error(), map[string]any{"field": "page"})
+	case errors.Is(err, domain.ErrInvalidDate):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DATE", domain.ErrInvalidDate.Error(), map[string]any{"field": "date"})
 	default:
 		utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
 	}

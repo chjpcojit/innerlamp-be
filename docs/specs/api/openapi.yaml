@@ -1,0 +1,3621 @@
+openapi: 3.1.0
+info:
+  title: InnerLamp API
+  version: 1.0.0
+  description: |
+    API của hai service: **appService** (client: đăng ký/đăng nhập, attestation thiết bị, danh mục chùa, Phật/Bồ tát và bài viết Phật pháp)
+    và **backofficeService** (admin: `/v1/admin/*`). Chọn server tương ứng ở ô Servers.
+    Token của hai service không dùng chéo được (khác secret và audience).
+
+    **Định dạng response.** Mọi response có body dùng chung một envelope:
+    `{"success": true, "data": {...}}` khi thành công, hoặc
+    `{"success": false, "error": {"code", "message", "type"}, "details": {...}}` khi lỗi.
+    Client rẽ nhánh theo `error.code`, không theo `message`.
+
+    Nguồn: `services/{appService,backofficeService}/delivery/http` và `cmd/main.go` của từng service.
+    Khi đổi handler hoặc route, cập nhật file này.
+servers:
+  - url: http://localhost:8080
+    description: appService, dev (chạy local)
+  - url: http://localhost:8081
+    description: backofficeService, dev (chạy local)
+  - url: http://{lan_ip}:8080
+    description: |
+      appService, dev trên thiết bị thật. Điện thoại không gọi được `localhost`, nên dùng IP LAN của máy chạy server
+      (cùng mạng Wi-Fi). IP đổi theo mạng; chạy `make lan-urls` để URL ảnh trong dữ liệu khớp IP hiện tại.
+    variables:
+      lan_ip:
+        default: 192.168.1.186
+        description: IP LAN của máy chạy appService.
+tags:
+  - name: Auth
+    description: Đăng ký 2 bước bằng OTP, đăng nhập, làm mới token, đăng xuất.
+  - name: Memorials
+    description: |
+      Sổ giỗ chạp của người dùng đã đăng nhập. Dữ liệu riêng tư: mọi endpoint cần `Authorization: Bearer <access_token>` và chỉ chủ sở hữu đọc, sửa, xoá được.
+      Chủ sở hữu luôn là `user_id` trong token, không có endpoint nào nhận user id từ client.
+      Chưa có ảnh (đang hoãn): `photo_url` luôn là `null`.
+  - name: Attestation
+    description: |
+      Chứng thực app và thiết bị (Play Integrity, App Attest). Cả ba endpoint đều công khai.
+      Luồng chung: xin challenge, nhờ nền tảng ký, gửi bằng chứng tới `verify` để nhận verdict.
+      Hiện chưa có route nghiệp vụ nào bắt buộc attestation.
+  - name: Temples
+    description: Danh mục chùa (chỉ đọc).
+  - name: Deities
+    description: Danh mục Phật và Bồ tát (chỉ đọc).
+  - name: Gallery
+    description: Ảnh đẹp Phật giáo (chùa, tượng Phật, thiền, lễ hội) kèm ghi công tác giả (chỉ đọc).
+  - name: Calendar
+    description: Ảnh Phật theo ngày cho màn Lịch âm, kèm ghi công tác giả (chỉ đọc).
+  - name: Articles
+    description: Bài viết Phật pháp (chỉ đọc).
+  - name: DharmaTalks
+    description: Pháp thoại (bài giảng của một vị thầy, chỉ đọc); khác với kinh. Mỗi bài là video YouTube nhúng, âm thanh hoặc văn bản.
+  - name: Sutras
+    description: Thư viện kinh, kệ, chú (chỉ đọc), kèm nội dung theo trang dòng và liên kết với Phật/Bồ tát.
+  - name: Images
+    description: Ảnh tĩnh (chùa, Phật/Bồ tát, ảnh nhỏ bài viết) do appService phục vụ ở môi trường dev; production dùng CDN.
+  - name: Admin
+    description: backofficeService (server `:8081`). Đăng nhập admin, đổi mật khẩu, quản lý tài khoản.
+
+paths:
+  /v1/auth/register/request-otp:
+    post:
+      tags: [Auth]
+      operationId: registerRequestOtp
+      summary: Đăng ký – bước 1, gửi OTP
+      description: |
+        Kiểm tra thông tin, lưu bản đăng ký chờ xác minh và gửi OTP 6 số qua SMS. Không cần đăng nhập.
+        Tài khoản **chưa** được tạo ở bước này, chỉ tạo khi `verify-otp` thành công.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `email` | string | có | Đúng định dạng email. Chuẩn hoá phía server. |
+        | `password` | string | có | Tối thiểu 8 ký tự, nếu ngắn hơn trả `INVALID_PASSWORD`. |
+        | `phone_number` | string | có | `+` tuỳ chọn rồi 8–15 chữ số, cho phép dấu cách, `-`, `.`, `(`, `)`. Server chuẩn hoá về E.164, nên `0901234567` và `+84901234567` là một số. |
+        | `dharma_name` | string | không | Pháp danh. |
+        | `ordination_place` | string | không | Nơi quy y. |
+
+        `data` gồm `message`, `expires_in_seconds` (thời gian sống của OTP) và `resend_after_seconds`
+        (phải chờ bao lâu mới gửi lại được). Hiển thị đếm ngược theo hai giá trị này, đừng hard-code.
+
+        Gọi lại với cùng số điện thoại khi chưa xác minh **không** phải lỗi trùng: bản đăng ký cũ bị ghi đè.
+        Lượt gửi dùng chung bộ đếm với `resend-otp`.
+
+        Ở môi trường dev OTP luôn là `111111` và chỉ được ghi vào log của server.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RequestOtpRequest' }
+            example:
+              email: user@example.com
+              password: S3cret-pass
+              phone_number: '0901234567'
+              dharma_name: Diệu Tâm
+              ordination_place: Chùa Hoằng Pháp
+      responses:
+        '200':
+          description: OTP đã được gửi.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OtpSentEnvelope' }
+              example:
+                success: true
+                data: { message: otp sent, expires_in_seconds: 90, resend_after_seconds: 60 }
+        '400':
+          description: |
+            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type, thiếu field hoặc sai định dạng email/số điện thoại),
+            `INVALID_PASSWORD` (mật khẩu dưới 8 ký tự), `INVALID_EMAIL`, `INVALID_PHONE`.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                validation:
+                  summary: VALIDATION_ERROR – field sai định dạng
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { email: email, phone_number: phone }
+                unknownField:
+                  summary: VALIDATION_ERROR – field lạ
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: unknown field, type: validation }
+                    details: { field: phone }
+                invalidPassword:
+                  summary: INVALID_PASSWORD
+                  value:
+                    success: false
+                    error: { code: INVALID_PASSWORD, message: password must be at least 8 characters, type: business }
+                    details: { field: password }
+        '409':
+          description: |
+            `PHONE_TAKEN` (số điện thoại đã có tài khoản) hoặc `EMAIL_TAKEN` (email đã có tài khoản,
+            hoặc đang được một số điện thoại khác giữ trong bản đăng ký chờ xác minh).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                phoneTaken:
+                  summary: PHONE_TAKEN
+                  value:
+                    success: false
+                    error: { code: PHONE_TAKEN, message: phone number already in use, type: business }
+                emailTaken:
+                  summary: EMAIL_TAKEN
+                  value:
+                    success: false
+                    error: { code: EMAIL_TAKEN, message: email already in use, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429': { $ref: '#/components/responses/OtpRateLimited' }
+        '500':
+          description: |
+            `SMS_SEND_FAILED` (OTP đã lưu nhưng nhà cung cấp SMS từ chối gửi) hoặc `INTERNAL_ERROR`.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                smsSendFailed:
+                  summary: SMS_SEND_FAILED
+                  value:
+                    success: false
+                    error: { code: SMS_SEND_FAILED, message: failed to send otp via sms, type: system }
+                internal:
+                  summary: INTERNAL_ERROR
+                  value:
+                    success: false
+                    error: { code: INTERNAL_ERROR, message: internal server error, type: system }
+
+  /v1/auth/resend-otp:
+    post:
+      tags: [Auth]
+      operationId: resendOtp
+      summary: Gửi lại OTP
+      description: |
+        Phát một OTP mới cho bản đăng ký đang chờ xác minh. Không cần đăng nhập. Chỉ cần số điện thoại,
+        thông tin tài khoản đã được giữ từ bước 1.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `phone_number` | string | có | Số đã dùng ở `request-otp`. |
+        | `purpose` | string | có | `register`, `login`, `reset_password`, `verify_email`. Hiện chỉ `register` được hỗ trợ, ba giá trị còn lại trả `UNSUPPORTED_OTP_PURPOSE`. Giá trị ngoài danh sách trả `VALIDATION_ERROR`. |
+
+        `data` giống `request-otp`, cộng thêm `resend_remaining`: số lượt gửi còn lại trước khi bị `OTP_SEND_LIMITED`.
+
+        OTP cũ đã hết hạn hoặc đã dùng **không** phải lỗi ở đây: resend phát mã mới miễn là bản đăng ký còn sống (24 giờ).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ResendOtpRequest' }
+            example: { phone_number: '0901234567', purpose: register }
+      responses:
+        '200':
+          description: OTP mới đã được gửi.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ResendOtpEnvelope' }
+              example:
+                success: true
+                data: { message: otp sent, expires_in_seconds: 90, resend_after_seconds: 60, resend_remaining: 2 }
+        '400':
+          description: |
+            `VALIDATION_ERROR`, `OTP_INVALID` (không có bản đăng ký nào đang chờ cho số này, cố ý không trả 404),
+            `PENDING_REGISTRATION_EXPIRED` (bản đăng ký quá 24 giờ, phải gọi lại `request-otp`),
+            `UNSUPPORTED_OTP_PURPOSE`.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                validation:
+                  summary: VALIDATION_ERROR – purpose ngoài danh sách
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { purpose: oneof }
+                otpInvalid:
+                  summary: OTP_INVALID – không có bản đăng ký chờ
+                  value:
+                    success: false
+                    error: { code: OTP_INVALID, message: otp code is invalid, type: business }
+                pendingExpired:
+                  summary: PENDING_REGISTRATION_EXPIRED
+                  value:
+                    success: false
+                    error: { code: PENDING_REGISTRATION_EXPIRED, message: pending registration has expired, type: business }
+                unsupportedPurpose:
+                  summary: UNSUPPORTED_OTP_PURPOSE
+                  value:
+                    success: false
+                    error: { code: UNSUPPORTED_OTP_PURPOSE, message: unsupported otp purpose, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429': { $ref: '#/components/responses/OtpRateLimited' }
+        '500':
+          description: '`SMS_SEND_FAILED` hoặc `INTERNAL_ERROR`.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: SMS_SEND_FAILED, message: failed to send otp via sms, type: system }
+
+  /v1/auth/register/verify-otp:
+    post:
+      tags: [Auth]
+      operationId: registerVerifyOtp
+      summary: Đăng ký – bước 2, xác minh OTP
+      description: |
+        Kiểm tra OTP, tạo tài khoản và phiên đầu tiên. Không cần đăng nhập. Thành công là **đã đăng nhập**,
+        không cần gọi `login` nữa.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `phone_number` | string | có | Số đã dùng ở `request-otp`. |
+        | `otp_code` | string | có | Đúng 6 chữ số. Gửi dạng chuỗi để giữ số 0 ở đầu. |
+
+        `data` là **AuthResult**:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `access_token` | string | JWT, gửi ở header `Authorization: Bearer`. |
+        | `refresh_token` | string | JWT, chỉ dùng cho `POST /v1/auth/refresh`. |
+        | `user.id` | int64 | |
+        | `user.email` | string | Đã chuẩn hoá. |
+        | `user.phone_number` | string | Dạng E.164, vd. `+84901234567`. |
+        | `user.dharma_name` | string | **Không có trong response** nếu người dùng không nhập (không phải `null`). |
+        | `user.ordination_place` | string | Như trên. |
+        | `user.created_at` | string | RFC 3339. |
+
+        Nhập sai OTP 3 lần liên tiếp thì số điện thoại bị khoá 30 phút (`OTP_LOCKED`, cấu hình dev).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/VerifyOtpRequest' }
+            example: { phone_number: '0901234567', otp_code: '111111' }
+      responses:
+        '201':
+          description: Tài khoản đã được tạo, kèm cặp token của phiên đầu tiên.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthEnvelope' }
+              example:
+                success: true
+                data:
+                  access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  user:
+                    id: 42
+                    email: user@example.com
+                    phone_number: '+84901234567'
+                    dharma_name: Diệu Tâm
+                    ordination_place: Chùa Hoằng Pháp
+                    created_at: '2026-09-30T08:15:30Z'
+        '400':
+          description: |
+            `VALIDATION_ERROR`, `OTP_INVALID` (sai mã, hoặc không có bản đăng ký chờ: cùng một code cho cả hai),
+            `OTP_EXPIRED` (mã quá 90 giây, gọi `resend-otp`), `PENDING_REGISTRATION_EXPIRED` (bản đăng ký quá 24 giờ).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                validation:
+                  summary: VALIDATION_ERROR – otp_code không đủ 6 số
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { otp_code: len }
+                otpInvalid:
+                  summary: OTP_INVALID
+                  value:
+                    success: false
+                    error: { code: OTP_INVALID, message: otp code is invalid, type: business }
+                otpExpired:
+                  summary: OTP_EXPIRED
+                  value:
+                    success: false
+                    error: { code: OTP_EXPIRED, message: otp code has expired, type: business }
+                pendingExpired:
+                  summary: PENDING_REGISTRATION_EXPIRED
+                  value:
+                    success: false
+                    error: { code: PENDING_REGISTRATION_EXPIRED, message: pending registration has expired, type: business }
+        '409':
+          description: '`PHONE_TAKEN` hoặc `EMAIL_TAKEN`: người khác vừa đăng ký xong với số hoặc email này.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: EMAIL_TAKEN, message: email already in use, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429':
+          description: '`OTP_LOCKED`: nhập sai quá số lần cho phép. `details.locked_until` là thời điểm mở khoá.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: OTP_LOCKED, message: 'too many failed attempts, try again later', type: business }
+                details: { locked_until: '2026-09-30T08:45:30Z' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/auth/login:
+    post:
+      tags: [Auth]
+      operationId: login
+      summary: Đăng nhập
+      description: |
+        Đăng nhập bằng số điện thoại và mật khẩu, gắn phiên với thiết bị. Không cần đăng nhập trước.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `phone_number` | string | có | Chuẩn hoá về E.164 như lúc đăng ký. |
+        | `password` | string | có | Chỉ kiểm tra khác rỗng. |
+        | `device.platform` | string | có | Vd. `ios`, `android`, `web`. |
+        | `device.device_model` | string | có | Vd. `iPhone 15`. |
+        | `device.os_version` | string | không | |
+        | `device.app_version` | string | không | |
+        | `device.device_name` | string | không | Tên người dùng đặt cho máy. |
+
+        IP và User-Agent do server lấy từ request. Gửi chúng trong body sẽ bị từ chối như field lạ (`VALIDATION_ERROR`).
+
+        `data` là **AuthResult**, cùng cấu trúc với response của `verify-otp`: `access_token`, `refresh_token`, `user`.
+
+        Hành vi cần biết:
+
+        - Sai mật khẩu, số chưa có tài khoản và số mới chỉ ở bước chờ xác minh đều trả cùng `401 INVALID_CREDENTIALS`.
+        - Sai 5 lần liên tiếp thì khoá 15 phút (cấu hình dev). Lần thứ 5 vẫn trả `401`, lần kế tiếp trả `429 LOGIN_LOCKED` kể cả khi đúng mật khẩu.
+        - Request sai định dạng (`400`) không tính là một lần đăng nhập sai.
+        - Đăng nhập lại trên cùng thiết bị thu hồi phiên cũ của thiết bị đó, các thiết bị khác không bị ảnh hưởng.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/LoginRequest' }
+            example:
+              phone_number: '0901234567'
+              password: S3cret-pass
+              device: { platform: ios, device_model: iPhone 15, os_version: '18.0', app_version: 1.0.0, device_name: iPhone của Tâm }
+      responses:
+        '200':
+          description: Đăng nhập thành công.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthEnvelope' }
+              example:
+                success: true
+                data:
+                  access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  user:
+                    id: 42
+                    email: user@example.com
+                    phone_number: '+84901234567'
+                    dharma_name: Diệu Tâm
+                    ordination_place: Chùa Hoằng Pháp
+                    created_at: '2026-09-30T08:15:30Z'
+        '400':
+          description: |
+            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type), `INVALID_PHONE`,
+            `INVALID_PASSWORD` (mật khẩu rỗng), `INVALID_DEVICE` (thiếu `device`, `platform` hoặc `device_model`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                unknownField:
+                  summary: VALIDATION_ERROR – field lạ
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: unknown field, type: validation }
+                    details: { field: phone }
+                invalidPhone:
+                  summary: INVALID_PHONE
+                  value:
+                    success: false
+                    error: { code: INVALID_PHONE, message: 'invalid phone number format, expected E.164 e.g. +84...', type: business }
+                    details: { field: phone_number }
+                invalidDevice:
+                  summary: INVALID_DEVICE
+                  value:
+                    success: false
+                    error: { code: INVALID_DEVICE, message: invalid device information, type: business }
+                    details: { field: device }
+        '401':
+          description: '`INVALID_CREDENTIALS`: sai số điện thoại hoặc mật khẩu.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: INVALID_CREDENTIALS, message: Số điện thoại hoặc mật khẩu không đúng, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429':
+          description: '`LOGIN_LOCKED`: sai quá số lần cho phép. `details.locked_until` là thời điểm mở khoá.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: LOGIN_LOCKED, message: 'too many failed login attempts, try again later', type: business }
+                details: { locked_until: '2026-09-30T08:30:30Z' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/auth/refresh:
+    post:
+      tags: [Auth]
+      operationId: refreshToken
+      summary: Làm mới token
+      description: |
+        Đổi refresh token lấy cặp token mới. Không cần header `Authorization`: refresh token chính là thông tin xác thực.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `refresh_token` | string | có | Refresh token mới nhất đang giữ. |
+
+        `data` gồm `access_token` và `refresh_token` mới. Response **không** có `user`.
+
+        Hành vi cần biết:
+
+        - Refresh token xoay vòng: token vừa gửi lên hết hiệu lực, luôn lưu token mới. Hạn của phiên được gia hạn theo mỗi lần refresh.
+        - Dùng lại một refresh token đã xoay bị coi là dấu hiệu bị đánh cắp: server thu hồi luôn phiên của thiết bị đó.
+        - Mọi trường hợp token không dùng được (sai định dạng, sai chữ ký, hết hạn, đã xoay, đã thu hồi, sai loại, hoặc `refresh_token` rỗng)
+          đều trả cùng `401 REFRESH_TOKEN_INVALID`. Khi gặp lỗi này, xoá token và đưa người dùng về màn hình đăng nhập.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RefreshRequest' }
+            example: { refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+      responses:
+        '200':
+          description: Cặp token mới.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RefreshEnvelope' }
+              example:
+                success: true
+                data:
+                  access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+        '400':
+          description: '`VALIDATION_ERROR`: body rỗng, sai JSON, field lạ hoặc sai Content-Type.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: VALIDATION_ERROR, message: request body is empty, type: validation }
+        '401':
+          description: '`REFRESH_TOKEN_INVALID`: refresh token không dùng được, kể cả khi để trống.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: REFRESH_TOKEN_INVALID, message: refresh token is invalid, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/auth/logout:
+    post:
+      tags: [Auth]
+      operationId: logout
+      summary: Đăng xuất
+      description: |
+        Thu hồi phiên hiện tại. Đây là endpoint Auth duy nhất cần header `Authorization: Bearer <access_token>`.
+
+        Không có body: phiên được xác định từ claim `sid` của access token, nên client không thể đăng xuất phiên của người khác.
+        Refresh token không dùng được làm Bearer.
+
+        Thành công trả envelope **không có `data`**: `{"success": true}`. Gọi lại khi phiên đã bị thu hồi vẫn trả `200`.
+        Sau khi đăng xuất, xoá cả hai token khỏi thiết bị.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Đã đăng xuất (hoặc phiên đã bị thu hồi từ trước).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/EmptySuccessEnvelope' }
+              example: { success: true }
+        '401':
+          description: |
+            `UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, gửi refresh token thay cho access token, hoặc token thiếu claim `sid`.
+            Server không cho biết nguyên nhân cụ thể.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/memorials:
+    post:
+      tags: [Memorials]
+      operationId: memorialsCreate
+      summary: Thêm người vào sổ giỗ
+      description: |
+        Tạo một mục thuộc về người dùng đang đăng nhập. Mỗi người dùng tối đa 100 mục.
+
+        Body (gửi đủ như khi tạo; PUT là thay thế toàn bộ, field tuỳ chọn không gửi sẽ bị xoá):
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `full_name` | string | có | Họ tên, tối đa 100 ký tự sau khi cắt khoảng trắng đầu cuối. |
+        | `relationship` | string | có | `GRANDFATHER_PATERNAL` (ông nội), `GRANDFATHER_MATERNAL` (ông ngoại), `GRANDMOTHER_PATERNAL` (bà nội), `GRANDMOTHER_MATERNAL` (bà ngoại), `FATHER` (cha), `MOTHER` (mẹ), `SPOUSE` (vợ/chồng), `SIBLING` (anh chị em), `CHILD` (con), `OTHER` (khác). |
+        | `death_calendar` | string | có | `solar` hoặc `lunar`: lịch người dùng đã nhập. |
+        | `death_date` | string | một trong hai dạng | Ngày mất **dương lịch** `YYYY-MM-DD`, từ `1900-01-01` đến hôm nay (giờ Việt Nam). Dùng khi **biết năm**. Nếu người dùng nhập âm lịch, **client đổi sang dương trước khi gửi**. |
+        | `death_day`, `death_month`, `death_leap_month` | int, int, bool | một trong hai dạng | Dùng khi **không biết năm** (khi đó không gửi `death_date`). Ngày và tháng theo `death_calendar`. `solar`: tháng 1–12, ngày hợp lệ của tháng (tháng 2 cho phép 29). `lunar`: tháng 1–12, ngày 1–30, `death_leap_month` cho biết tháng nhuận (mặc định `false`; `solar` không được `true`). |
+        | `note` | string | không | Ghi chú, tối đa 1000 ký tự. Rỗng hoặc toàn khoảng trắng được lưu thành `null`. |
+        | `reminder` | object | không | `null` hoặc không gửi = không nhắc. Gồm `days_before` (int 0–30, bắt buộc), `time` (`HH:mm` 24 giờ, bắt buộc), `timezone` (tên IANA, mặc định `Asia/Ho_Chi_Minh`). |
+        | `add_to_os_reminder` | bool | không | Mặc định `false`. `true` chỉ hợp lệ khi có `reminder`. Đây là **ý định** của người dùng; server không ghi vào Reminders/Calendar của máy, app tự làm. |
+
+        Server không tính ngày giỗ hằng năm và không gửi thông báo: app tự quy đổi âm/dương và tự đặt nhắc local.
+        Field lạ (kể cả `id`, `user_id`, `photo_url`, `created_at`) bị từ chối `VALIDATION_ERROR`.
+
+        Mục mới luôn chưa có ảnh (`photo_url: null`).
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/MemorialRequest' }
+            examples:
+              fullDate:
+                summary: Biết năm (đã quy đổi sang dương)
+                value:
+                  full_name: Nguyễn Văn A
+                  relationship: FATHER
+                  death_calendar: lunar
+                  death_date: '2015-03-04'
+                  note: Nhớ ơn cha
+                  reminder: { days_before: 3, time: '07:30' }
+                  add_to_os_reminder: true
+              yearUnknown:
+                summary: Không biết năm, âm lịch, tháng nhuận
+                value:
+                  full_name: Bà ngoại
+                  relationship: GRANDMOTHER_MATERNAL
+                  death_calendar: lunar
+                  death_day: 15
+                  death_month: 7
+                  death_leap_month: true
+      responses:
+        '201':
+          description: Đã tạo. `data` là **Memorial**.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MemorialEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                  "id": 12, "full_name": "Nguyễn Văn A", "relationship": "FATHER",
+                  "death_date": "2015-03-04", "death_calendar": "lunar", "death_day": null, "death_month": null, "death_leap_month": null,
+                  "note": "Nhớ ơn cha", "photo_url": null,
+                  "reminder": { "days_before": 3, "time": "07:30", "timezone": "Asia/Ho_Chi_Minh" },
+                  "add_to_os_reminder": true,
+                  "created_at": "2026-10-07T01:02:03Z", "updated_at": "2026-10-07T01:02:03Z"
+                }
+                }
+        '400':
+          description: |
+            `VALIDATION_ERROR`, `details.field` cho biết field sai: `full_name`, `relationship`, `death_calendar`, `death_date`,
+            `death_day`, `death_month`, `death_leap_month`, `note`, `reminder.days_before`, `reminder.time`, `reminder.timezone`,
+            `add_to_os_reminder`; hoặc body sai JSON, field lạ, sai Content-Type.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: VALIDATION_ERROR, message: 'reminder.time: time must be HH:mm (24h)', type: validation }
+                details: { field: reminder.time }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '409':
+          description: '`MEMORIAL_LIMIT_REACHED`: người dùng đã có đủ 100 mục (kể cả khi nhiều request tạo cùng lúc).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: MEMORIAL_LIMIT_REACHED, message: memorial limit reached, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '500': { $ref: '#/components/responses/ServerError' }
+    get:
+      tags: [Memorials]
+      operationId: memorialsList
+      summary: Danh sách sổ giỗ của tôi
+      description: |
+        Trả **toàn bộ** mục của người dùng đang đăng nhập (tối đa 100, không phân trang), mới thêm trước (`created_at` giảm dần, rồi `id` giảm dần).
+        Không có mục nào thì `items` là `[]`. Server không biết ngày giỗ kế tiếp nên không sắp theo ngày giỗ: app tự sắp nếu cần.
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Danh sách.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MemorialListEnvelope' }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/memorials/{id}:
+    get:
+      tags: [Memorials]
+      operationId: memorialsGet
+      summary: Chi tiết một mục
+      description: '`data` là **Memorial**. Chỉ chủ sở hữu xem được.'
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/MemorialId'
+      responses:
+        '200':
+          description: Memorial.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MemorialEnvelope' }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '404':
+          description: |
+            `MEMORIAL_NOT_FOUND`: id không tồn tại, không phải số nguyên dương, **hoặc thuộc người khác**. Ba trường hợp trả
+            đúng cùng một phản hồi để không lộ id nào tồn tại.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: MEMORIAL_NOT_FOUND, message: memorial not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+    put:
+      tags: [Memorials]
+      operationId: memorialsUpdate
+      summary: Sửa một mục
+      description: |
+        Thay thế toàn bộ các field sửa được của mục. Không đổi chủ sở hữu, `created_at` và ảnh. Chỉ chủ sở hữu sửa được.
+
+        Body (gửi đủ như khi tạo; PUT là thay thế toàn bộ, field tuỳ chọn không gửi sẽ bị xoá):
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `full_name` | string | có | Họ tên, tối đa 100 ký tự sau khi cắt khoảng trắng đầu cuối. |
+        | `relationship` | string | có | `GRANDFATHER_PATERNAL` (ông nội), `GRANDFATHER_MATERNAL` (ông ngoại), `GRANDMOTHER_PATERNAL` (bà nội), `GRANDMOTHER_MATERNAL` (bà ngoại), `FATHER` (cha), `MOTHER` (mẹ), `SPOUSE` (vợ/chồng), `SIBLING` (anh chị em), `CHILD` (con), `OTHER` (khác). |
+        | `death_calendar` | string | có | `solar` hoặc `lunar`: lịch người dùng đã nhập. |
+        | `death_date` | string | một trong hai dạng | Ngày mất **dương lịch** `YYYY-MM-DD`, từ `1900-01-01` đến hôm nay (giờ Việt Nam). Dùng khi **biết năm**. Nếu người dùng nhập âm lịch, **client đổi sang dương trước khi gửi**. |
+        | `death_day`, `death_month`, `death_leap_month` | int, int, bool | một trong hai dạng | Dùng khi **không biết năm** (khi đó không gửi `death_date`). Ngày và tháng theo `death_calendar`. `solar`: tháng 1–12, ngày hợp lệ của tháng (tháng 2 cho phép 29). `lunar`: tháng 1–12, ngày 1–30, `death_leap_month` cho biết tháng nhuận (mặc định `false`; `solar` không được `true`). |
+        | `note` | string | không | Ghi chú, tối đa 1000 ký tự. Rỗng hoặc toàn khoảng trắng được lưu thành `null`. |
+        | `reminder` | object | không | `null` hoặc không gửi = không nhắc. Gồm `days_before` (int 0–30, bắt buộc), `time` (`HH:mm` 24 giờ, bắt buộc), `timezone` (tên IANA, mặc định `Asia/Ho_Chi_Minh`). |
+        | `add_to_os_reminder` | bool | không | Mặc định `false`. `true` chỉ hợp lệ khi có `reminder`. Đây là **ý định** của người dùng; server không ghi vào Reminders/Calendar của máy, app tự làm. |
+
+        Server không tính ngày giỗ hằng năm và không gửi thông báo: app tự quy đổi âm/dương và tự đặt nhắc local.
+        Field lạ (kể cả `id`, `user_id`, `photo_url`, `created_at`) bị từ chối `VALIDATION_ERROR`.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/MemorialId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/MemorialRequest' }
+      responses:
+        '200':
+          description: Đã sửa. `data` là **Memorial** sau khi sửa.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MemorialEnvelope' }
+        '400':
+          description: |
+            `VALIDATION_ERROR`, `details.field` cho biết field sai: `full_name`, `relationship`, `death_calendar`, `death_date`,
+            `death_day`, `death_month`, `death_leap_month`, `note`, `reminder.days_before`, `reminder.time`, `reminder.timezone`,
+            `add_to_os_reminder`; hoặc body sai JSON, field lạ, sai Content-Type.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: VALIDATION_ERROR, message: 'reminder.time: time must be HH:mm (24h)', type: validation }
+                details: { field: reminder.time }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '404':
+          description: |
+            `MEMORIAL_NOT_FOUND`: id không tồn tại, không phải số nguyên dương, **hoặc thuộc người khác**. Ba trường hợp trả
+            đúng cùng một phản hồi để không lộ id nào tồn tại.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: MEMORIAL_NOT_FOUND, message: memorial not found, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '500': { $ref: '#/components/responses/ServerError' }
+    delete:
+      tags: [Memorials]
+      operationId: memorialsDelete
+      summary: Xoá một mục
+      description: |
+        Xoá cứng. Chỉ chủ sở hữu xoá được. Thành công trả envelope **không có `data`**: `{"success": true}`.
+        Gọi lại sau khi đã xoá trả `404`.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/MemorialId'
+      responses:
+        '200':
+          description: Đã xoá.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/EmptySuccessEnvelope' }
+              example: { success: true }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '404':
+          description: |
+            `MEMORIAL_NOT_FOUND`: id không tồn tại, không phải số nguyên dương, **hoặc thuộc người khác**. Ba trường hợp trả
+            đúng cùng một phản hồi để không lộ id nào tồn tại.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: MEMORIAL_NOT_FOUND, message: memorial not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/attestation/challenge:
+    post:
+      tags: [Attestation]
+      operationId: attestationChallenge
+      summary: Xin challenge (attest)
+      description: |
+        Tạo một challenge dùng một lần cho luồng attestation. Không cần đăng nhập.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `platform` | string | có | `android` hoặc `ios`. |
+
+        `data` gồm:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `challenge` | string | 32 byte ngẫu nhiên mã hoá base64 chuẩn (44 ký tự). Dùng nguyên chuỗi này làm nonce. |
+        | `expires_in_seconds` | int | Thời gian sống của challenge (dev là 300). |
+
+        Client dùng `challenge` làm nonce cho Play Integrity (Android) hoặc `attestKey` của App Attest (iOS),
+        rồi gửi bằng chứng tới `POST /v1/attestation/verify`.
+
+        Challenge ở đây **chỉ** dùng được cho `verify`. Challenge cho assertion phải xin ở `POST /v1/assertion/challenge`,
+        hai loại không dùng thay nhau được.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ChallengeRequest' }
+            example: { platform: android }
+      responses:
+        '200':
+          description: Challenge mới.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ChallengeEnvelope' }
+              example:
+                success: true
+                data: { challenge: q83vEjRWeJASNFZ4kBI0VniQEjRWeJASNFZ4kBI0Vng=, expires_in_seconds: 300 }
+        '400':
+          description: '`VALIDATION_ERROR`: body rỗng, sai JSON, field lạ, sai Content-Type, thiếu `platform` hoặc `platform` khác `android`/`ios`.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                platformInvalid:
+                  summary: VALIDATION_ERROR – platform ngoài danh sách
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { platform: oneof }
+                platformMissing:
+                  summary: VALIDATION_ERROR – thiếu platform
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { platform: required }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/assertion/challenge:
+    post:
+      tags: [Attestation]
+      operationId: assertionChallenge
+      summary: Xin challenge (assertion, iOS)
+      description: |
+        Tạo một challenge dùng một lần cho assertion theo từng request. Không cần đăng nhập. Chỉ iOS có assertion.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `platform` | string | có | Chỉ nhận `ios`. Gửi `android` trả `VALIDATION_ERROR`. |
+
+        `data` có cùng cấu trúc với `POST /v1/attestation/challenge`: `challenge` và `expires_in_seconds`.
+
+        Challenge này **không** gửi tới `verify`. Client ký nó bằng `generateAssertion` rồi gắn vào request cần bảo vệ
+        qua ba header `X-Attestation-Key-Id`, `X-Attestation-Assertion`, `X-Attestation-Challenge`.
+        Xem hướng dẫn Attestation để biết cách dựng `clientData`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AssertionChallengeRequest' }
+            example: { platform: ios }
+      responses:
+        '200':
+          description: Challenge mới.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ChallengeEnvelope' }
+              example:
+                success: true
+                data: { challenge: q83vEjRWeJASNFZ4kBI0VniQEjRWeJASNFZ4kBI0Vng=, expires_in_seconds: 300 }
+        '400':
+          description: '`VALIDATION_ERROR`: body sai hoặc `platform` khác `ios`.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                details: { platform: oneof }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/attestation/verify:
+    post:
+      tags: [Attestation]
+      operationId: attestationVerify
+      summary: Xác minh bằng chứng
+      description: |
+        Gửi bằng chứng của nền tảng để nhận verdict. Không cần đăng nhập.
+
+        Body:
+
+        | Field | Kiểu | Android | iOS | Ghi chú |
+        | --- | --- | --- | --- | --- |
+        | `platform` | string | bắt buộc | bắt buộc | `android` hoặc `ios`. |
+        | `challenge` | string | bắt buộc | bắt buộc | Lấy từ `POST /v1/attestation/challenge`. |
+        | `token` | string | bắt buộc | **cấm** | Integrity token của Play Integrity. |
+        | `key_id` | string | **cấm** | bắt buộc | Key id của App Attest. |
+        | `attestation` | string | **cấm** | bắt buộc | Attestation object mã hoá base64 chuẩn. |
+
+        Gửi field của nền tảng kia trả `VALIDATION_ERROR` với `details` là `{tên_field: "excluded"}`.
+
+        `data` là verdict:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `attested` | bool | Kết quả. Luôn đọc field này, đừng dựa vào status code. |
+        | `platform` | string | `android` hoặc `ios`. |
+        | `signals` | object | **Chỉ có khi `attested = true`.** Android: `app_recognition_verdict`, `device_recognition_verdict`, `app_licensing_verdict`. iOS: `environment` (`development` hoặc `production`). |
+        | `reason` | string | **Chỉ có khi `attested = false`.** `app_not_recognized` (Android: app không đạt ngưỡng nhận diện) hoặc `attestation_invalid` (bằng chứng không khớp hoặc không xác minh được). |
+
+        Hành vi cần biết:
+
+        - **Verdict âm tính vẫn là HTTP 200** với `attested = false`.
+        - Challenge bị tiêu sau mỗi lần có verdict, kể cả verdict âm tính. Muốn thử lại phải xin challenge mới.
+        - Challenge không tồn tại, hết hạn, đã dùng, hoặc là challenge của assertion đều trả cùng `400 ATTESTATION_CHALLENGE_INVALID`.
+        - `502 ATTESTATION_UPSTREAM_ERROR` chỉ xảy ra với Android (server gọi Google để giải mã token). Khi đó challenge **chưa** bị tiêu, gửi lại được với cùng challenge. iOS được xác minh ngay trên server.
+        - iOS thành công thì server lưu khoá công khai của `key_id` để dùng cho assertion về sau.
+        - Ở dev, driver là `mock`: kết quả là giả, chưa gọi Google/Apple thật.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/VerifyRequest' }
+            examples:
+              android:
+                summary: Android (Play Integrity)
+                value: { platform: android, challenge: q83vEjRWeJASNFZ4kBI0VniQEjRWeJASNFZ4kBI0Vng=, token: eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIn0… }
+              ios:
+                summary: iOS (App Attest)
+                value: { platform: ios, challenge: q83vEjRWeJASNFZ4kBI0VniQEjRWeJASNFZ4kBI0Vng=, key_id: bSrEhF8TIzIvWSPwvZ0i2+UOBre4ASH84rK15m6emNY=, attestation: o2NmbXRvYXBwbGUtYXBwYXR0ZXN0Z2F0dFN0bXSi… }
+      responses:
+        '200':
+          description: Verdict, kể cả âm tính.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/VerdictEnvelope' }
+              examples:
+                androidAttested:
+                  summary: Android – đạt
+                  value:
+                    success: true
+                    data:
+                      attested: true
+                      platform: android
+                      signals:
+                        app_recognition_verdict: PLAY_RECOGNIZED
+                        device_recognition_verdict: MEETS_DEVICE_INTEGRITY
+                        app_licensing_verdict: LICENSED
+                iosAttested:
+                  summary: iOS – đạt
+                  value:
+                    success: true
+                    data: { attested: true, platform: ios, signals: { environment: production } }
+                appNotRecognized:
+                  summary: Android – không đạt (app_not_recognized)
+                  value:
+                    success: true
+                    data: { attested: false, platform: android, reason: app_not_recognized }
+                attestationInvalid:
+                  summary: iOS – không đạt (attestation_invalid)
+                  value:
+                    success: true
+                    data: { attested: false, platform: ios, reason: attestation_invalid }
+        '400':
+          description: |
+            `VALIDATION_ERROR` (body sai, thiếu field bắt buộc của nền tảng, gửi field bị cấm, `attestation` không phải base64)
+            hoặc `ATTESTATION_CHALLENGE_INVALID` (challenge không tồn tại, hết hạn, đã dùng hoặc sai loại).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                missingToken:
+                  summary: VALIDATION_ERROR – Android thiếu token
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { token: required }
+                excludedField:
+                  summary: VALIDATION_ERROR – Android gửi field của iOS
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { key_id: excluded }
+                badBase64:
+                  summary: VALIDATION_ERROR – attestation không phải base64
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { attestation: base64 }
+                challengeInvalid:
+                  summary: ATTESTATION_CHALLENGE_INVALID
+                  value:
+                    success: false
+                    error: { code: ATTESTATION_CHALLENGE_INVALID, message: attestation challenge is invalid, type: business }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '500': { $ref: '#/components/responses/ServerError' }
+        '502':
+          description: '`ATTESTATION_UPSTREAM_ERROR`: Google không phản hồi khi giải mã token (chỉ Android). Challenge chưa bị tiêu, thử lại được.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: ATTESTATION_UPSTREAM_ERROR, message: attestation upstream error, type: business }
+
+  /v1/temples/top:
+    get:
+      tags: [Temples]
+      operationId: templesTop
+      summary: Chùa nổi bật
+      description: |
+        Tối đa 10 chùa nổi bật (`temple.top_limit`), không tham số, không cần đăng nhập.
+
+        `data.items` là mảng **TempleSummary**, mỗi phần tử gồm:
+        `id`, `name`, `type`, `region`, `thumbnail_url`, `image_url`, `sect`, `heritage_rank`,
+        `established_year`, `location {lat, lng, address}`.
+
+        Thứ tự: `heritage_rank` (nổi bật nhất trước), rồi `established_year` tăng dần, rồi `id`.
+        Muốn xem đầy đủ một chùa, gọi `GET /v1/temples/{id}` với `id` của phần tử.
+      responses:
+        '200':
+          description: Danh sách nổi bật.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TempleTopEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - id: temple_north_011
+                      name: Chùa Bích Động
+                      type: CHUA
+                      region: north
+                      thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg
+                      image_url: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg
+                      sect: BẮC_TÔNG
+                      heritage_rank: DI_SAN_THE_GIOI
+                      established_year: 1428
+                      location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+                    - id: temple_central_007
+                      name: Chùa Cầu Hội An
+                      type: CHUA
+                      region: central
+                      thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_central_007.jpg
+                      image_url: http://192.168.1.186:8080/static/images/temples/full/temple_central_007.jpg
+                      sect: TIN_NGUONG_DANG_GIAN
+                      heritage_rank: DI_SAN_THE_GIOI
+                      established_year: 1593
+                      location: { lat: 15.8771, lng: 108.3262, address: 'Đường Nguyễn Thị Minh Khai, Phường Minh An, TP. Hội An, Tỉnh Quảng Nam' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/temples:
+    get:
+      tags: [Temples]
+      operationId: templesList
+      summary: Danh sách chùa
+      description: |
+        Phân trang, 20 mục mỗi trang (`temple.page_size`). Cùng thứ tự với `top`, nên trang 1 bắt đầu bằng 10 chùa nổi bật.
+
+        `data` gồm `items` (mảng **TempleSummary**, cùng field với `top`) và thông tin trang
+        `page`, `page_size`, `total`, `total_pages`.
+
+        Trang vượt quá cuối (vd. `page=6` khi `total_pages = 5`) trả `200` với `items: []`, không phải lỗi.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Một trang chùa.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TempleListEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - id: temple_north_011
+                      name: Chùa Bích Động
+                      type: CHUA
+                      region: north
+                      thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg
+                      image_url: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg
+                      sect: BẮC_TÔNG
+                      heritage_rank: DI_SAN_THE_GIOI
+                      established_year: 1428
+                      location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+                  page: 1
+                  page_size: 20
+                  total: 93
+                  total_pages: 5
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/temples/{id}:
+    get:
+      tags: [Temples]
+      operationId: templesGet
+      summary: Chi tiết chùa
+      description: |
+        `data` là **TempleDetail** = toàn bộ field của TempleSummary, cộng thêm:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `aliases` | string[] | Tên khác. `[]` nếu không có. |
+        | `founder` | string | Người sáng lập. |
+        | `current_abbot` | string | Trụ trì hiện tại. |
+        | `operating_hours` | string | Vd. `"07:00 - 18:00"`. |
+        | `amenities` | object | `parking_car`, `parking_motorcycle`, `vegetarian_meals`, `summer_retreat` (đều bool). |
+        | `introduction` | string | Giới thiệu chùa. `""` nếu chưa có, không bao giờ `null`. |
+        | `architecture_heritage` | string | Kiến trúc và di sản nổi bật. `""` nếu chưa có, không bao giờ `null`. |
+        | `visiting_notes` | string[] | Lưu ý khi viếng chùa, mỗi phần tử một ý. `[]` nếu chưa có, không bao giờ `null`. |
+
+        Nội dung biên tập được tổng hợp từ nguồn công khai; năm trong văn bản có thể khác `established_year`.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID chùa, lấy từ `top` hoặc danh sách.
+          schema: { type: string, example: temple_north_011 }
+      responses:
+        '200':
+          description: Chi tiết chùa.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TempleDetailEnvelope' }
+              example:
+                success: true
+                data:
+                  id: temple_north_011
+                  name: Chùa Bích Động
+                  type: CHUA
+                  region: north
+                  thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg
+                  image_url: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg
+                  sect: BẮC_TÔNG
+                  heritage_rank: DI_SAN_THE_GIOI
+                  established_year: 1428
+                  location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+                  aliases: [Bạch Ngọc Thạch Sơn Động]
+                  founder: Hai nhà sư Trí Kiên và Trí Thể
+                  current_abbot: Thích Đức Lợi
+                  operating_hours: '07:00 - 18:00'
+                  amenities: { parking_car: true, parking_motorcycle: true, vegetarian_meals: false, summer_retreat: false }
+                  introduction: >-
+                    Chùa Bích Động nằm trong dãy núi đá vôi ở Hoa Lư, Ninh Bình, vốn có tên Bạch Ngọc Thạch Sơn Đồng,
+                    khởi dựng năm 1428 thời Lê sơ. Năm 1774, chúa Trịnh Sâm đến thăm, thấy cảnh núi non xanh biếc và đặt tên Bích Động.
+                    Chùa từng được tôn xưng là “Nam thiên đệ nhị động”.
+                  architecture_heritage: >-
+                    Chùa xây dựa vào sườn núi đá với ba tầng: chùa Hạ (năm gian, cột đá cao trên 4 m), chùa Trung (nửa trong hang,
+                    thông với Động Tối) và chùa Thượng gần đỉnh, thờ Quan Âm Bồ Tát. Chùa nằm trong quần thể danh thắng
+                    Tràng An – Tam Cốc – Bích Động được UNESCO ghi danh.
+                  visiting_notes:
+                    - Chùa nằm trong khu Tam Cốc – Bích Động, thường được thăm cùng chuyến đò Tam Cốc; nên kiểm tra thời tiết vì đi đò và leo bậc đá.
+                    - Đường lên chùa Thượng có nhiều bậc đá dốc; nên đi giày dép chống trơn, mang nước.
+                    - Trang phục kín đáo; giữ yên lặng khi vào các điện thờ trong hang.
+        '404':
+          description: Không có chùa với id này (`TEMPLE_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: TEMPLE_NOT_FOUND, message: temple not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/deities/top:
+    get:
+      tags: [Deities]
+      operationId: deitiesTop
+      summary: Phật và Bồ tát nổi bật
+      description: |
+        Tối đa 10 mục (`deity.top_limit`), gồm cả Phật và Bồ tát, không tham số.
+
+        `data.items` là mảng **DeitySummary**, mỗi phần tử gồm:
+        `id`, `type` (`BUDDHA` | `BODHISATTVA` | `DEVA`), `name_vi`, `name_sanskrit`, `name_chinese`, `title_honorific`,
+        `thumbnail_url`, `image_url`, `core_virtue`, `pure_land`.
+
+        Thứ tự theo thứ tự trong file dữ liệu nguồn (6 vị Phật trước, rồi Bồ tát).
+        Xem đầy đủ một mục bằng `GET /v1/deities/{id}`.
+      responses:
+        '200':
+          description: Danh sách nổi bật.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DeityTopEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - id: buddha_shakyamuni
+                      type: BUDDHA
+                      name_vi: Thích Ca Mâu Ni Phật
+                      name_sanskrit: Śākyamuni Buddha
+                      name_chinese: 釋迦牟尼佛
+                      title_honorific: Bổn Sư Thích Ca Mâu Ni Phật
+                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp
+                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/buddha_shakyamuni.webp
+                      core_virtue: Toàn Giác (Bậc Thầy giác ngộ chỉ đường giải thoát khỏi luân hồi cõi Ta Bà)
+                      pure_land: Cõi Ta Bà (Saha World)
+                    - id: bodhisattva_avalokiteshvara
+                      type: BODHISATTVA
+                      name_vi: Quán Thế Âm Bồ Tát
+                      name_sanskrit: Avalokiteśvara Bodhisattva
+                      name_chinese: 觀世音菩薩
+                      title_honorific: Đại Bi Quán Thế Âm Bồ Tát
+                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+                      core_virtue: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát)
+                      pure_land: Phổ Đà Lạc Ca Sơn (Potalaka) / Thị giả cõi Tây Phương Cực Lạc
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/deities:
+    get:
+      tags: [Deities]
+      operationId: deitiesList
+      summary: Danh sách Phật và Bồ tát (phân trang)
+      description: |
+        Cả Phật, Bồ tát và Thiên (`type = BUDDHA | BODHISATTVA | DEVA`, không lọc), phân trang 20 mục mỗi trang (`deity.page_size`), thứ tự theo file dữ liệu nguồn (6 vị Phật, rồi Bồ tát, và các mục thêm sau cùng nằm cuối: Thất Phật Quá Khứ, Đại Cát Tường Thiên Nữ). Hiện có 20 mục nên vừa một trang. Thay cho `GET /v1/bodhisattvas` (đã xoá).
+
+        `data` gồm `items` (mảng **DeitySummary**, cùng field với `top`) và thông tin trang
+        `page`, `page_size`, `total`, `total_pages`.
+
+        Trang vượt quá cuối trả `200` với `items: []`.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Một trang Phật và Bồ tát.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DeityListEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - id: bodhisattva_avalokiteshvara
+                      type: BODHISATTVA
+                      name_vi: Quán Thế Âm Bồ Tát
+                      name_sanskrit: Avalokiteśvara Bodhisattva
+                      name_chinese: 觀世音菩薩
+                      title_honorific: Đại Bi Quán Thế Âm Bồ Tát
+                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+                      core_virtue: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát)
+                      pure_land: Phổ Đà Lạc Ca Sơn (Potalaka) / Thị giả cõi Tây Phương Cực Lạc
+                    - id: bodhisattva_manjushri
+                      type: BODHISATTVA
+                      name_vi: Văn Thù Sư Lợi Bồ Tát
+                      name_sanskrit: Mañjuśrī Bodhisattva
+                      name_chinese: 文殊師利菩薩
+                      title_honorific: Đại Trí Văn Thù Sư Lợi Bồ Tát
+                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_manjushri.webp
+                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_manjushri.webp
+                      core_virtue: Đại Trí (Trí tuệ Bát Nhã thực tướng đoạn diệt vô minh)
+                      pure_land: Thanh Lương Sơn (Núi Ngũ Đài Sơn) / Thị giả tả biên Phật Thích Ca
+                  page: 1
+                  page_size: 20
+                  total: 20
+                  total_pages: 1
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/deities/{id}:
+    get:
+      tags: [Deities]
+      operationId: deitiesGet
+      summary: Chi tiết Phật/Bồ tát
+      description: |
+        Dùng cho cả id Phật lẫn Bồ tát. `data` là **DeityDetail** = toàn bộ field của DeitySummary, cộng thêm:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `canonical_source` | string | Kinh điển gốc. |
+        | `lunar_memorial_days` | object[] | `{lunar_day, lunar_month, event_name}`. `[]` nếu không có. |
+        | `iconography` | object | `posture`, `mount_or_throne`, `sacred_artifacts` (string[]), `symbolic_meaning`. |
+        | `biography_summary` | string | Tóm tắt tiểu sử. |
+        | `great_vows` | string[] | Đại nguyện. `[]` nếu không có. |
+        | `mantras` | object | `short_mantra_sanskrit`, `short_mantra_sino_vietnamese`, `long_dharani_name`, `dharani_phonetic_snippet`. |
+
+        Mảng không bao giờ `null`.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID, lấy từ `top` hoặc danh sách.
+          schema: { type: string, example: bodhisattva_avalokiteshvara }
+      responses:
+        '200':
+          description: Chi tiết.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DeityDetailEnvelope' }
+              example:
+                success: true
+                data:
+                  id: bodhisattva_avalokiteshvara
+                  type: BODHISATTVA
+                  name_vi: Quán Thế Âm Bồ Tát
+                  name_sanskrit: Avalokiteśvara Bodhisattva
+                  name_chinese: 觀世音菩薩
+                  title_honorific: Đại Bi Quán Thế Âm Bồ Tát
+                  thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+                  image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+                  core_virtue: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát)
+                  pure_land: Phổ Đà Lạc Ca Sơn (Potalaka) / Thị giả cõi Tây Phương Cực Lạc
+                  canonical_source: Kinh Diệu Pháp Liên Hoa (Phẩm Phổ Môn), Kinh Lăng Nghiêm
+                  lunar_memorial_days:
+                    - { lunar_day: 19, lunar_month: 2, event_name: Ngày Đản sinh Quán Thế Âm }
+                    - { lunar_day: 19, lunar_month: 6, event_name: Ngày Thành đạo Quán Thế Âm }
+                    - { lunar_day: 19, lunar_month: 9, event_name: Ngày Xuất gia Quán Thế Âm }
+                  iconography:
+                    posture: Đứng hoặc ngồi tự tại trên đài sen báu hoặc mây ngũ sắc
+                    mount_or_throne: Tòa sen hoặc ngự trên đầu rồng (Quán Âm Nam Hải)
+                    sacred_artifacts: [Bình tịnh thủy chứa nước cam lồ, Cành dương liễu nhu hòa]
+                    symbolic_meaning: Nước cam lồ thanh tịnh rưới mát tâm can, cành dương liễu dẻo dai biểu thị tính nhẫn nhục.
+                  biography_summary: >-
+                    Là hiện thân của lòng đại bi vô tận. Ngài quán sát mọi âm thanh đau khổ kêu cầu trong mười phương thế giới,
+                    ứng hóa 32 thân hình tướng thích hợp để vào đời cứu độ chúng sinh.
+                  great_vows:
+                    - Khi chúng sinh gặp khổ nạn ách tai, nhất tâm xưng tụng danh hiệu liền được cứu vớt.
+                    - Tận diệt đau khổ của tất cả ba đường dữ địa ngục, ngạ quỷ, súc sinh.
+                  mantras:
+                    short_mantra_sanskrit: Oṃ Maṇi Padme Hūṃ
+                    short_mantra_sino_vietnamese: Án Ma Ni Bát Mê Hồng (Lục Tự Đại Minh Chân Ngôn)
+                    long_dharani_name: Thiên Thủ Thiên Nhãn Vô Ngại Đại Bi Tâm Đà La Ni
+                    dharani_phonetic_snippet: Nam mô hắc ra đát na đa ra dạ da. Nam mô a rị da, bà lô kiết đế thước bát ra da...
+        '404':
+          description: Không có mục với id này (`DEITY_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/calendar/image:
+    get:
+      tags: [Calendar]
+      operationId: calendarImage
+      summary: Ảnh Phật theo ngày cho màn Lịch âm
+      description: |
+        Trả đúng một ảnh theo `date` (dương lịch): cùng ngày luôn cùng ảnh, ngày liên tiếp ảnh khác nhau
+        (chu kỳ 100 ngày). Bỏ trống `date` = hôm nay theo `calendar.timezone` (`Asia/Ho_Chi_Minh`) và `data.date`
+        trả ngày đã dùng. Có `date` thì `Cache-Control: public, max-age=86400`, không có thì `no-cache`.
+        Ảnh CC BY / CC BY-SA cần hiện `author` + `license`. Chưa có `thumbnail_url`.
+      parameters:
+        - name: date
+          in: query
+          required: false
+          schema: { type: string, example: '2026-10-07' }
+          description: 'Ngày dương `YYYY-MM-DD`, năm 1900..2100. Sai định dạng hoặc ngoài khoảng là `400 INVALID_DATE`.'
+      responses:
+        '200':
+          description: Ảnh của ngày.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CalendarImageEnvelope' }
+              example:
+                success: true
+                data:
+                  date: '2026-10-07'
+                  id: buddha_034
+                  image_url: http://192.168.1.186:8080/static/images/home-calendar/buddha_034.jpg
+                  author: Judgefloro
+                  license: Public domain
+                  license_url: https://commons.wikimedia.org/wiki/File:0395jfWisdom_Park_Namo_Amitabha_Buddha_New_Manila_Quezon_Cityfvf_06.jpg
+                  source_url: https://commons.wikimedia.org/wiki/File:0395jfWisdom_Park_Namo_Amitabha_Buddha_New_Manila_Quezon_Cityfvf_06.jpg
+        '400':
+          description: '`date` không hợp lệ (`INVALID_DATE`, `details.field = "date"`).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/gallery/top:
+    get:
+      tags: [Gallery]
+      operationId: galleryTop
+      summary: Ảnh đẹp Phật giáo nổi bật
+      description: |
+        `gallery.top_limit` (10) ảnh đầu tiên, trộn đủ bốn loại (`CHUA`, `TUONG_PHAT`, `THIEN`, `LE_HOI`)
+        theo vòng. Dữ liệu rỗng trả `items: []`. Xem đầy đủ một ảnh bằng `GET /v1/gallery/{id}`.
+      responses:
+        '200':
+          description: Danh sách ảnh nổi bật.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/GalleryTopEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - id: gallery_001
+                      type: CHUA
+                      title: Chùa Một Cột
+                      location: Hà Nội, Việt Nam
+                      thumbnail_url: http://192.168.1.186:8080/static/images/gallery/thumb/gallery_001.jpg
+                      image_url: http://192.168.1.186:8080/static/images/gallery/full/gallery_001.jpg
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/gallery:
+    get:
+      tags: [Gallery]
+      operationId: galleryList
+      summary: Danh sách ảnh (phân trang, lọc theo loại)
+      description: |
+        Phân trang 20 ảnh mỗi trang (`gallery.page_size`), thứ tự `sort_order, id` (trộn bốn loại theo vòng,
+        cùng thứ tự với `top`). `type` tuỳ chọn: bỏ trống là mọi loại; khi có thì `total` / `total_pages`
+        chỉ đếm loại đó.
+
+        `data` gồm `items` (mảng **GallerySummary**) và `page`, `page_size`, `total`, `total_pages`.
+        Trang vượt quá cuối trả `200` với `items: []`.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - name: type
+          in: query
+          required: false
+          description: 'Lọc theo loại: `CHUA`, `TUONG_PHAT`, `THIEN`, `LE_HOI`. Giá trị khác là `400 INVALID_GALLERY_TYPE`.'
+          schema: { type: string, enum: [CHUA, TUONG_PHAT, THIEN, LE_HOI] }
+      responses:
+        '200':
+          description: Một trang ảnh.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/GalleryListEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - id: gallery_063
+                      type: THIEN
+                      title: Thiền định
+                      location: Việt Nam
+                      thumbnail_url: http://192.168.1.186:8080/static/images/gallery/thumb/gallery_063.jpg
+                      image_url: http://192.168.1.186:8080/static/images/gallery/full/gallery_063.jpg
+                  page: 1
+                  page_size: 20
+                  total: 12
+                  total_pages: 1
+        '400':
+          description: '`INVALID_PAGE` (`details.field = "page"`) hoặc `INVALID_GALLERY_TYPE` (`details.field = "type"`).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: INVALID_GALLERY_TYPE, message: invalid gallery type, type: business }
+                details: { field: type }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/gallery/{id}:
+    get:
+      tags: [Gallery]
+      operationId: galleryGet
+      summary: Chi tiết một ảnh
+      description: |
+        `data` là **GalleryDetail** = toàn bộ field của GallerySummary, cộng `author`, `license`, `source_url`.
+        Giấy phép CC BY / CC BY-SA yêu cầu ghi công, nên màn chi tiết cần hiển thị tác giả và giấy phép.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID, lấy từ `top` hoặc danh sách.
+          schema: { type: string, example: gallery_001 }
+      responses:
+        '200':
+          description: Chi tiết.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/GalleryDetailEnvelope' }
+        '404':
+          description: Không có ảnh với id này (`GALLERY_IMAGE_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: GALLERY_IMAGE_NOT_FOUND, message: gallery image not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/articles/top:
+    get:
+      tags: [Articles]
+      operationId: articlesTop
+      summary: Bài viết nổi bật
+      description: |
+        Tối đa 5 bài (`article.top_limit`), không tham số, không cần đăng nhập.
+
+        `data.items` là mảng **ArticleSummary**, mỗi phần tử gồm:
+        `id`, `title`, `category`, `author`, `author_initials`, `published_date`, `read_minutes`, `summary`, `tags`, `image_url`, `thumbnail_url`.
+        Dùng `thumbnail_url` (ảnh vuông nhỏ, WebP ~15 KB, do appService host) cho thẻ trong danh sách; `image_url` (ảnh gốc, thường 1200x630, hotlink) cho ảnh lớn ở màn chi tiết.
+        Bản tóm tắt **không** có nội dung bài; lấy nội dung bằng `GET /v1/articles/{id}`.
+
+        Thứ tự là thứ tự biên tập của dữ liệu nguồn (`sort_order`, rồi `id`), không theo ngày hay độ phổ biến.
+      responses:
+        '200':
+          description: Danh sách nổi bật.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ArticleTopEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "items": [
+                      {
+                        "id": "vipassana-nghe-thuat-song",
+                        "title": "Thiền Vipassana: Một nghệ thuật sống",
+                        "category": "Thiền định",
+                        "author": "S.N. Goenka",
+                        "author_initials": "SG",
+                        "published_date": null,
+                        "read_minutes": 14,
+                        "summary": "Giới thiệu thiền Vipassana như một phương pháp thực tiễn để giải trừ khổ đau nội tâm bằng cách quan sát hơi thở và cảm thọ nơi thân.",
+                        "tags": [
+                          "thiền",
+                          "vipassana",
+                          "hơi thở",
+                          "vô thường"
+                        ],
+                        "image_url": "https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp",
+                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp"
+                      },
+                      {
+                        "id": "xu-so-cua-giay-phut-hien-tai",
+                        "title": "Xứ sở của giây phút hiện tại",
+                        "category": "Chánh niệm",
+                        "author": "Andrea Miller",
+                        "author_initials": "AM",
+                        "published_date": "2013-01-01",
+                        "read_minutes": 33,
+                        "summary": "Tường thuật chuyến thăm Làng Mai, nơi cộng đồng tu sĩ thực tập chánh niệm và Năm Giới Tu trong đời sống hằng ngày.",
+                        "tags": [
+                          "chánh niệm",
+                          "Làng Mai",
+                          "năm giới",
+                          "tăng thân"
+                        ],
+                        "image_url": "https://langmai.org/wp-content/uploads/2017/09/ThayinShambhala.png",
+                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/xu-so-cua-giay-phut-hien-tai.webp"
+                      }
+                    ]
+                  }
+                }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/articles:
+    get:
+      tags: [Articles]
+      operationId: articlesList
+      summary: Danh sách bài viết
+      description: |
+        Phân trang, 10 mục mỗi trang (`article.page_size`). Cùng thứ tự với `top`, nên trang 1 bắt đầu bằng các bài nổi bật.
+
+        `data` gồm `items` (mảng **ArticleSummary**, cùng field với `top`) và thông tin trang
+        `page`, `page_size`, `total`, `total_pages`.
+
+        Trang vượt quá cuối (vd. `page=7` khi `total_pages = 6`) trả `200` với `items: []`, không phải lỗi.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Một trang bài viết.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ArticleListEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "items": [
+                      {
+                        "id": "vipassana-nghe-thuat-song",
+                        "title": "Thiền Vipassana: Một nghệ thuật sống",
+                        "category": "Thiền định",
+                        "author": "S.N. Goenka",
+                        "author_initials": "SG",
+                        "published_date": null,
+                        "read_minutes": 14,
+                        "summary": "Giới thiệu thiền Vipassana như một phương pháp thực tiễn để giải trừ khổ đau nội tâm bằng cách quan sát hơi thở và cảm thọ nơi thân.",
+                        "tags": [
+                          "thiền",
+                          "vipassana",
+                          "hơi thở",
+                          "vô thường"
+                        ],
+                        "image_url": "https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp",
+                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp"
+                      },
+                      {
+                        "id": "xu-so-cua-giay-phut-hien-tai",
+                        "title": "Xứ sở của giây phút hiện tại",
+                        "category": "Chánh niệm",
+                        "author": "Andrea Miller",
+                        "author_initials": "AM",
+                        "published_date": "2013-01-01",
+                        "read_minutes": 33,
+                        "summary": "Tường thuật chuyến thăm Làng Mai, nơi cộng đồng tu sĩ thực tập chánh niệm và Năm Giới Tu trong đời sống hằng ngày.",
+                        "tags": [
+                          "chánh niệm",
+                          "Làng Mai",
+                          "năm giới",
+                          "tăng thân"
+                        ],
+                        "image_url": "https://langmai.org/wp-content/uploads/2017/09/ThayinShambhala.png",
+                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/xu-so-cua-giay-phut-hien-tai.webp"
+                      }
+                    ],
+                    "page": 1,
+                    "page_size": 10,
+                    "total": 60,
+                    "total_pages": 6
+                  }
+                }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/articles/{id}:
+    get:
+      tags: [Articles]
+      operationId: articlesGet
+      summary: Chi tiết bài viết
+      description: |
+        `data` là **ArticleDetail** = toàn bộ field của ArticleSummary, cộng thêm:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `body_paragraphs` | string[] | Nội dung bài, mỗi phần tử một đoạn. `[]` nếu không có. |
+        | `quote` | string | Câu trích nổi bật. |
+        | `quote_source` | string | Người hoặc nguồn của câu trích. |
+        | `language` | string | Ngôn ngữ bài viết, hiện là `vi` hoặc `en`. |
+        | `source_name` | string | Tên nguồn bài gốc. |
+        | `source_url` | string | Đường dẫn tới bài gốc. |
+        | `license` | string | Hiện là `all-rights-reserved-summarized`: nội dung là bản tóm tắt bài của bên khác. |
+
+        Ba field `published_date`, `image_url` và `thumbnail_url` là `null` khi chưa có (hiện cả 60 bài đều có `image_url`). Ảnh là hotlink tới trang nguồn, không do appService host: có thể tải lỗi (vd. 403), client cần ảnh giữ chỗ.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID bài viết (slug), lấy từ `top` hoặc danh sách.
+          schema: { type: string, example: vipassana-nghe-thuat-song }
+      responses:
+        '200':
+          description: Chi tiết bài viết.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ArticleDetailEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "id": "vipassana-nghe-thuat-song",
+                    "title": "Thiền Vipassana: Một nghệ thuật sống",
+                    "category": "Thiền định",
+                    "author": "S.N. Goenka",
+                    "author_initials": "SG",
+                    "published_date": null,
+                    "read_minutes": 14,
+                    "summary": "Giới thiệu thiền Vipassana như một phương pháp thực tiễn để giải trừ khổ đau nội tâm bằng cách quan sát hơi thở và cảm thọ nơi thân.",
+                    "tags": [
+                      "thiền",
+                      "vipassana",
+                      "hơi thở",
+                      "vô thường"
+                    ],
+                    "image_url": "https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp",
+                    "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp",
+                    "body_paragraphs": [
+                      "Con người ai cũng muốn tìm sự an vui và hòa hợp, nhưng giận dữ, lo âu và phiền muộn khiến ta khổ và cũng làm xáo trộn những người quanh mình.",
+                      "Cố đè nén cảm xúc tiêu cực hoặc tìm cách đánh lạc hướng không giải quyết được gốc rễ. Những xung đột ấy lắng xuống tầng vô thức rồi có thể bùng lên mạnh hơn về sau."
+                    ],
+                    "quote": "Ngay khi quan sát tâm bất thiện sinh khởi, nó bắt đầu mất đi khả năng phản ứng.",
+                    "quote_source": "S.N. Goenka",
+                    "language": "vi",
+                    "source_name": "Báo Giác Ngộ",
+                    "source_url": "https://giacngo.vn/thien-vipassana-mot-nghe-thuat-song-post166.html",
+                    "license": "all-rights-reserved-summarized"
+                  }
+                }
+        '404':
+          description: Không có bài viết với id này (`ARTICLE_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: ARTICLE_NOT_FOUND, message: article not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/dharma-talks:
+    get:
+      tags: [DharmaTalks]
+      operationId: dharmaTalksList
+      summary: Danh sách pháp thoại
+      description: |
+        Phân trang, 10 mục mỗi trang (`dharma_talk.page_size`), theo thứ tự biên tập (`sort_order`, rồi `id`). Pháp thoại là bài giảng của một vị thầy, khác với kinh (`/v1/sutras`).
+
+        `data` gồm `items` (mảng **DharmaTalkSummary**) và thông tin trang `page`, `page_size`, `total`, `total_pages`. `total` chỉ đếm các bài được hiển thị: bài đang chờ duyệt (`needs_review`) được lưu nhưng không bao giờ trả ra.
+
+        Trang vượt quá cuối trả `200` với `items: []`, không phải lỗi.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Một trang pháp thoại.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DharmaTalkListEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "items": [
+                      {
+                        "id": "vi-du-phap-thoai",
+                        "title": "Hiếu là đạo, đạo cũng là hiếu",
+                        "speaker": "Thích A",
+                        "speaker_initials": "TA",
+                        "category": "Đời sống",
+                        "season": null,
+                        "published_date": "2024-08-27",
+                        "duration_minutes": 46,
+                        "summary": "Buổi giảng nói về hạnh hiếu trong đời sống người Phật tử tại gia.",
+                        "tags": ["hiếu", "vu lan"],
+                        "media_type": "youtube"
+                      }
+                    ],
+                    "page": 1,
+                    "page_size": 10,
+                    "total": 36,
+                    "total_pages": 4
+                  }
+                }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/dharma-talks/{id}:
+    get:
+      tags: [DharmaTalks]
+      operationId: dharmaTalksGet
+      summary: Chi tiết pháp thoại
+      description: |
+        `data` là **DharmaTalkDetail** = toàn bộ field của DharmaTalkSummary, cộng thêm:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `key_points` | string[] | Ý chính. `[]` nếu không có. |
+        | `quote`, `quote_source` | string | Câu trích ngắn và nguồn của câu trích. |
+        | `language` | string | Hiện là `vi`. |
+        | `youtube_id` | string \| null | Mã 11 ký tự của video YouTube; chỉ có khi `media_type = youtube`. Client tự ghép khi nhúng player. Không bao giờ là URL đầy đủ. |
+        | `audio_url` | string \| null | URL file âm thanh; chỉ có khi `media_type = audio`. |
+        | `chapters` | object[] | Các phần `{start_seconds, title}` theo `start_seconds` tăng dần. `[]` khi không có (client ẩn mục "Các phần"); luôn `[]` với `media_type = text`. |
+        | `follow_up_meditation` | object \| null | Thẻ "ngồi thiền sau khi nghe": `{title, minutes, meditation_id}` (`meditation_id` có thể `null`). `null` khi không có (hiện là `null` ở mọi bài). |
+        | `source_name`, `source_url`, `license` | string | Nguồn gốc; cần hiển thị thẻ nguồn ở cuối trang. |
+
+        `media_type` quyết định giao diện: `youtube` (nhúng video), `audio` (trình phát âm thanh) hoặc `text` (chỉ đọc). Bài đang chờ duyệt (`needs_review`) trả `404`.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID pháp thoại (slug), lấy từ danh sách.
+          schema: { type: string, example: vi-du-phap-thoai }
+      responses:
+        '200':
+          description: Chi tiết pháp thoại.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DharmaTalkDetailEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "id": "vi-du-phap-thoai",
+                    "title": "Hiếu là đạo, đạo cũng là hiếu",
+                    "speaker": "Thích A",
+                    "speaker_initials": "TA",
+                    "category": "Đời sống",
+                    "season": null,
+                    "published_date": "2024-08-27",
+                    "duration_minutes": 46,
+                    "summary": "Buổi giảng nói về hạnh hiếu trong đời sống người Phật tử tại gia.",
+                    "tags": ["hiếu", "vu lan"],
+                    "media_type": "youtube",
+                    "key_points": ["Vì sao nói hiếu là gốc", "Câu chuyện Mục Kiền Liên"],
+                    "quote": "Hiếu là gốc của đạo.",
+                    "quote_source": "Thích A",
+                    "language": "vi",
+                    "youtube_id": "sudE6IR71FU",
+                    "audio_url": null,
+                    "chapters": [],
+                    "follow_up_meditation": null,
+                    "source_name": "niemphat.vn",
+                    "source_url": "https://example.org/bai-giang",
+                    "license": "unknown"
+                  }
+                }
+        '404':
+          description: Không có pháp thoại với id này, hoặc bài đang chờ duyệt (`DHARMA_TALK_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: DHARMA_TALK_NOT_FOUND, message: dharma talk not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/sutras:
+    get:
+      tags: [Sutras]
+      operationId: sutrasList
+      summary: Danh mục kinh, kệ, chú
+      description: |
+        Phân trang, 20 mục mỗi trang (`sutra.page_size`), theo thứ tự biên tập (Nam Tông, Bắc Tông, Kim Cang Thừa; trong mỗi tông theo nhóm kinh). Danh mục chỉ có metadata, **không có nội dung dòng**: đọc nội dung ở `GET /v1/sutras/{id}/lines`.
+
+        `data` gồm `items` (mảng **SutraSummary**) và thông tin trang `page`, `page_size`, `total`, `total_pages`. `total` đếm theo bộ lọc.
+
+        Các bộ lọc kết hợp bằng AND. Giá trị không hợp lệ (kể cả tham số có mặt nhưng để trống) trả `400 INVALID_FILTER`, `details.field` là tên tham số.
+
+        Trang vượt quá cuối trả `200` với `items: []`, không phải lỗi. Bảng rỗng hoặc không khớp bộ lọc trả `items: []`, `total: 0`, `total_pages: 0`.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - name: tradition
+          in: query
+          required: false
+          description: Tông phái.
+          schema: { type: string, enum: [THERAVADA, MAHAYANA, VAJRAYANA] }
+        - name: kind
+          in: query
+          required: false
+          description: Loại văn bản. `DHARANI` là chú (đọc theo âm).
+          schema: { type: string, enum: [SUTRA, VERSE, DHARANI] }
+        - name: collection
+          in: query
+          required: false
+          description: Bộ hoặc nhóm kinh, khớp chính xác (vd. `Bát Nhã`, `Thập Chú`, `Trung Bộ`).
+          schema: { type: string, example: Bát Nhã }
+        - name: purpose
+          in: query
+          required: false
+          description: Chỉ lấy văn bản có mục đích này trong `purposes`.
+          schema: { $ref: '#/components/schemas/SutraPurpose' }
+        - name: daily
+          in: query
+          required: false
+          description: '`true` chỉ lấy kinh nhật tụng, `false` chỉ lấy kinh không phải nhật tụng.'
+          schema: { type: string, enum: ['true', 'false'] }
+        - name: max_minutes
+          in: query
+          required: false
+          description: Số nguyên ≥ 1. Chỉ lấy văn bản có `duration_minutes` ≤ giá trị này; mọi văn bản đều có ước tính nên không văn bản nào bị loại vì thiếu.
+          schema: { type: integer, minimum: 1, example: 15 }
+        - name: lang
+          in: query
+          required: false
+          description: Chỉ lấy văn bản có ít nhất một bản dịch ngôn ngữ này (vd. `vi`).
+          schema: { type: string, example: vi }
+        - name: q
+          in: query
+          required: false
+          description: |
+            Từ khoá tìm kiếm, 1 đến 100 ký tự sau khi bỏ khoảng trắng hai đầu (để trống hoặc chỉ khoảng trắng trả `400 INVALID_FILTER`, `details.field` là `q`). Khớp **một phần chuỗi**, **không phân biệt hoa thường** và **không phân biệt dấu tiếng Việt** (`bat nha`, `Bát Nhã`, `BÁT NHÃ` cho cùng kết quả; `đ` tính như `d`). Tìm trong `titles` (mọi ngôn ngữ), `collection` và `reference`. Kết hợp AND với các bộ lọc khác và phân trang; `total` đếm theo kết quả đã lọc. Thứ tự vẫn là thứ tự biên tập, không xếp theo độ liên quan.
+          schema: { type: string, minLength: 1, maxLength: 100, example: bat nha }
+      responses:
+        '200':
+          description: Một trang văn bản.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SutraListEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "items": [
+                      {
+                        "id": "tam-kinh",
+                        "tradition": "MAHAYANA",
+                        "kind": "SUTRA",
+                        "collection": "Bát Nhã",
+                        "reference": "Taishō T0251 (Huyền Trang); Sanskrit: Prajñāpāramitāhṛdaya",
+                        "titles": {
+                          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+                          "zh": "般若波羅蜜多心經",
+                          "sa": "प्रज्ञापारमिताहृदयसूत्रम् (Prajñāpāramitāhṛdaya Sūtra)",
+                          "en": "Heart Sutra"
+                        },
+                        "daily_chant": true,
+                        "purposes": [
+                          "HOC_GIAO_LY"
+                        ],
+                        "duration_minutes": 4,
+                        "audio_url": "",
+                        "deities": [
+                          {
+                            "deity_id": "bodhisattva_avalokiteshvara",
+                            "role": "SPEAKER",
+                            "name_vi": "Quán Thế Âm Bồ Tát",
+                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
+                          }
+                        ],
+                        "translations": [
+                          {
+                            "key": "vi-chant",
+                            "lang": "vi",
+                            "variant": "chant",
+                            "translator": "không ghi (bản tụng Hán Việt phổ biến, phiên âm bản Hán của Huyền Trang)",
+                            "license": "unknown (trang không có tuyên bố bản quyền/giấy phép)",
+                            "line_count": 13
+                          },
+                          {
+                            "key": "vi-meaning",
+                            "lang": "vi",
+                            "variant": "meaning",
+                            "translator": "không ghi (Bình Anson sưu tầm)",
+                            "license": "unknown (trang không có tuyên bố bản quyền/giấy phép)",
+                            "line_count": 16
+                          },
+                          {
+                            "key": "vi-poem",
+                            "lang": "vi",
+                            "variant": "poem",
+                            "translator": "Thích Nhất Hạnh (bản phổ thơ)",
+                            "license": "unknown (trang không có tuyên bố bản quyền/giấy phép)",
+                            "line_count": 68
+                          },
+                          {
+                            "key": "vi-meaning-2",
+                            "lang": "vi",
+                            "variant": "meaning",
+                            "translator": "Trần Trọng Kim (dịch từ bản Hán của Huyền Trang)",
+                            "license": "Public domain (Wikisource ghi: bản dịch thuộc phạm vi công cộng tại Việt Nam do hết thời hạn bảo hộ; bản gốc public domain)",
+                            "line_count": 10
+                          },
+                          {
+                            "key": "zh-translation",
+                            "lang": "zh",
+                            "variant": "translation",
+                            "translator": "玄奘 (Huyền Trang)",
+                            "license": "Public domain (Wikisource ghi: tác giả mất >100 năm, xuất bản trước 1931)",
+                            "line_count": 13
+                          },
+                          {
+                            "key": "sa-translation",
+                            "lang": "sa",
+                            "variant": "translation",
+                            "translator": "không rõ (văn bản Sanskrit, bản ngắn - saṃkṣiptamātṛkā)",
+                            "license": "Public domain (Wikisource ghi: xuất bản trước 1923, tác giả mất >100 năm)",
+                            "line_count": 17
+                          },
+                          {
+                            "key": "en-translation",
+                            "lang": "en",
+                            "variant": "translation",
+                            "translator": "Wikisource (ẩn danh)",
+                            "license": "unknown (trang không có thẻ/tuyên bố giấy phép cho bản dịch)",
+                            "line_count": 19
+                          }
+                        ]
+                      },
+                      {
+                        "id": "chuyen-phap-luan",
+                        "tradition": "THERAVADA",
+                        "kind": "SUTRA",
+                        "collection": "Tương Ưng Bộ",
+                        "reference": "SN 56.11",
+                        "titles": {
+                          "vi": "Kinh Chuyển Pháp Luân",
+                          "pli": "Dhammacakkappavattanasutta",
+                          "en": "Rolling Forth the Wheel of Dhamma"
+                        },
+                        "daily_chant": false,
+                        "purposes": [
+                          "HOC_GIAO_LY"
+                        ],
+                        "duration_minutes": 15,
+                        "audio_url": "",
+                        "deities": [
+                          {
+                            "deity_id": "buddha_shakyamuni",
+                            "role": "SPEAKER",
+                            "name_vi": "Thích Ca Mâu Ni Phật",
+                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
+                          }
+                        ],
+                        "translations": [
+                          {
+                            "key": "vi-translation",
+                            "lang": "vi",
+                            "variant": "translation",
+                            "translator": "Thích Minh Châu",
+                            "license": "unknown (SuttaCentral page states only: Translated by Thích Minh Châu; prepared for SuttaCentral by editor named in footer; no license given)",
+                            "line_count": 49
+                          },
+                          {
+                            "key": "pli-translation",
+                            "lang": "pli",
+                            "variant": "translation",
+                            "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+                            "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/) as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+                            "line_count": 43
+                          },
+                          {
+                            "key": "en-translation",
+                            "lang": "en",
+                            "variant": "translation",
+                            "translator": "Bhikkhu Sujato",
+                            "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/) as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+                            "line_count": 50
+                          }
+                        ]
+                      },
+                      {
+                        "id": "chu-dai-bi",
+                        "tradition": "MAHAYANA",
+                        "kind": "DHARANI",
+                        "collection": "Chú",
+                        "reference": "Thiên Thủ Thiên Nhãn Quán Thế Âm Bồ Tát Quảng Đại Viên Mãn Vô Ngại Đại Bi Tâm Đà La Ni (Taisho 1060)",
+                        "titles": {
+                          "vi": "Chú Đại Bi",
+                          "zh": "大悲咒",
+                          "sa": "Nīlakaṇṭha Dhāraṇī",
+                          "en": "Great Compassion Mantra"
+                        },
+                        "daily_chant": true,
+                        "purposes": [
+                          "TRI_CHU",
+                          "CAU_AN"
+                        ],
+                        "duration_minutes": 6,
+                        "audio_url": "",
+                        "deities": [
+                          {
+                            "deity_id": "bodhisattva_avalokiteshvara",
+                            "role": "SUBJECT",
+                            "name_vi": "Quán Thế Âm Bồ Tát",
+                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
+                          }
+                        ],
+                        "translations": [
+                          {
+                            "key": "vi-chant",
+                            "lang": "vi",
+                            "variant": "chant",
+                            "translator": "Bản Việt âm phổ thông (không ghi dịch giả)",
+                            "license": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+                            "line_count": 86
+                          }
+                        ]
+                      }
+                    ],
+                    "page": 1,
+                    "page_size": 20,
+                    "total": 153,
+                    "total_pages": 8
+                  }
+                }
+        '400':
+          description: '`INVALID_PAGE` (`details.field = "page"`) hoặc `INVALID_FILTER` (`details.field` là tên tham số bị từ chối).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: INVALID_FILTER, message: invalid filter value, type: business }
+                details: { field: max_minutes }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/sutras/{id}:
+    get:
+      tags: [Sutras]
+      operationId: sutrasGet
+      summary: Chi tiết một văn bản
+      description: |
+        `data` là **SutraDetail** = toàn bộ field của SutraSummary, cộng thêm:
+
+        | Field | Kiểu | Ghi chú |
+        | --- | --- | --- |
+        | `review_status` | string | `UNREVIEWED`: nội dung chưa được người am hiểu duyệt. |
+        | `translations[].source_name` | string | Tên nguồn. |
+        | `translations[].source_url` | string | Đường dẫn tới nguồn. |
+        | `translations[].note` | string | Ghi chú về bản dịch (nguồn, chính tả, chỗ khác biệt). `""` nếu không có. |
+        | `translations[].sections` | object[] | Mục lục: `{name, start_n, line_count}` theo thứ tự trong bản. `[]` nếu không có. |
+
+        Một văn bản có thể có nhiều bản dịch cùng `lang`; phân biệt bằng `key` (duy nhất trong văn bản) và `variant`.
+        `key` là thứ truyền cho `GET /v1/sutras/{id}/lines?translation=`.
+
+        Để mở một phẩm, đổi `start_n` thành trang: `page = floor((start_n - 1) / page_size) + 1`.
+        Ví dụ (Kinh Pháp Hoa, bản `vi`): `sections` bắt đầu bằng [{"name": "Phẩm 1: Tựa", "start_n": 1, "line_count": 513}, {"name": "Phẩm 2: Phương Tiện", "start_n": 514, "line_count": 710}].
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID văn bản (slug), lấy từ danh sách.
+          schema: { type: string, example: kinh-tu-bi }
+      responses:
+        '200':
+          description: Chi tiết văn bản.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SutraDetailEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "id": "kinh-tu-bi",
+                    "tradition": "THERAVADA",
+                    "kind": "VERSE",
+                    "collection": "Tiểu Bộ",
+                    "reference": "Snp 1.8",
+                    "titles": {
+                      "vi": "Kinh Từ Bi",
+                      "pli": "Karaṇīyamettasutta",
+                      "en": "The Discourse on Love"
+                    },
+                    "daily_chant": true,
+                    "purposes": [
+                      "CAU_AN"
+                    ],
+                    "duration_minutes": 5,
+                    "audio_url": "",
+                    "deities": [
+                      {
+                        "deity_id": "buddha_shakyamuni",
+                        "role": "SPEAKER",
+                        "name_vi": "Thích Ca Mâu Ni Phật",
+                        "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
+                      }
+                    ],
+                    "translations": [
+                      {
+                        "key": "vi-translation",
+                        "lang": "vi",
+                        "variant": "translation",
+                        "translator": "Thích Minh Châu",
+                        "license": "unknown (SuttaCentral page states only: Translated by Thích Minh Châu; prepared for SuttaCentral by editor named in footer; no license given)",
+                        "line_count": 73,
+                        "source_name": "SuttaCentral",
+                        "source_url": "https://suttacentral.net/api/suttas/snp1.8/minh_chau?lang=vi",
+                        "note": "",
+                        "sections": []
+                      },
+                      {
+                        "key": "pli-translation",
+                        "lang": "pli",
+                        "variant": "translation",
+                        "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+                        "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/) as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+                        "line_count": 41,
+                        "source_name": "SuttaCentral",
+                        "source_url": "https://suttacentral.net/api/bilarasuttas/snp1.8/sujato?lang=en (root_text)",
+                        "note": "",
+                        "sections": []
+                      },
+                      {
+                        "key": "en-translation",
+                        "lang": "en",
+                        "variant": "translation",
+                        "translator": "Bhikkhu Sujato",
+                        "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/) as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+                        "line_count": 40,
+                        "source_name": "SuttaCentral",
+                        "source_url": "https://suttacentral.net/api/bilarasuttas/snp1.8/sujato?lang=en (translation_text)",
+                        "note": "",
+                        "sections": []
+                      }
+                    ],
+                    "review_status": "UNREVIEWED"
+                  }
+                }
+        '404':
+          description: Không có văn bản với id này (`SUTRA_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: SUTRA_NOT_FOUND, message: sutra not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/sutras/{id}/lines:
+    get:
+      tags: [Sutras]
+      operationId: sutrasLines
+      summary: Đọc nội dung theo trang dòng
+      description: |
+        Trả một trang các dòng của **một bản dịch**, chọn bằng `translation` (là `key` trong `translations` của chi tiết).
+        Phân trang theo **số dòng mỗi trang**: trang `p` cỡ `s` gồm các dòng có `(p-1)*s < n <= p*s`.
+        Bản dài nhất có 6.967 dòng nên cần tải từng trang.
+
+        `n` bắt đầu từ 1 và liên tục trong từng bản dịch (các bản dịch không khớp dòng với nhau), nên dòng `n` luôn nằm ở trang `floor((n - 1) / page_size) + 1`.
+        `page_size` mặc định 200 (`sutra.lines_page_size`); giá trị lớn hơn 500 (`sutra.lines_max_page_size`) được phục vụ ở cỡ 500 chứ không báo lỗi, và `page_size` trong response là cỡ thực tế.
+
+        Trang vượt quá cuối trả `200` với `items: []`. Client dừng khi `page >= total_pages` hoặc `items` rỗng.
+        Đừng đổi `page_size` giữa hai lần gọi khi đang đọc một bản dịch: các trang sẽ dịch chỗ.
+
+        `text` được trả đúng như đã lưu. `section` là tên phẩm hoặc `null` nếu dòng không thuộc phẩm nào.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID văn bản (slug).
+          schema: { type: string, example: kinh-tu-bi }
+        - name: translation
+          in: query
+          required: true
+          description: '`key` của bản dịch, lấy từ `translations[].key` của danh sách hoặc chi tiết.'
+          schema: { type: string, example: vi-translation }
+        - $ref: '#/components/parameters/Page'
+        - name: page_size
+          in: query
+          required: false
+          description: Số dòng mỗi trang. Mặc định 200, tối đa 500 (lớn hơn thì bị kẹp xuống 500). Không phải số nguyên dương trả `INVALID_PAGE_SIZE`.
+          schema: { type: integer, minimum: 1, default: 200, maximum: 500 }
+      responses:
+        '200':
+          description: Một trang dòng.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SutraLinesEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "translation": "vi-translation",
+                    "items": [
+                      {
+                        "n": 1,
+                        "text": "Vị thiện xảo mục đích,",
+                        "section": null
+                      },
+                      {
+                        "n": 2,
+                        "text": "Cần phải làm như sau:",
+                        "section": null
+                      },
+                      {
+                        "n": 3,
+                        "text": "Sau khi hiểu thông suốt,",
+                        "section": null
+                      }
+                    ],
+                    "page": 1,
+                    "page_size": 3,
+                    "total": 73,
+                    "total_pages": 25
+                  }
+                }
+        '400':
+          description: '`INVALID_TRANSLATION` (thiếu `translation`), `INVALID_PAGE` hoặc `INVALID_PAGE_SIZE`; `details.field` là tên tham số.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: INVALID_TRANSLATION, message: translation is required, type: business }
+                details: { field: translation }
+        '404':
+          description: '`SUTRA_NOT_FOUND` (không có văn bản với id này) hoặc `TRANSLATION_NOT_FOUND` (văn bản có nhưng không có bản dịch với `key` này). Văn bản được kiểm tra trước.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: TRANSLATION_NOT_FOUND, message: sutra translation not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/deities/{id}/sutras:
+    get:
+      tags: [Sutras, Deities]
+      operationId: deitiesSutras
+      summary: Kinh, chú liên quan đến một vị Phật/Bồ tát
+      description: |
+        Các văn bản gắn với vị này, dạng **SutraSummary** kèm thêm `role` là vai của vị đó trong văn bản. Phân trang như danh mục (`sutra.page_size`, mặc định 20).
+
+        Thứ tự: `SUBJECT` (văn bản nói về vị này) trước, rồi `SPEAKER` (do vị này thuyết), rồi `MENTIONED` (chỉ được nhắc đến); trong mỗi vai theo thứ tự biên tập.
+        `deities` của mỗi mục liệt kê **đủ** các vị liên kết với văn bản đó, không chỉ vị đang tra.
+
+        Vị có tồn tại nhưng chưa có văn bản nào (hoặc không có văn bản nào với `role` đã chọn) trả `200` với `items: []`, `total: 0`.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID Phật/Bồ tát, lấy từ `GET /v1/deities`.
+          schema: { type: string, example: bodhisattva_avalokiteshvara }
+        - $ref: '#/components/parameters/Page'
+        - name: role
+          in: query
+          required: false
+          description: Chỉ lấy văn bản mà vị này có vai này. Giá trị khác (kể cả để trống) trả `400 INVALID_FILTER`.
+          schema: { type: string, enum: [SPEAKER, SUBJECT, MENTIONED] }
+      responses:
+        '200':
+          description: Một trang văn bản liên quan.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SutraByDeityListEnvelope' }
+              example:
+                {
+                  "success": true,
+                  "data": {
+                    "items": [
+                      {
+                        "id": "pho-mon",
+                        "tradition": "MAHAYANA",
+                        "kind": "SUTRA",
+                        "collection": "Pháp Hoa",
+                        "reference": "Taishō T0262 (Diệu Pháp Liên Hoa, phẩm 25)",
+                        "titles": {
+                          "vi": "Kinh Phổ Môn (Phẩm Quán Thế Âm Bồ Tát Phổ Môn)",
+                          "zh": "妙法蓮華經觀世音菩薩普門品第二十五",
+                          "sa": "Samantamukha-parivarta (Avalokiteśvara-vikurvaṇa-nirdeśa)",
+                          "en": "The Universal Gate Chapter of the Lotus Sutra"
+                        },
+                        "daily_chant": true,
+                        "purposes": [
+                          "CAU_AN"
+                        ],
+                        "duration_minutes": 30,
+                        "audio_url": "",
+                        "deities": [
+                          {
+                            "deity_id": "bodhisattva_avalokiteshvara",
+                            "role": "SUBJECT",
+                            "name_vi": "Quán Thế Âm Bồ Tát",
+                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
+                          },
+                          {
+                            "deity_id": "buddha_shakyamuni",
+                            "role": "SPEAKER",
+                            "name_vi": "Thích Ca Mâu Ni Phật",
+                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
+                          }
+                        ],
+                        "translations": [
+                          {
+                            "key": "vi-translation",
+                            "lang": "vi",
+                            "variant": "translation",
+                            "translator": "Hòa thượng Thích Trí Tịnh (Việt dịch từ bản Hán của Cưu-ma-la-thập)",
+                            "license": "Trang ghi: \"Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!\" (không nêu giấy phép chuẩn như CC); bản quyền bản dịch gốc của dịch giả không được nêu",
+                            "line_count": 172
+                          },
+                          {
+                            "key": "zh-translation",
+                            "lang": "zh",
+                            "variant": "translation",
+                            "translator": "鳩摩羅什 (Cưu-ma-la-thập)",
+                            "license": "Public domain (Wikisource ghi: tác phẩm gốc xuất bản trước 1931, tác giả mất >100 năm)",
+                            "line_count": 172
+                          }
+                        ],
+                        "role": "SUBJECT"
+                      }
+                    ],
+                    "page": 1,
+                    "page_size": 20,
+                    "total": 17,
+                    "total_pages": 1
+                  }
+                }
+        '400':
+          description: '`INVALID_PAGE` hoặc `INVALID_FILTER` (`details.field = "role"`).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '404':
+          description: Không có Phật/Bồ tát với id này (`DEITY_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: DEITY_NOT_FOUND, message: deity not found, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /static/images/{path}:
+    get:
+      tags: [Images]
+      operationId: staticImage
+      summary: Ảnh tĩnh (dev)
+      description: |
+        Phục vụ file dưới `assets/images/` để các `image_url` / `thumbnail_url` của chùa và Phật/Bồ tát tải được khi chưa có CDN.
+        Công khai, không cần đăng nhập; `Cache-Control: public, max-age=86400`.
+
+        Chỉ bật khi `server.static_images_dir` được đặt trong config (dev). Không liệt kê thư mục và không trả file ẩn
+        (đường dẫn có phần bắt đầu bằng `.`): các trường hợp đó, cùng file không tồn tại, đều trả `404`.
+
+        Đường dẫn dạng `temples/full/{id}.jpg`, `temples/thumb/{id}.jpg`, `buddhas/full/{id}.webp`, `buddhas/thumbnails/{id}.webp`, `articles/thumb/{id}.webp`.
+        Client không tự ghép URL: dùng nguyên `image_url` / `thumbnail_url` server trả về.
+      parameters:
+        - name: path
+          in: path
+          required: true
+          description: Đường dẫn file tính từ `assets/images/` (có thể chứa `/`).
+          allowReserved: true
+          schema: { type: string, example: temples/full/temple_north_011.jpg }
+      responses:
+        '200':
+          description: Nội dung ảnh.
+          content:
+            image/jpeg: { schema: { type: string, format: binary } }
+            image/webp: { schema: { type: string, format: binary } }
+        '404':
+          description: Không có file, là thư mục, hoặc là file ẩn. Body là văn bản thường `404 page not found` (`text/plain`), không phải envelope JSON như các route `/v1/*`.
+
+  /v1/admin/auth/login:
+    post:
+      tags: [Admin]
+      operationId: adminLogin
+      summary: Đăng nhập admin
+      description: |
+        **Server `:8081`.** Chỉ cấp access token (không có refresh). Nếu `must_change_password` là `true`,
+        token chỉ dùng được ở `change-password`, các route khác trả `PASSWORD_CHANGE_REQUIRED`.
+      servers:
+        - url: http://localhost:8081
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/AdminLoginRequest' }
+      responses:
+        '200':
+          description: Đăng nhập thành công.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AdminLoginEnvelope' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401':
+          description: Sai email hoặc mật khẩu (`INVALID_CREDENTIALS`), hoặc mật khẩu tạm đã hết hạn (`PASSWORD_EXPIRED`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/admin/auth/change-password:
+    post:
+      tags: [Admin]
+      operationId: adminChangePassword
+      summary: Đổi mật khẩu admin
+      description: |
+        **Server `:8081`.** Mật khẩu mới tối thiểu 12 ký tự và phải khác mật khẩu hiện tại.
+        Route duy nhất chấp nhận token đang buộc đổi mật khẩu. Trả token mới với `must_change_password = false`.
+      servers:
+        - url: http://localhost:8081
+      security:
+        - adminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ChangePasswordRequest' }
+      responses:
+        '200':
+          description: Đã đổi mật khẩu.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AdminLoginEnvelope' }
+        '400':
+          description: '`VALIDATION_ERROR`, `WRONG_CURRENT_PASSWORD` hoặc `WEAK_PASSWORD` (kèm `details.field`).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '401': { $ref: '#/components/responses/AdminUnauthorized' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/admin/me:
+    get:
+      tags: [Admin]
+      operationId: adminMe
+      summary: Thông tin admin hiện tại
+      description: |
+        **Server `:8081`.** Trả từ claim của token, không đọc DB. Mọi role đều gọi được,
+        nhưng token đang buộc đổi mật khẩu bị từ chối `PASSWORD_CHANGE_REQUIRED`.
+      servers:
+        - url: http://localhost:8081
+      security:
+        - adminBearerAuth: []
+      responses:
+        '200':
+          description: Thông tin từ token.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AdminMeEnvelope' }
+        '401': { $ref: '#/components/responses/AdminUnauthorized' }
+        '403': { $ref: '#/components/responses/AdminForbidden' }
+
+  /v1/admin/users:
+    post:
+      tags: [Admin]
+      operationId: adminCreateUser
+      summary: Tạo tài khoản admin
+      description: |
+        **Server `:8081`, role `admin`.** Mật khẩu tạm được gửi qua email, không trả trong response.
+        Tài khoản mới luôn phải đổi mật khẩu ở lần đăng nhập đầu.
+      servers:
+        - url: http://localhost:8081
+      security:
+        - adminBearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CreateAccountRequest' }
+      responses:
+        '201':
+          description: Đã tạo.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CreateAccountEnvelope' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/AdminUnauthorized' }
+        '403': { $ref: '#/components/responses/AdminForbidden' }
+        '409':
+          description: Email đã tồn tại (`EMAIL_TAKEN`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '502':
+          description: Gửi email thất bại (`EMAIL_SEND_FAILED`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+
+  /v1/admin/users/{id}/reset-password:
+    post:
+      tags: [Admin]
+      operationId: adminResetPassword
+      summary: Reset mật khẩu admin
+      description: |
+        **Server `:8081`, role `admin`.** Đặt mật khẩu tạm mới, gửi qua email và buộc đổi ở lần đăng nhập sau.
+        Không tự reset chính mình (`CANNOT_RESET_SELF`).
+      servers:
+        - url: http://localhost:8081
+      security:
+        - adminBearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer, minimum: 1 }
+      responses:
+        '200':
+          description: Đã reset.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CreateAccountEnvelope' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/AdminUnauthorized' }
+        '403': { $ref: '#/components/responses/AdminForbidden' }
+        '404':
+          description: Không có admin này (`ADMIN_NOT_FOUND`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '409':
+          description: Tự reset chính mình (`CANNOT_RESET_SELF`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '502':
+          description: Gửi email thất bại (`EMAIL_SEND_FAILED`).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Access token từ login hoặc verify-otp. Refresh token không dùng được.
+    adminBearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Access token từ `POST /v1/admin/auth/login` (audience `innerlamp_backoffice`). Token appService bị từ chối.
+
+  parameters:
+    MemorialId:
+      name: id
+      in: path
+      required: true
+      description: ID mục sổ giỗ (số nguyên dương), lấy từ response tạo hoặc danh sách.
+      schema: { type: integer, minimum: 1, example: 12 }
+
+    Page:
+      name: page
+      in: query
+      required: false
+      description: Số trang, bắt đầu từ 1. Giá trị không phải số nguyên dương trả `INVALID_PAGE`.
+      schema: { type: integer, minimum: 1, default: 1 }
+
+  responses:
+    BadRequest:
+      description: |
+        Request sai. `VALIDATION_ERROR` (body sai JSON, thiếu field, field lạ, sai Content-Type) hoặc lỗi nghiệp vụ 400
+        của riêng endpoint, như `ATTESTATION_CHALLENGE_INVALID` hay `INVALID_PAGE`. Các endpoint Auth liệt kê mã lỗi 400 của mình ngay tại chỗ.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    PayloadTooLarge:
+      description: '`PAYLOAD_TOO_LARGE`: body vượt quá 1 MB. Bị từ chối trước khi xử lý.'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            success: false
+            error: { code: PAYLOAD_TOO_LARGE, message: request body too large, type: business }
+    OtpRateLimited:
+      description: |
+        Bị giới hạn gửi OTP. Lượt gửi của `request-otp` và `resend-otp` dùng chung một bộ đếm theo số điện thoại.
+
+        - `OTP_RESEND_TOO_SOON`: chưa hết thời gian chờ giữa hai lần gửi. `details.retry_after_seconds` là số giây còn lại.
+        - `OTP_SEND_LIMITED`: hết lượt gửi. Khoá tạm thời, `details.locked_until` là thời điểm gửi lại được (dev: 30 phút).
+        - `OTP_LOCKED`: số điện thoại đang bị khoá vì nhập sai OTP quá số lần. `details.locked_until` là thời điểm mở khoá.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          examples:
+            resendTooSoon:
+              summary: OTP_RESEND_TOO_SOON
+              value:
+                success: false
+                error: { code: OTP_RESEND_TOO_SOON, message: please wait before requesting another code, type: business }
+                details: { retry_after_seconds: 42 }
+            sendLimited:
+              summary: OTP_SEND_LIMITED
+              value:
+                success: false
+                error: { code: OTP_SEND_LIMITED, message: 'too many otp requests, try again later', type: business }
+                details: { locked_until: '2026-09-30T08:45:30Z' }
+            otpLocked:
+              summary: OTP_LOCKED
+              value:
+                success: false
+                error: { code: OTP_LOCKED, message: 'too many failed attempts, try again later', type: business }
+                details: { locked_until: '2026-09-30T08:45:30Z' }
+    ServerError:
+      description: Lỗi nội bộ (`INTERNAL_ERROR`). `message` không lộ nguyên nhân.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            success: false
+            error: { code: INTERNAL_ERROR, message: internal server error, type: system }
+    AdminUnauthorized:
+      description: Thiếu, sai, hết hạn hoặc đã bị thu hồi token (`UNAUTHORIZED`).
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    AdminForbidden:
+      description: Không đủ quyền (`FORBIDDEN`) hoặc phải đổi mật khẩu trước (`PASSWORD_CHANGE_REQUIRED`).
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+
+  schemas:
+    ErrorEnvelope:
+      type: object
+      required: [success, error]
+      properties:
+        success: { type: boolean, const: false }
+        error:
+          type: object
+          required: [code, message, type]
+          properties:
+            code: { type: string, example: OTP_INVALID }
+            message: { type: string }
+            type: { type: string, enum: [validation, business, system] }
+        details:
+          type: object
+          additionalProperties: true
+          description: |
+            Tuỳ chọn, nằm cạnh `error`. Ví dụ `{"field": "phone_number"}`, `{"locked_until": "..."}`,
+            `{"retry_after_seconds": 30}`, hoặc `{tên_field: tag}` cho mỗi field sai.
+    EmptySuccessEnvelope:
+      type: object
+      required: [success]
+      properties:
+        success: { type: boolean, const: true }
+
+    RequestOtpRequest:
+      type: object
+      description: Thông tin tài khoản gửi ở bước 1 của đăng ký.
+      required: [email, password, phone_number]
+      additionalProperties: false
+      properties:
+        email: { type: string, format: email, description: Email của tài khoản. Chuẩn hoá phía server., example: user@example.com }
+        password: { type: string, minLength: 8, description: Tối thiểu 8 ký tự. Ngắn hơn trả `INVALID_PASSWORD`., example: S3cret-pass }
+        phone_number:
+          type: string
+          description: '`+` tuỳ chọn rồi 8–15 chữ số, cho phép dấu cách, `-`, `.`, `(`, `)`. Server chuẩn hoá về E.164.'
+          example: '0901234567'
+        dharma_name: { type: string, description: Pháp danh. Tuỳ chọn., example: Diệu Tâm }
+        ordination_place: { type: string, description: Nơi quy y. Tuỳ chọn., example: Chùa Hoằng Pháp }
+    OtpSent:
+      type: object
+      description: Kết quả gửi OTP, dùng cho `request-otp`. `resend-otp` trả thêm `resend_remaining`.
+      required: [message, expires_in_seconds, resend_after_seconds]
+      properties:
+        message: { type: string, description: Luôn là `otp sent`., example: otp sent }
+        expires_in_seconds: { type: integer, description: Thời gian sống của OTP tính bằng giây (dev là 90)., example: 90 }
+        resend_after_seconds: { type: integer, description: Phải chờ bao nhiêu giây mới gửi lại được (dev là 60)., example: 60 }
+    OtpSentEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/OtpSent' }
+    ResendOtpRequest:
+      type: object
+      required: [phone_number, purpose]
+      additionalProperties: false
+      properties:
+        phone_number: { type: string, description: Số đã dùng ở `request-otp`., example: '0901234567' }
+        purpose:
+          type: string
+          enum: [register, login, reset_password, verify_email]
+          description: Hiện chỉ `register` được hỗ trợ, ba giá trị còn lại trả `UNSUPPORTED_OTP_PURPOSE`.
+          example: register
+    ResendOtpEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          allOf:
+            - $ref: '#/components/schemas/OtpSent'
+            - type: object
+              required: [resend_remaining]
+              properties:
+                resend_remaining: { type: integer, description: Số lượt gửi còn lại trước khi bị `OTP_SEND_LIMITED`., example: 2 }
+    VerifyOtpRequest:
+      type: object
+      required: [phone_number, otp_code]
+      additionalProperties: false
+      properties:
+        phone_number: { type: string, description: Số đã dùng ở `request-otp`., example: '0901234567' }
+        otp_code: { type: string, pattern: '^[0-9]{6}$', description: Đúng 6 chữ số. Gửi dạng chuỗi để giữ số 0 ở đầu., example: '111111' }
+
+    Device:
+      type: object
+      description: Thông tin client tự khai về thiết bị. IP và User-Agent do server lấy từ request.
+      required: [platform, device_model]
+      additionalProperties: false
+      properties:
+        platform: { type: string, description: 'Nền tảng, vd. `ios`, `android`, `web`. Bắt buộc.', example: ios }
+        device_model: { type: string, description: Model máy. Bắt buộc., example: iPhone 15 }
+        os_version: { type: string, description: Phiên bản hệ điều hành. Tuỳ chọn., example: '18.0' }
+        app_version: { type: string, description: Phiên bản app. Tuỳ chọn., example: 1.0.0 }
+        device_name: { type: string, description: Tên người dùng đặt cho máy. Tuỳ chọn., example: iPhone của Tâm }
+    LoginRequest:
+      type: object
+      required: [phone_number, password, device]
+      additionalProperties: false
+      properties:
+        phone_number: { type: string, description: Chuẩn hoá về E.164 như lúc đăng ký., example: '0901234567' }
+        password: { type: string, description: Chỉ kiểm tra khác rỗng., example: S3cret-pass }
+        device: { $ref: '#/components/schemas/Device' }
+    RefreshRequest:
+      type: object
+      required: [refresh_token]
+      additionalProperties: false
+      properties:
+        refresh_token: { type: string, description: Refresh token mới nhất đang giữ. Rỗng trả `401 REFRESH_TOKEN_INVALID`., example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+
+    User:
+      type: object
+      description: Tài khoản người dùng, trả trong response của `verify-otp` và `login`.
+      required: [id, email, phone_number, created_at]
+      properties:
+        id: { type: integer, format: int64, description: ID tài khoản., example: 42 }
+        email: { type: string, format: email, description: Email đã chuẩn hoá., example: user@example.com }
+        phone_number: { type: string, description: Số điện thoại dạng E.164., example: '+84901234567' }
+        dharma_name: { type: string, description: Pháp danh. Không có trong response nếu người dùng không nhập (không phải `null`)., example: Diệu Tâm }
+        ordination_place: { type: string, description: Nơi quy y. Không có trong response nếu người dùng không nhập., example: Chùa Hoằng Pháp }
+        created_at: { type: string, format: date-time, description: Thời điểm tạo tài khoản (RFC 3339)., example: '2026-09-30T08:15:30Z' }
+    AuthResult:
+      type: object
+      description: Cặp token và tài khoản, dùng chung cho `verify-otp` và `login`.
+      required: [access_token, refresh_token, user]
+      properties:
+        access_token: { type: string, description: 'JWT, gửi ở header `Authorization: Bearer`. Dev: sống 15 phút.', example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+        refresh_token: { type: string, description: 'JWT, chỉ dùng cho `POST /v1/auth/refresh`. Dev: sống 7 ngày, gia hạn theo mỗi lần refresh.', example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+        user: { $ref: '#/components/schemas/User' }
+    AuthEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/AuthResult' }
+    RefreshEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [access_token, refresh_token]
+          properties:
+            access_token: { type: string, description: Access token mới., example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+            refresh_token: { type: string, description: Refresh token mới. Token vừa gửi lên không dùng lại được., example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+
+    ChallengeRequest:
+      type: object
+      required: [platform]
+      additionalProperties: false
+      properties:
+        platform: { type: string, enum: [android, ios], description: Nền tảng của client., example: android }
+    AssertionChallengeRequest:
+      type: object
+      required: [platform]
+      additionalProperties: false
+      properties:
+        platform: { type: string, enum: [ios], description: Chỉ nhận `ios`, vì chỉ iOS có assertion., example: ios }
+    Challenge:
+      type: object
+      description: Challenge dùng một lần, trả về từ cả hai endpoint xin challenge.
+      required: [challenge, expires_in_seconds]
+      properties:
+        challenge:
+          type: string
+          description: 32 byte ngẫu nhiên mã hoá base64 chuẩn (44 ký tự). Dùng một lần.
+          example: q83vEjRWeJASNFZ4kBI0VniQEjRWeJASNFZ4kBI0Vng=
+        expires_in_seconds: { type: integer, description: Thời gian sống của challenge tính bằng giây (dev là 300)., example: 300 }
+    ChallengeEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/Challenge' }
+    VerifyRequest:
+      type: object
+      description: |
+        `platform` quyết định field nào bắt buộc. `android`: bắt buộc `token`, cấm `key_id` và `attestation`.
+        `ios`: bắt buộc `key_id` và `attestation`, cấm `token`.
+      required: [platform, challenge]
+      additionalProperties: false
+      properties:
+        platform: { type: string, enum: [android, ios], description: Nền tảng của client., example: android }
+        challenge:
+          type: string
+          description: Challenge lấy từ `POST /v1/attestation/challenge`. Challenge của assertion không dùng được ở đây.
+          example: q83vEjRWeJASNFZ4kBI0VniQEjRWeJASNFZ4kBI0Vng=
+        token: { type: string, description: Chỉ Android, bắt buộc. Integrity token của Play Integrity., example: eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIn0… }
+        key_id: { type: string, description: Chỉ iOS, bắt buộc. Key id của App Attest., example: bSrEhF8TIzIvWSPwvZ0i2+UOBre4ASH84rK15m6emNY= }
+        attestation: { type: string, description: Chỉ iOS, bắt buộc. Attestation object mã hoá base64 chuẩn., example: o2NmbXRvYXBwbGUtYXBwYXR0ZXN0Z2F0dFN0bXSi… }
+    Verdict:
+      type: object
+      description: Kết quả xác minh. `signals` chỉ có khi đạt, `reason` chỉ có khi không đạt.
+      required: [attested, platform]
+      properties:
+        attested: { type: boolean, description: '`true` nếu bằng chứng đạt.', example: true }
+        platform: { type: string, enum: [android, ios], description: Nền tảng đã xác minh., example: android }
+        signals:
+          type: object
+          additionalProperties: { type: string }
+          description: |
+            Chỉ có khi `attested = true`. Android: `app_recognition_verdict`, `device_recognition_verdict`, `app_licensing_verdict`.
+            iOS: `environment` (`development` hoặc `production`).
+          example: { app_recognition_verdict: PLAY_RECOGNIZED, device_recognition_verdict: MEETS_DEVICE_INTEGRITY, app_licensing_verdict: LICENSED }
+        reason:
+          type: string
+          enum: [app_not_recognized, attestation_invalid]
+          description: Chỉ có khi `attested = false`.
+          example: attestation_invalid
+    VerdictEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/Verdict' }
+
+    Pagination:
+      type: object
+      required: [page, page_size, total, total_pages]
+      properties:
+        page: { type: integer, example: 1 }
+        page_size: { type: integer, example: 20 }
+        total: { type: integer, example: 57 }
+        total_pages: { type: integer, example: 3 }
+
+    Location:
+      type: object
+      required: [lat, lng, address]
+      properties:
+        lat: { type: number, format: double, description: Vĩ độ., example: 20.2185 }
+        lng: { type: number, format: double, description: Kinh độ., example: 105.9177 }
+        address: { type: string, description: Địa chỉ đầy đủ., example: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+    TempleSummary:
+      type: object
+      description: Bản tóm tắt một chùa, dùng chung cho `top` và danh sách. Là phần đầu của TempleDetail.
+      required: [id, name, type, region, thumbnail_url, image_url, sect, heritage_rank, established_year, location]
+      properties:
+        id: { type: string, description: 'ID ổn định, dùng cho `GET /v1/temples/{id}`.', example: temple_north_011 }
+        name: { type: string, description: Tên chùa., example: Chùa Bích Động }
+        type:
+          type: string
+          description: 'Loại cơ sở: `CHUA`, `THIEN_VIEN`, `DAO_TRANG`, `TINH_XA`, `THIEN_XA`. Coi như enum mở.'
+          example: CHUA
+        region: { type: string, description: '`north`, `central` hoặc `south`.', example: north }
+        thumbnail_url: { type: [string, 'null'], description: 'URL ảnh nhỏ (JPEG), phục vụ bởi `GET /static/images/temples/thumb/{id}.jpg`. `null` khi chưa có ảnh (hiện cả 93 chùa đều có). Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.', example: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg }
+        image_url: { type: [string, 'null'], description: 'URL ảnh lớn (JPEG, khoảng 1 MB), phục vụ bởi `GET /static/images/temples/full/{id}.jpg`. `null` khi chưa có ảnh.', example: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg }
+        sect:
+          type: string
+          description: 'Hệ phái: `BẮC_TÔNG`, `TRUC_LAM_YEN_TU`, `KHAT_SI`, `NAM_TONG_KHMER`, `HOA_TONG`, `NAM_TONG`, `TIN_NGUONG_DANG_GIAN`, `MINH_SU_DAO`. Coi như enum mở.'
+          example: BẮC_TÔNG
+        heritage_rank:
+          type: string
+          description: |
+            Xếp hạng di tích, từ cao đến thấp: `DI_SAN_THE_GIOI`, `DI_TICH_QUOC_GIA_DAC_BIET`, `KHU_DU_LICH_QUOC_GIA`,
+            `DI_TICH_QUOC_GIA`, `DANH_LAM_THANG_CANH`, `DI_TICH_CAP_TINH`, `DI_TICH_CAP_THANH_PHO`, `CHUA_XEP_HANG`.
+          example: DI_SAN_THE_GIOI
+        established_year: { type: integer, description: Năm khởi dựng., example: 1428 }
+        location: { $ref: '#/components/schemas/Location' }
+    Amenities:
+      type: object
+      required: [parking_car, parking_motorcycle, vegetarian_meals, summer_retreat]
+      properties:
+        parking_car: { type: boolean, description: Có chỗ đỗ ô tô. }
+        parking_motorcycle: { type: boolean, description: Có chỗ gửi xe máy. }
+        vegetarian_meals: { type: boolean, description: Có phục vụ cơm chay. }
+        summer_retreat: { type: boolean, description: Có tổ chức khoá tu mùa hè. }
+    TempleDetail:
+      description: TempleSummary cộng phần chi tiết và nội dung biên tập.
+      allOf:
+        - $ref: '#/components/schemas/TempleSummary'
+        - type: object
+          required: [aliases, founder, current_abbot, operating_hours, amenities, introduction, architecture_heritage, visiting_notes]
+          properties:
+            aliases: { type: array, items: { type: string }, description: Tên khác. Mảng rỗng khi không có., example: [Bạch Ngọc Thạch Sơn Động] }
+            founder: { type: string, description: Người sáng lập., example: Hai nhà sư Trí Kiên và Trí Thể }
+            current_abbot: { type: string, description: Trụ trì hiện tại., example: Thích Đức Lợi }
+            operating_hours: { type: string, description: Giờ mở cửa., example: '07:00 - 18:00' }
+            amenities: { $ref: '#/components/schemas/Amenities' }
+            introduction:
+              type: string
+              description: Giới thiệu chùa. Chuỗi rỗng khi chưa có nội dung, không null.
+              example: Chùa Bích Động nằm trong dãy núi đá vôi ở Hoa Lư, Ninh Bình, khởi dựng năm 1428 thời Lê sơ.
+            architecture_heritage:
+              type: string
+              description: Kiến trúc và di sản nổi bật. Chuỗi rỗng khi chưa có nội dung, không null.
+              example: 'Chùa xây dựa vào sườn núi đá với ba tầng: chùa Hạ, chùa Trung và chùa Thượng.'
+            visiting_notes:
+              type: array
+              items: { type: string }
+              description: Lưu ý khi viếng chùa, mỗi phần tử một ý. Mảng rỗng khi chưa có, không null.
+              example: [Trang phục kín đáo; giữ yên lặng khi vào các điện thờ trong hang.]
+    TempleTopEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items]
+          properties:
+            items:
+              type: array
+              description: Tối đa 10 chùa.
+              items: { $ref: '#/components/schemas/TempleSummary' }
+    TempleListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items:
+              type: array
+              description: Các chùa trong trang này. Rỗng khi `page` vượt quá `total_pages`.
+              items: { $ref: '#/components/schemas/TempleSummary' }
+            page: { type: integer, description: Trang hiện tại (từ 1)., example: 1 }
+            page_size: { type: integer, description: Số mục mỗi trang., example: 20 }
+            total: { type: integer, description: Tổng số chùa., example: 93 }
+            total_pages: { type: integer, description: Tổng số trang., example: 5 }
+    TempleDetailEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/TempleDetail' }
+
+    GallerySummary:
+      type: object
+      description: Bản tóm tắt một ảnh, dùng chung cho `top` và danh sách. Là phần đầu của GalleryDetail.
+      required: [id, type, title, location, thumbnail_url, image_url]
+      properties:
+        id: { type: string, description: 'ID ổn định, dùng cho `GET /v1/gallery/{id}`.', example: gallery_001 }
+        type: { type: string, description: '`CHUA`, `TUONG_PHAT`, `THIEN` hoặc `LE_HOI`. Coi là enum mở: gặp giá trị lạ thì hiển thị như mục thường.', example: CHUA }
+        title: { type: string, description: Tiêu đề ảnh., example: Chùa Một Cột }
+        location: { type: string, description: Nơi chụp., example: 'Hà Nội, Việt Nam' }
+        thumbnail_url: { type: string, description: 'URL ảnh nhỏ (jpg 500px), phục vụ bởi `GET /static/images/gallery/thumb/{id}.jpg`. Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.', example: 'http://192.168.1.186:8080/static/images/gallery/thumb/gallery_001.jpg' }
+        image_url: { type: string, description: 'URL ảnh lớn (jpg 1280px), phục vụ bởi `GET /static/images/gallery/full/{id}.jpg`. Host như `thumbnail_url`.', example: 'http://192.168.1.186:8080/static/images/gallery/full/gallery_001.jpg' }
+    GalleryDetail:
+      allOf:
+        - $ref: '#/components/schemas/GallerySummary'
+        - type: object
+          required: [author, license, source_url]
+          properties:
+            author: { type: string, description: Tác giả ảnh., example: thalling55 }
+            license: { type: string, description: 'Giấy phép (CC BY 2.0, CC BY-SA 4.0, CC0, Public domain...).', example: CC BY 2.0 }
+            source_url: { type: string, description: Trang gốc trên Wikimedia Commons., example: 'https://commons.wikimedia.org/wiki/File:One_Pillar_Pagoda,_Hanoi_(1345321938).jpg' }
+    CalendarImageEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, example: true }
+        data:
+          type: object
+          required: [date, id, image_url, author, license, license_url, source_url]
+          properties:
+            date: { type: string, description: 'Ngày đã dùng, YYYY-MM-DD.' }
+            id: { type: string, description: 'Ổn định, vd. buddha_034.' }
+            image_url: { type: string, description: 'URL tuyệt đối, ảnh JPEG tối đa 1200px.' }
+            author: { type: string }
+            license: { type: string }
+            license_url: { type: string }
+            source_url: { type: string }
+    GalleryTopEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, example: true }
+        data:
+          type: object
+          required: [items]
+          properties:
+            items: { type: array, items: { $ref: '#/components/schemas/GallerySummary' } }
+    GalleryListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, example: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items: { type: array, items: { $ref: '#/components/schemas/GallerySummary' } }
+            page: { type: integer, example: 1 }
+            page_size: { type: integer, example: 20 }
+            total: { type: integer, example: 86 }
+            total_pages: { type: integer, example: 5 }
+    GalleryDetailEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, example: true }
+        data: { $ref: '#/components/schemas/GalleryDetail' }
+    DeitySummary:
+      type: object
+      description: Bản tóm tắt một vị Phật/Bồ tát, dùng chung cho `top` và danh sách. Là phần đầu của DeityDetail.
+      required: [id, type, name_vi, name_sanskrit, name_chinese, title_honorific, thumbnail_url, image_url, core_virtue, pure_land]
+      properties:
+        id: { type: string, description: 'ID ổn định, dùng cho `GET /v1/deities/{id}`.', example: bodhisattva_avalokiteshvara }
+        type: { type: string, description: '`BUDDHA`, `BODHISATTVA` hoặc `DEVA` (thiên nhân hộ pháp, vd. Đại Cát Tường Thiên Nữ). Coi là enum mở: gặp giá trị lạ thì hiển thị như mục thường, đừng lỗi.', example: BODHISATTVA }
+        name_vi: { type: string, description: Tên tiếng Việt., example: Quán Thế Âm Bồ Tát }
+        name_sanskrit: { type: string, description: Tên tiếng Phạn., example: Avalokiteśvara Bodhisattva }
+        name_chinese: { type: string, description: Tên chữ Hán., example: 觀世音菩薩 }
+        title_honorific: { type: string, description: Danh hiệu tôn xưng., example: Đại Bi Quán Thế Âm Bồ Tát }
+        thumbnail_url:
+          type: string
+          description: 'URL ảnh nhỏ (WebP), phục vụ bởi `GET /static/images/buddhas/thumbnails/{id}.webp`. Cả 20 mục đều có.'
+          example: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+        image_url:
+          type: string
+          description: 'URL ảnh lớn (WebP), phục vụ bởi `GET /static/images/buddhas/full/{id}.webp`. Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.'
+          example: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+        core_virtue: { type: string, description: Hạnh nguyện cốt lõi., example: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát) }
+        pure_land: { type: string, description: Cõi Tịnh độ / trú xứ., example: Phổ Đà Lạc Ca Sơn (Potalaka) }
+    MemorialDay:
+      type: object
+      required: [lunar_day, lunar_month, event_name]
+      properties:
+        lunar_day: { type: integer, description: Ngày âm lịch., example: 19 }
+        lunar_month: { type: integer, description: Tháng âm lịch., example: 2 }
+        event_name: { type: string, description: Tên ngày vía., example: Ngày Đản sinh Quán Thế Âm }
+    Iconography:
+      type: object
+      required: [posture, mount_or_throne, sacred_artifacts, symbolic_meaning]
+      properties:
+        posture: { type: string, description: Tư thế., example: Đứng hoặc ngồi tự tại trên đài sen báu }
+        mount_or_throne: { type: string, description: Toà ngồi hoặc linh thú., example: Tòa sen }
+        sacred_artifacts: { type: array, items: { type: string }, description: Pháp khí cầm tay. Mảng rỗng khi không có., example: [Bình tịnh thủy chứa nước cam lồ, Cành dương liễu nhu hòa] }
+        symbolic_meaning: { type: string, description: Ý nghĩa biểu tượng. }
+    Mantras:
+      type: object
+      required: [short_mantra_sanskrit, short_mantra_sino_vietnamese, long_dharani_name, dharani_phonetic_snippet]
+      properties:
+        short_mantra_sanskrit: { type: string, description: Chú ngắn tiếng Phạn., example: Oṃ Maṇi Padme Hūṃ }
+        short_mantra_sino_vietnamese: { type: string, description: Chú ngắn âm Hán Việt., example: Án Ma Ni Bát Mê Hồng }
+        long_dharani_name: { type: string, description: Tên bài Đà La Ni dài., example: Thiên Thủ Thiên Nhãn Vô Ngại Đại Bi Tâm Đà La Ni }
+        dharani_phonetic_snippet: { type: string, description: Đoạn trích phiên âm Đà La Ni. }
+    DeityDetail:
+      description: DeitySummary cộng phần chi tiết. Mảng không bao giờ null.
+      allOf:
+        - $ref: '#/components/schemas/DeitySummary'
+        - type: object
+          required: [canonical_source, lunar_memorial_days, iconography, biography_summary, great_vows, mantras]
+          properties:
+            canonical_source: { type: string, description: Kinh điển gốc., example: 'Kinh Diệu Pháp Liên Hoa (Phẩm Phổ Môn), Kinh Lăng Nghiêm' }
+            lunar_memorial_days: { type: array, description: Các ngày vía âm lịch., items: { $ref: '#/components/schemas/MemorialDay' } }
+            iconography: { $ref: '#/components/schemas/Iconography' }
+            biography_summary: { type: string, description: Tóm tắt tiểu sử. }
+            great_vows: { type: array, items: { type: string }, description: Các đại nguyện. }
+            mantras: { $ref: '#/components/schemas/Mantras' }
+    DeityTopEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items]
+          properties:
+            items:
+              type: array
+              description: Tối đa 10 mục, gồm cả Phật và Bồ tát.
+              items: { $ref: '#/components/schemas/DeitySummary' }
+    DeityListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items:
+              type: array
+              description: Các vị (Phật, Bồ tát, Thiên) trong trang này. Rỗng khi `page` vượt quá `total_pages`.
+              items: { $ref: '#/components/schemas/DeitySummary' }
+            page: { type: integer, description: Trang hiện tại (từ 1)., example: 1 }
+            page_size: { type: integer, description: Số mục mỗi trang., example: 20 }
+            total: { type: integer, description: Tổng số vị., example: 20 }
+            total_pages: { type: integer, description: Tổng số trang., example: 1 }
+    DeityDetailEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/DeityDetail' }
+    ArticleSummary:
+      type: object
+      description: Bản tóm tắt một bài viết, dùng chung cho `top` và danh sách. Là phần đầu của ArticleDetail.
+      required: [id, title, category, author, author_initials, published_date, read_minutes, summary, tags, image_url, thumbnail_url]
+      properties:
+        id: { type: string, description: 'ID ổn định (slug), dùng cho `GET /v1/articles/{id}`.', example: vipassana-nghe-thuat-song }
+        title: { type: string, description: Tiêu đề., example: 'Thiền Vipassana: Một nghệ thuật sống' }
+        category: { type: string, description: Chủ đề., example: Thiền định }
+        author: { type: string, description: Tác giả., example: S.N. Goenka }
+        author_initials: { type: string, description: Chữ cái viết tắt của tác giả, dùng cho ảnh đại diện., example: SG }
+        published_date: { type: [string, 'null'], format: date, description: 'Ngày đăng dạng `YYYY-MM-DD`. `null` khi nguồn không có ngày (khoảng một nửa số bài).', example: null }
+        read_minutes: { type: integer, description: Số phút đọc ước tính., example: 14 }
+        summary: { type: string, description: Đoạn tóm tắt. }
+        tags: { type: array, items: { type: string }, description: Nhãn. Mảng rỗng khi không có., example: [thiền, vipassana] }
+        image_url: { type: [string, 'null'], description: 'URL ảnh bìa (hotlink tới trang nguồn, không do appService host nên có thể tải lỗi). `null` khi chưa có ảnh (hiện cả 60 bài đều có).', example: https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp }
+        thumbnail_url: { type: [string, 'null'], description: 'URL ảnh nhỏ (WebP vuông 360x360, khoảng 15 KB) cho thẻ trong danh sách, do appService host tại `GET /static/images/articles/thumb/{id}.webp` (cùng cách với ảnh chùa và Phật/Bồ tát). `null` khi chưa có (hiện cả 60 bài đều có). Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về. Nếu null, dùng `image_url`.', example: http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp }
+    ArticleDetail:
+      description: ArticleSummary cộng nội dung và thông tin nguồn.
+      allOf:
+        - $ref: '#/components/schemas/ArticleSummary'
+        - type: object
+          required: [body_paragraphs, quote, quote_source, language, source_name, source_url, license]
+          properties:
+            body_paragraphs: { type: array, items: { type: string }, description: Các đoạn nội dung bài. Mảng rỗng khi không có. }
+            quote: { type: string, description: Câu trích nổi bật. }
+            quote_source: { type: string, description: Người hoặc nguồn của câu trích. }
+            language: { type: string, description: 'Ngôn ngữ bài viết, hiện là `vi` hoặc `en`.', example: vi }
+            source_name: { type: string, description: Tên nguồn bài gốc., example: Báo Giác Ngộ }
+            source_url: { type: string, description: Đường dẫn tới bài gốc. }
+            license: { type: string, description: 'Giấy phép ghi trong dữ liệu nguồn, hiện là `all-rights-reserved-summarized`.', example: all-rights-reserved-summarized }
+    ArticleTopEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items]
+          properties:
+            items:
+              type: array
+              description: Tối đa 5 bài.
+              items: { $ref: '#/components/schemas/ArticleSummary' }
+    ArticleListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items:
+              type: array
+              description: Các bài trong trang này. Rỗng khi `page` vượt quá `total_pages`.
+              items: { $ref: '#/components/schemas/ArticleSummary' }
+            page: { type: integer, description: Trang hiện tại (từ 1)., example: 1 }
+            page_size: { type: integer, description: Số mục mỗi trang., example: 10 }
+            total: { type: integer, description: Tổng số bài., example: 60 }
+            total_pages: { type: integer, description: Tổng số trang., example: 6 }
+    ArticleDetailEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/ArticleDetail' }
+    MemorialRequest:
+      type: object
+      description: Body của `POST` và `PUT /v1/memorials`. Xem bảng field ở mô tả endpoint.
+      additionalProperties: false
+      required: [full_name, relationship, death_calendar]
+      properties:
+        full_name: { type: string, maxLength: 100, example: Nguyễn Văn A }
+        relationship: { $ref: '#/components/schemas/MemorialRelationship' }
+        death_calendar: { type: string, enum: [solar, lunar], description: Lịch người dùng đã nhập., example: lunar }
+        death_date: { type: [string, 'null'], format: date, description: 'Ngày mất dương lịch `YYYY-MM-DD` khi biết năm. Không gửi cùng `death_day`/`death_month`/`death_leap_month`.', example: '2015-03-04' }
+        death_day: { type: [integer, 'null'], minimum: 1, maximum: 31, description: 'Ngày mất khi không biết năm, theo `death_calendar`.' }
+        death_month: { type: [integer, 'null'], minimum: 1, maximum: 12, description: 'Tháng mất khi không biết năm, theo `death_calendar`.' }
+        death_leap_month: { type: [boolean, 'null'], description: 'Tháng nhuận (chỉ `lunar`), khi không biết năm. Mặc định `false`.' }
+        note: { type: [string, 'null'], maxLength: 1000, example: Nhớ ơn cha }
+        reminder: { oneOf: [{ $ref: '#/components/schemas/MemorialReminder' }, { type: 'null' }] }
+        add_to_os_reminder: { type: boolean, default: false, description: 'Ý định ghi vào Reminders của máy; chỉ `true` khi có `reminder`.' }
+    MemorialRelationship:
+      type: string
+      enum: [GRANDFATHER_PATERNAL, GRANDFATHER_MATERNAL, GRANDMOTHER_PATERNAL, GRANDMOTHER_MATERNAL, FATHER, MOTHER, SPOUSE, SIBLING, CHILD, OTHER]
+      description: Ông nội, ông ngoại, bà nội, bà ngoại, cha, mẹ, vợ/chồng, anh chị em, con, khác.
+    MemorialReminder:
+      type: object
+      description: Cài đặt nhắc. App tự đặt thông báo local; server không gửi thông báo.
+      additionalProperties: false
+      required: [days_before, time]
+      properties:
+        days_before: { type: integer, minimum: 0, maximum: 30, description: Nhắc trước bao nhiêu ngày so với ngày giỗ., example: 3 }
+        time: { type: string, pattern: '^([01][0-9]|2[0-3]):[0-5][0-9]$', description: Giờ nhắc `HH:mm` 24 giờ., example: '07:30' }
+        timezone: { type: string, description: Tên múi giờ IANA. Request không gửi thì mặc định `Asia/Ho_Chi_Minh`; response luôn có., example: Asia/Ho_Chi_Minh }
+    Memorial:
+      type: object
+      description: Một người trong sổ giỗ.
+      required: [id, full_name, relationship, death_date, death_calendar, death_day, death_month, death_leap_month, note, photo_url, reminder, add_to_os_reminder, created_at, updated_at]
+      properties:
+        id: { type: integer, example: 12 }
+        full_name: { type: string, example: Nguyễn Văn A }
+        relationship: { $ref: '#/components/schemas/MemorialRelationship' }
+        death_date: { type: [string, 'null'], format: date, description: 'Ngày mất **dương lịch** khi đã biết năm; `null` khi không biết năm (khi đó dùng `death_day`/`death_month`/`death_leap_month`).', example: '2015-03-04' }
+        death_calendar: { type: string, enum: [solar, lunar], description: 'Lịch người dùng đã nhập; app dùng để hiển thị lại đúng cách đã nhập (đổi dương sang âm khi cần).' }
+        death_day: { type: [integer, 'null'], description: 'Có giá trị chỉ khi không biết năm.' }
+        death_month: { type: [integer, 'null'], description: 'Có giá trị chỉ khi không biết năm.' }
+        death_leap_month: { type: [boolean, 'null'], description: 'Có giá trị chỉ khi không biết năm.' }
+        note: { type: [string, 'null'] }
+        photo_url: { type: [string, 'null'], description: '**Luôn `null`** cho tới khi làm tính năng ảnh (đang hoãn). Về sau là signed URL sống 15 phút.', example: null }
+        reminder: { oneOf: [{ $ref: '#/components/schemas/MemorialReminder' }, { type: 'null' }] }
+        add_to_os_reminder: { type: boolean, description: 'Ý định của người dùng, không phải trạng thái thật trên máy nào.' }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+    MemorialEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/Memorial' }
+    MemorialListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, total]
+          properties:
+            items:
+              type: array
+              description: Mục của người dùng, mới thêm trước. `[]` khi chưa có.
+              items: { $ref: '#/components/schemas/Memorial' }
+            total: { type: integer, description: Số mục (= độ dài `items`; tối đa 100)., example: 2 }
+    DharmaTalkSummary:
+      type: object
+      description: Thẻ một pháp thoại trong danh sách. Là phần đầu của DharmaTalkDetail.
+      required: [id, title, speaker, speaker_initials, category, season, published_date, duration_minutes, summary, tags, media_type]
+      properties:
+        id: { type: string, description: 'ID ổn định (slug), dùng cho `GET /v1/dharma-talks/{id}`.', example: vi-du-phap-thoai }
+        title: { type: string, description: Tiêu đề. }
+        speaker: { type: string, description: Giảng sư., example: Thích A }
+        speaker_initials: { type: string, description: Chữ cái viết tắt của giảng sư, dùng cho ảnh đại diện., example: TA }
+        category: { type: string, description: Chủ đề., example: Đời sống }
+        season: { type: [string, 'null'], description: 'Dịp trong năm (vd. Vu Lan). `null` khi không gắn dịp (hiện là `null` ở mọi bài).', example: null }
+        published_date: { type: [string, 'null'], format: date, description: 'Ngày dạng `YYYY-MM-DD`. `null` khi chưa biết. Với bài YouTube thường là ngày upload, không phải ngày giảng.', example: '2024-08-27' }
+        duration_minutes: { type: [integer, 'null'], minimum: 1, description: Thời lượng tính bằng phút. `null` khi chưa biết., example: 46 }
+        summary: { type: string, description: Đoạn tóm tắt. }
+        tags: { type: array, items: { type: string }, description: Nhãn. Mảng rỗng khi không có. }
+        media_type: { type: string, enum: [youtube, audio, text], description: 'Cách tiếp nhận bài: nhúng video YouTube, phát âm thanh hoặc chỉ đọc.', example: youtube }
+    DharmaTalkChapter:
+      type: object
+      required: [start_seconds, title]
+      properties:
+        start_seconds: { type: integer, minimum: 0, description: Mốc bắt đầu của phần, tính bằng giây., example: 680 }
+        title: { type: string, example: Câu chuyện Mục Kiền Liên }
+    DharmaTalkFollowUpMeditation:
+      type: object
+      required: [title, minutes, meditation_id]
+      properties:
+        title: { type: string, example: Quán niệm ân cha mẹ }
+        minutes: { type: integer, example: 10 }
+        meditation_id: { type: [string, 'null'], description: ID bài thiền liên kết. `null` khi chưa liên kết., example: null }
+    DharmaTalkDetail:
+      description: DharmaTalkSummary cộng nội dung, phương tiện, các phần và thông tin nguồn.
+      allOf:
+        - $ref: '#/components/schemas/DharmaTalkSummary'
+        - type: object
+          required: [key_points, quote, quote_source, language, youtube_id, audio_url, chapters, follow_up_meditation, source_name, source_url, license]
+          properties:
+            key_points: { type: array, items: { type: string }, description: Ý chính. Mảng rỗng khi không có. }
+            quote: { type: string, description: Câu trích ngắn. }
+            quote_source: { type: string, description: Nguồn của câu trích. }
+            language: { type: string, description: 'Ngôn ngữ, hiện là `vi`.', example: vi }
+            youtube_id: { type: [string, 'null'], description: 'Mã video YouTube 11 ký tự; chỉ có khi `media_type = youtube`.', example: sudE6IR71FU }
+            audio_url: { type: [string, 'null'], description: 'URL file âm thanh; chỉ có khi `media_type = audio`.', example: null }
+            chapters:
+              type: array
+              description: Các phần theo `start_seconds` tăng dần. Mảng rỗng khi không có; luôn rỗng với `media_type = text`.
+              items: { $ref: '#/components/schemas/DharmaTalkChapter' }
+            follow_up_meditation:
+              description: Thẻ ngồi thiền sau khi nghe. `null` khi không có.
+              oneOf:
+                - { $ref: '#/components/schemas/DharmaTalkFollowUpMeditation' }
+                - { type: 'null' }
+            source_name: { type: string, description: Tên nguồn., example: niemphat.vn }
+            source_url: { type: string, description: Đường dẫn tới nguồn. }
+            license: { type: string, description: 'Giấy phép ghi trong dữ liệu nguồn; phần lớn là `unknown`.', example: unknown }
+    DharmaTalkListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items:
+              type: array
+              description: Các bài trong trang này. Rỗng khi `page` vượt quá `total_pages`.
+              items: { $ref: '#/components/schemas/DharmaTalkSummary' }
+            page: { type: integer, example: 1 }
+            page_size: { type: integer, example: 10 }
+            total: { type: integer, description: Tổng số bài được hiển thị., example: 36 }
+            total_pages: { type: integer, example: 4 }
+    DharmaTalkDetailEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/DharmaTalkDetail' }
+    SutraPurpose:
+      type: string
+      description: 'Mục đích tụng đọc: `CAU_AN` cầu an, `CAU_SIEU` cầu siêu, `TRI_CHU` trì chú, `SAM_HOI` sám hối, `HOI_HUONG` hồi hướng, `PHAT_NGUYEN` phát nguyện, `BAO_HIEU` báo hiếu, `THIEN_DINH` thiền định, `HOC_GIAO_LY` học giáo lý, `QUY_Y_THO_GIOI` quy y thọ giới. Nhãn tiếng Việt do client tự ánh xạ.'
+      enum: [CAU_AN, CAU_SIEU, TRI_CHU, SAM_HOI, HOI_HUONG, PHAT_NGUYEN, BAO_HIEU, THIEN_DINH, HOC_GIAO_LY, QUY_Y_THO_GIOI]
+    SutraDeity:
+      type: object
+      description: Một vị Phật/Bồ tát gắn với văn bản, kèm tên và ảnh để hiển thị mà không cần gọi thêm.
+      required: [deity_id, role, name_vi, thumbnail_url]
+      properties:
+        deity_id: { type: string, description: 'ID trong `GET /v1/deities`.', example: bodhisattva_avalokiteshvara }
+        role: { type: string, enum: [SPEAKER, SUBJECT, MENTIONED], description: 'Vai trong văn bản: `SPEAKER` thuyết kinh, `SUBJECT` văn bản nói về vị này, `MENTIONED` chỉ được nhắc đến.' }
+        name_vi: { type: string, example: Quán Thế Âm Bồ Tát }
+        thumbnail_url: { type: string, description: Ảnh nhỏ. Có thể rỗng. }
+    SutraTranslationSummary:
+      type: object
+      description: Một bản dịch (một văn bản trong một ngôn ngữ) như danh mục hiển thị, đủ để chọn bản; chưa có nguồn.
+      required: [key, lang, variant, translator, license, line_count]
+      properties:
+        key: { type: string, description: 'Duy nhất trong văn bản; là giá trị của `translation` ở `GET /v1/sutras/{id}/lines`.', example: vi-chant }
+        lang: { type: string, description: 'Mã ngôn ngữ: `vi`, `pli`, `en`, `zh`, `sa`, `bo`.', example: vi }
+        variant: { type: string, enum: [translation, chant, meaning, poem], description: '`chant` là âm Hán-Việt hoặc phiên âm để tụng, `meaning` là dịch nghĩa, `poem` là bản thơ, `translation` là bản dịch thông thường.' }
+        translator: { type: string, description: Dịch giả hoặc người phụ trách bản này. }
+        license: { type: string, enum: [CC0-1.0, CC-BY-NC-4.0, PUBLIC_DOMAIN, COPY_ALLOWED, UNKNOWN], description: 'Mã giấy phép. `CC0-1.0`, `CC-BY-NC-4.0` (chỉ phi thương mại), `PUBLIC_DOMAIN`, `COPY_ALLOWED` (trang nguồn ghi được sao chép tự do, không phải giấy phép chuẩn), `UNKNOWN` (nguồn không nêu giấy phép). Chỉ để mô tả: không có mã nào làm ẩn văn bản. URL và câu giải thích nằm ở `license_url`, `license_note` của chi tiết; nhãn tiếng Việt do client tự ánh xạ.', example: UNKNOWN }
+        line_count: { type: integer, description: Tổng số dòng của bản này., example: 73 }
+    SutraSummary:
+      type: object
+      description: Một văn bản trong danh mục (kinh, kệ hoặc chú), không có nội dung dòng.
+      required: [id, tradition, kind, collection, reference, titles, daily_chant, purposes, duration_minutes, audio_url, summary, deities, translations]
+      properties:
+        id: { type: string, description: 'ID ổn định (slug), dùng cho `GET /v1/sutras/{id}`.', example: tam-kinh }
+        tradition: { type: string, enum: [THERAVADA, MAHAYANA, VAJRAYANA], description: 'Nam Tông, Bắc Tông, Kim Cang Thừa.' }
+        kind: { type: string, enum: [SUTRA, VERSE, DHARANI], description: 'Kinh (văn xuôi), kệ, chú (đọc theo âm).' }
+        collection: { type: string, description: Bộ hoặc nhóm kinh., example: Bát Nhã }
+        reference: { type: string, description: 'Chỉ **mã trích dẫn** (vd. `SN 56.11`, `Taishō T0450`). `""` khi nguồn không có. Tên Hán, tác giả, người dịch Hán, năm và ghi chú nằm ở các trường riêng của `SutraDetail`.', example: Taishō T0251 }
+        summary: { type: string, description: 'Tóm tắt ngắn bằng tiếng Việt (2–4 câu) về bài kinh. `""` khi chưa có. **Do AI soạn, chưa được người am hiểu duyệt.** Có ở danh sách, danh sách theo vị Phật/Bồ tát và chi tiết.', example: Kinh ngắn thuộc Tịnh Độ, do Đức Phật thuyết không cần ai thỉnh. }
+        titles:
+          type: object
+          description: Tiêu đề theo ngôn ngữ. Luôn có `vi`.
+          required: [vi]
+          additionalProperties: { type: string }
+          example: { vi: Bát Nhã Ba La Mật Đa Tâm Kinh, en: Heart Sutra }
+        daily_chant: { type: boolean, description: Có thuộc kinh nhật tụng hay không., example: true }
+        purposes:
+          type: array
+          description: Mục đích tụng đọc. `[]` khi không có mục đích phù hợp.
+          items: { $ref: '#/components/schemas/SutraPurpose' }
+        duration_minutes: { type: [integer, 'null'], minimum: 1, description: 'Thời lượng **ước tính** để đọc hoặc tụng hết văn bản, tính bằng phút; là con số ước lượng, không phải số đo. Hiện mọi văn bản đều có giá trị; với văn bản không có bản tiếng Việt, đó là ước tính theo số dòng (khoảng 4 dòng mỗi phút). Schema vẫn cho phép `null` (chưa ước tính) để client xử lý phòng hờ.', example: 4 }
+        audio_url: { type: string, description: 'URL bản ghi âm của văn bản. `""` (chuỗi rỗng, không bao giờ `null`, không bao giờ vắng) khi chưa có audio; client coi `""` là không có audio. Hiện chưa văn bản nào có audio.', example: '' }
+        deities:
+          type: array
+          description: Phật/Bồ tát gắn với văn bản, theo thứ tự `SUBJECT`, `SPEAKER`, `MENTIONED`. `[]` khi không có.
+          items: { $ref: '#/components/schemas/SutraDeity' }
+        translations:
+          type: array
+          description: Các bản dịch, theo thứ tự trong dữ liệu.
+          items: { $ref: '#/components/schemas/SutraTranslationSummary' }
+    SutraSection:
+      type: object
+      description: 'Một phẩm hoặc chương: một đoạn dòng liên tiếp cùng tên.'
+      required: [name, start_n, line_count]
+      properties:
+        name: { type: string, example: 'Phẩm 1: Tựa' }
+        start_n: { type: integer, description: Số `n` của dòng đầu tiên của phẩm., example: 1 }
+        line_count: { type: integer, description: Số dòng của phẩm., example: 120 }
+    SutraTranslationDetail:
+      description: SutraTranslationSummary cộng nguồn và mục lục.
+      allOf:
+        - $ref: '#/components/schemas/SutraTranslationSummary'
+        - type: object
+          required: [source_name, source_url, license_url, license_note, note, sections]
+          properties:
+            source_name: { type: string, description: Tên nguồn. }
+            source_url: { type: string, description: Đường dẫn tới nguồn. }
+            license_url: { type: string, description: 'URL giấy phép khi nguồn cho (hiện chỉ các bản CC0). `""` khi không có.' }
+            license_note: { type: string, description: 'Câu giải thích **nguyên văn của nguồn** về giấy phép. `""` khi không có.' }
+            note: { type: string, description: 'Ghi chú về bản dịch. `""` khi không có.' }
+            sections:
+              type: array
+              description: Mục lục theo thứ tự trong bản. `[]` khi bản không chia phẩm.
+              items: { $ref: '#/components/schemas/SutraSection' }
+    SutraDetail:
+      description: SutraSummary cộng trạng thái duyệt, thông tin trích dẫn tách riêng, tóm tắt, và mỗi bản dịch có thêm nguồn, giấy phép và mục lục.
+      allOf:
+        - $ref: '#/components/schemas/SutraSummary'
+        - type: object
+          required: [review_status, original_title, author, han_translator, han_translation_year, reference_note, translations]
+          properties:
+            review_status: { type: string, description: '`UNREVIEWED`: nội dung chưa được người am hiểu duyệt.', example: UNREVIEWED }
+            original_title: { type: string, description: 'Tên Hán-Việt / tên gốc đầy đủ của văn bản; với bài chú là tên kinh gốc mà chú được trích ra. `""` khi không có. Chỉ có ở chi tiết.', example: Phật Thuyết Thập Thiện Nghiệp Đạo Kinh }
+            author: { type: string, description: 'Tác giả (người soạn, không phải người dịch). `""` khi không có.', example: Tăng Xán }
+            han_translator: { type: string, description: 'Người dịch sang chữ Hán. `""` khi không có.', example: Cưu Ma La Thập }
+            han_translation_year: { type: [integer, 'null'], minimum: 1, description: 'Năm (Công nguyên) của bản dịch Hán; `null` khi không rõ.', example: 402 }
+            reference_note: { type: string, description: 'Phần còn lại của ghi chú nguồn không thuộc trường nào khác (vd. `Bản Đôn Hoàng`). `""` khi không có.' }
+            translations:
+              type: array
+              items: { $ref: '#/components/schemas/SutraTranslationDetail' }
+    SutraByDeityItem:
+      description: SutraSummary cộng vai của vị Phật/Bồ tát đang tra.
+      allOf:
+        - $ref: '#/components/schemas/SutraSummary'
+        - type: object
+          required: [role]
+          properties:
+            role: { type: string, enum: [SPEAKER, SUBJECT, MENTIONED], description: Vai của vị được hỏi trong văn bản này. }
+    SutraLine:
+      type: object
+      required: [n, text, section]
+      properties:
+        n: { type: integer, minimum: 1, description: Số thứ tự dòng, từ 1 và liên tục trong một bản dịch., example: 1 }
+        text: { type: string, description: Nội dung dòng, đúng như đã lưu. }
+        section: { type: [string, 'null'], description: Tên phẩm; `null` khi dòng không thuộc phẩm nào. }
+    SutraListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items:
+              type: array
+              description: Các văn bản trong trang này. Rỗng khi `page` vượt quá `total_pages`.
+              items: { $ref: '#/components/schemas/SutraSummary' }
+            page: { type: integer, description: Trang hiện tại (từ 1)., example: 1 }
+            page_size: { type: integer, description: Số mục mỗi trang., example: 20 }
+            total: { type: integer, description: Tổng số văn bản khớp bộ lọc., example: 153 }
+            total_pages: { type: integer, description: Tổng số trang., example: 8 }
+    SutraDetailEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/SutraDetail' }
+    SutraLinesEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [translation, items, page, page_size, total, total_pages]
+          properties:
+            translation: { type: string, description: '`key` của bản dịch.', example: vi-translation }
+            items:
+              type: array
+              description: Các dòng trong trang này. Rỗng khi `page` vượt quá `total_pages`.
+              items: { $ref: '#/components/schemas/SutraLine' }
+            page: { type: integer, description: Trang hiện tại (từ 1)., example: 1 }
+            page_size: { type: integer, description: Số dòng mỗi trang thực tế (đã kẹp nếu vượt mức tối đa)., example: 200 }
+            total: { type: integer, description: Tổng số dòng của bản dịch., example: 73 }
+            total_pages: { type: integer, description: Tổng số trang ứng với `page_size`., example: 1 }
+    SutraByDeityListEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items:
+              type: array
+              items: { $ref: '#/components/schemas/SutraByDeityItem' }
+            page: { type: integer, example: 1 }
+            page_size: { type: integer, example: 20 }
+            total: { type: integer, description: Tổng số văn bản liên quan (theo `role` nếu có)., example: 17 }
+            total_pages: { type: integer, example: 1 }
+    Admin:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        email: { type: string, example: admin@example.com }
+        name: { type: string, example: Administrator }
+        role: { type: string, enum: [admin, content_editor, viewer] }
+    AdminLoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string }
+        password: { type: string }
+    AdminLoginResult:
+      type: object
+      properties:
+        access_token: { type: string }
+        admin: { $ref: '#/components/schemas/Admin' }
+        must_change_password: { type: boolean }
+    ChangePasswordRequest:
+      type: object
+      required: [current_password, new_password]
+      properties:
+        current_password: { type: string }
+        new_password: { type: string, minLength: 12 }
+    AdminMe:
+      type: object
+      properties:
+        user_id: { type: string }
+        email: { type: string }
+        role: { type: string }
+    CreateAccountRequest:
+      type: object
+      required: [email, name, role]
+      properties:
+        email: { type: string }
+        name: { type: string }
+        role: { type: string, enum: [admin, content_editor, viewer] }
+    CreateAccountResult:
+      type: object
+      properties:
+        admin: { $ref: '#/components/schemas/Admin' }
+        must_change_password: { type: boolean, const: true }
+    AdminLoginEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/AdminLoginResult' }
+    AdminMeEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/AdminMe' }
+    CreateAccountEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/CreateAccountResult' }

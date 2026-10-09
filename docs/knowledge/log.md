@@ -1,5 +1,96 @@
 # Knowledge Bundle Update Log
 
+## 2026-10-06
+
+- Updated `features/article.md` (still `status: draft`).
+  - Image data: all 60 seed articles now have an `imageURL` (38 `og:image`, 15 in-page images, 7 Wikimedia Commons illustrations, assumption A-001). Replaced the "38 of 60 / 22 null" statements; noted that already-seeded rows need `seedarticles -fill-images`.
+  - Did not re-run the DB seed or any Postgres-backed tests.
+
+## 2026-10-03 (2)
+
+- Updated `features/sutra.md` (still `status: draft`).
+  - Re-checked against the code and spec: `cmd/main.go` wiring and the four routes, the tasks list (Phase 1–5 done) and the data (153 files, 10 with `durationMinutes: null`). Spec version reference moved from v2.8 to v2.10.
+  - `duration_minutes`: the owner chose to keep the generated values, so the Phase 0 hand-review is no longer pending work; the concept now states them as an editorial estimate and keeps the Dược Sư / very-long-text skew as a known limit (TD-007, A-005).
+  - Did not re-run `go build` / `go test`; `status` stays `draft` because the content is unreviewed, `assets/` and `openapi.yaml` are not under git and licences are open.
+- `index.md`: refreshed the sutra row.
+
+## 2026-10-03
+
+- Added `features/sutra.md` (`type: Feature`, `status: draft`).
+  - Read the slice against the code: `migrations/0013_sutras.sql`, `domain/sutra.go`,
+    `usecase/sutra_usecase.go`, `repository/postgres_sutra_repository.go` and `sutra_seed.go`,
+    `delivery/http/sutra_handler.go` and `errors.go`, the `sutra:` config block, the wiring and
+    `sutraSeedTimeout` in `cmd/main.go`, `cmd/seedsutras` and `assets/embed.go`.
+  - Facts come from the spec v2.8 audit (`test-coverage-report.md`): `e2e/sutra_e2e_test.go` runs the real
+    binary on Postgres (4 routes, first-run seed, second start, missing deities, invalid config) and every
+    E2E test was shown able to fail by deliberate mutation. Counts (153 / 391 / 64,009 / 151) match the E2E
+    check of `index.json`.
+  - Marked `draft`: the code is exercised end to end, but the religious content is unreviewed, the dataset and
+    OpenAPI file are not under version control, and licences are open. Debt is in `docs/tech-debt/sutra/`
+    (TD-001…TD-010) and assumptions in `docs/assumptions/sutra/` (A-001…A-008).
+- `index.md`: added the sutra row.
+
+## 2026-09-30 (3)
+
+- Updated `features/deity.md` for the paged list change: `GET /v1/bodhisattvas` (bodhisattvas only) was
+  replaced by `GET /v1/deities?page=N`, which lists Buddhas and bodhisattvas together with no type filter.
+  - Re-read the code: `delivery/http/deity_handler.go` (`ListDeities`), `usecase/deity_usecase.go`
+    (`ListDeities`), `domain/deity.go` and `repository/postgres_deity_repository.go` (`ListByType` →
+    `List`, count and page without `WHERE type`), and the route in `cmd/main.go`.
+  - Ran `go build ./...`, `go vet ./services/appService/...` and `go test -short ./services/appService/...`: pass.
+    Did **not** call the route on a running server, and the Postgres-backed repository tests are skipped
+    under `-short`, so the concept stays `draft`.
+  - Removed the "no Buddha list route" pending item; added the note that the old route is gone with no alias
+    (breaking for iOS) and that `idx_deities_type_order` is no longer used by any query.
+- `index.md`: refreshed the deity row.
+
+## 2026-09-30 (2)
+
+- Added `features/temple.md` and `features/deity.md` (`type: Feature`, `status: draft` both) and
+  re-read `features/article.md` against the code.
+  - Read each slice against the code: migrations (`0005`, `0011`, `0007`), `domain/{temple,deity}.go`,
+    the usecases, the Postgres repositories, the handlers, `delivery/http/errors.go`, the
+    `temple:`/`deity:` config blocks, the route wiring in `cmd/main.go` and the `seedtemples` /
+    `seeddeities` commands.
+  - Called the routes on the running dev server: temples `top`, `page=10` (empty page, `total: 179`),
+    `page=0` (`400 INVALID_PAGE`), detail and unknown id (`404 TEMPLE_NOT_FOUND`); deities `top`,
+    bodhisattvas page 1 and `page=abc`, unknown id (`404 DEITY_NOT_FOUND`). Counts checked against the
+    data files and the dev DB: 179 temples, 18 deities (6 `BUDDHA`, 12 `BODHISATTVA`), 60 articles.
+  - Ran `go test -short` for `usecase`, `delivery/http`, `repository`, `cmd/seedtemples` and
+    `cmd/seeddeities`: all pass (cached results; the repository DB tests are skipped under `-short`).
+  - Found and recorded: no temple has an image; every deity `image_url` is a `cdn.yourapp.com`
+    placeholder and every `thumbnail_url` a relative path nothing serves; there is no Buddha list
+    route; temples and deities are seeded only by a manual command on dev config, not at startup.
+  - Marked both `draft`: no E2E test exists for either catalogue, and the seeding path is dev-only.
+- Corrected `features/article.md`, which was stale in three places: it said there was no reseed
+  command (`cmd/seedarticles` exists, with `InsertMissing` and `-fill-images` → `FillMissingImages`),
+  and it said `openapi.yaml` and `erd.mmd` lack the article routes/table (both now list them).
+  Status stays `draft`.
+- `index.md`: added the two new rows and refreshed the article row.
+
+## 2026-09-30
+
+- Updated `features/article.md` for the article images: `image_url` is now set for 38 of 60 articles
+  (source page `og:image`, hotlinked) and the seed file holds 60 articles, not 30. Counts checked against
+  `assets/data/buddhist_articles.json` and the dev DB (`count(*)=60`, `count(image_url)=38`). Status stays `draft`.
+
+- Documented the article catalogue and added `features/article.md` (`type: Feature`, `status: draft`),
+  written from the spec `docs/specs/features/article/` created the same day.
+  - Read the whole vertical slice against the code: `migrations/0012_articles.sql`, `assets/embed.go`,
+    `repository/article_seed.go`, `domain/article.go`, `usecase/article_usecase.go`,
+    `repository/postgres_article_repository.go`, `delivery/http/article_handler.go`,
+    `delivery/http/errors.go`, the `article:` config block and the route/seed wiring in `cmd/main.go`.
+  - Called the three routes on the running dev server (top returned 5 items, `page=4` returned an
+    empty page with `total: 30`, `page=0` returned `400 INVALID_PAGE`, an unknown id returned
+    `404 ARTICLE_NOT_FOUND`) and ran `go test -short` for `usecase`, `repository` and
+    `delivery/http`. The first-run seed itself was not observed by this author.
+  - Corrected a claim from the hand-off: `published_date` is `null` for half the articles (15 of 30
+    have a date), not most; `image_url` is `null` for all 30.
+  - Marked `draft` because no automated end-to-end test covers the routes or the seed, the API is
+    not in `openapi.yaml`, and the repository tests need Postgres (they `TRUNCATE` the dev tables)
+    and were not re-run. Pending work in the concept lists exactly what promotes it to `stable`.
+- Linked `features/article.md` in `index.md`'s concept table.
+
 ## 2026-09-25 (2)
 
 - Added `packages/attestation.md` (`type: Package`, `status: draft`) for `pkg/attestation`, the

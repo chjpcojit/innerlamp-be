@@ -1,8 +1,8 @@
 # Design — login
 
-Version: 1.10
-Last updated: 2026-09-22
-Status: implemented (2026-09-21) — domain, usecase, repository, delivery và wiring có code + test; login/refresh/logout đã chạy thật qua binary + Postgres 16 (curl, AC1–AC15). Audit AC bằng E2E tự động (testcontainers + binary thật) xong 2026-09-21 — `test-coverage-report.md`; concept OKF đã có. Phụ thuộc `jwt-token-uniqueness` và `onboarding` Phase 7 (claim `sid`) đều đã xong. Không còn marker `⚠️ Not confirmed`. (v1.10: sửa tài liệu cũ — helper `hashRefreshToken()` của repository nay là `domain.HashRefreshToken` (`domain/session_token.go`); mục rủi ro về dòng "30 ngày" ở `onboarding/requirements.md` đã hết vì onboarding v5.2 sửa dòng đó. Không đổi code/AC.)
+Version: 1.11
+Last updated: 2026-09-29
+Status: implemented (2026-09-21) — domain, usecase, repository, delivery và wiring có code + test; login/refresh/logout đã chạy thật qua binary + Postgres 16 (curl, AC1–AC15). Audit AC bằng E2E tự động (testcontainers + binary thật) xong 2026-09-21 — `test-coverage-report.md`; concept OKF đã có. Phụ thuộc `jwt-token-uniqueness` và `onboarding` Phase 7 (claim `sid`) đều đã xong. Không còn marker `⚠️ Not confirmed`. (v1.11: thêm `flow.md` — vẽ lại 3 Step-by-step Flow bằng Mermaid, còn thiếu từ trước; §Request flow ASCII thay bằng con trỏ sang `flow.md`. Không đổi code/AC.)
 Module: `identity`
 Code: `services/appService/`
 Feature folder: `services/appService/` + `docs/specs/features/login/`
@@ -98,36 +98,9 @@ Chọn `logout` bằng access token (2026-09-21) nghĩa là access token **phả
 
 ## Request flow
 
-```
-POST /v1/auth/login
-  └─ public
-       └─ LoginHandler.Login                                   (delivery/http)
-            ├─ DecodeJSONBodyStrict → loginRequest {phone_number, password, device{...}}
-            ├─ điền Device.IPAddress / UserAgent từ *http.Request
-            └─ LoginUsecase.Login(ctx, input)                  (usecase)
-                 ├─ normalize phone + validate + validate device      → 400, KHÔNG đếm thất bại
-                 ├─ LoginRepository.FindLoginAttempt                   → đang khoá ⇒ 429 LOGIN_LOCKED
-                 ├─ LoginRepository.FindUserByPhone
-                 ├─ bcrypt.CompareHashAndPassword (dummy hash nếu không có user)
-                 ├─ sai  ⇒ LoginRepository.RecordLoginFailure  ⇒ 401 INVALID_CREDENTIALS
-                 └─ đúng ⇒ LoginRepository.CreateLoginSession(ctx, ..., TokenIssuer)
-                            └─ 1 tx: upsert user_devices → revoke session cũ của device
-                                     → insert user_sessions → reset login_attempts
-
-POST /v1/auth/refresh
-  └─ public
-       └─ LoginHandler.Refresh → LoginUsecase.Refresh
-            ├─ jwtService.ValidateToken(refresh_token)             → chữ ký/hạn/loại token
-            ├─ LoginRepository.FindSessionByRefreshHash
-            └─ LoginRepository.RotateSession (1 tx, SELECT ... FOR UPDATE)
-
-POST /v1/auth/logout
-  └─ RequireAuth  (HTTPAuthMiddleware: Bearer access token, RequireTokenType="access")
-       └─ LoginHandler.Logout                                  (delivery/http)
-            ├─ jwtcontext.GetClaims → claims.UserID + claims.Extra["sid"]   (thiếu → 401)
-            └─ LoginUsecase.Logout(ctx, LogoutInput{UserID, SessionID})
-                 └─ LoginRepository.RevokeSession(userID, sessionID, 'logout')   (idempotent)
-```
+Xem `flow.md` — ba sequence diagram Mermaid (Login, Refresh, Logout) vẽ lại 1:1 ba section
+"Step-by-step Flow" ngay dưới đây. Không giữ song song một bản ASCII ở đây để tránh drift giữa hai
+bản vẽ (`references/flow_diagram.md` của skill `il-spec-writer`).
 
 ## Step-by-step Flow — Login: `POST /v1/auth/login`
 

@@ -1,6 +1,8 @@
 %% InnerLamp — ERD schema Postgres (appService)
 %% Nguồn: migrations/0001_register_onboarding.sql, 0002_login_devices_and_rate_limit.sql,
-%%        0003_otp_send_limits.sql, 0004_attestation.sql
+%%        0003_otp_send_limits.sql, 0004_attestation.sql, 0005_temples.sql, 0007_deities.sql,
+%%        0011_temple_content.sql, 0012_articles.sql, 0013_sutras.sql, 0014_dharma_talks.sql, 0016_article_thumbnail.sql, 0017_gallery_images.sql,
+%%        0018_memorials.sql, 0019_sutra_audio_search.sql, 0020_sutra_reference_license_summary.sql
 %% Quy ước: quan hệ nét liền (--) = FK có cưỡng chế; nét đứt (..) = ràng buộc logic, KHÔNG FK.
 erDiagram
     users {
@@ -92,11 +94,16 @@ erDiagram
 
     users ||--o{ user_devices : "user_id, ON DELETE CASCADE"
     users ||--o{ user_sessions : "user_id, ON DELETE CASCADE"
+    users ||--o{ memorials : "user_id, ON DELETE CASCADE"
     user_devices |o--o{ user_sessions : "device_id nullable, ON DELETE SET NULL"
     users ||..o{ otp_codes : "phone_number, khong FK"
     users ||..o| pending_registration : "phone_number UNIQUE, khong FK"
     users ||..o| login_attempts : "phone_number PK, khong FK"
     otp_send_limits ||..o{ otp_codes : "chung (phone_number, purpose)"
+    sutras ||--o{ sutra_translations : "sutra_id, ON DELETE CASCADE"
+    sutra_translations ||--o{ sutra_lines : "translation_id, ON DELETE CASCADE"
+    sutras ||--o{ sutra_deities : "sutra_id, ON DELETE CASCADE"
+    deities ||--o{ sutra_deities : "deity_id, FK khong CASCADE (deities phai duoc seed truoc)"
     users |o--o{ attestation_keys : "user_id nullable, ON DELETE SET NULL"
 
     attestation_challenges {
@@ -120,4 +127,206 @@ erDiagram
         bigint user_id FK "NULL, ON DELETE SET NULL, device-scoped"
         timestamptz created_at "NOT NULL DEFAULT now()"
         timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    %% Danh muc noi dung chi doc (temple / deity / article): bang doc lap, KHONG FK toi bang nao.
+    %% Rieng sutras (kinh, ke, chu) gom 4 bang va noi toi deities qua sutra_deities (FK that).
+
+    temples {
+        varchar(64) id PK "id on dinh tu du lieu nguon (temple_north_001), upsert theo id"
+        varchar(255) name "NOT NULL"
+        varchar(32) type "NOT NULL, CHECK (CHUA, THIEN_VIEN, DAO_TRANG, TINH_XA, THIEN_XA)"
+        varchar(16) region "NOT NULL, CHECK (north, central, south), suy ra tu id"
+        text image_url "NOT NULL DEFAULT '', API tra null khi rong"
+        text thumbnail_url "NOT NULL DEFAULT '', API tra null khi rong"
+        text[] aliases "NOT NULL DEFAULT '{}'"
+        varchar(64) sect "NOT NULL, khong CHECK"
+        varchar(255) founder "NOT NULL DEFAULT ''"
+        varchar(255) current_abbot "NOT NULL DEFAULT ''"
+        int established_year "NOT NULL"
+        varchar(64) heritage_rank "NOT NULL, CHECK (8 hang di san)"
+        smallint heritage_priority "NOT NULL, 1..8 suy ra tu heritage_rank, nho hon = noi bat hon"
+        double latitude "NOT NULL"
+        double longitude "NOT NULL"
+        text address "NOT NULL"
+        varchar(64) operating_hours "NOT NULL DEFAULT ''"
+        boolean parking_car "NOT NULL DEFAULT false"
+        boolean parking_motorcycle "NOT NULL DEFAULT false"
+        boolean vegetarian_meals "NOT NULL DEFAULT false"
+        boolean summer_retreat "NOT NULL DEFAULT false"
+        text introduction "NOT NULL DEFAULT '', migration 0011"
+        text architecture_heritage "NOT NULL DEFAULT '', migration 0011"
+        text[] visiting_notes "NOT NULL DEFAULT '{}', migration 0011"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    memorials {
+        bigint id PK "BIGSERIAL"
+        bigint user_id FK "NOT NULL, REFERENCES users(id) ON DELETE CASCADE, chu so huu; moi truy van deu loc theo user_id"
+        varchar(100) full_name "NOT NULL"
+        varchar(24) relationship "NOT NULL, CHECK (GRANDFATHER_PATERNAL, GRANDFATHER_MATERNAL, GRANDMOTHER_PATERNAL, GRANDMOTHER_MATERNAL, FATHER, MOTHER, SPOUSE, SIBLING, CHILD, OTHER)"
+        varchar(5) death_calendar "NOT NULL, CHECK (solar, lunar), lich nguoi dung da nhap"
+        date death_date "NULL, ngay mat DUONG lich khi biet nam, >= 1900-01-01"
+        smallint death_day "NULL, chi khi khong biet nam (death_date NULL), theo death_calendar"
+        smallint death_month "NULL, 1-12, nhu death_day"
+        boolean death_leap_month "NULL, thang nhuan (chi lunar), nhu death_day"
+        varchar(1000) note "NULL"
+        text photo_object_key "NULL, luon NULL cho toi khi lam anh (TD-001 memorial)"
+        smallint reminder_days_before "NULL, 0-30; 3 cot reminder_* cung NULL hoac cung co gia tri"
+        time reminder_time "NULL, HH:mm"
+        varchar(64) reminder_timezone "NULL, IANA"
+        boolean add_to_os_reminder "NOT NULL DEFAULT false, chi true khi co reminder; la y dinh, khong phai trang thai may"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    gallery_images {
+        varchar(64) id PK "id on dinh tu du lieu nguon (gallery_001), upsert theo id"
+        varchar(16) type "NOT NULL, CHECK (CHUA, TUONG_PHAT, THIEN, LE_HOI)"
+        int sort_order "NOT NULL, seeder xen ke 4 loai; top va phan trang theo (sort_order, id)"
+        varchar(255) title "NOT NULL"
+        varchar(255) location "NOT NULL DEFAULT ''"
+        text thumbnail_url "NOT NULL, URL anh nho (dev: LAN IP, file system)"
+        text image_url "NOT NULL, URL anh lon (dev: LAN IP, file system)"
+        varchar(255) author "NOT NULL DEFAULT '', ghi cong CC"
+        varchar(64) license "NOT NULL DEFAULT ''"
+        text source_url "NOT NULL DEFAULT ''"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    deities {
+        varchar(64) id PK "id on dinh tu du lieu nguon (buddha_amitabha), upsert theo id"
+        varchar(16) type "NOT NULL, CHECK (BUDDHA, BODHISATTVA)"
+        int sort_order "NOT NULL, vi tri trong file nguon = xep hang duy nhat"
+        varchar(255) name_vi "NOT NULL"
+        varchar(255) name_sanskrit "NOT NULL DEFAULT ''"
+        varchar(255) name_chinese "NOT NULL DEFAULT ''"
+        varchar(255) title_honorific "NOT NULL DEFAULT ''"
+        text thumbnail_url "NOT NULL DEFAULT '', du lieu hien la duong dan tuong doi"
+        text image_url "NOT NULL DEFAULT '', du lieu hien la host giu cho"
+        text canonical_source "NOT NULL DEFAULT ''"
+        text core_virtue "NOT NULL DEFAULT ''"
+        text pure_land "NOT NULL DEFAULT ''"
+        jsonb lunar_memorial_days "NOT NULL DEFAULT '[]', [{lunar_day, lunar_month, event_name}]"
+        text iconography_posture "NOT NULL DEFAULT ''"
+        text iconography_mount_or_throne "NOT NULL DEFAULT ''"
+        text[] sacred_artifacts "NOT NULL DEFAULT '{}'"
+        text symbolic_meaning "NOT NULL DEFAULT ''"
+        text biography_summary "NOT NULL DEFAULT ''"
+        text[] great_vows "NOT NULL DEFAULT '{}'"
+        text short_mantra_sanskrit "NOT NULL DEFAULT ''"
+        text short_mantra_sino_vietnamese "NOT NULL DEFAULT ''"
+        text long_dharani_name "NOT NULL DEFAULT ''"
+        text dharani_phonetic_snippet "NOT NULL DEFAULT ''"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    articles {
+        varchar(128) id PK "slug on dinh tu du lieu nguon, seed 1 lan khi bang rong"
+        int sort_order "NOT NULL, vi tri trong file nguon = thu tu bien tap"
+        text title "NOT NULL"
+        varchar(128) category "NOT NULL DEFAULT ''"
+        varchar(255) author "NOT NULL DEFAULT ''"
+        varchar(8) author_initials "NOT NULL DEFAULT ''"
+        date published_date "NULL, API tra null"
+        int read_minutes "NOT NULL DEFAULT 0"
+        text summary "NOT NULL DEFAULT ''"
+        text[] body_paragraphs "NOT NULL DEFAULT '{}'"
+        text quote "NOT NULL DEFAULT ''"
+        text quote_source "NOT NULL DEFAULT ''"
+        text[] tags "NOT NULL DEFAULT '{}'"
+        varchar(8) language "NOT NULL DEFAULT 'vi'"
+        text image_url "NULL, hotlink og:image, API tra null"
+        text thumbnail_url "NULL, anh nho do app phuc vu, API tra null"
+        text source_name "NOT NULL DEFAULT ''"
+        text source_url "NOT NULL DEFAULT ''"
+        varchar(64) license "NOT NULL DEFAULT ''"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    dharma_talks {
+        varchar(128) id PK "slug on dinh tu du lieu nguon, seed 1 lan khi bang rong"
+        int sort_order "NOT NULL, vi tri trong file nguon = thu tu bien tap"
+        text title "NOT NULL"
+        text speaker "NOT NULL"
+        varchar(8) speaker_initials "NOT NULL DEFAULT ''"
+        varchar(128) category "NOT NULL DEFAULT ''"
+        varchar(64) season "NULL, API tra null"
+        date published_date "NULL, API tra null"
+        int duration_minutes "NULL, CHECK > 0, API tra null"
+        text summary "NOT NULL DEFAULT ''"
+        text[] key_points "NOT NULL DEFAULT '{}'"
+        text quote "NOT NULL DEFAULT ''"
+        text quote_source "NOT NULL DEFAULT ''"
+        text[] tags "NOT NULL DEFAULT '{}'"
+        varchar(8) language "NOT NULL DEFAULT 'vi'"
+        varchar(16) media_type "NOT NULL CHECK youtube|audio|text"
+        varchar(16) youtube_id "NULL, chi co khi media_type=youtube (CHECK nhat quan)"
+        text audio_url "NULL, chi co khi media_type=audio (CHECK nhat quan)"
+        jsonb chapters "NOT NULL DEFAULT '[]', [{start_seconds,title}]"
+        jsonb follow_up_meditation "NULL, the ngoi thien sau khi nghe"
+        boolean needs_review "NOT NULL DEFAULT false, true = luu nhung an khoi moi route"
+        text review_note "NOT NULL DEFAULT ''"
+        text source_name "NOT NULL DEFAULT ''"
+        text source_url "NOT NULL DEFAULT ''"
+        text license "NOT NULL DEFAULT ''"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    sutras {
+        varchar(128) id PK "slug on dinh tu du lieu nguon (tam-kinh), seed 1 lan khi bang rong"
+        int sort_order "NOT NULL, vi tri trong index.json = thu tu bien tap"
+        varchar(16) tradition "NOT NULL, CHECK (THERAVADA, MAHAYANA, VAJRAYANA)"
+        varchar(16) kind "NOT NULL, CHECK (SUTRA, VERSE, DHARANI)"
+        varchar(128) collection "NOT NULL DEFAULT '', bo hoac nhom kinh"
+        text reference "NOT NULL DEFAULT '', chi ma trich dan (Taisho T0450, MN 86), v2.12 tach phan con lai ra cot rieng"
+        text original_title "NOT NULL DEFAULT '', ten Han-Viet hoac ten kinh goc, 0020"
+        text author "NOT NULL DEFAULT '', tac gia khong phai nguoi dich, 0020"
+        text han_translator "NOT NULL DEFAULT '', nguoi dich sang Han, 0020"
+        int han_translation_year "NULL = khong ro, CHECK >= 1, nam CN, 0020"
+        text reference_note "NOT NULL DEFAULT '', phan con lai cua ghi chu nguon, 0020"
+        text summary "NOT NULL DEFAULT '', tom tat tieng Viet do AI soan chua duyet, 0020"
+        jsonb titles "NOT NULL, {vi, en, ...} luon co vi"
+        boolean daily_chant "NOT NULL DEFAULT false"
+        text[] purposes "NOT NULL DEFAULT '{}', GIN idx_sutras_purposes, tap dong CAU_AN CAU_SIEU TRI_CHU ..."
+        int duration_minutes "NULL = chua uoc tinh, CHECK >= 1, uoc luong bien tap khong phai so do"
+        varchar(16) review_status "NOT NULL DEFAULT 'UNREVIEWED'"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    sutra_translations {
+        bigint id PK "BIGSERIAL, doi khi nap lai nen khong lo ra API"
+        varchar(128) sutra_id FK "NOT NULL, ON DELETE CASCADE"
+        varchar(64) key UK "NOT NULL, UNIQUE (sutra_id, key), API chon ban dich theo key"
+        int ordinal "NOT NULL, thu tu trong file"
+        varchar(8) lang "NOT NULL, vi pli en zh sa bo"
+        varchar(16) variant "NOT NULL, CHECK (translation, chant, meaning, poem)"
+        text translator "NOT NULL DEFAULT ''"
+        text source_name "NOT NULL DEFAULT ''"
+        text source_url "NOT NULL DEFAULT ''"
+        text license "NOT NULL DEFAULT '', ma CC0-1.0 CC-BY-NC-4.0 PUBLIC_DOMAIN COPY_ALLOWED UNKNOWN, parser kiem khong CHECK"
+        text license_url "NOT NULL DEFAULT '', URL nguon cho, 0020"
+        text license_note "NOT NULL DEFAULT '', cau nguyen van cua nguon, 0020"
+        text note "NOT NULL DEFAULT ''"
+        int line_count "NOT NULL, = so hang sutra_lines = n lon nhat"
+        jsonb sections "NOT NULL DEFAULT '[]', [{name, start_n, line_count}] tinh san luc seed"
+    }
+
+    sutra_lines {
+        bigint translation_id PK,FK "sutra_translations.id, ON DELETE CASCADE"
+        int n PK "1..line_count lien tuc trong mot ban dich, PK (translation_id, n) phuc vu phan trang"
+        text text "NOT NULL"
+        text section "NULL = dong khong thuoc pham nao"
+    }
+
+    sutra_deities {
+        varchar(128) sutra_id PK,FK "sutras.id, ON DELETE CASCADE"
+        varchar(64) deity_id PK,FK "deities.id, idx_sutra_deities_deity (deity_id, role)"
+        varchar(16) role "NOT NULL, CHECK (SPEAKER, SUBJECT, MENTIONED)"
     }

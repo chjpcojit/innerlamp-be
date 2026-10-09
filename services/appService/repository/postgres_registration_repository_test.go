@@ -97,6 +97,17 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0002_login_devices_and_rate_limit.sql",
 		"0003_otp_send_limits.sql",
 		"0004_attestation.sql",
+		"0005_temples.sql",
+		"0007_deities.sql",
+		"0011_temple_content.sql", // temples.introduction etc.: postgres_temple_repository.go selects them
+		"0012_articles.sql",
+		"0013_sutras.sql",
+		"0014_dharma_talks.sql",
+		"0016_article_thumbnail.sql", // articles.thumbnail_url: postgres_article_repository.go selects it
+		"0017_gallery_images.sql",
+		"0018_memorials.sql",
+		"0019_sutra_audio_search.sql", // sutras.audio_url + unaccent: postgres_sutra_repository.go selects/uses them
+		"0020_sutra_reference_license_summary.sql", // sutras.summary etc.: postgres_sutra_repository.go selects/inserts them
 	} {
 		sqlBytes, err := os.ReadFile("../../../migrations/" + file)
 		require.NoError(t, err)
@@ -113,7 +124,7 @@ func truncateAll(t *testing.T, db database.Database) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
-	_, err := db.Exec(ctx, `TRUNCATE TABLE user_sessions, user_devices, login_attempts, otp_send_limits, otp_codes, pending_registration, attestation_keys, attestation_challenges, users RESTART IDENTITY CASCADE`)
+	_, err := db.Exec(ctx, `TRUNCATE TABLE user_sessions, user_devices, login_attempts, otp_send_limits, otp_codes, pending_registration, attestation_keys, attestation_challenges, temples, deities, gallery_images, articles, sutras, dharma_talks, users RESTART IDENTITY CASCADE`)
 	require.NoError(t, err)
 }
 

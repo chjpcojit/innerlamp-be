@@ -62,6 +62,9 @@ go.sum
 *.pem
 *.json
 *.yaml
+# API contract: committed, not a secret (docs/tech-debt/sutra/TD-001)
+!docs/specs/api/openapi.yaml
+!web/docs/public/openapi.yaml
 *-adminsdk-*.json
 *.sh
 *.p8

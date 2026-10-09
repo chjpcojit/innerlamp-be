@@ -61,11 +61,27 @@ type AppConfig struct {
 	SMS         SMSConfig         `yaml:"sms"`
 	Login       LoginConfig       `yaml:"login"`
 	Attestation AttestationConfig `yaml:"attestation"`
+	Temple      TempleConfig      `yaml:"temple"`
+	Deity       DeityConfig       `yaml:"deity"`
+	Gallery     GalleryConfig     `yaml:"gallery"`
+	Calendar    CalendarConfig    `yaml:"calendar"`
+	Article     ArticleConfig     `yaml:"article"`
+	Memorial    MemorialConfig    `yaml:"memorial"`
+	DharmaTalk  DharmaTalkConfig  `yaml:"dharma_talk"`
+	Sutra       SutraConfig       `yaml:"sutra"`
 }
 
 // ServerConfig holds HTTP server settings.
 type ServerConfig struct {
 	Addr string `yaml:"addr"`
+	// StaticImagesDir, when set, makes appService serve that folder at
+	// /static/images/ so image_url can point here while there is no CDN yet.
+	// Empty (the default) disables it. DEV-ONLY: production serves images from a CDN.
+	StaticImagesDir string `yaml:"static_images_dir"`
+	// PublicBaseURL is the origin root-relative image paths ("/static/images/...") are
+	// resolved against in API responses, e.g. "https://cdn.example.com". Empty = the
+	// request's own origin, so a dev machine keeps working after its IP changes.
+	PublicBaseURL string `yaml:"public_base_url"`
 }
 
 // DatabaseConfig holds Postgres connection settings. PasswordSecret names the
@@ -185,6 +201,121 @@ type LoginConfig struct {
 	// stale counter are the same boundary — but settable separately because the
 	// equality is a default, not a constraint.
 	FailureResetWindow Duration `yaml:"failure_reset_window"`
+}
+
+// TempleConfig holds the temple catalogue's page sizes. Config rather than
+// constants: the iOS list screen's page size and the home carousel length are
+// tuning knobs a deployment may change without a code release. A zero value
+// would return empty pages, so every config.<env>.yaml must set both.
+type TempleConfig struct {
+	// TopLimit is how many temples GET /v1/temples/top returns.
+	TopLimit int `yaml:"top_limit"`
+
+	// PageSize is how many temples each page of GET /v1/temples holds.
+	PageSize int `yaml:"page_size"`
+}
+
+// DeityConfig holds the Phật / Bồ tát catalogue's page sizes. Same reasoning as
+// TempleConfig: tuning knobs, and zero would return empty pages, so every
+// config.<env>.yaml must set both.
+type DeityConfig struct {
+	// TopLimit is how many deities GET /v1/deities/top returns.
+	TopLimit int `yaml:"top_limit"`
+
+	// PageSize is how many deities (Buddhas and bodhisattvas) each page of GET /v1/deities holds.
+	PageSize int `yaml:"page_size"`
+}
+
+// GalleryConfig holds the Buddhist photo gallery's sizes. Same reasoning as
+// TempleConfig: tuning knobs, and zero would return empty pages, so every
+// config.<env>.yaml must set both.
+type GalleryConfig struct {
+	// TopLimit is how many images GET /v1/gallery/top returns.
+	TopLimit int `yaml:"top_limit"`
+
+	// PageSize is how many images each page of GET /v1/gallery holds.
+	PageSize int `yaml:"page_size"`
+}
+
+// CalendarConfig holds the lunar-calendar image endpoint's settings.
+type CalendarConfig struct {
+	// Timezone is the IANA zone whose "today" GET /v1/calendar/image uses when the
+	// request carries no date. Required: an empty or unknown zone stops the service at startup.
+	Timezone string `yaml:"timezone"`
+
+	// ImageBaseURL is the absolute URL the image file names are appended to, e.g.
+	// "https://cdn.example.com/home-calendar". Empty = derive "<scheme>://<host>/static/images/home-calendar"
+	// from the request. DEV-ONLY default: production points this at a CDN.
+	ImageBaseURL string `yaml:"image_base_url"`
+}
+
+// ArticleConfig holds the Phật pháp article catalogue's sizes. Same reasoning as
+// TempleConfig: tuning knobs, and zero would return empty pages, so every
+// config.<env>.yaml must set both.
+type ArticleConfig struct {
+	// TopLimit is how many articles GET /v1/articles/top returns.
+	TopLimit int `yaml:"top_limit"`
+
+	// PageSize is how many articles each page of GET /v1/articles holds.
+	PageSize int `yaml:"page_size"`
+}
+
+// MemorialConfig holds the sổ giỗ chạp limits. Zero would mean a user can create
+// nothing, so every config.<env>.yaml must set it.
+type MemorialConfig struct {
+	// MaxPerUser is how many memorials one user may own.
+	MaxPerUser int `yaml:"max_per_user"`
+}
+
+// DharmaTalkConfig holds the pháp thoại catalogue's page size. Same reasoning as
+// ArticleConfig: a tuning knob, and zero would return empty pages (and divide by
+// zero in the page count), so every config.<env>.yaml must set it.
+type DharmaTalkConfig struct {
+	// PageSize is how many talks each page of GET /v1/dharma-talks holds.
+	PageSize int `yaml:"page_size"`
+}
+
+// Validate rejects a page size that would divide by zero in total_pages.
+func (c DharmaTalkConfig) Validate() error {
+	if c.PageSize < 1 {
+		return fmt.Errorf("dharma_talk.page_size must be >= 1, got %d", c.PageSize)
+	}
+	return nil
+}
+
+// SutraConfig holds the kinh / kệ / chú catalogue's page sizes. Same reasoning as
+// TempleConfig (tuning knobs a deployment may change without a code release), but
+// unlike the other catalogues a zero here is not a harmless empty page: the lines
+// endpoint divides by the page size, so Validate rejects anything below 1 and
+// cmd/main.go calls it right after Load.
+type SutraConfig struct {
+	// PageSize is how many sutras each page of GET /v1/sutras and
+	// GET /v1/deities/{id}/sutras holds.
+	PageSize int `yaml:"page_size"`
+
+	// LinesPageSize is the default number of lines per page of
+	// GET /v1/sutras/{id}/lines when the caller sends no page_size.
+	LinesPageSize int `yaml:"lines_page_size"`
+
+	// LinesMaxPageSize caps a caller-supplied page_size; a larger value is served
+	// at this size instead of failing.
+	LinesMaxPageSize int `yaml:"lines_max_page_size"`
+}
+
+// Validate rejects a SutraConfig that would break paging: every size must be at
+// least 1 and the default lines page cannot exceed the cap.
+func (c SutraConfig) Validate() error {
+	switch {
+	case c.PageSize < 1:
+		return fmt.Errorf("sutra.page_size must be >= 1, got %d", c.PageSize)
+	case c.LinesPageSize < 1:
+		return fmt.Errorf("sutra.lines_page_size must be >= 1, got %d", c.LinesPageSize)
+	case c.LinesMaxPageSize < 1:
+		return fmt.Errorf("sutra.lines_max_page_size must be >= 1, got %d", c.LinesMaxPageSize)
+	case c.LinesPageSize > c.LinesMaxPageSize:
+		return fmt.Errorf("sutra.lines_page_size (%d) must not exceed sutra.lines_max_page_size (%d)", c.LinesPageSize, c.LinesMaxPageSize)
+	}
+	return nil
 }
 
 // AttestationConfig holds the attestation policy and backend selection for the

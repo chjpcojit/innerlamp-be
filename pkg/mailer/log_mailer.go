@@ -26,3 +26,14 @@ func (m *LogMailer) SendPasswordResetEmail(ctx context.Context, toEmail, resetTo
 	}).Info("DEV MODE: password reset email not actually sent, logging instead")
 	return nil
 }
+
+// SendAccountInviteEmail logs the invite instead of sending it. It logs the
+// temporary password, which is why this mailer is dev-only.
+func (m *LogMailer) SendAccountInviteEmail(ctx context.Context, toEmail, name, tempPassword string) error {
+	m.logger.WithContext(ctx).WithFields(logging.Fields{
+		"to_email":      toEmail,
+		"name":          name,
+		"temp_password": tempPassword,
+	}).Info("DEV MODE: account invite email not actually sent, logging instead")
+	return nil
+}

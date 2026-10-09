@@ -1,8 +1,8 @@
 # Tasks — login
 
-Version: 1.10
-Last updated: 2026-09-22
-Status: done — Phase 0–5 xong (2026-09-21). Login/refresh/logout chạy thật qua binary + Postgres thật (curl, AC1–AC15). Audit AC + E2E binary thật xong (`test-coverage-report.md`); concept OKF `docs/knowledge/features/login.md` (`stable`). Không còn marker `⚠️ Not confirmed`. (v1.10: sửa tài liệu cũ — bỏ câu "khoá ở lần thứ 6"; mục curl ghi `204` được chú thích rõ đã đổi thành `200`; openapi đã có 3 path. Không đổi code/AC.)
+Version: 1.11
+Last updated: 2026-09-29
+Status: done — Phase 0–5 xong (2026-09-21). Login/refresh/logout chạy thật qua binary + Postgres thật (curl, AC1–AC15). Audit AC + E2E binary thật xong (`test-coverage-report.md`); concept OKF `docs/knowledge/features/login.md` (`stable`). Không còn marker `⚠️ Not confirmed`. (v1.11: không đổi nội dung file này — bump theo `design.md`/`flow.md`; không có task mới vì `flow.md` chỉ vẽ lại flow đã implement, không đổi code. Không đổi AC.)
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.

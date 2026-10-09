@@ -16,6 +16,8 @@ type Mailer interface {
     SendPasswordResetEmail(ctx context.Context, toEmail, resetToken string) error
 }
 ```
+Cũng có `SendAccountInviteEmail(ctx, toEmail, name, tempPassword)` — backofficeService dùng khi tạo tài khoản admin mới, gửi mật khẩu tạm (phải đổi ở lần đăng nhập đầu). `LogMailer` log cả mật khẩu tạm nên chỉ dùng cho dev.
+
 `resetToken` là token thô (chưa hash) — caller chỉ được lưu bản hash của nó (xem `services/appService/domain/errors.go` / `password_reset.go`), không lưu token thô vào DB.
 
 ### `NewLogMailer(logger logging.Logger) *LogMailer`

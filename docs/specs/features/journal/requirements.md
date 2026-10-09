@@ -1,8 +1,8 @@
 # User Stories — Module `journal`
 
-Tài liệu user story riêng cho module `journal` (lịch sử tụng/thiền, thống kê hành trì) của Tâm Đăng (InnerLamp). Đánh số tiếp nối từ `tam-dang-user-stories-practice.md` (US-011 → US-012).
+Tài liệu user story riêng cho module `journal` (lịch sử tụng/thiền, thống kê hành trì) của Tâm Đăng (InnerLamp).
 
-Đây là module đầu tiên sau `identity` thực sự cần backend/API cho các hành động diễn ra ở `practice` — như đã thống nhất: `practice` là nơi hành động xảy ra, `journal` là nơi hành động đó được ghi nhớ và sync đa thiết bị.
+Đây là module đầu tiên sau `identity` thực sự cần backend/API để ghi nhớ và sync đa thiết bị các phiên tụng/thiền.
 
 ---
 
@@ -31,11 +31,11 @@ Tài liệu user story riêng cho module `journal` (lịch sử tụng/thiền, 
 - Hiển thị lịch sử/thống kê trực quan (biểu đồ, tổng hợp theo tuần/tháng) — cần user story riêng, xây trên dữ liệu US-013 tạo ra
 - Diligence Card (thẻ tinh tấn ghi nhận tính đều đặn) — cần user story riêng, tính toán từ dữ liệu này
 - Cho phép sửa/xóa thủ công một phiên đã lưu — cần user story riêng
-- Ghi nhận Mala Beads Counter (số lần trì tụng theo chuỗi hạt) như một loại phiên riêng — sẽ bổ sung khi viết US cho Mala Counter bên `practice`
+- Ghi nhận Mala Beads Counter (số lần trì tụng theo chuỗi hạt) như một loại phiên riêng — sẽ bổ sung khi có US cho Mala Counter
 
 ### Ghi chú kỹ thuật liên quan
 
-- Đây là điểm **đầu tiên module `practice` cần "nói chuyện" với backend** — client gọi API này ngay sau khi một phiên ở `practice` kết thúc.
+- Đây là điểm đầu tiên client cần "nói chuyện" với backend cho việc ghi lịch sử — client gọi API này ngay sau khi một phiên tụng/thiền kết thúc.
 - Schema đề xuất:
   ```sql
   CREATE TABLE practice_sessions (

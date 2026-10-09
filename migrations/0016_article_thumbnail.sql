@@ -1,0 +1,12 @@
+-- Articles: a small image for list/home cards, next to the existing image_url.
+--
+-- image_url is a hotlink to the source site (typically a 1200x630 hero), too heavy
+-- for an 84x84 card. thumbnail_url points at a small copy this service hosts
+-- (assets/images/articles/thumb/<id>.webp, served at /static/images/ in dev), the
+-- same arrangement as temples and deities.
+--
+-- NULLable like image_url: the API returns JSON null, not '', when a row has none,
+-- and rows seeded before this migration stay NULL until `seedarticles -fill-images`.
+--
+-- Idempotent (IF NOT EXISTS) like every other file here.
+ALTER TABLE articles ADD COLUMN IF NOT EXISTS thumbnail_url TEXT;

@@ -18,4 +18,9 @@ type Mailer interface {
 	// request — US-003 AC1. resetToken is the raw (unhashed) token; the
 	// caller is responsible for only ever persisting its hash.
 	SendPasswordResetEmail(ctx context.Context, toEmail, resetToken string) error
+
+	// SendAccountInviteEmail tells a newly created backoffice account how to
+	// sign in: its login email and one-time temporary password, which the
+	// account must change on first login. tempPassword is the clear value.
+	SendAccountInviteEmail(ctx context.Context, toEmail, name, tempPassword string) error
 }

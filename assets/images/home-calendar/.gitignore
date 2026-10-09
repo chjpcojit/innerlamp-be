@@ -1,0 +1,3 @@
+# Repo root .gitignore ignores *.json; re-include the attribution manifest so it is
+# tracked alongside the images (attribution is required for CC BY / CC BY-SA images).
+!manifest.json

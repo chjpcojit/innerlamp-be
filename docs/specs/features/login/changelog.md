@@ -1,7 +1,26 @@
 # Changelog — login Spec
 
-Tracks version history for `requirements.md`, `design.md`, and `tasks.md` in this folder. All three
-files share one changelog since they change together as one spec unit. Newest version first.
+Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this
+folder. All four files share one changelog since they change together as one spec unit. Newest
+version first.
+
+## v1.11 (2026-09-29)
+
+Thêm `flow.md` — file này còn thiếu từ khi spec được viết (rule 6 của skill `il-spec-writer`: mọi
+"Step-by-step Flow" trong `design.md` bắt buộc có Mermaid diagram tương ứng trong `flow.md`).
+**Không đổi code, không đổi AC.**
+
+- `flow.md`: file mới. Ba sequence diagram Mermaid (Login, Refresh, Logout) vẽ lại 1:1 ba section
+  "Step-by-step Flow" của `design.md`, gồm cả các sub-step `(a)`–`(f)` của Step 6 (Login) và Step 3
+  (Refresh), nhánh reuse Step 2b, và `FindUserByID` (bước đọc thêm trong `RotateSession`).
+- `design.md`: §Request flow — bản ASCII cũ thay bằng con trỏ sang `flow.md`, tránh giữ song song
+  hai bản vẽ cùng một thứ (nguồn sự thật vẫn là §Step-by-step Flow bằng chữ, không đổi).
+- `requirements.md`: không đổi nội dung — bump version theo quy ước "cả bốn file cùng version".
+- `tasks.md`: không đổi nội dung, không có task mới — `flow.md` chỉ vẽ lại flow đã implement và đã
+  verify (Phase 0–5 done), không phải công việc chưa làm.
+- Reason: người dùng phát hiện `docs/specs/features/login/` thiếu `flow.md` dù `design.md` có đủ ba
+  Step-by-step Flow (điều kiện bắt buộc theo rule 5/6 của skill). Đây là hoàn thiện tài liệu, không
+  phải thay đổi hành vi hệ thống.
 
 ## v1.10 (2026-09-22)
 

@@ -1,0 +1,31 @@
+# Changelog — gallery Spec
+
+Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
+All four files share one changelog since they change together as one spec unit. Newest version
+first.
+
+## v1.1 — 2026-10-07
+
+Ảnh không còn hotlink Wikimedia ở dev: tải 86 ảnh về `assets/images/gallery/{full,thumb}` và phục vụ từ file
+system qua `/static/images/` bằng URL LAN IP, như `temple`/`deity`. Đổi: `requirements.md` (mô tả nguồn ảnh,
+Out of scope, marker `⚠️ Not confirmed` về hotlink → về base URL production), `design.md` (thêm hàng "Ảnh dev",
+Known gaps), `tasks.md` (2 mục `[x]` mới, đã kiểm bằng `curl`), `api-contract.md` (thuộc tính ảnh, ghi chú dev).
+`flow.md` không đổi (không có bước mới trong hai flow). Không đổi contract HTTP/schema DB, nên `openapi.yaml`
+chỉ sửa mô tả ảnh. Thêm `scripts/download_gallery_images.py` và gallery vào `make lan-urls`.
+
+Yêu cầu "lọc theo type": đã có sẵn từ v1.0 (`GET /v1/gallery?type=`; bỏ trống = mọi loại), không đổi.
+
+## v1.0 (initial) — 2026-10-06
+
+Initial spec written **before implementation** (Prospective), then implemented the same day (Phase 1–4 `[x]`, xem `tasks.md`), as the work order for the public read-only
+gallery catalogue built from `assets/data/buddhist_gallery.json`: `GET /v1/gallery/top`,
+`GET /v1/gallery?type=&page=`, `GET /v1/gallery/{id}`, table `gallery_images` (migration `0017`),
+seeder `cmd/seedgallery`. Mọi task `[ ]`.
+
+Quyết định mặc định của spec (đánh `⚠️ Not confirmed`, đổi được): "lấy ảnh theo danh sách" = danh sách
+phân trang có lọc `type` tuỳ chọn; `top` lấy theo `sort_order` xen kẽ 4 loại; detail thêm
+`author`/`license`/`source_url` để ghi công CC.
+
+Đã cập nhật cùng lượt: `docs/specs/api/openapi.yaml` (+ bản `web/docs/public/`), `migrations/README.md`,
+`docs/specs/db/erd.mmd`, thêm `api-contract.md`. Còn lại: render `erd.svg`, E2E, và khái niệm OKF
+`docs/knowledge/features/gallery.md` (do `il-okf-writer` tạo sau khi code được kiểm chứng).

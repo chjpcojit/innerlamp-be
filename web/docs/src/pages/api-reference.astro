@@ -1,0 +1,25 @@
+---
+// Trang tham chiếu API: Scalar đọc /openapi.yaml và tự dựng bố cục 3 cột,
+// nút "Test Request" và code mẫu nhiều ngôn ngữ. Bundle được chép vào public/vendor
+// bởi scripts/sync-scalar.mjs (chạy tự động trước dev/build).
+---
+
+<!doctype html>
+<html lang="vi">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>API Reference · InnerLamp API</title>
+	</head>
+	<body>
+		<script
+			id="api-reference"
+			data-url="/openapi.yaml"
+			data-configuration={JSON.stringify({
+				theme: 'default',
+				defaultHttpClient: { targetKey: 'shell', clientKey: 'curl' },
+			})}
+		></script>
+		<script is:inline src="/vendor/scalar-api-reference.js"></script>
+	</body>
+</html>
