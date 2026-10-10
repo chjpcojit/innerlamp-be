@@ -3,6 +3,109 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v7.3 (2026-10-10)
+
+Đóng nốt hai follow-up của v7.2 — **không đổi contract/thiết kế**.
+
+- `tasks.md`: tick 2 item cuối của Phase 11 (ERD `erd.svg`, OKF `register.md`); Phase 11 xong 13/13.
+- `requirements.md` / `design.md` / `flow.md`: no change needed, verified — chỉ bump version.
+- Đã làm: `docs/specs/db/erd.svg` render lại từ `erd.mmd` (`npx @mermaid-js/mermaid-cli`; có
+  `users.ordination_temple_id`, `pending_registration.ordination_temple_id` và hai quan hệ tới
+  `temples`; XML hợp lệ); OKF `docs/knowledge/features/register.md` đã refresh (log ngày 2026-10-10).
+- Lưu ý: bản SVG mới là render đầy đủ của `erd.mmd` hiện tại nên khác bản cũ cả ở phần không liên
+  quan tới thay đổi này (bản cũ lệch với `erd.mmd` đang sửa dở của temple-suggestion).
+
+## v7.2 (2026-10-10)
+
+**Implement Phase 11** (`ordination_temple_id`). Không đổi contract/AC so với v7.1; chỉ đồng bộ spec với
+code thật — minor bump.
+
+- `requirements.md`: Status đổi sang "đã implement"; ghi chú schema trỏ tới file migration thật.
+- `design.md`: bỏ nhãn "chưa có code" ở dòng migration `0023`, ghi tên FK mà repository dịch. **Sửa
+  một chỗ sai sẵn có**: spec nói `RegistrationRepository` "mười/mười một method" nhưng từ refactor
+  `otp-mechanism` interface chỉ còn 6 (method OTP chuyển sang `OTPRepository`) — đã chỉnh câu và trỏ
+  `domain/README.md`. Flow Step 1/2/4/5: no change needed, verified — code khớp thiết kế.
+- `flow.md`: no change needed, verified — chỉ bump version.
+- `tasks.md`: Phase 11 tick 11/13 item; còn `[ ]`: render lại `docs/specs/db/erd.svg`, refresh OKF
+  `docs/knowledge/features/register.md`.
+- Code đã làm: `migrations/0023_*.sql`; `domain/{user,pending_registration,register,errors}.go` +
+  mock; `usecase/register_usecase.go` (`TempleExists` sau `FindConflicts`, trước `EnsureNotLocked`);
+  `repository/postgres_registration_repository.go` (`TempleExists`, cột mới, dịch FK `23503` ở cả
+  upsert pending và insert user) + `postgres_login_repository.go`; `delivery/http/register_handler.go`
+  + `errors.go` (`400 INVALID_TEMPLE`, details `{field: ordination_temple_id}`).
+- Test mới: usecase 4 (blank bỏ qua lookup, id lạ, thứ tự sau conflict, lỗi DB không thành
+  INVALID_TEMPLE); repository 2 hàm (`TempleExists`; round-trip pending→user, NULL, FK vanished →
+  rollback); handler 3; E2E `TestRegisterFlow_OrdinationTemple_E2E` (4 subtest).
+- Reason: anh yêu cầu implement theo TDD và cập nhật openapi (2026-10-10).
+
+### Cross-file follow-ups
+
+- Đã cập nhật: `docs/specs/api/openapi.yaml` + bản copy `web/docs/public/openapi.yaml`, `README.md`,
+  `web/docs/.../guides/register-and-login.mdx`, `migrations/README.md`, `docs/specs/db/erd.mmd`,
+  `services/appService/domain/README.md`.
+- **Chưa làm:** `docs/specs/db/erd.svg` (generated — cần render lại từ `erd.mmd`);
+  `docs/knowledge/features/register.md` (OKF — gọi `il-okf-writer` khi anh muốn);
+  `web/docs/.../reference/nghiep-vu/onboarding/*` là bản sinh tự động từ spec (không tracked), sẽ
+  đồng bộ qua `sync-docs`.
+- Client (iOS/Android): bỏ ô nhập text, gửi `ordination_temple_id`; field cũ bị `400 VALIDATION_ERROR`.
+
+## v7.1 (2026-10-10)
+
+Chốt ba câu `⚠️ Not confirmed` của v7.0 — **không đổi contract, không đổi thiết kế**; minor bump.
+
+- `requirements.md`: bỏ 3 marker; chuyển sang "Open questions (resolved)": (1) `ordination_place` **drop thẳng,
+  không backfill**; (2) error code **`INVALID_TEMPLE`** giữ nguyên đề xuất; (3) không chọn chùa = chưa có
+  nơi xuất gia (`NULL`), thêm chùa mới là luồng riêng (`temple_suggestions`) ngoài scope onboarding.
+- `design.md`: dòng migration `0023` bỏ marker, ghi "drop thẳng, không backfill". Các phần còn lại: no
+  change needed, verified — quyết định (1) đúng với thiết kế migration đã viết, (2) trùng tên đã dùng.
+- `flow.md`: no change needed, verified — chỉ bump version.
+- `tasks.md`: Phase 11 bỏ ghi chú "chặn bởi câu hỏi"; vẫn toàn bộ `[ ]`. Không đổi item.
+- Reason: anh trả lời 2026-10-10. Giờ không còn blocker nào cho Phase 11 (ngoại trừ việc `openapi.yaml`
+  đang có thay đổi chưa commit của temple-suggestion — xử lý khi implement).
+
+## v7.0 (2026-10-10)
+
+**Thay hẳn `ordination_place` (text tự do) bằng `ordination_temple_id` (FK `temples.id`).** Đổi contract
+`request-otp`/`verify-otp` + schema (`users`, `pending_registration`) → major bump (theo `references/
+versioning_and_changelog.md`: có migration mới + đổi contract). **Chưa có code** — chỉ spec; mọi task mới `[ ]`.
+
+- `requirements.md`: bảng trường "Nơi quy y / xuất gia" đổi sang `ordination_temple_id` (id lấy từ
+  `GET /v1/temples`, rỗng = `NULL`); **AC4 viết lại** (field mới); AC8 thêm copy `ordination_temple_id`
+  sang `users`; **thêm AC18** (`400 INVALID_TEMPLE` khi id không tồn tại, sau check phone/email, field cũ
+  bị strict-decode từ chối) và **AC19** (FK chặn ở verify-otp nếu chùa biến mất trong 24h payload);
+  bảng API contract + ghi chú endpoint + khối schema (migration `0023`); thêm mục resolved + 2 câu hỏi
+  `⚠️ Not confirmed`; US-004 thêm lưu ý (chưa đặc tả).
+- `design.md`: bảng Layers (`User`/`PendingRegistration` đổi field, `ErrInvalidTemple`, `TempleExists` →
+  repository 11 method, dòng migration `0023`); flow 1 Step 1 (trim id, không kiểm DB), **Step 2 thêm
+  `TempleExists` sau `FindConflicts`** (không thêm số bước), Step 4(c) cột mới; flow 2 Step 5(b) cột mới +
+  nhánh FK `23503`; "Known gaps" đổi tên field. Confirmed: không đổi số bước nên không đánh lại số trong
+  `tasks.md` Phase 1–10.
+- `flow.md`: flow 1 thêm khối `opt` `TempleExists` sau Step 2 + đổi nhãn request; flow 2 Step 5(b) đổi
+  cột + nhánh `alt` FK violation → `400 INVALID_TEMPLE`. Flow 3 (`resend-otp`): no change needed,
+  verified — không đọc/ghi field chùa (payload giữ nguyên ở `pending_registration`).
+- `tasks.md`: **thêm Phase 11** (11 item, toàn bộ `[ ]`): migration, domain, usecase, repository (kể cả
+  `postgres_login_repository.go` vì `userColumns` đọc cột cũ), handler, test, openapi, README/OKF.
+  Không tick/untick task Phase 1–10.
+- Reason: người dùng (anh) chốt 2026-10-10 "thay hẳn bằng id" để client chọn chùa từ danh sách có sẵn
+  thay vì gõ tên tự do — dữ liệu nhất quán, nối được với `temples`.
+
+### Open (⚠️ Not confirmed, ghi trong `requirements.md`)
+
+- Dữ liệu `ordination_place` hiện có: drop thẳng (đề xuất) hay backfill khớp tên → id — chặn migration `0023`.
+- Tên error code `INVALID_TEMPLE` — đề xuất theo mẫu `INVALID_PHONE`; chặn openapi + handler.
+- Chùa không có trong `temples` → `NULL` hay dẫn sang `temple_suggestions` — chỉ ảnh hưởng UX client.
+
+### Cross-file follow-ups (chưa làm, ngoài file spec onboarding)
+
+- `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml`: đổi request field, schema `User`
+  (dùng chung login/verify-otp/refresh), thêm `INVALID_TEMPLE`. **Không sửa trong lần này** — file đang
+  có thay đổi chưa commit của việc khác (temple-suggestion).
+- `migrations/0023_*.sql` + `migrations/README.md`; `docs/specs/db/erd.mmd` + `erd.svg`.
+- `docs/specs/features/login/`: không nhắc `ordination_place` (đã kiểm bằng grep) nhưng response `user`
+  của login đổi theo — kiểm lại khi implement Phase 11.
+- `docs/knowledge/features/register.md`: refresh bằng `il-okf-writer` sau khi code verify.
+- Client (iOS/Android): bỏ ô nhập text, chuyển sang picker chùa gửi `ordination_temple_id`.
+
 ## v6.1 (2026-09-25)
 
 Đưa spec `onboarding` vào đúng quy ước `il-spec-writer` hiện hành. **Không đổi behavior, không đổi

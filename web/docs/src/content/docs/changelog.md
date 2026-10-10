@@ -5,11 +5,12 @@ description: Lịch sử thay đổi của API.
 
 ## v1 (hiện tại)
 
-34 endpoint appService đang có:
+35 endpoint appService đang có:
 
 - **Auth**: `register/request-otp`, `register/verify-otp`, `resend-otp`, `login`, `refresh`, `logout`.
 - **Attestation**: `attestation/challenge`, `assertion/challenge`, `attestation/verify`.
 - **Chùa**: `temples/top`, `temples`, `temples/{id}`.
+- **Đề xuất chùa**: `POST /v1/temple-suggestions` (công khai, chỉ ghi).
 - **Phật và Bồ tát**: `deities/top`, `deities`, `deities/{id}`.
 - **Bài viết Phật pháp**: `articles/top`, `articles`, `articles/{id}`.
 - **Sổ giỗ chạp** (cần đăng nhập): `POST/GET /v1/memorials`, `GET/PUT/DELETE /v1/memorials/{id}`.
@@ -18,6 +19,13 @@ description: Lịch sử thay đổi của API.
 - **Pháp thoại**: `dharma-talks`, `dharma-talks/{id}`.
 - **Lịch âm**: `calendar/image`.
 - **Ảnh tĩnh** (dev): `static/images/{path}`.
+
+### 2026-10-10
+
+- Thêm `POST /v1/temple-suggestions`: người dùng đề xuất một ngôi chùa chưa có (`name`, `province`, `address`); trả `201 {id, status: "pending"}`. Công khai, giới hạn 5 đề xuất mỗi IP mỗi giờ (`429 RATE_LIMITED`, kèm `Retry-After`). Không có route đọc lại đề xuất. Duyệt đề xuất do backoffice làm, chưa có route.
+- `verify-otp`, `login`, `refresh` trả thêm `expires_in` (giây, thời gian sống của access token) và luôn có `Cache-Control: no-store`.
+- Header `X-API-Key` cho client web (`401 INVALID_API_KEY` khi sai); `device.platform = web` ở `login` yêu cầu key đúng. Không gửi header thì xử lý như mobile.
+- Tài liệu: thêm trang [Đề xuất thêm chùa](/guides/catalogues/temple-suggestions/); bảng Xử lý lỗi thêm `INVALID_API_KEY` và `RATE_LIMITED`.
 
 ### 2026-10-07
 

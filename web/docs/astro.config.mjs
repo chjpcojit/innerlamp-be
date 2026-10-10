@@ -38,6 +38,7 @@ export default defineConfig({
 					label: 'Danh mục nội dung',
 					items: [
 						{ slug: 'guides/catalogues/temples' },
+						{ slug: 'guides/catalogues/temple-suggestions' },
 						{ slug: 'guides/catalogues/deities' },
 						{ slug: 'guides/catalogues/articles' },
 						{ slug: 'guides/catalogues/sutras' },

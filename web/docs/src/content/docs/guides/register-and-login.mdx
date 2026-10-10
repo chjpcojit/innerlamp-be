@@ -60,7 +60,7 @@ sequenceDiagram
 | `password` | string | có | Tối thiểu 8 ký tự. |
 | `phone_number` | string | có | `+` tuỳ chọn rồi 8–15 chữ số. Server chuẩn hoá về E.164, nên `0901234567` và `+84901234567` là một số. |
 | `dharma_name` | string | không | Pháp danh. |
-| `ordination_place` | string | không | Nơi quy y. |
+| `ordination_temple_id` | string | không | `id` chùa nơi quy y/xuất gia, lấy từ `GET /v1/temples`. Bỏ field nếu chưa có. Id không tồn tại trả `INVALID_TEMPLE`. |
 
 ```bash
 curl -X POST http://localhost:8080/v1/auth/register/request-otp \
@@ -112,6 +112,7 @@ Trả `201` với `AuthResult` (xem [bên dưới](#authresult)).
 | 400 | `VALIDATION_ERROR` | cả ba | Body sai JSON, thiếu field, field lạ, sai định dạng. `details` cho biết field nào. | Sửa request. |
 | 400 | `INVALID_PASSWORD` | request-otp | Mật khẩu dưới 8 ký tự. | Báo lỗi ở ô mật khẩu. |
 | 400 | `INVALID_EMAIL`, `INVALID_PHONE` | request-otp | Không chuẩn hoá được email hoặc số điện thoại. | Báo lỗi ở ô tương ứng (`details.field`). |
+| 400 | `INVALID_TEMPLE` | request-otp, verify-otp | `ordination_temple_id` không khớp chùa nào (verify-otp: chùa đã chọn không còn tồn tại). | Cho người dùng chọn lại chùa hoặc bỏ trống. |
 | 400 | `OTP_INVALID` | verify-otp, resend-otp | Sai mã, hoặc không có bản đăng ký chờ cho số này. | Cho nhập lại. |
 | 400 | `OTP_EXPIRED` | verify-otp | Mã quá 90 giây. | Gọi `resend-otp`. |
 | 400 | `PENDING_REGISTRATION_EXPIRED` | verify-otp, resend-otp | Bản đăng ký quá 24 giờ. | Quay lại bước 1. |
@@ -140,11 +141,12 @@ Ví dụ lỗi có `details`:
 | --- | --- | --- |
 | `access_token` | string | JWT, gửi ở header `Authorization: Bearer`. |
 | `refresh_token` | string | JWT, chỉ dùng cho `POST /v1/auth/refresh`. |
+| `expires_in` | int64 | Thời gian sống của `access_token`, tính bằng giây (dev: 900). Lên lịch refresh theo giá trị này. |
 | `user.id` | int64 | |
 | `user.email` | string | Đã chuẩn hoá. |
 | `user.phone_number` | string | Dạng E.164, vd. `+84901234567`. |
 | `user.dharma_name` | string | Không có trong response nếu người dùng không nhập (không phải `null`). |
-| `user.ordination_place` | string | Như trên. |
+| `user.ordination_temple_id` | string | `id` chùa nơi quy y/xuất gia. Không có trong response nếu người dùng chưa chọn chùa. |
 | `user.created_at` | string | RFC 3339. |
 
 ```json
@@ -153,6 +155,7 @@ Ví dụ lỗi có `details`:
   "data": {
     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…",
     "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…",
+    "expires_in": 900,
     "user": {
       "id": 42,
       "email": "user@example.com",
@@ -164,7 +167,7 @@ Ví dụ lỗi có `details`:
 }
 ```
 
-Hai field `dharma_name` và `ordination_place` nên khai báo dạng Optional khi decode.
+Hai field `dharma_name` và `ordination_temple_id` nên khai báo dạng Optional khi decode.
 
 ## Đăng nhập
 
@@ -194,7 +197,7 @@ sequenceDiagram
 | --- | --- | --- | --- |
 | `phone_number` | string | có | Chuẩn hoá về E.164 như lúc đăng ký. |
 | `password` | string | có | |
-| `device.platform` | string | có | Vd. `ios`, `android`, `web`. |
+| `device.platform` | string | có | Vd. `ios`, `android`, `web`. `web` chỉ được chấp nhận khi có `X-API-Key` đúng, nếu không `401 INVALID_API_KEY`. |
 | `device.device_model` | string | có | Vd. `iPhone 15`. |
 | `device.os_version` | string | không | |
 | `device.app_version` | string | không | |
@@ -211,6 +214,7 @@ Trả `200` với [`AuthResult`](#authresult).
 | 400 | `INVALID_PASSWORD` | Mật khẩu rỗng. | Báo lỗi ở ô mật khẩu. |
 | 400 | `INVALID_DEVICE` | Thiếu `device`, `platform` hoặc `device_model`. | Sửa request. |
 | 401 | `INVALID_CREDENTIALS` | Sai số điện thoại hoặc mật khẩu. | Cho nhập lại. |
+| 401 | `INVALID_API_KEY` | `X-API-Key` sai hoặc rỗng, hoặc `platform = web` mà không có key đúng. | Lỗi cấu hình server web, không retry. |
 | 429 | `LOGIN_LOCKED` | Sai 5 lần liên tiếp. Lần thứ 5 vẫn là `401`, lần kế tiếp mới là `429`, kể cả khi đúng mật khẩu. | Chờ tới `details.locked_until`. |
 
 Các lỗi `400` không tính là một lần đăng nhập sai.

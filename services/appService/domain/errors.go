@@ -45,6 +45,10 @@ var (
 	// submitted value.
 	ErrInvalidPassword = errors.New("password must be at least 8 characters")
 
+	// ErrInvalidTemple — ordination_temple_id does not match any temple (AC18/
+	// AC19). Mapped to 400 INVALID_TEMPLE.
+	ErrInvalidTemple = errors.New("ordination temple does not exist")
+
 	// ErrOTPInvalid — the submitted OTP is wrong, or there is no active OTP
 	// to check it against (AC4). One sentinel for every "this code does not
 	// work" case on purpose: distinguishing "wrong" from "already used" from

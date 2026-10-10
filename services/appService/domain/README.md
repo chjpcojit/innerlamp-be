@@ -38,7 +38,7 @@ Struct biên của use-case nằm ở `domain` (không phải `usecase`) để `
 - **`RegistrationConflicts`** — `PhoneInUsers`, `EmailInUsers`, `EmailInPending` + helper `HasPhoneConflict()` / `HasEmailConflict()`. Là struct chứ không phải nhiều boolean ở nhiều lần gọi vì bước 1 cần mọi câu trả lời từ **một** query; tách ra thì giữa hai lần đọc có khe hở dữ liệu đã đổi. `EmailInPending` (v5.1) chỉ tính hàng pending của SĐT **khác**; pending của chính SĐT đang gọi không phải trùng (request-otp ghi đè nó).
 
 ### Port `RegistrationRepository` (`register.go`)
-5 method, thuần register. Mọi thao tác ghi không được phép quan sát ở trạng thái nửa vời đều là
+6 method, thuần register (v7.0 thêm `TempleExists`). Mọi thao tác ghi không được phép quan sát ở trạng thái nửa vời đều là
 **một method bọc một transaction**, không phải một bộ primitive để use-case tự ghép — crash giữa
 hai lời gọi sẽ để lại pending không OTP, hoặc user không session.
 
@@ -50,6 +50,7 @@ một `OTPRepository.IssueOTP` đứng riêng không thể biểu đạt.
 | Method | Ghi chú |
 |---|---|
 | `FindConflicts(ctx, phoneNumber, email)` | Một query, ba `EXISTS`: `users.phone_number`, `users.email`, và `pending_registration.email` của SĐT **khác** — AC6 |
+| `TempleExists(ctx, id)` | `SELECT EXISTS` trên `temples` — request-otp dùng để trả `ErrInvalidTemple` sớm (AC18); FK `ordination_temple_id` là chốt chặn cuối |
 | `SavePendingAndIssueOTP(ctx, pending, otpHash, expiresAt, limits)` | Áp send-limit → UPSERT pending theo `phone_number` (ghi đè) → vô hiệu OTP cũ → chèn OTP mới. Trả `*SendState`. Không ghi `users` |
 | `FindPendingRegistration(ctx, phoneNumber)` | `ErrPendingRegistrationNotFound` nếu không có; `ErrPendingRegistrationExpired` nếu quá hạn |
 | `CreateUserAndSession(ctx, pending, otpID, sessionTTL, issueTokens)` | Một transaction: re-check email → INSERT users (`email_verified_at` NULL) → DELETE pending → UPDATE OTP `used_at` → INSERT session. JWT mint **trong** transaction — AC2/AC3/AC7 |

@@ -86,10 +86,13 @@ attestation:
     provider: "mock"
     app_id: "TEAMID.com.innerlamp.app"
 
-# Temple catalogue paging. Both keys are required: zero would mean empty pages.
+# Temple catalogue paging. All keys are required (>= 1): zero would mean empty
+# pages. options_page_size is the page of GET /v1/temples/options (registration
+# pick-list), larger than page_size because each item has only three fields.
 temple:
   top_limit: 10
   page_size: 20
+  options_page_size: 100
 
 # Phật / Bồ tát catalogue paging. Both keys are required: zero would mean empty pages.
 deity:
@@ -135,6 +138,25 @@ sutra:
   page_size: 20
   lines_page_size: 200
   lines_max_page_size: 500
+
+# Thắp đèn / vườn đèn. Every value is required: Validate rejects anything below 1.
+# max_active_per_user caps one user's lit lamps; page_size is the garden page (and the most limit may ask for);
+# dedupe_window is how long an identical lamp counts as one double-tapped submission.
+lamp:
+  max_active_per_user: 20
+  page_size: 12
+  dedupe_window: "5s"
+  durations_days: [1, 7, 21, 49]
+
+# Gia phả. Every value is required: Validate rejects anything below 1.
+# max_viewers counts viewers plus pending invitations; invitation_ttl is 30 days.
+genealogy:
+  max_per_user: 10
+  max_members: 5000
+  max_generation: 60
+  max_spouses: 5
+  max_viewers: 20
+  invitation_ttl: "720h"
 
 dev_secrets:
   appservice-db-password: "postgres"

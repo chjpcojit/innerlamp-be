@@ -90,10 +90,26 @@ func main() {
 	if err := cfg.DharmaTalk.Validate(); err != nil {
 		log.Fatalf("invalid dharma_talk config: %v", err)
 	}
+	// Same for the temple page sizes: zero would divide by zero in total_pages.
+	if err := cfg.Temple.Validate(); err != nil {
+		log.Fatalf("invalid temple config: %v", err)
+	}
 	// The temple-suggestion route is anonymous and writes to the DB; without a valid
 	// per-IP limit it would be an open write endpoint, so stop now rather than serve it.
 	if err := cfg.TempleSuggestion.Validate(); err != nil {
 		log.Fatalf("invalid temple_suggestion config: %v", err)
+	}
+
+	// Zero genealogy limits would mean nobody can create a tree or an invitation is
+	// born expired, so a missing genealogy block must stop the service now.
+	if err := cfg.Genealogy.Validate(); err != nil {
+		log.Fatalf("invalid genealogy config: %v", err)
+	}
+
+	// Zero lamp limits would mean nobody can light a lamp or a garden page is empty, so a
+	// missing lamp block must stop the service now.
+	if err := cfg.Lamp.Validate(); err != nil {
+		log.Fatalf("invalid lamp config: %v", err)
 	}
 
 	dbConfig := &database.Config{
@@ -311,6 +327,12 @@ func main() {
 	memorialUsecase := usecase.NewMemorialUsecase(memorialRepo, cfg.Memorial)
 	memorialHandler := deliveryhttp.NewMemorialHandler(memorialUsecase)
 
+	// lamps (thắp đèn / vườn đèn): both routes need a signed-in user. The garden shows every
+	// user's lit lamps, but the lighter is always the access token's user_id claim.
+	lampRepo := repository.NewLampRepository(db)
+	lampUsecase := usecase.NewLampUsecase(lampRepo, cfg.Lamp)
+	lampHandler := deliveryhttp.NewLampHandler(lampUsecase)
+
 	// temple suggestions: anonymous "suggest a temple" write. Review (list / create the
 	// temple / reject) is backofficeService's. docs/specs/features/temple-suggestion/.
 	templeSuggestionRepo := repository.NewTempleSuggestionRepository(db)
@@ -364,6 +386,10 @@ func main() {
 	mux.HandleFunc("PUT /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Update))
 	mux.HandleFunc("DELETE /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Delete))
 
+	// lamps: no public read — a visitor sees neither the garden nor its counts.
+	mux.HandleFunc("POST /v1/lamps", authMiddleware.AuthenticateFunc(lampHandler.Light))
+	mux.HandleFunc("GET /v1/lamps", authMiddleware.AuthenticateFunc(lampHandler.Garden))
+
 	// temple suggestions: public by design (the caller may have no account). webAPIKey
 	// runs first so a wrong key is refused without spending the caller's rate budget;
 	// the per-IP limit then guards the DB write.
@@ -376,9 +402,10 @@ func main() {
 	mux.HandleFunc("POST /v1/assertion/challenge", attestationHandler.AssertionChallenge)
 	mux.HandleFunc("POST /v1/attestation/verify", attestationHandler.Verify)
 
-	// temples: all three routes are public — browsing needs no account. "/top"
-	// is a literal segment, so ServeMux prefers it over "/{id}".
+	// temples: all four routes are public — browsing needs no account. "/top"
+	// and "/options" are literal segments, so ServeMux prefers them over "/{id}".
 	mux.HandleFunc("GET /v1/temples/top", templeHandler.Top)
+	mux.HandleFunc("GET /v1/temples/options", templeHandler.Options)
 	mux.HandleFunc("GET /v1/temples", templeHandler.List)
 	mux.HandleFunc("GET /v1/temples/{id}", templeHandler.Get)
 

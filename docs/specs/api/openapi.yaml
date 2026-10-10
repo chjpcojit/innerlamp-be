@@ -36,11 +36,19 @@ tags:
     description: |
       Đăng ký 2 bước bằng OTP, đăng nhập, làm mới token, đăng xuất.
       Client web thêm header `X-API-Key` (xem mô tả chung); client mobile không gửi.
+  - name: TempleSuggestions
+    description: |
+      Người dùng đề xuất một ngôi chùa chưa có trong danh mục. Công khai (không cần đăng nhập), nhưng ghi vào DB nên có giới hạn theo IP
+      (5 đề xuất/IP/giờ). Chỉ gửi được; app không có endpoint đọc lại đề xuất. Ban quản trị duyệt ở backoffice.
   - name: Memorials
     description: |
       Sổ giỗ chạp của người dùng đã đăng nhập. Dữ liệu riêng tư: mọi endpoint cần `Authorization: Bearer <access_token>` và chỉ chủ sở hữu đọc, sửa, xoá được.
       Chủ sở hữu luôn là `user_id` trong token, không có endpoint nào nhận user id từ client.
       Chưa có ảnh (đang hoãn): `photo_url` luôn là `null`.
+  - name: Lamps
+    description: |
+      Thắp đèn và vườn đèn. Cả hai endpoint cần `Authorization: Bearer <access_token>`: khách chưa đăng nhập không thắp và không xem được.
+      Vườn đèn hiển thị đèn đang sáng của **mọi** người dùng; người thắp luôn là `user_id` trong token. Miễn phí ở v1.
   - name: Attestation
     description: |
       Chứng thực app và thiết bị (Play Integrity, App Attest). Cả ba endpoint đều công khai.
@@ -83,7 +91,7 @@ paths:
         | `password` | string | có | Tối thiểu 8 ký tự, nếu ngắn hơn trả `INVALID_PASSWORD`. |
         | `phone_number` | string | có | `+` tuỳ chọn rồi 8–15 chữ số, cho phép dấu cách, `-`, `.`, `(`, `)`. Server chuẩn hoá về E.164, nên `0901234567` và `+84901234567` là một số. |
         | `dharma_name` | string | không | Pháp danh. |
-        | `ordination_place` | string | không | Nơi quy y. |
+        | `ordination_temple_id` | string | không | `id` chùa nơi quy y/xuất gia, lấy từ `GET /v1/temples/options` (danh sách rút gọn, phân trang, dành cho màn chọn chùa), hoặc từ `GET /v1/temples` / `GET /v1/temples/{id}`. Bỏ field (hoặc để rỗng) nếu chưa có nơi xuất gia. Id không tồn tại trả `INVALID_TEMPLE`. Thêm một chùa chưa có trong danh sách là việc riêng (đề xuất chùa), không làm ở đây. Trước đây là `ordination_place` (tên chùa dạng text): field đó **đã bị bỏ**, gửi lên sẽ trả `VALIDATION_ERROR`. |
 
         `data` gồm `message`, `expires_in_seconds` (thời gian sống của OTP) và `resend_after_seconds`
         (phải chờ bao lâu mới gửi lại được). Hiển thị đếm ngược theo hai giá trị này, đừng hard-code.
@@ -102,7 +110,7 @@ paths:
               password: S3cret-pass
               phone_number: '0901234567'
               dharma_name: Diệu Tâm
-              ordination_place: Chùa Hoằng Pháp
+              ordination_temple_id: temple_north_011
       responses:
         '200':
           description: OTP đã được gửi.
@@ -115,7 +123,8 @@ paths:
         '400':
           description: |
             `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type, thiếu field hoặc sai định dạng email/số điện thoại),
-            `INVALID_PASSWORD` (mật khẩu dưới 8 ký tự), `INVALID_EMAIL`, `INVALID_PHONE`.
+            `INVALID_PASSWORD` (mật khẩu dưới 8 ký tự), `INVALID_EMAIL`, `INVALID_PHONE`,
+            `INVALID_TEMPLE` (`ordination_temple_id` không khớp chùa nào).
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
@@ -138,6 +147,12 @@ paths:
                     success: false
                     error: { code: INVALID_PASSWORD, message: password must be at least 8 characters, type: business }
                     details: { field: password }
+                invalidTemple:
+                  summary: INVALID_TEMPLE
+                  value:
+                    success: false
+                    error: { code: INVALID_TEMPLE, message: ordination temple does not exist, type: business }
+                    details: { field: ordination_temple_id }
         '401': { $ref: '#/components/responses/InvalidApiKey' }
         '409':
           description: |
@@ -280,7 +295,7 @@ paths:
         | `user.email` | string | Đã chuẩn hoá. |
         | `user.phone_number` | string | Dạng E.164, vd. `+84901234567`. |
         | `user.dharma_name` | string | **Không có trong response** nếu người dùng không nhập (không phải `null`). |
-        | `user.ordination_place` | string | Như trên. |
+        | `user.ordination_temple_id` | string | `id` chùa nơi quy y/xuất gia. **Không có trong response** nếu người dùng chưa chọn chùa. Gọi `GET /v1/temples/{id}` để lấy thông tin chùa. |
         | `user.created_at` | string | RFC 3339. |
 
         Nhập sai OTP 3 lần liên tiếp thì số điện thoại bị khoá 30 phút (`OTP_LOCKED`, cấu hình dev).
@@ -307,12 +322,13 @@ paths:
                     email: user@example.com
                     phone_number: '+84901234567'
                     dharma_name: Diệu Tâm
-                    ordination_place: Chùa Hoằng Pháp
+                    ordination_temple_id: temple_north_011
                     created_at: '2026-09-30T08:15:30Z'
         '400':
           description: |
             `VALIDATION_ERROR`, `OTP_INVALID` (sai mã, hoặc không có bản đăng ký chờ: cùng một code cho cả hai),
-            `OTP_EXPIRED` (mã quá 90 giây, gọi `resend-otp`), `PENDING_REGISTRATION_EXPIRED` (bản đăng ký quá 24 giờ).
+            `OTP_EXPIRED` (mã quá 90 giây, gọi `resend-otp`), `PENDING_REGISTRATION_EXPIRED` (bản đăng ký quá 24 giờ),
+            `INVALID_TEMPLE` (chùa đã chọn ở bước 1 không còn tồn tại).
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
@@ -417,7 +433,7 @@ paths:
                     email: user@example.com
                     phone_number: '+84901234567'
                     dharma_name: Diệu Tâm
-                    ordination_place: Chùa Hoằng Pháp
+                    ordination_temple_id: temple_north_011
                     created_at: '2026-09-30T08:15:30Z'
         '400':
           description: |
@@ -563,6 +579,249 @@ paths:
             `UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, gửi refresh token thay cho access token, hoặc token thiếu claim `sid`.
             Server không cho biết nguyên nhân cụ thể.
             `INVALID_API_KEY`: `X-API-Key` sai hoặc rỗng.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/temple-suggestions:
+    post:
+      tags: [TempleSuggestions]
+      operationId: templeSuggestionsCreate
+      summary: Đề xuất thêm một ngôi chùa
+      description: |
+        Lưu một đề xuất ở trạng thái `pending` để ban quản trị xem xét. Không cần đăng nhập; web gửi thêm `X-API-Key` như các route công khai khác.
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `name` | string | có | Tên chùa, tối đa 255 ký tự sau khi cắt khoảng trắng đầu cuối. |
+        | `province` | string | có | Tỉnh/thành phố, chuỗi tự do, tối đa 100 ký tự. |
+        | `address` | string | có | Địa chỉ, tối đa 500 ký tự. |
+
+        Giá trị được cắt khoảng trắng đầu cuối và lưu đúng như người dùng nhập. Server **không** dò trùng với chùa hay đề xuất đã có, nên cùng một đề xuất gửi lại vẫn nhận `201`.
+        Field lạ (kể cả `id`, `status`) bị từ chối `VALIDATION_ERROR`. Response chỉ có `id` và `status`; không có route nào đọc lại.
+
+        Giới hạn: 5 đề xuất mỗi IP mỗi giờ; vượt thì `429 RATE_LIMITED` kèm `Retry-After`.
+      security:
+        - {}
+        - webApiKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [name, province, address]
+              properties:
+                name: { type: string, maxLength: 255 }
+                province: { type: string, maxLength: 100 }
+                address: { type: string, maxLength: 500 }
+            example: { name: Chùa Mới, province: Quảng Ninh, address: 'Thôn 1, xã A' }
+      responses:
+        '201':
+          description: Đã lưu, đang chờ duyệt.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [success, data]
+                properties:
+                  success: { type: boolean, const: true }
+                  data:
+                    type: object
+                    required: [id, status]
+                    properties:
+                      id: { type: integer, format: int64 }
+                      status: { type: string, enum: [pending] }
+              example:
+                success: true
+                data: { id: 12, status: pending }
+        '400':
+          description: |
+            `VALIDATION_ERROR`: thiếu hoặc rỗng một field (`details.field` nêu field đầu tiên sai), quá dài, JSON sai, field lạ.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: VALIDATION_ERROR, message: province is required, type: validation }
+                details: { field: province }
+        '401': { $ref: '#/components/responses/InvalidApiKey' }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429':
+          description: '`RATE_LIMITED`: IP này đã gửi đủ số đề xuất cho phép trong giờ. `details.retry_after_seconds` là thời gian chờ.'
+          headers:
+            Retry-After: { schema: { type: integer }, description: Số giây cần chờ. }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: RATE_LIMITED, message: too many requests, type: business }
+                details: { retry_after_seconds: 1800 }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/lamps:
+    post:
+      tags: [Lamps]
+      operationId: lampsLight
+      summary: Thắp một ngọn đèn
+      description: |
+        Thắp đèn cho người dùng đang đăng nhập. Mỗi người dùng tối đa **20 đèn đang sáng** cùng lúc (`lamp.max_active_per_user`);
+        đèn đã hết hạn không tính.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `lamp_type` | string | có | `OIL_LAMP` (đèn dầu), `LOTUS_CANDLE` (nến sen), `FLOWER_LANTERN` (hoa đăng). |
+        | `intention` | string | có | Tâm nguyện: `PEACE` (cầu an), `SALVATION` (cầu siêu), `MERIT_DEDICATION` (hồi hướng), `GRATITUDE` (tri ân). |
+        | `recipient` | string | có | Dành cho ai, văn bản tự do, 1–100 ký tự sau khi cắt khoảng trắng đầu cuối (đếm theo ký tự, không theo byte). |
+        | `prayer` | string | không | Lời nguyện, tối đa 300 ký tự. Rỗng hoặc toàn khoảng trắng được lưu thành `null`. |
+        | `duration_days` | int | có | Số ngày đèn sáng: `1`, `7`, `21` hoặc `49` (`lamp.durations_days`). |
+        | `is_anonymous` | bool | không | Mặc định `false`. `true` = ẩn tên người thắp trong vườn đèn. |
+
+        `lit_at` là giờ máy chủ lúc thắp, `end_at = lit_at + duration_days × 24 giờ`. Client **không** gửi thời gian.
+        Field lạ (kể cả `id`, `user_id`, `lit_at`, `end_at`, `lighter_name`) bị từ chối `VALIDATION_ERROR`.
+
+        **Bấm đúp:** gửi lại đúng nội dung vừa thắp trong vòng 5 giây (`lamp.dedupe_window`) không tạo đèn thứ hai mà trả `200` với đèn đã có
+        (kể cả khi người dùng đang ở mức 20 đèn). Sau 5 giây, cùng nội dung là một ngọn đèn mới.
+
+        `lighter_name` là pháp danh **tại thời điểm thắp** (không đổi theo khi người dùng đổi pháp danh); `Vô danh` khi ẩn danh hoặc chưa có pháp danh.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/LampRequest' }
+            example:
+              lamp_type: OIL_LAMP
+              intention: PEACE
+              recipient: Bà ngoại
+              prayer: Mong bà bình an
+              duration_days: 7
+              is_anonymous: false
+      responses:
+        '201':
+          description: Đã thắp. `data` là **Lamp**.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/LampEnvelope' }
+              example:
+                success: true
+                data:
+                  id: 41
+                  lamp_type: OIL_LAMP
+                  intention: PEACE
+                  recipient: Bà ngoại
+                  prayer: Mong bà bình an
+                  duration_days: 7
+                  is_anonymous: false
+                  lighter_name: Thích Minh An
+                  lit_at: '2026-10-10T12:00:00Z'
+                  end_at: '2026-10-17T12:00:00Z'
+        '200':
+          description: Bấm đúp, không tạo đèn mới. `data` là **Lamp** đã thắp trước đó trong cửa sổ 5 giây.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/LampEnvelope' }
+        '400':
+          description: |
+            `VALIDATION_ERROR`, `details.field` cho biết field sai: `lamp_type`, `intention`, `recipient`, `prayer`, `duration_days`, `is_anonymous`;
+            hoặc body sai JSON, field lạ, sai Content-Type.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: VALIDATION_ERROR, message: 'recipient: recipient is required', type: validation }
+                details: { field: recipient }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '409':
+          description: '`LAMP_LIMIT_REACHED`: người dùng đã có đủ 20 đèn đang sáng (kể cả khi nhiều request thắp cùng lúc).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: LAMP_LIMIT_REACHED, message: lamp limit reached, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+    get:
+      tags: [Lamps]
+      operationId: lampsGarden
+      summary: Vườn đèn
+      description: |
+        Các ngọn đèn **đang sáng** (`end_at` sau thời điểm hiện tại của máy chủ) của **tất cả** người dùng, đèn mới thắp lên đầu
+        (`lit_at` giảm dần, rồi `id` giảm dần). Cần đăng nhập nhưng người gọi không ảnh hưởng kết quả.
+
+        Mỗi mục chỉ có `id`, `lamp_type`, `recipient`, `lighter_name`, `end_at`. Tâm nguyện và lời nguyện **không bao giờ** được trả cho
+        người khác. `lighter_name` là `Vô danh` với đèn ẩn danh hoặc người thắp chưa có pháp danh.
+
+        **Phân trang bằng `cursor`** (khác `page` của các danh sách khác, vì vườn đèn đổi liên tục: đèn hết hạn hoặc đèn mới thắp giữa hai
+        lần tải không được làm lặp hay sót đèn). Lần đầu không gửi `cursor`; muốn tải thêm thì gửi lại `next_cursor` của trang trước.
+        `cursor` là chuỗi mờ do máy chủ cấp, đừng tự dựng. Dừng khi `has_more = false`.
+
+        `total` và `counts` là **toàn bộ** đèn đang sáng của mọi loại và **không đổi theo `lamp_type`**, đọc cùng một thời điểm với trang.
+        `counts` luôn có đủ ba loại, `0` khi không có đèn.
+
+        `end_at` là RFC 3339 theo UTC; app tự đổi sang múi giờ của máy khi hiển thị ngày tắt.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: lamp_type
+          in: query
+          required: false
+          description: Chỉ lấy đèn loại này. Bỏ hẳn tham số để lấy mọi loại; để trống hoặc giá trị lạ trả `400 INVALID_FILTER`.
+          schema: { type: string, enum: [OIL_LAMP, LOTUS_CANDLE, FLOWER_LANTERN] }
+        - name: limit
+          in: query
+          required: false
+          description: Số đèn mỗi trang. Mặc định và tối đa là `lamp.page_size` (dev 12); lớn hơn thì bị hạ về tối đa. Không phải số nguyên dương trả `400 INVALID_LIMIT`.
+          schema: { type: integer, minimum: 1, maximum: 12, default: 12 }
+        - name: cursor
+          in: query
+          required: false
+          description: '`next_cursor` của trang trước. Giá trị không do máy chủ cấp trả `400 INVALID_CURSOR`.'
+          schema: { type: string }
+      responses:
+        '200':
+          description: Một trang vườn đèn. `data` là **GardenPage**.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/GardenPageEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - { id: 41, lamp_type: LOTUS_CANDLE, recipient: Thầy, lighter_name: Thích Minh An, end_at: '2026-10-17T18:00:00Z' }
+                    - { id: 40, lamp_type: OIL_LAMP, recipient: Mẹ, lighter_name: Vô danh, end_at: '2026-10-11T10:00:00Z' }
+                  total: 10
+                  counts: { OIL_LAMP: 5, LOTUS_CANDLE: 3, FLOWER_LANTERN: 2 }
+                  has_more: true
+                  next_cursor: MTc5MDAwMDAwMDAwMDAwMC40MQ
+        '400':
+          description: '`INVALID_FILTER` (`details.field = lamp_type`), `INVALID_LIMIT` (`limit`) hoặc `INVALID_CURSOR` (`cursor`).'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: INVALID_CURSOR, message: cursor is not valid, type: business }
+                details: { field: cursor }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn. Khách không xem được vườn đèn.'
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
@@ -1103,7 +1362,7 @@ paths:
                       sect: BẮC_TÔNG
                       heritage_rank: DI_SAN_THE_GIOI
                       established_year: 1428
-                      location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+                      location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình', province: Ninh Bình }
                     - id: temple_central_007
                       name: Chùa Cầu Hội An
                       type: CHUA
@@ -1114,6 +1373,71 @@ paths:
                       heritage_rank: DI_SAN_THE_GIOI
                       established_year: 1593
                       location: { lat: 15.8771, lng: 108.3262, address: 'Đường Nguyễn Thị Minh Khai, Phường Minh An, TP. Hội An, Tỉnh Quảng Nam' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/temples/options:
+    get:
+      tags: [Temples]
+      operationId: templesOptions
+      summary: Danh sách chùa rút gọn, phân trang (để chọn khi đăng ký)
+      description: |
+        Danh sách chùa **phân trang**, mỗi phần tử chỉ có đủ để hiển thị một lựa chọn.
+        Không cần đăng nhập và không cần `X-API-Key`, nên gọi được ở màn đăng ký khi người dùng chưa có tài khoản.
+
+        `data` gồm `items` (mảng **TempleOption**) và thông tin trang `page`, `page_size`, `total`, `total_pages`.
+        Mỗi phần tử có đúng 3 field: `id`, `name`, `province`. `province` là tên tỉnh/thành đã cắt gọn, không tiền tố
+        (vd. `Hà Nội`, `Hồ Chí Minh`, `Cần Thơ`, `Thừa Thiên Huế`), là trường `location.province` của chùa; nội dung theo dữ liệu nạp, có thể vẫn là tên tỉnh cũ.
+        Không có địa chỉ đầy đủ, ảnh, toạ độ, loại, hệ phái hay hạng di tích. Cần các field đó thì dùng
+        `GET /v1/temples` hoặc `GET /v1/temples/{id}`.
+
+        Kích thước trang là `temple.options_page_size` (dev: 100), lớn hơn trang của `GET /v1/temples` (20).
+        Dùng `page_size` và `total_pages` trong response, không giả định số cố định. Client dừng khi `page >= total_pages`
+        hoặc `items` rỗng.
+
+        Dùng `id` làm `ordination_temple_id` ở `POST /v1/auth/register/request-otp`.
+
+        Thứ tự giống `top` và danh sách phân trang: `heritage_rank` (nổi bật nhất trước), rồi `established_year`
+        tăng dần, rồi `id`. Không sắp theo bảng chữ cái — client tự sắp trong từng trang nếu cần.
+
+        Trang vượt quá cuối (vd. `page=9` khi `total_pages = 2`) trả `200` với `items: []`, không phải lỗi.
+        Chưa chạy seed thì `items: []`, `total: 0`, `total_pages: 0`.
+
+        **Tìm theo tên:** truyền `q` để chỉ lấy chùa có tên chứa từ khoá, **không phân biệt hoa thường và dấu tiếng Việt** (`bich dong`, `Bích Động`, `BÍCH ĐỘNG` cho cùng kết quả; `đ` tính như `d`). `total` và `total_pages` đếm theo kết quả khớp, phân trang áp lên kết quả khớp, thứ tự vẫn là thứ tự ở trên (không xếp theo độ liên quan). Chỉ tìm trong tên chùa, không tìm trong tên khác hay tỉnh. Không khớp chùa nào thì `200` với `items: []`. Muốn bỏ tìm kiếm thì **bỏ hẳn** tham số `q`: để trống hoặc chỉ khoảng trắng trả `400 INVALID_FILTER`.
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - name: q
+          in: query
+          required: false
+          description: 'Từ khoá tìm trong tên chùa, 1 đến 100 ký tự sau khi bỏ khoảng trắng hai đầu. Khớp một phần chuỗi, không phân biệt hoa thường và dấu tiếng Việt. Để trống hoặc chỉ khoảng trắng trả `400 INVALID_FILTER` (`details.field` là `q`); `%`, `_` và `\` được hiểu đúng nghĩa đen.'
+          schema: { type: string, minLength: 1, maxLength: 100, example: bich dong }
+      responses:
+        '200':
+          description: Một trang chùa dạng rút gọn.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TempleOptionsEnvelope' }
+              example:
+                success: true
+                data:
+                  items:
+                    - { id: temple_north_011, name: Chùa Bích Động, province: Ninh Bình }
+                    - { id: temple_central_001, name: Chùa Thiên Mụ, province: Thừa Thiên Huế }
+                    - { id: temple_south_002, name: Chùa Ngọc Hoàng, province: Hồ Chí Minh }
+                  page: 1
+                  page_size: 100
+                  total: 93
+                  total_pages: 1
+        '400':
+          description: '`INVALID_PAGE` (`details.field = "page"`) hoặc `INVALID_FILTER` (`details.field = "q"`).'
+          content:
+            application/json:
+              examples:
+                invalidFilter:
+                  summary: INVALID_FILTER
+                  value:
+                    success: false
+                    error: { code: INVALID_FILTER, message: invalid search term, type: business }
+                    details: { field: q }
         '500': { $ref: '#/components/responses/ServerError' }
 
   /v1/temples:
@@ -1149,7 +1473,7 @@ paths:
                       sect: BẮC_TÔNG
                       heritage_rank: DI_SAN_THE_GIOI
                       established_year: 1428
-                      location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+                      location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình', province: Ninh Bình }
                   page: 1
                   page_size: 20
                   total: 93
@@ -1201,7 +1525,7 @@ paths:
                   sect: BẮC_TÔNG
                   heritage_rank: DI_SAN_THE_GIOI
                   established_year: 1428
-                  location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+                  location: { lat: 20.2185, lng: 105.9177, address: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình', province: Ninh Bình }
                   aliases: [Bạch Ngọc Thạch Sơn Động]
                   founder: Hai nhà sư Trí Kiên và Trí Thể
                   current_abbot: Thích Đức Lợi
@@ -2772,7 +3096,7 @@ components:
           description: '`+` tuỳ chọn rồi 8–15 chữ số, cho phép dấu cách, `-`, `.`, `(`, `)`. Server chuẩn hoá về E.164.'
           example: '0901234567'
         dharma_name: { type: string, description: Pháp danh. Tuỳ chọn., example: Diệu Tâm }
-        ordination_place: { type: string, description: Nơi quy y. Tuỳ chọn., example: Chùa Hoằng Pháp }
+        ordination_temple_id: { type: string, description: '`id` chùa nơi quy y/xuất gia (từ `GET /v1/temples`). Tuỳ chọn; rỗng hoặc bỏ field nếu chưa có. Id không tồn tại trả `INVALID_TEMPLE`.', example: temple_north_011 }
     OtpSent:
       type: object
       description: Kết quả gửi OTP, dùng cho `request-otp`. `resend-otp` trả thêm `resend_remaining`.
@@ -2853,7 +3177,7 @@ components:
         email: { type: string, format: email, description: Email đã chuẩn hoá., example: user@example.com }
         phone_number: { type: string, description: Số điện thoại dạng E.164., example: '+84901234567' }
         dharma_name: { type: string, description: Pháp danh. Không có trong response nếu người dùng không nhập (không phải `null`)., example: Diệu Tâm }
-        ordination_place: { type: string, description: Nơi quy y. Không có trong response nếu người dùng không nhập., example: Chùa Hoằng Pháp }
+        ordination_temple_id: { type: string, description: '`id` chùa nơi quy y/xuất gia. Không có trong response nếu người dùng chưa chọn chùa (không phải `null`).', example: temple_north_011 }
         created_at: { type: string, format: date-time, description: Thời điểm tạo tài khoản (RFC 3339)., example: '2026-09-30T08:15:30Z' }
     AuthResult:
       type: object
@@ -2964,11 +3288,12 @@ components:
 
     Location:
       type: object
-      required: [lat, lng, address]
+      required: [lat, lng, address, province]
       properties:
         lat: { type: number, format: double, description: Vĩ độ., example: 20.2185 }
         lng: { type: number, format: double, description: Kinh độ., example: 105.9177 }
-        address: { type: string, description: Địa chỉ đầy đủ., example: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+        address: { type: string, description: 'Địa chỉ đầy đủ, dạng chuỗi để hiển thị.', example: 'Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình' }
+        province: { type: string, description: 'Tên tỉnh/thành của chùa, không tiền tố (`Tỉnh`, `TP.`), lưu riêng thành một trường, không suy ra từ `address`. Luôn là một trong **34 đơn vị cấp tỉnh** hiện hành (từ 1/7/2025: 6 thành phố và 28 tỉnh), vd. `Hà Nội`, `Huế`, `Hồ Chí Minh`, `Ninh Bình`; tên tỉnh cũ đã sáp nhập (`Hà Nam`, `Thừa Thiên Huế`...) không xuất hiện ở đây. Coi như tập mở khi decode. `address` có thể vẫn nêu tên tỉnh/huyện cũ nên hai trường không bảo đảm khớp nhau về tên. Dùng để hiển thị gọn, lọc hoặc nhóm theo tỉnh.', example: Ninh Bình }
     TempleSummary:
       type: object
       description: Bản tóm tắt một chùa, dùng chung cho `top` và danh sách. Là phần đầu của TempleDetail.
@@ -3041,6 +3366,31 @@ components:
               type: array
               description: Tối đa 10 chùa.
               items: { $ref: '#/components/schemas/TempleSummary' }
+    TempleOption:
+      type: object
+      description: Một lựa chọn chùa rút gọn cho màn chọn (đăng ký). Chỉ 3 field.
+      required: [id, name, province]
+      properties:
+        id: { type: string, description: 'ID ổn định; gửi làm `ordination_temple_id` khi đăng ký.', example: temple_north_011 }
+        name: { type: string, description: Tên chùa., example: Chùa Bích Động }
+        province: { type: string, description: 'Tên tỉnh/thành cắt gọn, không tiền tố `Tỉnh`/`TP.`/`Thành phố`; `HCM` được chuẩn hoá thành `Hồ Chí Minh`. `""` nếu chưa có địa chỉ.', example: Ninh Bình }
+    TempleOptionsEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: object
+          required: [items, page, page_size, total, total_pages]
+          properties:
+            items:
+              type: array
+              description: Các chùa của trang này; `[]` khi trang vượt cuối hoặc chưa có chùa nào.
+              items: { $ref: '#/components/schemas/TempleOption' }
+            page: { type: integer, example: 1 }
+            page_size: { type: integer, description: 'Số chùa mỗi trang (`temple.options_page_size`).', example: 100 }
+            total: { type: integer, description: Tổng số chùa trong toàn bảng., example: 93 }
+            total_pages: { type: integer, description: '`ceil(total / page_size)`; `0` khi chưa có chùa.', example: 1 }
     TempleListEnvelope:
       type: object
       required: [success, data]
@@ -3290,6 +3640,81 @@ components:
       properties:
         success: { type: boolean, const: true }
         data: { $ref: '#/components/schemas/ArticleDetail' }
+    LampType:
+      type: string
+      enum: [OIL_LAMP, LOTUS_CANDLE, FLOWER_LANTERN]
+      description: Loại đèn. `OIL_LAMP` đèn dầu, `LOTUS_CANDLE` nến sen, `FLOWER_LANTERN` hoa đăng.
+    LampIntention:
+      type: string
+      enum: [PEACE, SALVATION, MERIT_DEDICATION, GRATITUDE]
+      description: Tâm nguyện. `PEACE` cầu an, `SALVATION` cầu siêu, `MERIT_DEDICATION` hồi hướng, `GRATITUDE` tri ân.
+    LampRequest:
+      type: object
+      description: Body của `POST /v1/lamps`. Xem bảng field ở mô tả endpoint.
+      additionalProperties: false
+      required: [lamp_type, intention, recipient, duration_days]
+      properties:
+        lamp_type: { $ref: '#/components/schemas/LampType' }
+        intention: { $ref: '#/components/schemas/LampIntention' }
+        recipient: { type: string, minLength: 1, maxLength: 100, example: Bà ngoại }
+        prayer: { type: [string, 'null'], maxLength: 300, example: Mong bà bình an }
+        duration_days: { type: integer, enum: [1, 7, 21, 49], example: 7 }
+        is_anonymous: { type: boolean, default: false }
+    Lamp:
+      type: object
+      description: Một ngọn đèn, chỉ trả cho người thắp.
+      required: [id, lamp_type, intention, recipient, prayer, duration_days, is_anonymous, lighter_name, lit_at, end_at]
+      properties:
+        id: { type: integer, format: int64 }
+        lamp_type: { $ref: '#/components/schemas/LampType' }
+        intention: { $ref: '#/components/schemas/LampIntention' }
+        recipient: { type: string }
+        prayer: { type: [string, 'null'] }
+        duration_days: { type: integer }
+        is_anonymous: { type: boolean }
+        lighter_name: { type: string, description: 'Pháp danh lúc thắp, hoặc `Vô danh`.' }
+        lit_at: { type: string, format: date-time }
+        end_at: { type: string, format: date-time, description: '`lit_at` + `duration_days` × 24 giờ.' }
+    LampEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/Lamp' }
+    GardenLamp:
+      type: object
+      description: Một ngọn đèn trong vườn đèn. Không có tâm nguyện, lời nguyện, chủ sở hữu.
+      required: [id, lamp_type, recipient, lighter_name, end_at]
+      properties:
+        id: { type: integer, format: int64 }
+        lamp_type: { $ref: '#/components/schemas/LampType' }
+        recipient: { type: string }
+        lighter_name: { type: string, description: 'Pháp danh lúc thắp, hoặc `Vô danh` (ẩn danh hoặc chưa có pháp danh).' }
+        end_at: { type: string, format: date-time }
+    GardenPage:
+      type: object
+      required: [items, total, counts, has_more, next_cursor]
+      properties:
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/GardenLamp' }
+        total: { type: integer, description: Tổng số đèn đang sáng của mọi người dùng và mọi loại, không đổi theo bộ lọc. }
+        counts:
+          type: object
+          description: Số đèn đang sáng theo từng loại, luôn đủ ba khoá.
+          required: [OIL_LAMP, LOTUS_CANDLE, FLOWER_LANTERN]
+          properties:
+            OIL_LAMP: { type: integer }
+            LOTUS_CANDLE: { type: integer }
+            FLOWER_LANTERN: { type: integer }
+        has_more: { type: boolean }
+        next_cursor: { type: [string, 'null'], description: 'Gửi lại làm `cursor` để tải trang kế; `null` khi hết.' }
+    GardenPageEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/GardenPage' }
     MemorialRequest:
       type: object
       description: Body của `POST` và `PUT /v1/memorials`. Xem bảng field ở mô tả endpoint.

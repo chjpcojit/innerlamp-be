@@ -29,9 +29,12 @@ type Temple struct {
 	HeritagePriority int
 	Latitude         float64
 	Longitude        float64
-	Address          string
-	OperatingHours   string
-	Amenities        TempleAmenities
+	// Address is the full display string; Province is the separate, stored
+	// province/city name (no prefix, e.g. "Hà Nội") — never parsed from Address.
+	Address        string
+	Province       string
+	OperatingHours string
+	Amenities      TempleAmenities
 
 	// Editorial content for the detail screen. Empty until researched.
 	Introduction         string
@@ -45,6 +48,26 @@ type TempleAmenities struct {
 	ParkingMotorcycle bool
 	VegetarianMeals   bool
 	SummerRetreat     bool
+}
+
+// TempleOption is the minimal projection of a temple for pick-lists (the
+// registration screen): just enough to show a choice and send its id back.
+// Province is the temple's stored province/city name. Plain data, no tag — the
+// wire shape is delivery's.
+type TempleOption struct {
+	ID       string
+	Name     string
+	Province string
+}
+
+// TempleOptionPage is one page of TempleOption plus what a client needs to know
+// whether another page exists.
+type TempleOptionPage struct {
+	Items      []TempleOption
+	Page       int
+	PageSize   int
+	Total      int
+	TotalPages int
 }
 
 // TemplePage is one page of the ordered catalogue plus what a client needs to
@@ -85,6 +108,10 @@ var (
 
 	// ErrInvalidPage — the requested page number is not a positive integer.
 	ErrInvalidPage = errors.New("page must be a positive integer")
+
+	// ErrInvalidTempleQuery — the temple search term is present but empty or
+	// blank after trimming, or longer than the allowed length.
+	ErrInvalidTempleQuery = errors.New("invalid search term")
 )
 
 // TempleRepository is the port the temple use case reads through, and the
@@ -101,6 +128,13 @@ type TempleRepository interface {
 	// total number of temples. An offset past the end returns an empty slice,
 	// not an error.
 	List(ctx context.Context, offset, limit int) ([]Temple, int, error)
+
+	// ListOptions returns limit temples as TempleOption starting at offset in the
+	// same ranking order as ListTop and List, and the total number of matching
+	// temples. A non-empty query keeps only temples whose name contains it,
+	// ignoring case and Vietnamese diacritics; "" keeps every temple. An offset
+	// past the end, or no match, returns an empty slice, not an error.
+	ListOptions(ctx context.Context, query string, offset, limit int) ([]TempleOption, int, error)
 
 	// FindByID returns the temple or ErrTempleNotFound.
 	FindByID(ctx context.Context, id string) (*Temple, error)

@@ -30,6 +30,12 @@ func (m *MockRegistrationRepository) FindConflicts(ctx context.Context, phoneNum
 	return nil, args.Error(1)
 }
 
+// TempleExists mocks the TempleExists method.
+func (m *MockRegistrationRepository) TempleExists(ctx context.Context, id string) (bool, error) {
+	args := m.Called(ctx, id)
+	return args.Bool(0), args.Error(1)
+}
+
 // SavePendingAndIssueOTP mocks the SavePendingAndIssueOTP method.
 func (m *MockRegistrationRepository) SavePendingAndIssueOTP(ctx context.Context, pending *PendingRegistration, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error) {
 	args := m.Called(ctx, pending, otpHash, expiresAt, limits)

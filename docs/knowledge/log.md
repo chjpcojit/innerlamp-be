@@ -1,5 +1,23 @@
 # Knowledge Bundle Update Log
 
+## 2026-10-10
+
+- Updated `features/register.md` (still `status: draft`).
+  - Documented onboarding v7.0: `ordination_place` (text) was replaced by `ordination_temple_id`
+    (FK `temples`), checked via `RegistrationRepository.TempleExists` after the conflict checks →
+    `400 INVALID_TEMPLE`; migration `0023`; `user.ordination_temple_id` in the verify-otp response.
+    Facts read from `domain/`, `usecase/register_usecase.go`, `repository/postgres_registration_repository.go`,
+    `delivery/http/register_handler.go` + `errors.go` and `migrations/0023_*.sql`.
+  - Fixed drift unrelated to v7.0 found while re-reading the code: the generic OTP work now lives in
+    `usecase/otp_service.go` (`OTPService`) and `OTPRepository` (the old `ReissueOTP`/`FindActiveOTP`
+    on `RegistrationRepository` and `generateOTP()` in `register_usecase.go` no longer exist there);
+    the three routes sit behind `RequireWebAPIKey` (and `NoStore` for verify-otp), and the verify-otp
+    body carries `expires_in`. Rewrote the Request flow, Architecture rows and Pending work accordingly.
+  - Kept `draft`: OTP is still the constant `111111`, SMS is still log-only, and the US-001 ACs have not
+    been through the `golang-e2e-verification` audit. Verification is the 2026-10-10 run listed in the
+    concept (a full parallel run of the `e2e` package had 4 timeouts that pass individually).
+  - `verified:` was not present and was not added.
+
 ## 2026-10-06
 
 - Updated `features/article.md` (still `status: draft`).

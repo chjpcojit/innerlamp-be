@@ -42,7 +42,7 @@ func mkSutraSeed(id string, order int, opts ...seedOpt) domain.SutraSeed {
 			ID: id, SortOrder: order, Tradition: domain.TraditionMahayana, Kind: domain.KindSutra,
 			Collection: "Bát Nhã", Reference: "R-" + id, Titles: map[string]string{"vi": "Kinh " + id, "en": "Sutra " + id},
 			DailyChant: false, Purposes: []domain.Purpose{domain.PurposeHocGiaoLy}, DurationMinutes: &dur,
-			ReviewStatus: "UNREVIEWED",
+			ReviewStatus:  "UNREVIEWED",
 			OriginalTitle: "Gốc " + id, Author: "Tác giả " + id, HanTranslator: "Huyền Trang", HanTranslationYear: &year,
 			ReferenceNote: "Ghi chú " + id, Summary: "Tóm tắt " + id + ".",
 		},

@@ -34,6 +34,10 @@ const otpPurposeRegister = domain.OTPPurposeRegister
 const (
 	usersEmailKeyConstraint       = "users_email_key"
 	usersPhoneNumberKeyConstraint = "users_phone_number_key"
+
+	// Default Postgres names for the ordination_temple_id foreign keys (v7.0).
+	usersOrdinationTempleFKConstraint   = "users_ordination_temple_id_fkey"
+	pendingOrdinationTempleFKConstraint = "pending_registration_ordination_temple_id_fkey"
 )
 
 type registrationRepository struct {
@@ -118,13 +122,13 @@ func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pen
 
 	const upsertPending = `
 		INSERT INTO pending_registration
-			(phone_number, email, password_hash, dharma_name, ordination_place, expires_at, created_at)
+			(phone_number, email, password_hash, dharma_name, ordination_temple_id, expires_at, created_at)
 		VALUES ($1, $2, $3, $4, $5, $6, now())
 		ON CONFLICT (phone_number) DO UPDATE SET
 			email = EXCLUDED.email,
 			password_hash = EXCLUDED.password_hash,
 			dharma_name = EXCLUDED.dharma_name,
-			ordination_place = EXCLUDED.ordination_place,
+			ordination_temple_id = EXCLUDED.ordination_temple_id,
 			expires_at = EXCLUDED.expires_at,
 			created_at = now()
 		RETURNING id, created_at
@@ -134,9 +138,13 @@ func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pen
 		pending.Email,
 		pending.PasswordHash,
 		nullableString(pending.DharmaName),
-		nullableString(pending.OrdinationPlace),
+		nullableString(pending.OrdinationTempleID),
 		pending.ExpiresAt,
 	).Scan(&pending.ID, &pending.CreatedAt); err != nil {
+		// A temple deleted between request-otp's TempleExists and this write.
+		if isForeignKeyViolation(err, pendingOrdinationTempleFKConstraint) {
+			return nil, domain.ErrInvalidTemple
+		}
 		return nil, fmt.Errorf("upsert pending registration: %w", err)
 	}
 
@@ -195,25 +203,25 @@ func (r *registrationRepository) IssueOTP(ctx context.Context, phoneNumber strin
 // from step 1" as one branch — see domain.RegistrationRepository's doc.
 func (r *registrationRepository) FindPendingRegistration(ctx context.Context, phoneNumber string) (*domain.PendingRegistration, error) {
 	const query = `
-		SELECT id, phone_number, email, password_hash, dharma_name, ordination_place, expires_at, created_at
+		SELECT id, phone_number, email, password_hash, dharma_name, ordination_temple_id, expires_at, created_at
 		FROM pending_registration
 		WHERE phone_number = $1
 	`
 
 	var (
-		p               domain.PendingRegistration
-		dharmaName      sql.NullString
-		ordinationPlace sql.NullString
+		p                  domain.PendingRegistration
+		dharmaName         sql.NullString
+		ordinationTempleID sql.NullString
 	)
 	row := r.db.QueryRow(ctx, query, phoneNumber)
-	if err := row.Scan(&p.ID, &p.PhoneNumber, &p.Email, &p.PasswordHash, &dharmaName, &ordinationPlace, &p.ExpiresAt, &p.CreatedAt); err != nil {
+	if err := row.Scan(&p.ID, &p.PhoneNumber, &p.Email, &p.PasswordHash, &dharmaName, &ordinationTempleID, &p.ExpiresAt, &p.CreatedAt); err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			return nil, domain.ErrPendingRegistrationNotFound
 		}
 		return nil, fmt.Errorf("find pending registration: %w", err)
 	}
 	p.DharmaName = nullStringToPtr(dharmaName)
-	p.OrdinationPlace = nullStringToPtr(ordinationPlace)
+	p.OrdinationTempleID = nullStringToPtr(ordinationTempleID)
 
 	if !p.ExpiresAt.After(time.Now()) {
 		return nil, domain.ErrPendingRegistrationExpired
@@ -300,7 +308,7 @@ func (r *registrationRepository) CreateUserAndSession(ctx context.Context, pendi
 	}
 
 	const insertUser = `
-		INSERT INTO users (email, email_verified_at, phone_number, password_hash, dharma_name, ordination_place)
+		INSERT INTO users (email, email_verified_at, phone_number, password_hash, dharma_name, ordination_temple_id)
 		VALUES ($1, NULL, $2, $3, $4, $5)
 		RETURNING id, created_at, updated_at
 	`
@@ -309,14 +317,14 @@ func (r *registrationRepository) CreateUserAndSession(ctx context.Context, pendi
 	user.PhoneNumber = pending.PhoneNumber
 	user.PasswordHash = pending.PasswordHash
 	user.DharmaName = pending.DharmaName
-	user.OrdinationPlace = pending.OrdinationPlace
+	user.OrdinationTempleID = pending.OrdinationTempleID
 
 	err = tx.QueryRowContext(ctx, insertUser,
 		pending.Email,
 		pending.PhoneNumber,
 		pending.PasswordHash,
 		nullableString(pending.DharmaName),
-		nullableString(pending.OrdinationPlace),
+		nullableString(pending.OrdinationTempleID),
 	).Scan(&user.ID, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
 		if isUniqueViolation(err, usersEmailKeyConstraint) {
@@ -324,6 +332,9 @@ func (r *registrationRepository) CreateUserAndSession(ctx context.Context, pendi
 		}
 		if isUniqueViolation(err, usersPhoneNumberKeyConstraint) {
 			return nil, domain.ErrPhoneTaken
+		}
+		if isForeignKeyViolation(err, usersOrdinationTempleFKConstraint) {
+			return nil, domain.ErrInvalidTemple
 		}
 		return nil, fmt.Errorf("create user: %w", err)
 	}
@@ -587,4 +598,24 @@ func isUniqueViolation(err error, constraint string) bool {
 		return false
 	}
 	return pqErr.Code == "23505" && pqErr.Constraint == constraint
+}
+
+// isForeignKeyViolation is isUniqueViolation's sibling for 23503, matched by
+// constraint name for the same reason: it tells a vanished temple apart from any
+// other foreign-key failure.
+func isForeignKeyViolation(err error, constraint string) bool {
+	var pqErr *pq.Error
+	if !errors.As(err, &pqErr) {
+		return false
+	}
+	return pqErr.Code == "23503" && pqErr.Constraint == constraint
+}
+
+// TempleExists reports whether temples has a row with this id (AC18).
+func (r *registrationRepository) TempleExists(ctx context.Context, id string) (bool, error) {
+	var exists bool
+	if err := r.db.QueryRow(ctx, `SELECT EXISTS(SELECT 1 FROM temples WHERE id = $1)`, id).Scan(&exists); err != nil {
+		return false, fmt.Errorf("check temple exists: %w", err)
+	}
+	return exists, nil
 }

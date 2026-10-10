@@ -5,7 +5,7 @@ description: US-001's two-step, OTP-over-SMS registration flow — request-otp, 
 resource: services/appService/
 tags: [auth, onboarding, otp, identity]
 status: draft
-generated: { by: claude-code, at: 2026-09-22T16:20:00+07:00 }
+generated: { by: claude-code, at: 2026-10-10T19:59:20+07:00 }
 sources:
   - path: docs/specs/features/onboarding/requirements.md
     kind: spec
@@ -27,18 +27,33 @@ sources:
     kind: migration
   - path: migrations/0003_otp_send_limits.sql
     kind: migration
+  - path: migrations/0023_registration_ordination_temple.sql
+    kind: migration
+  - path: services/appService/usecase/otp_service.go
+    kind: implementation
 ---
 
 # Summary
 
 Three public routes implement US-001 (đăng ký tài khoản): `POST /v1/auth/register/request-otp`
-takes email/password/phone/profile, checks the unique keys, stores the payload in
+takes email/password/phone/profile (dharma name, optional ordination temple id), checks the unique keys, stores the payload in
 `pending_registration`, and SMS's a 6-digit code (`200`); `POST /v1/auth/resend-otp` reissues a code
 for an in-flight attempt (shared endpoint across OTP purposes, only `register` implemented);
 `POST /v1/auth/register/verify-otp` checks the code and, only on match, inserts the `users` row and
 a `user_sessions` row in the same transaction — the account is created already logged in, so the
 response (`201`) carries access/refresh tokens and the user. No `users` row exists in an unverified
 state at any point in the flow.
+
+**Place of ordination** (onboarding v7.0). The optional profile field is a reference, not text:
+`request-otp` takes `ordination_temple_id` — a `temples.id` the client picked from
+[`GET /v1/temples`](temple.md). Omitted or blank means "no place of ordination yet" and is stored as
+`NULL`; an id that matches no temple is refused with `400` `INVALID_TEMPLE` (`details.field` =
+`ordination_temple_id`) before anything is written, after the phone/email conflict checks. The id
+travels `pending_registration.ordination_temple_id` → `users.ordination_temple_id` and comes back
+in the `verify-otp` `user` object (omitted when `NULL`). The old free-text `ordination_place` was
+removed — the field is no longer accepted (strict decode → `400` `VALIDATION_ERROR`) and migration
+`0023` dropped the column without a backfill. Adding a temple that is not in the catalogue is a
+separate flow ([temple suggestions](temple.md)), not part of registration.
 
 **Sending is rate-limited per phone number** (onboarding v5.0/v5.1). One attempt gets four sends:
 the first is free, the following three are counted, and the fourth send — the third counted — is
@@ -58,7 +73,7 @@ pending row claiming a given email for a **different** phone still answers `409`
 because email is the account's globally-unique key.
 
 **Current limitation**: the OTP value itself is a hardcoded placeholder
-(`usecase/register_usecase.go`'s `generateOTP()` always returns `"111111"`), and SMS delivery goes
+(`usecase/otp_service.go`'s `generateOTP()` always returns `"111111"`), and SMS delivery goes
 through `pkg/sms/logsms` (logs the message instead of sending it) wired in `cmd/main.go` — both
 marked `⚠️ DEV ONLY`/`⚠️ DEV CONFIG` in the source. The flow has been run end-to-end against a real
 Postgres (see Verification), but only through these placeholders, not their production equivalents.
@@ -69,19 +84,19 @@ Clean Architecture inside `services/appService/`: `delivery/http` → `usecase` 
 `repository` → `domain`. `repository` imports only `pkg/database` and `domain`, and is handed token
 minting as a `domain.TokenIssuer` closure. `domain` imports nothing from the other layers. The
 usecase layer owns every transaction boundary that must not be observed half-done —
-`SavePendingAndIssueOTP`, `ReissueOTP`, and `CreateUserAndSession` are each a single repository
+`SavePendingAndIssueOTP`, `IssueOTP`, and `CreateUserAndSession` are each a single repository
 method wrapping one SQL transaction (including the `otp_send_limits` accounting), not a sequence the
 usecase drives itself.
 
 | Layer | Type | File |
 |---|---|---|
-| Domain / Entities | Domain Entity | `services/appService/domain/user.go` — `User`, maps `users`; `services/appService/domain/pending_registration.go` — `PendingRegistration`, maps `pending_registration`; `services/appService/domain/otp.go` — `OTPCode`/`OTPPurpose`, maps `otp_codes`, shared by every OTP flow; `services/appService/domain/otp_send_limit.go` — `OTPSendLimit` (maps `otp_send_limits`) + the `SendLimits`/`SendState` value types the usecase threads down |
-| Domain / Ports + I/O | inputs/results, ports | `services/appService/domain/register.go` — `RequestRegisterOTPInput`/`ResendOTPInput`/`VerifyRegisterOTPInput`, `RegisterResult` (also reused as login's `LoginResult`), `RegistrationConflicts`, `RegistrationRepository` and `OTPSender` interfaces, `TokenIssuer func(userID, sessionID string)` callback type |
-| Domain / Errors | sentinel errors | `services/appService/domain/errors.go` — `ErrInvalidPhone`/`ErrInvalidEmail`/`ErrInvalidPassword`, `ErrUnsupportedOTPPurpose`, `ErrPhoneTaken`, `ErrEmailTaken`, `ErrOTPInvalid`/`ErrOTPExpired`/`ErrOTPLocked` (+ typed `OTPLockedError`), `ErrOTPResendTooSoon` (+ typed `OTPResendTooSoonError`), `ErrOTPSendLimited` (+ typed `OTPSendLimitedError`), `ErrPendingRegistrationNotFound`/`Expired`, `ErrSMSSendFailed`. v5.0 removed `ErrOTPResendExhausted` (the permanent block it represented is gone). |
-| Usecase | UseCase | `services/appService/usecase/register_usecase.go` — `RegisterUsecase.RequestOTP`/`ResendOTP`/`VerifyOTP`; guarantees no `users` row before OTP verification, applies the AC5 send policy through the repository, and enforces AC12 lockout; `tokenIssuer` mints the access token with `extra{"sid": sessionID}` so [login](login.md)'s logout can revoke this session |
-| Repository | Repository | `services/appService/repository/postgres_registration_repository.go` — every SQL statement for the five tables, `applySendLimits` (the `otp_send_limits` state machine, run inside `SavePendingAndIssueOTP`/`ReissueOTP`'s transaction), `ReleaseSendLimit`, and unique-violation translation by constraint name; `services/appService/repository/sms_otp_sender.go` — `domain.OTPSender` over `pkg/sms.Sender` |
-| Delivery / Handler | Handler | `services/appService/delivery/http/register_handler.go` — 3 routes + DTOs; `verify-otp` answers `201` (`WriteSuccessResponseWithStatus`), the other two `200`; `services/appService/delivery/http/errors.go` — `writeDomainError` sentinel/typed→status mapping and `writeDecodeError` (shared with login) |
-| Wiring | composition root | `services/appService/cmd/main.go` — constructs `RegistrationRepository`/`OTPSender`/`RegisterUsecase`/`RegisterHandler`, registers the 3 routes on `http.ServeMux` (public, no per-route auth middleware), and since the `http-middleware-wiring` change serves the mux through `newHandler(mux)` = `httpmiddleware.Recovery(httpmiddleware.CORS(httpmiddleware.Logger(deliveryhttp.WithAPIFallback(mux))))`, so 404/405/panics use the envelope and every response also carries CORS headers; touches the `⚠️ DEV ONLY` (`appConfig.NewMockSecretGetterFromYAML`) and `⚠️ DEV CONFIG` (`pkg/sms/logsms`) blocks. See [packages/middleware.md](../packages/middleware.md) for the chain and why its order is load-bearing |
+| Domain / Entities | Domain Entity | `services/appService/domain/user.go` — `User`, maps `users` (`OrdinationTempleID *string` since v7.0); `services/appService/domain/pending_registration.go` — `PendingRegistration`, maps `pending_registration` (`OrdinationTempleID *string`); `services/appService/domain/otp.go` — `OTPCode`/`OTPPurpose`, maps `otp_codes`, shared by every OTP flow; `services/appService/domain/otp_send_limit.go` — `OTPSendLimit` (maps `otp_send_limits`) + the `SendLimits`/`SendState` value types the usecase threads down |
+| Domain / Ports + I/O | inputs/results, ports | `services/appService/domain/register.go` — `RequestRegisterOTPInput`/`ResendOTPInput`/`VerifyRegisterOTPInput`, `RegisterResult` (also reused as login's `LoginResult`), `RegistrationConflicts`, `RegistrationRepository` (six methods: `FindConflicts`, `TempleExists`, `SavePendingAndIssueOTP`, `FindPendingRegistration`, `CreateUserAndSession`, `DeletePendingRegistration`) and `OTPSender` interfaces — the shared OTP mechanism sits behind `services/appService/domain/otp_repository.go`'s `OTPRepository` instead — `TokenIssuer func(userID, sessionID string)` callback type |
+| Domain / Errors | sentinel errors | `services/appService/domain/errors.go` — `ErrInvalidPhone`/`ErrInvalidEmail`/`ErrInvalidPassword`, `ErrUnsupportedOTPPurpose`, `ErrPhoneTaken`, `ErrEmailTaken`, `ErrInvalidTemple` (v7.0), `ErrOTPInvalid`/`ErrOTPExpired`/`ErrOTPLocked` (+ typed `OTPLockedError`), `ErrOTPResendTooSoon` (+ typed `OTPResendTooSoonError`), `ErrOTPSendLimited` (+ typed `OTPSendLimitedError`), `ErrPendingRegistrationNotFound`/`Expired`, `ErrSMSSendFailed`. v5.0 removed `ErrOTPResendExhausted` (the permanent block it represented is gone). |
+| Usecase | UseCase | `services/appService/usecase/register_usecase.go` — `RegisterUsecase.RequestOTP`/`ResendOTP`/`VerifyOTP`; guarantees no `users` row before OTP verification and (v7.0) checks `ordination_temple_id` via `RegistrationRepository.TempleExists` right after `FindConflicts`; the generic OTP work — generate/send, `EnsureNotLocked`, `Issue`, `Verify` (wrong-guess count + AC12 lock) — is delegated to `services/appService/usecase/otp_service.go`'s `OTPService`; `tokenIssuer` mints the access token with `extra{"sid": sessionID}` so [login](login.md)'s logout can revoke this session |
+| Repository | Repository | `services/appService/repository/postgres_registration_repository.go` — one struct that implements both `RegistrationRepository` and `OTPRepository` (`NewRegistrationRepository` / `NewOTPRepository`): every SQL statement for the five tables, `applySendLimits` (the `otp_send_limits` state machine, run inside `SavePendingAndIssueOTP`/`IssueOTP`'s transaction), `ReleaseSendLimit`, `TempleExists`, and unique-/foreign-key-violation translation by constraint name (`users_email_key`, `users_phone_number_key`, `users_ordination_temple_id_fkey` → `ErrInvalidTemple`); `services/appService/repository/sms_otp_sender.go` — `domain.OTPSender` over `pkg/sms.Sender` |
+| Delivery / Handler | Handler | `services/appService/delivery/http/register_handler.go` — 3 routes + DTOs; `verify-otp` answers `201` (`WriteSuccessResponseWithStatus`, body also carries `expires_in`), the other two `200`; `userResponse` carries `ordination_temple_id` (omitempty); `services/appService/delivery/http/errors.go` — `writeDomainError` sentinel/typed→status mapping and `writeDecodeError` (shared with login) |
+| Wiring | composition root | `services/appService/cmd/main.go` — constructs `RegistrationRepository`/`OTPRepository`/`OTPSender`/`OTPService`/`RegisterUsecase`/`RegisterHandler`, registers the 3 routes on `http.ServeMux` behind `deliveryhttp.NewRequireWebAPIKey` (`X-API-Key`: absent = mobile, wrong = `401`; `verify-otp` also `NoStore`) with no user-auth middleware, and since the `http-middleware-wiring` change serves the mux through `newHandler(mux)` = `httpmiddleware.Recovery(httpmiddleware.CORS(httpmiddleware.Logger(deliveryhttp.WithAPIFallback(mux))))`, so 404/405/panics use the envelope and every response also carries CORS headers; touches the `⚠️ DEV ONLY` (`appConfig.NewMockSecretGetterFromYAML`) and `⚠️ DEV CONFIG` (`pkg/sms/logsms`) blocks. See [packages/middleware.md](../packages/middleware.md) for the chain and why its order is load-bearing |
 
 `pkg/` dependencies: `pkg/database` (Postgres connection + `Begin`/transactions), `pkg/jwt`
 (access/refresh token minting via the `TokenIssuer` closure), `pkg/logging`, `pkg/validation`
@@ -113,8 +128,7 @@ The session TTL is `jwt.refresh_token_expiration` (168h).
 | `POST` | `/v1/auth/resend-otp` | public | `RegisterHandler.ResendOTP` |
 | `POST` | `/v1/auth/register/verify-otp` | public | `RegisterHandler.VerifyOTP` |
 
-All three are correctly public in `cmd/main.go` — the caller has no account yet, so there is nothing
-to authenticate; this is by design, not a missing auth-middleware gap. (The generic
+All three are public with respect to the *user* in `cmd/main.go` — the caller has no account yet, so there is no access token to check; this is by design, not a missing auth-middleware gap. They are wrapped by `RequireWebAPIKey` (the web frontend's shared `X-API-Key`; a wrong key answers `401` `INVALID_API_KEY`, an absent one is treated as mobile). (The generic
 `Recovery`/`CORS`/`Logger` chain from [packages/middleware.md](../packages/middleware.md) does wrap
 them, but it does not authenticate.) No `api/` concepts exist yet for these three routes in this
 bundle — see Related concepts.
@@ -123,29 +137,33 @@ bundle — see Related concepts.
 
 ```
 POST /v1/auth/register/request-otp
-  └─ public
+  └─ RequireWebAPIKey (X-API-Key) — no user auth
        └─ RegisterHandler.RequestOTP                 (delivery/http)
-            ├─ decode + validate (email/phone/password required, `phone` tag)
+            ├─ decode (strict) + validate (email/phone/password required, `phone` tag)
             └─ RegisterUsecase.RequestOTP(ctx, input) (usecase)
                  ├─ NormalizeEmail/IsValidEmail, NormalizePhone, len(password) >= 8 (AC7/AC8)
                  ├─ RegistrationRepository.FindConflicts             (repository, AC6)
                  │    phone in users → 409 PHONE_TAKEN; email in users, or held by another
                  │    phone's unexpired pending_registration → 409 EMAIL_TAKEN
-                 ├─ RegistrationRepository.FindActiveOTP
+                 ├─ ordination_temple_id non-blank (v7.0, AC18)?
+                 │    RegistrationRepository.TempleExists → missing → 400 INVALID_TEMPLE
+                 ├─ OTPService.EnsureNotLocked  (OTPRepository.FindActiveOTP)
                  │    none → proceed; locked (wrong guesses) → 429 OTP_LOCKED + locked_until
-                 ├─ bcrypt-hash password and OTP
+                 ├─ bcrypt-hash password; OTPService.Generate → code + bcrypt hash
                  ├─ RegistrationRepository.SavePendingAndIssueOTP    (repository, 1 tx)
                  │    (a) INSERT otp_send_limits … ON CONFLICT DO NOTHING + SELECT … FOR UPDATE
                  │    (b) apply the send policy → typed error + ROLLBACK (nothing written):
                  │        cycle reset/free first send, 429 OTP_SEND_LIMITED, or
                  │        429 OTP_RESEND_TOO_SOON + retry_after_seconds
-                 │    (c) UPSERT pending_registration (overwrites; expires_at = now + 24h)
+                 │    (c) UPSERT pending_registration (overwrites; expires_at = now + 24h;
+                 │        ordination_temple_id; FK violation → 400 INVALID_TEMPLE)
                  │    (d) mark any active otp_codes row used
                  │    (e) INSERT otp_codes (expires_at = now + 90s)
-                 └─ OTPSender.SendOTP  (failure → 500 SMS_SEND_FAILED; pending + OTP stay)
+                 └─ OTPService.Send → OTPSender.SendOTP  (failure → 500 SMS_SEND_FAILED;
+                      pending + OTP stay)
 
 POST /v1/auth/resend-otp
-  └─ public
+  └─ RequireWebAPIKey — no user auth
        └─ RegisterHandler.ResendOTP                   (delivery/http)
             ├─ decode + validate (phone required, purpose oneof 4 values)
             └─ RegisterUsecase.ResendOTP(ctx, input)   (usecase)
@@ -153,10 +171,10 @@ POST /v1/auth/resend-otp
                  ├─ NormalizePhone
                  ├─ RegistrationRepository.FindPendingRegistration
                  │    none → 400 OTP_INVALID; older than 24h → 400 PENDING_REGISTRATION_EXPIRED
-                 ├─ RegistrationRepository.FindActiveOTP
+                 ├─ OTPService.EnsureNotLocked
                  │    none/expired/used → NOT an error (v5.1): proceed and issue a new code;
                  │    present and locked → 429 OTP_LOCKED + locked_until
-                 ├─ RegistrationRepository.ReissueOTP                (repository, 1 tx)
+                 ├─ OTPService.Issue → OTPRepository.IssueOTP         (repository, 1 tx)
                  │    (a) INSERT … ON CONFLICT DO NOTHING + SELECT … FOR UPDATE
                  │    (b) apply the send policy → 429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED
                  │    (c) mark active otp_codes row used
@@ -165,21 +183,22 @@ POST /v1/auth/resend-otp
                  └─ OTPSender.SendOTP  → 200 {…, resend_remaining}
 
 POST /v1/auth/register/verify-otp
-  └─ public
+  └─ RequireWebAPIKey → NoStore — no user auth
        └─ RegisterHandler.VerifyOTP                   (delivery/http)
             ├─ decode + validate (phone required, otp_code len=6 numeric)
             └─ RegisterUsecase.VerifyOTP(ctx, input)   (usecase)
                  ├─ NormalizePhone
                  ├─ RegistrationRepository.FindPendingRegistration
                  │    none → 400 OTP_INVALID; expired → 400 PENDING_REGISTRATION_EXPIRED
-                 ├─ RegistrationRepository.FindActiveOTP   (none → 400 OTP_EXPIRED, AC4)
-                 ├─ locked → 429 OTP_LOCKED + locked_until
-                 ├─ bcrypt compare; mismatch → IncrementOTPAttempts → 400 OTP_INVALID;
+                 ├─ OTPService.Verify
+                 │    no active OTP → 400 OTP_EXPIRED (AC4); locked → 429 OTP_LOCKED + locked_until;
+                 │    bcrypt mismatch → IncrementOTPAttempts → 400 OTP_INVALID;
                  │    attempts >= 3 → LockOTP (locked_until = now + 30m, used_at = now) (AC12)
                  └─ RegistrationRepository.CreateUserAndSession       (repository, 1 tx:
-                       re-check users.email, insert users (email_verified_at NULL),
+                       re-check users.email, insert users (email_verified_at NULL,
+                       ordination_temple_id from pending; FK violation → 400 INVALID_TEMPLE),
                        delete pending_registration, consume otp_codes,
-                       delete otp_send_limits for the phone (ReleaseSendLimit),
+                       delete otp_send_limits for the phone,
                        sessionID = uuid → issueTokens(userID, sessionID) → pkg/jwt,
                        insert user_sessions (no device_id))
 ```
@@ -211,6 +230,14 @@ The `verify-otp` send-limit interaction is the point of splitting the two locks:
   verify_email`; the usecase further rejects everything but `register` with
   `domain.ErrUnsupportedOTPPurpose` (`400` `UNSUPPORTED_OTP_PURPOSE`) since only US-001 is
   implemented.
+- `ordination_temple_id` (v7.0) — optional; delivery tag-free (`omitempty`), trimmed by the
+  usecase's `optionalString`, blank → `nil`. Existence is a DB lookup, not a tag:
+  `RegistrationRepository.TempleExists` after `FindConflicts` → `domain.ErrInvalidTemple` →
+  `400` `INVALID_TEMPLE` with `details.field` = `ordination_temple_id`. The FK on both tables is the
+  final guard: `23503` on the `users_ordination_temple_id_fkey` (verify-otp) or
+  `pending_registration_ordination_temple_id_fkey` (request-otp race) constraint maps to the same
+  error, and the transaction rolls back so the pending payload survives. The retired
+  `ordination_place` is rejected as an unknown field.
 - Uniqueness (AC6, v5.1) — not a struct tag. `RegistrationRepository.FindConflicts` runs three
   `EXISTS` checks in one query: `users.phone_number` → `ErrPhoneTaken`; `users.email` →
   `ErrEmailTaken`; and `pending_registration.email` **for a different phone** with `expires_at >
@@ -229,6 +256,16 @@ The `verify-otp` send-limit interaction is the point of splitting the two locks:
 
 # Verification
 
+- 2026-10-10 (ordination temple, v7.0): `go test -short ./...` green for the whole repo;
+  `go test -count=1 ./services/appService/repository/...` green against the local Postgres
+  (includes `TestRegistrationRepository_TempleExists` and `TestRegistrationRepository_OrdinationTemple`:
+  id round-trips pending → users, NULL stays NULL, a vanished temple → `ErrInvalidTemple` with the
+  transaction rolled back and the pending row kept);
+  `TestRegisterFlow_OrdinationTemple_E2E` (real binary + testcontainers Postgres) passes — unknown id
+  `400 INVALID_TEMPLE` with nothing written, legacy `ordination_place` `400 VALIDATION_ERROR`, valid id
+  returned as `user.ordination_temple_id`, no id omitted. `scripts/check-architecture.sh` reports
+  ARCH_ERRORS=0. One run of the whole `e2e` package in parallel had four timeouts on this machine
+  (including this test); each passed when run on its own, and the full package was not re-run.
 - 2026-09-22: `go test -count=1 ./services/appService/repository/` against Postgres 16 (Docker
   `innerlamp-pg`, not skipped). Includes the v5.0 send-limit tests
   (`TestRegistrationRepository_SendLimits`: free first send, cooldown refusal does not spend a slot,
@@ -255,7 +292,7 @@ The `verify-otp` send-limit interaction is the point of splitting the two locks:
 
 # Pending work
 
-- `usecase/register_usecase.go`'s `generateOTP()` returns the constant `"111111"` — not a random
+- `usecase/otp_service.go`'s `generateOTP()` returns the constant `"111111"` — not a random
   6-digit code. Isolated in one function per its own doc comment, but must be replaced before any
   real user sees this flow. The E2E harness relies on it (`verifyOTP` in `e2e/login_e2e_test.go`),
   so replacing it also needs a way for tests to read the code.
@@ -270,25 +307,28 @@ The `verify-otp` send-limit interaction is the point of splitting the two locks:
   runs: `request-otp` overwrites the same phone's row, `FindConflicts` ignores expired rows, and an
   email claimed by another phone's live pending is blocked for up to 24h. `DeletePendingRegistration`
   exists but has no production caller.
-- No AC audit via `golang-e2e-verification` for US-001 (see Verification). The harness in
+- No AC audit via `golang-e2e-verification` for US-001 (see Verification) — AC18/AC19 (temple) are covered by the tests listed above but not by that audit. The harness in
   `services/appService/e2e/` already exists and can be reused.
 - `services/appService/repository/`, `delivery/http/`, and `cmd/` have no `README.md`, though
   `CLAUDE.md`'s per-folder convention calls for one on any folder handling non-trivial logic.
 - No `api/` concepts exist yet for the three routes (see API surface) — write
   `api/auth-register-request-otp.md`, `api/auth-resend-otp.md`, `api/auth-register-verify-otp.md` if
-  per-endpoint documentation is wanted. No `migrations/0003-otp-send-limits.md` concept either.
+  per-endpoint documentation is wanted. No `migrations/0003-otp-send-limits.md` or `migrations/0023-registration-ordination-temple.md` concept either.
 - Promote to `stable` once (a) the OTP/SMS placeholders above are replaced with production
   equivalents, and (b) the US-001 ACs are audited end-to-end (`golang-e2e-verification`).
 
 # Known gaps vs. design
 
-- None found while reading the code against `docs/specs/features/onboarding/design.md` (v5.2). The
+- None found while reading the code against `docs/specs/features/onboarding/design.md` (v7.2). The
   two divergences this bundle previously tracked were fixed upstream: the expired-pending block
   (onboarding v4.5, Phase 8) and the permanent `resend_count` cap (onboarding v5.0/v5.1,
   Phases 9–10).
 
 # Related concepts
 
+- [Temple](temple.md) — `GET /v1/temples` / `GET /v1/temples/{id}` is where the client gets the
+  `ordination_temple_id` it sends here; `temples` is the table the new FK points at
+  (`migrations/0005_temples.sql`), and `RegistrationRepository.TempleExists` queries it directly.
 - [Login](login.md) — US-002. Shares `users`, `user_sessions`, `RegisterResult`,
   `domain.TokenIssuer`, and `delivery/http/errors.go`. Logout depends on the `sid` claim this
   feature's `verify-otp` token carries.

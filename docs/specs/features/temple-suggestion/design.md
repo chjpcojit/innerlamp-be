@@ -1,8 +1,8 @@
 # Design — temple-suggestion
 
-Version: 2.2
+Version: 2.4
 Last updated: 2026-10-10
-Status: not started — spec viết trước khi có code. Không còn marker `⚠️ Not confirmed`.
+Status: Phase 1–2 (gửi đề xuất, appService) đã implement và kiểm chứng; phần duyệt (backoffice) chưa làm. Không còn marker `⚠️ Not confirmed`.
 Module: `content` (appService) + `backoffice` (backofficeService)
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -17,22 +17,23 @@ Một route công khai ở `appService` (ghi một dòng `temple_suggestions`, `
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Domain / Entity | `services/appService/domain/temple_suggestion.go` (not yet created) | `TempleSuggestion{ID, Name, Province, Address, Status, CreatedAt}`; hằng `SuggestionPending`/`SuggestionCreated`; `TempleSuggestionValidationError{Field, Message}`. Không JSON tag. |
+| Domain / Entity | `services/appService/domain/temple_suggestion.go` *(đã làm)* | `TempleSuggestion{ID, Name, Province, Address, Status, CreatedAt}`; hằng `SuggestionPending`/`SuggestionCreated`; `TempleSuggestionValidationError{Field, Message}`. Không JSON tag. |
 | Domain / Repository interface | `domain/temple_suggestion.go` | `TempleSuggestionRepository.Create(ctx, s) (id, err)`. |
-| Domain / Mock | `domain/mock_temple_suggestion_repository.go` (not yet created) | Mock tay cho test usecase. |
-| Usecase | `usecase/temple_suggestion_usecase.go` (not yet created) | Trim, kiểm rỗng/độ dài (AC2–AC3), gọi repository. |
-| Repository | `repository/postgres_temple_suggestion_repository.go` (not yet created) | `INSERT … RETURNING id`. |
-| Delivery | `delivery/http/temple_suggestion_handler.go` (not yet created) | `DecodeJSONBodyStrict` → usecase → `201 {id, status}`; DTO ở đây. |
-| Config | `config/config.go` (needs modification) | `temple_suggestion.rate_limit` (dev: 5 / giờ / IP). |
-| Wiring | `cmd/main.go` (needs modification) | `mux.HandleFunc("POST /v1/temple-suggestions", webAPIKey.WrapFunc(...))`, bọc `pkg/ratelimit/middleware` theo IP client. |
+| Domain / Mock | `domain/mock_temple_suggestion_repository.go` *(đã làm)* | Mock tay cho test usecase. |
+| Usecase | `usecase/temple_suggestion_usecase.go` *(đã làm)* | Trim, kiểm rỗng/độ dài (AC2–AC3), gọi repository. |
+| Repository | `repository/postgres_temple_suggestion_repository.go` *(đã làm)* | `INSERT … RETURNING id`. |
+| Delivery | `delivery/http/temple_suggestion_handler.go` *(đã làm)* | `DecodeJSONBodyStrict` → usecase → `201 {id, status}`; DTO ở đây. |
+| Config | `config/config.go`, `config.dev.yaml` *(đã làm)* | `temple_suggestion.rate_limit` = `{max, window, trust_forwarded_for}` + `Validate()` (dev: 5 / 1h / false). |
+| Delivery / Rate limit | `delivery/http/client_ip_rate_limit.go` *(đã làm)* | `ClientIPRateLimit` bọc `pkg/ratelimit/middleware` theo IP client (TCP peer, hoặc entry cuối `X-Forwarded-For` khi `trust_forwarded_for`). |
+| Wiring | `cmd/main.go` *(đã làm)* | `POST /v1/temple-suggestions` qua `webAPIKey.WrapFunc(limit.WrapFunc(handler.Create))`; `Validate()` sau `Load`. |
 
 ### backofficeService (duyệt)
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Domain / Entity | `services/backofficeService/domain/temple_suggestion.go` (not yet created) | `TempleSuggestion` (đủ `TempleID`, `ReviewedBy`, `ReviewedAt`), `NewTemple` (input tạo chùa), `TemplePageInfo`. Sentinel `ErrSuggestionNotFound`, `ErrSuggestionAlreadyCreated`, `ErrSuggestionAlreadyHandled` (Phase 6), `ErrReopenForbidden`, `ErrInvalidStatus`, `ErrInvalidPage`, `TempleInputError{Field, Message}`; `HeritagePriority(rank)` là **bản chép** của `appService/domain/temple.go` (N7). Test đối chiếu `heritage_priority_sync_test.go` import `appService/domain` và so từng hạng, nên lệch là test đỏ. |
-| Domain / Repository interface | `domain/temple_suggestion.go` | `List(ctx, status, offset, limit)`, `FindByID`, `CreateTemple(ctx, suggestionID, adminID, role, NewTemple) (*Temple, error)` — một transaction (xem Step-by-step Flow); `Reject(ctx, suggestionID, adminID, reason *string)` (Phase 6). |
-| Domain / Mock | `domain/mock_temple_suggestion_repository.go` (not yet created) | Mock tay. |
+| Domain / Entity | `services/backofficeService/domain/temple_suggestion.go` *(đã làm)* | `TempleSuggestion` (đủ `TempleID`, `ReviewedBy`, `ReviewedAt`), `NewTemple` (input tạo chùa), `TemplePageInfo`. Sentinel `ErrSuggestionNotFound`, `ErrSuggestionAlreadyCreated`, `ErrSuggestionAlreadyHandled` (Phase 6), `ErrReopenForbidden`, `ErrInvalidStatus`, `ErrInvalidPage`, `TempleInputError{Field, Message}`; `HeritagePriority(rank)` là **bản chép** của `appService/domain/temple.go` (N7). Test đối chiếu `heritage_priority_sync_test.go` import `appService/domain` và so từng hạng, nên lệch là test đỏ. |
+| Domain / Repository interface | `domain/temple_suggestion.go` | `List(ctx, status, offset, limit)`, `FindByID`, `CreateTemple(ctx, suggestionID, adminID, role, NewTemple, priority) (*CreatedTemple, error)` — một transaction (xem Step-by-step Flow); `Reject(ctx, suggestionID, adminID, reason *string)` (Phase 6). |
+| Domain / Mock | `domain/mock_temple_suggestion_repository.go` *(đã làm)* | Mock tay. |
 | Usecase | `usecase/temple_suggestion_usecase.go` (not yet created) | Validate status/page; validate `NewTemple` (AC18–AC20); suy ra `heritage_priority`; gọi repo. |
 | Repository | `repository/postgres_temple_suggestion_repository.go` (not yet created) | SQL list/find; `CreateTemple` với `SELECT … FOR UPDATE`, sinh id, `INSERT temples`, `UPDATE temple_suggestions`. |
 | Delivery / Middleware | `delivery/http/errors.go` (needs modification) | `RequireAnyRole(roles ...string)` cạnh `RequireRole`; handler truyền role từ claims xuống usecase để kiểm AC30. |
@@ -44,7 +45,7 @@ Một route công khai ở `appService` (ghi một dòng `temple_suggestions`, `
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Migration | `migrations/0022_temple_suggestions.sql` (not yet created) | Bảng + CHECK + index bên dưới. |
+| Migration | `migrations/0022_temple_suggestions.sql`  | Bảng + CHECK + index bên dưới. |
 | DB docs | `docs/specs/db/erd.mmd`, `erd.svg`, `migrations/README.md` | Thêm bảng, quan hệ `temple_suggestions N—1 temples`, `N—1 admins`. |
 | API spec | `docs/specs/api/openapi.yaml` (+ `web/docs/public/openapi.yaml`) | 4 route, tag mới `TempleSuggestions`. |
 
@@ -160,6 +161,6 @@ Step C-6 — Đánh dấu đề xuất (this module, cùng transaction)
 - **Hành động từ chối chưa có ở bản đầu.** Schema và nhánh xem lại/tạo chùa từ `rejected` (AC30–AC31) đã sẵn, nhưng route `reject` (AC28–AC29) làm ở Phase 6, nên trước đó đề xuất rác vẫn nằm ở `pending`.
 - **Lý do từ chối bị mất khi mở lại.** Tạo chùa từ đề xuất `rejected` xoá `reject_reason`; chưa có bảng lịch sử duyệt.
 - **Trùng id chùa giữa hai service.** Backoffice sinh id còn `cmd/seedtemples` upsert theo id của file nguồn; nếu file seed sau này chứa id trùng với chùa tạo từ đề xuất thì seed sẽ ghi đè (dạng id đã chốt, rủi ro này vẫn còn).
-- **Rate-limit chưa được wire trong appService.** `pkg/ratelimit` có sẵn nhưng chưa dùng; Phase 2 phải wire theo IP client (phía sau Cloud Run phải lấy IP thật từ header proxy, không phải IP của proxy). IP dùng chung có thể bị giới hạn chung — rủi ro đã chấp nhận.
+- **Rate-limit theo IP nằm trong bộ nhớ của từng instance.** Đã wire (`delivery/http/client_ip_rate_limit.go`) nhưng mỗi instance đếm riêng nên hạn mức thật là 5 × số instance; muốn chính xác cần store dùng chung (`pkg/ratelimit/store` redis). `trust_forwarded_for` phải bật ở production sau Cloud Run, nếu không mọi người dùng chung một bucket. IP dùng chung (NAT) có thể bị giới hạn chung — rủi ro đã chấp nhận.
 - **Ánh xạ priority có hai bản.** Backoffice chép bảng 8 hạng từ appService; chỉ test đối chiếu giữ chúng khớp. Thêm hạng mới phải sửa cả hai nơi (migration CHECK + hai map), test sẽ đỏ nếu quên một bên.
 - **Role chưa thành quyền thật.** 3 role là nhãn (xem `admin/requirements.md`); spec này chỉ thêm kiểm "một trong các role" và kiểm admin cho nhánh mở lại, chưa có RBAC đầy đủ.

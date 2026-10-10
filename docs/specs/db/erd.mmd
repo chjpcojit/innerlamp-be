@@ -2,7 +2,10 @@
 %% Nguồn: migrations/0001_register_onboarding.sql, 0002_login_devices_and_rate_limit.sql,
 %%        0003_otp_send_limits.sql, 0004_attestation.sql, 0005_temples.sql, 0007_deities.sql,
 %%        0011_temple_content.sql, 0012_articles.sql, 0013_sutras.sql, 0014_dharma_talks.sql, 0016_article_thumbnail.sql, 0017_gallery_images.sql,
-%%        0018_memorials.sql, 0019_sutra_audio_search.sql, 0020_sutra_reference_license_summary.sql
+%%        0018_memorials.sql, 0019_sutra_audio_search.sql, 0020_sutra_reference_license_summary.sql,
+%%        0022_temple_suggestions.sql (FK admins: 0006_admins.sql), 0024_temple_province.sql
+%%        0026_administrative_units.sql (addr_*: hanh chinh hai he cu/moi + mapping cap xa)
+%%        0027_lamps.sql (thap den / vuon den)
 %% Quy ước: quan hệ nét liền (--) = FK có cưỡng chế; nét đứt (..) = ràng buộc logic, KHÔNG FK.
 erDiagram
     users {
@@ -12,7 +15,7 @@ erDiagram
         varchar(20) phone_number UK "NOT NULL, users_phone_number_key"
         varchar(255) password_hash "NOT NULL, bcrypt"
         varchar(255) dharma_name "NULL"
-        varchar(255) ordination_place "NULL"
+        varchar(64) ordination_temple_id FK "NULL, temples.id (0023, thay ordination_place)"
         timestamptz created_at "NOT NULL DEFAULT now()"
         timestamptz updated_at "NOT NULL DEFAULT now()"
     }
@@ -46,7 +49,7 @@ erDiagram
         varchar(255) email "NOT NULL, co y KHONG unique"
         varchar(255) password_hash "NOT NULL, bcrypt"
         varchar(255) dharma_name "NULL"
-        varchar(255) ordination_place "NULL"
+        varchar(64) ordination_temple_id FK "NULL, temples.id (0023, thay ordination_place)"
         timestamptz expires_at "NOT NULL, cung TTL voi OTP"
         timestamptz created_at "NOT NULL DEFAULT now()"
     }
@@ -95,6 +98,15 @@ erDiagram
     users ||--o{ user_devices : "user_id, ON DELETE CASCADE"
     users ||--o{ user_sessions : "user_id, ON DELETE CASCADE"
     users ||--o{ memorials : "user_id, ON DELETE CASCADE"
+    users ||--o{ lamps : "user_id, ON DELETE CASCADE (tam thoi, retention chua chot)"
+    temples ||--o| temple_suggestions : "temple_id, chua tao tu de xuat nay"
+    temples ||--o{ users : "ordination_temple_id, noi quy y/xuat gia (NULL = chua co)"
+    addr_new_provinces ||--o{ addr_new_wards : "province_code"
+    addr_old_provinces ||--o{ addr_old_districts : "province_code"
+    addr_old_districts ||--o{ addr_old_wards : "district_code"
+    addr_old_wards ||--o{ addr_ward_mappings : "old_ward_code"
+    addr_new_wards ||--o{ addr_ward_mappings : "new_ward_code, N:M cu <-> moi"
+    temples ||--o{ pending_registration : "ordination_temple_id, FK khong CASCADE"
     user_devices |o--o{ user_sessions : "device_id nullable, ON DELETE SET NULL"
     users ||..o{ otp_codes : "phone_number, khong FK"
     users ||..o| pending_registration : "phone_number UNIQUE, khong FK"
@@ -149,6 +161,7 @@ erDiagram
         double latitude "NOT NULL"
         double longitude "NOT NULL"
         text address "NOT NULL"
+        varchar(100) province "NOT NULL DEFAULT empty, ten tinh/thanh khong tien to (0024)"
         varchar(64) operating_hours "NOT NULL DEFAULT ''"
         boolean parking_car "NOT NULL DEFAULT false"
         boolean parking_motorcycle "NOT NULL DEFAULT false"
@@ -177,6 +190,34 @@ erDiagram
         time reminder_time "NULL, HH:mm"
         varchar(64) reminder_timezone "NULL, IANA"
         boolean add_to_os_reminder "NOT NULL DEFAULT false, chi true khi co reminder; la y dinh, khong phai trang thai may"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    lamps {
+        bigint id PK "BIGSERIAL"
+        bigint user_id FK "NOT NULL, REFERENCES users(id) ON DELETE CASCADE (tam thoi), nguoi thap den"
+        varchar(16) lamp_type "NOT NULL, CHECK (OIL_LAMP, LOTUS_CANDLE, FLOWER_LANTERN)"
+        varchar(20) intention "NOT NULL, CHECK (PEACE, SALVATION, MERIT_DEDICATION, GRATITUDE); chi tra cho nguoi thap"
+        varchar(100) recipient "NOT NULL, danh cho ai"
+        varchar(300) prayer "NULL, loi nguyen; chi tra cho nguoi thap"
+        smallint duration_days "NOT NULL, > 0; tap gia tri hop le nam o config lamp.durations_days"
+        boolean is_anonymous "NOT NULL DEFAULT false"
+        varchar(255) lighter_name "NULL, phap danh chup luc thap; NULL khi an danh (CHECK chk_lamps_anonymous_no_name) hoac khong co phap danh"
+        timestamptz lit_at "NOT NULL, gio may chu, KHONG DEFAULT now()"
+        timestamptz end_at "NOT NULL, lit_at + duration_days*24h, CHECK end_at > lit_at; dang sang khi end_at > now"
+    }
+
+    temple_suggestions {
+        bigint id PK "BIGSERIAL"
+        varchar(255) name "NOT NULL, ten chua nguoi dung de xuat"
+        varchar(100) province "NOT NULL, chuoi tu do"
+        varchar(500) address "NOT NULL"
+        varchar(16) status "NOT NULL DEFAULT pending, CHECK (pending, created, rejected)"
+        varchar(64) temple_id FK "NULL, REFERENCES temples(id), chi khi created; UNIQUE khi NOT NULL"
+        bigint reviewed_by FK "NULL, REFERENCES admins(id), NOT NULL khi created/rejected"
+        timestamptz reviewed_at "NULL, NOT NULL khi created/rejected"
+        varchar(500) reject_reason "NULL, chi khi rejected, tuy chon"
         timestamptz created_at "NOT NULL DEFAULT now()"
         timestamptz updated_at "NOT NULL DEFAULT now()"
     }
@@ -329,4 +370,63 @@ erDiagram
         varchar(128) sutra_id PK,FK "sutras.id, ON DELETE CASCADE"
         varchar(64) deity_id PK,FK "deities.id, idx_sutra_deities_deity (deity_id, role)"
         varchar(16) role "NOT NULL, CHECK (SPEAKER, SUBJECT, MENTIONED)"
+    }
+
+    %% Hanh chinh Viet Nam hai he (0026). Hai he o bang rieng vi cung mot ma co the la hai don vi khac nhau
+    %% (26737 vua la phuong Da Kao cu vua la phuong Tan Dinh moi). Chuyen doi cap tinh KHONG co bang:
+    %% suy ra tu addr_ward_mappings. Nap bang cmd/seedadminunits tu assets/data/administrative-units.json (chi upsert).
+    addr_dataset_versions {
+        varchar(32) version PK "ngay cua bo du lieu, vd 2026-09-25"
+        text source_note "NOT NULL DEFAULT '', repo + commit"
+        timestamptz loaded_at "NOT NULL DEFAULT now()"
+    }
+
+    addr_new_provinces {
+        varchar(16) code PK "34 dong"
+        varchar(100) name "NOT NULL, khong tien to"
+        varchar(150) full_name "NOT NULL, co tien to"
+        varchar(32) type "NOT NULL, nhan cua bo du lieu (province, city), khong CHECK"
+        int sort_order "NOT NULL CHECK >= 1, thu tu chu cai tieng Viet tinh san"
+    }
+
+    addr_new_wards {
+        varchar(16) code PK "3321 dong"
+        varchar(16) province_code FK "addr_new_provinces.code, idx (province_code, sort_order, code)"
+        varchar(100) name "NOT NULL"
+        varchar(150) full_name "NOT NULL"
+        varchar(32) type "NOT NULL (ward, commune, special_zone), khong CHECK"
+        int sort_order "NOT NULL CHECK >= 1, trong tinh"
+    }
+
+    addr_old_provinces {
+        varchar(16) code PK "63 dong"
+        varchar(100) name "NOT NULL"
+        varchar(150) full_name "NOT NULL"
+        varchar(32) type "NOT NULL, khong CHECK"
+        int sort_order "NOT NULL CHECK >= 1"
+    }
+
+    addr_old_districts {
+        varchar(16) code PK "696 dong, duy nhat toan cuc sau khi bo 2 dong nhan doi"
+        varchar(16) province_code FK "addr_old_provinces.code, idx (province_code, sort_order, code)"
+        varchar(100) name "NOT NULL"
+        varchar(150) full_name "NOT NULL"
+        varchar(32) type "NOT NULL, khong CHECK"
+        int sort_order "NOT NULL CHECK >= 1, trong tinh"
+    }
+
+    addr_old_wards {
+        varchar(16) code PK "10033 dong; tinh suy ra qua huyen, khong luu lap"
+        varchar(16) district_code FK "addr_old_districts.code, idx (district_code, sort_order, code)"
+        varchar(100) name "NOT NULL"
+        varchar(150) full_name "NOT NULL"
+        varchar(32) type "NOT NULL (ward, commune, town), khong CHECK"
+        int sort_order "NOT NULL CHECK >= 1, trong huyen"
+    }
+
+    addr_ward_mappings {
+        varchar(16) old_ward_code PK,FK "addr_old_wards.code"
+        varchar(16) new_ward_code PK,FK "addr_new_wards.code, idx_addr_ward_mappings_new phuc vu chieu moi -> cu"
+        varchar(32) mapping_type "NOT NULL, nhan nguon: merged, province_changed, ambiguous, unchanged, split_population, renamed"
+        text note "NOT NULL DEFAULT ''"
     }

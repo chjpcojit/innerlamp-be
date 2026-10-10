@@ -81,7 +81,8 @@ func envOrInt(t *testing.T, key string, fallback int) int {
 }
 
 // applyMigration runs 0001_register_onboarding.sql,
-// 0002_login_devices_and_rate_limit.sql and 0003_otp_send_limits.sql. Every
+// 0002_login_devices_and_rate_limit.sql, 0003_otp_send_limits.sql and the
+// later files listed below. Every
 // statement in them is CREATE/ADD/DROP ... IF (NOT) EXISTS, so running them
 // against an already-migrated database is a no-op — this is what lets each
 // test file bootstrap its own schema instead of depending on a separate
@@ -107,9 +108,13 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0016_article_thumbnail.sql", // articles.thumbnail_url: postgres_article_repository.go selects it
 		"0017_gallery_images.sql",
 		"0018_memorials.sql",
-		"0019_sutra_audio_search.sql", // sutras.audio_url + unaccent: postgres_sutra_repository.go selects/uses them
+		"0019_sutra_audio_search.sql",              // sutras.audio_url + unaccent: postgres_sutra_repository.go selects/uses them
 		"0020_sutra_reference_license_summary.sql", // sutras.summary etc.: postgres_sutra_repository.go selects/inserts them
 		"0022_temple_suggestions.sql",
+		"0023_registration_ordination_temple.sql", // users/pending_registration.ordination_temple_id -> temples
+		"0024_temple_province.sql",                // temples.province: postgres_temple_repository.go selects/inserts it
+		"0027_lamps.sql",                          // lamps: postgres_lamp_repository.go (references users)
+		"0026_administrative_units.sql",           // addr_*: postgres_administrative_unit_repository.go
 	} {
 		sqlBytes, err := os.ReadFile("../../../migrations/" + file)
 		require.NoError(t, err)
@@ -791,4 +796,102 @@ func TestIsUniqueViolation(t *testing.T) {
 
 	wrongCode := &pq.Error{Code: "23503", Constraint: usersEmailKeyConstraint}
 	require.False(t, isUniqueViolation(wrongCode, usersEmailKeyConstraint))
+}
+
+func insertTemple(t *testing.T, db database.Database, id string) {
+	t.Helper()
+	_, err := db.Exec(context.Background(),
+		`INSERT INTO temples (id, name, type, region, sect, established_year, heritage_rank, heritage_priority, latitude, longitude, address)
+		 VALUES ($1, $2, 'CHUA', 'north', 'Thiền', 1000, 'CHUA_XEP_HANG', 7, 21.0, 105.8, 'Hà Nội')`, id, "Chùa "+id)
+	require.NoError(t, err)
+}
+
+func TestRegistrationRepository_TempleExists(t *testing.T) {
+	db := connectTestDB(t)
+	repo := NewRegistrationRepository(db)
+	ctx := context.Background()
+	truncateAll(t, db)
+	insertTemple(t, db, "temple_test_001")
+
+	ok, err := repo.TempleExists(ctx, "temple_test_001")
+	require.NoError(t, err)
+	require.True(t, ok)
+
+	ok, err = repo.TempleExists(ctx, "temple_missing")
+	require.NoError(t, err)
+	require.False(t, ok)
+}
+
+// TestRegistrationRepository_OrdinationTemple covers AC4/AC8/AC19 at the SQL
+// level: the id survives pending -> user, NULL stays NULL, and the FK is what
+// turns a vanished temple into ErrInvalidTemple at verify time.
+func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
+	db := connectTestDB(t)
+	repo := NewRegistrationRepository(db)
+	ctx := context.Background()
+
+	t.Run("id round-trips pending to user", func(t *testing.T) {
+		truncateAll(t, db)
+		insertTemple(t, db, "temple_test_002")
+		phone := "+84900000070"
+		templeID := "temple_test_002"
+
+		pending := &domain.PendingRegistration{
+			PhoneNumber: phone, Email: "t1@example.com", PasswordHash: "hash",
+			OrdinationTempleID: &templeID, ExpiresAt: time.Now().Add(time.Hour),
+		}
+		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits())
+		require.NoError(t, err)
+
+		loaded, err := repo.FindPendingRegistration(ctx, phone)
+		require.NoError(t, err)
+		require.NotNil(t, loaded.OrdinationTempleID)
+		require.Equal(t, templeID, *loaded.OrdinationTempleID)
+
+		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		result, err := repo.CreateUserAndSession(ctx, loaded, otpID, time.Hour, stubTokenIssuer)
+		require.NoError(t, err)
+		require.NotNil(t, result.User.OrdinationTempleID)
+		require.Equal(t, templeID, *result.User.OrdinationTempleID)
+
+		var stored sql.NullString
+		require.NoError(t, db.QueryRow(ctx, `SELECT ordination_temple_id FROM users WHERE id = $1`, result.User.ID).Scan(&stored))
+		require.Equal(t, templeID, stored.String)
+	})
+
+	t.Run("nil stays NULL", func(t *testing.T) {
+		truncateAll(t, db)
+		phone := "+84900000071"
+		pending := &domain.PendingRegistration{
+			PhoneNumber: phone, Email: "t2@example.com", PasswordHash: "hash",
+			ExpiresAt: time.Now().Add(time.Hour),
+		}
+		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits())
+		require.NoError(t, err)
+
+		loaded, err := repo.FindPendingRegistration(ctx, phone)
+		require.NoError(t, err)
+		require.Nil(t, loaded.OrdinationTempleID)
+	})
+
+	t.Run("temple vanished before verify maps to ErrInvalidTemple and rolls back", func(t *testing.T) {
+		truncateAll(t, db)
+		phone := "+84900000072"
+		missing := "temple_never_existed"
+		pendingID := insertPending(t, db, phone, "t3@example.com", time.Now().Add(time.Hour))
+		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+
+		pending := &domain.PendingRegistration{
+			ID: pendingID, PhoneNumber: phone, Email: "t3@example.com", PasswordHash: "hash",
+			OrdinationTempleID: &missing,
+		}
+		_, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, stubTokenIssuer)
+		require.ErrorIs(t, err, domain.ErrInvalidTemple)
+
+		var users int
+		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM users`).Scan(&users))
+		require.Zero(t, users)
+		_, err = repo.FindPendingRegistration(ctx, phone)
+		require.NoError(t, err, "pending payload must survive the rollback")
+	})
 }

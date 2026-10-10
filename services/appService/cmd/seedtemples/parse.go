@@ -31,6 +31,8 @@ type sourceTemple struct {
 		Lat     float64 `json:"lat"`
 		Lng     float64 `json:"lng"`
 		Address string  `json:"address"`
+		// Province is explicit seed data (not parsed from Address); required.
+		Province string `json:"province"`
 	} `json:"location"`
 	Amenities struct {
 		ParkingCar        bool `json:"parking_car"`
@@ -118,12 +120,19 @@ func parseTemples(src []byte) ([]domain.Temple, error) {
 		if !ok {
 			return nil, fmt.Errorf("temple %q: unknown heritage_rank %q", s.ID, s.HeritageRank)
 		}
+		province := strings.TrimSpace(s.Location.Province)
+		if province == "" {
+			return nil, fmt.Errorf("temple %q: location.province is required", s.ID)
+		}
+		if !domain.IsProvince(province) {
+			return nil, fmt.Errorf("temple %q: location.province %q is not one of the 34 province-level units (use the name without a \"Tỉnh\"/\"TP.\" prefix, e.g. \"Hồ Chí Minh\")", s.ID, province)
+		}
 		out = append(out, domain.Temple{
 			ID: s.ID, Name: s.Name, Type: s.Type, Region: region,
 			ImageURL: s.ImageURL, Thumbnail: s.ThumbnailURL, Aliases: s.Aliases,
 			Sect: s.Sect, Founder: s.Founder, Abbot: s.CurrentAbbot,
 			Established: s.Established, Heritage: s.HeritageRank, HeritagePriority: prio,
-			Latitude: s.Location.Lat, Longitude: s.Location.Lng, Address: s.Location.Address,
+			Latitude: s.Location.Lat, Longitude: s.Location.Lng, Address: s.Location.Address, Province: province,
 			OperatingHours: s.OperatingHour,
 			Introduction:   s.Introduction, ArchitectureHeritage: s.ArchitectureHeritage, VisitingNotes: s.VisitingNotes,
 			Amenities: domain.TempleAmenities{

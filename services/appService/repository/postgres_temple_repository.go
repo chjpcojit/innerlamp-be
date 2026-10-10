@@ -17,7 +17,7 @@ import (
 const (
 	templeColumns = `id, name, type, region, image_url, thumbnail_url, aliases, sect, founder,
 		current_abbot, established_year, heritage_rank, heritage_priority, latitude, longitude,
-		address, operating_hours, parking_car, parking_motorcycle, vegetarian_meals, summer_retreat,
+		address, province, operating_hours, parking_car, parking_motorcycle, vegetarian_meals, summer_retreat,
 		introduction, architecture_heritage, visiting_notes`
 
 	// id is the final tiebreaker: without it two temples of the same rank and
@@ -60,6 +60,49 @@ func (r *templeRepository) List(ctx context.Context, offset, limit int) ([]domai
 	return items, total, nil
 }
 
+// ListOptions returns one window of the ranked catalogue as id/name/province
+// plus the total number of matching rows. It reuses templeOrder so it can never
+// diverge from top and the paged list, and reads only id, name and province (no
+// editorial text or array). A non-empty query keeps temples whose name contains
+// it, ignoring case and Vietnamese diacritics (unaccent, enabled by migration
+// 0019, as for GET /v1/sutras?q=); LIKE wildcards in it are escaped so "100%" or
+// "a_b" match literally.
+func (r *templeRepository) ListOptions(ctx context.Context, query string, offset, limit int) ([]domain.TempleOption, int, error) {
+	where := ""
+	var args []any
+	if query != "" {
+		where = `WHERE unaccent(lower(name)) LIKE unaccent(lower($1)) ESCAPE '\' `
+		args = append(args, likeContains(query))
+	}
+
+	var total int
+	if err := r.db.QueryRow(ctx, `SELECT count(*) FROM temples `+where, args...).Scan(&total); err != nil {
+		return nil, 0, fmt.Errorf("count temple options: %w", err)
+	}
+
+	args = append(args, offset, limit)
+	rows, err := r.db.Query(ctx,
+		`SELECT id, name, province FROM temples `+where+templeOrder+
+			fmt.Sprintf(` OFFSET $%d LIMIT $%d`, len(args)-1, len(args)), args...)
+	if err != nil {
+		return nil, 0, fmt.Errorf("query temple options: %w", err)
+	}
+	defer func() { _ = rows.Close() }()
+
+	items := []domain.TempleOption{}
+	for rows.Next() {
+		var o domain.TempleOption
+		if err := rows.Scan(&o.ID, &o.Name, &o.Province); err != nil {
+			return nil, 0, fmt.Errorf("scan temple option: %w", err)
+		}
+		items = append(items, o)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, 0, fmt.Errorf("iterate temple options: %w", err)
+	}
+	return items, total, nil
+}
+
 // FindByID returns the temple or domain.ErrTempleNotFound.
 func (r *templeRepository) FindByID(ctx context.Context, id string) (*domain.Temple, error) {
 	row := r.db.QueryRow(ctx, `SELECT `+templeColumns+` FROM temples WHERE id = $1`, id)
@@ -79,9 +122,9 @@ func (r *templeRepository) Upsert(ctx context.Context, temples []domain.Temple) 
 	const query = `
 		INSERT INTO temples (id, name, type, region, image_url, thumbnail_url, aliases, sect, founder,
 			current_abbot, established_year, heritage_rank, heritage_priority, latitude, longitude,
-			address, operating_hours, parking_car, parking_motorcycle, vegetarian_meals, summer_retreat,
+			address, province, operating_hours, parking_car, parking_motorcycle, vegetarian_meals, summer_retreat,
 			introduction, architecture_heritage, visiting_notes)
-		VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24)
+		VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25)
 		ON CONFLICT (id) DO UPDATE SET
 			name = EXCLUDED.name, type = EXCLUDED.type, region = EXCLUDED.region,
 			image_url = EXCLUDED.image_url, thumbnail_url = EXCLUDED.thumbnail_url,
@@ -89,7 +132,7 @@ func (r *templeRepository) Upsert(ctx context.Context, temples []domain.Temple) 
 			current_abbot = EXCLUDED.current_abbot, established_year = EXCLUDED.established_year,
 			heritage_rank = EXCLUDED.heritage_rank, heritage_priority = EXCLUDED.heritage_priority,
 			latitude = EXCLUDED.latitude, longitude = EXCLUDED.longitude, address = EXCLUDED.address,
-			operating_hours = EXCLUDED.operating_hours, parking_car = EXCLUDED.parking_car,
+			province = EXCLUDED.province, operating_hours = EXCLUDED.operating_hours, parking_car = EXCLUDED.parking_car,
 			parking_motorcycle = EXCLUDED.parking_motorcycle, vegetarian_meals = EXCLUDED.vegetarian_meals,
 			summer_retreat = EXCLUDED.summer_retreat, introduction = EXCLUDED.introduction,
 			architecture_heritage = EXCLUDED.architecture_heritage, visiting_notes = EXCLUDED.visiting_notes,
@@ -113,7 +156,7 @@ func (r *templeRepository) Upsert(ctx context.Context, temples []domain.Temple) 
 		if _, err := tx.ExecContext(ctx, query,
 			t.ID, t.Name, t.Type, t.Region, t.ImageURL, t.Thumbnail, pq.Array(aliases), t.Sect, t.Founder,
 			t.Abbot, t.Established, t.Heritage, t.HeritagePriority, t.Latitude, t.Longitude,
-			t.Address, t.OperatingHours, t.Amenities.ParkingCar, t.Amenities.ParkingMotorcycle,
+			t.Address, t.Province, t.OperatingHours, t.Amenities.ParkingCar, t.Amenities.ParkingMotorcycle,
 			t.Amenities.VegetarianMeals, t.Amenities.SummerRetreat,
 			t.Introduction, t.ArchitectureHeritage, pq.Array(notes),
 		); err != nil {
@@ -133,7 +176,7 @@ func scanTemple(row rowScanner) (*domain.Temple, error) {
 	if err := row.Scan(
 		&t.ID, &t.Name, &t.Type, &t.Region, &t.ImageURL, &t.Thumbnail, pq.Array(&t.Aliases), &t.Sect,
 		&t.Founder, &t.Abbot, &t.Established, &t.Heritage, &t.HeritagePriority, &t.Latitude, &t.Longitude,
-		&t.Address, &t.OperatingHours, &t.Amenities.ParkingCar, &t.Amenities.ParkingMotorcycle,
+		&t.Address, &t.Province, &t.OperatingHours, &t.Amenities.ParkingCar, &t.Amenities.ParkingMotorcycle,
 		&t.Amenities.VegetarianMeals, &t.Amenities.SummerRetreat,
 		&t.Introduction, &t.ArchitectureHeritage, pq.Array(&t.VisitingNotes),
 	); err != nil {

@@ -21,12 +21,13 @@ import "time"
 // always go together — a caller that finds one expired can treat the whole
 // attempt as dead and ask for email and password again.
 type PendingRegistration struct {
-	ID              int64
-	PhoneNumber     string
-	Email           string
-	PasswordHash    string
-	DharmaName      *string
-	OrdinationPlace *string
-	ExpiresAt       time.Time
-	CreatedAt       time.Time
+	ID           int64
+	PhoneNumber  string
+	Email        string
+	PasswordHash string
+	DharmaName   *string
+	// OrdinationTempleID is temples.id chosen at step 1, nil when none (v7.0).
+	OrdinationTempleID *string
+	ExpiresAt          time.Time
+	CreatedAt          time.Time
 }

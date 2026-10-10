@@ -67,6 +67,8 @@ type AppConfig struct {
 	Calendar    CalendarConfig    `yaml:"calendar"`
 	Article     ArticleConfig     `yaml:"article"`
 	Memorial    MemorialConfig    `yaml:"memorial"`
+	Lamp        LampConfig        `yaml:"lamp"`
+	Genealogy   GenealogyConfig   `yaml:"genealogy"`
 	DharmaTalk  DharmaTalkConfig  `yaml:"dharma_talk"`
 	Sutra       SutraConfig       `yaml:"sutra"`
 
@@ -213,13 +215,34 @@ type LoginConfig struct {
 // TempleConfig holds the temple catalogue's page sizes. Config rather than
 // constants: the iOS list screen's page size and the home carousel length are
 // tuning knobs a deployment may change without a code release. A zero value
-// would return empty pages, so every config.<env>.yaml must set both.
+// would return empty pages (and divide by zero in total_pages), so every
+// config.<env>.yaml must set all three; Validate enforces it at startup.
 type TempleConfig struct {
 	// TopLimit is how many temples GET /v1/temples/top returns.
 	TopLimit int `yaml:"top_limit"`
 
 	// PageSize is how many temples each page of GET /v1/temples holds.
 	PageSize int `yaml:"page_size"`
+
+	// OptionsPageSize is how many options each page of GET /v1/temples/options
+	// holds. Separate from PageSize: a pick-list wants bigger pages than the
+	// browse list because it carries three small fields per item.
+	OptionsPageSize int `yaml:"options_page_size"`
+}
+
+// Validate rejects a value that would return empty pages or divide by zero in
+// total_pages.
+func (c TempleConfig) Validate() error {
+	if c.TopLimit < 1 {
+		return fmt.Errorf("temple.top_limit must be >= 1, got %d", c.TopLimit)
+	}
+	if c.PageSize < 1 {
+		return fmt.Errorf("temple.page_size must be >= 1, got %d", c.PageSize)
+	}
+	if c.OptionsPageSize < 1 {
+		return fmt.Errorf("temple.options_page_size must be >= 1, got %d", c.OptionsPageSize)
+	}
+	return nil
 }
 
 // DeityConfig holds the Phật / Bồ tát catalogue's page sizes. Same reasoning as
@@ -272,6 +295,109 @@ type ArticleConfig struct {
 type MemorialConfig struct {
 	// MaxPerUser is how many memorials one user may own.
 	MaxPerUser int `yaml:"max_per_user"`
+}
+
+// LampConfig holds the thắp đèn / vườn đèn limits (docs/specs/features/lamp).
+// They are operational numbers a dev environment shortens to exercise a limit
+// and prod may stretch, so they live here. Zero would mean "nobody can light a
+// lamp" or "an empty garden page", so Validate rejects it and every
+// config.<env>.yaml must set the block.
+type LampConfig struct {
+	// MaxActivePerUser is how many lit lamps one user may have at once (dev: 20).
+	MaxActivePerUser int `yaml:"max_active_per_user"`
+
+	// PageSize is how many lamps one garden page holds, and the most a client
+	// may ask for with limit (dev: 12).
+	PageSize int `yaml:"page_size"`
+
+	// DedupeWindow is how long an identical lamp from the same user counts as
+	// the same submission, so a double tap lights one lamp (dev: 5s).
+	DedupeWindow Duration `yaml:"dedupe_window"`
+
+	// DurationsDays are the burn durations a user may choose, in days
+	// (dev: 1, 7, 21, 49).
+	DurationsDays []int `yaml:"durations_days"`
+}
+
+// Validate rejects a LampConfig that would make lighting or paging impossible:
+// a limit below 1, a non-positive window, or a duration list that is empty,
+// holds a value below 1 or repeats one.
+func (c LampConfig) Validate() error {
+	if c.MaxActivePerUser < 1 {
+		return fmt.Errorf("lamp.max_active_per_user must be >= 1, got %d", c.MaxActivePerUser)
+	}
+	if c.PageSize < 1 {
+		return fmt.Errorf("lamp.page_size must be >= 1, got %d", c.PageSize)
+	}
+	if c.DedupeWindow.Duration() <= 0 {
+		return fmt.Errorf("lamp.dedupe_window must be > 0, got %s", c.DedupeWindow.Duration())
+	}
+	if len(c.DurationsDays) == 0 {
+		return fmt.Errorf("lamp.durations_days must not be empty")
+	}
+	seen := make(map[int]bool, len(c.DurationsDays))
+	for _, d := range c.DurationsDays {
+		if d < 1 {
+			return fmt.Errorf("lamp.durations_days must hold values >= 1, got %d", d)
+		}
+		if seen[d] {
+			return fmt.Errorf("lamp.durations_days repeats %d", d)
+		}
+		seen[d] = true
+	}
+	return nil
+}
+
+// GenealogyConfig holds the gia phả size limits and the invitation lifetime
+// (docs/specs/features/genealogy AC10, AC24, AC25, AC20, AC47, AC75). They are
+// operational numbers a dev environment shortens to exercise a limit and prod
+// may stretch, so they live here rather than as constants. Zero would mean
+// "nobody can create anything" or "invitations are born expired", so Validate
+// rejects any value below 1 and every config.<env>.yaml must set the block.
+type GenealogyConfig struct {
+	// MaxPerUser is how many genealogies one user may own (dev: 10).
+	MaxPerUser int `yaml:"max_per_user"`
+
+	// MaxMembers is how many members, in-laws included, one genealogy may hold
+	// (dev: 5000).
+	MaxMembers int `yaml:"max_members"`
+
+	// MaxGeneration is the deepest generation a member may be placed in; the
+	// founder is generation 1 (dev: 60).
+	MaxGeneration int `yaml:"max_generation"`
+
+	// MaxSpouses is how many spouses one blood member may have (dev: 5).
+	MaxSpouses int `yaml:"max_spouses"`
+
+	// MaxViewers caps viewers plus pending invitations per genealogy (dev: 20).
+	MaxViewers int `yaml:"max_viewers"`
+
+	// InvitationTTL is how long an invitation stays acceptable (dev: "720h",
+	// 30 days).
+	InvitationTTL Duration `yaml:"invitation_ttl"`
+}
+
+// Validate rejects any limit below 1 and a non-positive invitation lifetime.
+func (c GenealogyConfig) Validate() error {
+	checks := []struct {
+		name string
+		v    int
+	}{
+		{"max_per_user", c.MaxPerUser},
+		{"max_members", c.MaxMembers},
+		{"max_generation", c.MaxGeneration},
+		{"max_spouses", c.MaxSpouses},
+		{"max_viewers", c.MaxViewers},
+	}
+	for _, ch := range checks {
+		if ch.v < 1 {
+			return fmt.Errorf("genealogy.%s must be >= 1, got %d", ch.name, ch.v)
+		}
+	}
+	if c.InvitationTTL.Duration() <= 0 {
+		return fmt.Errorf("genealogy.invitation_ttl must be > 0, got %s", c.InvitationTTL.Duration())
+	}
+	return nil
 }
 
 // TempleSuggestionConfig holds the public "suggest a temple" route's abuse guard.

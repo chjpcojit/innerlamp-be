@@ -10,6 +10,8 @@ code: (chưa có code — áp dụng cho docs/specs/features/genealogy/ AC44–A
 
 # A-002 — Invitation defaults / Mặc định của lời mời cộng tác
 
+> Cập nhật 2026-10-10: anh Đức đã xác nhận mục (2) lời mời chờ tính vào trần 20 và mục (3) hạn 30 ngày. Mục (1) đã được chốt: thông báo push là tính năng riêng làm sau, không dùng SMS. Mục (7) không còn áp dụng: vai trò trưởng tộc đã bỏ ở spec v5.0; vai trò nhận lời mời giờ là `viewer` (chỉ xem). Các mục (1), (4), (5), (6) vẫn chưa được xác nhận.
+
 ## Assumption / Giả định
 
 **EN** — (1) "Notification" in v1 is an in-app invitation inbox (`GET /v1/invitations`); no push/SMS. (2) Pending invitations count toward the 20-collaborator cap. (3) An invitation expires after 30 days. (4) Invitations are matched to a person by phone number only. (5) An owner may re-invite a number that declined. (6) The invitee sees only the genealogy name and the inviter's phone number before accepting. (7) Clan head is still assigned directly, not by invitation.

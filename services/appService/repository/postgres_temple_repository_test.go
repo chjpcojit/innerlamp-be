@@ -19,7 +19,7 @@ func mkTemple(id, rank string, year int) domain.Temple {
 	return domain.Temple{
 		ID: id, Name: "Chùa " + id, Type: "CHUA", Region: "north", Sect: "BẮC_TÔNG",
 		Established: year, Heritage: rank, HeritagePriority: prio,
-		Latitude: 21.0, Longitude: 105.8, Address: "Hà Nội",
+		Latitude: 21.0, Longitude: 105.8, Address: "Quận Ba Đình, Hà Nội", Province: "Hà Nội",
 		Aliases: []string{"a1", "a2"},
 	}
 }
@@ -126,4 +126,123 @@ func TestTempleRepository_ListPaging(t *testing.T) {
 		}
 	}
 	assert.Len(t, seen, 45)
+}
+
+func TestTempleRepository_ListOptions(t *testing.T) {
+	repo := newTempleRepo(t)
+	ctx := context.Background()
+
+	named := func(id, rank string, year int, name, province string) domain.Temple {
+		x := mkTemple(id, rank, year)
+		x.Name, x.Province = name, province
+		return x
+	}
+
+	t.Run("empty table is an empty, non-nil slice with total 0", func(t *testing.T) {
+		got, total, err := repo.ListOptions(ctx, "", 0, 10)
+		require.NoError(t, err)
+		assert.NotNil(t, got)
+		assert.Empty(t, got)
+		assert.Equal(t, 0, total)
+	})
+
+	require.NoError(t, repo.Upsert(ctx, []domain.Temple{
+		named("d", "CHUA_XEP_HANG", 500, "Chùa Đồng Quang", "Hồ Chí Minh"),
+		named("b", "DI_TICH_QUOC_GIA_DAC_BIET", 1049, "Chùa Bích Động", "Ninh Bình"),
+		named("a", "DI_TICH_QUOC_GIA_DAC_BIET", 541, "Chùa Một Cột", "Hà Nội"),
+		named("z", "DI_SAN_THE_GIOI", 1900, "Chùa 100% Hương_Sơn", "Cần Thơ"),
+	}))
+
+	t.Run("returns id, name and the stored province in ranking order, paged, with the full total", func(t *testing.T) {
+		page1, total, err := repo.ListOptions(ctx, "", 0, 3)
+		require.NoError(t, err)
+		assert.Equal(t, 4, total, "total counts the whole table, not the page")
+		assert.Equal(t, []domain.TempleOption{
+			{ID: "z", Name: "Chùa 100% Hương_Sơn", Province: "Cần Thơ"},
+			{ID: "a", Name: "Chùa Một Cột", Province: "Hà Nội"},
+			{ID: "b", Name: "Chùa Bích Động", Province: "Ninh Bình"},
+		}, page1, "same order as top and the paged list")
+
+		page2, total, err := repo.ListOptions(ctx, "", 3, 3)
+		require.NoError(t, err)
+		assert.Equal(t, 4, total)
+		assert.Equal(t, []domain.TempleOption{{ID: "d", Name: "Chùa Đồng Quang", Province: "Hồ Chí Minh"}}, page2)
+
+		past, total, err := repo.ListOptions(ctx, "", 30, 3)
+		require.NoError(t, err)
+		assert.Equal(t, 4, total)
+		assert.Empty(t, past)
+	})
+
+	t.Run("province is the stored column, not parsed from address", func(t *testing.T) {
+		x := named("p", "CHUA_XEP_HANG", 1, "Chùa P", "Tên Lưu Riêng")
+		x.Address = "Phường 1, Tỉnh Khác Hẳn"
+		require.NoError(t, repo.Upsert(ctx, []domain.Temple{x}))
+
+		got, _, err := repo.ListOptions(ctx, "chua p", 0, 10)
+		require.NoError(t, err)
+		require.Len(t, got, 1)
+		assert.Equal(t, "Tên Lưu Riêng", got[0].Province)
+	})
+
+	search := func(t *testing.T, q string) ([]string, int) {
+		t.Helper()
+		got, total, err := repo.ListOptions(ctx, q, 0, 10)
+		require.NoError(t, err)
+		ids := []string{}
+		for _, o := range got {
+			ids = append(ids, o.ID)
+		}
+		return ids, total
+	}
+
+	t.Run("matches ignoring case and Vietnamese diacritics", func(t *testing.T) {
+		for _, q := range []string{"bich dong", "BÍCH ĐỘNG", "Bích Động", "bích dong", "ich do"} {
+			ids, total := search(t, q)
+			assert.Equal(t, []string{"b"}, ids, q)
+			assert.Equal(t, 1, total, q)
+		}
+	})
+
+	t.Run("đ and d match each other in both directions", func(t *testing.T) {
+		ids, _ := search(t, "dong quang")
+		assert.Equal(t, []string{"d"}, ids)
+		ids, _ = search(t, "đồng quang")
+		assert.Equal(t, []string{"d"}, ids)
+	})
+
+	t.Run("total and paging apply to the matches, ranking order is kept", func(t *testing.T) {
+		got, total, err := repo.ListOptions(ctx, "chua", 0, 2)
+		require.NoError(t, err)
+		assert.Equal(t, 5, total, "all five names contain 'chùa'")
+		assert.Len(t, got, 2)
+		assert.Equal(t, "z", got[0].ID)
+	})
+
+	t.Run("LIKE wildcards in the term are matched literally", func(t *testing.T) {
+		ids, total := search(t, "100%")
+		assert.Equal(t, []string{"z"}, ids)
+		assert.Equal(t, 1, total)
+
+		ids, _ = search(t, "huong_son")
+		assert.Equal(t, []string{"z"}, ids)
+
+		ids, total = search(t, "%")
+		assert.Equal(t, []string{"z"}, ids, "a lone % is a literal percent sign, not 'match everything'")
+		assert.Equal(t, 1, total)
+
+		ids, _ = search(t, "_")
+		assert.Equal(t, []string{"z"}, ids, "a lone _ is a literal underscore")
+
+		ids, _ = search(t, `\`)
+		assert.Empty(t, ids)
+	})
+
+	t.Run("no match is an empty non-nil slice with total 0", func(t *testing.T) {
+		got, total, err := repo.ListOptions(ctx, "khong co chua nay", 0, 10)
+		require.NoError(t, err)
+		assert.NotNil(t, got)
+		assert.Empty(t, got)
+		assert.Equal(t, 0, total)
+	})
 }

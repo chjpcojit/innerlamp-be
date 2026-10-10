@@ -159,3 +159,76 @@ func TestRegisterFlow_SendLimitAndVerifyDuringLock_E2E(t *testing.T) {
 	res = api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
 	require.Equal(t, http.StatusCreated, res.status, "verify must work while send-locked: %s", res.raw)
 }
+
+// TestRegisterFlow_OrdinationTemple_E2E pins v7.0 over the real binary: the
+// client sends ordination_temple_id, an unknown id is refused up front with
+// INVALID_TEMPLE (nothing written), a valid id travels pending -> users and
+// comes back in the verify-otp user object, and omitting it is fine (NULL).
+func TestRegisterFlow_OrdinationTemple_E2E(t *testing.T) {
+	requireE2E(t)
+	dbHost, dbPort, cleanupDB := startPostgres(t)
+	t.Cleanup(cleanupDB)
+	baseURL, cleanupSrv := startServer(t, dbHost, dbPort, nil)
+	t.Cleanup(cleanupSrv)
+
+	db := openDB(t, dbHost, dbPort)
+	execSQL(t, db, `INSERT INTO temples (id, name, type, region, sect, established_year, heritage_rank, heritage_priority, latitude, longitude, address)
+		VALUES ('temple_e2e_001', 'Chùa E2E', 'CHUA', 'north', 'Thiền', 1000, 'CHUA_XEP_HANG', 7, 21.0, 105.8, 'Hà Nội')`)
+
+	api := &apiClient{t: t, baseURL: baseURL, http: &http.Client{Timeout: 5 * time.Second}}
+	request := func(phone, email string, extra map[string]any) *apiResponse {
+		body := map[string]any{"email": email, "password": testPassword, "phone_number": phone}
+		for k, v := range extra {
+			body[k] = v
+		}
+		return api.post("/v1/auth/register/request-otp", body, "")
+	}
+	verify := func(phone string) *apiResponse {
+		return api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
+	}
+
+	t.Run("unknown id is refused and writes nothing", func(t *testing.T) {
+		api.t = t
+		res := request(api.nextPhone(), "badtemple@e2e.example.com", map[string]any{"ordination_temple_id": "temple_missing"})
+		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
+		assert.Equal(t, "INVALID_TEMPLE", res.errorCode())
+		assert.Zero(t, countRows(t, db, "pending_registration"))
+	})
+
+	t.Run("legacy ordination_place is rejected", func(t *testing.T) {
+		api.t = t
+		res := request(api.nextPhone(), "legacy@e2e.example.com", map[string]any{"ordination_place": "Chùa Hoằng Pháp"})
+		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
+		assert.Equal(t, "VALIDATION_ERROR", res.errorCode())
+	})
+
+	t.Run("valid id reaches the user", func(t *testing.T) {
+		api.t = t
+		phone := api.nextPhone()
+		res := request(phone, "withtemple@e2e.example.com", map[string]any{"ordination_temple_id": "temple_e2e_001"})
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+
+		res = verify(phone)
+		require.Equal(t, http.StatusCreated, res.status, res.raw)
+		var data struct {
+			User map[string]any `json:"user"`
+		}
+		res.data(&data)
+		assert.Equal(t, "temple_e2e_001", data.User["ordination_temple_id"])
+		assert.NotContains(t, data.User, "ordination_place")
+	})
+
+	t.Run("no temple chosen is NULL and omitted", func(t *testing.T) {
+		api.t = t
+		phone := api.nextPhone()
+		require.Equal(t, http.StatusOK, request(phone, "notemple@e2e.example.com", nil).status)
+
+		res := verify(phone)
+		require.Equal(t, http.StatusCreated, res.status, res.raw)
+		var data struct {
+			User map[string]any `json:"user"`
+		}
+		res.data(&data)
+		assert.NotContains(t, data.User, "ordination_temple_id")
+	})
+}

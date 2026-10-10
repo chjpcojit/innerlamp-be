@@ -14,6 +14,7 @@ import (
 type templeUsecase interface {
 	Top(ctx context.Context) ([]domain.Temple, error)
 	List(ctx context.Context, page int) (*domain.TemplePage, error)
+	Options(ctx context.Context, query *string, page int) (*domain.TempleOptionPage, error)
 	Get(ctx context.Context, id string) (*domain.Temple, error)
 }
 
@@ -30,9 +31,10 @@ func NewTempleHandler(usecase templeUsecase, opts ...ImageOption) *TempleHandler
 }
 
 type locationResponse struct {
-	Lat     float64 `json:"lat"`
-	Lng     float64 `json:"lng"`
-	Address string  `json:"address"`
+	Lat      float64 `json:"lat"`
+	Lng      float64 `json:"lng"`
+	Address  string  `json:"address"`
+	Province string  `json:"province"`
 }
 
 // templeSummaryResponse is the card shape shared by top and list. image_url and
@@ -72,6 +74,22 @@ type templeDetailResponse struct {
 	VisitingNotes        []string `json:"visiting_notes"`
 }
 
+// templeOptionResponse is the pick-list shape: only what a chooser shows and
+// sends back. province is the short province/city name, not the full address.
+type templeOptionResponse struct {
+	ID       string `json:"id"`
+	Name     string `json:"name"`
+	Province string `json:"province"`
+}
+
+type templeOptionsResponse struct {
+	Items      []templeOptionResponse `json:"items"`
+	Page       int                    `json:"page"`
+	PageSize   int                    `json:"page_size"`
+	Total      int                    `json:"total"`
+	TotalPages int                    `json:"total_pages"`
+}
+
 type templeTopResponse struct {
 	Items []templeSummaryResponse `json:"items"`
 }
@@ -89,7 +107,7 @@ func newTempleSummary(h imageHost, r *http.Request, t domain.Temple) templeSumma
 		ID: t.ID, Name: t.Name, Type: t.Type, Region: t.Region,
 		ThumbnailURL: h.ptr(r, t.Thumbnail), ImageURL: h.ptr(r, t.ImageURL),
 		Sect: t.Sect, HeritageRank: t.Heritage, EstablishedYear: t.Established,
-		Location: locationResponse{Lat: t.Latitude, Lng: t.Longitude, Address: t.Address},
+		Location: locationResponse{Lat: t.Latitude, Lng: t.Longitude, Address: t.Address, Province: t.Province},
 	}
 }
 
@@ -111,17 +129,57 @@ func (h *TempleHandler) Top(w http.ResponseWriter, r *http.Request) {
 	utils.WriteSuccessResponse(w, templeTopResponse{Items: newTempleSummaries(h.imageHost, r, items)})
 }
 
+// Options serves GET /v1/temples/options?page=N&q=: temples as id/name/province,
+// paged, for the registration pick-list, optionally filtered by name. page
+// parsing is List's. q is passed through as present-or-absent: an empty ?q= is
+// the use case's ErrInvalidTempleQuery, not "no search".
+func (h *TempleHandler) Options(w http.ResponseWriter, r *http.Request) {
+	page, err := parsePage(r)
+	if err != nil {
+		writeDomainError(w, err)
+		return
+	}
+	var query *string
+	if vals, ok := r.URL.Query()["q"]; ok && len(vals) > 0 {
+		query = &vals[0]
+	}
+	result, err := h.usecase.Options(r.Context(), query, page)
+	if err != nil {
+		writeDomainError(w, err)
+		return
+	}
+	items := make([]templeOptionResponse, 0, len(result.Items))
+	for _, o := range result.Items {
+		items = append(items, templeOptionResponse{ID: o.ID, Name: o.Name, Province: o.Province})
+	}
+	utils.WriteSuccessResponse(w, templeOptionsResponse{
+		Items: items, Page: result.Page, PageSize: result.PageSize,
+		Total: result.Total, TotalPages: result.TotalPages,
+	})
+}
+
+// parsePage reads the optional ?page= query: absent or empty is page 1, anything
+// that is not an integer is ErrInvalidPage. Range checks (>= 1) are the use
+// case's.
+func parsePage(r *http.Request) (int, error) {
+	raw := r.URL.Query().Get("page")
+	if raw == "" {
+		return 1, nil
+	}
+	p, err := strconv.Atoi(raw)
+	if err != nil {
+		return 0, domain.ErrInvalidPage
+	}
+	return p, nil
+}
+
 // List serves GET /v1/temples?page=N. page defaults to 1; anything that is not
 // a positive integer is 400 INVALID_PAGE.
 func (h *TempleHandler) List(w http.ResponseWriter, r *http.Request) {
-	page := 1
-	if raw := r.URL.Query().Get("page"); raw != "" {
-		p, err := strconv.Atoi(raw)
-		if err != nil {
-			writeDomainError(w, domain.ErrInvalidPage)
-			return
-		}
-		page = p
+	page, err := parsePage(r)
+	if err != nil {
+		writeDomainError(w, err)
+		return
 	}
 
 	result, err := h.usecase.List(r.Context(), page)

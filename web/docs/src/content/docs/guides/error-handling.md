@@ -11,6 +11,7 @@ Mọi lỗi dùng chung [envelope](/guides/getting-started/#response-envelope). 
 | --- | --- | --- |
 | 400 validation | `VALIDATION_ERROR`, `INVALID_PHONE` | Hiển thị lỗi cạnh field trong `details.field`, không retry nguyên request. |
 | 401 | `UNAUTHORIZED`, `REFRESH_TOKEN_INVALID`, `INVALID_CREDENTIALS` | Access token hết hạn thì refresh. Refresh hỏng hoặc sai mật khẩu thì về màn hình đăng nhập. |
+| 401 | `INVALID_API_KEY` | `X-API-Key` sai hoặc rỗng (chỉ client web). Lỗi cấu hình server web, không retry. |
 | 404 | `ARTICLE_NOT_FOUND` | Không có bài viết với id này. |
 | 404 | `SUTRA_NOT_FOUND` | Không có kinh với id này. |
 | 404 | `TRANSLATION_NOT_FOUND` | Kinh có nhưng không có bản dịch với `key` này. |
@@ -19,7 +20,7 @@ Mọi lỗi dùng chung [envelope](/guides/getting-started/#response-envelope). 
 | 404 | `MEMORIAL_NOT_FOUND` | Mục sổ giỗ không tồn tại hoặc thuộc người khác. |
 | 409 | `MEMORIAL_LIMIT_REACHED` | Sổ giỗ đã đủ 100 mục. |
 | 409 | `PHONE_TAKEN`, `EMAIL_TAKEN` | Báo người dùng đổi thông tin hoặc chuyển sang đăng nhập. |
-| 429 | `OTP_LOCKED`, `LOGIN_LOCKED`, `OTP_RESEND_TOO_SOON` | Không retry tự động. Dùng `details` để hiện đếm ngược. |
+| 429 | `OTP_LOCKED`, `LOGIN_LOCKED`, `OTP_RESEND_TOO_SOON`, `RATE_LIMITED` | Không retry tự động. Dùng `details` để hiện đếm ngược. |
 | 5xx | `INTERNAL_ERROR`, `SMS_SEND_FAILED` | Cho phép thử lại thủ công. `message` không có thông tin nội bộ. |
 
 ## Giới hạn tần suất (429)
@@ -27,7 +28,7 @@ Mọi lỗi dùng chung [envelope](/guides/getting-started/#response-envelope). 
 `details` cho biết bao giờ được thử lại:
 
 - `OTP_LOCKED`, `LOGIN_LOCKED`, `OTP_SEND_LIMITED`: có `details.locked_until` (thời điểm hết khoá).
-- `OTP_RESEND_TOO_SOON`: có `details.retry_after_seconds`.
+- `OTP_RESEND_TOO_SOON`, `RATE_LIMITED`: có `details.retry_after_seconds`. `RATE_LIMITED` còn kèm header `Retry-After`.
 
 ```json
 {
@@ -60,6 +61,7 @@ Mọi lỗi dùng chung [envelope](/guides/getting-started/#response-envelope). 
 | 401 | `UNAUTHORIZED` | Access token thiếu, sai, hết hạn hoặc sai loại. |
 | 401 | `INVALID_CREDENTIALS` | Sai số điện thoại hoặc mật khẩu. |
 | 401 | `REFRESH_TOKEN_INVALID` | Refresh token sai, hết hạn, đã thu hồi hoặc bị dùng lại. |
+| 401 | `INVALID_API_KEY` | Header `X-API-Key` sai hoặc rỗng. Không gửi header thì không gặp lỗi này (coi là mobile). |
 | 404 | `TEMPLE_NOT_FOUND` | Không có chùa với id này. |
 | 404 | `DEITY_NOT_FOUND` | Không có mục với id này. |
 | 409 | `PHONE_TAKEN` | Số điện thoại đã đăng ký. |
@@ -69,6 +71,7 @@ Mọi lỗi dùng chung [envelope](/guides/getting-started/#response-envelope). 
 | 429 | `LOGIN_LOCKED` | Sai mật khẩu quá số lần. |
 | 429 | `OTP_RESEND_TOO_SOON` | Gửi lại OTP trước khi hết cooldown. |
 | 429 | `OTP_SEND_LIMITED` | Hết lượt gửi OTP. |
+| 429 | `RATE_LIMITED` | Gửi quá nhanh theo IP (hiện áp dụng cho `POST /v1/temple-suggestions`: 5 lần mỗi giờ). |
 | 500 | `INTERNAL_ERROR` | Lỗi nội bộ. |
 | 500 | `SMS_SEND_FAILED` | Nhà cung cấp SMS lỗi. |
 | 502 | `ATTESTATION_UPSTREAM_ERROR` | Google/Apple không phản hồi. Thử lại được. |

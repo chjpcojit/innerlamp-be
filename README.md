@@ -141,7 +141,7 @@ Khác bản thiết kế ban đầu: định danh là **số điện thoại + m
 ### API endpoints (thật)
 
 ```
-POST /v1/auth/register/request-otp   { phone_number, email, password, dharma_name?, ordination_place? }
+POST /v1/auth/register/request-otp   { phone_number, email, password, dharma_name?, ordination_temple_id? }
 POST /v1/auth/register/verify-otp    { phone_number, otp_code }         → 201 + access/refresh token
 POST /v1/auth/resend-otp             { phone_number, purpose }          (dùng chung mọi purpose; hiện chỉ register)
 POST /v1/auth/login                  { phone_number, password, device } → access/refresh token

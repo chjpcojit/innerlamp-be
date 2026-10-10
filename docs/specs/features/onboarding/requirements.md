@@ -1,8 +1,8 @@
 # Requirements — onboarding
 
-Version: 6.1
-Last updated: 2026-09-25
-Status: implemented (US-001) — đăng ký 2 bước (request-otp → resend-otp → verify-otp) đã chạy thật end-to-end qua Postgres; AC1–AC15 đã có test (usecase, repository trên DB thật, handler, E2E). US-002 đã chuyển sang `login/`, US-003 sang `password-reset/`; **US-004 (hồ sơ) còn ở mức user story, chưa design/implement** (xem section cuối file).
+Version: 7.3
+Last updated: 2026-10-10
+Status: implemented (US-001, v6.1) + **thay đổi v7.x đã implement (v7.2)** — `ordination_place` (text) được thay bằng `ordination_temple_id` (FK `temples`); AC4 viết lại, thêm AC18/AC19; code + migration `0023` + test (usecase, repository, handler, E2E) xong, còn `erd.svg` và OKF (xem `tasks.md` Phase 11). Phần còn lại của US-001: đăng ký 2 bước (request-otp → resend-otp → verify-otp) đã chạy thật end-to-end qua Postgres; AC1–AC15 đã có test (usecase, repository trên DB thật, handler, E2E). US-002 đã chuyển sang `login/`, US-003 sang `password-reset/`; **US-004 (hồ sơ) còn ở mức user story, chưa design/implement** (xem section cuối file).
 Module: `identity`
 Code: `services/appService/`
 Feature folder: `services/appService/` + `docs/specs/features/onboarding/`
@@ -11,7 +11,7 @@ Feature folder: `services/appService/` + `docs/specs/features/onboarding/`
 
 Spec này viết **retroactive** từ feature đã implement (US-001). Nội dung còn lại của US-002/US-003 là
 con trỏ chéo sang folder riêng (`login/`, `password-reset/`); US-004 giữ nguyên ở mức user story.
-(v6.1: chuẩn hoá theo quy ước `il-spec-writer` hiện hành — viết lại AC sang EARS, thêm bảng API
+(v7.0: **thay hẳn `ordination_place` (text tự do) bằng `ordination_temple_id`** — client chọn chùa từ `GET /v1/temples` rồi gửi id; không còn nhận tên chùa dạng text. Đổi contract + schema, xem `changelog.md`. v6.1: chuẩn hoá theo quy ước `il-spec-writer` hiện hành — viết lại AC sang EARS, thêm bảng API
 contract, thêm `flow.md`, đồng bộ version 4 file; **không đổi behavior, không đổi AC, không đổi code**.
 v6.0: US-003 chuyển sang `password-reset/`; v4.0: US-002 chuyển sang `login/`.)
 
@@ -36,7 +36,7 @@ v6.0: US-003 chuyển sang `password-reset/`; v4.0: US-002 chuyển sang `login/
 | Mật khẩu | Bắt buộc | ≥ 8 ký tự |
 | Email | Bắt buộc nhập | Unique toàn hệ thống. Client gửi lên ở bước 1, lưu tạm ở `pending_registration`; sau khi verify OTP mới copy sang `users.email`. Vì chưa verify nên `users.email_verified_at` = `NULL` |
 | Pháp danh (dharma name) | Tùy chọn | Tên đạo, nếu đã quy y |
-| Nơi quy y / xuất gia | Tùy chọn | Tên chùa/tổ đình nơi quy y hoặc xuất gia |
+| Nơi quy y / xuất gia (`ordination_temple_id`) | Tùy chọn | **Id chùa** (`temples.id`, VARCHAR(64)) mà client lấy từ `GET /v1/temples` / `GET /v1/temples/{id}`. Không có / không chọn thì bỏ field (hoặc gửi rỗng) — lưu `NULL`. Không còn nhận tên chùa dạng text tự do (v7.0). |
 
 > Số điện thoại **bắt buộc**; email **bắt buộc nhập**. Thiết kế bảng: `pending_registration` có cột
 > `email`; bảng `users` cũng có cột `email` nhưng thêm cột `email_verified_at`. Client gửi email lên
@@ -51,7 +51,7 @@ v6.0: US-003 chuyển sang `password-reset/`; v4.0: US-002 chuyển sang `login/
 Thứ tự: **verify OTP trước, tạo account sau** — không có tài khoản nào ở trạng thái "chưa verify" tồn
 tại trong `users`.
 
-1. Người dùng nhập số điện thoại + email + mật khẩu (+ pháp danh / nơi quy y nếu có) → hệ thống lưu
+1. Người dùng nhập số điện thoại + email + mật khẩu (+ pháp danh / chọn chùa quy y từ danh sách nếu có — client gửi id chùa) → hệ thống lưu
    tạm toàn bộ payload vào bảng `pending_registration`, **gửi OTP qua SMS**, chưa ghi gì vào `users`.
 2. Người dùng nhập OTP → hệ thống xác thực, **rồi mới** tạo hàng `users` (lấy dữ liệu từ
    `pending_registration`) và cấp token; hàng tạm bị xoá sau khi tạo xong.
@@ -71,14 +71,14 @@ xác thực. Success/failure code dưới đây là **nội dung `data`/`error` 
 1. WHEN a `POST /v1/auth/register/request-otp` request arrives with a valid (E.164-normalised) `phone_number`, a valid `email`, and a `password` of at least 8 characters, THE SYSTEM SHALL store the registration payload — including the **bcrypt-hashed** password — in `pending_registration`, issue an OTP via SMS, and SHALL NOT create any `users` row yet. (AC1 cũ.)
 2. WHEN a `request-otp` request arrives with a `password` shorter than 8 characters, THE SYSTEM SHALL reject it with `400 INVALID_PASSWORD` (details `{field: "password"}`) and SHALL NOT write any row. (AC7 cũ — client hiển thị lỗi ngay ở form trước khi gửi; server vẫn validate lại, không tin client.)
 3. WHEN a `request-otp` request arrives with a malformed `phone_number` (even after E.164 normalisation) or a malformed `email`, THE SYSTEM SHALL reject it with `400 INVALID_PHONE` / `400 INVALID_EMAIL` (details `{field}`) and SHALL NOT write any row. (AC8 cũ.)
-4. WHEN a `request-otp` request arrives with an empty `dharma_name` and/or `ordination_place`, THE SYSTEM SHALL still accept it — these are optional; an empty value SHALL be stored as SQL `NULL`. (AC9 cũ.)
+4. WHEN a `request-otp` request arrives with an empty or absent `dharma_name` and/or `ordination_temple_id`, THE SYSTEM SHALL still accept it — these are optional; an empty value SHALL be stored as SQL `NULL`. (AC9 cũ; v7.0 đổi `ordination_place` → `ordination_temple_id`.)
 5. WHEN a `request-otp` request arrives with a `phone_number` that already has a `users` row, THE SYSTEM SHALL reject it with `409 PHONE_TAKEN` and SHALL NOT create a duplicate. (AC6 cũ — SĐT chỉ bị coi là "đã dùng" khi có tài khoản; một lượt dở của **chính** số đó không chặn, xem AC15.)
 6. WHEN a `request-otp` request arrives with an `email` that is already used — either by an existing `users.email` or by a **different** number's `pending_registration.email` (còn hạn) — THE SYSTEM SHALL reject it with `409 EMAIL_TAKEN` and SHALL NOT create a duplicate. The duplicate-email check SHALL query both sources, since an unverified email is not yet in `users`. (AC6 cũ.)
 7. WHEN a `request-otp` request arrives within 60 seconds of the previous send for the same number, THE SYSTEM SHALL reject it with `429 OTP_RESEND_TOO_SOON` (with `retry_after_seconds`). (AC5 cũ.)
 
 **Bước 2 — `POST /v1/auth/register/verify-otp`**
 
-8. WHEN a `verify-otp` request arrives with a correct, unexpired (≤ 90s), unused OTP, THE SYSTEM SHALL create the `users` row with `phone_number` = the verified number, `email` = the submitted email, and `email_verified_at` = `NULL`, and SHALL return `201` with `access_token` + `refresh_token` (logging the user in immediately). An unverified email SHALL NOT be usable for login (xem AC13). (AC2 cũ.)
+8. WHEN a `verify-otp` request arrives with a correct, unexpired (≤ 90s), unused OTP, THE SYSTEM SHALL create the `users` row with `phone_number` = the verified number, `email` = the submitted email, `ordination_temple_id` = the value stored in `pending_registration` (or `NULL`), and `email_verified_at` = `NULL`, and SHALL return `201` with `access_token` + `refresh_token` (logging the user in immediately). An unverified email SHALL NOT be usable for login (xem AC13). (AC2 cũ.)
 9. WHEN the account is created, THE SYSTEM SHALL copy the submitted (unverified) email into `users.email` with `email_verified_at` = `NULL`, and SHALL delete the `pending_registration` row **in the same transaction** — no temporary row SHALL be left behind. (AC3 cũ.)
 10. WHEN a `verify-otp` request arrives with a wrong OTP, an expired OTP, or an already-used OTP, THE SYSTEM SHALL reject it (`400 OTP_INVALID` / `400 OTP_EXPIRED`) and SHALL NOT create a `users` row. (AC4 cũ.)
 11. WHEN the 3rd wrong OTP is entered, THE SYSTEM SHALL lock OTP verification for that number for 30 minutes and invalidate the current OTP; a 4th attempt SHALL be rejected with `429 OTP_LOCKED` (with `locked_until`), forcing a restart from step 1 once the lock expires. (AC12 cũ.)
@@ -95,6 +95,10 @@ xác thực. Success/failure code dưới đây là **nội dung `data`/`error` 
 16. WHEN any feature attempts to send mail to an email with `email_verified_at IS NULL`, THE SYSTEM SHALL refuse and direct the user to verify the email first — mail SHALL NOT be sent to an unverified address. (AC14 cũ; quy tắc gate áp lên các feature gửi thư — chưa có feature nào như vậy trong US-001.)
 17. WHEN a user who just registered reopens the app, THE SYSTEM SHALL keep them signed in via the access token (valid 15 minutes). (AC11 cũ; vế "refresh token tự gia hạn" ngoài scope US-001 — theo dõi ở `login/` AC9–AC11.)
 
+**Chùa quy y (v7.0)**
+
+18. WHEN a `request-otp` request arrives with a non-empty `ordination_temple_id` that does not match any `temples.id`, THE SYSTEM SHALL reject it with `400 INVALID_TEMPLE` (details `{field: "ordination_temple_id"}`) and SHALL NOT write any row. The check SHALL run after the phone/email duplicate checks (AC5, AC6). Gửi field cũ `ordination_place` SHALL bị từ chối như mọi field lạ (`400 VALIDATION_ERROR`, decode strict). (Mới v7.0.)
+19. WHEN the `verify-otp` step finds the stored `ordination_temple_id` no longer references an existing temple, THE SYSTEM SHALL reject it with `400 INVALID_TEMPLE` and SHALL NOT create a `users` row (FK `users.ordination_temple_id → temples.id` là chốt chặn cuối). (Mới v7.0.)
 ### API contract (confirmed surface for this feature)
 
 Cả ba path đã có trong `docs/specs/api/openapi.yaml` (v3.7) — viết **sau khi** handler chạy thật qua
@@ -103,9 +107,9 @@ envelope `utils.ApiResponse`).
 
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
-| POST | `/v1/auth/register/request-otp` | public | `200` `{message, expires_in_seconds: 90, resend_after_seconds: 60}` | `400 INVALID_PHONE / INVALID_EMAIL / INVALID_PASSWORD`, `409 PHONE_TAKEN / EMAIL_TAKEN`, `429 OTP_LOCKED / OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED`, `500` |
+| POST | `/v1/auth/register/request-otp` | public | `200` `{message, expires_in_seconds: 90, resend_after_seconds: 60}` | `400 INVALID_PHONE / INVALID_EMAIL / INVALID_PASSWORD / INVALID_TEMPLE`, `409 PHONE_TAKEN / EMAIL_TAKEN`, `429 OTP_LOCKED / OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED`, `500` |
 | POST | `/v1/auth/resend-otp` | public | `200` `{message, expires_in_seconds: 90, resend_after_seconds: 60, resend_remaining}` | `400 INVALID_PHONE / VALIDATION_ERROR / OTP_INVALID / PENDING_REGISTRATION_EXPIRED`, `429 OTP_LOCKED / OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED`, `500` |
-| POST | `/v1/auth/register/verify-otp` | public | `201` `{access_token, refresh_token, user}` | `400 VALIDATION_ERROR / OTP_INVALID / OTP_EXPIRED / PENDING_REGISTRATION_EXPIRED`, `409 EMAIL_TAKEN / PHONE_TAKEN`, `429 OTP_LOCKED`, `500` |
+| POST | `/v1/auth/register/verify-otp` | public | `201` `{access_token, refresh_token, user}` (`user.ordination_temple_id` thay `user.ordination_place`; bỏ khỏi `user` khi `NULL`) | `400 VALIDATION_ERROR / OTP_INVALID / OTP_EXPIRED / PENDING_REGISTRATION_EXPIRED / INVALID_TEMPLE`, `409 EMAIL_TAKEN / PHONE_TAKEN`, `429 OTP_LOCKED`, `500` |
 
 ### Gate email chưa verify
 
@@ -150,7 +154,7 @@ lại **ngoài task list**, không chặn tính năng:
 
 - Endpoint (2 bước, khớp [Luồng đăng ký](#luồng-đăng-ký-2-bước)):
   ```
-  POST /v1/auth/register/request-otp   { phone_number, email, password, dharma_name?, ordination_place? }
+  POST /v1/auth/register/request-otp   { phone_number, email, password, dharma_name?, ordination_temple_id? }
   POST /v1/auth/register/verify-otp    { phone_number, otp_code }
   POST /v1/auth/resend-otp             { phone_number, purpose }   -- dùng chung mọi purpose; US-001 chỉ hiện thực purpose=register
   ```
@@ -162,7 +166,7 @@ lại **ngoài task list**, không chặn tính năng:
   -- Chỉ thêm cột đánh dấu trạng thái verify.
   ALTER TABLE users ADD COLUMN email_verified_at TIMESTAMPTZ;
   ALTER TABLE users ADD COLUMN phone_number VARCHAR(20) UNIQUE NOT NULL;
-  ALTER TABLE users ADD COLUMN ordination_place VARCHAR(255);
+  ALTER TABLE users ADD COLUMN ordination_place VARCHAR(255);   -- ĐÃ BỊ THAY ở v7.0, xem khối migration 0023 bên dưới
   -- (dharma_name đã có sẵn từ thiết kế trước, giữ nguyên)
 
   -- OTP dùng chung cho mọi mục đích (register / login / reset_password / verify_email),
@@ -208,6 +212,14 @@ lại **ngoài task list**, không chặn tính năng:
   );
   CREATE INDEX idx_pending_registration_phone ON pending_registration(phone_number);
   ```
+  v7.0 — migration `0023` (`migrations/0023_registration_ordination_temple.sql`, đã có), thay `ordination_place` bằng FK:
+  ```sql
+  ALTER TABLE users                ADD COLUMN ordination_temple_id VARCHAR(64) REFERENCES temples(id);
+  ALTER TABLE pending_registration ADD COLUMN ordination_temple_id VARCHAR(64) REFERENCES temples(id);
+  ALTER TABLE users                DROP COLUMN ordination_place;
+  ALTER TABLE pending_registration DROP COLUMN ordination_place;
+  ```
+  Phụ thuộc `0005_temples.sql`. `ordination_temple_id` nullable (không có chùa = `NULL`); FK **không** `ON DELETE CASCADE` — `temples` là dữ liệu tham chiếu chỉ-đọc.
 - **Không có bảng `pending_email` riêng.** Email chưa verify nằm chung trong `pending_registration`
   cùng phần payload còn lại, rồi mới copy sang `users.email` khi verify OTP xong. Trạng thái "chưa
   verify" ở `users` chỉ là `email_verified_at IS NULL`.
@@ -257,6 +269,11 @@ lại **ngoài task list**, không chặn tính năng:
 - ~~Refresh token sống 7 hay 30 ngày?~~ → **7 ngày** (`168h`), khớp `config.dev.yaml`. Resolved 2026-09-22.
 - ~~SMS lỗi thì trả lỗi hay log-rồi-trả-200?~~ → **500 `SMS_SEND_FAILED`** (không log-rồi-trả-200). Resolved 2026-09-17.
 - ~~Chuẩn hoá số điện thoại đặt ở đâu?~~ → **`pkg/validation.NormalizePhone`**, E.164 + `+84` cho số local. Resolved 2026-09-17.
+- ~~Nơi quy y: giữ text song song hay thay hẳn bằng id?~~ → **Thay hẳn bằng `ordination_temple_id`** (v7.0); không còn field text. Resolved 2026-10-10.
+- ~~Dữ liệu `ordination_place` đã có: backfill hay drop?~~ → **Drop cột**, không backfill (migration `0023`). Resolved 2026-10-10.
+- ~~Tên error code chùa sai?~~ → **`400 INVALID_TEMPLE`** (chốt nguyên đề xuất). Resolved 2026-10-10.
+- ~~Chùa không có trong `temples` thì sao?~~ → Không chọn chùa = **chưa có nơi xuất gia** (`NULL`). Thêm chùa mới là luồng riêng (`temple_suggestions`), **ngoài scope** onboarding; client không gửi tên chùa tự do. Resolved 2026-10-10.
+
 
 ---
 
@@ -283,7 +300,7 @@ lại **ngoài task list**, không chặn tính năng:
 **Module:** `identity`
 **Priority:** P1
 
-> ⚠️ **US-004 chưa được design/implement** — còn ở mức user story (prospective). Chuẩn hoá lần này
+> ⚠️ **US-004 chưa được design/implement** — còn ở mức user story (prospective). **Lưu ý v7.0:** AC2/AC5 bên dưới nói "nơi quy y/xuất gia" là text; sau v7.0 trường này là `ordination_temple_id` (chọn chùa từ `temples`) — sẽ chỉnh khi US-004 được đặc tả, chưa sửa ở đây. Chuẩn hoá lần này
 > (v6.1) chỉ phủ US-001; US-004 giữ nguyên Given/When/Then bên dưới, chưa chuyển sang EARS và chưa có
 > `design.md`/`flow.md`/task tương ứng. Khi đặc tả sẽ tách theo tiền lệ US-002/US-003 hoặc giữ tại đây.
 

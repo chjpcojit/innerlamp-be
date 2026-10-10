@@ -99,6 +99,45 @@ func TestRegisterHandler_RequestOTP_Success(t *testing.T) {
 	require.Equal(t, 60, body.ResendAfterSeconds)
 }
 
+// TestRegisterHandler_RequestOTP_TempleID covers AC4/AC18 at the wire: the
+// id travels from ordination_temple_id into the use case input.
+func TestRegisterHandler_RequestOTP_TempleID(t *testing.T) {
+	h, uc := newTestHandler(t)
+	uc.On("RequestOTP", mock.Anything, domain.RequestRegisterOTPInput{
+		Email:              "a@example.com",
+		Password:           "password123",
+		PhoneNumber:        "0901234567",
+		OrdinationTempleID: "temple_north_011",
+	}).Return(&domain.RequestOTPResult{ExpiresInSeconds: 90, ResendAfterSeconds: 60}, nil)
+
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567","ordination_temple_id":"temple_north_011"}`)
+
+	require.Equal(t, http.StatusOK, rec.Code)
+	uc.AssertExpectations(t)
+}
+
+// TestRegisterHandler_RequestOTP_LegacyOrdinationPlaceRejected: the old text
+// field is gone (v7.0) and strict decoding rejects it like any unknown field.
+func TestRegisterHandler_RequestOTP_LegacyOrdinationPlaceRejected(t *testing.T) {
+	h, uc := newTestHandler(t)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567","ordination_place":"Chùa Hoằng Pháp"}`)
+	require.Equal(t, http.StatusBadRequest, rec.Code)
+	require.Equal(t, "VALIDATION_ERROR", decodeErrorBody(t, rec).Code)
+	uc.AssertNotCalled(t, "RequestOTP", mock.Anything, mock.Anything)
+}
+
+func TestRegisterHandler_RequestOTP_InvalidTempleDetails(t *testing.T) {
+	h, uc := newTestHandler(t)
+	uc.On("RequestOTP", mock.Anything, mock.Anything).Return(nil, domain.ErrInvalidTemple)
+
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567","ordination_temple_id":"nope"}`)
+
+	require.Equal(t, http.StatusBadRequest, rec.Code)
+	body := decodeErrorBody(t, rec)
+	require.Equal(t, "INVALID_TEMPLE", body.Code)
+	require.Equal(t, "ordination_temple_id", body.Details["field"])
+}
+
 func TestRegisterHandler_RequestOTP_MalformedJSON(t *testing.T) {
 	h, uc := newTestHandler(t)
 	rec := doRequest(h.RequestOTP, `{not json`)

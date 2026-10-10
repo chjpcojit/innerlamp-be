@@ -1,14 +1,14 @@
 # Requirements — temple-suggestion
 
-Version: 2.2
+Version: 2.4
 Last updated: 2026-10-10
-Status: not started — spec viết trước khi có code (Prospective mode). Đồng bộ với `SRS.md` v1.0 (đã duyệt). Không còn marker `⚠️ Not confirmed`. Hành động từ chối (AC28–AC30) làm ở phase sau.
+Status: US-TSG-01 (AC1–AC8, appService) đã implement và kiểm chứng 2026-10-10; US-TSG-02..04 (backoffice) chưa làm. Đồng bộ với `SRS.md` v1.0 (đã duyệt). Không còn marker `⚠️ Not confirmed`. Hành động từ chối (AC28–AC29) làm ở phase sau.
 Module: `content` (đề xuất từ client) + `backoffice` (duyệt)
 Code: `services/appService/` (gửi đề xuất) + `services/backofficeService/` (duyệt, tạo chùa)
 
 > See `changelog.md` in this folder for the version history of this spec. Nguồn nghiệp vụ: `SRS.md` (IEEE 29148) cùng thư mục.
 
-Spec này được viết **trước khi có code** (Prospective mode). Nó mở rộng danh mục chùa của `docs/specs/features/temple/` (chỉ đọc, seed bằng tay) bằng một đường vào mới: người dùng app đề xuất một ngôi chùa chưa có, ban quản trị bổ sung thông tin rồi biến đề xuất thành chùa chính thức.
+Spec này được viết **trước khi có code** (Prospective mode); phần gửi đề xuất (US-TSG-01) đã có code, phần duyệt chưa. Nó mở rộng danh mục chùa của `docs/specs/features/temple/` (chỉ đọc, seed bằng tay) bằng một đường vào mới: người dùng app đề xuất một ngôi chùa chưa có, ban quản trị bổ sung thông tin rồi biến đề xuất thành chùa chính thức.
 
 > Mã user story `US-TSG-01..04` do anh Đức tự chốt 2026-10-10 (làm một mình, không cần chờ product).
 
@@ -32,7 +32,7 @@ Spec này được viết **trước khi có code** (Prospective mode). Nó mở
 6. WHEN a suggestion repeats a temple that already exists or another pending suggestion, THE SYSTEM SHALL still accept it and return `201` — không dò trùng lúc gửi, để client không biết được kho chùa/đề xuất đang có gì.
    > Đã chốt 2026-10-10 (SRS FR-004): không dò trùng lúc gửi, ban quản trị tự lọc.
 7. WHEN the same caller sends suggestions faster than the configured limit, THE SYSTEM SHALL return `429 RATE_LIMITED` and store nothing. Khoá là IP client, ngưỡng **5 đề xuất/IP/giờ** (config `temple_suggestion.rate_limit`); IP chỉ dùng tạm cho bộ đếm, không lưu cùng đề xuất.
-   > Rủi ro đã chấp nhận cho v1: nhiều người dùng chung một IP (NAT nhà mạng, văn phòng) có thể bị giới hạn chung (SRS FR-003). `pkg/ratelimit` chưa được wire vào `appService` — việc wire nằm ở `tasks.md` Phase 2.
+   > Rủi ro đã chấp nhận cho v1: nhiều người dùng chung một IP (NAT nhà mạng, văn phòng) có thể bị giới hạn chung (SRS FR-003). Đã wire ở `appService` (`delivery/http/client_ip_rate_limit.go`); bộ đếm nằm trong bộ nhớ từng instance — xem Known gaps trong `design.md`.
 8. THE SYSTEM SHALL NOT expose any client route that lists or reads suggestions; the client only gets `{id, status}` back once, at creation.
 
 ## US-TSG-02: Xem hàng chờ đề xuất
@@ -95,7 +95,7 @@ Spec này được viết **trước khi có code** (Prospective mode). Nó mở
 
 ## API contract (confirmed surface for this feature)
 
-Chưa có trong `docs/specs/api/openapi.yaml` — cả bốn route dưới đây là đề xuất của spec, chốt khi implement.
+Route `POST /v1/temple-suggestions` đã có trong `docs/specs/api/openapi.yaml` (và bản `web/docs/public/`). Ba route `/v1/admin/temple-suggestions…` còn là đề xuất của spec, chốt khi implement (`tasks.md` Phase 4).
 
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
@@ -114,12 +114,12 @@ Chưa có trong `docs/specs/api/openapi.yaml` — cả bốn route dưới đây
 
 ## Pending (not yet implemented)
 
-- Toàn bộ feature — `tasks.md` Phase 1–5.
+- Phần duyệt ở backoffice (US-TSG-02, US-TSG-03, AC9–AC27) — `tasks.md` Phase 3–5. US-TSG-01 (AC1–AC8) đã xong.
 - Hành động từ chối (US-TSG-04, AC28–AC29) — cần nhưng làm ở phase sau theo quyết định 2026-10-10; schema và AC30–AC31 (xem lại + tạo chùa từ đề xuất bị từ chối) đi cùng bản đầu vì chỉ là thêm giá trị `rejected` vào trạng thái. `tasks.md` Phase 6.
 
 ## Ghi chú kỹ thuật liên quan
 
-- Schema mới: `temple_suggestions` (migration dự kiến `migrations/0022_temple_suggestions.sql`) — xem `design.md`. Đề xuất giữ vĩnh viễn (không có job dọn) và không lưu IP người gửi. Cần cập nhật `docs/specs/db/erd.mmd` + `erd.svg` và `migrations/README.md`.
+- Schema mới: `temple_suggestions` (`migrations/0022_temple_suggestions.sql`, đã có cùng `erd.mmd`/`erd.svg`/`migrations/README.md`) — xem `design.md`. Đề xuất giữ vĩnh viễn (không có job dọn) và không lưu IP người gửi.
 - Hai service dùng chung một Postgres (bảng `admins` của backoffice nằm trong `migrations/` chung), nên backoffice ghi thẳng vào `temples` mà không cần gọi qua appService.
 - Cột `temples.image_url`/`thumbnail_url` lưu đường dẫn tương đối (`0021_relative_image_urls.sql`); API đọc tự ghép `server.public_base_url`. File ảnh phải được đặt vào `static/images/...` bằng tay/CI trước khi admin nhập đường dẫn — backend không kiểm tra file có tồn tại.
 - Mọi lỗi trả trong envelope chung `{"success": false, "error": {code, message, type}, "details"?}`.

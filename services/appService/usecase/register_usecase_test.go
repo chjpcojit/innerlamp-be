@@ -52,7 +52,7 @@ const (
 	testEmailRaw       = "  User@Example.com  "
 	testPassword       = "supersecret"
 	testDharmaName     = "Thích Nhất Hạnh"
-	testOrdination     = "Chùa Từ Hiếu"
+	testTempleID       = "temple_north_011"
 
 	// testOTPCode mirrors the constant the use case currently generates
 	// (generateOTP). Pinning the literal here — rather than reading the
@@ -165,11 +165,11 @@ var testOTPHash = func() string {
 
 func defaultRequestInput() domain.RequestRegisterOTPInput {
 	return domain.RequestRegisterOTPInput{
-		Email:           testEmailRaw,
-		Password:        testPassword,
-		PhoneNumber:     testPhoneNumberRaw,
-		DharmaName:      testDharmaName,
-		OrdinationPlace: testOrdination,
+		Email:              testEmailRaw,
+		Password:           testPassword,
+		PhoneNumber:        testPhoneNumberRaw,
+		DharmaName:         testDharmaName,
+		OrdinationTempleID: testTempleID,
 	}
 }
 
@@ -192,6 +192,7 @@ func TestRequestOTP_HappyPath(t *testing.T) {
 
 	f.repo.On("FindConflicts", mock.Anything, testPhoneNumber, testEmail).
 		Return(noConflicts(), nil)
+	f.repo.On("TempleExists", mock.Anything, testTempleID).Return(true, nil)
 	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.AnythingOfType("*domain.PendingRegistration"), mock.AnythingOfType("string"), mock.AnythingOfType("time.Time"), mock.AnythingOfType("domain.SendLimits")).
@@ -232,8 +233,8 @@ func TestRequestOTP_HappyPath(t *testing.T) {
 	// Optional profile fields travel through untouched when present.
 	require.NotNil(t, capturedPending.DharmaName)
 	assert.Equal(t, testDharmaName, *capturedPending.DharmaName)
-	require.NotNil(t, capturedPending.OrdinationPlace)
-	assert.Equal(t, testOrdination, *capturedPending.OrdinationPlace)
+	require.NotNil(t, capturedPending.OrdinationTempleID)
+	assert.Equal(t, testTempleID, *capturedPending.OrdinationTempleID)
 
 	// AC10: what is handed to the repository is a bcrypt hash, not the
 	// password. Both halves matter — the plaintext must be unreadable in the
@@ -256,22 +257,22 @@ func TestRequestOTP_HappyPath(t *testing.T) {
 	assert.WithinDuration(t, before.Add(90*time.Second), capturedOTPExpiry, 5*time.Second)
 }
 
-// TestRequestOTP_OptionalFields covers AC9: dharma name and ordination place
+// TestRequestOTP_OptionalFields covers AC9: dharma name and ordination temple id
 // are optional, and a blank one is stored as "no value" rather than as an empty
 // string.
 func TestRequestOTP_OptionalFields(t *testing.T) {
 	tests := []struct {
-		name            string
-		dharmaName      string
-		ordinationPlace string
-		wantDharma      *string
-		wantOrdination  *string
+		name               string
+		dharmaName         string
+		ordinationTempleID string
+		wantDharma         *string
+		wantOrdination     *string
 	}{
 		{"both blank", "", "", nil, nil},
 		{"whitespace only is blank", "   ", "\t\n", nil, nil},
-		{"both set", testDharmaName, testOrdination, ptr(testDharmaName), ptr(testOrdination)},
+		{"both set", testDharmaName, testTempleID, ptr(testDharmaName), ptr(testTempleID)},
 		{"only dharma name", testDharmaName, "", ptr(testDharmaName), nil},
-		{"padded values are trimmed", "  " + testDharmaName + "  ", " " + testOrdination, ptr(testDharmaName), ptr(testOrdination)},
+		{"padded values are trimmed", "  " + testDharmaName + "  ", " " + testTempleID, ptr(testDharmaName), ptr(testTempleID)},
 	}
 
 	for _, tt := range tests {
@@ -280,6 +281,7 @@ func TestRequestOTP_OptionalFields(t *testing.T) {
 
 			var captured *domain.PendingRegistration
 			f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+			f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
 			f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 			f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 				Run(func(args mock.Arguments) {
@@ -290,16 +292,74 @@ func TestRequestOTP_OptionalFields(t *testing.T) {
 
 			input := defaultRequestInput()
 			input.DharmaName = tt.dharmaName
-			input.OrdinationPlace = tt.ordinationPlace
+			input.OrdinationTempleID = tt.ordinationTempleID
 
 			_, err := f.usecase.RequestOTP(context.Background(), input)
 			require.NoError(t, err)
 			require.NotNil(t, captured)
 
 			assert.Equal(t, tt.wantDharma, captured.DharmaName)
-			assert.Equal(t, tt.wantOrdination, captured.OrdinationPlace)
+			assert.Equal(t, tt.wantOrdination, captured.OrdinationTempleID)
 		})
 	}
+}
+
+// TestRequestOTP_BlankTempleSkipsLookup covers AC4 (v7.0): no temple chosen
+// means no temples query at all and a nil id is stored.
+func TestRequestOTP_BlankTempleSkipsLookup(t *testing.T) {
+	f := newRegisterFixture()
+
+	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
+	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+		Return(&domain.SendState{Remaining: 3}, nil)
+	f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil)
+
+	input := defaultRequestInput()
+	input.OrdinationTempleID = "   "
+	_, err := f.usecase.RequestOTP(context.Background(), input)
+	require.NoError(t, err)
+	f.repo.AssertNotCalled(t, "TempleExists", mock.Anything, mock.Anything)
+}
+
+// TestRequestOTP_UnknownTemple covers AC18: an id that matches no temple is
+// rejected with ErrInvalidTemple before anything is written or sent.
+func TestRequestOTP_UnknownTemple(t *testing.T) {
+	f := newRegisterFixture()
+
+	f.repo.On("FindConflicts", mock.Anything, testPhoneNumber, testEmail).Return(noConflicts(), nil)
+	f.repo.On("TempleExists", mock.Anything, testTempleID).Return(false, nil)
+
+	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
+	require.ErrorIs(t, err, domain.ErrInvalidTemple)
+	f.repo.AssertNotCalled(t, "SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+	f.sender.AssertNotCalled(t, "SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+}
+
+// TestRequestOTP_TempleCheckedAfterConflicts covers AC18's ordering: phone and
+// email conflicts are reported before the temple is even looked up.
+func TestRequestOTP_TempleCheckedAfterConflicts(t *testing.T) {
+	f := newRegisterFixture()
+
+	f.repo.On("FindConflicts", mock.Anything, testPhoneNumber, testEmail).
+		Return(&domain.RegistrationConflicts{PhoneInUsers: true}, nil)
+
+	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
+	require.ErrorIs(t, err, domain.ErrPhoneTaken)
+	f.repo.AssertNotCalled(t, "TempleExists", mock.Anything, mock.Anything)
+}
+
+// TestRequestOTP_TempleLookupError: a DB failure is an infrastructure error,
+// not a bogus INVALID_TEMPLE.
+func TestRequestOTP_TempleLookupError(t *testing.T) {
+	f := newRegisterFixture()
+
+	f.repo.On("FindConflicts", mock.Anything, testPhoneNumber, testEmail).Return(noConflicts(), nil)
+	f.repo.On("TempleExists", mock.Anything, testTempleID).Return(false, errors.New("db down"))
+
+	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
+	require.Error(t, err)
+	assert.NotErrorIs(t, err, domain.ErrInvalidTemple)
 }
 
 // TestRequestOTP_Validation covers AC7 (password floor) and AC8 (malformed
@@ -421,6 +481,8 @@ func TestRequestOTP_Conflicts(t *testing.T) {
 			f.repo.On("FindConflicts", mock.Anything, testPhoneNumber, testEmail).
 				Return(&tt.conflicts, nil)
 
+			f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
+
 			result, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
 
 			assert.ErrorIs(t, err, tt.wantErr)
@@ -442,6 +504,7 @@ func TestRequestOTP_LockedNumber(t *testing.T) {
 	locked.LockedUntil = &lockedUntil
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+	f.repo.On("TempleExists", mock.Anything, testTempleID).Return(true, nil)
 	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).Return(locked, nil)
 
 	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
@@ -464,6 +527,8 @@ func TestRequestOTP_Cooldown(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+
+	f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
 	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(activeOTP(time.Now().Add(-30*time.Second)), nil)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
@@ -490,6 +555,7 @@ func TestRequestOTP_SendLimited(t *testing.T) {
 
 	lockedUntil := time.Now().Add(30 * time.Minute)
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+	f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
 	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return(nil, &domain.OTPSendLimitedError{LockedUntil: lockedUntil})
@@ -514,6 +580,8 @@ func TestRequestOTP_AfterCooldownProceeds(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+
+	f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
 	f.otpRepo.On("FindActiveOTP", mock.Anything, testPhoneNumber, domain.OTPPurposeRegister).
 		Return(activeOTP(time.Now().Add(-5*time.Minute)), nil)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{Remaining: 3}, nil)
@@ -531,6 +599,8 @@ func TestRequestOTP_NoActiveOTPProceeds(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+
+	f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
 	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{Remaining: 3}, nil)
 	f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil)
@@ -547,6 +617,8 @@ func TestRequestOTP_SMSFailure(t *testing.T) {
 	f := newRegisterFixture()
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+
+	f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
 	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
 	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{Remaining: 3}, nil)
 	f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
@@ -590,6 +662,8 @@ func TestRequestOTP_RepositoryFailure(t *testing.T) {
 
 	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).
 		Return(nil, errors.New("connection refused"))
+
+	f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
 
 	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
 

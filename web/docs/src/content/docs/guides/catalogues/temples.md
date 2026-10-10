@@ -96,4 +96,6 @@ curl 'http://localhost:8080/v1/temples?page=2'
 
 Id không tồn tại trả `404` với `TEMPLE_NOT_FOUND`.
 
+Muốn đề xuất một ngôi chùa chưa có trong danh mục: [Đề xuất thêm chùa](/guides/catalogues/temple-suggestions/).
+
 Xem cấu trúc đầy đủ của response trong [API Reference](/api-reference/). Envelope và mã lỗi chung: [Xử lý lỗi](/guides/error-handling/).

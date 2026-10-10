@@ -20,7 +20,10 @@ type User struct {
 	PhoneNumber     string
 	PasswordHash    string
 	DharmaName      *string
-	OrdinationPlace *string
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
+	// OrdinationTempleID is temples.id of the temple where the user took
+	// refuge or was ordained; nil when they have not chosen one (v7.0 —
+	// replaces the free-text ordination_place).
+	OrdinationTempleID *string
+	CreatedAt          time.Time
+	UpdatedAt          time.Time
 }

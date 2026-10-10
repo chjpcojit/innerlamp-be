@@ -17,7 +17,7 @@ Thời hạn lấy từ cấu hình server, môi trường thật có thể khá
 
 ## Lấy token
 
-Có hai đường, đều trả `access_token`, `refresh_token` và `user`:
+Có hai đường, đều trả `access_token`, `refresh_token`, `expires_in` và `user`:
 
 - Đăng ký: `register/request-otp` rồi `register/verify-otp` (tạo tài khoản và đăng nhập luôn).
 - Đăng nhập: `POST /v1/auth/login`.
@@ -35,6 +35,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIs…
 
 Refresh token **không** dùng được làm Bearer. Gửi nhầm loại sẽ nhận `401 UNAUTHORIZED`.
 
+## `expires_in`
+
+`verify-otp`, `login` và `refresh` trả thêm `expires_in`: thời gian sống của `access_token` tính bằng **giây** (dev: 900). Lên lịch `refresh` theo giá trị này, không cần giải mã JWT. Nó không nói về hạn của `refresh_token`.
+
+Các response này luôn có `Cache-Control: no-store` và `Pragma: no-cache`, nên không để proxy hay lớp cache của client giữ token.
+
+## `X-API-Key` (client web)
+
+Server của website gửi header `X-API-Key` (secret dùng chung của ứng dụng web, không phải token của user) trên các route `/v1/auth/*` và `POST /v1/temple-suggestions`.
+
+- Header sai hoặc rỗng: `401 INVALID_API_KEY`.
+- Không gửi header: coi là mobile, xử lý bình thường.
+- `device.platform = web` ở `login` chỉ được chấp nhận khi có key đúng.
+- Key đặt ở server web, **không** đưa xuống trình duyệt. Mobile không có key.
+
 ## Làm mới token
 
 ```mermaid
@@ -45,7 +60,7 @@ sequenceDiagram
     S-->>C: 401 UNAUTHORIZED (hết hạn)
     C->>S: POST /v1/auth/refresh {refresh_token}
     alt refresh hợp lệ
-        S-->>C: 200 {access_token mới, refresh_token mới}
+        S-->>C: 200 {access_token mới, refresh_token mới, expires_in}
         C->>C: Lưu cặp mới, bỏ refresh token cũ
         C->>S: Gọi lại API với access token mới
     else refresh không hợp lệ

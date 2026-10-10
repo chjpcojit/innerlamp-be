@@ -1,13 +1,13 @@
 # Design — onboarding
 
-Version: 6.1
-Last updated: 2026-09-25
-Status: done (US-001) — `domain/`, `usecase/`, `repository/`, `delivery/http/`, `cmd/main.go`,
+Version: 7.3
+Last updated: 2026-10-10
+Status: done (US-001 tới v6.1); **v7.0 (`ordination_temple_id`) đã implement ở v7.2** — các dòng/bước đánh dấu `(v7.0)` bên dưới khớp code thật; xem `tasks.md` Phase 11. Phần còn lại: done (US-001) — `domain/`, `usecase/`, `repository/`, `delivery/http/`, `cmd/main.go`,
 `pkg/sms/`, `migrations/0001`+`0003` và `docs/specs/api/openapi.yaml` đều đã có code/tài liệu thật,
 và đã chạy thật end-to-end (request-otp → resend-otp → verify-otp) qua Postgres. `tasks.md` không còn
 `[ ]`: `go test -short ./...` toàn repo xanh; repository + E2E chạy Postgres thật xanh; job dọn hàng
 hết hạn chốt chấp nhận ở MVP (Deferred). **Không còn marker `⚠️ Not confirmed`** — nhánh reset bộ đếm
-gửi đã chốt ở v5.1. (v6.1: chuẩn hoá theo quy ước `il-spec-writer` hiện hành — thêm `flow.md` (bản vẽ Mermaid mirror 1:1 ba Step-by-step Flow), đổi Request flow ASCII thành con trỏ `flow.md`, AC của `requirements.md` viết lại sang EARS; không đổi code/AC/behavior. v5.2: sửa hai chỗ tài liệu cũ — helper `hashRefreshToken()` của repository nay là `domain.HashRefreshToken` (`domain/session_token.go`), và câu "refresh token 30 ngày" ở `requirements.md` đã thành **7 ngày**; không đổi code/AC. v5.1: **tách `PendingRegistrationTTL` khỏi OTP TTL (24h thay 90s)**;
+gửi đã chốt ở v5.1. (v7.0: **`ordination_place` text → `ordination_temple_id` FK `temples`** — thêm check tồn tại chùa vào flow 1 Step 2 (`TempleExists`), cột mới ở Step 4(c)/flow 2 Step 5(b), migration `0023`, `ErrInvalidTemple`; không đổi số bước. v6.1: chuẩn hoá theo quy ước `il-spec-writer` hiện hành — thêm `flow.md` (bản vẽ Mermaid mirror 1:1 ba Step-by-step Flow), đổi Request flow ASCII thành con trỏ `flow.md`, AC của `requirements.md` viết lại sang EARS; không đổi code/AC/behavior. v5.2: sửa hai chỗ tài liệu cũ — helper `hashRefreshToken()` của repository nay là `domain.HashRefreshToken` (`domain/session_token.go`), và câu "refresh token 30 ngày" ở `requirements.md` đã thành **7 ngày**; không đổi code/AC. v5.1: **tách `PendingRegistrationTTL` khỏi OTP TTL (24h thay 90s)**;
 `FindConflicts` không còn chặn bằng pending của chính SĐT — request-otp ghi đè payload để làm lại;
 resend-otp cấp OTP mới kể cả khi OTP cũ đã hết hạn, miễn payload còn; đổi AC6 + thêm AC15; code +
 test xong. v5.0: **đổi AC5/AC12** — bỏ trần resend carry-forward chặn vĩnh viễn, thay bằng
@@ -57,13 +57,13 @@ bắt buộc có Step-by-step Flow (rule 5 của skill). Nó cũng là feature �
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Domain / Entity | `services/appService/domain/user.go` | `User` — `ID`, `Email`, `EmailVerifiedAt *time.Time`, `PhoneNumber`, `PasswordHash`, `DharmaName *string`, `OrdinationPlace *string`, `CreatedAt`, `UpdatedAt`. Plain data, không JSON tag. |
-| Domain / Entity | `services/appService/domain/pending_registration.go` | `PendingRegistration` — payload tạm giữa 2 bước: `PhoneNumber`, `Email`, `PasswordHash`, `DharmaName`, `OrdinationPlace`, `ExpiresAt`. Thêm `ID` và `CreatedAt` so với bản thiết kế gốc — `ID` để `DeletePendingRegistration` có khoá, `CreatedAt` để chẩn đoán. |
+| Domain / Entity | `services/appService/domain/user.go` | `User` — `ID`, `Email`, `EmailVerifiedAt *time.Time`, `PhoneNumber`, `PasswordHash`, `DharmaName *string`, `OrdinationPlace *string` → **(v7.0) `OrdinationTempleID *string`**, `CreatedAt`, `UpdatedAt`. Plain data, không JSON tag. |
+| Domain / Entity | `services/appService/domain/pending_registration.go` | `PendingRegistration` — payload tạm giữa 2 bước: `PhoneNumber`, `Email`, `PasswordHash`, `DharmaName`, `OrdinationPlace` → **(v7.0) `OrdinationTempleID *string`**, `ExpiresAt`. Thêm `ID` và `CreatedAt` so với bản thiết kế gốc — `ID` để `DeletePendingRegistration` có khoá, `CreatedAt` để chẩn đoán. |
 | Domain / Entity | `services/appService/domain/otp.go` | `OTPCode` + `OTPPurpose`. Hằng số khai **đủ bốn** giá trị (`OTPPurposeRegister = "register"`, `OTPPurposeLogin = "login"`, `OTPPurposeResetPassword = "reset_password"`, `OTPPurposeVerifyEmail = "verify_email"`) để cột `otp_codes.purpose` và endpoint `resend-otp` dùng chung được — nhưng US-001 **chỉ hiện thực** `register`; ba giá trị còn lại thuộc US-002/US-003, khai ở đây để `chk_otp_codes_purpose` không phải `ALTER` lại. Không có entity `Device`/`Session` ở phạm vi US-001 — xem "Known gaps". |
 | Domain / Input-Output | `services/appService/domain/register.go` | `RequestRegisterOTPInput`, `RequestOTPResult`, `ResendOTPInput` (`PhoneNumber`, `Purpose`), `ResendOTPResult`, `VerifyRegisterOTPInput`, `RegisterResult`, `RegistrationConflicts` (+ `HasPhoneConflict()` / `HasEmailConflict()`), `TokenIssuer` func type `func(userID, sessionID string)` (đã đổi ở Phase 7/v4.2 — xem Step 6 flow 2). Không HTTP DTO. |
-| Domain / Errors | `services/appService/domain/errors.go` | Sentinels: `ErrPhoneTaken`, `ErrEmailTaken`, `ErrInvalidPhone`, `ErrInvalidEmail`, `ErrInvalidPassword`, `ErrOTPInvalid`, `ErrOTPExpired`, `ErrOTPLocked`, `ErrOTPResendTooSoon`, `ErrOTPSendLimited`, `ErrPendingRegistrationNotFound`, `ErrPendingRegistrationExpired`, `ErrUnsupportedOTPPurpose`, `ErrSMSSendFailed`. Handler map từng cái sang status. Ba typed error `OTPLockedError` / `OTPResendTooSoonError` / `OTPSendLimitedError` (mỗi cái `Unwrap()` về sentinel tương ứng) mang thêm `locked_until` / `retry_after`. **v5.0 bỏ `ErrOTPResendExhausted`** (không còn nhánh nào trả), **thêm `ErrOTPSendLimited`**. |
+| Domain / Errors | `services/appService/domain/errors.go` | Sentinels: `ErrPhoneTaken`, `ErrEmailTaken`, `ErrInvalidPhone`, `ErrInvalidEmail`, `ErrInvalidPassword`, `ErrOTPInvalid`, `ErrOTPExpired`, `ErrOTPLocked`, `ErrOTPResendTooSoon`, `ErrOTPSendLimited`, `ErrPendingRegistrationNotFound`, `ErrPendingRegistrationExpired`, `ErrUnsupportedOTPPurpose`, `ErrSMSSendFailed`, **(v7.0) `ErrInvalidTemple`** (→ `400 INVALID_TEMPLE`). Handler map từng cái sang status. Ba typed error `OTPLockedError` / `OTPResendTooSoonError` / `OTPSendLimitedError` (mỗi cái `Unwrap()` về sentinel tương ứng) mang thêm `locked_until` / `retry_after`. **v5.0 bỏ `ErrOTPResendExhausted`** (không còn nhánh nào trả), **thêm `ErrOTPSendLimited`**. |
 | Domain / Entity | `services/appService/domain/otp_send_limit.go` | `OTPSendLimit` — state của bộ đếm gửi theo SĐT: `PhoneNumber`, `Purpose`, `SendCount`, `LastSentAt *time.Time`, `LockedUntil *time.Time`. Kèm value type `SendLimits` (policy: `Cooldown`, `LockDuration`, `MaxAttempts`) mà usecase truyền xuống repository, để `domain` không phải import `config`. |
-| Domain / Repository interface | `services/appService/domain/register.go` | `RegistrationRepository` — interface do `repository/` implement, khai báo ở `domain/`, không khai ở `repository/`. Mười method (v5.0: `SavePendingAndIssueOTP`/`ReissueOTP` nhận thêm `SendLimits`, thêm `ReleaseSendLimit`): `FindConflicts`, `SavePendingAndIssueOTP`, `ReissueOTP`, `FindPendingRegistration`, `FindActiveOTP`, `IncrementOTPAttempts`, `LockOTP`, `CreateUserAndSession`, `DeletePendingRegistration`, `ReleaseSendLimit`. |
+| Domain / Repository interface | `services/appService/domain/register.go` | `RegistrationRepository` — interface do `repository/` implement, khai báo ở `domain/`, không khai ở `repository/`. Mười method (v5.0: `SavePendingAndIssueOTP`/`ReissueOTP` nhận thêm `SendLimits`, thêm `ReleaseSendLimit`; **v7.0: thêm `TempleExists(ctx, id) (bool, error)`**. Lưu ý: từ refactor `otp-mechanism`, `RegistrationRepository` chỉ còn 6 method — các method OTP nằm ở `OTPRepository`, xem `domain/README.md`): `FindConflicts`, `SavePendingAndIssueOTP`, `ReissueOTP`, `FindPendingRegistration`, `FindActiveOTP`, `IncrementOTPAttempts`, `LockOTP`, `CreateUserAndSession`, `DeletePendingRegistration`, `ReleaseSendLimit`. |
 | Domain / Port | `services/appService/domain/register.go` | `OTPSender` interface — **một method duy nhất** `SendOTP(ctx context.Context, phoneNumber, otpCode string, purpose OTPPurpose) error`. Không tách `SendRegistrationOTP` riêng: flow `resend-otp` dùng chung đường gửi với flow 1, và US-002/US-003 sẽ gọi đúng method này với `purpose` khác. usecase không import `pkg/sms` trực tiếp. |
 | Domain / Mock | `services/appService/domain/mock_registration_repository.go` | Mock tay cho usecase test — không DB thật. Thêm `mock_otp_sender.go` cho port `OTPSender`, cùng package, cùng lý do. |
 | Usecase | `services/appService/usecase/register_usecase.go` | Ba method: `RequestOTP` (validate → check trùng → áp send-limit → hash password → ghi tạm → gửi SMS), `ResendOTP` (validate → tra trạng thái pending → kiểm khoá-nhập-sai → áp send-limit → cấp OTP mới → gửi SMS), `VerifyOTP` (validate → tra OTP → so hash → tạo user + session trong 1 tx). **Không** sở hữu các con số của OTP policy — chúng đến từ `config.OTPConfig` (`services/appService/config/`) qua constructor, dưới dạng `config.OTPConfig` (usecase import thẳng `services/appService/config` — không có struct `OTPPolicy` trung gian, để chỉ tồn tại một định nghĩa duy nhất). Bảy giá trị (v5.1): `TTL` (90s), `SendCooldown` (60s), `MaxSendAttempts` (3), `SendLockDuration` (30m), `MaxAttempts` (3), `LockDuration` (30m), `PendingRegistrationTTL` (24h — tách khỏi `TTL` từ v5.1). Đã bỏ `MaxResend`/`ResendCooldown`. |
@@ -77,6 +77,7 @@ bắt buộc có Step-by-step Flow (rule 5 của skill). Nó cũng là feature �
 | External package | `pkg/sms/sms.go` | Interface `Sender` + `Register(type, FactoryFunc)` / `New(config)` theo pattern provider-agnostic của repo. `Config` có thêm field `Logger logging.Logger` (không có ở `pkg/database`'s Config) vì impl duy nhất hiện có (log-only) cần một sink để ghi. |
 | External package | `pkg/sms/logsms/log_sms.go` | Implementation **chỉ ghi log** nội dung SMS; tự đăng ký qua `init()`. Đây là impl duy nhất ở giai đoạn này. |
 | Migration | `migrations/0001_register_onboarding.sql` | Baseline `users` + `users.email_verified_at`, `users.phone_number`, `users.ordination_place`; tạo `otp_codes`, `pending_registration`, `user_sessions`. |
+| Migration | `migrations/0023_registration_ordination_temple.sql` **(v7.0, đã có code — v7.2)** | `ADD COLUMN ordination_temple_id VARCHAR(64) REFERENCES temples(id)` vào `users` và `pending_registration`, rồi `DROP COLUMN ordination_place` ở cả hai. Phụ thuộc `0005`. Chốt 2026-10-10: **drop thẳng, không backfill**. FK mặc định tên `users_ordination_temple_id_fkey` / `pending_registration_ordination_temple_id_fkey`; repository dịch `23503` theo tên. |
 | Migration | `migrations/0003_otp_send_limits.sql` **(v5.0, đã có code)** | `CREATE TABLE otp_send_limits` (xem §"OTP send-limit policy") + `ALTER TABLE otp_codes DROP COLUMN resend_count` (bộ đếm cũ bỏ hẳn). `0002` thuộc `login/`. |
 | API spec | `docs/specs/api/openapi.yaml` | OpenAPI 3.0.3, 3 path + schema request/response/error. Viết sau khi handler đã chạy thật qua `curl`, nên mọi field/status/code khớp code thật — không phải một bản thiết kế lý thuyết đi trước code. |
 
@@ -221,8 +222,10 @@ Step 1 — Validate và chuẩn hoá input (feature này)
       details {field: phone_number}
     - Failure (password < 8) → ErrInvalidPassword → 400 INVALID_PASSWORD, details {field: password}
     - Không chạm DB ở bất kỳ nhánh failure nào.
+  (v7.0) `ordination_temple_id` được `strings.TrimSpace` rồi coi rỗng = không chọn (→ `nil`); Step 1 **không** kiểm
+  tồn tại (cần DB) — việc đó ở Step 2. DTO decode strict nên field cũ `ordination_place` bị từ chối (400).
 
-Step 2 — Kiểm tra trùng SĐT / email (feature này)
+Step 2 — Kiểm tra trùng SĐT / email, rồi kiểm tra chùa tồn tại (v7.0) (feature này)
 - Trigger: Step 1 pass
 - Pre-condition: input đã chuẩn hoá
 - Call: RegistrationRepository.FindConflicts(phone, email) — MỘT query quét 3 nguồn:
@@ -239,6 +242,13 @@ Step 2 — Kiểm tra trùng SĐT / email (feature này)
   — nhờ vậy user cài lại app làm lại được ngay, không phải chờ hết `PendingRegistrationTTL`. Chỉ
   email mới còn bị hàng pending chặn, và chỉ khi hàng đó thuộc SĐT **khác**: email là unique key
   toàn hệ thống, đó là claim của người khác (AC6). Hàng hết hạn không tính.
+  (v7.0) Sau khi `FindConflicts` pass, nếu `ordination_temple_id != nil` thì gọi
+  RegistrationRepository.TempleExists(ctx, id) → `SELECT EXISTS (SELECT 1 FROM temples WHERE id = $1)`.
+    - Success (tồn tại hoặc không gửi id) → Step 3
+    - Failure (không tồn tại) → domain.ErrInvalidTemple → 400 INVALID_TEMPLE, details {field: ordination_temple_id}, dừng
+    - Failure (lỗi DB) → wrapped "check temple: %w" → 500
+  Thứ tự: phone/email trước, chùa sau — cùng nguyên tắc "báo định danh chính trước". Check này cũng chỉ để
+  trả lỗi thân thiện sớm; chốt chặn cuối là FK `ordination_temple_id → temples(id)` (xem flow 2 Step 5).
   Confirmed: đây KHÔNG phải chốt chặn cuối. Unique constraint của DB mới là chốt chặn — check này
   chỉ để trả lỗi thân thiện sớm. Race giữa hai lượt request-otp cùng SĐT/email vẫn được xử lý ở
   Step 4 (ON CONFLICT) và ở Step 2 của flow verify (unique violation của users).
@@ -260,9 +270,9 @@ Step 4 — Áp send-limit + ghi tạm payload + cấp OTP mới (feature này, M
         (b) áp §"OTP send-limit policy": đặt lại cycle / khoá / cooldown / trần. Bị chặn →
             typed error, ROLLBACK, không ghi gì.
         (c) UPSERT INTO pending_registration (phone_number, email, password_hash, dharma_name,
-            ordination_place, expires_at, created_at)
+            ordination_temple_id, expires_at, created_at)          -- v7.0: thay ordination_place
             ON CONFLICT (phone_number) DO UPDATE SET email, password_hash, dharma_name,
-            ordination_place, expires_at, created_at
+            ordination_temple_id, expires_at, created_at
         (d) UPDATE otp_codes SET used_at = now()
             WHERE phone_number = $1 AND purpose = 'register' AND used_at IS NULL
         (e) INSERT INTO otp_codes (phone_number, purpose='register', otp_hash, expires_at = now() + 90s)
@@ -375,7 +385,7 @@ Step 5 — Tạo user + session (feature này, MỘT transaction)
 - Call: RegistrationRepository.CreateUserAndSession(ctx, pending, issuer) → BEGIN
         (a) SELECT 1 FROM users WHERE email = $1              -- re-check trong tx
         (b) INSERT INTO users (email, email_verified_at, phone_number, password_hash,
-            dharma_name, ordination_place)
+            dharma_name, ordination_temple_id)                      -- v7.0: thay ordination_place
             VALUES ($1, NULL, $2, $3, $4, $5) RETURNING id, created_at, updated_at
         (c) DELETE FROM pending_registration WHERE id = $1
         (d) UPDATE otp_codes SET used_at = now() WHERE id = $1
@@ -391,6 +401,8 @@ Step 5 — Tạo user + session (feature này, MỘT transaction)
     - Success → Step 6
     - Failure (users_email_key, 23505) → domain.ErrEmailTaken → 409 EMAIL_TAKEN, rollback (a)-(e)
     - Failure (users_phone_number_key, 23505) → domain.ErrPhoneTaken → 409 PHONE_TAKEN, rollback
+    - Failure (v7.0: FK `users_ordination_temple_id_fkey`, 23503) → domain.ErrInvalidTemple → 400 INVALID_TEMPLE, rollback
+      (chùa bị xoá giữa bước 1 và bước 2 — hiếm vì `temples` chỉ-đọc, nhưng payload sống 24h)
     - Failure (lỗi DB khác) → wrapped "create user: %w" → 500, rollback
   Transaction boundary: (a)-(e) chia sẻ MỘT transaction. Không có tài khoản nào được tạo mà thiếu
   session, và pending_registration không bị xoá nếu user chưa tạo xong — AC3 ("không hàng nào của
@@ -542,7 +554,7 @@ Step 5 — Gửi OTP qua SMS (thuộc `pkg/sms`, ngoài scope feature này)
 - **`user_devices` không được tạo trong US-001.** Schema cũ có bảng này (đăng ký cũ ghi một hàng
   device từ fingerprint `SHA-256(Platform|OSVersion|DeviceModel|UserAgent)`), nhưng contract 2 bước
   hiện tại **không mang trường device nào** — client chỉ gửi `phone_number`, `email`, `password`,
-  `dharma_name?`, `ordination_place?`. Nên `user_sessions` ở `0001` **không có `device_id`**.
+  `dharma_name?`, `ordination_temple_id?` (v7.0; trước là `ordination_place?`). Nên `user_sessions` ở `0001` **không có `device_id`**.
   US-002 (đăng nhập) — nay đặc tả ở `docs/specs/features/login/` — định nghĩa payload device và thêm `user_devices` + cột `user_sessions.device_id` (nullable) bằng migration `0002` riêng của nó.
   Ghi rõ ở đây vì đây là chỗ lệch có chủ ý so với schema trước.
 - **Tên field trên wire là `phone_number`, không phải `phone`.** Bản changelog đã bị xoá có ghi

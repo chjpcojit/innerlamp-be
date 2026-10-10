@@ -107,7 +107,7 @@ func NewRegisterUsecase(
 // No users row is written here — that is the whole point of the two-step design.
 // The failure modes this method can return are limited to the sentinels the
 // handler knows how to map: ErrInvalidEmail, ErrInvalidPhone, ErrInvalidPassword,
-// ErrPhoneTaken, ErrEmailTaken, ErrOTPLocked (wrong-guess lock),
+// ErrPhoneTaken, ErrEmailTaken, ErrInvalidTemple, ErrOTPLocked (wrong-guess lock),
 // ErrOTPResendTooSoon, ErrOTPSendLimited, ErrSMSSendFailed. Anything else is an
 // infrastructure failure and is returned wrapped, so the handler's 500 path is
 // reached rather than a wrong 4xx.
@@ -141,6 +141,21 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 		return nil, domain.ErrEmailTaken
 	}
 
+	// The temple is checked after the identity conflicts (AC18): phone and
+	// email are what the caller most needs to be told about first. A blank id
+	// means "no temple" and costs no query. The FK on users/pending_registration
+	// is the final guard; this is only the friendly early error.
+	templeID := optionalString(input.OrdinationTempleID)
+	if templeID != nil {
+		exists, err := u.registrations.TempleExists(ctx, *templeID)
+		if err != nil {
+			return nil, fmt.Errorf("check temple: %w", err)
+		}
+		if !exists {
+			return nil, domain.ErrInvalidTemple
+		}
+	}
+
 	// AC12 has no exception for this endpoint: while a number is locked out
 	// after too many wrong codes, asking for a fresh code would hand the
 	// attacker a new attempt counter. The send-limit policy (AC5) is a separate,
@@ -161,12 +176,12 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 
 	now := time.Now()
 	pending := &domain.PendingRegistration{
-		PhoneNumber:     phoneNumber,
-		Email:           email,
-		PasswordHash:    string(passwordHash),
-		DharmaName:      optionalString(input.DharmaName),
-		OrdinationPlace: optionalString(input.OrdinationPlace),
-		ExpiresAt:       now.Add(u.pendingRegistrationTTL),
+		PhoneNumber:        phoneNumber,
+		Email:              email,
+		PasswordHash:       string(passwordHash),
+		DharmaName:         optionalString(input.DharmaName),
+		OrdinationTempleID: templeID,
+		ExpiresAt:          now.Add(u.pendingRegistrationTTL),
 	}
 
 	code, otpHash, err := u.otpService.Generate()

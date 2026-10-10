@@ -46,11 +46,11 @@ func NewRegisterHandler(usecase registerUsecase, validator *validation.Validator
 // leaving the length check to RequestOTP itself — duplicating it here would
 // just risk the two disagreeing.
 type requestOTPRequest struct {
-	Email           string `json:"email" validate:"required,email"`
-	Password        string `json:"password" validate:"required"`
-	PhoneNumber     string `json:"phone_number" validate:"required,phone"`
-	DharmaName      string `json:"dharma_name,omitempty"`
-	OrdinationPlace string `json:"ordination_place,omitempty"`
+	Email              string `json:"email" validate:"required,email"`
+	Password           string `json:"password" validate:"required"`
+	PhoneNumber        string `json:"phone_number" validate:"required,phone"`
+	DharmaName         string `json:"dharma_name,omitempty"`
+	OrdinationTempleID string `json:"ordination_temple_id,omitempty"`
 }
 
 type requestOTPResponse struct {
@@ -94,22 +94,22 @@ type verifyOTPResponse struct {
 // model" rule). A different handler (login, profile) is free to name or omit
 // fields differently; each answers to its own contract.
 type userResponse struct {
-	ID              int64     `json:"id"`
-	Email           string    `json:"email"`
-	PhoneNumber     string    `json:"phone_number"`
-	DharmaName      *string   `json:"dharma_name,omitempty"`
-	OrdinationPlace *string   `json:"ordination_place,omitempty"`
-	CreatedAt       time.Time `json:"created_at"`
+	ID                 int64     `json:"id"`
+	Email              string    `json:"email"`
+	PhoneNumber        string    `json:"phone_number"`
+	DharmaName         *string   `json:"dharma_name,omitempty"`
+	OrdinationTempleID *string   `json:"ordination_temple_id,omitempty"`
+	CreatedAt          time.Time `json:"created_at"`
 }
 
 func newUserResponse(u *domain.User) userResponse {
 	return userResponse{
-		ID:              u.ID,
-		Email:           u.Email,
-		PhoneNumber:     u.PhoneNumber,
-		DharmaName:      u.DharmaName,
-		OrdinationPlace: u.OrdinationPlace,
-		CreatedAt:       u.CreatedAt,
+		ID:                 u.ID,
+		Email:              u.Email,
+		PhoneNumber:        u.PhoneNumber,
+		DharmaName:         u.DharmaName,
+		OrdinationTempleID: u.OrdinationTempleID,
+		CreatedAt:          u.CreatedAt,
 	}
 }
 
@@ -125,11 +125,11 @@ func (h *RegisterHandler) RequestOTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	result, err := h.usecase.RequestOTP(r.Context(), domain.RequestRegisterOTPInput{
-		Email:           req.Email,
-		Password:        req.Password,
-		PhoneNumber:     req.PhoneNumber,
-		DharmaName:      req.DharmaName,
-		OrdinationPlace: req.OrdinationPlace,
+		Email:              req.Email,
+		Password:           req.Password,
+		PhoneNumber:        req.PhoneNumber,
+		DharmaName:         req.DharmaName,
+		OrdinationTempleID: req.OrdinationTempleID,
 	})
 	if err != nil {
 		writeDomainError(w, err)

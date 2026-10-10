@@ -32,6 +32,15 @@ func (m *MockTempleRepository) List(ctx context.Context, offset, limit int) ([]T
 	return nil, args.Int(1), args.Error(2)
 }
 
+// ListOptions mocks the ListOptions method.
+func (m *MockTempleRepository) ListOptions(ctx context.Context, query string, offset, limit int) ([]TempleOption, int, error) {
+	args := m.Called(ctx, query, offset, limit)
+	if t := args.Get(0); t != nil {
+		return t.([]TempleOption), args.Int(1), args.Error(2)
+	}
+	return nil, args.Int(1), args.Error(2)
+}
+
 // FindByID mocks the FindByID method.
 func (m *MockTempleRepository) FindByID(ctx context.Context, id string) (*Temple, error) {
 	args := m.Called(ctx, id)

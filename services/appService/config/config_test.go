@@ -5,6 +5,7 @@ import (
 	"errors"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"testing"
 	"time"
@@ -456,5 +457,147 @@ func TestLoad_DevYAMLTempleSuggestionConfig(t *testing.T) {
 	}
 	if err := cfg.TempleSuggestion.Validate(); err != nil {
 		t.Errorf("dev config must be valid: %v", err)
+	}
+}
+
+func TestTempleConfig_Validate(t *testing.T) {
+	ok := TempleConfig{TopLimit: 10, PageSize: 20, OptionsPageSize: 100}
+	if err := ok.Validate(); err != nil {
+		t.Fatalf("valid config rejected: %v", err)
+	}
+	for name, c := range map[string]TempleConfig{
+		"zero top_limit":         {TopLimit: 0, PageSize: 20, OptionsPageSize: 100},
+		"zero page_size":         {TopLimit: 10, PageSize: 0, OptionsPageSize: 100},
+		"zero options_page_size": {TopLimit: 10, PageSize: 20, OptionsPageSize: 0},
+		"negative options":       {TopLimit: 10, PageSize: 20, OptionsPageSize: -1},
+	} {
+		if err := c.Validate(); err == nil {
+			t.Errorf("%s: want error, got nil", name)
+		}
+	}
+}
+
+func TestGenealogyConfig_Validate(t *testing.T) {
+	valid := GenealogyConfig{
+		MaxPerUser: 10, MaxMembers: 5000, MaxGeneration: 60, MaxSpouses: 5,
+		MaxViewers: 20, InvitationTTL: Duration(30 * 24 * time.Hour),
+	}
+	if err := valid.Validate(); err != nil {
+		t.Fatalf("valid config rejected: %v", err)
+	}
+	cases := map[string]func(c *GenealogyConfig){
+		"max_per_user":   func(c *GenealogyConfig) { c.MaxPerUser = 0 },
+		"max_members":    func(c *GenealogyConfig) { c.MaxMembers = 0 },
+		"max_generation": func(c *GenealogyConfig) { c.MaxGeneration = 0 },
+		"max_spouses":    func(c *GenealogyConfig) { c.MaxSpouses = 0 },
+		"max_viewers":    func(c *GenealogyConfig) { c.MaxViewers = -1 },
+		"invitation_ttl": func(c *GenealogyConfig) { c.InvitationTTL = 0 },
+	}
+	for field, mutate := range cases {
+		c := valid
+		mutate(&c)
+		err := c.Validate()
+		if err == nil {
+			t.Errorf("%s: expected an error", field)
+			continue
+		}
+		if !strings.Contains(err.Error(), field) {
+			t.Errorf("%s: error %q does not name the field", field, err)
+		}
+	}
+}
+
+func TestGenealogyConfig_ZeroValueIsInvalid(t *testing.T) {
+	if err := (GenealogyConfig{}).Validate(); err == nil {
+		t.Error("zero GenealogyConfig must be invalid: a missing yaml block would otherwise mean limit 0")
+	}
+}
+
+func TestLoad_DevYAMLGenealogyConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+	want := GenealogyConfig{
+		MaxPerUser: 10, MaxMembers: 5000, MaxGeneration: 60, MaxSpouses: 5,
+		MaxViewers: 20, InvitationTTL: Duration(30 * 24 * time.Hour),
+	}
+	if cfg.Genealogy != want {
+		t.Errorf("Genealogy = %+v, want %+v", cfg.Genealogy, want)
+	}
+	if err := cfg.Genealogy.Validate(); err != nil {
+		t.Errorf("dev config must validate: %v", err)
+	}
+}
+
+func TestLampConfig_Validate(t *testing.T) {
+	valid := LampConfig{MaxActivePerUser: 20, PageSize: 12, DedupeWindow: Duration(5 * time.Second), DurationsDays: []int{1, 7, 21, 49}}
+	if err := valid.Validate(); err != nil {
+		t.Fatalf("valid config rejected: %v", err)
+	}
+	cases := map[string]func(c *LampConfig){
+		"max_active_per_user": func(c *LampConfig) { c.MaxActivePerUser = 0 },
+		"page_size":           func(c *LampConfig) { c.PageSize = 0 },
+		"dedupe_window":       func(c *LampConfig) { c.DedupeWindow = 0 },
+		"durations_days":      func(c *LampConfig) { c.DurationsDays = nil },
+	}
+	for field, mutate := range cases {
+		c := valid
+		mutate(&c)
+		err := c.Validate()
+		if err == nil {
+			t.Errorf("%s: expected an error", field)
+			continue
+		}
+		if !strings.Contains(err.Error(), field) {
+			t.Errorf("%s: error %q does not name the field", field, err)
+		}
+	}
+	for name, days := range map[string][]int{"zero value": {0, 7}, "negative": {-1}, "repeated": {7, 7}} {
+		c := valid
+		c.DurationsDays = days
+		if err := c.Validate(); err == nil || !strings.Contains(err.Error(), "durations_days") {
+			t.Errorf("durations_days %s: want an error naming the field, got %v", name, err)
+		}
+	}
+}
+
+func TestLampConfig_ZeroValueIsInvalid(t *testing.T) {
+	if err := (LampConfig{}).Validate(); err == nil {
+		t.Error("zero LampConfig must be invalid: a missing yaml block would otherwise mean limit 0")
+	}
+}
+
+func TestLoad_DevYAMLLampConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+	want := LampConfig{MaxActivePerUser: 20, PageSize: 12, DedupeWindow: Duration(5 * time.Second), DurationsDays: []int{1, 7, 21, 49}}
+	if !reflect.DeepEqual(cfg.Lamp, want) {
+		t.Errorf("Lamp = %+v, want %+v", cfg.Lamp, want)
+	}
+	if err := cfg.Lamp.Validate(); err != nil {
+		t.Errorf("dev config must validate: %v", err)
 	}
 }

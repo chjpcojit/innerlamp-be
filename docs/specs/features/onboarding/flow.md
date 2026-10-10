@@ -1,7 +1,7 @@
 # Flow — onboarding
 
-Version: 6.1
-Last updated: 2026-09-25
+Version: 7.3
+Last updated: 2026-10-10
 Status: implemented (US-001) — bản vẽ Mermaid mirror 1:1 ba section "Step-by-step Flow" của `design.md`
 Module: `identity`
 Code: `services/appService/`
@@ -35,7 +35,7 @@ sequenceDiagram
     participant DB as Postgres
     participant S as pkg/sms
 
-    C->>H: POST /v1/auth/register/request-otp {phone_number, email, password, dharma_name?, ordination_place?}
+    C->>H: POST /v1/auth/register/request-otp {phone_number, email, password, dharma_name?, ordination_temple_id?}
     H->>H: DecodeJSONBodyStrict + validate DTO
     H->>U: RequestOTP(ctx, input)
 
@@ -55,6 +55,16 @@ sequenceDiagram
         R--xU: ErrEmailTaken
         U--xH: ErrEmailTaken
         H--xC: 409 EMAIL_TAKEN
+    end
+
+    opt có ordination_temple_id (v7.0, Step 2)
+        U->>R: TempleExists(ctx, id)
+        R->>DB: SELECT EXISTS (SELECT 1 FROM temples WHERE id = $1)
+        alt không tồn tại
+            R--xU: ErrInvalidTemple
+            U--xH: ErrInvalidTemple
+            H--xC: 400 INVALID_TEMPLE (details {field: ordination_temple_id})
+        end
     end
 
     U->>U: bcrypt.GenerateFromPassword (Step 3)
@@ -149,11 +159,16 @@ sequenceDiagram
         rect rgb(235, 240, 255)
             Note over R,DB: MỘT transaction
             R->>DB: (a) SELECT 1 FROM users WHERE email = $1 (re-check trong tx)
-            R->>DB: (b) INSERT INTO users (...) RETURNING id (email_verified_at = NULL)
+            R->>DB: (b) INSERT INTO users (..., ordination_temple_id) RETURNING id (email_verified_at = NULL)
             R->>DB: (c) DELETE FROM pending_registration WHERE id = $1
             R->>DB: (d) UPDATE otp_codes SET used_at = now()
             R->>DB: (e) INSERT INTO user_sessions (...) + mint JWT (closure TokenIssuer: access mang sid, refresh hash SHA-256)
-            alt unique violation email/phone (23505)
+            alt FK violation ordination_temple_id (23503, v7.0)
+                Note over R,DB: rollback (a)-(e)
+                R--xU: ErrInvalidTemple
+                U--xH: ErrInvalidTemple
+                H--xC: 400 INVALID_TEMPLE
+            else unique violation email/phone (23505)
                 Note over R,DB: rollback (a)-(e)
                 R--xU: ErrEmailTaken / ErrPhoneTaken
                 U--xH: ErrEmailTaken / ErrPhoneTaken

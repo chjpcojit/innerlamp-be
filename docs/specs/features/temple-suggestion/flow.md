@@ -1,8 +1,8 @@
 # Flow — temple-suggestion
 
-Version: 2.2
+Version: 2.4
 Last updated: 2026-10-10
-Status: not started — spec viết trước khi có code. Không còn marker `⚠️ Not confirmed`.
+Status: sơ đồ cho phần duyệt (backoffice) — chưa có code; phần gửi đề xuất ở appService đã implement và không có sơ đồ. Không còn marker `⚠️ Not confirmed`.
 Module: `content` + `backoffice`
 
 > See `changelog.md` in this folder for the version history of this spec.

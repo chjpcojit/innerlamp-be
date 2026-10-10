@@ -93,8 +93,19 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		return
 	}
 
+	if bad, ok := errors.AsType[*domain.LampValidationError](err); ok {
+		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
+		return
+	}
+
 	if bad, ok := errors.AsType[*domain.TempleSuggestionValidationError](err); ok {
 		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
+		return
+	}
+
+	if errors.Is(err, domain.ErrInvalidTempleQuery) {
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_FILTER", domain.ErrInvalidTempleQuery.Error(),
+			map[string]any{"field": "q"})
 		return
 	}
 
@@ -115,6 +126,8 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_EMAIL", err.Error(), map[string]any{"field": "email"})
 	case errors.Is(err, domain.ErrInvalidPassword):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_PASSWORD", err.Error(), map[string]any{"field": "password"})
+	case errors.Is(err, domain.ErrInvalidTemple):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_TEMPLE", err.Error(), map[string]any{"field": "ordination_temple_id"})
 	case errors.Is(err, domain.ErrInvalidCredentials):
 		utils.WriteBusinessError(w, http.StatusUnauthorized, "INVALID_CREDENTIALS", err.Error(), nil)
 	case errors.Is(err, domain.ErrInvalidDevice):
@@ -151,6 +164,14 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusNotFound, "MEMORIAL_NOT_FOUND", domain.ErrMemorialNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrMemorialLimitReached):
 		utils.WriteBusinessError(w, http.StatusConflict, "MEMORIAL_LIMIT_REACHED", domain.ErrMemorialLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrLampLimitReached):
+		utils.WriteBusinessError(w, http.StatusConflict, "LAMP_LIMIT_REACHED", domain.ErrLampLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrInvalidLampFilter):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_FILTER", domain.ErrInvalidLampFilter.Error(), map[string]any{"field": "lamp_type"})
+	case errors.Is(err, domain.ErrInvalidLimit):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_LIMIT", domain.ErrInvalidLimit.Error(), map[string]any{"field": "limit"})
+	case errors.Is(err, domain.ErrInvalidCursor):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_CURSOR", domain.ErrInvalidCursor.Error(), map[string]any{"field": "cursor"})
 	case errors.Is(err, domain.ErrArticleNotFound):
 		utils.WriteBusinessError(w, http.StatusNotFound, "ARTICLE_NOT_FOUND", domain.ErrArticleNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrDharmaTalkNotFound):

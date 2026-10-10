@@ -10,11 +10,12 @@ import (
 // because step 1 is the only step that receives it: step 2 sends back nothing
 // but the phone number and the OTP.
 type RequestRegisterOTPInput struct {
-	Email           string
-	Password        string
-	PhoneNumber     string
-	DharmaName      string
-	OrdinationPlace string
+	Email       string
+	Password    string
+	PhoneNumber string
+	DharmaName  string
+	// OrdinationTempleID is an optional temples.id; blank means "no temple".
+	OrdinationTempleID string
 }
 
 // RequestOTPResult reports the OTP window just opened, so the handler can put
@@ -136,6 +137,11 @@ type RegistrationRepository interface {
 	// request-otp overwrites it (v5.1). Only unexpired rows count, so an
 	// abandoned attempt stops holding an email once its TTL passes.
 	FindConflicts(ctx context.Context, phoneNumber, email string) (*RegistrationConflicts, error)
+
+	// TempleExists reports whether temples has a row with this id. Used by
+	// request-otp to reject an unknown ordination_temple_id early (AC18); the
+	// FK on users/pending_registration is the final guard.
+	TempleExists(ctx context.Context, id string) (bool, error)
 
 	// SavePendingAndIssueOTP stores the account payload under phoneNumber and
 	// issues a fresh OTP for it, in one transaction — step 1 of AC1.

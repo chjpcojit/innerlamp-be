@@ -4,6 +4,30 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.4 (2026-10-10)
+
+Dọn tài liệu sau khi rà soát trước khi làm tiếp; không đổi hành vi hay phạm vi.
+
+- `requirements.md`: Status/mở đầu không còn "not started" (US-TSG-01 đã có code); ghi chú AC7 không còn nói rate-limit chưa wire; "API contract" ghi route gửi đề xuất đã có trong `openapi.yaml`; "Pending" chỉ còn phần duyệt; ghi chú schema bỏ chữ "dự kiến/cần cập nhật" (migration, ERD, README đã có).
+- `design.md`, `tasks.md`: no change needed, verified — chỉ cập nhật header.
+- `flow.md`: Status nói rõ sơ đồ này chỉ cho phần duyệt (chưa có code).
+- Reason: các dòng trạng thái còn mô tả trạng thái trước khi implement Phase 1–2 (v2.3).
+- Kiểm chứng: `go vet ./services/appService/...`, `go test -short ./services/appService/...` sạch.
+- Ghi nhận, chưa sửa: `web/docs/public/openapi.yaml` lệch `docs/specs/api/openapi.yaml` ở phần auth (`X-API-Key`, `expires_in`, `no-store`) từ trước, ngoài phạm vi feature này.
+
+## v2.3 (2026-10-10)
+
+Implement Phase 1 và Phase 2 (gửi đề xuất, appService) theo `golang-clean-arch-tdd`.
+
+- `requirements.md`: no change needed, verified — hành vi đã implement khớp AC1–AC8; chỉ cập nhật header.
+- `design.md`: bảng layer đánh dấu phần đã làm; `CreateTemple` có thêm tham số `priority` (usecase suy ra từ hạng rồi truyền xuống, repository không tự tính) và trả `CreatedTemple`; cập nhật Known gap rate-limit (đã wire nhưng bộ đếm theo từng instance, production phải bật `trust_forwarded_for`). Số bước của flow không đổi.
+- `flow.md`: chữ ký `CreateTemple` trên sơ đồ có sẵn `role`; thêm tham số `priority` không đổi số bước — no change needed ngoài header.
+- `tasks.md`: tick Phase 1 (4 mục) và Phase 2 (6 mục) sau khi kiểm chứng; mục "Quyết N7" của Phase 4 tick vì bản chép + test đối chiếu đã có. Phase 3–6 vẫn `[ ]`.
+- Reason: bắt đầu code sau khi mọi câu hỏi đã chốt. Bump minor vì không đổi phạm vi.
+- Kiểm chứng: usecase (table-driven, mock), handler, rate-limit, config (dev yaml), repository trên Postgres thật (gồm CHECK), E2E trên binary thật + testcontainers Postgres (route đã wire, 201, trùng vẫn 201, validation, field lạ, 429 ở lần thứ 6, không có route đọc, sai `X-API-Key` 401 không tốn hạn mức). `go vet ./...`, `go test -short ./...` và `check_dependency_rule.sh` cho cả hai service đều sạch.
+- Ghi nhận khi làm: bản chép `HeritagePriority` ở backoffice được test đối chiếu với appService; test import `appService/domain` chỉ trong file `_test.go` nên không tạo phụ thuộc runtime.
+- Follow-ups (chưa làm): `openapi.yaml` (+ `web/`) mới có route gửi đề xuất, ba route duyệt thêm ở Phase 3–4; concept OKF `docs/knowledge/features/temple-suggestion.md` chỉ tạo sau khi cả luồng gửi → duyệt chạy end-to-end; `config.<prod>.yaml` (khi có) phải đặt `temple_suggestion.rate_limit.trust_forwarded_for: true`.
+
 ## v2.2 (2026-10-10)
 
 - `requirements.md`: chốt N7 — backoffice chép bảng ánh xạ `heritage_rank → heritage_priority` kèm test đối chiếu, không đưa vào `pkg/`. Không còn marker.
