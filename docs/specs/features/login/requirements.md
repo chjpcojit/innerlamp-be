@@ -1,8 +1,8 @@
 # Requirements — login
 
-Version: 1.11
-Last updated: 2026-09-29
-Status: implemented (2026-09-21) — login, refresh, logout chạy thật qua binary + Postgres 16; AC1–AC15 đã có test (usecase, repository trên DB thật, handler) và đã kiểm bằng curl. Audit AC bằng E2E tự động xong (`test-coverage-report.md`). Không còn marker `⚠️ Not confirmed`. (v1.11: không đổi nội dung file này — bump theo `design.md`/`flow.md` vì `flow.md` được thêm vào cùng version. Không đổi AC.)
+Version: 1.13
+Last updated: 2026-10-10
+Status: implemented (2026-09-21; v1.12 thêm AC16–AC19 `X-API-Key`, đã có code + test; v1.13 thêm AC20–AC22 hợp đồng response cấp token, đã có code + test + E2E, `tasks.md` Phase 7) — login, refresh, logout chạy thật qua binary + Postgres 16; AC1–AC15 đã có test (usecase, repository trên DB thật, handler) và đã kiểm bằng curl. Audit AC bằng E2E tự động xong (`test-coverage-report.md`). Không còn marker `⚠️ Not confirmed`. (v1.11: không đổi nội dung file này — bump theo `design.md`/`flow.md` vì `flow.md` được thêm vào cùng version. Không đổi AC.)
 Module: `identity`
 Code: `services/appService/`
 
@@ -53,15 +53,32 @@ Spec này phủ ba endpoint: `login`, `refresh`, `logout`. `refresh` và `logout
 14. WHEN a logout request arrives with a valid access token whose `sid` matches no active session of that user (already revoked, expired, or unknown), THE SYSTEM SHALL still return `200` `{"success": true}` and SHALL NOT change any state. (Idempotent; và không thu hồi session của người khác dù `sid` bị giả — tra theo cả `user_id` lẫn `session_id`.)
 15. WHEN a logout request arrives with no `Authorization` header, an invalid/expired token, a token of type `refresh`, or an access token that carries no `sid` claim, THE SYSTEM SHALL reject it with `401 Unauthorized` (error code `UNAUTHORIZED`) and SHALL NOT change any state. (Access token hết hạn → client gọi `refresh` rồi thử lại logout.)
 
+**Web client — header `X-API-Key` (v1.12, áp cho mọi route `/v1/auth/*`, kể cả của `onboarding/`)**
+
+16. WHEN a request to any `/v1/auth/*` route carries an `X-API-Key` header equal to the configured web key (`server.web_api_key_secret`), THE SYSTEM SHALL process it normally and treat the caller as a verified web client.
+17. WHEN a request to any `/v1/auth/*` route carries an `X-API-Key` header that is wrong or empty — or the key is not configured at all — THE SYSTEM SHALL reject it with `401 Unauthorized`, error code `INVALID_API_KEY`, and SHALL NOT run the handler or count it as a failed login attempt. The comparison SHALL be constant-time.
+18. WHEN a request carries no `X-API-Key` header, THE SYSTEM SHALL process it as a mobile caller, exactly as before v1.12.
+19. WHEN a login request has `device.platform` empty, THE SYSTEM SHALL store `mobile`; WHEN `device.platform` is `web` (case-insensitive) and the request did not present a valid `X-API-Key`, THE SYSTEM SHALL reject it with `401` `INVALID_API_KEY` before calling the use case. Any other `platform` value is stored as sent. (`device_model` vẫn bắt buộc — AC5.)
+
+**Response cấp token — `verify-otp` (onboarding), `login`, `refresh` (v1.13)**
+
+20. WHEN any of `POST /v1/auth/register/verify-otp`, `POST /v1/auth/login` or `POST /v1/auth/refresh` responds — success or error — THE SYSTEM SHALL include the headers `Cache-Control: no-store` and `Pragma: no-cache`, so that no browser, proxy or CDN stores a response that carries (or could carry) a token.
+21. WHEN `verify-otp` or `login` succeeds, THE SYSTEM SHALL add `expires_in` (integer, seconds) to the `data` object, equal to the access token's lifetime from `JWTConfig.AccessTokenExpiration` (900 at dev config), alongside `access_token`, `refresh_token` and `user`.
+22. WHEN `refresh` succeeds, THE SYSTEM SHALL add the same `expires_in` to `data`, alongside the new `access_token` and `refresh_token`; `data` still carries no `user`.
+
+`expires_in` chỉ nói về **access token** (đúng nghĩa `expires_in` của OAuth 2.0). Hạn của refresh token (7 ngày) không có trong response: client không cần đọc nó, vì refresh token hết hạn đã có `401 REFRESH_TOKEN_INVALID` (AC10). Giá trị này là TTL cấu hình, không phải `exp` đọc lại từ token, nên client có thể lên lịch refresh mà không phải giải mã JWT.
+
+`X-API-Key` là **secret dùng chung của ứng dụng web**, giữ ở server SvelteKit; nó xác định *website nào đang gọi*, khác với access/refresh token xác định *user nào*. Nó **không** chặn caller bỏ header (AC18) — khoảng trống này là nợ `docs/tech-debt/auth/TD-001`.
+
 ## API contract (confirmed surface for this feature)
 
 Path và shape dưới đây đã được duyệt 2026-09-21; logout dùng access token trong header (chốt 2026-09-21). Cả ba path đã có trong `docs/specs/api/openapi.yaml` (v3.7) — viết **sau khi** handler chạy thật, theo tiền lệ US-001.
 
 | Method | Path | Auth | Request | Success | Failure codes |
 |---|---|---|---|---|---|
-| POST | `/v1/auth/login` | public | `{ phone_number, password, device: { platform, device_model, os_version?, app_version?, device_name? } }` | `200` `{ access_token, refresh_token, user }` | `400` `INVALID_PHONE` / `INVALID_PASSWORD` / `INVALID_DEVICE`, `401` `INVALID_CREDENTIALS`, `429` `LOGIN_LOCKED` (+`locked_until`), `500` |
-| POST | `/v1/auth/refresh` | public | `{ refresh_token }` | `200` `{ access_token, refresh_token }` | `400` malformed body, `401` `REFRESH_TOKEN_INVALID`, `500` |
-| POST | `/v1/auth/logout` | **RequireAuth** — `Authorization: Bearer <access_token>` | không có body | `200` `{"success": true}` | `401` `UNAUTHORIZED`, `500` |
+| POST | `/v1/auth/login` | public | `{ phone_number, password, device: { platform, device_model, os_version?, app_version?, device_name? } }` | `200` `{ access_token, refresh_token, expires_in, user }` | `400` `INVALID_PHONE` / `INVALID_PASSWORD` / `INVALID_DEVICE`, `401` `INVALID_CREDENTIALS` / `INVALID_API_KEY`, `429` `LOGIN_LOCKED` (+`locked_until`), `500` |
+| POST | `/v1/auth/refresh` | public | `{ refresh_token }` | `200` `{ access_token, refresh_token, expires_in }` | `400` malformed body, `401` `REFRESH_TOKEN_INVALID` / `INVALID_API_KEY`, `500` |
+| POST | `/v1/auth/logout` | **RequireAuth** — `Authorization: Bearer <access_token>` | không có body | `200` `{"success": true}` | `401` `UNAUTHORIZED` / `INVALID_API_KEY`, `500` |
 
 ## Out of scope (this feature boundary, not tracked here)
 
@@ -70,6 +87,8 @@ Path và shape dưới đây đã được duyệt 2026-09-21; logout dùng acce
 - **Đăng nhập bằng SĐT + OTP** — `otp_codes.purpose = 'login'` và `resend-otp` đã có chỗ sẵn nhưng không dùng ở US này.
 - Đăng xuất tất cả thiết bị khác ("logout everywhere") — giai đoạn sau.
 - Xác thực 2 lớp (2FA) — giai đoạn sau.
+- `refresh_expires_in` / hạn tuyệt đối của refresh token trong response — client không cần (xem AC21–AC22); thêm khi có nhu cầu thật.
+- Đưa token vào cookie `HttpOnly` từ BE — BE vẫn chỉ trả token trong JSON body; nơi FE lưu token là việc của FE (server SvelteKit đặt cookie). Khuyến nghị cho FE: cookie `HttpOnly; Secure; SameSite` đặt bởi server SvelteKit, không dùng `localStorage`.
 - Rate limit theo IP cho `login`/`refresh` (khác với khoá theo SĐT ở AC7) — cân nhắc ở middleware, xem tasks.md Deferred.
 - Quên/đặt lại mật khẩu (US-003), hồ sơ (US-004) — vẫn ở `docs/specs/features/onboarding/requirements.md`.
 

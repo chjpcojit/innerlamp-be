@@ -401,3 +401,60 @@ func TestLoad_DevYAMLDharmaTalkConfig(t *testing.T) {
 		t.Errorf("DharmaTalk = %+v, want %+v", cfg.DharmaTalk, want)
 	}
 }
+
+func TestLoad_ResolvesWebAPIKeySecret(t *testing.T) {
+	source := writeYAML(t, strings.Replace(validYAML, "server:\n", "server:\n  web_api_key_secret: \"innerlamp-web-key\"\n", 1))
+	sg := &fakeSecretGetter{values: map[string]string{
+		"innerlamp-db-password": "x",
+		"innerlamp-jwt-secret":  "y",
+		"innerlamp-web-key":     "web-secret",
+	}}
+
+	cfg, err := Load(context.Background(), source, sg)
+	if err != nil {
+		t.Fatalf("Load returned error: %v", err)
+	}
+	if cfg.Server.WebAPIKey != "web-secret" {
+		t.Errorf("Server.WebAPIKey = %q, want resolved secret value", cfg.Server.WebAPIKey)
+	}
+}
+
+func TestTempleSuggestionConfig_Validate(t *testing.T) {
+	ok := TempleSuggestionConfig{RateLimit: TempleSuggestionRateLimit{Max: 5, Window: Duration(time.Hour)}}
+	if err := ok.Validate(); err != nil {
+		t.Errorf("max 5 / 1h should be valid: %v", err)
+	}
+	for name, c := range map[string]TempleSuggestionConfig{
+		"zero value":  {},
+		"zero max":    {RateLimit: TempleSuggestionRateLimit{Max: 0, Window: Duration(time.Hour)}},
+		"zero window": {RateLimit: TempleSuggestionRateLimit{Max: 5}},
+	} {
+		if err := c.Validate(); err == nil {
+			t.Errorf("%s should be rejected", name)
+		}
+	}
+}
+
+func TestLoad_DevYAMLTempleSuggestionConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+	want := TempleSuggestionRateLimit{Max: 5, Window: Duration(time.Hour)}
+	if cfg.TempleSuggestion.RateLimit != want {
+		t.Errorf("RateLimit = %+v, want %+v", cfg.TempleSuggestion.RateLimit, want)
+	}
+	if err := cfg.TempleSuggestion.Validate(); err != nil {
+		t.Errorf("dev config must be valid: %v", err)
+	}
+}

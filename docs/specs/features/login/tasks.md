@@ -1,7 +1,7 @@
 # Tasks — login
 
-Version: 1.11
-Last updated: 2026-09-29
+Version: 1.13
+Last updated: 2026-10-10
 Status: done — Phase 0–5 xong (2026-09-21). Login/refresh/logout chạy thật qua binary + Postgres thật (curl, AC1–AC15). Audit AC + E2E binary thật xong (`test-coverage-report.md`); concept OKF `docs/knowledge/features/login.md` (`stable`). Không còn marker `⚠️ Not confirmed`. (v1.11: không đổi nội dung file này — bump theo `design.md`/`flow.md`; không có task mới vì `flow.md` chỉ vẽ lại flow đã implement, không đổi code. Không đổi AC.)
 Module: `identity`
 
@@ -79,6 +79,24 @@ domain → usecase → repository → delivery, test viết cùng lúc với cod
 - [x] `go build ./...`, `go vet ./...`, `go test -short ./...` sạch; chạy `scripts/check-architecture.sh` và `.claude/skills/golang-clean-arch-tdd/scripts/check_dependency_rule.sh services/appService` — verified 2026-09-21: `go build ./...` ✅, `go vet ./...` ✅, `go test -short -count=1 ./...` ✅ **toàn repo**, `check-architecture.sh` (ARCH_ERRORS=0) ✅, `check_dependency_rule.sh` ✅. 3 test `pkg/utils` đỏ trước đây đã xanh nhờ spec riêng `docs/specs/features/json-body-hardening/` (sửa `DecodeJSONBody`: Content-Type, rác đuôi, tên field lạ, body vượt ngưỡng → 413).
 - [x] Skill `golang-e2e-verification`: audit mỗi AC có test chứng minh được + black-box test binary thật, đặc biệt wiring 3 route — verified 2026-09-21: anh chốt thêm `testcontainers-go` v0.44.0 (`go mod tidy` + `go mod vendor`). Harness `services/appService/e2e/harness.go`, test `e2e/login_e2e_test.go` `TestLoginFlow_E2E` 10 subtest phủ AC1–AC15 → `ok` (13.4s), skip dưới `-short`. AC15 tự nó không phát hiện được logout thiếu middleware (handler cũng trả 401 khi không có claims); lỗi này bị AC12/AC13 bắt — đã thử gỡ middleware tạm thời để kiểm. Bảng AC đầy đủ: `test-coverage-report.md`.
 - [x] Ghi vào `changelog.md` concept OKF cần `il-okf-writer` tạo dưới `docs/knowledge/features/` (login/session) **sau khi** flow đã chạy thật; `status` giữ `draft` tới khi đó — verified 2026-09-21: đã ghi ở `changelog.md` v1.5 mục Cross-file follow-ups. `il-okf-writer` chưa gọi: flow đã chạy thật nhưng còn chờ audit AC (mục kế trên) — `status` giữ `draft`.
+
+## Phase 6 — Web `X-API-Key` (v1.12)
+
+- [x] `delivery/http/web_api_key_middleware.go` — `RequireWebAPIKey` (AC16–AC18) — verified 2026-10-09: `web_api_key_middleware_test.go` 5 subtest (khớp, không header, sai, header rỗng, key chưa cấu hình) → `go test -short ./...` xanh.
+- [x] `login_handler.go` — platform mặc định `mobile`, `web` cần key (AC19) — verified 2026-10-09: `TestLoginHandler_Login_Platform` 3 subtest.
+- [x] `config.ServerConfig.WebAPIKeySecret/WebAPIKey` + `resolveSecrets` + `config.dev.yaml` — verified 2026-10-09: `TestLoad_ResolvesWebAPIKeySecret`.
+- [x] `cmd/main.go` — bọc 6 route `/v1/auth/*` bằng `webAPIKey.WrapFunc` — verified 2026-10-09: `go build ./...`, `go vet ./...` sạch. Chưa chạy lại E2E testcontainers (cần Docker) và chưa có test E2E riêng cho header.
+- [x] `openapi.yaml` + spec + `docs/tech-debt/auth/TD-001` — 2026-10-09.
+- [ ] Test E2E binary thật cho `X-API-Key` (route đã wire thật, header sai → 401) — chưa làm.
+
+## Phase 7 — Hợp đồng response cấp token (v1.13)
+
+- [x] `delivery/http/token_response.go` — `NoStore.WrapFunc` đặt `Cache-Control: no-store` + `Pragma: no-cache` (AC20); `HandlerOption`/`WithAccessTokenTTL` — verified 2026-10-10: `TestNoStore_SetsHeadersOnSuccessAndError` (thành công + lỗi)
+- [x] `login_handler.go` — `expires_in` trong `data` của `login` và `refresh` (AC21, AC22) — verified 2026-10-10: `TestLoginHandler_ExpiresIn` (900 từ TTL truyền vào; `refresh` không có `user`)
+- [x] `register_handler.go` — `expires_in` trong `data` của `verify-otp` (AC21) — verified 2026-10-10: `TestRegisterHandler_VerifyOTP_ExpiresIn`
+- [x] `cmd/main.go` — bọc ba route bằng `NoStore.WrapFunc`, truyền `cfg.JWT.AccessTokenExpiration` vào hai handler — verified 2026-10-10: `go build ./...`, `go vet ./...` sạch; wiring kiểm bằng E2E (mux của `cmd/main_test.go` không phải mux thật nên không kiểm được header ở đó)
+- [x] `docs/specs/api/openapi.yaml` — `expires_in` trong `AuthResult`/refresh `data` + ví dụ, ghi chú header `no-store` ở `login` — 2026-10-10 (YAML parse được)
+- [x] Test E2E binary thật: ba route trả `Cache-Control: no-store` và `expires_in` = 900, lỗi cũng no-store — verified 2026-10-10: `TestLoginFlow_E2E` subtest AC20/AC21/AC22, `ok` (16.7s, testcontainers Postgres)
 
 ## Deferred (separate feature, not blocking login)
 

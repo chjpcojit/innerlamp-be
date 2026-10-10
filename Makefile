@@ -52,16 +52,17 @@ logs: ## Follow logs of every stack container
 
 # ── appService (runs on the host, not in compose) ───────────────────────────
 #
-# `run` depends on `up` and `ensure-deities` so a fresh checkout needs one
+# `run` depends on `up` and `ensure-data` so a fresh checkout needs one
 # command: on its first start appService seeds the sutra library, and every sutra
 # links to a deity, so an empty `deities` table would stop the service
-# (`failed to seed sutras ... run cmd/seeddeities first`). Logs are teed
+# (`failed to seed sutras ... run cmd/seeddeities first`). `ensure-data` also
+# restores temples and gallery when a test run wiped the dev database. Logs are teed
 # into $(APP_LOG) because Alloy cannot read a host process's stdout — see
 # docs/development/local-stack.md §"Vì sao appService không nằm trong compose".
 
 .PHONY: run run-backoffice build test vet
 
-run: up ensure-deities ## Run appService on the host (seeds deities first if empty), teeing logs into observability/logs/appservice.log
+run: up ensure-data ## Run appService on the host (re-seeds deities/temples/gallery if wiped), teeing logs into observability/logs/appservice.log
 	@mkdir -p "$$(dirname '$(APP_LOG)')"
 	@set -o pipefail; go run ./services/appService/cmd 2>&1 | tee -a '$(APP_LOG)'
 
@@ -136,16 +137,47 @@ db-dump: db-up ## Print a pg_dump of the database to stdout: make db-dump > back
 #                   overwrites hand edits made to the deities table
 #   seed-sutras     load the sutra library; does nothing when sutras has rows
 
-.PHONY: ensure-deities seed-deities seed-gallery seed-sutras seed
+.PHONY: ensure-deities ensure-temples ensure-gallery ensure-data seed-deities seed-gallery seed-sutras seed
 
-ensure-deities: db-up ## Seed deities only if the table is empty (safe to repeat, keeps hand edits)
-	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM deities" | tr -d '[:space:]'); \
+# A non-short `go test` against the dev database TRUNCATEs temples, deities, gallery_images,
+# articles and sutras (repository tests connect to innerlamp, not a test database). The
+# ensure-* targets below put that data back: each one seeds only when its table has no
+# usable rows, so `make run` repairs a wiped database and leaves a healthy one alone.
+# Articles and sutras need no target here: appService reseeds them itself on start.
+
+ensure-data: ensure-deities ensure-temples ensure-gallery ## Re-seed deities, temples and gallery when a table was wiped (what `run` uses)
+
+# "Usable" for deities means at least one row carries an image: the rows sutra seeding or a
+# test leaves behind are name-only stubs, and a plain row count would treat them as seeded.
+ensure-deities: db-up ## Seed deities only if none has an image (safe to repeat, keeps hand edits)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM deities WHERE COALESCE(image_url, '') <> ''" | tr -d '[:space:]'); \
 	if [ "$$n" = "0" ]; then \
-		echo "deities table is empty: seeding from assets/data/phat_botat.json"; \
+		echo "deities have no images (empty or stub rows): seeding from assets/data/phat_botat.json"; \
 		go run ./services/appService/cmd/seeddeities; \
 	else \
-		echo "deities already seeded ($$n rows): leaving them as they are"; \
+		echo "deities already seeded ($$n with images): leaving them as they are"; \
 	fi
+
+ensure-temples: db-up ## Seed temples only if the table is empty (safe to repeat, keeps hand edits)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM temples" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "temples table is empty: seeding from assets/data/temple.json"; \
+		go run ./services/appService/cmd/seedtemples; \
+	else \
+		echo "temples already seeded ($$n rows): leaving them as they are"; \
+	fi
+
+ensure-gallery: db-up ## Seed gallery images only if the table is empty (safe to repeat, keeps hand edits)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM gallery_images" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "gallery_images table is empty: seeding from assets/data/buddhist_gallery.json"; \
+		go run ./services/appService/cmd/seedgallery; \
+	else \
+		echo "gallery_images already seeded ($$n rows): leaving them as they are"; \
+	fi
+
+seed-temples: db-up ## Upsert temples from assets/data/temple.json (overwrites hand edits)
+	go run ./services/appService/cmd/seedtemples
 
 seed-deities: db-up ## Upsert deities from assets/data/phat_botat.json (overwrites hand edits)
 	go run ./services/appService/cmd/seeddeities

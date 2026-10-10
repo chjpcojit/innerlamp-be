@@ -69,6 +69,8 @@ type AppConfig struct {
 	Memorial    MemorialConfig    `yaml:"memorial"`
 	DharmaTalk  DharmaTalkConfig  `yaml:"dharma_talk"`
 	Sutra       SutraConfig       `yaml:"sutra"`
+
+	TempleSuggestion TempleSuggestionConfig `yaml:"temple_suggestion"`
 }
 
 // ServerConfig holds HTTP server settings.
@@ -82,6 +84,11 @@ type ServerConfig struct {
 	// resolved against in API responses, e.g. "https://cdn.example.com". Empty = the
 	// request's own origin, so a dev machine keeps working after its IP changes.
 	PublicBaseURL string `yaml:"public_base_url"`
+	// WebAPIKeySecret names the secret resolved into WebAPIKey: the key the web
+	// frontend's server sends in X-API-Key. Empty = no web key configured, so any
+	// presented X-API-Key is rejected.
+	WebAPIKeySecret string `yaml:"web_api_key_secret"`
+	WebAPIKey       string `yaml:"-"`
 }
 
 // DatabaseConfig holds Postgres connection settings. PasswordSecret names the
@@ -267,6 +274,41 @@ type MemorialConfig struct {
 	MaxPerUser int `yaml:"max_per_user"`
 }
 
+// TempleSuggestionConfig holds the public "suggest a temple" route's abuse guard.
+// The route is anonymous and writes to the database, so Validate rejects a
+// missing limit: zero would either block everyone or (with a lax limiter) allow
+// unbounded writes, and neither is something a config typo should decide.
+type TempleSuggestionConfig struct {
+	// RateLimit caps how many suggestions one client IP may submit per window.
+	RateLimit TempleSuggestionRateLimit `yaml:"rate_limit"`
+}
+
+// TempleSuggestionRateLimit is the per-IP submission limit.
+type TempleSuggestionRateLimit struct {
+	// Max is the number of suggestions allowed per Window (dev: 5).
+	Max int `yaml:"max"`
+
+	// Window is the length of the counting window (dev: "1h").
+	Window Duration `yaml:"window"`
+
+	// TrustForwardedFor reads the client IP from the last X-Forwarded-For entry
+	// instead of the TCP peer. Set it only behind a proxy that appends the real
+	// client address (Cloud Run does); anywhere else the header is attacker-
+	// controlled. Off, every caller behind a proxy would share one bucket.
+	TrustForwardedFor bool `yaml:"trust_forwarded_for"`
+}
+
+// Validate rejects a limit that is not a positive count over a positive window.
+func (c TempleSuggestionConfig) Validate() error {
+	if c.RateLimit.Max < 1 {
+		return fmt.Errorf("temple_suggestion.rate_limit.max must be >= 1, got %d", c.RateLimit.Max)
+	}
+	if c.RateLimit.Window.Duration() <= 0 {
+		return fmt.Errorf("temple_suggestion.rate_limit.window must be > 0, got %s", c.RateLimit.Window.Duration())
+	}
+	return nil
+}
+
 // DharmaTalkConfig holds the pháp thoại catalogue's page size. Same reasoning as
 // ArticleConfig: a tuning knob, and zero would return empty pages (and divide by
 // zero in the page count), so every config.<env>.yaml must set it.
@@ -397,6 +439,14 @@ func (c *AppConfig) resolveSecrets(ctx context.Context, sg SecretGetter) error {
 			return fmt.Errorf("database.password_secret %q: %w", c.Database.PasswordSecret, err)
 		}
 		c.Database.Password = v
+	}
+
+	if c.Server.WebAPIKeySecret != "" {
+		v, err := getSecret(ctx, sg, c.Server.WebAPIKeySecret)
+		if err != nil {
+			return fmt.Errorf("server.web_api_key_secret %q: %w", c.Server.WebAPIKeySecret, err)
+		}
+		c.Server.WebAPIKey = v
 	}
 
 	if c.JWT.SecretKeySecret != "" {

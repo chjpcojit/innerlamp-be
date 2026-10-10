@@ -253,6 +253,43 @@ func TestLoginFlow_E2E(t *testing.T) {
 
 		assert.Equal(t, http.StatusOK, api.refresh(victim.RefreshToken).status, "no rejected logout revoked the session")
 	})
+
+	t.Run("AC20/AC21/AC22: verify-otp, login and refresh are no-store and report expires_in", func(t *testing.T) {
+		api.t = t
+		phone := api.nextPhone()
+		api.requestOTP(phone)
+
+		verify := api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
+		require.Equal(t, http.StatusCreated, verify.status, verify.raw)
+		login := api.post("/v1/auth/login", loginBody(phone, testPassword, deviceA), "")
+		require.Equal(t, http.StatusOK, login.status, login.raw)
+		var pair struct {
+			RefreshToken string `json:"refresh_token"`
+			ExpiresIn    int64  `json:"expires_in"`
+		}
+		login.data(&pair)
+		refresh := api.refresh(pair.RefreshToken)
+		require.Equal(t, http.StatusOK, refresh.status, refresh.raw)
+
+		for name, res := range map[string]*apiResponse{"verify-otp": verify, "login": login, "refresh": refresh} {
+			assert.Equal(t, "no-store", res.header.Get("Cache-Control"), name+": AC20")
+			assert.Equal(t, "no-cache", res.header.Get("Pragma"), name+": AC20")
+			var body struct {
+				ExpiresIn int64          `json:"expires_in"`
+				User      map[string]any `json:"user"`
+			}
+			res.data(&body)
+			assert.EqualValues(t, 15*60, body.ExpiresIn, name+": AC21/AC22 equals the access token lifetime")
+			if name == "refresh" {
+				assert.Nil(t, body.User, "AC22: refresh carries no user")
+			}
+		}
+
+		// AC20 also covers error responses.
+		bad := api.refresh("not-a-token")
+		require.Equal(t, http.StatusUnauthorized, bad.status, bad.raw)
+		assert.Equal(t, "no-store", bad.header.Get("Cache-Control"), "AC20: errors are no-store too")
+	})
 }
 
 // --- fixtures --------------------------------------------------------------
@@ -288,6 +325,7 @@ type apiClient struct {
 type apiResponse struct {
 	t           *testing.T
 	status      int
+	header      http.Header
 	contentType string
 	raw         string
 	envelope    struct {
@@ -338,7 +376,7 @@ func (c *apiClient) post(path string, body any, bearer string) *apiResponse {
 	raw, err := io.ReadAll(resp.Body)
 	require.NoError(c.t, err)
 
-	res := &apiResponse{t: c.t, status: resp.StatusCode, contentType: resp.Header.Get("Content-Type"), raw: string(raw)}
+	res := &apiResponse{t: c.t, status: resp.StatusCode, header: resp.Header, contentType: resp.Header.Get("Content-Type"), raw: string(raw)}
 	require.NoErrorf(c.t, json.Unmarshal(raw, &res.envelope), "%s %s: body is not the JSON envelope: %q", path, resp.Status, raw)
 	return res
 }

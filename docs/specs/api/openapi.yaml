@@ -12,6 +12,10 @@ info:
     `{"success": false, "error": {"code", "message", "type"}, "details": {...}}` khi lỗi.
     Client rẽ nhánh theo `error.code`, không theo `message`.
 
+    **`X-API-Key` (client web).** Server của website gửi header `X-API-Key` (secret dùng chung của ứng dụng web, không phải token của user)
+    trên các route `/v1/auth/*`. Header sai hoặc rỗng: `401 INVALID_API_KEY`. Không gửi header: coi là mobile, xử lý bình thường.
+    Key đặt ở server web, không đưa xuống trình duyệt. Mobile không có key. Hạn chế đã biết: `docs/tech-debt/auth/TD-001`.
+
     Nguồn: `services/{appService,backofficeService}/delivery/http` và `cmd/main.go` của từng service.
     Khi đổi handler hoặc route, cập nhật file này.
 servers:
@@ -29,7 +33,9 @@ servers:
         description: IP LAN của máy chạy appService.
 tags:
   - name: Auth
-    description: Đăng ký 2 bước bằng OTP, đăng nhập, làm mới token, đăng xuất.
+    description: |
+      Đăng ký 2 bước bằng OTP, đăng nhập, làm mới token, đăng xuất.
+      Client web thêm header `X-API-Key` (xem mô tả chung); client mobile không gửi.
   - name: Memorials
     description: |
       Sổ giỗ chạp của người dùng đã đăng nhập. Dữ liệu riêng tư: mọi endpoint cần `Authorization: Bearer <access_token>` và chỉ chủ sở hữu đọc, sửa, xoá được.
@@ -132,6 +138,7 @@ paths:
                     success: false
                     error: { code: INVALID_PASSWORD, message: password must be at least 8 characters, type: business }
                     details: { field: password }
+        '401': { $ref: '#/components/responses/InvalidApiKey' }
         '409':
           description: |
             `PHONE_TAKEN` (số điện thoại đã có tài khoản) hoặc `EMAIL_TAKEN` (email đã có tài khoản,
@@ -235,6 +242,7 @@ paths:
                     success: false
                     error: { code: UNSUPPORTED_OTP_PURPOSE, message: unsupported otp purpose, type: business }
         '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '401': { $ref: '#/components/responses/InvalidApiKey' }
         '429': { $ref: '#/components/responses/OtpRateLimited' }
         '500':
           description: '`SMS_SEND_FAILED` hoặc `INTERNAL_ERROR`.'
@@ -267,6 +275,7 @@ paths:
         | --- | --- | --- |
         | `access_token` | string | JWT, gửi ở header `Authorization: Bearer`. |
         | `refresh_token` | string | JWT, chỉ dùng cho `POST /v1/auth/refresh`. |
+        | `expires_in` | int64 | Thời gian sống của `access_token`, giây (dev: 900). |
         | `user.id` | int64 | |
         | `user.email` | string | Đã chuẩn hoá. |
         | `user.phone_number` | string | Dạng E.164, vd. `+84901234567`. |
@@ -292,6 +301,7 @@ paths:
                 data:
                   access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
                   refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  expires_in: 900
                   user:
                     id: 42
                     email: user@example.com
@@ -328,6 +338,7 @@ paths:
                   value:
                     success: false
                     error: { code: PENDING_REGISTRATION_EXPIRED, message: pending registration has expired, type: business }
+        '401': { $ref: '#/components/responses/InvalidApiKey' }
         '409':
           description: '`PHONE_TAKEN` hoặc `EMAIL_TAKEN`: người khác vừa đăng ký xong với số hoặc email này.'
           content:
@@ -362,7 +373,7 @@ paths:
         | --- | --- | --- | --- |
         | `phone_number` | string | có | Chuẩn hoá về E.164 như lúc đăng ký. |
         | `password` | string | có | Chỉ kiểm tra khác rỗng. |
-        | `device.platform` | string | có | Vd. `ios`, `android`, `web`. |
+        | `device.platform` | string | không | Vd. `ios`, `android`, `web`. Vắng hoặc rỗng: server lưu `mobile`. `web` chỉ được chấp nhận khi có `X-API-Key` đúng, nếu không `401 INVALID_API_KEY`. |
         | `device.device_model` | string | có | Vd. `iPhone 15`. |
         | `device.os_version` | string | không | |
         | `device.app_version` | string | không | |
@@ -370,7 +381,9 @@ paths:
 
         IP và User-Agent do server lấy từ request. Gửi chúng trong body sẽ bị từ chối như field lạ (`VALIDATION_ERROR`).
 
-        `data` là **AuthResult**, cùng cấu trúc với response của `verify-otp`: `access_token`, `refresh_token`, `user`.
+        `data` là **AuthResult**, cùng cấu trúc với response của `verify-otp`: `access_token`, `refresh_token`, `expires_in`, `user`.
+
+        Response của `verify-otp`, `login` và `refresh` (kể cả khi lỗi) luôn có `Cache-Control: no-store` và `Pragma: no-cache`.
 
         Hành vi cần biết:
 
@@ -398,6 +411,7 @@ paths:
                 data:
                   access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
                   refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  expires_in: 900
                   user:
                     id: 42
                     email: user@example.com
@@ -432,13 +446,23 @@ paths:
                     error: { code: INVALID_DEVICE, message: invalid device information, type: business }
                     details: { field: device }
         '401':
-          description: '`INVALID_CREDENTIALS`: sai số điện thoại hoặc mật khẩu.'
+          description: |
+            `INVALID_CREDENTIALS`: sai số điện thoại hoặc mật khẩu.
+            `INVALID_API_KEY`: `X-API-Key` sai hoặc rỗng, hoặc `device.platform = web` mà không có key đúng.
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
-              example:
-                success: false
-                error: { code: INVALID_CREDENTIALS, message: Số điện thoại hoặc mật khẩu không đúng, type: business }
+              examples:
+                invalidCredentials:
+                  summary: INVALID_CREDENTIALS
+                  value:
+                    success: false
+                    error: { code: INVALID_CREDENTIALS, message: Số điện thoại hoặc mật khẩu không đúng, type: business }
+                invalidApiKey:
+                  summary: INVALID_API_KEY
+                  value:
+                    success: false
+                    error: { code: INVALID_API_KEY, message: invalid api key, type: business }
         '413': { $ref: '#/components/responses/PayloadTooLarge' }
         '429':
           description: '`LOGIN_LOCKED`: sai quá số lần cho phép. `details.locked_until` là thời điểm mở khoá.'
@@ -465,7 +489,7 @@ paths:
         | --- | --- | --- | --- |
         | `refresh_token` | string | có | Refresh token mới nhất đang giữ. |
 
-        `data` gồm `access_token` và `refresh_token` mới. Response **không** có `user`.
+        `data` gồm `access_token`, `refresh_token` mới và `expires_in` (giây, của access token mới). Response **không** có `user`.
 
         Hành vi cần biết:
 
@@ -490,6 +514,7 @@ paths:
                 data:
                   access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
                   refresh_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…
+                  expires_in: 900
         '400':
           description: '`VALIDATION_ERROR`: body rỗng, sai JSON, field lạ hoặc sai Content-Type.'
           content:
@@ -499,7 +524,9 @@ paths:
                 success: false
                 error: { code: VALIDATION_ERROR, message: request body is empty, type: validation }
         '401':
-          description: '`REFRESH_TOKEN_INVALID`: refresh token không dùng được, kể cả khi để trống.'
+          description: |
+            `REFRESH_TOKEN_INVALID`: refresh token không dùng được, kể cả khi để trống.
+            `INVALID_API_KEY`: `X-API-Key` sai hoặc rỗng.
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
@@ -535,6 +562,7 @@ paths:
           description: |
             `UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, gửi refresh token thay cho access token, hoặc token thiếu claim `sid`.
             Server không cho biết nguyên nhân cụ thể.
+            `INVALID_API_KEY`: `X-API-Key` sai hoặc rỗng.
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
@@ -2601,6 +2629,13 @@ paths:
 
 components:
   securitySchemes:
+    webApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: |
+        Key dùng chung của website, gửi từ server web trên các route `/v1/auth/*`. Tuỳ chọn ở mức BE (không gửi = mobile),
+        nhưng **bắt buộc** khi đăng nhập với `device.platform = web`. Sai hoặc rỗng: `401 INVALID_API_KEY`.
     bearerAuth:
       type: http
       scheme: bearer
@@ -2628,6 +2663,14 @@ components:
       schema: { type: integer, minimum: 1, default: 1 }
 
   responses:
+    InvalidApiKey:
+      description: '`INVALID_API_KEY`: header `X-API-Key` sai hoặc rỗng. Không gửi header thì không gặp lỗi này (coi là mobile).'
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            success: false
+            error: { code: INVALID_API_KEY, message: invalid api key, type: business }
     BadRequest:
       description: |
         Request sai. `VALIDATION_ERROR` (body sai JSON, thiếu field, field lạ, sai Content-Type) hoặc lỗi nghiệp vụ 400
@@ -2815,10 +2858,11 @@ components:
     AuthResult:
       type: object
       description: Cặp token và tài khoản, dùng chung cho `verify-otp` và `login`.
-      required: [access_token, refresh_token, user]
+      required: [access_token, refresh_token, expires_in, user]
       properties:
         access_token: { type: string, description: 'JWT, gửi ở header `Authorization: Bearer`. Dev: sống 15 phút.', example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
         refresh_token: { type: string, description: 'JWT, chỉ dùng cho `POST /v1/auth/refresh`. Dev: sống 7 ngày, gia hạn theo mỗi lần refresh.', example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+        expires_in: { type: integer, format: int64, description: 'Thời gian sống của `access_token`, tính bằng giây (dev: 900). Lên lịch `refresh` theo giá trị này, không cần giải mã JWT. Không nói về hạn của `refresh_token`.', example: 900 }
         user: { $ref: '#/components/schemas/User' }
     AuthEnvelope:
       type: object
@@ -2833,10 +2877,11 @@ components:
         success: { type: boolean, const: true }
         data:
           type: object
-          required: [access_token, refresh_token]
+          required: [access_token, refresh_token, expires_in]
           properties:
             access_token: { type: string, description: Access token mới., example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
             refresh_token: { type: string, description: Refresh token mới. Token vừa gửi lên không dùng lại được., example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
+            expires_in: { type: integer, format: int64, description: 'Thời gian sống của `access_token` mới, tính bằng giây (dev: 900).', example: 900 }
 
     ChallengeRequest:
       type: object

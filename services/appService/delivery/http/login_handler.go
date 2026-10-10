@@ -6,6 +6,7 @@ import (
 	"net"
 	"net/http"
 	"strconv"
+	"strings"
 
 	jwtcontext "chjpcoj.com.innerlamp/pkg/jwt/context"
 	"chjpcoj.com.innerlamp/pkg/utils"
@@ -26,12 +27,20 @@ type loginUsecase interface {
 // puts the claims this handler reads into the request context.
 type LoginHandler struct {
 	usecase loginUsecase
+	tokens  tokenSettings
 }
 
-// NewLoginHandler wires the handler.
-func NewLoginHandler(usecase loginUsecase) *LoginHandler {
-	return &LoginHandler{usecase: usecase}
+// NewLoginHandler wires the handler. Pass WithAccessTokenTTL so responses carry expires_in (AC21, AC22).
+func NewLoginHandler(usecase loginUsecase, opts ...HandlerOption) *LoginHandler {
+	return &LoginHandler{usecase: usecase, tokens: newTokenSettings(opts)}
 }
+
+// device.platform values the handler itself interprets; any other value is
+// passed through untouched.
+const (
+	platformWeb    = "web"
+	platformMobile = "mobile"
+)
 
 // loginRequest deliberately carries no validate tags: the use case owns the
 // format rules (phone normalization, empty password, required device fields)
@@ -61,6 +70,7 @@ type refreshRequest struct {
 type refreshResponse struct {
 	AccessToken  string `json:"access_token"`
 	RefreshToken string `json:"refresh_token"`
+	ExpiresIn    int64  `json:"expires_in"`
 }
 
 // Login serves POST /v1/auth/login.
@@ -71,11 +81,22 @@ func (h *LoginHandler) Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// platform "web" is only trusted with the web API key (a web caller is a
+	// server holding the shared secret); an absent platform means a mobile app.
+	platform := strings.ToLower(strings.TrimSpace(req.Device.Platform))
+	switch {
+	case platform == "":
+		platform = platformMobile
+	case platform == platformWeb && !webKeyVerified(r.Context()):
+		writeInvalidAPIKey(w)
+		return
+	}
+
 	result, err := h.usecase.Login(r.Context(), domain.LoginInput{
 		PhoneNumber: req.PhoneNumber,
 		Password:    req.Password,
 		Device: domain.DeviceInfo{
-			Platform:    req.Device.Platform,
+			Platform:    platform,
 			DeviceModel: req.Device.DeviceModel,
 			OSVersion:   req.Device.OSVersion,
 			AppVersion:  req.Device.AppVersion,
@@ -92,6 +113,7 @@ func (h *LoginHandler) Login(w http.ResponseWriter, r *http.Request) {
 	utils.WriteSuccessResponse(w, verifyOTPResponse{
 		AccessToken:  result.AccessToken,
 		RefreshToken: result.RefreshToken,
+		ExpiresIn:    h.tokens.expiresIn(),
 		User:         newUserResponse(result.User),
 	})
 }
@@ -113,6 +135,7 @@ func (h *LoginHandler) Refresh(w http.ResponseWriter, r *http.Request) {
 	utils.WriteSuccessResponse(w, refreshResponse{
 		AccessToken:  result.AccessToken,
 		RefreshToken: result.RefreshToken,
+		ExpiresIn:    h.tokens.expiresIn(),
 	})
 }
 

@@ -135,6 +135,49 @@ func TestLoginHandler_Login(t *testing.T) {
 	}
 }
 
+func TestLoginHandler_Login_Platform(t *testing.T) {
+	const noPlatformBody = `{"phone_number":"0901234567","password":"secret123","device":{"device_model":"Pixel 8"}}`
+	const webBody = `{"phone_number":"0901234567","password":"secret123","device":{"platform":"web","device_model":"Chrome 126"}}`
+	result := &domain.LoginResult{User: &domain.User{ID: 1}, AccessToken: "a", RefreshToken: "r"}
+
+	login := func(h *LoginHandler, body string, verified bool) *httptest.ResponseRecorder {
+		req := httptest.NewRequest(http.MethodPost, "/", strings.NewReader(body))
+		req.Header.Set("Content-Type", "application/json")
+		if verified {
+			req = req.WithContext(withWebKeyVerified(req.Context()))
+		}
+		rec := httptest.NewRecorder()
+		h.Login(rec, req)
+		return rec
+	}
+
+	t.Run("missing platform defaults to mobile", func(t *testing.T) {
+		h, uc := newLoginTestHandler()
+		uc.On("Login", mock.Anything, mock.MatchedBy(func(in domain.LoginInput) bool {
+			return in.Device.Platform == "mobile" && in.Device.DeviceModel == "Pixel 8"
+		})).Return(result, nil)
+		require.Equal(t, http.StatusOK, login(h, noPlatformBody, false).Code)
+		uc.AssertExpectations(t)
+	})
+
+	t.Run("platform web with a verified api key reaches the use case", func(t *testing.T) {
+		h, uc := newLoginTestHandler()
+		uc.On("Login", mock.Anything, mock.MatchedBy(func(in domain.LoginInput) bool {
+			return in.Device.Platform == "web"
+		})).Return(result, nil)
+		require.Equal(t, http.StatusOK, login(h, webBody, true).Code)
+		uc.AssertExpectations(t)
+	})
+
+	t.Run("platform web without a verified api key is 401", func(t *testing.T) {
+		h, uc := newLoginTestHandler()
+		rec := login(h, webBody, false)
+		require.Equal(t, http.StatusUnauthorized, rec.Code)
+		assert.Equal(t, "INVALID_API_KEY", decodeErrorBody(t, rec).Code)
+		uc.AssertNotCalled(t, "Login", mock.Anything, mock.Anything)
+	})
+}
+
 func TestLoginHandler_Refresh(t *testing.T) {
 	t.Run("success returns the rotated pair (AC9)", func(t *testing.T) {
 		h, uc := newLoginTestHandler()

@@ -1,8 +1,8 @@
 # Design — login
 
-Version: 1.11
-Last updated: 2026-09-29
-Status: implemented (2026-09-21) — domain, usecase, repository, delivery và wiring có code + test; login/refresh/logout đã chạy thật qua binary + Postgres 16 (curl, AC1–AC15). Audit AC bằng E2E tự động (testcontainers + binary thật) xong 2026-09-21 — `test-coverage-report.md`; concept OKF đã có. Phụ thuộc `jwt-token-uniqueness` và `onboarding` Phase 7 (claim `sid`) đều đã xong. Không còn marker `⚠️ Not confirmed`. (v1.11: thêm `flow.md` — vẽ lại 3 Step-by-step Flow bằng Mermaid, còn thiếu từ trước; §Request flow ASCII thay bằng con trỏ sang `flow.md`. Không đổi code/AC.)
+Version: 1.13
+Last updated: 2026-10-10
+Status: implemented (2026-09-21) — domain, usecase, repository, delivery và wiring có code + test; login/refresh/logout đã chạy thật qua binary + Postgres 16 (curl, AC1–AC15). Audit AC bằng E2E tự động (testcontainers + binary thật) xong 2026-09-21 — `test-coverage-report.md`; concept OKF đã có. Phụ thuộc `jwt-token-uniqueness` và `onboarding` Phase 7 (claim `sid`) đều đã xong. Không còn marker `⚠️ Not confirmed`. (v1.11: thêm `flow.md` — vẽ lại 3 Step-by-step Flow bằng Mermaid, còn thiếu từ trước; §Request flow ASCII thay bằng con trỏ sang `flow.md`. Không đổi code/AC.) v1.13: thêm §Cross-cutting: response cấp token (AC20–AC22) — đã có code + test, E2E binary thật xanh (2026-10-10).
 Module: `identity`
 Code: `services/appService/`
 Feature folder: `services/appService/` + `docs/specs/features/login/`
@@ -325,6 +325,31 @@ Step 3 — Thu hồi session (feature này)
   tới khi hết hạn (≤ 15 phút) — đã chốt chấp nhận, xem Known gaps.
 ```
 
+## Cross-cutting: web `X-API-Key` (v1.12)
+
+Áp cho cả sáu route `/v1/auth/*` (`cmd/main.go` bọc từng route bằng `RequireWebAPIKey.WrapFunc`). Code: `delivery/http/web_api_key_middleware.go`, `login_handler.go`, `config.ServerConfig.WebAPIKey`.
+
+**Step-by-step Flow — mỗi request `/v1/auth/*`:**
+
+1. **Đọc header.** Trigger: request vào. Nếu không có header `X-API-Key` → sang Step 4 (không đánh dấu). Có header → Step 2.
+2. **So khớp.** SHA-256 giá trị gửi lên rồi `subtle.ConstantTimeCompare` với hash của key cấu hình. Key chưa cấu hình → luôn không khớp.
+3. **Quyết định.** Không khớp → `401 INVALID_API_KEY` (envelope `business`), dừng. Khớp → đặt cờ "web key verified" vào context.
+4. **Chạy handler.** Riêng `Login`: `platform` rỗng → `mobile`; `platform = web` mà context không có cờ → `401 INVALID_API_KEY`, dừng, không gọi use case. Còn lại tiếp tục như AC1–AC8.
+
+Cấu hình: `server.web_api_key_secret` (tên secret) → `ServerConfig.WebAPIKey` (`yaml:"-"`) qua `resolveSecrets`, như `jwt.secret_key_secret`. Dev: `dev_secrets.appservice-web-api-key` trong `config.dev.yaml` (sinh ngẫu nhiên 2026-10-09, plaintext trong git — `docs/tech-debt/auth/TD-001`).
+
+## Cross-cutting: response cấp token (v1.13)
+
+Áp cho ba route trả token: `register/verify-otp` (handler của `onboarding/`), `login`, `refresh`. Code: `delivery/http/token_response.go` (mới: `NoStore`, `HandlerOption`/`WithAccessTokenTTL`), `login_handler.go`, `register_handler.go`, `cmd/main.go`.
+
+**Step-by-step Flow — mỗi request vào ba route trên:**
+
+1. **Đặt header chống cache.** Trigger: request vào, *trước* khi gọi handler. `NoStore.WrapFunc` đặt `Cache-Control: no-store` và `Pragma: no-cache` rồi gọi handler. Đặt sớm nên cả response lỗi (`4xx`/`5xx`) cũng mang header (AC20).
+2. **Chạy handler/use case như cũ.** Không đổi logic AC1–AC15.
+3. **Dựng response thành công.** Handler thêm `expires_in = int(accessTokenTTL.Seconds())` vào `data`. `accessTokenTTL` là `config.JWTConfig.AccessTokenExpiration` — **cùng giá trị** `jwtService` dùng khi mint access token, truyền vào handler lúc dựng ở `cmd/main.go` (không đọc lại `exp` từ token, không hard-code). `login`/`verify-otp`: cạnh `user` (AC21); `refresh`: không có `user` (AC22).
+
+Quyết định: header đặt ở middleware bọc route, không trong từng handler, để một route mới trả token mà quên header là thấy ngay ở `cmd/main.go`, và để E2E kiểm được wiring. Header chỉ gắn cho ba route trên — các route đọc danh mục có `Cache-Control` riêng.
+
 ## Deliberately stubbed for now
 
 | Thứ | Trạng thái | Ghi chú |
@@ -337,6 +362,10 @@ Step 3 — Thu hồi session (feature này)
 | Test E2E tự động | **Chưa có** | Đã chạy tay bằng curl (18 bước). Test black-box cần `testcontainers-go` (chưa có trong `go.mod`). |
 
 ## Known gaps carried by this feature
+
+- **BE không chỉ định nơi FE lưu token (v1.13).** Token chỉ nằm trong JSON body, không `Set-Cookie`, không claim `platform`; `Cache-Control: no-store` (AC20) chỉ chặn cache trung gian, không chặn XSS đọc `localStorage`. Lưu an toàn là việc của FE (cookie `HttpOnly` do server SvelteKit đặt). `Access-Control-Allow-Origin: *` ở `pkg/middleware.CORS` vẫn cứng, chưa giới hạn origin — nên siết trước production.
+- **`X-API-Key` không chặn caller bỏ header (v1.12).** Thiếu header = mobile = đi qua (AC18), và `platform` do client tự khai. Cần captcha phía web và attestation phía mobile; xem `docs/tech-debt/auth/TD-001`. Chỉ một key hợp lệ tại một thời điểm (đổi key = gián đoạn ngắn).
+- **IP trong thiết bị web là IP của server SvelteKit.** `clientIP()` không đọc `X-Forwarded-For`; user agent lấy từ header `User-Agent` của request, nên server SvelteKit phải chuyển tiếp User-Agent thật của trình duyệt, nếu không nhiều trình duyệt của một user bị coi là một thiết bị (AC4).
 
 - **Access token sống tới hết hạn sau logout / revoke.** JWT là stateless; `pkg/jwt/middleware` chỉ verify chữ ký + hạn, không tra `user_sessions`. Sau `logout` hoặc reuse-revoke, access token đã cấp còn dùng được tối đa 15 phút. **Đã chốt 2026-09-21: chấp nhận** (không tra session mỗi request). Nếu sau này cần chặn ngay, middleware phải tra session (chi phí một truy vấn/request, cần claim `sid`) hoặc denylist theo `jti` — xem xét khi wire `RequireAuth` cho US-004.
 - **Logout cần access token còn hạn.** Access token hết hạn → 401; client phải `refresh` rồi mới logout được. Nếu app muốn "đăng xuất" khi mất mạng/hết hạn, nó chỉ xoá token cục bộ — session phía server vẫn sống tới khi hết hạn. Chấp nhận ở MVP.

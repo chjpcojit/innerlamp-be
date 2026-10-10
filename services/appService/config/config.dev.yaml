@@ -17,6 +17,8 @@ server:
   # Origin prepended to "/static/images/..." paths in responses. Empty = derive from the request
   # Host (fine on a LAN); set to the CDN/public origin in production.
   public_base_url: ""
+  # Shared key the web frontend's server sends as X-API-Key. Resolved from dev_secrets below.
+  web_api_key_secret: "appservice-web-api-key"
 
 database:
   host: "localhost"
@@ -114,6 +116,14 @@ article:
 memorial:
   max_per_user: 100
 
+# Đề xuất thêm chùa (route công khai, ghi DB). rate_limit is required: Validate rejects zero.
+# trust_forwarded_for stays false locally; set it true only behind a proxy that appends the real client IP (Cloud Run).
+temple_suggestion:
+  rate_limit:
+    max: 5
+    window: "1h"
+    trust_forwarded_for: false
+
 # Pháp thoại paging. page_size is required: zero would mean empty pages.
 dharma_talk:
   page_size: 10
@@ -128,4 +138,6 @@ sutra:
 
 dev_secrets:
   appservice-db-password: "postgres"
+  # TD auth/TD-001: generated for local runs, plaintext in git; not a production key.
+  appservice-web-api-key: "c236dbe7eecb531a3ad570c17305b5aacb30b42bd630d02ade71d2df6c0bdf71"
   appservice-jwt-secret-key: "innerlamp-dev-secret-key-please-rotate-32c"

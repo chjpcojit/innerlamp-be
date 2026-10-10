@@ -90,6 +90,11 @@ func main() {
 	if err := cfg.DharmaTalk.Validate(); err != nil {
 		log.Fatalf("invalid dharma_talk config: %v", err)
 	}
+	// The temple-suggestion route is anonymous and writes to the DB; without a valid
+	// per-IP limit it would be an open write endpoint, so stop now rather than serve it.
+	if err := cfg.TempleSuggestion.Validate(); err != nil {
+		log.Fatalf("invalid temple_suggestion config: %v", err)
+	}
 
 	dbConfig := &database.Config{
 		Type:     database.PostgreSQL,
@@ -157,7 +162,9 @@ func main() {
 		cfg.JWT.RefreshTokenExpiration.Duration(),
 		cfg.OTP.PendingRegistrationTTL.Duration(),
 	)
-	registerHandler := deliveryhttp.NewRegisterHandler(registerUsecase, validator)
+	// accessTTL is what jwtService mints access tokens with; handlers report it as expires_in.
+	accessTTL := deliveryhttp.WithAccessTokenTTL(cfg.JWT.AccessTokenExpiration.Duration())
+	registerHandler := deliveryhttp.NewRegisterHandler(registerUsecase, validator, accessTTL)
 
 	loginRepo := repository.NewLoginRepository(db)
 	loginUsecase := usecase.NewLoginUsecase(
@@ -167,7 +174,7 @@ func main() {
 		cfg.JWT.RefreshTokenExpiration.Duration(),
 		cfg.Login,
 	)
-	loginHandler := deliveryhttp.NewLoginHandler(loginUsecase)
+	loginHandler := deliveryhttp.NewLoginHandler(loginUsecase, accessTTL)
 
 	// Attestation: each platform selects its own pkg/attestation driver, because
 	// the two backends are asymmetric — android is playintegrity (server-to-
@@ -304,6 +311,18 @@ func main() {
 	memorialUsecase := usecase.NewMemorialUsecase(memorialRepo, cfg.Memorial)
 	memorialHandler := deliveryhttp.NewMemorialHandler(memorialUsecase)
 
+	// temple suggestions: anonymous "suggest a temple" write. Review (list / create the
+	// temple / reject) is backofficeService's. docs/specs/features/temple-suggestion/.
+	templeSuggestionRepo := repository.NewTempleSuggestionRepository(db)
+	templeSuggestionUsecase := usecase.NewTempleSuggestionUsecase(templeSuggestionRepo)
+	templeSuggestionHandler := deliveryhttp.NewTempleSuggestionHandler(templeSuggestionUsecase)
+	templeSuggestionLimit, err := deliveryhttp.NewClientIPRateLimit(
+		int64(cfg.TempleSuggestion.RateLimit.Max), cfg.TempleSuggestion.RateLimit.Window.Duration(),
+		cfg.TempleSuggestion.RateLimit.TrustForwardedFor)
+	if err != nil {
+		log.Fatalf("failed to build temple suggestion rate limit: %v", err)
+	}
+
 	// The RequireAttestation middleware is provided but deliberately NOT wired
 	// to any route yet: choosing which routes to gate is a business decision
 	// that belongs to a future feature (design.md "Out of scope"). It is built
@@ -321,16 +340,21 @@ func main() {
 	mux := http.NewServeMux()
 	// US-001: all three routes are public — the caller has no account yet,
 	// so there is nothing to authenticate. See design.md's Overview.
-	mux.HandleFunc("POST /v1/auth/register/request-otp", registerHandler.RequestOTP)
-	mux.HandleFunc("POST /v1/auth/resend-otp", registerHandler.ResendOTP)
-	mux.HandleFunc("POST /v1/auth/register/verify-otp", registerHandler.VerifyOTP)
+	// Every /v1/auth/* route goes through webAPIKey: a wrong X-API-Key is 401, a
+	// missing one means mobile (see RequireWebAPIKey).
+	webAPIKey := deliveryhttp.NewRequireWebAPIKey(cfg.Server.WebAPIKey)
+	mux.HandleFunc("POST /v1/auth/register/request-otp", webAPIKey.WrapFunc(registerHandler.RequestOTP))
+	mux.HandleFunc("POST /v1/auth/resend-otp", webAPIKey.WrapFunc(registerHandler.ResendOTP))
+	// verify-otp, login and refresh return tokens: noStore keeps them out of any cache (AC20).
+	noStore := deliveryhttp.NoStore{}
+	mux.HandleFunc("POST /v1/auth/register/verify-otp", webAPIKey.WrapFunc(noStore.WrapFunc(registerHandler.VerifyOTP)))
 
 	// US-002: login and refresh are public — the caller proves itself with a
 	// password / refresh token in the body. logout is wrapped: it identifies the
 	// session from the access token's "sid" claim.
-	mux.HandleFunc("POST /v1/auth/login", loginHandler.Login)
-	mux.HandleFunc("POST /v1/auth/refresh", loginHandler.Refresh)
-	mux.HandleFunc("POST /v1/auth/logout", authMiddleware.AuthenticateFunc(loginHandler.Logout))
+	mux.HandleFunc("POST /v1/auth/login", webAPIKey.WrapFunc(noStore.WrapFunc(loginHandler.Login)))
+	mux.HandleFunc("POST /v1/auth/refresh", webAPIKey.WrapFunc(noStore.WrapFunc(loginHandler.Refresh)))
+	mux.HandleFunc("POST /v1/auth/logout", webAPIKey.WrapFunc(authMiddleware.AuthenticateFunc(loginHandler.Logout)))
 
 	// memorials: private to the logged-in user. The owner is the access token's user_id claim;
 	// there is no route that takes a user id. The photo routes are not here yet (TD-001, memorial).
@@ -339,6 +363,11 @@ func main() {
 	mux.HandleFunc("GET /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Get))
 	mux.HandleFunc("PUT /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Update))
 	mux.HandleFunc("DELETE /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Delete))
+
+	// temple suggestions: public by design (the caller may have no account). webAPIKey
+	// runs first so a wrong key is refused without spending the caller's rate budget;
+	// the per-IP limit then guards the DB write.
+	mux.HandleFunc("POST /v1/temple-suggestions", webAPIKey.WrapFunc(templeSuggestionLimit.WrapFunc(templeSuggestionHandler.Create)))
 
 	// attestation: all three routes are public — the caller has no account yet.
 	// They mint challenges and return a verdict; the per-request gate is the

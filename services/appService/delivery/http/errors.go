@@ -93,6 +93,11 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		return
 	}
 
+	if bad, ok := errors.AsType[*domain.TempleSuggestionValidationError](err); ok {
+		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
+		return
+	}
+
 	if bad, ok := errors.AsType[*domain.InvalidSutraFilterError](err); ok {
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_FILTER", domain.ErrInvalidSutraFilter.Error(),
 			map[string]any{"field": bad.Field})

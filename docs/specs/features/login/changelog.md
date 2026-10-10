@@ -4,6 +4,31 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 folder. All four files share one changelog since they change together as one spec unit. Newest
 version first.
 
+## v1.13 (2026-10-10)
+
+Hợp đồng response cấp token: thêm `expires_in` và header chống cache. **Có đổi code** — đã làm và verify trong cùng ngày (`tasks.md` Phase 7 toàn `[x]`).
+
+- `requirements.md`: thêm AC20–AC22 (nhóm "Response cấp token"); bảng API contract thêm `expires_in` cho `login`, `refresh`; Out of scope ghi rõ không có `refresh_expires_in` và BE không đặt cookie. Phạm vi gồm cả `register/verify-otp` của `onboarding/` (không bump `onboarding/`; con trỏ ở đây, như v1.12).
+- `design.md`: thêm §Cross-cutting: response cấp token (Step-by-step Flow 3 bước); Known gaps thêm mục BE không chỉ định nơi FE lưu token và CORS `*`.
+- `flow.md`: thêm sequence diagram vẽ lại 1:1 ba bước.
+- `tasks.md`: thêm Phase 7; sau khi code xong đánh `[x]` kèm bằng chứng test (unit handler, `go build`/`vet`, E2E `TestLoginFlow_E2E` AC20–AC22).
+- Code: `token_response.go` (mới), `login_handler.go`, `register_handler.go`, `cmd/main.go`, `e2e/login_e2e_test.go`, `token_response_test.go`. `openapi.yaml` đã cập nhật cùng lúc.
+- Quyết định (anh Đức, 2026-10-10, sau khi rà soát response): thêm `Cache-Control: no-store` và `expires_in`. `expires_in` là TTL access token tính bằng giây (cấu hình, không đọc từ `exp`); không thêm hạn refresh token (YAGNI). Header đặt cho cả response lỗi của ba route.
+- Cross-file follow-ups còn lại: `docs/knowledge/features/login.md` và `register.md` cần `il-okf-writer` làm mới (chưa gọi — chỉ viết OKF khi được yêu cầu); `onboarding/requirements.md` mục `verify-otp` có thể cần con trỏ tới AC20–AC21 ở đây.
+- Reason: FE web cần biết khi nào refresh mà không giải mã JWT, và response cấp token không được phép bị cache.
+
+## v1.12 (2026-10-09)
+
+Thêm cơ chế `X-API-Key` cho client web (SvelteKit) và quy ước `device.platform`. **Có đổi code** (đã làm trước, spec viết bổ sung ngay sau khi verify bằng unit test).
+
+- `requirements.md`: thêm AC16–AC19 (nhóm "Web client"); bảng API contract thêm `INVALID_API_KEY` cho cả ba route. Phạm vi thực tế là cả sáu route `/v1/auth/*`, gồm ba route của `onboarding/` (không bump `onboarding/`; con trỏ ở đây).
+- `design.md`: thêm §Cross-cutting: web `X-API-Key` (Step-by-step Flow 4 bước); Known gaps thêm hai mục (key không chặn caller bỏ header; IP/UA của thiết bị web).
+- `flow.md`: thêm sơ đồ flowchart `X-API-Key` vẽ lại 1:1 bốn bước.
+- `tasks.md`: thêm Phase 6, các item đã verify; còn một item `[ ]` (E2E).
+- Quyết định (anh Đức, 2026-10-09): web gửi `X-API-Key` (secret dùng chung, giữ ở server SvelteKit); mobile không có key; `platform` vắng = `mobile`. Key chỉ bắt khi header có mặt (AC18) nên không chặn được kẻ bỏ header — ghi nợ `docs/tech-debt/auth/TD-001`.
+- Key dev sinh ngẫu nhiên, lưu plaintext trong `config.dev.yaml` (nợ TD-001).
+- Reason: client web cần xác định "website nào đang gọi" tách khỏi token của user.
+
 ## v1.11 (2026-09-29)
 
 Thêm `flow.md` — file này còn thiếu từ khi spec được viết (rule 6 của skill `il-spec-writer`: mọi

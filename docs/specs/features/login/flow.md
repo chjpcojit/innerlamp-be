@@ -1,7 +1,7 @@
 # Flow — login
 
-Version: 1.11
-Last updated: 2026-09-29
+Version: 1.13
+Last updated: 2026-10-10
 Status: implemented (2026-09-21) — vẽ lại đúng ba "Step-by-step Flow" của `design.md` (Login,
 Refresh, Logout) bằng Mermaid; không thêm, không bớt bước so với `design.md`.
 Module: `identity`
@@ -240,5 +240,52 @@ sequenceDiagram
         R--xU: wrapped "revoke session: %w"
         U--xH: lỗi
         H--xC: 500
+    end
+```
+
+## Web `X-API-Key` — mọi route `/v1/auth/*` (v1.12)
+
+Vẽ lại 1:1 §Cross-cutting: web `X-API-Key` của `design.md`. Dùng flowchart vì đây là logic rẽ nhánh, không phải chuỗi gọi qua lại.
+
+```mermaid
+flowchart TD
+    A[Request vào /v1/auth/*] --> B{Step 1: có header X-API-Key?}
+    B -- không --> H[Step 4: chạy handler, chưa đánh dấu web]
+    B -- có --> C[Step 2: SHA-256 giá trị gửi, ConstantTimeCompare với key cấu hình]
+    C --> D{Step 3: khớp và key đã cấu hình?}
+    D -- không --> E[401 INVALID_API_KEY, dừng - AC17]
+    D -- có --> F[Đánh dấu web key verified vào context - AC16]
+    F --> H
+    H --> L{Chỉ Login: device.platform?}
+    L -- rỗng --> M[Đặt platform = mobile - AC19]
+    L -- web, chưa verified --> E
+    L -- web, đã verified --> N[Tiếp tục AC1-AC8]
+    L -- giá trị khác --> N
+    M --> N
+```
+
+## Response cấp token — `verify-otp`, `login`, `refresh` (v1.13)
+
+Vẽ lại 1:1 §Cross-cutting: response cấp token của `design.md`.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as Client (web / mobile)
+    participant N as NoStore.WrapFunc
+    participant H as Handler (verify-otp / login / refresh)
+    participant U as Usecase
+
+    C->>N: POST /v1/auth/{register/verify-otp | login | refresh}
+    N->>N: Step 1 — đặt Cache-Control: no-store và Pragma: no-cache (AC20)
+    N->>H: gọi handler
+    H->>U: Step 2 — chạy use case như AC1-AC15
+    alt thành công
+        U-->>H: tokens (+ user với verify-otp / login)
+        H->>H: Step 3 — expires_in = int(accessTokenTTL.Seconds()) (AC21, AC22)
+        H-->>C: 200/201 {success, data{access_token, refresh_token, expires_in, user?}} + header no-store
+    else lỗi
+        U--xH: lỗi
+        H--xC: 4xx/5xx envelope + header no-store (đặt ở Step 1)
     end
 ```

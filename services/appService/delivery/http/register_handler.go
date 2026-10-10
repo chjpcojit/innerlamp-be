@@ -29,14 +29,15 @@ type registerUsecase interface {
 type RegisterHandler struct {
 	usecase   registerUsecase
 	validator *validation.Validator
+	tokens    tokenSettings
 }
 
 // NewRegisterHandler wires the handler. validator must already have the
 // `phone` tag registered (validation.PhoneTag/PhoneRule) and its field-name
 // tag set to "json" — both are composition-root concerns done once, before
 // any handler is built, per design.md's cmd/main.go row.
-func NewRegisterHandler(usecase registerUsecase, validator *validation.Validator) *RegisterHandler {
-	return &RegisterHandler{usecase: usecase, validator: validator}
+func NewRegisterHandler(usecase registerUsecase, validator *validation.Validator, opts ...HandlerOption) *RegisterHandler {
+	return &RegisterHandler{usecase: usecase, validator: validator, tokens: newTokenSettings(opts)}
 }
 
 // requestOTPRequest is step 1's body. Password has no `min` tag here on
@@ -84,6 +85,7 @@ type verifyOTPRequest struct {
 type verifyOTPResponse struct {
 	AccessToken  string       `json:"access_token"`
 	RefreshToken string       `json:"refresh_token"`
+	ExpiresIn    int64        `json:"expires_in"`
 	User         userResponse `json:"user"`
 }
 
@@ -195,6 +197,7 @@ func (h *RegisterHandler) VerifyOTP(w http.ResponseWriter, r *http.Request) {
 	utils.WriteSuccessResponseWithStatus(w, http.StatusCreated, verifyOTPResponse{
 		AccessToken:  result.AccessToken,
 		RefreshToken: result.RefreshToken,
+		ExpiresIn:    h.tokens.expiresIn(),
 		User:         newUserResponse(result.User),
 	})
 }
