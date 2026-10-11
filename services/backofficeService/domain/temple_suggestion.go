@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -30,12 +31,19 @@ func ValidSuggestionStatus(s string) bool {
 // Plain data: no json/db tag — the wire shape is delivery's, the SQL shape is
 // repository's.
 type TempleSuggestion struct {
-	ID        int64
-	Name      string
-	Province  string
-	Address   string
-	Status    string
-	CreatedAt time.Time
+	ID   int64
+	Name string
+	// ProvinceCode, WardCode and Ward are nil together for a suggestion sent
+	// before the structured address (migration 0030); Province is then the
+	// string the user typed. Otherwise Province and Ward are the dataset-name
+	// snapshots taken when it was sent. Address is the part below ward level.
+	ProvinceCode *string
+	Province     string
+	WardCode     *string
+	Ward         *string
+	Address      string
+	Status       string
+	CreatedAt    time.Time
 
 	// Review outcome; all nil/empty while pending.
 	TempleID     *string
@@ -62,13 +70,37 @@ type Temple struct {
 	HeritagePriority int
 	Latitude         float64
 	Longitude        float64
-	Address          string
-	OperatingHours   string
-	Amenities        TempleAmenities
+	// Address is the part below ward level; ProvinceCode/WardCode and the name
+	// snapshots Province/Ward make up the rest (spec temple v1.7). A row seeded
+	// before then has no codes and Address holds the whole string.
+	Address        string
+	ProvinceCode   string
+	Province       string
+	WardCode       string
+	Ward           string
+	OperatingHours string
+	Amenities      TempleAmenities
 
 	Introduction         string
 	ArchitectureHeritage string
 	VisitingNotes        []string
+}
+
+// FullAddress is the address to display: the non-empty parts of Address, Ward
+// and Province joined by ", ". A temple with no Ward (not structured yet)
+// returns Address unchanged. It mirrors appService/domain.Temple.FullAddress,
+// which the temple read API uses, so a created temple reads back identically.
+func (t Temple) FullAddress() string {
+	if t.Ward == "" {
+		return t.Address
+	}
+	parts := make([]string, 0, 3)
+	for _, p := range []string{t.Address, t.Ward, t.Province} {
+		if p = strings.TrimSpace(p); p != "" {
+			parts = append(parts, p)
+		}
+	}
+	return strings.Join(parts, ", ")
 }
 
 // TempleAmenities are the yes/no facilities a visitor plans around.
@@ -96,9 +128,16 @@ type NewTemple struct {
 	HeritageRank    string
 	Latitude        float64
 	Longitude       float64
-	Address         string
-	OperatingHours  string
-	Amenities       TempleAmenities
+	// Address is the part below ward level (may not be empty: AC18).
+	Address string
+	// ProvinceCode and WardCode come from the client; Province and Ward are
+	// filled by the use case from the administrative dataset, never by the client.
+	ProvinceCode   string
+	WardCode       string
+	Province       string
+	Ward           string
+	OperatingHours string
+	Amenities      TempleAmenities
 
 	Introduction         string
 	ArchitectureHeritage string
@@ -156,6 +195,31 @@ func (e *TempleInputError) Error() string { return fmt.Sprintf("%s: %s", e.Field
 
 // Unwrap lets errors.Is(err, ErrTempleInputInvalid) match.
 func (e *TempleInputError) Unwrap() error { return ErrTempleInputInvalid }
+
+// ResolvedWard is a ward and its province as the dataset names them.
+type ResolvedWard struct {
+	ProvinceName string
+	WardFullName string
+}
+
+var (
+	// ErrAdministrativeUnitNotFound — the province code is not a province of the
+	// current scheme.
+	ErrAdministrativeUnitNotFound = errors.New("administrative unit not found")
+
+	// ErrWardNotInProvince — the ward code is unknown or belongs to another province.
+	ErrWardNotInProvince = errors.New("ward not found in province")
+)
+
+// WardResolver checks a province/ward code pair against the current-scheme
+// administrative dataset (addr_new_*). It is a narrow port so the use case does
+// not depend on how the dataset is stored.
+type WardResolver interface {
+	// ResolveCurrentWard returns the names for the pair, ErrAdministrativeUnitNotFound
+	// when the province does not exist, or ErrWardNotInProvince when the ward does
+	// not exist in that province.
+	ResolveCurrentWard(ctx context.Context, provinceCode, wardCode string) (*ResolvedWard, error)
+}
 
 // TempleSuggestionRepository is the port the review use case works through.
 type TempleSuggestionRepository interface {

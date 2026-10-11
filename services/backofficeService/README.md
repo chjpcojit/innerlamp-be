@@ -9,7 +9,7 @@ separate binary, port (`:8081`) and trust domain.
 
 - Accounts live in the `admins` table (`migrations/0006_admins.sql`), **not** `users`. No self-registration.
 - Admin tokens use their own JWT secret + audience (`innerlamp_backoffice`), so an appService token is rejected here and vice versa.
-- Only access tokens are issued (no refresh/session yet). `/v1/admin/*` (except login) requires an `access` token **and** role `admin`.
+- Only access tokens are issued (no refresh/session yet). `/v1/admin/*` (except login) requires an `access` token and a role the route allows: `admin` for account management, `admin` or `content_editor` for the temple-suggestion review routes.
 
 ## Bootstrap admin
 
@@ -23,6 +23,9 @@ On startup, if the `admins` table is **empty**, `bootstrap_admin` in the config 
 | POST | `/v1/admin/auth/login` | public |
 | POST | `/v1/admin/auth/change-password` | admin (also accepts a must-change-password token) |
 | GET | `/v1/admin/me` | admin (refused with `PASSWORD_CHANGE_REQUIRED` until the password is changed) |
+| GET | `/v1/admin/temple-suggestions` | admin or content_editor — review queue (`?status=&page=`) |
+| GET | `/v1/admin/temple-suggestions/{id}` | admin or content_editor |
+| POST | `/v1/admin/temple-suggestions/{id}/create-temple` | admin or content_editor (a `rejected` suggestion: admin only) |
 
 ## Run
 
@@ -37,4 +40,12 @@ make run-backoffice
 - Login brute-force lockout / rate limiting (appService has it for users; admins do not yet).
 - Refresh tokens / sessions / logout, roles beyond `admin`, audit log.
 - `⚠️ DEV ONLY` config/secrets (`config.dev.yaml`, `MockSecretGetter`) — swap for `pkg/secrets/gcp|aws` before production.
-- Real business routes (users, temples management).
+- Reject action for temple suggestions (`docs/specs/features/temple-suggestion`, Phase 6), editing or deleting an existing temple.
+- Real business routes beyond users and temple-suggestion review.
+
+## Tests
+
+`go test ./services/backofficeService/...` runs unit tests; `-short` skips the rest. The repository tests
+TRUNCATE `temples` and `temple_suggestions`, so they run only when `TEST_DB_NAME` names a scratch database
+other than `innerlamp` (e.g. `TEST_DB_NAME=innerlamp_test`). `e2e/` builds the real binary and runs it
+against a testcontainers Postgres (needs Docker).

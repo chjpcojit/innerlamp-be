@@ -5,9 +5,9 @@
 | Document type | Software Requirements Specification (SRS) — IEEE 29148-2018 |
 | Feature | Temple Suggestion |
 | Product | InnerLamp |
-| Version | 1.0 |
-| Last updated | 2026-10-10 |
-| Status | approved 2026-10-10 — no open questions; ready for `il-spec-writer` |
+| Version | 1.2 |
+| Last updated | 2026-10-11 |
+| Status | approved 2026-10-10; amended 2026-10-11 (structured address, see Amendments A1 and A2) — no open questions |
 | Owner / author | duc@wee.vn (BA assist: Claude) |
 | Downstream handoff | `il-spec-writer` → `requirements.md` / `design.md` / `tasks.md` (already exist at v1.0 — see 2.7 for the deltas this SRS introduces) |
 
@@ -122,7 +122,8 @@ N/A — the app shows a submission form with inline guidance; no manual is requi
   3. Rate limit is per client IP, 5 submissions per hour (was N1).
   4. Permitted roles are admin and content editor (was N5).
   5. Duplicates are accepted at submission (confirms AC6).
-  6. Province/city is free text (was N2); the submitter's IP is not stored; suggestions are kept indefinitely.
+  6. Province/city is free text (was N2) — **superseded 2026-10-11 by Amendment A1**; the submitter's IP is not stored; suggestions are kept indefinitely.
+  7. **Amendment A2 (2026-10-11):** the official temple that staff create also has a structured address — province and ward chosen from the administrative-units reference data, plus the free-text part below ward level. Staff's temple form therefore requires province and ward (FR-009); the temple's displayed full address is the free-text part, then the ward name, then the short province name without a "Tỉnh"/"Thành phố" prefix (e.g. "Hồ Chí Minh").
 - **Design-level items still open in the engineering spec** (not business decisions; tracked there): format of the new temple identifier, and where the heritage-rank → priority mapping lives so two services cannot drift.
 
 ---
@@ -367,7 +368,7 @@ HTTPS with JSON bodies. Public submission carries the client key header like oth
 
 **FR-009 — Validate the temple form**
 - **Priority:** Must
-- **Description:** WHEN staff submit a temple form, THE SYSTEM SHALL require name, type, region, sect, founding year, heritage rank, coordinates and address, restrict type, region and heritage rank to the catalogue's allowed values, keep coordinates and year within valid ranges, accept image references only as a static-image path or an http(s) address, treat all other information as optional, and derive the catalogue ranking from the heritage rank rather than accept it from staff.
+- **Description:** WHEN staff submit a temple form, THE SYSTEM SHALL require name, type, region, sect, founding year, heritage rank, coordinates, province, ward and address (the part below ward level), accept province and ward only from the administrative-units reference data with the ward belonging to the chosen province, take the province and ward names from that reference data rather than from staff, restrict type, region and heritage rank to the catalogue's allowed values, keep coordinates and year within valid ranges, accept image references only as a static-image path or an http(s) address, treat all other information as optional, and derive the catalogue ranking from the heritage rank rather than accept it from staff.
 - **Verification method:** unit test
 - **Source:** Normalization — official temples must meet the catalogue's data rules
 - **Acceptance criteria:**
@@ -406,6 +407,26 @@ HTTPS with JSON bodies. Public submission carries the client key header like oth
     Given a valid temple form
     When the temple is created
     Then its position in the catalogue follows its heritage rank and founding year
+
+  Scenario: Ward not in the reference data
+    Given a temple form whose ward is not part of the administrative-units reference data
+    When staff submit it
+    Then it is refused, the ward is named as the problem, and the suggestion stays as it was
+
+  Scenario: Ward belongs to another province
+    Given a temple form whose ward belongs to a different province than the one chosen
+    When staff submit it
+    Then it is refused and the ward is named as the problem
+
+  Scenario: Unit names come from the reference data
+    Given a valid temple form with a province and a ward chosen
+    When the temple is created
+    Then it shows the province and ward names exactly as the reference data has them, whatever staff typed
+
+  Scenario: Suggestion submitted before structured addresses
+    Given a pending suggestion that has only a free-text province and no ward
+    When staff choose a province and a ward and submit a valid temple form
+    Then the temple is created with that province and ward
   ```
 
 **FR-010 — One suggestion yields at most one temple**
@@ -519,10 +540,10 @@ HTTPS with JSON bodies. Public submission carries the client key header like oth
 - Persist, server-side, every suggestion with: submitted name, province/city and address; state (pending, created, rejected); received time; and, once reviewed, reviewer, review time, resulting temple (created) or reason (rejected).
 - A temple may originate from at most one suggestion, and a created suggestion always references its temple.
 - State and review data must be consistent: a pending suggestion has no review data; a created one has reviewer, time and temple; a rejected one has reviewer, time and reason.
-- Official temples are stored in the existing catalogue table and follow its constraints.
+- Official temples are stored in the existing catalogue table and follow its constraints. **Amendment A2:** a temple created from a suggestion stores its province and ward codes together with the unit names as they were at creation time, plus the free-text part below ward level.
 - All suggestions, whatever their state, are kept indefinitely; there is no purge job.
 - The submitter's IP address is not stored with a suggestion (the rate limit uses it transiently only).
-- Province/city is stored as free text exactly as typed; consistent naming and province filtering are not guaranteed.
+- ~~Province/city is stored as free text exactly as typed.~~ **Superseded 2026-10-11 (Amendment A1):** the submitter now picks the province and ward from the administrative-units reference data and the system stores their codes together with the unit names as they were at submission time; consistent naming and province filtering are therefore guaranteed for new suggestions. Only the part below ward level (house number, street, hamlet) remains free text. Suggestions submitted before the amendment keep their free-text province and have no codes.
 
 ### 3.5 Design constraints
 
@@ -558,7 +579,7 @@ Each requirement lists its verification method. Unit tests cover validation and 
 | FR-006 | Original request | → il-spec-writer (AC9–AC12) | 6 Gherkin scenarios |
 | FR-007 | Original request | → il-spec-writer (AC13–AC14) | 4 Gherkin scenarios |
 | FR-008 | Original request | → il-spec-writer (AC16, AC17, AC25, AC26) | 3 Gherkin scenarios |
-| FR-009 | Normalization | → il-spec-writer (AC18–AC21) | 7 Gherkin scenarios |
+| FR-009 | Normalization; Amendment A2 | → il-spec-writer (AC18–AC21, AC18a–AC18b) | 11 Gherkin scenarios |
 | FR-010 | Edge-case analysis | → il-spec-writer (AC22, AC24) | 4 Gherkin scenarios |
 | FR-011 | Decision 2026-10-10 | → il-spec-writer (**new** — not in v1.0) | 3 Gherkin scenarios |
 | FR-012 | Decision 2026-10-10 | → il-spec-writer (AC15, AC27) | 4 Gherkin scenarios |
@@ -593,6 +614,9 @@ None.
 | How long are reviewed suggestions kept? | Indefinitely. | 2026-10-10 |
 | Store the submitter's IP? | No. | 2026-10-10 |
 | Province/city free text or fixed list? | Free text. | 2026-10-10 |
+| Amendment A1 — should the submitter's address use the administrative-units reference data? | Yes: province and ward are chosen from the new-scheme reference data and are both required; the old free-text province field is dropped outright (no transition period); the free-text address line keeps only the part below ward level. Supersedes the free-text decision above. | 2026-10-11 |
+| Amendment A2 — should the official temple that staff create have a structured address too? | Yes: every place with an address has province, ward and a free-text part below ward level; the temple form takes province and ward from the administrative-units reference data and the system takes the names from it. | 2026-10-11 |
+| Should a temple's displayed full address carry the "Tỉnh"/"Thành phố" prefix? | No — keep the short province name as stored (e.g. "Hồ Chí Minh"); the ward keeps its own prefix (e.g. "Phường Tân Định"). | 2026-10-11 |
 | When is the reject action's API built? | Later, as a back-office API in a subsequent phase; the capability is still required. | 2026-10-10 |
 | May a content editor convert a rejected suggestion? | No — admin only. | 2026-10-10 |
 | How to treat many users behind one shared IP? | Accepted as a known risk for v1; no special handling. | 2026-10-10 |

@@ -52,6 +52,23 @@ type AppConfig struct {
 	// BootstrapAdmin is the default admin created when the admins table is empty.
 	BootstrapAdmin BootstrapAdminConfig `yaml:"bootstrap_admin"`
 	Account        AccountConfig        `yaml:"account"`
+	// TempleSuggestion configures the suggestion review queue.
+	TempleSuggestion TempleSuggestionConfig `yaml:"temple_suggestion"`
+}
+
+// TempleSuggestionConfig holds the review-queue settings.
+type TempleSuggestionConfig struct {
+	// PageSize is how many suggestions one queue page holds.
+	PageSize int `yaml:"page_size"`
+}
+
+// Validate rejects a zero-value or negative page size, so a config that forgot
+// the block fails at startup instead of paging by zero.
+func (c TempleSuggestionConfig) Validate() error {
+	if c.PageSize < 1 {
+		return fmt.Errorf("temple_suggestion.page_size must be at least 1, got %d", c.PageSize)
+	}
+	return nil
 }
 
 // AccountConfig holds account-creation settings.
@@ -79,6 +96,10 @@ type BootstrapAdminConfig struct {
 // ServerConfig holds HTTP server settings.
 type ServerConfig struct {
 	Addr string `yaml:"addr"`
+	// PublicBaseURL is the origin root-relative image paths ("/static/images/...")
+	// are resolved against in API responses, same meaning as appService's
+	// server.public_base_url. Empty = the request's own origin.
+	PublicBaseURL string `yaml:"public_base_url"`
 }
 
 // DatabaseConfig holds Postgres connection settings. Password is resolved from

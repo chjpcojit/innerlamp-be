@@ -4,6 +4,62 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v3.4 (2026-10-11)
+
+Implement phần duyệt ở backoffice (Phase 3, 4, 5 và Phase 8). Theo yêu cầu của anh Đức: "tiếp tục đi em", "đồng ý" (đề xuất của em: giải quyết điểm nghẽn rồi làm backoffice). Không đổi yêu cầu; thông tin triển khai được ghi lại.
+
+- Điểm nghẽn "shared file conflicts (config.go, main.go, errors.go)" của HANDOFF hoá ra không phải xung đột git (không có marker) — `go build ./...` đã xanh; backoffice chỉ cần thêm vào ba file đó. Không cần giải quyết gì thêm.
+- Code (`services/backofficeService/`): `domain/temple_suggestion.go` (`ProvinceCode`/`WardCode`/`Ward` cho đề xuất; `NewTemple` thêm mã + tên chụp; `Temple.FullAddress()` bản chép của appService; `WardResolver`, `ResolvedWard`, sentinel); `usecase/temple_suggestion_usecase.go` (`List`/`Get`/`CreateTemple`); `repository/postgres_temple_suggestion_repository.go` (`List`, `FindByID`, `CreateTemple` một transaction `FOR UPDATE` + advisory lock theo region + `INSERT temples` + `UPDATE`, `ResolveCurrentWard`); `delivery/http/temple_suggestion_handler.go` (+`RequireAnyRole`, map lỗi); `config` (`temple_suggestion.page_size`, `server.public_base_url`); `cmd/main.go` (3 route qua `RequireActiveSession` + `RequireAnyRole(admin, content_editor)`).
+- Test: unit usecase/handler/config; repository trên Postgres thật (danh sách, thứ tự, tạo, id theo region, mở lại `rejected`, rollback, đua 4 request, `ResolveCurrentWard`) — chỉ chạy khi `TEST_DB_NAME` là DB scratch khác `innerlamp`; E2E mới `services/backofficeService/e2e/` (harness riêng, binary thật + testcontainers).
+- `openapi.yaml` (+ `web/docs/public/`): 3 route admin, schema `TempleSuggestionItem`/`TempleSuggestion`/`CreateTempleRequest`/envelope.
+- Quyết định kèm theo (spec chưa nêu, em chọn): `RequireAnyRole(next, roles...)` nhận handler trước (khớp `RequireRole`); `{id}` sai dạng trả `404 TEMPLE_SUGGESTION_NOT_FOUND` như id không tồn tại; số bắt buộc trong body (`established_year`, `latitude`, `longitude`) thiếu thì `400` với `details.field` đúng tên (con trỏ trong DTO); đề xuất `rejected` mở lại bởi `content_editor` trả `403 FORBIDDEN`; response chùa của `create-temple` ghép ảnh bằng `server.public_base_url` của backoffice (phải trùng appService khi triển khai).
+- Chưa làm: Phase 6 (từ chối); `erd.svg` (chưa có `mmdc`/Chrome); concept OKF; E2E chéo hai binary cho AC25.
+- `requirements.md`, `design.md`, `flow.md`, `tasks.md` (3.3 → 3.4): header/Status; `tasks.md` đánh `[x]` các mục đã kiểm chứng. Spec `temple` (AC 38) được đánh dấu xong ở `temple` v1.14.
+
+## v3.3 (2026-10-11)
+
+Cập nhật `SRS.md` theo v3.2 và sửa số liệu chùa. Theo yêu cầu của anh Đức: "sửa SRS của temple-suggestion", "sửa số liệu lại 93". Không đổi AC.
+
+- `SRS.md` (1.1 → 1.2): **Amendment A2** — chùa chính thức do ban quản trị tạo cũng có địa chỉ có cấu trúc: FR-009 yêu cầu tỉnh và xã chọn từ metadata hành chính (xã thuộc tỉnh), tên lấy từ metadata, thêm 4 Gherkin scenario (11 tổng); mục 2.7 (delta 7), 3.4, bảng truy vết FR-009 và Appendix A (hai dòng quyết định, gồm "không cần tiền tố Thành phố").
+- `requirements.md` (3.2 → 3.3): ghi chú N6 không còn nói "179 chùa" mà nói theo dạng id; AC không đổi.
+- `design.md`, `flow.md`, `tasks.md` (3.2 → 3.3): no change needed, verified — chỉ cập nhật header.
+- Reason: SRS là nguồn nghiệp vụ của spec này và phải phản ánh quyết định A2; con số 179 là số cũ so với `temple.json` (93 chùa).
+
+## v3.2 (2026-10-11)
+
+`create-temple` nhận và ghi địa chỉ có cấu trúc (N9). Theo yêu cầu của anh Đức: "khi đề xuất thêm chùa thì cũng có địa chỉ và nó sẽ được lấy từ metadata" — cùng đợt với spec `temple` v1.7. Chưa có code — Phase 8.
+
+- `requirements.md` (3.1 → 3.2): AC18 thêm `province_code`, `ward_code` vào các field bắt buộc; **thêm AC18a** (mã không tồn tại / xã lệch tỉnh → 400, kiểm trước transaction) và **AC18b** (ghi mã như gửi, tên lấy từ dataset, một quy tắc cho cả đề xuất cũ lẫn mới); bảng API contract, Pending, Ghi chú kỹ thuật; thêm N9 vào "Open questions (resolved)".
+- `design.md` (3.1 → 3.2): bảng backoffice (entity, `WardResolver`, usecase, repository), dòng Migration `0032`; **thêm Step C-3 "đối chiếu mã"** và đánh số lại C-3..C-6 → C-4..C-7 (các entry cũ của changelog này vẫn dùng số cũ); Known gaps: gap "`create-temple` chưa dùng mã" chuyển sang trạng thái đã thiết kế, thêm gap "bản chép SQL tra mã thứ hai".
+- `flow.md` (3.1 → 3.2): sơ đồ `create-temple` thêm participant `WardResolver` và C-3, mirror 1:1 `design.md`; sơ đồ gửi đề xuất không đổi.
+- `tasks.md` (3.1 → 3.2): thêm **Phase 8** (mọi mục `[ ]`); sửa tham chiếu "C-3..C-6" của Phase 4 thành "C-4..C-7"; mục Deferred về cột `temples` trỏ sang `temple` v1.7.
+- `SRS.md`: không đổi ở lượt này (do `il-ba` sở hữu); amendment cho SRS nếu cần là việc riêng. Ghi nhận, chưa làm.
+- Quyết định kèm theo (người dùng chưa chỉ định, spec chọn): body luôn mang mã, không có nhánh riêng cho đề xuất gửi trước v3.0 (admin chọn mã khi đề xuất không có); backoffice giữ bản `WardResolver` riêng thay vì import `appService/domain` (cùng cách xử lý `HeritagePriority`, N7).
+- Việc cần làm ngoài thư mục này (chưa làm): `migrations/0032` (spec `temple`), `docs/specs/api/openapi.yaml` + `web/docs`, `docs/specs/db/erd.*`, concept OKF (`il-okf-writer`).
+
+## v3.1 (2026-10-11)
+
+Implement Phase 7 (hợp đồng gửi đề xuất v3.0). Không đổi yêu cầu; thông tin triển khai được ghi lại.
+
+- `tasks.md` (3.0 → 3.1): Phase 7 đánh `[x]` — migration, domain, usecase, repository, handler, wiring, `openapi.yaml`, `web/docs`, E2E; còn `[ ]`: sinh lại `erd.svg` (chưa có `mmdc`) và mục backoffice Phase 3.
+- `design.md` (3.0 → 3.1): bỏ dấu "chưa làm/cần sửa" ở bảng Layers; mô tả `WardResolver` đúng như code (`ResolvedWard`, `ErrWardNotInProvince`, một câu `LEFT JOIN`); Step S-3 sửa theo đó.
+- `requirements.md`, `flow.md` (3.0 → 3.1): chỉ cập nhật Status/Pending; nội dung AC và sơ đồ không đổi.
+- Số migration: **`0030`**, không phải `0029` như bản nháp v3.0 (`0029` đã dùng cho `users_avatar`). `docs/specs/db/erd.mmd` còn ghi `0030_calendar_events.sql` là migration dự kiến của feature `calendar`; feature đó cần đổi số khi làm.
+- Kiểm chứng: `go test -short ./...` (appService, backofficeService); `TEST_DB_NAME=innerlamp_test go test ./repository/ ./e2e/` — pass.
+- Quyết định khi implement: `ResolveCurrentWard` thêm vào `AdministrativeUnitRepository` (và mock), usecase nhận port hẹp `domain.WardResolver`; kiểm mã tỉnh trước, xã sau (một câu SQL).
+
+## v3.0 (2026-10-11)
+
+Đổi hợp đồng gửi đề xuất: địa chỉ có cấu trúc theo metadata hành chính hệ mới (N8). Chưa có code — Phase 7.
+
+- `requirements.md` (2.4 → 3.0): AC1 body `{name, province_code, ward_code, address}`; AC2 thêm `province_code`/`ward_code` bắt buộc; AC3 bỏ giới hạn `province`; **thêm AC3a** (mã không tồn tại / xã lệch tỉnh → 400, chỉ nhận mã hệ mới) và **AC3b** (field `province` cũ bị từ chối, không chạy song song); AC5 lưu mã kèm tên chụp từ dataset; AC9/AC13/AC26 thêm `province_code`, `ward_code`, `ward`; bảng API contract, Pending, Ghi chú kỹ thuật; N2 bị N8 thay thế.
+- `design.md` (2.4 → 3.0): bảng Layers (entity, `WardResolver`, usecase, repository, DTO, wiring, migration `0030`), Schema (ba cột nullable + CHECK, không FK), Request flow, **thêm Step-by-step Flow S-1..S-4**, Known gaps (bỏ field cũ, `create-temple` chưa dùng mã, S-3/S-4 không chung transaction).
+- `flow.md` (2.4 → 3.0): thêm sơ đồ sequence gửi đề xuất, mirror S-1..S-4; sơ đồ C-1..C-6 không đổi.
+- `tasks.md` (2.4 → 3.0): thêm **Phase 7** (mọi mục `[ ]`; Phase 2 vẫn `[x]` theo hợp đồng v2.x, không đánh dấu lại).
+- `SRS.md` (1.0 → 1.1): Amendment A1 — địa chỉ có cấu trúc thay cho "tỉnh là chuỗi tự do"; sửa dòng giả định tương ứng.
+- Quyết định (anh Đức, 2026-10-11): bỏ hẳn `province` chuỗi, không chạy song song; `ward_code` bắt buộc. Ghi ở `docs/assumptions/temple-suggestion/A-001..A-002` các giả định em tự thêm (không FK; tên chụp; không backfill).
+- Việc tiếp theo ngoài thư mục này (chưa làm): migration `0030`, `docs/specs/api/openapi.yaml` + `web/docs`, `docs/specs/db/erd.*`, concept OKF (`il-okf-writer` sau khi code kiểm chứng).
+
 ## v2.4 (2026-10-10)
 
 Dọn tài liệu sau khi rà soát trước khi làm tiếp; không đổi hành vi hay phạm vi.

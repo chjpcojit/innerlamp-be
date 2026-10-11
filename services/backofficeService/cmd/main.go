@@ -57,6 +57,10 @@ func main() {
 		log.Fatalf("failed to load backoffice config: %v", err)
 	}
 
+	if err := cfg.TempleSuggestion.Validate(); err != nil {
+		log.Fatalf("invalid backoffice config: %v", err)
+	}
+
 	db, err := database.New(&database.Config{
 		Type: database.PostgreSQL, Host: cfg.Database.Host, Port: cfg.Database.Port,
 		Username: cfg.Database.Username, Password: cfg.Database.Password,
@@ -96,6 +100,13 @@ func main() {
 	userHandler := deliveryhttp.NewAdminUserHandler(userUsecase)
 	adminHandler := deliveryhttp.NewAdminAuthHandler(adminUsecase)
 
+	// The same repository value is both the suggestion store and the ward
+	// resolver: both read the one Postgres, and the resolver is just its
+	// addr_new_* lookup.
+	suggestionRepo := repository.NewTempleSuggestionRepository(db)
+	suggestionUsecase := usecase.NewTempleSuggestionUsecase(suggestionRepo, suggestionRepo.(domain.WardResolver), cfg.TempleSuggestion.PageSize)
+	suggestionHandler := deliveryhttp.NewTempleSuggestionHandler(suggestionUsecase, cfg.Server.PublicBaseURL)
+
 	// Every /v1/admin/* route except login goes through this: access tokens
 	// only, rejections in the shared envelope, then a role check per route.
 	authMiddleware := jwtmiddleware.NewHTTPAuthMiddlewareWithOptions(jwtService, logger, jwtmiddleware.HTTPAuthOptions{
@@ -109,6 +120,11 @@ func main() {
 	// change-password is the one route a must-change-password token may use.
 	adminPasswordChange := func(h http.HandlerFunc) http.HandlerFunc {
 		return authMiddleware.AuthenticateFunc(deliveryhttp.RequireActiveSession(adminUsecase, deliveryhttp.RequireStaffAllowPasswordChange(h)))
+	}
+	// Reviewers: admin and content_editor; viewer is refused (AC15).
+	reviewer := func(h http.HandlerFunc) http.HandlerFunc {
+		return authMiddleware.AuthenticateFunc(deliveryhttp.RequireActiveSession(adminUsecase,
+			deliveryhttp.RequireAnyRole(h, domain.RoleAdmin, domain.RoleContentEditor)))
 	}
 	// Any backoffice account, whatever its role.
 	staff := func(h http.HandlerFunc) http.HandlerFunc {
@@ -124,6 +140,9 @@ func main() {
 	mux.HandleFunc("GET /v1/admin/me", staff(adminHandler.Me))
 	mux.HandleFunc("POST /v1/admin/users", adminOnly(userHandler.Create))
 	mux.HandleFunc("POST /v1/admin/users/{id}/reset-password", adminOnly(userHandler.ResetPassword))
+	mux.HandleFunc("GET /v1/admin/temple-suggestions", reviewer(suggestionHandler.List))
+	mux.HandleFunc("GET /v1/admin/temple-suggestions/{id}", reviewer(suggestionHandler.Get))
+	mux.HandleFunc("POST /v1/admin/temple-suggestions/{id}/create-temple", reviewer(suggestionHandler.CreateTemple))
 
 	addr := cfg.Server.Addr
 	logger.Info("starting backofficeService", "addr", addr)

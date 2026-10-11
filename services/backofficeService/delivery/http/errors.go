@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"slices"
 
 	jwtcontext "chjpcoj.com.innerlamp/pkg/jwt/context"
 	"chjpcoj.com.innerlamp/pkg/utils"
@@ -48,6 +49,22 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadGateway, "EMAIL_SEND_FAILED", err.Error(), nil)
 	case errors.Is(err, domain.ErrWrongCurrentPassword):
 		utils.WriteValidationError(w, "WRONG_CURRENT_PASSWORD", err.Error(), map[string]any{"field": "current_password"})
+	case errors.Is(err, domain.ErrInvalidStatus):
+		utils.WriteValidationError(w, "INVALID_STATUS", err.Error(), map[string]any{"field": "status"})
+	case errors.Is(err, domain.ErrInvalidPage):
+		utils.WriteValidationError(w, "INVALID_PAGE", err.Error(), map[string]any{"field": "page"})
+	case errors.Is(err, domain.ErrTempleInputInvalid):
+		details := map[string]any(nil)
+		if ie, ok := errors.AsType[*domain.TempleInputError](err); ok {
+			details = map[string]any{"field": ie.Field}
+		}
+		utils.WriteValidationError(w, "VALIDATION_ERROR", err.Error(), details)
+	case errors.Is(err, domain.ErrSuggestionNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "TEMPLE_SUGGESTION_NOT_FOUND", err.Error(), nil)
+	case errors.Is(err, domain.ErrSuggestionAlreadyCreated):
+		utils.WriteBusinessError(w, http.StatusConflict, "SUGGESTION_ALREADY_CREATED", err.Error(), nil)
+	case errors.Is(err, domain.ErrReopenForbidden):
+		utils.WriteBusinessError(w, http.StatusForbidden, "FORBIDDEN", err.Error(), nil)
 	case errors.Is(err, domain.ErrWeakPassword):
 		utils.WriteValidationError(w, "WEAK_PASSWORD",
 			fmt.Sprintf("new password must be at least %d characters and differ from the current one", domain.MinPasswordLen),
@@ -69,6 +86,12 @@ func WriteAuthError(w http.ResponseWriter, _ *http.Request, _ error) {
 // middleware, which is what puts the claims in the context.
 func RequireRole(role string, next http.HandlerFunc) http.HandlerFunc {
 	return guard(func(r string) bool { return r == role }, false, next)
+}
+
+// RequireAnyRole is RequireRole for several roles: a token whose role claim is
+// any one of roles passes. Same 403 and password-change rules as RequireRole.
+func RequireAnyRole(next http.HandlerFunc, roles ...string) http.HandlerFunc {
+	return guard(func(r string) bool { return slices.Contains(roles, r) }, false, next)
 }
 
 // RequireStaff is RequireRole for routes any backoffice account may use,

@@ -1,14 +1,14 @@
 # Requirements — temple-suggestion
 
-Version: 2.4
-Last updated: 2026-10-10
-Status: US-TSG-01 (AC1–AC8, appService) đã implement và kiểm chứng 2026-10-10; US-TSG-02..04 (backoffice) chưa làm. Đồng bộ với `SRS.md` v1.0 (đã duyệt). Không còn marker `⚠️ Not confirmed`. Hành động từ chối (AC28–AC29) làm ở phase sau.
+Version: 3.4
+Last updated: 2026-10-11
+Status: **v3.4 (2026-10-11): phần duyệt ở backoffice đã implement và kiểm chứng** — US-TSG-02 (AC9–AC15) và US-TSG-03 (AC16–AC27, gồm AC18, AC18a–AC18b địa chỉ có cấu trúc) cùng AC30–AC31 (xem lại/tạo chùa từ đề xuất `rejected`, chỉ admin); unit, repository (Postgres thật), E2E binary backoffice đều pass. US-TSG-01 (AC1–AC8, appService) đã xong từ v3.0. Còn lại: hành động từ chối (US-TSG-04, AC28–AC29, `tasks.md` Phase 6). Không còn marker `⚠️ Not confirmed`.
 Module: `content` (đề xuất từ client) + `backoffice` (duyệt)
 Code: `services/appService/` (gửi đề xuất) + `services/backofficeService/` (duyệt, tạo chùa)
 
 > See `changelog.md` in this folder for the version history of this spec. Nguồn nghiệp vụ: `SRS.md` (IEEE 29148) cùng thư mục.
 
-Spec này được viết **trước khi có code** (Prospective mode); phần gửi đề xuất (US-TSG-01) đã có code, phần duyệt chưa. Nó mở rộng danh mục chùa của `docs/specs/features/temple/` (chỉ đọc, seed bằng tay) bằng một đường vào mới: người dùng app đề xuất một ngôi chùa chưa có, ban quản trị bổ sung thông tin rồi biến đề xuất thành chùa chính thức.
+Spec này được viết **trước khi có code** (Prospective mode); phần gửi đề xuất (US-TSG-01) và phần duyệt (US-TSG-02, US-TSG-03) đã có code; hành động từ chối (US-TSG-04) chưa. Nó mở rộng danh mục chùa của `docs/specs/features/temple/` (chỉ đọc, seed bằng tay) bằng một đường vào mới: người dùng app đề xuất một ngôi chùa chưa có, ban quản trị bổ sung thông tin rồi biến đề xuất thành chùa chính thức.
 
 > Mã user story `US-TSG-01..04` do anh Đức tự chốt 2026-10-10 (làm một mình, không cần chờ product).
 
@@ -19,16 +19,18 @@ Spec này được viết **trước khi có code** (Prospective mode); phần g
 ## User Story
 
 > Là một **người dùng app (không cần đăng nhập)**,
-> Tôi muốn **gửi tên, tỉnh/thành phố và địa chỉ của một ngôi chùa chưa có trong app**,
+> Tôi muốn **gửi tên, tỉnh/thành phố, xã/phường (chọn từ danh mục hành chính) và địa chỉ chi tiết của một ngôi chùa chưa có trong app**,
 > Để **ban quản trị xem xét và thêm chùa đó vào danh mục**.
 
 ## Acceptance Criteria (EARS notation)
 
-1. WHEN a `POST /v1/temple-suggestions` request arrives with a valid JSON body `{name, province, address}`, THE SYSTEM SHALL store one suggestion with `status = "pending"` and return `201 Created` with `data` = `{id, status: "pending"}`. (Không cần `Authorization`; đi qua `webAPIKey` giống các route `/v1/auth/*`.)
-2. WHEN `name`, `province` or `address` is missing, or empty after trimming leading/trailing whitespace, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field` naming the first offending field.
-3. WHEN `name` is longer than 255 characters, `province` longer than 100, or `address` longer than 500 (đếm theo ký tự Unicode, sau khi trim), THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field`.
+1. WHEN a `POST /v1/temple-suggestions` request arrives with a valid JSON body `{name, province_code, ward_code, address}`, THE SYSTEM SHALL store one suggestion with `status = "pending"` and return `201 Created` with `data` = `{id, status: "pending"}`. `province_code` và `ward_code` là mã **hệ mới** lấy từ `GET /v1/administrative-units/new/provinces` và `.../{code}/wards` (feature `administrative-units`). (Không cần `Authorization`; đi qua `webAPIKey` giống các route `/v1/auth/*`.)
+2. WHEN `name`, `province_code`, `ward_code` or `address` is missing, or empty after trimming leading/trailing whitespace, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field` naming the first offending field (thứ tự kiểm: `name`, `province_code`, `ward_code`, `address`).
+3. WHEN `name` is longer than 255 characters or `address` longer than 500 (đếm theo ký tự Unicode, sau khi trim), THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field`.
+3a. WHEN `province_code` matches no province of the new scheme, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "province_code"`; WHEN `ward_code` matches no ward of the new scheme **or belongs to a different province than `province_code`**, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "ward_code"` — and store nothing. Mã hệ cũ không được chấp nhận (cùng chuỗi mã có thể là đơn vị khác ở hệ cũ).
+3b. WHEN the body still carries the pre-v3.0 field `province` (hoặc bất kỳ field lạ nào), THE SYSTEM SHALL return `400` through the strict body decoder (AC4) — field `province` chuỗi tự do **bị bỏ hẳn**, không có chế độ chạy song song.
 4. WHEN the body is not valid JSON, has an unknown field, a trailing value or exceeds the body limit, THE SYSTEM SHALL return `400` through the shared strict body decoder (`json-body-hardening`) without storing anything.
-5. WHEN a suggestion is stored, THE SYSTEM SHALL keep the trimmed values exactly as sent (không tự sửa chính tả, không tự chuẩn hoá tên tỉnh) so ban quản trị thấy đúng điều người dùng gửi.
+5. WHEN a suggestion is stored, THE SYSTEM SHALL keep `name` and `address` trimmed but otherwise exactly as sent (không tự sửa chính tả) so ban quản trị thấy đúng điều người dùng gửi; AND SHALL store `province_code` and `ward_code` as sent together with a **snapshot of the unit names taken from the dataset at that moment** (`province` = tên ngắn của tỉnh, `ward` = tên đầy đủ của xã, vd `Phường Tân Định`), so ban quản trị đọc được địa chỉ mà không cần tra bảng `addr_*` và không vỡ khi bộ dữ liệu hành chính đổi phiên bản. Tên không bao giờ lấy từ client.
 6. WHEN a suggestion repeats a temple that already exists or another pending suggestion, THE SYSTEM SHALL still accept it and return `201` — không dò trùng lúc gửi, để client không biết được kho chùa/đề xuất đang có gì.
    > Đã chốt 2026-10-10 (SRS FR-004): không dò trùng lúc gửi, ban quản trị tự lọc.
 7. WHEN the same caller sends suggestions faster than the configured limit, THE SYSTEM SHALL return `429 RATE_LIMITED` and store nothing. Khoá là IP client, ngưỡng **5 đề xuất/IP/giờ** (config `temple_suggestion.rate_limit`); IP chỉ dùng tạm cho bộ đếm, không lưu cùng đề xuất.
@@ -45,11 +47,11 @@ Spec này được viết **trước khi có code** (Prospective mode); phần g
 
 ## Acceptance Criteria (EARS notation)
 
-9. WHEN a `GET /v1/admin/temple-suggestions` request arrives with a valid backoffice access token of an allowed role, THE SYSTEM SHALL return `200 OK` with `data` = `{items, page, page_size, total, total_pages}`; each item has `id`, `name`, `province`, `address`, `status`, `created_at`.
+9. WHEN a `GET /v1/admin/temple-suggestions` request arrives with a valid backoffice access token of an allowed role, THE SYSTEM SHALL return `200 OK` with `data` = `{items, page, page_size, total, total_pages}`; each item has `id`, `name`, `province_code`, `province`, `ward_code`, `ward`, `address`, `status`, `created_at`. `province_code` và `ward_code` là `null` ở đề xuất gửi trước v3.0 (khi đó `ward` cũng `null` và `province` là chuỗi người dùng đã gõ).
 10. WHEN `status` query is absent, THE SYSTEM SHALL list `pending` suggestions only; WHEN it is `pending`, `created` or `rejected`, THE SYSTEM SHALL list only that status; WHEN it is any other value, THE SYSTEM SHALL return `400 INVALID_STATUS` with `details.field = "status"`.
 11. WHEN suggestions are listed, THE SYSTEM SHALL order them by `created_at` ASC then `id` ASC (cũ nhất trước — duyệt theo thứ tự gửi), so paging never repeats or skips a row.
 12. WHEN `page` is absent or empty, THE SYSTEM SHALL serve page 1; WHEN it is not a positive integer, THE SYSTEM SHALL return `400 INVALID_PAGE`; WHEN it is beyond `total_pages`, THE SYSTEM SHALL return `200` with `items: []` — cùng quy tắc với `GET /v1/temples` (AC4–AC7 của `temple`).
-13. WHEN a `GET /v1/admin/temple-suggestions/{id}` request arrives for an existing suggestion, THE SYSTEM SHALL return `200 OK` with the list-item fields plus `temple_id` (`null` trừ khi `created`), `reviewed_by` (id admin, `null` khi còn chờ), `reviewed_at` (`null` khi còn chờ) and `reject_reason` (`null` trừ khi `rejected` và có nhập lý do).
+13. WHEN a `GET /v1/admin/temple-suggestions/{id}` request arrives for an existing suggestion, THE SYSTEM SHALL return `200 OK` with the list-item fields (AC9, gồm `province_code`/`ward_code`/`province`/`ward`) plus `temple_id` (`null` trừ khi `created`), `reviewed_by` (id admin, `null` khi còn chờ), `reviewed_at` (`null` khi còn chờ) and `reject_reason` (`null` trừ khi `rejected` và có nhập lý do).
 14. WHEN `{id}` is not a positive integer or matches no suggestion, THE SYSTEM SHALL return `404 TEMPLE_SUGGESTION_NOT_FOUND`.
 15. WHEN the token is missing, malformed, a refresh token, or revoked, THE SYSTEM SHALL return `401`; WHEN it belongs to a role not allowed to review, THE SYSTEM SHALL return `403` — cùng envelope và middleware như `/v1/admin/*` hiện có. Role được phép: `admin` và `content_editor`; `viewer` bị `403` (chốt 2026-10-10, SRS FR-012). `RequireRole` hiện chỉ nhận đúng một role nên cần helper "một trong các role" (`RequireAnyRole`).
 
@@ -65,17 +67,19 @@ Spec này được viết **trước khi có code** (Prospective mode); phần g
 
 16. WHEN a `POST /v1/admin/temple-suggestions/{id}/create-temple` request arrives for a `pending` suggestion with a valid body, THE SYSTEM SHALL — in one transaction — insert one row into `temples` and mark the suggestion `created` with `temple_id`, `reviewed_by` (admin id từ token) and `reviewed_at` (now), then return `201 Created` with `data` = `{suggestion: {id, status, temple_id}, temple: <chi tiết chùa, cùng hình dạng GET /v1/temples/{id}>}`.
 17. WHEN the request is processed, THE SYSTEM SHALL take every temple field from the request body only — nó không tự sao `name`/`address` từ đề xuất; form duyệt phía backoffice tự điền sẵn từ `GET .../{id}` rồi admin sửa.
-18. WHEN `name`, `type`, `region`, `sect`, `established_year`, `heritage_rank`, `latitude`, `longitude` or `address` is missing/empty, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field`; các field còn lại (`image_url`, `thumbnail_url`, `aliases`, `founder`, `current_abbot`, `operating_hours`, `amenities`, `introduction`, `architecture_heritage`, `visiting_notes`) là tuỳ chọn và nhận mặc định như bảng `temples` (`''`, `{}`, `false`).
+18. WHEN `name`, `type`, `region`, `sect`, `established_year`, `heritage_rank`, `latitude`, `longitude`, `province_code`, `ward_code` or `address` is missing/empty, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field`; các field còn lại (`image_url`, `thumbnail_url`, `aliases`, `founder`, `current_abbot`, `operating_hours`, `amenities`, `introduction`, `architecture_heritage`, `visiting_notes`) là tuỳ chọn và nhận mặc định như bảng `temples` (`''`, `{}`, `false`).
+18a. WHEN `province_code` matches no province of the new scheme, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "province_code"`; WHEN `ward_code` matches no ward of the new scheme or belongs to a different province than `province_code`, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "ward_code"` — and SHALL leave the suggestion unchanged and insert nothing. Mã hệ cũ không được chấp nhận. Kiểm này đọc dataset `addr_new_*` **trước** khi mở transaction (một ngoại lệ có chủ ý của "trước khi chạm DB" ở AC19: nó chỉ đọc).
+18b. WHEN a temple is created, THE SYSTEM SHALL store `province_code` and `ward_code` as sent and SHALL take `province` (tên ngắn của tỉnh) and `ward` (tên đầy đủ của xã) from the dataset at that moment, never from the request; `address` is the below-ward part exactly as sent (trimmed). The rule is the same whether the suggestion carries codes (v3.0 trở đi) or not (gửi trước v3.0, `province_code`/`ward_code` là `null`): form tự điền sẵn mã từ đề xuất khi có, admin chọn mã từ `administrative-units` khi không có, và request luôn mang mã — backend không có nhánh riêng cho đề xuất cũ. Địa chỉ đầy đủ của chùa là phần ghép `address`, `ward`, `province` (`temple` AC 33).
 19. WHEN `type`, `region` or `heritage_rank` is not one of the values the `temples` table allows (`chk_temples_type`, `chk_temples_region`, `chk_temples_heritage_rank`), THE SYSTEM SHALL return `400 VALIDATION_ERROR`; WHEN `latitude` is outside −90..90, `longitude` outside −180..180 or `established_year` ≤ 0 or in the future, THE SYSTEM SHALL return `400 VALIDATION_ERROR` — trước khi chạm DB.
 20. WHEN `image_url` or `thumbnail_url` is non-empty, THE SYSTEM SHALL accept it only if it starts with `/static/images/` or is an `http(s)` URL, otherwise `400 VALIDATION_ERROR`; WHEN empty or absent, THE SYSTEM SHALL store `''` (API đọc trả `null`, đúng AC11 của `temple`). Backend không nhận file ảnh ở v1.
 21. WHEN a temple is created, THE SYSTEM SHALL set `heritage_priority` from `heritage_rank` with the same mapping as `domain.HeritagePriority` (không nhận từ client) and generate the temple `id` on the server.
-   > Đã chốt 2026-10-10: id chùa mới dạng `temple_<region>_<NNN>` (NNN = số lớn nhất của region đó + 1, đệm 3 chữ số) để khớp 179 chùa seed.
+   > Đã chốt 2026-10-10: id chùa mới dạng `temple_<region>_<NNN>` (NNN = số lớn nhất của region đó + 1, đệm 3 chữ số) để khớp dạng id của các chùa seed (`temple_<region>_<n>`).
    > Đã chốt 2026-10-10 (N7): backoffice giữ bản chép riêng của bảng ánh xạ `heritage_rank → heritage_priority`; một test đối chiếu với `appService/domain.HeritagePriority` chặn lệch.
 22. WHEN the suggestion is already `created`, THE SYSTEM SHALL return `409 SUGGESTION_ALREADY_CREATED` and insert nothing; WHEN two requests race for the same pending suggestion, THE SYSTEM SHALL let exactly one succeed and answer the other `409`.
 23. WHEN `{id}` is not a positive integer or matches no suggestion, THE SYSTEM SHALL return `404 TEMPLE_SUGGESTION_NOT_FOUND`.
 24. WHEN any step after the validation fails (id collision, constraint violation, DB error), THE SYSTEM SHALL roll back so the suggestion stays `pending` and no `temples` row exists, and SHALL return `500 INTERNAL_ERROR` without leaking the cause.
 25. WHEN a temple has been created, THE SYSTEM SHALL make it visible at once through `GET /v1/temples`, `/top` and `/{id}` (cùng bảng `temples`, không có cache) at the position its `heritage_priority`, `established_year`, `id` give it.
-26. WHEN a suggestion is `created`, THE SYSTEM SHALL keep its original `name`/`province`/`address` unchanged and SHALL NOT allow a second `create-temple` or any edit of it.
+26. WHEN a suggestion is `created`, THE SYSTEM SHALL keep its original `name`/`province_code`/`province`/`ward_code`/`ward`/`address` unchanged and SHALL NOT allow a second `create-temple` or any edit of it.
 27. WHEN the token/role rules of AC15 are violated, THE SYSTEM SHALL return `401`/`403` before reading the body.
 
 ## US-TSG-04: Từ chối đề xuất và xem lại đề xuất bị từ chối
@@ -95,14 +99,14 @@ Spec này được viết **trước khi có code** (Prospective mode); phần g
 
 ## API contract (confirmed surface for this feature)
 
-Route `POST /v1/temple-suggestions` đã có trong `docs/specs/api/openapi.yaml` (và bản `web/docs/public/`). Ba route `/v1/admin/temple-suggestions…` còn là đề xuất của spec, chốt khi implement (`tasks.md` Phase 4).
+Route `POST /v1/temple-suggestions` đã có trong `docs/specs/api/openapi.yaml` (và bản `web/docs/public/`) theo hợp đồng v3.0 (body `{name, province_code, ward_code, address}`; đã đổi cùng lúc với code, `tasks.md` Phase 7). Ba route `/v1/admin/temple-suggestions…` đã implement và có trong `openapi.yaml` (cả bản `web/docs/public/`).
 
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
-| POST | `/v1/temple-suggestions` | public (+ `webAPIKey`) | 201 `{id, status}` | 400 `VALIDATION_ERROR`, 429 `RATE_LIMITED`, 500 |
+| POST | `/v1/temple-suggestions` | public (+ `webAPIKey`) | 201 `{id, status}` — body `{name, province_code, ward_code, address}` (v3.0) | 400 `VALIDATION_ERROR` (gồm `province_code`/`ward_code` không tồn tại hoặc lệch nhau), 429 `RATE_LIMITED`, 500 |
 | GET | `/v1/admin/temple-suggestions` | backoffice token (admin, content_editor) | 200 `{items, page, page_size, total, total_pages}` | 400 `INVALID_STATUS`/`INVALID_PAGE`, 401, 403 |
 | GET | `/v1/admin/temple-suggestions/{id}` | backoffice token (admin, content_editor) | 200 chi tiết | 401, 403, 404 `TEMPLE_SUGGESTION_NOT_FOUND` |
-| POST | `/v1/admin/temple-suggestions/{id}/create-temple` | backoffice token (admin, content_editor; rejected → admin only) | 201 `{suggestion, temple}` | 400 `VALIDATION_ERROR`, 401, 403, 404, 409 `SUGGESTION_ALREADY_CREATED` |
+| POST | `/v1/admin/temple-suggestions/{id}/create-temple` | backoffice token (admin, content_editor; rejected → admin only) | 201 `{suggestion, temple}` — body gồm `province_code`, `ward_code`, `address` (v3.2) cùng các field chùa khác | 400 `VALIDATION_ERROR` (gồm `province_code`/`ward_code` không tồn tại hoặc lệch nhau), 401, 403, 404, 409 `SUGGESTION_ALREADY_CREATED` |
 | POST | `/v1/admin/temple-suggestions/{id}/reject` *(phase sau, route tạm)* | backoffice token (admin, content_editor) | 200 `{suggestion}` | 400 `VALIDATION_ERROR`, 401, 403, 404, 409 `SUGGESTION_ALREADY_HANDLED` |
 
 ## Out of scope (this feature boundary, not tracked here)
@@ -114,12 +118,13 @@ Route `POST /v1/temple-suggestions` đã có trong `docs/specs/api/openapi.yaml`
 
 ## Pending (not yet implemented)
 
-- Phần duyệt ở backoffice (US-TSG-02, US-TSG-03, AC9–AC27) — `tasks.md` Phase 3–5. US-TSG-01 (AC1–AC8) đã xong.
-- Hành động từ chối (US-TSG-04, AC28–AC29) — cần nhưng làm ở phase sau theo quyết định 2026-10-10; schema và AC30–AC31 (xem lại + tạo chùa từ đề xuất bị từ chối) đi cùng bản đầu vì chỉ là thêm giá trị `rejected` vào trạng thái. `tasks.md` Phase 6.
+- Hành động từ chối (US-TSG-04, AC28–AC29) — cần nhưng làm ở phase sau theo quyết định 2026-10-10; schema và AC30–AC31 (xem lại + tạo chùa từ đề xuất bị từ chối) đã đi cùng bản đầu. `tasks.md` Phase 6.
+- Chưa có test nào chứng minh `GET /v1/temples/{id}` của appService thấy chùa vừa tạo (AC25) qua hai binary; hai service đọc cùng bảng `temples` và test repository xác nhận các cột được ghi.
 
 ## Ghi chú kỹ thuật liên quan
 
 - Schema mới: `temple_suggestions` (`migrations/0022_temple_suggestions.sql`, đã có cùng `erd.mmd`/`erd.svg`/`migrations/README.md`) — xem `design.md`. Đề xuất giữ vĩnh viễn (không có job dọn) và không lưu IP người gửi.
+- Địa chỉ có cấu trúc (v3.0): kiểm `province_code`/`ward_code` qua bảng `addr_new_provinces`/`addr_new_wards` của `administrative-units` (migration `0026`). `temples.province` của chùa chính thức dùng cùng danh sách 34 đơn vị (`domain/province.go`, migration `0025`) nên tên tỉnh trong đề xuất khớp tên tỉnh của chùa; **v3.2:** `temples` có `province_code`/`ward_code`/`ward` (spec `temple` v1.7, migration `0032`) nên `create-temple` ghi mã thay vì chỉ `province` chuỗi; `address` của chùa cũng là phần dưới cấp xã như `address` của đề xuất.
 - Hai service dùng chung một Postgres (bảng `admins` của backoffice nằm trong `migrations/` chung), nên backoffice ghi thẳng vào `temples` mà không cần gọi qua appService.
 - Cột `temples.image_url`/`thumbnail_url` lưu đường dẫn tương đối (`0021_relative_image_urls.sql`); API đọc tự ghép `server.public_base_url`. File ảnh phải được đặt vào `static/images/...` bằng tay/CI trước khi admin nhập đường dẫn — backend không kiểm tra file có tồn tại.
 - Mọi lỗi trả trong envelope chung `{"success": false, "error": {code, message, type}, "details"?}`.
@@ -133,7 +138,7 @@ Route `POST /v1/temple-suggestions` đã có trong `docs/specs/api/openapi.yaml`
 - ~~Làm spec hay code luôn?~~ → spec trước, anh duyệt rồi mới code TDD. Resolved 2026-10-10.
 
 - ~~N1 — Khoá và ngưỡng rate-limit?~~ → theo IP, 5 đề xuất/IP/giờ; rủi ro IP dùng chung được chấp nhận ở v1. Resolved 2026-10-10.
-- ~~N2 — `province` tự do hay danh sách cố định?~~ → chuỗi tự do ≤100 ký tự. Resolved 2026-10-10.
+- ~~N2 — `province` tự do hay danh sách cố định?~~ → chuỗi tự do ≤100 ký tự. Resolved 2026-10-10. **Thay thế 2026-10-11 (N8).**
 - ~~N3 — Dò trùng lúc gửi?~~ → không; ban quản trị tự lọc. Resolved 2026-10-10.
 - ~~N4 — Có trạng thái `rejected`?~~ → có, lý do tuỳ chọn ≤500 ký tự; admin xem lại và vẫn tạo chùa được; route từ chối làm phase sau. Resolved 2026-10-10.
 - ~~N5 — Role được duyệt?~~ → `admin` + `content_editor`; chuyển đề xuất đã từ chối thành chùa chỉ `admin`. Resolved 2026-10-10.
@@ -143,5 +148,9 @@ Route `POST /v1/temple-suggestions` đã có trong `docs/specs/api/openapi.yaml`
 - ~~Mã user story?~~ → `US-TSG-01..04`, anh Đức tự chốt. Resolved 2026-10-10.
 
 - ~~N7 — Bảng ánh xạ priority nằm đâu?~~ → chép sang backoffice kèm test đối chiếu (không đưa vào `pkg/`). Resolved 2026-10-10.
+
+- ~~N8 — Địa chỉ của đề xuất lấy từ đâu?~~ → dùng metadata hành chính hệ mới: client gửi `province_code` + `ward_code`; `address` chỉ còn phần dưới cấp xã (tự do ≤500 ký tự). Bỏ hẳn field `province` chuỗi (không chạy song song, vì app chưa release và backoffice chưa đọc cột này); `ward_code` bắt buộc. Server lưu mã cùng tên tại thời điểm gửi, không đặt FK sang `addr_*`. Resolved 2026-10-11 (anh Đức, "đồng ý theo hướng đó"). Thay N2.
+
+- ~~N9 — Chùa tạo từ đề xuất có địa chỉ có cấu trúc không?~~ → có: mọi chỗ có địa chỉ gồm `province_code` + `ward_code` + `address` (phần số nhà, đường…); `create-temple` nhận ba field này trong body và kiểm mã với dataset (anh Đức, 2026-10-11, "khi đề xuất thêm chùa thì cũng có địa chỉ và nó sẽ được lấy từ metadata"). Lựa chọn spec tự thêm: body luôn mang mã (không nhánh riêng cho đề xuất cũ), tên lấy từ dataset — `docs/assumptions/temple/A-001`. Resolved 2026-10-11.
 
 Không còn câu hỏi mở.
