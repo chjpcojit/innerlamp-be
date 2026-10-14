@@ -28,16 +28,20 @@ type ClientIPRateLimit struct {
 
 // NewClientIPRateLimit allows max requests per client IP per window. With
 // trustForwardedFor the IP is the last X-Forwarded-For entry (the one the
-// trusted proxy appended); otherwise it is the TCP peer.
-func NewClientIPRateLimit(max int64, window time.Duration, trustForwardedFor bool) (*ClientIPRateLimit, error) {
+// trusted proxy appended); otherwise it is the TCP peer. Without options the
+// counters are this limiter's own, in memory; WithSharedStore moves them to a
+// store several limiters (and instances) share.
+func NewClientIPRateLimit(max int64, window time.Duration, trustForwardedFor bool, opts ...RateLimitOption) (*ClientIPRateLimit, error) {
+	o := applyRateLimitOptions(opts)
 	inner, err := ratelimitmw.NewHTTPMiddleware(ratelimit.Config{
 		Rate:      max,
 		Burst:     max,
 		Window:    window,
 		Algorithm: ratelimit.SlidingWindow,
+		Store:     o.store,
 		KeyFunc: func(ctx context.Context) (string, error) {
 			ip, _ := ctx.Value(clientIPCtxKey{}).(string)
-			return ip, nil
+			return o.key(ip), nil
 		},
 	})
 	if err != nil {

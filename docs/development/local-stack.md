@@ -13,6 +13,7 @@ Tài liệu này mô tả ý nghĩa từng thành phần trong `docker-compose.y
 | `postgres` | `postgres:16-alpine` | `5432:5432` | `postgres-data:/var/lib/postgresql/data` | — | DB cho appService; khớp nguyên `services/appService/config/config.dev.yaml` |
 | `migrate` | `postgres:16-alpine` | — (không publish) | `./migrations:/migrations:ro` | `postgres` healthy | One-shot: apply `migrations/*.sql` rồi thoát |
 | `gcs` | `fsouza/fake-gcs-server:1.56.1` | `4443:4443` | `gcs-data:/storage` | — | Emulator object storage cho ảnh đại diện (`storage.emulator_host` trong `config.dev.yaml`). **Không ký và không kiểm URL**; bucket do appService tạo khi khởi động. Chạy cùng `make up` / `make run` |
+| `redis` | `redis:7.4.2-alpine` | `6379:6379` | — (không persist) | — | Store dùng chung cho rate limiter của appService (`rate_limit_store` trong `config.dev.yaml`). Có `requirepass`, không RDB/AOF, `maxmemory 128mb` + `volatile-ttl`. Xem [`docs/knowledge/packages/ratelimit.md`](../knowledge/packages/ratelimit.md) |
 | `loki` | `grafana/loki:3.7.8` | `3100:3100` | `loki-data:/loki` | — | Nhận và lưu log; config `observability/loki/config.yml` |
 | `alloy` | `grafana/alloy:v1.19.2` | `12345:12345` | `./observability/alloy/config.alloy` (ro), `./observability/logs:/var/log/innerlamp:ro`, `alloy-data` | `loki` | Tail file log trên host → push vào Loki |
 | `grafana` | `grafana/grafana:13.2.2` | `3000:3000` | `./observability/grafana/provisioning` (ro), `grafana-data` | `loki` | UI truy vấn log; datasource Loki được provision sẵn |
@@ -87,6 +88,9 @@ Danh sách target:
 | `make run` | `make up` + `make ensure-deities`, rồi `go run ./services/appService/cmd`, tee vào `observability/logs/appservice.log` |
 | `make build` / `test` / `vet` | `go build ./...` / `go test -short ./...` / `go vet ./...` |
 | `make db-up` | Chỉ dựng Postgres + apply migrations (không Loki/Grafana/Alloy) |
+| `make redis-up` | Chỉ dựng Redis và chờ healthcheck (`make run` gọi target này vì appService ping Redis lúc khởi động) |
+| `make redis-cli` | Mở `redis-cli` trong container Redis |
+| `make redis-ratelimits` | Liệt kê counter rate limit đang sống: key, số request trong window, TTL (ms) |
 | `make migrate` | Apply lại `migrations/` vào Postgres đang chạy |
 | `make ensure-deities` | Seed `deities` chỉ khi bảng rỗng (an toàn khi lặp lại, giữ chỉnh sửa tay) |
 | `make seed-deities` | Upsert `deities` từ `assets/data/phat_botat.json` (ghi đè chỉnh sửa tay) |
@@ -152,6 +156,7 @@ Các điểm sau **chỉ dùng local**, tuyệt đối không copy sang môi tr�
 - Grafana bật form đăng nhập (`GF_AUTH_ANONYMOUS_ENABLED=false`): tài khoản mặc định `admin` / `admin` (hoặc mật khẩu đã đổi, lưu trong volume `grafana-data`). Chỉ dùng local — đừng expose port 3000.
 - Loki `auth_enabled: false`, không retention, lưu trên filesystem.
 - Postgres dùng `postgres/postgres`, không TLS.
+- Redis dùng mật khẩu `innerlamp-dev-redis` (khớp `dev_secrets.appservice-redis-password`), không TLS (`docs/tech-debt/ratelimit/TD-001`). Restart Redis là reset mọi window rate limit.
 - Bên phía app (không thuộc compose): secret đọc từ `dev_secrets` trong YAML (`⚠️ DEV ONLY`), SMS chỉ log (`pkg/sms/logsms`), OTP hardcode `111111`.
 
 ---
@@ -161,7 +166,9 @@ Các điểm sau **chỉ dùng local**, tuyệt đối không copy sang môi tr�
 | Hiện tượng | Nguyên nhân / cách xử lý |
 |---|---|
 | `failed to connect to database` khi `go run` | Postgres chưa lên. Chạy `make up` (hoặc `make db-up`) trước. |
-| `bind: address already in use` khi `up` | Port 5432/3000/3100/12345 đã bị chiếm. Kiểm tra `lsof -nP -iTCP:<port> -sTCP:LISTEN`, hoặc dừng Postgres local. |
+| `failed to set up rate limit store: ping redis localhost:6379` khi `go run` | Redis chưa lên. Chạy `make redis-up` (hoặc `make run`, đã tự gọi). |
+| Bị `429 RATE_LIMITED` khi test tay | Counter còn trong Redis. Xem bằng `make redis-ratelimits`, xoá bằng `make redis-cli` → `DEL <key>` (hoặc restart container `redis`). |
+| `bind: address already in use` khi `up` | Port 5432/6379/3000/3100/12345 đã bị chiếm. Kiểm tra `lsof -nP -iTCP:<port> -sTCP:LISTEN`, hoặc dừng Postgres local. |
 | `loki /ready` trả `503` ngay sau `up` | Bình thường trong vài giây đầu (ring chưa sẵn sàng). Chờ rồi thử lại. |
 | Log không thấy trong Grafana | Alloy chỉ thấy file **sau khi** file tồn tại. Đảm bảo app chạy bằng lệnh có `tee` (target `make run`), và thư mục `observability/logs/` do user sở hữu (đã commit `.gitkeep`). |
 | `seed sutras: … (run cmd/seeddeities first)` (từ `make seed-sutras` / `cmd/seedsutras`) | `deities` chưa được seed trên DB này. Với `make run`/`make ensure-sutras` không nên xảy ra (deities được nạp trước); nếu chạy `go run` trực tiếp thì chạy `make seed-deities` (hoặc `make ensure-deities`) rồi chạy lại — xem khung ở §2. |

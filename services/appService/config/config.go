@@ -82,6 +82,10 @@ type AppConfig struct {
 	TempleAnnouncement TempleAnnouncementConfig `yaml:"temple_announcement"`
 
 	AdministrativeUnits AdministrativeUnitsConfig `yaml:"administrative_units"`
+
+	// RateLimitStore is where every rate limiter keeps its counters (Redis, shared by all
+	// instances, or memory, one instance only). docs/knowledge/packages/ratelimit.md.
+	RateLimitStore RateLimitStoreConfig `yaml:"rate_limit_store"`
 }
 
 // ServerConfig holds HTTP server settings.
@@ -748,6 +752,89 @@ func (c AdministrativeUnitsConfig) Validate() error {
 	return nil
 }
 
+// RateLimitStore backends.
+const (
+	RateLimitStoreRedis  = "redis"
+	RateLimitStoreMemory = "memory"
+)
+
+// RateLimitStoreConfig selects the store behind every rate limiter. Redis
+// counts across all instances; memory counts per instance, so N instances
+// allow N times the configured limit. There is no default: a missing block
+// must stop the service rather than silently fall back to per-instance counts.
+// RateLimitStoreConfig chọn store cho mọi rate limiter. Redis đếm chung cho mọi
+// instance; memory đếm theo từng instance nên N instance cho qua gấp N lần limit.
+// Không có giá trị mặc định: thiếu block thì service phải dừng, không âm thầm
+// chuyển sang đếm theo instance.
+type RateLimitStoreConfig struct {
+	// Backend is "redis" or "memory" ("memory" only for tests or a single instance).
+	// Backend là "redis" hoặc "memory" ("memory" chỉ dùng cho test hoặc một instance).
+	Backend string `yaml:"backend"`
+
+	Redis RedisRateLimitConfig `yaml:"redis"`
+}
+
+// RedisRateLimitConfig is the Redis connection the rate limiters share.
+// PasswordSecret names the secret resolved into Password; Password itself is
+// never read from YAML.
+// RedisRateLimitConfig là kết nối Redis các rate limiter dùng chung.
+// PasswordSecret là tên secret được resolve vào Password; Password không bao giờ
+// đọc từ YAML.
+type RedisRateLimitConfig struct {
+	Addr           string `yaml:"addr"`
+	PasswordSecret string `yaml:"password_secret"`
+	Password       string `yaml:"-"`
+	DB             int    `yaml:"db"`
+
+	// KeyPrefix starts every key, so one Redis can serve several services or
+	// environments without their counters colliding (dev: "innerlamp:app:rl:").
+	// KeyPrefix đứng đầu mọi key để một Redis phục vụ nhiều service/môi trường mà
+	// counter không đè nhau.
+	KeyPrefix string `yaml:"key_prefix"`
+
+	// DialTimeout bounds the startup ping and every reconnect (dev: "1s").
+	// DialTimeout giới hạn lần ping lúc khởi động và mỗi lần kết nối lại.
+	DialTimeout Duration `yaml:"dial_timeout"`
+
+	// OpTimeout bounds each limit check. It sits on the request path, so it is
+	// kept short: past it the check falls back to a per-instance count instead
+	// of holding the request (dev: "100ms").
+	// OpTimeout giới hạn mỗi lần kiểm tra limit. Nó nằm trên đường đi của request
+	// nên phải ngắn: quá hạn thì chuyển sang đếm theo instance thay vì giữ request.
+	OpTimeout Duration `yaml:"op_timeout"`
+}
+
+// Validate rejects an unknown backend and, for Redis, a missing address,
+// prefix or timeout.
+// Validate từ chối backend lạ và, với Redis, thiếu địa chỉ, prefix hoặc timeout.
+func (c RateLimitStoreConfig) Validate() error {
+	switch c.Backend {
+	case RateLimitStoreMemory:
+		return nil
+	case RateLimitStoreRedis:
+	default:
+		return fmt.Errorf("rate_limit_store.backend must be %q or %q, got %q",
+			RateLimitStoreRedis, RateLimitStoreMemory, c.Backend)
+	}
+	r := c.Redis
+	if strings.TrimSpace(r.Addr) == "" {
+		return fmt.Errorf("rate_limit_store.redis.addr is required")
+	}
+	if strings.TrimSpace(r.KeyPrefix) == "" {
+		return fmt.Errorf("rate_limit_store.redis.key_prefix is required")
+	}
+	if r.DB < 0 {
+		return fmt.Errorf("rate_limit_store.redis.db must be >= 0, got %d", r.DB)
+	}
+	if r.DialTimeout.Duration() <= 0 {
+		return fmt.Errorf("rate_limit_store.redis.dial_timeout must be > 0, got %s", r.DialTimeout.Duration())
+	}
+	if r.OpTimeout.Duration() <= 0 {
+		return fmt.Errorf("rate_limit_store.redis.op_timeout must be > 0, got %s", r.OpTimeout.Duration())
+	}
+	return nil
+}
+
 // DharmaTalkConfig holds the pháp thoại catalogue's page size. Same reasoning as
 // ArticleConfig: a tuning knob, and zero would return empty pages (and divide by
 // zero in the page count), so every config.<env>.yaml must set it.
@@ -894,6 +981,14 @@ func (c *AppConfig) resolveSecrets(ctx context.Context, sg SecretGetter) error {
 			return fmt.Errorf("jwt.secret_key_secret %q: %w", c.JWT.SecretKeySecret, err)
 		}
 		c.JWT.SecretKey = v
+	}
+
+	if c.RateLimitStore.Redis.PasswordSecret != "" {
+		v, err := getSecret(ctx, sg, c.RateLimitStore.Redis.PasswordSecret)
+		if err != nil {
+			return fmt.Errorf("rate_limit_store.redis.password_secret %q: %w", c.RateLimitStore.Redis.PasswordSecret, err)
+		}
+		c.RateLimitStore.Redis.Password = v
 	}
 
 	if c.Attestation.Android.CredentialsSecret != "" {

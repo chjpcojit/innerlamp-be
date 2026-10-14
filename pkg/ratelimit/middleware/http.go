@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"context"
+	"math"
 	"net/http"
 	"strconv"
 
@@ -55,7 +56,14 @@ func (m *HTTPMiddleware) Handler(next http.Handler) http.Handler {
 		w.Header().Set("X-RateLimit-Reset", strconv.FormatInt(res.ResetTime.Unix(), 10))
 
 		if !res.Allowed {
-			retryAfter := int64(res.RetryAfter.Seconds())
+			// Round up and never send 0: Retry-After counts whole seconds, and a
+			// truncated 0 tells the client to retry at once into another 429.
+			// Làm tròn lên và không bao giờ gửi 0: Retry-After tính theo giây
+			// nguyên, giá trị 0 do cắt sẽ khiến client thử lại ngay và lại bị 429.
+			retryAfter := int64(math.Ceil(res.RetryAfter.Seconds()))
+			if retryAfter < 1 {
+				retryAfter = 1
+			}
 			w.Header().Set("Retry-After", strconv.FormatInt(retryAfter, 10))
 			utils.WriteBusinessError(w, http.StatusTooManyRequests, "RATE_LIMITED", "too many requests",
 				map[string]any{"retry_after_seconds": retryAfter})

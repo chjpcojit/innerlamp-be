@@ -94,3 +94,25 @@ func TestFixedWindow(t *testing.T) {
 		t.Error("request 6 should be blocked")
 	}
 }
+
+// A denied sliding-window request must say when to retry (was always 0).
+// Request sliding-window bị từ chối phải cho biết khi nào thử lại (trước đây luôn 0).
+func TestSlidingWindowRetryAfter(t *testing.T) {
+	s := NewMemoryStore()
+	ctx := context.Background()
+	window := time.Minute
+
+	if _, err := s.Allow(ctx, "k", 1, window, 1, ratelimit.SlidingWindow); err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	res, err := s.Allow(ctx, "k", 1, window, 1, ratelimit.SlidingWindow)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if res.Allowed {
+		t.Fatal("second request should be blocked")
+	}
+	if res.RetryAfter <= 0 || res.RetryAfter > window {
+		t.Errorf("RetryAfter = %v, want in (0, %v]", res.RetryAfter, window)
+	}
+}

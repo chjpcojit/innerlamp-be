@@ -141,11 +141,19 @@ func (sw *slidingWindow) Allow(limit int64, window time.Duration, burst int64) *
 		resetTime = sw.requests[0].Add(window)
 	}
 
-	return &ratelimit.Result{
+	result := &ratelimit.Result{
 		Allowed:   allowed,
 		Remaining: remaining,
 		ResetTime: resetTime,
 	}
+	// A denied caller may retry once the oldest counted request leaves the
+	// window; without this Retry-After was always 0.
+	// Caller bị từ chối được thử lại khi request cũ nhất rời window; thiếu dòng
+	// này Retry-After luôn bằng 0.
+	if !allowed {
+		result.RetryAfter = resetTime.Sub(now)
+	}
+	return result
 }
 
 // fixedWindow implementation

@@ -54,7 +54,7 @@ Context key sẵn có để dùng trong `KeyFunc`: `middleware.ContextKeyHTTPPat
 Backend in-memory, `map[string]Limiter` bảo vệ bằng `sync.RWMutex`. Trạng thái chỉ tồn tại trong process hiện tại.
 
 ### `store.NewRedisStore(client redis.UniversalClient) *RedisStore`
-Backend Redis, mỗi thuật toán chạy bằng Lua script (`redis.NewScript`) để đảm bảo atomic khi nhiều instance cùng ghi. `.RegisterAlgorithm(name ratelimit.Algorithm, algo RedisAlgorithm)` cho phép đăng ký thuật toán tuỳ biến.
+Backend Redis, mỗi thuật toán chạy bằng Lua script (`redis.NewScript`) để đảm bảo atomic khi nhiều instance cùng ghi. Sliding window dùng `TIME` của Redis (không lệch đồng hồ giữa instance), member duy nhất cho mỗi request và `PEXPIRE` bằng window. `.RegisterAlgorithm(name ratelimit.Algorithm, algo RedisAlgorithm)` cho phép đăng ký thuật toán tuỳ biến.
 ```go
 rdb := redis.NewClient(&redis.Options{Addr: "localhost:6379"})
 config.Store = store.NewRedisStore(rdb)
@@ -69,7 +69,9 @@ config.Store = store.NewRedisStore(rdb)
 - Nếu không set `Config.Store`, `middleware.NewLimiter` tự dùng `MemoryStore` — không tự chọn Redis, phải truyền tay khi cần distributed.
 
 ## Lưu ý / lỗi hay gặp
-- **Fail-open khi Store lỗi**: cả `HTTPMiddleware.Handler` và `GRPCMiddleware` đều cho request đi qua nếu `Store.Allow` trả lỗi (Redis mất kết nối chẳng hạn) — ưu tiên availability hơn strict limiting, cần lưu ý khi audit bảo mật (brute-force login có thể lọt qua lúc Redis down).
+- **Fail-open khi Store lỗi**: cả `HTTPMiddleware.Handler` và `GRPCMiddleware` đều cho request đi qua nếu `Store.Allow` trả lỗi (Redis mất kết nối chẳng hạn) — ưu tiên availability hơn strict limiting, cần lưu ý khi audit bảo mật (brute-force login có thể lọt qua lúc Redis down). Muốn giữ limit khi Redis down thì bọc store bằng `store.NewFallbackStore(redisStore, store.NewMemoryStore(), onError)`: lỗi của Redis được báo qua `onError` và lần kiểm tra đó được đếm bằng memory của instance (appService dùng cách này).
+- **Store dùng chung cần scope cho key**: một `RedisStore` (hoặc một `MemoryStore`) dùng cho nhiều limiter thì mỗi limiter phải có prefix key riêng trong `KeyFunc`, nếu không hai limiter cùng key theo IP sẽ đếm chung một bucket.
+- **Reply của Lua script chỉ là số nguyên**: Lua `false` về tới Go thành `nil` và số thực bị cắt, nên mọi script trả `allowed` dạng `1/0` và thời gian dạng ms nguyên; `scriptInts` báo lỗi (không panic) nếu reply sai dạng. Trước 2026-10-14 request bị từ chối làm panic.
 - **`KeyFunc` rỗng hoặc trả `""`** → `middleware.Limiter.Allow` dùng key `"global"`, nghĩa là mọi caller dùng chung một bucket — dễ gây lock-out chéo giữa user nếu quên set `KeyFunc`.
 - **`MemoryStore` không chia sẻ được giữa nhiều instance** — chạy rate limit theo IP/user trên nhiều pod/container sẽ mỗi instance đếm riêng, hạn mức thực tế nhân lên theo số instance. Dùng `RedisStore` nếu cần đúng con số toàn cục.
 - **`Burst` chỉ có ý nghĩa với `TokenBucket`** (và một phần `LeakyBucket` dùng `Rate` để tính interval) — `SlidingWindow`/`FixedWindow` bỏ qua `Burst`, dùng thẳng `Rate`.
