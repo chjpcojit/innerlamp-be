@@ -4,6 +4,10 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v4.2 (2026-10-14)
+
+- Bước 4 của đợt viết lại tài liệu: xoá `docs/assumptions/memorial/A-001-heic-client-converts.md` (product FR-MEM-011 đã ghi quyết định HEIC → JPEG). `requirements.md` (câu hỏi đã resolved về HEIC) và `docs/tech-debt/memorial/TD-001` giờ trỏ tới FR-MEM-011. Không đổi hành vi; `design.md`, `flow.md`, `tasks.md` chỉ đổi version.
+
 ## v4.1 (2026-10-14)
 
 - Trỏ lên product spec @ v2.1 (MINOR). Câu hỏi product về lời nhắc của mục đã xoá đã có câu trả lời: lời nhắc trong mục Thông báo bị xoá cùng mục (BR-MEM-12, §3.5). `requirements.md`: AC22 xoá notification cùng transaction; bỏ marker `⚠️ Not confirmed (product)`, ghi vào resolved. `design.md`: phụ thuộc notification thêm mục 6 (hàm xoá tx-aware theo `memorial_id`), dòng chi tiết đọc tên lúc hiển thị. `tasks.md` Phase 10: thêm một mục. `flow.md`: chỉ đổi version (sơ đồ xoá không đổi bước nào ở memorial; bước xoá inbox thuộc feature notification, sẽ vẽ khi có spec đó).

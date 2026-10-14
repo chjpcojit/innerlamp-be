@@ -1,6 +1,6 @@
 # Requirements — memorial
 
-Version: 4.1
+Version: 4.2
 Last updated: 2026-10-14
 Status: v1 CRUD (US-MEM-01..04, 5 route) đã implement 2026-10-07 và có test unit/repository/E2E. **v4.0 đổi hành vi (chưa implement):** lựa chọn nhắc thu hẹp, múi giờ chuyển lên tài khoản, bỏ `reminder.timezone`/`add_to_os_reminder`, server lập lịch và gửi nhắc bằng job hằng giờ (US-MEM-06, US-MEM-07; `tasks.md` Phase 8–10, mọi mục `[ ]`). Ảnh (US-MEM-05) vẫn hoãn vì GCS (`docs/tech-debt/memorial/TD-001`). Marker mở: bucket GCS (Phase 6), feature notification chưa có spec (chặn Phase 10), không còn câu hỏi product.
 Module: `memorial`
@@ -252,7 +252,7 @@ Request tạo/sửa gửi cùng các field trên trừ `id`, `photo_url`, `creat
 - ~~Thứ tự danh sách `GET /v1/memorials`?~~ → **`created_at` DESC, `id` DESC** (mục mới thêm hiện trước), như AC13. Backend không trả ngày giỗ kế tiếp nên client tự sắp lại theo ngày giỗ. Resolved 2026-10-07.
 - ~~Mã user story?~~ → Spec tự chọn `US-MEM-01..05` (v4.0 thêm `US-MEM-06..07`). Resolved 2026-10-07.
 - ~~Tháng nhuận: quy ước giỗ các năm không có tháng nhuận đó?~~ → Dùng tháng thường cùng số — nay là BR-MEM-05 của product; server áp khi lập kế hoạch nhắc (v4.0). Resolved 2026-10-07.
-- ~~Ảnh HEIC/HEIF từ iPhone?~~ → **App đổi HEIC/HEIF → JPEG trước khi upload**, BE chỉ nhận jpeg/png/webp — `docs/assumptions/memorial/A-001-heic-client-converts.md` (đã xác nhận 2026-10-07). Resolved 2026-10-07.
+- ~~Ảnh HEIC/HEIF từ iPhone?~~ → **App đổi HEIC/HEIF → JPEG trước khi upload**, BE chỉ nhận jpeg/png/webp — product FR-MEM-011 (đã xác nhận 2026-10-07; file giả định `A-001` đã xoá 2026-10-14). Resolved 2026-10-07.
 - ~~Cờ `add_to_os_reminder` trên nhiều thiết bị / nhiều OS?~~ → Client tự xử lý. Resolved 2026-10-07; **superseded v4.0**: cờ bị bỏ (FR-MEM-009 removed).
 - ~~Ảnh bằng GCS ngay bây giờ?~~ → **Tạm bỏ qua** vì chưa làm được; US-MEM-05 chuyển sang Deferred. Resolved 2026-10-07.
 - ~~Dọn object GCS mồ côi?~~ → **Tính sau**, đi cùng ảnh (Deferred). Resolved 2026-10-07.

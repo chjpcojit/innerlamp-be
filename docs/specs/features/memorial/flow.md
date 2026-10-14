@@ -1,6 +1,6 @@
 # Flow — memorial
 
-Version: 4.1
+Version: 4.2
 Last updated: 2026-10-14
 Status: sơ đồ tạo (bản v1) và xoá đã được implement; v4.0 đổi Step C-3 của sơ đồ tạo và thêm sơ đồ Sửa, Báo múi giờ, Job gửi nhắc (chưa implement; J-5/J-7 chờ feature notification); sơ đồ tải/thay ảnh ⏸ hoãn (Phase 6).
 Module: `memorial`

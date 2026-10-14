@@ -35,7 +35,7 @@ code: services/appService/cmd/main.go (memorial routes), services/appService/del
 - [ ] Do `docs/specs/features/memorial/tasks.md` Phase 6 (port, GCS adapter, usecase, two photo routes wrapped by `authMiddleware`, config, openapi) / Làm `tasks.md` Phase 6
 - [ ] E2E: user B gets 404 on user A's photo routes, and an upload for someone else's memorial writes nothing to the bucket / E2E: user B nhận 404 trên route ảnh của user A và upload cho mục của người khác không ghi gì vào bucket
 - [ ] Decide how orphaned objects are cleaned up (bucket lifecycle rule or a sweep job) / Chốt cách dọn object mồ côi (lifecycle rule hoặc job quét)
-- [x] Decision: HEIC is converted to JPEG by the client, backend accepts jpeg/png/webp only — confirmed 2026-10-07 (`docs/assumptions/memorial/A-001-heic-client-converts.md`) / Quyết định: client đổi HEIC sang JPEG, backend chỉ nhận jpeg/png/webp — đã xác nhận 2026-10-07
+- [x] Decision: HEIC is converted to JPEG by the client, backend accepts jpeg/png/webp only — confirmed 2026-10-07 (now product spec memorial FR-MEM-011; the assumption file A-001 was deleted 2026-10-14) / Quyết định: client đổi HEIC sang JPEG, backend chỉ nhận jpeg/png/webp — đã xác nhận 2026-10-07
 - [ ] iOS and Android clients implement the HEIC → JPEG conversion before calling the photo route / Client iOS và Android cài đặt việc đổi HEIC → JPEG trước khi gọi route ảnh
 
 ## 5. Estimate / Ước lượng
