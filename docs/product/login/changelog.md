@@ -3,7 +3,8 @@
 ## v1.1 — 2026-10-14
 
 - Resolved (anh Đức): sign-out while offline completes on the device at once (BR-LGN-07).
-- Still open: website return-to-page after sign-in.
+- Resolved (anh Đức): website sends signed-in users from the sign-in page to the home page, and after
+  sign-in returns a guest to the page they were heading to (FR-LGN-007, 3 scenarios). No open items.
 - Platforms to follow up: Website, iOS, Android.
 
 ## v1.0 — 2026-10-14

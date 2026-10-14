@@ -9,7 +9,7 @@
 | Platforms in scope | Backend, Website, iOS, Android |
 | Version | 1.1 |
 | Last updated | 2026-10-14 |
-| Status | draft — 1 small open item (Appendix A) |
+| Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0003 (accounts are identified by email and verified by an email code; SMS removed) — Accepted 2026-10-14 |
@@ -381,20 +381,32 @@ not change).
     Then the user stays signed in
   ```
 
-**FR-LGN-007 — Signed-in visitor on the sign-in page (website)**
+**FR-LGN-007 — Website: sign-in page and returning to where the user was**
 - **Priority:** Should
 - **Platforms:** Website
-- **Description:** WHEN a signed-in user opens the sign-in page THE SYSTEM SHALL take them to the home
-  page instead.
-  > ⚠️ Not confirmed: after signing in on the website, should the user return to the page they were on before? Recommended: yes — Website.
-- **Business rules:** BR-LGN-03
+- **Description:** WHEN a signed-in user opens the sign-in or registration page THE SYSTEM SHALL take them
+  to the home page instead; WHEN a guest is asked to sign in on the way to a page that needs an account
+  and then signs in THE SYSTEM SHALL open that page; WHEN the user opened the sign-in page directly THE
+  SYSTEM SHALL open the home page after sign-in.
+- **Business rules:** BR-LGN-03, BR-LGN-06
 - **Verification method:** automated tests
-- **Source:** website open question (`Docs/specs/features/login/`)
+- **Source:** anh Đức, 2026-10-14 (redirect to home; return to the intended page)
 - **Acceptance criteria:**
   ```gherkin
   Scenario: already signed in
     Given the user is signed in on the website
     When the user opens the sign-in page
+    Then the home page opens
+
+  Scenario: back to the page the guest wanted
+    Given a guest reading a sutra opens the memorial book
+    And is asked to sign in
+    When the guest signs in
+    Then the memorial book opens
+
+  Scenario: sign-in page opened directly
+    Given a guest opened the sign-in page directly
+    When the guest signs in
     Then the home page opens
   ```
 
@@ -509,7 +521,7 @@ not change).
 | ID | Platforms | Difference | Reason |
 |---|---|---|---|
 | FR-LGN-001, FR-LGN-006 | Website | Lands on the website home page; after sign-out stays on the site as a guest | No Home tab or sign-in-first launch on the web |
-| FR-LGN-007 | Website only | Redirect of signed-in visitors away from the sign-in page | Only the website has addressable pages |
+| FR-LGN-007 | Website only | Redirect of signed-in visitors away from the sign-in page; return to the intended page after sign-in | Only the website has addressable pages |
 
 ### 3.7 Software system attributes
 
@@ -546,7 +558,7 @@ sign-in, the lock, sessions, sign-out and reset; the new-password check runs
 | FR-LGN-004 | done | done | done | planned | 2 scenarios |
 | FR-LGN-005 | done | drift | drift | planned | 2 scenarios |
 | FR-LGN-006 | done | done | done | planned | 2 scenarios |
-| FR-LGN-007 | n/a | planned | n/a | n/a | 1 scenario |
+| FR-LGN-007 | n/a | planned | n/a | n/a | 3 scenarios |
 | FR-LGN-008 | planned | planned | drift | planned | 3 scenarios |
 | FR-LGN-009 | planned | planned | planned | planned | 4 scenarios |
 | FR-LGN-010 | n/a | done | done | drift | 2 scenarios |
@@ -568,14 +580,13 @@ sign-in, the lock, sessions, sign-out and reset; the new-password check runs
 
 #### Open (unconfirmed)
 
-> ⚠️ Not confirmed: after signing in on the website, does the user return to the page they were on? Recommended: yes — Website (FR-LGN-007).
-
 #### Open questions (resolved)
 
 | Question | Resolution | Date |
 |---|---|---|
 | Sign-in identifier? | Email + password (ADR-0003) | 2026-10-14 |
 | Sign-out while offline? | Completes on the device at once; the server session expires | 2026-10-14 |
+| Website: signed-in user on the sign-in page; page after sign-in? | Home page; the page the guest was heading to (home page if sign-in was opened directly) | 2026-10-14 |
 | One-time-code sign-in button? | Removed | 2026-10-14 |
 | Sign-in lock? | 5 wrong in a row → 15 minutes per email; show the unlock time | 2026-10-14 |
 | Session ended: silent or explained? | Explained with "Phiên đăng nhập đã hết" | 2026-10-14 |

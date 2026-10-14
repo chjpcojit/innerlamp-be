@@ -9,7 +9,7 @@
 | Platforms in scope | Backend, Website, iOS, Android |
 | Version | 1.1 |
 | Last updated | 2026-10-14 |
-| Status | draft — 2 small open items (Appendix A) |
+| Status | draft — 1 small open item (Appendix A) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0003 (accounts are identified by email and verified by an email code; SMS removed) — Accepted 2026-10-14 |
@@ -627,6 +627,7 @@ Vietnamese and never contain the password.
 | BR-ONB-06 | each client | How the strength hint looks and its levels | Advice only, never blocks |
 | BR-ONB-11 | each client | How the one terms text is shown (in-app sheet, web pages) | Platform convention |
 | FR-ONB-007 | Website | After verification the user lands on the website home page | The website has no Home tab |
+| FR-ONB-003 | Website only | A signed-in user who opens the registration page is taken to the home page | Only the website has addressable pages |
 
 ### 3.7 Software system attributes
 
@@ -696,8 +697,6 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 
 #### Open (unconfirmed)
 
-> ⚠️ Not confirmed: on the website, does a signed-in user who opens the registration page go to the home page? Recommended: yes — Website (§3.6).
-
 > ⚠️ Not confirmed: is the street line of a proposed temple required or optional? Recommended: optional — Website, iOS, Android (BR-ONB-10).
 
 #### Open questions (resolved)
@@ -705,6 +704,7 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 | Question | Resolution | Date |
 |---|---|---|
 | Does skipping the intro count as seen? | Yes | 2026-10-14 |
+| Website: signed-in user opens the registration page? | Taken to the home page | 2026-10-14 |
 | Address of a proposed temple? | Province and ward from the administrative-unit list, required | 2026-10-14 |
 | One terms text for every client? | Yes, shown each platform's way | 2026-10-14 |
 | How is the account proven without SMS? | Email code; phone kept, required, unique, unverified (ADR-0003) | 2026-10-14 |

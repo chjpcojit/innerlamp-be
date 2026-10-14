@@ -5,7 +5,9 @@
 - Resolved (anh Đức): skipping the intro counts as seen (BR-ONB-01); a temple proposal needs province and
   ward from the administrative-unit list, required (BR-ONB-10); one terms text for every client
   (BR-ONB-11, §3.6, §4.2 now drift on all three clients).
-- Still open: street line of a proposed temple; website redirect for signed-in users.
+- Resolved (anh Đức): a signed-in user opening the registration page on the website goes to the home
+  page (§3.6).
+- Still open: street line of a proposed temple.
 - Platforms to follow up: iOS, Android (skip), all clients (terms source, temple proposal).
 
 ## v1.0 — 2026-10-14
