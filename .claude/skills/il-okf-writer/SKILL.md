@@ -1,6 +1,6 @@
 ---
 name: il-okf-writer
-description: This skill should be used when the user wants to create or update a knowledge concept in the InnerLamp OKF (Open Knowledge Format) bundle under docs/knowledge/ — a post-implementation reference document describing a feature, an API endpoint, a domain entity, a UseCase, an architecture pattern, a pkg/ infrastructure package, or a DB migration, with YAML frontmatter (type, title, resource, tags, status, generated, sources, verified), a resource: path pointing at the real Go code location, and cross-links to related concepts. It enforces that concepts are generated only AFTER the code is implemented and verified (never as a work order — that is il-spec-writer's job under docs/specs/features/), that every resource: path is checked against the filesystem rather than guessed, that status stays draft until the flow is exercised end-to-end, that the verified: field is never written by the AI (only a human adds it during PR review), and that every create/update also refreshes index.md and log.md. It never writes Go code and never touches docs/specs/.
+description: This skill should be used when the user wants to create or update a knowledge concept in the InnerLamp OKF (Open Knowledge Format) bundle under docs/knowledge/ — a post-implementation reference document describing a feature, an API endpoint, a domain entity, a UseCase, an architecture pattern, a pkg/ infrastructure package, or a DB migration, with YAML frontmatter (type, title, resource, tags, status, generated, sources, verified), a resource: path pointing at the real Go code location, and cross-links to related concepts. It enforces that concepts are generated only AFTER the code is implemented and verified (never as a work order — that is il-spec-be's job under docs/specs/features/), that every resource: path is checked against the filesystem rather than guessed, that status stays draft until the flow is exercised end-to-end, that the verified: field is never written by the AI (only a human adds it during PR review), and that every create/update also refreshes index.md and log.md. It never writes Go code and never touches docs/specs/.
 ---
 
 # InnerLamp OKF Writer
@@ -29,7 +29,7 @@ Read these first, in this order, before generating anything:
 
 **This skill is post-implementation only.** A concept documents code that exists and works. It is
 not a spec and must never be used as a work order — writing specs before/during implementation is
-`il-spec-writer`'s job under `docs/specs/features/<feature>/`. The one documented exception is a
+`il-spec-be`'s job under `docs/specs/features/<feature>/`. The one documented exception is a
 complex business rule (e.g. a multi-step OTP flow) drafted as a concept *before* coding without a
 `resource:` field; once implemented, that same concept gains `resource:` and is reconciled against
 the real code.
@@ -101,7 +101,7 @@ Establish, asking the user only for what cannot be determined from the code and 
 2. **Create or update?** Check whether the target file already exists under `docs/knowledge/`. An
    existing file means update — go to step 4.
 3. **Is the thing actually implemented?** If it is not built yet, stop: this is spec work for
-   `il-spec-writer`, not OKF work. The only exception is the complex-business-rule draft described
+   `il-spec-be`, not OKF work. The only exception is the complex-business-rule draft described
    in the Overview.
 
 See `references/gathering_questions.md` for exact phrasing. Ask no more than necessary — most

@@ -5,6 +5,9 @@ Last updated: {{date}}
 Status: <!-- e.g. "in-progress — handler done, auth middleware pending" or "not started" -->
 Module: `{{feature}}`
 Code: `services/appService/`
+Product spec: `docs/product/{{feature}}/product.md` @ v<!-- MAJOR.MINOR --> <!-- or: none yet (legacy) -->
+Contract: `docs/specs/api/openapi.yaml` (this repo)
+Implements: <!-- BR-XXX-01, FR-XXX-001..004 — the IDs whose Backend column is in scope -->
 
 > See `changelog.md` in this folder for the version history of this spec.
 
@@ -40,7 +43,7 @@ a check happens and what the caller sees; the *how* (which query, which write, i
 inside which transaction) belongs in design.md's Step-by-step Flow.
 -->
 
-- WHEN <!-- trigger -->, THE SYSTEM SHALL <!-- behavior -->.
+- WHEN <!-- trigger -->, THE SYSTEM SHALL <!-- behavior -->. (<!-- FR-XXX-001 / BR-XXX-01 / platform -->)
 
 ## API contract (confirmed surface for this feature)
 

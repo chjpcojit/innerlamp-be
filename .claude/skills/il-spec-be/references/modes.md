@@ -7,7 +7,7 @@ very differently.
 ## Prospective — spec written before the feature is built
 
 Use when: the feature doesn't exist in code yet; the spec is meant to be handed to a Go developer
-(or `go-clean-architecture`'s scaffolding guidance) as a work order.
+(or `golang-clean-arch-tdd`'s scaffolding guidance) as a work order.
 
 - `requirements.md`: acceptance criteria describe the *intended* behavior. "Open questions" starts
   empty or with genuinely open design questions — there is no implementation to consult for

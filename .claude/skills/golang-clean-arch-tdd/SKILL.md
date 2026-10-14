@@ -131,7 +131,7 @@ asked:
    constant you moved into `config/` — each is a claim the code now contradicts. Grep for the marker
    you are invalidating rather than fixing only the row you remember editing.
 3. **Bump the version in all three spec files and add a `changelog.md` entry** — see
-   `il-spec-writer`'s `references/versioning_and_changelog.md` for the header format, the minor-vs-
+   `il-spec-be`'s `references/versioning_and_changelog.md` for the header format, the minor-vs-
    major bump rule, and the entry shape. All three files carry the same version number even when
    only one changed; that is what records "reviewed together at this version".
 4. **Note what to write to the knowledge bundle, but do not write it yet.** `docs/knowledge/` is the
@@ -141,11 +141,11 @@ asked:
    nobody has run. Record the path in `changelog.md`'s "Cross-file follow-ups" instead, and call
    `il-okf-writer` when the feature is actually exercisable.
 
-**Which skill owns what:** `il-spec-writer` owns `docs/specs/features/<feature>/` — the work-order
+**Which skill owns what:** `il-spec-be` owns `docs/specs/features/<feature>/` — the work-order
 spec you tick and correct as you build. `il-okf-writer` owns `docs/knowledge/` — the durable
 reference written after the fact. This skill writes Go code and keeps the spec files honest; it does
 not generate either document from scratch. When a spec update is more than ticking and correcting —
-a new phase, a restructured flow, a genuinely new decision — invoke `il-spec-writer` rather than
+a new phase, a restructured flow, a genuinely new decision — invoke `il-spec-be` rather than
 improvising its format.
 
 ## What this skill does NOT do

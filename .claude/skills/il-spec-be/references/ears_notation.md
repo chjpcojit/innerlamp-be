@@ -70,5 +70,9 @@ Variants used in this project's specs:
    belongs in `requirements.md`'s Pending section and `tasks.md`, not silently folded into a
    passing criteria list. (This used to cite a real `/v1/users/me` gap; those routes no longer
    exist, so treat it as an example only.)
-6. **Out of scope / Pending / Open questions are not EARS-phrased** — those are plain prose
+6. **Tag every criterion with the product ID it implements** — `(FR-MEM-002)`, `(BR-MEM-04)`, or
+   `(platform)` for backend-only behavior with no product counterpart (an index, a header, a
+   transaction rule). The tag is how a reviewer walks from `docs/product/<feature>/product.md` to
+   this criterion and its test. See `upstream_product_spec.md`.
+7. **Out of scope / Pending / Open questions are not EARS-phrased** — those are plain prose
    sections; EARS applies specifically to the "Acceptance Criteria" section.

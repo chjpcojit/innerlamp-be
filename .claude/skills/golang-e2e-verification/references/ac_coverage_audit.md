@@ -2,7 +2,7 @@
 
 ## Where ACs live
 
-`docs/specs/features/<feature>/requirements.md`, written by `il-spec-writer` in EARS notation, numbered `AC1`, `AC2`, ... `tasks.md` and the code's own test comments reference these numbers — that's the thread to pull.
+`docs/specs/features/<feature>/requirements.md`, written by `il-spec-be` in EARS notation, numbered `AC1`, `AC2`, ... `tasks.md` and the code's own test comments reference these numbers — that's the thread to pull.
 
 ## Search strategy
 
