@@ -1,8 +1,8 @@
 # Tasks — memorial
 
-Version: 2.4
-Last updated: 2026-10-07
-Status: v1 (Phase 1–5, 5 route CRUD, không ảnh) đã implement và kiểm chứng 2026-10-07 — unit, repository (Postgres thật) và E2E (binary thật + Postgres) đều pass. Còn: chốt marker bucket (chỉ cần trước Phase 6). Phase 6 (ảnh/GCS) hoãn, ghi nợ ở `docs/tech-debt/memorial/TD-001-photo-upload-blocked-on-gcs.md`.
+Version: 3.0
+Last updated: 2026-10-14
+Status: v1 (Phase 1–5, 5 route CRUD, không ảnh) đã implement và kiểm chứng 2026-10-07 — unit, repository (Postgres thật) và E2E (binary thật + Postgres) đều pass. Còn: chốt marker bucket (chỉ cần trước Phase 6). Phase 6 (ảnh/GCS) hoãn, ghi nợ ở `docs/tech-debt/memorial/TD-001-photo-upload-blocked-on-gcs.md`. Phase 7 (gắn product spec v1.0) chưa làm.
 Module: `memorial`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -57,6 +57,13 @@ Chỉ bắt đầu khi GCS dùng được và marker bucket/ký URL đã chốt.
 - [ ] `MemorialConfig`: `PhotoMaxBytes`, `PhotoURLTTL`, `PhotoBucket`, `PhotoPrefix`; storage client ở `cmd/main.go`; đăng ký 2 route ảnh bọc `authMiddleware.AuthenticateFunc`
 - [ ] `openapi.yaml` (+ bản `web/`) thêm 2 route ảnh; E2E mở rộng cho 7 route
 - [ ] Cơ chế dọn object mồ côi (đã chốt "tính sau")
+
+## Phase 7 — Product spec alignment (`docs/product/memorial/product.md` @ v1.0)
+
+Không đổi hành vi; chỉ test và mô tả contract.
+
+- [ ] `domain/lunarcal/memorial_vectors_test.go`: chạy mọi case của `docs/product/memorial/rules/death-date-conversion.json` (BR-MEM-03, BR-MEM-04, BR-MEM-10) trên `SolarToLunar`/`LunarToSolar`, đọc file từ gốc repo, không chép — theo dòng "Product vectors" của `design.md`
+- [ ] `openapi.yaml` (+ `web/docs/public/openapi.yaml`): mô tả `death_leap_month` (`null` khi có `death_date`; client khôi phục cờ nhuận bằng cách đổi `death_date` dương → âm), `reminder.timezone` (múi giờ của máy, mặc định `Asia/Ho_Chi_Minh`), `PUT` thay toàn bộ nên client phải gửi lại `reminder` đang có — product Appendix B mục 1, 3, 6. Không đổi schema
 
 ## Deferred (separate feature, not blocking memorial)
 

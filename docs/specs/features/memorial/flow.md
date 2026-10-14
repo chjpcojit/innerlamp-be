@@ -1,7 +1,7 @@
 # Flow — memorial
 
-Version: 2.4
-Last updated: 2026-10-07
+Version: 3.0
+Last updated: 2026-10-14
 Status: sơ đồ tạo và xoá đã được implement (v1, bước xoá-object ⏸ hoãn); sơ đồ tải/thay ảnh ⏸ hoãn (Phase 6).
 Module: `memorial`
 

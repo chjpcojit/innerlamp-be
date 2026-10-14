@@ -4,6 +4,19 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v3.0 (2026-10-14)
+
+- `requirements.md`: gắn vào product spec `docs/product/memorial/product.md` @ v1.0 — thêm header `Product spec` / `Contract` / `Implements`; mỗi AC kết thúc bằng ID product (`FR-MEM-*`, `BR-MEM-*`) hoặc `(platform)` (AC10 cờ OS, AC12 body strict). Bỏ mục "Quyết định nền tảng" (quyết định sản phẩm giờ nằm ở product spec §2.7/§3.6), thay bằng "Ràng buộc từ product spec" chỉ nói backend hiện thực thế nào. Thêm AC33 (không log tên/ghi chú — NFR-MEM-02, trước chỉ là ghi chú; code memorial hiện không log gì). Ghi chú kỹ thuật: thêm cách backend đáp ứng Appendix B (giữ khoảng nhắc 0..30/mọi `HH:mm`; `timezone` là múi giờ máy; cờ nhuận khôi phục từ `death_date`; tháng nhuận/năm âm khi có năm do client kiểm; `PUT` thay toàn bộ nên nền tảng không hiện nhắc phải gửi lại). Hai câu hỏi Appendix B chuyển vào Open questions (resolved). Số AC và `US-MEM-*` giữ nguyên. Không đổi hành vi.
+- `design.md`: thêm dòng "Product vectors" vào bảng Layers (test `domain/lunarcal` chạy `death-date-conversion.json`); Overview trỏ sang product spec thay cho "Quyết định nền tảng"; Known gaps ghi hai khác biệt có chủ đích với product và follow-up `openapi.yaml`. Step-by-step Flow không đổi.
+- `flow.md`: no change needed, verified — các flow tạo/ảnh/xoá không đổi bước; chỉ bump header.
+- `tasks.md`: thêm Phase 7 (2 mục `[ ]`: chạy vector `death-date-conversion.json`, bổ sung mô tả `openapi.yaml`). Phase 1–6 không đổi.
+- Reason: chuyển sang mô hình 3 lớp tài liệu (product spec → contract → platform spec). Bump major vì đổi cấu trúc spec và thêm Phase.
+- Follow-ups (không sửa ở đây): `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml` (Phase 7); `migrations/`, `docs/specs/db/`: không ảnh hưởng; `docs/knowledge/features/memorial.md` vẫn chưa có (đã ghi từ v2.2), không cần làm mới vì hành vi không đổi.
+- Trả về `ba-writer` (product spec, không sửa ở đây):
+  1. Ma trận §4.2, BR-MEM-04 cột Backend đang `drift`: theo Appendix B mục 1 và 4, backend đã đúng thiết kế (cờ nhuận khôi phục từ `death_date`, kiểm nhuận là việc client) — đề xuất đổi sang `done`.
+  2. NFR-MEM-01 ghi Platforms "Website, iOS, Android" nhưng ma trận có Backend `planned` — cần chốt backend có mục tiêu thời gian riêng không; spec này chưa có AC cho NFR-MEM-01.
+- Vẫn mở: marker bucket GCS (chỉ chặn Phase 6).
+
 ## v2.4 (2026-10-07)
 
 - `requirements.md`: câu trả lời cho HEIC chuyển từ "cách hiểu của spec" sang đã xác nhận — client đổi HEIC/HEIF sang JPEG, backend chỉ nhận jpeg/png/webp. AC27 không đổi.
