@@ -7,9 +7,9 @@
 | Feature code | `ONB` — IDs are `BR-ONB-NN`, `FR-ONB-NNN`, `NFR-ONB-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.1 |
+| Version | 1.2 |
 | Last updated | 2026-10-14 |
-| Status | draft — 1 small open item (Appendix A) |
+| Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0003 (accounts are identified by email and verified by an email code; SMS removed) — Accepted 2026-10-14 |
@@ -159,7 +159,7 @@ N/A — the screens explain themselves; the terms and privacy policy are separat
 | Intro step 2 — "Bạn mong cầu điều gì?" | iOS, Android | 6 choices, several may be selected; "Tiếp tục"; "Quay lại"; "Bỏ qua" |
 | Intro step 3 — "Chuông tỉnh thức" | iOS, Android | 3 bell times (05:30, 12:00, 21:30), each on/off; "Tạo tài khoản"; "Quay lại" |
 | Registration form — "Tạo tài khoản" | all clients | Fields in this order: full name, dharma name (with "Gợi ý"), ordination temple, phone (with country), email, password (with strength hint), terms acceptance; "Đăng ký"; link to sign in |
-| Temple proposal | all clients | Temple name; province and ward picked from the administrative-unit list; street line |
+| Temple proposal | all clients | Temple name; province and ward picked from the administrative-unit list; street line (optional) |
 | Verification code | all clients | The email address the code went to; 6-digit entry; time left; "Gửi lại mã" after the wait; "Đổi email" back to the form |
 
 The email field explains that it is used to sign in and to receive the verification code. The old
@@ -313,12 +313,12 @@ Vietnamese and never contain the password.
   A proposed temple is not the user's ordination temple until it is approved. A proposal needs the
   temple name and its province and ward, both **required** and chosen from InnerLamp's list of
   Vietnamese administrative units (the same list used across the product), never typed freely.
-  > ⚠️ Not confirmed: is the street line (số nhà, tên đường) of a proposed temple required or optional? Recommended: optional — Website, iOS, Android.
+  The street line (số nhà, tên đường) is optional.
 - **Computational:** no.
 - **Applies to:** Backend, Website, iOS, Android.
 - **Source:** backend v7.0 (temple chosen from the list); project decision 2026-10-14 ("đạo tràng" =
   ordination temple, a single field); anh Đức 2026-10-14 (province and ward from the administrative-unit
-  list, required). iOS never sends the proposal and Android takes free text (drift).
+  list, required; street line optional). iOS never sends the proposal and Android takes free text (drift).
 
 **BR-ONB-11 — Terms acceptance**
 - **Rule:** The user must accept the terms of use and the privacy policy before submitting. The
@@ -697,12 +697,13 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 
 #### Open (unconfirmed)
 
-> ⚠️ Not confirmed: is the street line of a proposed temple required or optional? Recommended: optional — Website, iOS, Android (BR-ONB-10).
+None.
 
 #### Open questions (resolved)
 
 | Question | Resolution | Date |
 |---|---|---|
+| Street line of a proposed temple? | Optional | 2026-10-14 |
 | Does skipping the intro count as seen? | Yes | 2026-10-14 |
 | Website: signed-in user opens the registration page? | Taken to the home page | 2026-10-14 |
 | Address of a proposed temple? | Province and ward from the administrative-unit list, required | 2026-10-14 |

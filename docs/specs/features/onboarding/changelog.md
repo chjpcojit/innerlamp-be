@@ -3,6 +3,17 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v8.0 (2026-10-14)
+
+**Viết lại toàn bộ spec**: xác minh tài khoản bằng mã qua **email**, bỏ hẳn SMS (ADR-0003, Accepted). Đổi contract của cả ba route đăng ký. Spec nay trích product spec `docs/product/onboarding/product.md` @ v1.2 bằng ID.
+
+- `requirements.md`: viết lại; header `Product spec`/`Contract`/`Implements`; AC1–AC23 gắn `FR-ONB-*`/`BR-ONB-*`; bảng API mới (`email` thay `phone_number` làm khoá, thêm `phone_country`, `resend-otp` chuyển sang `/v1/auth/register/resend-otp`, bỏ `409 EMAIL_TAKEN`, thêm `500 EMAIL_SEND_FAILED` và `429 RATE_LIMITED`); bảng "Thay đổi so với code hiện tại". US-004 (hồ sơ) không còn ở đây (đã ở `profile/` từ v7.4).
+- `design.md`: viết lại; nhánh "email đã có tài khoản" làm cùng công việc với email mới; mailer thay SMS; hash SHA-256 trước bcrypt; bảng 12 nước trong `pkg/validation`; migration `0037`.
+- `flow.md`: vẽ lại ba sequence theo Step R/S/V mới.
+- `tasks.md`: thay bằng Phase 1–9 của v8.0, tất cả `[ ]`. Task cũ đã xong, xem các mục changelog bên dưới.
+- Reason: anh Đức bỏ SMS vì chi phí (2026-10-14); ADR-0003 chọn email + mã qua email. Các lựa chọn kỹ thuật là đề xuất của Claude, anh Đức đồng ý 2026-10-14 và duyệt chi tiết qua PR.
+- Cần theo sau: `docs/specs/api/openapi.yaml`, `docs/specs/db/erd.mmd`, `docs/knowledge/features/register.md` (sau khi code xong); xoá tài liệu cũ ở bước 4.
+
 ## v7.5 (2026-10-11)
 
 Đăng ký **bắt buộc `full_name`**. Thêm field request, thêm field `user.full_name` ở response, thêm một mã lỗi `400 INVALID_FULL_NAME`.

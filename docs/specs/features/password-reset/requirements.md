@@ -1,5 +1,7 @@
 # Requirements — password-reset
 
+> Superseded by [`../login/requirements.md`](../login/requirements.md) US-003 (v2.0, mã qua email) — kept for history until the old-docs cleanup; do not update.
+
 Version: 1.1
 Last updated: 2026-09-25
 Status: prospective — chưa có code; đây là work order để build (US-003, chuyển từ onboarding)

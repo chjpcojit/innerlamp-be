@@ -3,6 +3,17 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v2.0 (2026-10-14)
+
+**Chuyển cơ chế OTP sang email** (ADR-0003, Accepted): khoá `(email, purpose)`, bỏ `OTPSender`/`Send` (caller gửi thư qua `AuthMailer`), mã `crypto/rand` (mã cố định chỉ ở dev, chặn khởi động nơi khác), giữ lượt nguyên tử trước khi so mã, thêm `ApplySendLimit`, thời hạn mã 10 phút.
+
+- `requirements.md`: viết lại AC1–AC11; header trích product onboarding v1.2 / login v1.1.
+- `design.md`: viết lại theo interface mới; Step I (Issue) và Step V (Verify) với `ConsumeOTPAttempt`.
+- `flow.md`: vẽ lại hai sequence.
+- `tasks.md`: thay bằng Phase 1–3 của v2.0, tất cả `[ ]`.
+- Reason: bỏ SMS; pentest M-3 (đếm lượt có race); ADR-0003 rule 6.
+- Cần theo sau: migration `0037` (onboarding), README của `domain/` và `usecase/`.
+
 ## v1.2 (2026-09-25)
 
 Đưa spec `otp-mechanism` vào đúng quy ước `il-spec-writer` hiện hành. **Không đổi behavior, không đổi
