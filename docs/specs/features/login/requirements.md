@@ -1,6 +1,6 @@
 # Requirements — login
 
-Version: 2.1
+Version: 2.2
 Last updated: 2026-10-14
 Status: prospective (v2.0) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi; chưa có code. Code đang chạy là v1.13 (đăng nhập bằng SĐT); phần phiên/refresh/logout giữ nguyên.
 Module: `identity`
@@ -100,7 +100,7 @@ FR-LGN-010, NFR-LGN-03 (chỉ client).
 31. WHEN a request to a `/v1/auth/*` route exceeds its per-IP budget for the current window, THE SYSTEM SHALL reply `429 RATE_LIMITED` with `retry_after_seconds` and run no handler. Budgets are config (`auth_rate_limit.*`), defaults: `send` (register request-otp, register resend-otp, password-reset request-otp) 10/hour; `verify` (register verify-otp, password-reset confirm) 30/hour; `login` 30/15 min; `refresh` 120/15 min; `logout` not limited. (NFR-LGN-02, NFR-ONB-02)
 32. WHEN counting, THE SYSTEM SHALL keep counters in Postgres (`auth_rate_limits`) with one atomic UPSERT per request, so the limit holds across Cloud Run instances. (platform; ADR-0003 rule 8)
 33. WHEN the number of emails sent today (UTC) reaches `mailer.daily_budget` (default 100), THE SYSTEM SHALL send no more and reply `429 RATE_LIMITED` with `retry_after_seconds` until the next UTC day, for every route that would send. (NFR-ONB-02)
-34. WHEN `auth_rate_limit.trust_forwarded_for` is true, THE SYSTEM SHALL take the client IP from the right-most `X-Forwarded-For` entry added by the trusted proxy; otherwise from the connection. (platform — same rule as the existing `ClientIPRateLimit`)
+34. WHEN resolving the client IP for `/v1/auth/*` (rate limits AC31 and the session's device metadata), THE SYSTEM SHALL use, in order: (a) the `X-InnerLamp-Client-IP` header when the request carries a valid `X-API-Key` (AC16) and the header parses as one IPv4/IPv6 address — the website's server forwards its visitor's IP there; (b) otherwise, when `auth_rate_limit.trust_forwarded_for` is true, the right-most `X-Forwarded-For` entry added by the trusted proxy; (c) otherwise the connection's address. A request without a valid key never has `X-InnerLamp-Client-IP` read; an unparsable value falls through to (b)/(c). (NFR-LGN-02, platform)
 35. WHEN per-email limits are needed, THE SYSTEM SHALL rely on the existing per-email counters: send policy (`otp_send_limits`), code attempts (`otp_codes`) and the sign-in lock (`login_attempts`). (NFR-LGN-02)
 
 ## API contract (confirmed surface for this feature)
@@ -155,6 +155,7 @@ AC1–AC5, AC8, AC18 (hai route mới), AC20–AC35 chưa có code — `tasks.md
 
 ## Open questions (resolved during implementation)
 
+- ~~Website gọi từ server: giới hạn theo IP sẽ thấy IP của server website?~~ → Website gửi IP khách ở `X-InnerLamp-Client-IP`; backend chỉ đọc khi `X-API-Key` hợp lệ (AC34). Header riêng thay vì `X-Forwarded-For` vì Cloud Run nối thêm IP của server website vào XFF. Anh Đức đồng ý 2026-10-14. Resolved 2026-10-14.
 - ~~Đặt lại mật khẩu có gỡ khoá đăng nhập không?~~ → Có (anh Đức: "Gỡ như em đề xuất"; product login v1.2 BR-LGN-05). AC28 xoá `login_attempts` trong cùng transaction. Resolved 2026-10-14.
 - ~~Đăng nhập bằng gì?~~ → Email + mật khẩu (ADR-0003 rule 1). Resolved 2026-10-14.
 - ~~Quên mật khẩu đi kênh nào?~~ → Mã qua email đã xác minh; đăng xuất mọi thiết bị; không tự đăng nhập (ADR-0003 rule 5, product BR-LGN-05). Resolved 2026-10-14.
