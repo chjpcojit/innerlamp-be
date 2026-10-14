@@ -246,3 +246,54 @@ func TestTempleRepository_ListOptions(t *testing.T) {
 		assert.Equal(t, 0, total)
 	})
 }
+
+// TestTempleRepository_AddressCodes covers spec temple v1.7 (AC 32, 37): the
+// structured address round-trips; a temple without codes reads back "" (stored
+// as NULL); ListOptions carries province_code; and the all-or-none CHECK
+// refuses a half-filled address.
+func TestTempleRepository_AddressCodes(t *testing.T) {
+	repo := newTempleRepo(t)
+	ctx := context.Background()
+
+	withCodes := mkTemple("c1", "DI_TICH_QUOC_GIA", 1000)
+	withCodes.Address = "73 Mai Thị Lựu"
+	withCodes.Province = "Hồ Chí Minh"
+	withCodes.ProvinceCode = "79"
+	withCodes.WardCode = "26737"
+	withCodes.Ward = "Phường Tân Định"
+	withCodes.VisitingNotes = []string{}               // the repository reads an empty array, never nil
+	legacy := mkTemple("c2", "DI_TICH_QUOC_GIA", 1100) // no codes: not re-seeded yet
+	require.NoError(t, repo.Upsert(ctx, []domain.Temple{withCodes, legacy}))
+
+	got, err := repo.FindByID(ctx, "c1")
+	require.NoError(t, err)
+	assert.Equal(t, withCodes, *got)
+	assert.Equal(t, "73 Mai Thị Lựu, Phường Tân Định, Hồ Chí Minh", got.FullAddress())
+
+	got, err = repo.FindByID(ctx, "c2")
+	require.NoError(t, err)
+	assert.Empty(t, got.ProvinceCode)
+	assert.Empty(t, got.WardCode)
+	assert.Empty(t, got.Ward)
+	assert.Equal(t, legacy.Address, got.FullAddress())
+
+	opts, _, err := repo.ListOptions(ctx, "", 0, 10)
+	require.NoError(t, err)
+	require.Len(t, opts, 2)
+	assert.Equal(t, domain.TempleOption{ID: "c1", Name: "Chùa c1", Province: "Hồ Chí Minh", ProvinceCode: "79"}, opts[0])
+	assert.Empty(t, opts[1].ProvinceCode)
+
+	// Re-seeding a temple back to no codes clears them (upsert overwrites every column).
+	withCodes.ProvinceCode, withCodes.WardCode, withCodes.Ward = "", "", ""
+	require.NoError(t, repo.Upsert(ctx, []domain.Temple{withCodes}))
+	got, err = repo.FindByID(ctx, "c1")
+	require.NoError(t, err)
+	assert.Empty(t, got.ProvinceCode)
+
+	// Half-filled address is refused by chk_temples_address_codes and nothing is written.
+	half := mkTemple("c3", "DI_TICH_QUOC_GIA", 1200)
+	half.ProvinceCode = "79"
+	require.Error(t, repo.Upsert(ctx, []domain.Temple{half}))
+	_, err = repo.FindByID(ctx, "c3")
+	assert.ErrorIs(t, err, domain.ErrTempleNotFound)
+}

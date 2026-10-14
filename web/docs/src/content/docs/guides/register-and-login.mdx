@@ -59,8 +59,9 @@ sequenceDiagram
 | `email` | string | có | Đúng định dạng email. |
 | `password` | string | có | Tối thiểu 8 ký tự. |
 | `phone_number` | string | có | `+` tuỳ chọn rồi 8–15 chữ số. Server chuẩn hoá về E.164, nên `0901234567` và `+84901234567` là một số. |
-| `dharma_name` | string | không | Pháp danh. |
-| `ordination_temple_id` | string | không | `id` chùa nơi quy y/xuất gia, lấy từ `GET /v1/temples`. Bỏ field nếu chưa có. Id không tồn tại trả `INVALID_TEMPLE`. |
+| `full_name` | string | có | Họ và tên. Tối đa 300 **ký tự** sau khi cắt khoảng trắng đầu cuối (chữ có dấu tính một ký tự). Thiếu field trả `VALIDATION_ERROR`; toàn khoảng trắng hoặc quá dài trả `INVALID_FULL_NAME`. |
+| `dharma_name` | string | không | Pháp danh. Tối đa 255 **ký tự** sau khi cắt khoảng trắng đầu cuối (chữ có dấu tính một ký tự). Quá dài trả `INVALID_DHARMA_NAME`. |
+| `ordination_temple_id` | string | không | `id` chùa nơi quy y/xuất gia, lấy từ `GET /v1/temples/options` (danh sách rút gọn, có `?q=` tìm theo tên, không cần đăng nhập — xem [Chùa](/guides/catalogues/temples/#chọn-chùa-options)). Bỏ field nếu chưa có. Id không tồn tại trả `INVALID_TEMPLE`. |
 
 ```bash
 curl -X POST http://localhost:8080/v1/auth/register/request-otp \
@@ -69,6 +70,7 @@ curl -X POST http://localhost:8080/v1/auth/register/request-otp \
     "email": "user@example.com",
     "password": "S3cret-pass",
     "phone_number": "0901234567",
+    "full_name": "Nguyễn Văn An",
     "dharma_name": "Diệu Tâm"
   }'
 ```
@@ -111,6 +113,8 @@ Trả `201` với `AuthResult` (xem [bên dưới](#authresult)).
 | --- | --- | --- | --- | --- |
 | 400 | `VALIDATION_ERROR` | cả ba | Body sai JSON, thiếu field, field lạ, sai định dạng. `details` cho biết field nào. | Sửa request. |
 | 400 | `INVALID_PASSWORD` | request-otp | Mật khẩu dưới 8 ký tự. | Báo lỗi ở ô mật khẩu. |
+| 400 | `INVALID_FULL_NAME` | request-otp | Họ tên trống (chỉ khoảng trắng) hoặc quá 300 ký tự (`details.field = "full_name"`). | Báo lỗi ở ô họ tên. |
+| 400 | `INVALID_DHARMA_NAME` | request-otp | Pháp danh quá 255 ký tự (`details.field = "dharma_name"`). | Báo lỗi ở ô pháp danh. |
 | 400 | `INVALID_EMAIL`, `INVALID_PHONE` | request-otp | Không chuẩn hoá được email hoặc số điện thoại. | Báo lỗi ở ô tương ứng (`details.field`). |
 | 400 | `INVALID_TEMPLE` | request-otp, verify-otp | `ordination_temple_id` không khớp chùa nào (verify-otp: chùa đã chọn không còn tồn tại). | Cho người dùng chọn lại chùa hoặc bỏ trống. |
 | 400 | `OTP_INVALID` | verify-otp, resend-otp | Sai mã, hoặc không có bản đăng ký chờ cho số này. | Cho nhập lại. |
@@ -145,6 +149,7 @@ Ví dụ lỗi có `details`:
 | `user.id` | int64 | |
 | `user.email` | string | Đã chuẩn hoá. |
 | `user.phone_number` | string | Dạng E.164, vd. `+84901234567`. |
+| `user.full_name` | string | Họ và tên. Không có trong response với tài khoản tạo trước khi đăng ký bắt buộc họ tên (không phải `null`). |
 | `user.dharma_name` | string | Không có trong response nếu người dùng không nhập (không phải `null`). |
 | `user.ordination_temple_id` | string | `id` chùa nơi quy y/xuất gia. Không có trong response nếu người dùng chưa chọn chùa. |
 | `user.created_at` | string | RFC 3339. |
@@ -160,6 +165,7 @@ Ví dụ lỗi có `details`:
       "id": 42,
       "email": "user@example.com",
       "phone_number": "+84901234567",
+      "full_name": "Nguyễn Văn An",
       "dharma_name": "Diệu Tâm",
       "created_at": "2026-09-30T08:15:30Z"
     }
@@ -167,7 +173,7 @@ Ví dụ lỗi có `details`:
 }
 ```
 
-Hai field `dharma_name` và `ordination_temple_id` nên khai báo dạng Optional khi decode.
+Ba field `full_name`, `dharma_name` và `ordination_temple_id` nên khai báo dạng Optional khi decode (`full_name` vắng mặt với tài khoản cũ).
 
 ## Đăng nhập
 

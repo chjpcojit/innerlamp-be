@@ -54,6 +54,50 @@ type AppConfig struct {
 	Account        AccountConfig        `yaml:"account"`
 	// TempleSuggestion configures the suggestion review queue.
 	TempleSuggestion TempleSuggestionConfig `yaml:"temple_suggestion"`
+	// TempleAnnouncement configures publishing temple announcements.
+	TempleAnnouncement TempleAnnouncementConfig `yaml:"temple_announcement"`
+}
+
+// TempleAnnouncementConfig holds the announcement limits (TA20, TA21, TA28).
+type TempleAnnouncementConfig struct {
+	// TitleMaxChars and BodyMaxChars are counted in characters (runes), not bytes.
+	TitleMaxChars int `yaml:"title_max_chars"`
+	BodyMaxChars  int `yaml:"body_max_chars"`
+	// MaxValidityDays is how far in the future expires_at may be.
+	MaxValidityDays         int `yaml:"max_validity_days"`
+	IssuingBodyNameMaxChars int `yaml:"issuing_body_name_max_chars"`
+	// PageSize is the default page size of the admin listing; MaxPageSize caps
+	// a client-supplied page_size.
+	PageSize    int `yaml:"page_size"`
+	MaxPageSize int `yaml:"max_page_size"`
+}
+
+// Validate rejects a missing or non-positive value, so a config that forgot
+// the block fails at startup instead of rejecting every announcement. The
+// title and issuing-body limits may not exceed their column sizes.
+func (c TempleAnnouncementConfig) Validate() error {
+	for _, f := range []struct {
+		name string
+		v    int
+	}{
+		{"title_max_chars", c.TitleMaxChars}, {"body_max_chars", c.BodyMaxChars},
+		{"max_validity_days", c.MaxValidityDays}, {"issuing_body_name_max_chars", c.IssuingBodyNameMaxChars},
+		{"page_size", c.PageSize}, {"max_page_size", c.MaxPageSize},
+	} {
+		if f.v < 1 {
+			return fmt.Errorf("temple_announcement.%s must be at least 1, got %d", f.name, f.v)
+		}
+	}
+	if c.TitleMaxChars > 150 {
+		return fmt.Errorf("temple_announcement.title_max_chars must be at most 150 (column size), got %d", c.TitleMaxChars)
+	}
+	if c.IssuingBodyNameMaxChars > 100 {
+		return fmt.Errorf("temple_announcement.issuing_body_name_max_chars must be at most 100 (column size), got %d", c.IssuingBodyNameMaxChars)
+	}
+	if c.PageSize > c.MaxPageSize {
+		return fmt.Errorf("temple_announcement.page_size %d exceeds max_page_size %d", c.PageSize, c.MaxPageSize)
+	}
+	return nil
 }
 
 // TempleSuggestionConfig holds the review-queue settings.

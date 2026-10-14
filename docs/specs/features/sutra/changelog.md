@@ -4,6 +4,15 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v3.0 (2026-10-11)
+
+appService **không còn seed thư viện kinh khi khởi động**: việc nạp chuyển sang lệnh seed, `make run` chạy lệnh đó khi bảng rỗng. Hợp đồng HTTP không đổi.
+
+- `requirements.md`, `design.md`, `flow.md`, `tasks.md` (→ 3.0): AC29–AC35 áp dụng cho `cmd/seedsutras` (đã tồn tại từ 2026-10-03, nay là cửa vào duy nhất); bỏ `RefusesToStartWithoutDeities` (lệnh vẫn từ chối khi thiếu `deities`, xem `TestSeedSutrasCommand_E2E`). Quyết định cũ "tự nạp khi khởi động lần đầu" trong Open questions bị thay thế.
+- Đổi hành vi: khởi động service trên DB rỗng **thành công** và phục vụ danh sách rỗng (trước đây service từ chối khởi động khi thiếu `deities`).
+- Kiểm chứng: E2E chạy lệnh seed (rồi khởi động service) thay vì dựa vào seed lúc start; `go test -short ./...` pass.
+- Theo dõi ngoài thư mục này: `Makefile` (`ensure-*`, `seed-*`), `docs/development/local-stack.md`; concept OKF liên quan cần `il-okf-writer` làm mới khi được yêu cầu.
+
 ## v2.13 (2026-10-08)
 
 Người dùng yêu cầu API phải trả `summary` cho client ở danh sách, không chỉ ở chi tiết. Đảo quyết định v2.12 (danh sách giữ dạng thẻ không có `summary`), nên là bản minor.

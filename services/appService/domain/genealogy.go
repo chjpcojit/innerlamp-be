@@ -394,15 +394,18 @@ const (
 type MemberProfile struct {
 	Member     MemberView
 	MyMemberID *int64
-	Age        *int
-	Father     *MemberRef
-	Mother     *MemberRef
-	Spouses    []MemberRef
-	Siblings   []SiblingRef
-	Children   []MemberRef
-	Lineage    []LineageItem
-	Chi        *ChiItem
-	ChiPath    []ChiItem
+	// Age is the Western age by solar year (AC65); TraditionalAge is the tuổi mụ,
+	// one more. Both are nil when the needed years are unknown.
+	Age            *int
+	TraditionalAge *int
+	Father         *MemberRef
+	Mother         *MemberRef
+	Spouses        []MemberRef
+	Siblings       []SiblingRef
+	Children       []MemberRef
+	Lineage        []LineageItem
+	Chi            *ChiItem
+	ChiPath        []ChiItem
 	// RelationToMe is nil when MyMemberID is nil.
 	RelationToMe *Kinship
 }

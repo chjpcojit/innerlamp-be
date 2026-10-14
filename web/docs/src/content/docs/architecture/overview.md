@@ -14,7 +14,7 @@ flowchart TB
 
     subgraph svc["Hai service (mỗi service là một binary, một trust domain)"]
         App["appService<br/>đăng ký · đăng nhập · attestation<br/>danh mục chùa, Phật và Bồ tát<br/>bài viết Phật pháp"]
-        Back["backofficeService<br/>đăng nhập admin · đổi mật khẩu<br/>tạo tài khoản · reset mật khẩu"]
+        Back["backofficeService<br/>đăng nhập admin · đổi mật khẩu<br/>tạo tài khoản · reset mật khẩu<br/>duyệt đề xuất chùa"]
     end
 
     App --> PG[(PostgreSQL<br/>database innerlamp)]
@@ -46,7 +46,7 @@ flowchart TB
 | Tài khoản | Bảng `users`, tự đăng ký bằng OTP qua SMS | Bảng `admins`, **không** tự đăng ký |
 | JWT | audience `innerlamp_users`, secret riêng, có refresh token và phiên theo thiết bị | audience `innerlamp_backoffice`, secret riêng, chỉ access token |
 | Service ngoài | SMS, Play Integrity, App Attest | Mailer (gửi lời mời và mật khẩu tạm) |
-| Route | 18 endpoint, xem [API Reference](/api-reference/) | 5 endpoint `/v1/admin/*`, xem mục Admin trong [API Reference](/api-reference/) |
+| Route | 18 endpoint, xem [API Reference](/api-reference/) | 8 endpoint `/v1/admin/*` (tài khoản và duyệt đề xuất chùa), xem mục Admin trong [API Reference](/api-reference/) |
 
 Token của service này bị service kia từ chối, vì khác secret và audience. Đây là ranh giới tin cậy giữa client và admin.
 
@@ -58,13 +58,13 @@ Cả hai service kết nối cùng database PostgreSQL `innerlamp`. Schema đư�
 | --- | --- | --- |
 | Đăng ký, đăng nhập | `users`, `pending_registration`, `otp_codes`, `otp_send_limits`, `user_sessions`, `user_devices`, `login_attempts` | appService |
 | Attestation | `attestation_challenges`, `attestation_keys` | appService |
-| Danh mục | `temples`, `deities`, `articles` | appService đọc. `temples`, `deities` do lệnh seed nạp; `articles` tự nạp một lần khi service khởi động lần đầu |
+| Danh mục | `temples`, `deities`, `gallery_images`, `articles`, `sutras` (cùng bản dịch, dòng kinh, liên kết), `dharma_talks`, `addr_*` (đơn vị hành chính), `temple_schedules` + `temple_schedule_steps` (thời khoá tu tập của chùa), `temple_events` (sự kiện của chùa, một bảng có cột lặp), cả hai liên kết `temples` | appService đọc. Tất cả do lệnh seed nạp; service không tự nạp gì khi khởi động |
 | Quản trị | `admins` | backofficeService |
 
 ### Khởi tạo dữ liệu và tài khoản
 
-- **`cmd/seedtemples`, `cmd/seeddeities`** (trong appService) nạp danh mục chùa, Phật và Bồ tát từ file nguồn.
-- **Bài viết** không có lệnh seed riêng: khi appService khởi động mà bảng `articles` rỗng, service tự nạp 30 bài từ file JSON nhúng trong binary. Các lần khởi động sau không đụng vào dữ liệu. Cần áp `migrations/0012_articles.sql` trước (`make migrate`), nếu không service không lên.
+- **Lệnh seed** (trong appService, `cmd/seed*`) nạp mọi danh mục: `seedtemples`, `seeddeities`, `seedgallery`, `seedarticles`, `seedsutras`, `seeddharmatalks`, `seedtempleschedules` và `seedtempleevents` (thời khoá và sự kiện của chùa; phải nạp `temples` trước) và `seedadminunits` (tỉnh/xã hệ mới + cũ + bảng chuyển đổi). Kinh liên kết với Phật/Bồ tát nên phải nạp `deities` trước.
+- **appService không seed gì khi khởi động.** `make run` chạy các bước `ensure-*`, mỗi bước chỉ nạp khi bảng đang rỗng, nên chạy lại không đụng vào dữ liệu đã chỉnh. Chạy thẳng binary trên DB rỗng vẫn lên được nhưng các danh mục trả danh sách rỗng. Cần áp migration trước (`make migrate`).
 - **`cmd/seedadmin`** (trong backofficeService) tạo admin đầu tiên. Ở dev, nếu bảng `admins` trống, service tự chèn một admin bootstrap với `must_change_password = TRUE`; production phải tắt cấu hình này và dùng `seedadmin`.
 
 ### Chạy local

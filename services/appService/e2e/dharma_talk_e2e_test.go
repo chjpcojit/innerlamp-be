@@ -17,9 +17,9 @@ import (
 // This file drives the real binary over HTTP against a real Postgres for the
 // pháp thoại catalogue (docs/specs/features/dharmatalk). What it adds over the
 // layer tests is what only the composition root can get wrong: that both routes
-// are mounted, public and answering in the shared envelope; that the first-run
-// seed really runs in the shipped binary and runs only once; and that a talk
-// flagged needs_review is stored but never served.
+// are mounted, public and answering in the shared envelope; that the service seeds
+// nothing itself and the talks arrive through cmd/seeddharmatalks, once; and that
+// a talk flagged needs_review is stored but never served.
 //
 // Expected values are NOT typed in here. They are computed from the shipped
 // dharma_talks.json, read independently of the Go seed parser.
@@ -63,7 +63,7 @@ func newTalkAPI(t *testing.T, baseURL string) *apiClient {
 
 func TestDharmaTalkList_ServesOnlyDisplayableTalksInFileOrder_E2E(t *testing.T) {
 	_, visible := loadTalkOracle(t)
-	baseURL, _ := newE2EServer(t)
+	baseURL, _ := newE2EServerSeeded(t)
 	api := newTalkAPI(t, baseURL)
 
 	ids, _, total := walkPages(t, api, "/v1/dharma-talks", talkPageSize)
@@ -77,7 +77,7 @@ func TestDharmaTalkList_ServesOnlyDisplayableTalksInFileOrder_E2E(t *testing.T) 
 }
 
 func TestDharmaTalkList_SummaryShapeAndDefaultPage_E2E(t *testing.T) {
-	baseURL, _ := newE2EServer(t)
+	baseURL, _ := newE2EServerSeeded(t)
 	api := newTalkAPI(t, baseURL)
 
 	res := api.get("/v1/dharma-talks") // no Authorization: public
@@ -105,7 +105,7 @@ func TestDharmaTalkList_SummaryShapeAndDefaultPage_E2E(t *testing.T) {
 
 func TestDharmaTalkDetail_MediaMatchesTheShippedData_E2E(t *testing.T) {
 	_, visible := loadTalkOracle(t)
-	baseURL, _ := newE2EServer(t)
+	baseURL, _ := newE2EServerSeeded(t)
 	api := newTalkAPI(t, baseURL)
 
 	sawType := map[string]bool{}
@@ -148,7 +148,7 @@ func TestDharmaTalkDetail_MediaMatchesTheShippedData_E2E(t *testing.T) {
 
 func TestDharmaTalkDetail_FlaggedAndUnknownAreNotFound_E2E(t *testing.T) {
 	all, _ := loadTalkOracle(t)
-	baseURL, _ := newE2EServer(t)
+	baseURL, _ := newE2EServerSeeded(t)
 	api := newTalkAPI(t, baseURL)
 
 	var flagged string
@@ -168,7 +168,7 @@ func TestDharmaTalkDetail_FlaggedAndUnknownAreNotFound_E2E(t *testing.T) {
 }
 
 func TestDharmaTalkList_InvalidPageAndNonGet_E2E(t *testing.T) {
-	baseURL, _ := newE2EServer(t)
+	baseURL, _ := newE2EServerSeeded(t)
 	api := newTalkAPI(t, baseURL)
 
 	for _, page := range []string{"0", "-1", "abc", "2147483648", "99999999999999999999"} {
@@ -194,23 +194,53 @@ func TestDharmaTalkList_InvalidPageAndNonGet_E2E(t *testing.T) {
 	}
 }
 
-// ---- the first-run seed -----------------------------------------------------
+// ---- the seed command -------------------------------------------------------
+//
+// appService seeds nothing on start; the talks arrive only through
+// cmd/seeddharmatalks.
 
-func TestDharmaTalkSeed_FirstRunStoresEveryTalkIncludingFlagged_E2E(t *testing.T) {
+// seedTalks runs cmd/seeddharmatalks against the database at host:port.
+func seedTalks(t *testing.T, host, port string) runResult {
+	t.Helper()
+	res := runUntilExit(t, seederBinaryPath(t, "seeddharmatalks"), writeTempConfig(t, host, port, "0", nil), 90*time.Second)
+	require.False(t, res.timedOut, res.stderr)
+	return res
+}
+
+func TestDharmaTalkService_StartsOnAnEmptyTableAndSeedsNothing_E2E(t *testing.T) {
+	requireE2E(t)
+	host, port, cleanupDB := startPostgres(t)
+	t.Cleanup(cleanupDB)
+	url, stop := startServer(t, host, port, nil)
+	t.Cleanup(stop)
+
+	var p struct {
+		Total int   `json:"total"`
+		Items []any `json:"items"`
+	}
+	newTalkAPI(t, url).get("/v1/dharma-talks").data(&p)
+	assert.Zero(t, p.Total)
+	assert.Empty(t, p.Items)
+	assert.Zero(t, countRows(t, openDB(t, host, port), "dharma_talks"), "starting the service must not seed")
+}
+
+func TestDharmaTalkSeed_StoresEveryTalkIncludingFlagged_E2E(t *testing.T) {
 	requireE2E(t)
 	all, visible := loadTalkOracle(t)
 	host, port, cleanupDB := startPostgres(t)
 	t.Cleanup(cleanupDB)
-	_, stop := startServer(t, host, port, nil)
-	t.Cleanup(stop)
+
+	res := seedTalks(t, host, port)
+	require.Equal(t, 0, res.exitCode, res.stderr)
+	assert.Contains(t, res.stderr, "seeded")
 
 	db := openDB(t, host, port)
 	assert.Equal(t, len(all), countRows(t, db, "dharma_talks"), "flagged talks are stored, just not served")
 	assert.Equal(t, len(visible), countRows(t, db, "dharma_talks WHERE needs_review = false"))
 }
 
-// A restart never overwrites an edit and never brings back a deleted talk.
-func TestDharmaTalkSeed_SecondStartLeavesTheDatabaseAlone_E2E(t *testing.T) {
+// Running the command again never overwrites an edit and never brings back a deleted talk.
+func TestDharmaTalkSeed_SecondRunLeavesTheDatabaseAlone_E2E(t *testing.T) {
 	requireE2E(t)
 	_, visible := loadTalkOracle(t)
 	require.GreaterOrEqual(t, len(visible), 2)
@@ -218,51 +248,52 @@ func TestDharmaTalkSeed_SecondStartLeavesTheDatabaseAlone_E2E(t *testing.T) {
 	host, port, cleanupDB := startPostgres(t)
 	t.Cleanup(cleanupDB)
 
-	_, stop1 := startServer(t, host, port, nil)
-	t.Cleanup(stop1)
+	require.Equal(t, 0, seedTalks(t, host, port).exitCode)
 	db := openDB(t, host, port)
 	execSQL(t, db, `UPDATE dharma_talks SET title = $2 WHERE id = $1`, edit, "Đã sửa tay")
 	execSQL(t, db, `DELETE FROM dharma_talks WHERE id = $1`, del)
 	before := countRows(t, db, "dharma_talks")
-	stop1()
 
-	url2, stop2 := startServer(t, host, port, nil)
-	t.Cleanup(stop2)
-	api := newTalkAPI(t, url2)
+	res := seedTalks(t, host, port)
+	require.Equal(t, 0, res.exitCode, res.stderr)
+	assert.Contains(t, res.stderr, "already seeded")
 
+	url, stop := startServer(t, host, port, nil)
+	t.Cleanup(stop)
+	api := newTalkAPI(t, url)
 	var got struct {
 		Title string `json:"title"`
 	}
 	api.get("/v1/dharma-talks/" + edit).data(&got)
 	assert.Equal(t, "Đã sửa tay", got.Title, "the seed must not overwrite an edit")
 	assert.Equal(t, http.StatusNotFound, api.get("/v1/dharma-talks/"+del).status, "the seed must not bring a deleted talk back")
-	assert.Equal(t, before, countRows(t, db, "dharma_talks"), "a second start writes no row")
+	assert.Equal(t, before, countRows(t, db, "dharma_talks"), "a second run writes no row")
 }
 
-// If every talk is under review the table is not empty: a restart must not
-// reseed over the reviewers' flags.
+// If every talk is under review the table is not empty: running the command again must
+// not reseed over the reviewers' flags.
 func TestDharmaTalkSeed_AllFlaggedIsNotEmpty_E2E(t *testing.T) {
 	requireE2E(t)
 	all, _ := loadTalkOracle(t)
 	host, port, cleanupDB := startPostgres(t)
 	t.Cleanup(cleanupDB)
 
-	_, stop1 := startServer(t, host, port, nil)
-	t.Cleanup(stop1)
+	require.Equal(t, 0, seedTalks(t, host, port).exitCode)
 	db := openDB(t, host, port)
 	execSQL(t, db, `UPDATE dharma_talks SET needs_review = true`)
-	stop1()
 
-	url2, stop2 := startServer(t, host, port, nil)
-	t.Cleanup(stop2)
+	res := seedTalks(t, host, port)
+	require.Equal(t, 0, res.exitCode, res.stderr)
 	assert.Equal(t, len(all), countRows(t, db, "dharma_talks"))
 	assert.Zero(t, countRows(t, db, "dharma_talks WHERE needs_review = false"), "no flag was reset by a reseed")
 
+	url, stop := startServer(t, host, port, nil)
+	t.Cleanup(stop)
 	var p struct {
 		Total int   `json:"total"`
 		Items []any `json:"items"`
 	}
-	newTalkAPI(t, url2).get("/v1/dharma-talks").data(&p)
-	assert.Zero(t, p.Total)
+	newTalkAPI(t, url).get("/v1/dharma-talks").data(&p)
+	assert.Zero(t, p.Total, "flagged talks are never served")
 	assert.Empty(t, p.Items)
 }

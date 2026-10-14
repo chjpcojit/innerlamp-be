@@ -3,6 +3,7 @@ package domain
 import (
 	"context"
 	"errors"
+	"strings"
 )
 
 // Temple is one place of worship in the browse catalogue (chùa, thiền viện,
@@ -29,10 +30,22 @@ type Temple struct {
 	HeritagePriority int
 	Latitude         float64
 	Longitude        float64
-	// Address is the full display string; Province is the separate, stored
-	// province/city name (no prefix, e.g. "Hà Nội") — never parsed from Address.
+	// Address is the part below ward level (house number, street, hamlet) for a
+	// temple loaded with a structured address (spec temple v1.7); for a temple
+	// not re-seeded yet it is still the old full display string. Province is the
+	// separate, stored short province/city name (no prefix, e.g. "Hà Nội") —
+	// never parsed from Address.
+	//
+	// ProvinceCode, WardCode and Ward are the structured address (migration
+	// 0032): current-scheme unit codes from administrative-units and the ward's
+	// full name as it was in the dataset when the temple was written. "" means
+	// the temple has not been re-seeded yet (all three are then empty together);
+	// delivery turns "" into null. Use FullAddress for display.
 	Address        string
 	Province       string
+	ProvinceCode   string
+	WardCode       string
+	Ward           string
 	OperatingHours string
 	Amenities      TempleAmenities
 
@@ -40,6 +53,24 @@ type Temple struct {
 	Introduction         string
 	ArchitectureHeritage string
 	VisitingNotes        []string
+}
+
+// FullAddress is the address as shown to a person (AC 33 of spec temple v1.7):
+// when the temple has a Ward, the non-empty parts Address, Ward and Province
+// joined by ", "; when it has none (not re-seeded yet), the stored Address
+// unchanged — it is already the full string and appending Province would repeat
+// the province.
+func (t Temple) FullAddress() string {
+	if t.Ward == "" {
+		return t.Address
+	}
+	var parts []string
+	for _, p := range []string{t.Address, t.Ward, t.Province} {
+		if p = strings.TrimSpace(p); p != "" {
+			parts = append(parts, p)
+		}
+	}
+	return strings.Join(parts, ", ")
 }
 
 // TempleAmenities are the yes/no facilities a visitor plans around.
@@ -52,12 +83,14 @@ type TempleAmenities struct {
 
 // TempleOption is the minimal projection of a temple for pick-lists (the
 // registration screen): just enough to show a choice and send its id back.
-// Province is the temple's stored province/city name. Plain data, no tag — the
-// wire shape is delivery's.
+// Province is the temple's stored province/city name and ProvinceCode its
+// current-scheme code ("" until the temple is re-seeded; delivery turns it into
+// null). Plain data, no tag — the wire shape is delivery's.
 type TempleOption struct {
-	ID       string
-	Name     string
-	Province string
+	ID           string
+	Name         string
+	Province     string
+	ProvinceCode string
 }
 
 // TempleOptionPage is one page of TempleOption plus what a client needs to know

@@ -1,5 +1,70 @@
 # Knowledge Bundle Update Log
 
+## 2026-10-11 (4)
+
+- Created `features/calendar.md` (`status: draft`), `api/calendar-events.md` (`status: stable`) and
+  `migrations/0031-calendar-events.md` (`status: stable`); added them to `index.md` and moved `api/` and `migrations/`
+  from "Planned, not yet populated" to the active sections.
+  - `features/calendar.md` documents both halves of the module as built: the image of the day (US-CAL-001) and the
+    events (US-CAL-002) — repeat rules (`solar`, `lunar`, `lunar_monthly`, `lunar_last_day`, `solar_term`) resolved per
+    year by `domain/lunarcal` and `domain.ResolveOccurrences`, the `seedcalendarevents` command, and the config block.
+    The pure `domain/lunarcal` package is described inside the feature rather than as a `Package` concept because it
+    lives under `domain/`, not `pkg/`.
+  - Facts read from `domain/lunarcal/*.go`, `domain/calendar_event*.go`, `domain/calendar_catalogue.go`,
+    `usecase/calendar_event_usecase.go`, `repository/postgres_calendar_event_repository.go`,
+    `delivery/http/calendar_event_handler.go` + `errors.go`, `cmd/seedcalendarevents/*`, the calendar blocks of
+    `cmd/main.go` and `config/config.go`, and `migrations/0031_calendar_events.sql`; each file named in the tables was
+    checked to exist.
+  - Verification behind it: `go build ./...`, `go vet ./...` and `go test -short ./...` clean; the repository tests pass
+    with `TEST_DB_NAME=innerlamp_test`; the full E2E suite (473s) passes, including
+    `TestCalendarEventsFlow_E2E` on the real binary and a fresh Postgres 16; the route was also called with `curl`
+    against the dev server. The migration was applied twice and its CHECK/FK behaviour tried with valid and invalid rows.
+  - Kept the feature `draft`: the catalogue content is unreviewed, E20 lacks a full independent reference table, event
+    images are `null`, and the seed is dev-only. Marked the endpoint and the migration `stable` because their contract
+    and schema were exercised on a real database; the endpoint concept says the returned content is still a draft.
+  - Recorded a defect found on the way: `usecase/genealogy_lunar.go` returns day `0` on 2054-05-07 and 2062-04-09
+    (listed under the feature's Pending work).
+  - `verified:` was not present and was not added. No `.go` file was changed by this entry.
+
+## 2026-10-11 (3)
+
+- Updated `features/genealogy.md` (still `status: draft`).
+  - The last open spec question is settled: the profile returns both `age` (Western) and `traditional_age`
+    (tuổi mụ = Western + 1). Facts re-read from `usecase/genealogy_kinship.go` (`TraditionalAge`),
+    `usecase/genealogy_profile_usecase.go` and `delivery/http/genealogy_member_handler.go`.
+  - Pending work no longer lists open spec questions; the concept stays `draft` for the reasons already listed
+    (no invitation notification, dev OTP/SMS behind the E2E accounts, NFR targets not load-tested).
+  - `verified:` was not present and was not added.
+
+## 2026-10-11 (2)
+
+- Updated `features/genealogy.md` (still `status: draft`).
+  - Pending work: seven of the eight small spec questions were settled by the product owner (re-invite after decline,
+    reassigned phone numbers, sibling order, viewer without a position, optional mother, no kind conversion,
+    last-write-wins); only the age display (Western vs. traditional) remains open. No code behaviour changed.
+  - Added a consequence worth knowing: because the client picks only "child of the father", `other_parent_id` is
+    usually empty and the profile then has no `mother` and the "Mẹ" kinship term is `UNKNOWN`.
+  - `verified:` was not present and was not added.
+
+## 2026-10-11
+
+- Created `features/genealogy.md` (`status: draft`).
+  - Documents the genealogy feature as built: two roles (`owner` edits, `viewer` reads), the invitation journey
+    (owner picks a living member and invites by phone → inbox → accept/decline → status visible to the owner),
+    the "me" position matched on `phone_number`, the computed profile (age, relatives, lineage, chi, kinship),
+    solar storage with a lunar flag and server-derived lunar date, and the 21 routes.
+  - Facts read from `domain/genealogy.go`, `usecase/genealogy_*.go`, `repository/postgres_genealogy_*.go`,
+    `delivery/http/genealogy_*.go` + `errors.go`, the genealogy block of `cmd/main.go`, `config.GenealogyConfig`,
+    `migrations/0028_genealogy.sql` and `e2e/genealogy_e2e_test.go`; each file named in the Architecture table was
+    checked to exist.
+  - Verification behind it: `go build ./...`, `go vet ./...` and `go test -short ./...` clean for the whole repo;
+    the repository tests and `TestGenealogy*` E2E pass on Postgres 16 / Docker; the acceptance map is in
+    `docs/specs/features/genealogy/ac-audit.md` (AC1–AC82, no AC without a test).
+  - Kept `draft`: invitees are only discoverable by polling the inbox (no push, no SMS), the E2E registers accounts
+    through the dev OTP and log-only SMS, a few spec questions are open with defaults, and NFR-001/002 were never
+    load-tested. Listed under Pending work.
+  - `verified:` was not present and was not added. No `.go` file or `docs/specs/` file was changed by this entry.
+
 ## 2026-10-10
 
 - Updated `features/register.md` (still `status: draft`).

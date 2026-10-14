@@ -27,6 +27,7 @@ import (
 	"fmt"
 	"strings"
 	"time"
+	"unicode/utf8"
 
 	"chjpcoj.com.innerlamp/pkg/jwt"
 	"chjpcoj.com.innerlamp/pkg/logging"
@@ -34,6 +35,7 @@ import (
 	"chjpcoj.com.innerlamp/services/appService/domain"
 
 	"golang.org/x/crypto/bcrypt"
+	"golang.org/x/text/unicode/norm"
 )
 
 const (
@@ -70,6 +72,16 @@ type RegisterUsecase struct {
 	// OTPConfig.PendingRegistrationTTL, the same way sessionTTL comes from
 	// JWTConfig.RefreshTokenExpiration.
 	pendingRegistrationTTL time.Duration
+
+	// dharmaNameMaxChars is the longest dharma name accepted, in characters. It
+	// comes from ProfileConfig.DharmaNameMaxChars so registration and the profile
+	// edit share one rule, and so a name the column cannot hold is a 400 here
+	// rather than a 500 from the INSERT.
+	dharmaNameMaxChars int
+
+	// fullNameMaxChars is the longest full name accepted, in characters. It comes
+	// from ProfileConfig.FullNameMaxChars.
+	fullNameMaxChars int
 }
 
 // NewRegisterUsecase wires the use case. Every collaborator is a port, a pkg
@@ -89,6 +101,8 @@ func NewRegisterUsecase(
 	logger logging.Logger,
 	sessionTTL time.Duration,
 	pendingRegistrationTTL time.Duration,
+	dharmaNameMaxChars int,
+	fullNameMaxChars int,
 ) *RegisterUsecase {
 	return &RegisterUsecase{
 		registrations:          registrations,
@@ -97,6 +111,8 @@ func NewRegisterUsecase(
 		logger:                 logger,
 		sessionTTL:             sessionTTL,
 		pendingRegistrationTTL: pendingRegistrationTTL,
+		dharmaNameMaxChars:     dharmaNameMaxChars,
+		fullNameMaxChars:       fullNameMaxChars,
 	}
 }
 
@@ -107,7 +123,7 @@ func NewRegisterUsecase(
 // No users row is written here — that is the whole point of the two-step design.
 // The failure modes this method can return are limited to the sentinels the
 // handler knows how to map: ErrInvalidEmail, ErrInvalidPhone, ErrInvalidPassword,
-// ErrPhoneTaken, ErrEmailTaken, ErrInvalidTemple, ErrOTPLocked (wrong-guess lock),
+// ErrInvalidFullName, ErrInvalidDharmaName, ErrPhoneTaken, ErrEmailTaken, ErrInvalidTemple, ErrOTPLocked (wrong-guess lock),
 // ErrOTPResendTooSoon, ErrOTPSendLimited, ErrSMSSendFailed. Anything else is an
 // infrastructure failure and is returned wrapped, so the handler's 500 path is
 // reached rather than a wrong 4xx.
@@ -126,6 +142,14 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 	}
 	if len(input.Password) < minPasswordLength {
 		return nil, domain.ErrInvalidPassword
+	}
+	fullName, err := normalizeFullName(input.FullName, u.fullNameMaxChars)
+	if err != nil {
+		return nil, err
+	}
+	dharmaName, err := normalizeDharmaName(input.DharmaName, u.dharmaNameMaxChars)
+	if err != nil {
+		return nil, err
 	}
 
 	conflicts, err := u.registrations.FindConflicts(ctx, phoneNumber, email)
@@ -179,7 +203,8 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 		PhoneNumber:        phoneNumber,
 		Email:              email,
 		PasswordHash:       string(passwordHash),
-		DharmaName:         optionalString(input.DharmaName),
+		FullName:           &fullName,
+		DharmaName:         dharmaName,
 		OrdinationTempleID: templeID,
 		ExpiresAt:          now.Add(u.pendingRegistrationTTL),
 	}
@@ -338,4 +363,33 @@ func optionalString(value string) *string {
 		return nil
 	}
 	return &trimmed
+}
+
+// normalizeDharmaName trims, normalises to NFC and length-checks an optional
+// dharma name. Blank means "no name" and is returned as nil, so it is stored as
+// SQL NULL. The length is counted in characters after normalisation, not bytes,
+// so a Vietnamese letter with diacritics is one character whether it was typed
+// composed or decomposed. Over the limit is ErrInvalidDharmaName, a 400, rather
+// than the 500 the VARCHAR(255) column would raise on write.
+func normalizeDharmaName(raw string, maxChars int) (*string, error) {
+	name := norm.NFC.String(strings.TrimSpace(raw))
+	if name == "" {
+		return nil, nil
+	}
+	if utf8.RuneCountInString(name) > maxChars {
+		return nil, domain.ErrInvalidDharmaName
+	}
+	return &name, nil
+}
+
+// normalizeFullName trims, normalises to NFC and length-checks the required full
+// name. Unlike the dharma name, blank is an error: registration cannot proceed
+// without it. Length is counted in characters after normalisation, so a
+// Vietnamese name is the same length whether typed composed or decomposed.
+func normalizeFullName(raw string, maxChars int) (string, error) {
+	name := norm.NFC.String(strings.TrimSpace(raw))
+	if name == "" || utf8.RuneCountInString(name) > maxChars {
+		return "", domain.ErrInvalidFullName
+	}
+	return name, nil
 }

@@ -47,7 +47,7 @@ func TestDeityRepository_UpsertAndFind(t *testing.T) {
 	assert.Equal(t, "Renamed", got.NameVI)
 	assert.Empty(t, got.GreatVows)
 	assert.Empty(t, got.LunarMemorialDays)
-	_, total, err := repo.List(ctx, 0, 10)
+	_, total, err := repo.List(ctx, "", 0, 10)
 	require.NoError(t, err)
 	assert.Equal(t, 1, total)
 }
@@ -98,20 +98,51 @@ func TestDeityRepository_List_Paging(t *testing.T) {
 	}
 	require.NoError(t, repo.Upsert(ctx, all))
 
-	p1, total, err := repo.List(ctx, 0, 2)
+	p1, total, err := repo.List(ctx, "", 0, 2)
 	require.NoError(t, err)
 	assert.Equal(t, 6, total, "total counts every type")
 	assert.Equal(t, []string{"buddha", "bo_1"}, deityIDs(p1), "Buddhas and bodhisattvas share one ordered list")
 
-	p3, _, err := repo.List(ctx, 4, 2)
+	p3, _, err := repo.List(ctx, "", 4, 2)
 	require.NoError(t, err)
 	assert.Equal(t, []string{"bo_4", "bo_5"}, deityIDs(p3))
 
-	past, total, err := repo.List(ctx, 100, 2)
+	past, total, err := repo.List(ctx, "", 100, 2)
 	require.NoError(t, err)
 	assert.Empty(t, past)
 	assert.NotNil(t, past)
 	assert.Equal(t, 6, total)
+}
+
+func TestDeityRepository_List_FiltersByType(t *testing.T) {
+	repo := newDeityRepo(t)
+	ctx := context.Background()
+	mk := func(id, typ string, order int) domain.Deity {
+		return domain.Deity{ID: id, Type: typ, SortOrder: order, NameVI: id}
+	}
+	require.NoError(t, repo.Upsert(ctx, []domain.Deity{
+		mk("buddha_a", domain.DeityBuddha, 0),
+		mk("bo_1", domain.DeityBodhisattva, 1),
+		mk("buddha_b", domain.DeityBuddha, 2),
+		mk("bo_2", domain.DeityBodhisattva, 3),
+		mk("deva_1", domain.DeityDeva, 4),
+	}))
+
+	got, total, err := repo.List(ctx, domain.DeityBuddha, 0, 10)
+	require.NoError(t, err)
+	assert.Equal(t, 2, total, "total counts only the filtered type")
+	assert.Equal(t, []string{"buddha_a", "buddha_b"}, deityIDs(got))
+
+	got, total, err = repo.List(ctx, domain.DeityBodhisattva, 1, 1)
+	require.NoError(t, err)
+	assert.Equal(t, 2, total)
+	assert.Equal(t, []string{"bo_2"}, deityIDs(got), "offset applies within the filtered list")
+
+	got, total, err = repo.List(ctx, domain.DeityDeva, 5, 10)
+	require.NoError(t, err)
+	assert.Equal(t, 1, total)
+	assert.NotNil(t, got)
+	assert.Empty(t, got)
 }
 
 func deityIDs(ds []domain.Deity) []string {

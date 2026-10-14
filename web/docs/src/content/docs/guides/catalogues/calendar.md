@@ -1,22 +1,32 @@
 ---
-title: Ảnh Phật theo ngày (Lịch âm)
-description: "Endpoint trả ảnh Phật theo ngày dương lịch cho màn Lịch âm, kèm ghi công tác giả."
+title: Lịch âm (ảnh theo ngày và sự kiện)
+description: "Ảnh Phật theo ngày dương lịch cho màn Lịch âm (công khai), và sự kiện lịch Phật giáo, Việt Nam, dân gian theo năm, kèm cả ngày dương và ngày âm (cần đăng nhập, đang là spec)."
 ---
 
-Một endpoint **công khai, chỉ đọc**:
+Module lịch có hai endpoint, khác nhau về việc có cần đăng nhập hay không:
+
+| Thao tác | Endpoint | Đăng nhập | Trạng thái |
+| --- | --- | --- | --- |
+| Ảnh Phật theo ngày | `GET /v1/calendar/image` | không | đang chạy |
+| Sự kiện lịch của một năm | `GET /v1/calendar/events` | **cần** | **đang là spec**, chưa có ở server |
+
+## Ảnh Phật theo ngày
+
+Endpoint **công khai, chỉ đọc**:
 
 ```bash
 curl 'http://localhost:8080/v1/calendar/image?date=2026-10-07'
 ```
 
-## Hành vi
+### Hành vi
 
 - `date` (tuỳ chọn): ngày dương `YYYY-MM-DD`, năm 1900 đến 2100. Sai định dạng hoặc ngoài khoảng trả `400 INVALID_DATE` (`details.field = "date"`).
 - Cùng một ngày luôn cùng một ảnh; ngày liên tiếp cho ảnh khác nhau (chu kỳ 100 ngày).
 - Bỏ trống `date` là **hôm nay theo giờ `Asia/Ho_Chi_Minh`**; `data.date` trả ngày đã dùng.
 - Cache: có `date` thì `Cache-Control: public, max-age=86400`, không có thì `no-cache`.
+- Ảnh không phụ thuộc lịch âm: server chọn theo số ngày dương, không theo ngày lễ.
 
-## Response
+### Response
 
 | Field | Kiểu | Ghi chú |
 | --- | --- | --- |
@@ -27,4 +37,91 @@ curl 'http://localhost:8080/v1/calendar/image?date=2026-10-07'
 
 Ảnh CC BY / CC BY-SA bắt buộc hiện `author` và `license` trên màn hình.
 
-Cấu trúc đầy đủ: [API Reference](/api-reference/). Mã lỗi chung: [Xử lý lỗi](/guides/error-handling/).
+## Sự kiện lịch
+
+:::caution[Đang là spec]
+Endpoint này **chưa có code**: route chưa được đăng ký ở server, response dưới đây là hình dạng theo spec (`docs/specs/features/calendar/`), có thể đổi khi triển khai. Đừng dựa vào nó trên server thật cho tới khi trang này bỏ cảnh báo.
+:::
+
+Các sự kiện Phật giáo (Phật đản, Vu lan, mùng 1, Rằm…), ngày lễ của Việt Nam (30/4, 2/9…) và lễ tết dân gian (Tết Nguyên Đán, Trung thu, Táo quân…). Mỗi lần xảy ra có **cả ngày dương lẫn ngày âm**, nên app không cần tự tính lịch âm để hiển thị sự kiện. Cần `Authorization: Bearer <access_token>` (xem [Xác thực](/guides/authentication/)).
+
+```bash
+curl -H "Authorization: Bearer $ACCESS_TOKEN" \
+  'http://localhost:8080/v1/calendar/events?year=2026'
+```
+
+### Hành vi
+
+- `year` (tuỳ chọn): năm dương, số nguyên 1900 đến 2100. Không phải số nguyên hoặc ngoài khoảng trả `400 INVALID_YEAR` (`details.field = "year"`). Bỏ trống là **năm hiện tại theo giờ `Asia/Ho_Chi_Minh`**; `data.year` trả năm đã dùng.
+- Mỗi lần gọi trả **một năm** (1/1 đến 31/12). Hiển thị theo tháng thì app tự lọc `occurrences` theo `solar_date`. Muốn xem thêm thì gọi năm kế tiếp (`year + 1`); gọi năm trước cũng được.
+- Server lưu **quy tắc lặp** của từng sự kiện rồi tính ngày cho năm được hỏi, nên mọi năm trong 1900..2100 đều có dữ liệu.
+- Cache: có `year` thì `Cache-Control: private, max-age=<24 giờ>`, không có thì `no-cache`.
+
+### Response
+
+`data` gồm bốn phần. Nội dung mỗi sự kiện chỉ xuất hiện **một lần** trong `events`; mỗi lần xảy ra là một phần tử của `occurrences`, trỏ về `events[].code`, nên mùng 1 và Rằm (khoảng 25 lần mỗi năm) không lặp mô tả dài.
+
+| Field | Kiểu | Ghi chú |
+| --- | --- | --- |
+| `year` | int | Năm dương đã dùng. |
+| `groups` | mảng | `{code, name}` của các nhóm: ban đầu `buddhist` (Phật giáo), `vietnam` (Việt Nam), `folk` (dân gian). |
+| `events` | mảng | Nội dung sự kiện (bảng dưới). Chỉ gồm sự kiện có lần xảy ra trong năm. |
+| `occurrences` | mảng | Các lần xảy ra, đã sắp theo `solar_date`. |
+
+`events[]`:
+
+| Field | Kiểu | Ghi chú |
+| --- | --- | --- |
+| `code` | string | Ổn định, khoá của sự kiện. |
+| `name`, `short_description`, `long_description` | string | Tiếng Việt. |
+| `guidance` | string | Hướng dẫn lễ nghi. |
+| `image_url` | string hoặc `null` | `null` khi chưa có ảnh (bản đầu chưa có ảnh sự kiện). |
+| `groups` | mảng string | Một hoặc nhiều mã nhóm; một sự kiện có thể thuộc nhiều nhóm. |
+| `is_public_holiday` | bool | Nghỉ lễ chính thức, chỉ đúng cho **ngày của sự kiện**; ngày nghỉ bù không có lần xảy ra. |
+
+`occurrences[]`:
+
+| Field | Kiểu | Ghi chú |
+| --- | --- | --- |
+| `event_code` | string | Trỏ về `events[].code`. |
+| `solar_date` | string | Ngày dương `YYYY-MM-DD`, luôn nằm trong `year`. |
+| `lunar_date` | object | `{day, month, year, is_leap_month}`: ngày âm tương ứng. `is_leap_month` là `true` khi rơi vào tháng nhuận. |
+
+Ví dụ rút gọn (nội dung văn bản là chỗ giữ chỗ; `2026-02-17` là mùng 1 Tết Bính Ngọ):
+
+```json
+{
+  "success": true,
+  "data": {
+    "year": 2026,
+    "groups": [{ "code": "folk", "name": "Dân gian" }],
+    "events": [
+      {
+        "code": "tet-nguyen-dan",
+        "name": "Tết Nguyên Đán",
+        "short_description": "…",
+        "long_description": "…",
+        "guidance": "…",
+        "image_url": null,
+        "groups": ["vietnam", "folk"],
+        "is_public_holiday": true
+      }
+    ],
+    "occurrences": [
+      {
+        "event_code": "tet-nguyen-dan",
+        "solar_date": "2026-02-17",
+        "lunar_date": { "day": 1, "month": 1, "year": 2026, "is_leap_month": false }
+      }
+    ]
+  }
+}
+```
+
+### Lưu ý khi hiển thị
+
+- Lễ âm lịch tháng Chạp (Táo quân, Giao thừa) có thể rơi vào tháng 1 hoặc 2 dương của `year`: hiển thị theo `solar_date`, không theo `lunar_date.year`.
+- Nhóm có thể được back-office thêm về sau: lấy tên hiển thị từ `data.groups`, đừng hard-code ba mã nhóm.
+- Chỉ có tiếng Việt ở bản đầu.
+
+Cấu trúc đầy đủ: [API Reference](/api-reference/). Mã lỗi chung: [Xử lý lỗi](/guides/error-handling/). Spec nghiệp vụ: [Lịch: thiết kế](/reference/nghiep-vu/calendar/design/).

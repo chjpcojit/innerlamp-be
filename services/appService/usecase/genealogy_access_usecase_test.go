@@ -372,6 +372,9 @@ func TestProfileUsecase(t *testing.T) {
 		if p.Age == nil || *p.Age != 36 {
 			t.Errorf("Age = %v, want 36", p.Age)
 		}
+		if p.TraditionalAge == nil || *p.TraditionalAge != 37 {
+			t.Errorf("TraditionalAge = %v, want 37 (tuổi mụ = tuổi tây + 1)", p.TraditionalAge)
+		}
 		if p.RelationToMe == nil || p.RelationToMe.Code != domain.KinshipSelf {
 			t.Errorf("RelationToMe = %+v, want SELF", p.RelationToMe)
 		}

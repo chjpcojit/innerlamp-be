@@ -57,6 +57,63 @@ func (r *administrativeUnitRepository) ListCurrentWards(ctx context.Context, pro
 	return items, nil
 }
 
+// ResolveCurrentWard checks a (province, ward) pair of the current scheme in one
+// query. The LEFT JOIN keeps the province row when the ward is missing or sits
+// in another province, which is how "no such province" is told apart from "no
+// such ward in this province".
+func (r *administrativeUnitRepository) ResolveCurrentWard(ctx context.Context, provinceCode, wardCode string) (*domain.ResolvedWard, error) {
+	var provinceName string
+	var wardName sql.NullString
+	err := r.db.QueryRow(ctx, `
+		SELECT p.name, w.full_name
+		FROM addr_new_provinces p
+		LEFT JOIN addr_new_wards w ON w.code = $2 AND w.province_code = p.code
+		WHERE p.code = $1`, provinceCode, wardCode).Scan(&provinceName, &wardName)
+	if errors.Is(err, sql.ErrNoRows) {
+		return nil, domain.ErrAdministrativeUnitNotFound
+	}
+	if err != nil {
+		return nil, fmt.Errorf("resolve current ward: %w", err)
+	}
+	if !wardName.Valid {
+		return nil, domain.ErrWardNotInProvince
+	}
+	return &domain.ResolvedWard{ProvinceName: provinceName, WardFullName: wardName.String}, nil
+}
+
+// foldedName is the SQL expression a ward-name search compares: the apostrophe
+// variants (U+2019, U+2018, U+02BC, backtick, U+00B4) collapsed to ', then lowercased and unaccented. unaccent
+// drops every diacritic and tone mark, so "Hòa" and "Hoà", or "Thủy" and "Thuỷ",
+// become the same string, and đ becomes d. The same expression is applied to the
+// stored name and to the term, so the two always meet on equal terms. Needs the
+// unaccent extension (migration 0019).
+const foldedName = "unaccent(lower(translate(%s, E'\\u2019\\u2018\\u02bc\\u0060\\u00b4', repeat(chr(39), 5))))"
+
+// SearchCurrentWards returns the wards of a current-scheme province whose full
+// name contains query, in ListCurrentWards' order. LIKE wildcards in the term
+// are escaped, so "100%" or "a_b" match literally.
+func (r *administrativeUnitRepository) SearchCurrentWards(ctx context.Context, provinceCode, query string) ([]domain.CurrentWard, error) {
+	rows, err := r.db.Query(ctx, `
+		SELECT code, province_code, name, full_name, type, sort_order
+		FROM addr_new_wards
+		WHERE province_code = $1
+		  AND `+fmt.Sprintf(foldedName, "full_name")+` LIKE `+fmt.Sprintf(foldedName, "$2::text")+` ESCAPE '\'
+		ORDER BY sort_order, code`, provinceCode, likeContains(query))
+	if err != nil {
+		return nil, fmt.Errorf("search current wards: %w", err)
+	}
+	items, err := scanRows(rows, "current ward", scanCurrentWard)
+	if err != nil {
+		return nil, err
+	}
+	if len(items) == 0 {
+		if err := r.requireUnit(ctx, "addr_new_provinces", provinceCode); err != nil {
+			return nil, err
+		}
+	}
+	return items, nil
+}
+
 // ListLegacyProvinces returns every legacy-scheme province.
 func (r *administrativeUnitRepository) ListLegacyProvinces(ctx context.Context) ([]domain.LegacyProvince, error) {
 	rows, err := r.db.Query(ctx,

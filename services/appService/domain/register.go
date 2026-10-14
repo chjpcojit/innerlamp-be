@@ -13,6 +13,7 @@ type RequestRegisterOTPInput struct {
 	Email       string
 	Password    string
 	PhoneNumber string
+	FullName    string
 	DharmaName  string
 	// OrdinationTempleID is an optional temples.id; blank means "no temple".
 	OrdinationTempleID string

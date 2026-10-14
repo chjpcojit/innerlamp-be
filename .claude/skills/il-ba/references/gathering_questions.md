@@ -5,6 +5,8 @@ This file defines the required categories, the phrasing style, and the "never sk
 
 ## Phrasing style
 
+- **Ask in Vietnamese** (anh/em). Questions to the user are always Vietnamese; only the SRS file is
+  English. Keep technical terms (endpoint, cache, JWT…) as-is inside the Vietnamese sentence.
 - **One topic per question.** Split compound questions; the user should never have to untangle "do
   you want X and if so Y and how about Z".
 - **Concrete and answerable.** Prefer a specific choice over an open prompt. Offer a suggested

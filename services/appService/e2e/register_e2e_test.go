@@ -26,7 +26,7 @@ func TestRegisterFlow_RestartOverwritesPending_E2E(t *testing.T) {
 
 	requestOTP := func(phone, email string) *apiResponse {
 		return api.post("/v1/auth/register/request-otp", map[string]any{
-			"email": email, "password": testPassword, "phone_number": phone,
+			"email": email, "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone,
 		}, "")
 	}
 
@@ -81,7 +81,7 @@ func TestRegisterFlow_ResendAfterCodeExpired_E2E(t *testing.T) {
 	phone := api.nextPhone()
 
 	require.Equal(t, http.StatusOK, api.post("/v1/auth/register/request-otp", map[string]any{
-		"email": "resume@e2e.example.com", "password": testPassword, "phone_number": phone,
+		"email": "resume@e2e.example.com", "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone,
 	}, "").status)
 
 	// Let the code die without letting the pending payload die (its TTL is the
@@ -116,7 +116,7 @@ func TestRegisterFlow_SendLimitAndVerifyDuringLock_E2E(t *testing.T) {
 
 	request := func() *apiResponse {
 		return api.post("/v1/auth/register/request-otp", map[string]any{
-			"email": email, "password": testPassword, "phone_number": phone,
+			"email": email, "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone,
 		}, "")
 	}
 	resend := func() *apiResponse {
@@ -177,7 +177,7 @@ func TestRegisterFlow_OrdinationTemple_E2E(t *testing.T) {
 
 	api := &apiClient{t: t, baseURL: baseURL, http: &http.Client{Timeout: 5 * time.Second}}
 	request := func(phone, email string, extra map[string]any) *apiResponse {
-		body := map[string]any{"email": email, "password": testPassword, "phone_number": phone}
+		body := map[string]any{"email": email, "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone}
 		for k, v := range extra {
 			body[k] = v
 		}
@@ -192,6 +192,18 @@ func TestRegisterFlow_OrdinationTemple_E2E(t *testing.T) {
 		res := request(api.nextPhone(), "badtemple@e2e.example.com", map[string]any{"ordination_temple_id": "temple_missing"})
 		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
 		assert.Equal(t, "INVALID_TEMPLE", res.errorCode())
+		assert.Zero(t, countRows(t, db, "pending_registration"))
+	})
+
+	t.Run("full_name is required and blank is refused without writing", func(t *testing.T) {
+		api.t = t
+		missing := api.post("/v1/auth/register/request-otp", map[string]any{"email": "noname@e2e.example.com", "password": testPassword, "phone_number": api.nextPhone()}, "")
+		require.Equal(t, http.StatusBadRequest, missing.status, missing.raw)
+		assert.Equal(t, "VALIDATION_ERROR", missing.errorCode())
+
+		blank := request(api.nextPhone(), "blankname@e2e.example.com", map[string]any{"full_name": "   "})
+		require.Equal(t, http.StatusBadRequest, blank.status, blank.raw)
+		assert.Equal(t, "INVALID_FULL_NAME", blank.errorCode())
 		assert.Zero(t, countRows(t, db, "pending_registration"))
 	})
 
@@ -214,6 +226,7 @@ func TestRegisterFlow_OrdinationTemple_E2E(t *testing.T) {
 			User map[string]any `json:"user"`
 		}
 		res.data(&data)
+		assert.Equal(t, "Nguyen Van An", data.User["full_name"])
 		assert.Equal(t, "temple_e2e_001", data.User["ordination_temple_id"])
 		assert.NotContains(t, data.User, "ordination_place")
 	})

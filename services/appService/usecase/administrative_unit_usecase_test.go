@@ -3,6 +3,7 @@ package usecase
 import (
 	"context"
 	"errors"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -250,4 +251,85 @@ func TestAdministrativeUnitUsecase_ConversionKeepsCandidateDetail(t *testing.T) 
 	require.NoError(t, err)
 	assert.Equal(t, want, got.Candidates, "order and every field pass through unchanged")
 	assert.False(t, got.Unique())
+}
+
+func TestAdministrativeUnitUsecase_SearchCurrentWards(t *testing.T) {
+	ctx := context.Background()
+	hit := []domain.CurrentWard{{Code: "26737", Name: "Tân Định"}}
+
+	t.Run("passes the province and the trimmed term to the repository", func(t *testing.T) {
+		repo := new(domain.MockAdministrativeUnitRepository)
+		repo.On("SearchCurrentWards", mock.Anything, "79", "tan dinh").Return(hit, nil)
+
+		got, err := NewAdministrativeUnitUsecase(repo).SearchCurrentWards(ctx, " 79 ", "  tan dinh \t")
+
+		require.NoError(t, err)
+		assert.Equal(t, hit, got)
+		repo.AssertExpectations(t)
+	})
+
+	t.Run("a term typed with combining marks is composed (NFC) before the search", func(t *testing.T) {
+		repo := new(domain.MockAdministrativeUnitRepository)
+		composed := "Ho" + string(rune(0x00E0)) // o + à: what the NFC form of "Hoa"+U+0300 is
+		repo.On("SearchCurrentWards", mock.Anything, "79", composed).Return(hit, nil)
+
+		// "Hoa" + U+0300 COMBINING GRAVE ACCENT (decomposed); NFC composes it to the single letter "à".
+		decomposed := "Hoa" + string(rune(0x0300))
+		require.NotEqual(t, composed, decomposed, "the fixture really is the decomposed form")
+		_, err := NewAdministrativeUnitUsecase(repo).SearchCurrentWards(ctx, "79", decomposed)
+
+		require.NoError(t, err)
+		repo.AssertExpectations(t)
+	})
+
+	t.Run("a blank or over-long term is invalid and never reaches the repository", func(t *testing.T) {
+		repo := new(domain.MockAdministrativeUnitRepository)
+		u := NewAdministrativeUnitUsecase(repo)
+
+		for name, q := range map[string]string{
+			"empty":     "",
+			"blank":     "  \t ",
+			"101 runes": strings.Repeat("ư", 101),
+		} {
+			_, err := u.SearchCurrentWards(ctx, "79", q)
+			assert.ErrorIs(t, err, domain.ErrInvalidAdministrativeUnitQuery, name)
+		}
+		repo.AssertNotCalled(t, "SearchCurrentWards", mock.Anything, mock.Anything, mock.Anything)
+	})
+
+	t.Run("exactly 100 runes is accepted (the limit counts characters, not bytes)", func(t *testing.T) {
+		repo := new(domain.MockAdministrativeUnitRepository)
+		term := strings.Repeat("ư", 100)
+		repo.On("SearchCurrentWards", mock.Anything, "79", term).Return(nil, nil)
+
+		got, err := NewAdministrativeUnitUsecase(repo).SearchCurrentWards(ctx, "79", term)
+
+		require.NoError(t, err)
+		assert.NotNil(t, got, "a nil result is an empty list, not null")
+		assert.Empty(t, got)
+	})
+
+	t.Run("a blank province is not found without touching the repository", func(t *testing.T) {
+		repo := new(domain.MockAdministrativeUnitRepository)
+
+		_, err := NewAdministrativeUnitUsecase(repo).SearchCurrentWards(ctx, " ", "tan")
+
+		assert.ErrorIs(t, err, domain.ErrAdministrativeUnitNotFound)
+		repo.AssertNotCalled(t, "SearchCurrentWards", mock.Anything, mock.Anything, mock.Anything)
+	})
+
+	t.Run("not found and other repository errors keep their identity", func(t *testing.T) {
+		boom := errors.New("db down")
+		repo := new(domain.MockAdministrativeUnitRepository)
+		repo.On("SearchCurrentWards", mock.Anything, "999", "tan").Return(nil, domain.ErrAdministrativeUnitNotFound)
+		repo.On("SearchCurrentWards", mock.Anything, "79", "tan").Return(nil, boom)
+		u := NewAdministrativeUnitUsecase(repo)
+
+		_, err := u.SearchCurrentWards(ctx, "999", "tan")
+		assert.ErrorIs(t, err, domain.ErrAdministrativeUnitNotFound)
+
+		_, err = u.SearchCurrentWards(ctx, "79", "tan")
+		assert.ErrorIs(t, err, boom)
+		assert.NotErrorIs(t, err, domain.ErrAdministrativeUnitNotFound)
+	})
 }

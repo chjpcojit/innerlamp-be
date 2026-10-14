@@ -32,6 +32,24 @@ func (m *MockAdministrativeUnitRepository) ListCurrentWards(ctx context.Context,
 	return nil, args.Error(1)
 }
 
+// SearchCurrentWards mocks the SearchCurrentWards method.
+func (m *MockAdministrativeUnitRepository) SearchCurrentWards(ctx context.Context, provinceCode, query string) ([]CurrentWard, error) {
+	args := m.Called(ctx, provinceCode, query)
+	if v := args.Get(0); v != nil {
+		return v.([]CurrentWard), args.Error(1)
+	}
+	return nil, args.Error(1)
+}
+
+// ResolveCurrentWard mocks the ResolveCurrentWard method.
+func (m *MockAdministrativeUnitRepository) ResolveCurrentWard(ctx context.Context, provinceCode, wardCode string) (*ResolvedWard, error) {
+	args := m.Called(ctx, provinceCode, wardCode)
+	if v := args.Get(0); v != nil {
+		return v.(*ResolvedWard), args.Error(1)
+	}
+	return nil, args.Error(1)
+}
+
 // ListLegacyProvinces mocks the ListLegacyProvinces method.
 func (m *MockAdministrativeUnitRepository) ListLegacyProvinces(ctx context.Context) ([]LegacyProvince, error) {
 	args := m.Called(ctx)

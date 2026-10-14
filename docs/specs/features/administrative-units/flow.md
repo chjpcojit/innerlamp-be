@@ -1,8 +1,8 @@
 # Flow — administrative-units
 
-Version: 1.4
-Last updated: 2026-10-10
-Status: mirror `design.md` v1.4 §Step-by-step Flow; Step 3 (`Dataset.Verify`) và Step 4–6 (`ReplaceDataset`, đã chạy trên Postgres thật) đã implement; Step 1–2 và 7 thuộc CLI chưa làm.
+Version: 1.8
+Last updated: 2026-10-11
+Status: mirror `design.md` v1.7 §Step-by-step Flow; cả bảy bước đã implement (`cmd/seedadminunits`) và được E2E chứng minh trên binary thật + Postgres testcontainers (dry-run, nạp hai lần, file hỏng bị từ chối). Các route đọc không thuộc flow này.
 Module: `administrative-units`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -30,7 +30,7 @@ sequenceDiagram
 
     %% Step 2
     S->>S: giải mã JSON, chuẩn hoá NFC, dựng Dataset
-    Note over S: parse không sửa, không bỏ dòng nào.<br/>district_mappings được đọc và kiểm nhưng không nạp (hoãn)
+    Note over S: parse không sửa, không bỏ dòng nào, và từ chối khoá lạ, format sai, counts lệch.<br/>district_mappings được đọc và kiểm nhưng không nạp (hoãn)
     alt JSON hỏng / thiếu khoá bắt buộc
         S--xO: in vị trí, exit ≠ 0 (chưa chạm DB)
     end
@@ -40,6 +40,10 @@ sequenceDiagram
     Note over S,D: file hiện tại đã qua cả bảy quy tắc toàn vẹn
     alt không có vi phạm
         D-->>S: danh sách vi phạm rỗng
+        S->>O: in số dòng từng bảng, số sửa đã áp, số dòng unresolved
+        opt cờ -dry-run
+            S-->>O: dừng ở đây, exit 0 (chưa mở kết nối DB)
+        end
     else có vi phạm toàn vẹn
         D--xS: IntegrityIssue[]
         S--xO: in báo cáo từng dòng, exit ≠ 0 (chưa mở transaction)
@@ -59,7 +63,7 @@ sequenceDiagram
         R->>DB: INSERT addr_dataset_versions ON CONFLICT DO NOTHING
         alt tất cả thành công
             R->>DB: COMMIT
-            R-->>S: số dòng mỗi bảng
+            R-->>S: nil (không trả số dòng)
         else lỗi DB / vi phạm FK / COMMIT lỗi
             R--xDB: ROLLBACK
             R--xS: lỗi
@@ -68,5 +72,5 @@ sequenceDiagram
     end
 
     %% Step 7
-    S-->>O: in số dòng đã nạp + phiên bản, exit 0
+    S-->>O: in version + thời gian nạp, exit 0
 ```

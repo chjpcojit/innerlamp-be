@@ -30,11 +30,19 @@ func NewTempleHandler(usecase templeUsecase, opts ...ImageOption) *TempleHandler
 	return &TempleHandler{usecase: usecase, imageHost: newImageHost(opts)}
 }
 
+// locationResponse is the temple's place. address is the part below ward level
+// once the temple has a structured address (spec temple v1.7) and the old full
+// string before that; full_address is always the string to display. The three
+// structured fields are null until the temple is re-seeded, together.
 type locationResponse struct {
-	Lat      float64 `json:"lat"`
-	Lng      float64 `json:"lng"`
-	Address  string  `json:"address"`
-	Province string  `json:"province"`
+	Lat          float64 `json:"lat"`
+	Lng          float64 `json:"lng"`
+	Address      string  `json:"address"`
+	Province     string  `json:"province"`
+	ProvinceCode *string `json:"province_code"`
+	WardCode     *string `json:"ward_code"`
+	Ward         *string `json:"ward"`
+	FullAddress  string  `json:"full_address"`
 }
 
 // templeSummaryResponse is the card shape shared by top and list. image_url and
@@ -77,9 +85,10 @@ type templeDetailResponse struct {
 // templeOptionResponse is the pick-list shape: only what a chooser shows and
 // sends back. province is the short province/city name, not the full address.
 type templeOptionResponse struct {
-	ID       string `json:"id"`
-	Name     string `json:"name"`
-	Province string `json:"province"`
+	ID           string  `json:"id"`
+	Name         string  `json:"name"`
+	Province     string  `json:"province"`
+	ProvinceCode *string `json:"province_code"`
 }
 
 type templeOptionsResponse struct {
@@ -107,7 +116,11 @@ func newTempleSummary(h imageHost, r *http.Request, t domain.Temple) templeSumma
 		ID: t.ID, Name: t.Name, Type: t.Type, Region: t.Region,
 		ThumbnailURL: h.ptr(r, t.Thumbnail), ImageURL: h.ptr(r, t.ImageURL),
 		Sect: t.Sect, HeritageRank: t.Heritage, EstablishedYear: t.Established,
-		Location: locationResponse{Lat: t.Latitude, Lng: t.Longitude, Address: t.Address, Province: t.Province},
+		Location: locationResponse{
+			Lat: t.Latitude, Lng: t.Longitude, Address: t.Address, Province: t.Province,
+			ProvinceCode: nullIfEmpty(t.ProvinceCode), WardCode: nullIfEmpty(t.WardCode), Ward: nullIfEmpty(t.Ward),
+			FullAddress: t.FullAddress(),
+		},
 	}
 }
 
@@ -150,7 +163,7 @@ func (h *TempleHandler) Options(w http.ResponseWriter, r *http.Request) {
 	}
 	items := make([]templeOptionResponse, 0, len(result.Items))
 	for _, o := range result.Items {
-		items = append(items, templeOptionResponse{ID: o.ID, Name: o.Name, Province: o.Province})
+		items = append(items, templeOptionResponse{ID: o.ID, Name: o.Name, Province: o.Province, ProvinceCode: nullIfEmpty(o.ProvinceCode)})
 	}
 	utils.WriteSuccessResponse(w, templeOptionsResponse{
 		Items: items, Page: result.Page, PageSize: result.PageSize,

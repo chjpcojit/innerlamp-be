@@ -1,7 +1,7 @@
 # Tasks — article
 
-Version: 1.6
-Last updated: 2026-10-06
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-09-30) cho Phase 1–4; Phase 5 chưa làm E2E; Phase 6 là việc hoãn có chủ đích.
 Module: `content`
 
@@ -39,7 +39,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] `delivery/http/article_handler.go`: `Top`, `List`, `Get` + DTO summary/detail (`published_date`/`image_url` là `null` khi thiếu; mảng không `null`)
 - [x] `delivery/http/errors.go`: `ErrArticleNotFound` → `404 ARTICLE_NOT_FOUND`
 - [x] `config`: `ArticleConfig`, block `article:` trong `config.dev.yaml`
-- [x] `cmd/main.go`: dựng dây, gọi `SeedIfEmpty` lúc khởi động, đăng ký 3 route
+- [x] `cmd/main.go`: dựng dây, đăng ký 3 route (từ 2026-10-11 không còn gọi `SeedIfEmpty` lúc khởi động; nạp bằng `cmd/seedarticles` / `make ensure-articles`)
 - [x] Handler tests: `delivery/http/article_handler_test.go` (+ `mock_article_usecase_test.go`)
 - [x] Ghi `0012` vào `migrations/README.md`
 - [x] `web/docs/public/openapi.yaml` (nguồn của site tài liệu): 3 route + schema, ví dụ lấy từ dữ liệu seed

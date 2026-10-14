@@ -31,8 +31,8 @@ Method công khai: `Generate()` (mã + hash), `Send()` (gửi, wrap `ErrSMSSendF
 `CodeExpiry`/`SendLimits`/`ExpiresInSeconds`/`ResendAfterSeconds` cho caller cần tự persist OTP qua
 method riêng (`register` dùng cho `SavePendingAndIssueOTP`).
 
-### `NewRegisterUsecase(registrations, otpService, jwtService, logger, sessionTTL, pendingRegistrationTTL) *RegisterUsecase`
-Sáu tham số, không cái nào là concrete type của tầng ngoài:
+### `NewRegisterUsecase(registrations, otpService, jwtService, logger, sessionTTL, pendingRegistrationTTL, dharmaNameMaxChars) *RegisterUsecase`
+Bảy tham số, không cái nào là concrete type của tầng ngoài:
 
 | Tham số | Kiểu | Vai trò |
 |---|---|---|
@@ -42,6 +42,7 @@ Sáu tham số, không cái nào là concrete type của tầng ngoài:
 | `logger` | `logging.Logger` | quan sát |
 | `sessionTTL` | `time.Duration` | vòng đời hàng `user_sessions` |
 | `pendingRegistrationTTL` | `time.Duration` | vòng đời payload `pending_registration` — vẫn là mối quan tâm của register, không chuyển sang `OTPService` |
+| `dharmaNameMaxChars` | `int` | số ký tự tối đa của pháp danh (sau trim + NFC), từ `ProfileConfig.DharmaNameMaxChars`; quá thì `ErrInvalidDharmaName` → `400 INVALID_DHARMA_NAME`, thay vì `500` từ cột `VARCHAR(255)` |
 
 `sessionTTL` và `pendingRegistrationTTL` **truyền vào chứ không hardcode**: chúng đến từ
 `JWTConfig.RefreshTokenExpiration` và `OTPConfig.PendingRegistrationTTL`, nên hạn lưu trong DB và hạn

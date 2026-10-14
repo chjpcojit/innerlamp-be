@@ -1,7 +1,7 @@
 # Design — article
 
-Version: 1.6
-Last updated: 2026-10-06
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-09-30) — 3 route đọc + seed lần đầu chạy thật qua binary + Postgres dev; có test usecase/handler/seed parser/repository. Thiếu: E2E (`openapi.yaml` và ERD đã có).
 Module: `content`
 
@@ -27,7 +27,7 @@ Ba route `GET /v1/articles/*` đều công khai, không đi qua middleware xác 
 | Delivery / DTO | `delivery/http/article_handler.go` | `articleSummaryResponse`, `articleDetailResponse` (nhúng summary), `articleTopResponse`, `articleListResponse` — JSON tag chỉ nằm ở đây. |
 | Delivery / Error map | `delivery/http/errors.go` | `ErrArticleNotFound` → `404 ARTICLE_NOT_FOUND`; `ErrInvalidPage` → `400 INVALID_PAGE` (`details.field = "page"`). |
 | Config | `services/appService/config/config.go`, `config.dev.yaml` | `ArticleConfig{TopLimit, PageSize}`, block `article:` (dev: 5 và 10). |
-| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; gọi `SeedIfEmpty` ngay sau khi DB kết nối (lỗi thì `log.Fatalf`); đăng ký 3 route. Không dính khối `⚠️ DEV ONLY` nào. |
+| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; đăng ký 3 route. **Không seed lúc khởi động** (từ 2026-10-11; dữ liệu nạp bằng `cmd/seedarticles`). Không dính khối `⚠️ DEV ONLY` nào. |
 | Migration | `migrations/0012_articles.sql`, `migrations/0016_article_thumbnail.sql` | Bảng `articles` + index `idx_articles_order (sort_order, id)`; `0016` thêm cột `thumbnail_url TEXT` (NULL). |
 | API spec | `docs/specs/api/openapi.yaml` | **Đã có** 3 route (tag Articles) và schema `ArticleSummary`/`ArticleDetail`; `web/docs/public/openapi.yaml` khớp. |
 
@@ -98,13 +98,13 @@ Step 5 — Dựng trang và trả response (usecase + handler)
     - Failure → không có nhánh lỗi mới
 ```
 
-## Step-by-step Flow — Seed lần đầu khi khởi động
+## Step-by-step Flow — Seed bằng lệnh `cmd/seedarticles` (service không tự nạp)
 
 Bước đếm, bước đọc file và bước ghi là các tác động nối tiếp, trong đó bước ghi là side effect bền vững.
 
 ```
 Step 1 — Đếm số bài đang có (usecase → repository)
-- Trigger: cmd/main.go gọi ArticleUsecase.SeedIfEmpty(ctx, load) sau khi kết nối DB
+- Trigger: `make ensure-articles` (khi bảng rỗng) hoặc chạy tay `cmd/seedarticles`; lệnh kết nối DB rồi gọi ArticleRepository.InsertMissing. (Từ 2026-10-11 cmd/main.go không còn gọi SeedIfEmpty; `ArticleUsecase.SeedIfEmpty` còn trong code nhưng không có nơi gọi ở production.)
 - Pre-condition: DB kết nối được; migration 0012 đã apply
 - Call: ArticleRepository.Count → SELECT count(*) FROM articles
     - Success (n = 0) → Step 2

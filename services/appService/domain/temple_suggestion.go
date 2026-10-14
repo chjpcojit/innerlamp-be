@@ -17,31 +17,46 @@ const (
 // Length limits fixed by the temple_suggestions columns. They count characters
 // (runes), not bytes: Vietnamese text is mostly multi-byte.
 const (
-	TempleSuggestionNameMax     = 255
-	TempleSuggestionProvinceMax = 100
-	TempleSuggestionAddressMax  = 500
+	TempleSuggestionNameMax    = 255
+	TempleSuggestionAddressMax = 500
 )
 
 // TempleSuggestion is a temple an app user proposes for the catalogue. It maps
 // the temple_suggestions table. The app side only ever creates one; review
 // (created / rejected) belongs to the back-office service.
 //
+// ProvinceCode and WardCode are current-scheme administrative unit codes sent
+// by the submitter; Province (short name) and Ward (full name) are snapshots
+// the server took from the dataset when the suggestion arrived — never client
+// input. Address is only the part below the ward.
+//
 // Plain data: no json/db tag — the wire shape is delivery's, the SQL shape is
 // repository's.
 type TempleSuggestion struct {
-	ID        int64
-	Name      string
-	Province  string
-	Address   string
-	Status    string
-	CreatedAt time.Time
+	ID           int64
+	Name         string
+	ProvinceCode string
+	Province     string
+	WardCode     string
+	Ward         string
+	Address      string
+	Status       string
+	CreatedAt    time.Time
 }
 
 // TempleSuggestionInput is what a submitter provides, untrimmed.
 type TempleSuggestionInput struct {
-	Name     string
-	Province string
-	Address  string
+	Name         string
+	ProvinceCode string
+	WardCode     string
+	Address      string
+}
+
+// WardResolver is the part of the administrative-units data a suggestion needs:
+// proof that a ward belongs to a province, and their names. It is satisfied by
+// AdministrativeUnitRepository.
+type WardResolver interface {
+	ResolveCurrentWard(ctx context.Context, provinceCode, wardCode string) (*ResolvedWard, error)
 }
 
 // ErrTempleSuggestionInvalid — a submitted value is not allowed. Use

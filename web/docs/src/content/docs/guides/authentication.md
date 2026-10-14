@@ -31,7 +31,7 @@ POST /v1/auth/logout HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIs…
 ```
 
-`logout` và toàn bộ năm endpoint sổ giỗ chạp (`/v1/memorials`) cần token. Các endpoint còn lại (đăng ký, đăng nhập, refresh, attestation, danh mục) đều công khai.
+`logout`, toàn bộ năm endpoint sổ giỗ chạp (`/v1/memorials`) và hai endpoint thắp đèn (`/v1/lamps`) cần token. Năm endpoint hồ sơ cá nhân (`/v1/users/me`, đã có spec, chưa có ở server) cũng sẽ cần token và luôn thao tác trên chính người dùng trong token. Các endpoint còn lại (đăng ký, đăng nhập, refresh, attestation, danh mục) đều công khai.
 
 Refresh token **không** dùng được làm Bearer. Gửi nhầm loại sẽ nhận `401 UNAUTHORIZED`.
 
@@ -43,7 +43,7 @@ Các response này luôn có `Cache-Control: no-store` và `Pragma: no-cache`, n
 
 ## `X-API-Key` (client web)
 
-Server của website gửi header `X-API-Key` (secret dùng chung của ứng dụng web, không phải token của user) trên các route `/v1/auth/*` và `POST /v1/temple-suggestions`.
+Server của website gửi header `X-API-Key` (secret dùng chung của ứng dụng web, không phải token của user) trên các route `/v1/auth/*`, `POST /v1/temple-suggestions` và `GET /v1/administrative-units/*`.
 
 - Header sai hoặc rỗng: `401 INVALID_API_KEY`.
 - Không gửi header: coi là mobile, xử lý bình thường.
@@ -77,9 +77,22 @@ Quy tắc quan trọng:
 
 ## Đăng xuất
 
-`POST /v1/auth/logout` thu hồi phiên hiện tại. Không có body: phiên được lấy từ claim `sid` trong access token. Gọi lại khi phiên đã bị thu hồi vẫn trả `200`.
+`POST /v1/auth/logout` thu hồi phiên hiện tại. Không có body: phiên được lấy từ claim `sid` trong access token. Gọi lại khi phiên đã bị thu hồi vẫn trả `200`, nên có thể thử lại an toàn.
 
-Sau khi logout, xoá cả hai token khỏi thiết bị.
+| Tình huống | Kết quả |
+| --- | --- |
+| Access token hợp lệ, phiên còn hoạt động | `200` `{"success": true}`, refresh token của phiên đó không dùng được nữa |
+| Phiên đã bị thu hồi hoặc không tồn tại | `200` `{"success": true}`, không đổi gì |
+| Thiếu token, token sai hoặc hết hạn, gửi refresh token, hoặc token thiếu `sid` | `401 UNAUTHORIZED` |
+| Web gửi `X-API-Key` sai hoặc rỗng | `401 INVALID_API_KEY` |
+
+Cần biết:
+
+- Chỉ phiên của thiết bị đang gọi bị thu hồi. Các thiết bị khác của cùng tài khoản vẫn đăng nhập.
+- Access token đã cấp **vẫn dùng được tới khi hết hạn** (tối đa 15 phút) sau khi logout. Đừng coi logout là chặn tức thì phía server.
+- Access token đã hết hạn thì logout trả `401`. Có thể `refresh` rồi logout; hoặc chỉ cần xoá token cục bộ.
+
+Sau khi logout, xoá cả hai token khỏi thiết bị, bất kể response là gì.
 
 ## Lưu token ở đâu
 

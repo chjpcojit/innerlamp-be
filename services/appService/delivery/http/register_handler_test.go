@@ -87,10 +87,11 @@ func TestRegisterHandler_RequestOTP_Success(t *testing.T) {
 	uc.On("RequestOTP", mock.Anything, domain.RequestRegisterOTPInput{
 		Email:       "a@example.com",
 		Password:    "password123",
+		FullName:    "Nguyen Van A",
 		PhoneNumber: "0901234567",
 	}).Return(&domain.RequestOTPResult{ExpiresInSeconds: 90, ResendAfterSeconds: 60}, nil)
 
-	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567"}`)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567"}`)
 
 	require.Equal(t, http.StatusOK, rec.Code)
 	var body requestOTPResponse
@@ -106,11 +107,12 @@ func TestRegisterHandler_RequestOTP_TempleID(t *testing.T) {
 	uc.On("RequestOTP", mock.Anything, domain.RequestRegisterOTPInput{
 		Email:              "a@example.com",
 		Password:           "password123",
+		FullName:           "Nguyen Van A",
 		PhoneNumber:        "0901234567",
 		OrdinationTempleID: "temple_north_011",
 	}).Return(&domain.RequestOTPResult{ExpiresInSeconds: 90, ResendAfterSeconds: 60}, nil)
 
-	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567","ordination_temple_id":"temple_north_011"}`)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567","ordination_temple_id":"temple_north_011"}`)
 
 	require.Equal(t, http.StatusOK, rec.Code)
 	uc.AssertExpectations(t)
@@ -120,7 +122,7 @@ func TestRegisterHandler_RequestOTP_TempleID(t *testing.T) {
 // field is gone (v7.0) and strict decoding rejects it like any unknown field.
 func TestRegisterHandler_RequestOTP_LegacyOrdinationPlaceRejected(t *testing.T) {
 	h, uc := newTestHandler(t)
-	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567","ordination_place":"Chùa Hoằng Pháp"}`)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567","ordination_place":"Chùa Hoằng Pháp"}`)
 	require.Equal(t, http.StatusBadRequest, rec.Code)
 	require.Equal(t, "VALIDATION_ERROR", decodeErrorBody(t, rec).Code)
 	uc.AssertNotCalled(t, "RequestOTP", mock.Anything, mock.Anything)
@@ -130,12 +132,24 @@ func TestRegisterHandler_RequestOTP_InvalidTempleDetails(t *testing.T) {
 	h, uc := newTestHandler(t)
 	uc.On("RequestOTP", mock.Anything, mock.Anything).Return(nil, domain.ErrInvalidTemple)
 
-	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567","ordination_temple_id":"nope"}`)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567","ordination_temple_id":"nope"}`)
 
 	require.Equal(t, http.StatusBadRequest, rec.Code)
 	body := decodeErrorBody(t, rec)
 	require.Equal(t, "INVALID_TEMPLE", body.Code)
 	require.Equal(t, "ordination_temple_id", body.Details["field"])
+}
+
+func TestRegisterHandler_RequestOTP_InvalidDharmaNameDetails(t *testing.T) {
+	h, uc := newTestHandler(t)
+	uc.On("RequestOTP", mock.Anything, mock.Anything).Return(nil, domain.ErrInvalidDharmaName)
+
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567","dharma_name":"too long"}`)
+
+	require.Equal(t, http.StatusBadRequest, rec.Code)
+	body := decodeErrorBody(t, rec)
+	require.Equal(t, "INVALID_DHARMA_NAME", body.Code)
+	require.Equal(t, "dharma_name", body.Details["field"])
 }
 
 func TestRegisterHandler_RequestOTP_MalformedJSON(t *testing.T) {
@@ -148,7 +162,7 @@ func TestRegisterHandler_RequestOTP_MalformedJSON(t *testing.T) {
 
 func TestRegisterHandler_RequestOTP_UnknownField(t *testing.T) {
 	h, uc := newTestHandler(t)
-	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567","surprise":true}`)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567","surprise":true}`)
 	require.Equal(t, http.StatusBadRequest, rec.Code)
 	require.Equal(t, "VALIDATION_ERROR", decodeErrorBody(t, rec).Code)
 	uc.AssertNotCalled(t, "RequestOTP", mock.Anything, mock.Anything)
@@ -156,7 +170,7 @@ func TestRegisterHandler_RequestOTP_UnknownField(t *testing.T) {
 
 func TestRegisterHandler_RequestOTP_MissingRequiredField(t *testing.T) {
 	h, uc := newTestHandler(t)
-	rec := doRequest(h.RequestOTP, `{"password":"password123","phone_number":"0901234567"}`)
+	rec := doRequest(h.RequestOTP, `{"password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567"}`)
 	require.Equal(t, http.StatusBadRequest, rec.Code)
 	body := decodeErrorBody(t, rec)
 	require.Equal(t, "VALIDATION_ERROR", body.Code)
@@ -166,7 +180,7 @@ func TestRegisterHandler_RequestOTP_MissingRequiredField(t *testing.T) {
 
 func TestRegisterHandler_RequestOTP_MalformedPhoneCaughtByValidator(t *testing.T) {
 	h, uc := newTestHandler(t)
-	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"not-a-phone"}`)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"not-a-phone"}`)
 	require.Equal(t, http.StatusBadRequest, rec.Code)
 	body := decodeErrorBody(t, rec)
 	require.Equal(t, "VALIDATION_ERROR", body.Code)
@@ -195,7 +209,7 @@ func TestRegisterHandler_RequestOTP_DomainErrors(t *testing.T) {
 			h, uc := newTestHandler(t)
 			uc.On("RequestOTP", mock.Anything, mock.Anything).Return(nil, tt.err)
 
-			rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567"}`)
+			rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567"}`)
 
 			require.Equal(t, tt.wantStatus, rec.Code)
 			require.Equal(t, tt.wantCode, decodeErrorBody(t, rec).Code)
@@ -208,7 +222,7 @@ func TestRegisterHandler_RequestOTP_OTPLockedIncludesDeadline(t *testing.T) {
 	deadline := time.Now().Add(15 * time.Minute).UTC().Truncate(time.Second)
 	uc.On("RequestOTP", mock.Anything, mock.Anything).Return(nil, &domain.OTPLockedError{LockedUntil: deadline})
 
-	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567"}`)
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","full_name":"Nguyen Van A","phone_number":"0901234567"}`)
 
 	require.Equal(t, http.StatusTooManyRequests, rec.Code)
 	body := decodeErrorBody(t, rec)
@@ -375,5 +389,16 @@ func TestRegisterHandler_RequestOTP_BodyTooLarge(t *testing.T) {
 	body := decodeErrorBody(t, rec)
 	require.Equal(t, "PAYLOAD_TOO_LARGE", body.Code)
 	require.Equal(t, utils.ErrBodyTooLarge.Error(), body.Message)
+	uc.AssertNotCalled(t, "RequestOTP", mock.Anything, mock.Anything)
+}
+
+// full_name is required: a body without it is rejected by the validator before
+// the use case runs.
+func TestRegisterHandler_RequestOTP_MissingFullName(t *testing.T) {
+	h, uc := newTestHandler(t)
+
+	rec := doRequest(h.RequestOTP, `{"email":"a@example.com","password":"password123","phone_number":"0901234567"}`)
+
+	require.Equal(t, http.StatusBadRequest, rec.Code)
 	uc.AssertNotCalled(t, "RequestOTP", mock.Anything, mock.Anything)
 }

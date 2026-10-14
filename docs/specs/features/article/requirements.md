@@ -1,7 +1,7 @@
 # Requirements — article
 
-Version: 1.6
-Last updated: 2026-10-06
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-09-30) — 3 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (dev, 60 bài); có test usecase, handler, seed parser và repository. **Chưa có** E2E tự động, `openapi.yaml` và ERD đã cập nhật. Còn 4 marker `⚠️ Not confirmed`.
 Module: `content`
 Code: `services/appService/`
@@ -75,20 +75,22 @@ Spec này được viết **retroactively** từ tính năng "Bài viết Phật
 13. WHEN an article has no tags or no body paragraphs, THE SYSTEM SHALL return `[]` for `tags` / `body_paragraphs`, never `null`.
 14. WHEN any article route fails, THE SYSTEM SHALL answer in the shared envelope `{"success": false, "error": {code, message, type}, "details"?}`; a non-`GET` request returns `405 METHOD_NOT_ALLOWED` (kèm header `Allow: GET, HEAD`) and an infrastructure failure returns `500 INTERNAL_ERROR` without leaking the cause.
 
-## US-ART-05: Nạp dữ liệu lần đầu khi khởi động
+## US-ART-05: Nạp dữ liệu bằng lệnh seed (service không tự nạp)
 
 ## User Story
 
 > Là một **người triển khai hệ thống**,
-> Tôi muốn **service tự có sẵn bộ bài viết ngay lần chạy đầu mà không cần lệnh seed riêng**,
-> Để **môi trường mới (kể cả container không có mã nguồn) chạy được ngay và các lần khởi động sau không đụng vào dữ liệu đã chỉnh**.
+> Tôi muốn **một lệnh seed nạp bộ bài viết vào DB, và `make run` tự chạy lệnh đó khi bảng còn rỗng**,
+> Để **môi trường mới có dữ liệu mà service không phải ghi DB lúc khởi động, và lần chạy lại không đụng vào dữ liệu đã chỉnh**.
+
+> Đổi 2026-10-11 (v2.0): appService **không còn seed khi khởi động**. Việc nạp chỉ còn `cmd/seedarticles` (dữ liệu nhúng trong binary, `-file` để đọc file khác); `make run` gọi `make ensure-articles`, chạy lệnh đó khi `articles` rỗng.
 
 ## Acceptance Criteria (EARS notation)
 
-15. WHEN appService starts AND the `articles` table has no row, THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/buddhist_articles.json`) and insert every article in **one transaction**, with `sort_order` equal to the article's position in the file (0, 1, 2, …), then log `seeded articles on first run` with the count.
-16. WHEN appService starts AND the `articles` table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row — so a restart never overwrites an edited article and never brings back an article that was deleted (miễn là bảng còn ít nhất một dòng).
+15. WHEN `cmd/seedarticles` runs, THE SYSTEM SHALL parse the JSON (embedded in the binary by default, or `-file`) and insert every article whose `id` is not in the `articles` table in **one transaction**, with `sort_order` equal to the article's position in the file (0, 1, 2, …), then log how many were inserted. WHEN appService starts, THE SYSTEM SHALL NOT read the seed or write any article.
+16. WHEN `cmd/seedarticles` runs and finds an article `id` already in the table, THE SYSTEM SHALL leave that row unmodified (only `-fill-images` sets a still-NULL `image_url`). `make ensure-articles` runs the command **only when the table has no row**, so the default flow never brings back an article that was deleted.
 17. WHEN a seed insert meets an `id` that already exists, THE SYSTEM SHALL leave that row untouched (`ON CONFLICT (id) DO NOTHING`), so two instances starting at the same time cannot overwrite each other or later edits.
-18. WHEN the seed is invalid (no article, an empty or duplicate `id`, an empty `title`, a `publishedDate` that is not `YYYY-MM-DD`) or the database rejects it (kể cả khi migration `0012` chưa được apply), THE SYSTEM SHALL abort startup with a fatal log and SHALL leave the table unchanged (transaction rolled back).
+18. WHEN the seed is invalid (no article, an empty or duplicate `id`, an empty `title`, a `publishedDate` that is not `YYYY-MM-DD`) or the database rejects it (kể cả khi migration `0012` chưa được apply), THE SYSTEM SHALL make `cmd/seedarticles` exit non-zero with a fatal log and SHALL leave the table unchanged (transaction rolled back).
 
 ## API contract (confirmed surface for this feature)
 

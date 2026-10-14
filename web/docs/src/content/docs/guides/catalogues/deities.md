@@ -7,7 +7,7 @@ Danh mục Phật và Bồ tát **chỉ đọc**, không cần đăng nhập.
 
 | Nổi bật | Danh sách phân trang | Chi tiết |
 | --- | --- | --- |
-| `GET /v1/deities/top` | `GET /v1/deities?page=N` | `GET /v1/deities/{id}` |
+| `GET /v1/deities/top` | `GET /v1/deities?type=&page=N` | `GET /v1/deities/{id}` |
 
 ## Luồng dùng thường gặp
 
@@ -64,6 +64,16 @@ curl 'http://localhost:8080/v1/deities?page=2'
 - `page` bắt đầu từ 1 và mặc định là 1. Giá trị không phải số nguyên dương trả `400 INVALID_PAGE`.
 - Mỗi trang 20 mục (cấu hình dev). Dùng `total_pages` để biết khi nào dừng, đừng hard-code.
 - Trang vượt quá cuối trả `200` với `items: []`, không phải lỗi.
+
+## Lọc theo loại
+
+```bash
+curl 'http://localhost:8080/v1/deities?type=BUDDHA&page=1'
+```
+
+- `type` tuỳ chọn, nhận đúng một trong `BUDDHA`, `BODHISATTVA`, `DEVA` (phân biệt hoa/thường). Bỏ trống là mọi loại.
+- Khi có `type`, `total` và `total_pages` chỉ đếm loại đó, `page` áp dụng trên danh sách đã lọc.
+- Giá trị khác trả `400 INVALID_DEITY_TYPE` với `details.field = "type"`. Nếu cả `page` lẫn `type` sai, `INVALID_PAGE` được báo trước.
 
 ## Ảnh
 

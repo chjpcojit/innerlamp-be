@@ -1,7 +1,7 @@
 # Design — sutra
 
-Version: 2.13
-Last updated: 2026-10-07
+Version: 3.0
+Last updated: 2026-10-11
 Status: implemented (2026-10-03) — domain, usecase, repository, seed, handler, 4 route, `cmd/seedsutras`, migration `0013`, `openapi.yaml`, ERD, `migrations/README.md`, tài liệu dev local; đã chạy thật binary + Postgres và có E2E riêng cho sutra (7 hàm test, đã kiểm bằng đột biến). v2.12 (2026-10-07): tách trường + `summary` đã implement và kiểm chứng (Phase 6 của `tasks.md`), trừ việc áp lên DB đã seed. Còn mở: `sutraSeedTimeout` có nên ở `config/` không (câu hỏi cho người dùng). `durationMinutes` được giữ nguyên giá trị đã sinh theo quyết định của người dùng (2026-10-03).
 Module: `content`
 
@@ -32,7 +32,7 @@ Route `GET /v1/deities/{id}/sutras` thuộc feature này nhưng đăng ký dư�
 | Delivery / DTO | `delivery/http/sutra_handler.go` | `sutraSummaryResponse`, `sutraDetailResponse` (v2.12: thêm sáu trường của AC36), `sutraTranslationResponse` (chi tiết thêm `license_url`, `license_note`), `sutraLineResponse`, `sutraLinesResponse`, `sutraDeityResponse`, `sutraListResponse`, `sutraByDeityItemResponse`, `sutraByDeityListResponse` — JSON tag chỉ nằm ở đây. |
 | Delivery / Error map | `delivery/http/errors.go` | `ErrSutraNotFound` → `404 SUTRA_NOT_FOUND`; `ErrSutraTranslationNotFound` → `404 TRANSLATION_NOT_FOUND`; `ErrInvalidSutraFilter` → `400 INVALID_FILTER` (`details.field`); `ErrInvalidPageSize` → `400 INVALID_PAGE_SIZE`; `ErrInvalidTranslation` → `400 INVALID_TRANSLATION`. `ErrInvalidPage` → `400 INVALID_PAGE` và `ErrDeityNotFound` → `404 DEITY_NOT_FOUND` đã có sẵn. |
 | Config | `services/appService/config/config.go`, `config.dev.yaml` | `SutraConfig{PageSize, LinesPageSize, LinesMaxPageSize}`, block `sutra:` (dev: 20, 200, 500). Khác `article`/`deity`: `SutraConfig.Validate()` từ chối giá trị < 1 (và `lines_page_size` lớn hơn `lines_max_page_size`), vì 0 sẽ khiến mọi trang rỗng và chia cho 0 ở `total_pages`. `Validate` được gọi từ `cmd/main.go` ngay sau `Load` (không nằm trong `Load`, vì `Load` hiện không kiểm tra giá trị nào và các test cũ của nó dùng YAML không có block catalogue). |
-| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; gọi `SeedIfEmpty` ngay sau khi DB kết nối và **sau** khi `deities` đã sẵn sàng (lỗi thì `log.Fatalf`); đăng ký 4 route. Không dính khối `⚠️ DEV ONLY` nào. |
+| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; **không seed lúc khởi động** (từ 2026-10-11; thư viện kinh nạp bằng `cmd/seedsutras`, sau khi `deities` đã có); đăng ký 4 route. Không dính khối `⚠️ DEV ONLY` nào. |
 | E2E harness | `services/appService/e2e/harness.go` | Sau khi áp migration, seed `deities` từ `assets/data/phat_botat.json` (như `cmd/seeddeities` trong triển khai thật) vì service không khởi động lần đầu nếu thiếu `deities`; khi binary không lên, in stderr của nó thay vì chỉ báo hết giờ. Không có thay đổi này thì 3 test E2E của register/login hỏng. |
 | Migration | `migrations/0013_sutras.sql` | 4 bảng + index (xem "Mô hình dữ liệu"). Idempotent (`IF NOT EXISTS`) như mọi file khác. |
 | Migration (v2.12) | `migrations/0020_sutra_reference_license_summary.sql` | `ALTER TABLE … ADD COLUMN IF NOT EXISTS` cho 6 cột của `sutras` và 2 cột của `sutra_translations` (xem "Mô hình dữ liệu"); idempotent; không sửa dữ liệu đã có (xem marker ở `requirements.md`). |
@@ -148,11 +148,11 @@ File JSON (`assets/data/sutras/<id>.json`, `index.json`) cần bốn trường d
 
 > Xem `flow.md` cho sơ đồ sequence Mermaid của cả năm flow bên dưới (mirror 1:1). Cả bốn route đọc đều có từ hai lời gọi DB nối tiếp trở lên, nên không giữ bản ASCII riêng.
 
-## Step-by-step Flow — Nạp dữ liệu lần đầu khi khởi động
+## Step-by-step Flow — Nạp dữ liệu bằng lệnh `cmd/seedsutras` (service không tự nạp)
 
 ```
 Step 1 — Đếm số văn bản đang có (usecase → repository)
-- Trigger: cmd/main.go (lúc khởi động) hoặc cmd/seedsutras (chạy tay) gọi SutraUsecase.SeedIfEmpty(ctx, load) sau khi kết nối DB
+- Trigger: cmd/seedsutras (`make ensure-sutras` hoặc chạy tay) gọi SutraUsecase.SeedIfEmpty(ctx, load) sau khi kết nối DB. Từ 2026-10-11 cmd/main.go không còn gọi SeedIfEmpty.
 - Pre-condition: DB kết nối được; migration 0013 đã apply
 - Call: SutraRepository.Count(ctx, SutraFilter{}) → SELECT count(*) FROM sutras
     - Success (n = 0) → Step 2

@@ -4,6 +4,31 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first. (`api-contract.md` là tài liệu client có version riêng, không thuộc bộ này.)
 
+## v2.3 (2026-10-12)
+
+Implement bộ lọc `type` (AC 20–22) đã spec ở v2.2. Theo yêu cầu "implement" của người dùng.
+
+- Code: `domain/deity.go` (`IsValidDeityType`, `ErrInvalidDeityType`, `List(ctx, deityType, offset, limit)`), `usecase/deity_usecase.go`, `repository/postgres_deity_repository.go` (`WHERE type = $1` cho cả đếm và lấy trang), `delivery/http/deity_handler.go`, `delivery/http/errors.go` (`INVALID_DEITY_TYPE`), `domain/mock_deity_repository.go`. `cmd/main.go` không đổi.
+- Test: unit usecase/handler, repository (`TestDeityRepository_List_FiltersByType`), E2E mới `e2e/deity_e2e_test.go` (đây là E2E deity đầu tiên). Test repository nay áp thêm `0015_deities_deva_type.sql` trong `applyMigration` vì `deities.type` cần cho `DEVA`.
+- `docs/specs/api/openapi.yaml` và `web/docs/public/openapi.yaml`: thêm parameter `type`, response `400 INVALID_DEITY_TYPE`, sửa mô tả "không lọc".
+- `requirements.md`/`design.md`/`flow.md`: chỉ đổi Status và bỏ chú thích "chưa có code"; không đổi yêu cầu. `tasks.md`: Phase 7 đánh `[x]` sau khi chạy build/vet/test. `api-contract.md`: v1.3.
+- Còn lại: E2E cho `top`/`detail` (Phase 5), OKF `docs/knowledge/features/deity.md`, tài liệu web `guides/catalogues/deities.md`.
+
+## v2.2 (2026-10-12)
+
+Thêm bộ lọc `type` cho danh sách Phật / Bồ tát (`GET /v1/deities?type=`). Theo yêu cầu của người dùng sau khi xác nhận hiện chưa có API lọc theo loại. **Chỉ là spec; chưa có code, test hay thay đổi `openapi.yaml`.**
+
+- `requirements.md`: thêm AC 20–22 (lọc hợp lệ, `INVALID_DEITY_TYPE`, kết hợp `page`) vào US-DTY-02, đánh số nối đuôi để không lệch các tham chiếu AC 1–19; sửa AC 4, 5 (lọc và `total`); AC 16 và `DeitySummary.type` thêm `DEVA` cho khớp code/migration `0015`; bảng route, Out of scope, Pending; ghi quyết định vào "Open questions (resolved)".
+- `design.md`: thêm hàng (v2.2) ở Domain / Errors, Repository interface, Usecase, Repository, Handler, Error map; Step 1–4 của flow phân trang thêm `type`; Known gaps cập nhật; `cmd/main.go` không đổi (cùng route).
+- `flow.md`: sơ đồ phân trang thêm nhánh `type` lạ và `WHERE type = $1`, mirror `design.md` 1:1; không thêm/bớt Step.
+- `tasks.md`: thêm Phase 7 (7 mục, tất cả `[ ]`). Không mục nào đánh `[x]` vì chưa có code.
+- `api-contract.md`: v1.2, thêm mục "Filter by type" đánh dấu chưa implement.
+- Quyết định tự chốt, chờ người dùng/product duyệt (chi tiết ở "Open questions (resolved)"): tham số trên route sẵn có; khớp chính xác phân biệt hoa/thường; rỗng = không lọc; một giá trị mỗi lần; mã lỗi `INVALID_DEITY_TYPE` theo tiền lệ `INVALID_GALLERY_TYPE`.
+- Không breaking: client không gửi `type` nhận đúng kết quả cũ.
+- Drift có sẵn, chưa sửa: spec còn ghi "18 mục / hai loại" ở nhiều chỗ trong khi code và dữ liệu đã có `DEVA` (migration `0015`) và 20 mục (theo `openapi.yaml`). Chỉ sửa các chỗ chạm bộ lọc.
+- Follow-up ngoài phạm vi spec: `docs/specs/api/openapi.yaml` (+ `web/docs/public/openapi.yaml`) — mô tả `/v1/deities` đang ghi "không lọc"; OKF `docs/knowledge/features/deity.md` (chưa có); tài liệu web `web/docs/src/content/docs/guides/catalogues/deities.md`.
+- Không có `SRS.md` cho feature này (chỉ `administrative-units`, `genealogy`, `lamp`… có), nên chưa có SRS để cập nhật.
+
 ## v2.1 (2026-10-03)
 
 Bỏ tham chiếu tới spec `content` cũ (đã xoá); chỉ sửa một dòng chú thích, không đổi yêu cầu nào.

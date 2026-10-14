@@ -1,15 +1,15 @@
 # Design — genealogy
 
-Version: 5.5
-Last updated: 2026-10-10
-Status: not started — thiết kế dự kiến, chưa có code. Các giới hạn số đã chốt (2026-10-10). Bảng xưng hô v1 đã duyệt; mô hình quyền hai vai trò owner/viewer và vị trí theo số điện thoại (v5.0, 2026-10-10).
+Version: 5.12
+Last updated: 2026-10-11
+Status: implemented — đã cài đặt và kiểm chứng end-to-end (xem `ac-audit.md`); không còn marker `⚠️ Not confirmed` nào.
 Module: `genealogy`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
 ## Overview
 
-Hai mươi mốt route đều **user-scoped** — mười tám route `/v1/genealogies/*` (trong đó ba route `.../invitations*` và hai route `.../viewers*` của owner) cộng ba route `/v1/invitations*` của người được mời —, bọc `authMiddleware.AuthenticateFunc` (`RequireTokenType: "access"`) như `POST /v1/auth/logout` và `/v1/memorials`. Khác `memorial`, quyền không chỉ là "chủ dòng": mỗi route đầu tiên **phân giải vai trò** của user trong gia phả (Step A) rồi mới chạy nghiệp vụ. Chạm đủ bốn layer (domain/usecase/repository/delivery), sở hữu migration `0020_genealogy.sql` (năm bảng, gồm `genealogy_invitations`; `0019` đã bị `0019_sutra_audio_search.sql` dùng). Hình dạng gần nhất: `memorial` (404 đồng nhất, trần số lượng kiểm trong transaction có khoá) cộng lớp phân quyền.
+Hai mươi mốt route đều **user-scoped** — mười tám route `/v1/genealogies/*` (trong đó ba route `.../invitations*` và hai route `.../viewers*` của owner) cộng ba route `/v1/invitations*` của người được mời —, bọc `authMiddleware.AuthenticateFunc` (`RequireTokenType: "access"`) như `POST /v1/auth/logout` và `/v1/memorials`. Khác `memorial`, quyền không chỉ là "chủ dòng": mỗi route đầu tiên **phân giải vai trò** của user trong gia phả (Step A) rồi mới chạy nghiệp vụ. Chạm đủ bốn layer (domain/usecase/repository/delivery), sở hữu migration `0028_genealogy.sql` (năm bảng, gồm `genealogy_invitations`; `0019` đã bị `0019_sutra_audio_search.sql` dùng). Hình dạng gần nhất: `memorial` (404 đồng nhất, trần số lượng kiểm trong transaction có khoá) cộng lớp phân quyền.
 
 Từ v2.0, thông tin hiển thị khi chọn một người (tuổi, họ hàng, đường từ thuỷ tổ, chi, xưng hô với "tôi") **tính ở server** trong một hàm thuần của usecase (`genealogy_kinship.go`) — tải cả cây (≤ 5000 hàng) một lần rồi tính trong bộ nhớ (Step P), không đệ quy SQL.
 
@@ -51,11 +51,11 @@ Vai trò và quyền:
 | Delivery / DTO | cùng các file handler | DTO request/response (JSON tag chỉ ở đây). Trả `null` tường minh; `items: []` khi rỗng. |
 | Delivery / Errors | `services/appService/delivery/http/errors.go` | Thêm map: `GENEALOGY_NOT_FOUND`/`MEMBER_NOT_FOUND`/`VIEWER_NOT_FOUND`/`INVITATION_NOT_FOUND` → 404, `GENEALOGY_FORBIDDEN` → 403 (chưa có mã 403 nào trong file — thêm helper mới), các `*_LIMIT_REACHED`/`MEMBER_HAS_DESCENDANTS`/`FOUNDER_NOT_DELETABLE`/`FOUNDER_NOT_MOVABLE`/`MEMBER_PHONE_ALREADY_USED`/`VIEWER_ALREADY_EXISTS`/`INVITATION_ALREADY_PENDING`/`INVITATION_NOT_PENDING` → 409. |
 | Wiring | `services/appService/cmd/main.go` | Đăng ký 21 route, **bọc `authMiddleware.AuthenticateFunc`** từng route (verify bằng E2E, không chỉ tài liệu). Router hiện dùng `ServeMux` kiểu nào thì theo đó cho path có `{id}`/`{memberId}`/`{userId}` (xem cách `memorial` đăng ký). Không chạm khối `⚠️ DEV ONLY`. |
-| Migration | `migrations/0020_genealogy.sql` | Năm bảng, CHECK, index (mục "Schema" bên dưới). Số `0020` vì `0019` đã dùng — kiểm lại bằng `ls migrations/` ngay trước khi tạo file. Mirror vào `docs/specs/db/erd.mmd` + `erd.svg`. |
+| Migration | `migrations/0028_genealogy.sql` | Năm bảng, CHECK, index (mục "Schema" bên dưới). Số `0028` (các số `0019`–`0027` đã được feature khác dùng) — kiểm lại bằng `ls migrations/` ngay trước khi tạo file. Mirror vào `docs/specs/db/erd.mmd` + `erd.svg`. |
 | API spec | `docs/specs/api/openapi.yaml` (+ `web/docs/public/openapi.yaml`) | Thêm tag Genealogies, 21 route, các schema (`GenealogyDetail`, `Member`, `Chronicle`, `Viewer`, `Invitation`, `MyInvitation`, `MemberProfile`, `MemberRef`), bảo mật Bearer. |
 | E2E | `services/appService/e2e/genealogy_e2e_test.go` | Binary thật + Postgres thật: tạo → thêm → phân quyền hai user → 404/403 → chọn "tôi là ai" → `profile` (xưng hô, chi, đường từ thuỷ tổ). |
 
-## Schema (`migrations/0020_genealogy.sql`)
+## Schema (`migrations/0028_genealogy.sql`, đã viết và áp lên Postgres 16)
 
 ```
 genealogies            id BIGSERIAL PK, owner_user_id → users(id) ON DELETE RESTRICT,
@@ -340,7 +340,7 @@ Step P-2 — Tải cây và số điện thoại của người gọi (chỉ đ�
 Step P-3 — Tính trong bộ nhớ (hàm thuần, không I/O)
 - Trigger: đã có danh sách thành viên và số điện thoại của người gọi.
 - Pre-condition: không.
-- Call: `BuildIndex`; `my_member_id` = id thành viên có `phone_number` trùng số của người gọi, hoặc `null` (AC59); kiểm `memberId` có trong chỉ mục; rồi `Age` (AC65), `Relatives` (AC66), `Lineage` (AC67), `Chi` (AC68); `Kinship` (AC69) **chỉ khi** `my_member_id` ≠ null.
+- Call: `BuildIndex`; `my_member_id` = id thành viên có `phone_number` trùng số của người gọi, hoặc `null` (AC59); kiểm `memberId` có trong chỉ mục; rồi `Age` và `TraditionalAge` (AC65, tuổi tây và tuổi mụ), `Relatives` (AC66), `Lineage` (AC67), `Chi` (AC68); `Kinship` (AC69) **chỉ khi** `my_member_id` ≠ null.
     - Success → `200 MemberProfile`
     - Failure (`memberId` không có trong chỉ mục) → `404 MEMBER_NOT_FOUND` (không lộ thành viên của gia phả khác, vì chỉ mục chỉ chứa gia phả này)
     - Không có thành viên nào trùng số của người gọi → `my_member_id = null`, `relation_to_me = null`, không lỗi (AC63).

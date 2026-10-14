@@ -3,6 +3,28 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v7.5 (2026-10-11)
+
+Đăng ký **bắt buộc `full_name`**. Thêm field request, thêm field `user.full_name` ở response, thêm một mã lỗi `400 INVALID_FULL_NAME`.
+
+- `requirements.md`: thêm dòng "Họ tên" ở bảng trường; thêm AC21 (rỗng/toàn khoảng trắng/quá `profile.full_name_max_chars` = 300 ký tự → `400 INVALID_FULL_NAME`) và AC22 (thiếu key → `400 VALIDATION_ERROR`; `full_name` được copy sang `users` và trả ở `verify-otp`/`login`); bảng API, endpoint, schema cập nhật; ghi quyết định ở "Open questions (resolved)".
+- `design.md`: `User`/`PendingRegistration` thêm `FullName`; bước validate của `request-otp` thêm một nhánh lỗi; UPSERT `pending_registration` và INSERT `users` thêm cột `full_name`.
+- `flow.md`: nhãn request và nhãn lỗi của bước validate thêm `full_name`/`ErrInvalidFullName`/`INVALID_FULL_NAME`. Không thêm hay bớt bước.
+- `tasks.md`: thêm Phase 13 (tất cả `[x]` trừ mục OKF); đã chạy `go test -short ./...` và E2E đăng ký/đăng nhập.
+- Reason: yêu cầu "đăng ký đang thiếu fullname, bổ sung cho tính năng đăng ký"; người dùng chốt bắt buộc và tối đa 300 ký tự. Giới hạn nằm ở config. Cột nullable, không backfill (tài khoản cũ không có tên).
+- Cần theo sau: `docs/specs/features/profile/` (v1.5, cùng đợt: `/me` đọc và sửa `full_name`); OpenAPI + `web/docs` (cùng đợt); migration `0033` và ERD `docs/specs/db/erd.mmd` (+ `erd.svg` render lại); OKF `register.md` khi được làm mới.
+
+## v7.4 (2026-10-11)
+
+Pháp danh quá dài không còn là `500`. **Thêm một mã lỗi** `400 INVALID_DHARMA_NAME`; không đổi shape request/response nào.
+
+- `requirements.md`: thêm AC20 (pháp danh quá `profile.dharma_name_max_chars` ký tự → `400 INVALID_DHARMA_NAME`, đếm ký tự sau trim + NFC, chạy trước mọi query); bảng API của `request-otp` thêm mã lỗi mới; mục US-004 đổi sang trỏ `docs/specs/features/profile/` (bản cũ giữ để tra lịch sử, ghi rõ đã bị thay thế).
+- `design.md`: Step validate của `request-otp` thêm một nhánh lỗi.
+- `flow.md`: hai nhãn lỗi của bước validate thêm `ErrInvalidDharmaName`/`INVALID_DHARMA_NAME`. Không thêm hay bớt bước.
+- `tasks.md`: thêm Phase 12 (6 mục, tất cả `[x]`, đã chạy `go test -short ./services/appService/...`); mục Deferred về US-004 ghi đã chuyển sang `profile/`.
+- Reason: khoảng trống đã ghi ở `docs/HANDOFF.md` (pháp danh > 255 ký tự trả `500` vì cột `VARCHAR(255)`). Spec `profile` cần cùng một luật cho đăng ký và sửa hồ sơ ("một trường không có hai luật"), nên sửa ở đăng ký và dùng chung giới hạn/mã lỗi. Giới hạn nằm ở config (`profile.dharma_name_max_chars`), không là hằng.
+- Cần theo sau: OpenAPI + `web/docs` (đã cập nhật cùng v7.4); concept OKF `docs/knowledge/features/register.md` nên nhắc mã lỗi mới khi được làm mới.
+
 ## v7.3 (2026-10-10)
 
 Đóng nốt hai follow-up của v7.2 — **không đổi contract/thiết kế**.

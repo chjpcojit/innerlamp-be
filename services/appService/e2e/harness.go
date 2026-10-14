@@ -72,6 +72,9 @@ var (
 	seedSutrasOnce sync.Once
 	seedSutrasPath string
 	seedSutrasErr  error
+
+	seederMu   sync.Mutex
+	seederBins = map[string]string{}
 )
 
 // cleanupBuild removes the shared build directory. TestMain calls it after
@@ -79,6 +82,9 @@ var (
 func cleanupBuild() {
 	if buildDir != "" {
 		_ = os.RemoveAll(buildDir)
+	}
+	if emulatorContainer != nil {
+		_ = emulatorContainer.Terminate(context.Background())
 	}
 }
 
@@ -121,6 +127,41 @@ func binaryPath(t *testing.T) string {
 	})
 	require.NoError(t, buildErr)
 	return binPath
+}
+
+// seederBinaryPath builds cmd/<name> once per test run, like binaryPath does for the
+// service. It is for the seed commands other than seedsutras/seedadminunits, which
+// keep their own helpers.
+func seederBinaryPath(t *testing.T, name string) string {
+	t.Helper()
+	dir := sharedBuildDir(t)
+	seederMu.Lock()
+	defer seederMu.Unlock()
+	if p, ok := seederBins[name]; ok {
+		return p
+	}
+	out := filepath.Join(dir, name)
+	require.NoError(t, goBuild(filepath.Join(cmdDir, name), out))
+	seederBins[name] = out
+	return out
+}
+
+// seedContent loads the content the service reads (articles, dharma talks, the sutra
+// library) the way a deployment does: by running the seed commands. appService seeds
+// nothing on start, so a test that reads this content must call it before starting the
+// server. The deities must already be there (startPostgres does that).
+func seedContent(t *testing.T, host, port string) {
+	t.Helper()
+	cfg := writeTempConfig(t, host, port, "0", nil)
+	for _, bin := range []string{
+		seederBinaryPath(t, "seedarticles"),
+		seederBinaryPath(t, "seeddharmatalks"),
+		seedSutrasBinaryPath(t),
+	} {
+		res := runUntilExit(t, bin, cfg, 3*time.Minute)
+		require.False(t, res.timedOut, "%s timed out:\n%s", filepath.Base(bin), res.stderr)
+		require.Equal(t, 0, res.exitCode, "%s failed:\n%s", filepath.Base(bin), res.stderr)
+	}
 }
 
 // seedSutrasBinaryPath builds cmd/seedsutras once, like binaryPath does for the service.
@@ -299,6 +340,12 @@ func writeTempConfig(t *testing.T, dbHost, dbPort, appPort string, overrides con
 	server["static_images_dir"] = imagesDir
 	doc["server"] = server
 
+	// config.dev.yaml points storage at the compose emulator on localhost:4443. A test must
+	// never touch whatever dev data lives there, so every server gets the shared container.
+	if storage, ok := doc["storage"].(map[string]any); ok {
+		storage["emulator_host"] = sharedStorageEmulator(t)
+	}
+
 	for block, keys := range overrides {
 		section, ok := doc[block].(map[string]any)
 		require.Truef(t, ok, "config has no %q block to override", block)
@@ -345,8 +392,11 @@ func startServer(t *testing.T, dbHost, dbPort string, overrides configOverrides)
 
 	cmd := exec.Command(bin)
 	cmd.Env = append(os.Environ(), "CONFIG_PATH="+cfgPath)
+	// The service logs JSON to stdout; keep it with stderr so a startup failure
+	// carries its own reason.
 	var stderr bytes.Buffer
 	cmd.Stderr = &stderr
+	cmd.Stdout = &stderr
 	require.NoError(t, cmd.Start())
 
 	baseURL = "http://127.0.0.1:" + appPort
@@ -354,11 +404,14 @@ func startServer(t *testing.T, dbHost, dbPort string, overrides configOverrides)
 		_ = cmd.Process.Kill()
 		_ = cmd.Wait()
 	}
-	if !waitForReady(t, baseURL, 10*time.Second) {
+	// 30s, not 10: with storage.emulator_host pointed at a port nothing listens on,
+	// startup spends its own 10s connect budget retrying the bucket check before it
+	// serves, so a 10s wait raced it and failed every E2E test.
+	if !waitForReady(t, baseURL, 30*time.Second) {
 		// A binary that exits at startup (bad config, missing seed) would otherwise
 		// surface only as a timeout; its stderr is the actual reason.
 		kill()
-		t.Fatalf("server at %s did not become ready within 10s; server stderr:\n%s", baseURL, stderr.String())
+		t.Fatalf("server at %s did not become ready within 30s; server stderr:\n%s", baseURL, stderr.String())
 	}
 
 	return baseURL, func() {
@@ -390,6 +443,23 @@ func newE2EServerWithConfig(t *testing.T, overrides configOverrides) (baseURL st
 	t.Cleanup(cleanupDB)
 
 	url, cleanupSrv := startServer(t, dbHost, dbPort, overrides)
+	t.Cleanup(cleanupSrv)
+
+	return url, &http.Client{Timeout: 5 * time.Second}
+}
+
+// newE2EServerSeeded is newE2EServer for the tests that read articles, dharma talks or
+// sutras: the content is loaded by the seed commands before the service starts, because
+// the service itself seeds nothing.
+func newE2EServerSeeded(t *testing.T) (baseURL string, client *http.Client) {
+	t.Helper()
+	requireE2E(t)
+
+	dbHost, dbPort, cleanupDB := startPostgres(t)
+	t.Cleanup(cleanupDB)
+	seedContent(t, dbHost, dbPort)
+
+	url, cleanupSrv := startServer(t, dbHost, dbPort, nil)
 	t.Cleanup(cleanupSrv)
 
 	return url, &http.Client{Timeout: 5 * time.Second}
@@ -467,3 +537,49 @@ func runUntilExit(t *testing.T, bin, cfgPath string, timeout time.Duration) runR
 		return runResult{stderr: stderr.String(), exitCode: -1, timedOut: true}
 	}
 }
+
+// sharedStorageEmulator starts, once per test process, a fake-gcs-server container (the
+// image docker-compose.yml uses) and returns "host:port". Every server the harness starts
+// points at it, so no test ever touches a dev emulator running on localhost:4443. Each test
+// that stores objects picks its own bucket (profile.bucket) so they cannot see each other's.
+//
+// It does not sign or verify URLs, so a green run says nothing about signing (TD-001).
+// Skips the calling test when Docker is unreachable, like startPostgres.
+func sharedStorageEmulator(t *testing.T) string {
+	t.Helper()
+	emulatorOnce.Do(func() {
+		ctx := context.Background()
+		c, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				Image:        "fsouza/fake-gcs-server:1.56.1",
+				ExposedPorts: []string{"4443/tcp"},
+				Cmd:          []string{"-scheme", "http", "-port", "4443", "-backend", "memory"},
+				WaitingFor:   wait.ForListeningPort("4443/tcp").WithStartupTimeout(30 * time.Second),
+			},
+			Started: true,
+		})
+		if err != nil {
+			emulatorErr = err
+			return
+		}
+		hostPort, err := c.PortEndpoint(ctx, "4443/tcp", "")
+		if err != nil {
+			emulatorErr = err
+			_ = c.Terminate(ctx)
+			return
+		}
+		emulatorHostPort = hostPort
+		emulatorContainer = c
+	})
+	if emulatorErr != nil {
+		t.Skipf("docker unavailable, skipping E2E: %v", emulatorErr)
+	}
+	return emulatorHostPort
+}
+
+var (
+	emulatorOnce      sync.Once
+	emulatorHostPort  string
+	emulatorContainer testcontainers.Container
+	emulatorErr       error
+)

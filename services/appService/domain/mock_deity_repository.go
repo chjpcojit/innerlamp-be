@@ -24,8 +24,8 @@ func (m *MockDeityRepository) ListTop(ctx context.Context, limit int) ([]Deity, 
 }
 
 // List mocks the List method.
-func (m *MockDeityRepository) List(ctx context.Context, offset, limit int) ([]Deity, int, error) {
-	args := m.Called(ctx, offset, limit)
+func (m *MockDeityRepository) List(ctx context.Context, deityType string, offset, limit int) ([]Deity, int, error) {
+	args := m.Called(ctx, deityType, offset, limit)
 	if d := args.Get(0); d != nil {
 		return d.([]Deity), args.Int(1), args.Error(2)
 	}

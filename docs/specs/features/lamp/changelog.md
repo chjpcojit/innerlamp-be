@@ -2,6 +2,14 @@
 
 Lịch sử phiên bản của bộ spec `requirements.md` / `design.md` / `flow.md` / `tasks.md` (cùng một version tại mọi thời điểm).
 
+## v1.3 (2026-10-11)
+
+- `requirements.md`: AC6 và AC7 nêu giới hạn độ dài theo khoá config `lamp.recipient_max_chars` (dev: 100) và `lamp.prayer_max_chars` (dev: 300) thay vì số cứng; ghi chú kỹ thuật "mọi giới hạn nằm ở config" kèm quy tắc trần theo cột `VARCHAR`; câu trả lời đã chốt về độ dài giữ nguyên giá trị, chỉ ghi rõ chúng nằm ở config.
+- `design.md`: dòng Config thêm `RecipientMaxChars`, `PrayerMaxChars` và hai hằng trần schema; dòng Usecase lấy cả ba giới hạn từ config; ghi chú cột `VARCHAR` là trần cứng. Không đổi flow.
+- `flow.md`: no change needed, verified — chỉ đổi nguồn của hai con số, không thêm bước.
+- `tasks.md`: thêm bốn mục `[ ]` (config + yaml + usecase + openapi/web docs) cho việc chuyển hai giới hạn vào config.
+- Reason: người dùng yêu cầu đưa mọi giới hạn của thắp đèn vào `config.yaml` (theo nguyên tắc giá trị không nhạy cảm, đổi theo môi trường nằm ở config), thay vì hai hằng 100/300 trong usecase. Không đổi hành vi với giá trị dev hiện tại.
+
 ## v1.2 (2026-10-10)
 
 - `requirements.md`: Status chuyển sang đã implement Phase 1–4 và kiểm chứng; ghi chú hợp đồng API đổi sang "đã có trong `openapi.yaml`"; Pending liệt kê phần còn lại (sinh lại `erd.svg`, concept OKF); marker retention được bổ sung giá trị tạm `ON DELETE CASCADE` (marker vẫn mở); thêm ghi chú số migration là `0027`. Không đổi AC nào.

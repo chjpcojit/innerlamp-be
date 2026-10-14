@@ -51,15 +51,23 @@ func (r *deityRepository) ListTop(ctx context.Context, limit int) ([]domain.Deit
 	return scanDeities(rows)
 }
 
-// List returns one window of the ordered list of all deities (any type) plus the total row count.
-func (r *deityRepository) List(ctx context.Context, offset, limit int) ([]domain.Deity, int, error) {
+// List returns one window of the ordered list of deities plus the total row
+// count. deityType "" lists every type; otherwise both the count and the window
+// are restricted to that type.
+func (r *deityRepository) List(ctx context.Context, deityType string, offset, limit int) ([]domain.Deity, int, error) {
+	where, args := "", []any{}
+	if deityType != "" {
+		where, args = `WHERE type = $1 `, []any{deityType}
+	}
+	n := len(args)
+
 	var total int
-	if err := r.db.QueryRow(ctx, `SELECT count(*) FROM deities`).Scan(&total); err != nil {
+	if err := r.db.QueryRow(ctx, `SELECT count(*) FROM deities `+where, args...).Scan(&total); err != nil {
 		return nil, 0, fmt.Errorf("count deities: %w", err)
 	}
 	rows, err := r.db.Query(ctx,
-		`SELECT `+deityColumns+` FROM deities `+deityOrder+` OFFSET $1 LIMIT $2`,
-		offset, limit)
+		fmt.Sprintf(`SELECT `+deityColumns+` FROM deities `+where+deityOrder+` OFFSET $%d LIMIT $%d`, n+1, n+2),
+		append(args, offset, limit)...)
 	if err != nil {
 		return nil, 0, fmt.Errorf("query deities: %w", err)
 	}

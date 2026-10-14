@@ -49,6 +49,7 @@ type requestOTPRequest struct {
 	Email              string `json:"email" validate:"required,email"`
 	Password           string `json:"password" validate:"required"`
 	PhoneNumber        string `json:"phone_number" validate:"required,phone"`
+	FullName           string `json:"full_name" validate:"required"`
 	DharmaName         string `json:"dharma_name,omitempty"`
 	OrdinationTempleID string `json:"ordination_temple_id,omitempty"`
 }
@@ -97,6 +98,7 @@ type userResponse struct {
 	ID                 int64     `json:"id"`
 	Email              string    `json:"email"`
 	PhoneNumber        string    `json:"phone_number"`
+	FullName           *string   `json:"full_name,omitempty"`
 	DharmaName         *string   `json:"dharma_name,omitempty"`
 	OrdinationTempleID *string   `json:"ordination_temple_id,omitempty"`
 	CreatedAt          time.Time `json:"created_at"`
@@ -107,6 +109,7 @@ func newUserResponse(u *domain.User) userResponse {
 		ID:                 u.ID,
 		Email:              u.Email,
 		PhoneNumber:        u.PhoneNumber,
+		FullName:           u.FullName,
 		DharmaName:         u.DharmaName,
 		OrdinationTempleID: u.OrdinationTempleID,
 		CreatedAt:          u.CreatedAt,
@@ -128,6 +131,7 @@ func (h *RegisterHandler) RequestOTP(w http.ResponseWriter, r *http.Request) {
 		Email:              req.Email,
 		Password:           req.Password,
 		PhoneNumber:        req.PhoneNumber,
+		FullName:           req.FullName,
 		DharmaName:         req.DharmaName,
 		OrdinationTempleID: req.OrdinationTempleID,
 	})

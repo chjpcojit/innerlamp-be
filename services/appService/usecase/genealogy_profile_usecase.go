@@ -53,7 +53,9 @@ func (u *GenealogyProfileUsecase) GetProfile(ctx context.Context, userID, geneal
 	}
 
 	p := &domain.MemberProfile{Member: viewOf(idx, *m)}
-	p.Age = Age(m, currentYearVN(u.now()))
+	year := currentYearVN(u.now())
+	p.Age = Age(m, year)
+	p.TraditionalAge = TraditionalAge(m, year)
 
 	rel, _ := RelativesOf(idx, memberID)
 	p.Father, p.Mother = rel.Father, rel.Mother

@@ -390,6 +390,7 @@ func (c *apiClient) requestOTP(phone string) {
 	res := c.post("/v1/auth/register/request-otp", map[string]any{
 		"email":        strings.TrimPrefix(phone, "+") + "@e2e.example.com",
 		"password":     testPassword,
+		"full_name":    "Nguyen Van An",
 		"phone_number": phone,
 	}, "")
 	require.Equal(c.t, http.StatusOK, res.status, res.raw)

@@ -21,8 +21,8 @@ func (m *mockDeityUsecase) Top(ctx context.Context) ([]domain.Deity, error) {
 	return nil, args.Error(1)
 }
 
-func (m *mockDeityUsecase) ListDeities(ctx context.Context, page int) (*domain.DeityPage, error) {
-	args := m.Called(ctx, page)
+func (m *mockDeityUsecase) ListDeities(ctx context.Context, deityType string, page int) (*domain.DeityPage, error) {
+	args := m.Called(ctx, deityType, page)
 	if r := args.Get(0); r != nil {
 		return r.(*domain.DeityPage), args.Error(1)
 	}

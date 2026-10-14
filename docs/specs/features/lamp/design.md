@@ -1,7 +1,7 @@
 # Design — lamp
 
-Version: 1.2
-Last updated: 2026-10-10
+Version: 1.3
+Last updated: 2026-10-11
 Status: v1 (Phase 1–4: domain, config, usecase, repository, migration `0027`, handler, wiring, openapi) đã implement và kiểm chứng 2026-10-10 — unit, repository (Postgres thật) và E2E (binary thật + Postgres) đều pass. Còn 2 marker `⚠️ Not confirmed` (hiệu năng/khối lượng; retention + xoá tài khoản — migration đang dùng `ON DELETE CASCADE` tạm thời). Chưa sinh lại `erd.svg` (thiếu `mmdc`).
 Module: `lamp`
 
@@ -19,12 +19,12 @@ Hai route `/v1/lamps` đều **user-scoped về xác thực** (bọc `authMiddle
 | Domain / Errors | `domain/lamp.go` | `ErrLampLimitReached`, `ErrInvalidLampFilter`, `ErrInvalidLimit`, `ErrInvalidCursor`. `ErrLampInvalid` + `*LampValidationError{Field, Message}` (có `Unwrap` về sentinel) — handler đọc `Field` trả `400 VALIDATION_ERROR` kèm `details.field`, cùng mẫu `MemorialValidationError`. |
 | Domain / Repository interface | `domain/lamp.go` | `LampRepository`: `Light(ctx, p LightLampParams) (lamp *Lamp, created bool, err error)` — một transaction (khoá, chụp pháp danh, chống trùng, đếm trần, chèn); `Garden(ctx, q GardenQuery) (*GardenPage, error)` — một transaction đọc, cùng snapshot cho trang và đếm, trả tối đa `Limit+1` dòng. `LightLampParams` mang `Lamp.LitAt` (đồng hồ chung), `MaxActive`, `DedupeWindow` để repo không tự lấy giờ hay đọc config. **Đã implement.** |
 | Domain / Mock | `domain/mock_lamp_repository.go` | Mock viết tay cho test usecase. |
-| Usecase | `services/appService/usecase/lamp_usecase.go` | `Light(ctx, userID, in LampInput)`: trim + NFC, validate AC3–AC8 (enum, `durations_days` từ config, độ dài theo ký tự), tính `litAt = u.now()` (cắt về micro giây) và `endAt`, gọi `LampRepository.Light`. `Garden(ctx, f GardenFilter)`: validate `lamp_type`/`limit`/`cursor` (AC17, AC19, AC21), kẹp `limit` về `PageSize`, lấy `now`, gọi `LampRepository.Garden`, rồi cắt về `limit` dòng, dựng `has_more`/`next_cursor` (mã hoá/giải mã cursor nằm cùng file) và điền `0` cho loại vắng mặt trong `counts`. `now func() time.Time` inject được. **Đã implement.** |
+| Usecase | `services/appService/usecase/lamp_usecase.go` | `Light(ctx, userID, in LampInput)`: trim + NFC, validate AC3–AC8 (enum, `durations_days`, `recipient_max_chars` và `prayer_max_chars` đều lấy từ config, độ dài đếm theo ký tự), tính `litAt = u.now()` (cắt về micro giây) và `endAt`, gọi `LampRepository.Light`. `Garden(ctx, f GardenFilter)`: validate `lamp_type`/`limit`/`cursor` (AC17, AC19, AC21), kẹp `limit` về `PageSize`, lấy `now`, gọi `LampRepository.Garden`, rồi cắt về `limit` dòng, dựng `has_more`/`next_cursor` (mã hoá/giải mã cursor nằm cùng file) và điền `0` cho loại vắng mặt trong `counts`. `now func() time.Time` inject được. **Đã implement.** |
 | Repository | `services/appService/repository/postgres_lamp_repository.go` | SQL bảng `lamps`. `Light`: tx khoá `users`, đọc `dharma_name`, chống trùng, đếm trần, chèn. `Garden`: tx `READ ONLY` + `REPEATABLE READ`, `GROUP BY` đếm rồi lấy trang keyset. Mọi so sánh "đang sáng" là `end_at > $now` với `$now` do usecase truyền xuống. **Đã implement.** |
 | Delivery / Handler | `services/appService/delivery/http/lamp_handler.go` | `Light`: `userID` từ context → `DecodeJSONBodyStrict` → usecase → `201`/`200`. `Garden`: đọc query `lamp_type`, `limit`, `cursor` (giữ nguyên kể cả rỗng để usecase từ chối) → usecase. Không logic nghiệp vụ. **Đã implement.** |
 | Delivery / DTO | `delivery/http/lamp_handler.go` | `lampRequest`, `lampResponse`, `gardenLampResponse`, `gardenResponse` — JSON tag chỉ ở đây; `lit_at`/`end_at` RFC 3339 UTC; `items` luôn `[]` không `null`; `counts` luôn đủ 3 khoá; `next_cursor` là chuỗi base64url hoặc `null`. |
 | Delivery / Error map | `delivery/http/errors.go` | `ErrLampLimitReached` → `409 LAMP_LIMIT_REACHED`; `ErrInvalidLampFilter` → `400 INVALID_FILTER` (`details.field = "lamp_type"`); `ErrInvalidLimit` → `400 INVALID_LIMIT`; `ErrInvalidCursor` → `400 INVALID_CURSOR`; `*LampValidationError` → `400 VALIDATION_ERROR` + `details.field`. |
-| Config | `services/appService/config/config.go`, `config.dev.yaml` | `LampConfig{MaxActivePerUser (20), PageSize (12), DedupeWindow (5s), DurationsDays ([1,7,21,49])}`; `Validate` từ chối `MaxActivePerUser < 1`, `PageSize < 1`, `DedupeWindow <= 0`, `DurationsDays` rỗng / có giá trị `< 1` / trùng. Bắt buộc có block `lamp:` ở mọi `config.<env>.yaml`. |
+| Config | `services/appService/config/config.go`, `config.dev.yaml` | `LampConfig{MaxActivePerUser (20), PageSize (12), DedupeWindow (5s), DurationsDays ([1,7,21,49]), RecipientMaxChars (100), PrayerMaxChars (300)}`; `Validate` từ chối `MaxActivePerUser < 1`, `PageSize < 1`, `DedupeWindow <= 0`, `DurationsDays` rỗng / có giá trị `< 1` / trùng, `RecipientMaxChars`/`PrayerMaxChars` `< 1` hoặc **lớn hơn kích thước cột** (`LampRecipientColumnChars = 100`, `LampPrayerColumnChars = 300` — hai hằng trần này khớp `VARCHAR` của `0027_lamps.sql` và là hằng schema duy nhất còn lại; chúng chỉ là chốt chặn, không phải giá trị dùng để kiểm). Bắt buộc có block `lamp:` ở mọi `config.<env>.yaml`. |
 | Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase (truyền `cfg.Lamp`) → handler; đăng ký `POST /v1/lamps` và `GET /v1/lamps`, **cả hai bọc `authMiddleware.AuthenticateFunc`**. Phải kiểm tra thật sự đã bọc, không chỉ ghi là cần. |
 | Migration | `migrations/0027_lamps.sql` | Bảng `lamps` (bên dưới) + ba index. Idempotent (`IF NOT EXISTS`). Cập nhật `migrations/README.md`. |
 | API spec | `docs/specs/api/openapi.yaml` (+ `web/docs/public/openapi.yaml`) | 2 route, security Bearer, schema `Lamp`/`LampRequest`/`GardenLamp`/`GardenPage`; cập nhật cùng thay đổi handler. |
@@ -54,7 +54,7 @@ idx_lamps_type_lit  (lamp_type, lit_at DESC, id DESC)      -- vườn đèn đã
 idx_lamps_user_end  (user_id, end_at)                      -- đếm trần và chống trùng
 ```
 
-`duration_days` không có `CHECK IN (1,7,21,49)` ở DB vì tập giá trị nằm ở config (`lamp.durations_days`); DB chỉ chặn giá trị phi lý. `lit_at` không `DEFAULT now()` để `lit_at`/`end_at` luôn cùng một đồng hồ với phép so sánh `end_at > $now`.
+`duration_days` không có `CHECK IN (1,7,21,49)` ở DB vì tập giá trị nằm ở config (`lamp.durations_days`); DB chỉ chặn giá trị phi lý. Cột `recipient VARCHAR(100)` và `prayer VARCHAR(300)` là **trần cứng**: config có thể đặt giới hạn thấp hơn nhưng `Validate` không cho đặt cao hơn. `lit_at` không `DEFAULT now()` để `lit_at`/`end_at` luôn cùng một đồng hồ với phép so sánh `end_at > $now`.
 
 ## Request flow
 

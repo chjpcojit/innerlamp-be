@@ -5,9 +5,9 @@
 | Document type | Software Requirements Specification (SRS) — IEEE 29148-2018 |
 | Feature | Administrative Units (Vietnam provinces, districts and wards — old and new schemes, with conversion) |
 | Product | InnerLamp |
-| Version | 0.3 (draft) |
-| Last updated | 2026-10-10 |
-| Status | draft — core decisions confirmed 2026-10-10; two items still open (see Appendix A) |
+| Version | 0.5 (draft) |
+| Last updated | 2026-10-11 |
+| Status | draft — implemented and verified end-to-end (see `requirements.md` v1.8); one item still open (see Appendix A) |
 | Owner / author | duc@wee.vn (BA assist: Claude) |
 | Downstream handoff | `il-spec-writer` → `requirements.md` / `design.md` / `tasks.md` under `docs/specs/features/administrative-units/` |
 
@@ -87,7 +87,7 @@ The reference data is static between dataset loads. No external system is called
 - Convert an old ward to its new ward(s) and a new ward to its old ward(s) (`FR-007`, `FR-008`).
 - Convert at province level when only a province is known (`FR-009`).
 - Return every possible target when a conversion is not unique, labelled by relationship type (`FR-010`).
-- Search units by name ignoring diacritics (`FR-011`).
+- Search the wards of a new-scheme province by name, tolerant of case, diacritics, tone-mark position and apostrophes (`FR-011`).
 - Load a dataset version idempotently and verify its integrity (`FR-012`, `FR-013`).
 - Give every unit a short name and a full name with its type prefix (`FR-014`).
 
@@ -128,6 +128,7 @@ The reference data is static between dataset loads. No external system is called
     - Five old districts have no wards (Bạch Long Vĩ, Cồn Cỏ, Hoàng Sa, Lý Sơn, Côn Đảo); district-level conversion is deferred (confirmed 2026-10-10: "decide later").
   - Below ward level, the official catalogue has no data; the person types it (confirmed in conversation 2026-10-10).
   - Selecting a province presents its wards as a list the person can choose from (confirmed 2026-10-10).
+- **Client policy (2026-10-11):** the app offers only the new scheme (province → ward) in its UI. The old scheme and the conversions remain available in the API and are not called by the app.
 - **Dependencies:**
   - Registration flow and in-app screens call these lookups (confirmed: public for both).
   - Consuming features (temple catalogue, profile, genealogy, memorial) are separate specs.
@@ -155,7 +156,7 @@ A read-only HTTP API at contract level (paths and shapes are fixed later in the 
 - List the wards of a new-scheme province.
 - List the districts of an old-scheme province, and the wards of an old-scheme district.
 - Convert a ward (or a province) from one scheme to the other, returning candidates with their relationship type.
-- Search units by name within a scheme (optional, `FR-011`).
+- Search the wards of a new-scheme province by name (`FR-011`).
 
 Access rule (confirmed 2026-10-10): the lookups use the same web API key check as the registration and temple-suggestion routes. A web client sends the shared key header; a request without the header (mobile, which cannot keep a secret) is also served; a request with a wrong key is refused. The key identifies the calling application, not a person, and does not stop a caller who omits the header.
 
@@ -395,20 +396,56 @@ HTTPS, JSON, UTF-8 Vietnamese text. Responses follow the project's existing resp
   ```
   > Confirmed 2026-10-10: the client presents all candidates and lets the person choose; the system never chooses for them.
 
-**FR-011 — Search by name**
-- **Priority:** Could
-- **Description:** WHEN a client submits a name fragment and a scheme THE SYSTEM SHALL return matching units regardless of diacritics and letter case.
-- **Verification method:** integration test.
-- **Source:** analyst-proposed; not yet requested.
+**FR-011 — Search wards by name**
+- **Priority:** Should
+- **Description:** WHEN a client supplies a new-scheme province and a name fragment THE SYSTEM SHALL return that province's wards whose name contains the fragment, in the usual order, matching regardless of letter case, diacritics, where a tone mark sits on a vowel and which apostrophe is used; WHEN the fragment is present but blank or longer than 100 characters THE SYSTEM SHALL refuse it as an invalid filter rather than treat it as "no search".
+- **Verification method:** unit test, integration test, E2E.
+- **Source:** conversation 2026-10-11 ("the app lets users choose the new scheme only"; ward lists reach 168 entries, so a search is required).
 - **Acceptance criteria:**
   ```gherkin
-  @not-confirmed
   Scenario: Search without diacritics
     Given the dataset has been loaded
-    When a client searches the new scheme for "ha noi"
-    Then "Hà Nội" is among the results
+    When a client searches the wards of "Hồ Chí Minh" for "phuong tan dinh"
+    Then "Phường Tân Định" is among the results
+    And no ward of another province is returned
+
+  Scenario Outline: Tone-mark position and case do not matter
+    Given the dataset has been loaded
+    When a client searches the wards of "Thanh Hóa" for "<term>"
+    Then the result is the same as for "hoa"
+
+    Examples:
+      | term |
+      | Hóa  |
+      | Hoá  |
+      | HÓA  |
+
+  Scenario Outline: Either apostrophe finds either apostrophe
+    Given the dataset has been loaded
+    When a client searches the wards of "Lâm Đồng" for "<term>"
+    Then "B’Lao" is among the results
+
+    Examples:
+      | term  |
+      | b'lao |
+      | b’lao |
+
+  Scenario: Nothing matches
+    Given the dataset has been loaded
+    When a client searches the wards of "Thanh Hóa" for "zzzzzz"
+    Then the result is an empty list and not an error
+
+  Scenario Outline: A blank or over-long term is refused
+    Given the dataset has been loaded
+    When a client searches the wards of "Thanh Hóa" for "<term>"
+    Then the request is refused as an invalid filter naming the search term
+
+    Examples:
+      | term                   |
+      |                        |
+      | (three spaces)         |
+      | (101 characters)       |
   ```
-  > ⚠️ Not confirmed: whether name search is needed at all, and whether it is scoped to a province — it decides whether this requirement exists and how large the response can be.
 
 #### Managing the dataset
 
@@ -534,7 +571,7 @@ HTTPS, JSON, UTF-8 Vietnamese text. Responses follow the project's existing resp
 | FR-008 | Conversation 2026-10-10 | → il-spec-writer | 2 scenarios |
 | FR-009 | Conversation + dataset analysis | → il-spec-writer | 3 scenarios |
 | FR-010 | Conversation + dataset analysis | → il-spec-writer | 2 scenarios |
-| FR-011 | Analyst-proposed | → il-spec-writer | 1 scenario (not confirmed) |
+| FR-011 | Conversation 2026-10-11 | → il-spec-writer | 5 scenarios |
 | FR-012 | Conversation + dataset volatility | → il-spec-writer | 2 scenarios |
 | FR-013 | Dataset analysis | → il-spec-writer | 4 scenarios |
 | FR-014 | Dataset structure | → il-spec-writer | 1 scenario |
@@ -552,8 +589,6 @@ HTTPS, JSON, UTF-8 Vietnamese text. Responses follow the project's existing resp
 
 > ⚠️ Not confirmed: which consuming screens or fields use the lookups first (registration profile, temples, genealogy, memorial) and whether the free-text address line is required with a maximum length — it decides which requirements move to those features.
 
-> ⚠️ Not confirmed: whether name search without diacritics is needed and its scope — it decides whether `FR-011` exists.
-
 #### Open questions (resolved)
 
 | Question | Resolution | Date |
@@ -570,6 +605,8 @@ HTTPS, JSON, UTF-8 Vietnamese text. Responses follow the project's existing resp
 | How are the two data-label defects handled? | Corrected in the data file with a recorded note ("Phường 4" of Tân An → Long An; "Xã Tiên Hải" of Hà Tiên → Kiên Giang). | 2026-10-10 |
 | Reconcile with the official conversion table before production? | Deferred by the owner ("can be fixed later"); recorded in the data file's metadata. | 2026-10-10 |
 | District-level conversion? | Deferred ("decide later"). | 2026-10-10 |
+| Which scheme does the app let users pick? | The new scheme only; the old scheme and the conversions stay in the API for reference and later use (2026-10-11). | 2026-10-11 |
+| Is name search needed, and where? | Yes, wards of one new-scheme province; tolerant of case, diacritics, tone-mark position and apostrophes. | 2026-10-11 |
 | Is an API key required? | Yes, the existing web API key check: key header correct → served, header absent (mobile) → served, header wrong → refused. | 2026-10-10 |
 | Is an old province converted to more than one new province (Tiền Giang)? | No. The dataset shows 1 of 165 Tiền Giang wards pointing at Tây Ninh, but that ward belongs to Thành phố Tân An (Long An): a labelling defect, not a split. Old province → new province is always exactly one; the temple migration `0025` comment ("none was split") stands. | 2026-10-10 |
 | Province-only conversion: list or ward required first? | Old → new is exactly one; new → old is a list. No uncertainty flag is needed. | 2026-10-10 |

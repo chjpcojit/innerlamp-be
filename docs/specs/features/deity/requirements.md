@@ -1,8 +1,8 @@
 # Requirements — deity
 
-Version: 2.1
-Last updated: 2026-10-03
-Status: implemented (2026-09-30) — 3 route đọc công khai (`top`, danh sách phân trang gộp Phật + Bồ tát, `detail`); v2.0 đổi danh sách phân trang từ `/v1/bodhisattvas` (chỉ Bồ tát) sang `/v1/deities` (cả hai loại), đã có code + unit test; chưa chạy lại trên binary + Postgres dev. **Chưa có** E2E tự động. Còn 4 marker `⚠️ Not confirmed`.
+Version: 2.3
+Last updated: 2026-10-12
+Status: implemented (2026-09-30) — 3 route đọc công khai (`top`, danh sách phân trang gộp Phật + Bồ tát, `detail`); v2.0 đổi danh sách phân trang từ `/v1/bodhisattvas` (chỉ Bồ tát) sang `/v1/deities` (cả hai loại), đã có code + unit test; chưa chạy lại trên binary + Postgres dev. **v2.2–2.3 (2026-10-12): tham số lọc `type` cho `GET /v1/deities` (AC 20–22) đã implement: code + unit test + repository test (DB `innerlamp_test`) + E2E `deity_e2e_test.go` pass.** Các route còn lại **chưa có** E2E. Còn 4 marker `⚠️ Not confirmed`.
 Module: `content`
 Code: `services/appService/`
 
@@ -40,10 +40,15 @@ Spec này được viết **retroactively** từ danh mục Phật / Bồ tát �
 
 ## Acceptance Criteria (EARS notation)
 
-4. WHEN a `GET /v1/deities` request arrives without `page` (or with an empty `page=`), THE SYSTEM SHALL serve page 1 of the deities of **any type** (`BUDDHA` and `BODHISATTVA` together, no type filter), ordered by `sort_order` ASC then `id` ASC. Mỗi item mang trường `type` để client phân biệt.
-5. WHEN a page is served, THE SYSTEM SHALL return `data` with `items` (summary shape), `page`, `page_size` (`deity.page_size`, dev: 20), `total` (số mục của cả bảng, cả hai loại) and `total_pages` = `ceil(total / page_size)`.
+4. WHEN a `GET /v1/deities` request arrives without `page` (or with an empty `page=`) and without `type` (or with an empty `type=`), THE SYSTEM SHALL serve page 1 of the deities of **any type** (`BUDDHA`, `BODHISATTVA` and `DEVA` together, no type filter), ordered by `sort_order` ASC then `id` ASC. Mỗi item mang trường `type` để client phân biệt.
+5. WHEN a page is served, THE SYSTEM SHALL return `data` with `items` (summary shape), `page`, `page_size` (`deity.page_size`, dev: 20), `total` (số mục khớp bộ lọc `type` nếu có, ngược lại số mục của cả bảng) and `total_pages` = `ceil(total / page_size)`.
 6. WHEN `page` is greater than `total_pages`, THE SYSTEM SHALL return `200 OK` with `items: []` and the same `page_size`/`total`/`total_pages` — không phải lỗi. Client dừng khi `page >= total_pages` hoặc `items` rỗng.
 7. WHEN `page` is not a positive integer (`0`, negative, non-numeric, an integer that overflows, or larger than 2^31−1), THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`.
+20. WHEN a `GET /v1/deities?type=T` request arrives with `T` exactly one of `BUDDHA`, `BODHISATTVA`, `DEVA`, THE SYSTEM SHALL return only deities of that type, in the same order (`sort_order` ASC then `id` ASC), and `total` / `total_pages` SHALL count only that type.
+21. WHEN `type` is present and non-empty but not exactly one of the three values (kể cả khác hoa/thường như `buddha`), THE SYSTEM SHALL return `400 INVALID_DEITY_TYPE` with `details.field = "type"`.
+22. WHEN `type` is combined with `page`, THE SYSTEM SHALL page within the filtered list (offset = `(page-1) * page_size` trên danh sách đã lọc); WHEN both `type` and `page` are invalid, THE SYSTEM SHALL report `INVALID_PAGE` first (kiểm `page` trước `type`, cùng thứ tự với `gallery`).
+
+> Ghi chú đánh số: AC 20–22 được thêm ở v2.2 và nối đuôi để các tham chiếu tới AC 1–19 ở nơi khác (vd. AC 3, 6, 13) không bị lệch; chúng thuộc US-DTY-02.
 
 ## US-DTY-03: Xem chi tiết một vị Phật hoặc Bồ tát
 
@@ -85,7 +90,7 @@ Spec này được viết **retroactively** từ danh mục Phật / Bồ tát �
 ## Acceptance Criteria (EARS notation)
 
 15. WHEN the operator runs `go run ./services/appService/cmd/seeddeities [-file <path>]`, THE SYSTEM SHALL read the file (mặc định `assets/data/phat_botat.json`, tính từ thư mục đang đứng), validate it, and upsert every deity in **one transaction** keyed by `id`, with `sort_order` equal to the deity's position in the file (0, 1, 2, …), then log `seeded N deities from <file>`.
-16. WHEN the seed is validated, THE SYSTEM SHALL reject the whole file (write nothing) if it has no deity, an empty or duplicate `id`, a `type` other than `BUDDHA` / `BODHISATTVA`, or an empty `name_vi`.
+16. WHEN the seed is validated, THE SYSTEM SHALL reject the whole file (write nothing) if it has no deity, an empty or duplicate `id`, a `type` other than `BUDDHA` / `BODHISATTVA` / `DEVA`, or an empty `name_vi`.
 17. WHEN the seed is run again after the file was edited or reordered, THE SYSTEM SHALL update the existing rows in place by `id` — overwriting **every** column from the file, including `sort_order`, and setting `updated_at = now()` — and SHALL NOT create a second row for an existing `id`.
 18. WHEN the file is invalid, the database is unreachable, or the database rejects a row (vd. migration `0007` chưa apply), THE SYSTEM SHALL exit non-zero with a fatal log and SHALL leave the `deities` table unchanged (transaction rolled back).
 19. WHEN appService starts, THE SYSTEM SHALL NOT seed or otherwise write the `deities` table — một DB chưa chạy seed trả `items: []` (AC 3, 6), không phải lỗi.
@@ -97,17 +102,17 @@ Spec này được viết **retroactively** từ danh mục Phật / Bồ tát �
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
 | GET | `/v1/deities/top` | public | `200` `{items: [DeitySummary]}` (Phật và Bồ tát trộn) | 404 `NOT_FOUND` (sai path), 405, 500 |
-| GET | `/v1/deities?page=N` | public | `200` `{items, page, page_size, total, total_pages}` (Phật và Bồ tát trộn) | 400 `INVALID_PAGE`, 405, 500 |
+| GET | `/v1/deities?type=&page=N` | public | `200` `{items, page, page_size, total, total_pages}` (trộn các loại nếu không có `type`; lọc một loại nếu có) | 400 `INVALID_PAGE`, 400 `INVALID_DEITY_TYPE`, 405, 500 |
 | GET | `/v1/deities/{id}` | public | `200` `DeityDetail` | 404 `DEITY_NOT_FOUND`, 405, 500 |
 
-`DeitySummary`: `id` (vd. `buddha_amitabha`, `bodhisattva_avalokiteshvara`), `type` (`BUDDHA` \| `BODHISATTVA`), `name_vi`, `name_sanskrit`, `name_chinese`, `title_honorific`, `thumbnail_url` (string), `image_url` (string), `core_virtue`, `pure_land`.
+`DeitySummary`: `id` (vd. `buddha_amitabha`, `bodhisattva_avalokiteshvara`), `type` (`BUDDHA` \| `BODHISATTVA` \| `DEVA`), `name_vi`, `name_sanskrit`, `name_chinese`, `title_honorific`, `thumbnail_url` (string), `image_url` (string), `core_virtue`, `pure_land`.
 
 `DeityDetail` = `DeitySummary` + `canonical_source`, `lunar_memorial_days` (`[{lunar_day, lunar_month, event_name}]`), `iconography` `{posture, mount_or_throne, sacred_artifacts: [string], symbolic_meaning}`, `biography_summary`, `great_vows` (`[string]`), `mantras` `{short_mantra_sanskrit, short_mantra_sino_vietnamese, long_dharani_name, dharani_phonetic_snippet}`.
 
 ## Out of scope (this feature boundary, not tracked here)
 
 - Tạo/sửa/xoá mục qua API hoặc backoffice — hiện chỉ có `cmd/seeddeities` và SQL trực tiếp. `admin/requirements.md` ghi việc quản lý temple/deity qua backoffice sẽ có spec riêng.
-- Tìm kiếm, lọc, yêu thích; tính ngày vía theo lịch âm (bảng chỉ lưu `lunar_day`/`lunar_month`, không có phép tính ngày dương).
+- Tìm kiếm theo từ khoá, yêu thích; mọi bộ lọc khác ngoài `type` (AC 20–22); lọc nhiều `type` cùng lúc (`type=BUDDHA,DEVA`); tính ngày vía theo lịch âm (bảng chỉ lưu `lunar_day`/`lunar_month`, không có phép tính ngày dương).
 - Lưu trữ/phân phối ảnh: chỉ có hai cột URL, trỏ vào dữ liệu nguồn (xem Pending).
 - Đăng nhập: cả ba route công khai như `temple` và `article`.
 
@@ -126,12 +131,14 @@ Spec này được viết **retroactively** từ danh mục Phật / Bồ tát �
 
 - Dữ liệu seed (`assets/data/phat_botat.json`, 18 mục): 6 `BUDDHA` (`buddha_shakyamuni`, `buddha_amitabha`, `buddha_bhaisajyaguru`, `buddha_maitreya`, `buddha_vairocana`, `buddha_dipankara`) đứng trước, rồi 12 `BODHISATTVA` (bắt đầu bằng `bodhisattva_avalokiteshvara`, `bodhisattva_manjushri`). Cả 18 mục đều có `thumbnail_url` và `image_url` khác rỗng, nhưng chưa phân giải được (xem Pending). `top` mặc định 10 mục là 6 Phật + 4 Bồ tát; `/v1/deities` có `total = 18` và với `page_size = 20` chỉ có 1 trang (6 Phật rồi 12 Bồ tát).
 - `id` là chuỗi ổn định lấy từ dữ liệu nguồn nên id client đã cache vẫn đúng sau mọi lần nạp lại; seeder upsert theo `id`.
-- `sort_order` là vị trí trong file (bắt đầu từ 0) và là **nguồn xếp hạng duy nhất**; `id` là tie-break cuối để hai dòng cùng `sort_order` không đổi chỗ giữa các trang. Index `idx_deities_order` phục vụ `top` và danh sách phân trang; `idx_deities_type_order (type, sort_order, id)` hiện không route nào dùng (danh sách không còn lọc theo loại), giữ lại vì migration đã áp.
+- `sort_order` là vị trí trong file (bắt đầu từ 0) và là **nguồn xếp hạng duy nhất**; `id` là tie-break cuối để hai dòng cùng `sort_order` không đổi chỗ giữa các trang. Index `idx_deities_order` phục vụ `top` và danh sách phân trang; `idx_deities_type_order (type, sort_order, id)` hiện chưa route nào dùng nhưng phục vụ bộ lọc `type` (AC 20).
 - `lunar_memorial_days` lưu dưới dạng JSONB (danh sách ngắn, luôn đọc trọn), chưa có truy vấn nào nhìn vào bên trong nó; `sacred_artifacts` và `great_vows` là `TEXT[]`.
 - `total` và trang được đọc bằng hai câu lệnh riêng (đếm cả bảng rồi lấy trang), không cùng một snapshot — xem `design.md`.
 - Kích thước trang nằm ở block `deity:` của `config.<env>.yaml` (dev: `top_limit: 10`, `page_size: 20`); cả hai bắt buộc — giá trị 0 nghĩa là trang rỗng.
 - Bảng `deities` phải tồn tại trước khi service chạy (`make db-up` áp `0007_deities.sql`).
 
 ## Open questions (resolved during implementation)
+
+- 2026-10-12 (v2.2): **Có API lọc Phật / Bồ tát theo `type` không?** — chưa có (handler chỉ đọc `page`). Người dùng yêu cầu bổ sung. Các chi tiết người dùng chưa nêu được tự quyết theo tiền lệ `gallery` và ghi lại để duyệt: (a) tham số query `type` trên route sẵn có `GET /v1/deities`, không thêm route mới; (b) giá trị khớp chính xác, phân biệt hoa/thường, đúng ba giá trị `BUDDHA` / `BODHISATTVA` / `DEVA` (cùng giá trị với field `type` trả về); (c) bỏ trống hoặc `type=` rỗng = không lọc, nên client cũ không đổi hành vi; (d) giá trị lạ = `400 INVALID_DEITY_TYPE`, `details.field = "type"`; (e) một giá trị mỗi lần. Ảnh hưởng: `design.md` (thêm tham số cho usecase/repository, câu SQL có `WHERE type = $1`), `flow.md`, `tasks.md` Phase 7. Nếu product muốn nhận cả chữ thường hoặc nhiều giá trị, đổi AC 21 trước rồi cascade xuống.
 
 - 2026-09-30 (v2.0): **Cách xem Phật** — trước đây chỉ có `top` và `detail`, không có route danh sách Phật. Người dùng yêu cầu API phân trang gộp cả Phật và Bồ tát (cùng một bảng), nên `GET /v1/bodhisattvas` được thay bằng `GET /v1/deities?page=N` (không lọc loại). Ảnh hưởng: `design.md` (bỏ `ListByType`, thay bằng `List`), `flow.md` (bỏ nhánh lọc theo loại), `tasks.md` (đổi tên/nội dung mục usecase, handler, repository, E2E). Route cũ bị xoá, không giữ alias — client iOS phải đổi sang `/v1/deities`.

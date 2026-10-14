@@ -1,0 +1,259 @@
+{
+ "temple_north_001": {
+  "ward_code": "00103",
+  "ward": "Phường Tây Hồ",
+  "confidence": "medium",
+  "basis": "Wikipedia infobox for Chùa Trấn Quốc gives 'Đường Thanh Niên, phường Tây Hồ'; Thanh Niên is the southern boundary of the new Tây Hồ ward and the temple sits on the lake side, while Hồng Hà took Yên Phụ tổ 4-14 on the river side. Not confirmed by an official street-level list.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Chùa_Trấn_Quốc",
+   "https://vi.wikipedia.org/wiki/Tây_Hồ,_Hà_Nội",
+   "https://vi.wikipedia.org/wiki/Hồng_Hà,_Hà_Nội",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_002": {
+  "ward_code": "00004",
+  "ward": "Phường Ba Đình",
+  "confidence": "high",
+  "basis": "Phố Chùa Một Cột runs from Điện Biên Phủ to Ngọc Hà street, i.e. east of Ngọc Hà street which is the west boundary of the new Ba Đình ward (Ngọc Hà ward lies west of it); Wikipedia and Vinpearl list the pagoda in phường Ba Đình. Đội Cấn was split between Ba Đình and Ngọc Hà (NQ 1656).",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Chùa_Một_Cột",
+   "https://nguoihanoi.vn/pho-chua-mot-cot-quan-ba-dinh-ha-noi-34492.html",
+   "https://vi.wikipedia.org/wiki/Ba_Đình,_Hà_Nội",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_027": {
+  "ward_code": "00679",
+  "ward": "Xã Ngọc Hồi",
+  "confidence": "high",
+  "basis": "Thôn Yên Phú of old Liên Ninh commune is listed among the 13 thôn of new xã Ngọc Hồi (footnote: 'Nhị Châu, Phương Nhị, Yên Phú của xã Liên Ninh cũ'); Nam Phù only received Nội Am and Thọ Am from Liên Ninh. Assumes the thiền xá is in thôn Yên Phú as its name indicates.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Ngọc_Hồi_(xã)",
+   "https://vi.wikipedia.org/wiki/Nam_Phù",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_028": {
+  "ward_code": "10570",
+  "ward": "Phường Trần Hưng Đạo",
+  "confidence": "medium",
+  "basis": "Wikipedia and several news/travel sources place Chùa Côn Sơn in phường Trần Hưng Đạo, Hải Phòng; the old Cộng Hòa ward was split between Chu Văn An (part) and Trần Hưng Đạo (remainder) and the Côn Sơn-Kiếp Bạc relic area lies in Trần Hưng Đạo.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Chùa_Côn_Sơn",
+   "https://lsvn.vn/hai-phong-co-5-di-tich-thuoc-quan-the-di-san-the-gioi-vua-duoc-unesco-vinh-danh-a161246.html",
+   "https://vinwonders.com/vi/wonderpedia/news/con-son-kiep-bac-hai-phong/"
+  ]
+ },
+ "temple_north_030": {
+  "ward_code": "11383",
+  "ward": "Phường Lê Chân",
+  "confidence": "high",
+  "basis": "Hải Phòng's merger plan states the whole of old phường Hồ Nam (Lê Chân district) and Dư Hàng became the new phường Lê Chân; 121 Dư Hàng is in old Hồ Nam ward.",
+  "sources": [
+   "https://cdn.haiphong.gov.vn/gov-hpg/6824/tintuc/2025/11/ban-do-pa-2-phuong-chot-16.4.2025-638992305150387879.pdf",
+   "https://baophapluat.vn/3-diem-den-tam-linh-doc-dao-cua-hai-phong-post212173.html"
+  ]
+ },
+ "temple_north_035": {
+  "ward_code": "00070",
+  "ward": "Phường Hoàn Kiếm",
+  "confidence": "high",
+  "basis": "All 5 tổ dân phố of old Hàng Trống ward (which contains phố Nhà Thờ / Lý Quốc Sư) are listed under the new Hoàn Kiếm ward (Hàng Trống 1-5), while Cửa Nam's tổ list has no Hàng Trống tổ; Hoàn Kiếm's southern boundary is Tràng Tiền-Hàng Khay, south of this area.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Hoàn_Kiếm,_Hà_Nội",
+   "https://vi.wikipedia.org/wiki/Cửa_Nam,_Hà_Nội",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_041": {
+  "ward_code": "00103",
+  "ward": "Phường Tây Hồ",
+  "confidence": "medium",
+  "basis": "Wikipedia article for phường Tây Hồ lists Chùa Kim Liên among its notable temples; Nghi Tàm village area is inland of the Âu Cơ dike, which is the Hồng Hà/Tây Hồ boundary, and only Quảng An tổ 2 and 6 (mostly river area) went to Hồng Hà.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Tây_Hồ,_Hà_Nội",
+   "https://vi.wikipedia.org/wiki/Hồng_Hà,_Hà_Nội",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_042": {
+  "ward_code": "00070",
+  "ward": "Phường Hoàn Kiếm",
+  "confidence": "high",
+  "basis": "Same as Chùa Bà Đá: old Hàng Trống ward's 5 tổ (incl. Lý Quốc Sư / Nhà Thờ area) form Hoàn Kiếm's Hàng Trống 1-5 tổ; none are in Cửa Nam.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Hoàn_Kiếm,_Hà_Nội",
+   "https://vi.wikipedia.org/wiki/Cửa_Nam,_Hà_Nội",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_051": {
+  "ward_code": "00103",
+  "ward": "Phường Tây Hồ",
+  "confidence": "medium",
+  "basis": "Hồng Hà took only Nhật Tân tổ 6-9 (riverside, west boundary = Âu Cơ dike); Lạc Long Quân is an inland road west of that line and the Tây Hồ ward office is at 657 Lạc Long Quân. No source maps number 388 specifically.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Hồng_Hà,_Hà_Nội",
+   "https://vi.wikipedia.org/wiki/Tây_Hồ,_Hà_Nội",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_053": {
+  "ward_code": "00337",
+  "ward": "Phường Hoàng Liệt",
+  "confidence": "high",
+  "basis": "Wikipedia for phường Hoàng Liệt lists 'đình, chùa Bằng Liệt' among its sites and its tổ dân phố include Bằng A (15,16) and Bằng B (17), i.e. the former Bằng Liệt village is in the new Hoàng Liệt ward.",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Hoàng_Liệt",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_056": {
+  "ward_code": "00004",
+  "ward": "Phường Ba Đình",
+  "confidence": "high",
+  "basis": "Old phường Nguyễn Trung Trực was merged entirely into Trúc Bạch (NQ 1286/NQ-UBTVQH15, 2024), and Trúc Bạch was merged entirely into the new phường Ba Đình (NQ 1656, 2025).",
+  "sources": [
+   "https://vi.wikipedia.org/wiki/Trúc_Bạch",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1656-nq-ubtvqh15-2025-233530"
+  ]
+ },
+ "temple_north_015": {
+  "ward_code": "07682",
+  "ward": "Phường Tân An",
+  "confidence": "high",
+  "basis": "Old Xã Trí Yên (Yên Dũng) was merged with Phường Tân An, Xã Quỳnh Sơn and Xã Lãng Sơn into the new Phường Tân An (unit code 07682, Bắc Ninh); matches dataset candidate.",
+  "sources": [
+   "https://thuvienphapluat.vn/hoi-dap-phap-luat/phuong-tan-an-tinh-bac-ninh-gom-nhung-phuong-nao-hinh-thanh-sau-sap-xep-138087859.html"
+  ]
+ },
+ "temple_central_001": {
+  "ward_code": "19774",
+  "ward": "Phường Kim Long",
+  "confidence": "high",
+  "basis": "NQ 1675/NQ-UBTVQH15 Art.1.8: Phường Kim Long is formed from the wards Long Hồ, Hương Long and Kim Long (Thiên Mụ is on Hà Khê hill in old Kim Long/Hương Long, both in the new ward).",
+  "sources": [
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500"
+  ]
+ },
+ "temple_central_002": {
+  "ward_code": "19789",
+  "ward": "Phường Thuận Hóa",
+  "confidence": "high",
+  "basis": "NQ 1675 Art.1.15: Phường Thuận Hóa = Phú Hội, Phú Nhuận, Phường Đúc, Vĩnh Ninh, Phước Vĩnh, Trường An; address is in old Phường Trường An.",
+  "sources": [
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500"
+  ]
+ },
+ "temple_central_003": {
+  "ward_code": "19813",
+  "ward": "Phường Thủy Xuân",
+  "confidence": "high",
+  "basis": "NQ 1675 Art.1.17: Phường Thủy Xuân = Thủy Biều, Thủy Bằng, Thủy Xuân; address is in old Phường Thủy Xuân.",
+  "sources": [
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500"
+  ]
+ },
+ "temple_central_004": {
+  "ward_code": "19774",
+  "ward": "Phường Kim Long",
+  "confidence": "high",
+  "basis": "NQ 1314 (2024) merged Hương Hồ and Hương Thọ into Phường Long Hồ; NQ 1675 Art.1.8 then merged Long Hồ, Hương Long, Kim Long into Phường Kim Long. Hương Hồ was absorbed whole, so Thôn Đồng Chầm falls in Kim Long.",
+  "sources": [
+   "https://daibieunhandan.vn/nghi-quyet-ve-viec-sap-xep-don-vi-hanh-chinh-cap-huyen-cap-xa-cua-thanh-pho-hue-giai-doan-2023-2025-10353754.html",
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500"
+  ]
+ },
+ "temple_central_012": {
+  "ward_code": "22390",
+  "ward": "Phường Tây Nha Trang",
+  "confidence": "high",
+  "basis": "NQ of 28/9/2024 merged Phường Phương Sơn wholly into Phường Phương Sài (eff. 1/11/2024); NQ 1667/NQ-UBTVQH15 (2025) formed Phường Tây Nha Trang from Ngọc Hiệp, Phương Sài and 4 communes.",
+  "sources": [
+   "https://daibieunhandan.vn/nghi-quyet-ve-viec-sap-xep-don-vi-hanh-chinh-cap-xa-cua-tinh-khanh-hoa-giai-doan-2023-2025-post392690.html",
+   "https://en.wikipedia.org/wiki/T%C3%A2y_Nha_Trang"
+  ]
+ },
+ "temple_central_020": {
+  "ward_code": "24133",
+  "ward": "Phường Buôn Ma Thuột",
+  "confidence": "high",
+  "basis": "NQ 1193 (2024) merged Phường Thống Nhất (BMT) into Phường Tân Tiến; NQ 1660/NQ-UBTVQH15 (2025) formed Phường Buôn Ma Thuột from Thành Công, Tân Tiến, Tân Thành, Tự An, Tân Lợi and Xã Cư Êbur.",
+  "sources": [
+   "https://voh.com.vn/xa-hoi/tinh-dak-lak-sau-sap-xep-se-co-15-don-vi-hanh-chinh-cap-huyen-556805.html",
+   "https://thuviennhadat.vn/phap-ly-nha-dat/danh-sach-102-xa-phuong-moi-tinh-dak-lak-sau-sap-nhap-theo-nghi-quyet-1660-687054.html"
+  ]
+ },
+ "temple_central_024": {
+  "ward_code": "19789",
+  "ward": "Phường Thuận Hóa",
+  "confidence": "high",
+  "basis": "Old Phường Đúc (address 'Phường Phường Đúc') is one of six units forming Phường Thuận Hóa per NQ 1675 Art.1.15.",
+  "sources": [
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500"
+  ]
+ },
+ "temple_central_025": {
+  "ward_code": "19753",
+  "ward": "Phường Phú Xuân",
+  "confidence": "high",
+  "basis": "Phú Cát was merged with Phú Hiệp into Phường Gia Hội (NQ 1264/2021); NQ 1675 Art.1.10 merged Gia Hội with Phú Hậu, Tây Lộc, Thuận Lộc, Thuận Hòa, Đông Ba into Phường Phú Xuân. Tourism source also places Diệu Đế in Phú Xuân.",
+  "sources": [
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500",
+   "https://baophapluat.vn/cong-bo-dieu-chinh-dia-gioi-hanh-chinh-sap-xep-va-thanh-lap-cac-phuong-thuoc-thanh-pho-hue-post400084.html",
+   "https://mia.vn/cam-nang-du-lich/vang-canh-chua-dieu-de-17072"
+  ]
+ },
+ "temple_central_028": {
+  "ward_code": "21548",
+  "ward": "Đặc khu Lý Sơn",
+  "confidence": "high",
+  "basis": "Per NQ 1677/NQ-UBTVQH15 (16/6/2025) the whole Lý Sơn island district (communes An Vĩnh, An Hải, An Bình already dissolved) became Đặc khu Lý Sơn; the only current unit on the island.",
+  "sources": [
+   "https://baovanhoa.vn/doi-song/huyen-dao-ly-son-thanh-don-vi-hanh-chinh-cap-xa-co-ten-goi-dac-khu-ly-son-128150.html",
+   "https://www.sggp.org.vn/quang-ngai-ly-son-chinh-thuc-giai-the-don-vi-hanh-chinh-cap-xa-post550834.html"
+  ]
+ },
+ "temple_central_041": {
+  "ward_code": "19789",
+  "ward": "Phường Thuận Hóa",
+  "confidence": "high",
+  "basis": "Address is in old Phường Trường An, one of six units forming Phường Thuận Hóa per NQ 1675 Art.1.15.",
+  "sources": [
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500"
+  ]
+ },
+ "temple_central_043": {
+  "ward_code": "19813",
+  "ward": "Phường Thủy Xuân",
+  "confidence": "high",
+  "basis": "Address is in old Phường Thủy Xuân, merged into Phường Thủy Xuân per NQ 1675 Art.1.17.",
+  "sources": [
+   "https://hoatieu.vn/phap-luat/nghi-quyet-1675-nq-ubtvqh15-2025-233500"
+  ]
+ },
+ "temple_south_002": {
+  "ward_code": "26737",
+  "ward": "Phường Tân Định",
+  "confidence": "medium",
+  "basis": "Đa Kao was split by NQ 1685 between Phường Sài Gòn and Phường Tân Định; tourism sources list 73 Mai Thị Lựu under phường Tân Định, and the street runs along Kênh Nhiêu Lộc, Tân Định's northern boundary. No street-level boundary text found.",
+  "sources": [
+   "https://mia.vn/cam-nang-du-lich/chua-ngoc-hoang-12154",
+   "https://thuvienphapluat.vn/phap-luat-nha-dat/phuong-da-kao-quan-1-tphcm-sau-sap-nhap-tu-ngay-172025-doi-ten-thanh-gi-11143.html",
+   "https://vi.wikipedia.org/wiki/T%C3%A2n_%C4%90%E1%BB%8Bnh,_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh"
+  ]
+ },
+ "temple_south_021": {
+  "ward_code": "27094",
+  "ward": "Phường An Khánh",
+  "confidence": "unverified",
+  "basis": "NQ 1685 split old An Phú between An Khánh (remainder) and Bình Trưng (part); no source gives the boundary. Sources conflict: Vinpearl says Bình Trưng (505 Võ Nguyên Giáp), mia.vn lists the pháp viện under An Khánh.",
+  "sources": [
+   "https://mia.vn/cam-nang-du-lich/phuong-an-khanh-moi-sau-sap-nhap-19920",
+   "https://vinpearl.com/vi/phap-vien-minh-dang-quang-ghe-ve-doa-hoa-thanh-tinh-cua-sai-gon",
+   "https://en.wikipedia.org/wiki/B%C3%ACnh_Tr%C6%B0ng,_Ho_Chi_Minh_City"
+  ],
+  "note": "best guess only: the old ward was split between two current wards and sources disagree"
+ }
+}

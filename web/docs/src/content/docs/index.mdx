@@ -28,6 +28,15 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 	<Card title="Sổ giỗ chạp" icon="pencil">
 		Thêm, sửa, xoá người đã mất kèm ngày giỗ và nhắc nhở (cần đăng nhập). Xem [Sổ giỗ chạp](/guides/catalogues/memorials/).
 	</Card>
+	<Card title="Hồ sơ cá nhân" icon="user">
+		Xem hồ sơ của mình, sửa pháp danh và chùa quy y, đặt hoặc đổi ảnh đại diện bằng signed URL (cần đăng nhập). Xem [Hồ sơ cá nhân](/guides/catalogues/profile/).
+	</Card>
+	<Card title="Thắp đèn" icon="star">
+		Thắp đèn kèm tâm nguyện và lời nguyện, xem vườn đèn của mọi người, lọc theo loại đèn và tải thêm (cần đăng nhập). Xem [Thắp đèn](/guides/catalogues/lamps/).
+	</Card>
+	<Card title="Đơn vị hành chính" icon="map">
+		Danh sách tỉnh/thành và xã/phường theo hệ hai cấp mới và hệ ba cấp cũ, tìm xã theo tên không dấu, chuyển đổi giữa hai hệ (công khai). Xem [Đơn vị hành chính](/guides/catalogues/administrative-units/).
+	</Card>
 	<Card title="Kinh, kệ, chú" icon="open-book">
 		Thư viện kinh có bộ lọc, tìm kiếm và đọc nội dung theo trang dòng. Xem [Kinh, kệ, chú](/guides/catalogues/sutras/).
 	</Card>
@@ -46,5 +55,5 @@ import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 />
 
 :::note
-Tài liệu này mô tả những gì **đang có trong code**. Hồ sơ/avatar và đặt lại mật khẩu mới có spec, chưa có route nên chưa nằm ở đây.
+Tài liệu này mô tả những gì **đang có trong code**. Hồ sơ cá nhân và ảnh đại diện đã có spec và [trang hướng dẫn](/guides/catalogues/profile/) nhưng route chưa có ở server, nên chưa gọi thử được; đặt lại mật khẩu mới có spec, chưa có route nên chưa nằm ở đây.
 :::

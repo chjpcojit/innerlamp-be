@@ -5,11 +5,11 @@
 | Document type | Software Requirements Specification (SRS) — IEEE 29148-2018 |
 | Feature | Lamp Lighting (thắp đèn) and Lamp Garden (vườn đèn) |
 | Product | InnerLamp |
-| Version | 0.3 (draft) |
+| Version | 0.4 |
 | Last updated | 2026-10-10 |
-| Status | draft — 26 questions answered, 2 items still unconfirmed (see Appendix A) |
+| Status | approved 2026-10-10 — 27 questions answered; implemented in spec v1.2 (domain to delivery, verified end to end). 2 items deliberately deferred (see Appendix A) |
 | Owner / author | duc@wee.vn (BA assist: Claude) |
-| Downstream handoff | `il-spec-writer` → `requirements.md` / `design.md` / `tasks.md` under `docs/specs/features/lamp/` |
+| Downstream handoff | `il-spec-writer` → `requirements.md` / `design.md` / `flow.md` / `tasks.md` under `docs/specs/features/lamp/` (written at v1.0, current v1.2) |
 
 ---
 
@@ -61,7 +61,8 @@ InnerLamp is a Buddhist-practice companion app. Users already keep memorials, br
 
 ### 1.5 References
 
-- User request, 2026-10-10 (feature description and answers to questions 1–11).
+- User request, 2026-10-10 (feature description and answers to questions 1–27).
+- `docs/specs/features/lamp/{requirements,design,flow,tasks}.md` — the engineering spec derived from this document (v1.2).
 - `docs/specs/features/memorial/requirements.md` — existing user-scoped feature with a per-user limit, as a precedent for caps.
 - `docs/specs/features/login/requirements.md` — authentication that this feature depends on.
 - IEEE 29148-2018, *Systems and software engineering — Life cycle processes — Requirements engineering*.
@@ -145,7 +146,7 @@ Backend contract, at business level (exact paths, field names and error codes ar
 - **Light a lamp** — input: lamp type, intention, recipient, prayer, burn duration, and whether to hide the lighter's name. Output: the created lamp, including its end time.
 - **List the garden** — input: optional lamp-type filter, a page position and page size (at most 12). Output: a page of lit lamps (lighter's name, lamp type, recipient, end date), an indicator of whether more exist, the total number of lit lamps, and the number of lit lamps per lamp type, all in the same response. Intention and prayer are never returned to other users.
 
-The paging style (cursor vs offset) is left to `il-spec-writer`, with the requirement in FR-007 that "load more" stays stable while lamps expire.
+Paging uses an opaque **cursor** returned with each page (decision 27), not page numbers, so that "load more" stays stable while lamps expire or are lit (FR-007). A page holds at most 12 lamps.
 
 #### 3.1.4 Communication interfaces
 
@@ -443,9 +444,9 @@ HTTPS with JSON, authenticated with the existing access token on every request.
 
 **FR-007 — Load more**
 - **Priority:** Must
-- **Description:** WHEN the garden has more lit lamps than one page THE SYSTEM SHALL return the lamps in pages of at most 12 and let the user load the next page, without repeating or skipping a lamp that stays lit.
+- **Description:** WHEN the garden has more lit lamps than one page THE SYSTEM SHALL return the lamps in pages of at most 12 and let the user load the next page by sending back a position marker (cursor) issued with the previous page, without repeating or skipping a lamp that stays lit.
 - **Verification method:** unit test, E2E test
-- **Source:** request bullet 6
+- **Source:** request bullet 6; answer 18; decision 27
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Load the next page
@@ -586,7 +587,7 @@ Each requirement carries a verification method. Unit tests cover validation, the
 | FR-004 | answers 9, 14, 15, 25 | → il-spec-writer | 5 scenarios |
 | FR-005 | request bullet 6; answers 1, 3, 11, 16, 17, 22, 23, 26 | → il-spec-writer | 8 scenarios |
 | FR-006 | request bullet 6 | → il-spec-writer | 4 scenarios |
-| FR-007 | request bullet 6; answer 18 | → il-spec-writer | 5 scenarios |
+| FR-007 | request bullet 6; answers 18, 27 | → il-spec-writer | 5 scenarios |
 | FR-008 | request bullet 6; answer 10 | → il-spec-writer | 4 scenarios |
 | FR-009 | request bullet 1; answer 2 | → il-spec-writer | 3 scenarios |
 | NFR-001 | — | → il-spec-writer | TBD (⚠️ target not confirmed) |
@@ -634,3 +635,4 @@ Each requirement carries a verification method. Unit tests cover validation, the
 | 24. De-duplication window for a double tap? | 5 seconds, for identical content from the same user. | 2026-10-10 |
 | 25. Where is time stored and computed, and which zone shows the end date? | Stored and computed on the server as absolute instants (UTC); the end date is shown in the viewer's device time zone. | 2026-10-10 |
 | 26. Does the lighter's name follow later dharma-name changes? | No. The name is frozen at the moment the lamp is lit. | 2026-10-10 |
+| 27. Page by page number or by cursor? | By cursor. A page number shifts when lamps expire or are lit between two loads, which would repeat or skip lamps (FR-007); the cursor continues after the last lamp shown. Clients support one more paging style than the other lists. | 2026-10-10 |

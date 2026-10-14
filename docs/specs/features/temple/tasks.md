@@ -1,8 +1,8 @@
 # Tasks — temple
 
-Version: 1.6
-Last updated: 2026-10-10
-Status: implemented (2026-09-30) cho Phase 1–4; Phase 5 chưa làm E2E và OKF; Phase 6 là việc hoãn có chủ đích; Phase 7 (`options`: phân trang, `province`, `?q=` không dấu) và Phase 8 (cột `province`, migration `0024`) và Phase 9 (34 đơn vị mới, migration `0025`) đã làm và kiểm chứng trên Postgres thật; còn thiếu E2E riêng cho `options` và làm mới `erd.svg`/OKF.
+Version: 1.14
+Last updated: 2026-10-11
+Status: **Phase 10 (v1.7, địa chỉ có cấu trúc) đã làm và kiểm chứng ngày 2026-10-11**: migration `0032`, domain, repository, DTO, dữ liệu 93 chùa, seed, E2E, openapi, web docs, api-contract. Đã áp lên DB dev. Còn `[ ]`: `erd.svg`, OKF. Trạng thái trước v1.7: implemented (2026-09-30) cho Phase 1–4; Phase 5 chưa làm E2E và OKF; Phase 6 là việc hoãn có chủ đích; Phase 7 (`options`: phân trang, `province`, `?q=` không dấu) và Phase 8 (cột `province`, migration `0024`) và Phase 9 (34 đơn vị mới, migration `0025`) đã làm và kiểm chứng trên Postgres thật; còn thiếu E2E riêng cho `options` và làm mới `erd.svg`/OKF.
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -28,7 +28,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] `migrations/0011_temple_content.sql` — `introduction`, `architecture_heritage`, `visiting_notes`
 - [x] `repository/postgres_temple_repository.go`: `ListTop`, `List`, `FindByID`, `Upsert` (một transaction, `ON CONFLICT DO UPDATE`), `scanTemple(s)` với `pq.Array`
 - [x] `cmd/seedtemples/main.go` + `parse.go`: đọc file, bỏ chú thích `/* */`, kiểm id/vùng/hạng, kết nối bằng config dev, gọi `Upsert`
-- [x] `assets/data/temple.json`: 179 chùa, đủ ba trường nội dung biên tập
+- [x] `assets/data/temple.json`: 93 chùa, đủ ba trường nội dung biên tập
 - [x] Tests: `cmd/seedtemples/parse_test.go` (`TestParseTemples`, `_Rejects`, `_RealDataFile`) chạy và pass ở `-short`; `repository/postgres_temple_repository_test.go` (upsert/find, not found, atomic, ordering, paging) có mặt nhưng cần Postgres, bỏ qua khi `-short`, và `TRUNCATE` dữ liệu dev — chưa chạy lại ở lượt viết spec này
 - [ ] Đưa seed ra khỏi config dev để dùng được ở staging/production, hoặc chốt cách nạp khác — chặn bởi `⚠️ Not confirmed` về quy trình nạp trong `requirements.md`
 
@@ -81,7 +81,7 @@ Trace: hàng "Domain / Entity", "Seed CLI", "Data", "Repository", "Delivery / DT
 - [x] `docs/specs/db/erd.mmd`: cột `province` của `temples`; `migrations/README.md`: hàng `0024`
 - [x] Áp `0024` lên DB dev `innerlamp` và chạy lại `cmd/seedtemples`: 93 chùa, 0 dòng `province` rỗng, 37 giá trị khác nhau
 - [ ] `docs/specs/db/erd.svg`: cần render lại từ `erd.mmd` (môi trường này không có `mermaid-cli`)
-- [ ] Form `create-temple` của backoffice có `province` (chọn từ danh sách chuẩn) — thuộc spec `temple-suggestion`, chưa làm
+- [ ] Form `create-temple` của backoffice có `province` (chọn từ danh sách chuẩn) — thuộc spec `temple-suggestion`, chưa làm *(v1.7: thay bằng `province_code`/`ward_code` — `temple-suggestion` v3.2 Phase 8)*
 
 ## Phase 9 — 34 đơn vị cấp tỉnh (v1.6, US-TMP-07, AC 30–31)
 
@@ -94,8 +94,31 @@ Trace: hàng "Domain / Province", "Seed CLI", "Data", "Migration" trong `design.
 - [x] `migrations/README.md`: hàng `0025`
 - [x] `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml`: mô tả `Location.province` nêu 34 đơn vị
 - [x] Áp `0025` lên DB dev `innerlamp` rồi chạy lại `cmd/seedtemples`: 93 chùa, 0 `province` rỗng, 24 đơn vị khác nhau, cùng kết quả khi chỉ áp migration và khi nạp lại
-- [ ] Cập nhật `address` theo đơn vị hành chính mới (huyện/xã) — việc dữ liệu riêng, chưa có nguồn ánh xạ
-- [ ] Form `create-temple` của backoffice chọn `province` từ danh sách 34 đơn vị (cần bản sao hoặc chỗ dùng chung của `domain/province.go`) — thuộc spec `temple-suggestion`
+- [ ] Cập nhật `address` theo đơn vị hành chính mới (huyện/xã) — việc dữ liệu riêng, chưa có nguồn ánh xạ *(v1.7: nguồn ánh xạ đã có — `addr_old_*` + ánh xạ xã; làm ở Phase 10)*
+- [ ] Form `create-temple` của backoffice chọn `province` từ danh sách 34 đơn vị (cần bản sao hoặc chỗ dùng chung của `domain/province.go`) — thuộc spec `temple-suggestion` *(v1.7: thay bằng mã — `temple-suggestion` v3.2 Phase 8; không cần bản sao `domain/province.go`)*
+
+## Phase 10 — Địa chỉ có cấu trúc (v1.7, US-TMP-08, AC 32–38)
+
+Trace: hàng "Domain / Address", "Domain / Option", "Domain / Province", "Repository", "Seed CLI", "Data", "Delivery / DTO", "Migration", "API spec", "ERD" trong `design.md`; Step 2 và Step 4–6 của flow seed. Inside-out, test cùng lúc với code (`golang-clean-arch-tdd`). Test repository luôn chạy với `TEST_DB_NAME=innerlamp_test`.
+
+Thứ tự khuyến nghị: migration → domain → repository → script dữ liệu (người duyệt) → seed → DTO/API → E2E → tài liệu. Mục đã `[x]` được kiểm chứng; mục `[ ]` chưa làm.
+
+- [x] `migrations/0032_temple_address_codes.sql`: ba cột nullable + CHECK `chk_temples_address_codes`, idempotent, không đụng cột cũ; `migrations/README.md` (hàng `0032` + ghi chú), `docs/specs/db/erd.mmd` (ba cột và dòng nguồn), `0032` thêm vào danh sách migration của `postgres_registration_repository_test.go`. Đã kiểm trên Postgres 16 tạm (không phải DB dev): áp trên bảng đã có một chùa (qua `0005`, `0011`, `0024`) → dòng cũ giữ nguyên `address`/`province`, ba cột mới `NULL`; áp lần hai không lỗi; `UPDATE` chỉ một cột mã bị CHECK từ chối; đủ bộ ba và trả về cùng `NULL` đều được; đúng một constraint. `go vet ./services/appService/repository/` sạch. Chưa áp lên DB dev `innerlamp`
+- [x] `domain/temple.go`: `Temple.ProvinceCode/WardCode/Ward`, `FullAddress()` (AC 33), `TempleOption.ProvinceCode`; test bảng `TestTemple_FullAddress` (đủ ba phần, `address` rỗng hoặc chỉ khoảng trắng, dòng cũ giữ chuỗi đã lưu, có xã thiếu tỉnh) trong `domain/temple_address_test.go`. `mock_temple_repository.go` không cần đổi (chữ ký interface không đổi)
+- [x] `repository/postgres_temple_repository.go`: `templeColumns` đọc ba cột bằng `COALESCE(…, '')`, `scanTemple`, `Upsert` (28 cột, `NULLIF($n,'')` nên `""` ↔ `NULL`, upsert ghi đè cả ba cột), `ListOptions` đọc `province_code`. Test `TestTempleRepository_AddressCodes` trên Postgres thật (`TEST_DB_NAME=innerlamp_test`): vòng đi về đủ bộ ba, dòng cũ đọc ra `""`, `FullAddress` đúng ở cả hai, `ListOptions` trả `province_code`, nạp lại về không mã xoá cả ba, CHECK từ chối bộ ba đi lẻ và không ghi gì; các test temple cũ vẫn pass
+- [x] **Dữ liệu** — script `scripts/build_temple_addresses.py` (chỉ thư viện chuẩn, `python3 -I`): tách `address` hiện tại của 93 chùa thành phần dưới cấp xã và phần xã/huyện/tỉnh cũ, dò xã cũ qua `old_*` rồi sang `new_wards` bằng `ward_mappings`, xuất `assets/data/temple-address-proposal.json` và bảng duyệt `docs/specs/features/temple/address-review.md`; không ghi vào `assets/data/temple.json`. Đã chạy trên dataset `2026-09-25`: **68 `auto`** (đúng một xã mới, đúng tỉnh), **25 `review`** (11 xã cũ tách thành nhiều xã mới, 8 huyện không còn trong bảng cũ — chủ yếu TP. Huế, 6 xã không có trong bảng cũ; 7 dòng có gợi ý một ứng viên), **20 chùa có `address` dưới cấp xã trống**
+- [x] **Duyệt 25 dòng `review`** — anh Đức uỷ quyền ("em tự xử hết"); em tra nguồn qua hai agent (Hà Nội/Hải Phòng; miền Trung + TP.HCM + Bắc Giang), kết quả `address-decisions.json` / `address-decisions.md`: 19 `high`, 5 `medium`, 1 `unverified` (`temple_south_021`). Giả định ghi ở `docs/assumptions/temple/A-005` (`unvalidated`)
+- [x] **Áp dụng vào `assets/data/temple.json`** bằng `scripts/apply_temple_addresses.py --write` (đọc proposal + quyết định, kiểm mọi mã trong `new_wards` và đúng tỉnh, sao lưu `temple.json.pre-v1.7.bak`, vá dạng văn bản nên giữ nguyên chú thích `/* */`): 93/93 chùa có `province_code` + `ward_code`, 20 chùa có `address` rỗng (A-004), không còn khoá `province` trong file
+- [x] `cmd/seedtemples/parse.go`: `province_code`/`ward_code` bắt buộc không rỗng, `address` bắt buộc có mặt nhưng được rỗng (AC 34, A-004), `location.province` còn là tuỳ chọn để so khớp; bỏ kiểm `IsProvince`. Test `TestParseTemples_AddressFields` (trim, address rỗng, thiếu/rỗng từng field) và `_RealDataFile` (93 chùa đều có mã) pass
+- [x] `cmd/seedtemples/resolve.go` + `main.go`: `resolveAddresses` (Step 4) từ chối cả file khi mã tỉnh lạ, xã lệch tỉnh, `location.province` lệch tên, dataset rỗng (thông báo nêu `seedadminunits`), lỗi DB; điền `Province`/`Ward` từ dataset (AC 35–36). 7 test với resolver giả; chạy thật trên DB test `innerlamp_test`: dataset rỗng → thất bại, 0 dòng ghi; sau `seedadminunits` → 93 chùa (93 có `province_code`/`ward_code`/`ward`, 20 `address` rỗng, 0 xã lệch tỉnh); chạy lại → vẫn 93 (idempotent)
+- [x] `delivery/http/temple_handler.go`: `locationResponse` thêm `province_code`, `ward_code`, `ward` (null khi chưa nạp lại, dùng lại `nullIfEmpty`) và `full_address` (`Temple.FullAddress()`); `templeOptionResponse` thêm `province_code`; test `TestTempleHandler_LocationAddress` (chùa cũ, chùa có cấu trúc ở `top`, ở chi tiết) và `TestTempleHandler_Options` (có và không có mã) pass
+- [x] `go build ./...`, `go vet ./services/appService/...`, `go test -short ./services/appService/...` sạch
+- [x] Áp `0032` lên DB dev `innerlamp` rồi `seedtemples` (dataset hành chính đã có sẵn, 34 tỉnh): 93/93 chùa có `province_code`/`ward_code`/`ward`, 20 `address` rỗng, 0 xã lệch tỉnh; `docker exec … psql < migrations/0032_temple_address_codes.sql` (idempotent) rồi `go run ./services/appService/cmd/seedtemples`
+- [x] E2E: `services/appService/e2e/temple_e2e_test.go` `TestTemple_E2E` (binary thật + Postgres container, migration `0032` qua glob): `options` (4 field, thứ tự ranking, `province_code` null cho dòng cũ, `q`), chi tiết (đủ trường, address rỗng không bị nối, dòng chưa nạp lại giữ chuỗi đã lưu), `top`, `list`, 404 — pass
+- [x] `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml` + `web/docs/src/content/docs/guides/catalogues/temples.md` + `web/docs/src/content/docs/changelog.md`: `Location` và `TempleOption` có trường mới; mô tả `address` đổi nghĩa; ví dụ dùng dữ liệu thật (`temple_north_011` → `Phường Nam Hoa Lư`, `14359`)
+- [x] `docs/specs/features/temple/api-contract.md` (tài liệu client iOS) v1.3: thêm `options` và `q`, `Location` mới, đếm lại 93, ảnh là URL
+- [x] Gỡ `domain/province.go` và `province_test.go` — `grep` xác nhận chỉ còn test của chính nó dùng `IsProvince`
+- [ ] Sinh lại `docs/specs/db/erd.svg` (cần `mmdc`) và OKF `docs/knowledge/features/temple.md` — `il-okf-writer` sau khi code đã kiểm chứng
 
 ## Deferred (separate feature, not blocking temple)
 

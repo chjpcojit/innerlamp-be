@@ -2,7 +2,138 @@
 
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version
-first. `SRS.md` (từ `il-ba`) có version riêng (hiện v0.2) và là đầu vào của bộ spec này.
+first. `SRS.md` (từ `il-ba`) có version riêng (hiện v0.5) và là đầu vào của bộ spec này.
+
+## v1.10 — 2026-10-11
+
+Chỉ là đồng bộ tài liệu; không đổi hành vi, hợp đồng API hay flow. Phát hiện khi rà soát SRS / spec / `openapi.yaml` / `web/docs` của phần metadata tỉnh thành.
+
+- `design.md` (1.8 → 1.10): sửa mục "Deliberately stubbed" còn ghi "chưa có code" và "`?q=` chưa được hỏi" — `?q=` đã làm ở v1.8 (AC 25–26, FR-011); tiêu đề Schema bỏ "dự kiến" vì migration `0026` đã áp.
+- `SRS.md` (0.4 → 0.5): cập nhật Version/Last updated/Status cho khớp (đã implement và verified; còn một mục mở ở Appendix A). Nội dung yêu cầu không đổi.
+- `docs/specs/api/openapi.yaml` ↔ `web/docs/public/openapi.yaml`: giống hệt nhau; chín route khớp `cmd/main.go`.
+- `web/docs`: thêm trang `guides/catalogues/administrative-units.md`, mục sidebar, thẻ ở `index.mdx`, dòng changelog; bổ sung `X-API-Key`, `ADMINISTRATIVE_UNIT_NOT_FOUND`, `INVALID_FILTER` (`q` của xã) và `RATE_LIMITED` của nhóm route này vào `authentication.md` / `error-handling.md`.
+
+## v1.9 — 2026-10-11
+
+Chỉ là tài liệu và bảo vệ test; không đổi hành vi, hợp đồng API hay flow.
+
+- `requirements.md`, `design.md`, `flow.md`, `tasks.md`: không đổi (đã kiểm). Quy ước cấu hình/bí mật mới của repo (`AGENTS.md` §5.3) được feature này tuân thủ sẵn: `administrative_units.rate_limit` và `cache_max_age` là cấu hình không nhạy cảm nằm ở `config.yaml`; feature không thêm bí mật nào.
+- Thêm `docs/assumptions/administrative-units/A-001..A-003` (thời hạn cache ở config; file dữ liệu được commit + script ở `scripts/`; cờ `-dry-run` và test skip khi file vắng).
+- Thêm nợ kỹ thuật `docs/tech-debt/config/TD-001` (secret dev nằm plaintext trong `config.dev.yaml`, mọi lệnh seed dùng mock getter) và `TD-002` (test repository `TRUNCATE` database dev mặc định); tham chiếu trong `seedadminunits/main.go` và `config.dev.yaml`.
+- Test repository của feature từ chối `TRUNCATE` các bảng `addr_*` khi database đang chứa một bộ dữ liệu thật (version dạng ngày), kèm hướng dẫn đặt `TEST_DB_NAME`.
+- Áp migration `0026` và nạp dữ liệu vào database dev `innerlamp` (34 / 3.321 / 63 / 696 / 10.033 / 10.565).
+
+### Sự cố đã xảy ra và đã xử lý
+
+Khi chứng minh đoạn bảo vệ ở trên, em chạy test repository **không đặt `TEST_DB_NAME`**; `connectTestDB` của repo `TRUNCATE` các bảng nội dung của database dev (đúng như `TD-002` mô tả) trước khi tới đoạn bảo vệ của feature này. Đã nạp lại bằng lệnh seed của repo: deities 20, temples 93, gallery 86, articles 60, sutras 153 (391 bản dịch). **Không khôi phục được** dữ liệu do người dùng tạo ở dev: users, sessions, devices, memorials, lamps, genealogies. `dharma_talks` rỗng tới lần `make run` kế tiếp (server tự seed khi bảng rỗng). Bộ dữ liệu hành chính không bị ảnh hưởng.
+
+## v1.8 — 2026-10-11
+
+Quyết định 2026-10-11: **app chỉ cho người dùng chọn hệ mới**; thêm tìm xã theo tên và xếp lại ưu tiên.
+
+- `requirements.md`: mục mới "Hướng sử dụng" ghi quyết định; thêm AC 25 (tìm `?q=` trong một tỉnh, không phân biệt hoa thường, dấu, vị trí dấu thanh, kiểu dấu nháy) và AC 26 (`q` có mặt nhưng rỗng/trắng/quá 100 ký tự → `400 INVALID_FILTER`); đóng marker `?q=`; "Open questions (resolved)" ghi hai quyết định. Các AC cũ không đổi.
+- `design.md`: usecase có thêm `SearchCurrentWards`; repository có truy vấn `fold(full_name) LIKE fold($2)`; handler rẽ nhánh theo `q`; thêm trace ASCII cho route tìm; thêm một Known gap (phụ thuộc `unaccent`). **Flow nạp dữ liệu không đổi** (đã kiểm), nên `flow.md` chỉ đổi số phiên bản.
+- `flow.md`: không đổi sơ đồ (route tìm là một câu SELECT, không thuộc Step-by-step Flow).
+- `tasks.md`: thêm Phase 7 (6 mục, tất cả `[x]`); Status cập nhật.
+- `SRS.md` (v0.4): FR-011 từ "Could, chưa xác nhận" thành "Should" có 5 kịch bản; hai quyết định ghi vào "resolved"; thêm "client policy".
+- Reason: người dùng chốt UI chỉ cho chọn hệ mới. Hệ mới ít cấp và không có điểm mơ hồ, nhưng một tỉnh có tới 168 xã nên ô tìm là điều kiện để lựa chọn này dùng được.
+
+### Kiểm chứng trước khi quyết định
+
+Danh sách hệ mới (thứ UI sẽ dùng) được đối chiếu với `vietnamese-provinces-database` (nguồn độc lập, dựng từ danh mục Tổng cục Thống kê): 34/34 tỉnh, 3.321/3.321 mã xã trùng khít, 0 xã lệch tỉnh; 188 tên khác chữ thì 186 chỉ khác vị trí dấu thanh, 2 khác dấu nháy (`B’Lao`, `D’Ran`). Đó là lý do tìm kiếm phải chịu được hai khác biệt này.
+
+### Kiểm chứng
+
+- Test mới: usecase (6 ca), handler (5 ca), repository trên Postgres thật (8 ca), E2E trên dữ liệu thật (1 bước con); toàn bộ test của feature xanh.
+- `openapi.yaml` (cả hai bản): YAML hợp lệ, mọi `$ref` resolve, hai file giống hệt nhau.
+- Một lỗi em gây ra khi viết test: cú pháp Python lẫn vào mã Go và một kỳ vọng sai ("phuong thang" không là chuỗi con của "Phường Hòa Thắng"); `go vet` và test bắt được, đã sửa.
+- Quy ước cần nhớ khi viết dữ liệu Unicode vào mã bằng công cụ: dấu thanh và dấu nháy cong trong fixture của test được dựng từ code point (`string(rune(0x00E0))`) để chắc chắn là dạng tổ hợp hay tách rời.
+
+### Còn lại, có chủ đích (đã xếp lại ưu tiên)
+
+- Thấp: chuyển đổi cấp huyện (AC 13), nạp `district_mappings`, đối chiếu `conversion-table.xlsx` và giấy phép dữ liệu, đánh dấu hết hiệu lực — đều chỉ ảnh hưởng hệ cũ và ánh xạ, mà client không còn dùng.
+- Còn mở: nơi dùng đầu tiên của tra cứu (hồ sơ đăng ký, chùa, gia phả, sổ giỗ) và việc đặt lại tên nhãn `mapping_type`.
+- Concept OKF `docs/knowledge/features/administrative-units.md` — `il-okf-writer`, chỉ viết khi được yêu cầu.
+
+## v1.7 — 2026-10-11
+
+Phase 6 (E2E) và các việc còn lại đã xong; tính năng được xác minh end-to-end.
+
+- `requirements.md`: không đổi AC nào; Status chuyển thành implemented và verified end-to-end; "Pending" ghi hết phần implement; Ghi chú kỹ thuật thêm script dựng lại file và ngoại lệ `.gitignore`.
+- `design.md`: hàng ERD (`erd.svg` đã sinh lại) và Data (thêm script, ngoại lệ `.gitignore`); Known gap về script sinh file sửa lại cho đúng (script nay nằm trong repo). Cấu trúc layer và flow không đổi.
+- `flow.md`: không đổi sơ đồ; Status ghi flow nạp dữ liệu đã được E2E chứng minh (đã kiểm 1:1 với `design.md`).
+- `tasks.md`: Phase 5 và 6 tick `[x]` nốt các mục còn lại (`erd.svg`, script vào repo, `.gitignore`, E2E, `go test`/`go vet`). Chỉ còn một mục `[ ]`: concept OKF, thuộc `il-okf-writer` và chỉ viết khi được yêu cầu.
+- `test-coverage-report.md` (mới, ngoài chuỗi cascade): kiểm 24 AC — 23 có test chứng minh, AC 13 hoãn có chủ đích; không có lỗi wiring nào lọt qua.
+- Reason: hoàn tất danh sách việc của `tasks.md` theo yêu cầu "làm đến hết".
+
+### Quyết định em tự đưa ra (cần người dùng biết)
+
+- **Thêm ngoại lệ `.gitignore`** `!assets/data/administrative-units.json` (repo chặn `*.json` trong khối "Sensitive file"). Lý do: file là dữ liệu tham chiếu công khai, và yêu cầu gốc là có một file JSON để seed lại DB về sau; một file bị ignore thì không chia sẻ được. Hoàn tác bằng cách xoá ba dòng đã thêm.
+- **Đưa script sinh file vào `scripts/`** (không phải thư mục riêng của feature): theo thói quen của repo (`scripts/fetch_*.py`), có ghi vào `scripts/README.md`.
+- **Không viết concept OKF**: lời nhắc của dự án ghi rõ chỉ viết OKF khi được yêu cầu, dù điều kiện "đã E2E" đã đủ.
+
+### Kiểm chứng
+
+- E2E: `TestAdministrativeUnits_E2E` (13 bước con) và `TestAdministrativeUnits_RateLimit_E2E` xanh; toàn bộ package `e2e` xanh (156 s), tức các sửa ở `main.go`, `config.go`, `errors.go` không làm hỏng test của feature khác.
+- `go vet ./...` sạch; `go test -short ./...` toàn repo không có package nào fail; `check-architecture.sh` 0 lỗi.
+- `erd.svg` sinh lại bằng mermaid-cli 11.4.2 chạy với Chrome cài sẵn (không tải trình duyệt); script sinh file dựng lại từ nguồn cho file giống từng byte.
+
+### Còn lại, có chủ đích
+
+- Chuyển đổi cấp huyện (AC 13) và nạp `district_mappings`; hành vi của 5 đặc khu đảo hiện là danh sách ứng viên rỗng và đã có test khoá lại.
+- Đối chiếu bộ dữ liệu với `conversion-table.xlsx` chính thức và kiểm giấy phép dữ liệu; dòng "Kim Sơn → Kim Đông" nằm ở `meta.unresolved`.
+- Đánh dấu hết hiệu lực cho đơn vị vắng trong bản dữ liệu mới.
+- Ba marker `⚠️ Not confirmed` trong `requirements.md` "Pending": nơi dùng đầu tiên, tìm theo tên không dấu (`?q=`), và việc đặt lại tên nhãn `mapping_type`.
+- Concept OKF `docs/knowledge/features/administrative-units.md`.
+
+## v1.6 — 2026-10-11
+
+Phase 5 (CLI nạp dữ liệu `cmd/seedadminunits`) đã implement và test; đã chạy CLI thật.
+
+- `requirements.md`: không đổi AC nào; Status và "Pending" cập nhật; Ghi chú kỹ thuật thêm cú pháp CLI và cờ `-dry-run` (thêm ngoài danh sách AC, ghi rõ là bổ sung).
+- `design.md`: hàng Seed CLI chuyển sang *(created)* và mô tả thật; Step 2 nêu các kiểm tra cấu trúc (strict, `meta.format`, `meta.counts`, trường rỗng); Step 3 thêm nhánh `-dry-run`; Step 7 sửa cho đúng cài đặt — số dòng từng bảng được in ngay sau `Verify` (vì `ReplaceDataset` không trả số dòng), còn bước cuối in version và thời gian. **Số bước vẫn 7.**
+- `flow.md`: cập nhật sơ đồ cho khớp 1:1 với `design.md` v1.6 (thêm dòng in báo cáo và nhánh `opt -dry-run` sau `Verify`; nhãn Step 2 và Step 7); đã kiểm cú pháp Mermaid hợp lệ.
+- `tasks.md`: Phase 5 tick `[x]` hai mục (parse + test, main); hai mục còn lại của Phase 5 là quyết định về script sinh file (mở). Header Status cập nhật.
+- Reason: implement Phase 5. Hai quyết định cài đặt người dùng cần biết: (1) `-dry-run` — thêm ngoài spec vì rẻ và cho phép kiểm file mà không cần DB; (2) test file thật **skip** thay vì fail khi file vắng, vì `.gitignore` chặn `*.json` nên trên một checkout mới file này không có.
+
+### Kiểm chứng
+
+- 17 test mới ở `cmd/seedadminunits` xanh (kể cả file thật); `go build ./...`, `go vet` sạch.
+- **Chạy CLI thật** với file dữ liệu thật trên database test: `-dry-run` in 34 / 3.321 / 63 / 696 / 10.033 / 10.565 (district mappings 5 đọc, không nạp; 4 sửa đã áp; 1 unresolved; 0 chuỗi phải chuẩn hoá NFC) và DB không đổi; nạp lần đầu 1,1 s; nạp lần hai 0,8 s, số dòng không đổi và đúng một dòng `addr_dataset_versions`; file bị làm hỏng (đặt lại lỗi nhãn gốc + bỏ một mapping) bị từ chối với 3 vi phạm và DB không đổi (dòng đánh dấu còn nguyên); file thiếu / JSON sai format báo lỗi rõ; nạp lại bản đúng sửa dòng bị đánh dấu về giá trị chuẩn.
+- Không kiểm riêng mã thoát của tiến trình (lệnh pipe nuốt `$?`); mã nguồn dùng `log.Fatalf` / `os.Exit(1)` cho mọi nhánh lỗi.
+
+### Follow-up cho các tài liệu/mã ngoài thư mục này
+
+- `.gitignore`: `*.json` chặn `assets/data/administrative-units.json` nên file dữ liệu **không được commit** trừ khi thêm ngoại lệ `!assets/data/administrative-units.json` — chưa sửa vì là quyết định của người dùng.
+- `docs/specs/db/erd.svg`: chưa sinh lại; `docs/knowledge/features/administrative-units.md`: chưa tạo (chưa có E2E).
+- `go.mod`/CLAUDE.md của repo: không đổi gì.
+
+## v1.5 — 2026-10-11
+
+Phase 4 (config, handler, wiring `main.go`, `openapi.yaml`) đã implement và test; đã chạy binary thật.
+
+- `requirements.md`: AC 24 đổi từ hằng `86400` sang "lấy từ `administrative_units.cache_max_age` (dev 24h)"; mục API contract ghi đường dẫn đã có trong `openapi.yaml`; ghi chú NFR cập nhật số đo thật. Không có hành vi mới nào đối với client — dev vẫn trả `max-age=86400`.
+- `design.md`: các hàng Handler, DTO, Error map, Config, Wiring, API spec chuyển sang *(created)*/*(modified)*/*(updated)*; ghi tên DTO thật (`provinceResponse` dùng chung hai hệ, hai kiểu generic), một `ClientIPRateLimit` dùng chung cho cả chín route, và lý do cache lifetime nằm ở config. Request flow ASCII không đổi (đã khớp với mã).
+- `flow.md`: không đổi — các route đọc không thuộc Step-by-step Flow nạp dữ liệu (đã kiểm).
+- `tasks.md`: Phase 4 tick `[x]` cả bảy mục (đã kiểm); mục `mapping_type` được tách: phần cập nhật OpenAPI xong, phần "đặt lại tên nhãn" vẫn là marker mở ở `requirements.md`.
+- Reason: implement Phase 4. Một quyết định cài đặt cần người dùng biết: lifetime của cache được đưa vào config (`cache_max_age`) thay vì hằng số 86400 trong handler, theo quy tắc "mọi giá trị đổi theo môi trường nằm ở `config/`"; đồng ý "24 giờ" của người dùng vẫn là giá trị dev.
+
+### Kiểm chứng
+
+- Test: config (2 test mới), delivery/http (10 test mới, gồm chuỗi lắp ráp thật `webAPIKey` → limiter → handler); `go build ./services/...`, `go vet`, `go test -short ./services/appService/{config,delivery/http,domain,usecase,cmd}/` xanh; `check-architecture.sh` 0 lỗi.
+- **Chạy binary thật** (database tạm `innerlamp_smoke`, đã xoá sau khi dùng; file dữ liệu thật nạp vào): `new/provinces` → 34 tỉnh, `Cache-Control: public, max-age=86400`, header key vắng → 200, key sai → 401 `INVALID_API_KEY`, key đúng → 200; Hồ Chí Minh mới → 168 phường, "Phường An Đông" đầu tiên; xã cũ `26761` → Phường Cầu Ông Lãnh, `unique: true`; xã mới `26758` → bốn xã cũ (Cầu Kho, Cầu Ông Lãnh, Cô Giang, Nguyễn Cư Trinh), `unique: false`; Hồ Chí Minh mới ← ba tỉnh cũ; Tiền Giang cũ → chỉ Đồng Tháp; huyện đảo `318` → `items: []` 200; mã không tồn tại → 404 `ADMINISTRATIVE_UNIT_NOT_FOUND` không có `Cache-Control`; đường dẫn lạ 404, sai method 405; "Phường 1, 2, 4, 5, 7, 9, 11, 12, 13, 14" đúng thứ tự số.
+- `openapi.yaml` (cả hai bản): YAML hợp lệ, 9 path và 13 schema `Administrative*`, mọi `$ref` resolve, hai file giống hệt nhau. Lần chèn đầu có `summary` chứa `: ` làm hỏng YAML; đã bắt được và sửa bằng cách đặt trong dấu nháy.
+
+### Phát hiện khi implement
+
+- `main()` không có test: đăng ký route ở `cmd/main.go` chỉ được xác minh bằng biên dịch, đọc lại và chạy binary thật. Đó là lý do E2E ở Phase 6 vẫn cần.
+- Server lúc khởi động tự seed kinh (`sutras`) và cần bảng `deities` đã có dữ liệu; một database mới chỉ chạy migration thì binary thoát với "sutra seed references deities that are not seeded". Không liên quan đến feature này nhưng làm E2E phải seed deities trước.
+- `config.go`, `config.dev.yaml`, `main.go`, `errors.go` là file dùng chung với phiên "lamp"/"genealogy" đang làm song song; em chỉ chèn theo điểm neo và đọc lại ngay trước khi ghi.
+
+### Follow-up cho các tài liệu/mã ngoài thư mục này
+
+- `docs/specs/db/erd.svg`: vẫn chưa sinh lại (không có `mmdc`).
+- `docs/knowledge/features/administrative-units.md`: chưa tạo (chưa có E2E).
 
 ## v1.4 — 2026-10-10
 

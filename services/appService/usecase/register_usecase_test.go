@@ -3,6 +3,7 @@ package usecase
 import (
 	"context"
 	"errors"
+	"strings"
 	"testing"
 	"time"
 
@@ -52,6 +53,7 @@ const (
 	testEmailRaw       = "  User@Example.com  "
 	testPassword       = "supersecret"
 	testDharmaName     = "Thích Nhất Hạnh"
+	testFullName       = "Nguyễn Văn An"
 	testTempleID       = "temple_north_011"
 
 	// testOTPCode mirrors the constant the use case currently generates
@@ -71,6 +73,12 @@ const (
 	// config.dev.yaml — the pending payload's own lifetime, a register-specific
 	// value now threaded to RegisterUsecase separately from the OTP policy.
 	testPendingTTL = 24 * time.Hour
+
+	// testDharmaNameMax mirrors profile.dharma_name_max_chars in config.dev.yaml.
+	testDharmaNameMax = 255
+
+	// testFullNameMax mirrors profile.full_name_max_chars in config.dev.yaml.
+	testFullNameMax = 300
 )
 
 // testOTPPolicy mirrors the values in config.dev.yaml's `otp:` block. The use
@@ -107,7 +115,7 @@ func newRegisterFixture() *registerFixture {
 	otpService := NewOTPService(otpRepo, sender, logger, testOTPPolicy)
 
 	return &registerFixture{
-		usecase: NewRegisterUsecase(repo, otpService, jwtService, logger, testSessionTTL, testPendingTTL),
+		usecase: NewRegisterUsecase(repo, otpService, jwtService, logger, testSessionTTL, testPendingTTL, testDharmaNameMax, testFullNameMax),
 		repo:    repo,
 		otpRepo: otpRepo,
 		sender:  sender,
@@ -168,6 +176,7 @@ func defaultRequestInput() domain.RequestRegisterOTPInput {
 		Email:              testEmailRaw,
 		Password:           testPassword,
 		PhoneNumber:        testPhoneNumberRaw,
+		FullName:           testFullName,
 		DharmaName:         testDharmaName,
 		OrdinationTempleID: testTempleID,
 	}
@@ -1297,4 +1306,115 @@ func withInput(mutate func(*domain.RequestRegisterOTPInput)) domain.RequestRegis
 	input := defaultRequestInput()
 	mutate(&input)
 	return input
+}
+
+// TestRequestOTP_DharmaNameLength: a dharma name over the configured limit is a
+// 400, never a 500 from the VARCHAR(255) column (docs/HANDOFF.md gap, closed by
+// docs/specs/features/profile). The limit counts characters after trimming and
+// NFC normalisation, not bytes, so Vietnamese letters with diacritics each
+// count as one, composed or decomposed. Nothing is queried or written.
+func TestRequestOTP_DharmaNameLength(t *testing.T) {
+	composed := "ế"               // U+1EBF, one rune
+	decomposed := "e\u0302\u0301" // e + circumflex + acute, three runes before NFC
+
+	tests := []struct {
+		name       string
+		dharmaName string
+		wantErr    bool
+	}{
+		{"at the limit", strings.Repeat("a", testDharmaNameMax), false},
+		{"one over the limit", strings.Repeat("a", testDharmaNameMax+1), true},
+		{"far over the limit", strings.Repeat("a", 1000), true},
+		{"diacritics count as one character", strings.Repeat(composed, testDharmaNameMax), false},
+		{"decomposed diacritics are normalised first", strings.Repeat(decomposed, testDharmaNameMax), false},
+		{"padding does not count", "  " + strings.Repeat("a", testDharmaNameMax) + "  ", false},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			f := newRegisterFixture()
+
+			if !tt.wantErr {
+				f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+				f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
+				f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
+				f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+					Return(&domain.SendState{Remaining: 3}, nil)
+				f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil)
+			}
+
+			input := defaultRequestInput()
+			input.DharmaName = tt.dharmaName
+
+			_, err := f.usecase.RequestOTP(context.Background(), input)
+			if tt.wantErr {
+				require.ErrorIs(t, err, domain.ErrInvalidDharmaName)
+				f.repo.AssertNotCalled(t, "FindConflicts", mock.Anything, mock.Anything, mock.Anything)
+				f.repo.AssertNotCalled(t, "SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+				return
+			}
+			require.NoError(t, err)
+		})
+	}
+}
+
+// TestRequestOTP_DharmaNameStoredNormalised: the stored value is trimmed and in
+// NFC, so the same name typed two ways is one value.
+func TestRequestOTP_DharmaNameStoredNormalised(t *testing.T) {
+	f := newRegisterFixture()
+
+	var captured *domain.PendingRegistration
+	f.repo.On("FindConflicts", mock.Anything, mock.Anything, mock.Anything).Return(noConflicts(), nil)
+	f.repo.On("TempleExists", mock.Anything, mock.Anything).Return(true, nil).Maybe()
+	f.otpRepo.On("FindActiveOTP", mock.Anything, mock.Anything, mock.Anything).Return(nil, domain.ErrOTPInvalid)
+	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+		Run(func(args mock.Arguments) { captured = args.Get(1).(*domain.PendingRegistration) }).
+		Return(&domain.SendState{Remaining: 3}, nil)
+	f.sender.On("SendOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil)
+
+	input := defaultRequestInput()
+	input.DharmaName = "  Thi\u0301ch Minh An  " // "i" + combining acute
+
+	_, err := f.usecase.RequestOTP(context.Background(), input)
+	require.NoError(t, err)
+	require.NotNil(t, captured)
+	require.NotNil(t, captured.DharmaName)
+	assert.Equal(t, "Thích Minh An", *captured.DharmaName)
+}
+
+// TestRequestOTP_FullName: the full name is required, trimmed and NFC-normalised,
+// and capped at the configured limit. No repository call happens on rejection.
+func TestRequestOTP_FullName(t *testing.T) {
+	tests := []struct {
+		name     string
+		fullName string
+		wantErr  bool
+	}{
+		{"blank", "", true},
+		{"whitespace only", "   ", true},
+		{"at the limit", strings.Repeat("a", testFullNameMax), false},
+		{"one over the limit", strings.Repeat("a", testFullNameMax+1), true},
+		{"padding does not count", "  " + strings.Repeat("a", testFullNameMax) + "  ", false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			input := defaultRequestInput()
+			input.FullName = tt.fullName
+			if tt.wantErr {
+				got, err := normalizeFullName(input.FullName, testFullNameMax)
+				require.ErrorIs(t, err, domain.ErrInvalidFullName)
+				assert.Empty(t, got)
+				return
+			}
+			got, err := normalizeFullName(input.FullName, testFullNameMax)
+			require.NoError(t, err)
+			assert.NotEmpty(t, got)
+		})
+	}
+
+	t.Run("stored trimmed and in NFC", func(t *testing.T) {
+		got, err := normalizeFullName("  Nguye\u0302\u0303n Va\u0306n An  ", testFullNameMax)
+		require.NoError(t, err)
+		assert.Equal(t, "Nguyễn Văn An", got)
+	})
 }

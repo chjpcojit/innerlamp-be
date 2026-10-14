@@ -38,7 +38,7 @@ func assertCORSHeaders(t *testing.T, h http.Header) {
 	t.Helper()
 	for name, want := range map[string]string{
 		"Access-Control-Allow-Origin":  "*",
-		"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+		"Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
 		"Access-Control-Allow-Headers": "Content-Type, Authorization",
 	} {
 		if got := h.Get(name); got != want {

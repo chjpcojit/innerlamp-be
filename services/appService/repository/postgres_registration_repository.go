@@ -122,11 +122,12 @@ func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pen
 
 	const upsertPending = `
 		INSERT INTO pending_registration
-			(phone_number, email, password_hash, dharma_name, ordination_temple_id, expires_at, created_at)
-		VALUES ($1, $2, $3, $4, $5, $6, now())
+			(phone_number, email, password_hash, full_name, dharma_name, ordination_temple_id, expires_at, created_at)
+		VALUES ($1, $2, $3, $4, $5, $6, $7, now())
 		ON CONFLICT (phone_number) DO UPDATE SET
 			email = EXCLUDED.email,
 			password_hash = EXCLUDED.password_hash,
+			full_name = EXCLUDED.full_name,
 			dharma_name = EXCLUDED.dharma_name,
 			ordination_temple_id = EXCLUDED.ordination_temple_id,
 			expires_at = EXCLUDED.expires_at,
@@ -137,6 +138,7 @@ func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pen
 		pending.PhoneNumber,
 		pending.Email,
 		pending.PasswordHash,
+		nullableString(pending.FullName),
 		nullableString(pending.DharmaName),
 		nullableString(pending.OrdinationTempleID),
 		pending.ExpiresAt,
@@ -203,23 +205,25 @@ func (r *registrationRepository) IssueOTP(ctx context.Context, phoneNumber strin
 // from step 1" as one branch — see domain.RegistrationRepository's doc.
 func (r *registrationRepository) FindPendingRegistration(ctx context.Context, phoneNumber string) (*domain.PendingRegistration, error) {
 	const query = `
-		SELECT id, phone_number, email, password_hash, dharma_name, ordination_temple_id, expires_at, created_at
+		SELECT id, phone_number, email, password_hash, full_name, dharma_name, ordination_temple_id, expires_at, created_at
 		FROM pending_registration
 		WHERE phone_number = $1
 	`
 
 	var (
 		p                  domain.PendingRegistration
+		fullName           sql.NullString
 		dharmaName         sql.NullString
 		ordinationTempleID sql.NullString
 	)
 	row := r.db.QueryRow(ctx, query, phoneNumber)
-	if err := row.Scan(&p.ID, &p.PhoneNumber, &p.Email, &p.PasswordHash, &dharmaName, &ordinationTempleID, &p.ExpiresAt, &p.CreatedAt); err != nil {
+	if err := row.Scan(&p.ID, &p.PhoneNumber, &p.Email, &p.PasswordHash, &fullName, &dharmaName, &ordinationTempleID, &p.ExpiresAt, &p.CreatedAt); err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			return nil, domain.ErrPendingRegistrationNotFound
 		}
 		return nil, fmt.Errorf("find pending registration: %w", err)
 	}
+	p.FullName = nullStringToPtr(fullName)
 	p.DharmaName = nullStringToPtr(dharmaName)
 	p.OrdinationTempleID = nullStringToPtr(ordinationTempleID)
 
@@ -308,14 +312,15 @@ func (r *registrationRepository) CreateUserAndSession(ctx context.Context, pendi
 	}
 
 	const insertUser = `
-		INSERT INTO users (email, email_verified_at, phone_number, password_hash, dharma_name, ordination_temple_id)
-		VALUES ($1, NULL, $2, $3, $4, $5)
+		INSERT INTO users (email, email_verified_at, phone_number, password_hash, full_name, dharma_name, ordination_temple_id)
+		VALUES ($1, NULL, $2, $3, $4, $5, $6)
 		RETURNING id, created_at, updated_at
 	`
 	var user domain.User
 	user.Email = pending.Email
 	user.PhoneNumber = pending.PhoneNumber
 	user.PasswordHash = pending.PasswordHash
+	user.FullName = pending.FullName
 	user.DharmaName = pending.DharmaName
 	user.OrdinationTempleID = pending.OrdinationTempleID
 
@@ -323,6 +328,7 @@ func (r *registrationRepository) CreateUserAndSession(ctx context.Context, pendi
 		pending.Email,
 		pending.PhoneNumber,
 		pending.PasswordHash,
+		nullableString(pending.FullName),
 		nullableString(pending.DharmaName),
 		nullableString(pending.OrdinationTempleID),
 	).Scan(&user.ID, &user.CreatedAt, &user.UpdatedAt)

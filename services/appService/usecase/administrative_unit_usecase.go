@@ -4,6 +4,9 @@ import (
 	"context"
 	"fmt"
 	"strings"
+	"unicode/utf8"
+
+	"golang.org/x/text/unicode/norm"
 
 	"chjpcoj.com.innerlamp/services/appService/domain"
 )
@@ -46,6 +49,31 @@ func (u *AdministrativeUnitUsecase) ListCurrentWards(ctx context.Context, provin
 	items, err := u.units.ListCurrentWards(ctx, code)
 	if err != nil {
 		return nil, fmt.Errorf("list current wards of province %q: %w", code, err)
+	}
+	return nonNil(items), nil
+}
+
+// maxAdministrativeUnitQueryRunes caps the search term; no ward name is longer
+// than the 150-character column and a pick-list search never needs more than this.
+const maxAdministrativeUnitQueryRunes = 100
+
+// SearchCurrentWards returns the wards of a current-scheme province whose name
+// contains query. A present-but-blank or over-long query is
+// domain.ErrInvalidAdministrativeUnitQuery and never reaches the repository.
+func (u *AdministrativeUnitUsecase) SearchCurrentWards(ctx context.Context, provinceCode, query string) ([]domain.CurrentWard, error) {
+	code, err := normalizeUnitCode(provinceCode)
+	if err != nil {
+		return nil, err
+	}
+	// NFC so a term typed with combining marks (a keyboard or a paste can send
+	// "Hoa"+U+0300) meets the stored, composed names.
+	term := norm.NFC.String(strings.TrimSpace(query))
+	if term == "" || utf8.RuneCountInString(term) > maxAdministrativeUnitQueryRunes {
+		return nil, domain.ErrInvalidAdministrativeUnitQuery
+	}
+	items, err := u.units.SearchCurrentWards(ctx, code, term)
+	if err != nil {
+		return nil, fmt.Errorf("search current wards of province %q: %w", code, err)
 	}
 	return nonNil(items), nil
 }

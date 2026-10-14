@@ -1,0 +1,2929 @@
+[
+  /* ========================================================
+     MIỀN BẮC
+     ======================================================== */
+  {
+    "id": "temple_north_001",
+    "name": "Chùa Trấn Quốc",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_001.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_001.jpg",
+    "aliases": [
+      "Khai Quốc Tự",
+      "An Quốc Tự",
+      "Trấn Bắc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Vua Lý Nam Đế",
+    "current_abbot": "Thích Thanh Nhã",
+    "established_year": 541,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.0478,
+      "lng": 105.8368,
+      "address": "Đường Thanh Niên, Phường Yên Phụ, Quận Tây Hồ, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "07:30 - 18:00",
+    "introduction": "Chùa Trấn Quốc nằm trên một hòn đảo nhỏ phía Đông Hồ Tây, Hà Nội. Chùa vốn tên Khai Quốc, được dựng từ thời Tiền Lý (Lý Nam Đế) vào thế kỷ VI, nên được xem là ngôi chùa lâu đời nhất Thăng Long – Hà Nội với lịch sử gần 1.500 năm. Dưới thời Lý và Trần, chùa là trung tâm Phật giáo quan trọng của kinh thành.",
+    "architecture_heritage": "Bố cục chùa hài hòa giữa vẻ uy nghiêm và cảnh quan mặt hồ thanh nhã. Nổi bật nhất là Bảo tháp Lục Độ 11 tầng, cao khoảng 15 m, mỗi tầng có các khám thờ tượng Phật. Trong sân chùa có cây bồ đề được cắt từ cây bồ đề thiêng ở Ấn Độ, do Tổng thống Ấn Độ trao tặng năm 1959, cùng 14 tấm bia cổ ghi dấu lịch sử ngôi chùa. Chùa được xếp hạng di tích lịch sử – văn hóa cấp quốc gia từ năm 1989.",
+    "visiting_notes": ["Chùa đông nhất vào ngày rằm, mùng một và dịp đầu năm; nên đến sớm buổi sáng để thong thả tham quan.", "Trang phục kín đáo, lịch sự; giữ yên lặng trong chính điện và tháp.", "Chùa nằm trên đường Thanh Niên, ven Hồ Tây – có thể kết hợp dạo hồ nhưng cần lưu ý giao thông đông vào cuối tuần."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_002",
+    "name": "Chùa Một Cột",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_002.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_002.jpg",
+    "aliases": [
+      "Diên Hựu Tự",
+      "Liên Hoa Đài"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Vua Lý Thái Tông",
+    "current_abbot": "Thích Đức Nghiệp",
+    "established_year": 1049,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.0358,
+      "lng": 105.8335,
+      "address": "Phố Chùa Một Cột, Phường Đội Cấn, Quận Ba Đình, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Một Cột (tên chữ Diên Hựu tự) nằm ở quận Ba Đình, Hà Nội, được vua Lý Thái Tông cho xây dựng năm 1049. Ngôi chùa có kiến trúc độc đáo – một ngôi đài nhỏ đặt trên một cột đá giữa hồ – mang ý nghĩa đóa sen vươn lên từ bùn nhơ, biểu tượng của sự thanh cao và là một trong những hình ảnh biểu tượng của Thủ đô.",
+    "architecture_heritage": "Công trình hiện nay là bản dựng lại năm 1955 do kiến trúc sư Nguyễn Bá Lăng thực hiện, sau khi bản gốc bị phá hủy năm 1954. Ngôi đài cao khoảng 4 m đặt trên một trụ đá, mái cong với đôi rồng chầu mặt nguyệt, bao quanh là hồ vuông có lan can gốm xanh. Chùa được công nhận di tích lịch sử quốc gia năm 1962, được ghi nhận kỷ lục châu Á về kiến trúc độc đáo (2012) và hình ảnh chùa xuất hiện trên tờ tiền 5.000 đồng.",
+    "visiting_notes": ["Chùa có diện tích nhỏ, thời gian tham quan ngắn; thường được kết hợp với Lăng Chủ tịch Hồ Chí Minh và Bảo tàng Hồ Chí Minh ở gần đó.", "Ngôi đài nhỏ nên khi đông khách chỉ nên vào lễ nhẹ nhàng, nhường chỗ cho người khác.", "Ăn mặc lịch sự và giữ trật tự khi thắp hương, chụp ảnh."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_003",
+    "name": "Chùa Hương",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_003.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_003.jpg",
+    "aliases": [
+      "Hương Sơn Tự",
+      "Chùa Trong"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Viên Quang",
+    "current_abbot": "Thích Minh Hiền",
+    "established_year": 1686,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 20.6177,
+      "lng": 105.7533,
+      "address": "Xã Hương Sơn, Huyện Mỹ Đức, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "05:00 - 19:00",
+    "introduction": "Chùa Hương là quần thể văn hóa – tôn giáo tại xã Hương Sơn, huyện Mỹ Đức, Hà Nội, nằm bên hữu ngạn sông Đáy, trong dãy núi đá vôi Hương Sơn. Công trình chính là chùa Trong nằm trong động Hương Tích, được tin là nơi Quan Thế Âm Bồ Tát tu hành. Nơi đây là một trong những trung tâm hành hương lớn nhất Việt Nam.",
+    "architecture_heritage": "Quần thể có hơn 30 ngôi chùa, đền, đình chia thành nhiều khu như Thiên Trù (chùa Ngoài), Hương Tích (chùa Trong), Thanh Hương, Long Vân, Tuyết Sơn. Chùa Thiên Trù có tháp chuông ba tầng mái độc đáo; động Hương Tích là hang động tự nhiên với 120 bậc đá dẫn xuống và năm chữ Hán “Nam thiên đệ nhất động” khắc năm 1770. Chùa Hương là Di tích quốc gia đặc biệt (2017) và là một trong các khu du lịch quốc gia của Việt Nam.",
+    "visiting_notes": ["Lễ hội chùa Hương kéo dài từ mùng 6 tháng Giêng đến khoảng hạ tuần tháng 3 âm lịch; cao điểm sau Tết đến tháng Hai, rất đông người – nên đi ngày thường hoặc ngoài mùa hội để thoải mái hơn.", "Du khách thường đi thuyền trên suối Yến, sau đó đi bộ hoặc dùng cáp treo lên động Hương Tích; nên đi giày dép êm, chống trơn.", "Đường lên động có nhiều bậc đá, người lớn tuổi hoặc trẻ nhỏ nên đi chậm và mang nước uống.", "Chỉ mua sắm lễ và dịch vụ ở nơi niêm yết giá rõ ràng để tránh bị chèo kéo."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_004",
+    "name": "Chùa Thầy",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_004.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_004.jpg",
+    "aliases": [
+      "Thiên Phúc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Từ Đạo Hạnh",
+    "current_abbot": "Thích Minh Tường",
+    "established_year": 1088,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 20.9922,
+      "lng": 105.6263,
+      "address": "Chân núi Sài Sơn, Xã Sài Sơn, Huyện Quốc Oai, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Thầy (tên chữ Thiên Phúc tự) nằm dưới chân núi Sài Sơn, huyện Quốc Oai, Hà Nội, cách trung tâm thành phố khoảng 20 km về phía Tây Nam. Chùa được khởi dựng từ thời Lý, gắn với thiền sư Từ Đạo Hạnh – người từng tu hành và giảng dạy tại đây.",
+    "architecture_heritage": "Chùa gồm ba nếp: chùa Hạ, chùa Trung và chùa Thượng, cùng hệ thống hang động, đường mòn trên núi Sài Sơn. Nổi bật là hai cây cầu Nhật Tiên và Nguyệt Tiên xây năm 1602, thủy đình là nơi diễn múa rối nước, cùng nhiều cột gỗ lim cổ, chuông đồng, phù điêu đá và tượng gỗ qua nhiều triều đại. Bộ tượng Phật A-di-đà thời Mạc được công nhận là Bảo vật quốc gia (2015). Chùa là Di tích quốc gia đặc biệt.",
+    "visiting_notes": ["Hội chùa Thầy diễn ra từ mùng 5 đến mùng 7 tháng Ba âm lịch, thường rất đông; nên cân nhắc thời gian đi.", "Có thể dạo lên núi Sài Sơn và thăm các hang động, nên mặc trang phục thoải mái nhưng kín đáo, đi giày dép chắc chân.", "Buổi diễn múa rối nước ở thủy đình thường gắn với dịp lễ hội."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_005",
+    "name": "Chùa Tây Phương",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_005.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_005.jpg",
+    "aliases": [
+      "Sùng Phúc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Chưa rõ (Khởi dựng từ thời Mạc)",
+    "current_abbot": "Thích Đạo Nhất",
+    "established_year": 1632,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.0267,
+      "lng": 105.5786,
+      "address": "Đồi Câu Lậu, Thôn Yên, Xã Thạch Xá, Huyện Thạch Thất, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Tây Phương (tên chữ Sùng Phúc tự) nằm trên đỉnh đồi Câu Lâu, xã Thạch Xá, huyện Thạch Thất, Hà Nội. Chùa được cho là có từ thời Mạc và đã qua nhiều lần trùng tu, là một trong những ngôi chùa cổ có giá trị nghệ thuật bậc nhất miền Bắc.",
+    "architecture_heritage": "Chùa gồm ba nếp nhà song song, mái kiểu “chồng diêm” hai tầng tám mái. Chùa lưu giữ khoảng 64 pho tượng cùng nhiều phù điêu, tiêu biểu là Tam Thế Phật, Di-đà Tam Tôn, tượng Tuyết Sơn và 18 vị La Hán với dáng vẻ, biểu cảm sống động. Tượng làm bằng gỗ mít, sơn son thếp vàng, là kiệt tác của nghệ thuật tạc tượng cổ Việt Nam. Chùa được xếp hạng Di tích quốc gia đặc biệt.",
+    "visiting_notes": ["Chùa nằm trên đồi, phải leo khoảng vài trăm bậc đá; nên đi giày dép êm và mang nước.", "Dành thời gian ngắm kỹ hệ tượng La Hán ở chính điện, đừng chạm tay vào tượng cổ.", "Nên đi vào buổi sáng, thời tiết mát và ít đông khách."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_006",
+    "name": "Chùa Quán Sứ",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_006.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_006.jpg",
+    "aliases": [
+      "Quán Sứ Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Vua Lê Thế Tông",
+    "current_abbot": "Thích Thanh Nhiễu",
+    "established_year": 1470,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.0247,
+      "lng": 105.8456,
+      "address": "73 Phố Quán Sứ, Phường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "06:00 - 19:00",
+    "introduction": "Chùa Quán Sứ tọa lạc tại số 73 phố Quán Sứ, phường Cửa Nam, Hà Nội. Chùa được xây dựng từ thế kỷ XV thời Lê, vốn là nơi tiếp đón sứ thần các nước láng giềng theo đạo Phật, nên có tên Quán Sứ. Ngày nay chùa là trụ sở Trung ương Giáo hội Phật giáo Việt Nam.",
+    "architecture_heritage": "Chùa có tam quan ba tầng mái với gác chuông, sân rộng và chính điện thờ nhiều tượng Phật đặt trên các bậc bệ cao dần; hậu đường thờ Quốc sư Minh Không thời Lý. Năm 1951, lá cờ Phật giáo thế giới lần đầu tiên được treo tại chùa. Năm 1981, Trường Cao cấp Phật học Trung ương được thành lập ở đây, đào tạo nhiều lãnh đạo Phật giáo hiện nay.",
+    "visiting_notes": ["Chùa nằm giữa trung tâm Hà Nội nên rất đông vào rằm, mùng một hằng tháng; không gian sân chùa hẹp, xin giữ trật tự.", "Đây là trụ sở Giáo hội Phật giáo Việt Nam, xin ăn mặc chỉnh tề, tôn nghiêm.", "Nên gửi xe ở nơi quy định và lưu ý giờ mở cửa thay đổi theo ngày thường và ngày lễ."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_007",
+    "name": "Chùa Dâu",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_007.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_007.jpg",
+    "aliases": [
+      "Cổ Châu Tự",
+      "Diên Ứng Tự",
+      "Chùa Cả"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Khâu Đà La",
+    "current_abbot": "Thích Thanh Tuân",
+    "established_year": 187,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.0428,
+      "lng": 106.0528,
+      "address": "Xã Thanh Khương, Thị xã Thuận Thành, Tỉnh Bắc Ninh",
+      "province": "Bắc Ninh"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Dâu (tên chữ Pháp Vân tự, còn gọi Diên Ứng, Cổ Châu) nằm ở phường Thanh Khương, thị xã Thuận Thành, Bắc Ninh, cách Hà Nội khoảng 30 km. Chùa được xem là trung tâm Phật giáo cổ xưa nhất của Việt Nam, khởi dựng vào khoảng những năm 187–226 ở thành Luy Lâu.",
+    "architecture_heritage": "Chùa xây theo kiểu “nội công ngoại quốc”. Nổi bật là tháp Hòa Phong – tháp gạch cổ, ban đầu 9 tầng, nay còn 3 tầng, có chuông đồng đúc năm 1793 và 1817. Chùa thờ tượng Pháp Vân, Pháp Vũ trong hệ thống Tứ Pháp gắn với truyền thuyết bà Man Nương, và còn giữ một tượng cừu đá cổ. Chùa là một di tích quốc gia đặc biệt.",
+    "visiting_notes": ["Lễ hội chùa Dâu diễn ra vào ngày mùng 8 tháng Tư âm lịch, gồm nghi lễ tôn giáo và sinh hoạt dân gian.", "Chùa nằm cạnh quốc lộ 17; có thể kết hợp thăm khu di tích thành cổ Luy Lâu gần đó.", "Trang phục kín đáo; giữ yên lặng khu điện thờ Tứ Pháp."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_008",
+    "name": "Chùa Phật Tích",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_008.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_008.jpg",
+    "aliases": [
+      "Vạn Phúc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Vua Lý Thánh Tông",
+    "current_abbot": "Thích Đức Thiện",
+    "established_year": 1057,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.1026,
+      "lng": 105.9928,
+      "address": "Sườn núi Lạn Kha, Xã Phật Tích, Huyện Tiên Du, Tỉnh Bắc Ninh",
+      "province": "Bắc Ninh"
+    },
+    "operating_hours": "06:30 - 18:30",
+    "introduction": "Chùa Phật Tích (tên chữ Vạn Phúc tự) nằm trên sườn núi Phật Tích (núi Lạn Kha) thuộc Bắc Ninh. Chùa được vua Lý Thánh Tông khởi dựng năm 1057 và là một trong những ngôi chùa có giá trị điêu khắc cổ nổi bật của Việt Nam.",
+    "architecture_heritage": "Chùa nổi tiếng với pho tượng Phật A-di-đà bằng đá xanh nguyên khối thời Lý, cao 1,86 m (cả bệ khoảng 2,69 m), được dát vàng. Kiến trúc gồm ba bậc nền, cùng 32 ngôi tháp gạch và đá chứa xá lợi các sư tổ, và những tượng thú đá lớn dọc lối lên chùa. Chùa được xếp hạng Di tích quốc gia đặc biệt.",
+    "visiting_notes": ["Hội chùa diễn ra sau Tết, ngày chính vào mùng 4 tháng Giêng âm lịch, gắn với việc ngắm hoa mẫu đơn.", "Chùa trên sườn núi có nhiều bậc thang; nên đi giày dép êm.", "Giữ gìn tượng đá và tháp cổ, không leo trèo hay khắc vẽ."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_009",
+    "name": "Chùa Bút Tháp",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_009.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_009.jpg",
+    "aliases": [
+      "Ninh Phúc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Huyền Quang",
+    "current_abbot": "Thích Thanh Sơn",
+    "established_year": 1334,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.0594,
+      "lng": 106.0223,
+      "address": "Thôn Bút Tháp, Xã Đình Tổ, Thị xã Thuận Thành, Tỉnh Bắc Ninh",
+      "province": "Bắc Ninh"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Bút Tháp (tên chữ Ninh Phúc tự) nằm bên hữu ngạn sông Đuống, thị xã Thuận Thành, Bắc Ninh. Theo ghi chép, chùa được khởi dựng từ thời Trần Thánh Tông (1258–1278) và trùng tu lớn vào thế kỷ XVII, là một trong số ít ngôi chùa cổ có quy mô kiến trúc lớn còn lại ở đồng bằng Bắc Bộ.",
+    "architecture_heritage": "Chùa theo lối “nội công ngoại quốc” với các đơn nguyên nối nhau dọc trục chính và hành lang bao quanh. Bảo vật nổi tiếng là tượng Quan Âm Nghìn Mắt Nghìn Tay bằng gỗ thế kỷ XVII – được xem là tượng Quan Âm gỗ lớn nhất Việt Nam, công nhận Bảo vật quốc gia năm 2012. Ngoài ra có tòa Bảo Nghiêm cao 13,05 m thờ thiền sư Chuyết Chuyết. Chùa được xếp hạng di tích quốc gia (1962) và Di tích quốc gia đặc biệt (2013).",
+    "visiting_notes": ["Lễ hội thường tổ chức vào ngày 24 âm lịch trong năm.", "Không gian chùa rộng, có nhiều dãy hành lang; nên dành 1–2 giờ để ngắm tượng Quan Âm.", "Trang phục kín đáo, không chạm vào hiện vật."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_010",
+    "name": "Chùa Bái Đính",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_010.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_010.jpg",
+    "aliases": [
+      "Bái Đính Cổ Tự / Tân Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Nguyễn Minh Không",
+    "current_abbot": "Thích Thanh Nhiễu",
+    "established_year": 1136,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 20.2692,
+      "lng": 105.8569,
+      "address": "Xã Gia Sinh, Huyện Gia Viễn, Tỉnh Ninh Bình",
+      "province": "Ninh Bình"
+    },
+    "operating_hours": "06:00 - 21:00",
+    "introduction": "Chùa Bái Đính nằm ở Ninh Bình, gồm khu chùa cổ do Quốc sư Nguyễn Minh Không khởi dựng năm 1136 (thời Lý) và khu chùa mới xây dựng từ năm 2003, nằm trong quần thể danh thắng Tràng An. Đây là một trong những quần thể chùa lớn nhất Việt Nam.",
+    "architecture_heritage": "Quần thể rộng khoảng 539 ha, xác lập nhiều kỷ lục châu Á: tượng Phật Thích Ca bằng đồng lớn nhất châu Á (khoảng 100 tấn) trong điện Pháp Chủ, hành lang La Hán dài gần 3 km với 500 tượng đá, bảo tháp cao 100 m và quả chuông đồng nặng 36 tấn – lớn nhất Việt Nam.",
+    "visiting_notes": ["Khu chùa rất rộng, nên mặc giày dép thoải mái; có xe điện đưa đón nội khu (có thu phí) và thu phí gửi xe, lên tháp.", "Hội xuân diễn ra từ Tết Nguyên đán đến hết tháng Ba âm lịch, rất đông khách; nên đi ngày thường hoặc buổi sáng sớm.", "Thường kết hợp tham quan Tràng An, Tam Cốc – Bích Động trong cùng chuyến đi."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_011",
+    "name": "Chùa Bích Động",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_011.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_011.jpg",
+    "aliases": [
+      "Bạch Ngọc Thạch Sơn Động"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hai nhà sư Trí Kiên và Trí Thể",
+    "current_abbot": "Thích Đức Lợi",
+    "established_year": 1428,
+    "heritage_rank": "DI_SAN_THE_GIOI",
+    "location": {
+      "lat": 20.2185,
+      "lng": 105.9177,
+      "address": "Xã Ninh Hải, Huyện Hoa Lư, Tỉnh Ninh Bình",
+      "province": "Ninh Bình"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Bích Động nằm trong dãy núi đá vôi ở Hoa Lư, Ninh Bình, vốn có tên Bạch Ngọc Thạch Sơn Đồng, khởi dựng năm 1428 thời Lê sơ. Năm 1774, chúa Trịnh Sâm đến thăm, thấy cảnh núi non xanh biếc và đặt tên Bích Động. Chùa từng được tôn xưng là “Nam thiên đệ nhị động”.",
+    "architecture_heritage": "Chùa xây dựa vào sườn núi đá với ba tầng: chùa Hạ (năm gian, cột đá cao trên 4 m), chùa Trung (nửa trong hang, thông với Động Tối) và chùa Thượng gần đỉnh, thờ Quan Âm Bồ Tát. Khoảng năm 1705, hai nhà sư Trí Kiên và Trí Thể đã trùng tu lớn. Trong Động Tối còn quả chuông đồng đúc năm 1707; phía dưới có hai hang là Động Tối và Động Xuyên Thủy dài khoảng 350 m. Chùa nằm trong quần thể danh thắng Tràng An – Tam Cốc – Bích Động được UNESCO ghi danh.",
+    "visiting_notes": ["Chùa nằm trong khu Tam Cốc – Bích Động, thường được thăm cùng chuyến đò Tam Cốc; nên kiểm tra thời tiết vì đi đò và leo bậc đá.", "Đường lên chùa Thượng có nhiều bậc đá dốc; nên đi giày dép chống trơn, mang nước.", "Trang phục kín đáo; giữ yên lặng khi vào các điện thờ trong hang."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_012",
+    "name": "Chùa Đồng Yên Tử",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_012.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_012.jpg",
+    "aliases": [
+      "Thiên Trúc Tự"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Phật hoàng Trần Nhân Tông",
+    "current_abbot": "Thích Đạo Hiển",
+    "established_year": 1299,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.1578,
+      "lng": 106.7196,
+      "address": "Đỉnh Yên Tử, Xã Thượng Yên Công, TP. Uông Bí, Tỉnh Quảng Ninh",
+      "province": "Quảng Ninh"
+    },
+    "operating_hours": "05:00 - 20:00",
+    "introduction": "Chùa Đồng nằm trên đỉnh núi Yên Tử, cao khoảng 1.068 m, thuộc xã Thượng Yên Công, Uông Bí, Quảng Ninh. Yên Tử là nơi vua Trần Nhân Tông xuất gia tu hành và sáng lập thiền phái Trúc Lâm, nên chùa Đồng là điểm hành hương thiêng liêng của Phật giáo Việt Nam.",
+    "architecture_heritage": "Ngôi chùa hiện nay được đúc mới bằng đồng nguyên khối năm 2006–2007 (khánh thành ngày 30/1/2007) theo thiết kế kiến trúc sư Trần Quốc Tuấn, để thay thế chùa cũ bị hư hại. Chùa có kiến trúc hình chữ Đinh, dài 4,6 m, rộng 3,6 m, cao khoảng 3,35 m, nặng khoảng 70 tấn, được đúc thủ công theo phương pháp truyền thống với nhiều họa tiết Phật giáo. Chùa nằm trong quần thể di tích danh thắng Yên Tử – Vĩnh Nghiêm – Côn Sơn, Kiếp Bạc được UNESCO ghi danh.",
+    "visiting_notes": ["Từ chân núi có thể đi cáp treo hoặc leo bộ theo các bậc đá qua rừng thông, rừng trúc (khoảng 6 km, nhiều đoạn dốc); cần sức khỏe và đi giày leo núi.", "Trời trên đỉnh có thể có mây mù và lạnh; nên mang áo khoác nhẹ, áo mưa và nước uống.", "Mùa lễ hội đầu xuân rất đông; nên cân nhắc đi ngày thường."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_013",
+    "name": "Chùa Ba Vàng",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_013.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_013.jpg",
+    "aliases": [
+      "Bảo Quang Tự"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền sư Tuệ Bích",
+    "current_abbot": "Thích Trúc Thái Minh",
+    "established_year": 1706,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 21.0772,
+      "lng": 106.7725,
+      "address": "Phường Quang Trung, TP. Uông Bí, Tỉnh Quảng Ninh",
+      "province": "Quảng Ninh"
+    },
+    "operating_hours": "06:00 - 21:30",
+    "introduction": "Chùa Ba Vàng nằm trên núi Thành Đẳng (Bảo Đài Sơn), Uông Bí, Quảng Ninh, thuộc thiền phái Trúc Lâm. Từ năm 2007, chùa được Đại đức Thích Trúc Thái Minh trụ trì và tôn tạo quy mô lớn, được khánh thành năm 2014.",
+    "architecture_heritage": "Chùa gồm chính điện và nhiều hạng mục trên sườn núi, nổi bật là tượng Phật A-di-đà lớn được an vị vào tháng 9/2014. Chùa cũng tổ chức các hoạt động từ thiện như tặng quà học sinh nghèo và hỗ trợ người có hoàn cảnh khó khăn.",
+    "visiting_notes": ["Chùa nằm gần khu vực Yên Tử nên đường đông vào dịp lễ hội; nên đi vào ngày thường hoặc buổi sáng.", "Cúng dường và nghi lễ nên theo đúng giáo lý, nên tránh các hoạt động mang tính mê tín; chỉ nghe theo hướng dẫn của nhà chùa được Giáo hội công nhận.", "Trang phục kín đáo, giữ trang nghiêm trong các điện thờ."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_014",
+    "name": "Chùa Cái Bầu (Thiền viện Trúc Lâm Giác Tâm)",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_north_014.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_014.jpg",
+    "aliases": [
+      "Thiền viện Trúc Lâm Giác Tâm"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Ban trị sự Phật giáo Quảng Ninh",
+    "current_abbot": "Ni sư Thích Nữ Hạnh Nhã",
+    "established_year": 2007,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 21.0543,
+      "lng": 107.5146,
+      "address": "Thôn 1, Xã Hạ Long, Huyện Vân Đồn, Tỉnh Quảng Ninh",
+      "province": "Quảng Ninh"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Thiền viện Trúc Lâm Giác Tâm (chùa Cái Bầu) nằm trên đảo Cái Bầu, huyện Vân Đồn, Quảng Ninh, cách trung tâm Hạ Long khoảng 65 km. Thiền viện được xây trên nền chùa Phúc Linh cổ từ thời Trần (hơn 700 năm), là thiền viện dành cho ni giới trong hệ thống Trúc Lâm, khánh thành ngày 15/12/2009.",
+    "architecture_heritage": "Khuôn viên rộng khoảng 20 ha. Chính điện có diện tích 6.000 m² hai tầng: tầng trên thờ tượng Phật Thích Ca, tầng dưới thờ chư tổ, trong đó có Điều Ngự Giác Hoàng Trần Nhân Tông. Thiền viện được xây trong gần hai năm với kinh phí khoảng 24 tỷ đồng.",
+    "visiting_notes": ["Từ đất liền cần đi qua cầu Vân Tiên hoặc đường Vân Đồn ra đảo; nên tính thời gian di chuyển từ Hạ Long.", "Đây là thiền viện của ni giới, xin ăn mặc kín đáo và giữ yên lặng.", "Nên xem giờ sinh hoạt của thiền viện trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_015",
+    "name": "Chùa Vĩnh Nghiêm (Bắc Giang)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_015.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_015.jpg",
+    "aliases": [
+      "Chùa Đức La"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền sư Trúc Lâm Tam Tổ",
+    "current_abbot": "Thích Thiện Văn",
+    "established_year": 1010,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.2183,
+      "lng": 106.3117,
+      "address": "Làng Đức La, Xã Trí Yên, Huyện Yên Dũng, Tỉnh Bắc Giang",
+      "province": "Bắc Ninh"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Vĩnh Nghiêm (còn gọi chùa Đức La) nằm ở xã Trí Yên, Yên Dũng, nay thuộc Bắc Ninh. Chùa có từ thế kỷ XI và là trung tâm đào tạo tăng sĩ lớn của thiền phái Trúc Lâm thời Trần. Năm 2025, chùa được UNESCO ghi danh cùng quần thể di sản Yên Tử – Vĩnh Nghiêm – Côn Sơn, Kiếp Bạc.",
+    "architecture_heritage": "Khuôn viên khoảng 1 ha, các công trình bố cục theo trục thẳng gồm Thiên Đường, Thượng Điện, nhà Tổ và gác chuông, với nhiều mảng chạm khắc gỗ. Chùa lưu giữ khoảng 3.000 mộc bản khắc từ khoảng 700 năm trước, ghi kinh Phật, sự phát triển thiền phái Trúc Lâm và cả y học cổ truyền; bộ mộc bản được công nhận Di sản tư liệu thế giới khu vực châu Á – Thái Bình Dương (2012). Chùa được xếp hạng Di tích quốc gia đặc biệt (2015).",
+    "visiting_notes": ["Chùa là nơi tu hành đang hoạt động, xin giữ trang nghiêm và không chạm vào hiện vật.", "Mộc bản là tư liệu quý, thường được bảo quản riêng; nên hỏi nhà chùa nếu muốn xem.", "Có thể kết hợp thăm khu di tích lân cận trong ngày."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_016",
+    "name": "Chùa Bổ Đà",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_016.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_016.jpg",
+    "aliases": [
+      "Quán Âm Sơn Tự",
+      "Tứ Ân Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Khởi dựng thời Lý",
+    "current_abbot": "Thích Tự Huệ",
+    "established_year": 1075,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.2294,
+      "lng": 106.0592,
+      "address": "Xã Tiên Sơn, Thị xã Việt Yên, Tỉnh Bắc Giang",
+      "province": "Bắc Ninh"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Bổ Đà (tên chữ Tứ Ân tự) nằm trên núi Phượng Hoàng, Bắc Ninh. Theo truyền thuyết, chùa được một người tiều phu dựng lên từ thế kỷ XI để tạ ơn Quán Thế Âm Bồ Tát; về sau trở thành trung tâm Phật giáo quan trọng của thiền phái Trúc Lâm.",
+    "architecture_heritage": "Chùa có lối kiến trúc “nội thông ngoại bế” tạo vẻ u tịch, linh thiêng. Vườn tháp có khoảng 100 ngôi tháp trên gần 8.000 m², chứa xá lợi hơn 1.000 vị cao tăng. Chùa giữ bộ mộc bản kinh Phật khắc trên gỗ thị từ năm 1741 với gần 2.000 tấm, được Liên minh Kỷ lục Thế giới xác nhận năm 2017 là bộ kinh cổ nhất thế giới của thiền phái Lâm Tế.",
+    "visiting_notes": ["Lễ hội Bổ Đà diễn ra ngày 16–18 tháng Hai âm lịch, có hát quan họ và tế lễ; lần thứ hai vào tháng Chín âm lịch tại Đền Thượng.", "Đường đến chùa qua cầu Đáp Cầu rồi men đê tả Cầu khoảng 3 km, hoặc đi qua làng Thổ Hà.", "Chùa nằm trên núi, có lối dạo qua vườn tháp; nên đi giày dép êm."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_019",
+    "name": "Thiền viện Trúc Lâm Tây Thiên",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_north_019.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_019.jpg",
+    "aliases": [
+      "Đại Thiền Viện Tây Thiên"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền sư Thích Thanh Từ",
+    "current_abbot": "Thích Kiến Nguyệt",
+    "established_year": 2004,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.4633,
+      "lng": 105.5891,
+      "address": "Xã Đại Đình, Huyện Tam Đảo, Tỉnh Vĩnh Phúc",
+      "province": "Phú Thọ"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Thiền viện Trúc Lâm Tây Thiên nằm ở xã Đại Đình, Tam Đảo, Vĩnh Phúc (nay thuộc Phú Thọ), cách Hà Nội khoảng 85 km về phía Tây. Thiền viện thuộc dòng thiền Trúc Lâm Yên Tử, là một trong ba thiền viện lớn của dòng thiền này, cùng với Trúc Lâm Yên Tử và Trúc Lâm Đà Lạt.",
+    "architecture_heritage": "Đại Hùng Bảo Điện cao 17 m, diện tích khoảng 675 m², có thể chứa khoảng 600 người ngồi thiền. Quần thể còn có gác chuông, gác trống (chuông nặng khoảng 2 tấn, trống đường kính 1,5 m làm từ gỗ rừng Gia Lai) và nhà thờ ba vị tổ Trúc Lâm. Tượng Phật được tạc bằng đá sa thạch.",
+    "visiting_notes": ["Đường lên khu Tây Thiên theo Quốc lộ 2B hướng Tam Đảo (khoảng 74 km từ Hà Nội) rồi rẽ vào Tây Thiên; đường đèo nhiều khúc quanh, cần lái xe cẩn thận.", "Lễ hội Tây Thiên chính vào ngày 14 tháng Giêng âm lịch và cả tháng Giêng thu hút hàng nghìn người; nên đi ngày thường để yên tĩnh hơn.", "Đây là thiền viện, xin giữ yên lặng và ăn mặc trang nghiêm."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  /* ========================================================
+     MIỀN TRUNG
+     ======================================================== */
+  {
+    "id": "temple_central_001",
+    "name": "Chùa Thiên Mụ",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_001.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_001.jpg",
+    "aliases": [
+      "Linh Mụ Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Chúa Nguyễn Hoàng",
+    "current_abbot": "Thích Trí Tựu",
+    "established_year": 1601,
+    "heritage_rank": "DI_SAN_THE_GIOI",
+    "location": {
+      "lat": 16.4529,
+      "lng": 107.5458,
+      "address": "Đồi Hà Khê, Phường Kim Long, TP. Huế, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Thiên Mụ (còn gọi chùa Linh Mụ) nằm trên đồi Hà Khê, nhìn xuống sông Hương ở Huế. Chùa do chúa Nguyễn Hoàng khởi dựng năm 1601, là một trong những ngôi chùa cổ và có ý nghĩa lịch sử quan trọng nhất của xứ Huế và biểu tượng của cố đô.",
+    "architecture_heritage": "Biểu tượng của chùa là tháp Phước Duyên xây năm 1844, tám mặt, bảy tầng, cao khoảng 21 m, mỗi tầng thờ một tượng Phật. Chùa còn có điện Đại Hùng, tam quan, quả đại hồng chung đúc năm 1710 nặng hơn hai tấn, các tấm bia ghi việc trùng tu và chiếc trống gỗ khắc từ nguyên một thân cây mít.",
+    "visiting_notes": ["Chùa nằm sát bờ sông Hương, có thể đến bằng thuyền rồng từ trung tâm Huế hoặc đi xe; cảnh hoàng hôn trên sông rất đẹp.", "Đây là điểm du lịch đông khách; nên đi sớm để thảnh thơi thăm tháp và các điện thờ.", "Trang phục kín đáo, giữ yên lặng trong chính điện."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_002",
+    "name": "Chùa Từ Đàm",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_002.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_002.jpg",
+    "aliases": [
+      "Ấn Tôn Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Minh Hoằng Tử Dung",
+    "current_abbot": "Thích Huệ Phước",
+    "established_year": 1695,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 16.4478,
+      "lng": 107.5755,
+      "address": "Số 1 Sư Liễu Quán, Phường Trường An, TP. Huế, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:00 - 20:00",
+    "introduction": "Chùa Từ Đàm nằm ở số 1 đường Sư Liễu Quán, thành phố Huế, do thiền sư Minh Hoằng – Tử Dung khai sơn khoảng năm 1690. Năm 1841, vua Thiệu Trị đổi tên chùa từ Ấn Tôn thành Từ Đàm. Chùa là trung tâm của phong trào chấn hưng Phật giáo và là nơi họp hội nghị thành lập Tổng hội Phật giáo Việt Nam năm 1951.",
+    "architecture_heritage": "Chính điện được xây dựng lại trong giai đoạn 2006–2010, dài khoảng 42 m và rộng 35,9 m. Chùa có tháp đồng bảy tầng cao khoảng 27 m hoàn thành năm 2010, mỗi tầng đặt tượng Phật. Năm 1703, chúa Nguyễn Phúc Chu từng ban biển ngạch cho chùa.",
+    "visiting_notes": ["Chùa hiện là nơi đặt văn phòng Ban Trị sự Giáo hội Phật giáo tỉnh; khách vào lễ Phật xin giữ trang nghiêm.", "Chùa là nơi tổ chức Đại lễ Phật đản lớn của Huế, thường đông vào rằm tháng Tư âm lịch.", "Có thể kết hợp thăm các chùa khác ở Huế trong cùng buổi."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_003",
+    "name": "Chùa Từ Hiếu",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_003.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_003.jpg",
+    "aliases": [
+      "Từ Hiếu Sắc Tứ Tự",
+      "Chùa Thái Giám"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Nhất Định",
+    "current_abbot": "Thích Từ Đạo",
+    "established_year": 1843,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 16.4316,
+      "lng": 107.5678,
+      "address": "Thôn Dương Xuân Thượng, Phường Thủy Xuân, TP. Huế, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Từ Hiếu nằm ở thôn Dương Xuân Thượng, phường Thủy Xuân, Huế, do Hòa thượng Nhất Định khai sơn năm 1843. Chùa nổi tiếng gắn với các thái giám và cung tần triều Nguyễn, là một trong những ngôi chùa cổ đón khách du lịch đông nhất Huế.",
+    "architecture_heritage": "Khuôn viên khoảng 8 mẫu, gồm chính điện kiểu ba gian hai chái, tháp ba tầng xây năm 1896, hồ bán nguyệt trồng sen, cùng nhiều lăng mộ tăng thái giám và cung tần thời Nguyễn xung quanh.",
+    "visiting_notes": ["Khuôn viên xanh mát, nhiều người dân Huế đến dạo chơi vào dịp nghỉ, lễ; nên đi vào ngày thường để yên tĩnh.", "Nằm ở vùng đồi thông ngoại ô Huế, nên đi xe máy hoặc taxi.", "Trang phục kín đáo, giữ trang nghiêm ở chính điện."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_004",
+    "name": "Chùa Huyền Không Sơn Thượng",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_004.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_004.jpg",
+    "aliases": [
+      "Huyền Không 2"
+    ],
+    "sect": "NAM_TONG",
+    "founder": "Hòa thượng Giới Đức",
+    "current_abbot": "Thích Pháp Tông",
+    "established_year": 1989,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 16.4862,
+      "lng": 107.4912,
+      "address": "Thôn Đồng Chầm, Xã Hương Hồ, Thị xã Hương Trà, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:30 - 18:30",
+    "introduction": "Chùa Huyền Không Sơn Thượng (còn gọi Huyền Không 2) nằm ở thôn Châm, phường Kim Long, Huế, do Hòa thượng Giới Đức lập năm 1989. Chùa rộng khoảng 50 ha giữa rừng thông và đồi núi, khá tách biệt, chỉ đi vào bằng những lối mòn quanh co.",
+    "architecture_heritage": "Nét đặc sắc của chùa là những bài thơ, câu đối khắc trên đá và gỗ, đặc biệt các tác phẩm của thi sĩ Tâm Ảnh và Sấu Mã, được đặt ở cổng và trên các cột gỗ trong khuôn viên. Cảnh quan hòa với thiên nhiên nên nhiều người xem đây là nơi tĩnh lặng để thiền và thư giãn.",
+    "visiting_notes": ["Đường vào chùa là lối mòn giữa rừng thông; nên đi giày dép chắc chân và đi vào ban ngày.", "Đây là nơi tu học, xin giữ yên lặng, không xả rác trong khuôn viên.", "Nên xem giờ sinh hoạt của chùa trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_006",
+    "name": "Chùa Tam Thai",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_006.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_006.jpg",
+    "aliases": [
+      "Tam Thai Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Hưng Liên",
+    "current_abbot": "Thích Huệ Vinh",
+    "established_year": 1630,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 16.0048,
+      "lng": 108.2619,
+      "address": "Ngọn Thủy Sơn, Phường Hòa Hải, Quận Ngũ Hành Sơn, TP. Đà Nẵng",
+      "province": "Đà Nẵng"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Tam Thai nằm trên núi Thủy Sơn, một trong năm ngọn núi của danh thắng Ngũ Hành Sơn, phường Hòa Hải, Đà Nẵng, cách trung tâm khoảng 10 km. Chùa được xây từ năm 1630; năm 1825 vua Minh Mạng thăm chùa và ban sắc. Chùa từng bị bão năm 1901 phá gần hết và được trùng tu sau đó.",
+    "architecture_heritage": "Chùa xây theo hình chữ “Vương” với tam quan, vườn thiền và các dãy hành lang rêu phong. Khu vực chùa có ba tầng thai là Thượng Thai, Trung Thai và Hạ Thai. Tượng Phật Bà Quan Âm bằng đá trắng là một điểm nhấn của chùa.",
+    "visiting_notes": ["Để lên chùa phải leo khoảng 156 bậc thang; nên đi giày dép chống trơn, mang nước.", "Ngũ Hành Sơn có nhiều hang động và chùa khác; nên dành nửa ngày tham quan.", "Mùa hè trời nắng gắt, nên đi sáng sớm hoặc chiều muộn."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_007",
+    "name": "Chùa Cầu Hội An",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_007.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_007.jpg",
+    "aliases": [
+      "Lai Viễn Kiều"
+    ],
+    "sect": "TIN_NGUONG_DANG_GIAN",
+    "founder": "Thương nhân Nhật Bản",
+    "current_abbot": "Ban Quản lý Di sản Hội An",
+    "established_year": 1593,
+    "heritage_rank": "DI_SAN_THE_GIOI",
+    "location": {
+      "lat": 15.8771,
+      "lng": 108.3262,
+      "address": "Đường Nguyễn Thị Minh Khai, Phường Minh An, TP. Hội An, Tỉnh Quảng Nam",
+      "province": "Đà Nẵng"
+    },
+    "operating_hours": "07:00 - 21:30",
+    "introduction": "Chùa Cầu (còn gọi cầu Nhật Bản, Lai Viễn Kiều) nằm ở khu phố cổ Hội An, do các thương nhân Nhật Bản xây dựng vào khoảng thế kỷ XVII. Đây là biểu tượng của Hội An và là công trình vừa là cầu vừa là nơi thờ tự.",
+    "architecture_heritage": "Cầu dài khoảng 18 m bắc qua dòng nước, kết cấu gỗ trên trụ gạch đá, có mái ngói âm dương phủ toàn cầu. Hai đầu cầu có tượng thú bằng gỗ (khỉ và chó); giữa cầu là miếu thờ Trấn Võ Bắc Đế, không có tượng Phật. Chùa Cầu được công nhận di tích lịch sử – văn hóa quốc gia năm 1990 và đã được trùng tu nhiều lần, gần đây nhất là 2022–2024.",
+    "visiting_notes": ["Chùa Cầu nằm trong khu phố cổ Hội An; khách thường mua vé tham quan phố cổ để vào các điểm di tích, nên kiểm tra quy định vé hiện hành.", "Khu vực rất đông vào buổi tối và mùa cao điểm; nên đến sớm để chụp ảnh và dạo cầu thong thả.", "Cầu hẹp, xin không chen lấn hay trèo lên lan can."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_009",
+    "name": "Chùa Thiên Ấn",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_009.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_009.jpg",
+    "aliases": [
+      "Sắc Tứ Thiên Ấn Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Pháp Hóa",
+    "current_abbot": "Thích Trí Thắng",
+    "established_year": 1695,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 15.1438,
+      "lng": 108.8143,
+      "address": "Đỉnh núi Thiên Ấn, Xã Tịnh Ấn Đông, TP. Quảng Ngãi, Tỉnh Quảng Ngãi",
+      "province": "Quảng Ngãi"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Thiên Ấn nằm trên núi Thiên Ấn, phía Bắc sông Trà Khúc, thành phố Quảng Ngãi. Chùa do Thiền sư Pháp Hóa (1670–1754) sáng lập, xây từ 1694 và hoàn thành năm 1695 thời chúa Nguyễn Phúc Chu, thuộc dòng thiền Lâm Tế. Trong hơn 300 năm, chùa có 15 đời trụ trì, sáu vị được tôn xưng là tổ.",
+    "architecture_heritage": "Chùa có đỉnh núi bằng phẳng, tòa nhà tăng xá kiến trúc truyền thống Việt sử dụng vật liệu từ đình làng Phú Nhơn cũ, và khu vườn tháp với các ngôi tháp 5, 7, 9 tầng của các vị thiền sư. Chùa được xếp hạng di tích quốc gia năm 1990 và nằm cạnh mộ nhà chí sĩ Huỳnh Thúc Kháng; hướng nam nhìn ra sông Trà Khúc và thành phố Quảng Ngãi.",
+    "visiting_notes": ["Chùa nằm trên núi, có bậc thang; nên đi giày dép êm và mang nước.", "Các ngày lễ lớn gồm Phật đản (rằm tháng Tư) và Vu Lan (rằm tháng Bảy âm lịch).", "Chùa gần khu mộ Huỳnh Thúc Kháng, có thể kết hợp tham quan."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_010",
+    "name": "Chùa Thập Tháp Di Đà",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_010.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_010.jpg",
+    "aliases": [
+      "Chùa Thập Tháp"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Nguyên Thiều",
+    "current_abbot": "Thích Viên Đạt",
+    "established_year": 1683,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 13.9189,
+      "lng": 109.0583,
+      "address": "Thôn Vạn Thuận, Phường Nhơn Thành, Thị xã An Nhơn, Tỉnh Bình Định",
+      "province": "Gia Lai"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Thập Tháp Di Đà (còn gọi Thập Tháp) nằm ở An Nhơn, Bình Định, do Thiền sư Nguyên Thiều – người khai lập dòng Lâm Tế ở Đàng Trong – sáng lập năm 1668. Năm 1691, vua Lê Hiển Tông ban biển ngạch “Thập Tháp Di Đà tự”. Chùa được tôn xưng là cổ tự bậc nhất Bình Định.",
+    "architecture_heritage": "Chùa được dựng bằng gạch đá lấy từ mười ngọn tháp Chăm đổ nát trong vùng nên có tên Thập Tháp. Kiến trúc trang nhã, thuần phác theo nguyên tắc truyền thống Việt Nam. Chùa lưu giữ khoảng 2.000 bản khắc gỗ in kinh, bộ Đại Tạng Kinh do Tổng trấn Mạc Thiên Tứ cúng dường (còn khoảng 1.200 quyển), và vườn tháp có khoảng 20 ngôi tháp cổ. Chùa là di tích lịch sử – văn hóa cấp quốc gia.",
+    "visiting_notes": ["Chùa nằm ở vùng ngoại ô Bình Định, gần các di tích Chăm như tháp Đôi; có thể kết hợp tham quan cùng ngày.", "Kinh sách và mộc bản là tư liệu quý; xin không tự ý chạm vào.", "Trang phục kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_012",
+    "name": "Chùa Long Sơn",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_012.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_012.jpg",
+    "aliases": [
+      "Chùa Phật Trắng",
+      "Đăng Long Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Thích Ngộ Chí",
+    "current_abbot": "Thích Thiện Nhơn",
+    "established_year": 1886,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 12.2514,
+      "lng": 109.1802,
+      "address": "20 Đường 23/10, Phường Phương Sơn, TP. Nha Trang, Tỉnh Khánh Hòa",
+      "province": "Khánh Hòa"
+    },
+    "operating_hours": "06:00 - 20:00",
+    "introduction": "Chùa Long Sơn (còn gọi chùa Phật Trắng) ở phường Tây Nha Trang, Khánh Hòa, được khởi dựng từ thế kỷ XIX và trùng tu năm 1940. Đây là công trình Phật giáo nổi tiếng nhất Nha Trang và là trụ sở của Giáo hội Phật giáo địa phương.",
+    "architecture_heritage": "Khuôn viên chùa rộng gần 45 m và dài hơn 72 m, chính điện thờ tượng Phật Thích Ca bằng đồng cao 1,6 m. Trên đồi Trại Thủy có tượng Kim Thân Phật Tổ cao 24 m, được Sách kỷ lục Guinness Việt Nam ghi nhận là tượng Phật ngoài trời lớn nhất Việt Nam (tính đến năm 2011).",
+    "visiting_notes": ["Để lên tượng Phật lớn phải đi khoảng 193 bậc tam cấp; nên đi vào sáng sớm hoặc chiều mát.", "Chùa nằm gần trung tâm thành phố, dễ kết hợp với các điểm khác ở Nha Trang.", "Đây là nơi thờ tự, xin ăn mặc kín đáo, tránh áo dây, quần đùi ngắn."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_013",
+    "name": "Chùa Từ Vân",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_013.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_013.jpg",
+    "aliases": [
+      "Chùa Ốc",
+      "Chùa San Hô"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thượng tọa Thích Thông Anh",
+    "current_abbot": "Thích Thông Anh",
+    "established_year": 1968,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 11.9167,
+      "lng": 109.1554,
+      "address": "Đường 3/4, Phường Cam Linh, TP. Cam Ranh, Tỉnh Khánh Hòa",
+      "province": "Khánh Hòa"
+    },
+    "operating_hours": "07:00 - 17:30",
+    "introduction": "Chùa Từ Vân (còn gọi chùa Ốc, chùa San Hô) nằm ở phường Cam Linh, Cam Ranh, Khánh Hòa, do hai thầy Thích Đức Minh và Thích Hạnh Minh khởi xây từ năm 1968. Từ năm 1982, thầy Thích Thông Anh trụ trì chùa.",
+    "architecture_heritage": "Chùa được xây chủ yếu bằng vỏ ốc, vỏ sò và san hô do chính các tăng sĩ tự tay làm, một kiến trúc độc đáo hiếm có ở Việt Nam. Nổi bật là tháp Bảo Tích, khu 18 tầng địa ngục và Bát Nhã hoa viên (xây từ năm 1985) gồm ao Liên Trì, cầu Lục Độ, đường Bát Chánh Đạo và tháp Đa Bảo. Tổng cộng chùa đã dùng khoảng 2 vạn tấn san hô cho các công trình.",
+    "visiting_notes": ["Chùa nằm gần biển Cam Ranh; đi từ Nha Trang khoảng vài chục phút bằng xe.", "Công trình từ san hô, vỏ ốc dễ hư hại; xin không leo trèo, bẻ hay lấy vỏ ốc, san hô.", "Nên đi vào buổi sáng hoặc chiều mát vì khu tham quan ngoài trời khá nắng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_015",
+    "name": "Chùa Núi Tà Cú",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_015.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_015.jpg",
+    "aliases": [
+      "Linh Sơn Trường Thọ Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Trần Hữu Đức",
+    "current_abbot": "Thích Trí Thành",
+    "established_year": 1879,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.8294,
+      "lng": 107.8917,
+      "address": "Đỉnh núi Tà Cú, Thị trấn Thuận Nam, Huyện Hàm Thuận Nam, Tỉnh Bình Thuận",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "07:00 - 17:30",
+    "introduction": "Chùa Núi Tà Cú nằm ở xã Tân Lập, huyện Hàm Thuận Nam, Bình Thuận, cách Phan Thiết khoảng 30 km, trên ngọn núi cao gần 650 m. Đây là khu thắng cảnh và di tích lịch sử – văn hóa quốc gia; cùng khu bảo tồn thiên nhiên, được xếp hạng thắng cảnh quốc gia năm 1993.",
+    "architecture_heritage": "Điểm nổi bật là tượng Phật nằm bằng xi măng cốt thép quét vôi trắng, dài 49 m, cao 11 m, xây từ năm 1958; chiều dài 49 m tượng trưng 49 năm thuyết pháp của Đức Thích Ca từ khi thành đạo đến khi nhập Niết bàn. Tượng nằm trên sườn núi, là một trong những tượng Phật lớn nhất Việt Nam.",
+    "visiting_notes": ["Lên chùa có hơn 1.000 bậc thang; có thể đi cáp treo (khoảng 15 phút) để rút ngắn, giá vé thay đổi theo thời điểm.", "Nên đi giày dép chắc chân, mang nước và mũ vì đường bộ dài và nắng.", "Nên đi sáng sớm để tránh nắng gắt và đông khách."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_017",
+    "name": "Chùa Hương Tích (Hà Tĩnh)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_017.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_017.jpg",
+    "aliases": [
+      "Hương Tích Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Khởi dựng thời nhà Trần",
+    "current_abbot": "Ban Quản lý Di tích chùa Hương Tích",
+    "established_year": 1296,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 18.4981,
+      "lng": 105.7483,
+      "address": "Núi Hồng Lĩnh, Xã Thiên Lộc, Huyện Can Lộc, Tỉnh Hà Tĩnh",
+      "province": "Hà Tĩnh"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Hương Tích nằm trên núi Hồng Lĩnh, xã Thiên Lộc, huyện Can Lộc, Hà Tĩnh, ở độ cao khoảng 650 m. Chùa được khởi lập từ thời Trần (thế kỷ XIII); nhiều học giả cho rằng chùa được dựng vào thời vua Trần Anh Tông, gắn với hành trình của Sơ tổ Trúc Lâm Trần Nhân Tông. Chùa được ca ngợi là “Hoan Châu đệ nhất danh thắng”.",
+    "architecture_heritage": "Chùa bị cháy lớn năm 1885, được Tổng đốc An Tĩnh Đào Tấn kêu gọi xây lại năm 1901 và trùng tu lớn năm 2003. Quần thể gồm hồ Nhà Đường, miếu Cô, động Tiên Nữ, suối Tiên Tắm, khe Quỷ Khóc, chùa Thượng, am Quan Âm và am Bát Cảnh.",
+    "visiting_notes": ["Chùa nằm trên núi cao, đường lên khá dốc; nên chuẩn bị nước, giày dép chắc chân và thể lực.", "Nên đi vào mùa khô, tránh ngày mưa vì đường trơn.", "Mùa lễ hội đầu năm rất đông; nên đi ngày thường để yên tĩnh hơn."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_018",
+    "name": "Chùa Linh Phước",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_018.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_018.jpg",
+    "aliases": [
+      "Chùa Ve Chai"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Các Phật tử địa phương xây dựng",
+    "current_abbot": "Thích Tâm Vị",
+    "established_year": 1949,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 11.9442,
+      "lng": 108.4983,
+      "address": "120 Tự Phước, Trại Mát, Phường 11, TP. Đà Lạt, Tỉnh Lâm Đồng",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "07:00 - 17:30",
+    "introduction": "Chùa Linh Phước nằm cách trung tâm Đà Lạt khoảng 8 km trên quốc lộ 20, khởi công năm 1949 và hoàn thành năm 1950. Chùa nổi tiếng là một công trình kiến trúc khảm sành đặc sắc của Đà Lạt.",
+    "architecture_heritage": "Nổi bật là tòa Linh Tháp bảy tầng cao 37 m, được xem là tháp chuông cao nhất Việt Nam; Đại Hồng Chung nặng 8.500 kg đúc năm 1999; con rồng dài 49 m làm từ khoảng 12.000 vỏ chai bia phủ quanh tượng Di Lặc; chính điện dài 33 m, rộng 12 m với hai hàng cột rồng khảm sành. Chùa còn trưng bày đá quý, đồ sứ cổ và đồ gỗ mỹ nghệ.",
+    "visiting_notes": ["Chùa nằm ngoài trung tâm, đi xe máy hoặc taxi từ Đà Lạt khoảng 15–20 phút.", "Đà Lạt buổi sáng khá lạnh; nên mang áo ấm nhẹ.", "Đây là chùa còn thờ tự; xin giữ trang nghiêm, không chạm vào hiện vật trang trí."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_019",
+    "name": "Thiền Viện Trúc Lâm Đà Lạt",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_central_019.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_019.jpg",
+    "aliases": [
+      "Trúc Lâm Phụng Hoàng"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền sư Thích Thanh Từ",
+    "current_abbot": "Thích Thông Phương",
+    "established_year": 1993,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 11.9056,
+      "lng": 108.4358,
+      "address": "Đường Hoa Cẩm Tú Cầu, Phường 3, TP. Đà Lạt, Tỉnh Lâm Đồng",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "06:00 - 17:30",
+    "introduction": "Thiền viện Trúc Lâm Đà Lạt nằm trên núi Phụng Hoàng, cách trung tâm Đà Lạt khoảng 5 km, do Hòa thượng Thích Thanh Từ thành lập năm 1994. Đây là thiền viện lớn nhất Lâm Đồng và là điểm tham quan quan trọng với du khách trong và ngoài nước.",
+    "architecture_heritage": "Chính điện rộng 192 m² thờ tượng Phật Thích Ca cao khoảng 2 m tay cầm cành sen. Thiền viện gồm bốn khu: ngoại viện, tịnh thất của Hòa thượng, khu viện trưởng và khu nội viện của tăng ni riêng biệt. Vườn hoa với nhiều giống hoa do tăng ni ươm trồng, nổi tiếng với sim tím và phù dung.",
+    "visiting_notes": ["Tăng ni ngồi thiền ba thời mỗi ngày (3:30–5:30, 14:30–16:30, 19:30–21:30); nên tránh ồn ào trong các giờ này.", "Du khách không được vào nội viện tăng và nội viện ni.", "Có thể đi cáp treo Đà Lạt để lên đồi Robin rồi xuống thiền viện; ăn mặc kín đáo."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_020",
+    "name": "Chùa Sắc Tứ Khải Đoan",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_020.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_020.jpg",
+    "aliases": [
+      "Chùa Lớn",
+      "Sắc Tứ Khải Đoan Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Đoan Huy Hoàng Thái hậu",
+    "current_abbot": "Thích Châu Quang",
+    "established_year": 1951,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 12.6869,
+      "lng": 108.0378,
+      "address": "117 Phan Bội Châu, Phường Thống Nhất, TP. Buôn Ma Thuột, Tỉnh Đắk Lắk",
+      "province": "Đắk Lắk"
+    },
+    "operating_hours": "06:00 - 19:30",
+    "introduction": "Chùa Sắc Tứ Khải Đoan ở Buôn Ma Thuột, Đắk Lắk, được xây từ năm 1951 với hậu tổ và nhà giảng, đến 1953 bắt đầu dựng chánh điện. Chùa được xem là ngôi chùa cuối cùng được vua Bảo Đại ban sắc tứ, nên mang nhiều dấu ấn lịch sử và văn hóa.",
+    "architecture_heritage": "Chùa xây chủ yếu bằng gỗ với tông màu nâu trầm, kết hợp nét cung đình Huế, nhà sàn Tây Nguyên và nhà dài Ê Đê, có mái ngói cong và cột gỗ chạm khắc. Trong chùa có tượng Phật Thích Ca bằng đồng cao 1,1 m, đài sen gỗ cao 0,35 m, chuông đồng cao 1,15 m đúc tháng 1/1954, và điện thờ Quan Âm hình lục giác bên cạnh.",
+    "visiting_notes": ["Chùa nằm giữa thành phố Buôn Ma Thuột nên dễ kết hợp với các điểm như Bảo tàng Đắk Lắk trong cùng chuyến.", "Kiến trúc gỗ cổ, xin không tự ý chạm khắc, viết vẽ.", "Trang phục kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  /* ========================================================
+     MIỀN NAM
+     ======================================================== */
+  {
+    "id": "temple_south_002",
+    "name": "Chùa Ngọc Hoàng",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_002.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_002.jpg",
+    "aliases": [
+      "Phước Hải Tự",
+      "Chùa Đa Kao"
+    ],
+    "sect": "HOA_TONG",
+    "founder": "Lưu Minh (Lưu Đạo Nguyên)",
+    "current_abbot": "Ban Quản lý Di tích Phước Hải",
+    "established_year": 1892,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.7925,
+      "lng": 106.6978,
+      "address": "73 Mai Thị Lựu, Phường Đa Kao, Quận 1, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Ngọc Hoàng (Phước Hải tự, còn gọi chùa Đa Kao) ở Quận 1, TP.HCM, do ông Lưu Minh (Lưu Đạo Nguyên), người Quảng Đông, xây dựng khoảng năm 1902, ban đầu là điện thờ Ngọc Hoàng Thượng Đế. Năm 1984 chùa đổi tên thành Phước Hải tự nhưng dân gian vẫn quen gọi chùa Ngọc Hoàng. Chùa được công nhận di tích kiến trúc nghệ thuật cấp quốc gia năm 1994.",
+    "architecture_heritage": "Chùa mang đậm phong cách kiến trúc Trung Hoa với gạch nung, mái ngói âm dương và nhiều tượng gốm màu trang trí bờ nóc, góc mái. Bên trong có ba tòa là Tiền điện, Trung điện và Chánh điện; Chánh điện thờ Ngọc Hoàng Thượng Đế, Huyền Thiên Bắc Đế cùng các thiên binh, thiên tướng.",
+    "visiting_notes": ["Chùa nhỏ, nhiều khói hương; nên đi giờ vắng nếu muốn thăm kỹ.", "Đây là nơi nhiều người đến cầu con cái, cầu duyên; xin giữ trang nghiêm, xếp hàng dâng hương thứ tự.", "Trang phục kín đáo; tránh chụp ảnh gần các bàn thờ khi có người đang lễ."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_003",
+    "name": "Chùa Xá Lợi",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_003.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_003.jpg",
+    "aliases": [
+      "Xá Lợi Phật Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hội Phật học Nam Việt",
+    "current_abbot": "Thích Đồng Bổn",
+    "established_year": 1956,
+    "heritage_rank": "DI_TICH_CAP_THANH_PHO",
+    "location": {
+      "lat": 10.7781,
+      "lng": 106.6881,
+      "address": "89 Bà Huyện Thanh Quan, Phường Võ Thị Sáu, Quận 3, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:30 - 19:30",
+    "introduction": "Chùa Xá Lợi ở Quận 3, TP.HCM, được xây để thờ xá lợi Phật, là trụ sở chính của Hội Phật học Nam Việt từ năm 1951 đến năm 1981. Chùa gắn với sự kiện lịch sử năm 1963, khi Hòa thượng Thích Quảng Đức tự thiêu để phản đối chính sách đàn áp Phật giáo.",
+    "architecture_heritage": "Chùa là ngôi chùa đầu tiên của thành phố xây theo lối kiến trúc mới: bái đường ở trên, giảng đường ở dưới. Tháp chuông khánh thành năm 1961, cao 32 m, bảy tầng, tầng trên cùng treo đại hồng chung nặng khoảng 2 tấn đúc theo mẫu chuông chùa Thiên Mụ. Chính điện ở tầng lầu có bộ 15 bức tranh lớn vẽ cuộc đời Đức Phật Thích Ca do giáo sư Nguyễn Văn Long thực hiện.",
+    "visiting_notes": ["Chùa vẫn là nơi tu học và lễ Phật hằng ngày; xin ăn mặc kín đáo, giữ yên lặng.", "Chùa đông vào rằm, mùng một, Phật đản, Vu Lan; nên đi sớm.", "Có thể kết hợp tham quan các điểm lịch sử lân cận ở Quận 3."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_004",
+    "name": "Chùa Bà Thiên Hậu",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_004.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_004.jpg",
+    "aliases": [
+      "Thiên Hậu Miếu",
+      "Chùa Bà Chợ Lớn"
+    ],
+    "sect": "HOA_TONG",
+    "founder": "Nhóm người Hoa gốc Tuệ Thành",
+    "current_abbot": "Ban Quản trị Hội quán Tuệ Thành",
+    "established_year": 1760,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.7533,
+      "lng": 106.6586,
+      "address": "710 Nguyễn Trãi, Phường 11, Quận 5, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:30 - 17:00",
+    "introduction": "Chùa Bà Thiên Hậu (còn gọi Hội quán Tuệ Thành) ở Quận 5, Chợ Lớn, được người Hoa gốc Tuệ Thành (Quảng Đông) xây dựng vào khoảng năm 1760 để thờ Bà Thiên Hậu. Đây là một trong những nơi thờ tự lâu đời của cộng đồng người Hoa tại Sài Gòn, được công nhận di tích kiến trúc nghệ thuật cấp quốc gia ngày 7/1/1993.",
+    "architecture_heritage": "Chùa mang đậm phong cách Á Đông với cổng tam quan cách điệu, cửa vào chính giữa và hai hành lang hai bên. Không gian bên trong có nhiều hiện vật chạm khắc, tượng gốm và các vòng hương lớn treo trên trần đặc trưng của chùa người Hoa.",
+    "visiting_notes": ["Lễ Vía Bà Thiên Hậu diễn ra khoảng ngày 22–24 tháng Ba âm lịch với rước kiệu quanh Chợ Lớn, múa lân, múa rồng; thời điểm này rất đông.", "Đây là nơi thờ tự linh thiêng; xin không mặc trang phục quá màu mè hay phản cảm.", "Khói hương nhiều; người nhạy cảm nên lưu ý."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_005",
+    "name": "Chùa Bửu Long",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_south_005.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_005.jpg",
+    "aliases": [
+      "Thiền viện Bửu Long"
+    ],
+    "sect": "NAM_TONG",
+    "founder": "Cư sĩ Võ Hà Thuật",
+    "current_abbot": "Thích Viên Minh",
+    "established_year": 1942,
+    "heritage_rank": "DI_TICH_CAP_THANH_PHO",
+    "location": {
+      "lat": 10.8753,
+      "lng": 106.8297,
+      "address": "81 Nguyễn Xiển, Phường Long Bình, TP. Thủ Đức, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "08:00 - 18:00",
+    "introduction": "Chùa Bửu Long nằm trên một ngọn đồi phía Tây sông Đồng Nai, đường Nguyễn Xiển, Quận 9 (TP. Thủ Đức), cách trung tâm thành phố khoảng 25 km. Chùa xây từ năm 1942, được trùng tu quy mô trong 5 năm từ năm 2007, trên khuôn viên khoảng 11 ha. Năm 2019, tạp chí National Geographic đưa chùa vào danh sách 20 kiến trúc Phật giáo đặc sắc nhất thế giới.",
+    "architecture_heritage": "Chùa theo hệ phái Phật giáo Nam tông, kiến trúc kết hợp phong cách chùa Thái Lan, Ấn Độ và chùa thời Nguyễn. Nổi bật là Bảo tháp Gotama Cetiya khởi công tháng 8/2007, hoàn thành tháng 10/2011, khánh thành năm 2013: bảy tầng, diện tích trên 7.000 m², tháp chính cao 57 m, đỉnh tháp thờ ngọc xá lợi Đức Phật và xá lợi các bậc Thánh Arahán.",
+    "visiting_notes": ["Chùa cách trung tâm khá xa, nên đi xe máy hoặc taxi; nên đi vào sáng sớm hoặc chiều mát.", "Đây là chùa Nam tông, xin tôn trọng quy tắc của nhà chùa, ăn mặc lịch sự, kín đáo.", "Khuôn viên rộng, có nhiều bậc thang; nên đi giày dép êm."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_006",
+    "name": "Chùa Phổ Quang",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_006.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_006.jpg",
+    "aliases": [
+      "Phổ Quang Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Thích Trí Dũng",
+    "current_abbot": "Thích Thanh Hùng",
+    "established_year": 1951,
+    "heritage_rank": "DI_TICH_CAP_THANH_PHO",
+    "location": {
+      "lat": 10.8039,
+      "lng": 106.6669,
+      "address": "64 Huỳnh Lan Khanh, Phường 2, Quận Tân Bình, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:00 - 20:30",
+    "introduction": "Chùa Phổ Quang ở quận Tân Bình, TP.HCM, được Hòa thượng Nguyễn Viết Tạo sáng lập năm 1951, xây lại năm 1961 theo thiết kế của kiến trúc sư Nguyễn Mạnh Bảo và được Giáo hội Phật giáo TP.HCM quản lý từ năm 1999. Đến năm 2010, chùa được đại tu, mở rộng khuôn viên lên hơn 6.000 m².",
+    "architecture_heritage": "Chùa kết hợp kiến trúc hiện đại và yếu tố truyền thống, với đại điện ba tầng, mái cong hình rồng phượng và các cột trụ chạm trổ. Điện Di Đà nổi bật với tượng Phật A-di-đà cao gần 7 m giữa quần thể núi non bộ.",
+    "visiting_notes": ["Chùa rộng rãi, thanh tịnh, thích hợp đi lễ vào sáng sớm hoặc chiều muộn.", "Đông vào rằm, mùng một và các đại lễ.", "Trang phục kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_007",
+    "name": "Chùa Hoằng Pháp",
+    "type": "DAO_TRANG",
+    "image_url": "/static/images/temples/full/temple_south_007.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_007.jpg",
+    "aliases": [
+      "Hoằng Pháp Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Cố Đại lão Hòa thượng Thích Ngộ Chân Tử",
+    "current_abbot": "Thích Tâm Trường",
+    "established_year": 1957,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 10.8872,
+      "lng": 106.5861,
+      "address": "Xã Tân Hiệp, Huyện Hóc Môn, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "05:00 - 21:00",
+    "introduction": "Chùa Hoằng Pháp ở xã Hóc Môn, TP.HCM, do cố Hòa thượng Ngộ Chân Tử sáng lập năm 1957; ban đầu là một cánh rừng chồi, hai năm sau ngài bắt đầu xây chùa bằng gạch đinh, mái ngói hai tầng. Chùa nổi tiếng là nơi tu học đông đảo Phật tử.",
+    "architecture_heritage": "Chánh điện được mở rộng từ năm 1995 với diện tích 756 m², theo lối kiến trúc chữ “công”, nổi bật với mái ngói đỏ hai tầng, hài hòa giữa nét truyền thống và hiện đại.",
+    "visiting_notes": ["Chùa tổ chức nhiều khóa tu, lịch sinh hoạt thay đổi; nên xem lịch của chùa trước khi đến.", "Chùa nằm xa trung tâm, cần tính thời gian di chuyển.", "Trang phục kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_008",
+    "name": "Chùa Vĩnh Tràng",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_008.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_008.jpg",
+    "aliases": [
+      "Vĩnh Trường Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Ông bà Tri huyện Bùi Công Đạt",
+    "current_abbot": "Thích Huệ Minh",
+    "established_year": 1849,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 10.3664,
+      "lng": 106.3775,
+      "address": "Ấp Mỹ An, Xã Mỹ Phong, TP. Mỹ Tho, Tỉnh Tiền Giang",
+      "province": "Đồng Tháp"
+    },
+    "operating_hours": "06:30 - 18:30",
+    "introduction": "Chùa Vĩnh Tràng ở Mỹ Tho, Tiền Giang, được xây dựng từ đầu thế kỷ XIX; năm 1849 Hòa thượng Thích Huệ Đăng đặt tên chùa với ý “vĩnh cửu đối sơn hà, trường tồn tề thiên địa”. Năm 1907, Hòa thượng Chánh Hậu cho trùng kiến, kết hợp nét kiến trúc Á – Âu. Chùa là di tích lịch sử – văn hóa cấp quốc gia (1984) và di tích kiến trúc nghệ thuật quốc gia (1989).",
+    "architecture_heritage": "Chùa là một trong những ngôi chùa lớn nhất Tiền Giang, chính điện xây theo lối kiến trúc La Mã hòa cùng những hàng đá hoa kiểu Pháp trên nóc. Trước chùa có hai cổng tam quan kiểu cổ lầu cẩn đồ sứ Trung Hoa và Việt Nam. Chùa lưu giữ hơn 60 pho tượng bằng gỗ, đồng, đất sét, xi măng… dát vàng, đúc cuối thế kỷ XIX – đầu XX; trong công viên chùa có tượng Phật Di Lặc dài 27 m, cao 20 m, khánh thành 2014.",
+    "visiting_notes": ["Chùa mở cửa hằng ngày và miễn phí vé tham quan.", "Có thể dạo bộ trên lối gạch đỏ, ngắm hồ sen và cây bồ đề cổ thụ; thường được kết hợp với chuyến tham quan miền Tây.", "Trang phục kín đáo, giữ trang nghiêm ở chính điện."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_010",
+    "name": "Chùa Dơi",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_010.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_010.jpg",
+    "aliases": [
+      "Chùa Mahatup",
+      "Mã Tộc Tự"
+    ],
+    "sect": "NAM_TONG_KHMER",
+    "founder": "Cộng đồng người Khmer",
+    "current_abbot": "Thạch Kim Sêng",
+    "established_year": 1569,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 9.5847,
+      "lng": 105.9786,
+      "address": "Đường Văn Ngọc Chính, Phường 3, TP. Sóc Trăng, Tỉnh Sóc Trăng",
+      "province": "Cần Thơ"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Dơi (Mahatup) ở Sóc Trăng là ngôi chùa Khmer Nam tông, theo ghi chép được lập năm 1569 bằng tre lá, trùng tu năm 1960, xây lại năm 2009. Tên Mahatup theo tiếng Khmer; về sau người dân quen gọi là chùa Dơi vì có nhiều dơi trú ngụ. Chùa được công nhận di tích lịch sử – văn hóa quốc gia từ năm 1999.",
+    "architecture_heritage": "Chùa thờ Phật Thích Ca, kiến trúc đậm nét Khmer với mái ngói đỏ, bốn đầu mái cong vút hình rắn Naga. Quần thể gồm chánh điện, sala, nhà tăng, tháp cốt và nhà khách trong khuôn viên khoảng 4 ha với nhiều cây cổ thụ, là nơi trú ngụ của đàn dơi lớn.",
+    "visiting_notes": ["Khoảng 6 giờ chiều mỗi ngày hàng chục nghìn con dơi bay ra kiếm ăn, trở về khoảng 5 giờ sáng hôm sau – đây là cảnh đáng xem.", "Xin không làm ồn, không săn bắt hay xua đuổi dơi.", "Đây là chùa Khmer đang có tăng sĩ tu học; ăn mặc kín đáo và tôn trọng quy tắc nhà chùa."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_011",
+    "name": "Chùa Chén Kiểu",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_011.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_011.jpg",
+    "aliases": [
+      "Chùa Sà Lôn",
+      "Wath Sro Loun"
+    ],
+    "sect": "NAM_TONG_KHMER",
+    "founder": "Cộng đồng người Khmer địa phương",
+    "current_abbot": "Tăng Nô",
+    "established_year": 1815,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 9.5161,
+      "lng": 105.9189,
+      "address": "Quốc lộ 1A, Xã Đại Tâm, Huyện Mỹ Xuyên, Tỉnh Sóc Trăng",
+      "province": "Cần Thơ"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Chén Kiểu nằm ở xã Đại Tâm, huyện Mỹ Xuyên, Sóc Trăng, là chùa Khmer Nam tông được xây dựng từ khoảng năm 1815 (một số nguồn nêu năm 1874) và xây lại với kiến trúc hiện nay vào năm 1969. Chùa là biểu tượng văn hóa Khmer Nam Bộ.",
+    "architecture_heritage": "Chùa mang phong cách Angkor Khmer với cổng tam quan ba ngọn tháp chạm khắc tinh xảo. Nét đặc biệt là hàng nghìn chén, đĩa sứ được gắn lên tường, mái chùa tạo họa tiết độc đáo – ý tưởng của các nhà sư khi thiếu vật liệu, đã quyên góp mảnh chén đĩa từ bà con trong phum sóc. Quần thể gồm chánh điện, sala, tháp cốt và nơi lưu giữ kinh sách.",
+    "visiting_notes": ["Chùa nằm ngay Quốc lộ 1A, tiện ghé khi đi Sóc Trăng.", "Đây là chùa Khmer còn hoạt động tu học; xin ăn mặc kín đáo và tôn trọng quy định của nhà chùa.", "Nên xin phép trước khi chụp ảnh tượng Phật, bàn thờ hay khi có nghi lễ."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_012",
+    "name": "Chùa Xiêm Cán",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_012.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_012.jpg",
+    "aliases": [
+      "Wath Komphir Sakor Prek Chhou"
+    ],
+    "sect": "NAM_TONG_KHMER",
+    "founder": "Bà Menh và người dân trong phum sóc",
+    "current_abbot": "Dương Quân",
+    "established_year": 1887,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 9.2294,
+      "lng": 105.7728,
+      "address": "Ấp Biển Tây B, Xã Vĩnh Trạch Đông, TP. Bạc Liêu, Tỉnh Bạc Liêu",
+      "province": "Cà Mau"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Xiêm Cán ở Bạc Liêu, khởi công năm 1887 theo bia đá khắc chữ Khmer cổ, do một cặp vợ chồng khá giả cùng hơn 30 hộ trong phum sóc dựng nên. Tên Khmer ban đầu là Komphisako; tên Xiêm Cán bắt nguồn từ tiếng Tiều của cộng đồng người Hoa. Chùa được công nhận di tích cấp tỉnh (2001) và là điểm du lịch tiêu biểu của Đồng bằng sông Cửu Long (2022).",
+    "architecture_heritage": "Chùa thuộc Phật giáo Nam tông, quay mặt về hướng Đông, kiến trúc chịu ảnh hưởng Ấn Độ và văn hóa Khmer với các cột trụ chạm khắc tinh xảo, mái và vách trang trí tỉ mỉ. Khuôn viên khoảng 4 ha, là một trong những quần thể tôn giáo lớn nhất vùng.",
+    "visiting_notes": ["Chùa là nơi tu học của tăng sĩ Khmer; xin ăn mặc kín đáo, không ồn ào.", "Nên xin phép nhà chùa trước khi chụp ảnh trong chánh điện.", "Dịp lễ hội Khmer như Chol Chnam Thmay, Ok Om Bok chùa rất đông và đẹp."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_013",
+    "name": "Chùa Hang (An Giang)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_013.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_013.jpg",
+    "aliases": [
+      "Phước Điền Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Bà Lê Thị Thơ (Thích Nữ Diệu Thiện)",
+    "current_abbot": "Thích Thiện Tài",
+    "established_year": 1845,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.6978,
+      "lng": 105.0803,
+      "address": "Triền núi Sam, Phường Núi Sam, TP. Châu Đốc, Tỉnh An Giang",
+      "province": "An Giang"
+    },
+    "operating_hours": "06:00 - 19:30",
+    "introduction": "Chùa Hang (Phước Điền tự) nằm trên triền núi Sam, phường Núi Sam, Châu Đốc, An Giang, gần miếu Bà Chúa Xứ, chùa Tây An và lăng Thoại Ngọc Hầu. Chùa gắn với ni sư Diệu Thiện (bà Lê Thị Thơ) và truyền thuyết cặp rắn khổng lồ Thanh Xà – Bạch Xà tu hành cùng ni sư. Chùa được xếp hạng di tích lịch sử – văn hóa quốc gia.",
+    "architecture_heritage": "Chùa tựa lưng vào núi Sam, có hang đá và các điện thờ. Sau khi ni sư viên tịch, người dân lập tượng cặp rắn để thờ như thần hộ tự và cầu bình an.",
+    "visiting_notes": ["Có thể chụp ảnh ngoài trời; khi chụp tượng Phật, bàn thờ hay nghi lễ nên xin phép nhà chùa.", "Ăn mặc kín đáo, giữ thái độ tôn kính.", "Chùa nằm trong cụm di tích Núi Sam, có thể kết hợp thăm miếu Bà Chúa Xứ trong cùng chuyến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_014",
+    "name": "Chùa Huệ Nghiêm",
+    "type": "DAO_TRANG",
+    "image_url": "/static/images/temples/full/temple_south_014.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_014.jpg",
+    "aliases": [
+      "Huệ Nghiêm 2"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Thích Trí Tịnh",
+    "current_abbot": "Thích Minh Thông",
+    "established_year": 1963,
+    "heritage_rank": "DI_TICH_CAP_THANH_PHO",
+    "location": {
+      "lat": 10.7411,
+      "lng": 106.6128,
+      "address": "220/110/1 Đỗ Năng Tế, Phường An Lạc A, Quận Bình Tân, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:00 - 19:00",
+    "introduction": "Chùa Huệ Nghiêm ở phường An Lạc A, quận Bình Tân, TP.HCM, do Hòa thượng Thích Thiện Hòa khai sáng ngày 11/11/1962 theo bản vẽ của kiến trúc sư Võ Đình Diệp. Chùa là tự viện đầu tiên xây dựng giới đàn truyền giới luật trong lịch sử truyền thừa Phật giáo Việt Nam, và từng là Phật học viện.",
+    "architecture_heritage": "Chùa có bố cục hình chữ “Sơn” trên khuôn viên khoảng 3 ha, kết hợp nét cổ kính và hiện đại. Chùa có tượng Đức Phật A-di-đà bằng gỗ hương được xem là cao nhất Việt Nam.",
+    "visiting_notes": ["Chùa nằm trong khu dân cư, đường vào khá nhỏ; nên đi xe máy hoặc taxi.", "Đây là nơi tu học, xin giữ yên lặng và ăn mặc kín đáo.", "Nên xem giờ sinh hoạt của chùa trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_017",
+    "name": "Chùa Phật Lớn",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_south_017.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_017.jpg",
+    "aliases": [
+      "Thiền Viện Chùa Phật Lớn"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Dựng vào đầu thế kỷ XX",
+    "current_abbot": "Thích Huệ Dũng",
+    "established_year": 1912,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 10.5056,
+      "lng": 105.0069,
+      "address": "Đỉnh núi Cấm, Xã An Hảo, Thị xã Tịnh Biên, Tỉnh An Giang",
+      "province": "An Giang"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Phật Lớn (Thiền viện chùa Phật Lớn) nằm trên đỉnh núi Cấm, xã An Hảo (Tịnh Biên), An Giang, ở độ cao hơn 500 m. Chùa được dựng từ đầu thế kỷ XX. Nơi đây nổi tiếng với tượng Phật Di Lặc lớn nhất châu Á trên đỉnh núi.",
+    "architecture_heritage": "Tượng Phật Di Lặc cao 33,6 m, bệ tượng 27 × 27 m, tổng trọng lượng gần 1.700 tấn bê tông và cốt thép, khởi công năm 2004 và hoàn thành tháng 12/2005 trên khuôn viên 2,2 ha. Tượng lưng tựa núi, mặt hướng ra hồ Thủy Liêm; năm 2013 được Tổ chức Kỷ lục châu Á công nhận là tượng Phật Di Lặc trên đỉnh núi lớn nhất châu Á.",
+    "visiting_notes": ["Đường lên đỉnh núi Cấm dốc, nhiều khúc quanh; lái xe cẩn thận hoặc đi xe chuyên dụng.", "Trên núi thời tiết mát nhưng thay đổi; nên mang áo khoác nhẹ và nước.", "Khu vực rộng, có nhiều điểm tham quan khác trên núi Cấm; nên dành nửa ngày."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_018",
+    "name": "Chùa Sắc Tứ Tam Bảo (Hà Tiên)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_018.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_018.jpg",
+    "aliases": [
+      "Tam Bảo Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Tổng trấn Mạc Cửu",
+    "current_abbot": "Ni sư Thích Nữ Như Thiện",
+    "established_year": 1730,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.3833,
+      "lng": 104.4883,
+      "address": "Số 75 Phương Thành, Phường Bình San, TP. Hà Tiên, Tỉnh Kiên Giang",
+      "province": "An Giang"
+    },
+    "operating_hours": "06:30 - 19:00",
+    "introduction": "Chùa Sắc Tứ Tam Bảo (còn gọi chùa Tiêu) ở phường Bình San, Hà Tiên, Kiên Giang, do Tổng trấn Mạc Cửu xây năm 1730 để mẹ ngài tu hành lúc cuối đời. Chùa là một trong “Hà Tiên thập cảnh” mà Mạc Thiên Tứ ca ngợi qua bài thơ “Tiêu Tự Thần Chung”. Thời Gia Long (1802–1819) chùa được triều đình trùng tu và ban sắc tứ.",
+    "architecture_heritage": "Chùa bị quân Xiêm tàn phá năm 1834, được dựng lại bằng gỗ năm 1901 và trùng tu lớn năm 1930 (các công trình hiện nay), vẫn còn một số dấu tích tường cũ. Chùa rộng khoảng 2,5 ha, cửa quay về hướng đông, xây theo lối kiến trúc chùa truyền thống Việt Nam.",
+    "visiting_notes": ["Chùa gần khu trung tâm Hà Tiên; có thể kết hợp tham quan các di tích Mạc gia trong ngày.", "Đây là nơi tu học của ni chúng; xin ăn mặc kín đáo, giữ yên lặng.", "Nên đi sáng sớm hoặc chiều mát."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_019",
+    "name": "Chùa Phật Học 2",
+    "type": "DAO_TRANG",
+    "image_url": "/static/images/temples/full/temple_south_019.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_019.jpg",
+    "aliases": [
+      "Quan Âm Linh Ứng"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thượng tọa Thích Huệ Vinh",
+    "current_abbot": "Thích Huệ Vinh",
+    "established_year": 2011,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 9.6053,
+      "lng": 105.9928,
+      "address": "Phường 8, TP. Sóc Trăng, Tỉnh Sóc Trăng",
+      "province": "Cần Thơ"
+    },
+    "operating_hours": "06:00 - 21:00",
+    "introduction": "Chùa Phật Học 2 (chùa Quan Âm Linh Ứng) ở phường 8, thành phố Sóc Trăng, do Thượng tọa Thích Huệ Vinh khởi công năm 2011 với diện tích ban đầu 1,5 ha; nay đã mở rộng đến khoảng 8,5 ha, được xem là ngôi chùa có diện tích lớn nhất Sóc Trăng và được xếp hạng di tích cấp tỉnh.",
+    "architecture_heritage": "Chùa kết hợp nét truyền thống và hiện đại với các công trình nổi bật: tháp Thiên Phật sơn màu xanh da trời có 100 mặt Phật vàng chạm khắc quanh thân tháp, thuyền Bát Nhã không đáy giữa hồ rộng khoảng 6.000 m² chở tám vị Phật, hồ cá chép vàng, khu tiểu cảnh cổ tích và vườn cây sala.",
+    "visiting_notes": ["Khuôn viên rất rộng, nên dành ít nhất 1–2 giờ và mang nước, nón.", "Chùa đông vào cuối tuần và ngày lễ; nên đi sáng sớm.", "Ăn mặc kín đáo, giữ trang nghiêm trong các điện thờ."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  /* ========================================================
+     MIỀN BẮC (BATCH 2)
+     ======================================================== */
+  {
+    "id": "temple_north_024",
+    "name": "Chùa Mía",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_024.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_024.jpg",
+    "aliases": [
+      "Sùng Nghiêm Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Bà Chúa Mía (Nguyễn Thị Ngọc Diệu)",
+    "current_abbot": "Thích Minh Đương",
+    "established_year": 1632,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.1447,
+      "lng": 105.4988,
+      "address": "Làng Đông Sàng, Xã Đường Lâm, Thị xã Sơn Tây, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Mía (tên chữ Sùng Nghiêm tự) nằm ở làng cổ Đường Lâm, thị xã Sơn Tây, Hà Nội; vùng này xưa gọi Cam Giá, tên Nôm là Mía. Chùa được trùng tu lớn năm 1632 nhờ công của Bà Chúa Mía, một người con của làng Đường Lâm, nên dân gian gọi là chùa Mía.",
+    "architecture_heritage": "Chùa còn giữ được kiến trúc truyền thống, bố cục hình chữ “Mục” gồm sân trước, nội điện và dãy hành lang La Hán bao quanh. Chùa được xem là ngôi chùa có nhiều tượng nhất Việt Nam với 287 pho, phần lớn tạc bằng gỗ mít, sơn son thếp vàng, trong đó có nhiều tượng quý như Quan Âm Tống Tử, Tuyết Sơn, Kim Cương và các vị La Hán.",
+    "visiting_notes": ["Chùa nằm trong làng cổ Đường Lâm, có thể kết hợp tham quan nhà cổ, đình làng và các di tích khác trong làng.", "Các tượng cổ bằng gỗ rất quý; xin không chạm vào tượng.", "Nên đi ban ngày và mang giày dép êm để dạo làng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_027",
+    "name": "Thiền xá Yên Phú",
+    "type": "THIEN_XA",
+    "image_url": "/static/images/temples/full/temple_north_027.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_027.jpg",
+    "aliases": [
+      "Chùa Yên Phú",
+      "Thanh Khương Tự"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền sư Không Lộ khởi dựng",
+    "current_abbot": "Thích Thọ Lạc",
+    "established_year": 1090,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 20.9234,
+      "lng": 105.8421,
+      "address": "Xã Liên Ninh, Huyện Thanh Trì, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "06:00 - 19:00",
+    "introduction": "Chùa Yên Phú (Thanh Vân cổ tự, sau đổi Khánh Hưng tự) ở xã Liên Ninh, huyện Thanh Trì, Hà Nội, là một trong những ngôi chùa cổ nhất trong lịch sử Phật giáo Việt Nam; có ý kiến cho rằng chùa có từ thời Hai Bà Trưng, do ni sư Phương Dung sáng lập. Chùa được xếp hạng di tích quốc gia năm 1988.",
+    "architecture_heritage": "Chùa bố cục theo chữ “Nhất” gồm ba tòa nhà ba tầng mái xếp ngang, tam quan trong ngoài ba tầng mái, có hai cửa Giác Ngộ và Giải Thoát. Chùa được trùng tu từ 2008 và khánh thành ngày 20/11/2011; công trình cổ còn lại chủ yếu là vườn tháp, còn lại đa số xây mới theo phong cách truyền thống miền Bắc.",
+    "visiting_notes": ["Chùa nằm ở ngoại thành Hà Nội, gần khu di tích trận Ngọc Hồi – Đống Đa; có thể kết hợp tham quan.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên xem giờ sinh hoạt của chùa trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_028",
+    "name": "Chùa Côn Sơn",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_028.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_028.jpg",
+    "aliases": [
+      "Thiên Tư Phúc Tự",
+      "Chùa Hun"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền sư Pháp Loa",
+    "current_abbot": "Ban Quản lý Khu di tích Côn Sơn - Kiếp Bạc",
+    "established_year": 1304,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.1575,
+      "lng": 106.4022,
+      "address": "Phường Cộng Hòa, TP. Chí Linh, Tỉnh Hải Dương",
+      "province": "Hải Phòng"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Côn Sơn (Côn Sơn Thiên Tư Phúc tự) ở phường Cộng Hòa, thành phố Chí Linh, Hải Dương. Chùa khởi từ chùa Kỳ Lân do thiền sư Pháp Loa xây năm 1304, mở rộng thành Côn Sơn Thiên Tư Phúc tự năm 1329, là một trung tâm của thiền phái Trúc Lâm. Nơi đây gắn với danh nhân Trần Nguyên Đán, Huyền Quang và Nguyễn Trãi, thuộc quần thể Côn Sơn – Kiếp Bạc.",
+    "architecture_heritage": "Chùa mang kiến trúc cung đình, phía trước là hồ bán nguyệt và cổng tam quan. Côn Sơn – Kiếp Bạc được UNESCO ghi danh trong quần thể di sản Yên Tử – Vĩnh Nghiêm – Côn Sơn, Kiếp Bạc (2025).",
+    "visiting_notes": ["Lễ hội mùa xuân diễn ra từ 16 đến 23 tháng Giêng âm lịch, tưởng niệm thiền sư Huyền Quang, có lễ rước nước, đấu vật, cờ người, hát quan họ; rất đông khách.", "Khu di tích rộng, có núi, suối, rừng thông; nên đi giày dép thoải mái.", "Có thể kết hợp tham quan khu Kiếp Bạc gần đó."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_030",
+    "name": "Chùa Dư Hàng",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_030.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_030.jpg",
+    "aliases": [
+      "Phúc Lâm Tự"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Khởi dựng thời Tiền Lê",
+    "current_abbot": "Thích Quảng Tùng",
+    "established_year": 998,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 20.8447,
+      "lng": 106.6719,
+      "address": "121 Dư Hàng, Phường Hồ Nam, Quận Lê Chân, TP. Hải Phòng",
+      "province": "Hải Phòng"
+    },
+    "operating_hours": "06:00 - 20:00",
+    "introduction": "Chùa Dư Hàng (Phúc Lâm tự, còn gọi chùa Hàng) ở phường Hồ Nam, quận Lê Chân, Hải Phòng. Chùa có nguồn gốc từ thời Tiền Lê; năm 1672, đại thần Nguyễn Đình Sách (Chân Huyền) quyên góp mua đất mở rộng chùa với lầu chuông, nhà sư; đợt trùng tu năm 1917 tạo nên kiến trúc hiện nay.",
+    "architecture_heritage": "Chùa xây theo lối cổ, kiểu chữ Đinh, gồm tam quan, Phật điện, nhà Tổ, gác chuông và vườn tượng. Trung tâm là tòa Phật điện bảy gian bằng gỗ, mái ngói, dựng theo kiểu vì kèo giá chiêng với các hàng cột lim lớn. Chùa còn nhiều tượng lớn, câu đối chạm khắc công phu theo phong cách triều Nguyễn, và các di vật quý như đỉnh đồng, khánh đồng.",
+    "visiting_notes": ["Chùa nằm ngay trung tâm thành phố Hải Phòng nên dễ ghé thăm.", "Đông vào rằm, mùng một và dịp Tết; nên đi vào buổi sáng.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_035",
+    "name": "Chùa Bà Đá",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_035.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_035.jpg",
+    "aliases": [
+      "Linh Quang Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Dân làng khởi dựng thời Lê",
+    "current_abbot": "Thích Bảo Nghiêm",
+    "established_year": 1056,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.0298,
+      "lng": 105.8502,
+      "address": "Số 3 Phố Nhà Thờ, Phường Hàng Trống, Quận Hoàn Kiếm, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "07:00 - 19:30",
+    "introduction": "Chùa Bà Đá (Linh Quang tự) ở số 3 phố Nhà Thờ, quận Hoàn Kiếm, Hà Nội, cách hồ Gươm khoảng 100 m. Theo truyền thuyết, thời Lê Thánh Tông, khi đào đất đắp thành Thăng Long ở vùng chùa tháp Báo Thiên xưa, người ta tìm thấy một tượng đá hình người phụ nữ, dân lập miếu thờ và gọi là chùa Bà Đá. Chùa được xây từ năm 1056 dưới thời Lý Thánh Tông.",
+    "architecture_heritage": "Nét đặc trưng là mái hiên thấp đỡ bởi bốn cột đá vừa phải; bố cục gồm tiền đường hình chữ “Nhất” và trung đường chữ “Đinh” nối liền tạo thành khối vuông. Chùa là một trong bốn ngôi chùa “Bà” nổi tiếng của thủ đô (Bà Đá, Bà Đanh, Bà Nành, Bà Ngô) và được Ủy ban nhân dân Hà Nội xếp hạng di tích lịch sử – kiến trúc năm 2005. Tượng đá gốc đã thất lạc trong thời Pháp thuộc.",
+    "visiting_notes": ["Chùa nhỏ, nằm gần Nhà thờ Lớn và hồ Gươm nên dễ kết hợp dạo phố cổ.", "Chùa đông vào rằm, mùng một; xin giữ trật tự và xếp hàng dâng hương.", "Ăn mặc kín đáo."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_038",
+    "name": "Chùa Phổ Minh",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_038.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_038.jpg",
+    "aliases": [
+      "Chùa Tháp"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Khởi dựng từ thời Lý, mở rộng thời Trần",
+    "current_abbot": "Thích Huệ Vinh",
+    "established_year": 1262,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 20.4497,
+      "lng": 106.1819,
+      "address": "Thôn Tức Mặc, Phường Lộc Vượng, TP. Nam Định, Tỉnh Nam Định",
+      "province": "Ninh Bình"
+    },
+    "operating_hours": "06:30 - 18:30",
+    "introduction": "Chùa Phổ Minh ở thôn Tức Mặc, phường Lộc Vượng, thành phố Nam Định, là trung tâm Phật giáo Trúc Lâm thời Trần, từng là nơi tu hành của nhiều vua chúa quý tộc nhà Trần. Chùa và đền Trần được xếp hạng Di tích quốc gia đặc biệt (2012).",
+    "architecture_heritage": "Nổi bật là tháp Phổ Minh xây năm 1305 do vua Trần Anh Tông cho dựng để lưu giữ một phần xá lợi của Phật hoàng Trần Nhân Tông: cao 19,51 m, 14 tầng, đế vuông mỗi cạnh 5,20 m, đỉnh là khối đá hình hoa sen năm lớp cánh, thể hiện nghệ thuật điêu khắc đỉnh cao thời Trần.",
+    "visiting_notes": ["Chùa nằm gần đền Trần, có thể kết hợp tham quan trong cùng chuyến.", "Đông vào dịp lễ hội đền Trần và đầu xuân; nên đi ngày thường.", "Ăn mặc kín đáo, giữ yên lặng trong khu tháp và điện thờ."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_040",
+    "name": "Chùa Địa Tạng Phi Lai",
+    "type": "DAO_TRANG",
+    "image_url": "/static/images/temples/full/temple_north_040.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_040.jpg",
+    "aliases": [
+      "Chùa Đùng"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Khởi dựng từ thế kỷ X, đại trùng tu năm 2015",
+    "current_abbot": "Thích Minh Quang",
+    "established_year": 1000,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 20.4851,
+      "lng": 105.9967,
+      "address": "Thôn Ninh Trung, Xã Liêm Sơn, Huyện Thanh Liêm, Tỉnh Hà Nam",
+      "province": "Ninh Bình"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Địa Tạng Phi Lai (tên cũ chùa Đùng) ở xã Liêm Sơn, huyện Thanh Liêm, Hà Nam (nay thuộc Ninh Bình). Các nhà nghiên cứu cho rằng chùa có từ khoảng thế kỷ X–XI thời Lý, ban đầu quy mô hơn 100 gian, sau đó xuống cấp nhiều. Tháng 12/2015, Đại đức Thích Minh Quang xây dựng lại chùa và đổi tên thành Địa Tạng Phi Lai tự.",
+    "architecture_heritage": "Chùa có bố cục truyền thống với tòa Tam Bảo lớn nhất; tượng Đức Địa Tạng ở trung tâm uy nghiêm mà hiền từ. Nhiều linh vật, cổ vật tái hiện hoa văn Lý – Trần, đặc trưng là cánh sen mũi nhọn hất lên. Chùa nằm ôm trọn trong dãy núi vòng cung, với thế đất tứ tượng, tông màu nâu, vàng, trắng chủ đạo.",
+    "visiting_notes": ["Chùa mới được xây lại nên cảnh quan khá đẹp; nên đi vào buổi sáng để chụp ảnh và tránh nắng.", "Chùa nằm ở vùng núi Thanh Liêm; nên xem đường đi trước khi đến.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  /* ========================================================
+     MIỀN TRUNG (BATCH 2)
+     ======================================================== */
+  {
+    "id": "temple_central_023",
+    "name": "Thiền viện Vạn Hạnh (Đà Lạt)",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_central_023.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_023.jpg",
+    "aliases": [
+      "Vạn Hạnh Thiền Viện"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Thích Viên Thanh",
+    "current_abbot": "Thích Viên Thanh",
+    "established_year": 1952,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 11.9567,
+      "lng": 108.4419,
+      "address": "39 Phù Đổng Thiên Vương, Phường 8, TP. Đà Lạt, Tỉnh Lâm Đồng",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Thiền viện Vạn Hạnh nằm ở số 39 đường Phù Đổng Thiên Vương, thành phố Đà Lạt. Thiền viện khởi công năm 1952 với tên “Niệm Phật Đông Dương Thành”, năm 1957 đổi thành “Khuôn Hội Vạn Hạnh”, được tu sửa mở rộng năm 1964 và 1967. Năm 1980, Đại đức Thích Viên Thanh được Giáo hội bổ nhiệm làm trụ trì đầu tiên.",
+    "architecture_heritage": "Điểm nhấn của thiền viện là tượng Phật Thích Ca “nhập hoa vi tiếu” cao 24 m, rộng 20 m, ngự trên đài sen, được biết đến là tượng Phật lớn nhất Đà Lạt. Kiến trúc thể hiện nét đặc thù của Phật giáo và cảnh quan cao nguyên.",
+    "visiting_notes": ["Thiền viện gần trung tâm Đà Lạt, dễ kết hợp thăm các điểm khác trong ngày.", "Đà Lạt buổi sáng khá lạnh; nên mang áo ấm nhẹ.", "Ăn mặc kín đáo, giữ yên lặng; không vào khu tăng chúng khi chưa được phép."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_024",
+    "name": "Chùa Báo Quốc",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_024.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_024.jpg",
+    "aliases": [
+      "Báo Quốc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Giác Phong",
+    "current_abbot": "Thích Phong Thuận",
+    "established_year": 1670,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 16.4533,
+      "lng": 107.5786,
+      "address": "Đồi Hàm Long, Phường Phường Đúc, TP. Huế, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:00 - 19:00",
+    "introduction": "Chùa Báo Quốc (Sắc tứ Báo Quốc tự) nằm trên đồi Hàm Long, phường Đúc, Huế, do thiền sư Giác Phong – một nhà sư từ Quảng Đông (Trung Quốc) – lập vào cuối thế kỷ XVII với tên Hàm Long tự. Năm 1747, chúa Nguyễn Phúc Khoát cho trùng tu và ban biển “Sắc tứ Báo Quốc tự”.",
+    "architecture_heritage": "Chùa thuộc Bắc tông, bố cục hình chữ “Khẩu”, nằm trên đồi nhỏ Hàm Long có mạch suối chảy từ đỉnh (giếng Hàm Long). Chùa lưu giữ nhiều di sản Hán Nôm phản ánh lịch sử Phật giáo Việt Nam qua các thời kỳ.",
+    "visiting_notes": ["Chùa nằm trên đồi, có lối bậc thang lên; nên đi giày dép êm.", "Có thể tìm hiểu câu chuyện giếng Hàm Long và khu vườn tháp trong chùa.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_025",
+    "name": "Chùa Diệu Đế",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_025.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_025.jpg",
+    "aliases": [
+      "Diệu Đế Quốc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Vua Thiệu Trị",
+    "current_abbot": "Thích Hải Ấn",
+    "established_year": 1844,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 16.4744,
+      "lng": 107.5878,
+      "address": "Đường Bạch Đằng, Phường Phú Cát, TP. Huế, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Diệu Đế ở đường Bạch Đằng, phường Phú Cát, Huế, vốn là phủ của vua Thiệu Trị khi còn là hoàng tử (nơi Hoàng tử Nguyễn Phúc Miên Tông ra đời ngày 16/6/1807). Sau khi lên ngôi, vua cải đổi phủ thành Diệu Đế tự vào tháng 3 năm 1844 và sắc phong Quốc tự; chùa là một trong ba ngôi Quốc tự còn tồn tại ở Huế.",
+    "architecture_heritage": "Thời Thiệu Trị, chùa có vòng thành lớn bao quanh và bốn cửa đối xứng tượng trưng cho Tứ đế, khác biệt với đa số chùa ở Huế. Chùa mang lối kiến trúc Phật giáo Huế truyền thống với mái ngói cong, cột kèo chạm trổ tinh xảo.",
+    "visiting_notes": ["Chùa nằm bên dòng sông Hộ Thành, gần trung tâm thành phố Huế.", "Là Quốc tự có giá trị lịch sử; xin ăn mặc kín đáo, giữ yên lặng.", "Nên đi buổi sáng hoặc chiều mát."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_027",
+    "name": "Tịnh xá Ngọc Cẩm",
+    "type": "TINH_XA",
+    "image_url": "/static/images/temples/full/temple_central_027.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_027.jpg",
+    "aliases": [
+      "Tịnh xá Ngọc Cẩm Hội An"
+    ],
+    "sect": "KHAT_SI",
+    "founder": "Đoàn Du tăng Khất sĩ miền Trung",
+    "current_abbot": "Thích Giác Triệt",
+    "established_year": 1965,
+    "heritage_rank": "CHUA_XEP_HANG",
+    "location": {
+      "lat": 15.8856,
+      "lng": 108.3375,
+      "address": "Đường Hùng Vương, Phường Cẩm Phô, TP. Hội An, Tỉnh Quảng Nam",
+      "province": "Đà Nẵng"
+    },
+    "operating_hours": "06:00 - 19:30",
+    "introduction": "Tịnh xá Ngọc Cẩm nằm ở số 56/53 Hùng Vương, phường Cẩm Phô, Hội An, thuộc hệ phái Khất sĩ. Tịnh xá được xây từ đầu năm 1962 trên đất do Phật tử cúng dường và mua thêm, và được đại trùng tu năm 2003.",
+    "architecture_heritage": "Chính điện ba tầng, diện tích khoảng 720 m², kiến trúc bát giác với cột bên trong: tầng trên thờ tượng Phật, tầng dưới là giảng đường. Khuôn viên khoảng 5.000 m² có điện thờ, tháp, đình sen và nhiều hạng mục; tường trang trí phù điêu đồng kể cảnh đời Đức Phật.",
+    "visiting_notes": ["Tịnh xá nằm gần phố cổ Hội An, thích hợp ghé thăm yên tĩnh.", "Xin ăn mặc kín đáo, giữ yên lặng.", "Nên xem giờ sinh hoạt của tịnh xá trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_028",
+    "name": "Chùa Hang (Lý Sơn)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_028.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_028.jpg",
+    "aliases": [
+      "Thiên Khổng Thạch Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Cư dân khai hoang đảo Lý Sơn",
+    "current_abbot": "Ban Quản lý Di tích Huyện Lý Sơn",
+    "established_year": 1650,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 15.3789,
+      "lng": 109.1356,
+      "address": "Xã An Hải, Huyện Lý Sơn, Tỉnh Quảng Ngãi",
+      "province": "Quảng Ngãi"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Hang (còn gọi Chùa Không Sư) ở xã An Hải, đảo Lý Sơn, Quảng Ngãi, vốn có nguồn gốc từ một ngôi đền Chăm thờ Bà La Môn. Chùa được lập dưới thời Lê Kính Tông bởi ông Trần Công Thành cùng cư dân khai hoang lập làng An Hải, An Vĩnh. Chùa được xếp hạng thắng cảnh quốc gia năm 1994.",
+    "architecture_heritage": "Chùa nằm trong một hang đá thiên nhiên hình thành do nước biển ăn mòn chân núi Thới Lới, cách đây khoảng 4.500 năm, sâu khoảng 24 m, rộng 20 m, cao 3,2 m – là hang lớn nhất trong hệ thống hang đá đảo Lý Sơn. Kiến trúc hòa quyện văn hóa Chăm xưa và tín ngưỡng Phật giáo của người dân đảo.",
+    "visiting_notes": ["Thời điểm lý tưởng đi Lý Sơn khoảng tháng 4 đến tháng 8, biển lặng, ít mưa.", "Đi Lý Sơn phải qua tàu cao tốc từ đất liền; nên kiểm tra lịch tàu và thời tiết.", "Ăn mặc kín đáo, giữ yên lặng trong hang."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_029",
+    "name": "Chùa Ông Núi",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_029.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_029.jpg",
+    "aliases": [
+      "Linh Phong Thiền Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Nhà sư Lê Ban (Mộc Y Sơn Nhân)",
+    "current_abbot": "Thích Thích Liễu Giải",
+    "established_year": 1702,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 14.0414,
+      "lng": 109.2081,
+      "address": "Xã Cát Tiến, Huyện Phù Cát, Tỉnh Bình Định",
+      "province": "Gia Lai"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Ông Núi (Linh Phong thiền tự, Linh Phong Sơn tự) nằm trên đỉnh Chóp Vung, xã Cát Tiến, huyện Phù Cát, Bình Định, cách Quy Nhơn khoảng 30 km. Chùa do Thiền sư Lê Ban (pháp hiệu Tịnh Giác Thiện Trì) lập năm 1702 thời chúa Nguyễn Phúc Chu, ban đầu là am tranh Dũng Tuyền trong hang đá trên núi Bà; năm 1907 chùa được xây với tên Linh Phong thiền tự.",
+    "architecture_heritage": "Chùa được xây mới lại năm 1990 với mái cổ lầu lợp ngói ống. Điểm nổi bật là tượng Phật Thích Ca ngồi cao 108 m, khánh thành năm 2017, được công nhận là tượng Phật ngồi cao nhất Đông Nam Á.",
+    "visiting_notes": ["Để lên chùa phải đi khoảng 1.000 bậc đá men sườn núi; nên đi giày dép chắc chân, mang nước.", "Nên đi vào sáng sớm để tránh nắng gắt.", "Ăn mặc kín đáo."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_034",
+    "name": "Chùa Cổ Thạch",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_034.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_034.jpg",
+    "aliases": [
+      "Chùa Hang Bình Thuận"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Bảo Tạng",
+    "current_abbot": "Thích Minh Đức",
+    "established_year": 1835,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 11.1969,
+      "lng": 108.6881,
+      "address": "Xã Bình Thạnh, Huyện Tuy Phong, Tỉnh Bình Thuận",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "05:00 - 20:00",
+    "introduction": "Chùa Cổ Thạch (còn gọi chùa Hang) nằm trên một đồi đá thấp cao khoảng 60 m, xã Bình Thạnh, huyện Tuy Phong, Bình Thuận, cách Phan Thiết khoảng 100 km về phía Bắc. Chùa do Thiền sư Bảo Tạng khai lập khoảng năm 1835–1836 và được xây lại lớn hơn dưới thời Thiệu Trị (1841–1847). Chùa là di tích lịch sử – văn hóa cấp quốc gia.",
+    "architecture_heritage": "Chùa được dựng trên những khối đá thiên nhiên khổng lồ tạo thành các hang động; vẫn giữ nét cổ kính sau gần 200 năm trùng tu. Chùa lưu giữ nhiều cổ vật như câu liễn, câu đối khảm xà cừ, ghép mảnh sành, đại hồng chung và trống sấm có niên đại nửa đầu thế kỷ XIX.",
+    "visiting_notes": ["Chùa nằm sát bờ biển, gần bãi đá nhiều màu; có thể kết hợp ngắm cảnh biển.", "Khu vực nhiều đá, nên đi giày dép chắc chân.", "Ăn mặc kín đáo, giữ yên lặng trong hang."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_036",
+    "name": "Chùa Cam Lộ",
+    "type": "DAO_TRANG",
+    "image_url": "/static/images/temples/full/temple_central_036.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_036.jpg",
+    "aliases": [
+      "Cam Lộ Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Giáo hội Phật giáo Tỉnh Quảng Trị",
+    "current_abbot": "Thích Thiện Tấn",
+    "established_year": 1999,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 16.8056,
+      "lng": 107.0019,
+      "address": "Thị trấn Cam Lộ, Huyện Cam Lộ, Tỉnh Quảng Trị",
+      "province": "Quảng Trị"
+    },
+    "operating_hours": "06:00 - 19:00",
+    "introduction": "Chùa Cam Lộ ở thị trấn Cam Lộ, huyện Cam Lộ, Quảng Trị, khởi đầu từ năm 1942 với tên Chi hội Phật học Cam Lộ, chính thức mang tên Chùa Cam Lộ năm 1952. Sau đại trùng tu, chùa nổi bật với bảo tháp Giác Nhiên.",
+    "architecture_heritage": "Bảo tháp Giác Nhiên cao 38 m, 10 tầng, mỗi tầng thờ tượng Phật, tầng 10 có xá lợi Phật; năm 2016 được Tổ chức Kỷ lục Việt Nam công nhận là “Bảo tháp thờ Phật và xá lợi Phật cao nhất Việt Nam”. Sân trước có vườn tượng Lâm Tỳ Ni, Đức Phật chuyển Pháp luân, Phật nhập Niết bàn và tượng Bồ tát Quán Thế Âm lộ thiên; chùa có nhiều câu đối, chạm trổ và tiểu cảnh.",
+    "visiting_notes": ["Chùa nằm dọc tuyến Quốc lộ 9, thuận tiện khi đi tham quan các di tích ở Quảng Trị.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên đi buổi sáng hoặc chiều mát."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_037",
+    "name": "Chùa Tàu Đà Lạt (Thiên Vương Cổ Sát)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_037.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_037.jpg",
+    "aliases": [
+      "Thiên Vương Cổ Sát"
+    ],
+    "sect": "HOA_TONG",
+    "founder": "Hòa thượng Thọ Dã",
+    "current_abbot": "Ban Trị sự Phật giáo địa phương",
+    "established_year": 1958,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 11.9333,
+      "lng": 108.4614,
+      "address": "385 Khe Sanh, Phường 10, TP. Đà Lạt, Tỉnh Lâm Đồng",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "07:00 - 17:30",
+    "introduction": "Chùa Tàu (Thiên Vương Cổ Sát) ở đường Khe Sanh, Đà Lạt, do Hòa thượng Thọ Dã thuộc hội quán Triều Châu cùng các nhà sư tông Hoa Nghiêm và Phật tử người Hoa xây dựng năm 1958, và được trùng tu năm 1989. Chùa mang đậm phong cách Trung Hoa.",
+    "architecture_heritage": "Kiến trúc chính là Quang Minh bảo điện cao 12 m, hình tứ giác cạnh dài 15 m, hai tầng chồng mái với các cặp lưỡng long trên đầu đao và hai rồng chầu trên nóc. Chùa nổi tiếng với ba pho tượng Phật bằng gỗ trầm hương, mỗi tượng cao 4 m, nặng 1,5 tấn, được thỉnh từ Hồng Kông năm 1958.",
+    "visiting_notes": ["Chùa gần trung tâm Đà Lạt nên dễ ghé thăm.", "Nhiều hương khói và tượng gỗ trầm quý; xin không chạm vào tượng.", "Đà Lạt buổi sáng lạnh; nên mang áo ấm nhẹ."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_039",
+    "name": "Chùa Bác Ái",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_039.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_039.jpg",
+    "aliases": [
+      "Sắc Tứ Bác Ái Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Hoằng Đức",
+    "current_abbot": "Thích Nhuận Bảo",
+    "established_year": 1932,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 14.3486,
+      "lng": 108.0069,
+      "address": "Phường Quyết Thắng, TP. Kon Tum, Tỉnh Kon Tum",
+      "province": "Quảng Ngãi"
+    },
+    "operating_hours": "06:30 - 18:30",
+    "introduction": "Chùa Bác Ái (Sắc tứ Bác Ái tự) ở phường Quyết Thắng, thành phố Kon Tum. Năm 1932, ông Võ Chuẩn thỉnh thiền sư Hoằng Thông từ Quy Nhơn lên Kon Tum làm chay cầu siêu, rồi cung thỉnh ngài khai tự hiệu Bác Ái; năm 1933 vua Bảo Đại ban biển “Sắc tứ Bác Ái tự”. Đây là cơ sở Phật giáo có mặt sớm nhất ở Kon Tum, là di tích lịch sử cấp quốc gia; chùa được trùng tu năm 1990.",
+    "architecture_heritage": "Chùa xây mô phỏng kiến trúc Huế, hướng Bắc – Nam, kiểu chữ “Môn”: tam quan, chánh điện ở trung tâm, hai bên là Đông Lang và Tây Lang; mái lợp ngói, tường gạch quét vôi.",
+    "visiting_notes": ["Chùa nằm trong thành phố Kon Tum, có thể kết hợp thăm nhà thờ gỗ và các điểm khác.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên xem giờ sinh hoạt của chùa trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_040",
+    "name": "Chùa Minh Thành",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_040.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_040.jpg",
+    "aliases": [
+      "Minh Thành Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thầy Thích Tâm Mãn",
+    "current_abbot": "Thích Tâm Mãn",
+    "established_year": 1964,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 13.9719,
+      "lng": 107.9942,
+      "address": "348 Nguyễn Viết Xuân, Phường Hội Phú, TP. Pleiku, Tỉnh Gia Lai",
+      "province": "Gia Lai"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Minh Thành ở đường Nguyễn Viết Xuân, phường Hội Phú, thành phố Pleiku, Gia Lai, được xây từ năm 1964 dưới sự trụ trì của Hòa thượng Thích Giác Đạo và trùng tu lại năm 1997. Chùa nổi tiếng là một quần thể kiến trúc độc đáo giữa phố núi Pleiku.",
+    "architecture_heritage": "Chùa là sự giao thoa giữa kiến trúc Lý – Trần và phong cách chùa Nhật Bản, tổng hợp từ nhiều ngôi chùa nổi tiếng: mái theo chùa Một Cột, gác chuông theo chùa Keo, tượng thờ theo chùa Tây Phương, khuôn viên bố trí như chùa Thiên Mụ. Chánh điện cao 16 m, trần bằng gỗ pơ mu, kiến trúc theo hình thức đơn giản của Mạn-đà-la.",
+    "visiting_notes": ["Chùa nằm trong thành phố Pleiku, dễ tìm và ghé thăm.", "Khí hậu Tây Nguyên buổi sáng mát; nên đi vào sáng sớm hoặc chiều muộn.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  /* ========================================================
+     MIỀN NAM (BATCH 2)
+     ======================================================== */
+  {
+    "id": "temple_south_021",
+    "name": "Pháp viện Minh Đăng Quang",
+    "type": "DAO_TRANG",
+    "image_url": "/static/images/temples/full/temple_south_021.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_021.jpg",
+    "aliases": [
+      "Tổ đình Minh Đăng Quang"
+    ],
+    "sect": "KHAT_SI",
+    "founder": "Đại lão Hòa thượng Thích Giác Nhiên",
+    "current_abbot": "Thích Giác Toàn",
+    "established_year": 1968,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 10.8017,
+      "lng": 106.7533,
+      "address": "505 Xa lộ Hà Nội, Phường An Phú, TP. Thủ Đức, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:00 - 21:00",
+    "introduction": "Pháp viện Minh Đăng Quang ở số 505 xa lộ Hà Nội, phường An Phú, TP. Thủ Đức, TP.HCM, thuộc hệ phái Khất sĩ, do Hòa thượng Giác Nhiên sáng lập năm 1968 để tôn vinh Đức Tổ sư Minh Đăng Quang. Đợt đại trùng tu lớn nhất khởi công ngày 28/6/2009; sau đó diện tích mặt tiền còn khoảng 37.490 m².",
+    "architecture_heritage": "Bốn góc quần thể là bốn ngôi bảo tháp; hai tháp phía trước hình bát giác, chín tầng, cao 37 m (như tháp Ca-diếp thờ bảy đức Phật quá khứ và chư Tổ sư, tháp Xá-lợi-phất tôn trí Pháp bảo Tam tạng). Tháng 5/2019, Hội Kỷ lục gia Việt Nam xác lập bốn kỷ lục tại đây, trong đó có “ngôi tịnh xá có bốn bảo tháp lớn nhất Việt Nam” và “bảo tháp bằng gỗ thờ Phật trong chánh điện lớn nhất”.",
+    "visiting_notes": ["Pháp viện nằm mặt tiền xa lộ Hà Nội, thuận tiện đi lại; nên đi vào buổi sáng.", "Là cơ sở của hệ phái Khất sĩ: ăn mặc kín đáo, giữ yên lặng.", "Vào các đại lễ như lễ kỷ niệm Tổ sư Minh Đăng Quang và khất thực cổ Phật rất đông người."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_022",
+    "name": "Tịnh xá Trung Tâm (Bình Thạnh)",
+    "type": "TINH_XA",
+    "image_url": "/static/images/temples/full/temple_south_022.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_022.jpg",
+    "aliases": [
+      "Tổ đình Tịnh xá Trung Tâm"
+    ],
+    "sect": "KHAT_SI",
+    "founder": "Đoàn Du tăng Khất sĩ Việt Nam",
+    "current_abbot": "Thích Minh Lộc",
+    "established_year": 1965,
+    "heritage_rank": "DI_TICH_CAP_THANH_PHO",
+    "location": {
+      "lat": 10.8122,
+      "lng": 106.6967,
+      "address": "21 Nguyễn Trung Trực, Phường 5, Quận Bình Thạnh, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "05:30 - 20:30",
+    "introduction": "Tịnh xá Trung Tâm ở số 21 Nguyễn Trung Trực, phường 5, quận Bình Thạnh, TP.HCM, xây dựng từ tháng 4/1965 trên khu đất rộng khoảng 5.490 m² do bà Diệu Kiến cúng dường, thuộc hệ phái Khất sĩ. Giai đoạn 1966–1980, tịnh xá là trụ sở sinh hoạt của Trung ương Giáo hội Tăng già Khất sĩ Việt Nam; nay là nơi tập trung tăng sinh học Phật học và nơi hội họp an cư của các giáo đoàn.",
+    "architecture_heritage": "Nổi bật là bảo tháp chín tầng cao 37 m, hình bát giác thu nhỏ dần, xây từ năm 1998, tượng trưng Bát chánh đạo và Cửu phẩm liên hoa. Bốn tầng đầu chứa các bộ kinh bằng tiếng Việt, Hán, Pali và Anh; tầng 5 có đại hồng chung nặng 1.200 kg; tầng 9 tôn trí tượng Phật, xá lợi Phật và đất thiêng từ bốn thánh địa Ấn Độ. Tổng thể vừa cổ điển vừa hiện đại.",
+    "visiting_notes": ["Tịnh xá nằm gần trung tâm; đi xe máy hoặc taxi đều thuận tiện.", "Đây là cơ sở của hệ phái Khất sĩ, xin ăn mặc kín đáo, giữ yên lặng.", "Nên xem giờ mở cửa bảo tháp trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_026",
+    "name": "Chùa Bà Thiên Hậu (Bình Dương)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_026.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_026.jpg",
+    "aliases": [
+      "Chùa Bà Lái Thiêu",
+      "Thiên Hậu Cung"
+    ],
+    "sect": "HOA_TONG",
+    "founder": "Bang người Hoa tại Bình Dương",
+    "current_abbot": "Ban Trị sự Chùa Bà Thiên Hậu",
+    "established_year": 1850,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 10.9806,
+      "lng": 106.6542,
+      "address": "Số 4 Nguyễn Du, Phường Phú Cường, TP. Thủ Dầu Một, Tỉnh Bình Dương",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:00 - 20:00",
+    "introduction": "Chùa Bà Thiên Hậu (Bình Dương) ở số 4 Nguyễn Du, phường Phú Cường, thành phố Thủ Dầu Một, được xây khoảng giữa thế kỷ XIX ở rạch Hương Chủ Hiếu. Năm 1923, bốn nhóm người Hoa (Quảng Đông, Triều Châu, Phúc Kiến, Hẹ) cùng xây lại và dời về vị trí hiện nay. Chùa được công nhận di tích lịch sử – văn hóa cấp quốc gia năm 1993 và là trung tâm sinh hoạt tín ngưỡng của cộng đồng người Hoa và người Việt ở Bình Dương.",
+    "architecture_heritage": "Chùa xây theo kiểu chữ “Tam” gồm ba dãy nhà liền kề, mái ngói âm dương uốn cong, mang đậm phong cách kiến trúc Hoa; trên mái có các hình long – lân – quy – phụng, cá chép hóa rồng, bà Mặt trăng, biểu tượng kết nối Trời – Đất – Người.",
+    "visiting_notes": ["Chùa nằm trong trung tâm Thủ Dầu Một, gần các điểm tham quan khác của thành phố.", "Nhiều hương khói; xin giữ trang nghiêm, xếp hàng dâng hương.", "Ăn mặc kín đáo."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_028",
+    "name": "Thiền viện Thường Chiếu",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_south_028.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_028.jpg",
+    "aliases": [
+      "Tổ đình Thường Chiếu"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền sư Thích Thanh Từ",
+    "current_abbot": "Thích Nhật Quang",
+    "established_year": 1974,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 10.6653,
+      "lng": 107.0125,
+      "address": "Quốc lộ 51, Xã Phước Thái, Huyện Long Thành, Tỉnh Đồng Nai",
+      "province": "Đồng Nai"
+    },
+    "operating_hours": "05:00 - 18:30",
+    "introduction": "Thiền viện Thường Chiếu ở xã Phước Thái, huyện Long Thành, Đồng Nai, cách Biên Hòa khoảng 44 km, do Hòa thượng Thích Thanh Từ (thiền sư Thường Chiếu) sáng lập năm 1974; ban đầu chỉ là khu đất hoang với vài mái tranh. Từ năm 1999, thiền viện được xây dựng chánh điện và nhiều công trình khang trang, là một trong những thiền viện đầu tiên của hệ thống Trúc Lâm và là trung tâm hoằng truyền Thiền tông Việt Nam.",
+    "architecture_heritage": "Khuôn viên rộng khoảng 52 ha, gây ấn tượng bởi cổng tam quan bằng đá, mái ngói âm dương màu đỏ với đuôi mái cong vút như chiếc thuyền.",
+    "visiting_notes": ["Thiền viện cách trung tâm khá xa; nên đi xe máy hoặc taxi.", "Đây là nơi tu thiền, xin ăn mặc kín đáo, giữ yên lặng; không vào khu vực dành riêng cho tăng chúng.", "Nên xem lịch tiếp khách của thiền viện trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_034",
+    "name": "Chùa Tôn Thạnh",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_034.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_034.jpg",
+    "aliases": [
+      "Lan Nhã Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Viên Ngộ",
+    "current_abbot": "Thích Huệ Đăng",
+    "established_year": 1808,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.6019,
+      "lng": 106.6025,
+      "address": "Ấp Thanh Ba, Xã Mỹ Lộc, Huyện Cần Giuộc, Tỉnh Long An",
+      "province": "Tây Ninh"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Tôn Thạnh (ban đầu tên Lan Nhã, còn gọi chùa Ông Ngộ) ở ấp Thanh Ba, xã Mỹ Lộc, huyện Cần Giuộc, Long An, do Thiền sư Viên Ngộ xây năm Gia Long thứ 7 (1808), đổi tên Tôn Thạnh năm 1813. Từ 1859 đến 1862, nhà thơ yêu nước Nguyễn Đình Chiểu đến ở, dùng chùa làm nơi dạy học, làm thơ, bốc thuốc và giúp nghĩa quân chống Pháp; ông đã viết bài “Văn tế nghĩa sĩ Cần Giuộc” tại đây. Chùa được xếp hạng di tích lịch sử cấp quốc gia ngày 27/11/1997.",
+    "architecture_heritage": "Cổng chùa theo lối tam quan truyền thống hai tầng mái, mỗi hàng cột có câu đối, đầu đao hình rồng; hệ thống liên kết vẫn giữ nét kiến trúc truyền thống Nam Bộ. Chùa còn nhiều tượng cổ mang phong cách thế kỷ XIX; trong vườn chùa có tháp ba tầng hình lục giác cao 4,5 m của tổ sư Viên Ngộ, xây năm 1846.",
+    "visiting_notes": ["Chùa gắn với Nguyễn Đình Chiểu, thích hợp cho người muốn tìm hiểu lịch sử và văn học.", "Chùa nằm ở vùng ngoại thành, cách TP.HCM khoảng vài chục km; nên tính thời gian đi lại.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_035",
+    "name": "Chùa Ang",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_035.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_035.jpg",
+    "aliases": [
+      "Wath Angkor Rajaborey"
+    ],
+    "sect": "NAM_TONG_KHMER",
+    "founder": "Cộng đồng người Khmer",
+    "current_abbot": "Thạch Suông",
+    "established_year": 990,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 9.9297,
+      "lng": 106.3197,
+      "address": "Phường 8, TP. Trà Vinh, Tỉnh Trà Vinh",
+      "province": "Vĩnh Long"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Âng (Angkorajaborey) nằm ở phường 8, thành phố Trà Vinh, cạnh Ao Bà Om, là ngôi chùa Khmer cổ nhất Trà Vinh, theo ghi chép được xây vào cuối thế kỷ X (khoảng năm 990). Chùa được công nhận di tích lịch sử – văn hóa quốc gia năm 1994.",
+    "architecture_heritage": "Chùa mang kiến trúc Khmer Nam tông điển hình với cổng tam tháp, chánh điện bề thế và nhiều tượng điêu khắc gắn với văn hóa Khmer như chim thần, rồng, rắn, tiên nữ. Chùa nằm trong cụm danh thắng Ao Bà Om và gần Bảo tàng Văn hóa dân tộc Khmer.",
+    "visiting_notes": ["Có thể kết hợp tham quan Ao Bà Om và Bảo tàng Văn hóa Khmer trong cùng buổi.", "Đây là chùa Khmer đang hoạt động; xin ăn mặc kín đáo, tôn trọng quy định nhà chùa, xin phép khi chụp ảnh trong chánh điện.", "Dịp lễ hội Khmer chùa rất đông và đẹp."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_036",
+    "name": "Chùa Hang (Trà Vinh)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_036.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_036.jpg",
+    "aliases": [
+      "Wath Kompong Chrey"
+    ],
+    "sect": "NAM_TONG_KHMER",
+    "founder": "Nhà sư Thạch Sam",
+    "current_abbot": "Thạch Kim Sone",
+    "established_year": 1637,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 9.8711,
+      "lng": 106.2942,
+      "address": "Khóm 4, Thị trấn Châu Thành, Huyện Châu Thành, Tỉnh Trà Vinh",
+      "province": "Vĩnh Long"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Hang (Kompong Chrây) nằm trên Quốc lộ 54, thị trấn Châu Thành, Trà Vinh, là chùa Khmer Nam tông được lập năm 1637, đã qua 22 đời trụ trì. Chùa bị bom đạn tàn phá nặng năm 1968 và được trùng tu từ năm 1977; tháng 5/2025 được công nhận di tích lịch sử cấp tỉnh.",
+    "architecture_heritage": "Nét độc đáo là cổng chùa xây hình hang động với mái vòm cuốn, ba cổng tường dày khoảng 12 m tạo cảm giác đứng trong hang đá. Chánh điện xây trên nền cao có nhiều bậc dẫn lên, chạm khắc tinh xảo, mái nhiều lớp gạch xếp chồng với đỉnh tháp cao. Chùa còn có gác chuông, vườn tháp và nhiều di vật của cộng đồng Khmer; chùa nổi tiếng có sân chim trong vườn cổ thụ.",
+    "visiting_notes": ["Chùa nằm ven quốc lộ, có thể ghé khi đi Trà Vinh; sân chim thường đẹp vào buổi chiều.", "Xin không làm chim hoảng sợ, không xả rác.", "Ăn mặc kín đáo, tôn trọng quy định nhà chùa."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_037",
+    "name": "Thiền viện Trúc Lâm Phương Nam",
+    "type": "THIEN_VIEN",
+    "image_url": "/static/images/temples/full/temple_south_037.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_037.jpg",
+    "aliases": [
+      "Trúc Lâm Cần Thơ"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền phái Trúc Lâm",
+    "current_abbot": "Thích Bình Tâm",
+    "established_year": 2014,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 9.9889,
+      "lng": 105.6983,
+      "address": "Ấp Mỹ Nhơn, Xã Mỹ Khánh, Huyện Phong Điền, TP. Cần Thơ",
+      "province": "Cần Thơ"
+    },
+    "operating_hours": "06:00 - 20:00",
+    "introduction": "Thiền viện Trúc Lâm Phương Nam ở ấp Mỹ Nhơn, xã Mỹ Khánh, huyện Phong Điền, Cần Thơ, cách trung tâm thành phố khoảng 15 km. Thiền viện khởi công ngày 16/7/2013 trên khu đất 38.016 m² và khánh thành ngày 17/5/2014, tiếp nối dòng thiền Trúc Lâm Yên Tử do vua Trần Nhân Tông sáng lập; được xem là công trình Phật giáo lớn nhất miền Tây.",
+    "architecture_heritage": "Thiền viện mang phong cách kiến trúc Lý – Trần: chánh điện tám mái theo lối thời Trần, tổ điện bốn mái theo lối thời Lý, khác với chùa Khmer hay các chùa khác ở đồng bằng sông Cửu Long.",
+    "visiting_notes": ["Thiền viện rộng, nên đi vào sáng sớm hoặc chiều mát.", "Đây là thiền viện, xin ăn mặc kín đáo, giữ yên lặng.", "Nằm gần Phong Điền, có thể kết hợp tham quan vườn trái cây và chợ nổi Cái Răng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  /* ========================================================
+     MIỀN BẮC (BATCH 3)
+     ======================================================== */
+  {
+    "id": "temple_north_041",
+    "name": "Chùa Kim Liên",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_041.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_041.jpg",
+    "aliases": [
+      "Đại Bi Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Công chúa Từ Hoa dựng làng, mở rộng thời Lê",
+    "current_abbot": "Ni sư Thích Đàm Thành",
+    "established_year": 1140,
+    "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+    "location": {
+      "lat": 21.0597,
+      "lng": 105.8306,
+      "address": "Làng Nghi Tàm, Phường Quảng An, Quận Tây Hồ, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Kim Liên (Hoàng Ân tự) nằm trên một doi đất trong làng Nghi Tàm, phường Quảng An, quận Tây Hồ, Hà Nội. Chùa được dựng trên nền cũ cung Từ Hoa – nơi công chúa Từ Hoa thời vua Lý Thần Tông (1128–1138) cùng cung nữ trồng dâu, nuôi tằm, dệt vải – ban đầu tên chùa Đống Long; năm 1771 đổi tên Kim Liên, và năm 1792 thời Quang Trung được xây lớn, diện mạo cơ bản giống hiện nay.",
+    "architecture_heritage": "Cổng tam quan dạng “tam sơn, tứ trụ” nay chỉ còn duy nhất ở chùa Kim Liên. Chùa vừa thờ Phật vừa thờ công chúa Từ Hoa, có nhiều tượng cổ, mái cong mềm mại, và được xem là một trong mười di tích kiến trúc cổ đặc sắc nhất Việt Nam.",
+    "visiting_notes": ["Chùa nằm bên Hồ Tây, yên tĩnh giữa Thủ đô; có thể kết hợp dạo hồ và thăm các chùa lân cận như Tảo Sách.", "Ăn mặc kín đáo, giữ yên lặng.", "Đông vào rằm, mùng một và dịp Tết; nên đi sáng sớm."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_042",
+    "name": "Chùa Lý Triều Quốc Sư",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_042.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_042.jpg",
+    "aliases": [
+      "Đền Lý Triều Quốc Sư"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Vua Lý Thần Tông",
+    "current_abbot": "Thích Bảo Nghiêm",
+    "established_year": 1131,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.0306,
+      "lng": 105.8497,
+      "address": "50 Lý Quốc Sư, Phường Hàng Trống, Quận Hoàn Kiếm, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "07:30 - 18:30",
+    "introduction": "Chùa Lý Triều Quốc Sư ở số 50 phố Lý Quốc Sư, phường Hàng Trống, quận Hoàn Kiếm, Hà Nội, do vua Lý Thần Tông cho xây năm 1131 để ghi công Lý Quốc Sư Minh Không (1066–1141) – thiền sư chữa khỏi bệnh cho vua và được phong Quốc sư.",
+    "architecture_heritage": "Diện mạo hiện nay là kết quả của đợt trùng tu lớn năm 2000, gồm ba gian tiền đường, năm gian hậu cung, hai dãy nhà phụ mỗi dãy ba gian và tam quan phía trước. Chùa lưu giữ nhóm tượng chân dung bằng đá thời hậu Lê (1674) – hiếm thấy trong điêu khắc thờ cúng Việt Nam – và tấm bia do Lê Đình Diên soạn năm 1855.",
+    "visiting_notes": ["Chùa nằm gần hồ Gươm, dễ kết hợp dạo phố cổ và thăm các di tích lân cận.", "Ăn mặc kín đáo, giữ yên lặng.", "Đông vào rằm, mùng một; nên đi buổi sáng."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_044",
+    "name": "Chùa Hang (Thái Nguyên)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_044.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_044.jpg",
+    "aliases": [
+      "Kim Sơn Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Khởi dựng thời nhà Lý",
+    "current_abbot": "Thích Nguyên Thành",
+    "established_year": 1100,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.6142,
+      "lng": 105.8528,
+      "address": "Phường Chùa Hang, TP. Thái Nguyên, Tỉnh Thái Nguyên",
+      "province": "Thái Nguyên"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Hang (Kim Sơn tự) ở phường Chùa Hang, thành phố Thái Nguyên (trước là thị trấn Chùa Hang, Đồng Hỷ), có từ thời Lý (thế kỷ XI), có các bia từ thời Lê sơ đến Nguyễn ca ngợi cảnh “Chùa Hang – Kim Sơn tự”. Chùa được công nhận di tích lịch sử – văn hóa và thắng cảnh quốc gia ngày 26/2/1999.",
+    "architecture_heritage": "Chùa có cấu trúc độc đáo hình thành ngay trong hang núi đá: cửa hang là vòm đá tròn rộng thoáng, bên trong là hang sâu hơn nghìn mét với trần cao phẳng, nhũ đá rủ như đèn lồng và cột đá. Quần thể gồm hang trên, điện Mẫu, nhà tam quan, hang dưới, bàn thờ Phật, bia đá thời Nguyễn và chuông cổ.",
+    "visiting_notes": ["Nên đi giày dép chống trơn khi vào hang; nền hang có thể ẩm.", "Không sờ tay hoặc bẻ nhũ đá; xin giữ yên lặng.", "Ăn mặc kín đáo."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_050",
+    "name": "Chùa Hàm Long",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_050.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_050.jpg",
+    "aliases": [
+      "Hàm Long Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Dương Không Lộ",
+    "current_abbot": "Thích Thanh Dũng",
+    "established_year": 1086,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.1611,
+      "lng": 106.0967,
+      "address": "Phường Nam Sơn, TP. Bắc Ninh, Tỉnh Bắc Ninh",
+      "province": "Bắc Ninh"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Hàm Long nằm trên núi Long Lĩnh, phường Nam Sơn, thành phố Bắc Ninh, cách Hà Nội khoảng 50 km. Tương truyền đây là nơi tu hành của thiền sư Dương Không Lộ; một số nguồn ghi Quốc sư Nguyễn Minh Không đứng ra xây chùa năm 1158 dưới thời Lý Anh Tông. Chùa là danh lam lớn thời Lý, nơi nhiều thiền sư như Dương Không Lộ, Nguyễn Minh Không, Huyền Quang từng tu hành.",
+    "architecture_heritage": "Kiến trúc mang dấu ấn thời Lý – Trần: nhà gỗ cổ, tường gạch nung thủ công, hệ tượng Phật và thần linh chạm khắc tinh xảo. Tên Hàm Long bắt nguồn từ việc phía trước chùa có ngọn núi Thần Long che chắn.",
+    "visiting_notes": ["Chùa nằm trên núi, có lối bậc lên; nên đi giày dép êm.", "Chùa có nhiều câu chuyện tâm linh dân gian; xin giữ thái độ tôn trọng và tránh tin theo các thông tin thiếu kiểm chứng.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_051",
+    "name": "Thiền xá Tảo Sách",
+    "type": "THIEN_XA",
+    "image_url": "/static/images/temples/full/temple_north_051.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_051.jpg",
+    "aliases": [
+      "Chùa Tảo Sách",
+      "Linh Sơn Tự"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Thiền tông Đàng Ngoài dựng thời Trần",
+    "current_abbot": "Thích Quảng Bản",
+    "established_year": 1395,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.0747,
+      "lng": 105.8172,
+      "address": "388 Lạc Long Quân, Phường Nhật Tân, Quận Tây Hồ, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "06:00 - 19:00",
+    "introduction": "Chùa Tảo Sách (Thiền xá Tảo Sách) ở số 386 Lạc Long Quân, phường Nhật Tân, quận Tây Hồ, Hà Nội, gắn với dấu tích hoàng tử Uy Linh Lang – con thứ bảy của vua Trần Nhân Tông, thời trẻ sống ở phường Nhật Chiêu (nay là Nhật Tân). Chùa được dựng trên nền am của Uy Linh Lang với tên Tảo Sách (đọc sách lúc ánh sáng ban mai); khoảng thế kỷ XVI, thiền sư Thủy Nguyệt – tổ thứ nhất của thiền phái Tào Động – truyền dạy đệ tử ở các chùa quanh Hồ Tây, trong đó có Tảo Sách.",
+    "architecture_heritage": "Kiến trúc pha ảnh hưởng Trung Hoa và cung đình Huế, bố cục chữ “Đinh” gồm cổng chính, tòa Tam Bảo, nhà Mẫu và nhà Tổ, quay ra Hồ Tây. Chùa nằm trên nền cao hơn mặt hồ khoảng 3 m, dưới những cây cổ thụ, theo thế “rồng chầu hổ phục”.",
+    "visiting_notes": ["Chùa nằm bên Hồ Tây, có thể kết hợp dạo hồ và thăm chùa Kim Liên gần đó.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên đi buổi sáng để tránh đông và ngắm cảnh hồ."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_053",
+    "name": "Chùa Bằng",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_053.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_053.jpg",
+    "aliases": [
+      "Linh Tiên Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Khởi dựng thời Lê Trung Hưng",
+    "current_abbot": "Thích Bảo Nghiêm",
+    "established_year": 1617,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 20.9632,
+      "lng": 105.8278,
+      "address": "Phố Bằng Liệt, Phường Hoàng Liệt, Quận Hoàng Mai, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "06:00 - 20:30",
+    "introduction": "Chùa Bằng (Linh Tiên tự) ở phố Bằng Liệt, phường Hoàng Liệt, quận Hoàng Mai, Hà Nội, thuộc thiền phái Lâm Tế. Theo văn bia “Tu tạo Linh Tiên tự bi ký” khắc năm 1617, chùa đã có trước năm đó (thời Hậu Lê) và được trùng tu dưới sự chỉ dẫn của thiền sư Huệ Nguyên.",
+    "architecture_heritage": "Chùa được trùng tu nhiều lần: năm 2003 dựng lại tam quan và nhà giảng kinh, năm 2004 xây Bảo tháp Báo Ân, cùng nhà Tổ, nhà Mẫu và nhà tăng. Trong quần thể còn có đền thờ Chu Văn An và đình thờ Thành hoàng Bảo Ninh Vương, tạo nên một cụm di tích văn hóa – lịch sử của địa phương.",
+    "visiting_notes": ["Chùa là nơi sinh hoạt của Đạo tràng Pháp Hoa; nên xem lịch tụng kinh của chùa trước khi đến.", "Chùa nằm trong khu dân cư đông, đường vào chùa hẹp; nên đi xe máy.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_north_056",
+    "name": "Chùa Hòe Nhai",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_056.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_056.jpg",
+    "aliases": [
+      "Hồng Phúc Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Khởi dựng thời nhà Lý",
+    "current_abbot": "Thích Tâm Hoan",
+    "established_year": 1070,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.0422,
+      "lng": 105.8428,
+      "address": "19 Phố Hàng Than, Phường Nguyễn Trung Trực, Quận Ba Đình, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "06:30 - 18:30",
+    "introduction": "Chùa Hòe Nhai (Hồng Phúc tự) ở số 19 phố Hàng Than, phường Ba Đình, Hà Nội, tương truyền có từ đời Lý; văn bia năm 1703 ghi chùa xây ở Hòe Nhai, bến Đông Bộ Đầu. Chùa trải qua nhiều lần sửa chữa lớn (1699, 1703, 1812, 1894, 1920, 1946, 2010) và được xếp hạng di tích lịch sử – văn hóa quốc gia ngày 21/1/1989.",
+    "architecture_heritage": "Chùa rộng khoảng 3.000 m², tam quan kiểu hoa biểu bốn trụ mang dấu ấn thời Nguyễn, mặt bằng kiểu chữ “Công”: chính điện phía trước, nhà tổ và tăng phòng phía sau, xung quanh là hành lang. Điểm độc đáo là pho tượng kép hình một vị vua quỳ, trên lưng đặt tượng Phật.",
+    "visiting_notes": ["Chùa nằm gần phố cổ, dễ kết hợp dạo phố.", "Đông vào rằm, mùng một; nên đi buổi sáng.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_north_060",
+    "name": "Chùa Ngũ Xã",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_north_060.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_north_060.jpg",
+    "aliases": [
+      "Thần Quang Tự Ngũ Xã"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Dân làng nghề đúc đồng Ngũ Xã",
+    "current_abbot": "Thích Đàm Thành",
+    "established_year": 1788,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 21.0456,
+      "lng": 105.8394,
+      "address": "44 Ngũ Xã, Phường Trúc Bạch, Quận Ba Đình, Hà Nội",
+      "province": "Hà Nội"
+    },
+    "operating_hours": "07:00 - 18:00",
+    "introduction": "Chùa Ngũ Xã (Thần Quang tự, Phúc Long tự) ở số 44 phố Ngũ Xã, phường Trúc Bạch, quận Ba Đình, Hà Nội, do dân làng nghề đúc đồng Ngũ Xã dựng vào thời Hậu Lê (thế kỷ XVIII), thờ Phật và tổ nghề đúc đồng Nguyễn Minh Không. Sau trận hỏa hoạn năm 1949, chùa được Hòa thượng Thích Mật Đắc cho xây lại, hoàn thành năm 1951; chùa thuộc Bắc tông và được xếp hạng di tích kiến trúc – nghệ thuật cấp quốc gia (1993).",
+    "architecture_heritage": "Chùa xây theo kiểu “nội công ngoại quốc” hoặc biến thể chữ “Nhị”, gồm tam quan, đền thờ Quốc sư, chánh điện, hậu điện và các tòa tháp. Nổi bật là tượng Phật A-di-đà bằng đồng đúc thủ công từ 1949 đến 1952: cao 3,95 m, chu vi 11,6 m, nặng 10 tấn, tòa sen 96 cánh nặng 3,9 tấn; năm 2010 được Tổ chức Kỷ lục Việt Nam xác lập là pho đại tượng Phật A-di-đà bằng đồng đầu tiên của nước ta.",
+    "visiting_notes": ["Chùa nằm gần Hồ Tây và phố Thanh Niên; có thể kết hợp thăm chùa Trấn Quốc.", "Đông vào rằm, mùng một; nên đi buổi sáng.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  /* ========================================================
+     MIỀN TRUNG (BATCH 3)
+     ======================================================== */
+  {
+    "id": "temple_central_041",
+    "name": "Chùa Quốc Ân",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_041.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_041.jpg",
+    "aliases": [
+      "Sắc Tứ Quốc Ân Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Nguyên Thiều",
+    "current_abbot": "Thích Thường Chiếu",
+    "established_year": 1684,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 16.4419,
+      "lng": 107.5856,
+      "address": "Đồi Phước Quả, Phường Trường An, TP. Huế, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Quốc Ân (ban đầu tên Vĩnh Ân) nằm dưới chân đồi Hòn Thiên, phía tây núi Ngự Bình, thành phố Huế, do tổ sư Nguyên Thiều (đời 33 dòng Lâm Tế, người Quảng Đông) sáng lập khoảng 1682–1684. Năm 1689, chúa Nguyễn Phúc Thái miễn thuế ruộng đất cho chùa, đổi tên Quốc Ân và ban biển “Sắc tứ Quốc Ân tự”.",
+    "architecture_heritage": "Chùa có kiến trúc hoàn toàn bằng gỗ, bố cục chữ “Khẩu” đặc trưng của các chùa xưa xứ Thuận Hóa; khi trùng tu vẫn giữ nét kiến trúc cổ, không dùng bê tông. Chùa lưu giữ nhiều pháp khí và hiện vật quý như tượng Tam Thế Phật và tượng Phật Thích Ca làm khoảng năm 1851.",
+    "visiting_notes": ["Chùa nằm ở phía nam thành phố Huế, gần núi Ngự Bình; có thể kết hợp tham quan các chùa và lăng tẩm gần đó.", "Là tổ đình cổ bằng gỗ, xin giữ gìn, không chạm khắc, viết vẽ.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_043",
+    "name": "Chùa Thiền Lâm",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_043.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_043.jpg",
+    "aliases": [
+      "Chùa Phật Đứng - Phật Nằm"
+    ],
+    "sect": "NAM_TONG",
+    "founder": "Hòa thượng Hộ Nhẫn",
+    "current_abbot": "Thích Trí Tuệ",
+    "established_year": 1960,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 16.4356,
+      "lng": 107.5703,
+      "address": "Đồi Quảng Tế, Phường Thủy Xuân, TP. Huế, Tỉnh Thừa Thiên Huế",
+      "province": "Huế"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Chùa Thiền Lâm nằm trên đồi Quảng Tế, thôn Thượng 2, phường Thủy Xuân, thành phố Huế, thuộc Phật giáo Nam tông, do Hòa thượng Hộ Nhẫn lập vào khoảng thập niên 1960 (chính thức năm 1966). Ban đầu ngài dựng một thảo am nhỏ trên đồi để tu tập, viên gạch đầu tiên của chùa hiện nay.",
+    "architecture_heritage": "Chùa mang phong cách kiến trúc Nam tông, được ví như “một góc Thái Lan giữa đất Huế” với tháp kiểu Miến Điện và những tượng Phật lớn. Trên đỉnh đồi Quảng Tế có hai pho tượng Phật: Phật đứng trang nghiêm và Phật nằm mềm mại, nên chùa còn được gọi là chùa Phật Đứng – Phật Nằm.",
+    "visiting_notes": ["Chùa là chùa Nam tông; xin tôn trọng nghi thức và quy định của nhà chùa, ăn mặc kín đáo.", "Chùa nằm trên đồi, có bậc thang; nên đi giày dép êm.", "Nên đi vào buổi sáng hoặc chiều mát."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_047",
+    "name": "Tịnh thất An Lạc",
+    "type": "THIEN_XA",
+    "image_url": "/static/images/temples/full/temple_central_047.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_047.jpg",
+    "aliases": [
+      "An Lạc Thiền Thất"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Cư sĩ lập tịnh thất chân tu",
+    "current_abbot": "Thích Thông Đức",
+    "established_year": 1985,
+    "heritage_rank": "CHUA_XEP_HANG",
+    "location": {
+      "lat": 15.8611,
+      "lng": 108.3056,
+      "address": "Xã Cẩm Hà, TP. Hội An, Tỉnh Quảng Nam",
+      "province": "Đà Nẵng"
+    },
+    "operating_hours": "06:00 - 18:00",
+    "introduction": "Tịnh thất An Lạc nằm ở xã Cẩm Hà, thành phố Hội An, Quảng Nam, theo dữ liệu của ứng dụng do một cư sĩ lập làm nơi chân tu vào khoảng năm 1985. Xã Cẩm Hà có nhiều di tích lịch sử – văn hóa được đăng ký của thành phố.",
+    "architecture_heritage": "Tịnh thất mang không gian giản dị, thanh tịnh của một cơ sở tu tập nhỏ. Thông tin chi tiết về công trình và hiện vật còn ít được ghi chép công khai.",
+    "visiting_notes": ["Tịnh thất là nơi tu tập; xin ăn mặc kín đáo, giữ yên lặng.", "Nên xem lịch tiếp khách trước khi đến.", "Nằm ở vùng Cẩm Hà ngoài phố cổ; nên xem đường đi trước."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_central_054",
+    "name": "Chùa Hoằng Phúc",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_054.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_054.jpg",
+    "aliases": [
+      "Kính Thiên Tự",
+      "Chùa Trạm"
+    ],
+    "sect": "TRUC_LAM_YEN_TU",
+    "founder": "Phật hoàng Trần Nhân Tông ghé truyền đạo",
+    "current_abbot": "Thích Đức Thiện",
+    "established_year": 1300,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 17.1889,
+      "lng": 106.6853,
+      "address": "Thôn Thuận Trạch, Xã Mỹ Thủy, Huyện Lệ Thủy, Tỉnh Quảng Bình",
+      "province": "Quảng Trị"
+    },
+    "operating_hours": "06:00 - 19:00",
+    "introduction": "Chùa Hoằng Phúc (còn gọi chùa Kính Thiên, chùa Quan, chùa Trạm) ở thôn Thuận Trạch, xã Mỹ Thủy, huyện Lệ Thủy, Quảng Bình, là một trong những chùa cổ nhất miền Trung với lịch sử khoảng 700 năm. Năm 1301, Phật hoàng Trần Nhân Tông ghé thăm khi nơi đây còn là am Tri Kiến; năm 1716 chúa Nguyễn Phúc Chu đổi tên Kính Thiên; năm 1821 vua Minh Mạng đi tuần đổi tên Hoằng Phúc.",
+    "architecture_heritage": "Chùa được phục dựng theo hướng kiến trúc chùa thời Trần (khởi công ngày 30/11/2014, kinh phí khoảng 40,4 tỷ đồng, lễ khánh thành ngày 16/1/2016), gồm tam quan ngoài, tam quan trong, tháp Phật, Tam Bảo, nhà Tổ và hành lang hai bên.",
+    "visiting_notes": ["Chùa nằm bên dòng Kiến Giang, ở vùng Lệ Thủy cách trung tâm Đồng Hới khá xa; nên tính thời gian di chuyển.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên đi buổi sáng hoặc chiều mát."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_056",
+    "name": "Chùa Linh Sơn (Đà Lạt)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_056.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_056.jpg",
+    "aliases": [
+      "Linh Sơn Tự Đà Lạt"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Thích Trí Thủ chứng minh sáng lập",
+    "current_abbot": "Thích Viên Thanh",
+    "established_year": 1938,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 11.9472,
+      "lng": 108.4361,
+      "address": "120 Nguyễn Văn Trỗi, Phường 2, TP. Đà Lạt, Tỉnh Lâm Đồng",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "06:00 - 18:30",
+    "introduction": "Chùa Linh Sơn ở số 120 Nguyễn Văn Trỗi, Đà Lạt, cách trung tâm khoảng 700 m về phía tây bắc, được Hội Phật học xây từ năm 1938 và hoàn thành năm 1940 theo đề nghị của bà Từ Cung (mẹ vua Bảo Đại) sau chuyến thăm Đà Lạt. Đây là một trong những ngôi chùa lâu đời và quan trọng nhất của Đà Lạt.",
+    "architecture_heritage": "Chùa là quần thể nhiều công trình trên diện tích khoảng 4 ha, mang đặc trưng kiến trúc Đông phương. Trong chùa có tượng Phật Thích Ca bằng đồng ngồi trên tòa sen nặng 1.250 kg đúc năm 1952 và đại hồng chung nặng 700 kg đúc năm 1958.",
+    "visiting_notes": ["Chùa gần trung tâm Đà Lạt, dễ kết hợp dạo phố.", "Đà Lạt buổi sáng và tối lạnh; nên mang áo ấm nhẹ.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_central_059",
+    "name": "Chùa Linh Phong (Đà Lạt)",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_central_059.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_central_059.jpg",
+    "aliases": [
+      "Chùa Sư Nữ Linh Phong"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Ni sư Thích Nữ Từ Hương",
+    "current_abbot": "Ni sư Thích Nữ Từ Hương",
+    "established_year": 1940,
+    "heritage_rank": "DANH_LAM_THANG_CANH",
+    "location": {
+      "lat": 11.9367,
+      "lng": 108.4522,
+      "address": "Đường Hoàng Hoa Thám, Phường 10, TP. Đà Lạt, Tỉnh Lâm Đồng",
+      "province": "Lâm Đồng"
+    },
+    "operating_hours": "06:30 - 18:00",
+    "introduction": "Chùa Linh Phong (Linh Phong Ni tự) trên một ngọn đồi cao ở số 72C Hoàng Hoa Thám, phường Xuân Hương, Đà Lạt, là ngôi ni tự đầu tiên của thành phố. Chùa dựng năm 1940 với mái tranh vách gỗ; từ năm 1946 giao cho Ni sư Thích Nữ Từ Hương, người dần phát triển chùa thành dáng vẻ ngày nay.",
+    "architecture_heritage": "Chánh điện (16 × 25 m) chia năm gian theo kiến trúc đình làng miền Trung. Cổng tam quan bằng đá xám với hàng chục bậc dẫn lên; phía sau nhà Tổ trên sườn đồi có ngôi tháp bát giác cao 3 m, nơi an nghỉ của Ni sư Từ Hương.",
+    "visiting_notes": ["Chùa nằm trên đồi, có nhiều bậc; nên đi giày dép êm.", "Đà Lạt lạnh vào sáng sớm và tối; nên mang áo ấm.", "Là ni tự, xin ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_042",
+    "name": "Chùa Vạn Phật",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_042.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_042.jpg",
+    "aliases": [
+      "Vạn Phật Tự"
+    ],
+    "sect": "HOA_TONG",
+    "founder": "Hòa thượng Đức Niệm",
+    "current_abbot": "Thích Truyền Cường",
+    "established_year": 1959,
+    "heritage_rank": "CHUA_XEP_HANG",
+    "location": {
+      "lat": 10.7558,
+      "lng": 106.6694,
+      "address": "66/14 Nghĩa Thục, Phường 5, Quận 5, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "07:30 - 17:30",
+    "introduction": "Chùa Vạn Phật ở số 66/14 Nghĩa Thục, phường 5, Quận 5, TP.HCM, khởi công năm 1959, ban đầu là nơi tu học và lễ bái của tăng ni, Phật tử người Hoa ở Sài Gòn và các tỉnh lân cận. Chùa qua ba đợt mở rộng lớn vào các năm 1975, 1990 và 2005; năm 1998 được nâng cấp thành công trình bốn tầng và một sân thượng; năm 2008 xây thêm điện Phổ Quang Minh.",
+    "architecture_heritage": "Chùa mang phong cách kiến trúc Trung Hoa truyền thống với mái ngói cong, cột gỗ chạm khắc và họa tiết rồng. Đúng như tên gọi, chùa có khoảng 10.000 tượng Phật ở nhiều phong cách, được ghi nhận là kỷ lục Việt Nam.",
+    "visiting_notes": ["Chùa nằm trong hẻm Nghĩa Thục, đường vào hẹp; nên đi xe máy hoặc gửi xe ở nơi quy định.", "Không gian nhiều tượng nên xin không chạm vào tượng, không làm ồn.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_046",
+    "name": "Chùa Nam Nhã",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_046.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_046.jpg",
+    "aliases": [
+      "Nam Nhã Đường"
+    ],
+    "sect": "MINH_SU_DAO",
+    "founder": "Ông Nguyễn Giác Nguyên",
+    "current_abbot": "Ban Quản lý Di tích Nam Nhã Đường",
+    "established_year": 1895,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.0658,
+      "lng": 105.7583,
+      "address": "612 Cách Mạng Tháng 8, Phường An Thới, Quận Bình Thủy, TP. Cần Thơ",
+      "province": "Cần Thơ"
+    },
+    "operating_hours": "07:00 - 17:30",
+    "introduction": "Chùa Nam Nhã (Nam Nhã Phật Đường) ở số 612 Cách Mạng Tháng Tám, phường Bình Thủy, Cần Thơ. Năm 1883, ông Nguyễn Giác Nguyên mở tiệm thuốc Nam Nhã Đường bên rạch Bình Thủy, cũng là nơi hội họp của các nhà yêu nước chống Pháp; năm 1895 ông chuyển tiệm thành ngôi chùa nhỏ ba gian, đến 1905 xây lại quy mô năm tòa. Chùa là nơi sinh hoạt của tín đồ Minh Sư và là cơ sở hoạt động của phong trào yêu nước ở Cần Thơ và miền Tây; được công nhận di tích lịch sử quốc gia ngày 25/1/1991.",
+    "architecture_heritage": "Chùa nổi tiếng nơi dung hòa phong cách Hoa – Pháp – Việt. Trong chính điện có bàn thờ ba tôn giáo Phật, Nho, Đạo, thể hiện tinh thần “tam giáo đồng nguyên”.",
+    "visiting_notes": ["Chùa gần đình Bình Thủy và nhà cổ Bình Thủy; có thể kết hợp tham quan trong cùng buổi.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên xem giờ mở cửa trước khi đến."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_048",
+    "name": "Chùa Giác Sanh",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_048.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_048.jpg",
+    "aliases": [
+      "Giác Sanh Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Thích Từ Nhẫn",
+    "current_abbot": "Thích Đạt Niệm",
+    "established_year": 1930,
+    "heritage_rank": "DI_TICH_CAP_THANH_PHO",
+    "location": {
+      "lat": 10.7686,
+      "lng": 106.6453,
+      "address": "103 Âu Cơ, Phường 14, Quận 11, TP.HCM",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:00 - 20:00",
+    "introduction": "Chùa Giác Sanh ở số 103 Âu Cơ, phường 14, Quận 11, TP.HCM, được xây từ khoảng năm 1918, ban đầu gọi là chùa Cô Hồn, vị chủ trì đầu tiên là Hòa thượng Hồng Lương. Năm 1968 chùa mở trường đào tạo tăng tài với khoảng 300 tăng sinh.",
+    "architecture_heritage": "Kiến trúc chùa đến nay vẫn giữ dáng vẻ cổ xưa như ban đầu, mang hơi thở của Sài Gòn xưa, không gian thanh tịnh giữa khu dân cư.",
+    "visiting_notes": ["Chùa nằm gần khu Đầm Sen; có thể kết hợp tham quan.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên xem giờ sinh hoạt của chùa trước khi đến."],
+    "amenities": {
+      "parking_car": false,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_049",
+    "name": "Chùa Hội Khánh",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_049.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_049.jpg",
+    "aliases": [
+      "Hội Khánh Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Thiền sư Đại Ngạn",
+    "current_abbot": "Thích Huệ Thông",
+    "established_year": 1741,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.9789,
+      "lng": 106.6631,
+      "address": "35 Yersin, Phường Phú Cường, TP. Thủ Dầu Một, Tỉnh Bình Dương",
+      "province": "Hồ Chí Minh"
+    },
+    "operating_hours": "06:00 - 19:30",
+    "introduction": "Chùa Hội Khánh ở đường Yersin, phường Phú Cường, thành phố Thủ Dầu Một, Bình Dương, do Thiền sư Đại Ngạn (dòng Lâm Tế) khai sơn năm 1741 thời Lê Hiển Tông. Ban đầu chùa xây trên một ngọn đồi, năm 1861 bị phá hủy trong chiến tranh, sau được xây lại dưới chân đồi khoảng 100 m. Chùa là di tích lịch sử – văn hóa cấp quốc gia.",
+    "architecture_heritage": "Chùa còn giữ nét kiến trúc Nam Bộ xưa kiểu “trùng thiềm trùng lương” (các nếp nhà nối sát nhau). Chùa có pho tượng Phật nằm được tổ chức Kỷ lục châu Á công nhận là tượng Phật nằm dài nhất châu Á và Việt Nam.",
+    "visiting_notes": ["Chùa nằm trong trung tâm Thủ Dầu Một, gần các điểm tham quan khác của thành phố.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên đi buổi sáng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  },
+  {
+    "id": "temple_south_054",
+    "name": "Chùa Tây An",
+    "type": "CHUA",
+    "image_url": "/static/images/temples/full/temple_south_054.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_054.jpg",
+    "aliases": [
+      "Tây An Cổ Tự"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Tổng đốc Doãn Uẩn",
+    "current_abbot": "Thích Bửu Thành",
+    "established_year": 1847,
+    "heritage_rank": "DI_TICH_QUOC_GIA",
+    "location": {
+      "lat": 10.6789,
+      "lng": 105.0767,
+      "address": "Chân núi Sam, Phường Núi Sam, TP. Châu Đốc, Tỉnh An Giang",
+      "province": "An Giang"
+    },
+    "operating_hours": "06:00 - 21:00",
+    "introduction": "Chùa Tây An (Tây An Cổ Tự) nằm dưới chân núi Sam, phường Núi Sam, Châu Đốc, An Giang, khởi dựng từ lời nguyện của quan triều Nguyễn Nguyễn Nhật An; đến năm 1847, Tổng đốc An Giang – Hà Tiên Doãn Uẩn đôn đốc xây chùa bằng tường gạch, nền cuốn đá xanh và mái ngói. Năm 1958, Hòa thượng Thích Bửu Thọ xây thêm ba cổ lầu mặt tiền và trang trí kết hợp phong cách Ấn Độ.",
+    "architecture_heritage": "Điểm ấn tượng nhất là mặt chính với ba cổ lầu nóc tròn hình củ hành, màu sắc rực rỡ mà hài hòa. Chùa rộng khoảng 15.000 m², bố cục chữ “Tam”, kết hợp kiến trúc cổ dân tộc Việt Nam và nghệ thuật Ấn Độ – được xem là ngôi chùa kết hợp hai phong cách này đầu tiên ở Việt Nam.",
+    "visiting_notes": ["Chùa nằm cạnh miếu Bà Chúa Xứ và lăng Thoại Ngọc Hầu, thường được tham quan cùng nhau.", "Vào dịp lễ hội Bà Chúa Xứ rất đông; nên đi sớm.", "Ăn mặc kín đáo, giữ yên lặng."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": false,
+      "summer_retreat": false
+    }
+  },
+  {
+    "id": "temple_south_055",
+    "name": "Chùa Phước Hưng",
+    "type": "DAO_TRANG",
+    "image_url": "/static/images/temples/full/temple_south_055.jpg",
+    "thumbnail_url": "/static/images/temples/thumb/temple_south_055.jpg",
+    "aliases": [
+      "Chùa Hương"
+    ],
+    "sect": "BẮC_TÔNG",
+    "founder": "Hòa thượng Minh Phước",
+    "current_abbot": "Thích Thiện An",
+    "established_year": 1838,
+    "heritage_rank": "DI_TICH_CAP_TINH",
+    "location": {
+      "lat": 10.2925,
+      "lng": 105.7583,
+      "address": "461 Hùng Vương, Phường 1, TP. Sa Đéc, Tỉnh Đồng Tháp",
+      "province": "Đồng Tháp"
+    },
+    "operating_hours": "06:00 - 20:00",
+    "introduction": "Chùa Phước Hưng (Phước Hưng cổ tự, còn gọi chùa Hương) ở số 461 Hùng Vương, phường 1, thành phố Sa Đéc, Đồng Tháp, do Hòa thượng Thích Minh Phước xây năm 1838 (Minh Mạng thứ 19), bởi nhóm người Minh Hương đến Sa Đéc lập nghiệp. Năm 1846, chùa Minh Hương của người Hoa ở Sa Đéc sáp nhập vào Phước Hưng nên gọi là chùa Hương.",
+    "architecture_heritage": "Chùa xây theo kiểu chữ “Sơn” – lối kiến trúc truyền thống của người Hoa và người Việt – gồm tám mái hai tầng, lợp ngói âm dương, giống đình làng hơn chùa; khác biệt so với nhiều chùa cổ ở Nam Bộ.",
+    "visiting_notes": ["Chùa nằm trong thành phố Sa Đéc, có thể kết hợp thăm nhà cổ Huỳnh Thủy Lê và làng hoa Sa Đéc.", "Ăn mặc kín đáo, giữ yên lặng.", "Nên đi buổi sáng hoặc chiều mát."],
+    "amenities": {
+      "parking_car": true,
+      "parking_motorcycle": true,
+      "vegetarian_meals": true,
+      "summer_retreat": true
+    }
+  }
+]

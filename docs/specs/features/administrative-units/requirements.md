@@ -1,8 +1,8 @@
 # Requirements — administrative-units
 
-Version: 1.4
-Last updated: 2026-10-10
-Status: Phase 1 (domain, `Dataset.Verify`), 2 (usecase) và 3 (repository, migration `0026`) đã implement và test (2026-10-10); delivery/config/CLI chưa làm. File dữ liệu `assets/data/administrative-units.json` đã tạo và qua `Verify`. Còn 3 marker `⚠️ Not confirmed` (xem "Pending").
+Version: 1.8
+Last updated: 2026-10-11
+Status: implemented và verified end-to-end (2026-10-11), gồm tìm xã theo tên (`?q=`, AC 25–26); mọi AC (trừ AC 13 đã hoãn) có test chứng minh, xem `test-coverage-report.md`. Còn 2 marker `⚠️ Not confirmed` (xem "Pending").
 Module: `administrative-units`
 Code: `services/appService/`
 
@@ -23,6 +23,8 @@ Spec này sinh ra từ [`SRS.md`](./SRS.md) (v0.3, cùng thư mục): SRS nói *
 1. WHEN a `GET` request for the new-scheme provinces arrives, THE SYSTEM SHALL return `200` with `data.items` holding all 34 provinces, each with `code`, `name`, `full_name` and `type` (`province` | `city`), and SHALL return them in Vietnamese alphabetical order of `name` (digits compared as numbers), the same order on every call.
 2. WHEN a `GET` request for the wards of a new-scheme province arrives with a `code` that exists, THE SYSTEM SHALL return `200` with `data.items` holding **every** ward of that province in one response (no pagination), each with `code`, `name`, `full_name`, `type` (`ward` | `commune` | `special_zone`) and `province_code`, and SHALL NOT include a ward of any other province; the wards SHALL be in Vietnamese alphabetical order of `name`, digits compared as numbers ("Phường 2" before "Phường 10").
 3. WHEN a request names a new-scheme province `code` that does not exist, THE SYSTEM SHALL return `404` with error code `ADMINISTRATIVE_UNIT_NOT_FOUND` and SHALL NOT return a partial list.
+25. WHEN a request for the wards of a new-scheme province carries a search term `q`, THE SYSTEM SHALL return `200` with only the wards **of that province** whose full name contains the term, in the same order as without `q`, matching regardless of letter case, Vietnamese diacritics (`đ` = `d`), the position of a tone mark (`Hòa` = `Hoà`, `Thủy` = `Thuỷ`) and the kind of apostrophe (`B’Lao` = `B'Lao`); WHEN nothing matches, THE SYSTEM SHALL return `200` with `data.items = []`; WHEN the province does not exist, it SHALL return `404` as in AC 3, whatever the term; and a request without `q` SHALL behave exactly as in AC 2.
+26. WHEN `q` is present but empty, blank after trimming, or longer than 100 characters, THE SYSTEM SHALL return `400` with error code `INVALID_FILTER` and `details.field = "q"`, SHALL NOT treat it as "no search", and SHALL NOT query wards; the error response SHALL NOT carry `Cache-Control`.
 
 ## US-ADU-02: Chọn địa chỉ theo hệ cũ (tỉnh → huyện → xã)
 
@@ -72,7 +74,7 @@ Spec này sinh ra từ [`SRS.md`](./SRS.md) (v0.3, cùng thư mục): SRS nói *
 17. WHEN a request carries the header `X-API-Key` with the configured web API key, THE SYSTEM SHALL serve it; WHEN the header is absent, THE SYSTEM SHALL also serve it (the caller is treated as mobile); WHEN the header is present but wrong or empty, THE SYSTEM SHALL respond `401` with error code `INVALID_API_KEY` and SHALL NOT return any unit.
 18. THE SYSTEM SHALL write every response in the project envelope (`{"success": true, "data": …}` / `{"success": false, "error": {…}}`).
 23. WHEN a client IP exceeds the configured request budget on these routes, THE SYSTEM SHALL respond `429` with error code `RATE_LIMITED`, `details.retry_after_seconds` and the `Retry-After` header (as in `api-response-envelope`), and the wrong-key check SHALL run before the limiter so a refused key does not spend the caller's budget. The budget and window are configuration, not constants.
-24. WHEN a request succeeds, THE SYSTEM SHALL send `Cache-Control: public, max-age=86400` so clients and intermediaries may reuse the answer for 24 hours; a `401`, `404`, `429` or `5xx` SHALL NOT carry it.
+24. WHEN a request succeeds, THE SYSTEM SHALL send `Cache-Control: public, max-age=<seconds>` where the lifetime is the configured `administrative_units.cache_max_age` (dev: 24 hours = 86400), so clients and intermediaries may reuse the answer for that long; a `401`, `404`, `429` or `5xx` SHALL NOT carry it.
 
 ## US-ADU-05: Nạp bộ dữ liệu hành chính bằng lệnh seed
 
@@ -91,7 +93,7 @@ Spec này sinh ra từ [`SRS.md`](./SRS.md) (v0.3, cùng thư mục): SRS nói *
 
 ## API contract (confirmed surface for this feature)
 
-Đường dẫn đã được người dùng chốt ngày 2026-10-10 ("đồng ý"); chưa có trong `docs/specs/api/openapi.yaml` — thêm khi implement handler (`tasks.md` Phase 4).
+Đường dẫn đã được người dùng chốt ngày 2026-10-10 ("đồng ý") và đã có trong `docs/specs/api/openapi.yaml` (tag `AdministrativeUnits`, bản đồng bộ `web/docs/public/openapi.yaml`, v1.5). Đã chạy binary thật và gọi đủ chín route với file dữ liệu thật.
 
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
@@ -109,6 +111,10 @@ Hình dạng dữ liệu (đề xuất): `NewProvince` `{code, name, full_name, 
 
 > ⚠️ Not confirmed: tập giá trị `mapping_type` trả ra client — dữ liệu nguồn dùng sáu giá trị (`merged`, `province_changed`, `ambiguous`, `unchanged`, `split_population`, `renamed`); chưa chốt có đưa nguyên xi hay đặt lại tên cho client — chặn DTO ở `tasks.md` Phase 4.
 
+## Hướng sử dụng (quyết định 2026-10-11)
+
+Ý định sản phẩm: **app chỉ cho người dùng chọn địa chỉ hệ mới** (tỉnh → xã). Hệ cũ và các route chuyển đổi vẫn nằm trong API để tham chiếu và dùng về sau (đọc địa chỉ cũ, gắn dữ liệu cũ vào mã mới), nhưng client không gọi chúng. Lý do: hệ mới ít cấp hơn, không có điểm mơ hồ khi chọn, danh sách xã đã đối chiếu khớp với một nguồn độc lập (3.321/3.321 mã, 0 xã lệch tỉnh), còn các sai sót đã biết nằm ở ánh xạ cũ ↔ mới và hệ cũ. Vì danh sách xã của một tỉnh có thể dài tới 168 mục, tìm theo tên (AC 25–26) là phần bắt buộc của luồng này.
+
 ## Out of scope (this feature boundary, not tracked here)
 
 - Mọi thứ dưới cấp xã: ấp, thôn, bản, tổ dân phố, số nhà, tên đường là chuỗi tự do do người dùng gõ; thuộc feature dùng địa chỉ (không có metadata cho cấp này).
@@ -120,10 +126,9 @@ Hình dạng dữ liệu (đề xuất): `NewProvince` `{code, name, full_name, 
 
 ## Pending (not yet implemented)
 
-Phần implement chưa làm: `tasks.md` Phase 4 và 6, CLI của Phase 5 và việc sinh lại `erd.svg` (Phase 1–3 xong; Phase 5 đã có file dữ liệu).
+Không còn phần implement nào chưa làm trong phạm vi hiện tại (`tasks.md` Phase 1–6 xong). Còn lại: concept OKF `docs/knowledge/features/administrative-units.md` (`il-okf-writer`, chỉ viết khi được yêu cầu) và các mục hoãn có chủ đích (chuyển đổi cấp huyện, đối chiếu file chính thức, đánh dấu hết hiệu lực).
 
 > ⚠️ Not confirmed: màn/field nào dùng tra cứu trước (hồ sơ đăng ký, chùa, gia phả, sổ giỗ) và dòng địa chỉ tự do có bắt buộc/giới hạn độ dài không — quyết định yêu cầu nào chuyển sang feature đó; không chặn feature này.
-> ⚠️ Not confirmed: có cần tìm theo tên không dấu (`?q=`) và phạm vi (trong một tỉnh) không — chưa được hỏi trong vòng trả lời 2026-10-10; nếu có sẽ thêm AC và dùng `unaccent` như `GET /v1/sutras?q=`.
 > ⚠️ Not confirmed: tập giá trị `mapping_type` trả ra client — file dữ liệu giữ nguyên sáu giá trị của nguồn (`merged`, `province_changed`, `ambiguous`, `unchanged`, `split_population`, `renamed`); chưa chốt có đưa nguyên xi hay đặt lại tên cho client — chặn DTO ở `tasks.md` Phase 4.
 
 Đã hoãn có chủ đích (không còn là câu hỏi): đối chiếu với `conversion-table.xlsx` chính thức và dòng "Huyện Kim Sơn → Xã Kim Đông" — người dùng nói "sau này sửa lại cũng được" (2026-10-10); tình trạng ghi trong `meta.source.data_provenance` và `meta.unresolved` của file dữ liệu. Đơn vị bị bỏ khỏi bản dữ liệu mới: lần nạp chỉ upsert nên không xoá; có đánh dấu hết hiệu lực hay không là việc làm sau.
@@ -136,7 +141,9 @@ Phần implement chưa làm: `tasks.md` Phase 4 và 6, CLI của Phase 5 và vi�
 - Middleware web API key (`delivery/http/web_api_key_middleware.go`): header vắng → đi qua và coi là mobile; header đúng → đi qua kèm cờ đã xác thực; header sai/rỗng → `401 INVALID_API_KEY`. Đây là bí mật dùng chung cho ứng dụng, không phải xác thực người dùng, và không chặn người gọi bỏ header (`docs/tech-debt/auth/TD-001`).
 - Cùng hình dạng danh mục công khai với `temple`/`deity`, khác ở chỗ route chuyển đổi không phân trang và nằm sau `webAPIKey`.
 - **File dữ liệu duy nhất:** `assets/data/administrative-units.json` (khoảng 3,2 MB, JSON thuần, mỗi phần tử một dòng để diff được). Khoá cấp một: `meta`, `new_provinces`, `new_wards`, `old_provinces`, `old_districts`, `old_wards`, `ward_mappings`, `district_mappings`. `meta` ghi nguồn (repo, commit, giấy phép MIT của mã), số lượng, `corrections` (2 xã gắn sai tỉnh được sửa + 2 dòng huyện nhân đôi bị loại) và `unresolved` (dòng Kim Sơn). Mỗi đơn vị có `sort_order` đã tính sẵn theo thứ tự chữ cái tiếng Việt nên không phụ thuộc collation của Postgres. Seed lại bằng cách chạy lại `cmd/seedadminunits -file assets/data/administrative-units.json`.
-- Chỉ tiêu phi chức năng đã chốt (2026-10-10): p95 ≤ 200 ms; client cache được 24 giờ (AC 24); giới hạn tần suất theo IP (AC 23, mức cụ thể là cấu hình — dev đề xuất 60 yêu cầu/phút/IP).
+- Dựng lại file dữ liệu: `scripts/build_administrative_units.py` (cách dùng ở docstring); `.gitignore` cho phép `assets/data/administrative-units.json` nên file được commit cùng repo.
+- CLI nạp dữ liệu: `go run ./services/appService/cmd/seedadminunits [-file assets/data/administrative-units.json] [-dry-run]`. `-dry-run` (thêm ở v1.6, ngoài danh sách AC) chỉ đọc, kiểm cấu trúc và toàn vẹn rồi in số dòng, không cần database — để kiểm một file trước khi nạp. Cấu hình DB lấy từ `CONFIG_PATH` (mặc định `config.dev.yaml`, `⚠️ DEV ONLY` như `seedtemples`).
+- Chỉ tiêu phi chức năng đã chốt (2026-10-10): p95 ≤ 200 ms (đo thực tế 1–3 ms cho chuyển đổi trên Postgres local); client cache được 24 giờ (AC 24, `administrative_units.cache_max_age`); giới hạn tần suất theo IP (AC 23, `administrative_units.rate_limit`, dev 60 lượt/phút, **một ngân sách chung** cho cả chín route).
 
 ## Open questions (resolved during implementation)
 
@@ -162,3 +169,8 @@ Phần implement chưa làm: `tasks.md` Phase 4 và 6, CLI của Phase 5 và vi�
 - ~~Độ trễ và cache?~~ → **Đồng ý** p95 ≤ 200 ms, cache 24 giờ. Ảnh hưởng: AC 24.
 - ~~Chuyển đổi cấp huyện?~~ → **Tạm bỏ qua**. Ảnh hưởng: AC 13 hoãn; bỏ route và bảng `addr_district_mappings` khỏi phiên bản này.
 - Người dùng yêu cầu **một file JSON duy nhất** để seed lại DB dễ dàng. Ảnh hưởng: `design.md` (cờ `-file`, một file thay cho sáu); file đã tạo.
+
+Đã chốt ở v1.8 (2026-10-11):
+
+- ~~App cho người dùng chọn hệ nào?~~ → **Chỉ hệ mới.** Hệ cũ và chuyển đổi giữ trong API, client không dùng (người dùng, 2026-10-11). Ảnh hưởng: mục "Hướng sử dụng"; ưu tiên tìm theo tên lên trước, đối chiếu file chính thức và chuyển đổi cấp huyện xuống thấp.
+- ~~Có cần tìm xã theo tên không dấu, phạm vi?~~ → **Có, trong một tỉnh của hệ mới**, không phân biệt hoa thường, dấu, vị trí dấu thanh và kiểu dấu nháy (người dùng, 2026-10-11). Ảnh hưởng: AC 25–26; `GET …/new/provinces/{code}/wards?q=`; `unaccent` (migration `0019`) + `translate` cho dấu nháy; marker `?q=` được đóng.

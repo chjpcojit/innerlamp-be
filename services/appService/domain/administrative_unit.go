@@ -128,6 +128,21 @@ func (c Conversion[T]) Unique() bool {
 // in the named scheme.
 var ErrAdministrativeUnitNotFound = errors.New("administrative unit not found")
 
+// ErrWardNotInProvince — the ward exists in the current scheme but belongs to a
+// different province than the one named.
+var ErrWardNotInProvince = errors.New("ward does not belong to province")
+
+// ResolvedWard is a current-scheme ward together with its province, as another
+// feature stores them: the short province name and the ward's full name.
+type ResolvedWard struct {
+	ProvinceName string
+	WardFullName string
+}
+
+// ErrInvalidAdministrativeUnitQuery — a ward search term is present but empty or
+// blank after trimming, or longer than the allowed length.
+var ErrInvalidAdministrativeUnitQuery = errors.New("invalid search term")
+
 // AdministrativeUnitRepository is the port the administrative-units use case
 // reads through and the seeder writes through.
 //
@@ -141,6 +156,20 @@ type AdministrativeUnitRepository interface {
 	// ListCurrentWards returns every ward of a current-scheme province, or
 	// ErrAdministrativeUnitNotFound when the province does not exist.
 	ListCurrentWards(ctx context.Context, provinceCode string) ([]CurrentWard, error)
+
+	// SearchCurrentWards returns the wards of a current-scheme province whose
+	// full name contains query, in the same order as ListCurrentWards. The match
+	// ignores case, Vietnamese diacritics, where a tone mark sits on a vowel
+	// ("Hòa" = "Hoà") and which apostrophe is used ("D’Ran" = "D'Ran"). No match
+	// is an empty slice; ErrAdministrativeUnitNotFound means the province does
+	// not exist. query must already be validated and non-empty.
+	SearchCurrentWards(ctx context.Context, provinceCode, query string) ([]CurrentWard, error)
+
+	// ResolveCurrentWard checks that wardCode is a ward of the current-scheme
+	// province provinceCode and returns their names. ErrAdministrativeUnitNotFound
+	// means the province does not exist; ErrWardNotInProvince means the ward does
+	// not exist in that province (missing, or a ward of another province).
+	ResolveCurrentWard(ctx context.Context, provinceCode, wardCode string) (*ResolvedWard, error)
 
 	// ListLegacyProvinces returns every legacy-scheme province.
 	ListLegacyProvinces(ctx context.Context) ([]LegacyProvince, error)

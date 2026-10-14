@@ -190,7 +190,7 @@ func walkPages(t *testing.T, api *apiClient, path string, wantPageSize int) (ids
 }
 
 func sutraAPI(t *testing.T) *apiClient {
-	baseURL, client := newE2EServer(t)
+	baseURL, client := newE2EServerSeeded(t)
 	return &apiClient{t: t, baseURL: baseURL, http: client}
 }
 
@@ -797,85 +797,62 @@ func seededTotals(idx []indexEntry) (sutras, translations, lines, links int) {
 	return sutras, translations, lines, links
 }
 
-func TestSutraSeed_FirstRunFillsEveryTable_E2E(t *testing.T) {
+// appService seeds nothing when it starts: on an empty database it comes up and serves
+// empty lists. The library arrives only through cmd/seedsutras (TestSeedSutrasCommand_E2E).
+func TestSutraService_StartsOnAnEmptyLibraryAndSeedsNothing_E2E(t *testing.T) {
 	requireE2E(t)
-	idx := loadSutraIndex(t)
 	host, port, cleanupDB := startPostgres(t)
 	t.Cleanup(cleanupDB)
-	_, stop := startServer(t, host, port, nil)
+	url, stop := startServer(t, host, port, nil)
 	t.Cleanup(stop)
+	api := &apiClient{t: t, baseURL: url, http: &http.Client{Timeout: 5 * time.Second}}
+
+	res := api.get("/v1/sutras")
+	require.Equal(t, http.StatusOK, res.status, res.raw)
+	var p pagedItems
+	res.data(&p)
+	assert.Zero(t, p.Total)
+	assert.Empty(t, p.Items)
 
 	db := openDB(t, host, port)
-	sutras, translations, lines, links := seededTotals(idx)
-	assert.Equal(t, sutras, countRows(t, db, "sutras"))
-	assert.Equal(t, translations, countRows(t, db, "sutra_translations"))
-	assert.Equal(t, lines, countRows(t, db, "sutra_lines"))
-	assert.Equal(t, links, countRows(t, db, "sutra_deities"))
+	for _, table := range []string{"sutras", "sutra_translations", "sutra_lines", "sutra_deities"} {
+		assert.Zero(t, countRows(t, db, table), "starting the service must not seed %s", table)
+	}
 }
 
-// AC32: a restart never overwrites an edited sutra and never brings back a deleted one.
-func TestSutraSeed_SecondStartLeavesTheDatabaseAlone_E2E(t *testing.T) {
+// AC32: running the command again never overwrites an edited sutra and never brings
+// back a deleted one.
+func TestSutraSeed_SecondRunLeavesTheDatabaseAlone_E2E(t *testing.T) {
 	requireE2E(t)
 	host, port, cleanupDB := startPostgres(t)
 	t.Cleanup(cleanupDB)
-
-	url1, stop1 := startServer(t, host, port, nil)
-	t.Cleanup(stop1)
-	api1 := &apiClient{t: t, baseURL: url1, http: &http.Client{Timeout: 5 * time.Second}}
-	var first pagedItems
-	api1.get("/v1/sutras").data(&first)
-	require.Greater(t, first.Total, 100)
-
+	cfg := writeTempConfig(t, host, port, "0", nil)
+	bin := seedSutrasBinaryPath(t)
 	db := openDB(t, host, port)
+
+	res := runUntilExit(t, bin, cfg, 90*time.Second)
+	require.Equal(t, 0, res.exitCode, res.stderr)
 	execSQL(t, db, `UPDATE sutras SET titles = jsonb_set(titles, '{vi}', to_jsonb($1::text)) WHERE id = 'tam-kinh'`, "Đã sửa tay")
 	linesBefore := countRows(t, db, "sutra_lines")
 	execSQL(t, db, `DELETE FROM sutras WHERE id = 'kinh-tu-bi'`) // cascades to its translations, lines and links
 	linesAfterDelete := countRows(t, db, "sutra_lines")
 	require.Less(t, linesAfterDelete, linesBefore)
-	stop1()
 
-	url2, stop2 := startServer(t, host, port, nil)
-	t.Cleanup(stop2)
-	api2 := &apiClient{t: t, baseURL: url2, http: &http.Client{Timeout: 5 * time.Second}}
+	res = runUntilExit(t, bin, cfg, 90*time.Second)
+	require.Equal(t, 0, res.exitCode, res.stderr)
+	assert.Contains(t, res.stderr, "already seeded")
 
-	var edited struct {
-		Titles map[string]string `json:"titles"`
-	}
-	api2.get("/v1/sutras/tam-kinh").data(&edited)
-	assert.Equal(t, "Đã sửa tay", edited.Titles["vi"], "the seed must not overwrite an edit")
-
-	res := api2.get("/v1/sutras/kinh-tu-bi")
-	assert.Equal(t, http.StatusNotFound, res.status, "the seed must not bring a deleted sutra back")
-
-	var second pagedItems
-	api2.get("/v1/sutras").data(&second)
-	assert.Equal(t, first.Total-1, second.Total)
-	assert.Equal(t, linesAfterDelete, countRows(t, db, "sutra_lines"), "a second start writes no row")
+	var title string
+	require.NoError(t, db.QueryRow(t.Context(), `SELECT titles->>'vi' FROM sutras WHERE id = 'tam-kinh'`).Scan(&title))
+	assert.Equal(t, "Đã sửa tay", title, "the seed must not overwrite an edit")
+	assert.Zero(t, countRows(t, db, "sutras WHERE id = 'kinh-tu-bi'"), "the seed must not bring a deleted sutra back")
+	assert.Equal(t, linesAfterDelete, countRows(t, db, "sutra_lines"), "a second run writes no row")
 }
 
-// AC30: without the deities the sutras link to, the service refuses to start, names
-// them, and writes no sutra.
-func TestSutraSeed_RefusesToStartWithoutDeities_E2E(t *testing.T) {
-	requireE2E(t)
-	host, port, cleanupDB := startPostgresWithoutDeities(t)
-	t.Cleanup(cleanupDB)
-
-	res := runUntilExit(t, binaryPath(t), writeTempConfig(t, host, port, freePort(t), nil), 90*time.Second)
-
-	require.False(t, res.timedOut, "the service must exit, not hang:\n%s", res.stderr)
-	assert.NotEqual(t, 0, res.exitCode, res.stderr)
-	assert.Contains(t, res.stderr, "failed to seed sutras")
-	assert.Contains(t, res.stderr, "buddha_shakyamuni", "it names the deities that are missing")
-	assert.Contains(t, res.stderr, "cmd/seeddeities", "and says what to run")
-
-	db := openDB(t, host, port)
-	assert.Equal(t, 0, countRows(t, db, "sutras"))
-	assert.Equal(t, 0, countRows(t, db, "sutra_lines"))
-}
-
-// AC34: when the database rejects the seed part-way, startup aborts and the transaction
-// leaves nothing behind. sutra_deities is dropped so the insert fails after the sutra,
-// its translations and its lines have already been written inside the transaction.
+// AC34: when the database rejects the seed part-way, the command fails and the
+// transaction leaves nothing behind. sutra_deities is dropped so the insert fails after
+// the sutra, its translations and its lines have already been written inside the
+// transaction.
 func TestSutraSeed_FailedInsertRollsBackEverything_E2E(t *testing.T) {
 	requireE2E(t)
 	host, port, cleanupDB := startPostgres(t)
@@ -883,11 +860,11 @@ func TestSutraSeed_FailedInsertRollsBackEverything_E2E(t *testing.T) {
 	db := openDB(t, host, port)
 	execSQL(t, db, `DROP TABLE sutra_deities`)
 
-	res := runUntilExit(t, binaryPath(t), writeTempConfig(t, host, port, freePort(t), nil), 90*time.Second)
+	res := runUntilExit(t, seedSutrasBinaryPath(t), writeTempConfig(t, host, port, "0", nil), 90*time.Second)
 
-	require.False(t, res.timedOut, "the service must exit, not hang:\n%s", res.stderr)
+	require.False(t, res.timedOut, "the command must exit, not hang:\n%s", res.stderr)
 	assert.NotEqual(t, 0, res.exitCode, res.stderr)
-	assert.Contains(t, res.stderr, "failed to seed sutras")
+	assert.Contains(t, res.stderr, "seed sutras")
 	for _, table := range []string{"sutras", "sutra_translations", "sutra_lines"} {
 		assert.Equal(t, 0, countRows(t, db, table), "%s must be rolled back", table)
 	}
@@ -920,7 +897,8 @@ func TestSutraConfig_InvalidValuesRefuseToStart_E2E(t *testing.T) {
 	}
 }
 
-// AC35: cmd/seedsutras applies the same rules as the startup seed.
+// AC30/AC35: cmd/seedsutras refuses to run without the deities, seeds an empty table in
+// one go and leaves a filled one alone.
 func TestSeedSutrasCommand_E2E(t *testing.T) {
 	requireE2E(t)
 	idx := loadSutraIndex(t)
@@ -971,7 +949,7 @@ func TestSeedSutrasCommand_E2E(t *testing.T) {
 		var p pagedItems
 		api.get("/v1/sutras").data(&p)
 		assert.Equal(t, sutras, p.Total)
-		assert.Equal(t, sutras, countRows(t, db, "sutras"), "the service did not seed a second time")
+		assert.Equal(t, sutras, countRows(t, db, "sutras"), "the service seeds nothing")
 		assert.Equal(t, lines, countRows(t, db, "sutra_lines"))
 	})
 }

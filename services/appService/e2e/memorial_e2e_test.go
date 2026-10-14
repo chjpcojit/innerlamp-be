@@ -36,7 +36,7 @@ func (c *apiClient) do(method, path string, body any, bearer string) *apiRespons
 	raw, err := io.ReadAll(resp.Body)
 	require.NoError(c.t, err)
 
-	res := &apiResponse{t: c.t, status: resp.StatusCode, contentType: resp.Header.Get("Content-Type"), raw: string(raw)}
+	res := &apiResponse{t: c.t, status: resp.StatusCode, header: resp.Header, contentType: resp.Header.Get("Content-Type"), raw: string(raw)}
 	require.NoErrorf(c.t, json.Unmarshal(raw, &res.envelope), "%s %s %s: body is not the JSON envelope: %q", method, path, resp.Status, raw)
 	return res
 }

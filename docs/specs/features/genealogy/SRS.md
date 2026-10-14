@@ -5,11 +5,11 @@
 | Document type | Software Requirements Specification (SRS) — IEEE 29148-2018 |
 | Feature | Genealogy (family tree + clan chronicle) |
 | Product | InnerLamp |
-| Version | 1.0 |
-| Last updated | 2026-10-10 |
-| Status | draft — 9 non-blocking open questions (Appendix A); every blocking question is resolved |
+| Version | 1.2 |
+| Last updated | 2026-10-11 |
+| Status | draft — 1 non-blocking open item (Appendix A: performance targets); every other question is resolved |
 | Owner / author | duc@wee.vn (BA assist: Claude) |
-| Downstream handoff | `il-spec-writer` → `requirements.md` / `design.md` / `tasks.md` (already exist at v5.4 — see 2.7 for the mapping and Appendix B for the cross-reference) |
+| Downstream handoff | `il-spec-writer` → `requirements.md` / `design.md` / `tasks.md` (already exist at v5.12 — see 2.7 for the mapping and Appendix B for the cross-reference) |
 
 ---
 
@@ -17,7 +17,7 @@
 
 ### 1.1 Purpose
 
-This document specifies, in business terms, how a person using the InnerLamp app builds and keeps the family tree and chronicle of their clan (**gia phả**), and how they let relatives look at it. It is written for stakeholders and non-technical readers. It is the business-facing source for the engineering spec set under `docs/specs/features/genealogy/` (v5.4), which stays the authority on how the feature is built.
+This document specifies, in business terms, how a person using the InnerLamp app builds and keeps the family tree and chronicle of their clan (**gia phả**), and how they let relatives look at it. It is written for stakeholders and non-technical readers. It is the business-facing source for the engineering spec set under `docs/specs/features/genealogy/` (v5.12), which stays the authority on how the feature is built.
 
 ### 1.2 Scope
 
@@ -67,7 +67,7 @@ InnerLamp is a mobile app for Vietnamese Buddhist practice and family remembranc
 
 ### 1.5 References
 
-- `docs/specs/features/genealogy/requirements.md`, `design.md`, `flow.md`, `tasks.md`, `changelog.md` (v5.4) — the engineering spec this SRS feeds.
+- `docs/specs/features/genealogy/requirements.md`, `design.md`, `flow.md`, `tasks.md`, `changelog.md` (v5.12) — the engineering spec this SRS feeds.
 - `docs/specs/features/memorial/` — the private memorial book, the nearest existing feature.
 - `docs/assumptions/genealogy/A-002-invitation-defaults.md` — invitation assumptions.
 - IEEE 29148-2018, *Systems and software engineering — Life cycle processes — Requirements engineering*.
@@ -136,7 +136,7 @@ N/A — the app guides the flow in-screen; no manual is required.
   - Sign-up and sign-in (phone number identity) — existing.
   - Memorial feature for recurring reminders — separate.
   - Application-wide notification feature (push) — to be built; this feature does not wait for it.
-- **Mapping to the engineering spec:** this SRS introduces no change to `requirements.md` v5.4; Appendix B maps each `FR-*` to its acceptance-criteria numbers.
+- **Mapping to the engineering spec:** this SRS introduces no change to `requirements.md` v5.12; Appendix B maps each `FR-*` to its acceptance-criteria numbers.
 
 ---
 
@@ -563,7 +563,7 @@ HTTPS, JSON, bearer access token on every request. No other channel is used; in 
     When I give a birth order
     Then I am told birth order does not apply to this member
   ```
-  > ⚠️ Not confirmed: is editing the order one member at a time acceptable, or is a "re-order siblings" action needed — blocks only the screen design, not the data.
+  (Resolved 2026-10-11: editing the order one member at a time is accepted; no re-order action in v1.)
 
 **FR-017 — View the whole tree**
 - **Priority:** Must
@@ -856,7 +856,7 @@ HTTPS, JSON, bearer access token on every request. No other channel is used; in 
     Then I do not gain access to the tree
     And the owner sees the invitation as declined
   ```
-  > ⚠️ Not confirmed: may the owner invite the same number again immediately after a decline, or must there be a waiting period — currently allowed; blocks only anti-nuisance policy.
+  (Resolved 2026-10-11: the owner may invite the same number again immediately after a decline.)
 
 **FR-028 — Owner sees invitation statuses and may cancel**
 - **Priority:** Must
@@ -899,7 +899,7 @@ HTTPS, JSON, bearer access token on every request. No other channel is used; in 
     When I invite the same number again
     Then a new pending invitation is created
   ```
-  > ⚠️ Not confirmed: if a phone number is reassigned to another person while an invitation is still within its 30 days, that person would see the invitation — accept this risk, or shorten the period; blocks only the security posture, not the flow.
+  (Resolved 2026-10-11: the risk is accepted — an account is tied to its unique phone number, so a person who changed number can no longer sign in with the old one.)
 
 **FR-030 — At most 20 viewers**
 - **Priority:** Must
@@ -1015,13 +1015,13 @@ HTTPS, JSON, bearer access token on every request. No other channel is used; in 
     Then they can still view the tree
     And no member is marked as me
   ```
-  > ⚠️ Not confirmed: when a viewer's member is deleted or its number is cleared the viewer keeps viewing without a position — accept, or should the viewer's access end too; blocks only the edge-case policy.
+  (Resolved 2026-10-11: accepted — the viewer keeps viewing without a position until the owner records their number again.)
 
 #### Member profile
 
 **FR-035 — Computed profile of a member**
 - **Priority:** Must
-- **Description:** WHEN the owner or a viewer selects a member, THE SYSTEM SHALL compute and return the person's age (or age at death), father, mother, spouses, siblings (marking half-siblings), children, line of descent from the founder, branch (chi) path, and relationship to "me".
+- **Description:** WHEN the owner or a viewer selects a member, THE SYSTEM SHALL compute and return the person's age (or age at death) both as Western age and as traditional age (Western age plus one), father, mother, spouses, siblings (marking half-siblings), children, line of descent from the founder, branch (chi) path, and relationship to "me".
 - **Verification method:** unit test (computed rules), end-to-end test
 - **Source:** Decision 2026-10-07; branch and kinship rules 2026-10-07/10.
 - **Acceptance criteria:**
@@ -1264,21 +1264,6 @@ Unit tests cover business rules and computed values; repository tests run agains
 
 #### Open (unconfirmed)
 
-> ⚠️ Not confirmed: is editing sibling order one member at a time acceptable, or is a "re-order siblings" action needed — blocks only screen design (FR-016).
-
-> ⚠️ Not confirmed: when a viewer's member is deleted or its number is cleared, may the viewer keep viewing without a position — blocks only the edge-case policy (FR-034).
-
-> ⚠️ Not confirmed: should a child whose other parent was not named be listed under every spouse of the father, or under none — currently under none (FR-035).
-
-> ⚠️ Not confirmed: is age shown in Western years (as specified) or Vietnamese traditional age (+1) — blocks only the age display rule (FR-035).
-
-> ⚠️ Not confirmed: may the owner invite the same number again immediately after it declined — currently allowed (FR-027).
-
-> ⚠️ Not confirmed: accept the risk that a reassigned phone number lets a new holder see an invitation within its 30 days, and that the same number links an account to a member — blocks only the security posture (FR-029, FR-032).
-
-> ⚠️ Not confirmed: should the owner be able to convert a blood member into an in-law (or the reverse) when mis-entered, instead of delete and re-add — currently not possible (FR-015).
-
-> ⚠️ Not confirmed: should two people editing the same member at the same moment be protected against overwriting each other — currently last write wins; matters only if co-editing is ever added.
 
 > ⚠️ Not confirmed: are the response-time targets in NFR-001 and NFR-002 acceptable — proposed by the BA; blocks only the performance tests.
 
@@ -1302,7 +1287,15 @@ Unit tests cover business rules and computed values; repository tests run agains
 | How are invitees notified? | In-app invitation inbox only; push notification is a separate later feature; no SMS | 2026-10-10 |
 | Transfer of ownership | Not provided | 2026-10-10 |
 | Kinship terms and rank | Approved table; rank by generation, never age; "họ" added for distant lines | 2026-10-10 |
+| How age is shown (Western vs. traditional) | Both: Western age and traditional age (Western + 1) | 2026-10-11 |
+| Editing sibling order | One member at a time through the normal edit; no "re-order siblings" action in v1 | 2026-10-11 |
+| May the owner invite again right after a decline | Yes, immediately | 2026-10-11 |
+| Reassigned phone number seeing an old invitation | Risk accepted: an account is tied to its unique number; a person who changed number cannot sign in with the old one | 2026-10-11 |
+| Viewer whose member was deleted or number cleared | Keeps viewing without a position until the owner records the number again | 2026-10-11 |
+| Child with no named other parent | Always sits in the father's branch; the other parent is optional and the client does not distinguish the mother | 2026-10-11 |
+| Convert a blood member to an in-law or the reverse | Not supported; delete and re-create | 2026-10-11 |
+| Two edits at the same moment | Last write wins (only the owner can write) | 2026-10-11 |
 
 ### Appendix B — Cross-reference to the engineering spec
 
-`FR-*` → `docs/specs/features/genealogy/requirements.md` acceptance criteria: see the "Design" column of 4.2. The engineering spec at v5.4 is complete for every `FR-*` above; this SRS introduces no new behavior. Items still open here are the same as the ones marked `⚠️ Not confirmed` in that spec.
+`FR-*` → `docs/specs/features/genealogy/requirements.md` acceptance criteria: see the "Design" column of 4.2. The engineering spec at v5.12 is complete for every `FR-*` above; this SRS introduces no new behavior. Items still open here are the same as the ones marked `⚠️ Not confirmed` in that spec.

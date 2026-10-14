@@ -21,6 +21,7 @@ func testLampConfig() config.LampConfig {
 	return config.LampConfig{
 		MaxActivePerUser: 20, PageSize: 12,
 		DedupeWindow: config.Duration(5 * time.Second), DurationsDays: []int{1, 7, 21, 49},
+		RecipientMaxChars: 100, PrayerMaxChars: 300,
 	}
 }
 
@@ -111,6 +112,47 @@ func TestLampUsecase_Light_LengthBoundaries(t *testing.T) {
 
 			if tt.wantErr != "" {
 				assertInvalidLampField(t, err, tt.wantErr)
+				return
+			}
+			require.NoError(t, err)
+		})
+	}
+}
+
+// The length limits are read from config, not from constants: a stricter
+// config rejects text the dev defaults accept.
+func TestLampUsecase_Light_LengthLimitsComeFromConfig(t *testing.T) {
+	cfg := testLampConfig()
+	cfg.RecipientMaxChars = 10
+	cfg.PrayerMaxChars = 20
+
+	tests := []struct {
+		name      string
+		recipient string
+		prayer    string
+		wantField string
+	}{
+		{"recipient at the configured limit", strings.Repeat("ạ", 10), "", ""},
+		{"recipient one over the configured limit", strings.Repeat("ạ", 11), "", "recipient"},
+		{"prayer at the configured limit", "A", strings.Repeat("ế", 20), ""},
+		{"prayer one over the configured limit", "A", strings.Repeat("ế", 21), "prayer"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			repo := new(domain.MockLampRepository)
+			repo.On("Light", mock.Anything, mock.Anything).Return(&domain.Lamp{ID: 1}, true, nil).Maybe()
+			u := NewLampUsecase(repo, cfg)
+			u.now = func() time.Time { return lampNow }
+			in := validLampInput()
+			in.Recipient = tt.recipient
+			if tt.prayer != "" {
+				in.Prayer = strPtr(tt.prayer)
+			}
+
+			_, _, err := u.Light(context.Background(), 7, in)
+
+			if tt.wantField != "" {
+				assertInvalidLampField(t, err, tt.wantField)
 				return
 			}
 			require.NoError(t, err)

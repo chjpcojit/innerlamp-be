@@ -13,7 +13,7 @@ import (
 // declared here (the consumer) so the handler is tested with a mock.
 type deityUsecase interface {
 	Top(ctx context.Context) ([]domain.Deity, error)
-	ListDeities(ctx context.Context, page int) (*domain.DeityPage, error)
+	ListDeities(ctx context.Context, deityType string, page int) (*domain.DeityPage, error)
 	Get(ctx context.Context, id string) (*domain.Deity, error)
 }
 
@@ -112,9 +112,10 @@ func (h *DeityHandler) Top(w http.ResponseWriter, r *http.Request) {
 	utils.WriteSuccessResponse(w, deityTopResponse{Items: newDeitySummaries(h.imageHost, r, items)})
 }
 
-// ListDeities serves GET /v1/deities?page=N: Buddhas and bodhisattvas in one
-// paged list (each item carries its type). page defaults to 1; anything that
-// is not a positive integer is 400 INVALID_PAGE.
+// ListDeities serves GET /v1/deities?type=T&page=N: deities in one paged list
+// (each item carries its type). type is optional — empty or absent lists every
+// type, an unknown value is 400 INVALID_DEITY_TYPE (validated by the usecase).
+// page defaults to 1; anything that is not a positive integer is 400 INVALID_PAGE.
 func (h *DeityHandler) ListDeities(w http.ResponseWriter, r *http.Request) {
 	page := 1
 	if raw := r.URL.Query().Get("page"); raw != "" {
@@ -126,7 +127,7 @@ func (h *DeityHandler) ListDeities(w http.ResponseWriter, r *http.Request) {
 		page = p
 	}
 
-	result, err := h.usecase.ListDeities(r.Context(), page)
+	result, err := h.usecase.ListDeities(r.Context(), r.URL.Query().Get("type"), page)
 	if err != nil {
 		writeDomainError(w, err)
 		return

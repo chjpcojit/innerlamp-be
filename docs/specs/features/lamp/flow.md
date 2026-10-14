@@ -1,7 +1,7 @@
 # Flow — lamp
 
-Version: 1.2
-Last updated: 2026-10-10
+Version: 1.3
+Last updated: 2026-10-11
 Status: implemented — mirror 1:1 của `design.md` v1.2 (flow thắp đèn và vườn đèn không đổi so với v1.1).
 Module: `lamp`
 

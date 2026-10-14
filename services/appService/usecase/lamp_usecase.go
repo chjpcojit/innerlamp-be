@@ -15,14 +15,6 @@ import (
 	"chjpcoj.com.innerlamp/services/appService/domain"
 )
 
-// Field limits fixed by the lamps schema (VARCHAR lengths). They are schema, not
-// tuning knobs, so they are constants; everything tunable comes from
-// config.LampConfig.
-const (
-	lampRecipientMax = 100
-	lampPrayerMax    = 300
-)
-
 // LampUsecase lights lamps and serves the garden of lit lamps.
 type LampUsecase struct {
 	lamps domain.LampRepository
@@ -88,15 +80,15 @@ func (u *LampUsecase) build(in domain.LampInput) (*domain.Lamp, error) {
 	if recipient == "" {
 		return nil, invalidLamp("recipient", "recipient is required")
 	}
-	if utf8.RuneCountInString(recipient) > lampRecipientMax {
-		return nil, invalidLamp("recipient", fmt.Sprintf("recipient must be at most %d characters", lampRecipientMax))
+	if utf8.RuneCountInString(recipient) > u.cfg.RecipientMaxChars {
+		return nil, invalidLamp("recipient", fmt.Sprintf("recipient must be at most %d characters", u.cfg.RecipientMaxChars))
 	}
 
 	var prayer *string
 	if in.Prayer != nil {
 		if p := normalizeLampText(*in.Prayer); p != "" {
-			if utf8.RuneCountInString(p) > lampPrayerMax {
-				return nil, invalidLamp("prayer", fmt.Sprintf("prayer must be at most %d characters", lampPrayerMax))
+			if utf8.RuneCountInString(p) > u.cfg.PrayerMaxChars {
+				return nil, invalidLamp("prayer", fmt.Sprintf("prayer must be at most %d characters", u.cfg.PrayerMaxChars))
 			}
 			prayer = &p
 		}

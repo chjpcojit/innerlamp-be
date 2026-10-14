@@ -101,6 +101,7 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0005_temples.sql",
 		"0006_admins.sql", // temple_suggestions.reviewed_by references admins
 		"0007_deities.sql",
+		"0015_deities_deva_type.sql", // widens deities.type CHECK to allow DEVA (deity type filter tests)
 		"0011_temple_content.sql", // temples.introduction etc.: postgres_temple_repository.go selects them
 		"0012_articles.sql",
 		"0013_sutras.sql",
@@ -111,10 +112,19 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0019_sutra_audio_search.sql",              // sutras.audio_url + unaccent: postgres_sutra_repository.go selects/uses them
 		"0020_sutra_reference_license_summary.sql", // sutras.summary etc.: postgres_sutra_repository.go selects/inserts them
 		"0022_temple_suggestions.sql",
-		"0023_registration_ordination_temple.sql", // users/pending_registration.ordination_temple_id -> temples
-		"0024_temple_province.sql",                // temples.province: postgres_temple_repository.go selects/inserts it
-		"0027_lamps.sql",                          // lamps: postgres_lamp_repository.go (references users)
-		"0026_administrative_units.sql",           // addr_*: postgres_administrative_unit_repository.go
+		"0023_registration_ordination_temple.sql",   // users/pending_registration.ordination_temple_id -> temples
+		"0024_temple_province.sql",                  // temples.province: postgres_temple_repository.go selects/inserts it
+		"0027_lamps.sql",                            // lamps: postgres_lamp_repository.go (references users)
+		"0026_administrative_units.sql",             // addr_*: postgres_administrative_unit_repository.go
+		"0028_genealogy.sql",                        // genealogy_*: postgres_genealogy_*_repository.go (references users)
+		"0029_users_avatar.sql",                     // users.avatar_object: postgres_profile_repository.go selects/updates it
+		"0030_temple_suggestions_address_codes.sql", // temple_suggestions.province_code/ward_code/ward: postgres_temple_suggestion_repository.go
+		"0031_calendar_events.sql",                  // calendar_*: postgres_calendar_event_repository.go
+		"0032_temple_address_codes.sql",             // temples.province_code/ward_code/ward: postgres_temple_repository.go (v1.7)
+		"0033_users_full_name.sql",                  // users/pending_registration.full_name: registration + login repositories select/insert it
+		"0034_temple_schedules.sql",                  // temple_schedules/steps: postgres_temple_schedule_repository.go
+		"0035_temple_events.sql",                    // temple_events: postgres_temple_event_repository.go
+		"0036_temple_announcements.sql",             // temple_announcements/issuing bodies + users.receive_temple_announcements
 	} {
 		sqlBytes, err := os.ReadFile("../../../migrations/" + file)
 		require.NoError(t, err)
@@ -285,11 +295,13 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 
 	t.Run("happy path writes pending and otp, first send is free", func(t *testing.T) {
 		truncateAll(t, db)
+		fullName := "Nguyen Van Test"
 		dharma := "Thich Test"
 		pending := &domain.PendingRegistration{
 			PhoneNumber:  "+84900000010",
 			Email:        "a@example.com",
 			PasswordHash: "hash",
+			FullName:     &fullName,
 			DharmaName:   &dharma,
 			// Set by the caller (the use case), same as PendingRegistrationTTL —
 			// distinct from the expiresAt argument below, which is the OTP's own
@@ -311,6 +323,8 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 		got, err := repo.FindPendingRegistration(ctx, "+84900000010")
 		require.NoError(t, err)
 		require.Equal(t, "a@example.com", got.Email)
+		require.NotNil(t, got.FullName)
+		require.Equal(t, "Nguyen Van Test", *got.FullName)
 		require.Equal(t, "Thich Test", *got.DharmaName)
 
 		otp, err := otpRepo.FindActiveOTP(ctx, "+84900000010", domain.OTPPurposeRegister)

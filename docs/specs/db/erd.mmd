@@ -6,6 +6,13 @@
 %%        0022_temple_suggestions.sql (FK admins: 0006_admins.sql), 0024_temple_province.sql
 %%        0026_administrative_units.sql (addr_*: hanh chinh hai he cu/moi + mapping cap xa)
 %%        0027_lamps.sql (thap den / vuon den)
+%%        0028_genealogy.sql (gia pha: cay + pha ky + moi xem)
+%%        0030_temple_suggestions_address_codes.sql (de xuat chua: province_code/ward_code/ward, he moi, khong FK)
+%%        0032_temple_address_codes.sql (chua: province_code/ward_code/ward, he moi, khong FK, khong backfill; docs/specs/features/temple/ v1.7)
+%%        0031_calendar_events.sql (su kien lich theo quy tac lap, khong luu tung nam; docs/specs/features/calendar/design.md)
+%%        0034_temple_schedules.sql (thoi khoa tu tap cua chua + cac buoc; docs/specs/features/temple-schedule/design.md)
+%%        0035_temple_events.sql (su kien cua chua, mot bang co cot lap; docs/specs/features/temple-event/design.md)
+%%        0036_temple_announcements.sql (thong bao cua chua + don vi phat hanh + users.receive_temple_announcements; docs/specs/features/temple-announcement/design.md)
 %% Quy ước: quan hệ nét liền (--) = FK có cưỡng chế; nét đứt (..) = ràng buộc logic, KHÔNG FK.
 erDiagram
     users {
@@ -14,8 +21,11 @@ erDiagram
         timestamptz email_verified_at "NULL - US-001 verify phone_number, khong verify email"
         varchar(20) phone_number UK "NOT NULL, users_phone_number_key"
         varchar(255) password_hash "NOT NULL, bcrypt"
+        varchar(300) full_name "NULL; bắt buộc ở đăng ký, v7.5"
         varchar(255) dharma_name "NULL"
         varchar(64) ordination_temple_id FK "NULL, temples.id (0023, thay ordination_place)"
+        varchar(255) avatar_object "NULL, khoa object avatar trong bucket (0029), khong phai URL"
+        boolean receive_temple_announcements "NOT NULL DEFAULT true, cong tac nhan thong bao cua chua, dung chung moi thiet bi (0036)"
         timestamptz created_at "NOT NULL DEFAULT now()"
         timestamptz updated_at "NOT NULL DEFAULT now()"
     }
@@ -48,6 +58,7 @@ erDiagram
         varchar(20) phone_number UK "NOT NULL, target ON CONFLICT khi resend"
         varchar(255) email "NOT NULL, co y KHONG unique"
         varchar(255) password_hash "NOT NULL, bcrypt"
+        varchar(300) full_name "NULL; bắt buộc ở đăng ký, v7.5"
         varchar(255) dharma_name "NULL"
         varchar(64) ordination_temple_id FK "NULL, temples.id (0023, thay ordination_place)"
         timestamptz expires_at "NOT NULL, cung TTL voi OTP"
@@ -99,6 +110,23 @@ erDiagram
     users ||--o{ user_sessions : "user_id, ON DELETE CASCADE"
     users ||--o{ memorials : "user_id, ON DELETE CASCADE"
     users ||--o{ lamps : "user_id, ON DELETE CASCADE (tam thoi, retention chua chot)"
+    users ||--o{ genealogies : "owner_user_id, ON DELETE RESTRICT"
+    genealogies ||--|| genealogy_chronicles : "genealogy_id, ON DELETE CASCADE"
+    genealogies ||--o{ genealogy_members : "genealogy_id, ON DELETE CASCADE"
+    genealogy_members ||--o{ genealogy_members : "parent_id / spouse_of_id / other_parent_id (FK ghep cung cay)"
+    genealogies ||--o{ genealogy_viewers : "genealogy_id, ON DELETE CASCADE"
+    users ||--o{ genealogy_viewers : "user_id, ON DELETE CASCADE"
+    genealogies ||--o{ genealogy_invitations : "genealogy_id, ON DELETE CASCADE"
+    genealogy_members ||--o{ genealogy_invitations : "member_id, ON DELETE CASCADE"
+    calendar_events ||--o{ calendar_event_translations : "event_code, ON DELETE CASCADE"
+    calendar_events ||--o{ calendar_event_groups : "event_code, ON DELETE CASCADE"
+    calendar_groups ||--o{ calendar_event_groups : "group_code, ON DELETE RESTRICT"
+    temples ||--o{ temple_events : "temple_id, ON DELETE CASCADE"
+    temples ||--o{ temple_schedules : "temple_id, ON DELETE CASCADE"
+    temple_schedules ||--o{ temple_schedule_steps : "schedule_id, ON DELETE CASCADE"
+    temples ||--o{ temple_issuing_bodies : "temple_id, ON DELETE CASCADE"
+    temples ||--o{ temple_announcements : "temple_id, ON DELETE CASCADE"
+    temple_issuing_bodies ||--o{ temple_announcements : "issuing_body_id, ON DELETE RESTRICT"
     temples ||--o| temple_suggestions : "temple_id, chua tao tu de xuat nay"
     temples ||--o{ users : "ordination_temple_id, noi quy y/xuat gia (NULL = chua co)"
     addr_new_provinces ||--o{ addr_new_wards : "province_code"
@@ -160,8 +188,11 @@ erDiagram
         smallint heritage_priority "NOT NULL, 1..8 suy ra tu heritage_rank, nho hon = noi bat hon"
         double latitude "NOT NULL"
         double longitude "NOT NULL"
-        text address "NOT NULL"
+        text address "NOT NULL, tu 0032 va khi nap lai: chi phan duoi cap xa; dong chua nap lai van la chuoi day du"
         varchar(100) province "NOT NULL DEFAULT empty, ten tinh/thanh khong tien to (0024)"
+        varchar(16) province_code "NULL, ma tinh he moi (0032); NULL o dong chua nap lai, khong FK"
+        varchar(16) ward_code "NULL, ma xa he moi (0032); cung NULL voi province_code, khong FK"
+        varchar(255) ward "NULL, ten day du cua xa chup tu dataset (0032)"
         varchar(64) operating_hours "NOT NULL DEFAULT ''"
         boolean parking_car "NOT NULL DEFAULT false"
         boolean parking_motorcycle "NOT NULL DEFAULT false"
@@ -194,6 +225,70 @@ erDiagram
         timestamptz updated_at "NOT NULL DEFAULT now()"
     }
 
+    genealogies {
+        bigint id PK "BIGSERIAL"
+        bigint owner_user_id FK "-> users(id), RESTRICT"
+        varchar(100) name
+        varchar(200) ancestral_home
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    genealogy_chronicles {
+        bigint genealogy_id PK "-> genealogies(id), CASCADE"
+        varchar(50) surname "NULL"
+        varchar(200) current_location "NULL"
+        smallint since_year "NULL"
+        varchar(5000) origin "NULL"
+        varchar(20000) history "NULL"
+        varchar(200) hall_name "NULL"
+        varchar(300) hall_address "NULL"
+        smallint chap_year "NULL, DUONG lich; chap_year/month/day cung co hoac cung NULL"
+        smallint chap_month "NULL"
+        smallint chap_day "NULL"
+        boolean chap_entered_as_lunar "NOT NULL DEFAULT false, nguoi dung chon theo am"
+        varchar(200) hoanh_phi "NULL (+ _reading, _meaning)"
+        varchar(500) couplet_upper "NULL (+ _reading, _meaning)"
+        varchar(500) couplet_lower "NULL (+ _reading, _meaning)"
+        varchar(5000) teaching "NULL"
+        timestamptz updated_at
+    }
+    genealogy_members {
+        bigint id PK "BIGSERIAL, UNIQUE (id, genealogy_id)"
+        bigint genealogy_id FK "-> genealogies(id), CASCADE"
+        varchar(6) kind "blood | in_law"
+        varchar(6) gender "male | female"
+        varchar(100) full_name
+        smallint birth_year "NULL"
+        boolean is_alive
+        smallint death_year "NULL, chi khi da mat"
+        smallint death_month "NULL, DUONG lich, cung death_day"
+        smallint death_day "NULL"
+        boolean death_entered_as_lunar "NULL"
+        varchar(20) phone_number "NULL, UNIQUE (genealogy_id, phone_number); khop so tai khoan = vi tri 'toi'"
+        boolean is_clan_head "co truong toc: toi da 1/cay; blood, nam, con song"
+        bigint parent_id FK "NULL, (parent_id, genealogy_id), RESTRICT"
+        bigint other_parent_id FK "NULL, SET NULL (other_parent_id)"
+        bigint spouse_of_id FK "NULL, CASCADE; chi voi in_law"
+        smallint birth_order "NULL, 1..1000"
+        smallint generation "NOT NULL, thuy to = 1"
+    }
+    genealogy_viewers {
+        bigint genealogy_id PK "-> genealogies(id), CASCADE"
+        bigint user_id PK "-> users(id), CASCADE"
+        bigint granted_by FK "-> users(id)"
+        timestamptz created_at
+    }
+    genealogy_invitations {
+        bigint id PK "BIGSERIAL"
+        bigint genealogy_id FK "-> genealogies(id), CASCADE"
+        bigint member_id FK "(member_id, genealogy_id) -> members, CASCADE"
+        varchar(20) phone_number "khop nguoi theo so dien thoai, khong luu user_id"
+        bigint invited_by FK "-> users(id)"
+        varchar(9) status "pending | accepted | declined | cancelled | expired"
+        timestamptz created_at
+        timestamptz expires_at
+        timestamptz responded_at "NULL khi pending"
+    }
     lamps {
         bigint id PK "BIGSERIAL"
         bigint user_id FK "NOT NULL, REFERENCES users(id) ON DELETE CASCADE (tam thoi), nguoi thap den"
@@ -208,11 +303,117 @@ erDiagram
         timestamptz end_at "NOT NULL, lit_at + duration_days*24h, CHECK end_at > lit_at; dang sang khi end_at > now"
     }
 
+    calendar_groups {
+        varchar(32) code PK "0031; on dinh: buddhist, vietnam, folk; BO them duoc"
+        varchar(100) name "NOT NULL, tieng Viet (bang dich cho nhom: chua co)"
+        int sort_order "NOT NULL CHECK >= 1"
+    }
+
+    calendar_events {
+        varchar(64) code PK "0031; khoa on dinh cua su kien, seed upsert theo code"
+        varchar(16) kind "NOT NULL, CHECK (solar, lunar, lunar_monthly, lunar_last_day, solar_term)"
+        smallint solar_month "NULL, 1..12, chi kind = solar"
+        smallint solar_day "NULL, 1..31, chi kind = solar (29/2 cho phep)"
+        smallint lunar_month "NULL, 1..12, kind = lunar hoac lunar_last_day"
+        smallint lunar_day "NULL, 1..30, kind = lunar hoac lunar_monthly"
+        boolean is_leap_month "NOT NULL DEFAULT false, chi co nghia voi kind = lunar"
+        smallint solar_term_longitude "NULL, boi cua 15 trong 0..345, chi kind = solar_term"
+        boolean is_public_holiday "NOT NULL DEFAULT false, chi ngay cua su kien, khong co nghi bu"
+        varchar(500) image_url "NULL, seed de trong"
+        int sort_order "NOT NULL CHECK >= 1"
+        boolean is_active "NOT NULL DEFAULT true, BO tat thay vi xoa"
+    }
+
+    calendar_event_translations {
+        varchar(64) event_code PK,FK "calendar_events.code"
+        varchar(8) lang PK "NOT NULL, ban dau chi vi"
+        varchar(255) name "NOT NULL"
+        text short_description "NOT NULL"
+        text long_description "NOT NULL"
+        text guidance "NOT NULL, huong dan le nghi"
+    }
+
+    calendar_event_groups {
+        varchar(64) event_code PK,FK "calendar_events.code"
+        varchar(32) group_code PK,FK "calendar_groups.code; moi su kien >= 1 nhom (kiem o seed/BO, khong CHECK duoc)"
+    }
+
+    temple_events {
+        varchar(64) id PK "0035; khoa on dinh, seed upsert theo id"
+        varchar(64) temple_id FK "NOT NULL, temples.id, ON DELETE CASCADE"
+        varchar(255) title "NOT NULL, CHECK khong rong"
+        text description "NOT NULL DEFAULT ''"
+        varchar(32) kind "NOT NULL, CHECK (KHOA_TU, PHAP_HOI, LE_CAU_AN, LE_CAU_SIEU, LE_HOI, THUYET_PHAP, KHAC)"
+        timestamptz starts_at "NOT NULL, lan dau (hoac duy nhat)"
+        timestamptz ends_at "NOT NULL, CHECK >= starts_at; su kien lap: thoi luong moi lan"
+        boolean is_all_day "NOT NULL DEFAULT false"
+        varchar(16) status "NOT NULL DEFAULT SCHEDULED, CHECK (SCHEDULED, POSTPONED, CANCELLED)"
+        text audience_note "NOT NULL DEFAULT ''"
+        text contact_info "NOT NULL DEFAULT ''"
+        text image_url "NULL"
+        varchar(16) recurrence "NOT NULL DEFAULT NONE, CHECK (NONE, LUNAR_MONTHLY, WEEKLY)"
+        smallint[] recurrence_lunar_days "NOT NULL DEFAULT {}, 1..30, bat buoc khi LUNAR_MONTHLY"
+        smallint recurrence_weekday "NULL, 0..6, bat buoc khi WEEKLY"
+        date recurrence_until "NULL, ngay cuoi con lap (bao gom)"
+        boolean is_active "NOT NULL DEFAULT true, BO tat; seed khong ghi"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    temple_schedules {
+        varchar(64) id PK "0034; khoa on dinh, seed upsert theo id"
+        varchar(64) temple_id FK "NOT NULL, temples.id, ON DELETE CASCADE"
+        varchar(255) name "NOT NULL, CHECK khong rong"
+        time start_time "NOT NULL, gio Viet Nam, khong ngay"
+        time end_time "NULL, CHECK <> start_time; nho hon start_time = qua nua dem"
+        smallint[] weekdays "NOT NULL DEFAULT {}, {} = moi ngay, 0 = Chu nhat..6, CHECK 0..6"
+        text description "NOT NULL DEFAULT ''"
+        varchar(255) instructor "NOT NULL DEFAULT '', van ban tu do"
+        varchar(255) location "NOT NULL DEFAULT '', van ban tu do"
+        text preparation "NOT NULL DEFAULT ''"
+        int sort_order "NOT NULL DEFAULT 0, pha the hoa khi cung start_time"
+        boolean is_active "NOT NULL DEFAULT true, BO tat; seed khong ghi"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
+    temple_schedule_steps {
+        varchar(64) schedule_id PK,FK "temple_schedules.id, ON DELETE CASCADE"
+        smallint position PK "CHECK >= 1, thu tu do nguoi nhap dat"
+        time step_time "NULL, thong tin, khong quyet dinh thu tu"
+        text text "NOT NULL, CHECK khong rong"
+    }
+
+    temple_issuing_bodies {
+        varchar(64) id PK "0036; server sinh, tien to tib_"
+        varchar(64) temple_id FK "NOT NULL, temples.id, ON DELETE CASCADE"
+        varchar(100) name "NOT NULL, CHECK khong rong, UNIQUE (temple_id, lower(name))"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+    }
+
+    temple_announcements {
+        varchar(64) id PK "0036; server sinh, tien to tann_"
+        varchar(64) temple_id FK "NOT NULL, temples.id, ON DELETE CASCADE"
+        varchar(64) issuing_body_id FK "NOT NULL, temple_issuing_bodies.id, ON DELETE RESTRICT"
+        varchar(150) title "NOT NULL, CHECK khong rong"
+        text body "NOT NULL, CHECK khong rong"
+        varchar(16) source "NOT NULL DEFAULT admin, CHECK (admin, system)"
+        timestamptz published_at "NOT NULL, = luc tao o v1"
+        timestamptz expires_at "NOT NULL, CHECK > published_at"
+        timestamptz revoked_at "NULL, dat mot lan khi thu hoi; state ACTIVE/EXPIRED/REVOKED suy ra, khong luu"
+        varchar(64) created_by "NULL, id admin, khong FK; NULL khi source = system"
+        timestamptz created_at "NOT NULL DEFAULT now()"
+        timestamptz updated_at "NOT NULL DEFAULT now()"
+    }
+
     temple_suggestions {
         bigint id PK "BIGSERIAL"
         varchar(255) name "NOT NULL, ten chua nguoi dung de xuat"
-        varchar(100) province "NOT NULL, chuoi tu do"
-        varchar(500) address "NOT NULL"
+        varchar(100) province "NOT NULL, ten tinh ngan chup tu dataset luc gui (dong cu: chuoi nguoi dung go)"
+        varchar(16) province_code "NULL, ma tinh he moi (0030); NULL o dong cu, khong FK"
+        varchar(16) ward_code "NULL, ma xa he moi (0030); NULL o dong cu, khong FK"
+        varchar(255) ward "NULL, ten day du cua xa chup tu dataset (0030)"
+        varchar(500) address "NOT NULL, chi phan duoi cap xa tu 0030"
         varchar(16) status "NOT NULL DEFAULT pending, CHECK (pending, created, rejected)"
         varchar(64) temple_id FK "NULL, REFERENCES temples(id), chi khi created; UNIQUE khi NOT NULL"
         bigint reviewed_by FK "NULL, REFERENCES admins(id), NOT NULL khi created/rejected"

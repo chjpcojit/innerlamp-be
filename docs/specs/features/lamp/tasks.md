@@ -1,7 +1,7 @@
 # Tasks — lamp
 
-Version: 1.2
-Last updated: 2026-10-10
+Version: 1.3
+Last updated: 2026-10-11
 Status: v1 (Phase 1–4: domain, config, usecase, repository, migration `0027`, handler, wiring, openapi) đã implement và kiểm chứng 2026-10-10 — unit, repository (Postgres thật) và E2E (binary thật + Postgres) đều pass. Còn 2 marker `⚠️ Not confirmed` (hiệu năng/khối lượng; retention + xoá tài khoản — migration đang dùng `ON DELETE CASCADE` tạm thời). Chưa sinh lại `erd.svg` (thiếu `mmdc`).
 Module: `lamp`
 
@@ -17,6 +17,10 @@ Mỗi mục truy về một dòng trong bảng "Layers & components" hoặc mộ
 - [x] `domain/mock_lamp_repository.go`
 - [x] `config/config.go`: `LampConfig{MaxActivePerUser, PageSize, DedupeWindow, DurationsDays}` + `Validate` (từ chối `< 1`, cửa sổ `<= 0`, danh sách rỗng/trùng/`< 1`) + test trong `config_test.go`
 - [x] `config/config.dev.yaml`: block `lamp:` (`max_active_per_user: 20`, `page_size: 12`, `dedupe_window: "5s"`, `durations_days: [1, 7, 21, 49]`)
+- [x] v1.3 — `config/config.go`: thêm `RecipientMaxChars`, `PrayerMaxChars` vào `LampConfig`, hằng trần `LampRecipientColumnChars = 100` / `LampPrayerColumnChars = 300`, `Validate` từ chối `< 1` hoặc vượt trần + test trong `config_test.go`
+- [x] v1.3 — `config/config.dev.yaml`: thêm `recipient_max_chars: 100` và `prayer_max_chars: 300` vào block `lamp:`
+- [x] v1.3 — `usecase/lamp_usecase.go`: bỏ hằng `lampRecipientMax`/`lampPrayerMax`, kiểm độ dài theo `cfg.RecipientMaxChars`/`cfg.PrayerMaxChars`; test với giới hạn khác 100/300 chứng minh giá trị lấy từ config
+- [x] v1.3 — `docs/specs/api/openapi.yaml` (+ `web/docs/public/openapi.yaml`) và `web/docs/.../lamps.md`: ghi 100/300 là giá trị mặc định của config
 
 ## Phase 2 — Usecase
 

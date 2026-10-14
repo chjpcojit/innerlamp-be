@@ -1,8 +1,8 @@
 # Flow — genealogy
 
-Version: 5.5
-Last updated: 2026-10-10
-Status: not started — sơ đồ dự kiến, mirror `design.md` v5.5.
+Version: 5.12
+Last updated: 2026-10-11
+Status: implemented — sơ đồ mirror `design.md` v5.12, đã đối chiếu với code và E2E (xem `ac-audit.md`).
 Module: `genealogy`
 
 > See `changelog.md` in this folder for the version history of this spec.

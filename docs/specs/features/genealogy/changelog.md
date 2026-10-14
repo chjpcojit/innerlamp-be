@@ -4,6 +4,80 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v5.12 (2026-10-11)
+
+Đồng bộ tài liệu, không đổi hành vi, không đổi code. Bump minor.
+
+- `SRS.md` (1.1 → 1.2): bỏ các tham chiếu cũ tới spec v5.4 (header, 1.1, 1.5, 2.7, Appendix B), trỏ tới v5.12.
+- `flow.md`: `Status` sửa từ "not started" thành `implemented` (sơ đồ mirror `design.md`, đã có E2E).
+- `ac-audit.md`: `Scope` sửa từ `requirements.md` v5.9 thành v5.12; AC65 (`traditional_age`) đã có dòng test từ v5.11.
+- `requirements.md`, `design.md`, `tasks.md`: chỉ bump header.
+- Còn mở (không chặn): NFR-001/002 ở `SRS.md` chưa duyệt, chưa có load test.
+
+## v5.11 (2026-10-11)
+
+Chốt AC65 và đóng marker cuối cùng: hồ sơ thành viên hiển thị **cả tuổi tây lẫn tuổi mụ**. Bump minor: thêm một field tính ra, không đổi dữ liệu lưu.
+
+- `requirements.md`: AC65 viết lại (hai số: `age` tây, `traditional_age` = `age + 1`, cùng `null` khi thiếu năm); bảng `MemberProfile` thêm `traditional_age`; không còn marker nào.
+- `design.md`: Step P-3 tính thêm `TraditionalAge`; `flow.md` chỉ bump header (không đổi bước); `tasks.md`, `ac-audit.md` cập nhật.
+- Code: `usecase/genealogy_kinship.go` thêm `TraditionalAge`; `domain.MemberProfile.TraditionalAge`; `usecase/genealogy_profile_usecase.go`; DTO `traditional_age` ở `delivery/http/genealogy_member_handler.go`. Test: `TestTraditionalAge`, `TestProfileUsecase`, `TestGenealogyMemberHandler`.
+- Tài liệu: `docs/specs/api/openapi.yaml` (`MemberProfile.traditional_age`), `SRS.md` (FR-035), OKF concept, `web/docs` (guide + changelog).
+- Tương thích: `age` giữ nguyên nghĩa; client cũ không bị ảnh hưởng.
+
+## v5.10 (2026-10-11)
+
+Chốt các marker nhỏ theo anh Đức. Bump minor: không đổi hành vi, không đổi code.
+
+- `requirements.md`: bảy marker chuyển sang "Open questions (resolved)": AC72 (mời lại ngay được), AC75 (chấp nhận rủi ro số bị cấp lại), AC56 (sửa `birth_order` từng người), AC63 (viewer mất vị trí thì giữ nguyên), AC66 (con luôn ở nhánh của cha, mẹ tuỳ chọn), AC80 (xoá làm lại), ghi đè đồng thời (last-write-wins). Còn một marker mở: AC65.
+- `design.md`, `flow.md`, `tasks.md`, `ac-audit.md`: chỉ bump header; `tasks.md` ghi mục chốt marker còn đúng AC65.
+- Hệ quả cần biết (AC66): vì client chỉ chọn "con của người cha", `other_parent_id` thường để trống; khi đó hồ sơ của con không có `mother` và xưng hô "Mẹ" trả `UNKNOWN`. Muốn có xưng hô "Mẹ" thì client phải ghi `other_parent_id`.
+- Chưa chốt: AC65. Câu trả lời "không giữ tuổi tây" đọc được theo hai cách (không muốn tuổi mụ / không giữ tuổi tây) nên chưa đóng; code đang tính tuổi tây.
+
+## v5.9 (2026-10-11)
+
+Hoàn tất tài liệu hạ nguồn. Bump minor: không đổi hành vi.
+
+- `tasks.md`: thêm và tick mục tài liệu hạ nguồn; `Status` chuyển sang "implemented and documented".
+- `requirements.md`, `design.md`, `flow.md`, `ac-audit.md`: chỉ bump header.
+- Tài liệu mới: concept OKF `docs/knowledge/features/genealogy.md` (kèm `index.md`, `log.md`); `web/docs/src/content/docs/guides/catalogues/genealogies.md`, sidebar "Gia phả" ở `astro.config.mjs`, 15 mã lỗi mới trong `guides/error-handling.md`, mục 2026-10-11 và danh sách endpoint (37 → 58) trong `changelog.md` của web.
+- Đã kiểm: `npm run build` ở `web/docs` dựng 72 trang, `openapi.yaml` mới được đồng bộ sang `public/`; `docs/specs/db/erd.svg` đã có các bảng `genealogy_*` và các cột `*_entered_as_lunar`, `is_clan_head` (dựng từ `erd.mmd`).
+- Còn lại: chỉ các marker nhỏ chờ anh Đức (AC56, AC63, AC65, AC66, AC72, AC75, AC80, ghi đè đồng thời); ngưỡng hiệu năng NFR-001/002 chưa duyệt và chưa có load test.
+
+## v5.8 (2026-10-11)
+
+Hoàn tất kiểm chứng (Phase 5). Bump minor: không đổi hành vi.
+
+- `tasks.md`: tick Phase 5 trừ mục chốt marker (chờ anh Đức); `Status` chuyển sang `implemented`.
+- `requirements.md`, `design.md`: `Status` chuyển sang `implemented`; `flow.md` chỉ bump header.
+- Thêm `ac-audit.md`: bảng AC1–AC82 ↔ test theo từng lớp (usecase, repository trên Postgres thật, handler, E2E binary thật), không còn AC nào chưa có test.
+- E2E mới `e2e/genealogy_e2e_test.go`: wiring 21 route qua middleware JWT; hành trình mời → hộp lời mời → chấp nhận → viewer chỉ đọc; người lạ nhận 404 giống từng byte; trần và hạn lời mời đọc từ config của binary chạy thật.
+- Phát hiện khi viết E2E: không có lỗi sản phẩm; một assertion của chính E2E ghi nhầm (xoá người con gái không có con là hợp lệ) đã sửa. Thêm test repository cho AC32 (đổi giới tính giữ nguyên dâu/rể).
+- Concept OKF: `docs/knowledge/features/genealogy.md` (tạo bằng `il-okf-writer`, `status: draft`, không ghi `verified`).
+- Còn lại: chốt các marker nhỏ (cần anh Đức), `web/docs` (guide, mã lỗi, changelog, sidebar), render lại `docs/specs/db/erd.svg`.
+
+## v5.7 (2026-10-11)
+
+Cài đặt xong tầng delivery, wiring và OpenAPI (Phase 4). Bump minor: không đổi hành vi.
+
+- `tasks.md`: tick Phase 4 (handler, map lỗi, test handler, `cmd/main.go`, `openapi.yaml`); gộp mục handler lời mời vào mục handler vì ba nhóm handler nằm cùng một bộ file.
+- `design.md`, `requirements.md`, `flow.md`: chỉ bump header.
+- Điều chỉnh khi cài đặt: id sai định dạng ở path (`abc`, `-3`, `0`) được đổi thành `0` ở handler rồi để use case trả 404 **sau khi resolve vai trò**, nên người lạ gọi id hỏng vẫn nhận `GENEALOGY_NOT_FOUND` chứ không lộ `MEMBER_NOT_FOUND`; `PUT .../chronicle` trả `Chronicle` kèm `founder_name`, `generations_count`, `members_count` (đúng bảng contract, không có object `stats` riêng); `POST` thành viên dùng body phẳng (field của người nằm cùng cấp `relation`/`related_member_id`).
+- Code mới: `delivery/http/genealogy_handler.go`, `genealogy_member_handler.go`, `genealogy_access_handler.go`, `genealogy_handler_test.go`, `mock_genealogy_usecase_test.go`; `errors.go` thêm 15 sentinel; `cmd/main.go` thêm wiring + 21 route; `docs/specs/api/openapi.yaml` thêm 21 operation.
+- Chưa làm: Phase 5 (E2E bằng binary thật, audit AC ↔ test, OKF `docs/knowledge/features/genealogy.md`), `web/docs` (guide, mã lỗi, changelog, sidebar), render lại `erd.svg`.
+- Cần lưu ý ngoài phạm vi: `TestLampUsecase_Light_LengthLimitsComeFromConfig` (feature `lamp`, việc song song) đang fail trong `go test -short ./services/appService/...`; không liên quan gia phả.
+
+## v5.6 (2026-10-11)
+
+Cài đặt xong migration và repository (Phase 3). Bump minor: không đổi hành vi.
+
+- `tasks.md`: tick migration, bốn nhóm repository, adapter `UserPhoneLookup`, repository tests (Postgres thật); invitation repository nằm cùng file với viewer repository nên gộp mục.
+- `design.md`: số migration là `0028` (số `0020`–`0027` đã bị các feature khác dùng), ghi chú schema đã viết và áp lên Postgres 16.
+- `requirements.md`, `flow.md`: chỉ bump header.
+- Điều chỉnh khi cài đặt: mọi ghi vào một cây (`Add`, `Update`, `Delete`, `Move`, tạo lời mời) đều khoá hàng `genealogies` trước, nên hai ghi vào cùng cây không chạy song song và các bất biến (trần, một trưởng tộc, một thuỷ tổ, một số điện thoại/nút) đúng cả khi đồng thời; `Accept` cũng khoá `genealogies` trước `genealogy_invitations` như `Create` nên không deadlock.
+- Điều chỉnh khi cài đặt: `ListByGenealogy` báo `expired` cho lời mời `pending` đã quá hạn ngay lúc đọc (không cần job dọn); `Create` mới đánh dấu `expired` thật ở DB để nhường chỗ cho lời mời mới.
+- Code mới: `migrations/0028_genealogy.sql`; `repository/postgres_genealogy_repository.go`, `postgres_genealogy_member_repository.go`, `postgres_genealogy_access_repository.go` (+ test); `migrations/README.md` và `docs/specs/db/erd.mmd` đã cập nhật.
+- Chưa làm: `docs/specs/db/erd.svg` (cần render lại từ `erd.mmd`), Phase 4 (handler, `cmd/main.go`, `openapi.yaml`), Phase 5 (E2E, OKF).
+
 ## v5.5 (2026-10-10)
 
 Cài đặt xong tầng usecase. Bump minor: không đổi hành vi, ghi tiến độ và hai điều chỉnh thiết kế nhỏ.

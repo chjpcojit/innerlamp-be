@@ -60,10 +60,10 @@ func TestDeityUsecase_ListDeities(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			repo := new(domain.MockDeityRepository)
-			repo.On("List", mock.Anything, tt.wantOffset, 20).
+			repo.On("List", mock.Anything, "", tt.wantOffset, 20).
 				Return(nil, tt.total, nil)
 
-			got, err := newDeityUsecase(repo).ListDeities(context.Background(), tt.page)
+			got, err := newDeityUsecase(repo).ListDeities(context.Background(), "", tt.page)
 
 			require.NoError(t, err)
 			assert.NotNil(t, got.Items, "items must marshal as [] not null")
@@ -79,17 +79,46 @@ func TestDeityUsecase_ListDeities(t *testing.T) {
 	for _, page := range []int{0, -1, math.MaxInt32 + 1} {
 		t.Run("invalid page", func(t *testing.T) {
 			repo := new(domain.MockDeityRepository)
-			_, err := newDeityUsecase(repo).ListDeities(context.Background(), page)
+			_, err := newDeityUsecase(repo).ListDeities(context.Background(), "", page)
 			assert.ErrorIs(t, err, domain.ErrInvalidPage)
 			repo.AssertNotCalled(t, "List")
 		})
 	}
 
+	for _, typ := range []string{domain.DeityBuddha, domain.DeityBodhisattva, domain.DeityDeva} {
+		t.Run("filters by type "+typ, func(t *testing.T) {
+			repo := new(domain.MockDeityRepository)
+			repo.On("List", mock.Anything, typ, 20, 20).Return([]domain.Deity{{ID: "x", Type: typ}}, 25, nil)
+
+			got, err := newDeityUsecase(repo).ListDeities(context.Background(), typ, 2)
+
+			require.NoError(t, err)
+			assert.Equal(t, 25, got.Total, "total is the filtered count")
+			assert.Equal(t, 2, got.TotalPages)
+			repo.AssertExpectations(t)
+		})
+	}
+
+	for _, typ := range []string{"buddha", "X", " BUDDHA", "BUDDHA,DEVA"} {
+		t.Run("invalid type "+typ, func(t *testing.T) {
+			repo := new(domain.MockDeityRepository)
+			_, err := newDeityUsecase(repo).ListDeities(context.Background(), typ, 1)
+			assert.ErrorIs(t, err, domain.ErrInvalidDeityType)
+			repo.AssertNotCalled(t, "List")
+		})
+	}
+
+	t.Run("invalid page is reported before invalid type", func(t *testing.T) {
+		repo := new(domain.MockDeityRepository)
+		_, err := newDeityUsecase(repo).ListDeities(context.Background(), "X", 0)
+		assert.ErrorIs(t, err, domain.ErrInvalidPage)
+	})
+
 	t.Run("wraps repository errors", func(t *testing.T) {
 		repo := new(domain.MockDeityRepository)
 		boom := errors.New("db down")
-		repo.On("List", mock.Anything, 0, 20).Return(nil, 0, boom)
-		_, err := newDeityUsecase(repo).ListDeities(context.Background(), 1)
+		repo.On("List", mock.Anything, "", 0, 20).Return(nil, 0, boom)
+		_, err := newDeityUsecase(repo).ListDeities(context.Background(), "", 1)
 		assert.ErrorIs(t, err, boom)
 	})
 }

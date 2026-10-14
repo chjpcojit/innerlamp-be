@@ -1,7 +1,7 @@
 # Design — dharmatalk
 
-Version: 1.1
-Last updated: 2026-10-03
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-10-03) — 2 route đọc + seed lần đầu chạy thật qua binary + Postgres; có test usecase/handler/seed parser/repository/E2E. Thiếu: không còn mục kỹ thuật nào mở; OKF concept chưa viết.
 Module: `content`
 
@@ -29,7 +29,7 @@ Thiết kế bám `article` có chủ đích (code đã viết theo đó): `usec
 | Delivery / DTO | `delivery/http/dharma_talk_handler.go` | `dharmaTalkSummaryResponse`, `dharmaTalkDetailResponse` (nhúng summary), `dharmaTalkListResponse`, `chapterResponse`, `followUpMeditationResponse` — JSON tag chỉ nằm ở đây. |
 | Delivery / Error map | `delivery/http/errors.go` | `ErrDharmaTalkNotFound` → `404 DHARMA_TALK_NOT_FOUND`; `ErrInvalidPage` đã có. |
 | Config | `services/appService/config/config.go`, `config.dev.yaml` | `DharmaTalkConfig{PageSize}`, block `dharma_talk:` (dev: 10). |
-| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; `SeedIfEmpty` ngay sau khi DB kết nối (lỗi thì `log.Fatalf`); đăng ký 2 route. Không dính khối `⚠️ DEV ONLY` nào. |
+| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; (từ 2026-10-11 không còn seed lúc khởi động; `cmd/seeddharmatalks` gọi `SeedIfEmpty`); đăng ký 2 route. Không dính khối `⚠️ DEV ONLY` nào. |
 | Migration | `migrations/0014_dharma_talks.sql` | Bảng `dharma_talks` + index `idx_dharma_talks_order (sort_order, id)`. |
 | Data | `assets/data/dharma_talks.json` | 55 bài (sinh bởi phiên nghiên cứu); đã khớp "Seed JSON" bên dưới, không cần sửa file (`sortOrder` thừa bị bỏ qua). |
 | API spec | `docs/specs/api/openapi.yaml`, `web/docs/public/openapi.yaml` | **Đã có** 2 route (tag DharmaTalks) và schema `DharmaTalkSummary`/`DharmaTalkDetail`; hai file giống hệt nhau. |

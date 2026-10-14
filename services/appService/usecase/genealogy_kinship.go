@@ -173,6 +173,18 @@ func Age(m *domain.GenealogyMember, currentYear int) *int {
 	return &age
 }
 
+// TraditionalAge is the tuổi mụ (tuổi ta) shown beside the Western age (AC65):
+// the Western age plus one, nil exactly when Age is nil. For a deceased member
+// it is the age at death plus one.
+func TraditionalAge(m *domain.GenealogyMember, currentYear int) *int {
+	w := Age(m, currentYear)
+	if w == nil {
+		return nil
+	}
+	t := *w + 1
+	return &t
+}
+
 // Relatives is the set of direct relatives of one member (AC66).
 type Relatives struct {
 	Father   *domain.MemberRef

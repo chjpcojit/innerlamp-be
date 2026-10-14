@@ -6,6 +6,7 @@
 # bottom for how the *dev-only* mock resolver satisfies those names.
 #
 # ⚠️ DEV ONLY: dev_secrets stores literal secret values in plaintext.
+# Recorded debt: docs/tech-debt/config/TD-001 (policy: AGENTS.md §5.3).
 # Point Load() at a real secrets.Client (GCP Secret Manager, etc.) in any
 # non-local environment instead of the mock resolver.
 
@@ -40,6 +41,11 @@ storage:
   backend: "gcs"
   project_id: "innerlamp-dev"
   default_bucket: "innerlamp-avatars-dev"
+  timeout: "30s"
+  # ⚠️ DEV ONLY: the storage emulator from docker-compose.yml (make up / make run). While this is
+  # set, avatar URLs are NOT signed and the store enforces no size/type/expiry. Must be empty in
+  # any deployed config; real signing is TD-001.
+  emulator_host: "localhost:4443"
 
 # ⚠️ DEV ONLY: "log" writes the SMS body to the service log instead of
 # sending it. Point at a real provider's ProviderType once one exists.
@@ -106,9 +112,27 @@ gallery:
 
 # Ảnh Phật theo ngày cho màn Lịch âm. timezone is required (the "today" used when the request has no date).
 # ⚠️ DEV ONLY: empty image_base_url builds image_url from the request's host; set a CDN URL in production.
+# default_language / events_cache_max_age are required by GET /v1/calendar/events (sự kiện lịch).
 calendar:
   timezone: "Asia/Ho_Chi_Minh"
   image_base_url: ""
+  default_language: "vi"
+  events_cache_max_age: "24h"
+
+# Sự kiện của chùa (GET /v1/temples/{id}/events). All three keys are required.
+temple_event:
+  timezone: "Asia/Ho_Chi_Minh"
+  default_window_months: 3
+  max_window_months: 3
+
+# Thông báo của chùa (GET /v1/users/me/temple-announcements). All keys are required.
+# rate_limit is per account and separate from profile.rate_limit.
+temple_announcement:
+  page_size: 20
+  max_page_size: 50
+  rate_limit:
+    max: 60
+    window: "1m"
 
 # Bài viết Phật pháp paging. Both keys are required: zero would mean empty pages.
 article:
@@ -127,6 +151,18 @@ temple_suggestion:
     window: "1h"
     trust_forwarded_for: false
 
+# Administrative units (tỉnh/huyện/xã, hệ cũ và mới): public read-only lookups, also used
+# during registration. rate_limit is the only abuse brake besides the web API key (a caller may
+# simply omit the key header); all routes share one per-IP budget. cache_max_age is sent as
+# Cache-Control max-age: the data changes only when an operator loads a new dataset version.
+# trust_forwarded_for stays false locally; set it true only behind a proxy that appends the real client IP.
+administrative_units:
+  rate_limit:
+    max: 60
+    window: "1m"
+    trust_forwarded_for: false
+  cache_max_age: "24h"
+
 # Pháp thoại paging. page_size is required: zero would mean empty pages.
 dharma_talk:
   page_size: 10
@@ -142,11 +178,34 @@ sutra:
 # Thắp đèn / vườn đèn. Every value is required: Validate rejects anything below 1.
 # max_active_per_user caps one user's lit lamps; page_size is the garden page (and the most limit may ask for);
 # dedupe_window is how long an identical lamp counts as one double-tapped submission.
+# recipient_max_chars / prayer_max_chars are in characters and may be lowered but not raised past the
+# VARCHAR(100) / VARCHAR(300) columns of lamps (Validate rejects it).
 lamp:
   max_active_per_user: 20
   page_size: 12
   dedupe_window: "5s"
   durations_days: [1, 7, 21, 49]
+  recipient_max_chars: 100
+  prayer_max_chars: 300
+
+# Hồ sơ cá nhân. dharma_name_max_chars counts characters (not bytes) after trim + NFC and
+# is shared by registration and the profile edit. It can be lowered freely but not raised past
+# the VARCHAR(255) column of users.dharma_name (Validate rejects it).
+profile:
+  dharma_name_max_chars: 255
+  full_name_max_chars: 300
+  avatar_max_bytes: 5242880          # 5 MiB
+  avatar_content_types: ["image/jpeg", "image/png", "image/webp"]
+  upload_url_ttl: "5m"
+  avatar_read_url_ttl: "15m"
+  # ⚠️ DEV CONFIG: dev bucket / emulator (TD-001: signed URLs only verified on the emulator).
+  bucket: "innerlamp-avatars-dev"
+  avatar_tmp_prefix: "avatars/tmp/"
+  avatar_prefix: "avatars/"
+  # Per account (user id of the access token), reads included.
+  rate_limit:
+    max: 10
+    window: "1m"
 
 # Gia phả. Every value is required: Validate rejects anything below 1.
 # max_viewers counts viewers plus pending invitations; invitation_ttl is 30 days.

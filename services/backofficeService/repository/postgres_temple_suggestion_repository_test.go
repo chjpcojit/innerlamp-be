@@ -51,7 +51,7 @@ func connectTestDB(t *testing.T) database.Database {
 	for _, f := range []string{
 		"0005_temples.sql", "0006_admins.sql", "0011_temple_content.sql", "0022_temple_suggestions.sql",
 		"0024_temple_province.sql", "0026_administrative_units.sql", "0030_temple_suggestions_address_codes.sql",
-		"0032_temple_address_codes.sql",
+		"0032_temple_address_codes.sql", "0001_register_onboarding.sql", "0036_temple_announcements.sql",
 	} {
 		b, err := os.ReadFile("../../../migrations/" + f)
 		require.NoError(t, err)

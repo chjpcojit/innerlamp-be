@@ -12,6 +12,11 @@ const (
 	DeityDeva        = "DEVA"
 )
 
+// IsValidDeityType reports whether t is exactly one of the stored deity types.
+func IsValidDeityType(t string) bool {
+	return t == DeityBuddha || t == DeityBodhisattva || t == DeityDeva
+}
+
 // Deity is one Phật or Bồ tát in the browse catalogue. It maps the deities table.
 //
 // Plain data: no json/db tags — the wire shape is delivery's, the SQL shape is
@@ -72,6 +77,9 @@ type DeityPage struct {
 // ErrDeityNotFound — no deity has the requested id.
 var ErrDeityNotFound = errors.New("deity not found")
 
+// ErrInvalidDeityType — the type filter is not one of BUDDHA, BODHISATTVA, DEVA.
+var ErrInvalidDeityType = errors.New("invalid deity type")
+
 // DeityRepository is the port the deity use case reads through, and the seeder
 // writes through.
 //
@@ -81,10 +89,11 @@ type DeityRepository interface {
 	// ListTop returns the first limit deities of any type in order.
 	ListTop(ctx context.Context, limit int) ([]Deity, error)
 
-	// List returns limit deities of any type (Buddhas and bodhisattvas in one
-	// ordered list) starting at offset, and the total number of deities. An
-	// offset past the end returns an empty slice, not an error.
-	List(ctx context.Context, offset, limit int) ([]Deity, int, error)
+	// List returns limit deities starting at offset in one ordered list, and
+	// the total number of matching deities. deityType "" means every type;
+	// otherwise only that type is listed and counted (the caller has already
+	// validated it). An offset past the end returns an empty slice, not an error.
+	List(ctx context.Context, deityType string, offset, limit int) ([]Deity, int, error)
 
 	// FindByID returns the deity or ErrDeityNotFound.
 	FindByID(ctx context.Context, id string) (*Deity, error)

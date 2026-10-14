@@ -23,11 +23,12 @@ func NewTempleSuggestionRepository(db database.Database) domain.TempleSuggestion
 func (r *templeSuggestionRepository) Create(ctx context.Context, s *domain.TempleSuggestion) (*domain.TempleSuggestion, error) {
 	var out domain.TempleSuggestion
 	err := r.db.QueryRow(ctx, `
-		INSERT INTO temple_suggestions (name, province, address)
-		VALUES ($1, $2, $3)
-		RETURNING id, name, province, address, status, created_at`,
-		s.Name, s.Province, s.Address,
-	).Scan(&out.ID, &out.Name, &out.Province, &out.Address, &out.Status, &out.CreatedAt)
+		INSERT INTO temple_suggestions (name, province_code, province, ward_code, ward, address)
+		VALUES ($1, $2, $3, $4, $5, $6)
+		RETURNING id, name, province_code, province, ward_code, ward, address, status, created_at`,
+		s.Name, s.ProvinceCode, s.Province, s.WardCode, s.Ward, s.Address,
+	).Scan(&out.ID, &out.Name, &out.ProvinceCode, &out.Province, &out.WardCode, &out.Ward,
+		&out.Address, &out.Status, &out.CreatedAt)
 	if err != nil {
 		return nil, fmt.Errorf("insert temple suggestion: %w", err)
 	}

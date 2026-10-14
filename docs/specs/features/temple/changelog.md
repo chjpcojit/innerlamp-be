@@ -4,6 +4,81 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first. (`api-contract.md` là tài liệu client có version riêng, không thuộc bộ này.)
 
+## v1.14 (2026-10-11)
+
+`create-temple` đã có code nên AC 38 được thoả. Không đổi yêu cầu hay thiết kế.
+
+- `requirements.md` (1.13 → 1.14): Status và Pending ghi AC 38 xong. `design.md`, `flow.md`, `tasks.md` (1.13 → 1.14): no change needed, verified — chỉ header.
+- Chứng cứ: `services/backofficeService/e2e/` (`TestTempleSuggestion_E2E_CreateTemple`, `..._LegacySuggestionTakesCodesFromRequest`) và test repository `CreateTemple` — chùa tạo từ đề xuất có `province_code`, `ward_code`, `province`, `ward` đều set, tên lấy từ dataset. Spec đầu mối: `temple-suggestion` v3.4.
+
+## v1.13 (2026-10-11)
+
+Áp `0032` và nạp lại lên DB dev. Không đổi yêu cầu hay thiết kế.
+
+- `tasks.md` (1.12 → 1.13): đánh `[x]` mục DB dev kèm kết quả kiểm (93/93 đủ bộ ba, 20 `address` rỗng, 0 xã lệch tỉnh). `requirements.md` (1.12 → 1.13): Status/Pending theo đó. `design.md`, `flow.md`: no change needed, verified — chỉ header.
+- Việc đã thực hiện trên DB dev `innerlamp`: `0032` (chỉ thêm cột và CHECK, idempotent) và `seedtemples` (upsert cùng 93 id, ghi đè các cột từ file). Không xoá dữ liệu nào.
+
+## v1.12 (2026-10-11)
+
+Hoàn tất Phase 10: dữ liệu, seed, E2E, tài liệu API. Theo yêu cầu của anh Đức: "em tự xử hết cho anh".
+
+- `requirements.md` (1.11 → 1.12): Status và "Pending" ghi lại trạng thái (đã implement; còn áp DB dev, `erd.svg`, OKF, xác minh 6 chùa, AC 38 chờ `create-temple`). AC không đổi.
+- `design.md` (1.11 → 1.12): hàng "Domain / Province" ghi `domain/province.go` đã gỡ; Known gaps thêm: chùa chưa nạp lại vẫn đúng cho DB chưa seed, 6 chùa xã chưa chắc chắn (A-005), `temple.json` không nằm trong git. `flow.md`: no change needed, verified.
+- `tasks.md` (1.11 → 1.12): đánh `[x]` các mục duyệt, áp dụng dữ liệu, `parse.go`, `resolve.go`/`main.go`, build/vet/test, E2E, openapi + web docs, `api-contract.md`, gỡ `province.go`; còn `[ ]` áp DB dev, `erd.svg`, OKF.
+- **Quyết định thay mặt anh** (ghi ở `docs/assumptions/temple/A-005`, `unvalidated`): 25 chùa có xã cũ tách hoặc không có trong bảng cũ được gán xã mới bằng tra nguồn (19 `high`, 5 `medium`, 1 `unverified`); 20 chùa giữ `address` rỗng (A-004).
+- Kiểm chứng: `go build ./...`, `go vet ./services/appService/...`, `go test -short ./services/appService/...` sạch; `TEST_DB_NAME=innerlamp_test` test repository temple pass; `go test ./services/appService/e2e/ -run TestTemple_E2E` pass (binary thật + Postgres container); seed thật trên `innerlamp_test` (dataset rỗng → thất bại; sau `seedadminunits` → 93 chùa; chạy lại → vẫn 93).
+- Chưa làm: áp `0032` và nạp lại lên DB dev `innerlamp` (**code đọc `province_code` nên DB dev sẽ lỗi cột cho tới khi áp**), `docs/specs/db/erd.svg`, OKF `docs/knowledge/features/temple.md`, và AC 38 (cần `create-temple`).
+
+## v1.11 (2026-10-11)
+
+Làm phần code không phụ thuộc dữ liệu của Phase 10 (domain, repository, DTO). Không đổi yêu cầu hay thiết kế.
+
+- `tasks.md` (1.10 → 1.11): đánh `[x]` ba mục — domain (`Temple` + `FullAddress()` + `TempleOption.ProvinceCode`), repository (đọc/ghi ba cột), handler DTO — kèm bằng chứng kiểm chứng; Status ghi lại.
+- `requirements.md`, `design.md`, `flow.md` (1.10 → 1.11): no change needed, verified — chỉ cập nhật header. Code khớp thiết kế: `FullAddress()` ở domain, đọc bằng `COALESCE`, ghi bằng `NULLIF`, DTO `null` khi chưa nạp lại.
+- Kiểm chứng: `go build ./...`, `go vet` (domain, repository, delivery/http), `go test -short ./services/appService/...` sạch; `TEST_DB_NAME=innerlamp_test go test ./services/appService/repository/ -run Temple` pass trên Postgres thật. Chưa làm: seed (`parse.go` + bước đối chiếu mã), E2E, openapi — chờ dữ liệu đã duyệt.
+- Ghi nhận: `appService/e2e` không có E2E temple nào (chỉ có `static_images`); E2E `options`/chi tiết vẫn là việc của Phase 5/10.
+
+## v1.10 (2026-10-11)
+
+Làm script đề xuất mã (Phase 10, mục dữ liệu). Kết quả chạy cho thấy 20/93 chùa không có phần dưới cấp xã nên AC 34 được nới.
+
+- `requirements.md` (1.9 → 1.10): AC 34 — `location.address` phải có mặt nhưng **được rỗng**; chỉ `province_code`/`ward_code` bắt buộc không rỗng. Lý do: 20 chùa có địa chỉ cũ chỉ gồm xã/huyện/tỉnh (vd `Xã Hương Sơn, Huyện Mỹ Đức, Hà Nội`), không có gì để đặt vào `address`; AC 33 vốn đã ghép các phần không rỗng nên `full_address` vẫn đúng. `create-temple` không đổi (vẫn bắt buộc `address`).
+- `design.md` (1.9 → 1.10): Step 2 của flow seed và hàng "Seed CLI" theo AC 34 mới. `flow.md`: no change needed, verified — chỉ header (Step 2 chỉ nói "không rỗng" ở mức chung, không liệt kê field).
+- `tasks.md` (1.9 → 1.10): đánh `[x]` mục script kèm số liệu (68 `auto`, 25 `review`, 20 `address` trống); mục người duyệt trỏ tới `address-review.md`.
+- Quyết định kèm theo (người dùng chưa chỉ định, spec chọn): `docs/assumptions/temple/A-004` — `address` được rỗng ở seed.
+- File sinh ra (không thuộc spec): `scripts/build_temple_addresses.py`, `assets/data/temple-address-proposal.json`, `docs/specs/features/temple/address-review.md`. Không có thay đổi nào ở `assets/data/temple.json`.
+
+## v1.9 (2026-10-11)
+
+Làm migration `0032` (Phase 10, mục đầu). Không đổi yêu cầu hay thiết kế.
+
+- `tasks.md` (1.8 → 1.9): đánh `[x]` mục migration kèm bằng chứng kiểm chứng (Postgres tạm: dòng cũ giữ nguyên và `NULL`, idempotent, CHECK từ chối bộ ba đi lẻ); Status ghi lại.
+- `requirements.md`, `design.md`, `flow.md` (1.8 → 1.9): no change needed, verified — chỉ cập nhật header. Thiết kế khớp file đã viết (cột, kiểu, tên constraint, không FK, không backfill).
+- Việc ngoài thư mục này đã làm: `migrations/0032_temple_address_codes.sql`, `migrations/README.md`, `docs/specs/db/erd.mmd`, danh sách migration trong `postgres_registration_repository_test.go`. Còn lại: `docs/specs/db/erd.svg` (cần `mmdc`).
+
+## v1.8 (2026-10-11)
+
+Sửa số liệu về 93 chùa và chốt tên tỉnh trong `full_address`. Theo yêu cầu của anh Đức: "sửa số liệu lại 93", "giữ Hồ Chí Minh không cần Thành phố". Không đổi hành vi.
+
+- `requirements.md` (1.7 → 1.8): thay "179 chùa" bằng số đếm lại từ `assets/data/temple.json` (93 chùa; 32/32/29 theo vùng; `type` và `heritage_rank` đếm lại; cả 93 có `image_url`/`thumbnail_url`); sửa AC 11 và marker về ảnh cho khớp (file seed có đường dẫn ảnh cho cả 93 chùa, nhưng repo không có thư mục `static/images/`); **đóng marker `⚠️ Not confirmed` về tiền tố tỉnh** — chốt giữ tên ngắn (`Hồ Chí Minh`), AC 33 không đổi.
+- `design.md` (1.7 → 1.8): hàng "Data" và Known gaps ("Không có E2E", "Ảnh") theo số liệu mới.
+- `flow.md` (1.7 → 1.8): no change needed, verified — chỉ cập nhật header.
+- `tasks.md` (1.7 → 1.8): sửa số chùa ở Phase 3.
+- `docs/assumptions/temple/A-002`: ghi phần tiền tố đã được xác nhận.
+- Không sửa (cố ý): `api-contract.md` và `docs/knowledge/` (OKF) vẫn ghi 179 vì là bản ghi của một lần chạy trước đó; OKF do `il-okf-writer` làm mới sau khi code kiểm chứng.
+
+## v1.7 (2026-10-11)
+
+Địa chỉ chùa theo metadata hành chính: thêm `province_code` + `ward_code` (+ `ward` tên chụp), `address` đổi nghĩa thành phần dưới cấp xã, API thêm `full_address`. Theo yêu cầu của anh Đức: dữ liệu `options` đang seed ít khi chạy, cần bổ sung mã tỉnh/xã chính thức; mọi chỗ có địa chỉ gồm `province_code` + `ward_code` + `address` (số nhà, đường…). Chưa có code — Phase 10.
+
+- `requirements.md` (1.6 → 1.7): thêm **US-TMP-08** (AC 32–38); AC 2 và AC 20 cập nhật (`location` thêm trường; `options` có bốn field); bảng schema `TempleSummary`/`TempleOption`; ghi chú đặt AC 28/30 là bị thay ở bước nạp; thêm một marker `⚠️ Not confirmed` (tiền tố tỉnh trong `full_address`); câu hỏi đã chốt ghi ở "Open questions (resolved)"; "Pending" thêm Phase 10.
+- `design.md` (1.6 → 1.7): hàng mới "Domain / Address" và "Migration `0032`"; sửa "Domain / Option", "Domain / Province" (hết vai trò), "Repository", "Seed CLI", "Data", "Delivery / DTO"; Step 2 của flow seed đổi kiểm `province` → kiểm mã không rỗng; **thêm Step 4 "đối chiếu mã"** và đánh số lại Step 5–6; Step 4–5 của flow `options` thêm `province_code`; Known gaps thêm ba mục (chưa nạp lại, seed phụ thuộc dataset, gán mã là suy đoán).
+- `flow.md` (1.6 → 1.7): sơ đồ `options` thêm `province_code`; sơ đồ seed thêm participant `WardResolver` và Step 4 mới, mirror 1:1 `design.md`.
+- `tasks.md` (1.6 → 1.7): thêm **Phase 10** (mọi mục `[ ]`, gồm bước dữ liệu có người duyệt); ba mục `[ ]` cũ của Phase 8–9 trỏ sang Phase 10 / `temple-suggestion` v3.2, không đánh dấu `[x]`.
+- Quyết định kèm theo (người dùng chưa chỉ định, spec chọn — `docs/assumptions/temple/`): (1) **A-001** không FK, tên chụp, ba cột cùng có hoặc cùng `NULL`, không backfill; (2) **A-002** `address` đổi nghĩa + `full_address` ghép tên ngắn của tỉnh; (3) **A-003** `options` chỉ thêm `province_code`, không `ward_*`, không lọc.
+- Việc cần làm ngoài thư mục này (chưa làm): `migrations/0032_temple_address_codes.sql`, `docs/specs/api/openapi.yaml` + `web/docs`, `docs/specs/db/erd.*`, `temple/api-contract.md`, OKF `docs/knowledge/features/temple.md`, cascade sang `temple-suggestion` v3.2 (đã làm cùng lượt).
+- Ghi nhận (đã sửa ở v1.8): nhiều chỗ trong spec này vẫn nói "179 chùa" trong khi `assets/data/temple.json` và DB dev hiện có 93 chùa (v1.5–v1.6 đã ghi 93); số 179 là từ trước, không đổi trong v1.7.
+
 ## v1.6 (2026-10-10)
 
 `temples.province` chỉ nhận **34 đơn vị cấp tỉnh** hiện hành (từ 1/7/2025, Nghị quyết 202/2025/QH15) thay vì chuỗi tự do. Theo yêu cầu của người dùng: "dùng 34 mới".

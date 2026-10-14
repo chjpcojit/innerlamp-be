@@ -1,7 +1,7 @@
 # Tasks — dharmatalk
 
-Version: 1.1
-Last updated: 2026-10-03
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-10-03) cho Phase 1–4 và E2E ở Phase 5; còn `[ ]` cho `erd.svg` (chờ render) và khái niệm OKF. Mọi `⚠️ Not confirmed` trong `requirements.md` vẫn mở.
 Module: `content`
 
@@ -37,7 +37,8 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] `delivery/http/dharma_talk_handler.go`: `List`, `Get` + DTO summary/detail (`null` đúng AC 11–14)
 - [x] `delivery/http/errors.go`: `ErrDharmaTalkNotFound` → `404 DHARMA_TALK_NOT_FOUND`
 - [x] `config`: `DharmaTalkConfig`, block `dharma_talk:` trong `config.dev.yaml`; test `config_test.go`
-- [x] `cmd/main.go`: dựng dây, `SeedIfEmpty`, đăng ký 2 route
+- [x] `cmd/main.go`: dựng dây, đăng ký 2 route (từ 2026-10-11 không còn `SeedIfEmpty` lúc khởi động)
+- [x] `cmd/seeddharmatalks` + `make ensure-dharma-talks` / `seed-dharma-talks` (2026-10-11); E2E `TestDharmaTalkSeed_*` chạy lệnh thay vì khởi động service
 - [x] Handler tests: `delivery/http/dharma_talk_handler_test.go` (+ mock usecase)
 - [x] Ghi `0014` vào `migrations/README.md`
 - [x] `docs/specs/api/openapi.yaml` và `web/docs/public/openapi.yaml`: 2 route + schema

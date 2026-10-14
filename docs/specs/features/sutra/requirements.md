@@ -1,8 +1,8 @@
 # Requirements — sutra
 
-Version: 2.13
-Last updated: 2026-10-07
-Status: implemented (2026-10-03) — 4 route, nạp lần đầu khi khởi động và `cmd/seedsutras`; cả 35 tiêu chí đã có test chứng minh, gồm E2E chạy binary thật + Postgres (xem `test-coverage-report.md`); không còn việc nào mở về `durationMinutes` (người dùng quyết định giữ nguyên giá trị đã sinh, 2026-10-03). Dữ liệu nguồn đã có ở `assets/data/sutras/` (153 văn bản) đã có đủ bốn trường `key`, `dailyChant`, `purposes`, `durationMinutes` (2026-10-03; `purposes` chưa được người dùng soát, `durationMinutes` được giữ nguyên theo quyết định của người dùng — xem `tasks.md` Phase 0). v2.12 (2026-10-07) thêm tách trường (`reference`, `license`) và `summary` — đã implement và kiểm chứng (xem `tasks.md` Phase 6); dữ liệu mới đã có trên DB dev (kiểm 2026-10-08).
+Version: 3.0
+Last updated: 2026-10-11
+Status: implemented (2026-10-03; seed chuyển sang lệnh 2026-10-11) — 4 route, nạp bằng `cmd/seedsutras`; cả 35 tiêu chí đã có test chứng minh, gồm E2E chạy binary thật + Postgres (xem `test-coverage-report.md`); không còn việc nào mở về `durationMinutes` (người dùng quyết định giữ nguyên giá trị đã sinh, 2026-10-03). Dữ liệu nguồn đã có ở `assets/data/sutras/` (153 văn bản) đã có đủ bốn trường `key`, `dailyChant`, `purposes`, `durationMinutes` (2026-10-03; `purposes` chưa được người dùng soát, `durationMinutes` được giữ nguyên theo quyết định của người dùng — xem `tasks.md` Phase 0). v2.12 (2026-10-07) thêm tách trường (`reference`, `license`) và `summary` — đã implement và kiểm chứng (xem `tasks.md` Phase 6); dữ liệu mới đã có trên DB dev (kiểm 2026-10-08).
 Module: `content`
 Code: `services/appService/`
 
@@ -115,28 +115,30 @@ Mỗi văn bản mang các thuộc tính để client lọc và hiển thị: **
 27. WHEN a sutra is returned, THE SYSTEM SHALL return `titles` as an object mapping language code to title that always contains `vi`, and SHALL return `reference` as `""` when the source has none.
 28. WHEN any sutra route fails, THE SYSTEM SHALL answer in the shared envelope `{"success": false, "error": {code, message, type}, "details"?}`; a non-`GET` request returns `405 METHOD_NOT_ALLOWED` (kèm header `Allow: GET, HEAD`) and an infrastructure failure returns `500 INTERNAL_ERROR` without leaking the cause.
 
-## US-SUT-06: Nạp dữ liệu lần đầu (khi khởi động hoặc bằng lệnh)
+## US-SUT-06: Nạp dữ liệu bằng lệnh seed (service không tự nạp)
 
 ## User Story
 
 > Là một **người triển khai hệ thống**,
-> Tôi muốn **service tự có sẵn bộ kinh ngay lần chạy đầu, và có một lệnh nạp riêng khi cần chạy tay**,
-> Để **môi trường mới (kể cả container không có mã nguồn) chạy được ngay và các lần khởi động sau không đụng vào dữ liệu đã có**.
+> Tôi muốn **một lệnh seed nạp thư viện kinh vào DB, và `make run` tự chạy lệnh đó khi bảng còn rỗng**,
+> Để **môi trường mới có dữ liệu mà service không ghi DB lúc khởi động, và lần chạy lại không đụng vào dữ liệu đã có**.
+
+> Đổi 2026-10-11 (v3.0): appService **không còn seed khi khởi động** (AC29–AC34 nay áp dụng cho `cmd/seedsutras`; `make ensure-sutras` chạy nó khi `sutras` rỗng). Khởi động service trên DB rỗng thành công và phục vụ danh sách rỗng.
 
 ## Acceptance Criteria (EARS notation)
 
-29. WHEN appService starts AND the `sutras` table has no row, THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/sutras/index.json` and every `<id>.json` it lists) and validate **all** of it before any write, and THE SYSTEM SHALL treat the seed as invalid, abort startup with a fatal log and write nothing, when any of these holds:
+29. WHEN `cmd/seedsutras` runs AND the `sutras` table has no row, THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/sutras/index.json` and every `<id>.json` it lists) and validate **all** of it before any write, and THE SYSTEM SHALL treat the seed as invalid, make the command exit non-zero with a fatal log and write nothing, when any of these holds:
     - a file listed in `index.json` is missing, or an `id` is empty, duplicated, or different from the file name
     - `tradition`, `kind`, `variant`, a deity `role` or any `purposes` value is outside the allowed sets; `titles.vi` is empty
     - `dailyChant` is not a boolean; `durationMinutes` is neither `null` nor an integer ≥ 1
     - a translation has no `key`, or two translations of one sutra share a `key`, or its `n` does not run 1..N without gaps
     - one sutra lists the same `deity_id` twice
-30. WHEN the seed is valid, THE SYSTEM SHALL check that every referenced `deity_id` exists in the `deities` table, and WHEN some do not, SHALL abort startup with a fatal log listing the missing ids and write nothing. (`cmd/seeddeities` phải chạy trước lần khởi động đầu tiên.)
-31. WHEN the seed is valid and every deity exists, THE SYSTEM SHALL insert every sutra with its translations, lines and deity links in **one transaction**, with `sort_order` equal to the sutra's position in `index.json` (0, 1, 2, …), then log `seeded sutras on first run` with the counts of sutras, translations, lines and deity links.
-32. WHEN appService starts AND the `sutras` table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row — so a restart never overwrites an edited sutra and never brings back a deleted one (miễn là bảng còn ít nhất một dòng).
+30. WHEN the seed is valid, THE SYSTEM SHALL check that every referenced `deity_id` exists in the `deities` table, and WHEN some do not, SHALL make the command exit non-zero with a fatal log listing the missing ids and write nothing. (`cmd/seeddeities` phải chạy trước; `make ensure-sutras` tự đảm bảo thứ tự.)
+31. WHEN the seed is valid and every deity exists, THE SYSTEM SHALL insert every sutra with its translations, lines and deity links in **one transaction**, with `sort_order` equal to the sutra's position in `index.json` (0, 1, 2, …), then log `seeded N sutras, …` with the counts of sutras, translations, lines and deity links.
+32. WHEN `cmd/seedsutras` runs AND the `sutras` table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row — so running it again never overwrites an edited sutra and never brings back a deleted one (miễn là bảng còn ít nhất một dòng).
 33. WHEN a seed insert meets a sutra `id` that already exists, THE SYSTEM SHALL leave that sutra untouched and SHALL NOT insert its translations, lines or deity links (`ON CONFLICT (id) DO NOTHING`), so two instances starting at the same time cannot duplicate or overwrite each other.
-34. WHEN the database rejects the seed (kể cả khi migration `0013` chưa được apply), THE SYSTEM SHALL abort startup with a fatal log and SHALL leave the tables unchanged (transaction rolled back).
-35. WHEN `cmd/seedsutras` runs (flag `-dir`; mặc định dùng dữ liệu nhúng trong binary), THE SYSTEM SHALL apply exactly the same checks and the same only-when-empty rule as at startup (AC29–AC34): WHEN the `sutras` table already has at least one row, it SHALL write nothing, log that the sutras are already seeded, and exit with status 0; WHEN seeding succeeds, it SHALL log the counts and exit with status 0; WHEN seeding fails, it SHALL write nothing and exit with a non-zero status.
+34. WHEN the database rejects the seed (kể cả khi migration `0013` chưa được apply), THE SYSTEM SHALL make `cmd/seedsutras` exit non-zero with a fatal log and SHALL leave the tables unchanged (transaction rolled back).
+35. WHEN `cmd/seedsutras` runs (flag `-dir`; mặc định dùng dữ liệu nhúng trong binary), THE SYSTEM SHALL apply the checks and the only-when-empty rule of AC29–AC34 (it is the only way the library is loaded; appService does not seed on start): WHEN the `sutras` table already has at least one row, it SHALL write nothing, log that the sutras are already seeded, and exit with status 0; WHEN seeding succeeds, it SHALL log the counts and exit with status 0; WHEN seeding fails, it SHALL write nothing and exit with a non-zero status.
 
 ## API contract (confirmed surface for this feature)
 

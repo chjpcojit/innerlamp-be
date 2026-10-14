@@ -1,7 +1,7 @@
 # Requirements — lamp
 
-Version: 1.2
-Last updated: 2026-10-10
+Version: 1.3
+Last updated: 2026-10-11
 Status: v1 (Phase 1–4: domain, config, usecase, repository, migration `0027`, handler, wiring, openapi) đã implement và kiểm chứng 2026-10-10 — unit, repository (Postgres thật) và E2E (binary thật + Postgres) đều pass. Còn 2 marker `⚠️ Not confirmed` (hiệu năng/khối lượng; retention + xoá tài khoản — migration đang dùng `ON DELETE CASCADE` tạm thời). Chưa sinh lại `erd.svg` (thiếu `mmdc`).
 Module: `lamp`
 Code: `services/appService/`
@@ -37,8 +37,8 @@ Spec này được viết **prospectively** (trước khi có code; Phase 1–4 
 3. WHEN `lamp_type` is not one of `OIL_LAMP` (đèn dầu), `LOTUS_CANDLE` (nến sen), `FLOWER_LANTERN` (hoa đăng), THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "lamp_type"`. (FR-002)
 4. WHEN `intention` is not one of `PEACE` (cầu an), `SALVATION` (cầu siêu), `MERIT_DEDICATION` (hồi hướng), `GRATITUDE` (tri ân), THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "intention"`. (FR-002)
 5. WHEN `duration_days` is not one of the configured durations (`lamp.durations_days`, dev: `1, 7, 21, 49`), THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "duration_days"`. (FR-002)
-6. WHEN `recipient` is empty or blank after trimming leading/trailing whitespace, or longer than 100 characters, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "recipient"`; the stored value is the trimmed text. Độ dài đếm theo ký tự (code point sau chuẩn hoá NFC), không theo byte. (FR-002)
-7. WHEN `prayer` is longer than 300 characters after trimming, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "prayer"`; WHEN `prayer` is absent, `null` or blank after trimming, THE SYSTEM SHALL store `NULL` and return `prayer: null`. (FR-002)
+6. WHEN `recipient` is empty or blank after trimming leading/trailing whitespace, or longer than `lamp.recipient_max_chars` (dev: 100) characters, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "recipient"`; the stored value is the trimmed text. Độ dài đếm theo ký tự (code point sau chuẩn hoá NFC), không theo byte. (FR-002)
+7. WHEN `prayer` is longer than `lamp.prayer_max_chars` (dev: 300) characters after trimming, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "prayer"`; WHEN `prayer` is absent, `null` or blank after trimming, THE SYSTEM SHALL store `NULL` and return `prayer: null`. (FR-002)
 8. WHEN `is_anonymous` is absent, THE SYSTEM SHALL treat it as `false`; WHEN it is present and not a boolean, THE SYSTEM SHALL return `400 VALIDATION_ERROR` with `details.field = "is_anonymous"`. (FR-001)
 9. WHEN the user already has `lamp.max_active_per_user` (dev: 20) lit lamps — a lit lamp being one whose `end_at` is later than now — THE SYSTEM SHALL return `409 LAMP_LIMIT_REACHED` and SHALL NOT insert; lamps whose `end_at` has passed SHALL NOT count, and two requests of the same user running concurrently SHALL NOT push the user above the limit. (FR-003)
 10. WHEN the same user submits a lamp whose content (`lamp_type`, `intention`, `recipient`, `prayer`, `duration_days`, `is_anonymous`) is identical to a lamp they lit within the last `lamp.dedupe_window` (dev: 5s), THE SYSTEM SHALL NOT insert a second lamp and SHALL return `200 OK` with that existing lamp; WHEN the previous identical lamp is older than the window, THE SYSTEM SHALL create a new lamp. Việc chống trùng được kiểm **trước** trần (một lần bấm đúp ở đúng 20 đèn vẫn nhận lại đèn vừa thắp, không nhận 409). (FR-001)
@@ -136,7 +136,7 @@ Spec này được viết **prospectively** (trước khi có code; Phase 1–4 
 
 - **Đồng hồ:** `lit_at`, `end_at` và mọi so sánh "đang sáng" (`end_at > now`) dùng cùng một giá trị `now` do usecase lấy từ đồng hồ server (inject được cho test), không dùng `now()` của DB rải rác trong từng câu SQL — để `total`, `counts` và trang cùng một thời điểm.
 - **Số migration là `0027`** (không phải `0026`): `0026_administrative_units.sql` của công việc khác đã chiếm số đó.
-- **Giới hạn nằm ở config, không là hằng trong domain:** `lamp.max_active_per_user`, `lamp.page_size`, `lamp.dedupe_window`, `lamp.durations_days` (xem `design.md`, Config). Độ dài `recipient` (100) và `prayer` (300) khớp kích thước cột `VARCHAR` nên là hằng gắn với schema, như `full_name`/`note` của `memorial`.
+- **Mọi giới hạn nằm ở config, không là hằng trong domain/usecase:** `lamp.max_active_per_user`, `lamp.page_size`, `lamp.dedupe_window`, `lamp.durations_days`, `lamp.recipient_max_chars`, `lamp.prayer_max_chars` (xem `design.md`, Config). Hai giới hạn độ dài chỉ có thể **hạ xuống** so với kích thước cột `VARCHAR(100)`/`VARCHAR(300)` của `0027_lamps.sql`: `Validate` từ chối giá trị vượt cột lúc khởi động, vì vượt cột sẽ thành lỗi `500` khi ghi. Muốn nâng trần thì phải có migration nới cột rồi nâng hằng trần trong code.
 - **Chuẩn hoá chữ:** trim hai đầu rồi chuẩn hoá NFC trước khi đếm, để chữ tiếng Việt gõ dạng tổ hợp (`e` + dấu) và dựng sẵn cùng một độ dài. `golang.org/x/text` đã nằm trong `go.mod` (indirect) — đưa lên direct khi dùng.
 - **Quyền riêng tư:** `recipient` có thể là tên người thân đã khuất và hiển thị cho mọi người dùng đã đăng nhập; không ghi `recipient`/`prayer` vào log (chỉ id).
 - **Tên ẩn danh không nằm trong DB:** đèn ẩn danh lưu `lighter_name = NULL` và `is_anonymous = true`; server không giữ pháp danh trên dòng đó, nên không thể lộ nhầm qua một query khác.
@@ -148,7 +148,7 @@ Spec này được viết **prospectively** (trước khi có code; Phase 1–4 
 - ~~Ai thấy đèn nào trong vườn đèn?~~ → Mọi người dùng đã đăng nhập thấy đèn đang sáng của tất cả. Resolved 2026-10-10.
 - ~~Khách chưa đăng nhập có xem được không?~~ → Không. Resolved 2026-10-10.
 - ~~Hiển thị gì với đèn của người khác?~~ → Tên người thắp, loại đèn, người nhận, ngày tắt; tâm nguyện và lời nguyện không hiển thị. Resolved 2026-10-10.
-- ~~`recipient` / `prayer`?~~ → Văn bản tự do; `recipient` 1–100 ký tự (bắt buộc), `prayer` tối đa 300 ký tự (tuỳ chọn), đếm theo ký tự, trim hai đầu. Resolved 2026-10-10.
+- ~~`recipient` / `prayer`?~~ → Văn bản tự do; `recipient` 1–100 ký tự (bắt buộc), `prayer` tối đa 300 ký tự (tuỳ chọn), đếm theo ký tự, trim hai đầu. Hai con số 100 và 300 là giá trị trong config (`lamp.recipient_max_chars`, `lamp.prayer_max_chars`) từ v1.3, không phải hằng trong code. Resolved 2026-10-10.
 - ~~Kiểm duyệt ở v1?~~ → Không. Resolved 2026-10-10.
 - ~~Chi phí?~~ → Miễn phí ở v1; v2 thêm thắp tại chùa có phí. Resolved 2026-10-10.
 - ~~Trần đèn?~~ → 20 đèn đang sáng cùng lúc mỗi người; đèn hết hạn không tính. Resolved 2026-10-10.

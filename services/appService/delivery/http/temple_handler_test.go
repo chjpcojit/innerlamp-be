@@ -135,7 +135,7 @@ func TestTempleHandler_Options_Query(t *testing.T) {
 }
 
 func TestTempleHandler_Options(t *testing.T) {
-	t.Run("200 with exactly id, name, province per item and paging metadata", func(t *testing.T) {
+	t.Run("200 with exactly id, name, province, province_code per item and paging metadata", func(t *testing.T) {
 		uc := &mockTempleUsecase{}
 		uc.On("Options", mock.Anything, noQuery, 1).Return(&domain.TempleOptionPage{
 			Items: []domain.TempleOption{{ID: "temple_north_001", Name: "Chùa Trấn Quốc", Province: "Hà Nội"}},
@@ -145,7 +145,18 @@ func TestTempleHandler_Options(t *testing.T) {
 		rec := doGet(newTempleMux(uc), "/v1/temples/options")
 
 		require.Equal(t, http.StatusOK, rec.Code)
-		assert.JSONEq(t, `{"success":true,"data":{"items":[{"id":"temple_north_001","name":"Chùa Trấn Quốc","province":"Hà Nội"}],"page":1,"page_size":100,"total":250,"total_pages":3}}`, rec.Body.String())
+		assert.JSONEq(t, `{"success":true,"data":{"items":[{"id":"temple_north_001","name":"Chùa Trấn Quốc","province":"Hà Nội","province_code":null}],"page":1,"page_size":100,"total":250,"total_pages":3}}`, rec.Body.String())
+	})
+
+	t.Run("province_code is the code string once the temple has one (AC 20, v1.7)", func(t *testing.T) {
+		uc := &mockTempleUsecase{}
+		uc.On("Options", mock.Anything, noQuery, 1).Return(&domain.TempleOptionPage{
+			Items: []domain.TempleOption{{ID: "temple_south_002", Name: "Chùa Ngọc Hoàng", Province: "Hồ Chí Minh", ProvinceCode: "79"}},
+			Page:  1, PageSize: 100, Total: 1, TotalPages: 1,
+		}, nil)
+		rec := doGet(newTempleMux(uc), "/v1/temples/options")
+		require.Equal(t, http.StatusOK, rec.Code)
+		assert.JSONEq(t, `{"success":true,"data":{"items":[{"id":"temple_south_002","name":"Chùa Ngọc Hoàng","province":"Hồ Chí Minh","province_code":"79"}],"page":1,"page_size":100,"total":1,"total_pages":1}}`, rec.Body.String())
 	})
 
 	t.Run("passes the page query through", func(t *testing.T) {
@@ -281,5 +292,55 @@ func TestTempleHandler_Get(t *testing.T) {
 		rec := doGet(newTempleMux(uc), "/v1/temples/top")
 		assert.Equal(t, http.StatusOK, rec.Code)
 		uc.AssertNotCalled(t, "Get")
+	})
+}
+
+// TestTempleHandler_LocationAddress pins AC 33 of spec temple v1.7 on the summary
+// (top) and detail (get) shapes: structured address fields are null until the
+// temple is re-seeded, full_address is never null and equals the stored address
+// in that case, and a structured temple composes address, ward and province.
+func TestTempleHandler_LocationAddress(t *testing.T) {
+	structured := sampleTemple()
+	structured.Address = "73 Mai Thị Lựu"
+	structured.Province = "Hồ Chí Minh"
+	structured.ProvinceCode = "79"
+	structured.WardCode = "26737"
+	structured.Ward = "Phường Tân Định"
+
+	t.Run("legacy temple: codes and ward are null, full_address is the stored address", func(t *testing.T) {
+		uc := &mockTempleUsecase{}
+		uc.On("Top", mock.Anything).Return([]domain.Temple{sampleTemple()}, nil)
+		rec := doGet(newTempleMux(uc), "/v1/temples/top")
+		require.Equal(t, http.StatusOK, rec.Code)
+		loc := decode(t, rec)["data"].(map[string]any)["items"].([]any)[0].(map[string]any)["location"].(map[string]any)
+		assert.Nil(t, loc["province_code"])
+		assert.Nil(t, loc["ward_code"])
+		assert.Nil(t, loc["ward"])
+		assert.Equal(t, "Quận Hoàn Kiếm, Hà Nội", loc["address"])
+		assert.Equal(t, "Quận Hoàn Kiếm, Hà Nội", loc["full_address"])
+	})
+
+	t.Run("structured temple on top: codes, ward and composed full_address", func(t *testing.T) {
+		uc := &mockTempleUsecase{}
+		uc.On("Top", mock.Anything).Return([]domain.Temple{structured}, nil)
+		rec := doGet(newTempleMux(uc), "/v1/temples/top")
+		require.Equal(t, http.StatusOK, rec.Code)
+		loc := decode(t, rec)["data"].(map[string]any)["items"].([]any)[0].(map[string]any)["location"].(map[string]any)
+		assert.Equal(t, "79", loc["province_code"])
+		assert.Equal(t, "26737", loc["ward_code"])
+		assert.Equal(t, "Phường Tân Định", loc["ward"])
+		assert.Equal(t, "Hồ Chí Minh", loc["province"])
+		assert.Equal(t, "73 Mai Thị Lựu", loc["address"], "address is the part below ward level")
+		assert.Equal(t, "73 Mai Thị Lựu, Phường Tân Định, Hồ Chí Minh", loc["full_address"])
+	})
+
+	t.Run("structured temple on detail carries the same location", func(t *testing.T) {
+		uc := &mockTempleUsecase{}
+		uc.On("Get", mock.Anything, "temple_north_001").Return(&structured, nil)
+		rec := doGet(newTempleMux(uc), "/v1/temples/temple_north_001")
+		require.Equal(t, http.StatusOK, rec.Code)
+		loc := decode(t, rec)["data"].(map[string]any)["location"].(map[string]any)
+		assert.Equal(t, "79", loc["province_code"])
+		assert.Equal(t, "73 Mai Thị Lựu, Phường Tân Định, Hồ Chí Minh", loc["full_address"])
 	})
 }

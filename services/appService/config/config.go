@@ -9,6 +9,8 @@ package config
 import (
 	"context"
 	"fmt"
+	"net"
+	"strings"
 	"time"
 
 	"gopkg.in/yaml.v3"
@@ -65,14 +67,21 @@ type AppConfig struct {
 	Deity       DeityConfig       `yaml:"deity"`
 	Gallery     GalleryConfig     `yaml:"gallery"`
 	Calendar    CalendarConfig    `yaml:"calendar"`
+	TempleEvent TempleEventConfig `yaml:"temple_event"`
 	Article     ArticleConfig     `yaml:"article"`
 	Memorial    MemorialConfig    `yaml:"memorial"`
 	Lamp        LampConfig        `yaml:"lamp"`
+	Profile     ProfileConfig     `yaml:"profile"`
 	Genealogy   GenealogyConfig   `yaml:"genealogy"`
 	DharmaTalk  DharmaTalkConfig  `yaml:"dharma_talk"`
 	Sutra       SutraConfig       `yaml:"sutra"`
 
 	TempleSuggestion TempleSuggestionConfig `yaml:"temple_suggestion"`
+
+	// TempleAnnouncement is the announcement read side + receive switch (docs/specs/features/temple-announcement).
+	TempleAnnouncement TempleAnnouncementConfig `yaml:"temple_announcement"`
+
+	AdministrativeUnits AdministrativeUnitsConfig `yaml:"administrative_units"`
 }
 
 // ServerConfig holds HTTP server settings.
@@ -120,9 +129,39 @@ type JWTConfig struct {
 
 // StorageConfig holds object storage settings.
 type StorageConfig struct {
+	// Backend selects the pkg/storage driver; only "gcs" is wired by cmd/main.go.
 	Backend       string `yaml:"backend"`
 	ProjectID     string `yaml:"project_id"`
 	DefaultBucket string `yaml:"default_bucket"`
+	// Timeout bounds every storage call (pkg/storage requires it > 0).
+	Timeout Duration `yaml:"timeout"`
+	// EmulatorHost, when set ("host:port", plain HTTP), points the service at a
+	// storage emulator and makes avatar URLs unsigned instead of signed for a
+	// real bucket. Leave it EMPTY outside dev and test: it switches signing off.
+	EmulatorHost string `yaml:"emulator_host"`
+}
+
+// Validate rejects a storage block the client could not be built from, so a
+// missing key stops the service at startup instead of at the first avatar.
+func (c StorageConfig) Validate() error {
+	if c.Backend != "gcs" {
+		return fmt.Errorf("storage.backend must be %q (the only wired backend), got %q", "gcs", c.Backend)
+	}
+	if strings.TrimSpace(c.ProjectID) == "" {
+		return fmt.Errorf("storage.project_id must not be empty")
+	}
+	if c.Timeout.Duration() <= 0 {
+		return fmt.Errorf("storage.timeout must be > 0, got %s", c.Timeout.Duration())
+	}
+	if h := c.EmulatorHost; h != "" {
+		if strings.Contains(h, "/") {
+			return fmt.Errorf("storage.emulator_host must be host:port without scheme or path, got %q", h)
+		}
+		if _, _, err := net.SplitHostPort(h); err != nil {
+			return fmt.Errorf("storage.emulator_host must be host:port, got %q: %w", h, err)
+		}
+	}
+	return nil
 }
 
 // SMSConfig selects which pkg/sms provider the composition root wires up —
@@ -277,6 +316,102 @@ type CalendarConfig struct {
 	// "https://cdn.example.com/home-calendar". Empty = derive "<scheme>://<host>/static/images/home-calendar"
 	// from the request. DEV-ONLY default: production points this at a CDN.
 	ImageBaseURL string `yaml:"image_base_url"`
+
+	// DefaultLanguage is the language GET /v1/calendar/events returns event text
+	// in (dev: "vi"). Required: an event only appears when it has text in this
+	// language.
+	DefaultLanguage string `yaml:"default_language"`
+
+	// EventsCacheMaxAge is how long a client may reuse the events of an explicit
+	// year, sent as Cache-Control: private, max-age=<seconds> (dev: "24h"). The
+	// catalogue only changes when an operator reloads it.
+	EventsCacheMaxAge Duration `yaml:"events_cache_max_age"`
+}
+
+// Validate rejects a missing events language or cache lifetime. The timezone
+// and image base URL are checked where they are used (NewCalendarUsecase).
+func (c CalendarConfig) Validate() error {
+	if c.DefaultLanguage == "" {
+		return fmt.Errorf("calendar.default_language is required")
+	}
+	if len(c.DefaultLanguage) > 8 {
+		return fmt.Errorf("calendar.default_language %q is longer than 8 characters", c.DefaultLanguage)
+	}
+	if c.EventsCacheMaxAge.Duration() < time.Second {
+		return fmt.Errorf("calendar.events_cache_max_age must be >= 1s, got %s", c.EventsCacheMaxAge.Duration())
+	}
+	return nil
+}
+
+// TempleAnnouncementConfig holds the temple-announcement read side settings
+// (docs/specs/features/temple-announcement, GET /v1/users/me/temple-announcements).
+type TempleAnnouncementConfig struct {
+	// PageSize is the page size used when the request gives none.
+	PageSize int `yaml:"page_size"`
+
+	// MaxPageSize caps the page_size a request may ask for.
+	MaxPageSize int `yaml:"max_page_size"`
+
+	// RateLimit is the per-account limit of the three announcement routes,
+	// separate from the profile limiter (TA32, TA33).
+	RateLimit TempleAnnouncementRateLimit `yaml:"rate_limit"`
+}
+
+// TempleAnnouncementRateLimit is the per-account request limit.
+type TempleAnnouncementRateLimit struct {
+	Max    int64    `yaml:"max"`
+	Window Duration `yaml:"window"`
+}
+
+// Validate rejects a missing block (zero values) and an inverted page range.
+func (c TempleAnnouncementConfig) Validate() error {
+	if c.PageSize < 1 {
+		return fmt.Errorf("temple_announcement.page_size must be >= 1, got %d", c.PageSize)
+	}
+	if c.MaxPageSize < c.PageSize {
+		return fmt.Errorf("temple_announcement.max_page_size (%d) must be >= page_size (%d)", c.MaxPageSize, c.PageSize)
+	}
+	if c.RateLimit.Max < 1 {
+		return fmt.Errorf("temple_announcement.rate_limit.max must be >= 1, got %d", c.RateLimit.Max)
+	}
+	if c.RateLimit.Window.Duration() <= 0 {
+		return fmt.Errorf("temple_announcement.rate_limit.window must be > 0, got %s", c.RateLimit.Window.Duration())
+	}
+	return nil
+}
+
+// TempleEventConfig holds the temple-event endpoint's settings
+// (GET /v1/temples/{id}/events).
+type TempleEventConfig struct {
+	// Timezone is the IANA zone in which an event's clock time, "today" and
+	// all-day events are read. Required.
+	Timezone string `yaml:"timezone"`
+
+	// DefaultWindowMonths is how far past "from" the window reaches when the
+	// request gives no "to".
+	DefaultWindowMonths int `yaml:"default_window_months"`
+
+	// MaxWindowMonths is the longest window a request may ask for.
+	MaxWindowMonths int `yaml:"max_window_months"`
+}
+
+// Validate rejects a missing or unknown zone and window lengths that are not
+// 1 <= default <= max, so a missing temple_event block stops the service now.
+func (c TempleEventConfig) Validate() error {
+	if c.Timezone == "" { // LoadLocation("") silently means UTC
+		return fmt.Errorf("temple_event.timezone is required")
+	}
+	if _, err := time.LoadLocation(c.Timezone); err != nil {
+		return fmt.Errorf("temple_event.timezone %q: %w", c.Timezone, err)
+	}
+	if c.DefaultWindowMonths < 1 {
+		return fmt.Errorf("temple_event.default_window_months must be >= 1, got %d", c.DefaultWindowMonths)
+	}
+	if c.MaxWindowMonths < c.DefaultWindowMonths {
+		return fmt.Errorf("temple_event.max_window_months (%d) must be >= default_window_months (%d)",
+			c.MaxWindowMonths, c.DefaultWindowMonths)
+	}
+	return nil
 }
 
 // ArticleConfig holds the Phật pháp article catalogue's sizes. Same reasoning as
@@ -317,11 +452,31 @@ type LampConfig struct {
 	// DurationsDays are the burn durations a user may choose, in days
 	// (dev: 1, 7, 21, 49).
 	DurationsDays []int `yaml:"durations_days"`
+
+	// RecipientMaxChars is the longest "dành cho ai" accepted, in characters
+	// (dev: 300). It can be lowered freely but never raised past
+	// LampRecipientColumnChars.
+	RecipientMaxChars int `yaml:"recipient_max_chars"`
+
+	// PrayerMaxChars is the longest lời nguyện accepted, in characters
+	// (dev: 300). It can be lowered freely but never raised past
+	// LampPrayerColumnChars.
+	PrayerMaxChars int `yaml:"prayer_max_chars"`
 }
 
+// The sizes of the VARCHAR columns lamps.recipient and lamps.prayer in
+// migrations/0027_lamps.sql. They are the ceiling for the two length limits
+// above, not the values used to check input: a limit above its column would
+// pass validation and then fail the INSERT with a 500. Raising a ceiling takes
+// a migration that widens the column first.
+const (
+	LampRecipientColumnChars = 100
+	LampPrayerColumnChars    = 300
+)
+
 // Validate rejects a LampConfig that would make lighting or paging impossible:
-// a limit below 1, a non-positive window, or a duration list that is empty,
-// holds a value below 1 or repeats one.
+// a limit below 1, a non-positive window, a duration list that is empty, holds a
+// value below 1 or repeats one, or a length limit below 1 or above its column.
 func (c LampConfig) Validate() error {
 	if c.MaxActivePerUser < 1 {
 		return fmt.Errorf("lamp.max_active_per_user must be >= 1, got %d", c.MaxActivePerUser)
@@ -331,6 +486,12 @@ func (c LampConfig) Validate() error {
 	}
 	if c.DedupeWindow.Duration() <= 0 {
 		return fmt.Errorf("lamp.dedupe_window must be > 0, got %s", c.DedupeWindow.Duration())
+	}
+	if c.RecipientMaxChars < 1 || c.RecipientMaxChars > LampRecipientColumnChars {
+		return fmt.Errorf("lamp.recipient_max_chars must be between 1 and %d, got %d", LampRecipientColumnChars, c.RecipientMaxChars)
+	}
+	if c.PrayerMaxChars < 1 || c.PrayerMaxChars > LampPrayerColumnChars {
+		return fmt.Errorf("lamp.prayer_max_chars must be between 1 and %d, got %d", LampPrayerColumnChars, c.PrayerMaxChars)
 	}
 	if len(c.DurationsDays) == 0 {
 		return fmt.Errorf("lamp.durations_days must not be empty")
@@ -344,6 +505,112 @@ func (c LampConfig) Validate() error {
 			return fmt.Errorf("lamp.durations_days repeats %d", d)
 		}
 		seen[d] = true
+	}
+	return nil
+}
+
+// ProfileConfig holds the hồ sơ cá nhân settings (docs/specs/features/profile):
+// the dharma name limit shared with registration, the avatar upload policy, where
+// avatar objects live, and the per-account request limit.
+//
+// Every value is required; Validate rejects a zero, because a missing yaml block
+// would otherwise decode to "no avatar may be larger than 0 bytes" or "a URL that
+// expired the instant it was signed".
+type ProfileConfig struct {
+	// DharmaNameMaxChars is the longest dharma name accepted, in characters
+	// after trimming and NFC normalisation (dev: 255). It can be lowered
+	// freely but never raised past ProfileDharmaNameColumnChars.
+	DharmaNameMaxChars int `yaml:"dharma_name_max_chars"`
+
+	// FullNameMaxChars is the longest full name accepted at registration, in
+	// characters after trimming and NFC normalisation (dev: 100). Never raised
+	// past ProfileFullNameColumnChars.
+	FullNameMaxChars int `yaml:"full_name_max_chars"`
+
+	// AvatarMaxBytes is the largest avatar accepted, checked both against the
+	// client's claim and against the size storage recorded (dev: 5 MiB).
+	AvatarMaxBytes int64 `yaml:"avatar_max_bytes"`
+	// AvatarContentTypes is the allowed avatar media types.
+	AvatarContentTypes []string `yaml:"avatar_content_types"`
+
+	// UploadURLTTL is how long a signed upload URL is valid (dev: 5m).
+	UploadURLTTL Duration `yaml:"upload_url_ttl"`
+	// AvatarReadURLTTL is how long a signed read URL is valid (dev: 15m).
+	AvatarReadURLTTL Duration `yaml:"avatar_read_url_ttl"`
+
+	// Bucket holds the avatar objects. It is not a secret but differs per
+	// environment, so it is config rather than a constant.
+	Bucket string `yaml:"bucket"`
+	// AvatarTmpPrefix is the folder a client uploads into before confirming.
+	AvatarTmpPrefix string `yaml:"avatar_tmp_prefix"`
+	// AvatarPrefix is the folder confirmed avatars are copied to.
+	AvatarPrefix string `yaml:"avatar_prefix"`
+
+	// RateLimit caps how many profile requests one account may make per window.
+	RateLimit ProfileRateLimit `yaml:"rate_limit"`
+}
+
+// ProfileRateLimit is the per-account request limit of the profile routes.
+type ProfileRateLimit struct {
+	Max    int64    `yaml:"max"`
+	Window Duration `yaml:"window"`
+}
+
+// ProfileDharmaNameColumnChars is the size of users.dharma_name and
+// pending_registration.dharma_name (VARCHAR(255), migrations/0001). It is the
+// ceiling for DharmaNameMaxChars, not the value used to check input: a limit
+// above the column would pass validation and then fail the INSERT with a 500.
+const ProfileDharmaNameColumnChars = 255
+
+// ProfileFullNameColumnChars is the size of users.full_name and
+// pending_registration.full_name (VARCHAR(300), migrations/0033).
+const ProfileFullNameColumnChars = 300
+
+// Validate rejects a ProfileConfig that would reject every request or pass
+// values the schema cannot hold.
+func (c ProfileConfig) Validate() error {
+	if c.DharmaNameMaxChars < 1 || c.DharmaNameMaxChars > ProfileDharmaNameColumnChars {
+		return fmt.Errorf("profile.dharma_name_max_chars must be between 1 and %d, got %d", ProfileDharmaNameColumnChars, c.DharmaNameMaxChars)
+	}
+	if c.FullNameMaxChars < 1 || c.FullNameMaxChars > ProfileFullNameColumnChars {
+		return fmt.Errorf("profile.full_name_max_chars must be between 1 and %d, got %d", ProfileFullNameColumnChars, c.FullNameMaxChars)
+	}
+	if c.AvatarMaxBytes < 1 {
+		return fmt.Errorf("profile.avatar_max_bytes must be >= 1, got %d", c.AvatarMaxBytes)
+	}
+	if len(c.AvatarContentTypes) == 0 {
+		return fmt.Errorf("profile.avatar_content_types must list at least one media type")
+	}
+	seen := make(map[string]bool, len(c.AvatarContentTypes))
+	for _, ct := range c.AvatarContentTypes {
+		if strings.TrimSpace(ct) == "" {
+			return fmt.Errorf("profile.avatar_content_types contains a blank entry")
+		}
+		if seen[ct] {
+			return fmt.Errorf("profile.avatar_content_types repeats %q", ct)
+		}
+		seen[ct] = true
+	}
+	if c.UploadURLTTL.Duration() <= 0 {
+		return fmt.Errorf("profile.upload_url_ttl must be > 0, got %s", c.UploadURLTTL.Duration())
+	}
+	if c.AvatarReadURLTTL.Duration() <= 0 {
+		return fmt.Errorf("profile.avatar_read_url_ttl must be > 0, got %s", c.AvatarReadURLTTL.Duration())
+	}
+	if strings.TrimSpace(c.Bucket) == "" {
+		return fmt.Errorf("profile.bucket must not be empty")
+	}
+	if c.AvatarTmpPrefix == "" || c.AvatarPrefix == "" {
+		return fmt.Errorf("profile.avatar_tmp_prefix and profile.avatar_prefix must not be empty")
+	}
+	if c.AvatarTmpPrefix == c.AvatarPrefix {
+		return fmt.Errorf("profile.avatar_tmp_prefix and profile.avatar_prefix must differ, both are %q", c.AvatarPrefix)
+	}
+	if c.RateLimit.Max < 1 {
+		return fmt.Errorf("profile.rate_limit.max must be >= 1, got %d", c.RateLimit.Max)
+	}
+	if c.RateLimit.Window.Duration() <= 0 {
+		return fmt.Errorf("profile.rate_limit.window must be > 0, got %s", c.RateLimit.Window.Duration())
 	}
 	return nil
 }
@@ -431,6 +698,52 @@ func (c TempleSuggestionConfig) Validate() error {
 	}
 	if c.RateLimit.Window.Duration() <= 0 {
 		return fmt.Errorf("temple_suggestion.rate_limit.window must be > 0, got %s", c.RateLimit.Window.Duration())
+	}
+	return nil
+}
+
+// AdministrativeUnitsConfig holds what the public administrative-units lookups
+// (docs/specs/features/administrative-units) need beyond the data itself: an
+// abuse guard and a cache lifetime. The routes are read-only and reachable
+// without an account, and the web API key can be skipped by a caller that
+// omits the header, so the per-IP limit is the only other brake; a missing or
+// zero value is rejected rather than defaulted to "unlimited".
+type AdministrativeUnitsConfig struct {
+	// RateLimit caps how many lookups one client IP may make per window. All
+	// administrative-units routes share one budget.
+	RateLimit AdministrativeUnitsRateLimit `yaml:"rate_limit"`
+
+	// CacheMaxAge is how long a client may reuse a successful answer, sent as
+	// Cache-Control: public, max-age=<seconds> (dev: "24h"). The data only
+	// changes when an operator loads a new dataset version.
+	CacheMaxAge Duration `yaml:"cache_max_age"`
+}
+
+// AdministrativeUnitsRateLimit is the per-IP lookup limit.
+type AdministrativeUnitsRateLimit struct {
+	// Max is the number of lookups allowed per Window (dev: 60).
+	Max int `yaml:"max"`
+
+	// Window is the length of the counting window (dev: "1m").
+	Window Duration `yaml:"window"`
+
+	// TrustForwardedFor reads the client IP from the last X-Forwarded-For entry
+	// instead of the TCP peer; see TempleSuggestionRateLimit for when it is safe.
+	TrustForwardedFor bool `yaml:"trust_forwarded_for"`
+}
+
+// Validate rejects a missing limit or cache lifetime: the limit must be a
+// positive count over a positive window, and the lifetime must be at least one
+// second (Cache-Control counts whole seconds).
+func (c AdministrativeUnitsConfig) Validate() error {
+	if c.RateLimit.Max < 1 {
+		return fmt.Errorf("administrative_units.rate_limit.max must be >= 1, got %d", c.RateLimit.Max)
+	}
+	if c.RateLimit.Window.Duration() <= 0 {
+		return fmt.Errorf("administrative_units.rate_limit.window must be > 0, got %s", c.RateLimit.Window.Duration())
+	}
+	if c.CacheMaxAge.Duration() < time.Second {
+		return fmt.Errorf("administrative_units.cache_max_age must be >= 1s, got %s", c.CacheMaxAge.Duration())
 	}
 	return nil
 }

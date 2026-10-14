@@ -93,13 +93,29 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		return
 	}
 
+	if bad, ok := errors.AsType[*domain.GenealogyValidationError](err); ok {
+		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
+		return
+	}
+
 	if bad, ok := errors.AsType[*domain.LampValidationError](err); ok {
+		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
+		return
+	}
+
+	if bad, ok := errors.AsType[*domain.ProfileValidationError](err); ok {
 		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
 		return
 	}
 
 	if bad, ok := errors.AsType[*domain.TempleSuggestionValidationError](err); ok {
 		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
+		return
+	}
+
+	if errors.Is(err, domain.ErrInvalidAdministrativeUnitQuery) {
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_FILTER", domain.ErrInvalidAdministrativeUnitQuery.Error(),
+			map[string]any{"field": "q"})
 		return
 	}
 
@@ -126,8 +142,16 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_EMAIL", err.Error(), map[string]any{"field": "email"})
 	case errors.Is(err, domain.ErrInvalidPassword):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_PASSWORD", err.Error(), map[string]any{"field": "password"})
+	case errors.Is(err, domain.ErrInvalidFullName):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_FULL_NAME", err.Error(), map[string]any{"field": "full_name"})
+	case errors.Is(err, domain.ErrInvalidDharmaName):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DHARMA_NAME", err.Error(), map[string]any{"field": "dharma_name"})
 	case errors.Is(err, domain.ErrInvalidTemple):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_TEMPLE", err.Error(), map[string]any{"field": "ordination_temple_id"})
+	case errors.Is(err, domain.ErrInvalidAvatar):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_AVATAR", domain.ErrInvalidAvatar.Error(), nil)
+	case errors.Is(err, domain.ErrAvatarUploadNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "AVATAR_UPLOAD_NOT_FOUND", domain.ErrAvatarUploadNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrInvalidCredentials):
 		utils.WriteBusinessError(w, http.StatusUnauthorized, "INVALID_CREDENTIALS", err.Error(), nil)
 	case errors.Is(err, domain.ErrInvalidDevice):
@@ -156,6 +180,8 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadGateway, "ATTESTATION_UPSTREAM_ERROR", err.Error(), nil)
 	case errors.Is(err, domain.ErrTempleNotFound):
 		utils.WriteBusinessError(w, http.StatusNotFound, "TEMPLE_NOT_FOUND", domain.ErrTempleNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrAdministrativeUnitNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "ADMINISTRATIVE_UNIT_NOT_FOUND", domain.ErrAdministrativeUnitNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrDeityNotFound):
 		utils.WriteBusinessError(w, http.StatusNotFound, "DEITY_NOT_FOUND", domain.ErrDeityNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrGalleryImageNotFound):
@@ -164,6 +190,36 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusNotFound, "MEMORIAL_NOT_FOUND", domain.ErrMemorialNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrMemorialLimitReached):
 		utils.WriteBusinessError(w, http.StatusConflict, "MEMORIAL_LIMIT_REACHED", domain.ErrMemorialLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrGenealogyNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "GENEALOGY_NOT_FOUND", domain.ErrGenealogyNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrGenealogyForbidden):
+		utils.WriteBusinessError(w, http.StatusForbidden, "GENEALOGY_FORBIDDEN", domain.ErrGenealogyForbidden.Error(), nil)
+	case errors.Is(err, domain.ErrGenealogyLimitReached):
+		utils.WriteBusinessError(w, http.StatusConflict, "GENEALOGY_LIMIT_REACHED", domain.ErrGenealogyLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrMemberNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "MEMBER_NOT_FOUND", domain.ErrMemberNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrMemberLimitReached):
+		utils.WriteBusinessError(w, http.StatusConflict, "MEMBER_LIMIT_REACHED", domain.ErrMemberLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrMemberHasDescendants):
+		utils.WriteBusinessError(w, http.StatusConflict, "MEMBER_HAS_DESCENDANTS", domain.ErrMemberHasDescendants.Error(), nil)
+	case errors.Is(err, domain.ErrFounderNotDeletable):
+		utils.WriteBusinessError(w, http.StatusConflict, "FOUNDER_NOT_DELETABLE", domain.ErrFounderNotDeletable.Error(), nil)
+	case errors.Is(err, domain.ErrFounderNotMovable):
+		utils.WriteBusinessError(w, http.StatusConflict, "FOUNDER_NOT_MOVABLE", domain.ErrFounderNotMovable.Error(), nil)
+	case errors.Is(err, domain.ErrMemberPhoneInUse):
+		utils.WriteBusinessError(w, http.StatusConflict, "MEMBER_PHONE_ALREADY_USED", domain.ErrMemberPhoneInUse.Error(), map[string]any{"field": "phone_number"})
+	case errors.Is(err, domain.ErrViewerExists):
+		utils.WriteBusinessError(w, http.StatusConflict, "VIEWER_ALREADY_EXISTS", domain.ErrViewerExists.Error(), nil)
+	case errors.Is(err, domain.ErrViewerLimitReached):
+		utils.WriteBusinessError(w, http.StatusConflict, "VIEWER_LIMIT_REACHED", domain.ErrViewerLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrViewerNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "VIEWER_NOT_FOUND", domain.ErrViewerNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrInvitationNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "INVITATION_NOT_FOUND", domain.ErrInvitationNotFound.Error(), nil)
+	case errors.Is(err, domain.ErrInvitationNotPending):
+		utils.WriteBusinessError(w, http.StatusConflict, "INVITATION_NOT_PENDING", domain.ErrInvitationNotPending.Error(), nil)
+	case errors.Is(err, domain.ErrInvitationAlreadyPending):
+		utils.WriteBusinessError(w, http.StatusConflict, "INVITATION_ALREADY_PENDING", domain.ErrInvitationAlreadyPending.Error(), nil)
 	case errors.Is(err, domain.ErrLampLimitReached):
 		utils.WriteBusinessError(w, http.StatusConflict, "LAMP_LIMIT_REACHED", domain.ErrLampLimitReached.Error(), nil)
 	case errors.Is(err, domain.ErrInvalidLampFilter):
@@ -184,12 +240,25 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_PAGE_SIZE", domain.ErrInvalidPageSize.Error(), map[string]any{"field": "page_size"})
 	case errors.Is(err, domain.ErrInvalidTranslation):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_TRANSLATION", domain.ErrInvalidTranslation.Error(), map[string]any{"field": "translation"})
+	case errors.Is(err, domain.ErrInvalidDeityType):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DEITY_TYPE", domain.ErrInvalidDeityType.Error(), map[string]any{"field": "type"})
 	case errors.Is(err, domain.ErrInvalidGalleryType):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_GALLERY_TYPE", domain.ErrInvalidGalleryType.Error(), map[string]any{"field": "type"})
 	case errors.Is(err, domain.ErrInvalidPage):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_PAGE", domain.ErrInvalidPage.Error(), map[string]any{"field": "page"})
 	case errors.Is(err, domain.ErrInvalidDate):
-		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DATE", domain.ErrInvalidDate.Error(), map[string]any{"field": "date"})
+		// from/to of the temple-event window name themselves; calendar's single "date" is the default.
+		field := "date"
+		if fe, ok := errors.AsType[*domain.InvalidDateFieldError](err); ok {
+			field = fe.Field
+		}
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DATE", domain.ErrInvalidDate.Error(), map[string]any{"field": field})
+	case errors.Is(err, domain.ErrInvalidDateRange):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DATE_RANGE", domain.ErrInvalidDateRange.Error(), nil)
+	case errors.Is(err, domain.ErrDateRangeTooLarge):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "DATE_RANGE_TOO_LARGE", domain.ErrDateRangeTooLarge.Error(), nil)
+	case errors.Is(err, domain.ErrInvalidYear):
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_YEAR", domain.ErrInvalidYear.Error(), map[string]any{"field": "year"})
 	default:
 		utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
 	}

@@ -124,6 +124,7 @@ Bốn nguyên tắc giảm các lỗi phổ biến của LLM khi code: giả đ�
 - Khi yêu cầu có nhiều cách hiểu, trình bày các cách hiểu đó — không âm thầm chọn một.
 - Nếu có cách đơn giản hơn thì nói ra, phản biện khi cần.
 - Gặp điểm không rõ thì dừng, gọi tên chỗ chưa rõ và hỏi lại.
+- Ngoại lệ có chủ đích: xem §5.4 — mặc định là tự quyết theo hướng an toàn, dễ đảo ngược và ghi lại, chỉ hỏi khi thật sự bị chặn.
 
 **2. Simplicity First — Code tối thiểu đủ giải quyết vấn đề, không làm trước.**
 - Không thêm tính năng ngoài yêu cầu.
@@ -163,6 +164,22 @@ Bốn nguyên tắc giảm các lỗi phổ biến của LLM khi code: giả đ�
 - Khi AI đưa ra bất kỳ giả định nào lúc code, phải lưu vào `docs/assumptions/<feature>/A-NNN-<slug>.md`.
 - Mỗi file song ngữ (EN + VI) và dùng frontmatter theo `README.md` của folder.
 - Ghi ID trong code (`// TD-001`, `// A-001`) để file và code trỏ qua lại với nhau.
+
+### 5.3. Cấu hình và bí mật (Config vs Secrets)
+
+- `config.<env>.yaml` chỉ chứa dữ liệu **không nhạy cảm**: giới hạn, TTL, kích thước trang, tên bucket, endpoint, lựa chọn backend, và *tên* của secret (`*_secret`).
+- Dữ liệu **nhạy cảm** (mật khẩu DB, khoá ký JWT, API key, token nhà cung cấp, khoá riêng) **không** ghi giá trị vào config; phải lấy từ secret manager qua `SecretGetter` (`pkg/secrets/gcp`/`aws`), trong YAML chỉ có tên secret.
+- Ở môi trường **dev** được phép dùng `dev_secrets` + `NewMockSecretGetterFromYAML`; khi đó phải **ghi nợ kỹ thuật** (`docs/tech-debt/config/TD-001`) và đánh dấu `⚠️ DEV ONLY` tại chỗ dùng. Giá trị trong `dev_secrets` chỉ dùng cho local, không bao giờ là giá trị thật.
+- Khi thêm một khoá cấu hình mới, tự hỏi: "nếu ai đó đọc được giá trị này thì có lộ gì không?" Không → `config.yaml` (và thêm `Validate` nếu số 0 là nguy hiểm). Có → `*_secret` + secret manager.
+- Dữ liệu tham chiếu công khai (vd. danh mục đơn vị hành chính `assets/data/administrative-units.json`) không phải bí mật và được commit; `.gitignore` chặn `*.json` nên cần một ngoại lệ `!đường/dẫn` cho từng file như vậy.
+
+### 5.4. Khi nào hỏi, khi nào tự quyết
+
+- Mặc định là **tự quyết** theo hướng an toàn và dễ đảo ngược, rồi **ghi lại**: giả định → `docs/assumptions/<feature>/A-NNN-*.md`, đường tắt → `docs/tech-debt/<feature>/TD-NNN-*.md`, và nêu trong báo cáo cuối.
+- Chỉ dừng lại hỏi khi (a) hành động không thể hoàn tác hoặc tác động ra ngoài môi trường dev (xoá hay ghi đè dữ liệu thật, gửi đi ngoài, commit/push khi chưa được yêu cầu), hoặc (b) có hai hướng đều hợp lý mà chọn sai sẽ phải làm lại phần lớn công việc.
+- Các việc cộng thêm, idempotent, ở môi trường dev (áp migration mới, nạp dữ liệu seed, thêm file/test/tài liệu) **không** cần hỏi.
+- Không hỏi lại điều người dùng đã trả lời hoặc đã nói "tự quyết". Nếu buộc phải hỏi thì hỏi **một lần**, gộp các câu, kèm đề xuất mặc định.
+- Điều này tinh chỉnh nguyên tắc 1 ở §5.1 chứ không thay thế: vẫn phải nêu rõ giả định, chỉ là không dừng việc để chờ trả lời cho những điều có thể quyết và ghi lại.
 
 ---
 

@@ -1,7 +1,7 @@
 # Flow — article
 
-Version: 1.6
-Last updated: 2026-10-06
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-09-30) — mirror 1:1 của hai Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số.
 Module: `content`
 
@@ -50,7 +50,7 @@ sequenceDiagram
     end
 ```
 
-## Sequence — Seed lần đầu khi khởi động
+## Sequence — Seed bằng lệnh (cmd/seedarticles; service không tự nạp)
 
 ```mermaid
 sequenceDiagram

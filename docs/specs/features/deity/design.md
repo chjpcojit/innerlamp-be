@@ -1,8 +1,8 @@
 # Design — deity
 
-Version: 2.1
-Last updated: 2026-10-03
-Status: implemented (2026-09-30) — 3 route đọc chạy thật qua binary + Postgres dev; có test usecase/handler/seed parser/repository. Thiếu: E2E, OKF concept, ảnh dùng được; seed chỉ chạy bằng CLI với config dev.
+Version: 2.3
+Last updated: 2026-10-12
+Status: implemented (2026-09-30) — 3 route đọc chạy thật qua binary + Postgres dev; có test usecase/handler/seed parser/repository. Thiếu: E2E, OKF concept, ảnh dùng được; seed chỉ chạy bằng CLI với config dev. **v2.2–2.3: phần lọc `type` của `GET /v1/deities` đã implement** — các hàng/Step đánh dấu "(v2.2)" bên dưới phản ánh code hiện tại.
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -16,16 +16,16 @@ Ba route (`GET /v1/deities/top`, `GET /v1/deities`, `GET /v1/deities/{id}`) đ�
 | Layer | File | Responsibility |
 |---|---|---|
 | Domain / Entity | `services/appService/domain/deity.go` | `Deity` (mọi cột), `MemorialDay`, `Iconography`, `Mantras`, `DeityPage`, hằng `DeityBuddha`/`DeityBodhisattva`. Không JSON/db tag. |
-| Domain / Errors | `domain/deity.go` | `ErrDeityNotFound`; `ErrInvalidPage` dùng chung, **định nghĩa ở `domain/temple.go`**. |
-| Domain / Repository interface | `domain/deity.go` | `DeityRepository`: `ListTop`, `List`, `FindByID`, `Upsert`. Thứ tự `sort_order ASC, id ASC` là một phần của hợp đồng. |
+| Domain / Errors | `domain/deity.go` | `ErrDeityNotFound`; `ErrInvalidPage` dùng chung, **định nghĩa ở `domain/temple.go`**. (v2.2) thêm `ErrInvalidDeityType` và hàm `IsValidDeityType(string) bool` (khớp chính xác ba hằng `DeityBuddha`/`DeityBodhisattva`/`DeityDeva`), theo mẫu `ErrInvalidGalleryType` của `gallery`. |
+| Domain / Repository interface | `domain/deity.go` | `DeityRepository`: `ListTop`, `List`, `FindByID`, `Upsert`. Thứ tự `sort_order ASC, id ASC` là một phần của hợp đồng. (v2.2) `List(ctx, deityType, offset, limit)` — `deityType == ""` là không lọc. |
 | Domain / Mock | `domain/mock_deity_repository.go` | Mock viết tay cho test usecase. |
-| Usecase | `services/appService/usecase/deity_usecase.go` | `Top`, `ListDeities` (mọi loại, không lọc; tính offset/`total_pages`, chặn `page < 1` hoặc `> MaxInt32`, `items` nil → `[]`), `Get`. Kích thước trang lấy từ `config.DeityConfig`. |
-| Repository | `services/appService/repository/postgres_deity_repository.go` | SQL cho bảng `deities` với `deityColumns`/`deityOrder` dùng chung mọi lần đọc; `Upsert` chạy một transaction với `ON CONFLICT (id) DO UPDATE` ghi đè mọi cột; `lunar_memorial_days` marshal/unmarshal JSONB qua `memorialDayJSON`; `pq.Array` cho `sacred_artifacts`/`great_vows`; `sql.ErrNoRows` → `ErrDeityNotFound`. |
+| Usecase | `services/appService/usecase/deity_usecase.go` | `Top`, `ListDeities` (tính offset/`total_pages`, chặn `page < 1` hoặc `> MaxInt32`, `items` nil → `[]`), `Get`. Kích thước trang lấy từ `config.DeityConfig`. (v2.2) chữ ký `ListDeities(ctx, deityType, page)`: kiểm `page` trước, rồi `deityType != "" && !IsValidDeityType` → `ErrInvalidDeityType`; `""` = mọi loại. |
+| Repository | `services/appService/repository/postgres_deity_repository.go` | SQL cho bảng `deities` với `deityColumns`/`deityOrder` dùng chung mọi lần đọc; (v2.2) `List` thêm `WHERE type = $n` chỉ khi `deityType != ""`, cho cả câu đếm và câu lấy trang; `Upsert` chạy một transaction với `ON CONFLICT (id) DO UPDATE` ghi đè mọi cột; `lunar_memorial_days` marshal/unmarshal JSONB qua `memorialDayJSON`; `pq.Array` cho `sacred_artifacts`/`great_vows`; `sql.ErrNoRows` → `ErrDeityNotFound`. |
 | Seed CLI | `services/appService/cmd/seeddeities/main.go`, `parse.go` | `main`: đọc file (`-file`), nạp config + secret dev, kết nối DB, gọi `Upsert` — cùng khung với `seedtemples`. `parseDeities`: giải mã JSON thuần, kiểm id rỗng/trùng, `type`, `name_vi`; gán `SortOrder` = vị trí trong file. |
 | Data | `assets/data/phat_botat.json` | 18 mục (6 Phật, 12 Bồ tát), JSON thuần. Đọc từ đĩa lúc chạy seed (đường dẫn tính từ thư mục hiện tại) — không `go:embed`. |
-| Delivery / Handler | `services/appService/delivery/http/deity_handler.go` | `Top`, `ListDeities`, `Get`; parse `page`; interface `deityUsecase` khai báo phía consumer. |
+| Delivery / Handler | `services/appService/delivery/http/deity_handler.go` | `Top`, `ListDeities`, `Get`; parse `page`; (v2.2) đọc `type` thô từ query (`r.URL.Query().Get("type")`) và chuyển cho usecase, không tự kiểm; interface `deityUsecase` khai báo phía consumer. |
 | Delivery / DTO | `delivery/http/deity_handler.go` | `deitySummaryResponse`, `deityDetailResponse` (nhúng summary), `memorialDayResponse`, `iconographyResponse`, `mantrasResponse`, `deityTopResponse`, `deityListResponse` — JSON tag chỉ nằm ở đây. URL ảnh là `string` (không `null`); `sacred_artifacts`/`great_vows`/`lunar_memorial_days` không bao giờ `null`. |
-| Delivery / Error map | `delivery/http/errors.go` | `ErrDeityNotFound` → `404 DEITY_NOT_FOUND`; `ErrInvalidPage` → `400 INVALID_PAGE` (`details.field = "page"`); còn lại → `500 INTERNAL_ERROR`. |
+| Delivery / Error map | `delivery/http/errors.go` | `ErrDeityNotFound` → `404 DEITY_NOT_FOUND`; `ErrInvalidPage` → `400 INVALID_PAGE` (`details.field = "page"`); (v2.2) `ErrInvalidDeityType` → `400 INVALID_DEITY_TYPE` (`details.field = "type"`); còn lại → `500 INTERNAL_ERROR`. |
 | Delivery / Fallback | `delivery/http/fallback.go` | `WithAPIFallback` đổi 404/405 của `ServeMux` thành envelope `NOT_FOUND` / `METHOD_NOT_ALLOWED`. Dùng chung mọi route. |
 | Config | `services/appService/config/config.go`, `config.dev.yaml` | `DeityConfig{TopLimit, PageSize}`, block `deity:` (dev: 10 và 20). |
 | Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; đăng ký `GET /v1/deities/top`, `GET /v1/deities` (phân trang), `GET /v1/deities/{id}`. Không gọi seed. Không dính khối `⚠️ DEV ONLY` nào của `main.go` (riêng `cmd/seeddeities` có khối DEV ONLY của nó). |
@@ -33,7 +33,7 @@ Ba route (`GET /v1/deities/top`, `GET /v1/deities`, `GET /v1/deities/{id}`) đ�
 | API spec | `docs/specs/api/openapi.yaml` | **Đã có** 3 route (tag Deities) và schema; `web/docs/public/openapi.yaml` khớp. |
 | ERD | `docs/specs/db/erd.mmd`, `erd.svg` | **Đã có** bảng `deities` (không FK tới bảng nào). |
 
-Ghi chú về route: `mux.HandleFunc("GET /v1/deities/top", …)` là segment literal nên `ServeMux` ưu tiên nó hơn `GET /v1/deities/{id}`. Danh sách phân trang là `GET /v1/deities` (đúng path gốc, không segment thêm) nên không đụng `top` hay `{id}`; không có tham số lọc `type`.
+Ghi chú về route: `mux.HandleFunc("GET /v1/deities/top", …)` là segment literal nên `ServeMux` ưu tiên nó hơn `GET /v1/deities/{id}`. Danh sách phân trang là `GET /v1/deities` (đúng path gốc, không segment thêm) nên không đụng `top` hay `{id}`. (v2.2) Lọc loại là tham số query `type` trên chính route này, không thêm route mới nên không đổi bảng route của `cmd/main.go`.
 
 ## Request flow
 
@@ -58,36 +58,37 @@ GET /v1/deities/{id}
 
 > Xem `flow.md` cho sơ đồ sequence Mermaid của hai flow có nhiều bước bên dưới (mirror 1:1).
 
-## Step-by-step Flow — Danh sách Phật và Bồ tát phân trang (`GET /v1/deities?page=N`)
+## Step-by-step Flow — Danh sách Phật và Bồ tát phân trang (`GET /v1/deities?type=&page=N`)
 
-Hai lần truy vấn nối tiếp (đếm cả bảng, rồi lấy trang) nên flow này có Step-by-step riêng.
+Hai lần truy vấn nối tiếp (đếm, rồi lấy trang) nên flow này có Step-by-step riêng. (v2.2) Thêm tham số `type` tuỳ chọn; các Step đánh dấu (v2.2) đã có trong code.
 
 ```
-Step 1 — Đọc và kiểm tra `page` (handler)
+Step 1 — Đọc `page` và `type` (handler)
 - Trigger: request đến route công khai
 - Pre-condition: —
-- Call: r.URL.Query().Get("page"); rỗng → page = 1, ngược lại strconv.Atoi
+- Call: r.URL.Query().Get("page"); rỗng → page = 1, ngược lại strconv.Atoi. (v2.2) deityType = r.URL.Query().Get("type") (chuỗi thô, rỗng = không lọc)
     - Success → Step 2
-    - Failure (không phải số nguyên, kể cả tràn int) → writeDomainError(ErrInvalidPage) → 400 INVALID_PAGE, details.field = "page"
+    - Failure (page không phải số nguyên, kể cả tràn int) → writeDomainError(ErrInvalidPage) → 400 INVALID_PAGE, details.field = "page"
 
-Step 2 — Kiểm tra khoảng của `page` (usecase)
-- Trigger: handler gọi DeityUsecase.ListDeities(ctx, page)
+Step 2 — Kiểm tra `page` rồi `type` (usecase)
+- Trigger: handler gọi DeityUsecase.ListDeities(ctx, deityType, page)
 - Pre-condition: page là số nguyên
-- Call: DeityUsecase.ListDeities — page < 1 hoặc page > math.MaxInt32
-    - Success → Step 3 (không lọc loại, offset = (page-1) * page_size)
-    - Failure → domain.ErrInvalidPage → 400 INVALID_PAGE
+- Call: DeityUsecase.ListDeities — page < 1 hoặc page > math.MaxInt32; rồi (v2.2) deityType != "" và !IsValidDeityType(deityType)
+    - Success → Step 3 (offset = (page-1) * page_size, tính trên danh sách đã lọc)
+    - Failure (page) → domain.ErrInvalidPage → 400 INVALID_PAGE
+    - Failure (v2.2, type lạ) → domain.ErrInvalidDeityType → 400 INVALID_DEITY_TYPE, details.field = "type"
 
 Step 3 — Đếm số deity (repository)
-- Trigger: usecase gọi DeityRepository.List(offset, limit)
-- Pre-condition: offset/limit hợp lệ
-- Call: SELECT count(*) FROM deities
-    - Success → total (cả hai loại), sang Step 4
+- Trigger: usecase gọi DeityRepository.List(deityType, offset, limit)
+- Pre-condition: offset/limit hợp lệ; deityType rỗng hoặc đã qua IsValidDeityType
+- Call: SELECT count(*) FROM deities [WHERE type = $1 — (v2.2) chỉ khi deityType != ""]
+    - Success → total (khớp bộ lọc), sang Step 4
     - Failure (lỗi DB) → error bọc %w → 500 INTERNAL_ERROR
 
 Step 4 — Lấy trang (repository)
 - Trigger: Step 3 xong
 - Pre-condition: có total
-- Call: SELECT <cột> FROM deities ORDER BY sort_order ASC, id ASC OFFSET $1 LIMIT $2
+- Call: SELECT <cột> FROM deities [WHERE type = $1 — (v2.2)] ORDER BY sort_order ASC, id ASC OFFSET $n LIMIT $m
     - Success → items (rỗng nếu offset vượt cuối) và total, sang Step 5
     - Failure (lỗi DB / scan / `lunar_memorial_days` không giải mã được) → error bọc %w → 500 INTERNAL_ERROR
     - Transaction boundary: không có — Step 3 và Step 4 là hai câu lệnh độc lập, không chung snapshot
@@ -152,7 +153,8 @@ Không có gì bị stub ở phía đọc: mọi method của `DeityRepository` 
 - **Test repository cần Postgres và xoá dữ liệu dev**: `postgres_deity_repository_test.go` gọi `connectTestDB`, bỏ qua khi `-short`; helper `truncateAll` chạy `TRUNCATE … temples, deities, articles, users …` trên DB `innerlamp` (mặc định `localhost:5432`). Chạy xong bảng `deities` trống, phải seed lại bằng `cmd/seeddeities`. `go test -short` chỉ chạy usecase, handler và seed parser. Lượt viết spec này chỉ chạy `-short`, chưa chạy test repository.
 - **Ảnh không phân giải được**: cả 18 mục có `thumbnail_url = assets/images/buddhas/thumbnails/<id>.webp` (đường dẫn tương đối, không có route nào phục vụ) và `image_url = https://cdn.yourapp.com/images/buddhas/full/<id>.webp` (host giữ chỗ). API trả nguyên xi (AC 13); client hiện không tải được ảnh nào.
 - **Ảnh không theo quy ước `null` của `temple`/`article`**: hai URL luôn là chuỗi, một mục không có ảnh sẽ trả `""` thay vì `null`. Client cần biết khác biệt này giữa các danh mục.
-- **Không có route danh sách Phật**: Phật chỉ tới được qua `top` (chỉ khi `deity.top_limit` đủ lớn để chứa 6 vị đầu file) hoặc `detail` khi đã biết `id`.
+- **Index `idx_deities_type_order` được dùng lại** khi lọc `type` (v2.2): `WHERE type = $1 ORDER BY sort_order, id` khớp đúng thứ tự cột của index; bảng hiện chỉ ~20 dòng nên chưa cần đo, nhưng không cần migration mới.
+- **Giá trị `type` và dữ liệu seed lệch spec cũ**: migration `0015_deities_deva_type.sql` và `cmd/seeddeities/parse.go` đã nhận thêm `DEVA`; phần mô tả "18 mục / hai loại" ở các chỗ khác trong spec này là bản cũ, chưa được rà lại ở v2.2 (chỉ sửa các chỗ liên quan tới bộ lọc).
 - **Seed không tự chạy và dùng config dev**: appService khởi động không đụng bảng `deities`; `cmd/seeddeities` gắn với `config.dev.yaml` và secret dev (`⚠️ DEV ONLY`) nên chưa dùng được cho staging/production (`⚠️ Not confirmed` trong `requirements.md`).
 - **Upsert ghi đè mọi cột và không xoá**: chạy lại seed đưa mọi cột (kể cả `sort_order`) về đúng nội dung file, và mục bị xoá khỏi file **vẫn nằm trong bảng** — không có bước dọn.
 - **Validation ở seeder chỉ một phần**: `parseDeities` kiểm id, `type`, `name_vi`; các trường còn lại (ngày âm, mantra…) không bị kiểm, ví dụ `lunar_day = 45` vẫn qua.

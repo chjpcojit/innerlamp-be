@@ -65,6 +65,20 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusConflict, "SUGGESTION_ALREADY_CREATED", err.Error(), nil)
 	case errors.Is(err, domain.ErrReopenForbidden):
 		utils.WriteBusinessError(w, http.StatusForbidden, "FORBIDDEN", err.Error(), nil)
+	case errors.Is(err, domain.ErrInvalidAnnouncement):
+		utils.WriteValidationError(w, "INVALID_ANNOUNCEMENT", err.Error(), inputField(err))
+	case errors.Is(err, domain.ErrInvalidIssuingBodyName):
+		utils.WriteValidationError(w, "VALIDATION_ERROR", err.Error(), inputField(err))
+	case errors.Is(err, domain.ErrInvalidIssuingBody):
+		utils.WriteValidationError(w, "INVALID_ISSUING_BODY", err.Error(), map[string]any{"field": "issuing_body_id"})
+	case errors.Is(err, domain.ErrTempleNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "TEMPLE_NOT_FOUND", err.Error(), nil)
+	case errors.Is(err, domain.ErrAnnouncementNotFound):
+		utils.WriteBusinessError(w, http.StatusNotFound, "ANNOUNCEMENT_NOT_FOUND", err.Error(), nil)
+	case errors.Is(err, domain.ErrAnnouncementRevoked):
+		utils.WriteBusinessError(w, http.StatusConflict, "ANNOUNCEMENT_REVOKED", err.Error(), nil)
+	case errors.Is(err, domain.ErrIssuingBodyExists):
+		utils.WriteBusinessError(w, http.StatusConflict, "ISSUING_BODY_EXISTS", err.Error(), map[string]any{"field": "name"})
 	case errors.Is(err, domain.ErrWeakPassword):
 		utils.WriteValidationError(w, "WEAK_PASSWORD",
 			fmt.Sprintf("new password must be at least %d characters and differ from the current one", domain.MinPasswordLen),
@@ -72,6 +86,14 @@ func writeDomainError(w http.ResponseWriter, err error) {
 	default:
 		utils.WriteSystemError(w, "INTERNAL_ERROR", "internal server error", nil)
 	}
+}
+
+// inputField returns {"field": ...} for an AnnouncementInputError, else nil.
+func inputField(err error) map[string]any {
+	if ie, ok := errors.AsType[*domain.AnnouncementInputError](err); ok {
+		return map[string]any{"field": ie.Field}
+	}
+	return nil
 }
 
 // WriteAuthError is the auth middleware's ErrorHandler: a 401 in the shared

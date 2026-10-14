@@ -1,33 +1,29 @@
-# Handoff — 2026-10-10 20:33
-<!-- tự sinh khi kết thúc phiên da948378 bằng claude-haiku-4-5-20251001; /handoff để ghi bản chất lượng cao hơn -->
+# Handoff — 2026-10-14 17:13
+<!-- tự sinh khi kết thúc phiên 8dcaaa6c bằng claude-haiku-4-5-20251001; /handoff để ghi bản chất lượng cao hơn -->
 
 ## Đang làm dở
-- Temple-suggestion backoffice phase 3-5: domain/mock xong, pending handler/usecase/repository/route admin
-- Genealogy spec v3.0: pending Mermaid flow.md validation, service layer code, migration, openapi
-- E2E test timeout: 4 tests timeout khi chạy song song, pass riêng lẻ, root cause TBD
+- E2E test temple-event verification (dừng ở TEST_DB_NAME=inn)
 
 ## Việc tiếp theo
-1. Investigate/fix E2E test timeout - run full suite, check race conditions, verify build confidence
-2. Temple-suggestion handler/usecase/repository (phase 3-5) + wire route GET queue, PATCH approve/reject
-3. Genealogy v3.0: validate Mermaid, code service, migration, update openapi.yaml
+1. Commit temple-event changes & verify full E2E test
+2. Fix E2E fail administrative-units & dharma-talk (root cause TBD)
+3. Update openapi.yaml Profile schema (full_name + phone_number E.164)
 
 ## Tồn đọng / blocker
-- OTP hardcode '111111' - blocker go-live, risk deploy production
-- CORS '*' - security risk, cần siết chỉ FE domain server
-- Validation thiếu: mật khẩu >72 byte, ordination_place >255 ký tự trả 500 thay 400
-- AC69 xưng hô v1 chờ duyệt, AC markers (10,19,24,25,27,31,35,39,40,44,47,54,55,56,63,65,66)
-- 16 file backofficeService chưa có concept OKF (config/handlers/domain/repository/usecase/mailer)
-- Client repo chưa xử lý expires_in từ server (struct mẫu doc chưa cập nhật field)
+- E2E administrative-units & dharma-talk FAIL (root cause TBD)
+- E2E 4 parallel test fail (DB state/transaction)
+- Shared file conflicts config.go/main.go/errors.go blocking temple-suggestion & genealogy
+- 19 backofficeService files need OKF documentation (deity v2.2)
 
 ## Quyết định gần đây
-- Temple suggestion: public anonymous submit webAPIKey, rate limit 5/IP/hour, free-text province
-- Temple ID format temple_<region>_<NNN>, admin từ hạng di sản + năm thành lập
-- Heritage priority table copy backofficeService, không dùng pkg/ chung (AC21)
-- Genealogy invitations: tất cả mời dù có/chưa user, owner không dò tình trạng
-- genealogy_invitations: partial unique (genealogy_id, phone_number), max 1 mời/số
-- AuthResult trả expires_in (dev 900s), client thật ở repo khác
-- Ordination place: ordination_temple_id (FK temples), validation 400 INVALID_TEMPLE
-- Register v7.0: ordination_temple_id bắt buộc, drop ordination_place migration 0023
+- temple-announcement: content_editor role được đăng thông báo như admin
+- temple-announcement: phân trang page + page_size + total, v1 giữ nguyên
+- temple-announcement: rate limit tách riêng max:60/window:1m, 429 RATE_LIMITED
+- temple-announcement: p95 < 500ms với 200 thông báo còn hạn (NFR-001)
+- User auth: Bearer only; 401 UNAUTHORIZED unified (missing/invalid/expired)
+- Rate limit /v1/users/me*: 10 req/phút/account, return 429 RATE_LIMITED
+- Ordination temple: PATCH /v1/users/me {ordination_temple_id}, null=delete, 10 req/phút
+- Practice schedule: GET /v1/temples/{id}/schedule, weekday 0=Sun…6=Sat, [] means daily
 
 ## Nợ tài liệu (tự động)
 Code đã đổi nhưng chưa có concept OKF nào trỏ tới (dùng skill `il-okf-writer` sau khi code đã kiểm chứng):
@@ -35,7 +31,8 @@ Code đã đổi nhưng chưa có concept OKF nào trỏ tới (dùng skill `il-
 - services/backofficeService/cmd/ (1 file: main.go)
 - services/backofficeService/cmd/seedadmin/ (1 file: main.go)
 - services/backofficeService/config/ (1 file: config.go)
-- services/backofficeService/delivery/http/ (5 file: admin_auth_handler.go, admin_user_handler.go, errors.go, +2 file)
+- services/backofficeService/delivery/http/ (6 file: admin_auth_handler.go, admin_user_handler.go, errors.go, +3 file)
 - services/backofficeService/domain/ (3 file: admin.go, heritage.go, temple_suggestion.go)
-- services/backofficeService/repository/ (1 file: postgres_admin_repository.go)
-- services/backofficeService/usecase/ (2 file: admin_auth_usecase.go, admin_user_usecase.go)
+- services/backofficeService/e2e/ (1 file: harness.go)
+- services/backofficeService/repository/ (2 file: postgres_admin_repository.go, postgres_temple_suggestion_repository.go)
+- services/backofficeService/usecase/ (3 file: admin_auth_usecase.go, admin_user_usecase.go, temple_suggestion_usecase.go)

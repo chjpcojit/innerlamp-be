@@ -48,7 +48,7 @@ func TestStaticImages_ServesFilesButNotFoldersOrDotfiles_E2E(t *testing.T) {
 }
 
 func TestArticleThumbnails_AreServedByTheSameServer_E2E(t *testing.T) {
-	baseURL, client := newE2EServer(t)
+	baseURL, client := newE2EServerSeeded(t)
 
 	status, _, raw := get(t, client, baseURL+"/v1/articles/top")
 	require.Equal(t, http.StatusOK, status)

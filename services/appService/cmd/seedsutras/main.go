@@ -1,9 +1,9 @@
 // Command seedsutras loads the kinh / kệ / chú library into the sutras tables.
 //
-// It is the same first-run seed appService performs on startup, run by hand: only
-// when the sutras table is empty, in one transaction, and it does nothing (exit 0)
-// when the table already holds data, so it is safe to run twice and never
-// overwrites or resurrects rows. By default it reads the data embedded in the
+// appService does not seed on startup; this is the only way the library gets its
+// data. It loads only when the sutras table is empty, in one transaction, and does
+// nothing (exit 0) when the table already holds data, so it is safe to run twice
+// and never overwrites or resurrects rows. By default it reads the data embedded in the
 // binary (assets/data/sutras); -dir reads a directory on disk instead, which is
 // how to try an edited copy of the data before it is committed.
 //
@@ -39,7 +39,7 @@ const (
 	defaultConfigPath = "services/appService/config/config.dev.yaml"
 
 	// seedTimeout bounds the whole run, including the one-transaction insert of
-	// ~64,000 lines; it matches cmd/main.go's sutraSeedTimeout.
+	// ~64,000 lines.
 	seedTimeout = 2 * time.Minute
 )
 

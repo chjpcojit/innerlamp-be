@@ -35,9 +35,28 @@ export default defineConfig({
 					items: [{ slug: 'guides/catalogues/memorials' }],
 				},
 				{
+					label: 'Gia phả',
+					items: [{ slug: 'guides/catalogues/genealogies' }],
+				},
+				{
+					label: 'Hồ sơ cá nhân',
+					items: [{ slug: 'guides/catalogues/profile' }],
+				},
+				{
+					label: 'Thắp đèn',
+					items: [{ slug: 'guides/catalogues/lamps' }],
+				},
+				{
+					label: 'Địa chỉ',
+					items: [{ slug: 'guides/catalogues/administrative-units' }],
+				},
+				{
 					label: 'Danh mục nội dung',
 					items: [
 						{ slug: 'guides/catalogues/temples' },
+						{ slug: 'guides/catalogues/temple-events' },
+						{ slug: 'guides/catalogues/temple-announcements' },
+						{ slug: 'guides/catalogues/temple-schedule' },
 						{ slug: 'guides/catalogues/temple-suggestions' },
 						{ slug: 'guides/catalogues/deities' },
 						{ slug: 'guides/catalogues/articles' },

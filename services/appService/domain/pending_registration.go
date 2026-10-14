@@ -25,6 +25,7 @@ type PendingRegistration struct {
 	PhoneNumber  string
 	Email        string
 	PasswordHash string
+	FullName     *string
 	DharmaName   *string
 	// OrdinationTempleID is temples.id chosen at step 1, nil when none (v7.0).
 	OrdinationTempleID *string

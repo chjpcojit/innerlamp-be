@@ -3,6 +3,7 @@
     "appservice",
     "awsconfig",
     "bodhisattvas",
+    "cbor",
     "chjpcoj",
     "deliveryhttp",
     "GOLANGCI",

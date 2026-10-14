@@ -54,22 +54,22 @@ func postSuggestion(t *testing.T, uc templeSuggestionUsecase, body string) (*htt
 func TestTempleSuggestionHandler_Create_Success(t *testing.T) {
 	uc := &fakeTempleSuggestionUsecase{out: &domain.TempleSuggestion{ID: 12, Status: domain.TempleSuggestionPending}}
 
-	w, env := postSuggestion(t, uc, `{"name":"Chùa A","province":"Huế","address":"Đường 1"}`)
+	w, env := postSuggestion(t, uc, `{"name":"Chùa A","province_code":"79","ward_code":"26737","address":"Đường 1"}`)
 
 	assert.Equal(t, http.StatusCreated, w.Code)
 	assert.True(t, env.Success)
 	require.NotNil(t, env.Data)
 	assert.Equal(t, int64(12), env.Data.ID)
 	assert.Equal(t, "pending", env.Data.Status)
-	assert.Equal(t, domain.TempleSuggestionInput{Name: "Chùa A", Province: "Huế", Address: "Đường 1"}, *uc.got)
+	assert.Equal(t, domain.TempleSuggestionInput{Name: "Chùa A", ProvinceCode: "79", WardCode: "26737", Address: "Đường 1"}, *uc.got)
 }
 
 func TestTempleSuggestionHandler_Create_ResponseHasOnlyIDAndStatus(t *testing.T) {
 	uc := &fakeTempleSuggestionUsecase{out: &domain.TempleSuggestion{
-		ID: 1, Name: "secret-name", Province: "p", Address: "a", Status: domain.TempleSuggestionPending,
+		ID: 1, Name: "secret-name", ProvinceCode: "79", Province: "p", WardCode: "1", Ward: "w", Address: "a", Status: domain.TempleSuggestionPending,
 	}}
 
-	w, _ := postSuggestion(t, uc, `{"name":"x","province":"y","address":"z"}`)
+	w, _ := postSuggestion(t, uc, `{"name":"x","province_code":"y","ward_code":"w","address":"z"}`)
 
 	var raw struct {
 		Data map[string]any `json:"data"`
@@ -83,7 +83,7 @@ func TestTempleSuggestionHandler_Create_ResponseHasOnlyIDAndStatus(t *testing.T)
 func TestTempleSuggestionHandler_Create_ValidationErrorNamesField(t *testing.T) {
 	uc := &fakeTempleSuggestionUsecase{err: &domain.TempleSuggestionValidationError{Field: "address", Message: "address is required"}}
 
-	w, env := postSuggestion(t, uc, `{"name":"x","province":"y","address":""}`)
+	w, env := postSuggestion(t, uc, `{"name":"x","province_code":"y","ward_code":"w","address":""}`)
 
 	assert.Equal(t, http.StatusBadRequest, w.Code)
 	require.NotNil(t, env.Error)
@@ -93,10 +93,12 @@ func TestTempleSuggestionHandler_Create_ValidationErrorNamesField(t *testing.T) 
 
 func TestTempleSuggestionHandler_Create_BadBodyNeverReachesUsecase(t *testing.T) {
 	for name, body := range map[string]string{
-		"not json":      `nope`,
-		"unknown field": `{"name":"x","province":"y","address":"z","status":"created"}`,
-		"trailing data": `{"name":"x","province":"y","address":"z"} {}`,
-		"empty body":    ``,
+		"not json":                   `nope`,
+		"unknown field":              `{"name":"x","province_code":"y","ward_code":"w","address":"z","status":"created"}`,
+		"old province field":         `{"name":"x","province":"Huế","province_code":"y","ward_code":"w","address":"z"}`,
+		"names are not client input": `{"name":"x","province_code":"y","ward_code":"w","ward":"Phường X","address":"z"}`,
+		"trailing data":              `{"name":"x","province_code":"y","ward_code":"w","address":"z"} {}`,
+		"empty body":                 ``,
 	} {
 		t.Run(name, func(t *testing.T) {
 			uc := &fakeTempleSuggestionUsecase{}
@@ -113,7 +115,7 @@ func TestTempleSuggestionHandler_Create_BadBodyNeverReachesUsecase(t *testing.T)
 func TestTempleSuggestionHandler_Create_InfrastructureErrorDoesNotLeak(t *testing.T) {
 	uc := &fakeTempleSuggestionUsecase{err: errors.New("pq: connection refused to 10.1.2.3")}
 
-	w, env := postSuggestion(t, uc, `{"name":"x","province":"y","address":"z"}`)
+	w, env := postSuggestion(t, uc, `{"name":"x","province_code":"y","ward_code":"w","address":"z"}`)
 
 	assert.Equal(t, http.StatusInternalServerError, w.Code)
 	require.NotNil(t, env.Error)

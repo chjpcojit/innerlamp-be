@@ -6,6 +6,10 @@
 // uses (CONFIG_PATH, default config.dev.yaml) — ⚠️ DEV ONLY, same as cmd/main.go.
 //
 //	go run ./services/appService/cmd/seedtemples [-file assets/data/temple.json]
+//
+// Run `go run ./services/appService/cmd/seedadminunits` first: every temple
+// carries province_code/ward_code, which are checked against that dataset and
+// whose names are taken from it (docs/specs/features/temple, AC 34–36).
 package main
 
 import (
@@ -72,6 +76,12 @@ func main() {
 		log.Fatalf("connect database: %v", err)
 	}
 	defer func() { _ = db.Close() }()
+
+	// Step 4: check every (province_code, ward_code) against the administrative-units
+	// dataset and take the unit names from it. Read-only; a bad file stops here.
+	if err := resolveAddresses(ctx, repository.NewAdministrativeUnitRepository(db), temples); err != nil {
+		log.Fatalf("resolve addresses in %s: %v", *file, err)
+	}
 
 	if err := repository.NewTempleRepository(db).Upsert(ctx, temples); err != nil {
 		log.Fatalf("seed temples: %v", err)

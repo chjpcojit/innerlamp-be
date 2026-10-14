@@ -1,7 +1,7 @@
 # Flow — dharmatalk
 
-Version: 1.1
-Last updated: 2026-10-03
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-10-03) — mirror 1:1 của hai Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số. Code đã implement khớp (E2E kiểm chứng seed lần đầu, lần hai không ghi, và bảng toàn bài bị cờ không bị coi là rỗng).
 Module: `content`
 
@@ -50,7 +50,7 @@ sequenceDiagram
     end
 ```
 
-## Sequence — Seed lần đầu khi khởi động
+## Sequence — Seed bằng lệnh (cmd/seeddharmatalks; service không tự nạp)
 
 ```mermaid
 sequenceDiagram

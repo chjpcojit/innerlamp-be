@@ -17,7 +17,7 @@ handler := middleware.Logger(mux)
 ```
 
 ### `CORS(next http.Handler) http.Handler`
-Set cứng `Access-Control-Allow-Origin: *`, `Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS`, `Access-Control-Allow-Headers: Content-Type, Authorization`; request `OPTIONS` (preflight) được trả ngay `200` + `Content-Type: application/json` + body envelope `{"success": true}` qua `utils.WriteSuccessResponseWithStatus` mà không gọi tiếp `next`. Preflight dùng cùng envelope với mọi response khác nên client parse bằng một bộ `utils.ApiResponse` duy nhất (xem `docs/specs/features/http-middleware-wiring/`).
+Set cứng `Access-Control-Allow-Origin: *`, `Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS`, `Access-Control-Allow-Headers: Content-Type, Authorization`; request `OPTIONS` (preflight) được trả ngay `200` + `Content-Type: application/json` + body envelope `{"success": true}` qua `utils.WriteSuccessResponseWithStatus` mà không gọi tiếp `next`. Preflight dùng cùng envelope với mọi response khác nên client parse bằng một bộ `utils.ApiResponse` duy nhất (xem `docs/specs/features/http-middleware-wiring/`).
 ```go
 handler := middleware.CORS(mux)
 ```

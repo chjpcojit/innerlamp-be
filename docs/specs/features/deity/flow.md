@@ -1,15 +1,15 @@
 # Flow — deity
 
-Version: 2.1
-Last updated: 2026-10-03
-Status: implemented (2026-09-30) — mirror 1:1 của hai Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số.
+Version: 2.3
+Last updated: 2026-10-12
+Status: implemented (2026-09-30) — mirror 1:1 của hai Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số. v2.2: sơ đồ phân trang thêm tham số `type` (đã implement).
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
 `top` và `detail` chỉ một câu SQL nên không có diagram — xem "Request flow" trong `design.md`.
 
-## Sequence — Danh sách Phật và Bồ tát phân trang (`GET /v1/deities?page=N`)
+## Sequence — Danh sách Phật và Bồ tát phân trang (`GET /v1/deities?type=&page=N`)
 
 ```mermaid
 sequenceDiagram
@@ -20,22 +20,25 @@ sequenceDiagram
     participant R as DeityRepository
     participant DB as Postgres
 
-    C->>H: GET /v1/deities?page=N
-    H->>H: Step 1 — page rỗng → 1, ngược lại strconv.Atoi
+    C->>H: GET /v1/deities?type=&page=N
+    H->>H: Step 1 — page rỗng → 1, ngược lại strconv.Atoi; type lấy chuỗi thô (v2.2)
     alt page không phải số nguyên
         H--xC: 400 INVALID_PAGE {details.field: page}
     else page hợp lệ về kiểu
-        H->>U: ListDeities(ctx, page)
-        U->>U: Step 2 — page < 1 hoặc > MaxInt32?
-        alt ngoài khoảng
+        H->>U: ListDeities(ctx, deityType, page)
+        U->>U: Step 2 — page < 1 hoặc > MaxInt32? rồi type khác rỗng mà không hợp lệ? (v2.2)
+        alt page ngoài khoảng
             U--xH: ErrInvalidPage
             H-->>C: 400 INVALID_PAGE
-        else trong khoảng
-            U->>R: List(ctx, offset, page_size)
-            R->>DB: Step 3 — SELECT count(*) FROM deities
-            DB-->>R: total (cả hai loại)
+        else type lạ (v2.2)
+            U--xH: ErrInvalidDeityType
+            H-->>C: 400 INVALID_DEITY_TYPE {details.field: type}
+        else hợp lệ
+            U->>R: List(ctx, deityType, offset, page_size)
+            R->>DB: Step 3 — SELECT count(*) FROM deities [WHERE type = $1]
+            DB-->>R: total (khớp bộ lọc)
             Note over R,DB: Step 3 và Step 4 là hai câu lệnh độc lập, KHÔNG chung transaction/snapshot
-            R->>DB: Step 4 — SELECT … ORDER BY sort_order, id OFFSET $1 LIMIT $2
+            R->>DB: Step 4 — SELECT … [WHERE type = $1] ORDER BY sort_order, id OFFSET LIMIT
             DB-->>R: items (rỗng nếu vượt cuối)
             R-->>U: items, total
             U->>U: Step 5 — items nil → [], total_pages = ceil(total / page_size)

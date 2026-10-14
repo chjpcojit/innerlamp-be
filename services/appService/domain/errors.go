@@ -45,6 +45,16 @@ var (
 	// submitted value.
 	ErrInvalidPassword = errors.New("password must be at least 8 characters")
 
+	// ErrInvalidDharmaName — the dharma name is longer than profile.dharma_name_max_chars
+	// characters after trimming and NFC normalisation. The same sentinel serves
+	// registration and the profile edit, so one field has one rule and one code.
+	ErrInvalidDharmaName = errors.New("dharma name is too long")
+
+	// ErrInvalidFullName — the full name is blank, or longer than
+	// profile.full_name_max_chars characters after trimming and NFC normalisation.
+	// Mapped to 400 INVALID_FULL_NAME.
+	ErrInvalidFullName = errors.New("full name is required and must not be too long")
+
 	// ErrInvalidTemple — ordination_temple_id does not match any temple (AC18/
 	// AC19). Mapped to 400 INVALID_TEMPLE.
 	ErrInvalidTemple = errors.New("ordination temple does not exist")

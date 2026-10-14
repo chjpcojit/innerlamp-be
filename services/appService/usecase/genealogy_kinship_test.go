@@ -90,6 +90,33 @@ func TestAge(t *testing.T) {
 	}
 }
 
+func TestTraditionalAge(t *testing.T) {
+	now := 2026
+	tests := []struct {
+		name string
+		m    domain.GenealogyMember
+		want *int
+	}{
+		{"living: Western age + 1", domain.GenealogyMember{IsAlive: true, BirthYear: yr(1990)}, ip(37)},
+		{"deceased: age at death + 1", domain.GenealogyMember{IsAlive: false, BirthYear: yr(1930), DeathYear: yr(2005)}, ip(76)},
+		{"born this year is already 1", domain.GenealogyMember{IsAlive: true, BirthYear: yr(2026)}, ip(1)},
+		{"no birth year", domain.GenealogyMember{IsAlive: true}, nil},
+		{"deceased without death year", domain.GenealogyMember{IsAlive: false, BirthYear: yr(1930)}, nil},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := TraditionalAge(&tt.m, now)
+			if (got == nil) != (tt.want == nil) || (got != nil && *got != *tt.want) {
+				t.Fatalf("TraditionalAge = %v, want %v", deref(got), deref(tt.want))
+			}
+			// The two ages never disagree about when one is unknown, and differ by exactly one.
+			if w := Age(&tt.m, now); (w == nil) != (got == nil) || (w != nil && *got != *w+1) {
+				t.Fatalf("Age = %v, TraditionalAge = %v: must be Age+1 or both nil", deref(w), deref(got))
+			}
+		})
+	}
+}
+
 func deref(p *int) any {
 	if p == nil {
 		return nil

@@ -60,6 +60,9 @@ func main() {
 	if err := cfg.TempleSuggestion.Validate(); err != nil {
 		log.Fatalf("invalid backoffice config: %v", err)
 	}
+	if err := cfg.TempleAnnouncement.Validate(); err != nil {
+		log.Fatalf("invalid backoffice config: %v", err)
+	}
 
 	db, err := database.New(&database.Config{
 		Type: database.PostgreSQL, Host: cfg.Database.Host, Port: cfg.Database.Port,
@@ -107,6 +110,10 @@ func main() {
 	suggestionUsecase := usecase.NewTempleSuggestionUsecase(suggestionRepo, suggestionRepo.(domain.WardResolver), cfg.TempleSuggestion.PageSize)
 	suggestionHandler := deliveryhttp.NewTempleSuggestionHandler(suggestionUsecase, cfg.Server.PublicBaseURL)
 
+	announcementUsecase := usecase.NewTempleAnnouncementUsecase(
+		repository.NewTempleAnnouncementRepository(db), repository.NewIssuingBodyRepository(db), cfg.TempleAnnouncement)
+	announcementHandler := deliveryhttp.NewTempleAnnouncementHandler(announcementUsecase)
+
 	// Every /v1/admin/* route except login goes through this: access tokens
 	// only, rejections in the shared envelope, then a role check per route.
 	authMiddleware := jwtmiddleware.NewHTTPAuthMiddlewareWithOptions(jwtService, logger, jwtmiddleware.HTTPAuthOptions{
@@ -143,6 +150,12 @@ func main() {
 	mux.HandleFunc("GET /v1/admin/temple-suggestions", reviewer(suggestionHandler.List))
 	mux.HandleFunc("GET /v1/admin/temple-suggestions/{id}", reviewer(suggestionHandler.Get))
 	mux.HandleFunc("POST /v1/admin/temple-suggestions/{id}/create-temple", reviewer(suggestionHandler.CreateTemple))
+	mux.HandleFunc("POST /v1/admin/temples/{id}/announcements", reviewer(announcementHandler.Publish))
+	mux.HandleFunc("GET /v1/admin/temples/{id}/announcements", reviewer(announcementHandler.List))
+	mux.HandleFunc("PATCH /v1/admin/temple-announcements/{id}", reviewer(announcementHandler.Edit))
+	mux.HandleFunc("POST /v1/admin/temple-announcements/{id}/revoke", reviewer(announcementHandler.Revoke))
+	mux.HandleFunc("POST /v1/admin/temples/{id}/issuing-bodies", reviewer(announcementHandler.CreateIssuingBody))
+	mux.HandleFunc("GET /v1/admin/temples/{id}/issuing-bodies", reviewer(announcementHandler.ListIssuingBodies))
 
 	addr := cfg.Server.Addr
 	logger.Info("starting backofficeService", "addr", addr)

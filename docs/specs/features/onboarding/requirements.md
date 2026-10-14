@@ -1,8 +1,8 @@
 # Requirements — onboarding
 
-Version: 7.3
-Last updated: 2026-10-10
-Status: implemented (US-001, v6.1) + **thay đổi v7.x đã implement (v7.2)** — `ordination_place` (text) được thay bằng `ordination_temple_id` (FK `temples`); AC4 viết lại, thêm AC18/AC19; code + migration `0023` + test (usecase, repository, handler, E2E) xong, còn `erd.svg` và OKF (xem `tasks.md` Phase 11). Phần còn lại của US-001: đăng ký 2 bước (request-otp → resend-otp → verify-otp) đã chạy thật end-to-end qua Postgres; AC1–AC15 đã có test (usecase, repository trên DB thật, handler, E2E). US-002 đã chuyển sang `login/`, US-003 sang `password-reset/`; **US-004 (hồ sơ) còn ở mức user story, chưa design/implement** (xem section cuối file).
+Version: 7.5
+Last updated: 2026-10-11
+Status: implemented (US-001, v6.1) + **v7.5 (2026-10-11): đăng ký bắt buộc `full_name` (tối đa `profile.full_name_max_chars` = 300 ký tự), trả về trong `user` của `verify-otp`/`login` (AC21–AC22, đã implement + test)** + **v7.4 (2026-10-11): pháp danh quá `profile.dharma_name_max_chars` ký tự trả `400 INVALID_DHARMA_NAME` thay vì `500` (AC20, đã implement + test)** + **thay đổi v7.x đã implement (v7.2)** — `ordination_place` (text) được thay bằng `ordination_temple_id` (FK `temples`); AC4 viết lại, thêm AC18/AC19; code + migration `0023` + test (usecase, repository, handler, E2E) xong, còn `erd.svg` và OKF (xem `tasks.md` Phase 11). Phần còn lại của US-001: đăng ký 2 bước (request-otp → resend-otp → verify-otp) đã chạy thật end-to-end qua Postgres; AC1–AC15 đã có test (usecase, repository trên DB thật, handler, E2E). US-002 đã chuyển sang `login/`, US-003 sang `password-reset/`; **US-004 (hồ sơ) đã chuyển sang `docs/specs/features/profile/`**.
 Module: `identity`
 Code: `services/appService/`
 Feature folder: `services/appService/` + `docs/specs/features/onboarding/`
@@ -35,6 +35,7 @@ v6.0: US-003 chuyển sang `password-reset/`; v4.0: US-002 chuyển sang `login/
 | Số điện thoại | Bắt buộc | Chuẩn hóa định dạng E.164 (`+84...`), unique. **Phải verify OTP qua SMS** — đây là định danh chính ở MVP. Đã verify thì lưu thẳng vào `users.phone_number` |
 | Mật khẩu | Bắt buộc | ≥ 8 ký tự |
 | Email | Bắt buộc nhập | Unique toàn hệ thống. Client gửi lên ở bước 1, lưu tạm ở `pending_registration`; sau khi verify OTP mới copy sang `users.email`. Vì chưa verify nên `users.email_verified_at` = `NULL` |
+| Họ tên (`full_name`) | Bắt buộc | Họ và tên đầy đủ. Cắt khoảng trắng đầu cuối, chuẩn hoá NFC, tối đa `profile.full_name_max_chars` (dev: 300) **ký tự**. Lưu tạm ở `pending_registration.full_name`, sau khi verify OTP mới copy sang `users.full_name`. Cột nullable vì tài khoản tạo trước v7.5 không có tên (v7.5). |
 | Pháp danh (dharma name) | Tùy chọn | Tên đạo, nếu đã quy y |
 | Nơi quy y / xuất gia (`ordination_temple_id`) | Tùy chọn | **Id chùa** (`temples.id`, VARCHAR(64)) mà client lấy từ `GET /v1/temples` / `GET /v1/temples/{id}`. Không có / không chọn thì bỏ field (hoặc gửi rỗng) — lưu `NULL`. Không còn nhận tên chùa dạng text tự do (v7.0). |
 
@@ -99,6 +100,12 @@ xác thực. Success/failure code dưới đây là **nội dung `data`/`error` 
 
 18. WHEN a `request-otp` request arrives with a non-empty `ordination_temple_id` that does not match any `temples.id`, THE SYSTEM SHALL reject it with `400 INVALID_TEMPLE` (details `{field: "ordination_temple_id"}`) and SHALL NOT write any row. The check SHALL run after the phone/email duplicate checks (AC5, AC6). Gửi field cũ `ordination_place` SHALL bị từ chối như mọi field lạ (`400 VALIDATION_ERROR`, decode strict). (Mới v7.0.)
 19. WHEN the `verify-otp` step finds the stored `ordination_temple_id` no longer references an existing temple, THE SYSTEM SHALL reject it with `400 INVALID_TEMPLE` and SHALL NOT create a `users` row (FK `users.ordination_temple_id → temples.id` là chốt chặn cuối). (Mới v7.0.)
+20. WHEN a `request-otp` request arrives with a `dharma_name` that is longer than `profile.dharma_name_max_chars` (dev: 255) characters after trimming and NFC normalisation, THE SYSTEM SHALL reject it with `400 INVALID_DHARMA_NAME` (details `{field: "dharma_name"}`) and SHALL NOT write any row. The length counts characters, not bytes (chữ có dấu tính một ký tự, gõ tổ hợp hay dựng sẵn đều như nhau), the stored value is the trimmed NFC form, and the check runs before any database query. Cùng luật và cùng mã lỗi với `PATCH /v1/users/me` (`docs/specs/features/profile/`). (Mới v7.4 — trước đây quá 255 ký tự là `500` do cột `VARCHAR(255)`.)
+
+**Họ tên (v7.5)**
+
+21. WHEN a `request-otp` request arrives with a `full_name` that is empty, only whitespace, or longer than `profile.full_name_max_chars` (dev: 300) characters after trimming and NFC normalisation, THE SYSTEM SHALL reject it with `400 INVALID_FULL_NAME` (details `{field: "full_name"}`) and SHALL NOT write any row. The length counts characters, not bytes, the stored value is the trimmed NFC form, and the check runs before any database query. Cùng luật và cùng mã lỗi với `PATCH /v1/users/me` (`docs/specs/features/profile/`). (Mới v7.5.)
+22. WHEN a `request-otp` request arrives without a `full_name` key, THE SYSTEM SHALL reject it with `400 VALIDATION_ERROR` (validator `required`) and SHALL NOT write any row; WHEN `verify-otp` succeeds, THE SYSTEM SHALL copy the stored `full_name` to `users.full_name` and return it as `user.full_name` in `verify-otp` and in the `user` object of `login`. (Mới v7.5.)
 ### API contract (confirmed surface for this feature)
 
 Cả ba path đã có trong `docs/specs/api/openapi.yaml` (v3.7) — viết **sau khi** handler chạy thật qua
@@ -107,9 +114,9 @@ envelope `utils.ApiResponse`).
 
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
-| POST | `/v1/auth/register/request-otp` | public | `200` `{message, expires_in_seconds: 90, resend_after_seconds: 60}` | `400 INVALID_PHONE / INVALID_EMAIL / INVALID_PASSWORD / INVALID_TEMPLE`, `409 PHONE_TAKEN / EMAIL_TAKEN`, `429 OTP_LOCKED / OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED`, `500` |
+| POST | `/v1/auth/register/request-otp` | public | `200` `{message, expires_in_seconds: 90, resend_after_seconds: 60}` | `400 INVALID_PHONE / INVALID_EMAIL / INVALID_PASSWORD / INVALID_FULL_NAME / INVALID_DHARMA_NAME / INVALID_TEMPLE`, `409 PHONE_TAKEN / EMAIL_TAKEN`, `429 OTP_LOCKED / OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED`, `500` |
 | POST | `/v1/auth/resend-otp` | public | `200` `{message, expires_in_seconds: 90, resend_after_seconds: 60, resend_remaining}` | `400 INVALID_PHONE / VALIDATION_ERROR / OTP_INVALID / PENDING_REGISTRATION_EXPIRED`, `429 OTP_LOCKED / OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED`, `500` |
-| POST | `/v1/auth/register/verify-otp` | public | `201` `{access_token, refresh_token, user}` (`user.ordination_temple_id` thay `user.ordination_place`; bỏ khỏi `user` khi `NULL`) | `400 VALIDATION_ERROR / OTP_INVALID / OTP_EXPIRED / PENDING_REGISTRATION_EXPIRED / INVALID_TEMPLE`, `409 EMAIL_TAKEN / PHONE_TAKEN`, `429 OTP_LOCKED`, `500` |
+| POST | `/v1/auth/register/verify-otp` | public | `201` `{access_token, refresh_token, user}` (`user.full_name` — bỏ khỏi `user` khi `NULL`, tức tài khoản cũ; `user.ordination_temple_id` thay `user.ordination_place`; bỏ khỏi `user` khi `NULL`) | `400 VALIDATION_ERROR / OTP_INVALID / OTP_EXPIRED / PENDING_REGISTRATION_EXPIRED / INVALID_TEMPLE`, `409 EMAIL_TAKEN / PHONE_TAKEN`, `429 OTP_LOCKED`, `500` |
 
 ### Gate email chưa verify
 
@@ -154,7 +161,7 @@ lại **ngoài task list**, không chặn tính năng:
 
 - Endpoint (2 bước, khớp [Luồng đăng ký](#luồng-đăng-ký-2-bước)):
   ```
-  POST /v1/auth/register/request-otp   { phone_number, email, password, dharma_name?, ordination_temple_id? }
+  POST /v1/auth/register/request-otp   { phone_number, email, password, full_name, dharma_name?, ordination_temple_id? }
   POST /v1/auth/register/verify-otp    { phone_number, otp_code }
   POST /v1/auth/resend-otp             { phone_number, purpose }   -- dùng chung mọi purpose; US-001 chỉ hiện thực purpose=register
   ```
@@ -168,6 +175,7 @@ lại **ngoài task list**, không chặn tính năng:
   ALTER TABLE users ADD COLUMN phone_number VARCHAR(20) UNIQUE NOT NULL;
   ALTER TABLE users ADD COLUMN ordination_place VARCHAR(255);   -- ĐÃ BỊ THAY ở v7.0, xem khối migration 0023 bên dưới
   -- (dharma_name đã có sẵn từ thiết kế trước, giữ nguyên)
+  ALTER TABLE users ADD COLUMN full_name VARCHAR(300);   -- v7.5, migrations/0033, nullable (tài khoản cũ không có tên)
 
   -- OTP dùng chung cho mọi mục đích (register / login / reset_password / verify_email),
   -- phân biệt bằng cột purpose. Bước 1 ghi vào đây với purpose = 'register'.
@@ -205,6 +213,7 @@ lại **ngoài task list**, không chặn tính năng:
       phone_number     VARCHAR(20) NOT NULL UNIQUE,
       email            VARCHAR(255) NOT NULL,
       password_hash    VARCHAR(255) NOT NULL,
+      full_name        VARCHAR(300),  -- v7.5, migrations/0033
       dharma_name      VARCHAR(255),
       ordination_place VARCHAR(255),
       expires_at       TIMESTAMPTZ NOT NULL,  -- now() + PendingRegistrationTTL (24h)
@@ -277,6 +286,8 @@ lại **ngoài task list**, không chặn tính năng:
 
 ---
 
+- **`full_name` (v7.5, 2026-10-11).** Chốt với người dùng: bắt buộc khi đăng ký, tối đa 300 ký tự, sửa được qua `PATCH /v1/users/me`. Quyết định kỹ thuật kèm theo (đã ghi ở `docs/assumptions/onboarding/A-001-register-full-name.md`): cột nullable và không backfill vì tài khoản cũ không có tên; luật "bắt buộc" nằm ở use case (`ErrInvalidFullName`) chứ không ở schema; `full_name` không xoá được ở PATCH.
+
 ## US-002: Đăng nhập — đã chuyển sang `login/`
 
 > US-002 (đăng nhập, kèm refresh token và logout) được đặc tả tại
@@ -300,9 +311,7 @@ lại **ngoài task list**, không chặn tính năng:
 **Module:** `identity`
 **Priority:** P1
 
-> ⚠️ **US-004 chưa được design/implement** — còn ở mức user story (prospective). **Lưu ý v7.0:** AC2/AC5 bên dưới nói "nơi quy y/xuất gia" là text; sau v7.0 trường này là `ordination_temple_id` (chọn chùa từ `temples`) — sẽ chỉnh khi US-004 được đặc tả, chưa sửa ở đây. Chuẩn hoá lần này
-> (v6.1) chỉ phủ US-001; US-004 giữ nguyên Given/When/Then bên dưới, chưa chuyển sang EARS và chưa có
-> `design.md`/`flow.md`/task tương ứng. Khi đặc tả sẽ tách theo tiền lệ US-002/US-003 hoặc giữ tại đây.
+> ➡️ **US-004 đã chuyển sang [`docs/specs/features/profile/`](../profile/requirements.md)** (v1.0, 2026-10-11): xem/sửa hồ sơ, pháp danh, chùa quy y và ảnh đại diện qua `/v1/users/me`. Phần Given/When/Then bên dưới là bản **cũ, đã bị thay thế** (còn gọi nơi quy y là text); chỉ giữ để tra lịch sử, đừng làm theo.
 
 ### User Story
 

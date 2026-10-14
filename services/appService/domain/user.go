@@ -19,7 +19,10 @@ type User struct {
 	EmailVerifiedAt *time.Time
 	PhoneNumber     string
 	PasswordHash    string
-	DharmaName      *string
+	// FullName is the account holder's full name; nil only for accounts created
+	// before registration required it (migration 0033).
+	FullName   *string
+	DharmaName *string
 	// OrdinationTempleID is temples.id of the temple where the user took
 	// refuge or was ordained; nil when they have not chosen one (v7.0 —
 	// replaces the free-text ordination_place).

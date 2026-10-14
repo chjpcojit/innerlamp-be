@@ -1,7 +1,7 @@
 # Design — onboarding
 
-Version: 7.3
-Last updated: 2026-10-10
+Version: 7.5
+Last updated: 2026-10-11
 Status: done (US-001 tới v6.1); **v7.0 (`ordination_temple_id`) đã implement ở v7.2** — các dòng/bước đánh dấu `(v7.0)` bên dưới khớp code thật; xem `tasks.md` Phase 11. Phần còn lại: done (US-001) — `domain/`, `usecase/`, `repository/`, `delivery/http/`, `cmd/main.go`,
 `pkg/sms/`, `migrations/0001`+`0003` và `docs/specs/api/openapi.yaml` đều đã có code/tài liệu thật,
 và đã chạy thật end-to-end (request-otp → resend-otp → verify-otp) qua Postgres. `tasks.md` không còn
@@ -57,8 +57,8 @@ bắt buộc có Step-by-step Flow (rule 5 của skill). Nó cũng là feature �
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Domain / Entity | `services/appService/domain/user.go` | `User` — `ID`, `Email`, `EmailVerifiedAt *time.Time`, `PhoneNumber`, `PasswordHash`, `DharmaName *string`, `OrdinationPlace *string` → **(v7.0) `OrdinationTempleID *string`**, `CreatedAt`, `UpdatedAt`. Plain data, không JSON tag. |
-| Domain / Entity | `services/appService/domain/pending_registration.go` | `PendingRegistration` — payload tạm giữa 2 bước: `PhoneNumber`, `Email`, `PasswordHash`, `DharmaName`, `OrdinationPlace` → **(v7.0) `OrdinationTempleID *string`**, `ExpiresAt`. Thêm `ID` và `CreatedAt` so với bản thiết kế gốc — `ID` để `DeletePendingRegistration` có khoá, `CreatedAt` để chẩn đoán. |
+| Domain / Entity | `services/appService/domain/user.go` | `User` — `ID`, `Email`, `EmailVerifiedAt *time.Time`, `PhoneNumber`, `PasswordHash`, **`FullName *string` (v7.5)**, `DharmaName *string`, `OrdinationPlace *string` → **(v7.0) `OrdinationTempleID *string`**, `CreatedAt`, `UpdatedAt`. Plain data, không JSON tag. |
+| Domain / Entity | `services/appService/domain/pending_registration.go` | `PendingRegistration` — payload tạm giữa 2 bước: `PhoneNumber`, `Email`, `PasswordHash`, **`FullName` (v7.5)**, `DharmaName`, `OrdinationPlace` → **(v7.0) `OrdinationTempleID *string`**, `ExpiresAt`. Thêm `ID` và `CreatedAt` so với bản thiết kế gốc — `ID` để `DeletePendingRegistration` có khoá, `CreatedAt` để chẩn đoán. |
 | Domain / Entity | `services/appService/domain/otp.go` | `OTPCode` + `OTPPurpose`. Hằng số khai **đủ bốn** giá trị (`OTPPurposeRegister = "register"`, `OTPPurposeLogin = "login"`, `OTPPurposeResetPassword = "reset_password"`, `OTPPurposeVerifyEmail = "verify_email"`) để cột `otp_codes.purpose` và endpoint `resend-otp` dùng chung được — nhưng US-001 **chỉ hiện thực** `register`; ba giá trị còn lại thuộc US-002/US-003, khai ở đây để `chk_otp_codes_purpose` không phải `ALTER` lại. Không có entity `Device`/`Session` ở phạm vi US-001 — xem "Known gaps". |
 | Domain / Input-Output | `services/appService/domain/register.go` | `RequestRegisterOTPInput`, `RequestOTPResult`, `ResendOTPInput` (`PhoneNumber`, `Purpose`), `ResendOTPResult`, `VerifyRegisterOTPInput`, `RegisterResult`, `RegistrationConflicts` (+ `HasPhoneConflict()` / `HasEmailConflict()`), `TokenIssuer` func type `func(userID, sessionID string)` (đã đổi ở Phase 7/v4.2 — xem Step 6 flow 2). Không HTTP DTO. |
 | Domain / Errors | `services/appService/domain/errors.go` | Sentinels: `ErrPhoneTaken`, `ErrEmailTaken`, `ErrInvalidPhone`, `ErrInvalidEmail`, `ErrInvalidPassword`, `ErrOTPInvalid`, `ErrOTPExpired`, `ErrOTPLocked`, `ErrOTPResendTooSoon`, `ErrOTPSendLimited`, `ErrPendingRegistrationNotFound`, `ErrPendingRegistrationExpired`, `ErrUnsupportedOTPPurpose`, `ErrSMSSendFailed`, **(v7.0) `ErrInvalidTemple`** (→ `400 INVALID_TEMPLE`). Handler map từng cái sang status. Ba typed error `OTPLockedError` / `OTPResendTooSoonError` / `OTPSendLimitedError` (mỗi cái `Unwrap()` về sentinel tương ứng) mang thêm `locked_until` / `retry_after`. **v5.0 bỏ `ErrOTPResendExhausted`** (không còn nhánh nào trả), **thêm `ErrOTPSendLimited`**. |
@@ -221,6 +221,8 @@ Step 1 — Validate và chuẩn hoá input (feature này)
     - Failure (phone sai định dạng, kể cả sau khi chuẩn hoá) → ErrInvalidPhone → 400 INVALID_PHONE,
       details {field: phone_number}
     - Failure (password < 8) → ErrInvalidPassword → 400 INVALID_PASSWORD, details {field: password}
+    - Failure (full_name trống sau trim, hoặc > profile.full_name_max_chars ký tự sau NFC) → ErrInvalidFullName → 400 INVALID_FULL_NAME, details {field: full_name} (AC21, v7.5); thiếu key → 400 VALIDATION_ERROR do validator `required` (AC22)
+    - Failure (dharma_name > profile.dharma_name_max_chars ký tự sau trim + NFC) → ErrInvalidDharmaName → 400 INVALID_DHARMA_NAME, details {field: dharma_name} (AC20, v7.4)
     - Không chạm DB ở bất kỳ nhánh failure nào.
   (v7.0) `ordination_temple_id` được `strings.TrimSpace` rồi coi rỗng = không chọn (→ `nil`); Step 1 **không** kiểm
   tồn tại (cần DB) — việc đó ở Step 2. DTO decode strict nên field cũ `ordination_place` bị từ chối (400).
@@ -269,9 +271,9 @@ Step 4 — Áp send-limit + ghi tạm payload + cấp OTP mới (feature này, M
             rồi SELECT ... FOR UPDATE            -- khoá hàng bộ đếm, chống hai request song song
         (b) áp §"OTP send-limit policy": đặt lại cycle / khoá / cooldown / trần. Bị chặn →
             typed error, ROLLBACK, không ghi gì.
-        (c) UPSERT INTO pending_registration (phone_number, email, password_hash, dharma_name,
+        (c) UPSERT INTO pending_registration (phone_number, email, password_hash, full_name, dharma_name,
             ordination_temple_id, expires_at, created_at)          -- v7.0: thay ordination_place
-            ON CONFLICT (phone_number) DO UPDATE SET email, password_hash, dharma_name,
+            ON CONFLICT (phone_number) DO UPDATE SET email, password_hash, full_name, dharma_name,
             ordination_temple_id, expires_at, created_at
         (d) UPDATE otp_codes SET used_at = now()
             WHERE phone_number = $1 AND purpose = 'register' AND used_at IS NULL
@@ -385,8 +387,8 @@ Step 5 — Tạo user + session (feature này, MỘT transaction)
 - Call: RegistrationRepository.CreateUserAndSession(ctx, pending, issuer) → BEGIN
         (a) SELECT 1 FROM users WHERE email = $1              -- re-check trong tx
         (b) INSERT INTO users (email, email_verified_at, phone_number, password_hash,
-            dharma_name, ordination_temple_id)                      -- v7.0: thay ordination_place
-            VALUES ($1, NULL, $2, $3, $4, $5) RETURNING id, created_at, updated_at
+            full_name, dharma_name, ordination_temple_id)           -- v7.0: thay ordination_place; v7.5: thêm full_name
+            VALUES ($1, NULL, $2, $3, $4, $5, $6) RETURNING id, created_at, updated_at
         (c) DELETE FROM pending_registration WHERE id = $1
         (d) UPDATE otp_codes SET used_at = now() WHERE id = $1
         (e) INSERT INTO user_sessions (...)                    -- xem Step 6

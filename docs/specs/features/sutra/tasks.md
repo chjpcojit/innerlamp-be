@@ -1,7 +1,7 @@
 # Tasks — sutra
 
-Version: 2.13
-Last updated: 2026-10-07
+Version: 3.0
+Last updated: 2026-10-11
 Status: v2.12 (2026-10-07) thêm Phase 6 (tách `reference`/`license` + `summary`): mọi mục đã `[x]`, gồm "Áp lên DB đã seed" (kiểm 2026-10-08). Phase 1–5 xong và đã kiểm chứng (2026-10-03): `go build`, `go vet`, `go test -short` trên toàn repo; test repository trên Postgres thật; bộ E2E đầy đủ gồm 7 hàm test mới cho sutra (đã kiểm bằng 6 đột biến); số đo khởi động, binary và response; ERD, `migrations/README.md`, tài liệu dev local. Không còn mục `[ ]` nào; mục soát `durationMinutes` được đóng ngày 2026-10-03 theo quyết định giữ nguyên giá trị đã sinh. Không còn marker `⚠️ Not confirmed`.
 Module: `content`
 
@@ -54,7 +54,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] Handler `List`, `Get`, `Lines`, `ListByDeity`: đọc query → gọi usecase → map entity sang DTO (`nonNil` cho mảng; `null` cho `duration_minutes`, `section`)
 - [x] Ánh xạ lỗi trong `delivery/http/errors.go`: `ErrSutraNotFound` → `404 SUTRA_NOT_FOUND`, `ErrSutraTranslationNotFound` → `404 TRANSLATION_NOT_FOUND`, `ErrInvalidSutraFilter` → `400 INVALID_FILTER`, `ErrInvalidPageSize` → `400 INVALID_PAGE_SIZE`, `ErrInvalidTranslation` → `400 INVALID_TRANSLATION`
 - [x] `SutraConfig{PageSize, LinesPageSize, LinesMaxPageSize}` và block `sutra:` trong `config/config.go`, `config.dev.yaml`; `SutraConfig.Validate()` báo lỗi khi giá trị < 1 hoặc `lines_page_size` > `lines_max_page_size`, và `cmd/main.go` gọi nó ngay sau `Load` (không đặt trong `Load` vì `Load` hiện không kiểm tra giá trị nào và 4 test cũ của nó dùng YAML không có block catalogue); test: `config/config_test.go` (`TestSutraConfig_Validate`, `TestLoad_DevYAMLSutraConfig`)
-- [x] `cmd/main.go` — gọi `SutraUsecase.SeedIfEmpty` sau khi kết nối DB và sau khi `deities` sẵn sàng (lỗi → `log.Fatalf`, thành công → log `seeded sutras on first run`); đăng ký bốn route (`GET /v1/sutras`, `/v1/sutras/{id}`, `/v1/sutras/{id}/lines`, `/v1/deities/{id}/sutras`); xác nhận đã chạy thật rằng không route nào bị bọc `RequireAuth` và `/v1/deities/{id}` không đổi hành vi
+- [x] `cmd/main.go` — dựng dây; từ 2026-10-11 **không còn** gọi `SutraUsecase.SeedIfEmpty` lúc khởi động (nạp bằng `cmd/seedsutras`). Trước đó: gọi sau khi kết nối DB và sau khi `deities` sẵn sàng (lỗi → `log.Fatalf`, thành công → log `seeded sutras on first run`); đăng ký bốn route (`GET /v1/sutras`, `/v1/sutras/{id}`, `/v1/sutras/{id}/lines`, `/v1/deities/{id}/sutras`); xác nhận đã chạy thật rằng không route nào bị bọc `RequireAuth` và `/v1/deities/{id}` không đổi hành vi
 - [x] Cập nhật `docs/specs/api/openapi.yaml` và `web/docs/public/openapi.yaml` trong cùng thay đổi với handler
 - [x] Test handler `delivery/http/sutra_handler_test.go` (cùng `mock_sutra_usecase_test.go`): thành công, từng nhánh lỗi (400/404/405/500), mảng rỗng là `[]` không `null`, `duration_minutes` và `section` là `null` khi phù hợp, `page > total_pages` trả `items: []`
 - [x] `services/appService/e2e/harness.go` — seed `deities` (từ `assets/data/phat_botat.json`) sau khi áp migration, vì service không khởi động lần đầu nếu thiếu `deities`; và khi binary không lên thì in stderr của nó thay vì chỉ báo hết giờ. Không có thay đổi này thì 3 test E2E của register/login (không liên quan tới kinh) hỏng; sau khi sửa, cả bộ E2E hiện có pass lại (đã chạy thật trên testcontainers Postgres)

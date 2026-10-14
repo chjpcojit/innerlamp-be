@@ -10,7 +10,6 @@ package main
 
 import (
 	"context"
-	"io/fs"
 	"log"
 	"net/http"
 	"os"
@@ -31,24 +30,19 @@ import (
 	httpmiddleware "chjpcoj.com.innerlamp/pkg/middleware"
 	"chjpcoj.com.innerlamp/pkg/sms"
 	_ "chjpcoj.com.innerlamp/pkg/sms/logsms"
+	pkgstorage "chjpcoj.com.innerlamp/pkg/storage"
+	_ "chjpcoj.com.innerlamp/pkg/storage/gcs"
 	"chjpcoj.com.innerlamp/pkg/validation"
 
 	"chjpcoj.com.innerlamp/assets"
 	appConfig "chjpcoj.com.innerlamp/services/appService/config"
 	deliveryhttp "chjpcoj.com.innerlamp/services/appService/delivery/http"
-	"chjpcoj.com.innerlamp/services/appService/domain"
 	"chjpcoj.com.innerlamp/services/appService/repository"
+	avatarstorage "chjpcoj.com.innerlamp/services/appService/storage"
 	"chjpcoj.com.innerlamp/services/appService/usecase"
 )
 
 const defaultConfigPath = "services/appService/config/config.dev.yaml"
-
-// sutraSeedTimeout bounds the first-run seed of the sutra library (~64,000 lines in
-// one transaction). It has its own budget because connectCtx's 10s is shared with
-// config loading, the DB connection and the article seed, and the sutra seed is
-// by far the heaviest of them (about a second on a local Postgres).
-// TD-008: hardcoded, and repeated in cmd/seedsutras; not yet in config.
-const sutraSeedTimeout = 2 * time.Minute
 
 func main() {
 	logger := logging.New(logging.Config{
@@ -99,6 +93,26 @@ func main() {
 	if err := cfg.TempleSuggestion.Validate(); err != nil {
 		log.Fatalf("invalid temple_suggestion config: %v", err)
 	}
+	// The administrative-units lookups are public and read-only; without a valid per-IP limit
+	// and cache lifetime they would be an unmetered open endpoint, so stop now.
+	if err := cfg.AdministrativeUnits.Validate(); err != nil {
+		log.Fatalf("invalid administrative_units config: %v", err)
+	}
+
+	// The events route needs a language to read text in and a cache lifetime to send;
+	// both are required, so a missing calendar block stops the service now.
+	if err := cfg.Calendar.Validate(); err != nil {
+		log.Fatalf("invalid calendar config: %v", err)
+	}
+
+	// A missing temple_announcement block would mean page size 0 and no rate limit: stop now.
+	if err := cfg.TempleAnnouncement.Validate(); err != nil {
+		log.Fatalf("invalid temple_announcement config: %v", err)
+	}
+	// A missing temple_event block would give an unknown zone and a zero window: stop now.
+	if err := cfg.TempleEvent.Validate(); err != nil {
+		log.Fatalf("invalid temple_event config: %v", err)
+	}
 
 	// Zero genealogy limits would mean nobody can create a tree or an invitation is
 	// born expired, so a missing genealogy block must stop the service now.
@@ -110,6 +124,14 @@ func main() {
 	// missing lamp block must stop the service now.
 	if err := cfg.Lamp.Validate(); err != nil {
 		log.Fatalf("invalid lamp config: %v", err)
+	}
+	if err := cfg.Profile.Validate(); err != nil {
+		log.Fatalf("invalid profile config: %v", err)
+	}
+	// The avatar routes sign URLs and copy objects through the storage client below; a
+	// missing block must stop the service now, not at the first avatar.
+	if err := cfg.Storage.Validate(); err != nil {
+		log.Fatalf("invalid storage config: %v", err)
 	}
 
 	dbConfig := &database.Config{
@@ -131,6 +153,47 @@ func main() {
 		log.Fatalf("failed to connect to database: %v", err)
 	}
 	defer func() { _ = db.Close() }()
+
+	// Object storage for avatars. Connect is called now so a missing credential or a bad
+	// project fails the start, not the first upload.
+	// ⚠️ DEV CONFIG: with no Application Default Credentials the GCS client refuses to build
+	// unless STORAGE_EMULATOR_HOST is set (make run and the e2e harness set it). The emulator
+	// does not verify signed URLs, so TD-001 still requires a check on a real bucket before
+	// the first deploy that serves avatar routes.
+	// When storage.emulator_host is set the GCS client is pointed at the emulator through the
+	// library's own STORAGE_EMULATOR_HOST (plain HTTP, no credentials) and avatar URLs are
+	// unsigned. Config wins over an inherited variable so a run is decided by one file.
+	if cfg.Storage.EmulatorHost != "" {
+		if err := os.Setenv("STORAGE_EMULATOR_HOST", cfg.Storage.EmulatorHost); err != nil {
+			log.Fatalf("failed to point storage at the emulator: %v", err)
+		}
+		logger.Warn("⚠️ DEV ONLY: avatar storage runs against an emulator with unsigned URLs",
+			"emulator_host", cfg.Storage.EmulatorHost)
+	}
+	storageClient, err := pkgstorage.New(&pkgstorage.Config{
+		Backend: pkgstorage.Backend(cfg.Storage.Backend),
+		Timeout: cfg.Storage.Timeout.Duration(),
+		GCS: &pkgstorage.GCSConfig{
+			ProjectID:             cfg.Storage.ProjectID,
+			UseDefaultCredentials: true,
+			DefaultBucket:         cfg.Storage.DefaultBucket,
+		},
+	})
+	if err != nil {
+		log.Fatalf("failed to create storage client: %v", err)
+	}
+	if err := storageClient.Connect(connectCtx); err != nil {
+		log.Fatalf("failed to connect to storage: %v", err)
+	}
+	defer func() { _ = storageClient.Close() }()
+	if cfg.Storage.EmulatorHost != "" {
+		// A fresh emulator has no bucket. Not fatal: an emulator that is not up yet only breaks
+		// the avatar routes, and the rest of the service must still start.
+		if err := ensureBucket(storageClient, cfg.Profile.Bucket); err != nil {
+			logger.Warn("could not prepare the emulator bucket; avatar routes will fail until it is up",
+				"bucket", cfg.Profile.Bucket, "error", err.Error())
+		}
+	}
 
 	jwtConfig := &jwt.Config{
 		Algorithm:              jwt.Algorithm(cfg.JWT.Algorithm),
@@ -177,6 +240,8 @@ func main() {
 		logger,
 		cfg.JWT.RefreshTokenExpiration.Duration(),
 		cfg.OTP.PendingRegistrationTTL.Duration(),
+		cfg.Profile.DharmaNameMaxChars,
+		cfg.Profile.FullNameMaxChars,
 	)
 	// accessTTL is what jwtService mints access tokens with; handlers report it as expires_in.
 	accessTTL := deliveryhttp.WithAccessTokenTTL(cfg.JWT.AccessTokenExpiration.Duration())
@@ -262,70 +327,103 @@ func main() {
 	}
 	calendarHandler := deliveryhttp.NewCalendarHandler(calendarUsecase, cfg.Calendar.ImageBaseURL)
 
+	// Calendar events (sự kiện lịch): the catalogue of repeat rules lives in Postgres and is loaded by
+	// cmd/seedcalendarevents; dates of the asked year are computed per request. Needs a login.
+	calendarEventRepo := repository.NewCalendarEventRepository(db)
+	calendarEventUsecase, err := usecase.NewCalendarEventUsecase(calendarEventRepo, cfg.Calendar, time.Now, logger)
+	if err != nil {
+		log.Fatalf("invalid calendar config: %v", err)
+	}
+	calendarEventHandler := deliveryhttp.NewCalendarEventHandler(calendarEventUsecase, cfg.Calendar.EventsCacheMaxAge.Duration())
+
+	// Temple schedule (thời khoá tu tập): the standing practice routine of one temple, rows loaded by
+	// cmd/seedtempleschedules. Needs a login. docs/specs/features/temple-schedule/.
+	templeScheduleRepo := repository.NewTempleScheduleRepository(db)
+	templeScheduleUsecase := usecase.NewTempleScheduleUsecase(templeRepo, templeScheduleRepo)
+	templeScheduleHandler := deliveryhttp.NewTempleScheduleHandler(templeScheduleUsecase)
+
+	// Temple events (sự kiện của chùa): rows loaded by cmd/seedtempleevents; the occurrences in the asked
+	// window are computed per request. Needs a login. docs/specs/features/temple-event/.
+	templeEventRepo := repository.NewTempleEventRepository(db)
+	templeEventUsecase, err := usecase.NewTempleEventUsecase(templeRepo, templeEventRepo, cfg.TempleEvent, time.Now, logger)
+	if err != nil {
+		log.Fatalf("invalid temple_event config: %v", err)
+	}
+	templeEventHandler := deliveryhttp.NewTempleEventHandler(templeEventUsecase)
+
+	// Temple announcements (thông báo của chùa tôi quy y): read + receive switch of the caller, temple
+	// read from users.ordination_temple_id at call time. Its own per-account limiter (not the profile
+	// one). docs/specs/features/temple-announcement/.
+	templeAnnouncementRepo := repository.NewTempleAnnouncementRepository(db)
+	announcementPrefRepo := repository.NewAnnouncementPreferenceRepository(db)
+	templeAnnouncementUsecase, err := usecase.NewTempleAnnouncementUsecase(announcementPrefRepo, templeAnnouncementRepo, cfg.TempleAnnouncement, time.Now)
+	if err != nil {
+		log.Fatalf("invalid temple_announcement config: %v", err)
+	}
+	templeAnnouncementHandler := deliveryhttp.NewTempleAnnouncementHandler(templeAnnouncementUsecase)
+	templeAnnouncementLimit, err := deliveryhttp.NewUserRateLimit(cfg.TempleAnnouncement.RateLimit.Max, cfg.TempleAnnouncement.RateLimit.Window.Duration())
+	if err != nil {
+		log.Fatalf("failed to build temple announcement rate limit: %v", err)
+	}
+
 	// Article catalogue (bài viết Phật pháp): read-only top / paged list / detail.
-	// First run only: seed from the embedded assets/data/buddhist_articles.json
-	// when the table is empty (needs migrations/0012 applied). A restart never
-	// re-seeds, so it cannot overwrite or resurrect edited rows.
+	// The service never seeds: data is loaded by cmd/seedarticles (make ensure-articles).
 	articleRepo := repository.NewArticleRepository(db)
 	articleUsecase := usecase.NewArticleUsecase(articleRepo, cfg.Article)
-	seeded, err := articleUsecase.SeedIfEmpty(connectCtx, func() ([]domain.Article, error) {
-		return repository.ParseArticleSeed(assets.BuddhistArticlesJSON)
-	})
-	if err != nil {
-		log.Fatalf("failed to seed articles: %v", err)
-	}
-	if seeded > 0 {
-		logger.Info("seeded articles on first run", "count", seeded)
-	}
 	articleHandler := deliveryhttp.NewArticleHandler(articleUsecase, imageBase)
 
-	// Dharma talks (pháp thoại): read-only paged list / detail. First run only: seed
-	// from the embedded assets/data/dharma_talks.json when the table is empty
-	// (needs migrations/0014 applied). Talks flagged needs_review are stored but
-	// never served; the emptiness check counts them so a restart cannot reseed.
+	// Dharma talks (pháp thoại): read-only paged list / detail. Talks flagged needs_review
+	// are stored but never served. Data is loaded by cmd/seeddharmatalks (make ensure-dharma-talks).
 	dharmaTalkRepo := repository.NewDharmaTalkRepository(db)
 	dharmaTalkUsecase := usecase.NewDharmaTalkUsecase(dharmaTalkRepo, cfg.DharmaTalk)
-	seededTalks, err := dharmaTalkUsecase.SeedIfEmpty(connectCtx, func() ([]domain.DharmaTalk, error) {
-		return repository.ParseDharmaTalkSeed(assets.DharmaTalksJSON)
-	})
-	if err != nil {
-		log.Fatalf("failed to seed dharma talks: %v", err)
-	}
-	if seededTalks > 0 {
-		logger.Info("seeded dharma talks on first run", "count", seededTalks)
-	}
 	dharmaTalkHandler := deliveryhttp.NewDharmaTalkHandler(dharmaTalkUsecase)
 
 	// Sutra library (kinh / kệ / chú): read-only list / detail / lines, plus the sutras
-	// linked to a deity. First run only: seed from the embedded assets/data/sutras when
-	// the table is empty (needs migrations/0013 applied and the deities seeded with
-	// cmd/seeddeities, because every sutra links to deities; a missing deity stops the
-	// service rather than dropping links the seed could never add later). A restart
-	// never re-seeds, so it cannot overwrite or resurrect edited rows.
+	// linked to a deity. Data is loaded by cmd/seedsutras (make seed-sutras), which needs the
+	// deities seeded first because every sutra links to deities.
 	sutraRepo := repository.NewSutraRepository(db)
 	sutraUsecase := usecase.NewSutraUsecase(sutraRepo, deityRepo, cfg.Sutra)
-	seedCtx, cancelSeed := context.WithTimeout(context.Background(), sutraSeedTimeout)
-	sutraSeed, err := sutraUsecase.SeedIfEmpty(seedCtx, func() ([]domain.SutraSeed, error) {
-		dir, err := fs.Sub(assets.SutrasFS, "data/sutras")
-		if err != nil {
-			return nil, err
-		}
-		return repository.ParseSutraSeed(dir)
-	})
-	cancelSeed()
-	if err != nil {
-		log.Fatalf("failed to seed sutras: %v", err)
-	}
-	if sutraSeed.Sutras > 0 {
-		logger.Info("seeded sutras on first run", "sutras", sutraSeed.Sutras, "translations", sutraSeed.Translations,
-			"lines", sutraSeed.Lines, "deity_links", sutraSeed.DeityLinks)
-	}
 	sutraHandler := deliveryhttp.NewSutraHandler(sutraUsecase, imageBase)
 
 	// memorials (sổ giỗ chạp): per-user data, so every route below is wrapped by authMiddleware.
 	memorialRepo := repository.NewMemorialRepository(db)
 	memorialUsecase := usecase.NewMemorialUsecase(memorialRepo, cfg.Memorial)
 	memorialHandler := deliveryhttp.NewMemorialHandler(memorialUsecase)
+
+	// profile (hồ sơ cá nhân): the token's user only, no route takes a user id. Avatars go
+	// straight to storage by signed URL; the backend never receives the bytes.
+	// docs/specs/features/profile/. The limiter is per account and one instance, so the five
+	// routes share one budget.
+	profileRepo := repository.NewProfileRepository(db)
+	var avatarOpts []avatarstorage.Option
+	if cfg.Storage.EmulatorHost != "" {
+		avatarOpts = append(avatarOpts, avatarstorage.WithEmulator(cfg.Storage.EmulatorHost))
+	}
+	profileStorage := avatarstorage.NewAvatarStorage(storageClient, cfg.Profile.Bucket, avatarOpts...)
+	profileUsecase := usecase.NewProfileUsecase(profileRepo, profileStorage, cfg.Profile, logger)
+	profileHandler := deliveryhttp.NewProfileHandler(profileUsecase)
+	profileLimit, err := deliveryhttp.NewUserRateLimit(cfg.Profile.RateLimit.Max, cfg.Profile.RateLimit.Window.Duration())
+	if err != nil {
+		log.Fatalf("failed to build profile rate limit: %v", err)
+	}
+
+	// genealogies (gia phả): the owner edits, an invited viewer only reads; every route is
+	// wrapped by authMiddleware and the acting user is always the token's user_id claim.
+	// docs/specs/features/genealogy/. Limits and the invitation lifetime come from cfg.Genealogy.
+	genealogyRepo := repository.NewGenealogyRepository(db)
+	genealogyMemberRepo := repository.NewGenealogyMemberRepository(db)
+	genealogyViewerRepo := repository.NewGenealogyViewerRepository(db)
+	genealogyInvitationRepo := repository.NewGenealogyInvitationRepository(db)
+	userPhoneLookup := repository.NewUserPhoneLookup(db)
+	genealogyHandler := deliveryhttp.NewGenealogyHandler(
+		usecase.NewGenealogyUsecase(genealogyRepo, genealogyMemberRepo, userPhoneLookup, cfg.Genealogy))
+	genealogyMemberHandler := deliveryhttp.NewGenealogyMemberHandler(
+		usecase.NewGenealogyMemberUsecase(genealogyRepo, genealogyMemberRepo, cfg.Genealogy),
+		usecase.NewGenealogyProfileUsecase(genealogyRepo, genealogyMemberRepo, userPhoneLookup))
+	genealogyAccessHandler := deliveryhttp.NewGenealogyAccessHandler(
+		usecase.NewGenealogyAccessUsecase(genealogyRepo, genealogyViewerRepo, genealogyInvitationRepo, cfg.Genealogy))
+	genealogyInvitationHandler := deliveryhttp.NewGenealogyInvitationHandler(
+		usecase.NewGenealogyInvitationUsecase(genealogyInvitationRepo, userPhoneLookup, cfg.Genealogy))
 
 	// lamps (thắp đèn / vườn đèn): both routes need a signed-in user. The garden shows every
 	// user's lit lamps, but the lighter is always the access token's user_id claim.
@@ -335,14 +433,30 @@ func main() {
 
 	// temple suggestions: anonymous "suggest a temple" write. Review (list / create the
 	// temple / reject) is backofficeService's. docs/specs/features/temple-suggestion/.
+	// The administrative-units repository doubles as the ward resolver: a suggestion's
+	// province_code/ward_code are checked against the same dataset the lookups serve.
+	administrativeUnitRepo := repository.NewAdministrativeUnitRepository(db)
 	templeSuggestionRepo := repository.NewTempleSuggestionRepository(db)
-	templeSuggestionUsecase := usecase.NewTempleSuggestionUsecase(templeSuggestionRepo)
+	templeSuggestionUsecase := usecase.NewTempleSuggestionUsecase(templeSuggestionRepo, administrativeUnitRepo)
 	templeSuggestionHandler := deliveryhttp.NewTempleSuggestionHandler(templeSuggestionUsecase)
 	templeSuggestionLimit, err := deliveryhttp.NewClientIPRateLimit(
 		int64(cfg.TempleSuggestion.RateLimit.Max), cfg.TempleSuggestion.RateLimit.Window.Duration(),
 		cfg.TempleSuggestion.RateLimit.TrustForwardedFor)
 	if err != nil {
 		log.Fatalf("failed to build temple suggestion rate limit: %v", err)
+	}
+
+	// administrative units (tỉnh/huyện/xã, hệ cũ và mới + chuyển đổi): public read-only lookups,
+	// also used while registering. docs/specs/features/administrative-units/. One limiter
+	// instance, so all nine routes share one per-IP budget.
+	administrativeUnitUsecase := usecase.NewAdministrativeUnitUsecase(administrativeUnitRepo)
+	administrativeUnitHandler := deliveryhttp.NewAdministrativeUnitHandler(
+		administrativeUnitUsecase, cfg.AdministrativeUnits.CacheMaxAge.Duration())
+	administrativeUnitLimit, err := deliveryhttp.NewClientIPRateLimit(
+		int64(cfg.AdministrativeUnits.RateLimit.Max), cfg.AdministrativeUnits.RateLimit.Window.Duration(),
+		cfg.AdministrativeUnits.RateLimit.TrustForwardedFor)
+	if err != nil {
+		log.Fatalf("failed to build administrative units rate limit: %v", err)
 	}
 
 	// The RequireAttestation middleware is provided but deliberately NOT wired
@@ -386,6 +500,36 @@ func main() {
 	mux.HandleFunc("PUT /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Update))
 	mux.HandleFunc("DELETE /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Delete))
 
+	// profile: five routes under /v1/users/me, each auth → per-account limit → no-store.
+	registerProfileRoutes(mux, authMiddleware.AuthenticateFunc, profileLimit, noStore, profileHandler)
+	// temple announcements: three routes under /v1/users/me, auth → their own per-account limit.
+	registerTempleAnnouncementRoutes(mux, authMiddleware.AuthenticateFunc, templeAnnouncementLimit, templeAnnouncementHandler)
+
+	// genealogies: private to the owner and the people they invited. The caller's role is
+	// resolved from the database on every request (never from the token), and a caller with no
+	// role gets the same 404 as a tree that does not exist.
+	mux.HandleFunc("POST /v1/genealogies", authMiddleware.AuthenticateFunc(genealogyHandler.Create))
+	mux.HandleFunc("GET /v1/genealogies", authMiddleware.AuthenticateFunc(genealogyHandler.List))
+	mux.HandleFunc("GET /v1/genealogies/{id}", authMiddleware.AuthenticateFunc(genealogyHandler.Get))
+	mux.HandleFunc("PUT /v1/genealogies/{id}", authMiddleware.AuthenticateFunc(genealogyHandler.Update))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}", authMiddleware.AuthenticateFunc(genealogyHandler.Delete))
+	mux.HandleFunc("PUT /v1/genealogies/{id}/chronicle", authMiddleware.AuthenticateFunc(genealogyHandler.UpdateChronicle))
+	mux.HandleFunc("GET /v1/genealogies/{id}/members", authMiddleware.AuthenticateFunc(genealogyMemberHandler.List))
+	mux.HandleFunc("POST /v1/genealogies/{id}/members", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Add))
+	mux.HandleFunc("GET /v1/genealogies/{id}/members/{memberId}", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Get))
+	mux.HandleFunc("PUT /v1/genealogies/{id}/members/{memberId}", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Update))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}/members/{memberId}", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Delete))
+	mux.HandleFunc("PUT /v1/genealogies/{id}/members/{memberId}/relation", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Move))
+	mux.HandleFunc("GET /v1/genealogies/{id}/members/{memberId}/profile", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Profile))
+	mux.HandleFunc("POST /v1/genealogies/{id}/invitations", authMiddleware.AuthenticateFunc(genealogyAccessHandler.Invite))
+	mux.HandleFunc("GET /v1/genealogies/{id}/invitations", authMiddleware.AuthenticateFunc(genealogyAccessHandler.ListInvitations))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}/invitations/{invitationId}", authMiddleware.AuthenticateFunc(genealogyAccessHandler.CancelInvitation))
+	mux.HandleFunc("GET /v1/genealogies/{id}/viewers", authMiddleware.AuthenticateFunc(genealogyAccessHandler.ListViewers))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}/viewers/{userId}", authMiddleware.AuthenticateFunc(genealogyAccessHandler.RemoveViewer))
+	mux.HandleFunc("GET /v1/invitations", authMiddleware.AuthenticateFunc(genealogyInvitationHandler.ListMine))
+	mux.HandleFunc("POST /v1/invitations/{id}/accept", authMiddleware.AuthenticateFunc(genealogyInvitationHandler.Accept))
+	mux.HandleFunc("POST /v1/invitations/{id}/decline", authMiddleware.AuthenticateFunc(genealogyInvitationHandler.Decline))
+
 	// lamps: no public read — a visitor sees neither the garden nor its counts.
 	mux.HandleFunc("POST /v1/lamps", authMiddleware.AuthenticateFunc(lampHandler.Light))
 	mux.HandleFunc("GET /v1/lamps", authMiddleware.AuthenticateFunc(lampHandler.Garden))
@@ -394,6 +538,23 @@ func main() {
 	// runs first so a wrong key is refused without spending the caller's rate budget;
 	// the per-IP limit then guards the DB write.
 	mux.HandleFunc("POST /v1/temple-suggestions", webAPIKey.WrapFunc(templeSuggestionLimit.WrapFunc(templeSuggestionHandler.Create)))
+
+	// administrative units: public by design (registration has no account yet). webAPIKey first so
+	// a wrong key is refused without spending the caller's budget, then the shared per-IP limit.
+	// No JWT: there is nothing user-scoped here. "new" = two-level scheme since 2025-07-01,
+	// "old" = three-level scheme before it.
+	adminUnits := func(h http.HandlerFunc) http.HandlerFunc {
+		return webAPIKey.WrapFunc(administrativeUnitLimit.WrapFunc(h))
+	}
+	mux.HandleFunc("GET /v1/administrative-units/new/provinces", adminUnits(administrativeUnitHandler.CurrentProvinces))
+	mux.HandleFunc("GET /v1/administrative-units/new/provinces/{code}/wards", adminUnits(administrativeUnitHandler.CurrentWards))
+	mux.HandleFunc("GET /v1/administrative-units/new/provinces/{code}/conversion", adminUnits(administrativeUnitHandler.ConvertCurrentProvince))
+	mux.HandleFunc("GET /v1/administrative-units/new/wards/{code}/conversion", adminUnits(administrativeUnitHandler.ConvertCurrentWard))
+	mux.HandleFunc("GET /v1/administrative-units/old/provinces", adminUnits(administrativeUnitHandler.LegacyProvinces))
+	mux.HandleFunc("GET /v1/administrative-units/old/provinces/{code}/districts", adminUnits(administrativeUnitHandler.LegacyDistricts))
+	mux.HandleFunc("GET /v1/administrative-units/old/provinces/{code}/conversion", adminUnits(administrativeUnitHandler.ConvertLegacyProvince))
+	mux.HandleFunc("GET /v1/administrative-units/old/districts/{code}/wards", adminUnits(administrativeUnitHandler.LegacyWards))
+	mux.HandleFunc("GET /v1/administrative-units/old/wards/{code}/conversion", adminUnits(administrativeUnitHandler.ConvertLegacyWard))
 
 	// attestation: all three routes are public — the caller has no account yet.
 	// They mint challenges and return a verdict; the per-request gate is the
@@ -409,6 +570,13 @@ func main() {
 	mux.HandleFunc("GET /v1/temples", templeHandler.List)
 	mux.HandleFunc("GET /v1/temples/{id}", templeHandler.Get)
 
+	// temple schedule: NOT public, unlike the four routes above — it sits under /v1/temples/{id}
+	// but needs a valid access token (US-TSC-001, FR-009).
+	mux.HandleFunc("GET /v1/temples/{id}/schedule", authMiddleware.AuthenticateFunc(templeScheduleHandler.Schedule))
+
+	// temple events: also needs a valid access token (US-TEV-001, FR-012), same reason as /schedule.
+	mux.HandleFunc("GET /v1/temples/{id}/events", authMiddleware.AuthenticateFunc(templeEventHandler.Events))
+
 	// deities: public, like temples. "/top" is a literal segment, so ServeMux
 	// prefers it over "/{id}".
 	mux.HandleFunc("GET /v1/deities/top", deityHandler.Top)
@@ -423,6 +591,9 @@ func main() {
 
 	// calendar image: public, like gallery.
 	mux.HandleFunc("GET /v1/calendar/image", calendarHandler.Image)
+
+	// calendar events: needs a valid access token, like lamps and memorials.
+	mux.HandleFunc("GET /v1/calendar/events", authMiddleware.AuthenticateFunc(calendarEventHandler.Events))
 
 	// articles: public, like temples. "/top" is a literal segment, so ServeMux
 	// prefers it over "/{id}".

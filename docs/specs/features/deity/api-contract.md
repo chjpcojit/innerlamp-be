@@ -1,7 +1,7 @@
 # Phật / Bồ tát catalogue — API contract (for iOS)
 
-Version: 1.1
-Last updated: 2026-09-30
+Version: 1.3
+Last updated: 2026-10-12
 Status: implemented + verified against a running server (dev DB, 18 deities: 6 BUDDHA, 12 BODHISATTVA)
 Code: `services/appService/delivery/http/deity_handler.go`, `usecase/deity_usecase.go`, `repository/postgres_deity_repository.go`
 Data: `assets/data/phat_botat.json` → table `deities` (`migrations/0007_deities.sql`) via `go run ./services/appService/cmd/seeddeities` (idempotent)
@@ -25,5 +25,13 @@ By `sort_order` = position in `phat_botat.json`, then `id`. The source has no po
 `DeityDetail` = summary + `canonical_source`, `lunar_memorial_days [{lunar_day, lunar_month, event_name}]`, `iconography {posture, mount_or_throne, sacred_artifacts [string], symbolic_meaning}`, `biography_summary`, `great_vows [string]`, `mantras {short_mantra_sanskrit, short_mantra_sino_vietnamese, long_dharani_name, dharani_phonetic_snippet}`. Arrays are never null.
 
 A page past the end is `200` with `items: []`. `page=0`/negative/non-numeric → `400 INVALID_PAGE`. Unknown id → `404 DEITY_NOT_FOUND`.
+
+### Filter by type — `GET /v1/deities?type=<T>&page=N` (implemented 2026-10-12)
+
+- `type` is optional. Allowed values, exact and case-sensitive: `BUDDHA`, `BODHISATTVA`, `DEVA`. Omitted or empty = all types (current behavior, unchanged).
+- With `type`, only that type is returned, same order; `total` / `total_pages` count only that type; `page` applies within the filtered list.
+- Any other non-empty value (including `buddha`) → `400 INVALID_DEITY_TYPE`, `details.field = "type"`. `INVALID_PAGE` is reported before `INVALID_DEITY_TYPE`.
+- One value per request; multiple types are not supported.
+- Clients that filtered on `item.type` locally can switch to this parameter; omitting it keeps the old behavior.
 
 ⚠️ Image URLs are passed through as in the source: `thumbnail_url` is a relative path (`assets/images/buddhas/thumbnails/...`) and `image_url` a placeholder host (`cdn.yourapp.com`). Neither resolves yet.

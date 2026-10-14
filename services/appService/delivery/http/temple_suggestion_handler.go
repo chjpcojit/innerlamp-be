@@ -29,9 +29,10 @@ func NewTempleSuggestionHandler(usecase templeSuggestionUsecase) *TempleSuggesti
 // owned fields (id, status, timestamps) are deliberately absent, so the strict
 // decoder rejects them as unknown fields.
 type templeSuggestionRequest struct {
-	Name     string `json:"name"`
-	Province string `json:"province"`
-	Address  string `json:"address"`
+	Name         string `json:"name"`
+	ProvinceCode string `json:"province_code"`
+	WardCode     string `json:"ward_code"`
+	Address      string `json:"address"`
 }
 
 // templeSuggestionResponse is all a submitter learns: the id and that it is
@@ -49,7 +50,7 @@ func (h *TempleSuggestionHandler) Create(w http.ResponseWriter, r *http.Request)
 		return
 	}
 	s, err := h.usecase.Create(r.Context(), domain.TempleSuggestionInput{
-		Name: req.Name, Province: req.Province, Address: req.Address,
+		Name: req.Name, ProvinceCode: req.ProvinceCode, WardCode: req.WardCode, Address: req.Address,
 	})
 	if err != nil {
 		writeDomainError(w, err)

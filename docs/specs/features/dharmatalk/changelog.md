@@ -4,6 +4,15 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.0 (2026-10-11)
+
+appService **không còn seed pháp thoại khi khởi động**: việc nạp chuyển sang lệnh seed, `make run` chạy lệnh đó khi bảng rỗng. Hợp đồng HTTP không đổi.
+
+- `requirements.md`, `design.md`, `flow.md`, `tasks.md` (→ 2.0): AC16–AC19 nay mô tả lệnh mới `cmd/seeddharmatalks` (`-file` tuỳ chọn; bài `needs_review` vẫn tính là có dòng); `make ensure-dharma-talks` / `seed-dharma-talks`.
+- Đổi hành vi: khởi động service trên DB rỗng **thành công** và phục vụ danh sách rỗng (trước đây bảng rỗng được nạp ở lần start đầu).
+- Kiểm chứng: E2E chạy lệnh seed (rồi khởi động service) thay vì dựa vào seed lúc start; `go test -short ./...` pass.
+- Theo dõi ngoài thư mục này: `Makefile` (`ensure-*`, `seed-*`), `docs/development/local-stack.md`; concept OKF liên quan cần `il-okf-writer` làm mới khi được yêu cầu.
+
 ## v1.1 (2026-10-03)
 
 Implement xong Phase 1–4 và E2E của Phase 5 (xem `tasks.md`); spec được làm cho khớp với code, không đổi yêu cầu nào (19 AC giữ nguyên).

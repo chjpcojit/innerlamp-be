@@ -70,6 +70,18 @@ func adminUnitDataset() domain.Dataset {
 func newAdminUnitRepo(t *testing.T) (domain.AdministrativeUnitRepository, database.Database) {
 	t.Helper()
 	db := connectTestDB(t)
+
+	// These tests TRUNCATE the addr_* tables. A database that holds a real
+	// dataset (its version is a date such as 2026-09-25, set by cmd/seedadminunits)
+	// must not be wiped by a plain `go test`: point TEST_DB_NAME at a scratch
+	// database instead.
+	var realVersions int
+	require.NoError(t, db.QueryRow(context.Background(),
+		`SELECT count(*) FROM addr_dataset_versions WHERE version ~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'`).Scan(&realVersions))
+	if realVersions > 0 {
+		t.Skip("this database holds a real administrative-units dataset; set TEST_DB_NAME to a scratch database to run this test")
+	}
+
 	_, err := db.Exec(context.Background(), `TRUNCATE TABLE addr_ward_mappings, addr_old_wards,
 		addr_old_districts, addr_old_provinces, addr_new_wards, addr_new_provinces, addr_dataset_versions`)
 	require.NoError(t, err)
@@ -120,6 +132,34 @@ func TestAdministrativeUnitRepository_ListsCurrentScheme(t *testing.T) {
 	}
 
 	_, err = repo.ListCurrentWards(ctx, "nope")
+	assert.ErrorIs(t, err, domain.ErrAdministrativeUnitNotFound)
+}
+
+func TestAdministrativeUnitRepository_ResolveCurrentWard(t *testing.T) {
+	repo, _ := loadedAdminUnitRepo(t)
+	ctx := context.Background()
+
+	got, err := repo.ResolveCurrentWard(ctx, "79", "C1")
+	require.NoError(t, err)
+	assert.Equal(t, &domain.ResolvedWard{ProvinceName: "Hồ Chí Minh", WardFullName: "Phường Tân Định"}, got,
+		"province short name + ward full name, Vietnamese text intact")
+
+	// A ward that exists but sits in another province is not the province's ward.
+	_, err = repo.ResolveCurrentWard(ctx, "01", "C1")
+	assert.ErrorIs(t, err, domain.ErrWardNotInProvince)
+
+	// A ward code that does not exist.
+	_, err = repo.ResolveCurrentWard(ctx, "79", "nope")
+	assert.ErrorIs(t, err, domain.ErrWardNotInProvince)
+
+	// A legacy code is not a current-scheme code, whichever side it is on.
+	_, err = repo.ResolveCurrentWard(ctx, "L1", "C1")
+	assert.ErrorIs(t, err, domain.ErrAdministrativeUnitNotFound)
+	_, err = repo.ResolveCurrentWard(ctx, "79", "W1")
+	assert.ErrorIs(t, err, domain.ErrWardNotInProvince)
+
+	// An unknown province is told apart from an unknown ward.
+	_, err = repo.ResolveCurrentWard(ctx, "nope", "C1")
 	assert.ErrorIs(t, err, domain.ErrAdministrativeUnitNotFound)
 }
 
@@ -372,4 +412,101 @@ func TestAdministrativeUnitRepository_SameCodeInBothSchemesStaysSeparate(t *test
 	require.NoError(t, err)
 	require.Len(t, conv, 1)
 	assert.Equal(t, "Phường Tân Định", conv[0].Ward.FullName)
+}
+
+func TestAdministrativeUnitRepository_SearchCurrentWards(t *testing.T) {
+	repo, _ := newAdminUnitRepo(t)
+	ctx := context.Background()
+
+	// Built from code points so the fixture states exactly which form each
+	// name is in: tone mark on the first vowel (Hòa) or on the second (Hoà),
+	// a curly right quote (U+2019) or a straight one, and a capital Đ.
+	hoaOld := "H" + string(rune(0x00F2)) + "a"
+	hoaNew := "Ho" + string(rune(0x00E0))
+	curly := string(rune(0x2019))
+	bigD := string(rune(0x0110))
+	ward := func(code, province, name string, order int) domain.CurrentWard {
+		return domain.CurrentWard{Code: code, ProvinceCode: province, Name: name, FullName: "Phường " + name, Type: "ward", SortOrder: order}
+	}
+	ds := domain.Dataset{
+		Version: "search",
+		CurrentProvinces: []domain.CurrentProvince{
+			{Code: "79", Name: "Hồ Chí Minh", FullName: "Thành phố Hồ Chí Minh", Type: "city", SortOrder: 1},
+			{Code: "01", Name: "Hà Nội", FullName: "Thành phố Hà Nội", Type: "city", SortOrder: 2},
+		},
+		CurrentWards: []domain.CurrentWard{
+			ward("C1", "79", hoaOld+" Thắng", 4),
+			ward("C2", "79", hoaNew+" Bình", 2),
+			ward("C3", "79", "B"+curly+"Lao", 1),
+			ward("C4", "79", "D'Ran", 3),
+			ward("C5", "79", bigD+"a Kao", 5),
+			ward("C6", "79", "Ba_Be", 6),
+			ward("C7", "79", "Cabbe", 7),
+			ward("C8", "01", hoaOld+" Phát", 1), // another province: must never appear for 79
+		},
+	}
+	require.NoError(t, repo.ReplaceDataset(ctx, ds))
+
+	codes := func(q string) []string {
+		t.Helper()
+		got, err := repo.SearchCurrentWards(ctx, "79", q)
+		require.NoError(t, err, q)
+		return codesOf(got, func(w domain.CurrentWard) string { return w.Code })
+	}
+
+	t.Run("tone-mark placement does not matter, in either direction", func(t *testing.T) {
+		want := []string{"C2", "C1"} // ordered by sort_order (2, 4), not by code
+		assert.Equal(t, want, codes("hoa"))
+		assert.Equal(t, want, codes(hoaOld), "typed Hòa")
+		assert.Equal(t, want, codes(hoaNew), "typed Hoà")
+		assert.Equal(t, want, codes("HOA"), "case does not matter")
+	})
+
+	t.Run("either apostrophe finds either apostrophe", func(t *testing.T) {
+		assert.Equal(t, []string{"C3"}, codes("b'lao"), "straight term, curly stored")
+		assert.Equal(t, []string{"C3"}, codes("b"+curly+"lao"), "curly term, curly stored")
+		assert.Equal(t, []string{"C4"}, codes("d"+curly+"ran"), "curly term, straight stored")
+		assert.Equal(t, []string{"C4"}, codes("D'Ran"), "straight term, straight stored")
+	})
+
+	t.Run("đ is found by d and d by đ", func(t *testing.T) {
+		assert.Equal(t, []string{"C5"}, codes("da kao"))
+		assert.Equal(t, []string{"C5"}, codes(bigD+"a kao"))
+		assert.Equal(t, []string{"C5"}, codes("đa"))
+	})
+
+	t.Run("a wildcard in the term is taken literally", func(t *testing.T) {
+		assert.Equal(t, []string{"C6"}, codes("a_b"), `"a_b" must not match "abb" in Cabbe`)
+		assert.Empty(t, codes("%"), "a lone % is a literal percent sign, not 'everything'")
+	})
+
+	t.Run("it searches the full name, so a type prefix finds its wards", func(t *testing.T) {
+		assert.Equal(t, []string{"C1"}, codes("phuong hoa thang"), "type prefix + tone-insensitive + case-insensitive")
+		assert.Equal(t, []string{"C3"}, codes("PHƯỜNG b'lao"))
+	})
+
+	t.Run("the search stays inside the province", func(t *testing.T) {
+		got, err := repo.SearchCurrentWards(ctx, "01", "hoa")
+		require.NoError(t, err)
+		assert.Equal(t, []string{"C8"}, codesOf(got, func(w domain.CurrentWard) string { return w.Code }))
+	})
+
+	t.Run("no match is an empty list, an unknown province is not found", func(t *testing.T) {
+		got, err := repo.SearchCurrentWards(ctx, "79", "zzzz")
+		require.NoError(t, err)
+		assert.NotNil(t, got)
+		assert.Empty(t, got)
+
+		_, err = repo.SearchCurrentWards(ctx, "no-such", "hoa")
+		assert.ErrorIs(t, err, domain.ErrAdministrativeUnitNotFound)
+	})
+
+	t.Run("fields round-trip", func(t *testing.T) {
+		got, err := repo.SearchCurrentWards(ctx, "79", "b'lao")
+		require.NoError(t, err)
+		require.Len(t, got, 1)
+		assert.Equal(t, domain.CurrentWard{
+			Code: "C3", ProvinceCode: "79", Name: "B" + curly + "Lao", FullName: "Phường B" + curly + "Lao", Type: "ward", SortOrder: 1,
+		}, got[0])
+	})
 }

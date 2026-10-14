@@ -12,7 +12,7 @@ import (
 // corsHeaders is the exact set CORS hardcodes on every response (AC3).
 var corsHeaders = map[string]string{
 	"Access-Control-Allow-Origin":  "*",
-	"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+	"Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
 	"Access-Control-Allow-Headers": "Content-Type, Authorization",
 }
 

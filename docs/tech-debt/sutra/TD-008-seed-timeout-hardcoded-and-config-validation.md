@@ -6,16 +6,16 @@ severity: low
 status: open
 created: 2026-10-03
 owner: ducnguyen-wee
-code: services/appService/cmd/main.go (sutraSeedTimeout); services/appService/cmd/seedsutras/main.go (seedTimeout); services/appService/config/config.go (SutraConfig.Validate)
+code: services/appService/cmd/seedsutras/main.go (seedTimeout); services/appService/cmd/seeddharmatalks/main.go (seedTimeout); services/appService/config/config.go (SutraConfig.Validate)
 ---
 
 # TD-008 — Seed timeout is hardcoded and config validation is inconsistent / Timeout nạp dữ liệu viết cứng và kiểm tra config chưa nhất quán
 
 ## 1. Debt / Nợ gì
 
-**EN** — `sutraSeedTimeout = 2 * time.Minute` is a constant in `cmd/main.go` and the same number is repeated as `seedTimeout` in `cmd/seedsutras/main.go`; neither is in `config/`, although a different environment (a remote database) may need another value. `SutraConfig.Validate()` is called by hand in `cmd/main.go` only (not by `seedsutras`, not inside `Load`), while the other catalogue configs (temple, deity, article) are not validated at all and a zero there silently means empty pages.
+**EN** — *(Update 2026-10-11: appService no longer seeds on startup, so the constant in `cmd/main.go` is gone; the number now lives only in the seed commands.)* `seedTimeout = 2 * time.Minute` is a constant in `cmd/seedsutras/main.go` (and in `cmd/seeddharmatalks/main.go`); neither is in `config/`, although a different environment (a remote database) may need another value. `SutraConfig.Validate()` is called by hand in `cmd/main.go` only (not by `seedsutras`, not inside `Load`), while the other catalogue configs (temple, deity, article) are not validated at all and a zero there silently means empty pages.
 
-**VI** — `sutraSeedTimeout = 2 * time.Minute` là hằng số trong `cmd/main.go` và cùng con số được lặp lại thành `seedTimeout` trong `cmd/seedsutras/main.go`; cả hai đều không nằm trong `config/`, dù môi trường khác (DB từ xa) có thể cần giá trị khác. `SutraConfig.Validate()` chỉ được gọi tay ở `cmd/main.go` (không phải `seedsutras`, không nằm trong `Load`), còn config của các catalogue khác (temple, deity, article) không được kiểm tra gì và giá trị 0 ở đó âm thầm có nghĩa là trang rỗng.
+**VI** — *(Cập nhật 2026-10-11: appService không còn seed lúc khởi động nên hằng số ở `cmd/main.go` đã bỏ; con số nay chỉ còn ở các lệnh seed.)* `seedTimeout = 2 * time.Minute` là hằng số trong `cmd/seedsutras/main.go` (và `cmd/seeddharmatalks/main.go`); cả hai đều không nằm trong `config/`, dù môi trường khác (DB từ xa) có thể cần giá trị khác. `SutraConfig.Validate()` chỉ được gọi tay ở `cmd/main.go` (không phải `seedsutras`, không nằm trong `Load`), còn config của các catalogue khác (temple, deity, article) không được kiểm tra gì và giá trị 0 ở đó âm thầm có nghĩa là trang rỗng.
 
 ## 2. Why accepted / Vì sao chấp nhận
 

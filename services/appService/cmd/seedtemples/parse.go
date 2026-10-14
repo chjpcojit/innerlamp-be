@@ -28,10 +28,18 @@ type sourceTemple struct {
 	ArchitectureHeritage string   `json:"architecture_heritage"`
 	VisitingNotes        []string `json:"visiting_notes"`
 	Location             struct {
-		Lat     float64 `json:"lat"`
-		Lng     float64 `json:"lng"`
-		Address string  `json:"address"`
-		// Province is explicit seed data (not parsed from Address); required.
+		Lat float64 `json:"lat"`
+		Lng float64 `json:"lng"`
+		// Address is the part below ward level (house number, street, hamlet); it
+		// may be empty for a temple known only by its ward.
+		Address *string `json:"address"`
+		// ProvinceCode and WardCode are current-scheme codes from the
+		// administrative-units dataset (spec temple v1.7). The unit NAMES are not
+		// read from the file: resolveAddresses takes them from the dataset.
+		ProvinceCode string `json:"province_code"`
+		WardCode     string `json:"ward_code"`
+		// Province is optional and legacy: when present it must equal the
+		// dataset's name for ProvinceCode (a typo guard, checked in resolveAddresses).
 		Province string `json:"province"`
 	} `json:"location"`
 	Amenities struct {
@@ -90,7 +98,9 @@ func regionOf(id string) (string, error) {
 
 // parseTemples turns the JSONC source into domain temples, validating what the
 // database would otherwise reject one row at a time: unique ids, a known
-// heritage rank and a derivable region.
+// heritage rank, a derivable region and the presence of the structured address
+// fields. It does not touch the database: whether the codes are real, and the
+// unit names, come from resolveAddresses afterwards (flow Step 4).
 func parseTemples(src []byte) ([]domain.Temple, error) {
 	clean, err := stripBlockComments(src)
 	if err != nil {
@@ -120,19 +130,24 @@ func parseTemples(src []byte) ([]domain.Temple, error) {
 		if !ok {
 			return nil, fmt.Errorf("temple %q: unknown heritage_rank %q", s.ID, s.HeritageRank)
 		}
-		province := strings.TrimSpace(s.Location.Province)
-		if province == "" {
-			return nil, fmt.Errorf("temple %q: location.province is required", s.ID)
+		provinceCode := strings.TrimSpace(s.Location.ProvinceCode)
+		if provinceCode == "" {
+			return nil, fmt.Errorf("temple %q: location.province_code is required", s.ID)
 		}
-		if !domain.IsProvince(province) {
-			return nil, fmt.Errorf("temple %q: location.province %q is not one of the 34 province-level units (use the name without a \"Tỉnh\"/\"TP.\" prefix, e.g. \"Hồ Chí Minh\")", s.ID, province)
+		wardCode := strings.TrimSpace(s.Location.WardCode)
+		if wardCode == "" {
+			return nil, fmt.Errorf("temple %q: location.ward_code is required", s.ID)
+		}
+		if s.Location.Address == nil {
+			return nil, fmt.Errorf("temple %q: location.address is required (use \"\" when there is nothing below ward level)", s.ID)
 		}
 		out = append(out, domain.Temple{
 			ID: s.ID, Name: s.Name, Type: s.Type, Region: region,
 			ImageURL: s.ImageURL, Thumbnail: s.ThumbnailURL, Aliases: s.Aliases,
 			Sect: s.Sect, Founder: s.Founder, Abbot: s.CurrentAbbot,
 			Established: s.Established, Heritage: s.HeritageRank, HeritagePriority: prio,
-			Latitude: s.Location.Lat, Longitude: s.Location.Lng, Address: s.Location.Address, Province: province,
+			Latitude: s.Location.Lat, Longitude: s.Location.Lng, Address: strings.TrimSpace(*s.Location.Address),
+			ProvinceCode: provinceCode, WardCode: wardCode, Province: strings.TrimSpace(s.Location.Province),
 			OperatingHours: s.OperatingHour,
 			Introduction:   s.Introduction, ArchitectureHeritage: s.ArchitectureHeritage, VisitingNotes: s.VisitingNotes,
 			Amenities: domain.TempleAmenities{

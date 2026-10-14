@@ -80,6 +80,19 @@ services:
         echo "migrations applied"
     restart: "no"
 
+  # Object storage emulator for the avatar upload flow (docs/specs/features/profile/).
+  # appService reaches it through config.dev.yaml's storage.emulator_host. It does NOT sign
+  # or verify URLs, so size/type/expiry limits are not enforced here: that is TD-001, to be
+  # checked on a real bucket before deploy. The bucket is created by appService on start.
+  # Files live in the gcs-data volume, so avatars survive `make down` like the database does.
+  gcs:
+    image: fsouza/fake-gcs-server:1.56.1
+    command: ["-scheme", "http", "-port", "4443", "-backend", "filesystem", "-filesystem-root", "/storage"]
+    ports:
+      - "4443:4443"
+    volumes:
+      - gcs-data:/storage
+
   # --- log stack -----------------------------------------------------------
   #
   # Log flow: appService (host) -> observability/logs/*.log -> Alloy (tails the
@@ -134,6 +147,7 @@ services:
 
 volumes:
   postgres-data:
+  gcs-data:
   loki-data:
   grafana-data:
   alloy-data:

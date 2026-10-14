@@ -30,7 +30,7 @@ func NewLoginRepository(db database.Database) domain.LoginRepository {
 
 // userColumns is the explicit column list every users read in this file uses,
 // so a column added to the table later cannot silently change what is scanned.
-const userColumns = `id, email, email_verified_at, phone_number, password_hash, dharma_name, ordination_temple_id, created_at, updated_at`
+const userColumns = `id, email, email_verified_at, phone_number, password_hash, full_name, dharma_name, ordination_temple_id, created_at, updated_at`
 
 // FindUserByPhone is flow 1 Step 3. No row is ErrUserNotFound — including a
 // number that exists only in pending_registration, which lives in another table
@@ -50,10 +50,11 @@ func scanUser(row *sql.Row) (*domain.User, error) {
 	var (
 		u                  domain.User
 		emailVerifiedAt    sql.NullTime
+		fullName           sql.NullString
 		dharmaName         sql.NullString
 		ordinationTempleID sql.NullString
 	)
-	if err := row.Scan(&u.ID, &u.Email, &emailVerifiedAt, &u.PhoneNumber, &u.PasswordHash, &dharmaName, &ordinationTempleID, &u.CreatedAt, &u.UpdatedAt); err != nil {
+	if err := row.Scan(&u.ID, &u.Email, &emailVerifiedAt, &u.PhoneNumber, &u.PasswordHash, &fullName, &dharmaName, &ordinationTempleID, &u.CreatedAt, &u.UpdatedAt); err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
 			return nil, domain.ErrUserNotFound
 		}
@@ -62,6 +63,7 @@ func scanUser(row *sql.Row) (*domain.User, error) {
 	if emailVerifiedAt.Valid {
 		u.EmailVerifiedAt = &emailVerifiedAt.Time
 	}
+	u.FullName = nullStringToPtr(fullName)
 	u.DharmaName = nullStringToPtr(dharmaName)
 	u.OrdinationTempleID = nullStringToPtr(ordinationTempleID)
 	return &u, nil

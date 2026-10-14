@@ -20,6 +20,8 @@ Migrations:
 
 Other:
 
+- `build_administrative_units.py` — rebuilds `assets/data/administrative-units.json` (Việt Nam administrative units, old and new schemes, with ward mapping) from the `vietnam-address-kit` dataset; applies and records source corrections, then `cmd/seedadminunits` loads it. Usage in the file's docstring; `docs/specs/features/administrative-units/`
+- `build_temple_addresses.py` — proposes `province_code`, `ward_code` and the below-ward `address` for each temple in `assets/data/temple.json` (old address → legacy units → current ward via the dataset's ward mapping). **Proposal only**: writes `assets/data/temple-address-proposal.json` (git-ignored) and `docs/specs/features/temple/address-review.md` for a person to review; never edits `temple.json`. Spec: `docs/specs/features/temple/` v1.7+, `tasks.md` Phase 10.
 - `import-mx-postcodes.sh` — one-off data import, unrelated to InnerLamp's VN domain (leftover from template — verify before running)
 - `run-all.sh` — runs all `check-*.sh` scripts, writes to `report/`
 - `setup-harness.sh` — one-time environment setup

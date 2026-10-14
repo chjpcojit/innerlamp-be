@@ -18,7 +18,7 @@ DB_NAME ?= innerlamp
 
 # ── stack lifecycle ─────────────────────────────────────────────────────────
 
-.PHONY: help urls up down restart reset status logs
+.PHONY: help urls up down restart reset reseed status logs
 
 help: ## List available targets
 	@grep -hE '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) \
@@ -43,6 +43,19 @@ restart: down up ## Stop then start again
 reset: ## Stop and DELETE all data (Postgres/Loki/Grafana), then start clean
 	$(COMPOSE) down -v
 	$(COMPOSE) up -d
+
+# `reseed` is the one-command "start the database over": it drops everything in the
+# application database (schema public: every table, user data included), re-applies all
+# migrations and loads every seed. Loki/Grafana volumes are left alone (that is `reset`).
+# Stop appService first: its connection pool keeps handles on the dropped tables, so restart
+# it afterwards (`make run` does everything above and starts it).
+reseed: db-up ## WIPE the whole app database, re-apply migrations and seed everything (one command)
+	@echo "Dropping schema public in $(DB_NAME): every table and row is deleted"
+	$(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -v ON_ERROR_STOP=1 \
+		-c 'DROP SCHEMA public CASCADE' -c 'CREATE SCHEMA public'
+	$(COMPOSE) run --rm migrate
+	$(MAKE) ensure-data
+	@echo "reseed done: restart appService (make run)"
 
 status: ## Show container status
 	$(COMPOSE) ps
@@ -129,23 +142,24 @@ db-dump: db-up ## Print a pg_dump of the database to stdout: make db-dump > back
 
 # ── seed data ───────────────────────────────────────────────────────────────
 #
-# appService seeds articles and the sutra library by itself on its first start,
-# but deities and temples are loaded by commands. Sutras link to deities, so
-# deities must exist first:
+# appService seeds nothing by itself: every table is loaded by a cmd/seed* command, and
+# `make run` runs the ensure-* targets for them. Sutras link to deities, so deities
+# must exist first:
 #   ensure-deities  seed deities ONLY when the table is empty (what `run` uses)
 #   seed-deities    always upsert from assets/data/phat_botat.json — this
 #                   overwrites hand edits made to the deities table
 #   seed-sutras     load the sutra library; does nothing when sutras has rows
 
-.PHONY: ensure-deities ensure-temples ensure-gallery ensure-data seed-deities seed-gallery seed-sutras seed
+.PHONY: ensure-deities ensure-temples ensure-gallery ensure-admin-units ensure-calendar-events seed-calendar-events ensure-temple-schedules seed-temple-schedules ensure-temple-events seed-temple-events ensure-articles ensure-dharma-talks ensure-sutras ensure-data seed-deities seed-gallery seed-admin-units seed-articles seed-dharma-talks seed-sutras seed
 
 # A non-short `go test` against the dev database TRUNCATEs temples, deities, gallery_images,
 # articles and sutras (repository tests connect to innerlamp, not a test database). The
 # ensure-* targets below put that data back: each one seeds only when its table has no
 # usable rows, so `make run` repairs a wiped database and leaves a healthy one alone.
-# Articles and sutras need no target here: appService reseeds them itself on start.
+# appService does not seed anything when it starts: articles, dharma talks and sutras are loaded by
+# cmd/seedarticles, cmd/seeddharmatalks and cmd/seedsutras below, exactly like the other tables.
 
-ensure-data: ensure-deities ensure-temples ensure-gallery ## Re-seed deities, temples and gallery when a table was wiped (what `run` uses)
+ensure-data: ensure-deities ensure-temples ensure-gallery ensure-admin-units ensure-calendar-events ensure-temple-schedules ensure-temple-events ensure-articles ensure-dharma-talks ensure-sutras ## Seed every table the service reads from when it is empty (what `run` uses; appService itself seeds nothing)
 
 # "Usable" for deities means at least one row carries an image: the rows sutra seeding or a
 # test leaves behind are name-only stubs, and a plain row count would treat them as seeded.
@@ -158,7 +172,8 @@ ensure-deities: db-up ## Seed deities only if none has an image (safe to repeat,
 		echo "deities already seeded ($$n with images): leaving them as they are"; \
 	fi
 
-ensure-temples: db-up ## Seed temples only if the table is empty (safe to repeat, keeps hand edits)
+# Temple addresses are resolved against the administrative-units dataset, so those load first.
+ensure-temples: db-up ensure-admin-units ## Seed temples only if the table is empty (safe to repeat, keeps hand edits)
 	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM temples" | tr -d '[:space:]'); \
 	if [ "$$n" = "0" ]; then \
 		echo "temples table is empty: seeding from assets/data/temple.json"; \
@@ -175,6 +190,92 @@ ensure-gallery: db-up ## Seed gallery images only if the table is empty (safe to
 	else \
 		echo "gallery_images already seeded ($$n rows): leaving them as they are"; \
 	fi
+
+# Administrative units (tỉnh/quận/xã, hệ mới + cũ + bảng chuyển đổi) come from one file. Without
+# them the lookups return empty lists and POST /v1/temple-suggestions refuses every province_code.
+ensure-admin-units: db-up ## Seed administrative units only if no new-scheme province exists (safe to repeat)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM addr_new_provinces" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "addr_new_provinces is empty: seeding from assets/data/administrative-units.json"; \
+		go run ./services/appService/cmd/seedadminunits; \
+	else \
+		echo "administrative units already seeded ($$n provinces): leaving them as they are"; \
+	fi
+
+seed-admin-units: db-up ## Upsert administrative units from assets/data/administrative-units.json (idempotent; -dry-run via go run)
+	go run ./services/appService/cmd/seedadminunits
+
+ensure-calendar-events: db-up ## Seed calendar events only if the table is empty (safe to repeat, keeps back-office edits)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM calendar_events" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "calendar_events is empty: seeding from assets/data/calendar-events.json"; \
+		go run ./services/appService/cmd/seedcalendarevents; \
+	else \
+		echo "calendar events already seeded ($$n events): leaving them as they are"; \
+	fi
+
+seed-calendar-events: db-up ## Upsert calendar events from assets/data/calendar-events.json (idempotent; -dry-run via go run)
+	go run ./services/appService/cmd/seedcalendarevents
+
+ensure-temple-schedules: db-up ## Seed temple schedules only if the table is empty (safe to repeat, keeps back-office edits; needs temples seeded first)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM temple_schedules" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "temple_schedules is empty: seeding from assets/data/temple-schedules.json"; \
+		go run ./services/appService/cmd/seedtempleschedules; \
+	else \
+		echo "temple schedules already seeded ($$n items): leaving them as they are"; \
+	fi
+
+seed-temple-schedules: db-up ## Upsert temple schedules from assets/data/temple-schedules.json (idempotent; -dry-run via go run)
+	go run ./services/appService/cmd/seedtempleschedules
+
+ensure-temple-events: db-up ## Seed temple events only if the table is empty (safe to repeat, keeps back-office edits; needs temples seeded first)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM temple_events" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "temple_events is empty: seeding from assets/data/temple-events.json"; \
+		go run ./services/appService/cmd/seedtempleevents; \
+	else \
+		echo "temple events already seeded ($$n events): leaving them as they are"; \
+	fi
+
+seed-temple-events: db-up ## Upsert temple events from assets/data/temple-events.json (idempotent; -dry-run via go run)
+	go run ./services/appService/cmd/seedtempleevents
+
+ensure-articles: db-up ## Seed articles only if the table is empty (safe to repeat, keeps hand edits)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM articles" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "articles table is empty: seeding from assets/data/buddhist_articles.json"; \
+		go run ./services/appService/cmd/seedarticles; \
+	else \
+		echo "articles already seeded ($$n rows): leaving them as they are"; \
+	fi
+
+# Talks flagged needs_review count as rows (they are stored, just never served), so a table whose
+# every talk is under review is not seen as empty. cmd/seeddharmatalks applies the same rule.
+ensure-dharma-talks: db-up ## Seed dharma talks only if the table is empty (safe to repeat, keeps hand edits)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM dharma_talks" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "dharma_talks table is empty: seeding from assets/data/dharma_talks.json"; \
+		go run ./services/appService/cmd/seeddharmatalks; \
+	else \
+		echo "dharma talks already seeded ($$n rows): leaving them as they are"; \
+	fi
+
+# Every sutra links to deities, so deities first. cmd/seedsutras itself does nothing when sutras has rows.
+ensure-sutras: ensure-deities ## Seed the sutra library only if the table is empty (safe to repeat)
+	@n=$$($(COMPOSE) exec -T postgres psql -U $(DB_USER) -d $(DB_NAME) -tAc "SELECT count(*) FROM sutras" | tr -d '[:space:]'); \
+	if [ "$$n" = "0" ]; then \
+		echo "sutras table is empty: seeding the library (assets/data/sutras)"; \
+		go run ./services/appService/cmd/seedsutras; \
+	else \
+		echo "sutras already seeded ($$n rows): leaving them as they are"; \
+	fi
+
+seed-articles: db-up ## Insert articles from assets/data/buddhist_articles.json that are not in the table yet (never modifies existing rows)
+	go run ./services/appService/cmd/seedarticles
+
+seed-dharma-talks: db-up ## Load dharma talks from assets/data/dharma_talks.json (does nothing when the table has rows)
+	go run ./services/appService/cmd/seeddharmatalks
 
 seed-temples: db-up ## Upsert temples from assets/data/temple.json (overwrites hand edits)
 	go run ./services/appService/cmd/seedtemples

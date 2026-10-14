@@ -1,7 +1,7 @@
 # Tasks — onboarding
 
-Version: 7.3
-Last updated: 2026-10-10
+Version: 7.5
+Last updated: 2026-10-11
 Status: US-001 Phase 1–10 xong (2026-09-22); **Phase 11 (v7.0, `ordination_temple_id`) xong (v7.2, 2026-10-10; `erd.svg` render lại ở v7.3).** **Phase 10 (v5.1)** tách `pending_registration_ttl` khỏi OTP TTL (24h) và mở lại đường làm lại (`request-otp` ghi đè payload của chính SĐT, `resend-otp` cấp OTP mới khi OTP cũ hết hạn). **Phase 9 (v5.0) đã viết code + test**: bỏ trần resend chặn vĩnh viễn, thay bằng `otp_send_limits` + khoá-gửi 30 phút, `request-otp` cũng tiêu lượt. Đã verify: `go test -short ./...` toàn repo xanh; `go test -count=1 ./services/appService/repository/...` + `./services/appService/e2e/...` xanh với Postgres/testcontainers thật; `check-architecture.sh` (ARCH_ERRORS=0) + `check_dependency_rule.sh` sạch. US-001 chạy thật end-to-end qua Postgres (xem Phase 6); job dọn hàng hết hạn chốt chấp nhận ở MVP (Deferred). Ngoài task list, chưa làm: audit AC bằng `golang-e2e-verification` cho US-001 (harness `services/appService/e2e/` đã có từ `login/`), và OTP `111111` + SMS log-only vẫn là placeholder dev theo Ghi chú kỹ thuật — chặn production, không chặn task. (v7.2: **Phase 11 implement xong**, tick item đã verify. v7.1: chốt 3 câu hỏi mở của Phase 11, không đổi task. v7.0: **thêm Phase 11** — thay `ordination_place` bằng `ordination_temple_id`; không tick/untick task cũ. v6.1: chuẩn hoá theo quy ước `il-spec-writer` hiện hành — thêm `flow.md` (bản vẽ Mermaid, **không phải việc implement** nên không thêm Phase/task), AC của `requirements.md` viết lại sang EARS; không tick/untick task nào, không đổi code. v5.2: sửa tài liệu cũ — `hashRefreshToken` nay là `domain.HashRefreshToken`; tên E2E Phase 8 đã đổi ở Phase 10; các item Phase 1–3 mô tả policy v4.5 được đánh dấu rõ; không đổi code/task. v5.1: **Phase 10 xong** — tách pending TTL khỏi OTP TTL (24h), request-otp ghi đè payload của chính SĐT, resend-otp cấp OTP mới khi OTP cũ hết hạn; xem changelog v5.1. v5.0: **Phase 9 xong** — bỏ trần resend chặn vĩnh viễn, thay bằng `otp_send_limits` + khoá-gửi 30 phút, `request-otp` cũng tiêu lượt; xem changelog v5.0. v4.5: thêm Phase 8 — fix pending hết hạn chặn đăng ký lại, xong; v4.4: tick `go test -short`, dọn hàng hết hạn → Deferred, cập nhật Status; v4.3: sửa mô tả envelope ở Phase 4 `errors.go`, không tick/untick; v4.2: **Phase 7 xong** — access token mang `sid`, verify thật (xem Phase 7); v4.1: thêm **Phase 7** — sửa `TokenIssuer` để access token mang `sid`, do `login/` yêu cầu; toàn bộ `[ ]`, không tick/untick task cũ; v4.0: chỉ đổi con trỏ US-002 → `login/`.)
 Module: `identity` (spec folder `onboarding`)
 
@@ -388,6 +388,27 @@ Step 4(c), flow 2 Step 5(b). Anh chốt 2026-10-10: **thay hẳn** text bằng i
 - [x] `services/appService/domain/README.md`; `docs/knowledge/features/register.md` — refresh qua `il-okf-writer` (2026-10-10).
 - [x] `go build ./...`, `go vet ./...`, `go test -short ./...` xanh; `go test -count=1 ./services/appService/repository/...` xanh với Postgres thật. *(E2E: test mới và 3 test E2E hay timeout đều xanh khi chạy riêng; một lượt chạy cả package `e2e` đồng thời trên máy này có 4 test timeout do tải — chưa chạy lại toàn bộ lần hai.)*
 
+## Phase 12 — Giới hạn độ dài pháp danh (v7.4)
+
+- [x] `config/config.go`: `ProfileConfig{DharmaNameMaxChars}` + `ProfileDharmaNameColumnChars = 255` + `Validate`; `config.dev.yaml`: `profile.dharma_name_max_chars: 255`; test `config_test.go`
+- [x] `domain/errors.go`: `ErrInvalidDharmaName`
+- [x] `usecase/register_usecase.go`: `normalizeDharmaName` (trim, NFC, đếm ký tự, rỗng → `nil`); `NewRegisterUsecase` nhận thêm `dharmaNameMaxChars`; kiểm tra chạy trước mọi query
+- [x] `delivery/http/errors.go`: `ErrInvalidDharmaName` → `400 INVALID_DHARMA_NAME` (`details.field = "dharma_name"`)
+- [x] `cmd/main.go`: `cfg.Profile.Validate()` + truyền `cfg.Profile.DharmaNameMaxChars`
+- [x] Test: usecase (255 ok / 256 lỗi / 1000 lỗi / chữ có dấu tổ hợp và dựng sẵn / padding không tính / giá trị lưu là NFC đã trim), handler (mã + `details.field`), config
+
+## Phase 13 — Họ tên `full_name` (v7.5)
+
+- [x] `migrations/0033_users_full_name.sql`: `users.full_name`, `pending_registration.full_name` `VARCHAR(300)` nullable, idempotent (kèm `ALTER ... TYPE` cho DB đã áp bản 255); đã áp lên DB dev bằng `make migrate`
+- [x] `config/config.go`: `ProfileConfig.FullNameMaxChars` + `ProfileFullNameColumnChars = 300` + `Validate`; `config.dev.yaml`: `profile.full_name_max_chars: 300`; `config_test.go`
+- [x] `domain/`: `User.FullName`, `PendingRegistration.FullName`, `RequestRegisterOTPInput.FullName`, `ErrInvalidFullName`
+- [x] `usecase/register_usecase.go`: `normalizeFullName` (trim, NFC, đếm ký tự, rỗng/quá dài → `ErrInvalidFullName`); `NewRegisterUsecase` nhận thêm `fullNameMaxChars`; chạy trước query đầu tiên
+- [x] `repository/postgres_registration_repository.go`, `postgres_login_repository.go`: ghi/đọc `full_name` (UPSERT pending, INSERT users, `userColumns`)
+- [x] `delivery/http/`: `requestOTPRequest.FullName` (`validate:"required"`), `userResponse.full_name` (`omitempty`, dùng chung cho verify-otp và login), `ErrInvalidFullName` → `400 INVALID_FULL_NAME`
+- [x] `cmd/main.go`: truyền `cfg.Profile.FullNameMaxChars`
+- [x] Test: usecase (blank / quá dài / ở giới hạn / padding / NFC), handler (thiếu key → 400), repository (ghi pending → đọc lại), E2E (đăng ký có `full_name` trong `user`, thiếu/rỗng bị từ chối và không ghi `pending_registration`); `go test -short ./...` + E2E đăng ký/đăng nhập pass
+- [ ] Concept OKF `docs/knowledge/features/register.md` nên nhắc `full_name` và `INVALID_FULL_NAME` khi được làm mới (`il-okf-writer`)
+
 ## Deferred (không chặn US-001)
 
 - Job dọn hàng hết hạn (`pending_registration`, `otp_codes`; và `login_attempts`, `user_sessions` đã revoke/hết hạn của US-002) — **chốt 2026-09-21: chấp nhận rác tích tụ ở MVP.** Đúng cho `otp_codes`, `login_attempts`, `user_sessions` (vô hiệu qua `expires_at`/`is_revoked`/cửa sổ reset). `pending_registration` hết hạn từng chặn đăng ký lại (`FindConflicts` không lọc `expires_at`) — **đã sửa ở Phase 8**; nay hàng hết hạn cũng vô hiệu về logic và bị `request-otp` kế tiếp ghi đè. Khi cần: endpoint nội bộ + Cloud Scheduler (Cloud Run không tự chạy cron, goroutine ticker không an toàn khi scale 0 / nhiều instance).
@@ -399,4 +420,4 @@ Step 4(c), flow 2 Step 5(b). Anh chốt 2026-10-10: **thay hẳn** text bằng i
 - Đổi số điện thoại / email sau khi đã tạo tài khoản — cần luồng xác thực lại, US riêng
 - Provider SMS thật (Twilio / SNS / GCP) — chỉ cần thêm subpackage `init()`, không đổi interface
 - US-002 (đăng nhập) — **đã chuyển** sang `docs/specs/features/login/`, xem folder đó
-- US-004 (hồ sơ) — còn trong `requirements.md` nhưng chưa được `design.md` đặc tả ở version này. US-003 (quên mật khẩu) đã chuyển sang [`docs/specs/features/password-reset/`](../password-reset/requirements.md) (v6.0).
+- US-004 (hồ sơ) — **đã chuyển** sang `docs/specs/features/profile/` (v1.0, 2026-10-11); mục cũ trong `requirements.md` chỉ còn để tra lịch sử. US-003 (quên mật khẩu) đã chuyển sang [`docs/specs/features/password-reset/`](../password-reset/requirements.md) (v6.0).

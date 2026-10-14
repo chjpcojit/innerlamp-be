@@ -1,7 +1,7 @@
 # Flow — sutra
 
-Version: 2.13
-Last updated: 2026-10-07
+Version: 3.0
+Last updated: 2026-10-11
 Status: implemented (2026-10-03) — mirror 1:1 của năm Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số; cả năm flow đã được đối chiếu với code, và chạy thật qua binary + Postgres trong `e2e/sutra_e2e_test.go` (nạp dữ liệu, danh sách, chi tiết, đọc dòng, tra ngược).
 Module: `content`
 
@@ -9,7 +9,7 @@ Module: `content`
 
 Cả bốn route đọc đều có từ hai lời gọi DB nối tiếp trở lên nên đều có diagram. Sơ đồ vẽ đúng code đã implement (đối chiếu từng bước với `usecase/sutra_usecase.go`, `repository/postgres_sutra_repository.go` và `delivery/http/sutra_handler.go`).
 
-## Sequence — Nạp dữ liệu lần đầu khi khởi động
+## Sequence — Nạp dữ liệu bằng lệnh (cmd/seedsutras; service không tự nạp)
 
 ```mermaid
 sequenceDiagram

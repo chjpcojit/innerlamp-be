@@ -12,6 +12,7 @@ Tài liệu này mô tả ý nghĩa từng thành phần trong `docker-compose.y
 |---|---|---|---|---|---|
 | `postgres` | `postgres:16-alpine` | `5432:5432` | `postgres-data:/var/lib/postgresql/data` | — | DB cho appService; khớp nguyên `services/appService/config/config.dev.yaml` |
 | `migrate` | `postgres:16-alpine` | — (không publish) | `./migrations:/migrations:ro` | `postgres` healthy | One-shot: apply `migrations/*.sql` rồi thoát |
+| `gcs` | `fsouza/fake-gcs-server:1.56.1` | `4443:4443` | `gcs-data:/storage` | — | Emulator object storage cho ảnh đại diện (`storage.emulator_host` trong `config.dev.yaml`). **Không ký và không kiểm URL**; bucket do appService tạo khi khởi động. Chạy cùng `make up` / `make run` |
 | `loki` | `grafana/loki:3.7.8` | `3100:3100` | `loki-data:/loki` | — | Nhận và lưu log; config `observability/loki/config.yml` |
 | `alloy` | `grafana/alloy:v1.19.2` | `12345:12345` | `./observability/alloy/config.alloy` (ro), `./observability/logs:/var/log/innerlamp:ro`, `alloy-data` | `loki` | Tail file log trên host → push vào Loki |
 | `grafana` | `grafana/grafana:13.2.2` | `3000:3000` | `./observability/grafana/provisioning` (ro), `grafana-data` | `loki` | UI truy vấn log; datasource Loki được provision sẵn |
@@ -70,7 +71,7 @@ make run        # chạy appService trên host (tự gọi `make up` trước), 
 
 Sau đó: appService `http://localhost:8080`, Grafana `http://localhost:3000`.
 
-> **Lần chạy đầu trên DB trống — `make run` tự lo phần seed `deities`.** Khi `sutras` còn rỗng, appService tự nạp thư viện kinh (153 văn bản) và mỗi kinh liên kết tới Phật/Bồ tát, nên `deities` phải có sẵn, nếu không service dừng với `failed to seed sutras: … (run cmd/seeddeities first)`. Vì vậy `make run` chạy thêm `make ensure-deities`: nó seed `deities` **chỉ khi bảng đang rỗng** và để yên khi đã có dữ liệu (nên không ghi đè chỉnh sửa tay). Sau `make reset` hay `docker compose down -v` (data bị xoá sạch), `make run` cũng tự làm lại bước này.
+> **Lần chạy đầu trên DB trống — `make run` tự nạp mọi dữ liệu.** appService **không seed gì khi khởi động**: mọi bảng nội dung được nạp bằng lệnh `cmd/seed*`, và `make run` chạy các bước `ensure-*` cho chúng (mỗi bước **chỉ nạp khi bảng đang rỗng**, nên không ghi đè chỉnh sửa tay): `deities`, `temples`, `gallery_images`, đơn vị hành chính (`addr_*`), `articles`, `dharma_talks`, rồi `sutras`. Kinh liên kết tới Phật/Bồ tát nên `deities` luôn được nạp trước (`cmd/seedsutras` dừng với `run cmd/seeddeities first` nếu thiếu). Sau `make reset` hay `docker compose down -v`, `make run` tự làm lại tất cả. Chạy thẳng `go run ./services/appService/cmd` trên DB rỗng vẫn khởi động được nhưng các danh mục trả danh sách rỗng cho tới khi chạy `make ensure-data`.
 >
 > Muốn làm bằng tay hoặc nạp riêng: `make seed` (deities nếu rỗng, rồi kinh), `make seed-sutras` (không làm gì nếu bảng `sutras` đã có dữ liệu), `make seed-deities` (upsert thật từ `assets/data/phat_botat.json`, **ghi đè** chỉnh sửa tay trong bảng `deities`). Khi **không** dùng `make` (chạy `go run` trực tiếp), phải tự chạy `go run ./services/appService/cmd/seeddeities` một lần trước lần chạy đầu. `go run ./services/appService/cmd/seedsutras -dir <thư mục>` đọc dữ liệu kinh từ đĩa thay vì bản nhúng trong binary.
 
@@ -89,6 +90,14 @@ Danh sách target:
 | `make migrate` | Apply lại `migrations/` vào Postgres đang chạy |
 | `make ensure-deities` | Seed `deities` chỉ khi bảng rỗng (an toàn khi lặp lại, giữ chỉnh sửa tay) |
 | `make seed-deities` | Upsert `deities` từ `assets/data/phat_botat.json` (ghi đè chỉnh sửa tay) |
+| `make reseed` | **Xoá sạch** database ứng dụng (mọi bảng, kể cả dữ liệu người dùng), áp lại migration rồi nạp mọi seed — một lệnh. Không đụng volume Loki/Grafana (`make reset` mới xoá hết). Dừng appService trước và chạy lại sau |
+| `make ensure-articles` | Nạp `articles` chỉ khi bảng rỗng; `make run` tự gọi |
+| `make seed-articles` | Chèn các bài còn thiếu từ `assets/data/buddhist_articles.json` (không sửa dòng có sẵn) |
+| `make ensure-dharma-talks` | Nạp `dharma_talks` chỉ khi bảng rỗng; `make run` tự gọi |
+| `make seed-dharma-talks` | Nạp pháp thoại từ `assets/data/dharma_talks.json` (không làm gì nếu bảng đã có dòng) |
+| `make ensure-sutras` | Nạp thư viện kinh chỉ khi `sutras` rỗng (tự `ensure-deities` trước); `make run` tự gọi |
+| `make ensure-admin-units` | Nạp đơn vị hành chính (tỉnh/xã hệ mới + cũ + chuyển đổi) chỉ khi chưa có tỉnh nào; `make run` tự gọi |
+| `make seed-admin-units` | Upsert đơn vị hành chính từ `assets/data/administrative-units.json` (idempotent, không xoá) |
 | `make seed-sutras` | Nạp thư viện kinh bằng tay (không làm gì nếu `sutras` đã có dữ liệu); tự gọi `ensure-deities` trước |
 | `make seed` | `ensure-deities` rồi `seed-sutras` — thứ tự một DB mới cần |
 | `make psql` | Mở shell `psql` tương tác |
@@ -155,7 +164,7 @@ Các điểm sau **chỉ dùng local**, tuyệt đối không copy sang môi tr�
 | `bind: address already in use` khi `up` | Port 5432/3000/3100/12345 đã bị chiếm. Kiểm tra `lsof -nP -iTCP:<port> -sTCP:LISTEN`, hoặc dừng Postgres local. |
 | `loki /ready` trả `503` ngay sau `up` | Bình thường trong vài giây đầu (ring chưa sẵn sàng). Chờ rồi thử lại. |
 | Log không thấy trong Grafana | Alloy chỉ thấy file **sau khi** file tồn tại. Đảm bảo app chạy bằng lệnh có `tee` (target `make run`), và thư mục `observability/logs/` do user sở hữu (đã commit `.gitkeep`). |
-| `failed to seed sutras: … (run cmd/seeddeities first)` | `deities` chưa được seed trên DB này. Với `make run` không nên xảy ra (nó tự seed khi bảng rỗng); nếu chạy `go run` trực tiếp thì chạy `make seed-deities` (hoặc `make ensure-deities`) rồi chạy lại — xem khung ở §2. |
+| `seed sutras: … (run cmd/seeddeities first)` (từ `make seed-sutras` / `cmd/seedsutras`) | `deities` chưa được seed trên DB này. Với `make run`/`make ensure-sutras` không nên xảy ra (deities được nạp trước); nếu chạy `go run` trực tiếp thì chạy `make seed-deities` (hoặc `make ensure-deities`) rồi chạy lại — xem khung ở §2. |
 | `migrate` báo lỗi schema | Xem log: `docker compose logs migrate`. Nếu schema đang dở dang, `make reset` để làm lại từ đầu. |
 | `0002 ... column already exists` | Không còn xảy ra với file hiện tại. Nếu gặp, bạn đang dùng bản migration cũ. |
 | Muốn xoá sạch mọi thứ | `make reset` (= `docker compose down -v && docker compose up -d`). |

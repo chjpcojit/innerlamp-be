@@ -1,7 +1,7 @@
 # Tasks — deity
 
-Version: 2.1
-Last updated: 2026-10-03
+Version: 2.3
+Last updated: 2026-10-12
 Status: implemented (2026-09-30) cho Phase 1–2 và 4; Phase 3 còn thiếu ảnh dùng được và seed ngoài dev; Phase 5 chưa làm E2E; v2.0 đổi route phân trang sang `/v1/deities` (code + unit test đã xong, repository test và server chưa chạy lại); Phase 6 là việc hoãn có chủ đích.
 Module: `content`
 
@@ -50,9 +50,20 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [ ] Khái niệm OKF `docs/knowledge/features/deity.md` — do `bdd-okf-docs` tạo sau khi có E2E; chưa có file
 - [ ] Rà `api-contract.md` cho khớp spec (hai nơi cùng mô tả hợp đồng; chọn giữ cả hai hay gộp về `openapi.yaml`)
 
+## Phase 7 — Lọc theo `type` (v2.2, AC 20–22; hoàn tất 2026-10-12)
+
+Mỗi mục trace về hàng "(v2.2)" trong "Layers & components" hoặc Step 1–4 của flow phân trang trong `design.md`. Đã kiểm chứng 2026-10-12: `go build ./...`, `go vet ./services/appService/...`, `go test -short ./services/appService/...` sạch; `TEST_DB_NAME=innerlamp_test go test -run TestDeityRepository ./services/appService/repository/` pass; `go test -run TestDeity_TypeFilter_E2E ./services/appService/e2e/` pass (testcontainers).
+
+- [x] Domain: `ErrInvalidDeityType` và `IsValidDeityType` trong `domain/deity.go`; đổi `DeityRepository.List` thêm `deityType` và cập nhật `domain/mock_deity_repository.go`
+- [x] Usecase: `ListDeities(ctx, deityType, page)` — kiểm `page` trước rồi `type`; test: type hợp lệ ×3, rỗng = mọi loại, `buddha` (thường) → lỗi, `X` → lỗi, `page=0` + type lạ → `ErrInvalidPage`
+- [x] Repository: `List` thêm `WHERE type = $n` cho cả đếm và lấy trang; test (cần Postgres, `TEST_DB_NAME=innerlamp_test`): lọc từng loại, `total` chỉ đếm loại đó, `page` vượt cuối của loại đó → `items: []`
+- [x] Handler: đọc `type`, chuyển cho usecase; `delivery/http/errors.go` map `ErrInvalidDeityType` → `400 INVALID_DEITY_TYPE` (`details.field = "type"`); test handler cho 200 có/không `type` và 400
+- [x] `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml`: thêm parameter `type` (enum 3 giá trị) và response `400 INVALID_DEITY_TYPE` cho `/v1/deities`; sửa mô tả "không lọc"
+- [x] `api-contract.md` (client iOS): cập nhật hàng `GET /v1/deities` và mục lỗi
+- [x] E2E (gộp vào mục E2E ở Phase 5): `?type=BUDDHA`, `?type=BODHISATTVA`, `?type=DEVA`, `?type=buddha` → 400, `?type=BUDDHA&page=2` → `items: []`
+
 ## Deferred (separate feature, not blocking deity)
 
 - Tạo/sửa/xoá mục qua backoffice (`admin/requirements.md` trỏ về đây; chưa có spec CRUD).
-- Route danh sách Phật (nếu product cần — xem `⚠️ Not confirmed` trong `requirements.md`).
 - Rà soát nội dung tôn giáo (ngày vía, mantra, đại nguyện) theo một quy trình duyệt.
-- Tìm kiếm, lọc, yêu thích.
+- Tìm kiếm theo từ khoá, yêu thích; lọc nhiều `type` cùng lúc.

@@ -1,7 +1,7 @@
 # Requirements — dharmatalk
 
-Version: 1.1
-Last updated: 2026-10-03
+Version: 2.0
+Last updated: 2026-10-11
 Status: implemented (2026-10-03) — 2 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (testcontainers, 55 bài, 36 hiển thị được); có test usecase, handler, seed parser, repository và E2E. `openapi.yaml` và ERD đã cập nhật. Còn 11 marker `⚠️ Not confirmed` (mọi quyết định sản phẩm vẫn mở).
 Module: `content`
 Code: `services/appService/`
@@ -77,20 +77,22 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 14. WHEN a talk has no tags or no key points, THE SYSTEM SHALL return `[]` for `tags` / `key_points`, never `null`.
 15. WHEN any dharma-talk route fails, THE SYSTEM SHALL answer in the shared envelope `{"success": false, "error": {code, message, type}, "details"?}`; a non-`GET` request returns `405 METHOD_NOT_ALLOWED` (kèm `Allow: GET, HEAD`) and an infrastructure failure returns `500 INTERNAL_ERROR` without leaking the cause.
 
-## US-DT-05: Nạp dữ liệu lần đầu khi khởi động
+## US-DT-05: Nạp dữ liệu bằng lệnh seed (service không tự nạp)
 
 ## User Story
 
 > Là một **người triển khai hệ thống**,
-> Tôi muốn **service tự có sẵn bộ pháp thoại ngay lần chạy đầu**,
-> Để **môi trường mới chạy được ngay và các lần khởi động sau không đụng vào dữ liệu đã chỉnh**.
+> Tôi muốn **một lệnh seed nạp bộ pháp thoại vào DB, và `make run` tự chạy lệnh đó khi bảng còn rỗng**,
+> Để **môi trường mới có dữ liệu mà service không ghi DB lúc khởi động, và lần chạy lại không đụng vào dữ liệu đã chỉnh**.
+
+> Đổi 2026-10-11 (v2.0): appService **không còn seed khi khởi động**; việc nạp là `cmd/seeddharmatalks` (`make ensure-dharma-talks` chạy nó khi `dharma_talks` rỗng).
 
 ## Acceptance Criteria (EARS notation)
 
-16. WHEN appService starts AND the `dharma_talks` table has no row, THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/dharma_talks.json`) and insert every talk in **one transaction**, with `sort_order` equal to the talk's position in the file, then log `seeded dharma talks on first run` with the count.
-17. WHEN the table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row.
+16. WHEN `cmd/seeddharmatalks` runs AND the `dharma_talks` table has no row (talks flagged `needs_review` count as rows), THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/dharma_talks.json`) and insert every talk in **one transaction**, with `sort_order` equal to the talk's position in the file, then log `seeded dharma talks on first run` with the count.
+17. WHEN the table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row (`cmd/seeddharmatalks` logs `already seeded` and exits 0). WHEN appService starts, THE SYSTEM SHALL NOT read the seed or write any talk.
 18. WHEN a seed insert meets an `id` that already exists, THE SYSTEM SHALL leave that row untouched (`ON CONFLICT (id) DO NOTHING`).
-19. WHEN the seed is invalid, THE SYSTEM SHALL abort startup with a fatal log and leave the table unchanged. Invalid means any of: no talk; empty or duplicate `id`; empty `title` or `speaker`; `mediaType` not one of `youtube`/`audio`/`text`; `youtube` without a valid 11-character id, `audio` without an `http(s)` URL, or `text` carrying either; `durationMinutes` ≤ 0; a `publishedDate` that is not `YYYY-MM-DD`; a chapter with a negative `startSeconds`, an empty title, or chapters out of order.
+19. WHEN the seed is invalid, THE SYSTEM SHALL make `cmd/seeddharmatalks` exit non-zero with a fatal log and leave the table unchanged. Invalid means any of: no talk; empty or duplicate `id`; empty `title` or `speaker`; `mediaType` not one of `youtube`/`audio`/`text`; `youtube` without a valid 11-character id, `audio` without an `http(s)` URL, or `text` carrying either; `durationMinutes` ≤ 0; a `publishedDate` that is not `YYYY-MM-DD`; a chapter with a negative `startSeconds`, an empty title, or chapters out of order.
 
 ## API contract (implemented)
 
@@ -135,7 +137,7 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 - `id` là slug ổn định để client cache id vẫn đúng sau mọi lần nạp lại.
 - `media_type` quyết định biến thể giao diện; seed hiện dùng `video` cho YouTube — parser đổi thành `youtube` (xem `design.md`).
 - Kích thước trang nằm ở block `dharma_talk:` của `config.<env>.yaml` (dev: `page_size: 10`), bắt buộc.
-- Bảng `dharma_talks` phải tồn tại trước khi service chạy (`make migrate`), nếu không bước seed lỗi và service không khởi động.
+- Bảng `dharma_talks` phải tồn tại trước khi chạy lệnh seed (`make migrate`), nếu không `cmd/seeddharmatalks` lỗi; service vẫn khởi động nhưng route đọc trả lỗi 500 cho tới khi có bảng.
 
 ## Open questions (resolved during implementation)
 

@@ -65,7 +65,7 @@ func TestDeityHandler_Top_ServerError(t *testing.T) {
 func TestDeityHandler_ListDeities(t *testing.T) {
 	t.Run("defaults to page 1", func(t *testing.T) {
 		uc := new(mockDeityUsecase)
-		uc.On("ListDeities", mock.Anything, 1).Return(&domain.DeityPage{
+		uc.On("ListDeities", mock.Anything, "", 1).Return(&domain.DeityPage{
 			Items: []domain.Deity{sampleDeity()}, Page: 1, PageSize: 20, Total: 12, TotalPages: 1,
 		}, nil)
 
@@ -82,7 +82,7 @@ func TestDeityHandler_ListDeities(t *testing.T) {
 
 	t.Run("passes page through and empty page is []", func(t *testing.T) {
 		uc := new(mockDeityUsecase)
-		uc.On("ListDeities", mock.Anything, 5).Return(&domain.DeityPage{
+		uc.On("ListDeities", mock.Anything, "", 5).Return(&domain.DeityPage{
 			Items: []domain.Deity{}, Page: 5, PageSize: 20, Total: 12, TotalPages: 1,
 		}, nil)
 		rec := doGet(newDeityMux(uc), "/v1/deities?page=5")
@@ -98,9 +98,36 @@ func TestDeityHandler_ListDeities(t *testing.T) {
 		uc.AssertNotCalled(t, "ListDeities")
 	})
 
+	t.Run("passes type through", func(t *testing.T) {
+		uc := new(mockDeityUsecase)
+		uc.On("ListDeities", mock.Anything, "BUDDHA", 2).Return(&domain.DeityPage{
+			Items: []domain.Deity{}, Page: 2, PageSize: 20, Total: 6, TotalPages: 1,
+		}, nil)
+		rec := doGet(newDeityMux(uc), "/v1/deities?type=BUDDHA&page=2")
+		require.Equal(t, http.StatusOK, rec.Code, rec.Body.String())
+		uc.AssertExpectations(t)
+	})
+
+	t.Run("empty type means no filter", func(t *testing.T) {
+		uc := new(mockDeityUsecase)
+		uc.On("ListDeities", mock.Anything, "", 1).Return(&domain.DeityPage{Items: []domain.Deity{}, Page: 1, PageSize: 20}, nil)
+		rec := doGet(newDeityMux(uc), "/v1/deities?type=")
+		require.Equal(t, http.StatusOK, rec.Code, rec.Body.String())
+		uc.AssertExpectations(t)
+	})
+
+	t.Run("usecase ErrInvalidDeityType is 400 INVALID_DEITY_TYPE", func(t *testing.T) {
+		uc := new(mockDeityUsecase)
+		uc.On("ListDeities", mock.Anything, "buddha", 1).Return(nil, domain.ErrInvalidDeityType)
+		rec := doGet(newDeityMux(uc), "/v1/deities?type=buddha")
+		assert.Equal(t, http.StatusBadRequest, rec.Code)
+		assert.Contains(t, rec.Body.String(), "INVALID_DEITY_TYPE")
+		assert.Contains(t, rec.Body.String(), `"field":"type"`)
+	})
+
 	t.Run("usecase ErrInvalidPage is 400", func(t *testing.T) {
 		uc := new(mockDeityUsecase)
-		uc.On("ListDeities", mock.Anything, 0).Return(nil, domain.ErrInvalidPage)
+		uc.On("ListDeities", mock.Anything, "", 0).Return(nil, domain.ErrInvalidPage)
 		rec := doGet(newDeityMux(uc), "/v1/deities?page=0")
 		assert.Equal(t, http.StatusBadRequest, rec.Code)
 		assert.Contains(t, rec.Body.String(), "INVALID_PAGE")

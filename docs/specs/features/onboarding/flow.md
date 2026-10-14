@@ -1,7 +1,7 @@
 # Flow — onboarding
 
-Version: 7.3
-Last updated: 2026-10-10
+Version: 7.5
+Last updated: 2026-10-11
 Status: implemented (US-001) — bản vẽ Mermaid mirror 1:1 ba section "Step-by-step Flow" của `design.md`
 Module: `identity`
 Code: `services/appService/`
@@ -35,14 +35,14 @@ sequenceDiagram
     participant DB as Postgres
     participant S as pkg/sms
 
-    C->>H: POST /v1/auth/register/request-otp {phone_number, email, password, dharma_name?, ordination_temple_id?}
+    C->>H: POST /v1/auth/register/request-otp {phone_number, email, password, full_name, dharma_name?, ordination_temple_id?}
     H->>H: DecodeJSONBodyStrict + validate DTO
     H->>U: RequestOTP(ctx, input)
 
     U->>U: NormalizeEmail + validate email + NormalizePhone + len(password) >= 8 (Step 1)
     alt sai email / phone / password
-        U--xH: ErrInvalidEmail / ErrInvalidPhone / ErrInvalidPassword
-        H--xC: 400 INVALID_EMAIL / INVALID_PHONE / INVALID_PASSWORD (không chạm DB)
+        U--xH: ErrInvalidEmail / ErrInvalidPhone / ErrInvalidPassword / ErrInvalidFullName / ErrInvalidDharmaName
+        H--xC: 400 INVALID_EMAIL / INVALID_PHONE / INVALID_PASSWORD / INVALID_FULL_NAME / INVALID_DHARMA_NAME (không chạm DB)
     end
 
     U->>R: FindConflicts(phone, email) (Step 2)

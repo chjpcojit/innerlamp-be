@@ -4,6 +4,15 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.0 (2026-10-11)
+
+appService **không còn seed bài viết khi khởi động**: việc nạp chuyển sang lệnh seed, `make run` chạy lệnh đó khi bảng rỗng. Hợp đồng HTTP không đổi.
+
+- `requirements.md`, `design.md`, `flow.md`, `tasks.md` (→ 2.0): AC15–AC18 nay mô tả `cmd/seedarticles` (mặc định dùng dữ liệu nhúng, `-file` để đọc file khác); flow seed vẽ lại theo lệnh; `cmd/main.go` bỏ `SeedIfEmpty`. Ghi chú: lệnh chèn các `id` còn thiếu (không sửa dòng có sẵn); `make ensure-articles` chỉ gọi nó khi bảng rỗng.
+- Đổi hành vi: khởi động service trên DB rỗng **thành công** và phục vụ danh sách rỗng (trước đây service log.Fatalf nếu seed lỗi).
+- Kiểm chứng: E2E chạy lệnh seed (rồi khởi động service) thay vì dựa vào seed lúc start; `go test -short ./...` pass.
+- Theo dõi ngoài thư mục này: `Makefile` (`ensure-*`, `seed-*`), `docs/development/local-stack.md`; concept OKF liên quan cần `il-okf-writer` làm mới khi được yêu cầu.
+
 ## v1.6 (2026-10-06)
 
 Thêm `thumbnail_url` (ảnh nhỏ cho thẻ danh sách) vào API bài viết theo yêu cầu của client iOS; ảnh nhỏ do app lưu và phục vụ.

@@ -32,15 +32,21 @@ func (u *DeityUsecase) Top(ctx context.Context) ([]domain.Deity, error) {
 	return items, nil
 }
 
-// ListDeities returns one 1-based page of cfg.PageSize deities, Buddhas and
-// bodhisattvas together. A page past the end is a valid, empty page. page < 1,
-// or so large that the offset would overflow, is domain.ErrInvalidPage.
-func (u *DeityUsecase) ListDeities(ctx context.Context, page int) (*domain.DeityPage, error) {
+// ListDeities returns one 1-based page of cfg.PageSize deities. deityType ""
+// lists every type together; otherwise it must be exactly one of the deity
+// types and only that type is listed and counted. A page past the end is a
+// valid, empty page. page < 1, or so large that the offset would overflow, is
+// domain.ErrInvalidPage (checked before the type); a non-empty deityType that is
+// not a deity type is domain.ErrInvalidDeityType.
+func (u *DeityUsecase) ListDeities(ctx context.Context, deityType string, page int) (*domain.DeityPage, error) {
 	size := u.cfg.PageSize
 	if page < 1 || page > math.MaxInt32 {
 		return nil, domain.ErrInvalidPage
 	}
-	items, total, err := u.deities.List(ctx, (page-1)*size, size)
+	if deityType != "" && !domain.IsValidDeityType(deityType) {
+		return nil, domain.ErrInvalidDeityType
+	}
+	items, total, err := u.deities.List(ctx, deityType, (page-1)*size, size)
 	if err != nil {
 		return nil, fmt.Errorf("list deities: %w", err)
 	}
