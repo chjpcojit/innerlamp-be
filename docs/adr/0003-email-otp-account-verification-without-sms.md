@@ -120,7 +120,7 @@ Client ──verify(email, otp)──► BE ──create users (email_verified_a
 
 **Pros:** cheapest working option with a recovery channel; least rework; one mail provider also
 serves the back office. **Cons:** deliverability work (SPF/DKIM/DMARC, domain); phone becomes an
-unverified claim, which breaks the phone-based genealogy invitations as they stand (see Consequences).
+unverified claim, which weakens the phone-based genealogy invitations (accepted risk, Decision rule 4).
 
 ### Option B: Google + Apple sign-in only (no password)
 
@@ -216,13 +216,17 @@ Rules the decision carries (owner answers 2026-10-14 included):
 2. **Registration** keeps its two steps and every field it collects today (email, phone, password,
    full name, dharma name, ordination temple). The `users` row is created only after the email OTP
    is verified, in the same transaction as the first session (unchanged invariant).
-3. **Phone number** is still collected, **never verified**, and never used as a credential or an
-   identifier for sign-in or recovery.
-   > ⚠️ Not confirmed: is the phone still required at registration and still UNIQUE? Recommended: required, **not unique** — a unique unverified phone lets anyone block the real owner from registering — blocks the `users` schema change in the BE spec.
-4. **Genealogy invitations** keep using the phone number (owner answer 3), but because the phone is
-   no longer proven, matching on phone alone lets anyone who types a victim's number accept that
-   invitation and read the whole tree (pentest C-1 chain).
-   > ⚠️ Not confirmed: how an invitee proves they are the intended person. Recommended: keep the phone as the address, and require a one-time invite code the inviter passes on outside the app (e.g. Zalo) to accept; alternatives are "inviter approves the account that asked to join" or switching invitations to the verified email — blocks the genealogy product/BE spec update.
+3. **Phone number** is still collected and stays **required and unique across the system**
+   (owner, 2026-10-14), but is **never verified** and never used as a credential or an identifier
+   for sign-in or recovery. Accepted risk: someone can register first with another person's number
+   and block its real owner from registering; the real owner contacts support and an admin frees
+   the number manually (same path as rule 5).
+4. **Genealogy invitations** keep matching on the phone number exactly as today, with **no extra
+   proof** such as an invite code (owner, 2026-10-14). Accepted risk, recorded so it is a conscious
+   choice: because the phone is unverified, a person who registers first with the invitee's number
+   receives and can accept that invitation and read the tree (the pentest C-1 chain stays open for
+   this path). Revisit if a tree holds sensitive data of many people or the app goes public
+   (see Consequences).
 5. **Recovery.** Forgot password = OTP to the verified email (one-time, hashed, short TTL, rate
    limited, all sessions revoked after reset, identical response whether or not the email exists).
    A user who lost access to their email contacts support and an admin handles it manually through
@@ -231,8 +235,9 @@ Rules the decision carries (owner answers 2026-10-14 included):
    — the existing `otp_codes` mechanics, keyed by email. A fixed OTP may exist only behind a dev-only
    flag that **fails startup** outside the dev environment.
 7. **Email delivery** goes through `pkg/mailer` with a real provider driver (provider picked in the
-   BE spec). Until a domain exists, dev keeps `LogMailer`.
-   > ⚠️ Not confirmed: the sending domain — the owner has none yet (dev uses the fixed `111111`) — blocks production email (SPF/DKIM/DMARC) and therefore any public launch.
+   BE spec). For now it stays **mocked** (owner, 2026-10-14): `LogMailer` plus the fixed dev OTP,
+   allowed only in the dev environment (rule 6). Buying a sending domain and configuring
+   SPF/DKIM/DMARC is a prerequisite for production, tracked under Follow-ups → Infrastructure.
 8. **Abuse controls (required, not optional):** rate limits per IP and per email on every
    `/v1/auth/*` route (register, verify, resend, login, refresh, forgot, reset) with a shared store
    when Cloud Run runs several instances; a global daily email-send budget; atomic counters for OTP
@@ -250,7 +255,10 @@ Rules the decision carries (owner answers 2026-10-14 included):
 - **Harder:** email deliverability (domain, SPF/DKIM/DMARC, spam folders) becomes a launch
   dependency; the phone number is only a claim, so every feature that trusts it must be reviewed
   (today: genealogy invitations and viewer↔member linking).
-- **Revisit when:** a sending domain is bought; users report not receiving OTP emails; before
+- **Accepted risks:** an unverified but unique phone can be squatted (rule 3); genealogy invitations
+  matched on that phone can be accepted by the squatter (rule 4).
+- **Revisit when:** a sending domain is bought; the first support case about a squatted phone
+  number or a wrongly accepted genealogy invitation; users report not receiving OTP emails; before
   public launch (Google/Apple sign-in ADR); if email volume nears the provider's free tier.
 
 ### What must be removed or changed in the current code
@@ -261,9 +269,9 @@ Rules the decision carries (owner answers 2026-10-14 included):
 | `usecase/otp_service.go` | OTP sent by email; random `crypto/rand`; fixed value dev-only with fail-fast; atomic attempt counter |
 | `otp_codes` (keyed by `phone_number`) | Re-key to email |
 | `usecase/register_usecase.go`, `pending_registration` (`UNIQUE phone_number`) | Pending payload keyed by email; account created with `email_verified_at = now()` |
-| `users.phone_number NOT NULL UNIQUE` | Per rule 3 (open question) |
+| `users.phone_number NOT NULL UNIQUE` | Kept as is; only the verification meaning goes away (rule 3) |
 | `usecase/login_usecase.go` (`FindUserByPhone`), `login_attempts` (PK `phone_number`) | Login by email; lockout keyed by email |
-| `usecase/genealogy_invitation_usecase.go`, `repository/postgres_genealogy_access_repository.go` | Per rule 4 (open question) |
+| `usecase/genealogy_invitation_usecase.go`, `repository/postgres_genealogy_access_repository.go` | No change (rule 4, accepted risk) |
 | `pkg/mailer` | Add OTP mail methods and a real provider driver |
 | `cmd/main.go` `/v1/auth/*` routes | Wrap with rate limiters |
 | Docs: `docs/specs/features/{onboarding,login,otp-mechanism,password-reset}/`, `docs/knowledge/features/{register,login}.md`, `docs/specs/api/openapi.yaml` (phone-based auth) | Rewritten in the follow-up steps, old ones deleted after approval |
@@ -272,7 +280,7 @@ Rules the decision carries (owner answers 2026-10-14 included):
 
 | Layer | Follow-up |
 |---|---|
-| Product spec (`ba-writer`) | Two specs citing ADR-0003: `onboarding` (register + email OTP + ordination temple) and `login` (login, refresh, logout, lockout, forgot password); genealogy product spec updated for rule 4 |
+| Product spec (`ba-writer`) | Two specs citing ADR-0003: `onboarding` (register + email OTP + ordination temple) and `login` (login, refresh, logout, lockout, forgot password); genealogy product spec notes the accepted risk of rule 4 |
 | API contract (`spec-writer`, BE) | `/v1/auth/*` request/response move from phone to email; resend/verify by email; new forgot/reset endpoints; uniform error responses (M-9); 429 for rate limits |
 | Backend spec / code | Items in the table above; mailer provider choice; rate-limit store (Redis vs Postgres) |
 | Website / iOS / Android | Sign-in form uses email; OTP screen copy says "email"; forgot-password flow; Android builds login/register on the new contract |
@@ -280,9 +288,7 @@ Rules the decision carries (owner answers 2026-10-14 included):
 
 ## Open questions
 
-- ⚠️ Not confirmed: is the phone still required at registration and still UNIQUE? Recommended: required, not unique — blocks the `users` schema change in the BE spec.
-- ⚠️ Not confirmed: how an invitee proves they are the intended person for a phone-addressed genealogy invitation. Recommended: one-time invite code shared outside the app — blocks the genealogy spec update.
-- ⚠️ Not confirmed: the sending domain — none owned yet — blocks production email and public launch.
+None.
 
 ### Resolved
 
@@ -292,6 +298,9 @@ Rules the decision carries (owner answers 2026-10-14 included):
 - 2026-10-14 — Existing data → no real users yet, no backfill (anh Đức).
 - 2026-10-14 — Lost email access → support + admin handles it manually (anh Đức).
 - 2026-10-14 — Account is created only after the email OTP is verified (anh Đức: "verify otp qua email rồi thì tạo").
+- 2026-10-14 — Phone uniqueness → "Sdt vẫn là duy nhất trên hệ thống" (anh Đức), against the recommendation to drop UNIQUE; squatting risk accepted (rule 3).
+- 2026-10-14 — Proof for genealogy invitations → "Không cần" (anh Đức); risk accepted (rule 4).
+- 2026-10-14 — Sending domain → "Tạm mock" (anh Đức); production needs a domain first (rule 7).
 
 ## Decision record
 
