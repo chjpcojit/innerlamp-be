@@ -33,7 +33,7 @@ has a short feature code (e.g. `MEM`) used in its IDs: `BR-MEM-01`, `FR-MEM-001`
 
 - `ba-writer` (`.claude/skills/ba-writer/`) writes and updates everything in this folder. It asks the
   open questions first and records anything unanswered as `⚠️ Not confirmed`.
-- Each platform's spec skill — `il-spec-be` here, `il-spec-web`, `il-spec-ios`, `il-spec-android` in the client repos — then writes the layer-2 spec, starting with this header:
+- Each platform's `spec-writer` skill — in this repo and in each client repo — then writes the layer-2 spec, starting with this header:
 
   ```markdown
   Product spec: innerlamp-be `docs/product/<feature>/product.md` @ v<MAJOR.MINOR>

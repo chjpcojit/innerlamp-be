@@ -1,6 +1,6 @@
 ---
 name: ba-writer
-description: This skill should be used when the user wants a business analyst (BA) / project manager to analyze an InnerLamp feature's business requirements and produce the single, platform-agnostic product spec that the backend, the website, the iOS app and the Android app all build from — `docs/product/<feature>/product.md` in the backend repo, in IEEE 29148-2018 structure, with stable business-rule IDs (BR-*), functional-requirement IDs (FR-*), a glossary, Gherkin acceptance criteria written as user-observable behavior, shared test vectors for computational rules, an explicit platform-variance section and a requirement × platform traceability matrix. Input can be a raw one-line idea, scattered notes, an existing BA / SRS document, the design prototype, or a feature that is already partly built on one or more platforms (retroactive mode, reconciling the per-repo specs). It normalizes the input, hunts for edge cases, contradictions (including disagreements between platforms), ambiguity and cross-platform gaps, then asks the user a short, prioritized set of questions BEFORE writing; anything unanswered is recorded inline as "⚠️ Not confirmed" — never guessed, never silently defaulted. Docs-only: the spec body is English, all chat with the user is Vietnamese ("anh"/"em"); it never writes code, never writes platform specs (requirements/design/tasks/flow — that is each repo's spec writer, starting with `il-spec-be` in this repo) and never edits another repo. Use it whenever the user mentions BA, SRS, PRD/BRD, product spec, business rules, feature requirements, a feature that must behave the same on web and mobile, or wants a PM/BA view of a feature — even if they do not name the skill.
+description: This skill should be used when the user wants a business analyst (BA) / project manager to analyze an InnerLamp feature's business requirements and produce the single, platform-agnostic product spec that the backend, the website, the iOS app and the Android app all build from — `docs/product/<feature>/product.md` in the backend repo, in IEEE 29148-2018 structure, with stable business-rule IDs (BR-*), functional-requirement IDs (FR-*), a glossary, Gherkin acceptance criteria written as user-observable behavior, shared test vectors for computational rules, an explicit platform-variance section and a requirement × platform traceability matrix. Input can be a raw one-line idea, scattered notes, an existing BA / SRS document, the design prototype, or a feature that is already partly built on one or more platforms (retroactive mode, reconciling the per-repo specs). It normalizes the input, hunts for edge cases, contradictions (including disagreements between platforms), ambiguity and cross-platform gaps, then asks the user a short, prioritized set of questions BEFORE writing; anything unanswered is recorded inline as "⚠️ Not confirmed" — never guessed, never silently defaulted. Docs-only: the spec body is English, all chat with the user is Vietnamese ("anh"/"em"); it never writes code, never writes platform specs (requirements/design/tasks/flow — that is each repo's spec writer, starting with `spec-writer` in this repo) and never edits another repo. Use it whenever the user mentions BA, SRS, PRD/BRD, product spec, business rules, feature requirements, a feature that must behave the same on web and mobile, or wants a PM/BA view of a feature — even if they do not name the skill.
 ---
 
 # InnerLamp Business Analyst — product spec writer
@@ -17,13 +17,13 @@ Layer 0  Product spec       docs/product/<feature>/product.md        ← this sk
          + test vectors     docs/product/<feature>/rules/*.json
               │ referenced by ID (BR-MEM-03, FR-MEM-004), never copied
               ▼
-Layer 1  API contract       docs/specs/api/openapi.yaml               ← backend (il-spec-be + code)
+Layer 1  API contract       docs/specs/api/openapi.yaml               ← backend (spec-writer + code)
               │ clients reference the published file, never keep a copy
               ▼
-Layer 2  Platform specs     backend:  docs/specs/features/<feature>/  ← il-spec-be (this repo)
-                            website:  Docs/specs/features/<feature>/  ← il-spec-web (website repo)
-                            iOS:      Docs/Specs/<Feature>/           ← il-spec-ios (iOS repo)
-                            Android:  Docs/Specs/<Feature>/           ← il-spec-android (Android repo)
+Layer 2  Platform specs     backend:  docs/specs/features/<feature>/  ← spec-writer (this repo)
+                            website:  Docs/specs/features/<feature>/  ← spec-writer (website repo)
+                            iOS:      Docs/Specs/<Feature>/           ← spec-writer (iOS repo)
+                            Android:  Docs/Specs/<Feature>/           ← spec-writer (Android repo)
 ```
 
 Layer 0 says **what the product does and why**, in terms of what a user can observe on any platform
@@ -182,5 +182,5 @@ otherwise a numbered list.
 Tell the user: the file(s) written and version; open `⚠️` items and which platforms they block;
 cross-platform disagreements found and how they were settled; contract handoff items for the backend
 (new fields/endpoints/error behavior the product needs); and the next step per platform —
-`il-spec-be` in this repo for the backend spec, and each client repo's spec writer for its own
+`spec-writer` in this repo for the backend spec, and each client repo's spec writer for its own
 spec, which must cite `product.md@<version>` and the IDs it implements.

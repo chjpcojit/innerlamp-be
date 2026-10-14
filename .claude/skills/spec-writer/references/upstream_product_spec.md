@@ -1,14 +1,14 @@
 # Upstream: product spec and API contract
 
 Every InnerLamp platform spec sits under two documents it does not own. This file is identical in
-the spec skills of all four repos (backend `il-spec-be`, website `il-spec-web`, iOS `il-spec-ios`,
-Android `il-spec-android`) so the four agree on how they cite them.
+the `spec-writer` skill of all four repos (backend, website, iOS, Android) so the four agree on how
+they cite them.
 
 ```
 Layer 0  Product spec   innerlamp-be  docs/product/<feature>/product.md   (+ rules/*.json)
          owner: ba-writer (backend repo only) — what the product does, BR-*/FR-*/NFR-* IDs
 Layer 1  API contract   innerlamp-be  docs/specs/api/openapi.yaml
-         owner: backend (il-spec-be + code) — paths, fields, error codes
+         owner: backend (spec-writer + code) — paths, fields, error codes
 Layer 2  Platform spec  this repo — how THIS platform builds it (this skill)
 ```
 
