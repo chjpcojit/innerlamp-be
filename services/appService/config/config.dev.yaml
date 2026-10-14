@@ -151,6 +151,22 @@ temple_suggestion:
     window: "1h"
     trust_forwarded_for: false
 
+# Store behind every rate limiter (docs/knowledge/packages/ratelimit.md). "redis" counts across
+# all instances; "memory" counts per instance (tests, or one instance only). No default: a missing
+# block stops the service. Redis runs in docker-compose.yml (make up); a Redis error at request time
+# falls back to a per-instance count, never to "no limit".
+# ⚠️ DEV CONFIG: plain TCP to the compose Redis; TLS to the server is not wired yet (TD ratelimit/TD-001).
+rate_limit_store:
+  backend: "redis"
+  redis:
+    addr: "localhost:6379"
+    password_secret: "appservice-redis-password"
+    db: 0
+    key_prefix: "innerlamp:app:rl:"
+    dial_timeout: "1s"
+    # On the request path: past this the check falls back to the per-instance count.
+    op_timeout: "100ms"
+
 # Administrative units (tỉnh/huyện/xã, hệ cũ và mới): public read-only lookups, also used
 # during registration. rate_limit is the only abuse brake besides the web API key (a caller may
 # simply omit the key header); all routes share one per-IP budget. cache_max_age is sent as
@@ -221,4 +237,6 @@ dev_secrets:
   appservice-db-password: "postgres"
   # TD auth/TD-001: generated for local runs, plaintext in git; not a production key.
   appservice-web-api-key: "c236dbe7eecb531a3ad570c17305b5aacb30b42bd630d02ade71d2df6c0bdf71"
+  # Matches --requirepass in docker-compose.yml; local only.
+  appservice-redis-password: "innerlamp-dev-redis"
   appservice-jwt-secret-key: "innerlamp-dev-secret-key-please-rotate-32c"

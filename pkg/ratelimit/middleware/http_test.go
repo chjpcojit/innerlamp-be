@@ -100,4 +100,9 @@ func TestHTTPMiddleware_BlockedUsesEnvelope(t *testing.T) {
 	if _, ok := resp.Details["retry_after_seconds"]; !ok {
 		t.Errorf("expected details.retry_after_seconds, got %v", resp.Details)
 	}
+	// A sub-second wait must round up, never tell the client to retry now.
+	// Thời gian chờ dưới 1 giây phải làm tròn lên, không bảo client thử lại ngay.
+	if got := w.Header().Get("Retry-After"); got == "" || got == "0" {
+		t.Errorf("Retry-After = %q, want >= 1", got)
+	}
 }

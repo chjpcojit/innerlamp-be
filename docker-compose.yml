@@ -17,7 +17,7 @@
 # tees it into observability/logs/, which Alloy tails.
 #
 # Usage, from the repo root:
-#   docker compose up -d          # Postgres + migrations + Loki/Alloy/Grafana
+#   docker compose up -d          # Postgres + migrations + Redis + Loki/Alloy/Grafana
 #   go run ./services/appService/cmd 2>&1 | tee -a observability/logs/appservice.log
 #
 # After adding a migration, re-apply it without recreating Postgres:
@@ -92,6 +92,34 @@ services:
       - "4443:4443"
     volumes:
       - gcs-data:/storage
+
+  # Shared store for appService's rate limiters (rate_limit_store in config.dev.yaml,
+  # docs/knowledge/packages/ratelimit.md). Counters are short-lived and rebuilt on their own,
+  # so nothing is persisted: no RDB/AOF and no volume, and a restart simply starts every
+  # window fresh. maxmemory + volatile-ttl bound memory; every rate-limit key carries a TTL,
+  # so under pressure Redis drops the soonest-to-expire counters first.
+  # ⚠️ DEV ONLY: the password matches dev_secrets.appservice-redis-password; plain TCP, no TLS.
+  redis:
+    image: redis:7.4.2-alpine
+    command:
+      - redis-server
+      - --requirepass
+      - innerlamp-dev-redis
+      - --save
+      - ""
+      - --appendonly
+      - "no"
+      - --maxmemory
+      - 128mb
+      - --maxmemory-policy
+      - volatile-ttl
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "innerlamp-dev-redis", "--no-auth-warning", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
 
   # --- log stack -----------------------------------------------------------
   #

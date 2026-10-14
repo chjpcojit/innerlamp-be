@@ -346,6 +346,13 @@ func writeTempConfig(t *testing.T, dbHost, dbPort, appPort string, overrides con
 		storage["emulator_host"] = sharedStorageEmulator(t)
 	}
 
+	// config.dev.yaml counts rate limits in the compose Redis. Each test server gets its own
+	// in-memory counters instead: tests must not depend on, or leave counts in, dev Redis,
+	// and two servers sharing one Redis would spend each other's budgets.
+	if rls, ok := doc["rate_limit_store"].(map[string]any); ok {
+		rls["backend"] = "memory"
+	}
+
 	for block, keys := range overrides {
 		section, ok := doc[block].(map[string]any)
 		require.Truef(t, ok, "config has no %q block to override", block)

@@ -1,5 +1,26 @@
 # Knowledge Bundle Update Log
 
+## 2026-10-14
+
+- Created `packages/ratelimit.md` (`status: draft`) and added it to `index.md`.
+  - Documents `pkg/ratelimit` (stores, middleware, the new `FallbackStore`), how appService builds one shared
+    store from `rate_limit_store` (Redis in dev, from `docker-compose.yml`), every route that has a request-rate
+    limit with its key, budget and scope, the Postgres-backed OTP/login lockouts, and the routes with no limit.
+  - Facts read from `pkg/ratelimit/{ratelimit.go,store/*.go,middleware/*.go}`,
+    `services/appService/delivery/http/{client_ip_rate_limit,user_rate_limit,rate_limit_options}.go`,
+    `services/appService/cmd/{main.go,ratelimit_store.go,profile_routes.go,temple_announcement_routes.go}`,
+    `services/appService/config/{config.go,config.dev.yaml}` and `usecase/{otp_service,login_usecase}.go`; each file
+    named in the concept was checked to exist.
+  - Verification behind it: `go build ./...`, `go vet ./...`, `go test -short ./...` (only the pre-existing
+    backofficeService config tests fail, for a missing untracked `config.dev.yaml`); the Redis store tests ran
+    against a real Redis 7.0; the real binary ran against Postgres 16 + Redis (429 at the limit, two instances
+    sharing one count, fallback to a per-instance count with Redis stopped, startup stopping without Redis).
+  - Kept `draft`: the review's proposed fixes (per-IP limits on auth, attestation and admin-login routes, atomic
+    lockouts, trusted-hop count behind a load balancer) are not implemented, the E2E suite uses the memory store,
+    and Redis has no TLS (TD-001).
+  - `verified:` was not present and was not added. Unlike most entries, this change also touched `.go` files
+    (the Redis wiring itself); the concept was written after that code was built and run.
+
 ## 2026-10-11 (4)
 
 - Created `features/calendar.md` (`status: draft`), `api/calendar-events.md` (`status: stable`) and

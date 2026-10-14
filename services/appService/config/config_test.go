@@ -993,3 +993,60 @@ func TestLoad_DevYAMLTempleAnnouncementConfig(t *testing.T) {
 		t.Errorf("dev config must validate: %v", err)
 	}
 }
+
+func TestRateLimitStoreConfig_Validate(t *testing.T) {
+	redisOK := RedisRateLimitConfig{
+		Addr: "localhost:6379", KeyPrefix: "innerlamp:app:rl:",
+		DialTimeout: Duration(time.Second), OpTimeout: Duration(100 * time.Millisecond),
+	}
+	tests := []struct {
+		name    string
+		cfg     RateLimitStoreConfig
+		wantErr bool
+	}{
+		{name: "redis", cfg: RateLimitStoreConfig{Backend: RateLimitStoreRedis, Redis: redisOK}},
+		{name: "memory needs no redis block", cfg: RateLimitStoreConfig{Backend: RateLimitStoreMemory}},
+		{name: "zero value", cfg: RateLimitStoreConfig{}, wantErr: true},
+		{name: "unknown backend", cfg: RateLimitStoreConfig{Backend: "memcached"}, wantErr: true},
+		{name: "redis without addr", cfg: RateLimitStoreConfig{Backend: RateLimitStoreRedis, Redis: func() RedisRateLimitConfig { r := redisOK; r.Addr = ""; return r }()}, wantErr: true},
+		{name: "redis without prefix", cfg: RateLimitStoreConfig{Backend: RateLimitStoreRedis, Redis: func() RedisRateLimitConfig { r := redisOK; r.KeyPrefix = " "; return r }()}, wantErr: true},
+		{name: "redis negative db", cfg: RateLimitStoreConfig{Backend: RateLimitStoreRedis, Redis: func() RedisRateLimitConfig { r := redisOK; r.DB = -1; return r }()}, wantErr: true},
+		{name: "redis zero dial timeout", cfg: RateLimitStoreConfig{Backend: RateLimitStoreRedis, Redis: func() RedisRateLimitConfig { r := redisOK; r.DialTimeout = 0; return r }()}, wantErr: true},
+		{name: "redis zero op timeout", cfg: RateLimitStoreConfig{Backend: RateLimitStoreRedis, Redis: func() RedisRateLimitConfig { r := redisOK; r.OpTimeout = 0; return r }()}, wantErr: true},
+	}
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			err := tc.cfg.Validate()
+			if (err != nil) != tc.wantErr {
+				t.Errorf("Validate() error = %v, wantErr %v", err, tc.wantErr)
+			}
+		})
+	}
+}
+
+func TestLoad_DevYAMLRateLimitStoreConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+	got := cfg.RateLimitStore
+	if got.Backend != RateLimitStoreRedis || got.Redis.Addr != "localhost:6379" || got.Redis.KeyPrefix != "innerlamp:app:rl:" {
+		t.Errorf("RateLimitStore = %+v", got)
+	}
+	if got.Redis.Password == "" {
+		t.Error("redis password_secret must resolve from dev_secrets")
+	}
+	if err := got.Validate(); err != nil {
+		t.Errorf("dev config must be valid: %v", err)
+	}
+}

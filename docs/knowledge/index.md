@@ -40,3 +40,4 @@ removed as stale. Read the code, the per-package `pkg/<name>/README.md` files an
 | [features/calendar.md](features/calendar.md) | Feature | draft (the 51-event catalogue is an unreviewed draft — vía dates checked against one aggregator page, descriptions not reviewed, no images; lunar conversion has no full independent reference table; genealogy keeps a duplicate converter that returns day 0 on two dates; the events route and the seed are covered by an E2E test on the real binary) |
 | [api/calendar-events.md](api/calendar-events.md) | API Endpoint | stable |
 | [migrations/0031-calendar-events.md](migrations/0031-calendar-events.md) | Migration | stable |
+| [packages/ratelimit.md](packages/ratelimit.md) | Package | draft (auth, attestation and admin-login routes still have no request-rate limit — proposals listed; E2E suite runs on the memory store; Redis without TLS) |

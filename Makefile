@@ -31,8 +31,9 @@ urls: ## Print the local endpoints
 	@echo "Loki        http://localhost:3100"
 	@echo "Alloy       http://localhost:12345"
 	@echo "Postgres    localhost:5432  (user=$(DB_USER) db=$(DB_NAME))"
+	@echo "Redis       localhost:6379  (rate limit counters)"
 
-up: ## Start the full stack: Postgres + migrations + Loki/Alloy/Grafana
+up: ## Start the full stack: Postgres + migrations + Redis + Loki/Alloy/Grafana
 	$(COMPOSE) up -d
 
 down: ## Stop the stack, keep data volumes
@@ -75,7 +76,7 @@ logs: ## Follow logs of every stack container
 
 .PHONY: run run-backoffice build test vet
 
-run: up ensure-data ## Run appService on the host (re-seeds deities/temples/gallery if wiped), teeing logs into observability/logs/appservice.log
+run: up redis-up ensure-data ## Run appService on the host (re-seeds deities/temples/gallery if wiped), teeing logs into observability/logs/appservice.log
 	@mkdir -p "$$(dirname '$(APP_LOG)')"
 	@set -o pipefail; go run ./services/appService/cmd 2>&1 | tee -a '$(APP_LOG)'
 
@@ -90,6 +91,24 @@ test: ## Run fast tests (skips Docker/cloud integration)
 
 vet: ## Run go vet
 	go vet ./...
+
+# ── redis (rate limit counters) ─────────────────────────────────────────────
+#
+# appService pings Redis at start and stops if it is not there, so `run` waits
+# for the healthcheck (`up` alone returns before Redis answers).
+
+.PHONY: redis-up redis-cli redis-ratelimits
+
+REDIS_PASSWORD ?= innerlamp-dev-redis
+
+redis-up: ## Start only Redis and wait until it answers
+	$(COMPOSE) up -d --wait redis
+
+redis-cli: redis-up ## Open an interactive redis-cli in the Redis container
+	$(COMPOSE) exec redis redis-cli -a '$(REDIS_PASSWORD)' --no-auth-warning
+
+redis-ratelimits: redis-up ## List live rate-limit counters with their TTL (ms)
+	@$(COMPOSE) exec -T redis sh -c "redis-cli -a '$(REDIS_PASSWORD)' --no-auth-warning --scan --pattern 'innerlamp:*' | while read k; do echo \"\$$k  count=\$$(redis-cli -a '$(REDIS_PASSWORD)' --no-auth-warning zcard \"\$$k\")  pttl=\$$(redis-cli -a '$(REDIS_PASSWORD)' --no-auth-warning pttl \"\$$k\")\"; done"
 
 # ── database ────────────────────────────────────────────────────────────────
 #

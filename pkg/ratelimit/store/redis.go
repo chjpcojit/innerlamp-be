@@ -2,6 +2,9 @@ package store
 
 import (
 	"context"
+	"fmt"
+	"math/rand/v2"
+	"strconv"
 	"time"
 
 	"github.com/redis/go-redis/v9"
@@ -59,7 +62,7 @@ var (
 		local now = tonumber(ARGV[3])
 		local requested = tonumber(ARGV[4])
 		local fill_time = tonumber(ARGV[5])
-		local ttl = math.floor(fill_time * 2)
+		local ttl = math.max(1, math.ceil(fill_time * 2))
 
 		local last_tokens = tonumber(redis.call("get", tokens_key))
 		if last_tokens == nil then
@@ -73,51 +76,67 @@ var (
 
 		local delta = math.max(0, now - last_refreshed)
 		local filled_tokens = math.min(capacity, last_tokens + (delta * rate))
-		local allowed = filled_tokens >= requested
+		-- Lua false becomes a nil reply, so allowed is returned as 1/0.
+		-- Lua false thành nil reply nên allowed trả về dạng 1/0.
+		local allowed = 0
 		local new_tokens = filled_tokens
-		if allowed then
+		if filled_tokens >= requested then
+			allowed = 1
 			new_tokens = filled_tokens - requested
 		end
 
 		redis.call("setex", tokens_key, ttl, new_tokens)
 		redis.call("setex", timestamp_key, ttl, now)
 
-		local retry_after = 0
-		if not allowed then
-			retry_after = (requested - filled_tokens) / rate
+		-- Floats are truncated to integers on the way out, so retry is sent in ms.
+		-- Số thực bị cắt thành số nguyên khi trả về, nên retry tính bằng ms.
+		local retry_ms = 0
+		if allowed == 0 then
+			retry_ms = math.ceil((requested - filled_tokens) / rate * 1000)
 		end
 
-		return { allowed, new_tokens, retry_after }
+		return { allowed, math.floor(new_tokens), retry_ms }
 	`)
 
+	// slidingWindowScript keeps one sorted-set entry per accepted request. The
+	// clock is Redis's own TIME, so instances with skewed clocks share one
+	// window; ARGV[3] is a caller-unique member so two requests in the same
+	// millisecond are both counted.
+	// slidingWindowScript giữ một entry sorted-set cho mỗi request được nhận.
+	// Đồng hồ là TIME của Redis nên các instance lệch giờ vẫn dùng chung một
+	// window; ARGV[3] là member duy nhất để hai request cùng mili-giây đều được đếm.
 	slidingWindowScript = redis.NewScript(`
 		local key = KEYS[1]
-		local window_start = tonumber(ARGV[1])
-		local now = tonumber(ARGV[2])
-		local limit = tonumber(ARGV[3])
-		local window = tonumber(ARGV[4])
+		local window = tonumber(ARGV[1]) -- ms
+		local limit = tonumber(ARGV[2])
+		local member = ARGV[3]
 
-		-- Remove old requests
-		redis.call("ZREMRANGEBYSCORE", key, "-inf", window_start)
-		
-		-- Count current requests
+		local t = redis.call("TIME")
+		local now = tonumber(t[1]) * 1000 + math.floor(tonumber(t[2]) / 1000)
+
+		redis.call("ZREMRANGEBYSCORE", key, "-inf", now - window)
+
 		local count = redis.call("ZCARD", key)
-		local allowed = count < limit
-
-		if allowed then
-			redis.call("ZADD", key, now, now)
-			redis.call("PEXPIRE", key, window * 1000)
+		local allowed = 0
+		if count < limit then
+			redis.call("ZADD", key, now, member)
 			count = count + 1
+			allowed = 1
 		end
+		redis.call("PEXPIRE", key, window)
 
-		-- Get oldest request time for reset calculation
+		local reset = now + window
 		local oldest = redis.call("ZRANGE", key, 0, 0, "WITHSCORES")
-		local reset_time = now + window
 		if #oldest > 0 then
-			reset_time = tonumber(oldest[2]) + window
+			reset = tonumber(oldest[2]) + window
 		end
 
-		return { allowed, limit - count, reset_time }
+		local retry = 0
+		if allowed == 0 then
+			retry = reset - now
+		end
+
+		return { allowed, math.max(0, limit - count), reset, retry }
 	`)
 
 	fixedWindowScript = redis.NewScript(`
@@ -130,7 +149,10 @@ var (
 			redis.call("EXPIRE", key, window_seconds)
 		end
 
-		local allowed = count <= limit
+		local allowed = 0
+		if count <= limit then
+			allowed = 1
+		end
 		local remaining = math.max(0, limit - count)
 		local ttl = redis.call("TTL", key)
 
@@ -147,18 +169,17 @@ var (
 			next_allowed = now
 		end
 
-		local allowed = false
+		local allowed = 0
 		local retry_after = 0
 		local reset_time = next_allowed
 
 		if now >= next_allowed then
-			allowed = true
+			allowed = 1
 			next_allowed = now + interval
 			redis.call("SET", key, next_allowed, "PX", math.ceil(interval/1000) * 2)
 			reset_time = next_allowed
 		else
-			allowed = false
-			retry_after = (next_allowed - now) / 1000000 -- seconds
+			retry_after = math.ceil((next_allowed - now) / 1000) -- ms
 		end
 
 		return { allowed, 0, retry_after }
@@ -180,50 +201,42 @@ func (t *tokenBucketRedis) Allow(ctx context.Context, client redis.UniversalClie
 		return nil, err
 	}
 
-	vals := res.([]interface{})
-	allowed := vals[0].(int64) == 1
-	retryAfter := 0.0
-	if v, ok := vals[2].(float64); ok {
-		retryAfter = v
-	} else if v, ok := vals[2].(string); ok {
-		_ = v
+	vals, err := scriptInts(res, 3)
+	if err != nil {
+		return nil, err
 	}
-
-	resetTime := time.Now()
-	if !allowed {
-		resetTime = resetTime.Add(time.Duration(retryAfter * float64(time.Second)))
-	}
+	allowed := vals[0] == 1
+	retryAfter := time.Duration(vals[2]) * time.Millisecond
 
 	return &ratelimit.Result{
 		Allowed:    allowed,
-		Remaining:  0,
-		ResetTime:  resetTime,
-		RetryAfter: time.Duration(retryAfter * float64(time.Second)),
+		Remaining:  vals[1],
+		ResetTime:  time.Now().Add(retryAfter),
+		RetryAfter: retryAfter,
 	}, nil
 }
 
 type slidingWindowRedis struct{}
 
 func (s *slidingWindowRedis) Allow(ctx context.Context, client redis.UniversalClient, key string, limit int64, window time.Duration, burst int64) (*ratelimit.Result, error) {
-	now := float64(time.Now().UnixNano()) / 1e9
-	windowStart := now - window.Seconds()
-
 	keys := []string{key}
-	args := []interface{}{windowStart, now, limit, window.Seconds()}
+	args := []interface{}{window.Milliseconds(), limit, uniqueMember()}
 
 	res, err := slidingWindowScript.Run(ctx, client, keys, args...).Result()
 	if err != nil {
 		return nil, err
 	}
 
-	vals := res.([]interface{})
-	allowed := vals[0].(int64) == 1
-	remaining := vals[1].(int64)
+	vals, err := scriptInts(res, 4)
+	if err != nil {
+		return nil, err
+	}
 
 	return &ratelimit.Result{
-		Allowed:   allowed,
-		Remaining: remaining,
-		ResetTime: time.Now().Add(window),
+		Allowed:    vals[0] == 1,
+		Remaining:  vals[1],
+		ResetTime:  time.UnixMilli(vals[2]),
+		RetryAfter: time.Duration(vals[3]) * time.Millisecond,
 	}, nil
 }
 
@@ -238,16 +251,22 @@ func (f *fixedWindowRedis) Allow(ctx context.Context, client redis.UniversalClie
 		return nil, err
 	}
 
-	vals := res.([]interface{})
-	allowed := vals[0].(int64) == 1
-	remaining := vals[1].(int64)
-	ttl := vals[2].(int64)
+	vals, err := scriptInts(res, 3)
+	if err != nil {
+		return nil, err
+	}
+	allowed := vals[0] == 1
+	resetIn := time.Duration(vals[2]) * time.Second
 
-	return &ratelimit.Result{
+	result := &ratelimit.Result{
 		Allowed:   allowed,
-		Remaining: remaining,
-		ResetTime: time.Now().Add(time.Duration(ttl) * time.Second),
-	}, nil
+		Remaining: vals[1],
+		ResetTime: time.Now().Add(resetIn),
+	}
+	if !allowed {
+		result.RetryAfter = resetIn
+	}
+	return result, nil
 }
 
 type leakyBucketRedis struct{}
@@ -264,10 +283,45 @@ func (l *leakyBucketRedis) Allow(ctx context.Context, client redis.UniversalClie
 		return nil, err
 	}
 
-	vals := res.([]interface{})
-	allowed := vals[0].(int64) == 1
+	vals, err := scriptInts(res, 3)
+	if err != nil {
+		return nil, err
+	}
+	retryAfter := time.Duration(vals[2]) * time.Millisecond
 
 	return &ratelimit.Result{
-		Allowed: allowed,
+		Allowed:    vals[0] == 1,
+		ResetTime:  time.Now().Add(retryAfter),
+		RetryAfter: retryAfter,
 	}, nil
+}
+
+// scriptInts converts a Lua script reply into n integers. Every script returns
+// integers only: a Lua boolean false would arrive as nil and a float would be
+// truncated, so a reply of any other shape is an error, not a panic.
+// scriptInts đổi reply của Lua script thành n số nguyên. Mọi script chỉ trả số
+// nguyên: Lua false sẽ thành nil và số thực bị cắt, nên reply sai dạng là lỗi
+// chứ không panic.
+func scriptInts(res interface{}, n int) ([]int64, error) {
+	vals, ok := res.([]interface{})
+	if !ok || len(vals) < n {
+		return nil, fmt.Errorf("ratelimit redis: unexpected script reply %v", res)
+	}
+	out := make([]int64, n)
+	for i := 0; i < n; i++ {
+		v, ok := vals[i].(int64)
+		if !ok {
+			return nil, fmt.Errorf("ratelimit redis: reply[%d] is %T, want int64", i, vals[i])
+		}
+		out[i] = v
+	}
+	return out, nil
+}
+
+// uniqueMember returns a sorted-set member no other request will produce, so
+// concurrent requests in the same millisecond are counted separately.
+// uniqueMember trả về member không request nào khác tạo ra, để các request
+// đồng thời trong cùng mili-giây được đếm riêng.
+func uniqueMember() string {
+	return strconv.FormatInt(time.Now().UnixNano(), 36) + "-" + strconv.FormatUint(rand.Uint64(), 36)
 }

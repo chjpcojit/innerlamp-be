@@ -195,6 +195,17 @@ func main() {
 		}
 	}
 
+	// One store behind every rate limiter below; each limiter gets its own key scope in it.
+	// docs/knowledge/packages/ratelimit.md lists every limit and why.
+	rateLimitStore, rlPrefix, closeRateLimitStore, err := newRateLimitStore(connectCtx, cfg.RateLimitStore, logger)
+	if err != nil {
+		log.Fatalf("failed to set up rate limit store: %v", err)
+	}
+	defer func() { _ = closeRateLimitStore() }()
+	rlScope := func(name string) deliveryhttp.RateLimitOption {
+		return deliveryhttp.WithSharedStore(rateLimitStore, rlPrefix+name)
+	}
+
 	jwtConfig := &jwt.Config{
 		Algorithm:              jwt.Algorithm(cfg.JWT.Algorithm),
 		SecretKey:              cfg.JWT.SecretKey,
@@ -361,7 +372,8 @@ func main() {
 		log.Fatalf("invalid temple_announcement config: %v", err)
 	}
 	templeAnnouncementHandler := deliveryhttp.NewTempleAnnouncementHandler(templeAnnouncementUsecase)
-	templeAnnouncementLimit, err := deliveryhttp.NewUserRateLimit(cfg.TempleAnnouncement.RateLimit.Max, cfg.TempleAnnouncement.RateLimit.Window.Duration())
+	templeAnnouncementLimit, err := deliveryhttp.NewUserRateLimit(cfg.TempleAnnouncement.RateLimit.Max, cfg.TempleAnnouncement.RateLimit.Window.Duration(),
+		rlScope("temple_announcement:user"))
 	if err != nil {
 		log.Fatalf("failed to build temple announcement rate limit: %v", err)
 	}
@@ -402,7 +414,8 @@ func main() {
 	profileStorage := avatarstorage.NewAvatarStorage(storageClient, cfg.Profile.Bucket, avatarOpts...)
 	profileUsecase := usecase.NewProfileUsecase(profileRepo, profileStorage, cfg.Profile, logger)
 	profileHandler := deliveryhttp.NewProfileHandler(profileUsecase)
-	profileLimit, err := deliveryhttp.NewUserRateLimit(cfg.Profile.RateLimit.Max, cfg.Profile.RateLimit.Window.Duration())
+	profileLimit, err := deliveryhttp.NewUserRateLimit(cfg.Profile.RateLimit.Max, cfg.Profile.RateLimit.Window.Duration(),
+		rlScope("profile:user"))
 	if err != nil {
 		log.Fatalf("failed to build profile rate limit: %v", err)
 	}
@@ -441,7 +454,7 @@ func main() {
 	templeSuggestionHandler := deliveryhttp.NewTempleSuggestionHandler(templeSuggestionUsecase)
 	templeSuggestionLimit, err := deliveryhttp.NewClientIPRateLimit(
 		int64(cfg.TempleSuggestion.RateLimit.Max), cfg.TempleSuggestion.RateLimit.Window.Duration(),
-		cfg.TempleSuggestion.RateLimit.TrustForwardedFor)
+		cfg.TempleSuggestion.RateLimit.TrustForwardedFor, rlScope("temple_suggestion:ip"))
 	if err != nil {
 		log.Fatalf("failed to build temple suggestion rate limit: %v", err)
 	}
@@ -454,7 +467,7 @@ func main() {
 		administrativeUnitUsecase, cfg.AdministrativeUnits.CacheMaxAge.Duration())
 	administrativeUnitLimit, err := deliveryhttp.NewClientIPRateLimit(
 		int64(cfg.AdministrativeUnits.RateLimit.Max), cfg.AdministrativeUnits.RateLimit.Window.Duration(),
-		cfg.AdministrativeUnits.RateLimit.TrustForwardedFor)
+		cfg.AdministrativeUnits.RateLimit.TrustForwardedFor, rlScope("administrative_units:ip"))
 	if err != nil {
 		log.Fatalf("failed to build administrative units rate limit: %v", err)
 	}

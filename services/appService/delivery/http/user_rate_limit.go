@@ -27,22 +27,24 @@ type UserRateLimit struct {
 }
 
 // NewUserRateLimit allows max requests per account per window (sliding window,
-// no burst beyond max).
-func NewUserRateLimit(max int64, window time.Duration) (*UserRateLimit, error) {
+// no burst beyond max). Options as for NewClientIPRateLimit.
+func NewUserRateLimit(max int64, window time.Duration, opts ...RateLimitOption) (*UserRateLimit, error) {
 	if max < 1 {
 		return nil, errors.New("user rate limit: max must be >= 1")
 	}
 	if window <= 0 {
 		return nil, errors.New("user rate limit: window must be > 0")
 	}
+	o := applyRateLimitOptions(opts)
 	inner, err := ratelimitmw.NewHTTPMiddleware(ratelimit.Config{
 		Rate:      max,
 		Burst:     max,
 		Window:    window,
 		Algorithm: ratelimit.SlidingWindow,
+		Store:     o.store,
 		KeyFunc: func(ctx context.Context) (string, error) {
 			id, _ := ctx.Value(userRateLimitKey{}).(string)
-			return id, nil
+			return o.key(id), nil
 		},
 	})
 	if err != nil {
