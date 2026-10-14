@@ -1,6 +1,6 @@
 # Design — memorial
 
-Version: 4.0
+Version: 4.1
 Last updated: 2026-10-14
 Status: v1 (5 route CRUD, Step C-1..C-4 bản v1 và D-1/D-2/D-4) đã implement và kiểm chứng 2026-10-07. **v4.0 (chưa implement):** contract nhắc mới, kế hoạch nhắc dẫn xuất (Step C-3 mở rộng, flow Sửa, flow Báo múi giờ) và job gửi nhắc hằng giờ (flow J-1..J-8). Phần ảnh/GCS (⏸ Phase 6) vẫn hoãn, nợ ở `docs/tech-debt/memorial/TD-001`. Marker mở: bucket GCS (Step P-2), feature notification chưa có spec (Step J-5, J-7).
 Module: `memorial`
@@ -88,7 +88,8 @@ Memorial là producer đầu tiên của inbox. Những gì memorial **cần**, 
 
 1. Một bảng inbox sở hữu theo tài khoản, có cột idempotency key với **UNIQUE**, và một hàm ghi **nhận transaction đang mở** (`INSERT … ON CONFLICT (idempotency_key) DO NOTHING RETURNING id`) để Step J-5 ghi cùng tx với việc cuộn kế hoạch (ADR-0002: "one transaction for the DB part").
 2. Key: `memorial:<memorial_id>:<next_anniversary_date YYYY-MM-DD>`.
-3. Dữ liệu lời nhắc memorial: loại `memorial_reminder`, `memorial_id`, `anniversary_date`, `relationship`, `days_left`, tiêu đề/nội dung push (§3.1.1, chỉ quan hệ + số ngày) — **không** chứa `full_name`/`note`. Dòng chi tiết "{tên} · {ngày}" trong app: ⚠️ Not confirmed (product) ở `requirements.md` Pending (tên sau khi mục bị xoá).
+3. Dữ liệu lời nhắc memorial: loại `memorial_reminder`, `memorial_id`, `anniversary_date`, `relationship`, `days_left`, tiêu đề/nội dung push (§3.1.1, chỉ quan hệ + số ngày) — **không** chứa `full_name`/`note`. Dòng chi tiết "{tên} · {ngày}" trong app đọc tên từ mục lúc hiển thị (lời nhắc bị xoá cùng mục, product.md@2.1 BR-MEM-12).
+6. Hàm xoá tx-aware theo `memorial_id` (`DELETE … WHERE type = 'memorial_reminder' AND memorial_id = $1`) để Step D xoá lời nhắc cùng transaction với mục (AC22).
 4. Cổng `ReminderPusher.Push(ctx, notificationID)` gửi tới mọi token của user qua `pkg/push/fcm`, bỏ push khi công tắc thông báo của tài khoản tắt (product.md@2.1, FR-MEM-008), tự dọn token hỏng; lỗi trả về chỉ để job log/đếm.
 5. Mở lời nhắc → mở mục (FR-MEM-008): client dùng `memorial_id`; mục không còn → client hiện "Mục này không còn trong sổ giỗ." qua `404` của `GET /v1/memorials/{id}` (đã có).
 

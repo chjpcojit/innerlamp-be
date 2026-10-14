@@ -7,9 +7,9 @@
 | Feature code | `MEM` — IDs are `BR-MEM-NN`, `FR-MEM-NNN`, `NFR-MEM-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 2.0 |
+| Version | 2.1 |
 | Last updated | 2026-10-14 |
-| Status | confirmed — reminders move to the server (ADR-0001, ADR-0002); one item open (Appendix A) |
+| Status | confirmed — reminders move to the server (ADR-0001, ADR-0002); no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0001 (in-app notifications on every platform, push on the apps) · ADR-0002 (the backend computes and sends reminders) — both Accepted 2026-10-14 |
@@ -204,6 +204,7 @@ may adjust punctuation and line breaks but not the meaning; `{…}` is filled in
 | Year before 1900 | "Năm mất phải từ 1900 trở về sau." (the year must be 1900 or later) |
 | Date after today | "Ngày mất không thể sau hôm nay." (the date of death cannot be after today) |
 | Could not save | "Chưa lưu được. Vui lòng thử lại." (not saved, please try again) |
+| Could not delete | "Chưa xóa được. Vui lòng thử lại." (not deleted, please try again) |
 | Connection needed to change | "Cần kết nối mạng để thay đổi sổ giỗ." (a connection is needed to change the book) |
 | Showing the offline copy | "Đang hiện sổ giỗ đã tải lần trước. Không kết nối được máy chủ." (showing the last loaded book; the server cannot be reached) |
 | Cannot load, no offline copy | "Chưa tải được sổ giỗ. Vui lòng kết nối mạng và thử lại." (the book cannot be loaded; connect and try again) |
@@ -361,8 +362,8 @@ or email.
 - **Source:** Q5 answered 2026-10-14; ADR-0002 (account time zone, already-passed moment); Q10
 
 **BR-MEM-12 — Deletion is permanent**
-- **Rule:** Deleting an entry removes it for good on every device; it cannot be restored. The user is
-  asked to confirm before it happens.
+- **Rule:** Deleting an entry removes it for good on every device; it cannot be restored. Its reminders
+  already in the notification list are removed with it. The user is asked to confirm before it happens.
 - **Examples:** confirm → entry gone everywhere; cancel → nothing changes.
 - **Computational:** no
 - **Applies to:** Backend, Website, iOS, Android
@@ -378,11 +379,6 @@ or email.
 - **Computational:** yes → `rules/reminder-moment.json` (delivery cases)
 - **Applies to:** Backend
 - **Source:** ADR-0002 resolved question 2026-10-14
-
-> ⚠️ Not confirmed: when the user turns notifications off for the whole account (ADR-0001), do
-> memorial reminders still appear in the notification list and only the push stops, or does nothing
-> arrive at all? — blocks the account-switch wording in FR-MEM-008 on all platforms; the Backend spec
-> must not assume either until answered.
 
 ### 3.3 Functional requirements
 
@@ -671,7 +667,10 @@ or email.
   those choices. The book shows a "Có nhắc" (reminder on) mark on entries whose reminder is on, whether
   or not the device allows push notifications (the setting belongs to the account). WHEN an entry has
   a lead or time outside these choices (made before v2.0) THE SYSTEM SHALL show the nearest choice and
-  keep the stored value until the user saves.
+  keep the stored value until the user saves. Nearest choice: the closest lead in days, a tie going to
+  the earlier reminder (2 → 3 days, 5 → 7 days); the closest time, a tie going to the earlier time
+  (09:30 → 07:00), anything before 06:00 → 06:00, anything after 19:00 → 19:00. The book's reminder
+  summary shows the same nearest choice.
 - **Business rules:** BR-MEM-11
 - **Verification method:** automated tests per platform
 - **Source:** iOS spec v1.3; Q5 answered 2026-10-14; ADR-0002; client questions 2, 5, 8 answered 2026-10-14
@@ -704,10 +703,13 @@ or email.
   SHALL send no further reminders for it, at once and on every device. WHEN the device does not allow
   push notifications THE SYSTEM SHALL still show the reminder in the notification list and tell the
   user how to allow push. WHEN the user signs out of a device THE SYSTEM SHALL stop pushing to it.
+  WHEN the user turns notifications off in InnerLamp's account settings THE SYSTEM SHALL stop push
+  notifications on every device of the account and still put reminders in the notification list; to
+  stop a relative's reminders entirely the user turns that entry's reminder off (FR-MEM-007).
 - **Business rules:** BR-MEM-05, BR-MEM-11, BR-MEM-13
 - **Verification method:** shared vectors (`rules/reminder-moment.json`) on the backend + automated
   tests per platform + manual QA of push on device
-- **Source:** Q5 answered 2026-10-14; ADR-0001; ADR-0002; client questions 5, 7, 11, 12 answered 2026-10-14
+- **Source:** Q5 answered 2026-10-14; ADR-0001; ADR-0002; client questions 5, 7, 11, 12 answered 2026-10-14; account switch answered 2026-10-14
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Reminder before the anniversary
@@ -722,6 +724,12 @@ or email.
     Given the user has a reminder for "Nguyễn Văn A" in the notification list
     When the user opens it
     Then the entry "Nguyễn Văn A" is shown
+
+  Scenario: Open a reminder for a deleted entry
+    Given "Nguyễn Văn A" was deleted after its reminder was sent
+    When the user opens that reminder
+    Then the memorial book is shown
+    And the user is told the entry is no longer in the book
 
   Scenario: Push not allowed on the device
     Given the device does not allow push notifications for InnerLamp
@@ -745,12 +753,11 @@ or email.
     When a reminder is sent
     Then that phone receives no push notification
 
-  @not-confirmed
   Scenario: Notifications turned off for the account
-    Given the user turned notifications off for the account
-    When a reminder moment arrives
-    Then no push notification is sent
-    # ⚠️ Not confirmed: whether the reminder still appears in the notification list (BR-MEM-13 note)
+    Given the user turned notifications off in InnerLamp's account settings
+    When a reminder moment arrives for "Nguyễn Văn A"
+    Then no device of the account receives a push notification
+    And the reminder is in the notification list on every platform
   ```
 
 **FR-MEM-009 — Add to the iOS reminders app**
@@ -856,7 +863,7 @@ or email.
 | Reminder settings | On/off, lead, time | User's account | Same | Private |
 | Account time zone | Time zone used for reminders (BR-MEM-11) | User's account, reported by the device | Until the account is deleted | Private |
 | Planned reminder | The next reminder moment of each entry | User's account on the server | Replaced when sent or when the entry changes; gone with the entry | Private |
-| Memorial reminder in the notification list | One per entry and anniversary (ADR-0001) | User's account | Kept after reading; paged one month at a time | Private |
+| Memorial reminder in the notification list | One per entry and anniversary (ADR-0001) | User's account | Kept after reading; paged one month at a time; removed when the entry is deleted (BR-MEM-12) | Private |
 | Portrait (planned) | One photo | User's account | Deleted with the entry | Private |
 | Offline copy | Last loaded book | The device (apps only) | Replaced on each load; removed on sign-out | Private |
 
@@ -917,15 +924,15 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 | BR-MEM-12 | done | planned | drift | planned | iOS deletes without asking |
 | BR-MEM-13 | planned | n/a | n/a | n/a | New in v2.0 |
 | FR-MEM-001 | n/a | drift | drift | drift | Web/Android do not use the account book; iOS shows an empty book to guests; 3 scenarios |
-| FR-MEM-002 | n/a | in-progress | done | in-progress | Android shows a family-tree option on the empty book; 4 scenarios |
+| FR-MEM-002 | n/a | in-progress | drift | drift | iOS and Android show a family-tree option on the empty book; 4 scenarios |
 | FR-MEM-003 | done | drift | done | drift | Not saved to the account on Web/Android; 7 scenarios |
 | FR-MEM-004 | done | drift | in-progress | drift | 4 scenarios |
 | FR-MEM-005 | done | drift | drift | drift | No confirmation anywhere yet; 3 scenarios |
 | FR-MEM-006 | n/a | in-progress | done | in-progress | 2 scenarios |
-| FR-MEM-007 | drift | planned | done | in-progress | Backend: wider choices than the product (Appendix B); 3 scenarios |
+| FR-MEM-007 | drift | planned | in-progress | in-progress | Backend: wider choices than the product (Appendix B); 3 scenarios |
 | FR-MEM-008 | planned | planned | drift | planned | iOS schedules local notifications (stub); all of it is new in v2.0 (ADR-0001/0002); 7 scenarios |
-| FR-MEM-009 | n/a | n/a | drift | drift | Removed (v2.0): iOS has the option; Android shows an iOS-only option — both to remove |
-| FR-MEM-010 | n/a | n/a | drift | planned | iOS: offline copy not tied to the account, kept after sign-out; 5 scenarios |
+| FR-MEM-009 | drift | n/a | drift | drift | Removed (v2.0): the backend still stores the wish; iOS has the option; Android shows an iOS-only option — all to remove |
+| FR-MEM-010 | n/a | n/a | drift | planned | iOS: offline copy not tied to the account and kept when the session expires (sign-out already clears it); 5 scenarios |
 | FR-MEM-011 | later | later | later | later | Blocked on photo storage (`docs/tech-debt/memorial/TD-001`); 3 scenarios |
 | FR-MEM-012 | done | in-progress | in-progress | in-progress | 2 scenarios |
 | FR-MEM-013 | done | in-progress | in-progress | in-progress | 2 scenarios |
@@ -955,12 +962,7 @@ the backend runs `death-date-conversion`, `next-anniversary` (anniversary date o
 
 #### Open (unconfirmed)
 
-| Question | Blocks | Platforms |
-|---|---|---|
-| Turning notifications off for the whole account: only push stops, or the notification list too? (BR-MEM-13 note, FR-MEM-008) | Account-switch wording and behaviour | Backend, Website, iOS, Android |
-
-Recommendation for anh Đức: only push stops; the reminder stays in the notification list, matching
-the answer to client question 5 (a device that does not allow push still sees it in the list).
+None.
 
 #### Open questions (resolved)
 
@@ -996,6 +998,7 @@ the answer to client question 5 (a device that does not allow push still sees it
 | Saving or deleting an entry deleted elsewhere (client question 13) | Remove it from the book and say "Mục này không còn trong sổ giỗ." (FR-MEM-004, FR-MEM-005) | 2026-10-14 |
 | "Lấy từ gia phả" on the empty book (client question 14) | Hidden (FR-MEM-002) | 2026-10-14 |
 | User-facing copy (client question 15) | Drafted in §3.1.1 for review | 2026-10-14 |
+| Turning notifications off in the account settings: push only, or the notification list too? | Push only, on every device of the account; reminders stay in the notification list. Turning push off in the phone's settings affects only that phone (FR-MEM-008) | 2026-10-14 |
 
 ### Appendix B — Contract handoff (backend)
 For `spec-writer` (backend) and the contract; the product does not dictate the shape.
@@ -1021,4 +1024,5 @@ For `spec-writer` (backend) and the contract; the product does not dictate the s
    to open the entry and to show the copy of §3.1.1.
 8. **Push registration (ADR-0001).** The apps register their push address after sign-in and when it
    changes, and remove it at sign-out.
-9. **Account notification switch (ADR-0001).** Scope still open (Appendix A).
+9. **Account notification switch (ADR-0001).** Turns off push for the whole account; the notification
+   list keeps receiving reminders (FR-MEM-008).

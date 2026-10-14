@@ -4,6 +4,11 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v4.1 (2026-10-14)
+
+- Trỏ lên product spec @ v2.1 (MINOR). Câu hỏi product về lời nhắc của mục đã xoá đã có câu trả lời: lời nhắc trong mục Thông báo bị xoá cùng mục (BR-MEM-12, §3.5). `requirements.md`: AC22 xoá notification cùng transaction; bỏ marker `⚠️ Not confirmed (product)`, ghi vào resolved. `design.md`: phụ thuộc notification thêm mục 6 (hàm xoá tx-aware theo `memorial_id`), dòng chi tiết đọc tên lúc hiển thị. `tasks.md` Phase 10: thêm một mục. `flow.md`: chỉ đổi version (sơ đồ xoá không đổi bước nào ở memorial; bước xoá inbox thuộc feature notification, sẽ vẽ khi có spec đó).
+- Công tắc thông báo tài khoản: v2.1 đã ghi (chỉ tắt push), spec này đã theo từ v4.0.
+
 ## v4.0 (2026-10-14)
 
 - `requirements.md`: trỏ lên product spec `docs/product/memorial/product.md` @ v2.0 (ADR-0001, ADR-0002 Accepted). `Implements:` thêm BR-MEM-05, 06, 07, 10, 13, FR-MEM-008, NFR-MEM-03, NFR-MEM-04; FR-MEM-009 ghi "removed". "Ràng buộc từ product spec" viết lại: server giờ tính kỳ giỗ để nhắc và gửi nhắc; inbox/push thuộc feature notification. AC8 ghi rõ mặc định nhắc là của form client. **AC9** thu hẹp về lead 0/1/3/7 × giờ 06:00/07:00/12:00/19:00. **AC10 bỏ** (giữ số). **AC12** từ chối `add_to_os_reminder`, `reminder.timezone` như field lạ. Thêm **AC17a** (giá trị nhắc cũ trả nguyên, job vẫn dùng), **AC17b** (`reminder` không còn `timezone`; không lộ `next_*`). AC18/AC20/AC22 nhắc tới kế hoạch nhắc. AC33 mở rộng cho job. Thêm **US-MEM-06** (AC34–AC39: lập kế hoạch khi tạo/sửa/báo múi giờ, mặc định `Asia/Ho_Chi_Minh`, lập bù cho mục chưa có kế hoạch) và **US-MEM-07** (AC40–AC46: job hằng giờ, `SKIP LOCKED`, idempotency key, gửi trễ/bỏ theo BR-MEM-13, push sau commit, metric, vector). Bảng contract: schema `reminder` mới, thêm dòng `PATCH /v1/users/me` (`timezone`, thuộc `profile`). Out of scope viết lại (feature notification, hạ tầng). Ghi chú: các quyết định platform bên dưới; công tắc thông báo tài khoản đã có câu trả lời. Open questions: 4 mục mới resolved; 5 mục cũ đánh dấu superseded.

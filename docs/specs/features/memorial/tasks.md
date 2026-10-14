@@ -1,6 +1,6 @@
 # Tasks — memorial
 
-Version: 4.0
+Version: 4.1
 Last updated: 2026-10-14
 Status: v1 (Phase 1–5, 5 route CRUD, không ảnh) đã implement và kiểm chứng 2026-10-07. v4.0 thêm Phase 8–10 (contract nhắc, kế hoạch nhắc, job gửi nhắc) — mọi mục `[ ]`; Phase 10 bị chặn bởi feature notification (ADR-0001, chưa có spec). Phase 6 (ảnh/GCS) hoãn (`docs/tech-debt/memorial/TD-001`). Phase 7 (vector `death-date-conversion.json`, mô tả `openapi.yaml`) chưa làm.
 Module: `memorial`
@@ -95,6 +95,7 @@ Không cần feature notification.
 
 Chỉ bắt đầu khi spec + migration notification (ADR-0001) có: bảng inbox với UNIQUE idempotency key, hàm ghi tx-aware, `ReminderPusher`, `pkg/push`/`pkg/push/fcm`. Riêng Step J-2 (`PlanUnplanned`) có thể làm sớm cùng Phase 9.
 
+- [ ] Xoá mục: xoá các lời nhắc memorial của mục trong inbox cùng transaction (AC22, BR-MEM-12 @ product v2.1) qua hàm xoá tx-aware của feature notification
 - [ ] `domain/memorial_reminder.go`: `MemorialReminderStore`, `DueReminder`, `DueHandler`, `DueResult`, `MemorialReminderNotice`, `ReminderPusher`, `MemorialReminderReplanner`; mocks
 - [ ] `repository/postgres_memorial_reminder_store.go`: `PlanUnplanned` (Step J-2), `ProcessNextDue` (Step J-3 → J-6, một tx mỗi mục, `FOR UPDATE OF m SKIP LOCKED`, ghi inbox cùng tx, `ON CONFLICT DO NOTHING`)
 - [ ] Repository tests (DB thật): hai `ProcessNextDue` song song không lấy cùng mục; key đã tồn tại → không tạo thêm, vẫn cuộn kế hoạch (AC42); lỗi UPDATE → rollback cả lời nhắc; mục bị xoá trong khi bị khoá → DELETE chờ, lượt sau không thấy (AC36)

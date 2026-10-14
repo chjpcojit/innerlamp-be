@@ -1,11 +1,11 @@
 # Requirements — memorial
 
-Version: 4.0
+Version: 4.1
 Last updated: 2026-10-14
-Status: v1 CRUD (US-MEM-01..04, 5 route) đã implement 2026-10-07 và có test unit/repository/E2E. **v4.0 đổi hành vi (chưa implement):** lựa chọn nhắc thu hẹp, múi giờ chuyển lên tài khoản, bỏ `reminder.timezone`/`add_to_os_reminder`, server lập lịch và gửi nhắc bằng job hằng giờ (US-MEM-06, US-MEM-07; `tasks.md` Phase 8–10, mọi mục `[ ]`). Ảnh (US-MEM-05) vẫn hoãn vì GCS (`docs/tech-debt/memorial/TD-001`). Marker mở: bucket GCS (Phase 6), feature notification chưa có spec (chặn Phase 10), hai câu hỏi product (xem Pending).
+Status: v1 CRUD (US-MEM-01..04, 5 route) đã implement 2026-10-07 và có test unit/repository/E2E. **v4.0 đổi hành vi (chưa implement):** lựa chọn nhắc thu hẹp, múi giờ chuyển lên tài khoản, bỏ `reminder.timezone`/`add_to_os_reminder`, server lập lịch và gửi nhắc bằng job hằng giờ (US-MEM-06, US-MEM-07; `tasks.md` Phase 8–10, mọi mục `[ ]`). Ảnh (US-MEM-05) vẫn hoãn vì GCS (`docs/tech-debt/memorial/TD-001`). Marker mở: bucket GCS (Phase 6), feature notification chưa có spec (chặn Phase 10), không còn câu hỏi product.
 Module: `memorial`
 Code: `services/appService/`
-Product spec: `docs/product/memorial/product.md` @ v2.0 (câu trả lời về công tắc thông báo của tài khoản: product.md@2.1, FR-MEM-008)
+Product spec: `docs/product/memorial/product.md` @ v2.1
 Contract: `docs/specs/api/openapi.yaml` (this repo)
 Architecture: ADR-0001 (inbox + push), ADR-0002 (server tính và gửi nhắc) — cả hai Accepted 2026-10-14
 Implements: BR-MEM-01, BR-MEM-02, BR-MEM-03, BR-MEM-04, BR-MEM-05, BR-MEM-06, BR-MEM-07, BR-MEM-10, BR-MEM-11, BR-MEM-12, BR-MEM-13, FR-MEM-003, FR-MEM-004, FR-MEM-005, FR-MEM-007, FR-MEM-008, FR-MEM-009 (removed — bỏ field), FR-MEM-011 (planned), FR-MEM-012, FR-MEM-013, NFR-MEM-02, NFR-MEM-03, NFR-MEM-04
@@ -93,7 +93,7 @@ Spec platform (layer 2) của **Sổ giỗ chạp** cho backend. Hành vi sản 
 
 ## Acceptance Criteria (EARS notation)
 
-22. WHEN a `DELETE /v1/memorials/{id}` request arrives AND the memorial belongs to the token's user, THE SYSTEM SHALL delete the row (xoá cứng, kéo theo kế hoạch nhắc của nó) and return `200` `{"success": true}` (không `data`, theo `api-response-envelope` AC11). (FR-MEM-005, BR-MEM-12)
+22. WHEN a `DELETE /v1/memorials/{id}` request arrives AND the memorial belongs to the token's user, THE SYSTEM SHALL delete the row (xoá cứng, kéo theo kế hoạch nhắc của nó), remove its memorial reminders from the notification list in the same transaction, and return `200` `{"success": true}` (không `data`, theo `api-response-envelope` AC11). (FR-MEM-005, BR-MEM-12)
 23. WHEN a memorial with a photo is deleted, THE SYSTEM SHALL also delete the GCS object **after** the row is gone, best-effort: WHEN the object delete fails, THE SYSTEM SHALL still return `200`, log the failure with the object key (không log tên/ghi chú), and leave the orphan object for a cleanup job (⚠️ chưa có — xem Pending). (FR-MEM-011, NFR-MEM-02)
 24. WHEN `{id}` does not exist or belongs to another user — kể cả gọi lại lần hai sau khi đã xoá — THE SYSTEM SHALL return `404 MEMORIAL_NOT_FOUND` and SHALL NOT delete anything. (BR-MEM-01, BR-MEM-12)
 
@@ -221,8 +221,6 @@ Request tạo/sửa gửi cùng các field trên trừ `id`, `photo_url`, `creat
 
 > ⚠️ Not confirmed: feature notification (ADR-0001) chưa có spec (`docs/specs/features/notification/` chưa tồn tại) — schema inbox, cột/ràng buộc UNIQUE cho idempotency key, cách ghi một notification **trong cùng transaction** với job (AC40), cổng gửi push sau commit (AC43), dữ liệu một notification loại memorial mang theo — chặn Phase 10 (AC40–AC43); spec này chỉ nêu những gì memorial cần (xem `design.md` "Phụ thuộc feature notification").
 
-> ⚠️ Not confirmed (product): khi một mục bị xoá, các lời nhắc **đã gửi** của nó trong mục Thông báo còn ở đó không, và nếu còn thì dòng chi tiết "{tên} · {ngày dương, thứ}" (product §3.1.1) lấy tên từ đâu khi mục không còn — BR-MEM-12 nói xoá "for good on every device" còn §3.5 nói lời nhắc trong inbox "kept after reading" — chặn cách feature notification lưu tên (lưu bản sao hay đọc lúc hiển thị); hand back to ba-writer in innerlamp-be.
-
 ## Ghi chú kỹ thuật liên quan
 
 - **Vì sao chỉ lưu dương lịch là ổn** (khi có năm). Ngày mất là *một ngày trong quá khứ*, đã cố định; quy đổi nó âm ↔ dương mang tính xác định, nên lưu dương + cờ `death_calendar` **không mất thông tin** — client (và từ v4.0 cả server, khi lập kế hoạch nhắc) đổi lại ra đúng ngày âm đã nhập, kể cả tháng nhuận. Rủi ro là **thuật toán âm lịch ở client** khi quy đổi trước lúc gửi: sai một lần là dương lưu sai vĩnh viễn. Giảm rủi ro: BR-MEM-10, NFR-MEM-03 và vector `rules/*.json`.
@@ -247,6 +245,7 @@ Request tạo/sửa gửi cùng các field trên trừ `id`, `photo_url`, `creat
 - ~~Giá trị nhắc ngoài 0/1/3/7 × 06:00/07:00/12:00/19:00 đã lưu trước v4.0 xử lý thế nào?~~ → **Giữ nguyên trong DB, trả nguyên, job gửi theo giá trị cũ; chỉ request ghi mới bị thu hẹp** (AC9, AC17a). Quyết định platform theo product Appendix B mục 2 và FR-MEM-007. Resolved 2026-10-14.
 - ~~Bỏ `reminder.timezone`/`add_to_os_reminder` có cần versioning/tương thích ngược?~~ → **Không**: sản phẩm chưa phát hành, bỏ thẳng trên `/v1`, field cũ bị từ chối như field lạ (AC12). Quyết định platform theo ADR-0002 Follow-ups. Resolved 2026-10-14.
 - ~~Client báo múi giờ tài khoản qua đâu?~~ → `PATCH /v1/users/me` field `timezone`, sau đăng nhập và khi đổi (AC37). Quyết định platform. Resolved 2026-10-14.
+- ~~Xoá mục thì lời nhắc đã gửi trong mục Thông báo còn không?~~ → **Không — xoá theo mục** (product.md@2.1, BR-MEM-12, §3.5). Vì lời nhắc biến mất cùng mục, dòng chi tiết "{tên} · {ngày}" có thể đọc tên từ mục lúc hiển thị; AC22 xoá notification cùng transaction. Resolved 2026-10-14.
 - ~~Công tắc thông báo của tài khoản có ẩn cả lời nhắc trong inbox?~~ → **Không — chỉ tắt push** trên mọi thiết bị; lời nhắc vẫn vào inbox (anh Đức, 2026-10-14; product.md@2.1, FR-MEM-008). Không đổi gì ở memorial: job luôn tạo notification; feature notification áp công tắc cho push (AC43). Resolved 2026-10-14.
 - ~~Product spec Appendix B mục 2: giữ khoảng nhắc 0..30 ngày / mọi `HH:mm` hay thu hẹp về lựa chọn của product?~~ → v3.0 chọn **giữ rộng**; **v4.0 thay bằng thu hẹp** (product v2.0 Appendix B mục 2: server gửi nhắc theo giờ chẵn). Resolved 2026-10-14, superseded 2026-10-14.
 - ~~Product spec Appendix B mục 1, 3, 4, 5, 6 có cần đổi backend?~~ → v3.0: không. **v4.0:** mục 3 (múi giờ tài khoản) và mục 6 (bỏ cờ iOS) giờ đổi backend (AC9–AC12, AC37); mục 1 vẫn chỉ cần mô tả trong `openapi.yaml` (Phase 7). Resolved 2026-10-14.

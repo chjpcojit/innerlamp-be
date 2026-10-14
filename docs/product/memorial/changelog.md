@@ -1,5 +1,21 @@
 # Changelog — memorial product spec
 
+## v2.1 — 2026-10-14
+
+- Resolved: turning notifications off in the account settings stops push on every device of the
+  account; reminders still go into the notification list (FR-MEM-008 description + scenario,
+  Appendix A, Appendix B item 9). Removed the open-item note under BR-MEM-13. No open items.
+- Clarified: nearest-choice rule for old reminder values (FR-MEM-007); added "could not delete" copy
+  (§3.1.1); opening a reminder of a deleted entry shows the book with "Mục này không còn trong sổ
+  giỗ." (FR-MEM-008). Raised by the website and Android specs.
+- Clarified: deleting an entry also removes its reminders from the notification list (BR-MEM-12, §3.5),
+  raised by the backend spec. FR-MEM-009 Backend → drift (still stores the flag). Vector names in
+  `rules/reminder-moment.json` now cite BR-MEM-11 for the "already passed" cases.
+- Fixed: §4.2 iOS column (FR-MEM-002 drift, FR-MEM-007 in-progress, FR-MEM-010 note), from the iOS spec.
+- Platforms to follow up: Backend (switch affects push only), iOS, Android (account switch in
+  settings); Website: no effect (no push).
+- Reason: product owner answer "A", 2026-10-14.
+
 ## v2.0 — 2026-10-14
 
 - **MAJOR — reminders move to the server** (ADR-0001, ADR-0002, both Accepted 2026-10-14).
