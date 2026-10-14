@@ -15,6 +15,14 @@ quy tắc đặt câu hỏi để người dùng dễ trả lời.
     hay trả 422 với error code riêng?"
 - **Ngắn.** Một câu trả lời được trong một dòng tốt hơn một đoạn phải đọc.
 
+## Đọc product spec trước khi hỏi
+
+Đọc `docs/product/<feature>/product.md` trước (xem `upstream_product_spec.md`). Câu nào product spec
+đã trả lời (user story, quy tắc nghiệp vụ, phạm vi, edge case) thì **không hỏi lại** — trích ID.
+Câu nào là quyết định product mà product spec còn thiếu thì không tự chốt ở đây: ghi
+`⚠️ Not confirmed (product)` và chuyển lại cho `ba-writer`. Bộ câu hỏi dưới đây chỉ còn phần kỹ
+thuật của backend.
+
 ## Bộ câu hỏi bắt buộc (trước khi sinh spec mới)
 
 Hỏi theo thứ tự, từng câu một hoặc gộp thành một form ngắn — tùy định dạng công cụ hỏi:

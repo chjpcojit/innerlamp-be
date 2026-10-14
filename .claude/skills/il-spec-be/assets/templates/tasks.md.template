@@ -54,8 +54,12 @@ Never check `[x]` an item unless it is verified as actually implemented in the c
 
 - [ ] End-to-end check against a real/staging Postgres once available
 - [ ] `go test -short ./...` and `go vet ./...` clean
+- [ ] <!-- only if a BR the server enforces has vectors --> Run every case of
+      `docs/product/{{feature}}/rules/<rule>.json` in the usecase tests (BR-XXX-NN)
+- [ ] Update the Backend column of `docs/product/{{feature}}/product.md` §4.2 via `ba-writer`
+      (report it; this skill does not edit `docs/product/`)
 - [ ] Note in the changelog which OKF concept under
-      `docs/knowledge/features/{{feature}}*.md` needs refreshing by `bdd-okf-docs` now that
+      `docs/knowledge/features/{{feature}}*.md` needs refreshing by `il-okf-writer` now that
       behavior has shipped
 
 ## Deferred (separate feature, not blocking {{feature}})

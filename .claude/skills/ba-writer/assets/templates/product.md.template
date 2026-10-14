@@ -12,7 +12,7 @@
 | Status | draft — awaiting confirmation of open questions |
 | Owner / author | {{author}} |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
-| Downstream | Backend: `docs/specs/features/{{feature-slug}}/` (`il-spec-writer`) · Website: `Docs/specs/features/{{feature-slug}}/` · iOS: `Docs/Specs/{{Feature}}/` · Android: `Docs/Specs/{{Feature}}/` |
+| Downstream | Backend: `docs/specs/features/{{feature-slug}}/` (`il-spec-be`) · Website: `Docs/specs/features/{{feature-slug}}/` · iOS: `Docs/Specs/{{Feature}}/` · Android: `Docs/Specs/{{Feature}}/` |
 
 > See `changelog.md` in this folder for the version history. Platform specs cite this file as
 > `docs/product/{{feature-slug}}/product.md@<version>` plus the IDs they implement.
@@ -219,5 +219,5 @@ note) · `n/a` · `later`.
 
 ### Appendix B — Contract handoff (backend)
 
-{{What the backend contract must provide for this spec, in plain words, so `il-spec-writer` can
+{{What the backend contract must provide for this spec, in plain words, so `il-spec-be` can
 design it. Remove the appendix once the contract exists and covers it.}}

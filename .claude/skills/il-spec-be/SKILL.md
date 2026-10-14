@@ -1,9 +1,9 @@
 ---
-name: il-spec-writer
-description: This skill should be used when the user wants a written spec (requirements, design, task breakdown, or flow diagram) for an InnerLamp backend feature — before, during, or retroactively after building it — covering the five-file convention under `docs/specs/features/<feature>/` (requirements.md, design.md, tasks.md, flow.md) plus a changelog.md. It enforces a strict one-way cascade (requirements → design → tasks: a requirement change always updates design, which always updates tasks, never the reverse), EARS-notation acceptance criteria in requirements.md, a mandatory "Step-by-step Flow" section in design.md for any flow with 2+ sequential external calls or persistent side effects (spelling out trigger/pre-condition/call/success-failure per step so hidden steps like a duplicate check, a transaction boundary, or a secondary write are never silently assumed), a matching Mermaid flow diagram in flow.md that mirrors that Step-by-step Flow 1:1 (sequence diagram by default, flowchart only for branching logic like a rate-limit/lock state machine), version headers + changelog entries on every file for every update, and a hard rule that any unanswered question from the user is recorded inline as "⚠️ Not confirmed" — never skipped, never guessed, never silently defaulted. It is a docs-only skill: it never writes Go code (that is `go-clean-architecture`'s job) and never writes to `docs/knowledge/` (the separate, post-implementation-only OKF convention, owned by `bdd-okf-docs`).
+name: il-spec-be
+description: This skill should be used when the user wants a written spec (requirements, design, task breakdown, or flow diagram) for an InnerLamp backend feature (the backend platform spec, layer 2 — it starts from the cross-platform product spec `docs/product/<feature>/product.md` written by `ba-writer` and owns the backend side of the API contract `docs/specs/api/openapi.yaml`) — before, during, or retroactively after building it — covering the five-file convention under `docs/specs/features/<feature>/` (requirements.md, design.md, tasks.md, flow.md) plus a changelog.md. It enforces a strict one-way cascade (requirements → design → tasks: a requirement change always updates design, which always updates tasks, never the reverse), EARS-notation acceptance criteria in requirements.md, a mandatory "Step-by-step Flow" section in design.md for any flow with 2+ sequential external calls or persistent side effects (spelling out trigger/pre-condition/call/success-failure per step so hidden steps like a duplicate check, a transaction boundary, or a secondary write are never silently assumed), a matching Mermaid flow diagram in flow.md that mirrors that Step-by-step Flow 1:1 (sequence diagram by default, flowchart only for branching logic like a rate-limit/lock state machine), a header citing the product spec version and the BR-/FR- IDs it implements with every acceptance criterion tagged by ID, version headers + changelog entries on every file for every update, and a hard rule that any unanswered question from the user is recorded inline as "⚠️ Not confirmed" — never skipped, never guessed, never silently defaulted. It is a docs-only skill: it never writes Go code (that is `golang-clean-arch-tdd`'s job) and never writes to `docs/knowledge/` (the separate, post-implementation-only OKF convention, owned by `il-okf-writer`).
 ---
 
-# InnerLamp Backend Spec Writer
+# InnerLamp Backend Spec Writer (`il-spec-be`)
 
 ## Overview
 
@@ -22,6 +22,13 @@ Generates and maintains the five-file spec convention for an InnerLamp backend f
 - `changelog.md` — one shared version history for all four files above (they change together as
   one spec unit).
 
+These files are **layer 2** of InnerLamp's documentation stack. Above them sit the cross-platform
+product spec `docs/product/<feature>/product.md` (layer 0, owned by `ba-writer`) and the API
+contract `docs/specs/api/openapi.yaml` (layer 1, which the backend owns and this skill flags for
+update). The website, iOS and Android repos have their own layer-2 spec skills (`il-spec-web`,
+`il-spec-ios`, `il-spec-android`) that cite the same product spec and this contract. Read
+`references/upstream_product_spec.md` once — it is the shared rulebook for all four.
+
 This skill is modeled on the existing `docs/specs/features/onboarding/` and
 `docs/specs/features/article/` files — read them first as the canonical worked examples before
 generating a new spec, especially to see the expected tone/format (Vietnamese prose, user-story
@@ -34,10 +41,10 @@ version headers stay in English exactly as templated. The *prose* — user story
 
 **This skill never writes application code.** Turning a finished, fully-resolved spec into actual Go
 files (domain entity, usecase, repository, handler, migration, tests, `cmd/main.go` wiring) is the
-`go-clean-architecture` skill's job, not this one. This skill also never touches `docs/knowledge/` —
+`golang-clean-arch-tdd` skill's job, not this one. This skill also never touches `docs/knowledge/` —
 that is the separate OKF convention (see `docs/knowledge/index.md`), generated *after* code is
 implemented and verified, as a trusted reference artifact, not a work-order spec. When a feature's
-behavior changes, the OKF concept is refreshed by `bdd-okf-docs` afterwards; this skill only notes
+behavior changes, the OKF concept is refreshed by `il-okf-writer` afterwards; this skill only notes
 which paths are stale.
 
 ## Hard rules that override everything else below
@@ -73,7 +80,14 @@ which paths are stale.
    flowchart only for pure branching logic (rate-limit/lock state machine, retry loops). A change
    to `design.md`'s flow requires updating `flow.md` in the same version bump. See
    `references/flow_diagram.md`.
-7. **Questions asked to the user must be short, concrete, and easy to answer** — one topic per
+7. **Start from the product spec, cite it, never restate or decide it.** A new feature needs
+   `docs/product/<feature>/product.md` first — if there is none, stop and send the user to
+   `ba-writer`. `requirements.md` carries the `Product spec:` / `Contract:` / `Implements:` header,
+   every EARS criterion ends with the `FR-*`/`BR-*` it implements or `(platform)`, and a product gap
+   or ambiguity becomes `⚠️ Not confirmed (product)` handed back to `ba-writer` — this skill never
+   edits `docs/product/`. Legacy features without a product spec may be updated with
+   `Product spec: none yet (legacy)`. See `references/upstream_product_spec.md`.
+8. **Questions asked to the user must be short, concrete, and easy to answer** — one topic per
    question, with an example or a suggested default where possible. See
    `references/gathering_questions.md` for the required question set and phrasing style.
 
@@ -83,6 +97,7 @@ Read these as needed — don't load all upfront if the task is narrow.
 
 | Reference | Covers |
 |---|---|
+| `references/upstream_product_spec.md` | Layer 0/1/2 rules shared by all four platform spec skills: finding the product spec, the required header, ID tags on criteria, what a platform spec may not say, hand-back to `ba-writer`, test vectors |
 | `references/modes.md` | The two operating modes — **Prospective** (spec written before code exists) vs **Retroactive** (spec written from an already-implemented feature) — and how each changes the generation process |
 | `references/gathering_questions.md` | The exact question set to ask before generating anything, phrasing rules, and the "never skip, mark ⚠️" rule for unanswered ones |
 | `references/ears_notation.md` | How to phrase `requirements.md` acceptance criteria in EARS notation, with good/bad examples |
@@ -91,6 +106,14 @@ Read these as needed — don't load all upfront if the task is narrow.
 | `references/versioning_and_changelog.md` | Version bump rule (patch vs minor), required header format, and the `changelog.md` entry format with a worked multi-version example |
 
 ## Workflow
+
+### 0. Read the product spec
+
+Per `references/upstream_product_spec.md`: open `docs/product/<feature>/product.md`, note its
+version, the IDs whose Backend column is not `n/a`, any §3.6 rows naming Backend, its Appendix B
+(contract handoff — the endpoints/fields the product needs), open `⚠️` items naming Backend, and any
+`rules/*.json` for BRs the server enforces. No product spec and a new feature → stop and send the
+user to `ba-writer`. Questions already answered there are not asked again below.
 
 ### 1. Determine mode and gather required decisions
 
@@ -162,10 +185,17 @@ generation:
 5. If the change touches an HTTP contract, flag `docs/specs/api/openapi.yaml` for the same change
    (it is generated from the handlers and must not drift). If it touches schema, flag
    `migrations/` and the matching `docs/specs/db/` ERD. If it changes shipped behavior, flag the
-   matching `docs/knowledge/features/*.md` concept for `bdd-okf-docs` to refresh — record these as
+   matching `docs/knowledge/features/*.md` concept for `il-okf-writer` to refresh — record these as
    explicit follow-ups, do not silently edit them here.
 
 ### 4. Verify before reporting done
+
+- `requirements.md` has the `Product spec:` / `Contract:` / `Implements:` header (or
+  `Product spec: none yet (legacy)`), every EARS criterion carries an `FR-*`/`BR-*`/`(platform)`
+  tag, and every product ID in scope for Backend appears on at least one criterion.
+- Nothing in the spec restates a product rule's outcome or decides a product question; product gaps
+  are `⚠️ Not confirmed (product)` and listed in the report for `ba-writer`.
+- Every computational BR the server enforces has a `tasks.md` item to run its vector file.
 
 - Every acceptance criterion in `requirements.md` is phrased in EARS notation (WHEN/THE SYSTEM
   SHALL), not vague prose.
