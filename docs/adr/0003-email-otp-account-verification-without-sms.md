@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| Status | Proposed |
+| Status | Accepted |
 | Date | 2026-10-14 |
 | Deciders | anh Đức (decides) · Claude (`adr-writer`, proposes) |
 | Features | `onboarding` (register), `login` (login, lockout, forgot password), `genealogy` (invitations), `profile` |
@@ -207,7 +207,7 @@ recovery and weakens every feature that shares data between people. C is A plus 
 
 ## Decision
 
-**Recommended:** Option A — email + password, email verified by an email OTP; SMS removed.
+**Decided:** Option A — email + password, email verified by an email OTP; SMS removed.
 
 Rules the decision carries (owner answers 2026-10-14 included):
 
@@ -305,3 +305,5 @@ None.
 ## Decision record
 
 - 2026-10-14 — Proposed by Claude (`adr-writer`).
+- 2026-10-14 — Open questions answered by anh Đức; merged as Proposed (be#13).
+- 2026-10-14 — Accepted by anh Đức: "Xác nhận" in reply to "Anh xác nhận giúp ADR-0003 là Accepted nhé?".
