@@ -4,6 +4,27 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 folder. All four files share one changelog since they change together as one spec unit. Newest
 version first.
 
+## v2.1 (2026-10-14)
+
+Chốt câu hỏi product còn mở: đặt lại mật khẩu thành công thì **gỡ khoá đăng nhập** của email đó.
+
+- `requirements.md`: AC28 thêm xoá `login_attempts`; bỏ marker `⚠️ Not confirmed (product)`; header trích product login v1.2; ghi vào Open questions (resolved).
+- `design.md`: Step C-4 thêm một câu lệnh trong cùng transaction; bỏ marker.
+- `flow.md`: sequence "Đặt mật khẩu mới" thay Note ⚠️ bằng bước xoá `login_attempts`.
+- `tasks.md`: Phase 4 thành task cụ thể, vẫn `[ ]`.
+- Reason: anh Đức "Gỡ như em đề xuất" (2026-10-14); product login v1.2 BR-LGN-05.
+
+## v2.0 (2026-10-14)
+
+**Viết lại spec** theo ADR-0003 (Accepted): đăng nhập bằng **email**, khoá theo email, **gộp quên mật khẩu** (trước ở `password-reset/`, chưa từng có code) thành US-003 bằng mã qua email, thêm giới hạn tần suất cho mọi `/v1/auth/*` và kiểm phiên còn sống trên mọi route Bearer. Spec nay trích `docs/product/login/product.md` @ v1.1 bằng ID.
+
+- `requirements.md`: viết lại; header `Product spec`/`Contract`/`Implements`; AC1–AC35 gắn `FR-LGN-*`/`BR-*`/`NFR-*`; AC6–AC7, AC9–AC17, AC19 giữ hành vi v1.13; bảng API (login `email`, hai route `password-reset/*`, `429 RATE_LIMITED`); một `⚠️ Not confirmed (product)` (gỡ khoá đăng nhập sau khi đặt lại mật khẩu).
+- `design.md`: viết lại; `ReserveLoginAttempt` nguyên tử; middleware `activeSession` (đảo quyết định "stateless" 2026-09-21 vì product FR-LGN-009 cần đăng xuất ở request kế tiếp); `PasswordResetUsecase`; thời gian trả lời tối thiểu cho xin mã đặt lại; bảng `auth_rate_limits` + decorator ngân sách thư.
+- `flow.md`: vẽ lại bốn sequence (Login, Kiểm phiên, Xin mã đặt lại, Đặt mật khẩu mới). Sơ đồ refresh/logout v1.13 bỏ khỏi file vì không đổi.
+- `tasks.md`: thay bằng Phase 1–7 của v2.0, tất cả `[ ]`.
+- Reason: anh Đức bỏ SMS (2026-10-14); product login v1.1. Các lựa chọn kỹ thuật là đề xuất của Claude, anh Đức đồng ý 2026-10-14, duyệt chi tiết qua PR.
+- Cần theo sau: `docs/specs/api/openapi.yaml`, `docs/knowledge/features/login.md` (sau khi code xong); `SRS.md`, `test-coverage-report.md` và folder `password-reset/` bị xoá ở bước dọn tài liệu cũ.
+
 ## v1.13 (2026-10-10)
 
 Hợp đồng response cấp token: thêm `expires_in` và header chống cache. **Có đổi code** — đã làm và verify trong cùng ngày (`tasks.md` Phase 7 toàn `[x]`).

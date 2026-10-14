@@ -1,110 +1,66 @@
 # Tasks — login
 
-Version: 1.13
-Last updated: 2026-10-10
-Status: done — Phase 0–5 xong (2026-09-21). Login/refresh/logout chạy thật qua binary + Postgres thật (curl, AC1–AC15). Audit AC + E2E binary thật xong (`test-coverage-report.md`); concept OKF `docs/knowledge/features/login.md` (`stable`). Không còn marker `⚠️ Not confirmed`. (v1.11: không đổi nội dung file này — bump theo `design.md`/`flow.md`; không có task mới vì `flow.md` chỉ vẽ lại flow đã implement, không đổi code. Không đổi AC.)
-Module: `identity`
+Version: 2.1
+Last updated: 2026-10-14
+Status: v2.0 chưa bắt đầu — mọi task `[ ]`. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
+Module: `identity` (spec folder `login`)
 
 > See `changelog.md` in this folder for the version history of this spec.
 
-<!--
-Mọi item dưới đây trace về một dòng trong bảng "Layers & components" của design.md hoặc một step
-trong "Step-by-step Flow" của nó. Không có task mồ côi.
+Mỗi item trace về một dòng trong bảng "Layers & components" hoặc một Step trong `design.md`. Làm sau
+`onboarding/tasks.md` Phase 1–3 (luật email/mật khẩu, migration `0037`, mailer) và
+`otp-mechanism/tasks.md`.
 
-Item `[x]` = đã verify (code có thật + test tương ứng pass). Viết spec KHÔNG phải là implement,
-nên toàn bộ item ở version này là `[ ]`.
+## Phase 1 — Đăng nhập bằng email
 
-Thứ tự build đi từ trong ra ngoài theo `.claude/skills/golang-clean-arch-tdd`:
-domain → usecase → repository → delivery, test viết cùng lúc với code.
--->
+- [ ] `domain/login.go`: `Email`, `FindUserByEmail`, `ReserveLoginAttempt`, `ResetLoginAttempts`.
+- [ ] `postgres_login_repository.go`: SQL theo email; `ReserveLoginAttempt` một UPSERT (Step L-3); bỏ `FindLoginAttempt`/`RecordLoginFailure`.
+- [ ] Test repository trên Postgres thật: 10 request đồng thời sai mật khẩu chỉ cho tối đa 5 lần so (AC5).
+- [ ] `login_usecase.go`: Step L-1…L-6; `email_verified_at IS NULL` → `ErrInvalidCredentials`; `PasswordHasher`.
+- [ ] `login_handler.go`: DTO `email`, thông điệp "Email hoặc mật khẩu không đúng".
+- [ ] Chạy lại test refresh/logout hiện có (AC9–AC15) sau khi đổi khoá.
 
-## Phase 0 — Điều kiện tiên quyết
+## Phase 2 — Kiểm phiên còn sống
 
-- [x] `docs/specs/features/jwt-token-uniqueness/tasks.md` Phase 1–3 xong (test đỏ → fix `jti` → hồi quy) — verified 2026-09-21: `go test ./pkg/jwt/...` xanh, 7 test jti pass, build/vet sạch. **Không bắt đầu Phase 2–3 của spec này trước mục này.**
-- [x] `docs/specs/features/onboarding/tasks.md` Phase 7 xong: `domain.TokenIssuer` đổi thành `func(userID, sessionID string)`, `CreateUserAndSession` sinh `sessionID` trước khi mint, access token của `verify-otp` mang `sid` (claim để `logout` tìm session — AC12–AC15). — verified 2026-09-21: `domain/register.go:107` func type đúng chữ ký mới; `usecase/register_usecase.go:372` gắn `extra{"sid": sessionID}`; `repository/postgres_registration_repository.go:318` sinh `sessionID := uuid.NewString()` trước khi mint.
+- [ ] `LoginRepository.IsSessionActive` + test.
+- [ ] `delivery/http/active_session.go` + test (`401` phiên thu hồi, `503` lỗi DB).
+- [ ] Bọc `activeSession` sau mọi `authMiddleware.AuthenticateFunc` (`cmd/main.go`, `cmd/profile_routes.go`, `cmd/temple_announcement_routes.go`); test đảm bảo không route Bearer nào sót.
 
-## Phase 1 — Domain
+## Phase 3 — Quên mật khẩu
 
-- [x] `domain/login.go` — entity `DeviceInfo`, `LoginAttempt`, `Session` (thuần dữ liệu, không JSON tag) — verified 2026-09-21: `domain/login.go:16/37/61`.
-- [x] `domain/login.go` — input/output `LoginInput`, `LoginResult = RegisterResult`, `RefreshInput`, `RefreshResult`, `LogoutInput{UserID, SessionID}` — verified 2026-09-21: `domain/login.go:76/87/90/97/109`; `LoginResult` đúng là alias của `RegisterResult`.
-- [x] `domain.TokenIssuer` **đổi chữ ký** thành `func(userID, sessionID string) (access, refresh string, err error)` — việc làm nằm ở `onboarding/tasks.md` Phase 7 (file `domain/register.go` thuộc US-001); ở đây chỉ tiêu thụ. Không thêm func type mới. — verified 2026-09-21: `domain/register.go:107`, xem Phase 0.
-- [x] `domain/login.go` — interface `LoginRepository` (tám method: bảy method spec nêu — `FindUserByPhone`, `FindLoginAttempt`, `RecordLoginFailure`, `CreateLoginSession`, `FindSessionByRefreshHash`, `RotateSession`, `RevokeSession` — cộng `FindUserByID`) — verified 2026-09-21: `domain/login.go:127`. **Lệch spec có chủ ý:** `FindUserByID` được thêm vì `RotateSession` phải mint access token mang claim `email`, mà request refresh chỉ biết `user_id` (không có phone để tra). design.md đã liệt kê bước đọc thêm này trong Flow 2 nên đây là hiện thực hoá, không phải mở rộng phạm vi.
-- [x] `domain/errors.go` — sentinel `ErrInvalidCredentials`, `ErrLoginLocked`, `ErrInvalidDevice`, `ErrRefreshTokenInvalid`, `ErrUserNotFound`; typed `LoginLockedError{LockedUntil}` với `Unwrap()` về `ErrLoginLocked` — verified 2026-09-21: `domain/errors.go:107/113/119/125/131`, `LoginLockedError` ở `:170`. Kèm `domain/login.go:37-48` — ba hằng `RevokeReasonLogout`/`RevokeReasonRefreshReuse`/`RevokeReasonSupersededByLogin`, dùng chung usecase + repository nên phải nằm ở domain.
-- [x] `domain/mock_login_repository.go` — mock tay cho `LoginRepository`, dùng ở test usecase (không DB thật) — verified 2026-09-21: `domain/mock_login_repository.go`, có `var _ LoginRepository = (*MockLoginRepository)(nil)` ở `:15`; test usecase dùng nó và pass.
+- [ ] `domain/password_reset.go`, `RevokeReasonPasswordReset`.
+- [ ] `postgres_password_reset_repository.go`: `FindVerifiedUserByEmail`, `ResetPassword` một transaction (Step C-4) + test trên Postgres thật.
+- [ ] `password_reset_usecase.go`: Step P-1…P-5, C-1…C-4; thời gian tối thiểu với đồng hồ giả trong test.
+- [ ] `password_reset_handler.go` + route trong `cmd/main.go`; `no-store`.
+- [ ] Test usecase/handler cho AC23–AC30.
 
-## Phase 2 — Usecase
+## Phase 4 — Gỡ khoá đăng nhập sau khi đặt lại
 
-- [x] `usecase/login_usecase.go` — `LoginUsecase` + constructor nhận `LoginRepository`, `jwt.Service`, `config.LoginConfig`, `sessionTTL`, `logging.Logger` — verified 2026-09-21: `usecase/login_usecase.go:66` (tham số xếp `logins, jwtService, logger, sessionTTL, loginPolicy`; đủ cả năm).
-- [x] `Login` Step 1 — normalize phone (`validation.NormalizePhone`), validate password rỗng và `device.platform`/`device_model`; lỗi định dạng **không** gọi `RecordLoginFailure` (AC5, AC6) — verified 2026-09-21: `usecase/login_usecase.go:94-107`; test `TestLogin_Validation` assert `AssertNotCalled("FindLoginAttempt")` + `AssertNotCalled("RecordLoginFailure")` trên mọi nhánh định dạng.
-- [x] `Login` Step 2 — `FindLoginAttempt` → `LoginLockedError` khi `locked_until > now()`, trước khi tra user (AC7) — verified 2026-09-21: `usecase/login_usecase.go:111-119`; test `TestLogin_Locked` + `TestLogin_LockAppliesToUnknownPhone`.
-- [x] `Login` Step 3–4 — `FindUserByPhone`; `ErrUserNotFound` → chạy bcrypt với `dummyPasswordHash` (AC2, timing) — verified 2026-09-21: `usecase/login_usecase.go:121-140`; test `TestLogin_NoEnumeration` đo tỉ lệ thời gian giữa hai nhánh.
-- [x] `usecase/login_usecase.go` — `dummyPasswordHash` sinh một lần ở `init()` với `bcrypt.DefaultCost` — verified 2026-09-21: `usecase/login_usecase.go:30-36`. Sinh bằng package-level `var` với hàm khởi tạo ngay (`func() []byte {...}()`), không phải `func init()` — cùng thời điểm (package load), cùng `bcrypt.DefaultCost`, panic nếu lỗi.
-- [x] `Login` Step 5 — sai thì `RecordLoginFailure`, trả `ErrInvalidCredentials` (kể cả lần sai thứ 5) — verified 2026-09-21: `usecase/login_usecase.go:142-147`; test `TestLogin_FailurePolicy` khẳng định lần thứ 5 vẫn là `ErrInvalidCredentials` (chỉ request kế tiếp mới thấy lock).
-- [x] `Login` Step 6–7 — `CreateLoginSession` với `TokenIssuer` (closure gọi `GenerateAccessToken(..., extra{"sid": sessionID})` + `GenerateRefreshToken(userID, nil)`) — verified 2026-09-21: `usecase/login_usecase.go:149` + `tokenIssuer` ở `:282-296`; test `TestLogin_TokenIssuerContract`. **Sửa item:** bản gốc ghi access token mint qua `GenerateAccessToken(userID, email, userRole, nil)` — sai với design.md, token phải mang `extra{"sid": sessionID}` để logout tìm được session (AC13). Code dùng `map[string]any{"sid": sessionID}`; TTL 15 phút do `pkg/jwt` áp theo `JWTConfig.AccessTokenExpiration`, không truyền ở đây.
-- [x] `Refresh` — `jwtService.ValidateToken` (yêu cầu `TokenType = refresh`) → `FindSessionByRefreshHash` → nhánh reuse (`RevokeSession('refresh_token_reuse')` + 401) → `RotateSession` (AC9–AC11) — verified 2026-09-21: `usecase/login_usecase.go:166-223`; test `TestRefresh_HappyPath`, `TestRefresh_ReuseDetected`, `TestRefresh_Invalid`, `TestRefresh_TokenIssuerContract`, `TestRefresh_DeviceLessSession`.
-- [x] `Logout(ctx, LogoutInput{UserID, SessionID})` — gọi `RevokeSession(userID, sessionID, 'logout')`, idempotent, 0 hàng vẫn thành công (AC13, AC14). Không tra theo refresh token. — verified 2026-09-21: `usecase/login_usecase.go:232-240`; test `TestLogout_Revokes`, `TestLogout_Idempotent`, `TestLogout_ScopedToUser`.
-- [x] Map lỗi repository sang sentinel domain (`errors.Is`-compatible, wrap `%w`) — verified 2026-09-21: `usecase/login_usecase.go:189-192` (`errors.Is(err, domain.ErrRefreshTokenInvalid)` pass-through), `:124` (`errors.Is(err, domain.ErrUserNotFound)`), còn lại wrap `%w` qua `fmt.Errorf`; test `TestLogin_RepositoryFailure` khẳng định lỗi hạ tầng không bị nhận nhầm thành sentinel.
-- [x] Unit tests `usecase/login_usecase_test.go` — table-driven, `testify`, dùng mock tay; phủ AC1–AC14 kể cả: SĐT không tồn tại ≡ sai mật khẩu (cùng lỗi), khoá ghi nhận ở lần sai thứ 5 (lần thứ 6 trả 429), lỗi format không tăng bộ đếm, reuse → revoke, logout idempotent. Test AC7 gồm cả cửa sổ reset 15 phút; test AC9 kiểm `expires_at` được gia hạn (sliding). — verified 2026-09-21: `go test ./services/appService/usecase/...` → `ok ... 2.989s`. Cửa sổ reset nằm trong `TestLogin_FailurePolicy` (assert `FailureResetWindow` được truyền xuống `RecordLoginFailure`); phần "sliding" ở tầng usecase chỉ kiểm được rằng `sessionTTL` được truyền nguyên vẹn vào `RotateSession` (`TestRefresh_HappyPath` assert `capturedTTL == testSessionTTL`) — hành vi `expires_at = now() + ttl` thật thuộc Phase 3, phải kiểm ở repository test.
+- [ ] `ResetPassword` thêm `DELETE FROM login_attempts WHERE email = $2` trong transaction C-4 + test: email đang khoá, đặt lại xong đăng nhập bằng mật khẩu mới được ngay (AC28).
 
-## Phase 3 — Repository
+## Phase 5 — Giới hạn tần suất
 
-- [x] `migrations/0002_login_devices_and_rate_limit.sql` — `user_devices` (`UNIQUE(user_id, device_id)`), `login_attempts`, `user_sessions.device_id` (nullable) + `previous_refresh_token_hash`, partial unique index `uq_user_sessions_active_device`, index `previous_refresh_token_hash`. **Không sửa `0001`.** — verified 2026-09-21: file có đủ 3 phần; mọi câu lệnh đều additive (`CREATE TABLE IF NOT EXISTS` / `ADD COLUMN IF NOT EXISTS` / `CREATE INDEX IF NOT EXISTS`), `0001` không bị sửa (`git status` chỉ hiện `0002` là file mới).
-- [x] Cập nhật `migrations/README.md` (cách apply `0002` bằng `psql -f`, như `0001`) — verified 2026-09-21: README mô tả `0002`, cách apply, và bất biến schema mới (`uq_user_sessions_active_device`, `login_attempts` không FK).
-- [x] `repository/postgres_login_repository.go` — constructor + `FindUserByPhone` (cột tường minh; không hàng → `ErrUserNotFound`) — verified 2026-09-21: `repository/postgres_login_repository.go` (`NewLoginRepository`, `FindUserByPhone`, cộng `FindUserByID` — method thứ tám của interface); `TestLoginRepository_FindUser` chạy trên Postgres thật, gồm SĐT chỉ có ở `pending_registration` → `ErrUserNotFound`.
-- [x] `FindLoginAttempt` (không hàng → `nil, nil`) — verified 2026-09-21: `TestLoginRepository_FindLoginAttempt` (không hàng → `nil, nil`; có hàng đọc lại đúng).
-- [x] `RecordLoginFailure` — một câu lệnh `INSERT ... ON CONFLICT DO UPDATE ... RETURNING` atomic (Step 5), điều kiện stale theo `locked_until` và `resetWindow` — verified 2026-09-21: một câu `INSERT ... ON CONFLICT DO UPDATE ... RETURNING`; `TestLoginRepository_RecordLoginFailure` phủ đếm 1→5 + khoá ở lần 5, cửa sổ reset 16 phút (reset) vs 14 phút (đếm tiếp), khoá hết hạn reset về 1, và 12 goroutine song song đếm đúng 12 (không mất lần nào).
-- [x] `CreateLoginSession` — một tx: upsert `user_devices` → revoke session cũ của device (`superseded_by_login`) → `sessionID = uuid.NewString()` → mint token qua `TokenIssuer(userID, sessionID)` → insert `user_sessions` → `DELETE FROM login_attempts` (Step 6 (a)–(f)); helper `deviceFingerprint(DeviceInfo)` — verified 2026-09-21: `TestLoginRepository_CreateLoginSession` phủ AC1/AC3/AC4, session US-001 (device NULL) không bị chạm, reset `login_attempts`, issuer lỗi → rollback cả device/session/bộ đếm, issuer nhận đúng `userID` số + `sessionID` UUID được lưu, và 8 goroutine cùng device → đúng một session active (8 hàng tổng, 7 `superseded_by_login`).
-- [x] `FindSessionByRefreshHash` — trả `(*Session, matchedPrevious, error)` (Step 2) — verified 2026-09-21: `TestLoginRepository_FindSessionByRefreshHash` — khớp hiện tại (`matchedPrevious=false`), khớp đời trước (`true`, AC11), session device-less (`DeviceID == nil`, AC12), không có/revoked/hết hạn → cùng `ErrRefreshTokenInvalid` (AC10).
-- [x] `RotateSession` — một tx `SELECT ... FOR UPDATE` → kiểm hash còn khớp → mint token `TokenIssuer(userID, session.SessionID)` → `UPDATE` (`previous_refresh_token_hash`, `refresh_token_hash`, `token_version + 1`) (Step 3). Cập nhật `expires_at = now() + sessionTTL` (sliding). — verified 2026-09-21: `TestLoginRepository_RotateSession` — đổi hash + giữ `previous`, `token_version` 1→2, `expires_at` trượt về `now()+ttl` (sliding, AC9); hash lệch/revoked → `ErrRefreshTokenInvalid`; issuer lỗi rollback; 6 goroutine cùng token → đúng 1 thắng, 5 thua, version chỉ tăng 1.
-- [x] `RevokeSession(ctx, userID, sessionID, reason)` — `UPDATE ... WHERE user_id = $1 AND session_id = $2 AND is_revoked = false`, idempotent (dùng cho logout Step 3 và reuse Step 2b; test: không thu hồi được session của user khác) — verified 2026-09-21: `TestLoginRepository_RevokeSession` — ghi `revoked_reason`/`revoked_at`, gọi lại không đè reason cũ, session không tồn tại vẫn thành công (AC14), user khác không thu hồi được session của người khác (AC14).
-- [x] Explicit column lists, `context` propagation, `%w` error wrapping — verified 2026-09-21: `userColumns` tường minh, không `SELECT *`; mọi hàm nhận `ctx`; lỗi wrap `%w`; `go vet ./...` sạch.
-- [x] Repository tests `repository/postgres_login_repository_test.go` — gồm race test: hai `RotateSession` đồng thời cùng một token (đúng một thắng), hai `CreateLoginSession` đồng thời cùng device (một session active), `RecordLoginFailure` song song không vượt ngưỡng — verified 2026-09-21: `go test -race ./services/appService/repository/` xanh trên Postgres 16 thật (Docker throwaway), không skip. Helper `applyMigration` của `postgres_registration_repository_test.go` giờ áp cả `0001` lẫn `0002`, `truncateAll` dọn thêm `user_devices`, `login_attempts`.
-- [x] Mirror schema mới vào ERD dưới `docs/specs/db/` (hiện rỗng — nếu chưa có ERD thì ghi vào changelog là schema `0002` chưa có tài liệu ERD) — verified 2026-09-21: `docs/specs/db/` vẫn rỗng — không có ERD để cập nhật. Ghi vào `changelog.md` v1.5: schema `0002` chưa có tài liệu ERD (schema nằm trong `migrations/0002_*.sql` + `migrations/README.md`).
+- [ ] Migration `0037` bước 7: bảng `auth_rate_limits`.
+- [ ] `postgres_rate_limit_store.go` (`Hit`) + test đồng thời trên Postgres thật.
+- [ ] `delivery/http/auth_rate_limit.go` + test (IP theo `trust_forwarded_for`, `429` + `retry_after_seconds`).
+- [ ] `repository/budgeted_mailer.go` + test (vượt `mailer.daily_budget` → `ErrRateLimited`).
+- [ ] Config `auth_rate_limit.*`, `mailer.daily_budget`, `password_reset.min_response_time` + `Validate()`.
+- [ ] Bọc các route `/v1/auth/*` theo nhóm `send` / `verify` / `login` / `refresh` (AC31).
 
-## Phase 4 — Delivery
+## Phase 6 — E2E
 
-- [x] `delivery/http/login_handler.go` — DTO `loginRequest` (+ `deviceRequest`), `refreshRequest`, `logoutRequest`, `refreshResponse`; tái dùng `userResponse` của `register_handler.go` — verified 2026-09-21: `LoginHandler`, `loginRequest`/`deviceRequest`, `refreshRequest`/`refreshResponse`; `Login` tái dùng `verifyOTPResponse` + `userResponse` của `register_handler.go` (không tạo `loginResponse` thứ hai — cùng shape).
-- [x] Handler `Login` — decode strict, điền `Device.IPAddress`/`UserAgent` từ `*http.Request`, gọi usecase, map lỗi (AC1–AC7) — verified 2026-09-21: `login_handler.go` `Login`: `DecodeJSONBodyStrict`, `IPAddress` từ `net.SplitHostPort(r.RemoteAddr)` (không tin `X-Forwarded-For`), `UserAgent` từ header; `ip_address` trong body bị từ chối là field lạ. Test `TestLoginHandler_Login`.
-- [x] Handler `Refresh` (AC9–AC11) và `Logout` (AC13–AC15): `Logout` không decode body, đọc `claims` bằng `jwtcontext.GetClaims`, lấy `UserID` + `Extra["sid"]` (thiếu/sai kiểu → 401 `UNAUTHORIZED`), trả `204` *(đổi sang `200` `{"success": true}` ở v1.9, xem changelog)* — verified 2026-09-21: `Refresh` + `Logout` (không decode body; `claims.UserID` phải là số, `Extra["sid"]` phải là string không rỗng, thiếu/sai → 401 `UNAUTHORIZED`, không gọi usecase; thành công `200` `{"success": true}` từ v1.9). Test `TestLoginHandler_Refresh`, `TestLoginHandler_Logout` (6 nhánh claims xấu).
-- [x] `delivery/http/errors.go` — thêm mapping: `ErrInvalidCredentials` → 401 `INVALID_CREDENTIALS`; `LoginLockedError` → 429 `LOGIN_LOCKED` + `locked_until` (kiểm bằng `errors.AsType` trước `switch`); `ErrInvalidDevice` → 400 `INVALID_DEVICE`; `ErrRefreshTokenInvalid` → 401 `REFRESH_TOKEN_INVALID`; thêm `writeAuthError` (401 `UNAUTHORIZED`, envelope `{error:{code,message}}`) làm `ErrorHandler` của middleware — verified 2026-09-21: `INVALID_CREDENTIALS` 401, `LOGIN_LOCKED` 429 + `locked_until` (`errors.AsType` trước `switch`), `INVALID_DEVICE` 400 `{field:"device"}`, `REFRESH_TOKEN_INVALID` 401; `WriteAuthError` (**xuất khẩu**, khác tên `writeAuthError` trong spec, vì `cmd/main.go` ở package khác phải truyền nó vào middleware) trả `UNAUTHORIZED` qua `utils.WriteBusinessError`. **Sửa item:** envelope thật là `utils.ApiResponse` `{success, error{code,message,type}, details}`, không phải `{error:{code,message}}` như spec ghi.
-- [x] `config/config.go` + `config.dev.yaml` — `LoginConfig{MaxFailedAttempts=5, LockDuration=15m, FailureResetWindow=15m}` trong `AppConfig.Login`. `FailureResetWindow` = 15m. — verified 2026-09-21: `LoginConfig` ở `config/config.go`, khối `login:` ở `config.dev.yaml` (5 / 15m / 15m), `AppConfig.Login`; `TestLoad_DevYAMLLoginPolicy` load file dev thật và assert cả ba giá trị (khoá thiếu key sẽ thành zero → "khoá 0 giây", lỗi câm).
-- [x] `cmd/main.go` — constructor injection + 3 `mux.HandleFunc` (`POST /v1/auth/login`, `/v1/auth/refresh`, `/v1/auth/logout`); `login`/`refresh` **không** bọc middleware; `logout` bọc `middleware.NewHTTPAuthMiddlewareWithOptions(jwtService, logger, HTTPAuthOptions{RequireTokenType: "access", ErrorHandler: writeAuthError}).AuthenticateFunc(...)`; closure `TokenIssuer` bắt `email`/role của user và gắn `extra{"sid"}` vào access token — verified 2026-09-21: `cmd/main.go` dựng `NewLoginRepository` → `NewLoginUsecase(..., cfg.JWT.RefreshTokenExpiration.Duration(), cfg.Login)` → `NewLoginHandler`; `login`/`refresh` không bọc; `logout` bọc `jwtmiddleware.NewHTTPAuthMiddlewareWithOptions(..., {RequireTokenType:"access", ErrorHandler: deliveryhttp.WriteAuthError}).AuthenticateFunc`. Closure `TokenIssuer` nằm ở `LoginUsecase.tokenIssuer` (đã có từ Phase 2) chứ không ở `main.go`.
-- [x] Handler tests `delivery/http/login_handler_test.go` — success, từng nhánh lỗi, body hỏng/field lạ; mock tay `loginUsecase` (interface do consumer định nghĩa) — verified 2026-09-21: `login_handler_test.go` + `mock_login_usecase_test.go` (mock tay `testify`, interface `loginUsecase` do handler định nghĩa). Body hỏng/field lạ/rỗng, mọi sentinel, lỗi bọc `%w`, lỗi lạ → 500 không rò nguyên nhân, và assert `password_hash` không xuất hiện trong response. **Không** có case "hai object liền nhau" ở tầng handler — hành vi đó giờ do `pkg/utils` đảm bảo và test (`json-body-hardening` AC3). Case body > 1 MB → `413 PAYLOAD_TOO_LARGE` đã thêm cho `Login` và `Refresh` (`json-body-hardening` AC7).
-- [x] Kiểm chứng bằng đọc `cmd/main.go`: ba route thật sự được đăng ký; `login`/`refresh` không bọc middleware; **`logout` thực sự được bọc** (không chỉ được mô tả là cần auth — gap từng xảy ra ở `/v1/users/me`) — verified 2026-09-21: `grep -n "auth/" services/appService/cmd/main.go` → 6 route; `login`/`refresh` không bọc; `logout` bọc `authMiddleware.AuthenticateFunc`. Xác nhận bằng hành vi thật ở Phase 5: logout không header → 401, refresh token làm bearer → 401.
+- [ ] `e2e/login_e2e_test.go` viết lại theo email: sai thông tin đồng nhất, khoá theo email, email chưa xác minh không đăng nhập được.
+- [ ] E2E quên mật khẩu: đặt lại → thiết bị khác nhận `401` ở request kế tiếp; email không có tài khoản trả y hệt và không có thư.
+- [ ] E2E giới hạn tần suất: vượt ngân sách → `429 RATE_LIMITED`.
+- [ ] `go build ./... && go vet ./... && go test -short ./...` xanh; `go test ./services/appService/e2e/` xanh.
 
-## Phase 5 — Integration & documentation
+## Phase 7 — Tài liệu theo sau
 
-- [x] Chạy end-to-end qua Postgres thật (throwaway Docker, như US-001) bằng `go run ./services/appService/cmd` + `curl`: register (US-001) → login → refresh → dùng lại token cũ (401 + session bị revoke) → login lần 6 sau 5 lần sai (429) → logout bằng access token (204) → refresh sau logout (401) → logout không header (401) / bằng refresh token làm bearer (401) / gọi lại logout (204, idempotent); xác nhận AC12 với session của US-001 (device NULL) — logout được nhờ `sid` — verified 2026-09-21: binary thật + Postgres 16 Docker + curl, 18 bước: register→login (200)→sai mật khẩu và SĐT lạ (cùng 401 `INVALID_CREDENTIALS`, cùng body)→thiếu device (400 `INVALID_DEVICE`)→SĐT sai (400)→refresh (200)→dùng lại token cũ (401) và **token mới cũng chết** (session bị revoke `refresh_token_reuse`)→access token làm refresh (401)→login lại→logout không header/bằng refresh token (401 `UNAUTHORIZED`)→logout (204)→refresh sau logout (401)→logout lại (204)→**session US-001 (device NULL) logout được nhờ `sid`, refresh sau đó 401 (AC12)**→5 lần sai (401×5) rồi lần thứ 6 với mật khẩu **đúng** → 429 `LOGIN_LOCKED` + `locked_until`. DB sau chạy: `user_sessions` = {logout, refresh_token_reuse, logout}, `login_attempts` của số lạ = 1 hàng (không FK). Chưa chạy: refresh (rotate) thành công trên session US-001 — chỉ kiểm ở repository test. *(Log giữ `204` làm lịch sử; từ v1.9 logout trả `200` `{"success": true}`.)*
-- [x] `docs/specs/api/openapi.yaml` — thêm 3 path **sau khi** handler chạy thật, mọi status/code/field khớp response thật — verified 2026-09-21: thêm `/auth/login`, `/auth/refresh`, `/auth/logout` (`bearerAuth` cho logout), schema `LoginRequest/Response`, `RefreshRequest/Response`, `ApiErrorResponse`; parse YAML OK; status/code/field khớp response curl ở mục trên. Schema `ApiErrorResponse` mô tả envelope thật (`details` nằm cạnh `error`); `ErrorResponse` cũ của US-001 mô tả sai (lồng `details` trong `error`, thiếu `success`/`type`) — đã sửa 2026-09-21 ở `openapi.yaml` v3.5 (`onboarding/` v4.3): schema bị xoá, mọi route dùng `ApiErrorResponse`.
-- [x] `go build ./...`, `go vet ./...`, `go test -short ./...` sạch; chạy `scripts/check-architecture.sh` và `.claude/skills/golang-clean-arch-tdd/scripts/check_dependency_rule.sh services/appService` — verified 2026-09-21: `go build ./...` ✅, `go vet ./...` ✅, `go test -short -count=1 ./...` ✅ **toàn repo**, `check-architecture.sh` (ARCH_ERRORS=0) ✅, `check_dependency_rule.sh` ✅. 3 test `pkg/utils` đỏ trước đây đã xanh nhờ spec riêng `docs/specs/features/json-body-hardening/` (sửa `DecodeJSONBody`: Content-Type, rác đuôi, tên field lạ, body vượt ngưỡng → 413).
-- [x] Skill `golang-e2e-verification`: audit mỗi AC có test chứng minh được + black-box test binary thật, đặc biệt wiring 3 route — verified 2026-09-21: anh chốt thêm `testcontainers-go` v0.44.0 (`go mod tidy` + `go mod vendor`). Harness `services/appService/e2e/harness.go`, test `e2e/login_e2e_test.go` `TestLoginFlow_E2E` 10 subtest phủ AC1–AC15 → `ok` (13.4s), skip dưới `-short`. AC15 tự nó không phát hiện được logout thiếu middleware (handler cũng trả 401 khi không có claims); lỗi này bị AC12/AC13 bắt — đã thử gỡ middleware tạm thời để kiểm. Bảng AC đầy đủ: `test-coverage-report.md`.
-- [x] Ghi vào `changelog.md` concept OKF cần `il-okf-writer` tạo dưới `docs/knowledge/features/` (login/session) **sau khi** flow đã chạy thật; `status` giữ `draft` tới khi đó — verified 2026-09-21: đã ghi ở `changelog.md` v1.5 mục Cross-file follow-ups. `il-okf-writer` chưa gọi: flow đã chạy thật nhưng còn chờ audit AC (mục kế trên) — `status` giữ `draft`.
+- [ ] `docs/specs/api/openapi.yaml`: năm operation + `401` mới trên route Bearer (sau khi handler chạy thật).
+- [ ] `docs/knowledge/features/login.md`: làm mới bằng `il-okf-writer`.
+- [ ] Product spec §4.2: cột Backend sang `done` (báo `ba-writer`).
 
-## Phase 6 — Web `X-API-Key` (v1.12)
+## Deferred
 
-- [x] `delivery/http/web_api_key_middleware.go` — `RequireWebAPIKey` (AC16–AC18) — verified 2026-10-09: `web_api_key_middleware_test.go` 5 subtest (khớp, không header, sai, header rỗng, key chưa cấu hình) → `go test -short ./...` xanh.
-- [x] `login_handler.go` — platform mặc định `mobile`, `web` cần key (AC19) — verified 2026-10-09: `TestLoginHandler_Login_Platform` 3 subtest.
-- [x] `config.ServerConfig.WebAPIKeySecret/WebAPIKey` + `resolveSecrets` + `config.dev.yaml` — verified 2026-10-09: `TestLoad_ResolvesWebAPIKeySecret`.
-- [x] `cmd/main.go` — bọc 6 route `/v1/auth/*` bằng `webAPIKey.WrapFunc` — verified 2026-10-09: `go build ./...`, `go vet ./...` sạch. Chưa chạy lại E2E testcontainers (cần Docker) và chưa có test E2E riêng cho header.
-- [x] `openapi.yaml` + spec + `docs/tech-debt/auth/TD-001` — 2026-10-09.
-- [ ] Test E2E binary thật cho `X-API-Key` (route đã wire thật, header sai → 401) — chưa làm.
-
-## Phase 7 — Hợp đồng response cấp token (v1.13)
-
-- [x] `delivery/http/token_response.go` — `NoStore.WrapFunc` đặt `Cache-Control: no-store` + `Pragma: no-cache` (AC20); `HandlerOption`/`WithAccessTokenTTL` — verified 2026-10-10: `TestNoStore_SetsHeadersOnSuccessAndError` (thành công + lỗi)
-- [x] `login_handler.go` — `expires_in` trong `data` của `login` và `refresh` (AC21, AC22) — verified 2026-10-10: `TestLoginHandler_ExpiresIn` (900 từ TTL truyền vào; `refresh` không có `user`)
-- [x] `register_handler.go` — `expires_in` trong `data` của `verify-otp` (AC21) — verified 2026-10-10: `TestRegisterHandler_VerifyOTP_ExpiresIn`
-- [x] `cmd/main.go` — bọc ba route bằng `NoStore.WrapFunc`, truyền `cfg.JWT.AccessTokenExpiration` vào hai handler — verified 2026-10-10: `go build ./...`, `go vet ./...` sạch; wiring kiểm bằng E2E (mux của `cmd/main_test.go` không phải mux thật nên không kiểm được header ở đó)
-- [x] `docs/specs/api/openapi.yaml` — `expires_in` trong `AuthResult`/refresh `data` + ví dụ, ghi chú header `no-store` ở `login` — 2026-10-10 (YAML parse được)
-- [x] Test E2E binary thật: ba route trả `Cache-Control: no-store` và `expires_in` = 900, lỗi cũng no-store — verified 2026-10-10: `TestLoginFlow_E2E` subtest AC20/AC21/AC22, `ok` (16.7s, testcontainers Postgres)
-
-## Deferred (separate feature, not blocking login)
-
-- Đăng nhập bằng email — cần US xác thực email (đặt `email_verified_at`) trước
-- Đăng nhập bằng SĐT + OTP (`purpose = 'login'`)
-- "Logout everywhere" / danh sách và thu hồi thiết bị
-- Middleware tra `user_sessions` / denylist `jti` để từ chối access token của session đã revoke (đã chốt chấp nhận stateless ở v1.2; xem xét lại khi wire `RequireAuth` cho US-004)
-- Rate limit theo IP cho `login` / `refresh` (`pkg/ratelimit/middleware`)
-- Dọn định kỳ `login_attempts` (và `otp_codes`, `pending_registration`, session đã revoke/hết hạn) — **chốt 2026-09-21: chấp nhận ở MVP**; khi cần thì endpoint nội bộ + Cloud Scheduler
-- Lịch sử hash refresh token nhiều đời (mở rộng reuse detection)
-- US-003 (quên mật khẩu) / US-004 (hồ sơ) — còn ở `docs/specs/features/onboarding/`
+- [ ] Job dọn hàng cũ của `auth_rate_limits` (chung với onboarding Deferred).
+- [ ] Khoá tăng dần, trần tuyệt đối của phiên (giữ từ v1.x).

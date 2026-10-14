@@ -1,5 +1,12 @@
 # Changelog — onboarding product spec
 
+## v1.2 — 2026-10-14
+
+- Resolved (anh Đức, "đồng ý đề xuất của em"): the street line of a proposed temple is optional
+  (BR-ONB-10, §3.6). No open items left.
+- Platforms to follow up: Website, iOS, Android (temple proposal form). Backend already treats it as
+  optional.
+
 ## v1.1 — 2026-10-14
 
 - Resolved (anh Đức): skipping the intro counts as seen (BR-ONB-01); a temple proposal needs province and
