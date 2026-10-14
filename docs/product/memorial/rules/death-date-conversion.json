@@ -1,0 +1,155 @@
+{
+  "rule": [
+    "BR-MEM-03",
+    "BR-MEM-04",
+    "BR-MEM-10"
+  ],
+  "description": "Conversion between a solar date and the Vietnamese lunar date (UTC+7), used to record and show a date of death with a known year, including the leap marker; and rejection of lunar dates that do not exist.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "solar": "solar date YYYY-MM-DD",
+    "lunar": "{day, month, year, leap_month} in the Vietnamese lunar calendar"
+  },
+  "output": {
+    "lunar": "the lunar date of the given solar date",
+    "solar": "the solar date of the given lunar date",
+    "valid": "false when the lunar date does not exist"
+  },
+  "cases": [
+    {
+      "name": "Tết 2026",
+      "input": {
+        "solar": "2026-02-17"
+      },
+      "expected": {
+        "lunar": {
+          "day": 1,
+          "month": 1,
+          "year": 2026,
+          "leap_month": false
+        }
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "first day of leap month 6 of 2025",
+      "input": {
+        "solar": "2025-07-25"
+      },
+      "expected": {
+        "lunar": {
+          "day": 1,
+          "month": 6,
+          "year": 2025,
+          "leap_month": true
+        }
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "regular month 6 of 2025",
+      "input": {
+        "solar": "2025-07-04"
+      },
+      "expected": {
+        "lunar": {
+          "day": 10,
+          "month": 6,
+          "year": 2025,
+          "leap_month": false
+        }
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "leap month 6 of 2025",
+      "input": {
+        "solar": "2025-08-03"
+      },
+      "expected": {
+        "lunar": {
+          "day": 10,
+          "month": 6,
+          "year": 2025,
+          "leap_month": true
+        }
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "early January belongs to the previous lunar year",
+      "input": {
+        "solar": "2027-01-10"
+      },
+      "expected": {
+        "lunar": {
+          "day": 3,
+          "month": 12,
+          "year": 2026,
+          "leap_month": false
+        }
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar to solar: day 15 of month 10 of 2026",
+      "input": {
+        "lunar": {
+          "day": 15,
+          "month": 10,
+          "year": 2026,
+          "leap_month": false
+        }
+      },
+      "expected": {
+        "solar": "2026-11-23"
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar to solar: day 10 of leap month 6 of 2025",
+      "input": {
+        "lunar": {
+          "day": 10,
+          "month": 6,
+          "year": 2025,
+          "leap_month": true
+        }
+      },
+      "expected": {
+        "solar": "2025-08-03"
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "leap month the year does not have is invalid (BR-MEM-04)",
+      "input": {
+        "lunar": {
+          "day": 10,
+          "month": 6,
+          "year": 2026,
+          "leap_month": true
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "day 30 of a 29-day month is invalid as a date of death (BR-MEM-03)",
+      "input": {
+        "lunar": {
+          "day": 30,
+          "month": 7,
+          "year": 2026,
+          "leap_month": false
+        }
+      },
+      "expected": {
+        "valid": false
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    }
+  ]
+}

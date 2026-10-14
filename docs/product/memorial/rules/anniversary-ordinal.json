@@ -1,0 +1,75 @@
+{
+  "rule": [
+    "BR-MEM-09"
+  ],
+  "description": "Label shown for the ordinal of the next anniversary.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "ordinal": "integer or null (from next-anniversary.json)"
+  },
+  "output": {
+    "label": "Vietnamese label; empty string means no label"
+  },
+  "cases": [
+    {
+      "name": "unknown year has no label",
+      "input": {
+        "ordinal": null
+      },
+      "expected": {
+        "label": ""
+      },
+      "source": "BR-MEM-09; prototype"
+    },
+    {
+      "name": "ordinal 0 (died on today's date) has no label",
+      "input": {
+        "ordinal": 0
+      },
+      "expected": {
+        "label": ""
+      },
+      "source": "BR-MEM-09; prototype"
+    },
+    {
+      "name": "ordinal 1",
+      "input": {
+        "ordinal": 1
+      },
+      "expected": {
+        "label": "Giỗ đầu"
+      },
+      "source": "BR-MEM-09; prototype"
+    },
+    {
+      "name": "ordinal 2",
+      "input": {
+        "ordinal": 2
+      },
+      "expected": {
+        "label": "Giỗ hết"
+      },
+      "source": "BR-MEM-09; prototype"
+    },
+    {
+      "name": "ordinal 3",
+      "input": {
+        "ordinal": 3
+      },
+      "expected": {
+        "label": "Giỗ lần thứ 3"
+      },
+      "source": "BR-MEM-09; prototype"
+    },
+    {
+      "name": "ordinal 10",
+      "input": {
+        "ordinal": 10
+      },
+      "expected": {
+        "label": "Giỗ lần thứ 10"
+      },
+      "source": "BR-MEM-09; prototype"
+    }
+  ]
+}

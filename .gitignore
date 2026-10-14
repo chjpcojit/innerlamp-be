@@ -68,6 +68,8 @@ go.sum
 # Administrative units dataset: public reference data, not a secret; cmd/seedadminunits loads it
 # (docs/specs/features/administrative-units). Rebuilt by scripts/build_administrative_units.py.
 !assets/data/administrative-units.json
+# Product test vectors: shared, not secrets; every platform runs them (docs/product/README.md).
+!docs/product/*/rules/*.json
 # Reviewed ward decisions for temple addresses (docs/specs/features/temple, tasks Phase 10): a record, not a secret.
 !docs/specs/features/temple/address-decisions.json
 *-adminsdk-*.json
