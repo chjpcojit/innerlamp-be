@@ -102,7 +102,7 @@ are blocked by an idempotency key `(memorial_id, anniversary_date)` (ADR-0001).
   (ADR-0001), sends push, then recomputes `next_reminder_at` — all per entry in one transaction for
   the DB part.
 - **Catch-up:** a run after an outage picks up everything overdue; an overdue reminder whose
-  anniversary has already passed is skipped and rolled forward (default, see Open questions).
+  anniversary has already passed is skipped and rolled forward (resolved 2026-10-14).
 - **Time zone moves to the account:** `users.timezone` (IANA, default `Asia/Ho_Chi_Minh`), sent by
   the clients (device zone) on sign-in and when it changes. The per-entry `reminder_timezone` is
   retired. The lunar date itself is always the Vietnamese calendar (UTC+7, BR-MEM-10); the user's
@@ -167,10 +167,12 @@ because it is the only option that is both cheap and correct after a missed run.
 
 ## Open questions
 
-- ⚠️ Not confirmed: when a run is late and the reminder is overdue, send it late as long as the anniversary has not passed, or skip it? — blocks the catch-up rule; recommended: send late until the anniversary day ends in the user's zone, then skip. Product decision for `ba-writer`.
-- ⚠️ Not confirmed: a new or edited entry whose reminder moment for this anniversary is already past (e.g. added at 20:00 for tomorrow's anniversary, "1 day before at 07:00") — send now or wait for the following year? — blocks the recompute rule; recommended: no immediate notification, schedule the following anniversary. Product decision for `ba-writer`.
+None.
 
 ### Resolved
+
+- 2026-10-14 — Late run? → Send late as long as the anniversary day has not ended in the user's time zone; otherwise skip and roll forward (anh Đức).
+- 2026-10-14 — Reminder moment already past when an entry is added or edited? → No immediate notification; schedule the following anniversary (anh Đức).
 
 - 2026-10-14 — Who sends reminders? → The backend, via in-app notifications on all platforms and push on iOS/Android (anh Đức).
 - 2026-10-14 — iOS "Add to Reminders app"? → Dropped (anh Đức).
@@ -181,3 +183,4 @@ because it is the only option that is both cheap and correct after a missed run.
 ## Decision record
 
 - 2026-10-14 — Proposed by Claude (`adr-writer`).
+- 2026-10-14 — Open questions answered by anh Đức ("đồng ý" to both recommendations); merged as Proposed (be#8).

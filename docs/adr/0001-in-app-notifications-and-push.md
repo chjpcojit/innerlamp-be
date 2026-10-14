@@ -167,10 +167,12 @@ fewest new parts and can move to a queue later without touching clients.
 
 ## Open questions
 
-- ⚠️ Not confirmed: may a push show the relative's name on the lock screen, or only the relationship ("Ngày mai là giỗ cha")? — blocks the push payload rule; product decision for `ba-writer` (NFR-MEM-02).
-- ⚠️ Not confirmed: is there an account-wide switch to turn all notifications (or all push) off? — blocks the settings model; product decision for `ba-writer`.
+None.
 
 ### Resolved
+
+- 2026-10-14 — Lock-screen content? → Push shows only the relationship (e.g. "Ngày mai là giỗ cha"), never the relative's name; the name is visible inside the app (anh Đức).
+- 2026-10-14 — Account-wide switch? → Yes, a setting turns notifications off for the account (anh Đức); exact scope (in-app vs push) is detailed in the product spec.
 
 - 2026-10-14 — Which platforms show notifications? → In-app on website, iOS, Android; push on iOS and Android only (anh Đức).
 - 2026-10-14 — Retention? → Kept until read and beyond; list loads one month at a time with "load more" (anh Đức).
@@ -180,3 +182,4 @@ fewest new parts and can move to a queue later without touching clients.
 ## Decision record
 
 - 2026-10-14 — Proposed by Claude (`adr-writer`).
+- 2026-10-14 — Open questions answered by anh Đức ("đồng ý" to both recommendations); merged as Proposed (be#8).
