@@ -4,7 +4,7 @@
     "BR-MEM-13"
   ],
   "description": "When the reminder for an entry is due (the next anniversary minus the lead, at the chosen hour, in the account's time zone), and whether a late reminder is still delivered.",
-  "product_spec_version": "2.0",
+  "product_spec_version": "2.1",
   "inputs": {
     "now": "the current instant (RFC 3339 with offset)",
     "time_zone": "the account's time zone (IANA name)",
@@ -108,7 +108,7 @@
       "source": "backend lunar converter (services/appService/domain/lunarcal) for the anniversary date, BR-MEM-10; reminder arithmetic per BR-MEM-11 and BR-MEM-13"
     },
     {
-      "name": "reminder moment already passed when the entry is saved: skip to the following anniversary (BR-MEM-13)",
+      "name": "reminder moment already passed when the entry is saved: skip to the following anniversary (BR-MEM-11)",
       "input": {
         "calendar": "lunar",
         "day": 15,
@@ -126,7 +126,7 @@
       "source": "backend lunar converter (services/appService/domain/lunarcal) for the anniversary date, BR-MEM-10; reminder arithmetic per BR-MEM-11 and BR-MEM-13"
     },
     {
-      "name": "anniversary today, reminder on the day already passed: skip to the following anniversary (BR-MEM-13)",
+      "name": "anniversary today, reminder on the day already passed: skip to the following anniversary (BR-MEM-11)",
       "input": {
         "calendar": "lunar",
         "day": 15,
