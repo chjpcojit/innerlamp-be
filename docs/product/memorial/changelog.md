@@ -1,5 +1,38 @@
 # Changelog — memorial product spec
 
+## v2.0 — 2026-10-14
+
+- **MAJOR — reminders move to the server** (ADR-0001, ADR-0002, both Accepted 2026-10-14).
+- Changed: FR-MEM-008 rewritten. A reminder goes into the notification list on every platform, plus
+  push on iOS and Android. The push shows the relationship only. Opening it opens the entry. Delete
+  or turning the reminder off stops it everywhere. If push is not allowed, the reminder is still in the
+  list, with a hint. Sign-out stops push to that device.
+- Changed: BR-MEM-11 (reminder moment in the account time zone; no reminder when the moment has
+  already passed at add/edit time). FR-MEM-007 (now on the website too; "Có nhắc" independent of
+  device permission; nearest choice for old values). BR-MEM-05…07, BR-MEM-10 now apply to Backend.
+- Added: BR-MEM-13 (late reminders sent while the anniversary day lasts, never twice); NFR-MEM-04
+  (reminder within one hour); `rules/reminder-moment.json` (7 moment cases + 3 delivery cases).
+- Removed: FR-MEM-009 (iOS reminders app), the "Website later" variance rows, the FR-MEM-004
+  scenario about editing where reminder settings are hidden.
+- Changed: FR-MEM-001 opens from the main navigation (website: profile page, §3.6); FR-MEM-002 empty
+  book offers no family-tree import; FR-MEM-004/005 entry deleted elsewhere is removed with a message;
+  FR-MEM-010 server error shows the offline copy with a message, sign-out removes the offline copy.
+- Added: §3.1.1 user-facing copy table (client question 15) for review.
+- Fixed: §4.2 matrix corrected against the code (BR-MEM-04 Backend done, NFR-MEM-01 Backend n/a, iOS
+  FR-MEM-001/010 drift, FR-MEM-004/012/013 in-progress, Android drift notes).
+- Open: does the account-wide notification switch also hide reminders from the notification list
+  (Appendix A)? Recommendation: no, push only.
+- Platforms to follow up:
+  - Backend: account time zone; narrow reminder choices; drop per-entry time zone and the iOS reminders
+    flag; planned reminder + hourly job; notification list and push registration (Appendix B 2, 3, 6–9);
+    run `reminder-moment.json` and `next-anniversary.json`.
+  - Website: reminder settings, notification list, report the time zone, profile-page entry.
+  - iOS: remove local scheduling and the reminders-app option; push, notification list, time zone;
+    offline copy tied to the account and removed on sign-out.
+  - Android: remove the iOS-only option; push, notification list, time zone; hide the family-tree option.
+  - Open client specs (web#4, iOS#5, Android#4) cite v1.0 and must move to v2.0.
+- Reason: product owner decisions and answers to the client spec questions, 2026-10-14.
+
 ## v1.0 — 2026-10-14
 
 - Confirmed: the product owner answered the three open questions; the spec has no open items.

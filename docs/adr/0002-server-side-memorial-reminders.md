@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| Status | Proposed |
+| Status | Accepted |
 | Date | 2026-10-14 |
 | Deciders | anh Đức (decides) · Claude (`adr-writer`, proposes) |
 | Features | `memorial` (sổ giỗ, memorial book) |
@@ -140,7 +140,7 @@ at this scale.
 
 ## Decision
 
-**Recommended:** Option B — store `next_reminder_at` per entry, sweep due entries hourly from a Cloud
+**Decided:** Option B — store `next_reminder_at` per entry, sweep due entries hourly from a Cloud
 Run Job triggered by Cloud Scheduler, deliver through ADR-0001, with the time zone on the account,
 because it is the only option that is both cheap and correct after a missed run.
 
@@ -184,3 +184,4 @@ None.
 
 - 2026-10-14 — Proposed by Claude (`adr-writer`).
 - 2026-10-14 — Open questions answered by anh Đức ("đồng ý" to both recommendations); merged as Proposed (be#8).
+- 2026-10-14 — Accepted by anh Đức: "1. đồng ý" in reply to "Xác nhận 2 ADR là Accepted".

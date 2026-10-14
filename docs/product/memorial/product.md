@@ -7,12 +7,12 @@
 | Feature code | `MEM` — IDs are `BR-MEM-NN`, `FR-MEM-NNN`, `NFR-MEM-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.0 |
+| Version | 2.0 |
 | Last updated | 2026-10-14 |
-| Status | confirmed — all questions answered by the product owner on 2026-10-14 |
+| Status | confirmed — reminders move to the server (ADR-0001, ADR-0002); one item open (Appendix A) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
-| Architecture decisions | No ADR. The storage/reminder decision of 2026-10-06 is recorded as an existing constraint in §2.7 (user's choice, 2026-10-14) |
+| Architecture decisions | ADR-0001 (in-app notifications on every platform, push on the apps) · ADR-0002 (the backend computes and sends reminders) — both Accepted 2026-10-14 |
 | Downstream | Backend: `docs/specs/features/memorial/` (`spec-writer`) · Website: `Docs/specs/features/memorial/` · iOS: `Docs/Specs/Memorial/` · Android: `Docs/Specs/Memorial/` |
 
 > See `changelog.md` in this folder for the version history. Platform specs cite this file as
@@ -40,13 +40,16 @@ and the website code.
   which anniversary it is (giỗ đầu, giỗ hết, giỗ lần thứ n).
 - The user adds, edits and deletes entries; the book is the same on every device and platform the
   user signs in to.
-- The apps remind the user before each anniversary.
+- InnerLamp reminds the user before each anniversary: in the user's notification list on every
+  platform, and as a push notification on the apps.
 - A portrait photo per relative (planned, not yet available — FR-MEM-011).
 
 **Out of scope:**
 - Sharing a book with other people, or editing it together (only the owner sees it).
 - Creating entries from the family tree ("Lấy từ gia phả") — owned by the `genealogy` product spec.
-- Reminders sent by the server (push); reminders on the website.
+- Adding anniversaries to the device's own reminders or calendar app (removed in v2.0, FR-MEM-009).
+- The notification list itself (shared by several features; ADR-0001) — this spec only defines the
+  memorial reminders that appear in it.
 - Search, multiple photos per relative, soft delete / restore, export.
 
 ### 1.3 Product overview
@@ -55,8 +58,8 @@ InnerLamp (Tâm Đăng) is a Vietnamese Buddhist practice app: practice tools, a
 library, temples and family features. Vietnamese families hold a death-anniversary ceremony (giỗ)
 for each ancestor every year, usually on the lunar date of death. The memorial book is one of the
 family features: it remembers each anniversary for the user, converts lunar dates to this year's
-solar date, and reminds the user in time to prepare offerings. It is reached from the home screen,
-next to the lunar calendar.
+solar date, and reminds the user in time to prepare offerings. It is reached from the main navigation
+(the home screen in the apps, next to the lunar calendar; the profile page on the website).
 
 ### 1.4 Glossary
 
@@ -72,7 +75,10 @@ next to the lunar calendar.
 | Giỗ đầu (first anniversary) | The anniversary one year after death | — |
 | Giỗ hết (end-of-mourning anniversary) | The anniversary two years after death | Giỗ đầu |
 | Giỗ lần thứ n (n-th anniversary) | The anniversary n years after death, n ≥ 3 | — |
-| Lời nhắc (reminder) | A notification the app shows before an anniversary | The OS reminders app (iOS only, FR-MEM-009) |
+| Lời nhắc (reminder) | A notification InnerLamp sends before an anniversary (BR-MEM-11) | The device's own reminders app (not used, FR-MEM-009 removed) |
+| Thông báo (notification list) | The user's list of notifications inside InnerLamp, the same on every platform (ADR-0001) | A push notification |
+| Push notification | A notification the phone shows outside the app, on iOS and Android only | The notification list |
+| Account time zone | The time zone InnerLamp uses for the user's reminders, taken from the user's device | The lunar calendar's UTC+7 (BR-MEM-10) |
 
 ### 1.5 References
 
@@ -101,9 +107,9 @@ Retroactive spec of a feature already built in part on every platform (see §4.2
 - **Lunar calendar** (`calendar`): the same Vietnamese lunar conversion.
 - **Home** (`home`): the entry point.
 - **Family tree** (`genealogy`): may create entries later; not specified here.
+- **Notifications** (ADR-0001): the notification list on every platform, push on the apps.
 
-External capabilities, by role: the device's local notifications (apps), the iOS reminders app
-(iOS only), photo storage (planned).
+External capabilities, by role: push notifications on the apps, photo storage (planned).
 
 ### 2.2 Product functions
 
@@ -111,7 +117,7 @@ External capabilities, by role: the device's local notifications (apps), the iOS
 - See every relative with the next anniversary, days left and which anniversary it is (FR-MEM-002)
 - Add, edit and delete a relative (FR-MEM-003, FR-MEM-004, FR-MEM-005, FR-MEM-012, FR-MEM-013)
 - Preview the next anniversary while entering a date (FR-MEM-006)
-- Set and receive reminders (FR-MEM-007, FR-MEM-008, FR-MEM-009)
+- Set and receive reminders (FR-MEM-007, FR-MEM-008)
 - Read the book offline in the apps (FR-MEM-010)
 - Add a portrait (FR-MEM-011, planned)
 
@@ -126,10 +132,10 @@ External capabilities, by role: the device's local notifications (apps), the iOS
 
 | Platform | In scope | Notes |
 |---|---|---|
-| Backend | yes | Keeps each user's book privately, enforces BR-MEM-01…04 and BR-MEM-12; does not compute anniversaries or send reminders |
-| Website | yes | Full book; no reminders delivered, no offline (§3.6) |
-| iOS | yes | Full book, reminders, OS reminders app, offline reading |
-| Android | yes | Full book, reminders, offline reading; no OS reminders app (§3.6) |
+| Backend | yes | Keeps each user's book privately, enforces BR-MEM-01…04 and BR-MEM-12, computes when reminders are due and sends them (ADR-0002) |
+| Website | yes | Full book with reminder settings; reminders appear in the notification list; no push, no offline (§3.6) |
+| iOS | yes | Full book, reminders (notification list + push), offline reading |
+| Android | yes | Full book, reminders (notification list + push), offline reading |
 
 Network expectation: online to change the book; the apps can read the last loaded book offline
 (FR-MEM-010); the website is online only.
@@ -146,16 +152,20 @@ N/A — the form explains itself (the preview of FR-MEM-006 states the day-30 ru
 
 ### 2.7 Assumptions and dependencies
 
-- **Existing constraint (user decision 2026-10-06, confirmed as already decided on 2026-10-14; no ADR):**
-  the server keeps the date of death and the reminder settings only. Each app computes the next
-  anniversary and schedules its own reminders on the device; there is no server-sent reminder. This
-  is why BR-MEM-05…09 apply to the clients and not the backend.
+- **ADR-0002 (Accepted 2026-10-14):** InnerLamp's server decides when each reminder is due and sends
+  it; the devices no longer schedule reminders themselves. This replaces the constraint of
+  2026-10-06 ("the server only stores, the apps remind locally") recorded here in v1.x. The clients
+  still compute the next anniversary to show it (BR-MEM-05…09); the server computes it too, for
+  reminders, with the same rules and vectors.
+- **ADR-0001 (Accepted 2026-10-14):** reminders reach the user through the notification list on every
+  platform and, on the apps, a push notification.
 - **Assumptions:**
   - The book is new on every platform except the backend and iOS; book data kept only in a browser
     (website) or in memory (Android) before this spec is discarded, as the product is not released
     (Q2, 2026-10-14).
 - **Dependencies:** sign-in on every platform; one shared Vietnamese lunar conversion (BR-MEM-10);
-  photo storage for FR-MEM-011 (not available yet).
+  the notification list and push (ADR-0001); the account time zone (BR-MEM-11); photo storage for
+  FR-MEM-011 (not available yet).
 
 ---
 
@@ -173,27 +183,58 @@ N/A — the form explains itself (the preview of FR-MEM-006 states the day-30 ru
 - **Add / edit view.** Portrait (planned), full name, relationship (single choice), calendar
   (lunar / solar), day, month, year of death (or "unknown"), leap-month choice (lunar only), note,
   reminder settings, a live preview of the next anniversary, save; in edit mode also delete.
-- **Navigation.** Home → book → add/edit → back to book with a confirmation message.
+- **Navigation.** Main navigation → book → add/edit → back to book with a confirmation message
+  (where the book is reached from: §3.6). Choosing a memorial reminder in the notification list, or
+  opening its push notification, opens that entry.
 
-Layout and copy: the design prototype (§1.5).
+Layout: the design prototype (§1.5). User-facing copy (Vietnamese, with an English gloss). A platform
+may adjust punctuation and line breaks but not the meaning; `{…}` is filled in by InnerLamp.
+
+| Situation | Copy |
+|---|---|
+| Saved | "Đã lưu vào sổ giỗ." (saved to the memorial book) |
+| Deleted | "Đã xóa {tên} khỏi sổ giỗ." (removed {name} from the memorial book) |
+| Confirm delete | "Xóa {tên} khỏi sổ giỗ?" with "Xóa" (delete) and "Hủy" (cancel); "Không thể khôi phục sau khi xóa." (cannot be restored) |
+| Book is full | "Sổ giỗ đã đủ 100 người. Hãy xóa bớt trước khi thêm mới." (the book holds 100 people; delete one first) |
+| Name empty | "Vui lòng nhập họ và tên" (please enter the full name) |
+| Name too long | "Họ và tên tối đa 100 ký tự" (at most 100 characters) |
+| Note too long | "Ghi chú tối đa 1000 ký tự" (at most 1000 characters) |
+| Date does not exist | "Ngày này không có trong lịch. Vui lòng kiểm tra lại." (this date does not exist in the calendar) |
+| Leap month not in that year | "Năm {năm} không có tháng {tháng} nhuận." (year {year} has no leap month {month}) |
+| Year before 1900 | "Năm mất phải từ 1900 trở về sau." (the year must be 1900 or later) |
+| Date after today | "Ngày mất không thể sau hôm nay." (the date of death cannot be after today) |
+| Could not save | "Chưa lưu được. Vui lòng thử lại." (not saved, please try again) |
+| Connection needed to change | "Cần kết nối mạng để thay đổi sổ giỗ." (a connection is needed to change the book) |
+| Showing the offline copy | "Đang hiện sổ giỗ đã tải lần trước. Không kết nối được máy chủ." (showing the last loaded book; the server cannot be reached) |
+| Cannot load, no offline copy | "Chưa tải được sổ giỗ. Vui lòng kết nối mạng và thử lại." (the book cannot be loaded; connect and try again) |
+| Entry no longer exists | "Mục này không còn trong sổ giỗ." (this entry is no longer in the book) |
+| Leap-month choice | "Tháng nhuận" (leap month); a leap date is shown as "10/6 nhuận" |
+| Push / notification, on the day | "Hôm nay là giỗ {quan hệ}" (today is the anniversary of {relationship}) |
+| Push / notification, 1 day before | "Ngày mai là giỗ {quan hệ}" (tomorrow is the anniversary of {relationship}) |
+| Push / notification, 3 or 7 days before | "Còn {n} ngày nữa là giỗ {quan hệ}" ({n} days until the anniversary of {relationship}) |
+| Notification list detail (inside the app only) | "{tên} · {ngày dương, thứ}" ({name} · {solar date, weekday}) |
+| Notifications not allowed on the device | "Bạn sẽ chỉ thấy lời nhắc trong mục Thông báo. Mở Cài đặt để bật thông báo đẩy." (you will only see reminders in the notification list; open Settings to allow push), with "Mở Cài đặt" (open Settings) |
+
+{quan hệ} is the relationship in lower case (cha, mẹ, ông nội, …); for "khác" (other) it is "người
+thân" (relative). The relative's name never appears in a push notification (NFR-MEM-02).
 
 #### 3.1.2 Hardware interfaces
 
-Local notifications on iOS and Android (FR-MEM-008); the photo library or camera for the portrait
+Push notifications on iOS and Android (FR-MEM-008); the photo library or camera for the portrait
 (FR-MEM-011, planned).
 
 #### 3.1.3 Software interfaces
 
 The product needs the backend to: keep a signed-in user's memorial entries privately; create, read,
 update and delete one entry; list all of a user's entries; reject invalid entries per BR-MEM-02…04;
-and (later) store one portrait per entry. The contract is `docs/specs/api/openapi.yaml`; open
-contract needs are in Appendix B.
-
-The iOS app additionally writes to the iOS reminders app (FR-MEM-009).
+know each user's account time zone; decide when each reminder is due and put it in the user's
+notification list and push it to the user's apps (ADR-0001, ADR-0002); and (later) store one portrait
+per entry. The contract is `docs/specs/api/openapi.yaml`; open contract needs are in Appendix B.
 
 #### 3.1.4 Communication interfaces
 
-N/A — no SMS, email or server push.
+Push notifications to iOS and Android through the operating system's push service (ADR-0001). No SMS
+or email.
 
 ### 3.2 Business rules
 
@@ -254,7 +295,7 @@ N/A — no SMS, email or server push.
   23/07/2026 (not 03/08/2025, which is the leap month 6); today 1/6/2025, lunar 10/6 → 04/07/2025
   (regular month 6, not the leap one).
 - **Computational:** yes → `rules/next-anniversary.json`
-- **Applies to:** Website, iOS, Android (Backend: n/a, §2.7)
+- **Applies to:** Backend (reminders, ADR-0002), Website, iOS, Android
 - **Source:** Q1 answered 2026-10-14; prototype `gioNext`; backend resolved question 2026-10-07
 
 **BR-MEM-06 — Day 30 in a short lunar month**
@@ -263,14 +304,14 @@ N/A — no SMS, email or server push.
 - **Examples:** lunar 30/7, year 2026 (month 7 has 29 days) → lunar 29/7/2026 = 10/09/2026; lunar
   30/9, year 2026 (30 days) → 08/11/2026.
 - **Computational:** yes → `rules/next-anniversary.json`
-- **Applies to:** Website, iOS, Android
+- **Applies to:** Backend (reminders), Website, iOS, Android
 - **Source:** iOS spec v1.3; Android assumption #6; prototype
 
 **BR-MEM-07 — 29 February in a common year**
 - **Rule:** A solar anniversary on 29 February falls on 28 February in years that are not leap years.
 - **Examples:** 29/2 in 2026 → 28/02/2026; in 2028 → 29/02/2028.
 - **Computational:** yes → `rules/next-anniversary.json`
-- **Applies to:** Website, iOS, Android
+- **Applies to:** Backend (reminders), Website, iOS, Android
 - **Source:** Android assumption #6; iOS spec v1.3
 
 **BR-MEM-08 — Days left**
@@ -300,20 +341,24 @@ N/A — no SMS, email or server push.
   vectors are generated; every platform must pass the same vectors.
 - **Examples:** Tết 2026 = 17/02/2026; lunar 2025 has a leap month 6 starting 25/07/2025.
 - **Computational:** yes → all files under `rules/`
-- **Applies to:** Website, iOS, Android (and Backend if it ever converts memorial dates)
+- **Applies to:** Backend, Website, iOS, Android
 - **Source:** Q10 answered 2026-10-14; backend spec v2.4 technical note
 
-**BR-MEM-11 — Reminder settings**
+**BR-MEM-11 — Reminder settings and moment**
 - **Rule:** Each entry has a reminder on or off. When on, the user chooses how early — on the day, 1,
-  3 or 7 days before — and at what time — 06:00, 07:00, 12:00 or 19:00 — in the device's local time.
-  A new entry starts with the reminder on, 1 day before, 07:00. The reminder fires once for each next
-  anniversary (BR-MEM-05) at that lead and time, then for the following one.
-- **Examples:** lunar 15/10, next 23/11/2026, 1 day before at 07:00 → 22/11/2026 07:00 device time;
-  "on the day" at 06:00 → 23/11/2026 06:00.
-- **Computational:** yes → `rules/next-anniversary.json` (the reminder moment is derived from the next
-  anniversary; no separate vector)
-- **Applies to:** iOS, Android; Backend stores the settings; Website later (§3.6)
-- **Source:** Q5 answered 2026-10-14; iOS spec v1.3; prototype
+  3 or 7 days before — and at what time — 06:00, 07:00, 12:00 or 19:00. A new entry starts with the
+  reminder on, 1 day before, 07:00. The reminder moment is the next anniversary (BR-MEM-05…07) minus
+  the lead, at the chosen time, in the **account time zone**; the lunar date itself is always the
+  Vietnamese calendar (BR-MEM-10). The account time zone is the time zone of the device the user last
+  used; it is Vietnam time (UTC+7) until a device reports one. One reminder is sent per anniversary,
+  then the next one is planned. When an entry is added or changed after this anniversary's reminder
+  moment has passed, no reminder is sent for this anniversary and the following one is planned.
+- **Examples:** lunar 15/10, next 23/11/2026, 1 day before at 07:00, account in Vietnam →
+  22/11/2026 07:00 Vietnam time; same entry, account in Los Angeles → 22/11/2026 07:00 Los Angeles
+  time; entry added on 22/11/2026 at 20:00 → no reminder for 23/11/2026, next reminder 11/11/2027 07:00.
+- **Computational:** yes → `rules/reminder-moment.json`
+- **Applies to:** Backend, Website, iOS, Android
+- **Source:** Q5 answered 2026-10-14; ADR-0002 (account time zone, already-passed moment); Q10
 
 **BR-MEM-12 — Deletion is permanent**
 - **Rule:** Deleting an entry removes it for good on every device; it cannot be restored. The user is
@@ -323,6 +368,22 @@ N/A — no SMS, email or server push.
 - **Applies to:** Backend, Website, iOS, Android
 - **Source:** Q6 answered 2026-10-14 (replaces the prototype's delete-without-asking, iOS `AS-Memorial-004`)
 
+**BR-MEM-13 — Late reminders**
+- **Rule:** If InnerLamp could not send a reminder at its moment (for example during an outage), it
+  sends it as soon as it can, as long as the anniversary day has not ended in the account time zone;
+  after that the reminder for this anniversary is skipped and the following one is planned. A reminder
+  is never sent twice for the same entry and anniversary.
+- **Examples:** reminder due 22/11/2026 07:00, sent at 23/11/2026 09:00 (anniversary day) → sent;
+  checked at 24/11/2026 00:30 → skipped, next reminder for 2027.
+- **Computational:** yes → `rules/reminder-moment.json` (delivery cases)
+- **Applies to:** Backend
+- **Source:** ADR-0002 resolved question 2026-10-14
+
+> ⚠️ Not confirmed: when the user turns notifications off for the whole account (ADR-0001), do
+> memorial reminders still appear in the notification list and only the push stops, or does nothing
+> arrive at all? — blocks the account-switch wording in FR-MEM-008 on all platforms; the Backend spec
+> must not assume either until answered.
+
 ### 3.3 Functional requirements
 
 #### Viewing the book
@@ -330,16 +391,17 @@ N/A — no SMS, email or server push.
 **FR-MEM-001 — Open the memorial book**
 - **Priority:** Must
 - **Platforms:** Website, iOS, Android
-- **Description:** WHEN a signed-in user opens the memorial book from the home screen THE SYSTEM SHALL
-  show that user's book; WHEN a guest tries to open it THE SYSTEM SHALL ask them to sign in first.
+- **Description:** WHEN a signed-in user opens the memorial book from the platform's main navigation
+  (§3.6) THE SYSTEM SHALL show that user's book; WHEN a guest tries to open it THE SYSTEM SHALL ask
+  them to sign in first.
 - **Business rules:** BR-MEM-01
 - **Verification method:** automated UI/integration test per platform
-- **Source:** iOS spec v1.3; Q2 answered 2026-10-14
+- **Source:** iOS spec v1.3; Q2 answered 2026-10-14; client question 1 answered 2026-10-14
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Signed-in user opens the book
     Given the user is signed in
-    When the user opens the memorial book from the home screen
+    When the user opens the memorial book from the main navigation
     Then the user's memorial book is shown
 
   Scenario: Guest is asked to sign in (BR-MEM-01)
@@ -361,7 +423,8 @@ N/A — no SMS, email or server push.
   its next anniversary (soonest first), show the soonest one highlighted, and for each entry show the relationship, the date of
   death as entered (calendar, leap marker), the days left and whether a reminder is on; the highlight
   also shows which anniversary it is and the solar date with its weekday. WHEN the book is empty THE
-  SYSTEM SHALL show an empty state inviting the user to add a relative.
+  SYSTEM SHALL show an empty state inviting the user to add a relative (and no option to import from
+  the family tree, which is out of scope).
 - **Business rules:** BR-MEM-05, BR-MEM-06, BR-MEM-07, BR-MEM-08, BR-MEM-09
 - **Verification method:** shared vectors (`rules/next-anniversary.json`) + UI test per platform
 - **Source:** iOS spec v1.3; prototype
@@ -389,6 +452,7 @@ N/A — no SMS, email or server push.
     Given the user has no entries
     When the user opens the memorial book
     Then the user sees that the book is empty and is invited to add a relative
+    And no option to take relatives from the family tree is offered
   ```
 
 #### Changing the book
@@ -399,7 +463,7 @@ N/A — no SMS, email or server push.
 - **Description:** WHEN the user adds a relative with valid content THE SYSTEM SHALL save it to the
   user's book, return to the book and confirm "Đã lưu vào sổ giỗ." (saved to the memorial book).
   A new entry starts as: relationship ông nội, lunar calendar, day 1, month 1, year unknown, not a leap
-  month, reminder on, 1 day before, 07:00 (and, on iOS, adding to the reminders app on — FR-MEM-009).
+  month, reminder on, 1 day before, 07:00 — on every platform.
 - **Business rules:** BR-MEM-01, BR-MEM-02, BR-MEM-03, BR-MEM-04, BR-MEM-11
 - **Verification method:** automated tests per platform
 - **Source:** backend spec v2.4 (US-MEM-01); iOS spec v1.3; prototype
@@ -448,6 +512,11 @@ N/A — no SMS, email or server push.
     When the user saves
     Then the user is told the entry could not be saved
     And nothing is added
+
+  Scenario: Default reminder on every platform (BR-MEM-11)
+    Given the user adds a relative on any platform without changing the reminder
+    When the user saves
+    Then the entry has a reminder on, 1 day before, at 07:00
   ```
 
 **FR-MEM-004 — Edit a relative**
@@ -455,7 +524,9 @@ N/A — no SMS, email or server push.
 - **Platforms:** Backend, Website, iOS, Android
 - **Description:** WHEN the user opens an entry, changes it and saves with valid content THE SYSTEM
   SHALL replace the entry's content (photo excluded), return to the book with a confirmation and
-  re-plan its reminder; WHEN the user goes back without saving THE SYSTEM SHALL keep the entry unchanged.
+  re-plan its reminder (BR-MEM-11); WHEN the user goes back without saving THE SYSTEM SHALL keep the
+  entry unchanged; WHEN the entry was deleted on another device THE SYSTEM SHALL say so and remove it
+  from the book.
 - **Business rules:** BR-MEM-01, BR-MEM-02, BR-MEM-03, BR-MEM-04, BR-MEM-11
 - **Verification method:** automated tests per platform
 - **Source:** backend spec v2.4 (US-MEM-03); iOS spec v1.3
@@ -472,16 +543,17 @@ N/A — no SMS, email or server push.
     When the user changes the name and goes back without saving
     Then the book still shows "Nguyễn Văn A"
 
-  Scenario: Editing where reminder settings are not shown keeps them (§3.6)
-    Given "Nguyễn Văn A" has a reminder set in the app
-    When the user changes the note of "Nguyễn Văn A" on the website and saves
-    Then the app still shows the same reminder settings for "Nguyễn Văn A"
-
   Scenario: Entry deleted on another device
     Given the user is editing an entry that was deleted on another device
     When the user saves
     Then the user is told the entry no longer exists
     And the book no longer shows it
+
+  Scenario: Edit after this anniversary's reminder moment (BR-MEM-11)
+    Given today is 22/11/2026 at 20:00 and "Nguyễn Văn A" has its anniversary on 23/11/2026
+    When the user changes the reminder to 1 day before at 07:00 and saves
+    Then no reminder is sent for 23/11/2026
+    And the next reminder is planned for the following anniversary
   ```
 
 **FR-MEM-005 — Delete a relative**
@@ -489,8 +561,9 @@ N/A — no SMS, email or server push.
 - **Platforms:** Backend, Website, iOS, Android
 - **Description:** WHEN the user chooses to delete an entry THE SYSTEM SHALL ask for confirmation;
   WHEN the user confirms THE SYSTEM SHALL delete it permanently, cancel its reminder, return to the
-  book and confirm "Đã xóa <name> khỏi sổ giỗ." (removed from the memorial book); WHEN the user cancels
-  THE SYSTEM SHALL change nothing.
+  book and confirm "Đã xóa {tên} khỏi sổ giỗ." (removed from the memorial book); WHEN the user cancels
+  THE SYSTEM SHALL change nothing; WHEN the entry was already deleted on another device THE SYSTEM
+  SHALL remove it from the book and say it no longer exists.
 - **Business rules:** BR-MEM-12
 - **Verification method:** automated tests per platform
 - **Source:** backend spec v2.4 (US-MEM-04); Q6 answered 2026-10-14
@@ -506,6 +579,12 @@ N/A — no SMS, email or server push.
     Given the user is editing "Nguyễn Văn A"
     When the user chooses delete and cancels
     Then "Nguyễn Văn A" is still in the book
+
+  Scenario: Delete an entry already deleted elsewhere
+    Given "Nguyễn Văn A" was deleted on another device
+    When the user deletes "Nguyễn Văn A" on this device and confirms
+    Then "Nguyễn Văn A" is removed from the book
+    And the user is told the entry is no longer in the book
   ```
 
 **FR-MEM-006 — Preview the next anniversary**
@@ -586,13 +665,16 @@ N/A — no SMS, email or server push.
 
 **FR-MEM-007 — Reminder settings**
 - **Priority:** Must
-- **Platforms:** Backend, iOS, Android; Website later (§3.6)
+- **Platforms:** Backend, Website, iOS, Android
 - **Description:** WHEN the reminder is on THE SYSTEM SHALL let the user choose the lead (on the day,
   1, 3, 7 days before) and the time (06:00, 07:00, 12:00, 19:00); WHEN it is off THE SYSTEM SHALL hide
-  those choices. The book shows a "Có nhắc" (reminder on) mark on entries whose reminder is on.
+  those choices. The book shows a "Có nhắc" (reminder on) mark on entries whose reminder is on, whether
+  or not the device allows push notifications (the setting belongs to the account). WHEN an entry has
+  a lead or time outside these choices (made before v2.0) THE SYSTEM SHALL show the nearest choice and
+  keep the stored value until the user saves.
 - **Business rules:** BR-MEM-11
 - **Verification method:** automated tests per platform
-- **Source:** iOS spec v1.3; Q5 answered 2026-10-14
+- **Source:** iOS spec v1.3; Q5 answered 2026-10-14; ADR-0002; client questions 2, 5, 8 answered 2026-10-14
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Turn a reminder on
@@ -604,64 +686,90 @@ N/A — no SMS, email or server push.
     Given the user set a reminder on one device
     When the user opens the same entry on another device or platform
     Then the same reminder settings are shown
+
+  Scenario: Reminder settings on the website
+    Given the user is editing "Nguyễn Văn A" on the website
+    When the user chooses 7 days before at 06:00 and saves
+    Then the apps show the same reminder settings for "Nguyễn Văn A"
   ```
 
 **FR-MEM-008 — Reminder delivery**
 - **Priority:** Must
-- **Platforms:** iOS, Android
-- **Description:** WHEN an entry's reminder is on THE SYSTEM SHALL show a notification on every device
-  where the user is signed in to the InnerLamp app, at the chosen lead and time before the next
-  anniversary, and then plan the following anniversary; WHEN the reminder is turned off or the entry
-  is deleted THE SYSTEM SHALL stop it. The user may receive the same reminder on several devices.
-- **Business rules:** BR-MEM-05, BR-MEM-11
-- **Verification method:** manual QA on device + unit tests of the reminder moment
-- **Source:** Q5 answered 2026-10-14; existing constraint §2.7
+- **Platforms:** Backend, Website, iOS, Android
+- **Description:** WHEN an entry's reminder moment arrives (BR-MEM-11, BR-MEM-13) THE SYSTEM SHALL put
+  one reminder in the user's notification list, seen on every platform, and on the apps also send it
+  as a push notification to every device where the user is signed in; the push shows only the
+  relationship and the days left (§3.1.1), never the name. WHEN the user opens the reminder THE
+  SYSTEM SHALL open that entry. WHEN the reminder is turned off or the entry is deleted THE SYSTEM
+  SHALL send no further reminders for it, at once and on every device. WHEN the device does not allow
+  push notifications THE SYSTEM SHALL still show the reminder in the notification list and tell the
+  user how to allow push. WHEN the user signs out of a device THE SYSTEM SHALL stop pushing to it.
+- **Business rules:** BR-MEM-05, BR-MEM-11, BR-MEM-13
+- **Verification method:** shared vectors (`rules/reminder-moment.json`) on the backend + automated
+  tests per platform + manual QA of push on device
+- **Source:** Q5 answered 2026-10-14; ADR-0001; ADR-0002; client questions 5, 7, 11, 12 answered 2026-10-14
 - **Acceptance criteria:**
   ```gherkin
-  Scenario: Reminder fires before the anniversary
-    Given an entry on lunar 15/10 with a reminder 1 day before at 07:00
+  Scenario: Reminder before the anniversary
+    Given an entry "Nguyễn Văn A", relationship cha, on lunar 15/10 with a reminder 1 day before at 07:00
+    And the account time zone is Vietnam time
     And the next anniversary is 23/11/2026
-    When it is 22/11/2026 07:00 on the device
-    Then the device shows a reminder for that relative's anniversary
+    When it is 22/11/2026 07:00 Vietnam time
+    Then the user's notification list on every platform shows a reminder for "Nguyễn Văn A"
+    And each signed-in app device receives a push notification "Ngày mai là giỗ cha"
 
-  Scenario: Reminder set on another device
-    Given the user turned a reminder on from another device
-    When the user next opens the memorial book on this device
-    Then this device also reminds the user before that anniversary
+  Scenario: Open a reminder
+    Given the user has a reminder for "Nguyễn Văn A" in the notification list
+    When the user opens it
+    Then the entry "Nguyễn Văn A" is shown
+
+  Scenario: Push not allowed on the device
+    Given the device does not allow push notifications for InnerLamp
+    When a reminder for "Nguyễn Văn A" is sent
+    Then no push notification appears on that device
+    And the reminder is in the notification list
+    And the reminder settings show how to allow push notifications
+
+  Scenario: Deleted entry is never reminded (BR-MEM-12)
+    Given "Nguyễn Văn A" had a reminder planned
+    When the user deletes "Nguyễn Văn A" on any device
+    Then no reminder for "Nguyễn Văn A" is sent afterwards on any device
+
+  Scenario: One reminder per anniversary (BR-MEM-13)
+    Given the reminder for "Nguyễn Văn A" for 23/11/2026 was sent
+    When InnerLamp checks reminders again that day
+    Then no second reminder for 23/11/2026 is sent
+
+  Scenario: Signed out device
+    Given the user signed out of InnerLamp on a phone
+    When a reminder is sent
+    Then that phone receives no push notification
+
+  @not-confirmed
+  Scenario: Notifications turned off for the account
+    Given the user turned notifications off for the account
+    When a reminder moment arrives
+    Then no push notification is sent
+    # ⚠️ Not confirmed: whether the reminder still appears in the notification list (BR-MEM-13 note)
   ```
 
 **FR-MEM-009 — Add to the iOS reminders app**
-- **Priority:** Could
-- **Platforms:** iOS
-- **Description:** WHEN the reminder is on THE SYSTEM SHALL offer "Thêm vào Lời nhắc (Reminders)"
-  (add to the reminders app); WHEN it is on and the user saves THE SYSTEM SHALL add the anniversary to
-  the iOS reminders app and confirm "Đã lưu. Lời nhắc giỗ <relationship> đã được thêm vào ứng dụng Lời
-  nhắc." (saved, the reminder was added to the Reminders app).
-- **Business rules:** BR-MEM-11
-- **Verification method:** manual QA on device
-- **Source:** iOS spec v1.3; Q4 answered 2026-10-14
-- **Acceptance criteria:**
-  ```gherkin
-  @ios-only
-  Scenario: Add to the reminders app
-    Given the user is adding a relative with a reminder on
-    And "add to the reminders app" is on
-    When the user saves
-    Then the anniversary appears in the iOS reminders app
-    And the user is told it was added
-  ```
+- **Status:** Removed (v2.0) — reminders are sent by InnerLamp (ADR-0002); the app no longer adds
+  anniversaries to the device's reminders app.
 
 #### Offline and media
 
 **FR-MEM-010 — Read the book offline**
 - **Priority:** Should
 - **Platforms:** iOS, Android
-- **Description:** WHEN the app cannot reach the server THE SYSTEM SHALL show the book as last loaded
-  on that device, with next anniversaries computed for today, and SHALL refuse adding, editing and
-  deleting with a message that a connection is needed.
+- **Description:** WHEN the app cannot reach the server, or the server fails, THE SYSTEM SHALL show
+  the book as last loaded on that device by the same account, with next anniversaries computed for
+  today and a line saying it is the offline copy, and SHALL refuse adding, editing and deleting with a
+  message that a connection is needed. WHEN the user signs out THE SYSTEM SHALL remove the offline
+  copy from the device.
 - **Business rules:** BR-MEM-05
 - **Verification method:** automated test + manual QA
-- **Source:** iOS `AS-Memorial-006`; Q3 answered 2026-10-14
+- **Source:** iOS `AS-Memorial-006`; Q3 answered 2026-10-14; client questions 9, 11 answered 2026-10-14
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Open the book offline
@@ -681,6 +789,18 @@ N/A — no SMS, email or server push.
     And the device is offline
     When the user opens the memorial book
     Then the user is told the book cannot be loaded without a connection
+
+  Scenario: Server error
+    Given the user opened the memorial book before
+    And the server fails to answer
+    When the user opens the memorial book
+    Then the entries last loaded are shown
+    And the user is told the server cannot be reached
+
+  Scenario: Sign out removes the offline copy
+    Given the user opened the memorial book before
+    When the user signs out and another account signs in on the same device while offline
+    Then none of the first user's entries are shown
   ```
 
 **FR-MEM-011 — Portrait**
@@ -718,9 +838,12 @@ N/A — no SMS, email or server push.
 - **NFR-MEM-01 — Responsiveness:** the book with 100 entries appears within 2 s on a 4G connection,
   and the preview of FR-MEM-006 updates as soon as a value changes. Platforms: Website, iOS, Android.
 - **NFR-MEM-02 — Privacy:** names, notes and photos of relatives are never visible to anyone but the
-  owner, never appear in logs or analytics, and photos are never publicly addressable. Platforms: all.
-- **NFR-MEM-03 — Calendar correctness:** every platform passes every case in `rules/*.json`.
-  Platforms: Website, iOS, Android.
+  owner, never appear in logs, analytics or push notifications, and photos are never publicly
+  addressable. Platforms: all.
+- **NFR-MEM-03 — Calendar correctness:** every platform passes every case in `rules/*.json` that
+  applies to it (§4.3). Platforms: Backend, Website, iOS, Android.
+- **NFR-MEM-04 — Reminder punctuality:** a reminder is in the notification list within one hour after
+  its moment (BR-MEM-11), except during an outage (BR-MEM-13). Platforms: Backend.
 
 ### 3.5 Data requirements
 
@@ -731,10 +854,11 @@ N/A — no SMS, email or server push.
 | Date of death | Day, month, optional year, calendar, leap marker (BR-MEM-03/04) | User's account | Same | Private |
 | Note | Free text ≤ 1000 characters | User's account | Same | Private |
 | Reminder settings | On/off, lead, time | User's account | Same | Private |
-| Add to iOS reminders app | The user's wish to also use the iOS reminders app | User's account (used on iOS only) | Same | Private |
+| Account time zone | Time zone used for reminders (BR-MEM-11) | User's account, reported by the device | Until the account is deleted | Private |
+| Planned reminder | The next reminder moment of each entry | User's account on the server | Replaced when sent or when the entry changes; gone with the entry | Private |
+| Memorial reminder in the notification list | One per entry and anniversary (ADR-0001) | User's account | Kept after reading; paged one month at a time | Private |
 | Portrait (planned) | One photo | User's account | Deleted with the entry | Private |
-| Offline copy | Last loaded book | The device (apps only) | Replaced on each load | Private |
-| Scheduled reminders | Device notifications | The device | Re-planned on each load | Private |
+| Offline copy | Last loaded book | The device (apps only) | Replaced on each load; removed on sign-out | Private |
 
 Data kept before this spec only in a browser (website) or app memory (Android) is not migrated (§2.7).
 
@@ -744,17 +868,19 @@ Intentional differences between platforms. Anything not listed here must behave 
 
 | ID | Platforms | Difference | Reason |
 |---|---|---|---|
-| FR-MEM-008 | iOS, Android only | Reminders are delivered; the website delivers none | The website has no reliable notification channel (Q5, 2026-10-14) |
-| FR-MEM-007, BR-MEM-11 | Website later | The website does not show reminder settings in this version; editing an entry there keeps the settings made in the apps | Product owner will add them to the website later (2026-10-14) |
-| FR-MEM-009 | iOS only | Can also add the anniversary to the iOS reminders app | Android and the website have no equivalent in this version (Q4, 2026-10-14) |
-| FR-MEM-010 | iOS, Android only | Book readable offline | The website is online only (Q3, 2026-10-14) |
-| BR-MEM-05…10 | Website, iOS, Android | Computed on the client; the backend does not compute anniversaries | Existing constraint (§2.7) |
+| FR-MEM-001 | Website | The book is opened from the profile page; the apps open it from the home screen | Website navigation has no home grid (client question 1, 2026-10-14) |
+| FR-MEM-008 | iOS, Android | Reminders also arrive as push notifications; the website shows them only in the notification list | The website has no push (ADR-0001) |
+| FR-MEM-010 | iOS, Android only | Book readable offline; the website shows an error when the server cannot be reached | The website is online only (Q3, client question 9, 2026-10-14) |
+| BR-MEM-05…10 | Backend vs clients | The clients compute the next anniversary to show it; the backend computes it to send reminders; both pass the same vectors | ADR-0002 |
 
 ### 3.7 Software system attributes
 
 - **Reliability:** a wrong lunar conversion would store a wrong date for good; NFR-MEM-03 guards it.
 - **Availability:** server unreachable → apps read offline (FR-MEM-010); the website shows an error;
-  no platform loses data the user did not save.
+  no platform loses data the user did not save. Reminders missed during an outage are caught up the
+  same day (BR-MEM-13).
+- **Reliability of reminders:** one reminder per entry and anniversary, never two (BR-MEM-13); a push
+  that fails to arrive still leaves the reminder in the notification list (ADR-0001).
 - **Security & privacy:** NFR-MEM-02; another user's entry is indistinguishable from a missing one
   (BR-MEM-01).
 - **Maintainability / portability:** the same vectors run on every platform (§4.3).
@@ -765,11 +891,10 @@ Intentional differences between platforms. Anything not listed here must behave 
 
 ### 4.1 Verification approach
 
-Computational rules (BR-MEM-03…11) are verified by running every case in `rules/*.json` in each
-client's unit tests and, for BR-MEM-03/04 validation, the backend's. Expected values were generated
-from the backend's lunar converter (BR-MEM-10). Functional requirements are verified by each
-platform's automated tests mapped to the scenarios above; reminders and the iOS reminders app also
-need manual QA on device.
+Computational rules (BR-MEM-03…11, 13) are verified by running the `rules/*.json` cases that apply to
+each platform (§4.3) in its unit tests. Expected values were generated from the backend's lunar
+converter (BR-MEM-10). Functional requirements are verified by each platform's automated tests mapped
+to the scenarios above; push notifications also need manual QA on device.
 
 ### 4.2 Traceability matrix
 
@@ -778,34 +903,36 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 
 | ID | Backend | Website | iOS | Android | Note |
 |---|---|---|---|---|---|
-| BR-MEM-01 | done | drift | done | drift | Web keeps the book in the browser without sign-in; Android keeps it in memory only |
+| BR-MEM-01 | done | drift | done | drift | Web requires sign-in but keeps the book in the browser; Android keeps it in memory only |
 | BR-MEM-02 | done | in-progress | done | in-progress | Clients do not enforce the 100-entry limit message yet |
-| BR-MEM-03 | done | in-progress | drift | drift | Clients offer only the last 96 years (needs 1900 → current year) |
-| BR-MEM-04 | drift | drift | drift | drift | Backend accepts the leap marker only without a year (a known year is stored as a solar date, from which the marker is recoverable — Appendix B); clients have no leap choice and drop it |
-| BR-MEM-05 | n/a | in-progress | in-progress | in-progress | Same algorithm on all three; not yet checked against vectors |
-| BR-MEM-06 | n/a | in-progress | in-progress | in-progress | As above |
-| BR-MEM-07 | n/a | in-progress | in-progress | in-progress | As above |
+| BR-MEM-03 | done | in-progress | drift | drift | Clients offer only the last 96 years (needs 1900 → current year); iOS turns lunar day 30 into 29 when saving |
+| BR-MEM-04 | done | drift | drift | drift | Backend keeps the marker through the stored solar date (Appendix B); clients have no leap choice and drop it |
+| BR-MEM-05 | planned | in-progress | in-progress | in-progress | Backend computes it for reminders from v2.0 (ADR-0002); clients not yet checked against vectors |
+| BR-MEM-06 | planned | in-progress | in-progress | in-progress | As above |
+| BR-MEM-07 | planned | in-progress | in-progress | in-progress | As above |
 | BR-MEM-08 | n/a | in-progress | in-progress | in-progress | |
 | BR-MEM-09 | n/a | in-progress | in-progress | in-progress | |
-| BR-MEM-10 | n/a | in-progress | in-progress | in-progress | Each client has its own port of the algorithm |
-| BR-MEM-11 | in-progress | later | in-progress | in-progress | Backend accepts any lead 0–30 and any time; clients offer the fixed choices |
+| BR-MEM-10 | done | in-progress | in-progress | in-progress | Backend converter is the reference; each client has its own port |
+| BR-MEM-11 | drift | planned | in-progress | in-progress | Backend accepts any lead 0–30 and any time and keeps a time zone per entry (needs account time zone); website has no settings yet |
 | BR-MEM-12 | done | planned | drift | planned | iOS deletes without asking |
-| FR-MEM-001 | n/a | drift | done | drift | Web/Android do not require sign-in; 3 scenarios |
-| FR-MEM-002 | n/a | in-progress | done | in-progress | Web/Android show local data; 4 scenarios |
-| FR-MEM-003 | done | drift | done | drift | Not saved to the account on Web/Android; 6 scenarios |
-| FR-MEM-004 | done | drift | done | drift | 4 scenarios |
-| FR-MEM-005 | done | drift | drift | drift | No confirmation anywhere yet; 2 scenarios |
+| BR-MEM-13 | planned | n/a | n/a | n/a | New in v2.0 |
+| FR-MEM-001 | n/a | drift | drift | drift | Web/Android do not use the account book; iOS shows an empty book to guests; 3 scenarios |
+| FR-MEM-002 | n/a | in-progress | done | in-progress | Android shows a family-tree option on the empty book; 4 scenarios |
+| FR-MEM-003 | done | drift | done | drift | Not saved to the account on Web/Android; 7 scenarios |
+| FR-MEM-004 | done | drift | in-progress | drift | 4 scenarios |
+| FR-MEM-005 | done | drift | drift | drift | No confirmation anywhere yet; 3 scenarios |
 | FR-MEM-006 | n/a | in-progress | done | in-progress | 2 scenarios |
-| FR-MEM-007 | done | later | done | in-progress | Website has no reminder settings yet; 2 scenarios |
-| FR-MEM-008 | n/a | n/a | planned | planned | iOS stub (`TD-Memorial-001`); 2 scenarios |
-| FR-MEM-009 | n/a | n/a | planned | n/a | 1 scenario |
-| FR-MEM-010 | n/a | n/a | done | planned | 3 scenarios |
+| FR-MEM-007 | drift | planned | done | in-progress | Backend: wider choices than the product (Appendix B); 3 scenarios |
+| FR-MEM-008 | planned | planned | drift | planned | iOS schedules local notifications (stub); all of it is new in v2.0 (ADR-0001/0002); 7 scenarios |
+| FR-MEM-009 | n/a | n/a | drift | drift | Removed (v2.0): iOS has the option; Android shows an iOS-only option — both to remove |
+| FR-MEM-010 | n/a | n/a | drift | planned | iOS: offline copy not tied to the account, kept after sign-out; 5 scenarios |
 | FR-MEM-011 | later | later | later | later | Blocked on photo storage (`docs/tech-debt/memorial/TD-001`); 3 scenarios |
-| FR-MEM-012 | done | in-progress | done | in-progress | 2 scenarios |
-| FR-MEM-013 | done | in-progress | done | in-progress | 2 scenarios |
-| NFR-MEM-01 | planned | planned | planned | planned | Not measured |
-| NFR-MEM-02 | done | planned | planned | planned | Backend does not log names/notes |
-| NFR-MEM-03 | n/a | planned | planned | planned | Vectors added in v0.1 |
+| FR-MEM-012 | done | in-progress | in-progress | in-progress | 2 scenarios |
+| FR-MEM-013 | done | in-progress | in-progress | in-progress | 2 scenarios |
+| NFR-MEM-01 | n/a | planned | planned | planned | Not measured; clients only |
+| NFR-MEM-02 | done | planned | planned | drift | Backend does not log names/notes; Android debug log prints bodies and its database is in cloud backup |
+| NFR-MEM-03 | planned | planned | planned | planned | Backend runs the vectors from v2.0 |
+| NFR-MEM-04 | planned | n/a | n/a | n/a | New in v2.0 |
 
 ### 4.3 Test vectors
 
@@ -814,6 +941,11 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 | `rules/next-anniversary.json` | BR-MEM-05, 06, 07, 08, 09 (ordinal) | 17 |
 | `rules/anniversary-ordinal.json` | BR-MEM-09 (label) | 6 |
 | `rules/death-date-conversion.json` | BR-MEM-03, 04, 10 | 9 |
+| `rules/reminder-moment.json` | BR-MEM-11 (moment), BR-MEM-13 (late delivery) | 7 + 3 delivery |
+
+Who runs what: the clients run `next-anniversary`, `anniversary-ordinal` and `death-date-conversion`;
+the backend runs `death-date-conversion`, `next-anniversary` (anniversary date only) and
+`reminder-moment`.
 
 ---
 
@@ -823,13 +955,18 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 
 #### Open (unconfirmed)
 
-None.
+| Question | Blocks | Platforms |
+|---|---|---|
+| Turning notifications off for the whole account: only push stops, or the notification list too? (BR-MEM-13 note, FR-MEM-008) | Account-switch wording and behaviour | Backend, Website, iOS, Android |
+
+Recommendation for anh Đức: only push stops; the reminder stays in the notification list, matching
+the answer to client question 5 (a device that does not allow push still sees it in the list).
 
 #### Open questions (resolved)
 
 | Question | Resolution | Date |
 |---|---|---|
-| The storage / client-computed / local-reminder decision has no ADR | Already decided on 2026-10-06; recorded as an existing constraint (§2.7), no ADR | 2026-10-14 |
+| The storage / client-computed / local-reminder decision has no ADR | Already decided on 2026-10-06; recorded as an existing constraint (§2.7), no ADR — superseded by ADR-0002 in v2.0 | 2026-10-14 |
 | Leap months | A death may be recorded in a leap month; the anniversary is always in the regular month with the same number (BR-MEM-04, BR-MEM-05) | 2026-10-14 |
 | Is the book tied to the account on every platform? | Yes; sign-in required on Website and Android too; earlier local data is discarded (BR-MEM-01, §2.7) | 2026-10-14 |
 | Offline behavior | Apps read the last loaded book; no changes offline; website online only (FR-MEM-010) | 2026-10-14 |
@@ -843,23 +980,45 @@ None.
 | Reminder settings on the website | Not shown on the website in this version; added later (§3.6) | 2026-10-14 |
 | Portrait size and types | JPEG, PNG or WebP, at most 5 MB; the apps convert other formats to JPEG (FR-MEM-011) | 2026-10-14 |
 | Calendar authority and "today" | Backend lunar converter is the reference; today is the device's date (BR-MEM-08, BR-MEM-10) | 2026-10-14 |
+| Who sends reminders, and where? (supersedes "Reminders" and "Thêm vào Lời nhắc" above) | The server, into the notification list on every platform, plus push on the apps (ADR-0001, ADR-0002, FR-MEM-008); the device reminders app is dropped (FR-MEM-009 removed) | 2026-10-14 |
+| Reminder settings on the website (supersedes the row above) | Shown on the website like on the apps (FR-MEM-007) | 2026-10-14 |
+| Reminder time zone | The account time zone, from the user's device (BR-MEM-11, ADR-0002) | 2026-10-14 |
+| Reminder moment already passed when an entry is added or changed | No reminder for this anniversary; plan the next (BR-MEM-11) | 2026-10-14 |
+| Late reminder after an outage | Sent while the anniversary day lasts, otherwise skipped (BR-MEM-13) | 2026-10-14 |
+| Where the website opens the book (client question 1) | From the profile page; the apps from the home screen (§3.6) | 2026-10-14 |
+| Entry created on the website: which reminder? (client question 2) | The default, 1 day before at 07:00 (FR-MEM-003) | 2026-10-14 |
+| Website copy "nhắc trước 1–7 ngày" (client question 4) | Kept, the website now has reminder settings | 2026-10-14 |
+| Push not allowed on the device (client question 5) | Reminder still in the notification list; a hint to open Settings; "Có nhắc" still shown (FR-MEM-007, FR-MEM-008) | 2026-10-14 |
+| Old reminder values outside the choices (client question 8) | Show the nearest choice, keep the value until saved (FR-MEM-007) | 2026-10-14 |
+| Server error while loading (client question 9) | Apps show the offline copy with a message; the website shows an error (FR-MEM-010) | 2026-10-14 |
+| Sign-out on a shared device (client question 11) | Stop push to that device and remove the offline copy (FR-MEM-008, FR-MEM-010) | 2026-10-14 |
+| Lock-screen content (client question 12) | Relationship only, never the name (§3.1.1, FR-MEM-008) | 2026-10-14 |
+| Saving or deleting an entry deleted elsewhere (client question 13) | Remove it from the book and say "Mục này không còn trong sổ giỗ." (FR-MEM-004, FR-MEM-005) | 2026-10-14 |
+| "Lấy từ gia phả" on the empty book (client question 14) | Hidden (FR-MEM-002) | 2026-10-14 |
+| User-facing copy (client question 15) | Drafted in §3.1.1 for review | 2026-10-14 |
 
 ### Appendix B — Contract handoff (backend)
-
 For `spec-writer` (backend) and the contract; the product does not dictate the shape.
 
 1. **Leap marker with a known year (BR-MEM-04).** No contract change is required: a known-year date
    is stored as a solar date, and converting it back yields the lunar day, month, year and leap marker
    one-to-one. The contract description should say so, so clients stop dropping the marker.
 2. **Reminder choices (BR-MEM-11).** The product offers lead 0/1/3/7 days and times
-   06:00/07:00/12:00/19:00. The contract currently accepts any lead 0–30 and any minute; the backend
-   spec decides whether to keep that wider range (it must at least accept the product's choices).
-3. **Reminder time zone.** The product uses the device's local time; the contract's time-zone value
-   should be the device's zone (default `Asia/Ho_Chi_Minh` stays for clients that send none).
+   06:00/07:00/12:00/19:00, and the server now sends reminders at whole hours (ADR-0002). The contract
+   should accept only these choices; how existing entries with other values are handled is the
+   backend spec's call (the clients show the nearest choice, FR-MEM-007).
+3. **Account time zone (BR-MEM-11, ADR-0002).** The clients report the device's time zone for the
+   account (at sign-in and when it changes); the per-entry time zone goes away. Default: Vietnam time.
 4. **Leap-month validation with a known year.** The backend currently cannot reject "10/6 nhuận/2026"
    because the client converts before sending; the client rejects it (BR-MEM-04). No server change
    unless the backend starts converting.
 5. **Portrait (FR-MEM-011).** Already designed in the backend spec (deferred, `TD-001`); the product
    limits (5 MB, JPEG/PNG/WebP) match it.
-6. **Editing without reminder settings (§3.6).** A platform that does not show reminder settings must
-   still send the entry's existing settings when it saves, since an edit replaces the whole entry.
+6. **Device reminders app (FR-MEM-009 removed).** The entry no longer carries the wish to use the iOS
+   reminders app; the contract drops it.
+7. **Notification list (ADR-0001, FR-MEM-008).** List the user's notifications newest first, one month
+   per page; unread count; mark one or all as read; a memorial reminder carries what the clients need
+   to open the entry and to show the copy of §3.1.1.
+8. **Push registration (ADR-0001).** The apps register their push address after sign-in and when it
+   changes, and remove it at sign-out.
+9. **Account notification switch (ADR-0001).** Scope still open (Appendix A).
