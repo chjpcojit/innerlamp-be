@@ -12,6 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `docs/product/<feature>/` is the cross-platform product spec layer (one spec per feature, shared by this backend, the website, iOS and Android; written by the `ba-writer` skill). It sits above `docs/specs/api/openapi.yaml` (contract) and `docs/specs/features/<feature>/` (backend platform spec) — see `docs/product/README.md`. Existing `SRS.md` files under `docs/specs/features/` are legacy until migrated.
 
+`docs/adr/` holds Architecture Decision Records (written by the `adr-writer` skill). It is an optional step **before** `ba-writer`, only for decisions that are hard to reverse — infrastructure, a new or reshaped data model, offline sync, auth/security, cross-cutting conventions, technology choices. Product and platform specs cite ADRs by ID (`ADR-NNNN`) and never copy them; `ba-writer` stops and asks when a feature needs such a decision and no Accepted ADR covers it — see `docs/adr/README.md`.
+
 ## Known broken state — read before building
 
 - **`go.sum` present.** Still run `go mod tidy` after touching `go.mod`/imports.

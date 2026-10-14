@@ -1,0 +1,108 @@
+# ADR-{{NNNN}}: {{Decision title}}
+
+| Field | Value |
+|---|---|
+| Status | Proposed |
+| Date | {{YYYY-MM-DD}} |
+| Deciders | {{user}} (decides) · Claude (`adr-writer`, proposes) |
+| Features | {{feature slugs this affects, e.g. `memorial`, `journal` — or "cross-cutting"}} |
+| Platforms | {{Backend, Website, iOS, Android — those affected}} |
+| Supersedes | {{ADR-NNNN or —}} |
+| Related | {{other ADR IDs, product spec `docs/product/<feature>/product.md@vX.Y` + BR/FR IDs, or —}} |
+
+## Context
+
+{{The situation and the forces at play: what the product needs (cite BR/FR IDs when a product spec
+exists), what exists today (with repo paths), constraints (scale, cost, team, timeline, security).
+Mark inferred constraints as inferred.}}
+
+### Why this needs an ADR
+
+{{One or two sentences: which gate criterion from `when_to_write_adr.md` applies and what would make
+this decision expensive to reverse.}}
+
+## Decision drivers
+
+- {{Driver 1 — e.g. "Memorial entries must be editable offline on iOS and Android (FR-MEM-012)"}}
+- {{Driver 2}}
+
+## Options considered
+
+### Option 0: Keep the status quo
+
+{{What happens if nothing changes.}}
+
+| Dimension | Assessment |
+|---|---|
+| Complexity | |
+| Cost | |
+| Reversibility | |
+| Cross-platform impact | |
+| Security & privacy | |
+| Reliability | |
+| Fit with current stack | |
+| Familiarity | |
+
+**Pros:** {{…}}
+**Cons:** {{…}}
+
+### Option A: {{Name}}
+
+{{Short description and high-level design (components, data flow, where data lives).}}
+
+| Dimension | Assessment |
+|---|---|
+| Complexity | |
+| Cost | |
+| Reversibility | |
+| Cross-platform impact | |
+| Security & privacy | |
+| Reliability | |
+| Fit with current stack | |
+| Familiarity | |
+
+**Pros:** {{…}}
+**Cons:** {{…}}
+
+### Option B: {{Name}}
+
+{{Same format.}}
+
+## Trade-off analysis
+
+{{The key trade-offs between the options and the reasoning that leads to the recommendation.}}
+
+## Decision
+
+**Recommended:** Option {{X}} — {{one sentence why}}.
+
+{{When the user decides, replace "Recommended" with the decided option and fill "Decision record".}}
+
+## Consequences
+
+- **Easier:** {{…}}
+- **Harder:** {{…}}
+- **Revisit when:** {{trigger — e.g. "more than 10k active users", "before public launch"}}
+
+## Follow-ups
+
+| Layer | Follow-up |
+|---|---|
+| Product spec (`ba-writer`) | {{e.g. "memorial product spec cites ADR-NNNN in its header and in the affected BR/FR" or —}} |
+| API contract (`il-spec-be`) | {{named changes, not specified here}} |
+| Backend spec / code | {{…}} |
+| Website / iOS / Android | {{…}} |
+| Infrastructure | {{…}} |
+
+## Open questions
+
+- {{⚠️ Not confirmed: … — … (repeat every inline marker here)}}
+
+### Resolved
+
+- {{YYYY-MM-DD — question → answer (by whom)}}
+
+## Decision record
+
+- {{YYYY-MM-DD — Proposed by Claude (`adr-writer`).}}
+- {{YYYY-MM-DD — Accepted / Rejected by {{user}}: "<their words>".}}
