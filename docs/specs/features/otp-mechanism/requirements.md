@@ -5,7 +5,7 @@ Last updated: 2026-10-14
 Status: prospective (v2.0) — cơ chế OTP dùng chung chuyển sang email: khoá theo email, gửi qua `AuthMailer`, mã ngẫu nhiên, đếm lượt nguyên tử; chưa có code. Code đang chạy là v1.2 (khoá theo SĐT, gửi SMS, mã `111111`).
 Module: `otp`
 Code: `services/appService/`
-Product spec: none (cơ chế nội bộ, không có product spec riêng) — phục vụ `docs/product/onboarding/product.md` @ v1.2 và `docs/product/login/product.md` @ v1.1
+Product spec: none (cơ chế nội bộ, không có product spec riêng) — phục vụ `docs/product/onboarding/product.md` @ v1.2 và `docs/product/login/product.md` @ v1.2
 Contract: không có route riêng; route dùng cơ chế này nằm ở `onboarding/` và `login/`
 Implements: BR-ONB-09, BR-LGN-05 (phần mã), NFR-ONB-03
 Architecture: ADR-0003 rule 6 (Accepted 2026-10-14)

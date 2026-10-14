@@ -1,11 +1,11 @@
 # Requirements — login
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-14
 Status: prospective (v2.0) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi; chưa có code. Code đang chạy là v1.13 (đăng nhập bằng SĐT); phần phiên/refresh/logout giữ nguyên.
 Module: `identity`
 Code: `services/appService/`
-Product spec: `docs/product/login/product.md` @ v1.1 (và `docs/product/onboarding/product.md` @ v1.2 cho BR-ONB-05/06/09)
+Product spec: `docs/product/login/product.md` @ v1.2 (và `docs/product/onboarding/product.md` @ v1.2 cho BR-ONB-05/06/09)
 Contract: `docs/specs/api/openapi.yaml` (this repo) — cần cập nhật theo bảng API bên dưới (`tasks.md` Phase 7)
 Implements: BR-LGN-01, BR-LGN-02, BR-LGN-03, BR-LGN-05, BR-LGN-07, FR-LGN-001, FR-LGN-002, FR-LGN-003, FR-LGN-004, FR-LGN-006, FR-LGN-008, FR-LGN-009, NFR-LGN-01, NFR-LGN-02
 Architecture: ADR-0003 (Accepted 2026-10-14)
@@ -89,11 +89,9 @@ FR-LGN-010, NFR-LGN-03 (chỉ client).
 
 **Đặt mật khẩu mới — `POST /v1/auth/password-reset/confirm`**
 
-28. WHEN the right, unexpired, unused code and a `new_password` valid per `rules/password.json` arrive, THE SYSTEM SHALL in one transaction update the password hash, mark the code used and revoke every session of the user (`password_reset`), and return `200 {"success": true}` without issuing tokens. (FR-LGN-009, BR-LGN-05)
+28. WHEN the right, unexpired, unused code and a `new_password` valid per `rules/password.json` arrive, THE SYSTEM SHALL in one transaction update the password hash, mark the code used, revoke every session of the user (`password_reset`) and delete the email's `login_attempts` row so a sign-in lock is lifted, and return `200 {"success": true}` without issuing tokens. (FR-LGN-009, BR-LGN-05)
 29. WHEN the code is wrong, THE SYSTEM SHALL reply `400 OTP_INVALID`, counting the attempt atomically; the third miss locks the code (`429 OTP_LOCKED`). WHEN the code is expired, used or was never issued for this email (including an email with no account), `400 OTP_EXPIRED`. (FR-LGN-009, BR-ONB-09, NFR-LGN-01)
 30. WHEN `new_password` breaks BR-ONB-06, THE SYSTEM SHALL reply `400 INVALID_PASSWORD`; a malformed email, `400 INVALID_EMAIL` — both before any database access. (FR-LGN-009)
-
-> ⚠️ Not confirmed (product): khi đặt lại mật khẩu thành công, khoá đăng nhập đang có của email đó (BR-LGN-02) có được gỡ luôn không? Đề xuất: gỡ, để người dùng đăng nhập ngay bằng mật khẩu mới — blocks AC28 (một câu lệnh xoá `login_attempts` trong cùng transaction); hand back to ba-writer in innerlamp-be.
 
 ---
 
@@ -157,6 +155,7 @@ AC1–AC5, AC8, AC18 (hai route mới), AC20–AC35 chưa có code — `tasks.md
 
 ## Open questions (resolved during implementation)
 
+- ~~Đặt lại mật khẩu có gỡ khoá đăng nhập không?~~ → Có (anh Đức: "Gỡ như em đề xuất"; product login v1.2 BR-LGN-05). AC28 xoá `login_attempts` trong cùng transaction. Resolved 2026-10-14.
 - ~~Đăng nhập bằng gì?~~ → Email + mật khẩu (ADR-0003 rule 1). Resolved 2026-10-14.
 - ~~Quên mật khẩu đi kênh nào?~~ → Mã qua email đã xác minh; đăng xuất mọi thiết bị; không tự đăng nhập (ADR-0003 rule 5, product BR-LGN-05). Resolved 2026-10-14.
 - ~~Đếm giới hạn ở đâu?~~ → Postgres, không Redis (hạ tầng không có Memorystore). Đề xuất của Claude, anh Đức đồng ý 2026-10-14. Resolved 2026-10-14.

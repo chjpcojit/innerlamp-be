@@ -1,6 +1,6 @@
 # Tasks — login
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-14
 Status: v2.0 chưa bắt đầu — mọi task `[ ]`. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
 Module: `identity` (spec folder `login`)
@@ -34,9 +34,9 @@ Mỗi item trace về một dòng trong bảng "Layers & components" hoặc mộ
 - [ ] `password_reset_handler.go` + route trong `cmd/main.go`; `no-store`.
 - [ ] Test usecase/handler cho AC23–AC30.
 
-## Phase 4 — (chờ trả lời) Gỡ khoá đăng nhập sau khi đặt lại
+## Phase 4 — Gỡ khoá đăng nhập sau khi đặt lại
 
-- [ ] Phụ thuộc `⚠️ Not confirmed (product)` sau AC30: nếu "gỡ", thêm `DELETE FROM login_attempts WHERE email = $1` vào transaction C-4 + test.
+- [ ] `ResetPassword` thêm `DELETE FROM login_attempts WHERE email = $2` trong transaction C-4 + test: email đang khoá, đặt lại xong đăng nhập bằng mật khẩu mới được ngay (AC28).
 
 ## Phase 5 — Giới hạn tần suất
 

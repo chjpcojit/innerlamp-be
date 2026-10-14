@@ -1,6 +1,6 @@
 # Design — login
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-14
 Status: prospective (v2.0) — đăng nhập bằng email, quên mật khẩu, giới hạn tần suất, kiểm phiên còn sống; chưa có code. Phiên/refresh/logout của v1.13 giữ nguyên.
 Module: `identity`
@@ -88,10 +88,9 @@ Không có → `401 UNAUTHORIZED` (AC21); lỗi DB → `503` (AC22). Có → han
 **Step C-4 — Đổi mật khẩu (một transaction)**
 - `PasswordHasher.Hash(new_password)` ở usecase, rồi `ResetPassword(userID, newHash, otpID)`:
   UPDATE `users.password_hash` → `otp_codes.used_at = now()` →
-  `UPDATE user_sessions SET is_revoked = true, revoked_at = now(), revoked_reason = 'password_reset' WHERE user_id = $1 AND is_revoked = false`.
+  `UPDATE user_sessions SET is_revoked = true, revoked_at = now(), revoked_reason = 'password_reset' WHERE user_id = $1 AND is_revoked = false` →
+  `DELETE FROM login_attempts WHERE email = $2` (gỡ khoá đăng nhập, BR-LGN-05 v1.2).
 - `200 {"success": true}`. Thiết bị khác nhận `401` ở request kế tiếp (Step A-2).
-
-> ⚠️ Not confirmed (product): có xoá `login_attempts` của email trong transaction C-4 không (gỡ khoá đăng nhập sau khi đặt lại) — xem `requirements.md` sau AC30.
 
 ## Giới hạn tần suất
 

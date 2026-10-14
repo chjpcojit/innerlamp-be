@@ -7,7 +7,7 @@
 | Feature code | `LGN` — IDs are `BR-LGN-NN`, `FR-LGN-NNN`, `NFR-LGN-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.1 |
+| Version | 1.2 |
 | Last updated | 2026-10-14 |
 | Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
@@ -221,13 +221,16 @@ not change).
   minutes pause; 3 wrong entries lock the code for 30 minutes). The screen and its timing are the same
   whether or not the email has an account; no email is sent when it has none. With the right code the
   user sets a new password that follows BR-ONB-06. Then every session of the account, on every device,
-  ends, and the user signs in again with the new password; they are not signed in automatically.
+  ends, and the user signs in again with the new password; they are not signed in automatically. A
+  successful reset also lifts a sign-in lock on that email (BR-LGN-02), so the new password works at once.
 - **Examples:** right code + "matkhaumoi" → password changed, phone and website both signed out, the
   sign-in view opens. Email without an account → "Nếu email này có tài khoản, mã đã được gửi" and no
-  email. New password of 7 characters → refused.
+  email. New password of 7 characters → refused. Sign-in locked until 10:15, password reset at 10:05 →
+  signing in with the new password at 10:06 works.
 - **Computational:** no (the password check reuses `onboarding/rules/password.json`).
 - **Applies to:** Backend, Website, iOS, Android.
-- **Source:** anh Đức, 2026-10-14 (answer 7); ADR-0003 rule 5; pentest report item 19.
+- **Source:** anh Đức, 2026-10-14 (answer 7); ADR-0003 rule 5; pentest report item 19; anh Đức
+  2026-10-14 ("Gỡ như em đề xuất": a reset lifts the sign-in lock).
 
 **BR-LGN-06 — Guest mode**
 - **Rule:** "Vào xem trước, chưa đăng nhập" lets a visitor use InnerLamp without an account: public
@@ -584,6 +587,7 @@ sign-in, the lock, sessions, sign-out and reset; the new-password check runs
 
 | Question | Resolution | Date |
 |---|---|---|
+| Does a successful password reset lift the sign-in lock? | Yes | 2026-10-14 |
 | Sign-in identifier? | Email + password (ADR-0003) | 2026-10-14 |
 | Sign-out while offline? | Completes on the device at once; the server session expires | 2026-10-14 |
 | Website: signed-in user on the sign-in page; page after sign-in? | Home page; the page the guest was heading to (home page if sign-in was opened directly) | 2026-10-14 |

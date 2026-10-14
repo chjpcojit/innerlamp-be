@@ -1,5 +1,11 @@
 # Changelog — login product spec
 
+## v1.2 — 2026-10-14
+
+- Resolved (anh Đức, "Gỡ như em đề xuất"): a successful password reset also lifts the sign-in lock on
+  that email (BR-LGN-05, example added). Raised by the backend spec (`login` v2.0).
+- Platforms to follow up: Backend (one extra write in the reset). Clients: no change.
+
 ## v1.1 — 2026-10-14
 
 - Resolved (anh Đức): sign-out while offline completes on the device at once (BR-LGN-07).

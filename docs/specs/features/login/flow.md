@@ -1,6 +1,6 @@
 # Flow — login
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-14
 Status: prospective (v2.0) — đăng nhập bằng email, kiểm phiên còn sống, quên mật khẩu; chưa có code. Sơ đồ refresh/logout của v1.13 không đổi (xem git history bản v1.13 nếu cần).
 Module: `identity`
@@ -144,7 +144,7 @@ sequenceDiagram
         R->>DB: UPDATE users.password_hash
         R->>DB: otp_codes.used_at = now()
         R->>DB: revoke mọi user_sessions của user (password_reset)
-        Note over R,DB: ⚠️ Not confirmed (product): có xoá login_attempts của email không
+        R->>DB: DELETE login_attempts của email (gỡ khoá)
     end
     U-->>C: 200 {success: true}
 ```
