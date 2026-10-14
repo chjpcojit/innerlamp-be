@@ -1,0 +1,137 @@
+{
+  "rule": [
+    "BR-ONB-05"
+  ],
+  "description": "Validate and normalise an email address; two addresses are the same account when their normalised forms are equal.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "typed": "what the user typed in the email field"
+  },
+  "output": {
+    "valid": "boolean",
+    "email": "normalised address (trimmed, lower case) when valid, null otherwise"
+  },
+  "cases": [
+    {
+      "name": "plain address",
+      "input": {
+        "typed": "an@mail.com"
+      },
+      "expected": {
+        "valid": true,
+        "email": "an@mail.com"
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "spaces trimmed and case folded",
+      "input": {
+        "typed": " An@Mail.COM "
+      },
+      "expected": {
+        "valid": true,
+        "email": "an@mail.com"
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "domain without a dot is invalid",
+      "input": {
+        "typed": "an@mail"
+      },
+      "expected": {
+        "valid": false,
+        "email": null
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "space inside is invalid",
+      "input": {
+        "typed": "an mail@x.vn"
+      },
+      "expected": {
+        "valid": false,
+        "email": null
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "one-character ending is invalid",
+      "input": {
+        "typed": "a@b.c"
+      },
+      "expected": {
+        "valid": false,
+        "email": null
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "two-character ending is valid",
+      "input": {
+        "typed": "a@b.co"
+      },
+      "expected": {
+        "valid": true,
+        "email": "a@b.co"
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "two @ is invalid",
+      "input": {
+        "typed": "an@@mail.com"
+      },
+      "expected": {
+        "valid": false,
+        "email": null
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "nothing before @ is invalid",
+      "input": {
+        "typed": "@mail.com"
+      },
+      "expected": {
+        "valid": false,
+        "email": null
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "empty is invalid (required)",
+      "input": {
+        "typed": ""
+      },
+      "expected": {
+        "valid": false,
+        "email": null
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "254 characters is valid",
+      "input": {
+        "typed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com"
+      },
+      "expected": {
+        "valid": true,
+        "email": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com"
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    },
+    {
+      "name": "255 characters is invalid",
+      "input": {
+        "typed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.com"
+      },
+      "expected": {
+        "valid": false,
+        "email": null
+      },
+      "source": "BR-ONB-05; expression already used by iOS and the website, ADR-0003 rule 1"
+    }
+  ]
+}

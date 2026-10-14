@@ -1,5 +1,7 @@
 # Software Requirements Specification — Sign-out (Logout)
 
+> Superseded by [docs/product/login/product.md](../../../product/login/product.md) (v1.0) — kept for history; do not update.
+
 | Field | Value |
 |---|---|
 | Document type | Software Requirements Specification (SRS) — IEEE 29148-2018 |

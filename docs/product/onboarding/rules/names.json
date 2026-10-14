@@ -1,0 +1,149 @@
+{
+  "rule": [
+    "BR-ONB-07"
+  ],
+  "description": "Validate and normalise the full name (required) and dharma name (optional). Length counts characters after trimming and NFC normalisation.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "field": "full_name | dharma_name",
+    "typed": "what the user typed"
+  },
+  "output": {
+    "valid": "boolean",
+    "value": "stored value; null means absent or invalid"
+  },
+  "cases": [
+    {
+      "name": "full name trimmed",
+      "input": {
+        "field": "full_name",
+        "typed": "  Nguyễn Văn An "
+      },
+      "expected": {
+        "valid": true,
+        "value": "Nguyễn Văn An"
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "full name of spaces only is invalid",
+      "input": {
+        "field": "full_name",
+        "typed": "   "
+      },
+      "expected": {
+        "valid": false,
+        "value": null
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "full name of one character is valid",
+      "input": {
+        "field": "full_name",
+        "typed": "A"
+      },
+      "expected": {
+        "valid": true,
+        "value": "A"
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "full name decomposed input is stored precomposed",
+      "input": {
+        "field": "full_name",
+        "typed": "Nguyễn Văn An"
+      },
+      "expected": {
+        "valid": true,
+        "value": "Nguyễn Văn An"
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "full name of 300 characters is valid",
+      "input": {
+        "field": "full_name",
+        "typed": "ễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễ"
+      },
+      "expected": {
+        "valid": true,
+        "value": "ễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễễ"
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "full name of 301 characters is invalid",
+      "input": {
+        "field": "full_name",
+        "typed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "expected": {
+        "valid": false,
+        "value": null
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "dharma name empty means none",
+      "input": {
+        "field": "dharma_name",
+        "typed": ""
+      },
+      "expected": {
+        "valid": true,
+        "value": null
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "dharma name of spaces means none",
+      "input": {
+        "field": "dharma_name",
+        "typed": "   "
+      },
+      "expected": {
+        "valid": true,
+        "value": null
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "dharma name trimmed",
+      "input": {
+        "field": "dharma_name",
+        "typed": " Tâm Minh "
+      },
+      "expected": {
+        "valid": true,
+        "value": "Tâm Minh"
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "dharma name of 255 characters is valid",
+      "input": {
+        "field": "dharma_name",
+        "typed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "expected": {
+        "valid": true,
+        "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    },
+    {
+      "name": "dharma name of 256 characters is invalid",
+      "input": {
+        "field": "dharma_name",
+        "typed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "expected": {
+        "valid": false,
+        "value": null
+      },
+      "source": "BR-ONB-07; limits from the backend (docs/assumptions/onboarding/A-001), dharma name optional per anh Đức 2026-10-14"
+    }
+  ]
+}
