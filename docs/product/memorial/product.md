@@ -7,9 +7,9 @@
 | Feature code | `MEM` — IDs are `BR-MEM-NN`, `FR-MEM-NNN`, `NFR-MEM-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 0.1 (draft) |
+| Version | 1.0 |
 | Last updated | 2026-10-14 |
-| Status | draft — every gathering question answered on 2026-10-14; awaiting the user's review of the written spec (→ v1.0) |
+| Status | confirmed — all questions answered by the product owner on 2026-10-14 |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | No ADR. The storage/reminder decision of 2026-10-06 is recorded as an existing constraint in §2.7 (user's choice, 2026-10-14) |
@@ -287,14 +287,11 @@ N/A — no SMS, email or server push.
   anniversary − year of death), both counted in the entry's calendar (lunar years for a lunar entry).
   1 → "Giỗ đầu", 2 → "Giỗ hết", n ≥ 3 → "Giỗ lần thứ n", less than 1 → no label. Unknown year → no label.
 - **Examples:** solar 20/11/2024, next 20/11/2026 → "Giỗ hết"; lunar 20/12/2025, next lunar
-  20/12/2026 (27/01/2027) → "Giỗ đầu".
+  20/12/2026 (27/01/2027) → "Giỗ đầu"; died on solar 14/10/2026 and today is 14/10/2026 → next
+  anniversary today, ordinal 0, no label.
 - **Computational:** yes → `rules/next-anniversary.json` (ordinal), `rules/anniversary-ordinal.json` (label)
 - **Applies to:** Website, iOS, Android
 - **Source:** iOS spec v1.3; Android assumption #8; prototype
-
-> ⚠️ Not confirmed: a person who died today has a next anniversary of today with ordinal 0 (no
-> label) under this rule; should the book instead show next year's "Giỗ đầu"? — affects the list and
-> preview on Website, iOS, Android; the vector for this case is left out until answered.
 
 **BR-MEM-10 — Calendar authority**
 - **Rule:** All lunar ↔ solar conversion uses the Vietnamese lunar calendar computed at UTC+7
@@ -315,7 +312,7 @@ N/A — no SMS, email or server push.
   "on the day" at 06:00 → 23/11/2026 06:00.
 - **Computational:** yes → `rules/next-anniversary.json` (the reminder moment is derived from the next
   anniversary; no separate vector)
-- **Applies to:** Website (settings only), iOS, Android; Backend stores the settings
+- **Applies to:** iOS, Android; Backend stores the settings; Website later (§3.6)
 - **Source:** Q5 answered 2026-10-14; iOS spec v1.3; prototype
 
 **BR-MEM-12 — Deletion is permanent**
@@ -475,6 +472,11 @@ N/A — no SMS, email or server push.
     When the user changes the name and goes back without saving
     Then the book still shows "Nguyễn Văn A"
 
+  Scenario: Editing where reminder settings are not shown keeps them (§3.6)
+    Given "Nguyễn Văn A" has a reminder set in the app
+    When the user changes the note of "Nguyễn Văn A" on the website and saves
+    Then the app still shows the same reminder settings for "Nguyễn Văn A"
+
   Scenario: Entry deleted on another device
     Given the user is editing an entry that was deleted on another device
     When the user saves
@@ -584,7 +586,7 @@ N/A — no SMS, email or server push.
 
 **FR-MEM-007 — Reminder settings**
 - **Priority:** Must
-- **Platforms:** Backend, Website, iOS, Android
+- **Platforms:** Backend, iOS, Android; Website later (§3.6)
 - **Description:** WHEN the reminder is on THE SYSTEM SHALL let the user choose the lead (on the day,
   1, 3, 7 days before) and the time (06:00, 07:00, 12:00, 19:00); WHEN it is off THE SYSTEM SHALL hide
   those choices. The book shows a "Có nhắc" (reminder on) mark on entries whose reminder is on.
@@ -603,10 +605,6 @@ N/A — no SMS, email or server push.
     When the user opens the same entry on another device or platform
     Then the same reminder settings are shown
   ```
-
-> ⚠️ Not confirmed: the website shows and lets the user edit reminder settings (they take effect in
-> the apps) but delivers no reminder itself — is that the intended website behavior, or should the
-> website hide reminder settings? — blocks the website platform spec for FR-MEM-007.
 
 **FR-MEM-008 — Reminder delivery**
 - **Priority:** Must
@@ -690,13 +688,14 @@ N/A — no SMS, email or server push.
 - **Platforms:** Backend, Website, iOS, Android
 - **Description:** WHEN the user adds a portrait to an entry THE SYSTEM SHALL keep at most one photo per
   entry, show it in the book and the entry, let the user replace or remove it, and show the relative's
-  initials when there is none. A photo is private like the rest of the entry.
+  initials when there is none. A photo is a JPEG, PNG or WebP image of at most 5 MB; the apps convert
+  photos taken in other formats (such as iPhone HEIC) to JPEG before saving, and a photo over 5 MB is
+  refused with a message. A photo is private like the rest of the entry.
 - **Business rules:** BR-MEM-01
 - **Verification method:** automated tests per platform once built
 - **Source:** backend spec v2.4 (US-MEM-05, deferred); Q8 answered 2026-10-14
 - **Acceptance criteria:**
   ```gherkin
-  @not-confirmed
   Scenario: Add a portrait
     Given the user is editing "Nguyễn Văn A"
     When the user adds a photo and saves
@@ -706,11 +705,13 @@ N/A — no SMS, email or server push.
     Given an entry has no photo
     When the user opens the memorial book
     Then the entry shows the relative's initials
-  ```
 
-> ⚠️ Not confirmed: maximum photo size and accepted image types as the user experiences them (the
-> backend spec plans 5 MB, JPEG/PNG/WebP, with the apps converting iPhone photos to JPEG) — blocks
-> FR-MEM-011 on every platform; not needed until photo storage exists.
+  Scenario: Photo too large
+    Given the user is editing "Nguyễn Văn A"
+    When the user adds a photo larger than 5 MB and saves
+    Then the user is told the photo is too large
+    And the entry keeps its previous portrait
+  ```
 
 ### 3.4 Non-functional requirements
 
@@ -744,6 +745,7 @@ Intentional differences between platforms. Anything not listed here must behave 
 | ID | Platforms | Difference | Reason |
 |---|---|---|---|
 | FR-MEM-008 | iOS, Android only | Reminders are delivered; the website delivers none | The website has no reliable notification channel (Q5, 2026-10-14) |
+| FR-MEM-007, BR-MEM-11 | Website later | The website does not show reminder settings in this version; editing an entry there keeps the settings made in the apps | Product owner will add them to the website later (2026-10-14) |
 | FR-MEM-009 | iOS only | Can also add the anniversary to the iOS reminders app | Android and the website have no equivalent in this version (Q4, 2026-10-14) |
 | FR-MEM-010 | iOS, Android only | Book readable offline | The website is online only (Q3, 2026-10-14) |
 | BR-MEM-05…10 | Website, iOS, Android | Computed on the client; the backend does not compute anniversaries | Existing constraint (§2.7) |
@@ -786,19 +788,19 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 | BR-MEM-08 | n/a | in-progress | in-progress | in-progress | |
 | BR-MEM-09 | n/a | in-progress | in-progress | in-progress | |
 | BR-MEM-10 | n/a | in-progress | in-progress | in-progress | Each client has its own port of the algorithm |
-| BR-MEM-11 | in-progress | in-progress | in-progress | in-progress | Backend accepts any lead 0–30 and any time; clients offer the fixed choices |
+| BR-MEM-11 | in-progress | later | in-progress | in-progress | Backend accepts any lead 0–30 and any time; clients offer the fixed choices |
 | BR-MEM-12 | done | planned | drift | planned | iOS deletes without asking |
 | FR-MEM-001 | n/a | drift | done | drift | Web/Android do not require sign-in; 3 scenarios |
 | FR-MEM-002 | n/a | in-progress | done | in-progress | Web/Android show local data; 4 scenarios |
 | FR-MEM-003 | done | drift | done | drift | Not saved to the account on Web/Android; 6 scenarios |
-| FR-MEM-004 | done | drift | done | drift | 3 scenarios |
+| FR-MEM-004 | done | drift | done | drift | 4 scenarios |
 | FR-MEM-005 | done | drift | drift | drift | No confirmation anywhere yet; 2 scenarios |
 | FR-MEM-006 | n/a | in-progress | done | in-progress | 2 scenarios |
-| FR-MEM-007 | done | in-progress | done | in-progress | 2 scenarios |
+| FR-MEM-007 | done | later | done | in-progress | Website has no reminder settings yet; 2 scenarios |
 | FR-MEM-008 | n/a | n/a | planned | planned | iOS stub (`TD-Memorial-001`); 2 scenarios |
 | FR-MEM-009 | n/a | n/a | planned | n/a | 1 scenario |
 | FR-MEM-010 | n/a | n/a | done | planned | 3 scenarios |
-| FR-MEM-011 | later | later | later | later | Blocked on photo storage (`docs/tech-debt/memorial/TD-001`); 2 scenarios |
+| FR-MEM-011 | later | later | later | later | Blocked on photo storage (`docs/tech-debt/memorial/TD-001`); 3 scenarios |
 | FR-MEM-012 | done | in-progress | done | in-progress | 2 scenarios |
 | FR-MEM-013 | done | in-progress | done | in-progress | 2 scenarios |
 | NFR-MEM-01 | planned | planned | planned | planned | Not measured |
@@ -809,7 +811,7 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 
 | File | Rule | Cases |
 |---|---|---|
-| `rules/next-anniversary.json` | BR-MEM-05, 06, 07, 08, 09 (ordinal) | 16 |
+| `rules/next-anniversary.json` | BR-MEM-05, 06, 07, 08, 09 (ordinal) | 17 |
 | `rules/anniversary-ordinal.json` | BR-MEM-09 (label) | 6 |
 | `rules/death-date-conversion.json` | BR-MEM-03, 04, 10 | 9 |
 
@@ -821,15 +823,7 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 
 #### Open (unconfirmed)
 
-> ⚠️ Not confirmed: a person who died today has a next anniversary of today with ordinal 0 (no
-> label); should the book instead show next year's "Giỗ đầu"? — affects the list and preview on
-> Website, iOS, Android (BR-MEM-09).
-
-> ⚠️ Not confirmed: the website shows and lets the user edit reminder settings but delivers no
-> reminder; is that intended, or should the website hide them? — blocks the website spec for FR-MEM-007.
-
-> ⚠️ Not confirmed: maximum photo size and accepted image types as the user experiences them —
-> blocks FR-MEM-011 on every platform (not needed until photo storage exists).
+None.
 
 #### Open questions (resolved)
 
@@ -845,6 +839,9 @@ note) · `n/a` · `later`. Read on 2026-10-14 from each repo's `main`.
 | Year of death range | 1900 to the current year on every platform (BR-MEM-03) | 2026-10-14 |
 | Portrait | In the spec as planned (FR-MEM-011) | 2026-10-14 |
 | Creating entries from the family tree | Out of scope; owned by `genealogy` | 2026-10-14 |
+| A person who died today: today with no label, or next year's "Giỗ đầu"? | Today, ordinal 0, no label (BR-MEM-09) | 2026-10-14 |
+| Reminder settings on the website | Not shown on the website in this version; added later (§3.6) | 2026-10-14 |
+| Portrait size and types | JPEG, PNG or WebP, at most 5 MB; the apps convert other formats to JPEG (FR-MEM-011) | 2026-10-14 |
 | Calendar authority and "today" | Backend lunar converter is the reference; today is the device's date (BR-MEM-08, BR-MEM-10) | 2026-10-14 |
 
 ### Appendix B — Contract handoff (backend)
@@ -862,4 +859,7 @@ For `spec-writer` (backend) and the contract; the product does not dictate the s
 4. **Leap-month validation with a known year.** The backend currently cannot reject "10/6 nhuận/2026"
    because the client converts before sending; the client rejects it (BR-MEM-04). No server change
    unless the backend starts converting.
-5. **Portrait (FR-MEM-011).** Already designed in the backend spec (deferred, `TD-001`).
+5. **Portrait (FR-MEM-011).** Already designed in the backend spec (deferred, `TD-001`); the product
+   limits (5 MB, JPEG/PNG/WebP) match it.
+6. **Editing without reminder settings (§3.6).** A platform that does not show reminder settings must
+   still send the entry's existing settings when it saves, since an edit replaces the whole entry.

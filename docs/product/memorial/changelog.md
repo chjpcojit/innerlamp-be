@@ -1,5 +1,19 @@
 # Changelog — memorial product spec
 
+## v1.0 — 2026-10-14
+
+- Confirmed: the product owner answered the three open questions; the spec has no open items.
+- Resolved: a death on today's date shows today's anniversary with no label (BR-MEM-09); new case in
+  `rules/next-anniversary.json` (now 17 cases).
+- Changed: the website does not show reminder settings in this version (FR-MEM-007, BR-MEM-11 →
+  Website `later`, new §3.6 row); editing there keeps the settings made in the apps (new FR-MEM-004
+  scenario, Appendix B item 6).
+- Resolved: portrait is JPEG, PNG or WebP, at most 5 MB, apps convert other formats to JPEG
+  (FR-MEM-011, new scenario).
+- Platforms to follow up: Website (hide reminder settings, keep them on save), all platforms start
+  their memorial platform spec from `product.md@1.0` with `spec-writer`.
+- Reason: product owner answers, 2026-10-14.
+
 ## v0.1 — 2026-10-14
 
 - Added: first product spec for the memorial book, written retroactively from the backend spec v2.4,
