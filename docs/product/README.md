@@ -33,6 +33,9 @@ has a short feature code (e.g. `MEM`) used in its IDs: `BR-MEM-01`, `FR-MEM-001`
 
 - `ba-writer` (`.claude/skills/ba-writer/`) writes and updates everything in this folder. It asks the
   open questions first and records anything unanswered as `⚠️ Not confirmed`.
+- When a feature needs a hard-to-reverse architecture decision, it is recorded first as an ADR in
+  `docs/adr/` (`adr-writer`, optional step before `ba-writer`). The product spec cites the ADR by ID;
+  `ba-writer` stops and asks when the ADR is missing.
 - Each platform's spec skill — `il-spec-be` here, `il-spec-web`, `il-spec-ios`, `il-spec-android` in the client repos — then writes the layer-2 spec, starting with this header:
 
   ```markdown

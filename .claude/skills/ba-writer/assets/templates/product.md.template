@@ -12,6 +12,7 @@
 | Status | draft — awaiting confirmation of open questions |
 | Owner / author | {{author}} |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
+| Architecture decisions | {{`ADR-NNNN` from `docs/adr/` this spec depends on, or "none"}} |
 | Downstream | Backend: `docs/specs/features/{{feature-slug}}/` (`il-spec-be`) · Website: `Docs/specs/features/{{feature-slug}}/` · iOS: `Docs/Specs/{{Feature}}/` · Android: `Docs/Specs/{{Feature}}/` |
 
 > See `changelog.md` in this folder for the version history. Platform specs cite this file as
@@ -82,7 +83,7 @@ to §3.6.
 
 ### 2.5 Constraints
 
-- {{Business, legal, religious-content or policy constraints. Not architecture.}}
+- {{Business, legal, religious-content or policy constraints. Not architecture — architecture decisions live in `docs/adr/` and are cited by ID in the header.}}
 
 ### 2.6 User documentation
 
