@@ -1,0 +1,173 @@
+{
+  "rule": [
+    "BR-ONB-04"
+  ],
+  "description": "Validate and normalise a phone number typed with a country chosen from the shared list.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "country": "ISO 3166 code chosen in the country list",
+    "typed": "what the user typed in the number field"
+  },
+  "output": {
+    "valid": "boolean",
+    "number": "E.164 string when valid, null otherwise"
+  },
+  "cases": [
+    {
+      "name": "Vietnamese mobile with leading 0",
+      "input": {
+        "country": "VN",
+        "typed": "0912345678"
+      },
+      "expected": {
+        "valid": true,
+        "number": "+84912345678"
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "Vietnamese mobile without leading 0",
+      "input": {
+        "country": "VN",
+        "typed": "912345678"
+      },
+      "expected": {
+        "valid": true,
+        "number": "+84912345678"
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "spaces are ignored",
+      "input": {
+        "country": "VN",
+        "typed": "0912 345 678"
+      },
+      "expected": {
+        "valid": true,
+        "number": "+84912345678"
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "dots and dashes are ignored",
+      "input": {
+        "country": "VN",
+        "typed": "0912.345-678"
+      },
+      "expected": {
+        "valid": true,
+        "number": "+84912345678"
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "one digit short is invalid",
+      "input": {
+        "country": "VN",
+        "typed": "91234567"
+      },
+      "expected": {
+        "valid": false,
+        "number": null
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "one digit too many is invalid",
+      "input": {
+        "country": "VN",
+        "typed": "09123456789"
+      },
+      "expected": {
+        "valid": false,
+        "number": null
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "only one leading 0 is dropped",
+      "input": {
+        "country": "VN",
+        "typed": "00912345678"
+      },
+      "expected": {
+        "valid": false,
+        "number": null
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "letters are invalid",
+      "input": {
+        "country": "VN",
+        "typed": "0912abc678"
+      },
+      "expected": {
+        "valid": false,
+        "number": null
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "empty is invalid (required)",
+      "input": {
+        "country": "VN",
+        "typed": ""
+      },
+      "expected": {
+        "valid": false,
+        "number": null
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "Singapore has 8 digits",
+      "input": {
+        "country": "SG",
+        "typed": "8123 4567"
+      },
+      "expected": {
+        "valid": true,
+        "number": "+6581234567"
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "United States has 10 digits",
+      "input": {
+        "country": "US",
+        "typed": "202 555 0123"
+      },
+      "expected": {
+        "valid": true,
+        "number": "+12025550123"
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "Germany drops the trunk 0 and keeps 10 digits",
+      "input": {
+        "country": "DE",
+        "typed": "01512345678"
+      },
+      "expected": {
+        "valid": true,
+        "number": "+491512345678"
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    },
+    {
+      "name": "a country outside the list is invalid",
+      "input": {
+        "country": "CN",
+        "typed": "13812345678"
+      },
+      "expected": {
+        "valid": false,
+        "number": null
+      },
+      "source": "BR-ONB-04; country list from iOS ILCountry.swift, confirmed by anh Đức 2026-10-14"
+    }
+  ]
+}
