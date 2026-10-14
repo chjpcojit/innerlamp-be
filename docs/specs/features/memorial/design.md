@@ -1,15 +1,15 @@
 # Design — memorial
 
-Version: 2.4
-Last updated: 2026-10-07
-Status: v1 (5 route CRUD, Step C-1..C-4 và D-1/D-2/D-4) đã implement và kiểm chứng 2026-10-07; **phần ảnh/GCS (⏸ Phase 6) hoãn, nợ ở `docs/tech-debt/memorial/TD-001`**. Còn marker `⚠️ Not confirmed` ở bucket GCS (Step P-2, chỉ chặn Phase 6).
+Version: 3.0
+Last updated: 2026-10-14
+Status: v1 (5 route CRUD, Step C-1..C-4 và D-1/D-2/D-4) đã implement và kiểm chứng 2026-10-07; **phần ảnh/GCS (⏸ Phase 6) hoãn, nợ ở `docs/tech-debt/memorial/TD-001`**. Còn marker `⚠️ Not confirmed` ở bucket GCS (Step P-2, chỉ chặn Phase 6). v3.0: thêm test vector (Phase 7, chưa làm); các flow không đổi.
 Module: `memorial`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
 ## Overview
 
-Bảy route `/v1/memorials/*` (v1 làm **5 route CRUD**; hai route ảnh ⏸ hoãn tới Phase 6) đều **user-scoped**, bọc `authMiddleware.AuthenticateFunc` (`RequireTokenType: "access"`) như `POST /v1/auth/logout`; `user_id` lấy từ context do middleware gắn (`pkg/jwt/context`), không bao giờ từ request. Feature chạm đủ bốn layer của `services/appService` (`domain` → `usecase` → `repository` / `delivery/http`, nối dây ở `cmd/main.go`), sở hữu migration `0018_memorials.sql`, và khi làm phần ảnh sẽ là **feature đầu tiên dùng `pkg/storage` (GCS) thật** — hiện repo chưa có chỗ nào gọi nó. Cho tới Phase 6, v1 **không import `pkg/storage`**, không dựng storage client, và `photo_url` luôn `null`; cột `photo_object_key` vẫn có sẵn (NULL) để Phase 6 khỏi cần migration. Không có logic lịch âm hay lập lịch nhắc ở BE (xem `requirements.md` — Quyết định nền tảng).
+Bảy route `/v1/memorials/*` (v1 làm **5 route CRUD**; hai route ảnh ⏸ hoãn tới Phase 6) đều **user-scoped**, bọc `authMiddleware.AuthenticateFunc` (`RequireTokenType: "access"`) như `POST /v1/auth/logout`; `user_id` lấy từ context do middleware gắn (`pkg/jwt/context`), không bao giờ từ request. Feature chạm đủ bốn layer của `services/appService` (`domain` → `usecase` → `repository` / `delivery/http`, nối dây ở `cmd/main.go`), sở hữu migration `0018_memorials.sql`, và khi làm phần ảnh sẽ là **feature đầu tiên dùng `pkg/storage` (GCS) thật** — hiện repo chưa có chỗ nào gọi nó. Cho tới Phase 6, v1 **không import `pkg/storage`**, không dựng storage client, và `photo_url` luôn `null`; cột `photo_object_key` vẫn có sẵn (NULL) để Phase 6 khỏi cần migration. Không có logic lịch âm hay lập lịch nhắc ở BE lúc chạy (product spec §2.7, xem `requirements.md` — Ràng buộc từ product spec). Phần duy nhất chạm lịch âm là test vector: `domain/lunarcal` là nguồn chuẩn của BR-MEM-10 nên phải chạy `docs/product/memorial/rules/death-date-conversion.json` để vector và bộ chuyển đổi không trôi khỏi nhau.
 
 ## Layers & components
 
@@ -31,6 +31,7 @@ Bảy route `/v1/memorials/*` (v1 làm **5 route CRUD**; hai route ảnh ⏸ ho�
 | Migration | `migrations/0018_memorials.sql` | Bảng `memorials` (bên dưới) + index `idx_memorials_user (user_id, created_at DESC, id DESC)`. |
 | API spec | `docs/specs/api/openapi.yaml` (+ `web/docs/public/openapi.yaml`) | 5 route (v1) + 2 route ảnh khi Phase 6, security Bearer, schema `Memorial`/`MemorialRequest`; cập nhật cùng thay đổi handler. |
 | DB spec | `docs/specs/db/erd.mmd`, `erd.svg` | Thêm bảng `memorials` + quan hệ `users 1—N memorials`. |
+| Product vectors (BR-MEM-03, 04, 10) | `services/appService/domain/lunarcal/memorial_vectors_test.go` | Đọc `docs/product/memorial/rules/death-date-conversion.json` từ repo (đường dẫn tương đối lên gốc repo, không chép file); mỗi case: `input.solar` → `SolarToLunar` so `expected.lunar`; `input.lunar` → `LunarToSolar` so `expected.solar`, hoặc phải trả lỗi khi `expected.valid = false`. Chỉ là test — usecase memorial không gọi `lunarcal`. Lệch vector = hoặc `lunarcal` sai, hoặc vector cần sinh lại qua `ba-writer`; không sửa tay file JSON. |
 
 ### Schema `memorials`
 
@@ -202,3 +203,5 @@ Step D-4 — Trả response
 - 5 route v1 đã được bọc `authMiddleware.AuthenticateFunc` trong `cmd/main.go` và E2E (`e2e/memorial_e2e_test.go`) chứng minh cả 5 trả 401 khi thiếu token, token rác hoặc dùng refresh token. Khi làm Phase 6, hai route ảnh phải được thêm vào đúng bài kiểm tra này.
 - `docs/specs/db/erd.svg` đã được sinh lại từ `erd.mmd` (2026-10-07); lần sau đổi schema phải sinh lại bằng `mmdc`, repo chưa có script cho việc này.
 - Chưa có cơ chế dọn object GCS mồ côi (xem Pending của `requirements.md`).
+- Validation giữ khoảng nhắc rộng hơn product (BR-MEM-11) và không kiểm tháng nhuận / năm âm khi có `death_date` (BR-MEM-04) — cả hai có chủ đích, lý do ở Ghi chú của `requirements.md`; không phải gap cần sửa.
+- `openapi.yaml` chưa mô tả rằng cờ nhuận khôi phục từ `death_date` và `reminder.timezone` là múi giờ máy (product Appendix B mục 1, 3) — follow-up Phase 7.
