@@ -82,7 +82,7 @@ to §3.6.
 
 ### 2.5 Constraints
 
-- {{Business, legal, religious-content or policy constraints. Not architecture.}}
+- {{Business, legal, religious-content or policy constraints. Not architecture — architecture decisions live in `docs/adr/` and are cited by ID in the header.}}
 
 ### 2.6 User documentation
 

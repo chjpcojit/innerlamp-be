@@ -33,6 +33,11 @@ request/response shape and error codes in the contract, implementation in the pl
 
 `docs/product/README.md` describes the layer for humans; read it once.
 
+Above layer 0 sits an **optional** step: architecture decisions that are hard to reverse
+(infrastructure, a new or reshaped data model, offline sync, auth/security) are recorded first as
+ADRs in `docs/adr/NNNN-<slug>.md` by the `adr-writer` skill. This skill cites them by ID
+(`ADR-0003`) and never makes or restates such a decision itself (hard rule 11).
+
 ## Hard rules that override everything else below
 
 1. **One product spec per feature, in this repo only.** Output goes to
@@ -78,6 +83,20 @@ request/response shape and error codes in the contract, implementation in the pl
 10. **Docs only.** Never write code, never create `requirements.md` / `design.md` / `tasks.md` /
     `flow.md` (platform spec writers own those), never touch `docs/knowledge/` (OKF), and never edit
     `docs/specs/api/openapi.yaml`. Contract needs discovered here go to the report as handoff items.
+11. **Architecture decisions are not yours — stop and ask.** If the feature needs a decision that is
+    hard to reverse (infrastructure, a new or reshaped data model, offline sync / conflict
+    resolution, auth / session / permissions, cross-platform data ownership, a technology choice —
+    the gate in `.claude/skills/adr-writer/references/when_to_write_adr.md`) and no **Accepted** ADR
+    in `docs/adr/` covers it, stop before writing the spec and ask the user, in Vietnamese, to pick
+    one:
+    1. *(recommended)* write the ADR first with `adr-writer`, then resume this skill;
+    2. continue now: the spec records the gap as
+       `> ⚠️ Not confirmed: architecture decision pending — <the decision, one sentence> (needs an ADR) — <what it blocks>.`
+       at the affected BR/FR and in Appendix A, and no requirement assumes either outcome;
+    3. the user states it is not an architecture decision (record their answer in §2.7).
+    Never choose an option yourself, never write a "temporary" architecture choice into the spec,
+    and never write the ADR from this skill. A `Proposed` (not yet Accepted) ADR counts as missing:
+    cite it and use option 2's marker unless the user accepts it.
 
 ## Reference map
 
@@ -105,7 +124,7 @@ Sibling repos are usually checked out next to this one (`../innerlamp-website`, 
 
 | Where | What to read |
 |---|---|
-| This repo | `docs/product/<feature>/` (existing product spec → this is an **update**), `docs/specs/features/<feature>/` (incl. legacy `SRS.md`), `docs/specs/api/openapi.yaml`, `docs/assumptions/`, `docs/tech-debt/` |
+| This repo | `docs/adr/` (README index + any ADR touching this feature — Accepted ADRs are constraints), `docs/product/<feature>/` (existing product spec → this is an **update**), `docs/specs/features/<feature>/` (incl. legacy `SRS.md`), `docs/specs/api/openapi.yaml`, `docs/assumptions/`, `docs/tech-debt/` |
 | Website | `Docs/specs/features/<feature>/`, the code under `src/lib/features/` and `src/routes/` when retroactive |
 | iOS | `Docs/Specs/<Feature>/` (incl. legacy `SRS.md`), `Docs/Assumptions/<Feature>/AS-*.md` (decisions made on iOS that may be product decisions) |
 | Android | `Docs/Specs/`, `Docs/*_assumptions.md` |
@@ -137,12 +156,14 @@ cases, technical risks — and specifically for this layer:
   product decision (it changes what the user sees). It must be confirmed and lifted into a `BR-*`.
 - **Parity gap** — a behavior defined for some platforms only, with no statement whether the others
   should have it, or an OS integration with no equivalent on another platform.
+- **Architecture decision without an Accepted ADR** — the feature cannot be specified without a
+  hard-to-reverse technical choice (hard rule 11). This is the most blocking finding: raise it first.
 
 ### 4. Present findings and ask prioritized questions
 
 In chat (Vietnamese): (a) a 3–5 line summary of what you understood, including which platforms are in
-scope; (b) the findings ordered by blocking impact — contradictions and cross-platform disagreements
-first; (c) the questions, batched by category, most blocking first. Do not write until each question
+scope; (b) the findings ordered by blocking impact — a missing ADR (hard rule 11, with its three
+choices) first, then contradictions and cross-platform disagreements; (c) the questions, batched by category, most blocking first. Do not write until each question
 is answered or explicitly skipped (→ `⚠️ Not confirmed`). Use the `question` tool when available,
 otherwise a numbered list.
 
@@ -174,12 +195,15 @@ otherwise a numbered list.
 - Every cross-platform disagreement found in step 3 is either resolved by the user's answer or left
   as `⚠️ Not confirmed` naming the platforms it blocks.
 - Header version and `changelog.md` agree.
+- Every `ADR-NNNN` cited exists in `docs/adr/`; every architecture decision the spec depends on is
+  either an Accepted ADR or an `⚠️ Not confirmed: architecture decision pending …` marker.
 - Nothing outside `docs/product/<feature>/` was changed, except the one-line banner on this repo's
   legacy `SRS.md`.
 
 ### 7. Report and hand off (in Vietnamese)
 
-Tell the user: the file(s) written and version; open `⚠️` items and which platforms they block;
+Tell the user: the file(s) written and version; ADRs cited and any architecture decision still
+pending (with the suggestion to run `adr-writer`); open `⚠️` items and which platforms they block;
 cross-platform disagreements found and how they were settled; contract handoff items for the backend
 (new fields/endpoints/error behavior the product needs); and the next step per platform —
 `spec-writer` in this repo for the backend spec, and each client repo's spec writer for its own

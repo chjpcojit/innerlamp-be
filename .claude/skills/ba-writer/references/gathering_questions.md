@@ -59,6 +59,10 @@ This file defines the categories, the phrasing style, and the "never skip" rule.
 ### 7. Technical feasibility & risk (flag, don't design)
 - Anything costly or risky on some platform (background execution, notifications, offline sync,
   large media) — framed as a scope question.
+- Anything that needs a hard-to-reverse architecture decision (infrastructure, new data model,
+  offline sync, auth) with no Accepted ADR: do not ask the user to pick the design here — ask the
+  three-way question of SKILL.md hard rule 11 (write the ADR with `adr-writer` first / continue with
+  a `⚠️ Not confirmed` / not architectural), and ask it before every other question.
 
 ## The "never skip" rule
 
