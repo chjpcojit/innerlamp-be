@@ -1,9 +1,9 @@
 ---
-name: il-spec-be
+name: spec-writer
 description: This skill should be used when the user wants a written spec (requirements, design, task breakdown, or flow diagram) for an InnerLamp backend feature (the backend platform spec, layer 2 — it starts from the cross-platform product spec `docs/product/<feature>/product.md` written by `ba-writer` and owns the backend side of the API contract `docs/specs/api/openapi.yaml`) — before, during, or retroactively after building it — covering the five-file convention under `docs/specs/features/<feature>/` (requirements.md, design.md, tasks.md, flow.md) plus a changelog.md. It enforces a strict one-way cascade (requirements → design → tasks: a requirement change always updates design, which always updates tasks, never the reverse), EARS-notation acceptance criteria in requirements.md, a mandatory "Step-by-step Flow" section in design.md for any flow with 2+ sequential external calls or persistent side effects (spelling out trigger/pre-condition/call/success-failure per step so hidden steps like a duplicate check, a transaction boundary, or a secondary write are never silently assumed), a matching Mermaid flow diagram in flow.md that mirrors that Step-by-step Flow 1:1 (sequence diagram by default, flowchart only for branching logic like a rate-limit/lock state machine), a header citing the product spec version and the BR-/FR- IDs it implements with every acceptance criterion tagged by ID, version headers + changelog entries on every file for every update, and a hard rule that any unanswered question from the user is recorded inline as "⚠️ Not confirmed" — never skipped, never guessed, never silently defaulted. It is a docs-only skill: it never writes Go code (that is `golang-clean-arch-tdd`'s job) and never writes to `docs/knowledge/` (the separate, post-implementation-only OKF convention, owned by `il-okf-writer`).
 ---
 
-# InnerLamp Backend Spec Writer (`il-spec-be`)
+# InnerLamp Backend Spec Writer (`spec-writer`)
 
 ## Overview
 
@@ -25,8 +25,7 @@ Generates and maintains the five-file spec convention for an InnerLamp backend f
 These files are **layer 2** of InnerLamp's documentation stack. Above them sit the cross-platform
 product spec `docs/product/<feature>/product.md` (layer 0, owned by `ba-writer`) and the API
 contract `docs/specs/api/openapi.yaml` (layer 1, which the backend owns and this skill flags for
-update). The website, iOS and Android repos have their own layer-2 spec skills (`il-spec-web`,
-`il-spec-ios`, `il-spec-android`) that cite the same product spec and this contract. Read
+update). The website, iOS and Android repos have their own layer-2 `spec-writer` skill that cites the same product spec and this contract. Read
 `references/upstream_product_spec.md` once — it is the shared rulebook for all four.
 
 This skill is modeled on the existing `docs/specs/features/onboarding/` and
