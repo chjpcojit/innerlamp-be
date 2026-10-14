@@ -1,5 +1,11 @@
 # Changelog — login product spec
 
+## v1.1 — 2026-10-14
+
+- Resolved (anh Đức): sign-out while offline completes on the device at once (BR-LGN-07).
+- Still open: website return-to-page after sign-in.
+- Platforms to follow up: Website, iOS, Android.
+
 ## v1.0 — 2026-10-14
 
 - First product spec for sign-in, session, sign-out, forgot password and guest mode, retroactive mode.

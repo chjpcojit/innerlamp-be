@@ -1,5 +1,13 @@
 # Changelog — onboarding product spec
 
+## v1.1 — 2026-10-14
+
+- Resolved (anh Đức): skipping the intro counts as seen (BR-ONB-01); a temple proposal needs province and
+  ward from the administrative-unit list, required (BR-ONB-10); one terms text for every client
+  (BR-ONB-11, §3.6, §4.2 now drift on all three clients).
+- Still open: street line of a proposed temple; website redirect for signed-in users.
+- Platforms to follow up: iOS, Android (skip), all clients (terms source, temple proposal).
+
 ## v1.0 — 2026-10-14
 
 - First product spec for the first-run experience and registration, retroactive mode. Replaces the

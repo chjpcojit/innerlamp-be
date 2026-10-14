@@ -7,9 +7,9 @@
 | Feature code | `LGN` — IDs are `BR-LGN-NN`, `FR-LGN-NNN`, `NFR-LGN-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.0 |
+| Version | 1.1 |
 | Last updated | 2026-10-14 |
-| Status | draft — 2 small open items (Appendix A) |
+| Status | draft — 1 small open item (Appendix A) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0003 (accounts are identified by email and verified by an email code; SMS removed) — Accepted 2026-10-14 |
@@ -243,11 +243,13 @@ not change).
 **BR-LGN-07 — Sign-out**
 - **Rule:** Sign-out asks for confirmation, ends the session of this device only, and removes this
   account's data kept on this device. Other devices stay signed in. Device-level settings that are not
-  tied to the account (such as "intro seen", BR-ONB-01) stay.
-  > ⚠️ Not confirmed: when the device cannot reach InnerLamp while signing out, does sign-out still complete on the device? Recommended: yes, the device forgets the session at once and the server session simply expires — Website, iOS, Android.
+  tied to the account (such as "intro seen", BR-ONB-01) stay. When the device cannot reach InnerLamp,
+  sign-out still completes on the device at once; the session on the server then simply expires
+  (BR-LGN-03).
 - **Computational:** no.
 - **Applies to:** Backend, Website, iOS, Android.
-- **Source:** backend `login/SRS.md` FR-001…FR-005; iOS AS-Profile-003.
+- **Source:** backend `login/SRS.md` FR-001…FR-005; iOS AS-Profile-003; anh Đức 2026-10-14 (offline
+  sign-out: "có").
 
 ### 3.3 Functional requirements
 
@@ -537,7 +539,7 @@ sign-in, the lock, sessions, sign-out and reset; the new-password check runs
 | BR-LGN-04 | n/a | drift | drift | planned | Silent today |
 | BR-LGN-05 | planned | planned | drift | planned | Not built; iOS screen is a phone/SMS stub |
 | BR-LGN-06 | n/a | done | done | drift | Android enters Home as signed in |
-| BR-LGN-07 | done | done | done | planned | Offline sign-out open |
+| BR-LGN-07 | done | done | done | planned | Offline case to check per client |
 | FR-LGN-001 | drift | drift | drift | planned | 2 scenarios |
 | FR-LGN-002 | drift | drift | drift | planned | 1 scenario; message says "Số điện thoại" today |
 | FR-LGN-003 | drift | drift | done | planned | 2 scenarios |
@@ -566,8 +568,6 @@ sign-in, the lock, sessions, sign-out and reset; the new-password check runs
 
 #### Open (unconfirmed)
 
-> ⚠️ Not confirmed: when the device cannot reach InnerLamp while signing out, does sign-out still complete on the device? Recommended: yes — Website, iOS, Android (BR-LGN-07).
-
 > ⚠️ Not confirmed: after signing in on the website, does the user return to the page they were on? Recommended: yes — Website (FR-LGN-007).
 
 #### Open questions (resolved)
@@ -575,6 +575,7 @@ sign-in, the lock, sessions, sign-out and reset; the new-password check runs
 | Question | Resolution | Date |
 |---|---|---|
 | Sign-in identifier? | Email + password (ADR-0003) | 2026-10-14 |
+| Sign-out while offline? | Completes on the device at once; the server session expires | 2026-10-14 |
 | One-time-code sign-in button? | Removed | 2026-10-14 |
 | Sign-in lock? | 5 wrong in a row → 15 minutes per email; show the unlock time | 2026-10-14 |
 | Session ended: silent or explained? | Explained with "Phiên đăng nhập đã hết" | 2026-10-14 |

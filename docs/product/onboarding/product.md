@@ -7,9 +7,9 @@
 | Feature code | `ONB` — IDs are `BR-ONB-NN`, `FR-ONB-NNN`, `NFR-ONB-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.0 |
+| Version | 1.1 |
 | Last updated | 2026-10-14 |
-| Status | draft — 4 small open items (Appendix A) |
+| Status | draft — 2 small open items (Appendix A) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0003 (accounts are identified by email and verified by an email code; SMS removed) — Accepted 2026-10-14 |
@@ -159,7 +159,7 @@ N/A — the screens explain themselves; the terms and privacy policy are separat
 | Intro step 2 — "Bạn mong cầu điều gì?" | iOS, Android | 6 choices, several may be selected; "Tiếp tục"; "Quay lại"; "Bỏ qua" |
 | Intro step 3 — "Chuông tỉnh thức" | iOS, Android | 3 bell times (05:30, 12:00, 21:30), each on/off; "Tạo tài khoản"; "Quay lại" |
 | Registration form — "Tạo tài khoản" | all clients | Fields in this order: full name, dharma name (with "Gợi ý"), ordination temple, phone (with country), email, password (with strength hint), terms acceptance; "Đăng ký"; link to sign in |
-| Temple proposal | all clients | Temple name, province, ward, address (rules in `temple-suggestion`) |
+| Temple proposal | all clients | Temple name; province and ward picked from the administrative-unit list; street line |
 | Verification code | all clients | The email address the code went to; 6-digit entry; time left; "Gửi lại mã" after the wait; "Đổi email" back to the form |
 
 The email field explains that it is used to sign in and to receive the verification code. The old
@@ -187,13 +187,14 @@ Vietnamese and never contain the password.
 **BR-ONB-01 — Intro screens once per installation**
 - **Rule:** The intro screens are shown on the first launch after the app is installed. Reaching their
   end ("Tạo tài khoản" or "Tôi đã có tài khoản") records on the device that the intro has been seen;
-  from then on the intro is not shown again on that installation. The record lives only on the device
-  and is not tied to an account; reinstalling the app shows the intro again.
-  > ⚠️ Not confirmed: does "Bỏ qua" (skip) also count as having seen the intro? Recommended: yes — iOS, Android.
-- **Examples:** first launch → intro. Intro finished, app reopened → no intro. App reinstalled → intro.
+  from then on the intro is not shown again on that installation. "Bỏ qua" (skip) counts as having seen
+  it too. The record lives only on the device and is not tied to an account; reinstalling the app shows
+  the intro again.
+- **Examples:** first launch → intro. Intro finished, app reopened → no intro. Intro skipped, app
+  reopened → no intro. App reinstalled → intro.
 - **Computational:** no.
 - **Applies to:** iOS, Android.
-- **Source:** anh Đức, 2026-10-14 ("ghi 1 cờ nhớ ở client là đã xem").
+- **Source:** anh Đức, 2026-10-14 ("ghi 1 cờ nhớ ở client là đã xem"; skip counts: "ok").
 
 **BR-ONB-02 — Launch routing on the apps**
 - **Rule:** After the splash: a signed-in user goes to Home; otherwise, if the intro has not been seen
@@ -309,20 +310,23 @@ Vietnamese and never contain the password.
 - **Rule:** Optional. The user picks one temple from InnerLamp's temple list (searchable by name), or
   "Chưa xuất gia — Cư sĩ tu tại gia" for none. If the temple is not in the list, the user may propose
   it; the proposal is sent only after the account is created and is reviewed under `temple-suggestion`.
-  A proposed temple is not the user's ordination temple until it is approved.
-  > ⚠️ Not confirmed: is the address of a proposed temple required (website today) or optional (iOS today)? Recommended: follow `temple-suggestion`, which is not rewritten yet — Website, iOS, Android.
+  A proposed temple is not the user's ordination temple until it is approved. A proposal needs the
+  temple name and its province and ward, both **required** and chosen from InnerLamp's list of
+  Vietnamese administrative units (the same list used across the product), never typed freely.
+  > ⚠️ Not confirmed: is the street line (số nhà, tên đường) of a proposed temple required or optional? Recommended: optional — Website, iOS, Android.
 - **Computational:** no.
 - **Applies to:** Backend, Website, iOS, Android.
 - **Source:** backend v7.0 (temple chosen from the list); project decision 2026-10-14 ("đạo tràng" =
-  ordination temple, a single field). iOS never sends the proposal and Android takes free text (drift).
+  ordination temple, a single field); anh Đức 2026-10-14 (province and ward from the administrative-unit
+  list, required). iOS never sends the proposal and Android takes free text (drift).
 
 **BR-ONB-11 — Terms acceptance**
 - **Rule:** The user must accept the terms of use and the privacy policy before submitting. The
-  submit button stays unavailable until they do.
-  > ⚠️ Not confirmed: must every client show the same terms text from one source, or may each keep its own copy (iOS in-app sheet, website pages, Android static text)? Recommended: one text, each client shows it its own way (§3.6) — Website, iOS, Android.
+  submit button stays unavailable until they do. Every client shows the **same** terms text from one
+  source; how it is shown (in-app sheet, web page) is up to each platform (§3.6).
 - **Computational:** no.
 - **Applies to:** Website, iOS, Android.
-- **Source:** current behavior on all three clients.
+- **Source:** current behavior on all three clients; anh Đức 2026-10-14 (one text: "có").
 
 ### 3.3 Functional requirements
 
@@ -621,7 +625,7 @@ Vietnamese and never contain the password.
 |---|---|---|---|
 | FR-ONB-001, FR-ONB-002, BR-ONB-01…03 | iOS, Android only | Splash, intro screens and launch routing | The website has no install and lands on its home page |
 | BR-ONB-06 | each client | How the strength hint looks and its levels | Advice only, never blocks |
-| BR-ONB-11 | each client | How the terms are shown (in-app sheet, web pages, static screen) | Platform convention; pending Appendix A |
+| BR-ONB-11 | each client | How the one terms text is shown (in-app sheet, web pages) | Platform convention |
 | FR-ONB-007 | Website | After verification the user lands on the website home page | The website has no Home tab |
 
 ### 3.7 Software system attributes
@@ -650,7 +654,7 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 
 | ID | Backend | Website | iOS | Android | Note |
 |---|---|---|---|---|---|
-| BR-ONB-01 | n/a | n/a | drift | drift | iOS records completion; skip handling open; Android keeps nothing |
+| BR-ONB-01 | n/a | n/a | drift | drift | iOS records completion; Android keeps nothing |
 | BR-ONB-02 | n/a | n/a | drift | drift | iOS → registration, Android → intro today |
 | BR-ONB-03 | n/a | n/a | done | done | Android keeps choices in memory only |
 | BR-ONB-04 | drift | drift | done | drift | Backend accepts any valid number; website 9–10 digits, China listed |
@@ -660,7 +664,7 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 | BR-ONB-08 | drift | drift | drift | planned | Verification by SMS today; email-taken answered openly |
 | BR-ONB-09 | drift | done | done | planned | Backend validity 90 s, fixed code |
 | BR-ONB-10 | done | done | drift | drift | iOS never sends the proposal; Android free text |
-| BR-ONB-11 | n/a | done | done | done | Text source open |
+| BR-ONB-11 | n/a | drift | drift | drift | Three separate texts today (iOS sheet, web pages, Android static) |
 | FR-ONB-001 | n/a | n/a | done | done | 4 scenarios |
 | FR-ONB-002 | n/a | n/a | drift | drift | 3 scenarios |
 | FR-ONB-003 | drift | drift | drift | planned | 5 scenarios; email code instead of SMS |
@@ -692,18 +696,17 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 
 #### Open (unconfirmed)
 
-> ⚠️ Not confirmed: does "Bỏ qua" (skip) on the intro also count as having seen it? Recommended: yes — iOS, Android (BR-ONB-01).
-
-> ⚠️ Not confirmed: is the address of a proposed temple required or optional? Recommended: follow `temple-suggestion` — Website, iOS, Android (BR-ONB-10).
-
-> ⚠️ Not confirmed: one terms text for every client, or a copy per client? Recommended: one text, shown each client's own way — Website, iOS, Android (BR-ONB-11).
-
 > ⚠️ Not confirmed: on the website, does a signed-in user who opens the registration page go to the home page? Recommended: yes — Website (§3.6).
+
+> ⚠️ Not confirmed: is the street line of a proposed temple required or optional? Recommended: optional — Website, iOS, Android (BR-ONB-10).
 
 #### Open questions (resolved)
 
 | Question | Resolution | Date |
 |---|---|---|
+| Does skipping the intro count as seen? | Yes | 2026-10-14 |
+| Address of a proposed temple? | Province and ward from the administrative-unit list, required | 2026-10-14 |
+| One terms text for every client? | Yes, shown each platform's way | 2026-10-14 |
 | How is the account proven without SMS? | Email code; phone kept, required, unique, unverified (ADR-0003) | 2026-10-14 |
 | One spec or two? | Two: `onboarding` and `login` | 2026-10-14 |
 | Intro choices: device or account? | Device only | 2026-10-14 |
