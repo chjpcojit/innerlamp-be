@@ -1,31 +1,27 @@
-# Handoff — 2026-10-14 20:32
+# Handoff — 2026-10-14 20:50
 <!-- tự sinh khi kết thúc phiên 36af07db bằng claude-haiku-4-5-20251001; /handoff để ghi bản chất lượng cao hơn -->
 
 ## Đang làm dở
-- erd.svg regenerate (blocked: mmdc tool not available on machine)
-- OKF concept for temple-announcement (awaiting user/code review sign-off)
+_(không có)_
 
 ## Việc tiếp theo
-1. Confirm temple-announcement code review & write OKF concept
-2. Fix E2E administrative-units fail (root cause TBD)
-3. Fix E2E dharma-talk + 4 parallel test DB state/transaction issues
+1. Regenerate erd.svg (cần tool mmdc hoặc giải pháp thay thế)
+2. Write OKF concept cho temple-announcement packages (chờ user code review confirm)
+3. Fix E2E administrative-units FAIL (root cause chưa xác định)
 
 ## Tồn đọng / blocker
-- erd.svg: mmdc tool not available, cannot regenerate mermaid diagram
-- OKF concept pending user code review confirm for temple-announcement
-- E2E administrative-units FAIL (root cause TBD)
-- E2E dharma-talk FAIL (root cause TBD)
-- E2E 4 parallel test FAIL (DB state/transaction issues)
-- Shared file conflicts: config.go/main.go/errors.go block temple-suggestion & genealogy
+- erd.svg: mmdc tool không có trên machine, không thể regenerate mermaid diagram
+- OKF concept: chờ user confirm code review trước khi viết concept
+- E2E administrative-units: FAIL, root cause chưa rõ
+- E2E dharma-talk: FAIL, root cause chưa rõ
+- E2E 4 parallel tests: FAIL do DB state/transaction issues
+- Shared files (config.go, main.go, errors.go) block temple-suggestion & genealogy
 
 ## Quyết định gần đây
-- temple-announcement: body_max_chars=5000 (spec không định), page_size max 50(app)/100(backoffice)
-- temple-announcement: page_size vượt max hạ, không error; ban phát hành null/dài → 400 VALIDATION_ERROR
-- temple-announcement: content_editor role đăng thông báo như admin; phân trang page+page_size+total
-- temple-announcement: rate limit 60 req/window:1m, 429 RATE_LIMITED; p95<500ms với 200 thông báo
-- User auth: Bearer only, 401 UNAUTHORIZED; Rate limit /v1/users/me*: 10 req/phút/account
-- Ordination temple: PATCH /v1/users/me {ordination_temple_id}, null=delete, 10 req/phút
-- Practice schedule: GET /v1/temples/{id}/schedule, weekday 0=Sun…6=Sat, [] means daily
+- body_max_chars=5000 (spec không định), page_size max 50 app/100 backoffice, dev 20
+- Issuing body name rỗng/quá dài → 400 VALIDATION_ERROR, page_size vượt max hạ không error
+- content_editor role post thông báo như admin, rate limit 60 req/1min, p95<500ms
+- Temple-announcement không commit chưa, chờ code review confirm & OKF concept
 
 ## Nợ tài liệu (tự động)
 Code đã đổi nhưng chưa có concept OKF nào trỏ tới (dùng skill `il-okf-writer` sau khi code đã kiểm chứng):
