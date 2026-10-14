@@ -60,12 +60,12 @@ appear on at least one criterion; a missing one is a gap to report, not to paper
 
 ## What the platform spec may and may not say
 
-| Platform spec may | Platform spec must not |
-|---|---|
-| Cite a `BR-*` and say how this platform implements it | Restate or reword a business rule's outcome |
+| Platform spec may                                                          | Platform spec must not                                                                        |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Cite a `BR-*` and say how this platform implements it                      | Restate or reword a business rule's outcome                                                   |
 | Describe screens, components, layers, storage, caching, error → UI mapping | Decide a product question (scope, a rule's edge case, what the user sees in a business sense) |
-| Cite contract operations by method + path and link `openapi.yaml` | Copy request/response schemas or the error-code list from `openapi.yaml` |
-| Add `(platform)` criteria for platform-only behavior | Add behavior that contradicts a product `FR-*` or §3.6 |
+| Cite contract operations by method + path and link `openapi.yaml`          | Copy request/response schemas or the error-code list from `openapi.yaml`                      |
+| Add `(platform)` criteria for platform-only behavior                       | Add behavior that contradicts a product `FR-*` or §3.6                                        |
 
 ## When the product spec is wrong, missing or ambiguous
 
