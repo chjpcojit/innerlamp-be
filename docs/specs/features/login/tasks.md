@@ -1,6 +1,6 @@
 # Tasks — login
 
-Version: 2.1
+Version: 2.2
 Last updated: 2026-10-14
 Status: v2.0 chưa bắt đầu — mọi task `[ ]`. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
 Module: `identity` (spec folder `login`)
@@ -42,7 +42,8 @@ Mỗi item trace về một dòng trong bảng "Layers & components" hoặc mộ
 
 - [ ] Migration `0037` bước 7: bảng `auth_rate_limits`.
 - [ ] `postgres_rate_limit_store.go` (`Hit`) + test đồng thời trên Postgres thật.
-- [ ] `delivery/http/auth_rate_limit.go` + test (IP theo `trust_forwarded_for`, `429` + `retry_after_seconds`).
+- [ ] `delivery/http/auth_rate_limit.go` + test (IP theo AC34, `429` + `retry_after_seconds`).
+- [ ] `RequireWebAPIKey` gắn cờ "key hợp lệ" vào context; `clientIPFor` + test: key hợp lệ + `X-InnerLamp-Client-IP` hợp lệ → dùng header; không có key → bỏ qua header; giá trị sai → rơi về XFF/kết nối. `clientIP` của `login_handler.go` (metadata thiết bị) dùng cùng hàm (AC34).
 - [ ] `repository/budgeted_mailer.go` + test (vượt `mailer.daily_budget` → `ErrRateLimited`).
 - [ ] Config `auth_rate_limit.*`, `mailer.daily_budget`, `password_reset.min_response_time` + `Validate()`.
 - [ ] Bọc các route `/v1/auth/*` theo nhóm `send` / `verify` / `login` / `refresh` (AC31).

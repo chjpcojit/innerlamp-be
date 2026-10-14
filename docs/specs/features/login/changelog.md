@@ -4,6 +4,17 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 folder. All four files share one changelog since they change together as one spec unit. Newest
 version first.
 
+## v2.2 (2026-10-14)
+
+Giới hạn tần suất theo IP của khách website (website gọi backend từ server SvelteKit, nên trước đây mọi khách web chung một IP).
+
+- `requirements.md`: AC34 viết lại — thứ tự lấy IP khách: `X-InnerLamp-Client-IP` khi `X-API-Key` hợp lệ → `X-Forwarded-For` (trusted proxy) → kết nối; cùng IP cho metadata thiết bị của phiên. Thêm vào Open questions (resolved).
+- `design.md`: dòng `auth_rate_limit.go` nêu `clientIPFor` và thứ tự middleware (sau `RequireWebAPIKey`).
+- `flow.md`: không đổi nội dung (không có bước mới), chỉ bump version.
+- `tasks.md`: thêm task `clientIPFor` + test, vẫn `[ ]`.
+- Hand-offs: website login v2.0 AC19 gửi `X-InnerLamp-Client-IP`. `openapi.yaml`: thêm header này khi handler chạy thật.
+- Reason: rà spec website (2026-10-14), anh Đức đồng ý.
+
 ## v2.1 (2026-10-14)
 
 Chốt câu hỏi product còn mở: đặt lại mật khẩu thành công thì **gỡ khoá đăng nhập** của email đó.

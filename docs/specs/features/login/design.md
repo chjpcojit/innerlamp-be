@@ -1,6 +1,6 @@
 # Design — login
 
-Version: 2.1
+Version: 2.2
 Last updated: 2026-10-14
 Status: prospective (v2.0) — đăng nhập bằng email, quên mật khẩu, giới hạn tần suất, kiểm phiên còn sống; chưa có code. Phiên/refresh/logout của v1.13 giữ nguyên.
 Module: `identity`
@@ -29,7 +29,7 @@ middleware kiểm phiên còn sống cho mọi route Bearer. Migration dùng chu
 | Repository | `services/appService/repository/postgres_password_reset_repository.go` | `ResetPassword` trong một transaction: UPDATE `users.password_hash` → `otp_codes.used_at` → revoke mọi session. | mới |
 | Repository | `services/appService/repository/postgres_rate_limit_store.go` | `Hit(ctx, bucket, window) (count int, windowEnd time.Time, error)` trên `auth_rate_limits`. | mới |
 | Repository / Mailer | `services/appService/repository/budgeted_mailer.go` | Decorator quanh `pkg/mailer.Mailer`: `Hit("mail:daily", 24h)` trước mỗi thư; vượt `mailer.daily_budget` → `ErrRateLimited`. | mới |
-| Delivery | `services/appService/delivery/http/auth_rate_limit.go` | Middleware `authRateLimit(group)` dùng `postgres_rate_limit_store`; IP theo AC34. | mới |
+| Delivery | `services/appService/delivery/http/auth_rate_limit.go` | Middleware `authRateLimit(group)` dùng `postgres_rate_limit_store`; IP từ `clientIPFor(r, webKeyOK, trustXFF)` theo AC34: chạy sau `RequireWebAPIKey`, đọc cờ "key hợp lệ" từ context mà middleware đó gắn vào. | mới |
 | Delivery | `services/appService/delivery/http/active_session.go` | Middleware sau `authMiddleware`: đọc `user_id` + `sid` từ claims, `IsSessionActive`; không còn → `401 UNAUTHORIZED`; lỗi DB → `503`. | mới |
 | Delivery | `services/appService/delivery/http/login_handler.go` | DTO `email`; thông điệp "Email hoặc mật khẩu không đúng". | sửa |
 | Delivery | `services/appService/delivery/http/password_reset_handler.go` | Hai route US-003; `no-store`. | mới |
