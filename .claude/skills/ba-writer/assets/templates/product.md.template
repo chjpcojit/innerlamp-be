@@ -1,0 +1,223 @@
+# Product Spec — {{Feature name}}
+
+| Field | Value |
+|---|---|
+| Document type | Product spec — Software Requirements Specification, IEEE 29148-2018 structure |
+| Feature | {{Feature name}} (`{{feature-slug}}`) |
+| Feature code | `{{CODE}}` — IDs are `BR-{{CODE}}-NN`, `FR-{{CODE}}-NNN`, `NFR-{{CODE}}-NN` |
+| Product | InnerLamp |
+| Platforms in scope | {{Backend, Website, iOS, Android — strike or mark "later" for any not in scope}} |
+| Version | 0.1 (draft) |
+| Last updated | {{YYYY-MM-DD}} |
+| Status | draft — awaiting confirmation of open questions |
+| Owner / author | {{author}} |
+| API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
+| Downstream | Backend: `docs/specs/features/{{feature-slug}}/` (`il-spec-writer`) · Website: `Docs/specs/features/{{feature-slug}}/` · iOS: `Docs/Specs/{{Feature}}/` · Android: `Docs/Specs/{{Feature}}/` |
+
+> See `changelog.md` in this folder for the version history. Platform specs cite this file as
+> `docs/product/{{feature-slug}}/product.md@<version>` plus the IDs they implement.
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+
+{{One or two sentences: what this document is, who it is for, and that it is the single source of
+product truth for {{Feature name}} on every platform.}}
+
+### 1.2 Scope
+
+**In scope:** {{what the feature does, from the user's point of view.}}
+
+**Out of scope:** {{what it explicitly does not do — including things deferred to a later version.}}
+
+### 1.3 Product overview
+
+{{A short, non-technical description of InnerLamp and where this feature sits in it.}}
+
+### 1.4 Glossary
+
+| Term | Definition | Not to be confused with |
+|---|---|---|
+| {{Term (original language + English gloss)}} | {{Definition}} | {{nearby term, or —}} |
+
+### 1.5 References
+
+- Design prototype: {{file + screen names; note which copy of `Mo-ta-tinh-nang.md` was used}}
+- Prior documents: {{legacy SRS / BRD / notes, with paths}}
+- Platform folder names: Backend `{{…}}` · Website `{{…}}` · iOS `{{…}}` · Android `{{…}}`
+
+---
+
+## 2. Overall description
+
+### 2.1 Product perspective
+
+{{New feature, enhancement or replacement? Which other InnerLamp features does it touch? Which
+external systems (SMS, maps, OS calendars…) does the product rely on — named by role, not by vendor
+SDK?}}
+
+### 2.2 Product functions
+
+- {{Major function}} (`FR-{{CODE}}-0xx`)
+
+### 2.3 User classes and characteristics
+
+| Actor | Description | Permissions |
+|---|---|---|
+| {{Guest / signed-in user / temple admin / …}} | {{…}} | {{…}} |
+
+### 2.4 Operating environment
+
+| Platform | In scope | Notes |
+|---|---|---|
+| Backend | {{yes / no}} | {{what the server is responsible for in this feature}} |
+| Website | {{yes / later / no}} | {{…}} |
+| iOS | {{yes / later / no}} | {{…}} |
+| Android | {{yes / later / no}} | {{…}} |
+
+Network expectation: {{online only / readable offline / fully offline}} — per platform differences go
+to §3.6.
+
+### 2.5 Constraints
+
+- {{Business, legal, religious-content or policy constraints. Not architecture.}}
+
+### 2.6 User documentation
+
+{{Required help content, or N/A with a one-line reason.}}
+
+### 2.7 Assumptions and dependencies
+
+- **Assumptions:** {{explicit assumptions this spec relies on}}
+- **Dependencies:** {{other InnerLamp features / external services this feature needs}}
+
+---
+
+## 3. Specific requirements
+
+### 3.1 External interface requirements
+
+#### 3.1.1 User interfaces
+{{The user-facing surfaces at product level: which views exist, what each must show, how the user
+moves between them. No layout pixels, no control ids — design lives in the prototype.}}
+
+#### 3.1.2 Hardware interfaces
+{{N/A — or the device capability needed (camera, notifications, location), by role.}}
+
+#### 3.1.3 Software interfaces
+{{The capabilities the product needs from the backend, in plain words ("store a user's memorial
+entries privately", "list temples near a location"). The contract itself is
+`docs/specs/api/openapi.yaml`. Mark "contract not yet confirmed" if the backend has none yet.}}
+
+#### 3.1.4 Communication interfaces
+{{N/A unless the feature adds a channel the user notices (SMS, email, push).}}
+
+### 3.2 Business rules
+
+**BR-{{CODE}}-01 — {{short name}}**
+- **Rule:** {{one decision, stated so that two engineers on two platforms implement it identically.}}
+- **Examples:** {{2–4 concrete input → outcome pairs, including the edge cases.}}
+- **Computational:** {{no / yes → `rules/{{rule-slug}}.json`}}
+- **Applies to:** {{Backend, Website, iOS, Android}}
+- **Source:** {{user decision + date / document / prototype}}
+
+### 3.3 Functional requirements
+
+#### {{Feature area / actor}}
+
+**FR-{{CODE}}-001 — {{short name}}**
+- **Priority:** Must / Should / Could
+- **Platforms:** {{Backend, Website, iOS, Android}}
+- **Description:** WHEN {{trigger}} THE SYSTEM SHALL {{user-observable behavior}}.
+- **Business rules:** {{BR-{{CODE}}-01, …}}
+- **Verification method:** {{automated test on each platform / shared test vectors / manual QA}}
+- **Source:** {{…}}
+- **Acceptance criteria:**
+  ```gherkin
+  Scenario: {{happy path}}
+    Given {{precondition}}
+    When {{action}}
+    Then {{observable outcome}}
+
+  Scenario: {{edge case or failure}}
+    Given {{precondition}}
+    When {{action}}
+    Then {{observable outcome}}
+  ```
+
+### 3.4 Non-functional requirements
+
+- **NFR-{{CODE}}-01 — {{short name}}:** {{quantified target, user-perceived (e.g. "the list appears
+  within 2 s on a 4G connection")}}. Platforms: {{…}}.
+
+### 3.5 Data requirements
+
+| Data item | Meaning | Owned by | Retention / deletion | Private or public |
+|---|---|---|---|---|
+| {{e.g. date of death}} | {{…}} | {{user's account on the server / this device only}} | {{…}} | {{…}} |
+
+{{Conceptual only — no tables, columns or storage engines.}}
+
+### 3.6 Platform variance
+
+Intentional differences between platforms. Anything not listed here must behave identically.
+
+| ID | Platforms | Difference | Reason |
+|---|---|---|---|
+| {{FR/BR id}} | {{iOS only}} | {{e.g. "also adds the reminder to the OS reminders app"}} | {{…}} |
+
+### 3.7 Software system attributes
+
+- **Reliability:** {{…}}
+- **Availability:** {{behavior when the backend is unreachable}}
+- **Security & privacy:** {{personal data involved, who may see it, what must never leave the user's
+  account}}
+- **Maintainability / portability:** {{N/A or product-level expectations}}
+
+---
+
+## 4. Verification & traceability
+
+### 4.1 Verification approach
+
+{{How each requirement is verified; computational rules are verified by running
+`rules/*.json` on every platform that implements them.}}
+
+### 4.2 Traceability matrix
+
+Status per platform: `planned` · `in-progress` · `done` · `drift` (implemented differently — see
+note) · `n/a` · `later`.
+
+| ID | Backend | Website | iOS | Android | Note |
+|---|---|---|---|---|---|
+| BR-{{CODE}}-01 | {{status}} | {{status}} | {{status}} | {{status}} | {{…}} |
+| FR-{{CODE}}-001 | {{status}} | {{status}} | {{status}} | {{status}} | {{n}} scenarios |
+
+### 4.3 Test vectors
+
+| File | Rule | Cases |
+|---|---|---|
+| `rules/{{rule-slug}}.json` | BR-{{CODE}}-01 | {{n}} |
+
+---
+
+## 5. Appendices
+
+### Appendix A — Open questions
+
+#### Open (unconfirmed)
+
+> ⚠️ Not confirmed: {{question, one sentence}} — {{what it blocks / which platforms}}.
+
+#### Open questions (resolved)
+
+| Question | Resolution | Date |
+|---|---|---|
+| {{question}} | {{resolution}} | {{date}} |
+
+### Appendix B — Contract handoff (backend)
+
+{{What the backend contract must provide for this spec, in plain words, so `il-spec-writer` can
+design it. Remove the appendix once the contract exists and covers it.}}
