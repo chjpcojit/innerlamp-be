@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| Status | Proposed |
+| Status | Accepted |
 | Date | 2026-10-14 |
 | Deciders | anh Đức (decides) · Claude (`adr-writer`, proposes) |
 | Features | cross-cutting — first user: `memorial` (reminders, ADR-0002); later temple announcements/events |
@@ -141,7 +141,7 @@ lock-in.
 
 ## Decision
 
-**Recommended:** Option A — Postgres inbox as the single source of truth on all three platforms, push
+**Decided:** Option A — Postgres inbox as the single source of truth on all three platforms, push
 sent directly through FCM HTTP v1 for iOS and Android, because it meets every requirement with the
 fewest new parts and can move to a queue later without touching clients.
 
@@ -183,3 +183,4 @@ None.
 
 - 2026-10-14 — Proposed by Claude (`adr-writer`).
 - 2026-10-14 — Open questions answered by anh Đức ("đồng ý" to both recommendations); merged as Proposed (be#8).
+- 2026-10-14 — Accepted by anh Đức: "1. đồng ý" in reply to "Xác nhận 2 ADR là Accepted".

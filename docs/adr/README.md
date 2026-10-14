@@ -34,5 +34,5 @@ Accepted ADR yet.
 
 | ID | Title | Status | Date | Features |
 |---|---|---|---|---|
-| [ADR-0001](0001-in-app-notifications-and-push.md) | In-app notifications on every platform, push via FCM on iOS and Android | Proposed | 2026-10-14 | cross-cutting (`memorial` first) |
-| [ADR-0002](0002-server-side-memorial-reminders.md) | The backend computes and sends memorial reminders on an hourly schedule | Proposed | 2026-10-14 | `memorial` |
+| [ADR-0001](0001-in-app-notifications-and-push.md) | In-app notifications on every platform, push via FCM on iOS and Android | Accepted | 2026-10-14 | cross-cutting (`memorial` first) |
+| [ADR-0002](0002-server-side-memorial-reminders.md) | The backend computes and sends memorial reminders on an hourly schedule | Accepted | 2026-10-14 | `memorial` |

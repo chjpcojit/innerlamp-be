@@ -1,0 +1,315 @@
+{
+  "rule": [
+    "BR-MEM-05",
+    "BR-MEM-06",
+    "BR-MEM-07",
+    "BR-MEM-08",
+    "BR-MEM-09"
+  ],
+  "description": "Next anniversary (as a solar date), days left and ordinal for a memorial entry, given today's date on the device.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "today": "solar date YYYY-MM-DD (the device's date)",
+    "calendar": "lunar | solar (the calendar the date of death was entered in)",
+    "day": "1-30 (lunar) or 1-31 (solar)",
+    "month": "1-12",
+    "leap_month": "boolean, lunar only: the person died in the leap month",
+    "death_year": "year of death in the entry's calendar (lunar year for a lunar entry), or null when unknown"
+  },
+  "output": {
+    "next_date": "solar date YYYY-MM-DD of the next anniversary, on or after today",
+    "days_left": "integer >= 0",
+    "ordinal": "next anniversary year minus death year, both in the entry's calendar; null when the year is unknown"
+  },
+  "cases": [
+    {
+      "name": "lunar entry, anniversary later this lunar year",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "lunar",
+        "day": 15,
+        "month": 10,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2026-11-23",
+        "days_left": 40,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar entry with known year: first anniversary",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "lunar",
+        "day": 15,
+        "month": 10,
+        "leap_month": false,
+        "death_year": 2025
+      },
+      "expected": {
+        "next_date": "2026-11-23",
+        "days_left": 40,
+        "ordinal": 1
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar day 30 in a 29-day month falls on day 29 (BR-MEM-06)",
+      "input": {
+        "today": "2026-08-01",
+        "calendar": "lunar",
+        "day": 30,
+        "month": 7,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2026-09-10",
+        "days_left": 40,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar day 30 in a 30-day month stays day 30 (BR-MEM-06)",
+      "input": {
+        "today": "2026-10-01",
+        "calendar": "lunar",
+        "day": 30,
+        "month": 9,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2026-11-08",
+        "days_left": 38,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar month 12 before Tet belongs to the previous lunar year",
+      "input": {
+        "today": "2027-01-10",
+        "calendar": "lunar",
+        "day": 20,
+        "month": 12,
+        "leap_month": false,
+        "death_year": 2025
+      },
+      "expected": {
+        "next_date": "2027-01-27",
+        "days_left": 17,
+        "ordinal": 1
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "year with a leap month 6: anniversary in the regular month 6 (BR-MEM-05)",
+      "input": {
+        "today": "2025-06-01",
+        "calendar": "lunar",
+        "day": 10,
+        "month": 6,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2025-07-04",
+        "days_left": 33,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "died in leap month 6: anniversary in the regular month 6, never the leap one (BR-MEM-05)",
+      "input": {
+        "today": "2025-08-10",
+        "calendar": "lunar",
+        "day": 10,
+        "month": 6,
+        "leap_month": true,
+        "death_year": 2025
+      },
+      "expected": {
+        "next_date": "2026-07-23",
+        "days_left": 347,
+        "ordinal": 1
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar anniversary today counts as 0 days (BR-MEM-08)",
+      "input": {
+        "today": "2026-11-23",
+        "calendar": "lunar",
+        "day": 15,
+        "month": 10,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2026-11-23",
+        "days_left": 0,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "lunar day 30 of a 29-day month 12, last day before Tet",
+      "input": {
+        "today": "2026-12-20",
+        "calendar": "lunar",
+        "day": 30,
+        "month": 12,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2027-02-05",
+        "days_left": 47,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "solar entry: first anniversary",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "solar",
+        "day": 20,
+        "month": 11,
+        "leap_month": false,
+        "death_year": 2025
+      },
+      "expected": {
+        "next_date": "2026-11-20",
+        "days_left": 37,
+        "ordinal": 1
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "solar entry: second anniversary (giỗ hết)",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "solar",
+        "day": 20,
+        "month": 11,
+        "leap_month": false,
+        "death_year": 2024
+      },
+      "expected": {
+        "next_date": "2026-11-20",
+        "days_left": 37,
+        "ordinal": 2
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "solar entry: sixth anniversary",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "solar",
+        "day": 20,
+        "month": 11,
+        "leap_month": false,
+        "death_year": 2020
+      },
+      "expected": {
+        "next_date": "2026-11-20",
+        "days_left": 37,
+        "ordinal": 6
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "solar date already passed this year moves to next year",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "solar",
+        "day": 1,
+        "month": 3,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2027-03-01",
+        "days_left": 138,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "solar anniversary today counts as 0 days (BR-MEM-08)",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "solar",
+        "day": 14,
+        "month": 10,
+        "leap_month": false,
+        "death_year": null
+      },
+      "expected": {
+        "next_date": "2026-10-14",
+        "days_left": 0,
+        "ordinal": null
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "29 February in a common year falls on 28 February (BR-MEM-07)",
+      "input": {
+        "today": "2026-01-10",
+        "calendar": "solar",
+        "day": 29,
+        "month": 2,
+        "leap_month": false,
+        "death_year": 2024
+      },
+      "expected": {
+        "next_date": "2026-02-28",
+        "days_left": 49,
+        "ordinal": 2
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "29 February in a leap year stays 29 February (BR-MEM-07)",
+      "input": {
+        "today": "2027-12-01",
+        "calendar": "solar",
+        "day": 29,
+        "month": 2,
+        "leap_month": false,
+        "death_year": 2024
+      },
+      "expected": {
+        "next_date": "2028-02-29",
+        "days_left": 90,
+        "ordinal": 4
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10"
+    },
+    {
+      "name": "died today: next anniversary is today with ordinal 0 (no label, BR-MEM-09)",
+      "input": {
+        "today": "2026-10-14",
+        "calendar": "solar",
+        "day": 14,
+        "month": 10,
+        "leap_month": false,
+        "death_year": 2026
+      },
+      "expected": {
+        "next_date": "2026-10-14",
+        "days_left": 0,
+        "ordinal": 0
+      },
+      "source": "backend lunar converter (services/appService/domain/lunarcal), BR-MEM-10; product owner 2026-10-14"
+    }
+  ]
+}
