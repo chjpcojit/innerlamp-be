@@ -10,6 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `docs/specs/features/onboarding/requirements.md` and `docs/specs/features/login/requirements.md` hold the implemented identity specs (Vietnamese); `docs/specs/features/journal/requirements.md` is a prospective product spec for the planned meditation/dharma-tracking app. `docs/knowledge/` is the post-implementation OKF reference bundle (`features/register.md`, `features/login.md`), distinct from `docs/specs/`.
 
+`docs/product/<feature>/` is the cross-platform product spec layer (one spec per feature, shared by this backend, the website, iOS and Android; written by the `ba-writer` skill). It sits above `docs/specs/api/openapi.yaml` (contract) and `docs/specs/features/<feature>/` (backend platform spec) — see `docs/product/README.md`. Existing `SRS.md` files under `docs/specs/features/` are legacy until migrated.
+
 ## Known broken state — read before building
 
 - **`go.sum` present.** Still run `go mod tidy` after touching `go.mod`/imports.
