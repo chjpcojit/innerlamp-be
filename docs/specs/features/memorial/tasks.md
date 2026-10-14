@@ -1,6 +1,6 @@
 # Tasks — memorial
 
-Version: 4.1
+Version: 4.2
 Last updated: 2026-10-14
 Status: v1 (Phase 1–5, 5 route CRUD, không ảnh) đã implement và kiểm chứng 2026-10-07. v4.0 thêm Phase 8–10 (contract nhắc, kế hoạch nhắc, job gửi nhắc) — mọi mục `[ ]`; Phase 10 bị chặn bởi feature notification (ADR-0001, chưa có spec). Phase 6 (ảnh/GCS) hoãn (`docs/tech-debt/memorial/TD-001`). Phase 7 (vector `death-date-conversion.json`, mô tả `openapi.yaml`) chưa làm.
 Module: `memorial`
