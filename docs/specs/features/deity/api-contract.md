@@ -1,6 +1,6 @@
-# Phật / Bồ tát catalogue — API contract (for iOS)
+# Phật / Bồ tát (Buddha / Bodhisattva) catalogue — API contract (for iOS)
 
-Version: 1.4
+Version: 1.5
 Last updated: 2026-10-15
 Status: **superseded** — kept only until the website / iOS / Android deity specs are approved, then deleted
 
