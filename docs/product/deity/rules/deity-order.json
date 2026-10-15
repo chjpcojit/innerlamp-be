@@ -1,0 +1,255 @@
+{
+  "rule": [
+    "BR-DTY-02"
+  ],
+  "description": "Catalogue order (editorial position, then stable identifier), the same order under a type filter, and the featured list.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "deities": "list of {id (stable identifier), position (editorial position in the catalogue file, 0-based), type BUDDHA | BODHISATTVA | DEVA}",
+    "type_filter": "null for 'Tất cả', or one type",
+    "featured_limit": "present only for featured cases (10)"
+  },
+  "output": {
+    "order": "identifiers in catalogue order (filtered when type_filter is set)",
+    "featured": "identifiers of the featured list"
+  },
+  "cases": [
+    {
+      "name": "ordered by editorial position, whatever the type",
+      "input": {
+        "deities": [
+          {
+            "id": "buddha_amitabha",
+            "position": 1,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "bodhisattva_avalokiteshvara",
+            "position": 6,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "buddha_shakyamuni",
+            "position": 0,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deva_sri_mahadevi",
+            "position": 19,
+            "type": "DEVA"
+          },
+          {
+            "id": "bodhisattva_manjushri",
+            "position": 7,
+            "type": "BODHISATTVA"
+          }
+        ],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [
+          "buddha_shakyamuni",
+          "buddha_amitabha",
+          "bodhisattva_avalokiteshvara",
+          "bodhisattva_manjushri",
+          "deva_sri_mahadevi"
+        ]
+      }
+    },
+    {
+      "name": "same position: smaller identifier first",
+      "input": {
+        "deities": [
+          {
+            "id": "bodhisattva_b",
+            "position": 3,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "bodhisattva_a",
+            "position": 3,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "buddha_c",
+            "position": 2,
+            "type": "BUDDHA"
+          }
+        ],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [
+          "buddha_c",
+          "bodhisattva_a",
+          "bodhisattva_b"
+        ]
+      }
+    },
+    {
+      "name": "type filter keeps the editorial order among that type",
+      "input": {
+        "deities": [
+          {
+            "id": "buddha_amitabha",
+            "position": 1,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "bodhisattva_avalokiteshvara",
+            "position": 6,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "buddha_shakyamuni",
+            "position": 0,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deva_sri_mahadevi",
+            "position": 19,
+            "type": "DEVA"
+          },
+          {
+            "id": "bodhisattva_manjushri",
+            "position": 7,
+            "type": "BODHISATTVA"
+          }
+        ],
+        "type_filter": "BODHISATTVA"
+      },
+      "expected": {
+        "order": [
+          "bodhisattva_avalokiteshvara",
+          "bodhisattva_manjushri"
+        ]
+      }
+    },
+    {
+      "name": "featured: first 10 of the order, whatever the type",
+      "input": {
+        "deities": [
+          {
+            "id": "deity_00",
+            "position": 0,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deity_01",
+            "position": 1,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deity_02",
+            "position": 2,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deity_03",
+            "position": 3,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deity_04",
+            "position": 4,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deity_05",
+            "position": 5,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deity_06",
+            "position": 6,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "deity_07",
+            "position": 7,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "deity_08",
+            "position": 8,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "deity_09",
+            "position": 9,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "deity_10",
+            "position": 10,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "deity_11",
+            "position": 11,
+            "type": "BODHISATTVA"
+          }
+        ],
+        "type_filter": null,
+        "featured_limit": 10
+      },
+      "expected": {
+        "featured": [
+          "deity_00",
+          "deity_01",
+          "deity_02",
+          "deity_03",
+          "deity_04",
+          "deity_05",
+          "deity_06",
+          "deity_07",
+          "deity_08",
+          "deity_09"
+        ]
+      }
+    },
+    {
+      "name": "featured: fewer deities than the limit gives all of them",
+      "input": {
+        "deities": [
+          {
+            "id": "buddha_amitabha",
+            "position": 1,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "bodhisattva_avalokiteshvara",
+            "position": 6,
+            "type": "BODHISATTVA"
+          },
+          {
+            "id": "buddha_shakyamuni",
+            "position": 0,
+            "type": "BUDDHA"
+          },
+          {
+            "id": "deva_sri_mahadevi",
+            "position": 19,
+            "type": "DEVA"
+          },
+          {
+            "id": "bodhisattva_manjushri",
+            "position": 7,
+            "type": "BODHISATTVA"
+          }
+        ],
+        "type_filter": null,
+        "featured_limit": 10
+      },
+      "expected": {
+        "featured": [
+          "buddha_shakyamuni",
+          "buddha_amitabha",
+          "bodhisattva_avalokiteshvara",
+          "bodhisattva_manjushri",
+          "deva_sri_mahadevi"
+        ]
+      }
+    }
+  ]
+}
