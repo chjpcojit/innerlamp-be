@@ -141,17 +141,17 @@ Khác bản thiết kế ban đầu: định danh là **số điện thoại + m
 ### API endpoints (thật)
 
 ```
-POST /v1/auth/register/request-otp   { phone_number, email, password, dharma_name?, ordination_temple_id? }
-POST /v1/auth/register/verify-otp    { phone_number, otp_code }         → 201 + access/refresh token
-POST /v1/auth/resend-otp             { phone_number, purpose }          (dùng chung mọi purpose; hiện chỉ register)
+POST /v1/auth/register/request-otp   { email, password, phone_country, phone_number, full_name, dharma_name?, ordination_temple_id? }
+POST /v1/auth/register/resend-otp    { email }
+POST /v1/auth/register/verify-otp    { email, otp_code }                → 201 + access/refresh token
 POST /v1/auth/login                  { phone_number, password, device } → access/refresh token
 POST /v1/auth/refresh                { refresh_token }                  → cặp token mới (rotation)
 POST /v1/auth/logout                 Authorization: Bearer <access_token> → 200 {"success": true}
 ```
 
 - Access token JWT: 15 phút. Refresh token: **7 ngày** (`JWTConfig.RefreshTokenExpiration` = `168h`), **rotate mỗi lần dùng**; dùng lại token cũ → revoke session của thiết bị đó (chống replay).
-- OTP: TTL 90 giây; tối đa 4 lượt gửi rồi khoá-gửi 30 phút; nhập sai 3 lần khoá xác thực 30 phút; payload `pending_registration` sống 24h.
-- ⚠️ Dev-only: OTP hardcode `111111`, SMS chỉ log qua `pkg/sms/logsms`, secret đọc từ YAML (`⚠️ DEV ONLY`/`⚠️ DEV CONFIG` trong `cmd/main.go`).
+- OTP (gửi qua email, ADR-0003): TTL 10 phút (`otp.ttl`); tối đa 4 lượt gửi rồi khoá-gửi 30 phút; nhập sai 3 lần khoá xác thực 30 phút; payload `pending_registration` sống 24h.
+- ⚠️ Dev-only: mã cố định `111111` (`otp.dev_fixed_code`), thư chỉ log qua `mailer.provider: log` (cả hai bị chặn khởi động ngoài `app.environment: dev`), secret đọc từ YAML (`⚠️ DEV ONLY`/`⚠️ DEV CONFIG` trong `cmd/main.go`).
 
 > `GET/PATCH /v1/users/me` (profile/avatar) **chưa được implement**; kinh điển (`sutra`) và Phật/Bồ Tát (`deity`) đã có API đọc riêng, phần đồng bộ delta/audio của module `content` thì chưa — xem mục 5 và mục 7.
 
@@ -303,7 +303,7 @@ docker compose down -v && docker compose up -d
 Vài điểm cần biết khi tích hợp frontend:
 
 - **CORS**: middleware hardcode `Access-Control-Allow-Origin: *` — FE gọi thẳng, không cần cấu hình thêm.
-- **OTP**: đang hardcode `111111`; SMS chỉ ghi log ra stdout của server (`pkg/sms/logsms`), không gửi thật.
+- **OTP**: ở dev mã cố định `111111`; thư chỉ ghi log ra stdout của server (`mailer.provider: log`), không gửi thật.
 - **Contract**: `docs/specs/api/openapi.yaml` (server base `/v1`) là nguồn để generate API client.
 - **Token**: access 15 phút, refresh 7 ngày và **rotate mỗi lần dùng**; dùng lại refresh token cũ sẽ revoke session thiết bị đó.
 - ⚠️ Các điểm `⚠️ DEV ONLY`/`⚠️ DEV CONFIG` trong `cmd/main.go` (secret đọc từ `dev_secrets` trong YAML) **chỉ dành cho local**, không dùng cho môi trường thật.

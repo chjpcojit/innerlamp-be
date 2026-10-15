@@ -3,27 +3,25 @@
 //
 // The three steps of the story are three methods — RequestOTP, ResendOTP,
 // VerifyOTP — and the invariant they exist to protect is that no users row is
-// ever created before the phone number is verified. That is why step one writes
-// only to pending_registration and otp_codes, and why the account insert lives
-// inside step two's transaction: there is no window in which a half-registered
-// account can be observed.
+// ever created before the email is verified. That is why step one writes only
+// to pending_registration and otp_codes, and why the account insert lives
+// inside step two's transaction.
 //
-// The OTP mechanism itself (generate, hash, send, verify, count wrong guesses,
-// lock) lives in OTPService (otp_service.go), which knows nothing about the
-// register flow. RegisterUsecase keeps only what is register-specific — the
-// validation, the conflict check, the pending payload, and turning a verified
-// phone into a user + session — and calls OTPService for the code parts.
+// The OTP mechanism itself (generate, hash, send policy, verify, attempt
+// reservation, lock) lives in OTPService (otp_service.go), which knows nothing
+// about registration. RegisterUsecase keeps what is register-specific — the
+// validation, the phone/temple checks, the account-exists branch, the pending
+// payload, the email wording, and turning a verified email into a user +
+// session.
 //
-// This package imports domain (its ports, inputs and sentinels) plus the
-// reusable pkg/ abstractions it needs — jwt for signing, logging for
-// observability, validation for shape checks. It never imports repository or
-// delivery: the concrete Postgres repository is injected as a
-// domain.RegistrationRepository, and the HTTP shape of an error is decided one
-// layer further out.
+// This package imports domain (its ports, inputs and sentinels), config, and
+// the reusable pkg/ abstractions it needs. It never imports repository or
+// delivery.
 package usecase
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -34,69 +32,47 @@ import (
 	"chjpcoj.com.innerlamp/pkg/validation"
 	"chjpcoj.com.innerlamp/services/appService/domain"
 
-	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/text/unicode/norm"
 )
 
-const (
-	// userRole is the role claim every self-registered account carries. Not
-	// deployment-varying: it names a role the schema and the JWT contract both
-	// fix, so changing it is a migration or an API version, not a config edit.
-	userRole = "user"
+// userRole is the role claim every self-registered account carries. Not
+// deployment-varying: it names a role the schema and the JWT contract both fix.
+const userRole = "user"
 
-	// minPasswordLength is AC7's floor. Counted in bytes, not runes: the rule
-	// is about how much an attacker has to guess, and a multi-byte character
-	// costs the guesser more than one byte, so counting runes would let a
-	// shorter secret through.
-	minPasswordLength = 8
-)
-
-// RegisterUsecase implements US-001.
+// RegisterUsecase implements US-001 (onboarding v8.0, email verification).
 type RegisterUsecase struct {
 	registrations domain.RegistrationRepository
 	otpService    *OTPService
+	mailer        domain.AuthMailer
+	passwords     domain.PasswordHasher
 	jwtService    jwt.Service
 	logger        logging.Logger
 
 	// sessionTTL is the lifetime of the user_sessions row created at
-	// registration. It comes from JWTConfig.RefreshTokenExpiration rather than
-	// a constant here so the stored expiry and the signed refresh token's own
-	// expiry are the same number by construction — two sources would eventually
-	// disagree, and the row would outlive or underlive its token.
+	// registration. It comes from JWTConfig.RefreshTokenExpiration so the
+	// stored expiry and the signed refresh token's own expiry agree.
 	sessionTTL time.Duration
 
-	// pendingRegistrationTTL is the lifetime of the captured account payload
-	// (PendingRegistration). It is a register-specific concern — the pending
-	// payload, not the OTP code — so it stays here while the OTP policy (TTL,
-	// cooldown, caps, lockout) moves to OTPService. It comes from
-	// OTPConfig.PendingRegistrationTTL, the same way sessionTTL comes from
-	// JWTConfig.RefreshTokenExpiration.
+	// pendingRegistrationTTL is the lifetime of the captured account payload,
+	// from OTPConfig.PendingRegistrationTTL.
 	pendingRegistrationTTL time.Duration
 
-	// dharmaNameMaxChars is the longest dharma name accepted, in characters. It
-	// comes from ProfileConfig.DharmaNameMaxChars so registration and the profile
-	// edit share one rule, and so a name the column cannot hold is a 400 here
-	// rather than a 500 from the INSERT.
+	// dharmaNameMaxChars / fullNameMaxChars come from ProfileConfig so
+	// registration and the profile edit share one rule.
 	dharmaNameMaxChars int
+	fullNameMaxChars   int
 
-	// fullNameMaxChars is the longest full name accepted, in characters. It comes
-	// from ProfileConfig.FullNameMaxChars.
-	fullNameMaxChars int
+	// now is the clock; tests in this package replace it.
+	now func() time.Time
 }
 
 // NewRegisterUsecase wires the use case. Every collaborator is a port, a pkg
-// abstraction, or a plain value read from config; no concrete repository, sender
-// or signing implementation is visible here.
-//
-// The shared OTP mechanism arrives as a constructed *OTPService (built in the
-// composition root from repository.NewOTPRepository + the SMS sender + the OTP
-// policy). sessionTTL and pendingRegistrationTTL are plain values read from
-// config and passed through rather than declared here — a use case that reaches
-// for a package-level config singleton has broken dependency injection, and a
-// TTL baked in as a const cannot be shortened for a dev environment.
+// abstraction, or a plain value read from config.
 func NewRegisterUsecase(
 	registrations domain.RegistrationRepository,
 	otpService *OTPService,
+	mailer domain.AuthMailer,
+	passwords domain.PasswordHasher,
 	jwtService jwt.Service,
 	logger logging.Logger,
 	sessionTTL time.Duration,
@@ -107,41 +83,41 @@ func NewRegisterUsecase(
 	return &RegisterUsecase{
 		registrations:          registrations,
 		otpService:             otpService,
+		mailer:                 mailer,
+		passwords:              passwords,
 		jwtService:             jwtService,
 		logger:                 logger,
 		sessionTTL:             sessionTTL,
 		pendingRegistrationTTL: pendingRegistrationTTL,
 		dharmaNameMaxChars:     dharmaNameMaxChars,
 		fullNameMaxChars:       fullNameMaxChars,
+		now:                    time.Now,
 	}
 }
 
-// RequestOTP runs step 1: validate the payload, make sure neither unique key is
-// claimed, apply the per-phone send policy, stash the account payload, and send
-// a code.
+// RequestOTP runs step 1 (onboarding design Steps R-2…R-8).
 //
-// No users row is written here — that is the whole point of the two-step design.
-// The failure modes this method can return are limited to the sentinels the
-// handler knows how to map: ErrInvalidEmail, ErrInvalidPhone, ErrInvalidPassword,
-// ErrInvalidFullName, ErrInvalidDharmaName, ErrPhoneTaken, ErrEmailTaken, ErrInvalidTemple, ErrOTPLocked (wrong-guess lock),
-// ErrOTPResendTooSoon, ErrOTPSendLimited, ErrSMSSendFailed. Anything else is an
-// infrastructure failure and is returned wrapped, so the handler's 500 path is
-// reached rather than a wrong 4xx.
+// Validation runs in the spec's order — email, phone for its country,
+// password, names — before the first query, so a malformed request costs no
+// database round-trip and the caller learns about the first bad field (AC3–AC6).
+//
+// An email that already has an account goes through exactly the same work as
+// a new one — password hash, code hash, pending + code write, send policy, one
+// mailer call — and gets the same body (AC2); only the email that goes out
+// differs. Returned errors are the sentinels the handler maps; anything else is
+// wrapped infrastructure failure.
 func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRegisterOTPInput) (*domain.RequestOTPResult, error) {
-	email := validation.NormalizeEmail(input.Email)
-	phoneNumber := validation.NormalizePhone(input.PhoneNumber)
-
-	// Validation runs on the normalized values, so what is checked is exactly
-	// what would be stored, and it runs before the first query: a malformed
-	// request costs no database round-trip.
-	if !validation.IsValidEmail(email) {
+	// Step R-2: validate, no DB.
+	email, ok := validation.NormalizeEmail(input.Email)
+	if !ok {
 		return nil, domain.ErrInvalidEmail
 	}
-	if phoneNumber == "" {
+	phoneNumber, ok := validation.NormalizePhoneForCountry(input.PhoneCountry, input.PhoneNumber)
+	if !ok {
 		return nil, domain.ErrInvalidPhone
 	}
-	if len(input.Password) < minPasswordLength {
-		return nil, domain.ErrInvalidPassword
+	if err := ValidatePassword(input.Password); err != nil {
+		return nil, err
 	}
 	fullName, err := normalizeFullName(input.FullName, u.fullNameMaxChars)
 	if err != nil {
@@ -152,23 +128,18 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 		return nil, err
 	}
 
-	conflicts, err := u.registrations.FindConflicts(ctx, phoneNumber, email)
+	// Step R-3: phone already on an account (AC7). Runs before the email
+	// lookup so this 409 — the one accepted disclosure — reveals nothing about
+	// the email.
+	taken, err := u.registrations.PhoneTaken(ctx, phoneNumber)
 	if err != nil {
-		return nil, fmt.Errorf("find registration conflicts: %w", err)
+		return nil, fmt.Errorf("check phone: %w", err)
 	}
-	// Phone first: it is the account's primary identity, so when both are taken
-	// the caller is told about the phone and can decide what to do about it.
-	if conflicts.HasPhoneConflict() {
+	if taken {
 		return nil, domain.ErrPhoneTaken
 	}
-	if conflicts.HasEmailConflict() {
-		return nil, domain.ErrEmailTaken
-	}
 
-	// The temple is checked after the identity conflicts (AC18): phone and
-	// email are what the caller most needs to be told about first. A blank id
-	// means "no temple" and costs no query. The FK on users/pending_registration
-	// is the final guard; this is only the friendly early error.
+	// Step R-4: temple (AC8). Blank means "Cư sĩ tu tại gia" and costs no query.
 	templeID := optionalString(input.OrdinationTempleID)
 	if templeID != nil {
 		exists, err := u.registrations.TempleExists(ctx, *templeID)
@@ -180,51 +151,50 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 		}
 	}
 
-	// AC12 has no exception for this endpoint: while a number is locked out
-	// after too many wrong codes, asking for a fresh code would hand the
-	// attacker a new attempt counter. The send-limit policy (AC5) is a separate,
-	// weaker lock and is applied inside SavePendingAndIssueOTP in the same
-	// transaction as the OTP write — it must NOT block verifying the last code,
-	// so it cannot live on the OTP row read here.
-	if err := u.otpService.EnsureNotLocked(ctx, phoneNumber, domain.OTPPurposeRegister); err != nil {
+	// Step R-5: picks the email of Step R-8, nothing else.
+	accountExists, err := u.registrations.EmailHasAccount(ctx, email)
+	if err != nil {
+		return nil, fmt.Errorf("check email: %w", err)
+	}
+
+	// While the email's current code is locked after wrong guesses, a fresh
+	// code would hand the guesser a new attempt counter (AC15).
+	if err := u.otpService.EnsureNotLocked(ctx, email, domain.OTPPurposeRegister); err != nil {
 		return nil, err
 	}
 
-	// The hash, not the password, is what leaves this function. bcrypt's cost
-	// factor is what makes a stolen pending_registration row expensive to
-	// reverse, and the plaintext now exists only in this stack frame.
-	passwordHash, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.DefaultCost)
+	// Step R-6: the same two hashes on both branches.
+	passwordHash, err := u.passwords.Hash(input.Password)
 	if err != nil {
-		return nil, fmt.Errorf("hash password: %w", err)
+		return nil, err
 	}
-
-	now := time.Now()
-	pending := &domain.PendingRegistration{
-		PhoneNumber:        phoneNumber,
-		Email:              email,
-		PasswordHash:       string(passwordHash),
-		FullName:           &fullName,
-		DharmaName:         dharmaName,
-		OrdinationTempleID: templeID,
-		ExpiresAt:          now.Add(u.pendingRegistrationTTL),
-	}
-
 	code, otpHash, err := u.otpService.Generate()
 	if err != nil {
 		return nil, err
 	}
 
+	// Step R-7: pending + code, one transaction, send policy first (AC9).
+	now := u.now()
+	pending := &domain.PendingRegistration{
+		Email:              email,
+		PhoneNumber:        phoneNumber,
+		PasswordHash:       passwordHash,
+		FullName:           &fullName,
+		DharmaName:         dharmaName,
+		OrdinationTempleID: templeID,
+		AccountExists:      accountExists,
+		ExpiresAt:          now.Add(u.pendingRegistrationTTL),
+	}
 	if _, err := u.registrations.SavePendingAndIssueOTP(ctx, pending, otpHash, u.otpService.CodeExpiry(now), u.otpService.SendLimits()); err != nil {
-		return nil, wrapSendError("save pending registration", err)
+		return nil, fmt.Errorf("save pending registration: %w", err)
 	}
 
-	// Sent only after the transaction committed. An OTP the user is holding
-	// while its row rolled back is a code nothing can verify.
-	if err := u.otpService.Send(ctx, phoneNumber, code, domain.OTPPurposeRegister); err != nil {
+	// Step R-8: email after commit (AC10 on failure).
+	if err := u.sendRegisterEmail(ctx, email, code, accountExists); err != nil {
 		return nil, err
 	}
 
-	u.logger.Info("registration otp requested", "phone_number", phoneNumber)
+	u.logger.Info("registration code requested")
 
 	return &domain.RequestOTPResult{
 		ExpiresInSeconds:   u.otpService.ExpiresInSeconds(),
@@ -232,99 +202,113 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 	}, nil
 }
 
-// ResendOTP reissues a code for an attempt already in flight.
-//
-// Only the register purpose is implemented. The endpoint is shared across flows
-// (the request body names its purpose), so anything else is rejected up front
-// rather than issuing a code no flow in this service can consume.
-//
-// Note what a resend may not do: change the account payload. The email and
-// password were captured at step 1; a caller who wants different values starts
-// over (request-otp overwrites the pending row). The payload itself is left
-// untouched, so its own TTL — not the code's 90 seconds — bounds the attempt.
+// ResendOTP runs Steps S-2…S-5: a new code for a live pending registration,
+// invalidating the previous one, under the same send policy (AC11). The payload
+// is not touched; a caller who wants different values starts over with
+// request-otp. An account_exists row gets the notice again, so resend reveals
+// no more than request-otp did.
 func (u *RegisterUsecase) ResendOTP(ctx context.Context, input domain.ResendOTPInput) (*domain.ResendOTPResult, error) {
-	if input.Purpose != domain.OTPPurposeRegister {
-		return nil, domain.ErrUnsupportedOTPPurpose
+	email, ok := validation.NormalizeEmail(input.Email)
+	if !ok {
+		return nil, domain.ErrInvalidEmail
 	}
 
-	phoneNumber := validation.NormalizePhone(input.PhoneNumber)
-	if phoneNumber == "" {
-		return nil, domain.ErrInvalidPhone
-	}
-
-	// Both are surfaced as-is: "not found" and "expired" already describe a dead
-	// attempt, and delivery maps them to the same non-revealing response as a
-	// wrong code — a distinguishable error here would tell a stranger which
-	// numbers are mid-registration.
-	if _, err := u.registrations.FindPendingRegistration(ctx, phoneNumber); err != nil {
-		return nil, err
-	}
-
-	// The wrong-guess lock (AC12) is checked here because it lives on the OTP
-	// row. The send policy (AC5) — cooldown, cap, send lock — is applied by
-	// IssueOTP in its own transaction, so a blocked send writes nothing and
-	// the two locks stay independent: this one blocks verify too, the send one
-	// must not.
-	if err := u.otpService.EnsureNotLocked(ctx, phoneNumber, input.Purpose); err != nil {
-		return nil, err
-	}
-
-	result, err := u.otpService.Issue(ctx, phoneNumber, input.Purpose)
+	pending, err := u.findPending(ctx, email)
 	if err != nil {
 		return nil, err
 	}
 
-	u.logger.Info("registration otp resent", "phone_number", phoneNumber)
+	if err := u.otpService.EnsureNotLocked(ctx, email, domain.OTPPurposeRegister); err != nil {
+		return nil, err
+	}
+
+	issued, err := u.otpService.Issue(ctx, email, domain.OTPPurposeRegister)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := u.sendRegisterEmail(ctx, email, issued.Code, pending.AccountExists); err != nil {
+		return nil, err
+	}
+
+	u.logger.Info("registration code resent")
 
 	return &domain.ResendOTPResult{
-		ExpiresInSeconds:   result.ExpiresInSeconds,
-		ResendAfterSeconds: result.ResendAfterSeconds,
-		ResendRemaining:    result.ResendRemaining,
+		ExpiresInSeconds:   issued.ExpiresInSeconds,
+		ResendAfterSeconds: issued.ResendAfterSeconds,
+		ResendRemaining:    issued.ResendRemaining,
 	}, nil
 }
 
-// VerifyOTP runs step 2: check the code, and only then turn the pending payload
-// into an account with a session.
+// VerifyOTP runs Steps V-2…V-5: check the code, and only then turn the pending
+// payload into an account with a session.
 //
-// Every branch before the account insert is a dead end — wrong code, expired
-// code, locked number, missing payload all leave users untouched. The insert
-// itself re-checks email uniqueness inside its own transaction, because two
-// people can hold pending registrations for the same unverified address and
-// only a completed account is authoritative for that claim.
-//
-// The code check runs inside the shared OTPService.Verify; on success it returns
-// the verified OTP row, and register's own completion step — CreateUserAndSession
-// — consumes it (marking the row used) while creating the account.
+// An account_exists row goes through the same verification (the attempt is
+// reserved and counted) and is then reported as a wrong code whatever was
+// typed (AC16), so no account or session is ever created for that email.
 func (u *RegisterUsecase) VerifyOTP(ctx context.Context, input domain.VerifyRegisterOTPInput) (*domain.RegisterResult, error) {
-	phoneNumber := validation.NormalizePhone(input.PhoneNumber)
-	if phoneNumber == "" {
-		return nil, domain.ErrInvalidPhone
+	email, ok := validation.NormalizeEmail(input.Email)
+	if !ok {
+		return nil, domain.ErrInvalidEmail
 	}
 
-	pending, err := u.registrations.FindPendingRegistration(ctx, phoneNumber)
+	pending, err := u.findPending(ctx, email)
 	if err != nil {
 		return nil, err
 	}
 
-	otp, err := u.otpService.Verify(ctx, phoneNumber, domain.OTPPurposeRegister, input.OTPCode)
+	otp, err := u.otpService.Verify(ctx, email, domain.OTPPurposeRegister, input.OTPCode)
+	if err != nil {
+		return nil, err
+	}
+	if pending.AccountExists {
+		return nil, domain.ErrOTPInvalid
+	}
+
+	result, err := u.registrations.CreateUserAndSession(ctx, pending, otp.ID, u.sessionTTL, u.tokenIssuer(pending))
 	if err != nil {
 		return nil, err
 	}
 
-	result, err := u.registrations.CreateUserAndSession(
-		ctx,
-		pending,
-		otp.ID,
-		u.sessionTTL,
-		u.tokenIssuer(pending),
-	)
-	if err != nil {
-		return nil, err
-	}
-
-	u.logger.Info("registration verified", "phone_number", phoneNumber, "user_id", result.User.ID)
+	u.logger.Info("registration verified", "user_id", result.User.ID)
 
 	return result, nil
+}
+
+// findPending loads the pending row and folds "never existed" into "expired"
+// (AC12, AC17): both mean "start over from step 1".
+func (u *RegisterUsecase) findPending(ctx context.Context, email string) (*domain.PendingRegistration, error) {
+	pending, err := u.registrations.FindPendingRegistration(ctx, email)
+	switch {
+	case err == nil:
+		return pending, nil
+	case errors.Is(err, domain.ErrPendingRegistrationNotFound), errors.Is(err, domain.ErrPendingRegistrationExpired):
+		return nil, domain.ErrPendingRegistrationExpired
+	default:
+		return nil, fmt.Errorf("find pending registration: %w", err)
+	}
+}
+
+// sendRegisterEmail sends the code, or the account-exists notice instead
+// (AC2). On failure it releases the send slot so the failed send does not
+// count, then reports ErrEmailSendFailed (AC10). The mailer's own error is
+// kept for the log only.
+func (u *RegisterUsecase) sendRegisterEmail(ctx context.Context, email, code string, accountExists bool) error {
+	var err error
+	if accountExists {
+		err = u.mailer.SendAccountExistsNotice(ctx, email)
+	} else {
+		err = u.mailer.SendRegisterCode(ctx, email, code, u.otpService.TTL())
+	}
+	if err == nil {
+		return nil
+	}
+
+	u.logger.Error("failed to send registration email", "error", err)
+	if relErr := u.otpService.ReleaseSendLimit(ctx, email, domain.OTPPurposeRegister); relErr != nil {
+		u.logger.Error("failed to release otp send limit", "error", relErr)
+	}
+	return fmt.Errorf("%w: %v", domain.ErrEmailSendFailed, err)
 }
 
 // tokenIssuer builds the closure the repository calls inside its transaction,

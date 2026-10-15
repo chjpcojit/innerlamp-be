@@ -74,7 +74,7 @@ func TestRegisterHandler_VerifyOTP_ExpiresIn(t *testing.T) {
 		RefreshToken: "refresh",
 	}, nil)
 
-	rec := doRequest(h.VerifyOTP, `{"phone_number":"0901234567","otp_code":"111111"}`)
+	rec := doRequest(h.VerifyOTP, `{"email":"a@example.com","otp_code":"111111"}`)
 
 	require.Equal(t, http.StatusCreated, rec.Code)
 	var data verifyOTPResponse

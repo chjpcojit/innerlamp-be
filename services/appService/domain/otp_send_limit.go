@@ -2,7 +2,8 @@ package domain
 
 import "time"
 
-// OTPSendLimit is the per-(phone_number, purpose) send counter behind AC5.
+// OTPSendLimit is the per-(email, purpose) send counter (onboarding AC9,
+// otp-mechanism AC4).
 //
 // It is deliberately separate from OTPCode: the row lives across many OTP rows
 // (a code expires after TTL, the counter must outlive it), and it is the store
@@ -16,7 +17,7 @@ import "time"
 // cooldown and the cycle reset: once it is older than SendLimits.LockDuration,
 // the next send starts a fresh cycle.
 type OTPSendLimit struct {
-	PhoneNumber string
+	Email       string
 	Purpose     OTPPurpose
 	SendCount   int
 	LastSentAt  *time.Time

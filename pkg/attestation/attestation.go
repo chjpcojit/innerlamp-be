@@ -1,6 +1,6 @@
 // Package attestation verifies platform attestation evidence through a
 // provider-agnostic interface, following the same Register/New factory pattern
-// as pkg/database, pkg/storage and pkg/sms: this package declares the interface
+// as pkg/database and pkg/storage: this package declares the interface
 // and the registry, a subpackage per provider self-registers via init(), and a
 // consumer activates one with a blank import.
 //

@@ -1,7 +1,7 @@
 # Flow — login
 
-Version: 2.2
-Last updated: 2026-10-14
+Version: 2.3
+Last updated: 2026-10-16
 Status: prospective (v2.0) — đăng nhập bằng email, kiểm phiên còn sống, quên mật khẩu; chưa có code. Sơ đồ refresh/logout của v1.13 không đổi (xem git history bản v1.13 nếu cần).
 Module: `identity`
 

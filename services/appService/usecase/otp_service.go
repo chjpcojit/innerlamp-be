@@ -2,8 +2,10 @@ package usecase
 
 import (
 	"context"
+	"crypto/rand"
 	"errors"
 	"fmt"
+	"math/big"
 	"time"
 
 	"chjpcoj.com.innerlamp/pkg/logging"
@@ -13,58 +15,58 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// OTPService is the purpose-agnostic OTP mechanism: it generates codes, hashes
-// them, sends them, and verifies them — counting wrong guesses and locking a
-// code after too many — without knowing anything about the register flow.
+// otpKeyspace is the number of distinct six-digit codes. Fixed by the code's
+// format (six digits, leading zeros allowed), not a deployment setting.
+const otpKeyspace = 1_000_000
+
+// OTPService is the purpose-agnostic OTP mechanism (otp-mechanism v2.0): it
+// generates codes, hashes them, applies the send policy, and verifies codes —
+// reserving each attempt atomically and locking a code after too many — without
+// knowing anything about registration or password reset.
 //
-// It owns the OTP policy (config.OTPConfig), the generic persistence port
-// (domain.OTPRepository) and the delivery port (domain.OTPSender). It never
-// touches pending_registration or users: whether a user exists, what the
-// account payload is, and who creates the session are a caller's concern, not
-// this service's. A future OTP flow (reset_password, login-by-OTP, verify_email)
-// injects this same type and reuses the whole mechanism.
+// It does not send anything. The caller emails the raw code it gets back,
+// because the wording differs per flow (register code, account-exists notice,
+// reset code), and releases the send slot when that email fails
+// (otp-mechanism AC10). It never touches pending_registration or users
+// (otp-mechanism AC11).
 type OTPService struct {
 	repo   domain.OTPRepository
-	sender domain.OTPSender
 	logger logging.Logger
 	policy config.OTPConfig
+
+	// now is the clock. time.Now in production; tests in this package replace
+	// it to pin expiry and lock deadlines.
+	now func() time.Time
 }
 
-// NewOTPService wires the shared OTP mechanism. Every collaborator is a port or
-// a plain config value; no concrete repository, sender or signing implementation
-// is visible here.
-func NewOTPService(
-	repo domain.OTPRepository,
-	sender domain.OTPSender,
-	logger logging.Logger,
-	policy config.OTPConfig,
-) *OTPService {
-	return &OTPService{
-		repo:   repo,
-		sender: sender,
-		logger: logger,
-		policy: policy,
-	}
+// NewOTPService wires the shared OTP mechanism. policy comes from
+// config.OTPConfig; DevFixedCode is honoured whenever set, because
+// AppConfig.Validate already refuses it outside app.environment "dev"
+// (otp-mechanism AC3).
+func NewOTPService(repo domain.OTPRepository, logger logging.Logger, policy config.OTPConfig) *OTPService {
+	return &OTPService{repo: repo, logger: logger, policy: policy, now: time.Now}
 }
 
-// OTPIssueResult reports the outcome of a successful Issue so the caller can
-// describe the window it just opened without hardcoding the numbers.
+// OTPIssueResult is what a successful Issue hands back: the clear code for the
+// caller to email, and the window numbers for the response body.
 type OTPIssueResult struct {
+	Code               string
 	ExpiresInSeconds   int
 	ResendAfterSeconds int
 	ResendRemaining    int
 }
 
-// Generate produces a fresh code and its bcrypt hash. The code is what gets
-// sent to the user; the hash is what gets persisted. They are produced together
-// so a caller can never hash one code and send another.
+// Generate produces a fresh code and its bcrypt hash (otp-mechanism Step I-1).
+// They are produced together so a caller can never hash one code and email
+// another.
 //
-// The code is a constant today ("111111" in dev) and that is a deliberate
-// placeholder, not an oversight — isolated so switching to a cryptographically
-// random six-digit code touches nothing else. Every caller treats the code as
-// opaque.
+// The code is six digits drawn uniformly from crypto/rand, leading zeros kept
+// (AC2), unless policy.DevFixedCode is set (dev only, AC3).
 func (s *OTPService) Generate() (code, hash string, err error) {
-	code = generateOTP()
+	code, err = s.newCode()
+	if err != nil {
+		return "", "", err
+	}
 	h, err := bcrypt.GenerateFromPassword([]byte(code), bcrypt.DefaultCost)
 	if err != nil {
 		return "", "", fmt.Errorf("hash otp: %w", err)
@@ -72,71 +74,86 @@ func (s *OTPService) Generate() (code, hash string, err error) {
 	return code, string(h), nil
 }
 
-// Send delivers code to phoneNumber for purpose, translating any sender failure
-// into ErrSMSSendFailed.
-//
-// The failure is reported rather than swallowed even though the OTP row is
-// already committed: a flow whose code never arrived is not a success, and
-// answering success would leave the caller waiting for an SMS that is not
-// coming. The wrapped sentinel is what lets delivery pick the SMS_SEND_FAILED
-// code without matching on message text; the cause is kept for the log only.
-func (s *OTPService) Send(ctx context.Context, phoneNumber, code string, purpose domain.OTPPurpose) error {
-	if err := s.sender.SendOTP(ctx, phoneNumber, code, purpose); err != nil {
-		return fmt.Errorf("%w: %v", domain.ErrSMSSendFailed, err)
+func (s *OTPService) newCode() (string, error) {
+	if s.policy.DevFixedCode != "" {
+		return s.policy.DevFixedCode, nil
 	}
-	return nil
+	n, err := rand.Int(rand.Reader, big.NewInt(otpKeyspace))
+	if err != nil {
+		return "", fmt.Errorf("generate otp: %w", err)
+	}
+	return fmt.Sprintf("%06d", n.Int64()), nil
 }
 
-// EnsureNotLocked returns *domain.OTPLockedError when phoneNumber has an active
-// OTP for purpose whose wrong-guess lock is still in force. A missing OTP means
+// EnsureNotLocked returns *domain.OTPLockedError when email has an active code
+// for purpose whose wrong-guess lock is still in force. A missing code means
 // "not locked".
 //
-// The request-otp and resend-otp flows call this before issuing a fresh code:
-// while a number is locked out after too many wrong guesses, a fresh code would
-// hand the attacker a new attempt counter, so the send is refused instead.
-func (s *OTPService) EnsureNotLocked(ctx context.Context, phoneNumber string, purpose domain.OTPPurpose) error {
-	otp, err := s.repo.FindActiveOTP(ctx, phoneNumber, purpose)
+// request-otp and resend-otp call this before issuing: a fresh code would
+// otherwise hand a guesser a new attempt counter and make the lock of AC15
+// worthless.
+func (s *OTPService) EnsureNotLocked(ctx context.Context, email string, purpose domain.OTPPurpose) error {
+	otp, err := s.repo.FindActiveOTP(ctx, email, purpose)
 	if err != nil && !errors.Is(err, domain.ErrOTPInvalid) {
 		return fmt.Errorf("find active otp: %w", err)
 	}
-	if otp != nil && isLocked(otp, time.Now()) {
+	if otp != nil && isLocked(otp, s.now()) {
 		return &domain.OTPLockedError{LockedUntil: *otp.LockedUntil}
 	}
 	return nil
 }
 
-// Issue runs the shared send flow for phoneNumber/purpose: generate a code and
-// hash, persist the row (applying the send policy), then send the code. It does
-// not read or write pending_registration or users.
-func (s *OTPService) Issue(ctx context.Context, phoneNumber string, purpose domain.OTPPurpose) (*OTPIssueResult, error) {
+// Issue runs the shared issue flow for email/purpose: generate a code, then in
+// one transaction apply the send policy, invalidate the active code and insert
+// the new one (otp-mechanism AC4). It does not send the code.
+func (s *OTPService) Issue(ctx context.Context, email string, purpose domain.OTPPurpose) (*OTPIssueResult, error) {
 	code, hash, err := s.Generate()
 	if err != nil {
 		return nil, err
 	}
 
-	state, err := s.repo.IssueOTP(ctx, phoneNumber, purpose, hash, s.CodeExpiry(time.Now()), s.SendLimits())
+	state, err := s.repo.IssueOTP(ctx, email, purpose, hash, s.CodeExpiry(s.now()), s.SendLimits())
 	if err != nil {
-		return nil, wrapSendError("issue otp", err)
-	}
-
-	if err := s.Send(ctx, phoneNumber, code, purpose); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("issue otp: %w", err)
 	}
 
 	return &OTPIssueResult{
+		Code:               code,
 		ExpiresInSeconds:   s.ExpiresInSeconds(),
 		ResendAfterSeconds: s.ResendAfterSeconds(),
 		ResendRemaining:    state.Remaining,
 	}, nil
 }
 
-// Verify runs the shared check flow: find the active OTP, refuse if its
-// wrong-guess lock holds, compare the code against the hash, and — on a miss —
-// record the attempt and lock the code on the Nth consecutive miss. On success
-// it returns the verified row so the caller can consume it as its own
-// completion step (e.g. register marks it used while creating the account).
-func (s *OTPService) Verify(ctx context.Context, phoneNumber string, purpose domain.OTPPurpose, code string) (*domain.OTPCode, error) {
-	otp, err := s.repo.FindActiveOTP(ctx, phoneNumber, purpose)
+// ApplySendLimit applies exactly Issue's send policy without creating a code
+// (otp-mechanism AC6), for a caller that must look like it sent one.
+func (s *OTPService) ApplySendLimit(ctx context.Context, email string, purpose domain.OTPPurpose) (*domain.SendState, error) {
+	state, err := s.repo.ApplySendLimit(ctx, email, purpose, s.SendLimits())
+	if err != nil {
+		return nil, fmt.Errorf("apply send limit: %w", err)
+	}
+	return state, nil
+}
+
+// ReleaseSendLimit drops the send counter for email/purpose so a send that
+// failed after its slot was taken does not count (otp-mechanism AC10).
+func (s *OTPService) ReleaseSendLimit(ctx context.Context, email string, purpose domain.OTPPurpose) error {
+	if err := s.repo.ReleaseSendLimit(ctx, email, purpose); err != nil {
+		return fmt.Errorf("release send limit: %w", err)
+	}
+	return nil
+}
+
+// Verify runs otp-mechanism Steps V-1…V-4: find the active code, refuse it when
+// locked or expired, reserve one attempt atomically, and only then compare the
+// hash. On success it returns the row; the caller marks it used inside its own
+// transaction (AC9).
+//
+// A wrong code is always ErrOTPInvalid, never "n tries left" (AC8): that number
+// is exactly what someone brute-forcing a 10^6 keyspace would pace themselves
+// by.
+func (s *OTPService) Verify(ctx context.Context, email string, purpose domain.OTPPurpose, code string) (*domain.OTPCode, error) {
+	otp, err := s.repo.FindActiveOTP(ctx, email, purpose)
 	if err != nil {
 		if errors.Is(err, domain.ErrOTPInvalid) {
 			return nil, domain.ErrOTPExpired
@@ -144,55 +161,48 @@ func (s *OTPService) Verify(ctx context.Context, phoneNumber string, purpose dom
 		return nil, fmt.Errorf("find active otp: %w", err)
 	}
 
-	// Checked before the comparison: while the lock holds, the code is not
-	// examined and no attempt is recorded, so an attacker can neither extend
-	// the lock by guessing nor keep trying for free.
-	if isLocked(otp, time.Now()) {
+	now := s.now()
+	if isLocked(otp, now) {
 		return nil, &domain.OTPLockedError{LockedUntil: *otp.LockedUntil}
+	}
+	if !otp.ExpiresAt.After(now) {
+		return nil, domain.ErrOTPExpired
+	}
+
+	lockUntil := now.Add(s.policy.LockDuration.Duration())
+	_, ok, err := s.repo.ConsumeOTPAttempt(ctx, otp.ID, s.policy.MaxAttempts, lockUntil)
+	if err != nil {
+		return nil, fmt.Errorf("consume otp attempt: %w", err)
+	}
+	if !ok {
+		// No attempt left to reserve: a concurrent guess took the last one and
+		// set the lock. Report that lock; the row read above predates it.
+		if otp.LockedUntil != nil && otp.LockedUntil.After(now) {
+			lockUntil = *otp.LockedUntil
+		}
+		return nil, &domain.OTPLockedError{LockedUntil: lockUntil}
 	}
 
 	if err := bcrypt.CompareHashAndPassword([]byte(otp.OTPHash), []byte(code)); err != nil {
-		return nil, s.recordFailedAttempt(ctx, otp)
+		return nil, domain.ErrOTPInvalid
 	}
-
 	return otp, nil
 }
 
-// recordFailedAttempt counts a wrong code and locks the number once the limit
-// is reached, then reports the failure.
-//
-// The returned error is always ErrOTPInvalid and never says how many tries
-// remain: that number is exactly what someone brute-forcing a 10^6 keyspace
-// would use to pace themselves. Once the count crosses MaxAttempts the lock is
-// set for LockDuration from this failure, not from the first one.
-func (s *OTPService) recordFailedAttempt(ctx context.Context, otp *domain.OTPCode) error {
-	attempts, err := s.repo.IncrementOTPAttempts(ctx, otp.ID)
-	if err != nil {
-		// The guess was wrong either way, so the caller still gets the same
-		// answer; the failure to record it is what an operator needs to see.
-		s.logger.Error("failed to record otp attempt", "error", err, "otp_id", otp.ID)
-		return domain.ErrOTPInvalid
-	}
-
-	if attempts >= s.policy.MaxAttempts {
-		if err := s.repo.LockOTP(ctx, otp.ID, time.Now().Add(s.policy.LockDuration.Duration())); err != nil {
-			s.logger.Error("failed to lock otp", "error", err, "otp_id", otp.ID)
-		}
-	}
-
-	return domain.ErrOTPInvalid
-}
-
-// CodeExpiry returns the moment a code generated at now expires. It is exposed
-// so a caller that persists the OTP row through its own repository method
-// (register's SavePendingAndIssueOTP) can compute the same deadline Issue uses.
+// CodeExpiry returns the moment a code generated at now expires. Exposed so
+// register's SavePendingAndIssueOTP can persist the same deadline Issue uses.
 func (s *OTPService) CodeExpiry(now time.Time) time.Time {
 	return now.Add(s.policy.TTL.Duration())
 }
 
+// TTL is the code lifetime, passed to the mailer so the email states it.
+func (s *OTPService) TTL() time.Duration {
+	return s.policy.TTL.Duration()
+}
+
 // SendLimits projects the OTP policy onto the repository's SendLimits shape.
-// Kept as one method so the three send-policy numbers can never be threaded
-// inconsistently (e.g. a cap paired with the wrong lock duration).
+// One method so the three send-policy numbers can never be threaded
+// inconsistently.
 func (s *OTPService) SendLimits() domain.SendLimits {
 	return domain.SendLimits{
 		Cooldown:     s.policy.SendCooldown.Duration(),
@@ -211,33 +221,8 @@ func (s *OTPService) ResendAfterSeconds() int {
 	return int(s.policy.SendCooldown.Duration().Seconds())
 }
 
-// generateOTP returns the code sent to the user.
-//
-// It is a constant today (US-001 technical notes: 111111 in dev) and that is a
-// deliberate placeholder, not an oversight — isolated in this one function so
-// that switching to a cryptographically random six-digit code touches nothing
-// else. Every caller treats the return value as opaque.
-func generateOTP() string {
-	return "111111"
-}
-
 // isLocked reports whether the row's lock is still in force. A nil deadline
 // means the row was never locked.
 func isLocked(otp *domain.OTPCode, now time.Time) bool {
 	return otp.LockedUntil != nil && otp.LockedUntil.After(now)
-}
-
-// wrapSendError passes the send policy's typed refusals through unchanged and
-// wraps everything else as infrastructure. The typed errors are business
-// outcomes delivery maps to 429 with locked_until / retry_after_seconds;
-// folding them into a generic message would make the handler answer 500 for a
-// request that was merely too soon.
-func wrapSendError(op string, err error) error {
-	if _, ok := errors.AsType[*domain.OTPResendTooSoonError](err); ok {
-		return err
-	}
-	if _, ok := errors.AsType[*domain.OTPSendLimitedError](err); ok {
-		return err
-	}
-	return fmt.Errorf("%s: %w", op, err)
 }

@@ -1,8 +1,8 @@
 # Design — onboarding
 
-Version: 8.0
-Last updated: 2026-10-14
-Status: prospective (v8.0) — thiết kế đăng ký xác minh bằng email (ADR-0003); chưa có code.
+Version: 8.1
+Last updated: 2026-10-16
+Status: implemented (v8.1) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -132,6 +132,8 @@ tài khoản" không lộ thông tin, và thêm giới hạn theo IP (middleware
 7. Bảng `auth_rate_limits` (login design).
 
 Idempotent theo quy ước repo (`IF EXISTS` / `IF NOT EXISTS`).
+
+**Đã làm (v8.1):** file `0037` chỉ chứa bước 1–4 và 6. Bước 5 chuyển sang migration của login Phase 1 (login vẫn khoá `login_attempts` theo SĐT tới lúc đó), bước 7 sang login Phase 5. Bước 1 chỉ TRUNCATE khi `otp_codes.phone_number` còn tồn tại, để `make migrate` (chạy lại mọi file) không xoá mã đang sống. `0001` có guard tương ứng cho index `idx_otp_codes_phone_purpose`.
 
 ## Mailer
 

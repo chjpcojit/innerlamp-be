@@ -311,7 +311,7 @@ type configOverrides map[string]map[string]any
 
 // writeTempConfig loads baseConfigPath, overrides database.host/port,
 // server.addr and any explicit overrides, and writes the result to a temp
-// file — every other field (jwt, otp, sms, dev_secrets) stays identical to
+// file — every other field (jwt, otp, mailer, dev_secrets) stays identical to
 // the real dev config so the E2E run never silently drifts from it.
 func writeTempConfig(t *testing.T, dbHost, dbPort, appPort string, overrides configOverrides) string {
 	t.Helper()
@@ -393,6 +393,34 @@ func waitForReady(t *testing.T, baseURL string, timeout time.Duration) bool {
 // kills the process and (on test failure) logs its stderr.
 func startServer(t *testing.T, dbHost, dbPort string, overrides configOverrides) (baseURL string, cleanup func()) {
 	t.Helper()
+	baseURL, _, cleanup = startServerWithLog(t, dbHost, dbPort, overrides)
+	return baseURL, cleanup
+}
+
+// syncBuffer is a bytes.Buffer safe to read while the server process is still
+// writing to it (os/exec copies its output from another goroutine).
+type syncBuffer struct {
+	mu  sync.Mutex
+	buf bytes.Buffer
+}
+
+func (b *syncBuffer) Write(p []byte) (int, error) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	return b.buf.Write(p)
+}
+
+func (b *syncBuffer) String() string {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	return b.buf.String()
+}
+
+// startServerWithLog is startServer that also returns a func reading the
+// server's combined stdout/stderr so far — for tests that must observe what
+// the dev LogMailer "sent" (it writes the whole email to the log).
+func startServerWithLog(t *testing.T, dbHost, dbPort string, overrides configOverrides) (baseURL string, serverLog func() string, cleanup func()) {
+	t.Helper()
 	bin := binaryPath(t)
 	appPort := freePort(t)
 	cfgPath := writeTempConfig(t, dbHost, dbPort, appPort, overrides)
@@ -401,9 +429,9 @@ func startServer(t *testing.T, dbHost, dbPort string, overrides configOverrides)
 	cmd.Env = append(os.Environ(), "CONFIG_PATH="+cfgPath)
 	// The service logs JSON to stdout; keep it with stderr so a startup failure
 	// carries its own reason.
-	var stderr bytes.Buffer
-	cmd.Stderr = &stderr
-	cmd.Stdout = &stderr
+	stderr := &syncBuffer{}
+	cmd.Stderr = stderr
+	cmd.Stdout = stderr
 	require.NoError(t, cmd.Start())
 
 	baseURL = "http://127.0.0.1:" + appPort
@@ -421,7 +449,7 @@ func startServer(t *testing.T, dbHost, dbPort string, overrides configOverrides)
 		t.Fatalf("server at %s did not become ready within 30s; server stderr:\n%s", baseURL, stderr.String())
 	}
 
-	return baseURL, func() {
+	return baseURL, stderr.String, func() {
 		_ = cmd.Process.Kill()
 		_ = cmd.Wait()
 		if t.Failed() {

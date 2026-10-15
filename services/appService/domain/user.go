@@ -9,10 +9,9 @@ import "time"
 // JSON shape on every consumer and make the entity change whenever an
 // unrelated API contract moves.
 //
-// EmailVerifiedAt is deliberately nullable and stays NULL at registration:
-// US-001 verifies the *phone number* by OTP, not the email, so the column
-// records an email-verification step that does not exist yet. Nothing in this
-// feature depends on it being set.
+// EmailVerifiedAt is set to the account-creation time by registration, which
+// verifies the email with a code (onboarding v8.0, AC14). It is nullable only
+// for accounts created before migration 0037.
 type User struct {
 	ID              int64
 	Email           string

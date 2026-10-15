@@ -284,8 +284,11 @@ func TestLoad_DevYAMLOTPPolicy(t *testing.T) {
 		t.Fatalf("Load: %v", err)
 	}
 
-	if got := cfg.OTP.TTL.Duration(); got != 90*time.Second {
-		t.Errorf("TTL = %v, want 90s", got)
+	if got := cfg.OTP.TTL.Duration(); got != 600*time.Second {
+		t.Errorf("TTL = %v, want 600s", got)
+	}
+	if cfg.OTP.DevFixedCode != "111111" {
+		t.Errorf("DevFixedCode = %q, want %q", cfg.OTP.DevFixedCode, "111111")
 	}
 	if got := cfg.OTP.SendCooldown.Duration(); got != 60*time.Second {
 		t.Errorf("SendCooldown = %v, want 60s", got)
@@ -1048,5 +1051,89 @@ func TestLoad_DevYAMLRateLimitStoreConfig(t *testing.T) {
 	}
 	if err := got.Validate(); err != nil {
 		t.Errorf("dev config must be valid: %v", err)
+	}
+}
+
+func TestLoad_DevYAMLAppAndMailerConfig(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+
+	if cfg.App.Environment != EnvironmentDev {
+		t.Errorf("App.Environment = %q, want %q", cfg.App.Environment, EnvironmentDev)
+	}
+	if cfg.Mailer.Provider != MailerProviderLog {
+		t.Errorf("Mailer.Provider = %q, want %q", cfg.Mailer.Provider, MailerProviderLog)
+	}
+	if strings.TrimSpace(cfg.Mailer.From) == "" {
+		t.Error("Mailer.From is empty")
+	}
+}
+
+// TestAppConfig_Validate covers onboarding AC21 / otp-mechanism AC3: dev
+// shortcuts are fine in dev and refused everywhere else.
+func TestAppConfig_Validate(t *testing.T) {
+	cfg := func(env, fixedCode, provider string) *AppConfig {
+		return &AppConfig{
+			App:    AppEnvConfig{Environment: env},
+			OTP:    OTPConfig{DevFixedCode: fixedCode},
+			Mailer: MailerConfig{Provider: provider, From: "no-reply@innerlamp.test"},
+		}
+	}
+
+	tests := []struct {
+		name    string
+		cfg     *AppConfig
+		wantErr string
+	}{
+		{"dev with fixed code and log mailer", cfg("dev", "111111", "log"), ""},
+		{"staging with neither shortcut", cfg("staging", "", "resend"), ""},
+		{"prod with neither shortcut", cfg("prod", "", "ses"), ""},
+		{"staging with fixed code", cfg("staging", "111111", "resend"), "otp.dev_fixed_code"},
+		{"prod with fixed code", cfg("prod", "111111", "ses"), "otp.dev_fixed_code"},
+		{"staging with log mailer", cfg("staging", "", "log"), "mailer.provider"},
+		{"prod with log mailer", cfg("prod", "", "log"), "mailer.provider"},
+		{"missing environment with log mailer", cfg("", "", "log"), "mailer.provider"},
+		{"environment is case-sensitive", cfg("Dev", "111111", "log"), "otp.dev_fixed_code"},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			err := tt.cfg.Validate()
+			if tt.wantErr == "" {
+				if err != nil {
+					t.Fatalf("Validate() = %v, want nil", err)
+				}
+				return
+			}
+			if err == nil || !strings.Contains(err.Error(), tt.wantErr) {
+				t.Fatalf("Validate() = %v, want error mentioning %q", err, tt.wantErr)
+			}
+		})
+	}
+}
+
+func TestLoad_RefusesDevShortcutsOutsideDev(t *testing.T) {
+	source := writeYAML(t, `
+app:
+  environment: "prod"
+mailer:
+  provider: "log"
+`)
+	_, err := Load(context.Background(), source, &fakeSecretGetter{})
+	if err == nil || !strings.Contains(err.Error(), "mailer.provider") {
+		t.Fatalf("Load() = %v, want mailer.provider error", err)
 	}
 }

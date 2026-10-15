@@ -16,7 +16,7 @@ import (
 // registerUsecase is the subset of *usecase.RegisterUsecase this handler
 // depends on, declared here (the consumer) so RegisterHandler can be unit
 // tested with a mock instead of the real use case and its collaborators
-// (repository, JWT service, SMS sender).
+// (repository, JWT service, mailer).
 type registerUsecase interface {
 	RequestOTP(ctx context.Context, input domain.RequestRegisterOTPInput) (*domain.RequestOTPResult, error)
 	ResendOTP(ctx context.Context, input domain.ResendOTPInput) (*domain.ResendOTPResult, error)
@@ -32,24 +32,26 @@ type RegisterHandler struct {
 	tokens    tokenSettings
 }
 
-// NewRegisterHandler wires the handler. validator must already have the
-// `phone` tag registered (validation.PhoneTag/PhoneRule) and its field-name
-// tag set to "json" — both are composition-root concerns done once, before
-// any handler is built, per design.md's cmd/main.go row.
+// NewRegisterHandler wires the handler. validator must have its field-name tag
+// set to "json" — a composition-root concern done once, before any handler is
+// built.
 func NewRegisterHandler(usecase registerUsecase, validator *validation.Validator, opts ...HandlerOption) *RegisterHandler {
 	return &RegisterHandler{usecase: usecase, validator: validator, tokens: newTokenSettings(opts)}
 }
 
-// requestOTPRequest is step 1's body. Password has no `min` tag here on
-// purpose: the use case owns the length floor (AC7) as a business rule on
-// the *normalized* password, and design.md's Step 1 validates format first,
-// leaving the length check to RequestOTP itself — duplicating it here would
-// just risk the two disagreeing.
+// requestOTPRequest is step 1's body (onboarding requirements.md API table).
+// No validate tags on purpose: every field has its own business rule and error
+// code in the use case (AC3–AC6: INVALID_EMAIL, INVALID_PHONE,
+// INVALID_PASSWORD, INVALID_FULL_NAME, INVALID_DHARMA_NAME), so an empty field
+// gets that field's code rather than a generic VALIDATION_ERROR. Structural
+// problems (bad JSON, unknown field) are still VALIDATION_ERROR from the
+// strict decoder.
 type requestOTPRequest struct {
-	Email              string `json:"email" validate:"required,email"`
-	Password           string `json:"password" validate:"required"`
-	PhoneNumber        string `json:"phone_number" validate:"required,phone"`
-	FullName           string `json:"full_name" validate:"required"`
+	Email              string `json:"email"`
+	Password           string `json:"password"`
+	PhoneCountry       string `json:"phone_country"`
+	PhoneNumber        string `json:"phone_number"`
+	FullName           string `json:"full_name"`
 	DharmaName         string `json:"dharma_name,omitempty"`
 	OrdinationTempleID string `json:"ordination_temple_id,omitempty"`
 }
@@ -60,15 +62,11 @@ type requestOTPResponse struct {
 	ResendAfterSeconds int    `json:"resend_after_seconds"`
 }
 
-// resendOTPRequest carries only phone_number and purpose — the account
-// payload already lives in pending_registration from step 1, per design.md
-// flow 3 Step 1. oneof lists all four OTPPurpose values even though US-001
-// only implements register; the other three are rejected by the use case
-// (ErrUnsupportedOTPPurpose), not by this tag, so US-002/US-003 can start
-// using them without a delivery change.
+// resendOTPRequest carries only the email — the payload already lives in
+// pending_registration from step 1 (design Step S-2). Its format is checked
+// by the use case (INVALID_EMAIL).
 type resendOTPRequest struct {
-	PhoneNumber string `json:"phone_number" validate:"required,phone"`
-	Purpose     string `json:"purpose" validate:"required,oneof=register login reset_password verify_email"`
+	Email string `json:"email"`
 }
 
 type resendOTPResponse struct {
@@ -78,9 +76,12 @@ type resendOTPResponse struct {
 	ResendRemaining    int    `json:"resend_remaining"`
 }
 
+// verifyOTPRequest is step 2's body (design Step V-2): the email's format is
+// the use case's INVALID_EMAIL; the code's shape (6 digits) is a plain
+// VALIDATION_ERROR here.
 type verifyOTPRequest struct {
-	PhoneNumber string `json:"phone_number" validate:"required,phone"`
-	OTPCode     string `json:"otp_code" validate:"required,len=6,numeric"`
+	Email   string `json:"email"`
+	OTPCode string `json:"otp_code" validate:"required,len=6,numeric"`
 }
 
 type verifyOTPResponse struct {
@@ -116,20 +117,19 @@ func newUserResponse(u *domain.User) userResponse {
 	}
 }
 
-// RequestOTP serves POST /v1/auth/register/request-otp — design.md's flow 1.
+// RequestOTP serves POST /v1/auth/register/request-otp — design Steps R-2…R-8.
+// The body is identical whether or not the email already has an account (AC2).
 func (h *RegisterHandler) RequestOTP(w http.ResponseWriter, r *http.Request) {
 	var req requestOTPRequest
 	if err := utils.DecodeJSONBodyStrict(r, &req); err != nil {
 		writeDecodeError(w, err)
 		return
 	}
-	if err := h.validateStruct(w, req); err != nil {
-		return
-	}
 
 	result, err := h.usecase.RequestOTP(r.Context(), domain.RequestRegisterOTPInput{
 		Email:              req.Email,
 		Password:           req.Password,
+		PhoneCountry:       req.PhoneCountry,
 		PhoneNumber:        req.PhoneNumber,
 		FullName:           req.FullName,
 		DharmaName:         req.DharmaName,
@@ -147,22 +147,15 @@ func (h *RegisterHandler) RequestOTP(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// ResendOTP serves POST /v1/auth/resend-otp — design.md's flow 3. Shared
-// across every OTP purpose; US-001 only implements register.
+// ResendOTP serves POST /v1/auth/register/resend-otp — design Steps S-2…S-5.
 func (h *RegisterHandler) ResendOTP(w http.ResponseWriter, r *http.Request) {
 	var req resendOTPRequest
 	if err := utils.DecodeJSONBodyStrict(r, &req); err != nil {
 		writeDecodeError(w, err)
 		return
 	}
-	if err := h.validateStruct(w, req); err != nil {
-		return
-	}
 
-	result, err := h.usecase.ResendOTP(r.Context(), domain.ResendOTPInput{
-		PhoneNumber: req.PhoneNumber,
-		Purpose:     domain.OTPPurpose(req.Purpose),
-	})
+	result, err := h.usecase.ResendOTP(r.Context(), domain.ResendOTPInput{Email: req.Email})
 	if err != nil {
 		writeDomainError(w, err)
 		return
@@ -176,9 +169,10 @@ func (h *RegisterHandler) ResendOTP(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// VerifyOTP serves POST /v1/auth/register/verify-otp — design.md's flow 2.
-// Success creates the account already logged in (AC1/AC7), so the response
-// carries the session's tokens.
+// VerifyOTP serves POST /v1/auth/register/verify-otp — design Steps V-2…V-5.
+// Success creates the account already logged in (AC14), so the response
+// carries the session's tokens; cmd/main.go wraps the route with
+// Cache-Control: no-store.
 func (h *RegisterHandler) VerifyOTP(w http.ResponseWriter, r *http.Request) {
 	var req verifyOTPRequest
 	if err := utils.DecodeJSONBodyStrict(r, &req); err != nil {
@@ -190,8 +184,8 @@ func (h *RegisterHandler) VerifyOTP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	result, err := h.usecase.VerifyOTP(r.Context(), domain.VerifyRegisterOTPInput{
-		PhoneNumber: req.PhoneNumber,
-		OTPCode:     req.OTPCode,
+		Email:   req.Email,
+		OTPCode: req.OTPCode,
 	})
 	if err != nil {
 		writeDomainError(w, err)

@@ -1,7 +1,7 @@
 # Tasks — login
 
-Version: 2.2
-Last updated: 2026-10-14
+Version: 2.3
+Last updated: 2026-10-16
 Status: v2.0 chưa bắt đầu — mọi task `[ ]`. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
 Module: `identity` (spec folder `login`)
 
@@ -13,6 +13,7 @@ Mỗi item trace về một dòng trong bảng "Layers & components" hoặc mộ
 
 ## Phase 1 — Đăng nhập bằng email
 
+- [ ] Migration: bước 5 của onboarding "Migration 0037" (`login_attempts` khoá theo `email`) — tách khỏi `0037` ở onboarding v8.1, viết thành migration mới cùng lúc đổi SQL login.
 - [ ] `domain/login.go`: `Email`, `FindUserByEmail`, `ReserveLoginAttempt`, `ResetLoginAttempts`.
 - [ ] `postgres_login_repository.go`: SQL theo email; `ReserveLoginAttempt` một UPSERT (Step L-3); bỏ `FindLoginAttempt`/`RecordLoginFailure`.
 - [ ] Test repository trên Postgres thật: 10 request đồng thời sai mật khẩu chỉ cho tối đa 5 lần so (AC5).

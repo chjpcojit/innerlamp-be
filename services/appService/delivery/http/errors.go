@@ -133,9 +133,7 @@ func writeDomainError(w http.ResponseWriter, err error) {
 
 	switch {
 	case errors.Is(err, domain.ErrPhoneTaken):
-		utils.WriteBusinessError(w, http.StatusConflict, "PHONE_TAKEN", err.Error(), nil)
-	case errors.Is(err, domain.ErrEmailTaken):
-		utils.WriteBusinessError(w, http.StatusConflict, "EMAIL_TAKEN", err.Error(), nil)
+		utils.WriteBusinessError(w, http.StatusConflict, "PHONE_TAKEN", domain.ErrPhoneTaken.Error(), nil)
 	case errors.Is(err, domain.ErrInvalidPhone):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_PHONE", err.Error(), map[string]any{"field": "phone_number"})
 	case errors.Is(err, domain.ErrInvalidEmail):
@@ -147,7 +145,7 @@ func writeDomainError(w http.ResponseWriter, err error) {
 	case errors.Is(err, domain.ErrInvalidDharmaName):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DHARMA_NAME", err.Error(), map[string]any{"field": "dharma_name"})
 	case errors.Is(err, domain.ErrInvalidTemple):
-		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_TEMPLE", err.Error(), map[string]any{"field": "ordination_temple_id"})
+		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_TEMPLE", domain.ErrInvalidTemple.Error(), map[string]any{"field": "ordination_temple_id"})
 	case errors.Is(err, domain.ErrInvalidAvatar):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_AVATAR", domain.ErrInvalidAvatar.Error(), nil)
 	case errors.Is(err, domain.ErrAvatarUploadNotFound):
@@ -158,22 +156,16 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusBadRequest, "INVALID_DEVICE", err.Error(), map[string]any{"field": "device"})
 	case errors.Is(err, domain.ErrRefreshTokenInvalid):
 		utils.WriteBusinessError(w, http.StatusUnauthorized, "REFRESH_TOKEN_INVALID", err.Error(), nil)
-	case errors.Is(err, domain.ErrPendingRegistrationNotFound):
-		// Same code as ErrOTPInvalid, deliberately not a distinct
-		// "not found" — design.md flow 2 Step 2: a distinguishable response
-		// would let a caller probe which phone numbers have a registration
-		// in flight.
-		utils.WriteBusinessError(w, http.StatusBadRequest, "OTP_INVALID", domain.ErrOTPInvalid.Error(), nil)
 	case errors.Is(err, domain.ErrOTPInvalid):
-		utils.WriteBusinessError(w, http.StatusBadRequest, "OTP_INVALID", err.Error(), nil)
+		utils.WriteBusinessError(w, http.StatusBadRequest, "OTP_INVALID", domain.ErrOTPInvalid.Error(), nil)
 	case errors.Is(err, domain.ErrOTPExpired):
-		utils.WriteBusinessError(w, http.StatusBadRequest, "OTP_EXPIRED", err.Error(), nil)
-	case errors.Is(err, domain.ErrPendingRegistrationExpired):
-		utils.WriteBusinessError(w, http.StatusBadRequest, "PENDING_REGISTRATION_EXPIRED", err.Error(), nil)
-	case errors.Is(err, domain.ErrUnsupportedOTPPurpose):
-		utils.WriteBusinessError(w, http.StatusBadRequest, "UNSUPPORTED_OTP_PURPOSE", err.Error(), nil)
-	case errors.Is(err, domain.ErrSMSSendFailed):
-		utils.WriteSystemError(w, "SMS_SEND_FAILED", err.Error(), nil)
+		utils.WriteBusinessError(w, http.StatusBadRequest, "OTP_EXPIRED", domain.ErrOTPExpired.Error(), nil)
+	case errors.Is(err, domain.ErrPendingRegistrationExpired), errors.Is(err, domain.ErrPendingRegistrationNotFound):
+		// "Never started" and "too old" are one answer (onboarding AC12/AC17).
+		utils.WriteBusinessError(w, http.StatusBadRequest, "PENDING_REGISTRATION_EXPIRED", domain.ErrPendingRegistrationExpired.Error(), nil)
+	case errors.Is(err, domain.ErrEmailSendFailed):
+		// The sentinel's message only: the wrapped mailer error is for the log.
+		utils.WriteSystemError(w, "EMAIL_SEND_FAILED", domain.ErrEmailSendFailed.Error(), nil)
 	case errors.Is(err, domain.ErrAttestationChallengeInvalid):
 		utils.WriteBusinessError(w, http.StatusBadRequest, "ATTESTATION_CHALLENGE_INVALID", err.Error(), nil)
 	case errors.Is(err, domain.ErrAttestationUpstreamError):

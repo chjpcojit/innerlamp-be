@@ -15,7 +15,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
-	"golang.org/x/crypto/bcrypt"
 )
 
 // Tests for US-002 (login, refresh, logout). The acceptance criteria each test
@@ -72,8 +71,8 @@ var testLoginPolicy = config.LoginConfig{
 	FailureResetWindow: config.Duration(15 * time.Minute),
 }
 
-// testPasswordHash is the bcrypt hash of testPassword, computed once at package
-// load.
+// testPasswordHash is BcryptPasswordHasher's hash of testPassword — the scheme
+// registration stores — computed once at package load.
 //
 // DefaultCost, not MinCost. The cost is what TestLogin_NoEnumeration compares:
 // it asserts the unknown-phone branch costs about as much as the known-phone
@@ -83,11 +82,11 @@ var testLoginPolicy = config.LoginConfig{
 // reason that has nothing to do with the property under test. Matching the
 // costs is what makes the two branches comparable at all.
 var testPasswordHash = func() string {
-	hash, err := bcrypt.GenerateFromPassword([]byte(testPassword), bcrypt.DefaultCost)
+	hash, err := NewBcryptPasswordHasher().Hash(testPassword)
 	if err != nil {
 		panic("hashing the test password failed: " + err.Error())
 	}
-	return string(hash)
+	return hash
 }()
 
 type loginFixture struct {
@@ -102,7 +101,7 @@ func newLoginFixture() *loginFixture {
 	jwtService := &jwt.MockService{}
 
 	return &loginFixture{
-		usecase: NewLoginUsecase(repo, jwtService, newLogger(), testSessionTTL, testLoginPolicy),
+		usecase: NewLoginUsecase(repo, NewBcryptPasswordHasher(), jwtService, newLogger(), testSessionTTL, testLoginPolicy),
 		repo:    repo,
 		jwt:     jwtService,
 		logger:  newLogger(),

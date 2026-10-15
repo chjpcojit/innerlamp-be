@@ -4,6 +4,15 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 folder. All four files share one changelog since they change together as one spec unit. Newest
 version first.
 
+## v2.3 (2026-10-16)
+
+Theo sau onboarding v8.1. Không đổi AC.
+
+- `tasks.md`: Phase 1 thêm item migration `login_attempts` theo email (bước 5 của "Migration 0037", tách khỏi `0037` vì login đang chạy vẫn khoá theo SĐT).
+- `requirements.md` / `design.md` / `flow.md`: no change needed — chỉ bump version.
+- Code login hiện tại (SĐT) đã so mật khẩu qua `domain.PasswordHasher` (cùng hash với đăng ký v8.1); item `login_usecase.go` ở Phase 1 chưa tick vì phần email chưa làm.
+- Mở: giới hạn theo IP (Phase 5) cần chốt Redis (`fc31897`) hay bảng `auth_rate_limits` trên Postgres.
+
 ## v2.2 (2026-10-14)
 
 Giới hạn tần suất theo IP của khách website (website gọi backend từ server SvelteKit, nên trước đây mọi khách web chung một IP).

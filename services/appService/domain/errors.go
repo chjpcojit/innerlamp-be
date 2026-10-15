@@ -14,36 +14,29 @@ import (
 // Messages are written for the client, not the operator: they are what a 4xx
 // body carries. Internal causes belong in a wrapped error, not in these strings.
 //
-// Deliberately absent: an "email not found" / "phone not found" pair. Verifying
-// an OTP for a number with no pending registration returns ErrOTPInvalid, not a
-// distinct not-found — a distinguishable error would let a caller probe which
-// phone numbers have registrations in flight (AC6's user-enumeration concern,
-// same reasoning as login's ErrInvalidCredentials).
+// Deliberately absent: an "email taken" error for registration. An email that
+// already has an account gets the same answer as a new one (onboarding AC2), so
+// no sentinel exists that could tell them apart.
 var (
 	// ErrPhoneTaken — the phone number already has an account. Detected by
-	// FindConflicts (proactive, AC6) and by CreateUserAndSession's
-	// unique-violation translation (the race-loser path). A pending
-	// registration does NOT raise this: the same phone may restart at step 1
-	// and overwrite its own payload (v5.1).
+	// PhoneTaken at request-otp (AC7) and by CreateUserAndSession's
+	// unique-violation translation at verify-otp (AC18). A number held only by
+	// another pending registration does NOT raise this.
 	ErrPhoneTaken = errors.New("phone number already in use")
 
-	// ErrEmailTaken — the email belongs to an account, or to another phone's
-	// in-flight registration (AC6). Detected by FindConflicts and by
-	// CreateUserAndSession's unique-violation translation.
-	ErrEmailTaken = errors.New("email already in use")
+	// ErrInvalidPhone — the country is not in the BR-ONB-04 list or the number
+	// has the wrong digit count for it (onboarding AC4). Detected before any DB
+	// access. Login (still phone-based) reuses it for an unparsable number.
+	ErrInvalidPhone = errors.New("invalid phone number")
 
-	// ErrInvalidPhone — the phone number survived normalization but is not a
-	// usable number. Detected by the use case before any DB access (AC7).
-	ErrInvalidPhone = errors.New("invalid phone number format, expected E.164 e.g. +84...")
-
-	// ErrInvalidEmail — the email is syntactically unusable. Detected by the
-	// use case before any DB access (AC7).
+	// ErrInvalidEmail — the normalised email fails rules/email.json (onboarding
+	// AC3). Detected by the use case before any DB access.
 	ErrInvalidEmail = errors.New("invalid email format")
 
-	// ErrInvalidPassword — the password is below the minimum length (AC7).
-	// Deliberately says only "at least 8 characters" and nothing about the
+	// ErrInvalidPassword — the password has fewer than 8 or more than 64
+	// characters after NFC (BR-ONB-06, onboarding AC5). Says nothing about the
 	// submitted value.
-	ErrInvalidPassword = errors.New("password must be at least 8 characters")
+	ErrInvalidPassword = errors.New("password must be 8 to 64 characters")
 
 	// ErrInvalidDharmaName — the dharma name is longer than profile.dharma_name_max_chars
 	// characters after trimming and NFC normalisation. The same sentinel serves
@@ -85,7 +78,7 @@ var (
 	// the remaining seconds.
 	ErrOTPResendTooSoon = errors.New("please wait before requesting another code")
 
-	// ErrOTPSendLimited — the per-phone send cap is reached and sending is
+	// ErrOTPSendLimited — the per-(email, purpose) send cap is reached and sending is
 	// locked until it lifts (AC5). Unlike the old permanent "resend exhausted"
 	// state, the lock is temporary and the counter resets itself; the typed
 	// OTPSendLimitedError carries the moment it lifts. Returned by the
@@ -93,45 +86,37 @@ var (
 	// it.
 	ErrOTPSendLimited = errors.New("too many otp requests, try again later")
 
-	// ErrPendingRegistrationNotFound — no pending registration exists for
-	// the phone number. Returned by the repository and surfaced by delivery
-	// as ErrOTPInvalid's status, never as a 404: a 404 would confirm which
-	// numbers are mid-registration.
+	// ErrPendingRegistrationNotFound — no pending registration exists for the
+	// email. Returned by the repository; the register use case reports it as
+	// ErrPendingRegistrationExpired (AC12, AC17), so "never started" and "too
+	// old" look the same to the caller.
 	ErrPendingRegistrationNotFound = errors.New("pending registration not found")
 
 	// ErrPendingRegistrationExpired — a pending registration exists but is
-	// past its deadline. Since v5.1 that deadline is PendingRegistrationTTL
-	// (24h), independent of the OTP's 90s, so this no longer implies the code
-	// expired too — it means the whole attempt is old enough to discard.
+	// past its deadline, PendingRegistrationTTL (24h) after the latest
+	// request-otp. Mapped to 400 PENDING_REGISTRATION_EXPIRED.
 	ErrPendingRegistrationExpired = errors.New("pending registration has expired")
 
-	// ErrUnsupportedOTPPurpose — resend was asked for a purpose US-001 does
-	// not implement. Only OTPPurposeRegister is wired; the other three
-	// purposes are declared for US-002/US-003 and rejected here rather than
-	// silently issuing a code no flow can consume.
-	ErrUnsupportedOTPPurpose = errors.New("unsupported otp purpose")
+	// ErrEmailSendFailed — the code was persisted but the mailer refused the
+	// send (onboarding AC10). The use case releases the send slot first, so the
+	// failed send does not count; delivery maps this to 500 EMAIL_SEND_FAILED
+	// rather than answering 200 for an email the user will never see.
+	ErrEmailSendFailed = errors.New("failed to send email")
 
-	// ErrSMSSendFailed — the OTP was persisted but the SMS provider refused
-	// the send. The account state is already committed at this point, yet a
-	// registration whose code never arrived is not a success: delivery maps
-	// this to 500 SMS_SEND_FAILED rather than returning 200 for a message the
-	// user will never see. A distinct sentinel (not a generic internal error)
-	// so the handler can pick that code without matching on message text.
-	ErrSMSSendFailed = errors.New("failed to send otp via sms")
-
-	// ErrInvalidCredentials — US-002's one login failure. A wrong password, a
-	// phone number with no account, and a phone number that exists only in
-	// pending_registration all produce this same value, with this same
-	// message, deliberately: distinguishing them would turn the login endpoint
-	// into a way to enumerate which numbers are registered (AC2).
+	// ErrInvalidCredentials — US-002's one login failure. A wrong password, an
+	// email with no account, an email that exists only in
+	// pending_registration and an account whose email was never verified all
+	// produce this same value, with this same message, deliberately:
+	// distinguishing them would turn the login endpoint into a way to
+	// enumerate which emails are registered (AC2).
 	//
 	// The message names both fields rather than the one that was wrong, for
 	// the same reason — "wrong password" alone already confirms the account
 	// exists.
-	ErrInvalidCredentials = errors.New("Số điện thoại hoặc mật khẩu không đúng")
+	ErrInvalidCredentials = errors.New("Email hoặc mật khẩu không đúng")
 
-	// ErrLoginLocked — the phone number is locked out after too many
-	// consecutive failures (AC7). Like ErrOTPLocked, the typed
+	// ErrLoginLocked — the email is locked out after too many consecutive
+	// failures (AC5). Like ErrOTPLocked, the typed
 	// LoginLockedError carries the deadline and this sentinel is what
 	// errors.Is matches.
 	ErrLoginLocked = errors.New("too many failed login attempts, try again later")
@@ -213,7 +198,7 @@ func (e *OTPResendTooSoonError) Error() string {
 
 func (e *OTPResendTooSoonError) Unwrap() error { return ErrOTPResendTooSoon }
 
-// OTPSendLimitedError reports that the per-phone send cap is reached and when
+// OTPSendLimitedError reports that the per-(email, purpose) send cap is reached and when
 // sending unlocks — AC5, and the payload behind the 429's locked_until detail.
 //
 // Same shape as OTPLockedError for the same reason: the sentinel is a shared

@@ -1,7 +1,7 @@
 # Requirements — login
 
-Version: 2.2
-Last updated: 2026-10-14
+Version: 2.3
+Last updated: 2026-10-16
 Status: prospective (v2.0) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi; chưa có code. Code đang chạy là v1.13 (đăng nhập bằng SĐT); phần phiên/refresh/logout giữ nguyên.
 Module: `identity`
 Code: `services/appService/`
