@@ -13,6 +13,8 @@
   ";" and "," today and must be rewritten (Appendix B item 5).
 - BR-CAL-10: proposed major set named by seed event; BR-CAL-15 examples and `rules/home-block.json`
   rebuilt from real 2026 months; `rules/ordering.json` uses seed codes.
+- Resolved the same day: initial major events = 10 (adds Vía Phật A Di Đà, Ngày Đức Phật xuất gia);
+  Rằm / Mùng 1 after named events; the seed carries the guidance line breaks.
 - New open item: Phật đản on lunar 15/4 only, or also an event on 8/4 (noted in the seed).
 - Platforms to follow up: Backend (seed changes, Appendix B); clients: none beyond v1.0.
 
