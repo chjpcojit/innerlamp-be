@@ -1,6 +1,6 @@
 # Design — gallery
 
-Version: 2.0
+Version: 2.0.1
 Last updated: 2026-10-15
 Status: in-progress — v1.x layers implemented; the **v2.0** rows below are not.
 Module: `gallery`
@@ -31,7 +31,6 @@ Three public `GET` routes (no `RequireAuth`), read-only, through the four Clean 
 | Wiring | `cmd/main.go` | Builds repo → usecase → handler, registers 3 routes. Unchanged. |
 | E2E | `e2e/gallery_e2e_test.go` (new) | **v2.0** Black-box: three routes, filter, error codes, credit fields, `total` on `top`. |
 | API spec | `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml` | **v2.0** `GallerySummary` + 3 fields; `GalleryTopEnvelope` + `total`; descriptions in English. |
-| Client doc | `docs/specs/features/gallery/api-contract.md` | Superseded; deleted in the cleanup step. |
 
 ## Request flow
 
