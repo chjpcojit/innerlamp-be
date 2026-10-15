@@ -1,91 +1,136 @@
 # Requirements — gallery
 
-Version: 1.1
-Last updated: 2026-10-07
-Status: implemented (2026-10-06) — 3 route đọc công khai, đã có code + unit/repository test + chạy thật trên binary và Postgres dev; chưa có E2E tự động. Còn 4 marker `⚠️ Not confirmed`.
-Module: `content`
+Version: 2.0
+Last updated: 2026-10-15
+Status: in-progress — AC 1–2, 4–10, 12–15, 17–18 are implemented (top / paged list with `type` filter / detail, seed `cmd/seedgallery`); **v2.0 (2026-10-15) not implemented**: credit in the list items, `total` on `top`, the seeder requiring author and licence, the shared order vectors, E2E (AC 3, 11, 16, 19; `tasks.md` Phase 6–8). The content file is already committed (AC 20, be#35).
+Module: `gallery`
 Code: `services/appService/`
+Product spec: `docs/product/gallery/product.md` @ v1.0
+Contract: `docs/specs/api/openapi.yaml` (this repo)
+Implements: BR-GAL-01, BR-GAL-02, BR-GAL-03, BR-GAL-04, BR-GAL-07, BR-GAL-09, FR-GAL-001, FR-GAL-002, FR-GAL-003, FR-GAL-006, FR-GAL-009, NFR-GAL-01, NFR-GAL-02, NFR-GAL-03
 
 > See `changelog.md` in this folder for the version history of this spec.
 
-Spec này viết **prospectively** (trước khi có code) và đã được implement cùng ngày; các AC dưới đây khớp code đã chạy. Đây là danh mục **ảnh đẹp Phật giáo** (chùa, tượng Phật, thiền, lễ hội) chỉ đọc, công khai, cùng hình dạng với `temple` / `deity` / `article`: `top`, danh sách phân trang, chi tiết. Dữ liệu nguồn là `assets/data/buddhist_gallery.json` (86 mục: 41 `CHUA`, 21 `TUONG_PHAT`, 12 `THIEN`, 12 `LE_HOI`), ảnh gốc từ Wikimedia Commons kèm tác giả và giấy phép; **ở dev, ảnh được tải về và phục vụ từ file system** (`assets/images/gallery/`, route `/static/images/`) bằng URL trỏ tới LAN IP của máy chạy server, như `temple`/`deity`. Dữ liệu nạp bằng lệnh `cmd/seedgallery` chạy tay, không tự nạp khi service khởi động.
+This spec was first written prospectively (v1.0, 2026-10-06) and implemented the same day; from v2.0 the business source is the product spec above (Mixed mode: the shipped part is Retroactive, the **v2.0** part is Prospective). It does not restate the product's rules — it cites IDs and says how the backend does them. Where the spec and the shipped code disagree, the code is the source of truth for the shipped part. `api-contract.md` in this folder is an old client document, superseded by `openapi.yaml` (see its banner); it is deleted in the cleanup step.
 
-Khác `temple` (danh mục chùa có toạ độ, hạng di tích): gallery là **ảnh**, mỗi mục chỉ có tiêu đề, nơi chụp và thông tin ghi công; không có nội dung bài viết.
+The gallery is a **read-only, public** catalogue shaped like `temple`, `deity` and `article`: `top`, a paged list with an optional `type` filter, and a detail. One table `gallery_images` (migration `0017`) holds the four topics; the wire values map to the product's topics as `CHUA` → Chùa, `TUONG_PHAT` → Tượng Phật, `THIEN` → Cảnh thiền, `LE_HOI` → Lễ hội (BR-GAL-01; labels are the client's). Data is loaded by the manually run `cmd/seedgallery` from `assets/data/buddhist_gallery.json`.
 
-> ⚠️ Not confirmed: mã user story của tính năng này chưa được product chốt — spec tạm đánh `US-GAL-01..03` theo tiền lệ `US-DTY-01` của `deity`; đổi khi product chốt số.
+Product IDs whose Backend column is `n/a` (not part of this spec): BR-GAL-05, BR-GAL-06, BR-GAL-08, FR-GAL-004, FR-GAL-005, FR-GAL-007, FR-GAL-008. BR-GAL-07 is computed by the apps; the backend only supplies the total (AC 3). BR-GAL-09 needs nothing beyond serving titles and places unchanged.
 
 ---
 
-## US-GAL-01: Xem ảnh nổi bật
+## US-GAL-01: View featured photos
 
-> Là một **người dùng app (chưa cần đăng nhập)**,
-> Tôi muốn **thấy vài tấm ảnh Phật giáo đẹp ngay ở màn hình chủ**,
-> Để **thư giãn và bấm vào xem thêm**.
+## User Story
 
-- WHEN a client sends `GET /v1/gallery/top`, THE SYSTEM SHALL respond `200` with `{"items": [...]}` holding the first `gallery.top_limit` images ordered by `sort_order ASC, id ASC`.
-- WHEN the gallery table is empty, THE SYSTEM SHALL respond `200` with `"items": []`, not `null` and not an error.
-- THE SYSTEM SHALL order `top` so that it mixes the four types (`CHUA`, `TUONG_PHAT`, `THIEN`, `LE_HOI`) instead of returning only the first type in the source file (xem `sort_order` ở `design.md`).
+> As an **app or website user (no login needed)**,
+> I want **to see a few Buddhist photos on the home screen and know how many the gallery holds**,
+> So that **I can enjoy them and open the whole gallery**.
 
-## US-GAL-02: Duyệt ảnh theo danh sách
+## Acceptance Criteria (EARS notation)
 
-> Là một **người dùng app (chưa cần đăng nhập)**,
-> Tôi muốn **cuộn danh sách ảnh và lọc theo loại (chùa, tượng Phật, thiền, lễ hội)**,
-> Để **tìm đúng loại ảnh mình thích**.
+1. WHEN a `GET /v1/gallery/top` request arrives, THE SYSTEM SHALL return `200 OK` with `data.items` holding the first `gallery.top_limit` photos (10) of every type, ordered by `sort_order` ASC then `id` ASC. (No `Authorization` needed.) (FR-GAL-001, BR-GAL-02)
+2. WHEN the table holds fewer photos than `gallery.top_limit`, or none, THE SYSTEM SHALL return all that exist, and `items: []` (not `null`) for an empty table. (BR-GAL-02)
+3. **v2.0** WHEN `top` is served, THE SYSTEM SHALL also return `data.total` = the number of photos in the whole table (no filter), so an app computes "+N ảnh" without a second call. (BR-GAL-07, FR-GAL-001)
 
-- WHEN a client sends `GET /v1/gallery?page=N`, THE SYSTEM SHALL respond `200` with `items` (at most `gallery.page_size`), `page`, `page_size`, `total`, `total_pages`, ordered by `sort_order ASC, id ASC` (cùng thứ tự với `top`, nên trang 1 bắt đầu bằng đúng các ảnh của `top`).
-- WHEN `page` is omitted, THE SYSTEM SHALL treat it as `1`.
-- WHEN `page` is not an integer, is less than `1`, or exceeds `MaxInt32`, THE SYSTEM SHALL respond `400 INVALID_PAGE` with `details.field = "page"`.
-- WHEN `page` is past the last page, THE SYSTEM SHALL respond `200` with `items: []` and the real `total`.
-- WHEN a client sends `GET /v1/gallery?type=T` with `T` one of `CHUA`, `TUONG_PHAT`, `THIEN`, `LE_HOI`, THE SYSTEM SHALL return only images of that type, and `total` / `total_pages` SHALL count only that type.
-- WHEN `type` is present but not one of the four values, THE SYSTEM SHALL respond `400 INVALID_GALLERY_TYPE` with `details.field = "type"`.
-- WHEN `type` is omitted or empty, THE SYSTEM SHALL return images of every type.
+## US-GAL-02: Browse the gallery page by page
 
-> ⚠️ Not confirmed: "lấy ảnh theo danh sách" được hiểu là danh sách phân trang có lọc `type` tuỳ chọn; chưa xác nhận có cần lọc theo `type` hay một bộ lọc khác (vd. `location`) — chặn tham số query của route danh sách.
+## User Story
 
-## US-GAL-03: Xem chi tiết một ảnh
+> As an **app or website user (no login needed)**,
+> I want **to scroll through the gallery and filter it by topic**,
+> So that **I find the kind of photo I like**.
 
-> Là một **người dùng app (chưa cần đăng nhập)**,
-> Tôi muốn **mở một tấm ảnh để xem bản lớn và biết ảnh của ai, giấy phép nào**,
-> Để **ngắm ảnh rõ hơn và ghi công đúng tác giả**.
+## Acceptance Criteria (EARS notation)
 
-- WHEN a client sends `GET /v1/gallery/{id}` with an existing id, THE SYSTEM SHALL respond `200` with the summary fields plus `author`, `license`, `source_url`.
-- WHEN no image has that id, THE SYSTEM SHALL respond `404 GALLERY_IMAGE_NOT_FOUND`.
+4. WHEN a `GET /v1/gallery?page=N` request arrives, THE SYSTEM SHALL return `200 OK` with `data.items` (at most `gallery.page_size` = 20), `page`, `page_size`, `total`, `total_pages` = `ceil(total / page_size)`, ordered by `sort_order` ASC then `id` ASC (the same order as `top`, so page 1 starts with the photos of `top`). (FR-GAL-002, BR-GAL-02, BR-GAL-03)
+5. WHEN `page` is omitted or empty, THE SYSTEM SHALL serve page 1. (FR-GAL-002)
+6. WHEN `page` is not an integer, is less than 1, or is greater than 2^31−1, THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`. (platform)
+7. WHEN `page` is past the last page, THE SYSTEM SHALL return `200 OK` with `items: []` and the real `total` / `total_pages`. (BR-GAL-03)
+8. WHEN `type` is exactly one of `CHUA`, `TUONG_PHAT`, `THIEN`, `LE_HOI`, THE SYSTEM SHALL return only photos of that type in the same order, and `total` / `total_pages` SHALL count only that type. (FR-GAL-003, BR-GAL-01, BR-GAL-02)
+9. WHEN `type` is present, non-empty and not exactly one of the four values (including another case such as `chua`), THE SYSTEM SHALL return `400 INVALID_GALLERY_TYPE` with `details.field = "type"`; WHEN both parameters are invalid, `INVALID_PAGE` is reported first. (platform)
+10. WHEN `type` is omitted or empty, THE SYSTEM SHALL return photos of every type. (FR-GAL-003)
 
-## API contract (confirmed surface for this feature)
+## US-GAL-03: Credit every photo without a second call
 
-> ⚠️ Not confirmed: contract chưa có trong `docs/specs/api/openapi.yaml` — bảng dưới là đề xuất của spec này, sẽ thành contract khi `openapi.yaml` được cập nhật cùng handler.
+## User Story
+
+> As a **client developer**,
+> I want **every photo in every list to carry its author, licence and source link**,
+> So that **the viewer can credit the photo as the licence requires without fetching each detail**.
+
+## Acceptance Criteria (EARS notation)
+
+11. **v2.0** WHEN photos are returned by `top` or by the paged list, THE SYSTEM SHALL return each one with `id`, `type`, `title`, `location`, `thumbnail_url`, `image_url`, `author`, `license`, `source_url` — every field a string, never `null`. (BR-GAL-04, FR-GAL-006)
+12. WHEN `thumbnail_url` / `image_url` are stored as root-relative paths (`/static/images/...`), THE SYSTEM SHALL return them as absolute URLs on `server.public_base_url`, or on the request's origin when that is empty; any other stored value is returned unchanged (`docs/assumptions/gallery/A-001`). (platform, NFR-GAL-02)
+
+## US-GAL-04: View one photo
+
+## User Story
+
+> As a **client developer**,
+> I want **to read one photo by its id**,
+> So that **a client that only holds an id can still show and credit it**.
+
+## Acceptance Criteria (EARS notation)
+
+13. WHEN a `GET /v1/gallery/{id}` request arrives with an existing id, THE SYSTEM SHALL return `200 OK` with the fields of AC 11. (FR-GAL-006)
+14. WHEN no photo has that id, THE SYSTEM SHALL return `404 GALLERY_IMAGE_NOT_FOUND`. (platform)
+15. WHEN the literal path `/v1/gallery/top` is requested, THE SYSTEM SHALL route it to `top`, not to detail (`ServeMux` prefers the literal segment; ids have the form `gallery_NNN`). (platform)
+
+## US-GAL-05: Load the gallery content
+
+## User Story
+
+> As the **operator**,
+> I want **to load the gallery file into the database, all or nothing**,
+> So that **the gallery never shows a half-loaded or uncredited set**.
+
+## Acceptance Criteria (EARS notation)
+
+16. **v2.0** WHEN `cmd/seedgallery` reads the file, THE SYSTEM SHALL refuse the whole file and touch no row when it is empty, an id is empty or repeated, a type is not one of the four values, a title or either picture path is empty, **or an author or licence is empty**. (FR-GAL-009, BR-GAL-04)
+17. WHEN the file is valid, THE SYSTEM SHALL assign `sort_order` by rotating the types `CHUA` → `TUONG_PHAT` → `THIEN` → `LE_HOI`, keeping the file order within a type and skipping a type with no photo left. (BR-GAL-02)
+18. WHEN the file is valid, THE SYSTEM SHALL insert new photos and update existing ones by `id` in **one** transaction (all or nothing); ids stay stable across loads. (FR-GAL-009)
+19. **v2.0** THE SYSTEM SHALL pass every case of `docs/product/gallery/rules/gallery-order.json` (order and featured list) through the seeder's ordering plus the `top` limit, mapping the vector types `TEMPLE`/`STATUE`/`MEDITATION`/`FESTIVAL` to `CHUA`/`TUONG_PHAT`/`THIEN`/`LE_HOI`. (BR-GAL-02)
+20. THE SYSTEM SHALL keep `assets/data/buddhist_gallery.json` in git as the default input of `cmd/seedgallery` (done in be#35). (FR-GAL-009)
+
+> Numbering note: v1.0 used three sections of bullets without numbers; v2.0 numbers every criterion.
+
+## API contract (confirmed surface)
 
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
-| GET | `/v1/gallery/top` | public | 200 `{items: GallerySummary[]}` | 500 |
+| GET | `/v1/gallery/top` | public | 200 `{items: GallerySummary[], total}` (**v2.0** `total`) | 500 |
 | GET | `/v1/gallery?type=&page=` | public | 200 `{items, page, page_size, total, total_pages}` | 400 `INVALID_PAGE`, 400 `INVALID_GALLERY_TYPE`, 500 |
 | GET | `/v1/gallery/{id}` | public | 200 `GalleryDetail` | 404 `GALLERY_IMAGE_NOT_FOUND`, 500 |
 
-`GallerySummary`: `id`, `type`, `title`, `location`, `thumbnail_url`, `image_url`. `GalleryDetail` = `GallerySummary` + `author`, `license`, `source_url`. Mọi trường là chuỗi không `null` (nguồn có đủ cả 86 mục).
+**v2.0** `GallerySummary` gains `author`, `license`, `source_url`, so `GalleryDetail` holds the same fields as the summary; both schema names stay for compatibility. Additive only: existing clients keep decoding. `openapi.yaml` is updated with the code (`tasks.md` Phase 7).
 
-## Out of scope (this feature boundary, not tracked here)
+## Out of scope
 
-- Đưa ảnh lên GCS/CDN — ở dev ảnh nằm trên file system của máy dev; chuyển CDN là việc khi deploy (xem `⚠️ Not confirmed` bên dưới).
-- Ghi / sửa / xoá ảnh qua API (backoffice) — danh mục chỉ đọc.
-- Tìm kiếm full-text, yêu thích, tải ảnh xuống.
+- Writing photos through the API (back office) — later (product §1.2).
+- Favourite, share, set as wallpaper (BR-GAL-08) — no backend part.
+- Photo width/height for a masonry layout — later (product §1.2).
+- Search.
 
 ## Pending (not yet implemented)
 
-- E2E tự động, render lại `erd.svg`, khái niệm OKF — xem `tasks.md` Phase 4–5.
+- v2.0 code: credit in the lists, `total` on `top`, seeder checks, vectors, E2E — `tasks.md` Phase 6–8.
 
-> ⚠️ Not confirmed: base URL ảnh ở staging/production (CDN/GCS) chưa chốt — `image_url`/`thumbnail_url` hiện là `http://<LAN IP>:8080/static/images/gallery/...` chỉ chạy được trong cùng mạng với máy dev; chặn việc đưa vào môi trường thật.
+> ⚠️ Not confirmed (product): architecture decision pending — where catalogue photos are stored and served in production (needs an ADR, shared with temple, deity, article) — blocks production release; today photos are served from `assets/images/gallery/` on the dev machine (`⚠️ DEV ONLY`, not in git).
 
-> ⚠️ Not confirmed: quy trình nạp dữ liệu ngoài dev (staging/production) — `cmd/seedgallery` dùng cấu hình dev như `seeddeities`; chặn việc đưa vào môi trường thật.
+> ⚠️ Not confirmed (product): who runs the load in staging and production and where the photo files come from there — blocks production content; `cmd/seedgallery` uses dev config like the other seeders.
 
-## Ghi chú kỹ thuật liên quan
+## Open questions (resolved)
 
-- Bảng mới `gallery_images` (migration `0017_gallery_images.sql`), khoá chính là id chuỗi ổn định của nguồn (`gallery_001`…) để seed upsert và id mà client đã lưu không đổi.
-- **Ảnh dev**: `scripts/download_gallery_images.py` tải 86 ảnh về `assets/images/gallery/{full,thumb}/<id>.jpg` (full 1280px, thumb 500px, ~32 MB), ghi `credits.json`, và viết lại `image_url`/`thumbnail_url` trong `buddhist_gallery.json` thành URL LAN; URL Wikimedia gốc giữ ở `remote_image_url`/`remote_thumbnail_url` để chạy lại được. IP đổi theo mạng: `make lan-urls` viết lại host trong file JSON này (cùng temple/deity/article) và seed lại. Server chỉ phục vụ ảnh khi `server.static_images_dir` được đặt (`config.dev.yaml` đã đặt).
-- `sort_order` do seeder tính: **xen kẽ** bốn loại theo vòng (CHUA, TUONG_PHAT, THIEN, LE_HOI, CHUA, …) vì file nguồn xếp theo nhóm (41 chùa liền nhau) nên nếu dùng nguyên vị trí thì `top` toàn chùa. Trong cùng một loại, thứ tự file được giữ. Nguồn không có chỉ số phổ biến nên không xếp theo độ nổi tiếng.
-- Tái dùng `ErrInvalidPage`, `INVALID_PAGE`, envelope `{success, data}` và `writeDomainError` đã có.
-- Route `/v1/gallery/top` là segment literal nên `ServeMux` ưu tiên hơn `/v1/gallery/{id}`.
-- Giấy phép CC BY / CC BY-SA yêu cầu ghi công: client nên hiển thị `author` + `license` ở màn chi tiết; vì vậy chúng nằm trong detail.
+- ~~"Lấy ảnh theo danh sách" = paged list with an optional `type` filter?~~ → Yes, confirmed by product FR-GAL-003 (2026-10-15). No change.
+- ~~User story codes US-GAL-01..03 unconfirmed~~ → Product IDs are `BR-/FR-GAL-*`; the US codes stay as local section names (2026-10-15).
+- ~~Contract not in `openapi.yaml`~~ → It has been there since v1.0 (tag Gallery); the v1.1 note was stale (2026-10-15).
+- ~~Base URL of images at staging/production~~ → Partly resolved by A-001 (`server.public_base_url`); where the files live is the pending ADR above.
 
-## Open questions (resolved during implementation)
+## Technical notes
 
-- (chưa có)
+- `sort_order` is computed by the seeder, not stored in the file; the source file groups photos by type.
+- `top` reuses `GalleryRepository.List(ctx, "", 0, top_limit)`, which already returns the total, so `total` on `top` needs no new repository method (`design.md`).
+- Reuses `ErrInvalidPage`, `INVALID_PAGE`, the `{success, data}` envelope and `writeDomainError`.
+- 86 photos on 2026-10-15 (41 `CHUA`, 21 `TUONG_PHAT`, 12 `THIEN`, 12 `LE_HOI`); every one has an author and a licence, so AC 16 refuses nothing in the current file.
