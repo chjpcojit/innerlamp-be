@@ -1,8 +1,8 @@
 # Requirements — otp-mechanism
 
-Version: 2.0
-Last updated: 2026-10-14
-Status: prospective (v2.0) — cơ chế OTP dùng chung chuyển sang email: khoá theo email, gửi qua `AuthMailer`, mã ngẫu nhiên, đếm lượt nguyên tử; chưa có code. Code đang chạy là v1.2 (khoá theo SĐT, gửi SMS, mã `111111`).
+Version: 2.1
+Last updated: 2026-10-16
+Status: implemented (v2.1) — cơ chế OTP khoá theo email, gửi qua `AuthMailer`, mã `crypto/rand` (mã cố định chỉ ở dev), đếm lượt nguyên tử bằng `ConsumeOTPAttempt`.
 Module: `otp`
 Code: `services/appService/`
 Product spec: none (cơ chế nội bộ, không có product spec riêng) — phục vụ `docs/product/onboarding/product.md` @ v1.2 và `docs/product/login/product.md` @ v1.2

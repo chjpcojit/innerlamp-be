@@ -1,8 +1,8 @@
 # Design — otp-mechanism
 
-Version: 2.0
-Last updated: 2026-10-14
-Status: prospective (v2.0) — chuyển cơ chế OTP sang email; chưa có code.
+Version: 2.1
+Last updated: 2026-10-16
+Status: implemented (v2.1) — cơ chế OTP khoá theo email, gửi qua `AuthMailer`, mã `crypto/rand` (mã cố định chỉ ở dev), đếm lượt nguyên tử bằng `ConsumeOTPAttempt`.
 Module: `otp`
 
 > See `changelog.md` in this folder for the version history of this spec.

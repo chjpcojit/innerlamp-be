@@ -3,6 +3,14 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v2.1 (2026-10-16)
+
+**Implement Phase 1–3** cùng đợt onboarding v8.1. Không đổi AC.
+
+- `tasks.md`: tick toàn bộ Phase 1–3.
+- `requirements.md` / `design.md` / `flow.md`: no change needed, verified — chỉ bump version + Status.
+- Ghi chú: `Issue` trả mã thô để caller gửi qua `AuthMailer`; `FindActiveOTP` ưu tiên hàng đang bị khoá, nên phát mã mới không mở khoá sớm (onboarding v8.1 thêm `429 OTP_LOCKED` ở request/resend).
+
 ## v2.0 (2026-10-14)
 
 **Chuyển cơ chế OTP sang email** (ADR-0003, Accepted): khoá `(email, purpose)`, bỏ `OTPSender`/`Send` (caller gửi thư qua `AuthMailer`), mã `crypto/rand` (mã cố định chỉ ở dev, chặn khởi động nơi khác), giữ lượt nguyên tử trước khi so mã, thêm `ApplySendLimit`, thời hạn mã 10 phút.

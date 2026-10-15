@@ -12,40 +12,42 @@ import (
 	"chjpcoj.com.innerlamp/pkg/validation"
 	"chjpcoj.com.innerlamp/services/appService/config"
 	"chjpcoj.com.innerlamp/services/appService/domain"
-
-	"golang.org/x/crypto/bcrypt"
 )
 
-// dummyPasswordHash is compared against whenever the phone number has no
-// account, so that "unknown phone" and "wrong password" cost the same wall
+// dummyPasswordHash is compared against whenever the email has no verified
+// account, so that "unknown email" and "wrong password" cost the same wall
 // clock time. Without it the unknown-phone branch would return after a single
 // indexed lookup while the wrong-password branch pays for a bcrypt
 // comparison — a difference any caller can measure, which would turn the login
-// endpoint into a way to enumerate registered numbers (AC2).
+// endpoint into a way to enumerate registered emails (AC2).
 //
 // Generated once at package load at the same cost as a real hash, so timing
 // the two is indistinguishable. The plaintext is never a valid password for
 // any account: Submit() rejects the attempt anyway when the user lookup missed,
 // so even a caller who guessed this string gets nothing.
-var dummyPasswordHash = func() []byte {
-	hash, err := bcrypt.GenerateFromPassword([]byte("timing-equalizer-not-a-password"), bcrypt.DefaultCost)
+//
+// Built with BcryptPasswordHasher, the scheme the composition root injects, so
+// comparing against it costs what comparing against a real stored hash costs.
+var dummyPasswordHash = func() string {
+	hash, err := BcryptPasswordHasher{}.Hash("timing-equalizer-not-a-password")
 	if err != nil {
 		panic("hashing the dummy password failed: " + err.Error())
 	}
 	return hash
 }()
 
-// LoginUsecase implements US-002: the three endpoints that turn a phone number
-// and password into a session (login), roll that session's tokens forward
+// LoginUsecase implements US-002: the three endpoints that turn an email and
+// password into a session (login), roll that session's tokens forward
 // (refresh), and end it (logout).
 //
 // It is deliberately separate from RegisterUsecase even though the two share
-// TokenIssuer, validation.NormalizePhone and the session table: registration's
+// TokenIssuer, validation.NormalizeEmail and the session table: registration's
 // two-step OTP flow and login's single password check have no state in common
 // beyond the user row, and merging them would put a brute-force counter, an OTP
 // policy and a device registry in one struct.
 type LoginUsecase struct {
 	logins     domain.LoginRepository
+	passwords  domain.PasswordHasher
 	jwtService jwt.Service
 	logger     logging.Logger
 
@@ -65,6 +67,7 @@ type LoginUsecase struct {
 // implementation is visible here.
 func NewLoginUsecase(
 	logins domain.LoginRepository,
+	passwords domain.PasswordHasher,
 	jwtService jwt.Service,
 	logger logging.Logger,
 	sessionTTL time.Duration,
@@ -72,6 +75,7 @@ func NewLoginUsecase(
 ) *LoginUsecase {
 	return &LoginUsecase{
 		logins:      logins,
+		passwords:   passwords,
 		jwtService:  jwtService,
 		logger:      logger,
 		sessionTTL:  sessionTTL,
@@ -79,79 +83,97 @@ func NewLoginUsecase(
 	}
 }
 
-// Login runs POST /v1/auth/login.
+// Login runs POST /v1/auth/login (login design Step L-2…L-6; L-1, the per-IP
+// limit, is middleware).
 //
 // The order of the checks is the security property, not an implementation
-// detail: the lockout is consulted before the account is looked up, so a locked
-// number is refused without its password ever being compared, and the counter
-// covers numbers with no account — otherwise the lock itself would report which
-// numbers are registered (AC7).
+// detail: the attempt is reserved before the account is looked up or the
+// password compared, so a locked email is refused without its password ever
+// being compared, N concurrent guesses get at most maxAttempts comparisons,
+// and the counter covers emails with no account — otherwise the lock itself
+// would report which emails are registered (AC5).
 //
 // The failure modes this can return are the sentinels the handler maps:
-// ErrInvalidPhone, ErrInvalidPassword, ErrInvalidDevice, ErrInvalidCredentials,
+// ErrInvalidEmail, ErrInvalidPassword, ErrInvalidDevice, ErrInvalidCredentials,
 // and *LoginLockedError. Anything else is wrapped infrastructure failure.
 func (u *LoginUsecase) Login(ctx context.Context, input domain.LoginInput) (*domain.LoginResult, error) {
-	phoneNumber := validation.NormalizePhone(input.PhoneNumber)
-	if phoneNumber == "" {
-		return nil, domain.ErrInvalidPhone
+	// Step L-2. A malformed request is not a password guess: it returns before
+	// the first query and never touches login_attempts. Counting these would
+	// let anyone lock a stranger's email out with junk requests (AC3/AC4).
+	email, ok := validation.NormalizeEmail(input.Email)
+	if !ok {
+		return nil, domain.ErrInvalidEmail
 	}
 	if input.Password == "" {
 		return nil, domain.ErrInvalidPassword
 	}
-
-	// A malformed request is not a password guess: it returns before the first
-	// query and never touches login_attempts. Counting these would let anyone
-	// lock a stranger's number out with junk requests (AC5/AC6).
 	if err := validateDevice(input.Device); err != nil {
 		return nil, err
 	}
 
-	now := time.Now()
-
-	attempt, err := u.logins.FindLoginAttempt(ctx, phoneNumber)
+	// Step L-3.
+	attempt, err := u.logins.ReserveLoginAttempt(
+		ctx,
+		email,
+		u.loginPolicy.MaxFailedAttempts,
+		u.loginPolicy.LockDuration.Duration(),
+		u.loginPolicy.FailureResetWindow.Duration(),
+	)
 	if err != nil {
-		return nil, fmt.Errorf("find login attempt: %w", err)
+		return nil, fmt.Errorf("reserve login attempt: %w", err)
 	}
-	if isLoginLocked(attempt, now) {
+	if attempt.AlreadyLocked && attempt.LockedUntil != nil {
 		// No password comparison, no user lookup: while the lock holds, even
 		// the correct password is refused.
 		return nil, &domain.LoginLockedError{LockedUntil: *attempt.LockedUntil}
 	}
 
-	user, err := u.logins.FindUserByPhone(ctx, phoneNumber)
+	// Step L-4.
+	user, err := u.logins.FindUserByEmail(ctx, email)
 	switch {
 	case err == nil:
+		if user.EmailVerifiedAt == nil {
+			// An account whose email was never verified cannot sign in (AC2).
+			// Treated exactly like a missing one: same dummy comparison, same 401.
+			user = nil
+		}
 	case errors.Is(err, domain.ErrUserNotFound):
-		// Not a branch of its own past this point: an absent account falls
-		// through to the same bcrypt comparison and the same 401 as a wrong
-		// password, so neither the body nor the response time tells them apart.
 		user = nil
 	default:
-		return nil, fmt.Errorf("find user by phone: %w", err)
+		return nil, fmt.Errorf("find user by email: %w", err)
 	}
 
 	passwordHash := dummyPasswordHash
 	if user != nil {
-		passwordHash = []byte(user.PasswordHash)
+		passwordHash = user.PasswordHash
 	}
 
-	// Exactly one bcrypt comparison on every path, whatever the lookup
-	// returned — that is what keeps the two failure modes the same size.
-	passwordMatches := bcrypt.CompareHashAndPassword(passwordHash, []byte(input.Password)) == nil
+	// Exactly one comparison on every path, whatever the lookup returned —
+	// that is what keeps the failure modes the same size (AC2). The hasher is
+	// the one registration stored the hash with (AC8).
+	passwordMatches := u.passwords.Compare(passwordHash, input.Password) == nil
 
 	if user == nil || !passwordMatches {
-		if err := u.recordFailure(ctx, phoneNumber); err != nil {
-			return nil, err
+		// The reservation already counted this attempt. Logged so an operator
+		// can see a lock being placed; the caller is told nothing — the attempt
+		// that tripped the limit is still a 401, only the next one meets 429.
+		if attempt.LockedUntil != nil {
+			u.logger.Warn("login locked after repeated failures",
+				"email", email,
+				"locked_until", *attempt.LockedUntil,
+			)
 		}
 		return nil, domain.ErrInvalidCredentials
 	}
 
+	// Steps L-5 and L-6: CreateLoginSession clears the counter inside the same
+	// transaction that opens the session.
 	result, err := u.logins.CreateLoginSession(ctx, user, input.Device, u.sessionTTL, u.tokenIssuer(user))
 	if err != nil {
 		return nil, err
 	}
 
-	u.logger.Info("login succeeded", "user_id", user.ID, "phone_number", phoneNumber)
+	u.logger.Info("login succeeded", "user_id", user.ID)
 
 	return result, nil
 }
@@ -239,38 +261,6 @@ func (u *LoginUsecase) Logout(ctx context.Context, input domain.LogoutInput) err
 	return nil
 }
 
-// recordFailure counts one wrong guess and reports the outcome of counting it.
-//
-// The count itself is the repository's job — one atomic UPSERT, so two
-// concurrent failures cannot both read the same starting value (AC7). This
-// method only decides what a failure to *record* means: the guess was wrong
-// either way, so the caller is refused the same way, but a database error must
-// not be silently swallowed into a 401 as if the counter had worked.
-func (u *LoginUsecase) recordFailure(ctx context.Context, phoneNumber string) error {
-	attempt, err := u.logins.RecordLoginFailure(
-		ctx,
-		phoneNumber,
-		u.loginPolicy.MaxFailedAttempts,
-		u.loginPolicy.LockDuration.Duration(),
-		u.loginPolicy.FailureResetWindow.Duration(),
-	)
-	if err != nil {
-		return fmt.Errorf("record login failure: %w", err)
-	}
-
-	// Logged so an operator can see a lock being placed; the caller is told
-	// nothing. The failure that tripped the limit is still a 401 — only the
-	// next request meets the lock (AC7).
-	if attempt != nil && attempt.LockedUntil != nil {
-		u.logger.Warn("login locked after repeated failures",
-			"phone_number", phoneNumber,
-			"locked_until", *attempt.LockedUntil,
-		)
-	}
-
-	return nil
-}
-
 // tokenIssuer builds the closure the repository calls inside its transaction,
 // after it has chosen the session ID and before the session row is written.
 //
@@ -306,12 +296,4 @@ func validateDevice(device domain.DeviceInfo) error {
 		return domain.ErrInvalidDevice
 	}
 	return nil
-}
-
-// isLoginLocked reports whether the counter row's lock is still in force. A nil
-// attempt (nobody has ever failed against this number) is never locked, and a
-// deadline already in the past is treated as unlocked — the row is read as
-// stale rather than scrubbed.
-func isLoginLocked(attempt *domain.LoginAttempt, now time.Time) bool {
-	return attempt != nil && attempt.LockedUntil != nil && attempt.LockedUntil.After(now)
 }

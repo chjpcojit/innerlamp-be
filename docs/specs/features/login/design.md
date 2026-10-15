@@ -1,7 +1,7 @@
 # Design — login
 
-Version: 2.2
-Last updated: 2026-10-14
+Version: 2.3
+Last updated: 2026-10-16
 Status: prospective (v2.0) — đăng nhập bằng email, quên mật khẩu, giới hạn tần suất, kiểm phiên còn sống; chưa có code. Phiên/refresh/logout của v1.13 giữ nguyên.
 Module: `identity`
 

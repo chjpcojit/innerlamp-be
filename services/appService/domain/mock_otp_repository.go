@@ -22,8 +22,17 @@ type MockOTPRepository struct {
 }
 
 // IssueOTP mocks the IssueOTP method.
-func (m *MockOTPRepository) IssueOTP(ctx context.Context, phoneNumber string, purpose OTPPurpose, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error) {
-	args := m.Called(ctx, phoneNumber, purpose, otpHash, expiresAt, limits)
+func (m *MockOTPRepository) IssueOTP(ctx context.Context, email string, purpose OTPPurpose, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error) {
+	args := m.Called(ctx, email, purpose, otpHash, expiresAt, limits)
+	if s := args.Get(0); s != nil {
+		return s.(*SendState), args.Error(1)
+	}
+	return nil, args.Error(1)
+}
+
+// ApplySendLimit mocks the ApplySendLimit method.
+func (m *MockOTPRepository) ApplySendLimit(ctx context.Context, email string, purpose OTPPurpose, limits SendLimits) (*SendState, error) {
+	args := m.Called(ctx, email, purpose, limits)
 	if s := args.Get(0); s != nil {
 		return s.(*SendState), args.Error(1)
 	}
@@ -31,28 +40,22 @@ func (m *MockOTPRepository) IssueOTP(ctx context.Context, phoneNumber string, pu
 }
 
 // FindActiveOTP mocks the FindActiveOTP method.
-func (m *MockOTPRepository) FindActiveOTP(ctx context.Context, phoneNumber string, purpose OTPPurpose) (*OTPCode, error) {
-	args := m.Called(ctx, phoneNumber, purpose)
+func (m *MockOTPRepository) FindActiveOTP(ctx context.Context, email string, purpose OTPPurpose) (*OTPCode, error) {
+	args := m.Called(ctx, email, purpose)
 	if o := args.Get(0); o != nil {
 		return o.(*OTPCode), args.Error(1)
 	}
 	return nil, args.Error(1)
 }
 
-// IncrementOTPAttempts mocks the IncrementOTPAttempts method.
-func (m *MockOTPRepository) IncrementOTPAttempts(ctx context.Context, otpID int64) (int, error) {
-	args := m.Called(ctx, otpID)
-	return args.Int(0), args.Error(1)
-}
-
-// LockOTP mocks the LockOTP method.
-func (m *MockOTPRepository) LockOTP(ctx context.Context, otpID int64, lockedUntil time.Time) error {
-	args := m.Called(ctx, otpID, lockedUntil)
-	return args.Error(0)
+// ConsumeOTPAttempt mocks the ConsumeOTPAttempt method.
+func (m *MockOTPRepository) ConsumeOTPAttempt(ctx context.Context, otpID int64, maxAttempts int, lockUntil time.Time) (int, bool, error) {
+	args := m.Called(ctx, otpID, maxAttempts, lockUntil)
+	return args.Int(0), args.Bool(1), args.Error(2)
 }
 
 // ReleaseSendLimit mocks the ReleaseSendLimit method.
-func (m *MockOTPRepository) ReleaseSendLimit(ctx context.Context, phoneNumber string, purpose OTPPurpose) error {
-	args := m.Called(ctx, phoneNumber, purpose)
+func (m *MockOTPRepository) ReleaseSendLimit(ctx context.Context, email string, purpose OTPPurpose) error {
+	args := m.Called(ctx, email, purpose)
 	return args.Error(0)
 }

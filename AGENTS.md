@@ -89,7 +89,7 @@ Quy tắc phụ thuộc một chiều (Dependency Rule):
 
 | User Story | Usecase | Handler | Route / Endpoint | Auth Req |
 |---|---|---|---|---|
-| **US-001: Đăng ký tài khoản** | `RegisterUsecase` | `register_handler.go` | `POST /v1/auth/register/request-otp`<br>`POST /v1/auth/resend-otp`<br>`POST /v1/auth/register/verify-otp` | No |
+| **US-001: Đăng ký tài khoản** | `RegisterUsecase` | `register_handler.go` | `POST /v1/auth/register/request-otp`<br>`POST /v1/auth/register/resend-otp`<br>`POST /v1/auth/register/verify-otp` | No |
 | **US-002: Đăng nhập** | `LoginUsecase` | `login_handler.go` | `POST /v1/auth/login`<br>`POST /v1/auth/refresh`<br>`POST /v1/auth/logout` (Bearer access token) | No / No / Yes |
 
 > Đây là toàn bộ route đang chạy (đối chiếu `services/appService/cmd/main.go`). US-003–US-004 (quên/đặt lại mật khẩu, profile/avatar) **chưa có code**, chỉ còn ở mức spec — đừng giả định có handler cũ.
@@ -111,7 +111,7 @@ Spec: `docs/specs/features/onboarding/requirements.md` (US-001), `docs/specs/fea
    - Không đưa struct I/O HTTP (Request/Response DTO) vào `domain` hoặc `usecase`.
    - Sentinel errors khai báo trong `domain/errors.go` hoặc `domain/<feature>.go`. Tầng HTTP handler chịu trách nhiệm map domain error sang HTTP status code tương ứng.
 4. **Nhận thức về Môi trường Development vs Production**:
-   - Trong `cmd/main.go`, cấu hình dev dùng `appConfig.NewMockSecretGetterFromYAML` đọc `dev_secrets` từ file YAML (`⚠️ DEV ONLY`) và `pkg/sms/logsms` (`⚠️ DEV CONFIG`, chỉ log SMS không gửi). OTP đang hardcode `111111`. Khi bổ sung code, luôn tôn trọng các vị trí đánh dấu `⚠️ DEV ONLY`/`⚠️ DEV CONFIG`.
+   - Trong `cmd/main.go`, cấu hình dev dùng `appConfig.NewMockSecretGetterFromYAML` đọc `dev_secrets` từ file YAML (`⚠️ DEV ONLY`) và `mailer.provider: log` (chỉ log thư, không gửi). Ở dev mã OTP cố định `111111` (`otp.dev_fixed_code`); `config.Validate()` chặn cả hai ngoài `app.environment: dev`. Khi bổ sung code, luôn tôn trọng các vị trí đánh dấu `⚠️ DEV ONLY`/`⚠️ DEV CONFIG`.
 5. **Ưu tiên chạy kiểm thử hẹp và nhanh**:
    - Sử dụng cờ `-short` khi chạy test toàn bộ để bỏ qua các bài test phụ thuộc vào cloud credentials thực tế.
 

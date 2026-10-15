@@ -259,7 +259,7 @@ func TestLoginFlow_E2E(t *testing.T) {
 		phone := api.nextPhone()
 		api.requestOTP(phone)
 
-		verify := api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
+		verify := api.post("/v1/auth/register/verify-otp", map[string]any{"email": e2eEmail(phone), "otp_code": devOTPCode}, "")
 		require.Equal(t, http.StatusCreated, verify.status, verify.raw)
 		login := api.post("/v1/auth/login", loginBody(phone, testPassword, deviceA), "")
 		require.Equal(t, http.StatusOK, login.status, login.raw)
@@ -385,23 +385,35 @@ func (c *apiClient) nextPhone() string {
 	return fmt.Sprintf("+849%08d", 10000000+phoneSeq.Add(1))
 }
 
+// devOTPCode is config.dev.yaml's otp.dev_fixed_code (⚠️ DEV ONLY): every code
+// the E2E server issues is this value, so the harness need not read the
+// mailer log.
+const devOTPCode = "111111"
+
+// e2eEmail is the account email the harness registers for phone. Login is
+// still phone-based, so tests keep passing phones around and derive the email.
+func e2eEmail(phone string) string {
+	return strings.TrimPrefix(phone, "+") + "@e2e.example.com"
+}
+
+// requestOTP runs onboarding step 1 for phone (an E.164 "+84…" number from
+// nextPhone), typed the way a VN user would: with the trunk 0.
 func (c *apiClient) requestOTP(phone string) {
 	c.t.Helper()
 	res := c.post("/v1/auth/register/request-otp", map[string]any{
-		"email":        strings.TrimPrefix(phone, "+") + "@e2e.example.com",
-		"password":     testPassword,
-		"full_name":    "Nguyen Van An",
-		"phone_number": phone,
+		"email":         e2eEmail(phone),
+		"password":      testPassword,
+		"full_name":     "Nguyen Van An",
+		"phone_country": "VN",
+		"phone_number":  "0" + strings.TrimPrefix(phone, "+84"),
 	}, "")
 	require.Equal(c.t, http.StatusOK, res.status, res.raw)
 }
 
-// verifyOTP completes US-001 with the dev OTP. "111111" is the constant
-// usecase.generateOTP returns today (⚠️ DEV ONLY); when that becomes random,
-// this harness needs a way to read the code (e.g. from the sms log).
+// verifyOTP completes onboarding step 2 with the dev fixed code.
 func (c *apiClient) verifyOTP(phone string) tokenPair {
 	c.t.Helper()
-	res := c.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
+	res := c.post("/v1/auth/register/verify-otp", map[string]any{"email": e2eEmail(phone), "otp_code": devOTPCode}, "")
 	require.Equal(c.t, http.StatusCreated, res.status, res.raw)
 	var pair tokenPair
 	res.data(&pair)

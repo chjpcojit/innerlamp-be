@@ -110,11 +110,3 @@ func (v *Validator) Struct(s any) error {
 func (v *Validator) Var(field any, tag string) error {
 	return v.validate.Var(field, tag)
 }
-
-// NormalizeEmail lowercases and trims whitespace. Every email comparison or
-// lookup MUST go through this so that User@Example.com and user@example.com
-// are the same account. It does not check whether the email is well formed —
-// that is the email tag's job at the delivery layer.
-func NormalizeEmail(email string) string {
-	return strings.ToLower(strings.TrimSpace(email))
-}

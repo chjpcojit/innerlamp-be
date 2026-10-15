@@ -1,247 +1,295 @@
 package e2e
 
 import (
+	"bufio"
+	"context"
+	"encoding/json"
 	"net/http"
+	"regexp"
+	"strings"
 	"testing"
 	"time"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"chjpcoj.com.innerlamp/pkg/database"
 )
 
-// TestRegisterFlow_RestartOverwritesPending_E2E pins the v5.1 restart rules
-// over the real binary: a live pending_registration row no longer blocks the
-// same phone from starting over — request-otp overwrites the payload, and the
-// only throttle is the AC5 send policy (here the 1s cooldown). Another phone's
-// live pending still holds the email (AC6), because the email is the account's
-// global unique key.
+// Subjects the appService email mailer uses (repository/email_auth_mailer.go).
+// Asserted on the dev LogMailer output to tell a code email from the
+// account-exists notice.
+const (
+	subjectRegisterCode  = "InnerLamp — Mã xác minh đăng ký"
+	subjectAccountExists = "InnerLamp — Email của bạn đã có tài khoản"
+)
+
+// countMatching is count(*) of table WHERE where, with bind args.
+func countMatching(t *testing.T, db database.Database, table, where string, args ...any) int {
+	t.Helper()
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	var n int
+	require.NoError(t, db.QueryRow(ctx, "SELECT count(*) FROM "+table+" WHERE "+where, args...).Scan(&n))
+	return n
+}
+
+// loggedMail is one email the dev LogMailer wrote to the server log instead
+// of sending it.
+type loggedMail struct {
+	To      string `json:"to_email"`
+	Subject string `json:"subject"`
+	Text    string `json:"text"`
+}
+
+var sixDigits = regexp.MustCompile(`\b(\d{6})\b`)
+
+// mailsTo returns, oldest first, every email the server logged for to.
+func mailsTo(t *testing.T, serverLog func() string, to string) []loggedMail {
+	t.Helper()
+	var out []loggedMail
+	sc := bufio.NewScanner(strings.NewReader(serverLog()))
+	sc.Buffer(make([]byte, 0, 64*1024), 1024*1024)
+	for sc.Scan() {
+		line := sc.Bytes()
+		if !strings.Contains(string(line), `"to_email"`) {
+			continue
+		}
+		var m loggedMail
+		if json.Unmarshal(line, &m) == nil && m.To == to {
+			out = append(out, m)
+		}
+	}
+	require.NoError(t, sc.Err())
+	return out
+}
+
+// codeFromLastMail reads the code out of the newest registration email logged
+// for to — the way a user reads it from their inbox.
+func codeFromLastMail(t *testing.T, serverLog func() string, to string) string {
+	t.Helper()
+	mails := mailsTo(t, serverLog, to)
+	require.NotEmpty(t, mails, "no email logged for %s", to)
+	last := mails[len(mails)-1]
+	require.Equal(t, subjectRegisterCode, last.Subject)
+	m := sixDigits.FindStringSubmatch(last.Text)
+	require.NotNil(t, m, "no 6-digit code in the mail body: %q", last.Text)
+	return m[1]
+}
+
+// TestRegisterFlow_Email_E2E drives onboarding v8.0 (email + emailed code)
+// over the real binary and a real Postgres. The code is read from the server
+// log, where the dev LogMailer (mailer.provider "log") writes the whole email.
+// In dev every code is otp.dev_fixed_code ("111111"), so the read value is
+// that constant — what this proves is that the code travels by email, not
+// that it is random (AC20 is a unit-test concern).
 //
-// The send cooldown is shortened to 1s so the restart fits a test run;
-// everything else is the dev config as shipped.
-func TestRegisterFlow_RestartOverwritesPending_E2E(t *testing.T) {
-	baseURL, client := newE2EServerWithConfig(t, configOverrides{
+// send_cooldown is shortened to 1s so a resend fits a test run; everything
+// else is the dev config as shipped.
+func TestRegisterFlow_Email_E2E(t *testing.T) {
+	requireE2E(t)
+	const cooldown = 1
+	dbHost, dbPort, cleanupDB := startPostgres(t)
+	t.Cleanup(cleanupDB)
+	baseURL, serverLog, cleanupSrv := startServerWithLog(t, dbHost, dbPort, configOverrides{
 		"otp": {"send_cooldown": "1s"},
 	})
-	api := &apiClient{t: t, baseURL: baseURL, http: client}
+	t.Cleanup(cleanupSrv)
+	db := openDB(t, dbHost, dbPort)
 
-	requestOTP := func(phone, email string) *apiResponse {
+	api := &apiClient{t: t, baseURL: baseURL, http: &http.Client{Timeout: 5 * time.Second}}
+
+	// phone is an E.164 "+84…" number from nextPhone, typed the way a VN user would.
+	requestOTP := func(email, phone string) *apiResponse {
 		return api.post("/v1/auth/register/request-otp", map[string]any{
-			"email": email, "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone,
+			"email":         email,
+			"password":      testPassword,
+			"full_name":     "Nguyen Van An",
+			"phone_country": "VN",
+			"phone_number":  "0" + strings.TrimPrefix(phone, "+84"),
 		}, "")
 	}
+	resendOTP := func(email string) *apiResponse {
+		return api.post("/v1/auth/register/resend-otp", map[string]any{"email": email}, "")
+	}
+	verifyOTP := func(email, code string) *apiResponse {
+		return api.post("/v1/auth/register/verify-otp", map[string]any{"email": email, "otp_code": code}, "")
+	}
+	waitCooldown := func() { time.Sleep(cooldown*time.Second + 100*time.Millisecond) }
+	pendingRows := func(email string) int {
+		return countMatching(t, db, "pending_registration", "email = $1", email)
+	}
 
-	t.Run("same phone restarts without waiting out the pending TTL", func(t *testing.T) {
+	// Set by the happy path, reused by the "already taken" cases.
+	var accountEmail, accountPhone string
+
+	t.Run("register by email with the emailed code (AC1, AC14)", func(t *testing.T) {
 		api.t = t
-		phone := api.nextPhone()
+		accountEmail, accountPhone = "new.user@e2e.example.com", api.nextPhone()
+		usersBefore := countRows(t, db, "users")
 
-		require.Equal(t, http.StatusOK, requestOTP(phone, "first@e2e.example.com").status)
+		// Mixed case on the wire; stored and mailed lower-case (AC1).
+		res := requestOTP("New.User@E2E.example.com", accountPhone)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		var step1 struct {
+			ExpiresInSeconds   int `json:"expires_in_seconds"`
+			ResendAfterSeconds int `json:"resend_after_seconds"`
+		}
+		res.data(&step1)
+		assert.Equal(t, 600, step1.ExpiresInSeconds, "otp.ttl")
+		assert.Equal(t, cooldown, step1.ResendAfterSeconds, "otp.send_cooldown")
+		assert.Equal(t, usersBefore, countRows(t, db, "users"), "step 1 creates no user")
+		assert.Equal(t, 1, pendingRows(accountEmail))
 
-		// Same phone right away: no longer PHONE_TAKEN, but AC5's cooldown still
-		// refuses a second send in the same second.
-		res := requestOTP(phone, "first@e2e.example.com")
+		code := codeFromLastMail(t, serverLog, accountEmail)
+
+		res = verifyOTP(accountEmail, code)
+		require.Equal(t, http.StatusCreated, res.status, res.raw)
+		assert.Equal(t, "no-store", res.header.Get("Cache-Control"))
+		var data struct {
+			AccessToken  string         `json:"access_token"`
+			RefreshToken string         `json:"refresh_token"`
+			ExpiresIn    int            `json:"expires_in"`
+			User         map[string]any `json:"user"`
+		}
+		res.data(&data)
+		assert.NotEmpty(t, data.AccessToken)
+		assert.NotEmpty(t, data.RefreshToken)
+		assert.Positive(t, data.ExpiresIn)
+		assert.Equal(t, accountEmail, data.User["email"])
+		assert.Equal(t, accountPhone, data.User["phone_number"], "E.164")
+		assert.Equal(t, "Nguyen Van An", data.User["full_name"])
+
+		assert.Equal(t, usersBefore+1, countRows(t, db, "users"))
+		assert.Zero(t, pendingRows(accountEmail), "pending row is deleted")
+		assert.Equal(t, 1, countMatching(t, db, "users", "email = $1 AND email_verified_at IS NOT NULL", accountEmail))
+
+		// AC19: the password never reaches the log.
+		assert.NotContains(t, serverLog(), testPassword)
+	})
+
+	t.Run("an email with an account gets the same 200 and can never create one (AC2, AC16)", func(t *testing.T) {
+		api.t = t
+		require.NotEmpty(t, accountEmail, "depends on the happy path")
+		usersBefore := countRows(t, db, "users")
+
+		fresh := requestOTP("fresh.user@e2e.example.com", api.nextPhone())
+		require.Equal(t, http.StatusOK, fresh.status, fresh.raw)
+
+		taken := requestOTP(accountEmail, api.nextPhone())
+		require.Equal(t, http.StatusOK, taken.status, taken.raw)
+		assert.JSONEq(t, fresh.raw, taken.raw, "the body must not reveal that the email has an account")
+
+		mails := mailsTo(t, serverLog, accountEmail)
+		require.NotEmpty(t, mails)
+		last := mails[len(mails)-1]
+		assert.Equal(t, subjectAccountExists, last.Subject, "the owner gets the notice, not a code")
+		assert.Nil(t, sixDigits.FindStringSubmatch(last.Text), "the notice carries no code")
+
+		// The dev fixed code is what the server issued; it still must not work.
+		res := verifyOTP(accountEmail, devOTPCode)
+		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
+		assert.Equal(t, "OTP_INVALID", res.errorCode())
+		assert.Equal(t, usersBefore, countRows(t, db, "users"), "no account created")
+	})
+
+	t.Run("a phone that belongs to an account is 409 PHONE_TAKEN (AC7)", func(t *testing.T) {
+		api.t = t
+		require.NotEmpty(t, accountPhone, "depends on the happy path")
+		const email = "phone.taken@e2e.example.com"
+
+		res := requestOTP(email, accountPhone)
+		require.Equal(t, http.StatusConflict, res.status, res.raw)
+		assert.Equal(t, "PHONE_TAKEN", res.errorCode())
+		assert.Zero(t, pendingRows(email), "nothing written")
+		assert.Empty(t, mailsTo(t, serverLog, email), "nothing sent")
+	})
+
+	t.Run("an expired pending registration is 400 PENDING_REGISTRATION_EXPIRED (AC12, AC17)", func(t *testing.T) {
+		api.t = t
+		const email = "expired@e2e.example.com"
+		require.Equal(t, http.StatusOK, requestOTP(email, api.nextPhone()).status)
+		code := codeFromLastMail(t, serverLog, email)
+
+		// pending_registration_ttl is 24h; age the row instead of waiting.
+		execSQL(t, db, `UPDATE pending_registration SET expires_at = now() - interval '1 second' WHERE email = $1`, email)
+
+		res := verifyOTP(email, code)
+		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
+		assert.Equal(t, "PENDING_REGISTRATION_EXPIRED", res.errorCode())
+
+		waitCooldown()
+		res = resendOTP(email)
+		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
+		assert.Equal(t, "PENDING_REGISTRATION_EXPIRED", res.errorCode())
+
+		res = resendOTP("never.requested@e2e.example.com")
+		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
+		assert.Equal(t, "PENDING_REGISTRATION_EXPIRED", res.errorCode())
+	})
+
+	t.Run("the third wrong code locks it: 429 OTP_LOCKED (AC15)", func(t *testing.T) {
+		api.t = t
+		const email = "locked@e2e.example.com"
+		require.Equal(t, http.StatusOK, requestOTP(email, api.nextPhone()).status)
+		code := codeFromLastMail(t, serverLog, email)
+		wrong := "000000"
+		if code == wrong {
+			wrong = "999999"
+		}
+
+		for i := 1; i <= 3; i++ {
+			res := verifyOTP(email, wrong)
+			require.Equalf(t, http.StatusBadRequest, res.status, "wrong code %d: %s", i, res.raw)
+			assert.Equalf(t, "OTP_INVALID", res.errorCode(), "wrong code %d", i)
+		}
+
+		// Even the right code is refused now.
+		res := verifyOTP(email, code)
+		require.Equal(t, http.StatusTooManyRequests, res.status, res.raw)
+		assert.Equal(t, "OTP_LOCKED", res.errorCode())
+		lockedUntil, ok := res.details()["locked_until"].(string)
+		require.True(t, ok, "OTP_LOCKED must carry locked_until: %s", res.raw)
+		parsed, err := time.Parse(time.RFC3339Nano, lockedUntil)
+		require.NoError(t, err)
+		assert.WithinDuration(t, time.Now().Add(30*time.Minute), parsed, time.Minute, "otp.lock_duration")
+
+		assert.Zero(t, countMatching(t, db, "users", "email = $1", email))
+	})
+
+	t.Run("resend issues a new code, then the cooldown applies (AC9, AC11)", func(t *testing.T) {
+		api.t = t
+		const email = "resend@e2e.example.com"
+		require.Equal(t, http.StatusOK, requestOTP(email, api.nextPhone()).status)
+
+		// Inside the cooldown: refused, nothing sent.
+		res := resendOTP(email)
+		require.Equal(t, http.StatusTooManyRequests, res.status, res.raw)
+		assert.Equal(t, "OTP_RESEND_TOO_SOON", res.errorCode())
+		assert.Contains(t, res.details(), "retry_after_seconds")
+		require.Len(t, mailsTo(t, serverLog, email), 1)
+
+		waitCooldown()
+		res = resendOTP(email)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		var data struct {
+			ExpiresInSeconds   int  `json:"expires_in_seconds"`
+			ResendAfterSeconds int  `json:"resend_after_seconds"`
+			ResendRemaining    *int `json:"resend_remaining"`
+		}
+		res.data(&data)
+		assert.Equal(t, 600, data.ExpiresInSeconds)
+		assert.Equal(t, cooldown, data.ResendAfterSeconds)
+		require.NotNil(t, data.ResendRemaining, res.raw)
+		assert.Equal(t, 2, *data.ResendRemaining)
+		require.Len(t, mailsTo(t, serverLog, email), 2, "the resend emailed a new code")
+
+		// Right after the resend the cooldown applies again.
+		res = resendOTP(email)
 		require.Equal(t, http.StatusTooManyRequests, res.status, res.raw)
 		assert.Equal(t, "OTP_RESEND_TOO_SOON", res.errorCode())
 
-		time.Sleep(1100 * time.Millisecond)
-
-		// After the cooldown the restart goes through and overwrites the payload.
-		res = requestOTP(phone, "second@e2e.example.com")
-		require.Equal(t, http.StatusOK, res.status, "same phone must be able to restart: %s", res.raw)
-
-		res = api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
+		res = verifyOTP(email, codeFromLastMail(t, serverLog, email))
 		require.Equal(t, http.StatusCreated, res.status, res.raw)
-		var data struct {
-			User map[string]any `json:"user"`
-		}
-		res.data(&data)
-		assert.Equal(t, "second@e2e.example.com", data.User["email"], "the restart's payload replaced the stale one")
-	})
-
-	t.Run("another phone's live pending still holds the email", func(t *testing.T) {
-		api.t = t
-		const email = "shared@e2e.example.com"
-
-		require.Equal(t, http.StatusOK, requestOTP(api.nextPhone(), email).status)
-
-		res := requestOTP(api.nextPhone(), email)
-		require.Equal(t, http.StatusConflict, res.status, res.raw)
-		assert.Equal(t, "EMAIL_TAKEN", res.errorCode())
-	})
-}
-
-// TestRegisterFlow_ResendAfterCodeExpired_E2E pins the v5.1 resend rule: once
-// the code window has closed but the pending payload is still live, resend-otp
-// issues a fresh code instead of OTP_EXPIRED. That is what makes "press resend
-// after the 30-minute send lock lifts" a way to resume.
-func TestRegisterFlow_ResendAfterCodeExpired_E2E(t *testing.T) {
-	baseURL, client := newE2EServerWithConfig(t, configOverrides{
-		"otp": {"ttl": "2s", "send_cooldown": "1s"},
-	})
-	api := &apiClient{t: t, baseURL: baseURL, http: client}
-	phone := api.nextPhone()
-
-	require.Equal(t, http.StatusOK, api.post("/v1/auth/register/request-otp", map[string]any{
-		"email": "resume@e2e.example.com", "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone,
-	}, "").status)
-
-	// Let the code die without letting the pending payload die (its TTL is the
-	// shipped 24h).
-	time.Sleep(3 * time.Second)
-
-	// Before v5.1 this answered 400 OTP_EXPIRED.
-	res := api.post("/v1/auth/resend-otp", map[string]any{"phone_number": phone, "purpose": "register"}, "")
-	require.Equal(t, http.StatusOK, res.status, "resend after the code expired must issue a new code: %s", res.raw)
-
-	res = api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
-	require.Equal(t, http.StatusCreated, res.status, res.raw)
-}
-
-// TestRegisterFlow_SendLimitAndVerifyDuringLock_E2E drives US-001 AC5 as
-// redesigned in v5.0 over the real binary: after the free first send, every
-// request-otp/resend-otp consumes one of three counted sends; the 4th send sets
-// a temporary send lock and the 5th is refused with 429 OTP_SEND_LIMITED (with
-// locked_until). It also pins B1 — the send lock must NOT block verifying the
-// last code, so verify-otp still succeeds while the number is locked out of
-// sending.
-//
-// send_cooldown is shortened to 1s so the four sends fit in a test run; the
-// send lock is left long enough to outlast the test's verify call.
-func TestRegisterFlow_SendLimitAndVerifyDuringLock_E2E(t *testing.T) {
-	baseURL, client := newE2EServerWithConfig(t, configOverrides{
-		"otp": {"send_cooldown": "1s", "send_lock_duration": "60s"},
-	})
-	api := &apiClient{t: t, baseURL: baseURL, http: client}
-	phone := api.nextPhone()
-	const email = "sendlimit@e2e.example.com"
-
-	request := func() *apiResponse {
-		return api.post("/v1/auth/register/request-otp", map[string]any{
-			"email": email, "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone,
-		}, "")
-	}
-	resend := func() *apiResponse {
-		return api.post("/v1/auth/resend-otp", map[string]any{
-			"phone_number": phone, "purpose": "register",
-		}, "")
-	}
-	waitCooldown := func() { time.Sleep(1100 * time.Millisecond) }
-
-	// Send 1: the free first of the cycle.
-	res := request()
-	require.Equal(t, http.StatusOK, res.status, res.raw)
-
-	// Sends 2-4: three counted resends. Remaining falls 2, 1, 0.
-	for i, wantRemaining := range []int{2, 1, 0} {
-		waitCooldown()
-		res = resend()
-		require.Equalf(t, http.StatusOK, res.status, "resend %d: %s", i+1, res.raw)
-		var data struct {
-			ResendRemaining int `json:"resend_remaining"`
-		}
-		res.data(&data)
-		assert.Equalf(t, wantRemaining, data.ResendRemaining, "resend %d remaining", i+1)
-	}
-
-	// Send 5: the cap is reached, so sending is refused with a deadline.
-	waitCooldown()
-	res = resend()
-	require.Equal(t, http.StatusTooManyRequests, res.status, res.raw)
-	assert.Equal(t, "OTP_SEND_LIMITED", res.errorCode())
-
-	lockedUntil, ok := res.details()["locked_until"].(string)
-	require.True(t, ok, "OTP_SEND_LIMITED must carry locked_until: %s", res.raw)
-	parsed, err := time.Parse(time.RFC3339Nano, lockedUntil)
-	require.NoError(t, err)
-	assert.WithinDuration(t, time.Now().Add(60*time.Second), parsed, time.Minute)
-
-	// B1: the send lock must not block verifying the last code that was
-	// actually sent — send 4 is still unused and inside its TTL.
-	res = api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
-	require.Equal(t, http.StatusCreated, res.status, "verify must work while send-locked: %s", res.raw)
-}
-
-// TestRegisterFlow_OrdinationTemple_E2E pins v7.0 over the real binary: the
-// client sends ordination_temple_id, an unknown id is refused up front with
-// INVALID_TEMPLE (nothing written), a valid id travels pending -> users and
-// comes back in the verify-otp user object, and omitting it is fine (NULL).
-func TestRegisterFlow_OrdinationTemple_E2E(t *testing.T) {
-	requireE2E(t)
-	dbHost, dbPort, cleanupDB := startPostgres(t)
-	t.Cleanup(cleanupDB)
-	baseURL, cleanupSrv := startServer(t, dbHost, dbPort, nil)
-	t.Cleanup(cleanupSrv)
-
-	db := openDB(t, dbHost, dbPort)
-	execSQL(t, db, `INSERT INTO temples (id, name, type, region, sect, established_year, heritage_rank, heritage_priority, latitude, longitude, address)
-		VALUES ('temple_e2e_001', 'Chùa E2E', 'CHUA', 'north', 'Thiền', 1000, 'CHUA_XEP_HANG', 7, 21.0, 105.8, 'Hà Nội')`)
-
-	api := &apiClient{t: t, baseURL: baseURL, http: &http.Client{Timeout: 5 * time.Second}}
-	request := func(phone, email string, extra map[string]any) *apiResponse {
-		body := map[string]any{"email": email, "password": testPassword, "full_name": "Nguyen Van An", "phone_number": phone}
-		for k, v := range extra {
-			body[k] = v
-		}
-		return api.post("/v1/auth/register/request-otp", body, "")
-	}
-	verify := func(phone string) *apiResponse {
-		return api.post("/v1/auth/register/verify-otp", map[string]any{"phone_number": phone, "otp_code": "111111"}, "")
-	}
-
-	t.Run("unknown id is refused and writes nothing", func(t *testing.T) {
-		api.t = t
-		res := request(api.nextPhone(), "badtemple@e2e.example.com", map[string]any{"ordination_temple_id": "temple_missing"})
-		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
-		assert.Equal(t, "INVALID_TEMPLE", res.errorCode())
-		assert.Zero(t, countRows(t, db, "pending_registration"))
-	})
-
-	t.Run("full_name is required and blank is refused without writing", func(t *testing.T) {
-		api.t = t
-		missing := api.post("/v1/auth/register/request-otp", map[string]any{"email": "noname@e2e.example.com", "password": testPassword, "phone_number": api.nextPhone()}, "")
-		require.Equal(t, http.StatusBadRequest, missing.status, missing.raw)
-		assert.Equal(t, "VALIDATION_ERROR", missing.errorCode())
-
-		blank := request(api.nextPhone(), "blankname@e2e.example.com", map[string]any{"full_name": "   "})
-		require.Equal(t, http.StatusBadRequest, blank.status, blank.raw)
-		assert.Equal(t, "INVALID_FULL_NAME", blank.errorCode())
-		assert.Zero(t, countRows(t, db, "pending_registration"))
-	})
-
-	t.Run("legacy ordination_place is rejected", func(t *testing.T) {
-		api.t = t
-		res := request(api.nextPhone(), "legacy@e2e.example.com", map[string]any{"ordination_place": "Chùa Hoằng Pháp"})
-		require.Equal(t, http.StatusBadRequest, res.status, res.raw)
-		assert.Equal(t, "VALIDATION_ERROR", res.errorCode())
-	})
-
-	t.Run("valid id reaches the user", func(t *testing.T) {
-		api.t = t
-		phone := api.nextPhone()
-		res := request(phone, "withtemple@e2e.example.com", map[string]any{"ordination_temple_id": "temple_e2e_001"})
-		require.Equal(t, http.StatusOK, res.status, res.raw)
-
-		res = verify(phone)
-		require.Equal(t, http.StatusCreated, res.status, res.raw)
-		var data struct {
-			User map[string]any `json:"user"`
-		}
-		res.data(&data)
-		assert.Equal(t, "Nguyen Van An", data.User["full_name"])
-		assert.Equal(t, "temple_e2e_001", data.User["ordination_temple_id"])
-		assert.NotContains(t, data.User, "ordination_place")
-	})
-
-	t.Run("no temple chosen is NULL and omitted", func(t *testing.T) {
-		api.t = t
-		phone := api.nextPhone()
-		require.Equal(t, http.StatusOK, request(phone, "notemple@e2e.example.com", nil).status)
-
-		res := verify(phone)
-		require.Equal(t, http.StatusCreated, res.status, res.raw)
-		var data struct {
-			User map[string]any `json:"user"`
-		}
-		res.data(&data)
-		assert.NotContains(t, data.User, "ordination_temple_id")
 	})
 }

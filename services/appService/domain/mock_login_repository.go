@@ -22,9 +22,9 @@ type MockLoginRepository struct {
 	mock.Mock
 }
 
-// FindUserByPhone mocks the FindUserByPhone method.
-func (m *MockLoginRepository) FindUserByPhone(ctx context.Context, phoneNumber string) (*User, error) {
-	args := m.Called(ctx, phoneNumber)
+// FindUserByEmail mocks the FindUserByEmail method.
+func (m *MockLoginRepository) FindUserByEmail(ctx context.Context, email string) (*User, error) {
+	args := m.Called(ctx, email)
 	if u := args.Get(0); u != nil {
 		return u.(*User), args.Error(1)
 	}
@@ -40,18 +40,9 @@ func (m *MockLoginRepository) FindUserByID(ctx context.Context, userID int64) (*
 	return nil, args.Error(1)
 }
 
-// FindLoginAttempt mocks the FindLoginAttempt method.
-func (m *MockLoginRepository) FindLoginAttempt(ctx context.Context, phoneNumber string) (*LoginAttempt, error) {
-	args := m.Called(ctx, phoneNumber)
-	if a := args.Get(0); a != nil {
-		return a.(*LoginAttempt), args.Error(1)
-	}
-	return nil, args.Error(1)
-}
-
-// RecordLoginFailure mocks the RecordLoginFailure method.
-func (m *MockLoginRepository) RecordLoginFailure(ctx context.Context, phoneNumber string, maxAttempts int, lockDuration, resetWindow time.Duration) (*LoginAttempt, error) {
-	args := m.Called(ctx, phoneNumber, maxAttempts, lockDuration, resetWindow)
+// ReserveLoginAttempt mocks the ReserveLoginAttempt method.
+func (m *MockLoginRepository) ReserveLoginAttempt(ctx context.Context, email string, maxAttempts int, lockDuration, resetWindow time.Duration) (*LoginAttempt, error) {
+	args := m.Called(ctx, email, maxAttempts, lockDuration, resetWindow)
 	if a := args.Get(0); a != nil {
 		return a.(*LoginAttempt), args.Error(1)
 	}

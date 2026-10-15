@@ -21,13 +21,16 @@ type MockRegistrationRepository struct {
 	mock.Mock
 }
 
-// FindConflicts mocks the FindConflicts method.
-func (m *MockRegistrationRepository) FindConflicts(ctx context.Context, phoneNumber, email string) (*RegistrationConflicts, error) {
-	args := m.Called(ctx, phoneNumber, email)
-	if c := args.Get(0); c != nil {
-		return c.(*RegistrationConflicts), args.Error(1)
-	}
-	return nil, args.Error(1)
+// PhoneTaken mocks the PhoneTaken method.
+func (m *MockRegistrationRepository) PhoneTaken(ctx context.Context, phoneNumber string) (bool, error) {
+	args := m.Called(ctx, phoneNumber)
+	return args.Bool(0), args.Error(1)
+}
+
+// EmailHasAccount mocks the EmailHasAccount method.
+func (m *MockRegistrationRepository) EmailHasAccount(ctx context.Context, email string) (bool, error) {
+	args := m.Called(ctx, email)
+	return args.Bool(0), args.Error(1)
 }
 
 // TempleExists mocks the TempleExists method.
@@ -46,8 +49,8 @@ func (m *MockRegistrationRepository) SavePendingAndIssueOTP(ctx context.Context,
 }
 
 // FindPendingRegistration mocks the FindPendingRegistration method.
-func (m *MockRegistrationRepository) FindPendingRegistration(ctx context.Context, phoneNumber string) (*PendingRegistration, error) {
-	args := m.Called(ctx, phoneNumber)
+func (m *MockRegistrationRepository) FindPendingRegistration(ctx context.Context, email string) (*PendingRegistration, error) {
+	args := m.Called(ctx, email)
 	if p := args.Get(0); p != nil {
 		return p.(*PendingRegistration), args.Error(1)
 	}

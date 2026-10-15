@@ -10,6 +10,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -27,9 +28,8 @@ import (
 	jwtmiddleware "chjpcoj.com.innerlamp/pkg/jwt/middleware"
 	"chjpcoj.com.innerlamp/pkg/logging"
 	"chjpcoj.com.innerlamp/pkg/logging/formatter"
+	"chjpcoj.com.innerlamp/pkg/mailer"
 	httpmiddleware "chjpcoj.com.innerlamp/pkg/middleware"
-	"chjpcoj.com.innerlamp/pkg/sms"
-	_ "chjpcoj.com.innerlamp/pkg/sms/logsms"
 	pkgstorage "chjpcoj.com.innerlamp/pkg/storage"
 	_ "chjpcoj.com.innerlamp/pkg/storage/gcs"
 	"chjpcoj.com.innerlamp/pkg/validation"
@@ -228,25 +228,25 @@ func main() {
 	}
 	validator.SetFieldNameTag("json")
 
-	// ⚠️ DEV ONLY: pkg/sms/logsms logs the OTP instead of sending it via a
-	// real provider (Twilio, AWS SNS, a GCP equivalent). Swap
-	// cfg.SMS.Provider (config.dev.yaml) and its blank import above once a
-	// real provider subpackage exists — pkg/sms.Sender does not change.
-	smsSender, err := sms.New(&sms.Config{
-		Provider: sms.ProviderType(cfg.SMS.Provider),
-		Logger:   logger,
-	})
+	// ⚠️ DEV ONLY: mailer.provider "log" (pkg/mailer.LogMailer) writes every
+	// email — codes included — to the service log instead of sending it.
+	// AppConfig.Validate already refuses "log" outside app.environment "dev"
+	// (onboarding AC21); a real driver ships once the sending domain exists.
+	appMailer, err := newMailer(cfg.Mailer, logger)
 	if err != nil {
-		log.Fatalf("failed to create sms sender: %v", err)
+		log.Fatalf("failed to create mailer: %v", err)
 	}
+	authMailer := repository.NewEmailAuthMailer(appMailer, cfg.Mailer.From)
+	passwordHasher := usecase.NewBcryptPasswordHasher()
 
 	registrationRepo := repository.NewRegistrationRepository(db)
 	otpRepo := repository.NewOTPRepository(db)
-	otpSender := repository.NewSMSOTPSender(smsSender)
-	otpService := usecase.NewOTPService(otpRepo, otpSender, logger, cfg.OTP)
+	otpService := usecase.NewOTPService(otpRepo, logger, cfg.OTP)
 	registerUsecase := usecase.NewRegisterUsecase(
 		registrationRepo,
 		otpService,
+		authMailer,
+		passwordHasher,
 		jwtService,
 		logger,
 		cfg.JWT.RefreshTokenExpiration.Duration(),
@@ -261,6 +261,7 @@ func main() {
 	loginRepo := repository.NewLoginRepository(db)
 	loginUsecase := usecase.NewLoginUsecase(
 		loginRepo,
+		passwordHasher,
 		jwtService,
 		logger,
 		cfg.JWT.RefreshTokenExpiration.Duration(),
@@ -493,7 +494,7 @@ func main() {
 	// missing one means mobile (see RequireWebAPIKey).
 	webAPIKey := deliveryhttp.NewRequireWebAPIKey(cfg.Server.WebAPIKey)
 	mux.HandleFunc("POST /v1/auth/register/request-otp", webAPIKey.WrapFunc(registerHandler.RequestOTP))
-	mux.HandleFunc("POST /v1/auth/resend-otp", webAPIKey.WrapFunc(registerHandler.ResendOTP))
+	mux.HandleFunc("POST /v1/auth/register/resend-otp", webAPIKey.WrapFunc(registerHandler.ResendOTP))
 	// verify-otp, login and refresh return tokens: noStore keeps them out of any cache (AC20).
 	noStore := deliveryhttp.NoStore{}
 	mux.HandleFunc("POST /v1/auth/register/verify-otp", webAPIKey.WrapFunc(noStore.WrapFunc(registerHandler.VerifyOTP)))
@@ -671,4 +672,16 @@ func newHandler(mux *http.ServeMux) http.Handler {
 			),
 		),
 	)
+}
+
+// newMailer builds the pkg/mailer driver mailer.provider names. "log" is the
+// only driver today; anything else is a startup error rather than a silent
+// fallback, so a typo cannot ship codes into the log in production.
+func newMailer(cfg appConfig.MailerConfig, logger logging.Logger) (mailer.Mailer, error) {
+	switch cfg.Provider {
+	case appConfig.MailerProviderLog:
+		return mailer.NewLogMailer(logger), nil
+	default:
+		return nil, fmt.Errorf("unknown mailer.provider %q (supported: %q)", cfg.Provider, appConfig.MailerProviderLog)
+	}
 }

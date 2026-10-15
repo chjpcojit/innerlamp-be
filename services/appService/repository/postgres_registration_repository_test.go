@@ -102,7 +102,7 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0006_admins.sql", // temple_suggestions.reviewed_by references admins
 		"0007_deities.sql",
 		"0015_deities_deva_type.sql", // widens deities.type CHECK to allow DEVA (deity type filter tests)
-		"0011_temple_content.sql", // temples.introduction etc.: postgres_temple_repository.go selects them
+		"0011_temple_content.sql",    // temples.introduction etc.: postgres_temple_repository.go selects them
 		"0012_articles.sql",
 		"0013_sutras.sql",
 		"0014_dharma_talks.sql",
@@ -122,9 +122,10 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0031_calendar_events.sql",                  // calendar_*: postgres_calendar_event_repository.go
 		"0032_temple_address_codes.sql",             // temples.province_code/ward_code/ward: postgres_temple_repository.go (v1.7)
 		"0033_users_full_name.sql",                  // users/pending_registration.full_name: registration + login repositories select/insert it
-		"0034_temple_schedules.sql",                  // temple_schedules/steps: postgres_temple_schedule_repository.go
+		"0034_temple_schedules.sql",                 // temple_schedules/steps: postgres_temple_schedule_repository.go
 		"0035_temple_events.sql",                    // temple_events: postgres_temple_event_repository.go
 		"0036_temple_announcements.sql",             // temple_announcements/issuing bodies + users.receive_temple_announcements
+		"0037_auth_email_identity.sql",              // otp_codes/otp_send_limits/pending_registration keyed by email
 	} {
 		sqlBytes, err := os.ReadFile("../../../migrations/" + file)
 		require.NoError(t, err)
@@ -171,13 +172,13 @@ func insertPending(t *testing.T, db database.Database, phoneNumber, email string
 	return id
 }
 
-func insertOTPRow(t *testing.T, db database.Database, phoneNumber string, purpose domain.OTPPurpose, expiresAt time.Time, usedAt, lockedUntil *time.Time) int64 {
+func insertOTPRow(t *testing.T, db database.Database, email string, purpose domain.OTPPurpose, expiresAt time.Time, usedAt, lockedUntil *time.Time) int64 {
 	t.Helper()
 	var id int64
 	err := db.QueryRow(context.Background(),
-		`INSERT INTO otp_codes (phone_number, purpose, otp_hash, expires_at, used_at, locked_until)
+		`INSERT INTO otp_codes (email, purpose, otp_hash, expires_at, used_at, locked_until)
 		 VALUES ($1, $2, 'hash', $3, $4, $5) RETURNING id`,
-		phoneNumber, string(purpose), expiresAt, usedAt, lockedUntil,
+		email, string(purpose), expiresAt, usedAt, lockedUntil,
 	).Scan(&id)
 	require.NoError(t, err)
 	return id
@@ -185,14 +186,21 @@ func insertOTPRow(t *testing.T, db database.Database, phoneNumber string, purpos
 
 // insertSendLimit seeds an otp_send_limits row, so a test can start a cycle
 // part-way through without driving real sends to that point first.
-func insertSendLimit(t *testing.T, db database.Database, phoneNumber string, purpose domain.OTPPurpose, sendCount int, lastSentAt time.Time, lockedUntil *time.Time) {
+func insertSendLimit(t *testing.T, db database.Database, email string, purpose domain.OTPPurpose, sendCount int, lastSentAt time.Time, lockedUntil *time.Time) {
 	t.Helper()
 	_, err := db.Exec(context.Background(),
-		`INSERT INTO otp_send_limits (phone_number, purpose, send_count, last_sent_at, locked_until)
+		`INSERT INTO otp_send_limits (email, purpose, send_count, last_sent_at, locked_until)
 		 VALUES ($1, $2, $3, $4, $5)`,
-		phoneNumber, string(purpose), sendCount, lastSentAt, lockedUntil,
+		email, string(purpose), sendCount, lastSentAt, lockedUntil,
 	)
 	require.NoError(t, err)
+}
+
+func queryInt(t *testing.T, db database.Database, query string, args ...any) int {
+	t.Helper()
+	var n int
+	require.NoError(t, db.QueryRow(context.Background(), query, args...).Scan(&n))
+	return n
 }
 
 // testSendLimits mirrors the shape the use case threads down; the values match
@@ -205,86 +213,46 @@ func testSendLimits() domain.SendLimits {
 	}
 }
 
-func TestRegistrationRepository_FindConflicts(t *testing.T) {
+func TestRegistrationRepository_PhoneTakenAndEmailHasAccount(t *testing.T) {
 	db := connectTestDB(t)
 	repo := NewRegistrationRepository(db)
 	ctx := context.Background()
 
-	t.Run("no conflict", func(t *testing.T) {
-		truncateAll(t, db)
-		c, err := repo.FindConflicts(ctx, "+84900000001", "nobody@example.com")
-		require.NoError(t, err)
-		require.False(t, c.HasPhoneConflict())
-		require.False(t, c.HasEmailConflict())
-	})
+	insertUser(t, db, "+84900000001", "owner@example.com")
+	insertPending(t, db, "+84900000002", "pending@example.com", time.Now().Add(time.Hour))
 
-	t.Run("phone and email taken in users", func(t *testing.T) {
-		truncateAll(t, db)
-		insertUser(t, db, "+84900000002", "taken@example.com")
+	taken, err := repo.PhoneTaken(ctx, "+84900000001")
+	require.NoError(t, err)
+	require.True(t, taken, "AC7: a number on an account is taken")
 
-		c, err := repo.FindConflicts(ctx, "+84900000002", "taken@example.com")
-		require.NoError(t, err)
-		require.True(t, c.PhoneInUsers)
-		require.True(t, c.EmailInUsers)
-		require.True(t, c.HasPhoneConflict())
-		require.True(t, c.HasEmailConflict())
-	})
+	taken, err = repo.PhoneTaken(ctx, "+84900000002")
+	require.NoError(t, err)
+	require.False(t, taken, "AC7: a number held only by a pending registration does not block")
 
-	// v5.1: a phone's own live pending row is that caller's in-flight attempt,
-	// not a claim against them. request-otp overwrites it, so a reinstall can
-	// restart without waiting out the (now 24h) PendingRegistrationTTL.
-	t.Run("own live pending is not a conflict", func(t *testing.T) {
-		truncateAll(t, db)
-		insertPending(t, db, "+84900000003", "mine@example.com", time.Now().Add(24*time.Hour))
+	has, err := repo.EmailHasAccount(ctx, "owner@example.com")
+	require.NoError(t, err)
+	require.True(t, has)
 
-		c, err := repo.FindConflicts(ctx, "+84900000003", "mine@example.com")
-		require.NoError(t, err)
-		require.False(t, c.HasPhoneConflict())
-		require.False(t, c.HasEmailConflict())
-	})
+	has, err = repo.EmailHasAccount(ctx, "pending@example.com")
+	require.NoError(t, err)
+	require.False(t, has, "a pending row is not an account")
+}
 
-	// AC6: the unverified email of *another* phone's attempt is still a claim
-	// on a globally-unique key, so it must be found even though it is not in
-	// users yet.
-	t.Run("another phone's live pending holds the email", func(t *testing.T) {
-		truncateAll(t, db)
-		insertPending(t, db, "+84900000005", "shared@example.com", time.Now().Add(24*time.Hour))
+func newPending(email, phone string) *domain.PendingRegistration {
+	name := "Nguyen Van Test"
+	return &domain.PendingRegistration{
+		Email: email, PhoneNumber: phone, PasswordHash: "pw-hash", FullName: &name,
+		ExpiresAt: time.Now().Add(24 * time.Hour),
+	}
+}
 
-		c, err := repo.FindConflicts(ctx, "+84900000006", "shared@example.com")
-		require.NoError(t, err)
-		require.True(t, c.EmailInPending)
-		require.True(t, c.HasEmailConflict())
-		require.False(t, c.HasPhoneConflict())
-	})
-
-	// An expired pending row is an abandoned attempt, not a claim on the email:
-	// nothing deletes it until the cleanup job runs, so counting it would block
-	// that email for the whole TTL.
-	t.Run("expired pending rows are not conflicts", func(t *testing.T) {
-		truncateAll(t, db)
-		insertPending(t, db, "+84900000004", "expired@example.com", time.Now().Add(-time.Second))
-
-		c, err := repo.FindConflicts(ctx, "+84900000004", "expired@example.com")
-		require.NoError(t, err)
-		require.False(t, c.HasPhoneConflict())
-		require.False(t, c.HasEmailConflict())
-
-		insertPending(t, db, "+84900000005", "shared@example.com", time.Now().Add(-time.Second))
-		c, err = repo.FindConflicts(ctx, "+84900000006", "shared@example.com")
-		require.NoError(t, err)
-		require.False(t, c.HasEmailConflict())
-	})
-
-	t.Run("expired pending does not hide a real account", func(t *testing.T) {
-		truncateAll(t, db)
-		insertUser(t, db, "+84900000007", "real@example.com")
-		insertPending(t, db, "+84900000008", "real@example.com", time.Now().Add(-time.Second))
-
-		c, err := repo.FindConflicts(ctx, "+84900000008", "real@example.com")
-		require.NoError(t, err)
-		require.True(t, c.EmailInUsers)
-		require.True(t, c.HasEmailConflict())
-	})
+// ageSendLimit moves the cycle's last send back past the cooldown, so a test
+// can send again without sleeping.
+func ageSendLimit(t *testing.T, db database.Database, email string) {
+	t.Helper()
+	_, err := db.Exec(context.Background(),
+		`UPDATE otp_send_limits SET last_sent_at = now() - interval '2 minutes' WHERE email = $1`, email)
+	require.NoError(t, err)
 }
 
 func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
@@ -293,76 +261,84 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 	otpRepo := NewOTPRepository(db)
 	ctx := context.Background()
 
-	t.Run("happy path writes pending and otp, first send is free", func(t *testing.T) {
+	t.Run("writes pending and code keyed by email, first send is free", func(t *testing.T) {
 		truncateAll(t, db)
-		fullName := "Nguyen Van Test"
 		dharma := "Thich Test"
-		pending := &domain.PendingRegistration{
-			PhoneNumber:  "+84900000010",
-			Email:        "a@example.com",
-			PasswordHash: "hash",
-			FullName:     &fullName,
-			DharmaName:   &dharma,
-			// Set by the caller (the use case), same as PendingRegistrationTTL —
-			// distinct from the expiresAt argument below, which is the OTP's own
-			// expiry (OTPConfig.TTL). They happen to share a value in
-			// config.dev.yaml, but SavePendingAndIssueOTP must not conflate them.
-			ExpiresAt: time.Now().Add(90 * time.Second),
-		}
-		expiresAt := time.Now().Add(90 * time.Second).Truncate(time.Millisecond)
+		pending := newPending("a@example.com", "+84900000010")
+		pending.DharmaName = &dharma
 
-		state, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", expiresAt, testSendLimits())
+		state, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(10*time.Minute), testSendLimits())
 		require.NoError(t, err)
 		require.NotZero(t, pending.ID)
-
-		// The first send of a cycle is free: the counter stays at 0 and all
-		// three counted attempts remain.
 		require.Equal(t, 0, state.SendCount)
 		require.Equal(t, 3, state.Remaining)
 
-		got, err := repo.FindPendingRegistration(ctx, "+84900000010")
+		got, err := repo.FindPendingRegistration(ctx, "a@example.com")
 		require.NoError(t, err)
-		require.Equal(t, "a@example.com", got.Email)
-		require.NotNil(t, got.FullName)
-		require.Equal(t, "Nguyen Van Test", *got.FullName)
+		require.Equal(t, "+84900000010", got.PhoneNumber)
 		require.Equal(t, "Thich Test", *got.DharmaName)
+		require.False(t, got.AccountExists)
 
-		otp, err := otpRepo.FindActiveOTP(ctx, "+84900000010", domain.OTPPurposeRegister)
+		otp, err := otpRepo.FindActiveOTP(ctx, "a@example.com", domain.OTPPurposeRegister)
 		require.NoError(t, err)
 		require.Equal(t, "otphash", otp.OTPHash)
-
-		var sendCount int
-		require.NoError(t, db.QueryRow(ctx, `SELECT send_count FROM otp_send_limits WHERE phone_number = $1 AND purpose = 'register'`, "+84900000010").Scan(&sendCount))
-		require.Equal(t, 0, sendCount)
+		require.Equal(t, "a@example.com", otp.Email)
 	})
 
-	t.Run("second call inside the cooldown is refused and writes nothing", func(t *testing.T) {
+	t.Run("same email overwrites the pending row and invalidates the old code", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000011"
-		pending := &domain.PendingRegistration{PhoneNumber: phone, Email: "b@example.com", PasswordHash: "hash1", ExpiresAt: time.Now().Add(90 * time.Second)}
-		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "hash-1", time.Now().Add(90*time.Second), testSendLimits())
+		email := "same@example.com"
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000011"), "hash-1", time.Now().Add(10*time.Minute), testSendLimits())
+		require.NoError(t, err)
+		first, err := otpRepo.FindActiveOTP(ctx, email, domain.OTPPurposeRegister)
 		require.NoError(t, err)
 
-		firstOTP, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+		ageSendLimit(t, db, email)
+		second := newPending(email, "+84900000012")
+		second.PasswordHash = "pw-hash-2"
+		second.AccountExists = true
+		_, err = repo.SavePendingAndIssueOTP(ctx, second, "hash-2", time.Now().Add(10*time.Minute), testSendLimits())
 		require.NoError(t, err)
 
-		pending2 := &domain.PendingRegistration{PhoneNumber: phone, Email: "b2@example.com", PasswordHash: "hash2", ExpiresAt: time.Now().Add(90 * time.Second)}
-		_, err = repo.SavePendingAndIssueOTP(ctx, pending2, "hash-2", time.Now().Add(90*time.Second), testSendLimits())
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM pending_registration WHERE email = $1`, email))
+		got, err := repo.FindPendingRegistration(ctx, email)
+		require.NoError(t, err)
+		require.Equal(t, "+84900000012", got.PhoneNumber)
+		require.Equal(t, "pw-hash-2", got.PasswordHash)
+		require.True(t, got.AccountExists)
+
+		active, err := otpRepo.FindActiveOTP(ctx, email, domain.OTPPurposeRegister)
+		require.NoError(t, err)
+		require.NotEqual(t, first.ID, active.ID)
+		require.Equal(t, "hash-2", active.OTPHash)
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE email = $1 AND used_at IS NULL`, email))
+	})
+
+	t.Run("two pending registrations may hold the same phone", func(t *testing.T) {
+		truncateAll(t, db)
+		phone := "+84900000013"
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending("one@example.com", phone), "h1", time.Now().Add(10*time.Minute), testSendLimits())
+		require.NoError(t, err)
+		_, err = repo.SavePendingAndIssueOTP(ctx, newPending("two@example.com", phone), "h2", time.Now().Add(10*time.Minute), testSendLimits())
+		require.NoError(t, err)
+
+		require.Equal(t, 2, queryInt(t, db, `SELECT count(*) FROM pending_registration WHERE phone_number = $1`, phone))
+	})
+
+	t.Run("refused inside the cooldown and writes nothing", func(t *testing.T) {
+		truncateAll(t, db)
+		email := "cool@example.com"
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000014"), "hash-1", time.Now().Add(10*time.Minute), testSendLimits())
+		require.NoError(t, err)
+
+		again := newPending(email, "+84900000015")
+		_, err = repo.SavePendingAndIssueOTP(ctx, again, "hash-2", time.Now().Add(10*time.Minute), testSendLimits())
 		require.ErrorIs(t, err, domain.ErrOTPResendTooSoon)
 
-		// Nothing was written: the payload and the active OTP are untouched, and
-		// no extra otp_codes row exists.
-		got, err := repo.FindPendingRegistration(ctx, phone)
+		got, err := repo.FindPendingRegistration(ctx, email)
 		require.NoError(t, err)
-		require.Equal(t, "b@example.com", got.Email, "a refused send must not upsert the payload")
-
-		active, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
-		require.NoError(t, err)
-		require.Equal(t, firstOTP.ID, active.ID)
-
-		var otpRows int
-		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM otp_codes WHERE phone_number = $1`, phone).Scan(&otpRows))
-		require.Equal(t, 1, otpRows)
+		require.Equal(t, "+84900000014", got.PhoneNumber, "a refused send must not upsert the payload")
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE email = $1`, email))
 	})
 }
 
@@ -372,141 +348,149 @@ func TestOTPRepository_IssueOTP(t *testing.T) {
 	otpRepo := NewOTPRepository(db)
 	ctx := context.Background()
 
-	t.Run("invalidates old otp and counts the send, without touching pending", func(t *testing.T) {
+	truncateAll(t, db)
+	email := "c@example.com"
+	pendingExpiry := time.Now().Add(24 * time.Hour).Truncate(time.Millisecond)
+	insertPending(t, db, "+84900000020", email, pendingExpiry)
+	oldID := insertOTPRow(t, db, email, domain.OTPPurposeRegister, time.Now().Add(10*time.Minute), nil, nil)
+	insertSendLimit(t, db, email, domain.OTPPurposeRegister, 1, time.Now().Add(-5*time.Minute), nil)
+
+	state, err := otpRepo.IssueOTP(ctx, email, domain.OTPPurposeRegister, "new-hash", time.Now().Add(10*time.Minute), testSendLimits())
+	require.NoError(t, err)
+	require.Equal(t, 2, state.SendCount)
+	require.Equal(t, 1, state.Remaining)
+
+	active, err := otpRepo.FindActiveOTP(ctx, email, domain.OTPPurposeRegister)
+	require.NoError(t, err)
+	require.Equal(t, "new-hash", active.OTPHash)
+	require.NotEqual(t, oldID, active.ID)
+
+	pending, err := repo.FindPendingRegistration(ctx, email)
+	require.NoError(t, err)
+	require.WithinDuration(t, pendingExpiry, pending.ExpiresAt, 2*time.Second, "issue leaves the payload alone")
+
+	// Another purpose of the same email has its own budget (otp-mechanism AC1).
+	state, err = otpRepo.IssueOTP(ctx, email, domain.OTPPurposeResetPassword, "reset-hash", time.Now().Add(10*time.Minute), testSendLimits())
+	require.NoError(t, err)
+	require.Equal(t, 0, state.SendCount)
+	active, err = otpRepo.FindActiveOTP(ctx, email, domain.OTPPurposeRegister)
+	require.NoError(t, err)
+	require.Equal(t, "new-hash", active.OTPHash, "a reset code does not invalidate the register code")
+}
+
+// TestOTPRepository_ApplySendLimit pins otp-mechanism AC6: the same refusals
+// as IssueOTP, and no code is ever written.
+func TestOTPRepository_ApplySendLimit(t *testing.T) {
+	db := connectTestDB(t)
+	otpRepo := NewOTPRepository(db)
+	ctx := context.Background()
+	purpose := domain.OTPPurposeResetPassword
+
+	t.Run("allowed: counts like a send, creates no code", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000020"
-		pendingExpiry := time.Now().Add(24 * time.Hour).Truncate(time.Millisecond)
-		insertPending(t, db, phone, "c@example.com", pendingExpiry)
-		oldOTPID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
-		// Seed a live cycle so this resend is a counted send, not the free first.
-		insertSendLimit(t, db, phone, domain.OTPPurposeRegister, 1, time.Now().Add(-5*time.Minute), nil)
-
-		state, err := otpRepo.IssueOTP(ctx, phone, domain.OTPPurposeRegister, "new-hash", time.Now().Add(90*time.Second), testSendLimits())
+		email := "ok@example.com"
+		state, err := otpRepo.ApplySendLimit(ctx, email, purpose, testSendLimits())
 		require.NoError(t, err)
-		require.Equal(t, 2, state.SendCount, "a counted send advances the counter")
-		require.Equal(t, 1, state.Remaining)
+		require.Equal(t, 0, state.SendCount)
+		require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM otp_codes`))
 
-		var newHash string
-		require.NoError(t, db.QueryRow(ctx, `SELECT otp_hash FROM otp_codes WHERE phone_number = $1 AND used_at IS NULL`, phone).Scan(&newHash))
-		require.Equal(t, "new-hash", newHash)
-
-		var oldUsedAt sql.NullTime
-		require.NoError(t, db.QueryRow(ctx, `SELECT used_at FROM otp_codes WHERE id = $1`, oldOTPID).Scan(&oldUsedAt))
-		require.True(t, oldUsedAt.Valid)
-
-		// v5.1: resend leaves the payload alone — the payload's own TTL bounds
-		// the attempt, and the replacement code's 90 seconds has nothing to do
-		// with it.
-		pending, err := repo.FindPendingRegistration(ctx, phone)
-		require.NoError(t, err)
-		require.WithinDuration(t, pendingExpiry, pending.ExpiresAt, 2*time.Second)
+		_, err = otpRepo.ApplySendLimit(ctx, email, purpose, testSendLimits())
+		require.ErrorIs(t, err, domain.ErrOTPResendTooSoon, "the first call started the cooldown")
 	})
 
-	t.Run("does not touch pending_registration for a non-register purpose", func(t *testing.T) {
-		truncateAll(t, db)
-		phone := "+84900000021"
-		originalExpiry := time.Now().Add(90 * time.Second)
-		insertPending(t, db, phone, "d@example.com", originalExpiry)
-		insertOTPRow(t, db, phone, domain.OTPPurposeLogin, time.Now().Add(90*time.Second), nil, nil)
+	t.Run("same 429s as IssueOTP", func(t *testing.T) {
+		for name, seed := range map[string]struct {
+			count    int
+			lastSent time.Duration
+			want     error
+		}{
+			"cooldown": {1, -10 * time.Second, domain.ErrOTPResendTooSoon},
+			"cap":      {3, -5 * time.Minute, domain.ErrOTPSendLimited},
+		} {
+			t.Run(name, func(t *testing.T) {
+				truncateAll(t, db)
+				a, b := "apply@example.com", "issue@example.com"
+				insertSendLimit(t, db, a, purpose, seed.count, time.Now().Add(seed.lastSent), nil)
+				insertSendLimit(t, db, b, purpose, seed.count, time.Now().Add(seed.lastSent), nil)
 
-		_, err := otpRepo.IssueOTP(ctx, phone, domain.OTPPurposeLogin, "hash", time.Now().Add(9*time.Minute), testSendLimits())
-		require.NoError(t, err)
+				_, errApply := otpRepo.ApplySendLimit(ctx, a, purpose, testSendLimits())
+				_, errIssue := otpRepo.IssueOTP(ctx, b, purpose, "h", time.Now().Add(time.Minute), testSendLimits())
 
-		pending, err := repo.FindPendingRegistration(ctx, phone)
-		require.NoError(t, err)
-		require.WithinDuration(t, originalExpiry, pending.ExpiresAt, 2*time.Second)
+				require.ErrorIs(t, errApply, seed.want)
+				require.ErrorIs(t, errIssue, seed.want)
+				require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM otp_codes`))
+			})
+		}
 	})
 }
 
-// TestRegistrationRepository_SendLimits pins the AC5 state machine at the layer
-// that owns it: the free first send, the counted sends, the cap setting a
-// temporary lock, the cycle resetting once it ages out, and the counter being
-// released when the registration completes.
+// TestRegistrationRepository_SendLimits pins the send-policy state machine:
+// the cap setting a temporary lock, the cycle resetting once it ages out, a
+// refusal not consuming a slot, and the counter being released.
 func TestRegistrationRepository_SendLimits(t *testing.T) {
 	db := connectTestDB(t)
 	repo := NewRegistrationRepository(db)
 	otpRepo := NewOTPRepository(db)
 	ctx := context.Background()
 	limits := testSendLimits()
+	reg := domain.OTPPurposeRegister
 
 	t.Run("cap sets a 30m lock and a locked cycle keeps refusing", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000080"
-		// A live cycle that has already used all three counted sends, past its
-		// cooldown so only the cap can refuse this attempt.
-		insertSendLimit(t, db, phone, domain.OTPPurposeRegister, 3, time.Now().Add(-5*time.Minute), nil)
-		insertPending(t, db, phone, "cap@example.com", time.Now().Add(90*time.Second))
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		email := "cap@example.com"
+		insertSendLimit(t, db, email, reg, 3, time.Now().Add(-5*time.Minute), nil)
 
 		before := time.Now()
-		_, err := otpRepo.IssueOTP(ctx, phone, domain.OTPPurposeRegister, "hash", time.Now().Add(90*time.Second), limits)
-		require.ErrorIs(t, err, domain.ErrOTPSendLimited)
-
-		var limited *domain.OTPSendLimitedError
-		require.ErrorAs(t, err, &limited)
+		_, err := otpRepo.IssueOTP(ctx, email, reg, "hash", time.Now().Add(time.Minute), limits)
+		limited, ok := errors.AsType[*domain.OTPSendLimitedError](err)
+		require.True(t, ok, "got %v", err)
 		require.WithinDuration(t, before.Add(30*time.Minute), limited.LockedUntil, time.Minute)
 
-		// The lock is persisted, so the next attempt refuses immediately —
-		// without extending the deadline.
-		_, err = otpRepo.IssueOTP(ctx, phone, domain.OTPPurposeRegister, "hash", time.Now().Add(90*time.Second), limits)
+		_, err = otpRepo.IssueOTP(ctx, email, reg, "hash", time.Now().Add(time.Minute), limits)
 		require.ErrorIs(t, err, domain.ErrOTPSendLimited)
 	})
 
 	t.Run("a cycle older than the lock duration resets to the free first send", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000081"
-		// Last send well past LockDuration, so the cycle has aged out.
-		insertSendLimit(t, db, phone, domain.OTPPurposeRegister, 3, time.Now().Add(-31*time.Minute), nil)
-		insertPending(t, db, phone, "reset@example.com", time.Now().Add(90*time.Second))
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		email := "reset@example.com"
+		insertSendLimit(t, db, email, reg, 3, time.Now().Add(-31*time.Minute), nil)
 
-		state, err := otpRepo.IssueOTP(ctx, phone, domain.OTPPurposeRegister, "hash", time.Now().Add(90*time.Second), limits)
+		state, err := otpRepo.IssueOTP(ctx, email, reg, "hash", time.Now().Add(time.Minute), limits)
 		require.NoError(t, err)
-		require.Equal(t, 0, state.SendCount, "an aged-out cycle starts over at the free first send")
+		require.Equal(t, 0, state.SendCount)
 		require.Equal(t, 3, state.Remaining)
 	})
 
 	t.Run("cooldown refusal does not consume a slot", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000082"
-		insertSendLimit(t, db, phone, domain.OTPPurposeRegister, 1, time.Now().Add(-10*time.Second), nil)
-		insertPending(t, db, phone, "cooldown@example.com", time.Now().Add(90*time.Second))
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		email := "cooldown@example.com"
+		insertSendLimit(t, db, email, reg, 1, time.Now().Add(-10*time.Second), nil)
 
-		_, err := otpRepo.IssueOTP(ctx, phone, domain.OTPPurposeRegister, "hash", time.Now().Add(90*time.Second), limits)
+		_, err := otpRepo.IssueOTP(ctx, email, reg, "hash", time.Now().Add(time.Minute), limits)
 		require.ErrorIs(t, err, domain.ErrOTPResendTooSoon)
-
-		var sendCount int
-		require.NoError(t, db.QueryRow(ctx, `SELECT send_count FROM otp_send_limits WHERE phone_number = $1 AND purpose = 'register'`, phone).Scan(&sendCount))
-		require.Equal(t, 1, sendCount, "a refused send must not consume a slot")
+		require.Equal(t, 1, queryInt(t, db, `SELECT send_count FROM otp_send_limits WHERE email = $1`, email))
 	})
 
 	t.Run("completing a registration releases the counter", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000083"
-		insertSendLimit(t, db, phone, domain.OTPPurposeRegister, 2, time.Now().Add(-time.Minute), nil)
-		pendingID := insertPending(t, db, phone, "done@example.com", time.Now().Add(time.Minute))
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		email := "done@example.com"
+		insertSendLimit(t, db, email, reg, 2, time.Now().Add(-time.Minute), nil)
+		pendingID := insertPending(t, db, "+84900000083", email, time.Now().Add(time.Hour))
+		otpID := insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, nil)
 
-		pending := &domain.PendingRegistration{ID: pendingID, PhoneNumber: phone, Email: "done@example.com", PasswordHash: "hash"}
+		pending := &domain.PendingRegistration{ID: pendingID, PhoneNumber: "+84900000083", Email: email, PasswordHash: "hash"}
 		_, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, stubTokenIssuer)
 		require.NoError(t, err)
-
-		var count int
-		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM otp_send_limits WHERE phone_number = $1`, phone).Scan(&count))
-		require.Equal(t, 0, count, "a completed registration must not leave rate-limit state behind")
+		require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM otp_send_limits WHERE email = $1`, email))
 	})
 
 	t.Run("ReleaseSendLimit drops the counter", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000084"
-		insertSendLimit(t, db, phone, domain.OTPPurposeRegister, 2, time.Now().Add(-time.Minute), nil)
+		email := "release@example.com"
+		insertSendLimit(t, db, email, reg, 2, time.Now().Add(-time.Minute), nil)
 
-		require.NoError(t, otpRepo.ReleaseSendLimit(ctx, phone, domain.OTPPurposeRegister))
-
-		var count int
-		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM otp_send_limits WHERE phone_number = $1`, phone).Scan(&count))
-		require.Equal(t, 0, count)
+		require.NoError(t, otpRepo.ReleaseSendLimit(ctx, email, reg))
+		require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM otp_send_limits WHERE email = $1`, email))
 	})
 }
 
@@ -517,23 +501,24 @@ func TestRegistrationRepository_FindPendingRegistration(t *testing.T) {
 
 	t.Run("not found", func(t *testing.T) {
 		truncateAll(t, db)
-		_, err := repo.FindPendingRegistration(ctx, "+84900000030")
+		_, err := repo.FindPendingRegistration(ctx, "none@example.com")
 		require.ErrorIs(t, err, domain.ErrPendingRegistrationNotFound)
 	})
 
 	t.Run("expired", func(t *testing.T) {
 		truncateAll(t, db)
 		insertPending(t, db, "+84900000031", "e@example.com", time.Now().Add(-time.Second))
-		_, err := repo.FindPendingRegistration(ctx, "+84900000031")
+		_, err := repo.FindPendingRegistration(ctx, "e@example.com")
 		require.ErrorIs(t, err, domain.ErrPendingRegistrationExpired)
 	})
 
 	t.Run("found", func(t *testing.T) {
 		truncateAll(t, db)
 		insertPending(t, db, "+84900000032", "f@example.com", time.Now().Add(time.Minute))
-		p, err := repo.FindPendingRegistration(ctx, "+84900000032")
+		p, err := repo.FindPendingRegistration(ctx, "f@example.com")
 		require.NoError(t, err)
-		require.Equal(t, "f@example.com", p.Email)
+		require.Equal(t, "+84900000032", p.PhoneNumber)
+		require.False(t, p.AccountExists)
 	})
 }
 
@@ -541,225 +526,274 @@ func TestOTPRepository_FindActiveOTP(t *testing.T) {
 	db := connectTestDB(t)
 	otpRepo := NewOTPRepository(db)
 	ctx := context.Background()
-	phone := "+84900000040"
+	email := "find@example.com"
+	reg := domain.OTPPurposeRegister
 
 	t.Run("no row at all", func(t *testing.T) {
 		truncateAll(t, db)
-		_, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+		_, err := otpRepo.FindActiveOTP(ctx, email, reg)
 		require.ErrorIs(t, err, domain.ErrOTPInvalid)
 	})
 
 	t.Run("unused unexpired row is active", func(t *testing.T) {
 		truncateAll(t, db)
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
-		otp, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+		insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, nil)
+		otp, err := otpRepo.FindActiveOTP(ctx, email, reg)
 		require.NoError(t, err)
 		require.Nil(t, otp.LockedUntil)
 	})
 
-	t.Run("used row (verified or invalidated) is not active", func(t *testing.T) {
+	t.Run("used row is not active", func(t *testing.T) {
 		truncateAll(t, db)
 		usedAt := time.Now()
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), &usedAt, nil)
-		_, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+		insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), &usedAt, nil)
+		_, err := otpRepo.FindActiveOTP(ctx, email, reg)
 		require.ErrorIs(t, err, domain.ErrOTPInvalid)
 	})
 
 	t.Run("expired unused row is not active", func(t *testing.T) {
 		truncateAll(t, db)
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(-time.Second), nil, nil)
-		_, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+		insertOTPRow(t, db, email, reg, time.Now().Add(-time.Second), nil, nil)
+		_, err := otpRepo.FindActiveOTP(ctx, email, reg)
 		require.ErrorIs(t, err, domain.ErrOTPInvalid)
 	})
 
-	t.Run("locked row is active even past its own expires_at, so the caller learns about the lock", func(t *testing.T) {
+	t.Run("locked row is active even past expires_at, so the caller learns the deadline", func(t *testing.T) {
 		truncateAll(t, db)
-		usedAt := time.Now()
 		lockedUntil := time.Now().Add(15 * time.Minute)
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(-time.Minute), &usedAt, &lockedUntil)
-
-		otp, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+		insertOTPRow(t, db, email, reg, time.Now().Add(-time.Minute), nil, &lockedUntil)
+		otp, err := otpRepo.FindActiveOTP(ctx, email, reg)
 		require.NoError(t, err)
-		require.NotNil(t, otp.LockedUntil)
 		require.WithinDuration(t, lockedUntil, *otp.LockedUntil, time.Second)
 	})
 
-	t.Run("a lifted lock is dead, not active — caller must request a new code", func(t *testing.T) {
+	t.Run("a lifted lock is dead even before expires_at", func(t *testing.T) {
 		truncateAll(t, db)
-		usedAt := time.Now().Add(-20 * time.Minute)
-		lockedUntil := time.Now().Add(-5 * time.Minute)
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(-19*time.Minute), &usedAt, &lockedUntil)
-
-		_, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+		lockedUntil := time.Now().Add(-time.Minute)
+		insertOTPRow(t, db, email, reg, time.Now().Add(5*time.Minute), nil, &lockedUntil)
+		_, err := otpRepo.FindActiveOTP(ctx, email, reg)
 		require.ErrorIs(t, err, domain.ErrOTPInvalid)
 	})
 
-	t.Run("picks the newest row when several exist", func(t *testing.T) {
+	t.Run("a live lock wins over a newer unlocked row", func(t *testing.T) {
 		truncateAll(t, db)
-		oldUsedAt := time.Now()
-		insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), &oldUsedAt, nil)
+		lockedUntil := time.Now().Add(15 * time.Minute)
+		lockedID := insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, &lockedUntil)
 		time.Sleep(10 * time.Millisecond)
-		newestID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, nil)
+		otp, err := otpRepo.FindActiveOTP(ctx, email, reg)
+		require.NoError(t, err)
+		require.Equal(t, lockedID, otp.ID)
+	})
 
-		otp, err := otpRepo.FindActiveOTP(ctx, phone, domain.OTPPurposeRegister)
+	t.Run("picks the newest row and ignores other emails", func(t *testing.T) {
+		truncateAll(t, db)
+		insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, nil)
+		time.Sleep(10 * time.Millisecond)
+		newestID := insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, nil)
+		insertOTPRow(t, db, "other@example.com", reg, time.Now().Add(time.Minute), nil, nil)
+		otp, err := otpRepo.FindActiveOTP(ctx, email, reg)
 		require.NoError(t, err)
 		require.Equal(t, newestID, otp.ID)
 	})
 }
 
-func TestOTPRepository_IncrementOTPAttemptsAndLockOTP(t *testing.T) {
+// TestOTPRepository_ConsumeOTPAttempt pins otp-mechanism AC7 / onboarding
+// AC15 against real Postgres: the reservation that reaches the cap sets the
+// lock, nothing reserves past it, and concurrent guesses cannot exceed it.
+func TestOTPRepository_ConsumeOTPAttempt(t *testing.T) {
 	db := connectTestDB(t)
 	otpRepo := NewOTPRepository(db)
 	ctx := context.Background()
+	reg := domain.OTPPurposeRegister
+	lockUntil := time.Now().Add(30 * time.Minute).Truncate(time.Microsecond)
 
-	truncateAll(t, db)
-	otpID := insertOTPRow(t, db, "+84900000050", domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+	t.Run("sequential: third reservation locks, fourth fails", func(t *testing.T) {
+		truncateAll(t, db)
+		id := insertOTPRow(t, db, "seq@example.com", reg, time.Now().Add(time.Minute), nil, nil)
 
-	attempts, err := otpRepo.IncrementOTPAttempts(ctx, otpID)
+		for want := 1; want <= 3; want++ {
+			n, ok, err := otpRepo.ConsumeOTPAttempt(ctx, id, 3, lockUntil)
+			require.NoError(t, err)
+			require.True(t, ok)
+			require.Equal(t, want, n)
+
+			var locked sql.NullTime
+			require.NoError(t, db.QueryRow(ctx, `SELECT locked_until FROM otp_codes WHERE id = $1`, id).Scan(&locked))
+			require.Equal(t, want == 3, locked.Valid, "lock set exactly by the reservation reaching the cap (attempt %d)", want)
+		}
+
+		_, ok, err := otpRepo.ConsumeOTPAttempt(ctx, id, 3, lockUntil)
+		require.NoError(t, err)
+		require.False(t, ok)
+	})
+
+	t.Run("a consumed code reserves nothing", func(t *testing.T) {
+		truncateAll(t, db)
+		usedAt := time.Now()
+		id := insertOTPRow(t, db, "used@example.com", reg, time.Now().Add(time.Minute), &usedAt, nil)
+		_, ok, err := otpRepo.ConsumeOTPAttempt(ctx, id, 3, lockUntil)
+		require.NoError(t, err)
+		require.False(t, ok)
+	})
+
+	t.Run("10 concurrent guesses keep exactly 3", func(t *testing.T) {
+		truncateAll(t, db)
+		id := insertOTPRow(t, db, "race@example.com", reg, time.Now().Add(time.Minute), nil, nil)
+
+		const guesses = 10
+		results := make(chan bool, guesses)
+		errs := make(chan error, guesses)
+		start := make(chan struct{})
+		for range guesses {
+			go func() {
+				<-start
+				_, ok, err := otpRepo.ConsumeOTPAttempt(ctx, id, 3, lockUntil)
+				errs <- err
+				results <- ok
+			}()
+		}
+		close(start)
+
+		reserved := 0
+		for range guesses {
+			require.NoError(t, <-errs)
+			if <-results {
+				reserved++
+			}
+		}
+		require.Equal(t, 3, reserved)
+		require.Equal(t, 3, queryInt(t, db, `SELECT attempts FROM otp_codes WHERE id = $1`, id))
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE id = $1 AND locked_until IS NOT NULL`, id))
+	})
+}
+
+// TestOTPRepository_SendLockDoesNotBlockVerify pins onboarding AC13: a locked
+// send budget leaves the last code findable and verifiable.
+func TestOTPRepository_SendLockDoesNotBlockVerify(t *testing.T) {
+	db := connectTestDB(t)
+	otpRepo := NewOTPRepository(db)
+	ctx := context.Background()
+	email := "sendlock@example.com"
+	sendLocked := time.Now().Add(30 * time.Minute)
+	insertSendLimit(t, db, email, domain.OTPPurposeRegister, 3, time.Now(), &sendLocked)
+	id := insertOTPRow(t, db, email, domain.OTPPurposeRegister, time.Now().Add(time.Minute), nil, nil)
+
+	otp, err := otpRepo.FindActiveOTP(ctx, email, domain.OTPPurposeRegister)
 	require.NoError(t, err)
-	require.Equal(t, 1, attempts)
-
-	attempts, err = otpRepo.IncrementOTPAttempts(ctx, otpID)
+	require.Equal(t, id, otp.ID)
+	require.Nil(t, otp.LockedUntil)
+	_, ok, err := otpRepo.ConsumeOTPAttempt(ctx, id, 3, time.Now().Add(30*time.Minute))
 	require.NoError(t, err)
-	require.Equal(t, 2, attempts)
-
-	lockedUntil := time.Now().Add(15 * time.Minute)
-	require.NoError(t, otpRepo.LockOTP(ctx, otpID, lockedUntil))
-
-	var (
-		gotLockedUntil sql.NullTime
-		gotUsedAt      sql.NullTime
-	)
-	require.NoError(t, db.QueryRow(ctx, `SELECT locked_until, used_at FROM otp_codes WHERE id = $1`, otpID).Scan(&gotLockedUntil, &gotUsedAt))
-	require.True(t, gotLockedUntil.Valid)
-	require.True(t, gotUsedAt.Valid, "locking must also mark the row used so it can never be replayed")
+	require.True(t, ok)
 }
 
 func TestRegistrationRepository_CreateUserAndSession(t *testing.T) {
 	db := connectTestDB(t)
 	repo := NewRegistrationRepository(db)
 	ctx := context.Background()
+	reg := domain.OTPPurposeRegister
 
-	t.Run("happy path creates user, deletes pending, consumes otp, opens session", func(t *testing.T) {
+	// seed writes a live pending row and its code, as step 1 would.
+	seed := func(t *testing.T, email, phone string) (*domain.PendingRegistration, int64) {
+		t.Helper()
+		pendingID := insertPending(t, db, phone, email, time.Now().Add(time.Hour))
+		otpID := insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, nil)
+		return &domain.PendingRegistration{ID: pendingID, PhoneNumber: phone, Email: email, PasswordHash: "hash"}, otpID
+	}
+
+	t.Run("creates verified user, deletes pending, consumes code, opens session", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000060"
-		pendingID := insertPending(t, db, phone, "g@example.com", time.Now().Add(time.Minute))
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		pending, otpID := seed(t, "g@example.com", "+84900000060")
 
-		pending := &domain.PendingRegistration{
-			ID:           pendingID,
-			PhoneNumber:  phone,
-			Email:        "g@example.com",
-			PasswordHash: "hash",
-		}
-
+		before := time.Now().Add(-time.Second)
 		result, err := repo.CreateUserAndSession(ctx, pending, otpID, 168*time.Hour, stubTokenIssuer)
 		require.NoError(t, err)
 		require.NotZero(t, result.User.ID)
-		require.Equal(t, "g@example.com", result.User.Email)
-		require.Nil(t, result.User.EmailVerifiedAt, "AC2/AC3: email must not be marked verified at registration")
+		require.NotNil(t, result.User.EmailVerifiedAt, "AC14: email_verified_at = now()")
+		require.True(t, result.User.EmailVerifiedAt.After(before))
 		require.Equal(t, "access-"+strconv.FormatInt(result.User.ID, 10), result.AccessToken)
-		require.Equal(t, "refresh-"+strconv.FormatInt(result.User.ID, 10), result.RefreshToken)
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM users WHERE id = $1 AND email_verified_at IS NOT NULL`, result.User.ID))
 
-		_, err = repo.FindPendingRegistration(ctx, phone)
-		require.ErrorIs(t, err, domain.ErrPendingRegistrationNotFound, "pending row must be gone in the same tx")
-
-		var usedAt sql.NullTime
-		require.NoError(t, db.QueryRow(ctx, `SELECT used_at FROM otp_codes WHERE id = $1`, otpID).Scan(&usedAt))
-		require.True(t, usedAt.Valid)
-
-		var sessionCount int
-		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM user_sessions WHERE user_id = $1`, result.User.ID).Scan(&sessionCount))
-		require.Equal(t, 1, sessionCount)
+		_, err = repo.FindPendingRegistration(ctx, "g@example.com")
+		require.ErrorIs(t, err, domain.ErrPendingRegistrationNotFound)
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE id = $1 AND used_at IS NOT NULL`, otpID))
 
 		var storedHash string
 		require.NoError(t, db.QueryRow(ctx, `SELECT refresh_token_hash FROM user_sessions WHERE user_id = $1`, result.User.ID).Scan(&storedHash))
 		require.Equal(t, domain.HashRefreshToken(result.RefreshToken), storedHash)
-		require.NotEqual(t, result.RefreshToken, storedHash, "the raw refresh token must never be persisted")
 	})
 
-	t.Run("session id handed to the issuer equals the persisted user_sessions.session_id", func(t *testing.T) {
+	t.Run("session id handed to the issuer equals the persisted session_id", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000065"
-		pendingID := insertPending(t, db, phone, "sid@example.com", time.Now().Add(time.Minute))
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
-
-		pending := &domain.PendingRegistration{ID: pendingID, PhoneNumber: phone, Email: "sid@example.com", PasswordHash: "hash"}
+		pending, otpID := seed(t, "sid@example.com", "+84900000065")
 
 		var gotUserID, gotSessionID string
 		issuer := func(userID, sessionID string) (string, string, error) {
 			gotUserID, gotSessionID = userID, sessionID
 			return "access", "refresh", nil
 		}
-
 		result, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, issuer)
 		require.NoError(t, err)
-		require.NotEmpty(t, gotSessionID, "sessionID must exist before the tokens are minted")
 		require.Equal(t, strconv.FormatInt(result.User.ID, 10), gotUserID)
 
-		var storedSessionID string
-		require.NoError(t, db.QueryRow(ctx, `SELECT session_id FROM user_sessions WHERE user_id = $1`, result.User.ID).Scan(&storedSessionID))
-		require.Equal(t, gotSessionID, storedSessionID, "the sid baked into the access token must be the row logout will look up")
+		var stored string
+		require.NoError(t, db.QueryRow(ctx, `SELECT session_id FROM user_sessions WHERE user_id = $1`, result.User.ID).Scan(&stored))
+		require.Equal(t, gotSessionID, stored)
 	})
 
-	t.Run("email taken by a completed account is rejected inside the transaction", func(t *testing.T) {
+	// AC18: two pendings share a phone; whoever verifies first keeps it, the
+	// second gets ErrPhoneTaken and its transaction rolls back cleanly.
+	t.Run("phone taken at account creation rolls back", func(t *testing.T) {
 		truncateAll(t, db)
-		insertUser(t, db, "+84900000061", "taken2@example.com")
-
-		phone := "+84900000062"
-		pendingID := insertPending(t, db, phone, "taken2@example.com", time.Now().Add(time.Minute))
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
-
-		pending := &domain.PendingRegistration{ID: pendingID, PhoneNumber: phone, Email: "taken2@example.com", PasswordHash: "hash"}
-		_, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, stubTokenIssuer)
-		require.ErrorIs(t, err, domain.ErrEmailTaken)
-
-		// Rejected before commit: the pending row must still be there.
-		_, err = repo.FindPendingRegistration(ctx, phone)
-		require.NoError(t, err)
-	})
-
-	t.Run("phone unique violation on insert is translated, not just the email re-check", func(t *testing.T) {
-		truncateAll(t, db)
-		// Only email is re-checked inside the transaction (pending_registration.email
-		// is deliberately not unique — see design.md flow 2 Step 5). phone_number is
-		// unique on both pending_registration and users, so this path can only be
-		// exercised by forcing the actual INSERT to collide, bypassing the re-check
-		// — which is exactly what isUniqueViolation exists to catch.
-		insertUser(t, db, "+84900000064", "someone-else@example.com")
-
 		phone := "+84900000064"
-		pendingID := insertPending(t, db, phone, "unique-email@example.com", time.Now().Add(time.Minute))
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		first, firstOTP := seed(t, "first@example.com", phone)
+		second, secondOTP := seed(t, "second@example.com", phone)
 
-		pending := &domain.PendingRegistration{ID: pendingID, PhoneNumber: phone, Email: "unique-email@example.com", PasswordHash: "hash"}
-		_, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, stubTokenIssuer)
+		_, err := repo.CreateUserAndSession(ctx, first, firstOTP, time.Hour, stubTokenIssuer)
+		require.NoError(t, err)
+
+		_, err = repo.CreateUserAndSession(ctx, second, secondOTP, time.Hour, stubTokenIssuer)
 		require.ErrorIs(t, err, domain.ErrPhoneTaken)
 
-		_, err = repo.FindPendingRegistration(ctx, phone)
-		require.NoError(t, err, "rejected before commit — pending row must survive")
+		require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM users WHERE email = 'second@example.com'`))
+		_, err = repo.FindPendingRegistration(ctx, "second@example.com")
+		require.NoError(t, err, "pending row survives the rollback")
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE id = $1 AND used_at IS NULL`, secondOTP), "code not consumed by the rolled-back tx")
+	})
+
+	t.Run("a code already consumed creates nothing", func(t *testing.T) {
+		truncateAll(t, db)
+		pending, otpID := seed(t, "twice@example.com", "+84900000066")
+		_, err := db.Exec(ctx, `UPDATE otp_codes SET used_at = now() WHERE id = $1`, otpID)
+		require.NoError(t, err)
+
+		_, err = repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, stubTokenIssuer)
+		require.ErrorIs(t, err, domain.ErrOTPExpired)
+		require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM users`))
+	})
+
+	t.Run("email that gained an account meanwhile reads as a wrong code", func(t *testing.T) {
+		truncateAll(t, db)
+		pending, otpID := seed(t, "late@example.com", "+84900000067")
+		insertUser(t, db, "+84900000068", "late@example.com")
+
+		_, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, stubTokenIssuer)
+		require.ErrorIs(t, err, domain.ErrOTPInvalid)
+		_, err = repo.FindPendingRegistration(ctx, "late@example.com")
+		require.NoError(t, err)
 	})
 
 	t.Run("token issuer failure rolls back the whole transaction", func(t *testing.T) {
 		truncateAll(t, db)
-		phone := "+84900000063"
-		pendingID := insertPending(t, db, phone, "h@example.com", time.Now().Add(time.Minute))
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		pending, otpID := seed(t, "h@example.com", "+84900000063")
+		failing := func(string, string) (string, string, error) { return "", "", errors.New("signing key unavailable") }
 
-		pending := &domain.PendingRegistration{ID: pendingID, PhoneNumber: phone, Email: "h@example.com", PasswordHash: "hash"}
-		failingIssuer := func(userID, sessionID string) (string, string, error) {
-			return "", "", errors.New("signing key unavailable")
-		}
-
-		_, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, failingIssuer)
+		_, err := repo.CreateUserAndSession(ctx, pending, otpID, time.Hour, failing)
 		require.Error(t, err)
-
-		var userCount int
-		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM users WHERE email = $1`, "h@example.com").Scan(&userCount))
-		require.Equal(t, 0, userCount, "a failed token issue must not leave a committed user with no session")
-
-		_, err = repo.FindPendingRegistration(ctx, phone)
-		require.NoError(t, err, "pending row must survive a rolled-back transaction")
+		require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM users WHERE email = 'h@example.com'`))
+		_, err = repo.FindPendingRegistration(ctx, "h@example.com")
+		require.NoError(t, err)
 	})
 }
 
@@ -768,15 +802,10 @@ func TestRegistrationRepository_DeletePendingRegistration(t *testing.T) {
 	repo := NewRegistrationRepository(db)
 	ctx := context.Background()
 
-	truncateAll(t, db)
-	phone := "+84900000070"
-	insertPending(t, db, phone, "i@example.com", time.Now().Add(time.Minute))
-	pending, err := repo.FindPendingRegistration(ctx, phone)
-	require.NoError(t, err)
+	id := insertPending(t, db, "+84900000070", "i@example.com", time.Now().Add(time.Minute))
+	require.NoError(t, repo.DeletePendingRegistration(ctx, id))
 
-	require.NoError(t, repo.DeletePendingRegistration(ctx, pending.ID))
-
-	_, err = repo.FindPendingRegistration(ctx, phone)
+	_, err := repo.FindPendingRegistration(ctx, "i@example.com")
 	require.ErrorIs(t, err, domain.ErrPendingRegistrationNotFound)
 }
 
@@ -857,12 +886,14 @@ func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
 		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits())
 		require.NoError(t, err)
 
-		loaded, err := repo.FindPendingRegistration(ctx, phone)
+		loaded, err := repo.FindPendingRegistration(ctx, "t1@example.com")
 		require.NoError(t, err)
 		require.NotNil(t, loaded.OrdinationTempleID)
 		require.Equal(t, templeID, *loaded.OrdinationTempleID)
 
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		active, err := NewOTPRepository(db).FindActiveOTP(ctx, "t1@example.com", domain.OTPPurposeRegister)
+		require.NoError(t, err)
+		otpID := active.ID
 		result, err := repo.CreateUserAndSession(ctx, loaded, otpID, time.Hour, stubTokenIssuer)
 		require.NoError(t, err)
 		require.NotNil(t, result.User.OrdinationTempleID)
@@ -883,7 +914,7 @@ func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
 		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits())
 		require.NoError(t, err)
 
-		loaded, err := repo.FindPendingRegistration(ctx, phone)
+		loaded, err := repo.FindPendingRegistration(ctx, "t2@example.com")
 		require.NoError(t, err)
 		require.Nil(t, loaded.OrdinationTempleID)
 	})
@@ -893,7 +924,7 @@ func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
 		phone := "+84900000072"
 		missing := "temple_never_existed"
 		pendingID := insertPending(t, db, phone, "t3@example.com", time.Now().Add(time.Hour))
-		otpID := insertOTPRow(t, db, phone, domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
+		otpID := insertOTPRow(t, db, "t3@example.com", domain.OTPPurposeRegister, time.Now().Add(90*time.Second), nil, nil)
 
 		pending := &domain.PendingRegistration{
 			ID: pendingID, PhoneNumber: phone, Email: "t3@example.com", PasswordHash: "hash",
@@ -905,7 +936,7 @@ func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
 		var users int
 		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM users`).Scan(&users))
 		require.Zero(t, users)
-		_, err = repo.FindPendingRegistration(ctx, phone)
+		_, err = repo.FindPendingRegistration(ctx, "t3@example.com")
 		require.NoError(t, err, "pending payload must survive the rollback")
 	})
 }

@@ -157,7 +157,7 @@ Các điểm sau **chỉ dùng local**, tuyệt đối không copy sang môi tr�
 - Loki `auth_enabled: false`, không retention, lưu trên filesystem.
 - Postgres dùng `postgres/postgres`, không TLS.
 - Redis dùng mật khẩu `innerlamp-dev-redis` (khớp `dev_secrets.appservice-redis-password`), không TLS (`docs/tech-debt/ratelimit/TD-001`). Restart Redis là reset mọi window rate limit.
-- Bên phía app (không thuộc compose): secret đọc từ `dev_secrets` trong YAML (`⚠️ DEV ONLY`), SMS chỉ log (`pkg/sms/logsms`), OTP hardcode `111111`.
+- Bên phía app (không thuộc compose): secret đọc từ `dev_secrets` trong YAML (`⚠️ DEV ONLY`), thư chỉ log (`mailer.provider: log`), mã OTP cố định `111111` (`otp.dev_fixed_code`).
 
 ---
 

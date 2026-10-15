@@ -83,8 +83,22 @@ CREATE TABLE IF NOT EXISTS otp_codes (
 -- Serves FindActiveOTP: newest live row for (number, purpose). Partial on the
 -- unspent rows because that read only ever wants one, and the table grows with
 -- every issued code.
-CREATE INDEX IF NOT EXISTS idx_otp_codes_phone_purpose
-    ON otp_codes (phone_number, purpose, created_at DESC);
+--
+-- Guarded on the column: 0037 replaces otp_codes.phone_number with email (and
+-- this index with idx_otp_codes_email_purpose), and every file is re-applied
+-- on each `make migrate`, so an unguarded CREATE INDEX would fail on a
+-- database that already ran 0037.
+DO $$
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_schema = current_schema()
+          AND table_name = 'otp_codes' AND column_name = 'phone_number'
+    ) THEN
+        CREATE INDEX IF NOT EXISTS idx_otp_codes_phone_purpose
+            ON otp_codes (phone_number, purpose, created_at DESC);
+    END IF;
+END $$;
 
 -- pending_registration -------------------------------------------------------
 --
