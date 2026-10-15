@@ -4,6 +4,13 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.0.1 — 2026-10-15
+
+Cleanup after the platform specs of all four repos were merged.
+
+- `api-contract.md` deleted (superseded by `docs/specs/api/openapi.yaml`, tag Gallery).
+- `requirements.md`, `design.md`: references to it removed. No requirement changed.
+
 ## v2.0 — 2026-10-15
 
 Rebased on the product spec `docs/product/gallery/product.md` @ v1.0 (be#35) and rewritten in English per the

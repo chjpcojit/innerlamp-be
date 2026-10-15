@@ -1,6 +1,6 @@
 # Requirements — gallery
 
-Version: 2.0
+Version: 2.0.1
 Last updated: 2026-10-15
 Status: in-progress — AC 1–2, 4–10, 12–15, 17–18 are implemented (top / paged list with `type` filter / detail, seed `cmd/seedgallery`); **v2.0 (2026-10-15) not implemented**: credit in the list items, `total` on `top`, the seeder requiring author and licence, the shared order vectors, E2E (AC 3, 11, 16, 19; `tasks.md` Phase 6–8). The content file is already committed (AC 20, be#35).
 Module: `gallery`
@@ -11,7 +11,7 @@ Implements: BR-GAL-01, BR-GAL-02, BR-GAL-03, BR-GAL-04, BR-GAL-07, BR-GAL-09, FR
 
 > See `changelog.md` in this folder for the version history of this spec.
 
-This spec was first written prospectively (v1.0, 2026-10-06) and implemented the same day; from v2.0 the business source is the product spec above (Mixed mode: the shipped part is Retroactive, the **v2.0** part is Prospective). It does not restate the product's rules — it cites IDs and says how the backend does them. Where the spec and the shipped code disagree, the code is the source of truth for the shipped part. `api-contract.md` in this folder is an old client document, superseded by `openapi.yaml` (see its banner); it is deleted in the cleanup step.
+This spec was first written prospectively (v1.0, 2026-10-06) and implemented the same day; from v2.0 the business source is the product spec above (Mixed mode: the shipped part is Retroactive, the **v2.0** part is Prospective). It does not restate the product's rules — it cites IDs and says how the backend does them. Where the spec and the shipped code disagree, the code is the source of truth for the shipped part.
 
 The gallery is a **read-only, public** catalogue shaped like `temple`, `deity` and `article`: `top`, a paged list with an optional `type` filter, and a detail. One table `gallery_images` (migration `0017`) holds the four topics; the wire values map to the product's topics as `CHUA` → Chùa, `TUONG_PHAT` → Tượng Phật, `THIEN` → Cảnh thiền, `LE_HOI` → Lễ hội (BR-GAL-01; labels are the client's). Data is loaded by the manually run `cmd/seedgallery` from `assets/data/buddhist_gallery.json`.
 
