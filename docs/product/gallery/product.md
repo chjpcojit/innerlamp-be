@@ -7,9 +7,9 @@
 | Feature code | `GAL` — IDs are `BR-GAL-NN`, `FR-GAL-NNN`, `NFR-GAL-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.0 |
+| Version | 1.1 |
 | Last updated | 2026-10-15 |
-| Status | confirmed — 6 open items (Appendix A) |
+| Status | confirmed — 3 open items (Appendix A items 1, 2, 6) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | none needed for the feature (read-only public catalogue, no per-user data; see §2.7). Production photo storage is a pending cross-feature decision (Appendix A item 1) |
@@ -86,6 +86,10 @@ quiet browsing.
   `Docs/home_assumptions.md` row 1. The website and Android had no gallery spec.
 - Questions and answers: `/mnt/project-files/reports/product/gallery/2026-10-15-cau-hoi-truoc-khi-viet.md`
   (Q1–Q14, answered by anh Đức on 2026-10-15).
+- v1.1: questions raised by the platform specs written against v1.0 — website
+  `Docs/specs/features/gallery/requirements.md`, iOS `Docs/Specs/Gallery/requirements.md`, Android
+  `Docs/Specs/Gallery/requirements.md` — answered by anh Đức on 2026-10-15 (P1–P6 shared, A1–A4 apps,
+  W1–W7 website; Appendix A).
 - Platform folder names: Backend `gallery` · Website `gallery` · iOS `Gallery` (merges the former
   `Photos` and `PhotoViewer` spec folders) · Android `Gallery`. Code folders keep their own names
   (iOS `Photos`, `PhotoViewer`; Android `photos`; website `gallery`).
@@ -150,6 +154,10 @@ N/A — a read-only gallery needs no help content.
   2026-10-15): favourites were removed, so there is no per-user data.
 - **Dependencies:** the device photo library on the apps (FR-GAL-007); the browser to open a photo's
   source page.
+- **Release dependency (apps):** the photo viewer on iOS and Android is not released to users until
+  the backend carries the credit in every list (Appendix B item 1). The apps do not fetch each photo's
+  credit separately in the meantime, since a large photo without its credit breaches its licence
+  (§2.5, BR-GAL-04) (anh Đức, 2026-10-15, A2).
 - Where the photo files live and how they are served in production is shared with `temple`, `deity`
   and `article` and is left to a separate ADR:
   > ⚠️ Not confirmed: architecture decision pending — where catalogue photos are stored and served in production (needs an ADR, shared with temple, deity, article) — blocks production release on the Backend, not the platform specs.
@@ -208,7 +216,8 @@ N/A.
   topic with no photo left is skipped and the others keep rotating. The same order is used for the
   featured list, every gallery page and every viewer. A topic filter keeps that order among the photos
   of the topic (which is the content file's order for that topic). The featured list is the first 10
-  photos of the unfiltered order; fewer than 10 → all of them; none → the block shows its empty state.
+  photos of the unfiltered order; fewer than 10 → all of them; none → the block shows its empty state
+  (FR-GAL-008).
   How many featured photos a block shows is a choice of each client's layout (§3.6); a client that
   shows fewer shows the first ones, in order.
 - **Examples:** 41 Chùa, 21 Tượng Phật, 12 Cảnh thiền, 12 Lễ hội → the first 48 photos rotate all four
@@ -235,24 +244,26 @@ N/A.
   it: "Ảnh: {author} · {licence}" (photo: author · licence) and a link that opens the photo's source
   page in the browser. The credit is shown for every licence, including CC0 and public domain, so the
   rule has no exception. Tiles in the grid and in the home block need no credit. The credit changes
-  with the photo when the visitor pages through the viewer.
+  with the photo when the visitor pages through the viewer. A photo with no source link still shows
+  its credit; the credit then opens nothing.
 - **Examples:** "Chùa Một Cột" → "Ảnh: thalling55 · CC BY 2.0", the link opens its Wikimedia Commons
-  page; a CC0 photo still shows its author and "CC0".
+  page; a CC0 photo still shows its author and "CC0"; a photo without a source link shows
+  "Ảnh: {author} · {licence}" that cannot be chosen.
 - **Computational:** no
 - **Applies to:** Backend (every photo carries its credit), all clients
-- **Source:** anh Đức, 2026-10-15 (Q4); website already shows it; iOS shows none (`TD-Photos-001`,
-  High) — drift
+- **Source:** anh Đức, 2026-10-15 (Q4; P6 photo without a source link); website already shows it; iOS
+  shows none (`TD-Photos-001`, High) — drift
 
 **BR-GAL-05 — Tile shape**
 - **Rule:** Every tile in the gallery grid has the same 4:3 landscape shape; the photo fills the tile
   and is cropped at the edges when its own shape differs. The viewer shows the large photo in a 4:3
-  frame filled the same way, so opening a tile and closing the viewer keep the same picture.
+  frame filled the same way (cropped, never letterboxed), so opening a tile and closing the viewer keep
+  the same picture.
 - **Examples:** a portrait photo of a statue fills its tile and loses its top and bottom edges.
 - **Computational:** no
 - **Applies to:** all clients
-- **Source:** anh Đức, 2026-10-15 (Q10: uniform grid, masonry later); iOS `AS-Photos-001`,
-  `AS-PhotoViewer-001`
-- > ⚠️ Not confirmed: whether the viewer should instead show the whole photo uncropped (letterboxed) so portrait photos are seen in full — blocks nothing now; changes the viewer frame on Website, iOS, Android if answered yes.
+- **Source:** anh Đức, 2026-10-15 (Q10: uniform grid, masonry later; P3: the viewer crops to 4:3, no
+  letterbox); iOS `AS-Photos-001`, `AS-PhotoViewer-001`
 
 **BR-GAL-06 — Viewer covers the whole filtered gallery**
 - **Rule:** The viewer opened from a tile pages through the whole gallery under the current filter, in
@@ -295,7 +306,7 @@ N/A.
   English chip labels.
 - **Computational:** no
 - **Applies to:** all clients
-- **Source:** anh Đức, 2026-10-15 (Q14)
+- **Source:** anh Đức, 2026-10-15 (Q14; W3: confirmed for the English website)
 
 ### 3.3 Functional requirements
 
@@ -423,10 +434,11 @@ N/A.
 - **Platforms:** Backend, Website, iOS, Android
 - **Description:** WHEN a photo is shown in the viewer THE SYSTEM SHALL show its credit
   "Ảnh: {author} · {licence}" and, when the visitor chooses it, open the photo's source page in the
-  browser.
+  browser; WHEN the photo has no source link THE SYSTEM SHALL still show the credit, which then cannot
+  be chosen.
 - **Business rules:** BR-GAL-04
 - **Verification method:** automated test on each client; manual QA of every licence label
-- **Source:** anh Đức, 2026-10-15 (Q4); website lightbox; `TD-Photos-001`
+- **Source:** anh Đức, 2026-10-15 (Q4, P6); website lightbox; `TD-Photos-001`
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Credit shown
@@ -441,21 +453,30 @@ N/A.
     Given the viewer shows a photo by "thalling55"
     When the visitor moves to a photo by another author
     Then the credit names the other author and that photo's licence
+
+  Scenario: Photo without a source link
+    Given a photo has an author and a licence but no source link
+    When the viewer shows it
+    Then its credit "Ảnh: {author} · {licence}" appears
+    And choosing the credit opens nothing
   ```
 
 **FR-GAL-007 — Save a photo**
 - **Priority:** Should
 - **Platforms:** iOS, Android
 - **Description:** WHEN the visitor chooses "Lưu ảnh" (save photo) in the viewer THE SYSTEM SHALL save
-  the large photo to the device photo library, asking only for permission to add photos, and SHALL
-  confirm "Đã lưu vào thư viện ảnh" (saved to the photo library) only after the photo is actually
-  saved; WHEN permission is refused or saving fails THE SYSTEM SHALL say the photo was not saved, and
-  when permission is refused SHALL offer a way to the device settings.
+  the large photo to the device photo library, asking, where the device requires it, only for
+  permission to add photos (§3.6), and SHALL confirm "Đã lưu vào thư viện ảnh" (saved to the photo
+  library) only after the photo is actually saved. Errors are shown as a short message (toast):
+  - WHEN permission is refused THE SYSTEM SHALL show "Chưa có quyền lưu ảnh. Mở Cài đặt để cấp quyền."
+    (no permission to save photos yet — open Settings to grant it) with an action that opens the
+    device settings.
+  - WHEN saving fails THE SYSTEM SHALL show "Không lưu được ảnh. Vui lòng thử lại." (couldn't save the
+    photo — please try again).
 - **Business rules:** BR-GAL-08
 - **Verification method:** automated test on each app; manual QA on a device
-- **Source:** anh Đức, 2026-10-15 (Q5); prototype ("Lưu ảnh" and its toast); iOS stub
-  (`TD-PhotoViewer-001`) — drift
-- > ⚠️ Not confirmed: the copy of the "permission refused" and "save failed" messages — blocks the save error copy on iOS, Android.
+- **Source:** anh Đức, 2026-10-15 (Q5; P2 error copy as a toast; A1 permission purpose text; A3 no
+  permission on Android); prototype ("Lưu ảnh" and its toast); iOS stub (`TD-PhotoViewer-001`) — drift
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Save succeeds
@@ -464,10 +485,18 @@ N/A.
     Then the large photo of "Chùa Một Cột" is in the device photo library
     And "Đã lưu vào thư viện ảnh" appears
 
-  Scenario: Permission refused
+  Scenario: Permission refused (where the device asks for it)
     Given the visitor refuses to allow adding photos
     When the visitor chooses "Lưu ảnh"
-    Then no photo is saved, the visitor is told why and is offered a way to the device settings
+    Then no photo is saved
+    And "Chưa có quyền lưu ảnh. Mở Cài đặt để cấp quyền." appears with an action that opens the device settings
+    And "Đã lưu vào thư viện ảnh" does not appear
+
+  Scenario: Save fails
+    Given the large photo cannot be downloaded or written
+    When the visitor chooses "Lưu ảnh"
+    Then no photo is saved
+    And "Không lưu được ảnh. Vui lòng thử lại." appears
     And "Đã lưu vào thư viện ảnh" does not appear
   ```
 
@@ -476,20 +505,27 @@ N/A.
 **FR-GAL-008 — Empty and error states**
 - **Priority:** Must
 - **Platforms:** Website, iOS, Android
-- **Description:**
-  - WHEN the gallery cannot be loaded THE SYSTEM SHALL show an error message with "Thử lại" (retry).
+- **Description:** A load failure is always shown, never hidden. The error message on every platform
+  is "Không tải được danh sách ảnh. Vui lòng thử lại sau." (couldn't load the photo list — please try
+  again later), with "Thử lại" (try again) wherever a retry is possible.
+  - WHEN the gallery cannot be loaded THE SYSTEM SHALL show the error message with "Thử lại" and no
+    photo tile.
   - WHEN loading more photos fails THE SYSTEM SHALL keep the photos already shown and show the error.
   - WHEN loading a newly chosen topic fails THE SYSTEM SHALL keep the photos already shown and move the
-    chip selection back to the topic they belong to.
+    chip selection back to the topic they belong to (website: §3.6).
   - WHEN the gallery or the chosen topic holds no photo THE SYSTEM SHALL show "Chưa có ảnh nào trong
     chủ đề này." (no photos in this topic yet).
-  - WHEN the home block cannot be loaded THE SYSTEM SHALL hide the block on the apps; the website shows
-    its built-in sample mosaic instead.
-- **Business rules:** BR-GAL-02
+  - WHEN the home block cannot be loaded THE SYSTEM SHALL still show the "Ảnh đẹp Phật giáo" block,
+    with the error message and "Thử lại" in place of the tiles, on every client.
+  - WHEN the gallery holds no photo THE SYSTEM SHALL still show the home block, with "Chưa có ảnh
+    nào." (no photos yet) in place of the tiles, on every client.
+  - WHEN the viewer cannot load the next photos THE SYSTEM SHALL stay on the current photo and show the
+    error message as a short message (toast); moving to the next photo again retries the load.
+- **Business rules:** BR-GAL-02, BR-GAL-06
 - **Verification method:** automated test on each client
-- **Source:** iOS Photos v1.2 (keep photos, revert chip); website messages; anh Đức, 2026-10-15 (Q12
-  home block)
-- > ⚠️ Not confirmed: the wording of the gallery load-error message on the apps (the website says "Không tải được danh sách ảnh. Vui lòng thử lại sau.") — blocks the error copy on iOS, Android.
+- **Source:** iOS Photos v1.2 (keep photos, revert chip); website messages; anh Đức, 2026-10-15 (P1
+  error block everywhere and copy, P4/W2 empty home block, P5 viewer, W5 website variance). Replaces the
+  v1.0 home block hidden on the apps and the website sample mosaic (Q12)
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Backend unreachable
@@ -497,15 +533,32 @@ N/A.
     When a visitor opens the gallery
     Then an error message with "Thử lại" appears and no photo tile
 
-  Scenario: Topic fails to load
+  Scenario: Topic fails to load on an app
     Given photos of every topic are shown
     When the visitor chooses "Cảnh thiền" and loading fails
     Then the photos of every topic stay, the chip "Tất cả" is selected again and the error is shown
 
-  Scenario: Home block on an app when the backend is unreachable
+  Scenario: Home block when the backend is unreachable
     Given the backend cannot be reached
-    When a visitor opens the home view of an app
-    Then no "Ảnh đẹp Phật giáo" block appears
+    When a visitor opens the home view on any client
+    Then the "Ảnh đẹp Phật giáo" block appears with "Không tải được danh sách ảnh. Vui lòng thử lại sau." and "Thử lại"
+    And no photo tile and no sample photo appears
+
+  Scenario: Home block with an empty gallery
+    Given the gallery holds no photo
+    When a visitor opens the home view on any client
+    Then the "Ảnh đẹp Phật giáo" block appears with "Chưa có ảnh nào."
+
+  Scenario: Viewer cannot load the next photos
+    Given the viewer shows "20 / 86" and the next photos are not loaded yet
+    When the visitor moves to the next photo and loading fails
+    Then the viewer stays on "20 / 86" and the error message appears briefly
+    And moving to the next photo again retries the load
+
+  Scenario: Topic fails to load on the website
+    Given photos of every topic are shown on the website
+    When the visitor chooses "Cảnh thiền" and loading fails
+    Then the chip "Cảnh thiền" is selected, the error message appears with "Thử lại" and no photo tile
   ```
 
 #### Operator
@@ -540,7 +593,8 @@ N/A.
 - **NFR-GAL-01 — Page by page:** no platform loads the whole gallery at once; browsing, the filter and
   the viewer work page by page whatever the number of photos. Platforms: all.
 - **NFR-GAL-02 — Picture size:** tiles use the small picture; only the viewer and "Lưu ảnh" use the
-  large one. Platforms: all clients.
+  large one. One exception: the large tile of the website home mosaic may use the large picture
+  (§3.6). Platforms: all clients.
 - **NFR-GAL-03 — Responsive filter:** a topic change shows its first photos within 2 s on a 4G
   connection. Platforms: all.
 
@@ -563,7 +617,11 @@ keeps no record of it.
 | BR-GAL-03 / FR-GAL-002 | Website vs apps | Website: 12 photos per numbered page (shareable page links). Apps: 20 photos per load, next load at the end of the grid | Web navigation vs mobile scrolling |
 | FR-GAL-001 / BR-GAL-07 | Website vs apps | Website home: a mosaic of the first 4 featured photos, no "+N". Apps: 3 tiles with "+N ảnh" | Each layout shows what it fits |
 | FR-GAL-007 | Website | No "Lưu ảnh"; the browser's own save function is available | Browsers save images natively |
-| FR-GAL-008 | Website vs apps | Home block on error: website shows its built-in sample mosaic, apps hide the block | anh Đức, 2026-10-15 (Q12) |
+| NFR-GAL-02 / FR-GAL-001 | Website | The large (double-size) tile of the home mosaic may use the large picture; the other tiles keep the small one | The small picture looks soft at that size; anh Đức, 2026-10-15 (W1) |
+| FR-GAL-007 | iOS | Saving asks for add-only access to the photo library, with the purpose text "InnerLamp cần quyền thêm ảnh để lưu ảnh bạn chọn vào thư viện." (InnerLamp needs permission to add photos to save the photo you choose to your library); permission refused → the toast offers to open Settings | iOS requires permission to add photos; anh Đức, 2026-10-15 (A1) |
+| FR-GAL-007 | Android | Saving asks for no permission, so the "permission refused → open Settings" branch exists only on iOS | Android lets an app add its own photos without a runtime permission; anh Đức, 2026-10-15 (A3) |
+| FR-GAL-002 | Website | The gallery subtitle is one general sentence that lists no topic: "Những khoảnh khắc an lành từ chùa chiền khắp nơi" (peaceful moments from temples everywhere); the photo count under the current filter is still shown | The former subtitle listed every topic even under a filter; anh Đức, 2026-10-15 (W4) |
+| FR-GAL-008 | Website vs apps | Website: choosing a topic or a page loads a new page, so a failed load shows the error message with "Thử lại" for the newly chosen topic or page (its chip selected) instead of keeping the photos shown and moving the chip back | Each website page has its own address; anh Đức, 2026-10-15 (W5) |
 
 ### 3.7 Software system attributes
 
@@ -593,19 +651,19 @@ checked by hand on every licence label of the content file before release.
 | BR-GAL-02 | done | done | done | planned | Android sample data |
 | BR-GAL-03 | done | done | done | planned | |
 | BR-GAL-04 | drift | done | drift | planned | Backend gives the credit only on the photo detail; iOS shows none (`TD-Photos-001`) |
-| BR-GAL-05 | n/a | done | done | drift | Android sample tiles have varying heights |
+| BR-GAL-05 | n/a | drift | done | drift | Web tiles follow a mixed-size mosaic and the lightbox letterboxes; Android sample tiles have varying heights |
 | BR-GAL-06 | n/a | drift | drift | planned | Web lightbox stays in the current page; iOS snapshot (`TD-PhotoViewer-002`) |
 | BR-GAL-07 | done | n/a | drift | planned | iOS counts the remaining featured photos |
 | BR-GAL-08 | n/a | done | drift | planned | iOS stub heart, wallpaper, share |
 | BR-GAL-09 | done | done | done | planned | |
-| FR-GAL-001 | done | done | drift | planned | 2 scenarios; iOS "+N" (BR-GAL-07) |
+| FR-GAL-001 | done | drift | drift | planned | 2 scenarios; web home tiles do not open the gallery; iOS "+N" (BR-GAL-07) |
 | FR-GAL-002 | done | done | done | planned | 3 scenarios |
 | FR-GAL-003 | done | drift | done | planned | 2 scenarios; web labels (BR-GAL-01) |
-| FR-GAL-004 | n/a | done | done | planned | 2 scenarios |
+| FR-GAL-004 | n/a | drift | done | planned | 2 scenarios; web counter within the page, no topic heading, close does not return to the last photo |
 | FR-GAL-005 | n/a | drift | drift | planned | 2 scenarios; BR-GAL-06 |
-| FR-GAL-006 | drift | done | drift | planned | 3 scenarios; credit in the lists (Appendix B) |
-| FR-GAL-007 | n/a | n/a | drift | planned | 2 scenarios; iOS stub |
-| FR-GAL-008 | n/a | done | drift | planned | 3 scenarios; iOS has no retry on the first load |
+| FR-GAL-006 | drift | done | drift | planned | 4 scenarios; credit in the lists (Appendix B); apps' viewer waits for it (§2.7) |
+| FR-GAL-007 | n/a | n/a | drift | planned | 3 scenarios; iOS stub |
+| FR-GAL-008 | n/a | drift | drift | planned | 6 scenarios; web: no "Thử lại", sample mosaic on home error/empty; iOS: no retry on the first load, home block hidden on error |
 | FR-GAL-009 | drift | n/a | n/a | n/a | 2 scenarios; author and licence not yet required; file not yet committed |
 | NFR-GAL-01 | done | done | done | planned | |
 | NFR-GAL-02 | done | done | done | planned | |
@@ -628,9 +686,9 @@ checked by hand on every licence label of the content file before release.
 
 1. > ⚠️ Not confirmed: architecture decision pending — where catalogue photos are stored and served in production (needs an ADR, shared with temple, deity, article) — blocks production release on the Backend, not the platform specs.
 2. > ⚠️ Not confirmed: who runs the load in staging and production and where the photo files come from there (today a dev-only command and photo files kept on the developer's machine) — blocks production content, not the platform specs.
-3. > ⚠️ Not confirmed: whether the viewer should instead show the whole photo uncropped (letterboxed) so portrait photos are seen in full — blocks nothing now; changes the viewer frame on Website, iOS, Android if answered yes.
-4. > ⚠️ Not confirmed: the copy of the "permission refused" and "save failed" messages — blocks the save error copy on iOS, Android.
-5. > ⚠️ Not confirmed: the wording of the gallery load-error message on the apps (the website says "Không tải được danh sách ảnh. Vui lòng thử lại sau.") — blocks the error copy on iOS, Android.
+3. Resolved in v1.1 (viewer crops to 4:3, no letterbox) — see the table below (P3).
+4. Resolved in v1.1 (save error copy, shown as a toast) — see the table below (P2).
+5. Resolved in v1.1 (one load-error message on every platform) — see the table below (P1).
 6. Content review: nobody has yet checked by hand that each of the 86 photos is what its title and place say and that its licence on the source page matches the content file. Not a spec blocker; recommended before public release.
 
 #### Open questions (resolved)
@@ -647,9 +705,24 @@ checked by hand on every licence label of the content file before release.
 | Content management (Q9) | Content file, committed with the backend; back office later | 2026-10-15 |
 | Grid shape (Q10) | Uniform 4:3; masonry later | 2026-10-15 |
 | Viewer range (Q11) | Whole filtered gallery; total from the server | 2026-10-15 |
-| Home block (Q12) | 3 tiles + "+N" (N = total − 3) on the apps; hidden on error | 2026-10-15 |
+| Home block (Q12) | 3 tiles + "+N" (N = total − 3) on the apps; hidden on error (changed in v1.1 by P1: error block) | 2026-10-15 |
 | Sign-in (Q13) | Not needed | 2026-10-15 |
 | Content language (Q14) | Vietnamese only | 2026-10-15 |
+| Load-error state (P1; item 5) | Always a visible error block, never hidden — home block on the apps and the website home included (no sample mosaic); copy "Không tải được danh sách ảnh. Vui lòng thử lại sau." with "Thử lại" where a retry is possible, on every platform (FR-GAL-008) | 2026-10-15 |
+| Save errors on the apps (P2; item 4) | Toast: "Chưa có quyền lưu ảnh. Mở Cài đặt để cấp quyền." with an action to open Settings (iOS); "Không lưu được ảnh. Vui lòng thử lại." (FR-GAL-007) | 2026-10-15 |
+| Viewer frame (P3; item 3) | Crops to 4:3, no letterbox (BR-GAL-05) | 2026-10-15 |
+| Empty gallery on the home view (P4, W2) | The home block shows "Chưa có ảnh nào." on every client, not hidden, no sample mosaic (FR-GAL-008) | 2026-10-15 |
+| Viewer cannot load the next photos (P5) | Error toast, stay on the current photo; moving next again retries (FR-GAL-008) | 2026-10-15 |
+| Photo without a source link (P6) | Credit still shown, not choosable (BR-GAL-04, FR-GAL-006) | 2026-10-15 |
+| iOS permission purpose text (A1) | "InnerLamp cần quyền thêm ảnh để lưu ảnh bạn chọn vào thư viện." (§3.6) | 2026-10-15 |
+| Temporary per-photo credit on the apps (A2) | No; the apps' viewer is not released until the credit is in the lists (§2.7) | 2026-10-15 |
+| Save permission on Android (A3) | None asked; the "open Settings" branch is iOS only (§3.6) | 2026-10-15 |
+| Android album folder (A4) | Platform detail, left to the Android spec | 2026-10-15 |
+| Large home tile on the website (W1) | May use the large picture (NFR-GAL-02 exception, §3.6) | 2026-10-15 |
+| Sample mosaic copy on the English website (W3) | Moot: the sample mosaic is no longer shown (P1); real titles and places stay Vietnamese (BR-GAL-09) | 2026-10-15 |
+| Website gallery subtitle (W4) | "Những khoảnh khắc an lành từ chùa chiền khắp nơi" (peaceful moments from temples everywhere) — one general sentence listing no topic (§3.6) | 2026-10-15 |
+| Website failed topic or page load (W5) | Error block with "Thử lại" at the newly chosen topic or page (§3.6) | 2026-10-15 |
+| Website filter address and closing the lightbox on another page (W6, W7) | Website navigation details, handed to the website platform spec | 2026-10-15 |
 
 ### Appendix B — Contract handoff (backend)
 
