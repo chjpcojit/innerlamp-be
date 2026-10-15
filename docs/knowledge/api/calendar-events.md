@@ -104,5 +104,5 @@ Mapping: `writeDomainError` in `services/appService/delivery/http/errors.go`.
 # Related concepts
 
 - [Calendar](/features/calendar.md) — the feature, the repeat-rule model and what is still pending.
-- [Login](/features/login.md) — where the access token comes from.
+- Login (`docs/specs/features/login/`) — where the access token comes from.
 - [0031 Calendar Events](/migrations/0031-calendar-events.md) — the tables behind it.

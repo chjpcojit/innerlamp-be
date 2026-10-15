@@ -7,14 +7,14 @@
 | Feature code | `LGN` — IDs are `BR-LGN-NN`, `FR-LGN-NNN`, `NFR-LGN-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.2 |
-| Last updated | 2026-10-14 |
+| Version | 1.3 |
+| Last updated | 2026-10-15 |
 | Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0003 (accounts are identified by email and verified by an email code; SMS removed) — Accepted 2026-10-14 |
 | Related product specs | `onboarding` (`docs/product/onboarding/product.md`, code `ONB`) — first run and registration; its password rule (BR-ONB-06) and code policy (BR-ONB-09) are reused here |
-| Downstream | Backend: `docs/specs/features/login/` (absorbs `password-reset/`) · Website: `Docs/specs/features/login/` · iOS: `Docs/Specs/{Login,ForgotPassword}/` · Android: `Docs/Specs/Login/` (new) |
+| Downstream | Backend: `docs/specs/features/login/` · Website: `Docs/specs/features/login/` · iOS: `Docs/Specs/Login/` · Android: `Docs/Specs/Login/` |
 
 > See `changelog.md` in this folder for the version history. Platform specs cite this file as
 > `docs/product/login/product.md@<version>` plus the IDs they implement.
@@ -70,13 +70,13 @@ and stay in it safely, and lets visitors look around before they have one.
 - ADR-0003 `docs/adr/0003-email-otp-account-verification-without-sms.md` (Accepted 2026-10-14).
 - Design prototype description `Mo-ta-tinh-nang.md` lines 48–96 (iOS copy); still phone-based,
   superseded by ADR-0003.
-- Prior documents (to be deleted after the platform specs are approved): backend
+- Prior documents (rewritten in place or deleted on 2026-10-15, once the four platform specs were approved; old versions in git history): backend
   `docs/specs/features/{login,password-reset}/` (incl. `login/SRS.md`, sign-out),
   `docs/knowledge/features/login.md`; website `Docs/specs/features/login/`; iOS
   `Docs/Specs/{Login,ForgotPassword}/`.
 - Inventory of what each platform does today: `/mnt/project-files/reports/product/auth/2026-10-14-kiem-ke-client-auth.md`.
 - Questions and answers: `/mnt/project-files/reports/product/auth/2026-10-14-cau-hoi-product-spec.md`.
-- Platform folder names: Backend `login`, `password-reset` · Website `login` · iOS `Login`, `ForgotPassword` · Android `login` (code only).
+- Platform spec folders: Backend `login` · Website `login` · iOS `Login` · Android `Login`. Code folders keep their own names (iOS `Login`, `ForgotPassword`; Android `login`).
 
 ---
 

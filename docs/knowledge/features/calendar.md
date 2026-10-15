@@ -148,4 +148,4 @@ Seed: `seedcalendarevents` → strict decode + `CalendarCatalogue.Verify` (refus
 - [GET /v1/calendar/events](/api/calendar-events.md) — the wire contract.
 - [0031 Calendar Events](/migrations/0031-calendar-events.md) — the four tables.
 - [Genealogy](/features/genealogy.md) — also derives lunar dates from solar ones, with its own copy of the algorithm.
-- [Login](/features/login.md) — issues the access token the events route requires.
+- Login (`docs/specs/features/login/`) — issues the access token the events route requires.

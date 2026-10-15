@@ -7,14 +7,14 @@
 | Feature code | `ONB` — IDs are `BR-ONB-NN`, `FR-ONB-NNN`, `NFR-ONB-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.2 |
-| Last updated | 2026-10-14 |
+| Version | 1.3 |
+| Last updated | 2026-10-15 |
 | Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | ADR-0003 (accounts are identified by email and verified by an email code; SMS removed) — Accepted 2026-10-14 |
 | Related product specs | `login` (`docs/product/login/product.md`, code `LGN`) — sign-in, session, sign-out, forgot password, guest mode |
-| Downstream | Backend: `docs/specs/features/onboarding/` (`spec-writer`) · Website: `Docs/specs/features/register/` · iOS: `Docs/Specs/{Onboarding,Splash,SignUp,Otp}/` · Android: `Docs/Specs/Onboarding/` (new) |
+| Downstream | Backend: `docs/specs/features/onboarding/` (`spec-writer`) · Website: `Docs/specs/features/onboarding/` · iOS: `Docs/Specs/Onboarding/` · Android: `Docs/Specs/Onboarding/` |
 
 > See `changelog.md` in this folder for the version history. Platform specs cite this file as
 > `docs/product/onboarding/product.md@<version>` plus the IDs they implement.
@@ -73,13 +73,13 @@ they own the email address they gave.
 
 - ADR-0003 `docs/adr/0003-email-otp-account-verification-without-sms.md` (Accepted 2026-10-14).
 - Design prototype description `Mo-ta-tinh-nang.md` lines 48–96 (copy in `innerlamp-iOS/Docs/innerlamp-project/`; the Android copy is identical). It still shows phone + SMS; superseded by ADR-0003.
-- Prior documents (to be deleted after the platform specs are approved): backend
+- Prior documents (rewritten in place or deleted on 2026-10-15, once the four platform specs were approved; old versions in git history): backend
   `docs/specs/features/{onboarding,otp-mechanism}/`, `docs/assumptions/onboarding/A-001`,
   `docs/knowledge/features/register.md`; website `Docs/specs/features/register/`; iOS
   `Docs/Specs/{SignUp,Otp,Onboarding,Splash}/`, `Docs/Assumptions/{SignUp,Splash}/`.
 - Inventory of what each platform does today: `/mnt/project-files/reports/product/auth/2026-10-14-kiem-ke-client-auth.md` (iOS 24714c4, website 31eed2a, Android f0b3d02).
 - Questions and answers: `/mnt/project-files/reports/product/auth/2026-10-14-cau-hoi-product-spec.md`.
-- Platform folder names: Backend `onboarding` · Website `register` · iOS `Onboarding`, `Splash`, `SignUp`, `Otp` · Android `onboarding`, `signup` (code only, no spec yet).
+- Platform spec folders: Backend `onboarding` · Website `onboarding` · iOS `Onboarding` · Android `Onboarding`. Code folders keep their own names (website `register`; iOS `Splash`, `Onboarding`, `SignUp`, `Otp`, `AddTemple`; Android `splash`, `onboarding`, `signup`).
 
 ---
 

@@ -155,6 +155,6 @@ the code. Behaviours worth knowing:
 
 - [Temple](temple.md) and [Article](article.md) — sibling catalogues with the same public-route
   shape and shared `ErrInvalidPage`.
-- [Login](login.md) and [Register](register.md) — identity features; deities share only
+- Login (`docs/specs/features/login/`) and Register (`docs/specs/features/onboarding/`) — identity features; deities share only
   `delivery/http/errors.go` and the middleware chain from [packages/middleware.md](../packages/middleware.md).
 - No `Migration` concept exists yet for `migrations/0007_deities.sql`.

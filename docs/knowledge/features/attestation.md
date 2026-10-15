@@ -261,10 +261,10 @@ Status/code mapping lives in `delivery/http/errors.go` `writeDomainError`
 
 # Related concepts
 
-- [Register](register.md) — US-001. `attestation_keys.user_id` is a nullable FK to `users` with
+- Register (`docs/specs/features/onboarding/`) — US-001. `attestation_keys.user_id` is a nullable FK to `users` with
   `ON DELETE SET NULL`; the two features share `delivery/http/errors.go`'s `writeDomainError` and the
   `Recovery`/`CORS`/`Logger` chain from [packages/middleware.md](../packages/middleware.md).
-- [Login](login.md) — US-002. Same shared handler-error surface and middleware chain; no direct
+- Login (`docs/specs/features/login/`) — US-002. Same shared handler-error surface and middleware chain; no direct
   dependency, but the `RequireAttestation` middleware would sit alongside its `pkg/jwt/middleware`
   logout wrapper on any future gated route.
 - [packages/middleware.md](../packages/middleware.md) — the generic HTTP middleware chain; distinct

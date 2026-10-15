@@ -120,7 +120,7 @@ Invitation journey
 # Pending work
 
 - **Notifications**: nothing tells an invitee they were invited; `GET /v1/invitations` is the only channel. Push (FCM/APNs) is planned as a separate application-wide feature; SMS is deliberately not used.
-- **Dev placeholders that this feature's E2E rides on**: users are registered through the dev OTP (`111111`) and log-only SMS (see [Register](/features/register.md)); the genealogy code itself touches no `⚠️ DEV ONLY` block.
+- **Dev placeholders that this feature's E2E rides on**: users are registered through the dev OTP (`111111`) and log-only SMS (see Register (`docs/specs/features/onboarding/`)); the genealogy code itself touches no `⚠️ DEV ONLY` block.
 - **Spec questions**: none open. Settled on 2026-10-11: age is shown both as Western age (`age`) and traditional age (`traditional_age` = Western + 1); a declined number may be re-invited at once; a reassigned phone number is an accepted risk; sibling order is edited one member at a time; a viewer whose node was deleted keeps viewing without a position; a child's mother is optional (the client picks only the father); no blood↔in-law conversion; concurrent edits are last-write-wins.
 - **Not measured**: NFR-001/002 (tree load ≤ 2 s, profile ≤ 1 s at 5000 members) are BA-proposed targets with no load test.
 - **Expired invitations are not swept**: a `pending` row past `expires_at` is *reported* as `expired` on read and only rewritten when the same number is invited again (the unique pending index needs it); there is no cleanup job.
@@ -136,7 +136,7 @@ Invitation journey
 
 # Related concepts
 
-- [Register](/features/register.md) — creates the accounts the owner and invitees use; the account's `phone_number` is what both the invitation and the "me" position are matched on.
-- [Login](/features/login.md) — issues the access token every genealogy route requires.
+- Register (`docs/specs/features/onboarding/`) — creates the accounts the owner and invitees use; the account's `phone_number` is what both the invitation and the "me" position are matched on.
+- Login (`docs/specs/features/login/`) — issues the access token every genealogy route requires.
 - [packages/middleware.md](/packages/middleware.md) — the chain that wraps the mux and provides the 404/405 envelope for unknown or wrong-method paths.
 - No `Feature` concept exists yet for `memorial` (the private memorial book this feature sits beside), and no `Entity`, `UseCase`, `API Endpoint` or `Migration` concepts exist for genealogy.

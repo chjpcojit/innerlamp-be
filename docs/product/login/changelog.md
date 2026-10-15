@@ -1,5 +1,12 @@
 # Changelog — login product spec
 
+## v1.3 — 2026-10-15
+
+- References only, no requirement changed: the Downstream row and §1.5 now name the one spec folder per
+  platform (all four approved: backend, website, iOS, Android), and the prior documents are marked
+  rewritten or deleted. Platform specs citing v1.2 stay valid.
+- Platforms to follow up: none.
+
 ## v1.2 — 2026-10-14
 
 - Resolved (anh Đức, "Gỡ như em đề xuất"): a successful password reset also lifts the sign-in lock on

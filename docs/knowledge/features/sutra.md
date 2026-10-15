@@ -177,5 +177,5 @@ recorded in `docs/specs/features/sutra/test-coverage-report.md`:
   `GET /v1/deities/{id}/sutras` lives beside the deity routes.
 - [Article](article.md) — the same first-run seed from embedded JSON, and the same `ErrInvalidPage`.
 - [Temple](temple.md) — the other public catalogue.
-- [Login](login.md) and [Register](register.md) — the identity features; sutra involves no auth.
+- Login (`docs/specs/features/login/`) and Register (`docs/specs/features/onboarding/`) — the identity features; sutra involves no auth.
 - No `Migration` concept exists yet for `migrations/0013_sutras.sql`.

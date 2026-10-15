@@ -157,7 +157,7 @@ spec was written from the code and keeps its own `⚠️ Not confirmed` list (us
 
 - [Deity](deity.md) and [Article](article.md) — sibling catalogues with the same top / paged list /
   detail shape, the same `ErrInvalidPage` and the same public-route wiring.
-- [Login](login.md) and [Register](register.md) — identity features; temples share only
+- Login (`docs/specs/features/login/`) and Register (`docs/specs/features/onboarding/`) — identity features; temples share only
   `delivery/http/errors.go`'s `writeDomainError` and the middleware chain from
   [packages/middleware.md](../packages/middleware.md).
 - No `Migration` concepts exist yet for `0005_temples.sql` or `0011_temple_content.sql`.

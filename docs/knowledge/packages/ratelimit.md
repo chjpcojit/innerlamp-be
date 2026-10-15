@@ -158,6 +158,6 @@ compose file itself was not started here (no Docker in the authoring environment
 # Related concepts
 
 - [packages/middleware.md](middleware.md) — the Recovery/CORS/Logger chain the limiters run inside.
-- [features/login.md](../features/login.md) — the login lockout listed above.
-- [features/register.md](../features/register.md) — the OTP send/verify lockouts listed above.
+- `docs/specs/features/login/` — the login lockout listed above.
+- `docs/specs/features/onboarding/` — the OTP send/verify lockouts listed above.
 - [features/attestation.md](../features/attestation.md) — the unlimited challenge routes.
