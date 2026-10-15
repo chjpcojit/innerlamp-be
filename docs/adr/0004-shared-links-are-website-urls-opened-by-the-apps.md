@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| Status | Proposed |
+| Status | Accepted |
 | Date | 2026-10-15 |
 | Deciders | anh Đức (decides) · Claude (`adr-writer`, proposes) |
 | Features | cross-cutting (`article` first; later any shareable content such as `temple`, `calendar`, `deity`) |
@@ -148,7 +148,7 @@ the project needs before launch anyway: a domain and final app identities.
 
 ## Decision
 
-**Recommended:** Option A — shared links are canonical website URLs, opened by the apps through
+**Decided:** Option A — shared links are canonical website URLs, opened by the apps through
 verified Universal Links / App Links, with the website page as the fallback.
 
 Conventions that come with it (to be confirmed together with the option):
@@ -180,7 +180,7 @@ Conventions that come with it (to be confirmed together with the option):
 
 | Layer | Follow-up |
 |---|---|
-| Product spec (`ba-writer`) | `article` product spec cites ADR-0004 for its Share requirement (opens in the app when installed, else the website page) |
+| Product spec (`ba-writer`) | `article` product spec v1.0 cites ADR-0004 in FR-ART-006 and FR-ART-007 |
 | API contract | None |
 | Backend spec / code | None |
 | Website | Serve `/.well-known/apple-app-site-association` and `/.well-known/assetlinks.json` per environment; keep `/articles/<id>` stable |
@@ -200,3 +200,4 @@ Conventions that come with it (to be confirmed together with the option):
 ## Decision record
 
 - 2026-10-15 — Proposed by Claude (`adr-writer`).
+- 2026-10-15 — Accepted by anh Đức: merged PR #31 after choosing "Viết ADR-0004" (write the deep-link ADR) for article sharing.

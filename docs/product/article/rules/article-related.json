@@ -1,0 +1,338 @@
+{
+  "rule": [
+    "BR-ART-04"
+  ],
+  "description": "Related articles ('Đọc tiếp') of the current article: up to 2 other articles of the same category (labels equal after trimming and ignoring case) in editorial order (position ASC, then id ASC), completed from the top of the editorial order when fewer than 2, never the current article, no duplicates.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "articles": "list of {id, position, category}",
+    "current_id": "id of the article being read"
+  },
+  "output": {
+    "related_ids": "ordered list of 0..2 ids"
+  },
+  "cases": [
+    {
+      "name": "three others in the same category: the first two in editorial order",
+      "input": {
+        "articles": [
+          {
+            "id": "a01",
+            "position": 0,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a02",
+            "position": 1,
+            "category": "Đời sống"
+          },
+          {
+            "id": "a03",
+            "position": 2,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a04",
+            "position": 3,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a05",
+            "position": 4,
+            "category": "Hiếu hạnh"
+          },
+          {
+            "id": "a06",
+            "position": 5,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a07",
+            "position": 6,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a08",
+            "position": 7,
+            "category": "Thiền định"
+          }
+        ],
+        "current_id": "a07"
+      },
+      "expected": {
+        "related_ids": [
+          "a03",
+          "a06"
+        ]
+      },
+      "source": "BR-ART-04; anh Đức 2026-10-15 (Q7)"
+    },
+    {
+      "name": "current is first of its category: skips itself",
+      "input": {
+        "articles": [
+          {
+            "id": "a01",
+            "position": 0,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a02",
+            "position": 1,
+            "category": "Đời sống"
+          },
+          {
+            "id": "a03",
+            "position": 2,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a04",
+            "position": 3,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a05",
+            "position": 4,
+            "category": "Hiếu hạnh"
+          },
+          {
+            "id": "a06",
+            "position": 5,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a07",
+            "position": 6,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a08",
+            "position": 7,
+            "category": "Thiền định"
+          }
+        ],
+        "current_id": "a03"
+      },
+      "expected": {
+        "related_ids": [
+          "a06",
+          "a07"
+        ]
+      },
+      "source": "BR-ART-04; anh Đức 2026-10-15 (Q7)"
+    },
+    {
+      "name": "one other in the same category: completed with the featured order",
+      "input": {
+        "articles": [
+          {
+            "id": "a01",
+            "position": 0,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a02",
+            "position": 1,
+            "category": "Đời sống"
+          },
+          {
+            "id": "a03",
+            "position": 2,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a04",
+            "position": 3,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a05",
+            "position": 4,
+            "category": "Hiếu hạnh"
+          },
+          {
+            "id": "a06",
+            "position": 5,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a07",
+            "position": 6,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a08",
+            "position": 7,
+            "category": "Thiền định"
+          }
+        ],
+        "current_id": "a04"
+      },
+      "expected": {
+        "related_ids": [
+          "a01",
+          "a02"
+        ]
+      },
+      "source": "BR-ART-04; anh Đức 2026-10-15 (Q7)"
+    },
+    {
+      "name": "one other in the same category, which is also first featured: completed with the next featured",
+      "input": {
+        "articles": [
+          {
+            "id": "a01",
+            "position": 0,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a02",
+            "position": 1,
+            "category": "Đời sống"
+          },
+          {
+            "id": "a03",
+            "position": 2,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a04",
+            "position": 3,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a05",
+            "position": 4,
+            "category": "Hiếu hạnh"
+          },
+          {
+            "id": "a06",
+            "position": 5,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a07",
+            "position": 6,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a08",
+            "position": 7,
+            "category": "Thiền định"
+          }
+        ],
+        "current_id": "a01"
+      },
+      "expected": {
+        "related_ids": [
+          "a04",
+          "a02"
+        ]
+      },
+      "source": "BR-ART-04; anh Đức 2026-10-15 (Q7)"
+    },
+    {
+      "name": "only article of its category: the first two featured",
+      "input": {
+        "articles": [
+          {
+            "id": "a01",
+            "position": 0,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a02",
+            "position": 1,
+            "category": "Đời sống"
+          },
+          {
+            "id": "a03",
+            "position": 2,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a04",
+            "position": 3,
+            "category": "Chánh niệm"
+          },
+          {
+            "id": "a05",
+            "position": 4,
+            "category": "Hiếu hạnh"
+          },
+          {
+            "id": "a06",
+            "position": 5,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a07",
+            "position": 6,
+            "category": "Thiền định"
+          },
+          {
+            "id": "a08",
+            "position": 7,
+            "category": "Thiền định"
+          }
+        ],
+        "current_id": "a05"
+      },
+      "expected": {
+        "related_ids": [
+          "a01",
+          "a02"
+        ]
+      },
+      "source": "BR-ART-04; anh Đức 2026-10-15 (Q7)"
+    },
+    {
+      "name": "labels differ only by case and spaces: same category",
+      "input": {
+        "articles": [
+          {
+            "id": "b1",
+            "position": 0,
+            "category": "Đời sống"
+          },
+          {
+            "id": "b2",
+            "position": 1,
+            "category": " thiền định "
+          },
+          {
+            "id": "b3",
+            "position": 2,
+            "category": "Thiền định"
+          }
+        ],
+        "current_id": "b3"
+      },
+      "expected": {
+        "related_ids": [
+          "b2",
+          "b1"
+        ]
+      },
+      "source": "BR-ART-04; anh Đức 2026-10-15 (Q7)"
+    },
+    {
+      "name": "only one article: no related article",
+      "input": {
+        "articles": [
+          {
+            "id": "c1",
+            "position": 0,
+            "category": "Đời sống"
+          }
+        ],
+        "current_id": "c1"
+      },
+      "expected": {
+        "related_ids": []
+      },
+      "source": "BR-ART-04; anh Đức 2026-10-15 (Q7)"
+    }
+  ]
+}
