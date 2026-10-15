@@ -1,5 +1,7 @@
 # Software Requirements Specification — Calendar Events (Buddhist, Vietnamese and Folk)
 
+> Superseded by [docs/product/calendar/product.md](../../../product/calendar/product.md) (v1.0) — kept for history; do not update.
+
 | Field | Value |
 |---|---|
 | Document type | Software Requirements Specification (SRS) — IEEE 29148-2018 |

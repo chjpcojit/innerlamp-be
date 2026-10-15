@@ -1,0 +1,686 @@
+{
+  "rule": [
+    "BR-CAL-01",
+    "BR-CAL-02",
+    "BR-CAL-03",
+    "BR-CAL-04",
+    "BR-CAL-05",
+    "BR-CAL-06",
+    "BR-CAL-07"
+  ],
+  "description": "Occurrences of one event in one solar year, computed from its repeat rule, each with its solar and Vietnamese lunar date (UTC+7).",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "rule": "kind = solar {month, day} | lunar {month, day, leap_month} | lunar_last_day {month} | every_lunar_month {day} | solar_term {longitude: multiple of 15 in 0..345}",
+    "year": "solar year 1900..2100"
+  },
+  "output": {
+    "occurrences": "list ordered by solar date; each {solar_date YYYY-MM-DD, lunar {day, month, year (lunar year), leap_month}}; empty when the event has no occurrence that year"
+  },
+  "cases": [
+    {
+      "name": "fixed solar date",
+      "input": {
+        "rule": {
+          "kind": "solar",
+          "month": 4,
+          "day": 30
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-04-30",
+            "lunar": {
+              "day": 14,
+              "month": 3,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-03, BR-CAL-07",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "29 February in a common year has no occurrence",
+      "input": {
+        "rule": {
+          "kind": "solar",
+          "month": 2,
+          "day": 29
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": []
+      },
+      "rules": "BR-CAL-03",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "29 February in a leap year",
+      "input": {
+        "rule": {
+          "kind": "solar",
+          "month": 2,
+          "day": 29
+        },
+        "year": 2028
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2028-02-29",
+            "lunar": {
+              "day": 5,
+              "month": 2,
+              "year": 2028,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-03, BR-CAL-07",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "fixed lunar date: Phật đản",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 4,
+          "day": 15,
+          "leap_month": false
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-05-31",
+            "lunar": {
+              "day": 15,
+              "month": 4,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "fixed lunar date: Tết",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 1,
+          "day": 1,
+          "leap_month": false
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-02-17",
+            "lunar": {
+              "day": 1,
+              "month": 1,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "lunar 23/12 of the previous lunar year falls in this solar year",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 12,
+          "day": 23,
+          "leap_month": false
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-02-10",
+            "lunar": {
+              "day": 23,
+              "month": 12,
+              "year": 2025,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-02",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "lunar 23/12 belongs to the next solar year",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 12,
+          "day": 23,
+          "leap_month": false
+        },
+        "year": 2027
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2027-01-30",
+            "lunar": {
+              "day": 23,
+              "month": 12,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-02",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "regular-month event does not repeat in a leap month (2025 has leap month 6)",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 7,
+          "day": 15,
+          "leap_month": false
+        },
+        "year": 2025
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2025-09-06",
+            "lunar": {
+              "day": 15,
+              "month": 7,
+              "year": 2025,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "leap-month event in a year with that leap month",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 6,
+          "day": 15,
+          "leap_month": true
+        },
+        "year": 2025
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2025-08-08",
+            "lunar": {
+              "day": 15,
+              "month": 6,
+              "year": 2025,
+              "leap_month": true
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "leap-month event in a year without it",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 6,
+          "day": 15,
+          "leap_month": true
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": []
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "fixed lunar day 30 in a full month",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 7,
+          "day": 30,
+          "leap_month": false
+        },
+        "year": 2025
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2025-09-21",
+            "lunar": {
+              "day": 30,
+              "month": 7,
+              "year": 2025,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "fixed lunar day 30 in a short month has no occurrence",
+      "input": {
+        "rule": {
+          "kind": "lunar",
+          "month": 7,
+          "day": 30,
+          "leap_month": false
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": []
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "last day of a full lunar month falls on day 30",
+      "input": {
+        "rule": {
+          "kind": "lunar_last_day",
+          "month": 7
+        },
+        "year": 2025
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2025-09-21",
+            "lunar": {
+              "day": 30,
+              "month": 7,
+              "year": 2025,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "last day of a short lunar month falls on day 29",
+      "input": {
+        "rule": {
+          "kind": "lunar_last_day",
+          "month": 7
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-09-10",
+            "lunar": {
+              "day": 29,
+              "month": 7,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "Giao thừa: last day of month 12 of the previous lunar year",
+      "input": {
+        "rule": {
+          "kind": "lunar_last_day",
+          "month": 12
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-02-16",
+            "lunar": {
+              "day": 29,
+              "month": 12,
+              "year": 2025,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-02, BR-CAL-04",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "Rằm every lunar month including the leap month",
+      "input": {
+        "rule": {
+          "kind": "every_lunar_month",
+          "day": 15
+        },
+        "year": 2025
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2025-01-14",
+            "lunar": {
+              "day": 15,
+              "month": 12,
+              "year": 2024,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-02-12",
+            "lunar": {
+              "day": 15,
+              "month": 1,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-03-14",
+            "lunar": {
+              "day": 15,
+              "month": 2,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-04-12",
+            "lunar": {
+              "day": 15,
+              "month": 3,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-05-12",
+            "lunar": {
+              "day": 15,
+              "month": 4,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-06-10",
+            "lunar": {
+              "day": 15,
+              "month": 5,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-07-09",
+            "lunar": {
+              "day": 15,
+              "month": 6,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-08-08",
+            "lunar": {
+              "day": 15,
+              "month": 6,
+              "year": 2025,
+              "leap_month": true
+            }
+          },
+          {
+            "solar_date": "2025-09-06",
+            "lunar": {
+              "day": 15,
+              "month": 7,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-10-06",
+            "lunar": {
+              "day": 15,
+              "month": 8,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-11-04",
+            "lunar": {
+              "day": 15,
+              "month": 9,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2025-12-04",
+            "lunar": {
+              "day": 15,
+              "month": 10,
+              "year": 2025,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-05",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "Mùng Một every lunar month",
+      "input": {
+        "rule": {
+          "kind": "every_lunar_month",
+          "day": 1
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-01-19",
+            "lunar": {
+              "day": 1,
+              "month": 12,
+              "year": 2025,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-02-17",
+            "lunar": {
+              "day": 1,
+              "month": 1,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-03-19",
+            "lunar": {
+              "day": 1,
+              "month": 2,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-04-17",
+            "lunar": {
+              "day": 1,
+              "month": 3,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-05-17",
+            "lunar": {
+              "day": 1,
+              "month": 4,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-06-15",
+            "lunar": {
+              "day": 1,
+              "month": 5,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-07-14",
+            "lunar": {
+              "day": 1,
+              "month": 6,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-08-13",
+            "lunar": {
+              "day": 1,
+              "month": 7,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-09-11",
+            "lunar": {
+              "day": 1,
+              "month": 8,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-10-10",
+            "lunar": {
+              "day": 1,
+              "month": 9,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-11-09",
+            "lunar": {
+              "day": 1,
+              "month": 10,
+              "year": 2026,
+              "leap_month": false
+            }
+          },
+          {
+            "solar_date": "2026-12-09",
+            "lunar": {
+              "day": 1,
+              "month": 11,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-05",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "solar term Thanh minh (15°)",
+      "input": {
+        "rule": {
+          "kind": "solar_term",
+          "longitude": 15
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-04-05",
+            "lunar": {
+              "day": 18,
+              "month": 2,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-06",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    },
+    {
+      "name": "solar term Đông chí (270°)",
+      "input": {
+        "rule": {
+          "kind": "solar_term",
+          "longitude": 270
+        },
+        "year": 2026
+      },
+      "expected": {
+        "occurrences": [
+          {
+            "solar_date": "2026-12-22",
+            "lunar": {
+              "day": 14,
+              "month": 11,
+              "year": 2026,
+              "leap_month": false
+            }
+          }
+        ]
+      },
+      "rules": "BR-CAL-06",
+      "source": "backend resolver (services/appService/domain/calendar_event_resolver.go, lunarcal) run 2026-10-15"
+    }
+  ]
+}

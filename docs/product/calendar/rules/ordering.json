@@ -1,0 +1,84 @@
+{
+  "rule": [
+    "BR-CAL-12"
+  ],
+  "description": "Order of occurrences: solar date, then the event's display order, then the event's stable identifier. Event identifiers and display orders below are illustrative.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "occurrences": "list of {event, display_order, solar_date}"
+  },
+  "output": {
+    "order": "list of event identifiers in display order"
+  },
+  "cases": [
+    {
+      "name": "earlier date first",
+      "input": {
+        "occurrences": [
+          {
+            "event": "phat-dan",
+            "display_order": 1,
+            "solar_date": "2026-05-31"
+          },
+          {
+            "event": "tet-nguyen-dan",
+            "display_order": 2,
+            "solar_date": "2026-02-17"
+          }
+        ]
+      },
+      "expected": {
+        "order": [
+          "tet-nguyen-dan",
+          "phat-dan"
+        ]
+      }
+    },
+    {
+      "name": "same day: lower display order first",
+      "input": {
+        "occurrences": [
+          {
+            "event": "mung-mot",
+            "display_order": 40,
+            "solar_date": "2026-02-17"
+          },
+          {
+            "event": "tet-nguyen-dan",
+            "display_order": 1,
+            "solar_date": "2026-02-17"
+          }
+        ]
+      },
+      "expected": {
+        "order": [
+          "tet-nguyen-dan",
+          "mung-mot"
+        ]
+      }
+    },
+    {
+      "name": "same day and display order: identifier order",
+      "input": {
+        "occurrences": [
+          {
+            "event": "b-event",
+            "display_order": 5,
+            "solar_date": "2026-03-03"
+          },
+          {
+            "event": "a-event",
+            "display_order": 5,
+            "solar_date": "2026-03-03"
+          }
+        ]
+      },
+      "expected": {
+        "order": [
+          "a-event",
+          "b-event"
+        ]
+      }
+    }
+  ]
+}
