@@ -49,7 +49,7 @@ If the feature's main flow triggers 2+ sequential external calls or side effects
 Mermaid sequence diagram in `flow.md` is the authoritative visual — replace this whole ASCII block
 with a one-line pointer:
 
-    > Xem `flow.md` cho sơ đồ sequence Mermaid (mirror 1:1 của Step-by-step Flow bên dưới).
+    > See `flow.md` for the Mermaid sequence diagram (a 1:1 mirror of the Step-by-step Flow below).
 
 Keep this ASCII trace only for a single-query feature with no Step-by-step Flow and no `flow.md`.
 The ASCII shows: HTTP entry point down to the database, naming the middleware that guards it and

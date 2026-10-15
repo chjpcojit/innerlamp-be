@@ -30,13 +30,24 @@ update). The website, iOS and Android repos have their own layer-2 `spec-writer`
 
 This skill is modeled on the existing `docs/specs/features/onboarding/` and
 `docs/specs/features/article/` files — read them first as the canonical worked examples before
-generating a new spec, especially to see the expected tone/format (Vietnamese prose, user-story
-blockquote shape, "Ghi chú kỹ thuật liên quan" closing section).
+generating a new spec, especially to see the expected structure (user-story blockquote shape,
+EARS criteria, closing "Technical notes" section). Those files predate the Language policy and are
+still in Vietnamese; copy their structure, not their language.
 
-**Language**: section headers, EARS keywords (`WHEN`/`THE SYSTEM SHALL`), table columns, and
-version headers stay in English exactly as templated. The *prose* — user story text, rationale,
-"Ghi chú kỹ thuật liên quan" bullets — is written in Vietnamese, matching every existing file under
-`docs/specs/`. Never mix: an EARS criterion is English, the sentence explaining it can be Vietnamese.
+**Language**: Language follows the repo's Language policy in CLAUDE.md, which overrides this skill.
+Specs are committed to git, so everything in them is English: section headers, EARS keywords
+(`WHEN`/`THE SYSTEM SHALL`), table columns, version headers, and all *prose* — user story text
+(`> As a **<actor>**,` / `> I want **<action>**,` / `> So that **<goal>**.`), rationale, the closing
+"Technical notes" bullets, Mermaid labels and flowchart nodes. Only user-facing copy quoted in a spec
+(an error message or UI string shown to the user) keeps its own language (Vietnamese first), with an
+English gloss. Conversation with the user — the questions in `references/gathering_questions.md`,
+reports, uncommitted drafts — is Vietnamese ("anh" for the user, "em" for the agent), technical
+terms kept in English.
+
+Older spec files may still be in Vietnamese and may still use the Vietnamese closing heading
+"Ghi chú kỹ thuật liên quan" instead of "Technical notes" until they are next edited. Editing such a
+file rewrites it in English in the same change, per the policy (heading renamed to "Technical notes",
+user stories rewritten in the English blockquote shape); do not open translation-only changes.
 
 **This skill never writes application code.** Turning a finished, fully-resolved spec into actual Go
 files (domain entity, usecase, repository, handler, migration, tests, `cmd/main.go` wiring) is the
@@ -101,7 +112,7 @@ Read these as needed — don't load all upfront if the task is narrow.
 | `references/gathering_questions.md` | The exact question set to ask before generating anything, phrasing rules, and the "never skip, mark ⚠️" rule for unanswered ones |
 | `references/ears_notation.md` | How to phrase `requirements.md` acceptance criteria in EARS notation, with good/bad examples |
 | `references/step_by_step_flow.md` | When and how to write the `design.md` Step-by-step Flow section; the per-step fields required (trigger/pre-condition/API/success/failure) |
-| `references/flow_diagram.md` | When and how to write the `flow.md` Mermaid diagram (participant naming, arrow/transaction/branch notation, flowchart vs sequence, Vietnamese labels, the "mirror 1:1, never invent" rule) |
+| `references/flow_diagram.md` | When and how to write the `flow.md` Mermaid diagram (participant naming, arrow/transaction/branch notation, flowchart vs sequence, English labels, the "mirror 1:1, never invent" rule) |
 | `references/versioning_and_changelog.md` | Version bump rule (patch vs minor), required header format, and the `changelog.md` entry format with a worked multi-version example |
 
 ## Workflow
@@ -210,8 +221,8 @@ generation:
   section exists yet, add one before reporting done — this is not optional (rule 5).
 - If a Step-by-step Flow section exists, `flow.md` exists too, with one sequence diagram per flow
   section that mirrors it 1:1 — no diagram step without a matching `design.md` Step, and no
-  `design.md` Step missing from the diagram (rule 6). Mermaid keywords are English, labels are
-  Vietnamese; transaction boundaries are marked with `rect` + `Note`, and any `⚠️ Not confirmed`
+  `design.md` Step missing from the diagram (rule 6). Mermaid keywords and labels are both
+  English; transaction boundaries are marked with `rect` + `Note`, and any `⚠️ Not confirmed`
   step appears as a `Note`, not drawn as settled.
 - Cross-file follow-ups (`docs/specs/api/openapi.yaml`, `migrations/`, `docs/specs/db/`,
   `docs/knowledge/`) are listed in the response and in the changelog entry.

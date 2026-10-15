@@ -1,6 +1,6 @@
 ---
 name: adr-writer
-description: This skill should be used when an InnerLamp feature or change involves an architecture decision that is hard to reverse — infrastructure (cloud services, deployment, queues, caches, storage), a new or reshaped data model, offline sync / conflict resolution between devices, authentication / authorization / session design, cross-platform data ownership, or any choice between technologies — and that decision must be recorded as an Architecture Decision Record (ADR) under `docs/adr/NNNN-<slug>.md` in the backend repo before the product spec (`ba-writer`) or platform specs (`il-spec-be`, `il-spec-web`, `il-spec-ios`, `il-spec-android`) are written. It wraps the generic `engineering:system-design` and `engineering:architecture` processes with InnerLamp's own context (CLAUDE.md, existing ADRs, product specs, the real stack), a project ADR template, an explicit "is an ADR needed at all?" gate, and the rules that it asks before writing, records unanswered questions as "⚠️ Not confirmed", always compares at least two real options plus the status quo, writes every new ADR as Proposed (only the user moves it to Accepted), and never edits an Accepted ADR (a changed decision is a new ADR that supersedes it). Docs-only: the ADR body is English, chat with the user is Vietnamese ("anh"/"em"); it never writes code, product specs or platform specs. Use it when the user says ADR, architecture decision, system design, "nên chọn X hay Y", "thiết kế kiến trúc", or when `ba-writer` stops because a feature needs an architecture decision that has no ADR yet.
+description: This skill should be used when an InnerLamp feature or change involves an architecture decision that is hard to reverse — infrastructure (cloud services, deployment, queues, caches, storage), a new or reshaped data model, offline sync / conflict resolution between devices, authentication / authorization / session design, cross-platform data ownership, or any choice between technologies — and that decision must be recorded as an Architecture Decision Record (ADR) under `docs/adr/NNNN-<slug>.md` in the backend repo before the product spec (`ba-writer`) or platform specs (`spec-writer` in each of the four repos) are written. It wraps the generic `engineering:system-design` and `engineering:architecture` processes with InnerLamp's own context (CLAUDE.md, existing ADRs, product specs, the real stack), a project ADR template, an explicit "is an ADR needed at all?" gate, and the rules that it asks before writing, records unanswered questions as "⚠️ Not confirmed", always compares at least two real options plus the status quo, writes every new ADR as Proposed (only the user moves it to Accepted), and never edits an Accepted ADR (a changed decision is a new ADR that supersedes it). Docs-only: the ADR body is English, chat with the user is Vietnamese ("anh"/"em"); it never writes code, product specs or platform specs. Use it when the user says ADR, architecture decision, system design, "nên chọn X hay Y", "thiết kế kiến trúc", or when `ba-writer` stops because a feature needs an architecture decision that has no ADR yet.
 ---
 
 # InnerLamp Architecture Decision Record writer (`adr-writer`)
@@ -22,7 +22,7 @@ Raw idea / request
    ▼
 ba-writer               docs/product/<feature>/product.md          (layer 0)
    ▼
-il-spec-be / -web / -ios / -android   platform specs                (layer 2)
+spec-writer (every repo)              platform specs                (layer 2)
    ▼
 implementation skills (golang-*, il-ui, il-state, ui-builder, il-data-builder…) → CI
 ```
@@ -141,5 +141,5 @@ explicit; recommend one option and say why, but leave the decision to the user (
 
 Tell the user: the ADR file and number, the recommended option in one line, open `⚠️` items, and what
 they need to do — accept / reject / answer questions. Then the next step: `ba-writer` for the product
-spec (citing `ADR-NNNN`), `il-spec-be` and the client spec skills for platform specs, plus any
+spec (citing `ADR-NNNN`), `spec-writer` in this repo and in each client repo for platform specs, plus any
 contract follow-ups.
