@@ -2,7 +2,17 @@
 
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version
-first. (`api-contract.md` là tài liệu client có version riêng, không thuộc bộ này.)
+first. (`api-contract.md` cũ đã gỡ ở v2.1; hợp đồng nằm ở `docs/specs/api/openapi.yaml`.)
+
+## v2.1 (2026-10-15)
+
+Bước 4 của quy trình tài liệu: xoá tài liệu cũ sau khi product spec v1.1 và spec bốn platform đã được duyệt. Không đổi yêu cầu hay thiết kế.
+
+- Xoá `api-contract.md` (tài liệu client iOS v1.3): hợp đồng nằm ở `docs/specs/api/openapi.yaml`, hành vi ở `docs/product/temple/product.md`.
+- `tasks.md` (2.0 → 2.1): mục "Rà `api-contract.md`" ở Phase 5 đánh `[x]` (đã gộp về `openapi.yaml`); mục Phase 4 ghi file đã gỡ.
+- `design.md` (2.0 → 2.1): Known gaps trỏ về `api-contract.md` cũ qua lịch sử git. `requirements.md`, `flow.md` (2.0 → 2.1): no change needed, verified — chỉ header.
+- Ngoài thư mục: `deity/api-contract.md` trỏ về `openapi.yaml` thay cho file đã xoá; OKF `docs/knowledge/features/temple.md` bỏ nguồn `api-contract.md` (làm mới toàn bộ OKF vẫn là Phase 13).
+- Giữ nguyên (cố ý): `address-decisions.*`, `address-review.md` (bản ghi dữ liệu địa chỉ), `docs/assumptions/temple/A-001…005` (quy ước repo: không xoá file giả định).
 
 ## v2.0 (2026-10-15)
 

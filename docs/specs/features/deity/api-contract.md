@@ -6,7 +6,7 @@ Status: implemented + verified against a running server (dev DB, 18 deities: 6 B
 Code: `services/appService/delivery/http/deity_handler.go`, `usecase/deity_usecase.go`, `repository/postgres_deity_repository.go`
 Data: `assets/data/phat_botat.json` → table `deities` (`migrations/0007_deities.sql`) via `go run ./services/appService/cmd/seeddeities` (idempotent)
 
-All endpoints are **public**, `GET` only. Envelope and error format are the same as the temple catalogue (`docs/specs/features/temple/api-contract.md`).
+All endpoints are **public**, `GET` only. Envelope and error format are the same as the temple catalogue (`docs/specs/api/openapi.yaml`, tag Temples).
 
 ## Ordering
 

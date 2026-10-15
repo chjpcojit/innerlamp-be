@@ -1,6 +1,6 @@
 # Requirements — temple
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-15
 Status: v2.0 viết lại để trỏ lên product spec `temple` v1.1 (2026-10-15). Phần đã có (US-TMP-01..08, AC 1–38) đã implement và kiểm chứng trước đó (E2E `services/appService/e2e/temple_e2e_test.go`, migration tới `0032`). **Mới ở v2.0, chưa implement:** trang 12 chùa (AC 5), tìm `q` theo tên + tên khác và lọc `region` ở `GET /v1/temples` (US-TMP-09, AC 39–44), bốn nhóm trường mới ở chi tiết (US-TMP-10, AC 45–49), file dữ liệu vào git (AC 50) — `tasks.md` Phase 11–13, mọi mục `[ ]`. Marker mở: ghi nguồn nội dung và quyền dùng ảnh (product A1).
 Module: `content`

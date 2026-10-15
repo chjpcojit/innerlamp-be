@@ -1,6 +1,6 @@
 # Tasks — temple
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-15
 Status: **v2.0 (2026-10-15): Phase 11–13 mới cho product spec `temple` v1.1, mọi mục `[ ]`.** Phase 1–10 đã làm và kiểm chứng tới 2026-10-11 (còn `[ ]`: `erd.svg`, seed cho môi trường thật).
 Module: `content`
@@ -41,7 +41,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] Handler tests: `delivery/http/temple_handler_test.go` (`TestTempleHandler_Top`, `_List`, `_Get`) + `mock_temple_usecase_test.go`, pass ở `-short`
 - [x] Ghi `0005` và `0011` vào `migrations/README.md`
 - [x] `docs/specs/api/openapi.yaml` và `web/docs/public/openapi.yaml`: 3 route + schema (đã kiểm có `/v1/temples/top`, `/v1/temples`, `/v1/temples/{id}` và `TEMPLE_NOT_FOUND`)
-- [x] `api-contract.md` cho client iOS (tài liệu có sẵn, giữ nguyên)
+- [x] ~~`api-contract.md` cho client iOS~~ — gỡ ở v2.1; hợp đồng nằm ở `docs/specs/api/openapi.yaml`, hành vi ở product spec
 - [x] Bảng `temples` trong `docs/specs/db/erd.mmd` và `erd.svg` (đã kiểm: render bằng mermaid-cli không lỗi, SVG có bảng)
 
 ## Phase 5 — Integration & documentation
@@ -49,7 +49,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [ ] E2E black-box trong `services/appService/e2e/`: ba route, `INVALID_PAGE`, `TEMPLE_NOT_FOUND`, DB chưa seed trả `items: []`
 - [x] `go build ./...` và `go vet ./services/appService/... ./assets/...` sạch
 - [x] Khái niệm OKF `docs/knowledge/features/temple.md` — đã có (làm mới sau v2.0 ở Phase 13)
-- [ ] Rà `api-contract.md` cho khớp spec (hai nơi cùng mô tả hợp đồng; chọn giữ cả hai hay gộp về `openapi.yaml`)
+- [x] Rà `api-contract.md` cho khớp spec — v2.1: gộp về `openapi.yaml` và xoá `api-contract.md` (bước 4 của quy trình tài liệu)
 
 ## Phase 7 — `GET /v1/temples/options?page=N&q=` (v1.5, US-TMP-06, AC 19–25)
 

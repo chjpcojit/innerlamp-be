@@ -1,6 +1,6 @@
 # Design — temple
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-15
 Status: **v2.0 (2026-10-15): thiết kế mới cho product spec `temple` v1.1, chưa có code** — các hàng/bước đánh dấu *(v2.0)*: trang 12, `q` (tên + `aliases`) và `region` ở danh sách, bốn nhóm trường mới ở chi tiết (migration `0037`), seed kiểm định dạng giờ/liên hệ, `temple.json` vào git. Phần còn lại (đến v1.7) đã implement và kiểm chứng.
 Module: `content`
@@ -213,7 +213,7 @@ Không có gì bị stub ở phía đọc: mọi method của `TempleRepository`
 
 ## Known gaps carried by this feature
 
-- **Không có E2E**: `services/appService/e2e/` không có gì về temple. Việc "đã chạy thật" là lần chạy tay trên server dev được ghi ở `api-contract.md` (dữ liệu lúc đó khác file seed hiện có 93 chùa); lượt viết spec này không gọi lại server.
+- **Không có E2E**: `services/appService/e2e/` không có gì về temple. Việc "đã chạy thật" là lần chạy tay trên server dev được ghi ở `api-contract.md` cũ (đã gỡ ở v2.1, xem lịch sử git; dữ liệu lúc đó khác file seed hiện có 93 chùa); lượt viết spec này không gọi lại server.
 - **Test repository cần Postgres và xoá dữ liệu dev**: `postgres_temple_repository_test.go` gọi `connectTestDB`, bỏ qua khi `-short`; helper `truncateAll` chạy `TRUNCATE … temples, deities, articles, users …` trên DB `innerlamp` (mặc định `localhost:5432`). Chạy xong bảng `temples` trống, phải seed lại bằng `cmd/seedtemples`; `deities` seed lại bằng `cmd/seeddeities`, `articles` tự nạp ở lần khởi động kế tiếp. `go test -short` chỉ chạy usecase, handler và seed parser. Lượt viết spec này chỉ chạy `-short`, chưa chạy test repository.
 - **Seed không tự chạy và dùng config dev**: appService khởi động không đụng bảng `temples`; `cmd/seedtemples` gắn với `config.dev.yaml` và secret dev (`⚠️ DEV ONLY`). v2.0: product đã chốt dùng file JSON ở mọi môi trường (FR-TPL-010); việc cho seed đọc config/secret của môi trường thật là việc kỹ thuật, `tasks.md` Phase 3.
 - **Upsert ghi đè mọi cột và không xoá**: chạy lại seed đưa mọi cột về đúng nội dung file (kể cả cột đã sửa tay trong DB), và chùa bị xoá khỏi file **vẫn nằm trong bảng** — không có bước dọn.
