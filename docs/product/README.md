@@ -46,6 +46,8 @@ has a short feature code (e.g. `MEM`) used in its IDs: `BR-MEM-01`, `FR-MEM-001`
 
 ## Status
 
-New convention as of 2026-10-14; no feature has been migrated yet. Existing `SRS.md` files under
-`docs/specs/features/<feature>/` (and in the iOS/website repos) are legacy. They stay as they are
-until their feature is rewritten here, at which point the backend copy gets a "Superseded by" line.
+New convention as of 2026-10-14. Migrated: `memorial`, `onboarding`, `login` — their legacy docs in all
+four repos were deleted once every platform spec was approved. Existing `SRS.md` files of the other
+features under `docs/specs/features/<feature>/` (and in the iOS/website repos) are legacy. They stay as
+they are until their feature is rewritten here, at which point the backend copy gets a "Superseded by"
+line and is deleted after the platform specs are approved.

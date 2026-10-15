@@ -1,5 +1,17 @@
 # Knowledge Bundle Update Log
 
+## 2026-10-15
+
+- Deleted `features/register.md` and `features/login.md` and removed them from `index.md`.
+  - Reason: registration and sign-in move from phone + SMS to email + email code (ADR-0003, Accepted). The
+    product specs (`docs/product/{onboarding,login}/product.md` @ v1.2) list both concepts as prior documents to
+    delete once every platform spec was approved (Android, the last one, merged 2026-10-15).
+  - Links to them in `packages/{ratelimit,middleware}.md`, `api/calendar-events.md` and
+    `features/{deity,genealogy,attestation,temple,calendar,article,sutra}.md` now name the specs
+    `docs/specs/features/login/` and `docs/specs/features/onboarding/` instead.
+  - New concepts are written with `il-okf-writer` once the email flow is built and verified
+    (`docs/specs/features/{login,onboarding}/tasks.md`).
+
 ## 2026-10-14
 
 - Created `packages/ratelimit.md` (`status: draft`) and added it to `index.md`.

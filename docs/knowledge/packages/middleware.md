@@ -109,7 +109,7 @@ every non-preflight request adds two stdout log lines. The `newHandler` argument
 
 # Related concepts
 
-- [features/login.md](../features/login.md) and [features/register.md](../features/register.md):
+- `docs/specs/features/login/` and `docs/specs/features/onboarding/`:
   their routes are the HTTP traffic this chain wraps; they rely on the `utils.ApiResponse` envelope
   that `Recovery` and `CORS` now write through.
 - No `Package` concept exists yet for `pkg/utils` — the package this one depends on and whose

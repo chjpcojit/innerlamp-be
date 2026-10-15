@@ -154,7 +154,7 @@ code. Behaviours worth knowing that the spec records as gaps rather than fixing:
 
 # Related concepts
 
-- [Login](login.md) and [Register](register.md) — the identity features. Articles share only
+- Login (`docs/specs/features/login/`) and Register (`docs/specs/features/onboarding/`) — the identity features. Articles share only
   `delivery/http/errors.go`'s `writeDomainError` and the middleware chain from
   [packages/middleware.md](../packages/middleware.md); no auth is involved.
 - [Temple](temple.md) and [Deity](deity.md) — the closest siblings (same top / paged list / detail
