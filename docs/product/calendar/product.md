@@ -7,9 +7,9 @@
 | Feature code | `CAL` — IDs are `BR-CAL-NN`, `FR-CAL-NNN`, `NFR-CAL-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.0 |
+| Version | 1.1 |
 | Last updated | 2026-10-15 |
-| Status | draft for review — decisions of 2026-10-15 applied; the open items in Appendix A are confirmed by review of this PR |
+| Status | draft for review — decisions of 2026-10-15 applied and checked against the seed catalogue; the open items in Appendix A are confirmed by review of this PR |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | None needed (decision 2026-10-15). The event data model (repeat rules, dates computed per year) was decided 2026-10-11 and is recorded as a constraint in §2.5 |
@@ -99,6 +99,9 @@ page, and from the website's events page.
     `Docs/home_assumptions.md` #11.
   - Website: no spec; `src/lib/server/api/calendar.ts`, routes `events/` and `events/[code]/`.
   - Reconciliation report: `/mnt/project-files/reports/product/calendar/2026-10-15-cau-hoi-truoc-khi-viet.md`.
+  - Seed catalogue `calendar-events.json` (meta version 2026-10-11, status DRAFT, 3 groups, 51 events),
+    supplied by the product owner on 2026-10-15; examples and vectors in this spec use its codes and
+    were computed from it with the backend resolver (75 occurrences in 2026).
 - Platform folder names: Backend `calendar` · Website `events` (routes) · iOS `Festivals`,
   `FestivalDetail`, Home carousel · Android `festivals`. New platform specs use `calendar` / `Calendar`.
 
@@ -172,10 +175,10 @@ N/A — each view explains itself; there is no separate help content.
   - The catalogue is small (tens to low hundreds of events), so one year is delivered as a whole.
 - **Dependencies:**
   - The initial catalogue is collected by the team in a seed file and loaded into the backend.
-    > ⚠️ Not confirmed: the seed file exists only on the product owner's computer (it is excluded
-    > from version control) and its content has not been checked against the GHPGVN calendar —
-    > who checks it, and by when? — blocks the "content reviewed" constraint in §2.5 and the initial
-    > set of major events (BR-CAL-10); all platforms.
+    The seed (51 events, marked DRAFT) is not yet in version control (Appendix B). Its vía dates were
+    checked against one secondary source (hoatieu.vn); descriptions were drafted by Claude.
+    > ⚠️ Not confirmed: who checks the seed content against the GHPGVN calendar, and by when? —
+    > blocks the "content reviewed" constraint in §2.5; all platforms.
   - Event images: none supplied yet; a default image is shown until they are (BR-CAL-14).
   - Back office (later) for editing events, groups and flags.
 
@@ -264,13 +267,15 @@ N/A — no message is sent to the user in v1.0.
 - **Rule:** Mùng Một (lunar day 1) and Rằm (lunar day 15) are events of the catalogue that occur in
   every lunar month, leap months included, labelled "(nhuận)" in a leap month. They come from the
   same catalogue as every other event; no platform adds them on its own. On a day that also has a
-  named festival (e.g. Tết on Mùng Một tháng Giêng), both occurrences are shown, ordered by
-  BR-CAL-12.
+  named event, both occurrences are shown and the named event comes first: Rằm and Mùng Một take the
+  last display orders of the catalogue (BR-CAL-12).
 - **Examples:** Rằm in 2025 → 12 occurrences, including 2025-08-08 (lunar 15/6 leap); Mùng Một in
-  2026 → 12 occurrences, the first on 2026-01-19 (lunar 1/12/2025).
+  2026 → 12 occurrences, the first on 2026-01-19 (lunar 1/12/2025); 2026-05-31 shows "Lễ Phật đản"
+  above "Rằm"; 2026-02-17 shows "Tết Nguyên Đán" and "Vía Đức Di Lặc" above "Mùng 1 âm lịch".
 - **Computational:** yes → `rules/event-placement.json`
 - **Applies to:** Backend, Website, iOS, Android (clients must stop computing them locally)
-- **Source:** backend SRS FR-004; decision 2026-10-15 (Q5: the server is the only source)
+- **Source:** backend SRS FR-004; decision 2026-10-15 (Q5: the server is the only source). The seed
+  today gives Mùng 1 and Rằm display orders 1 and 2, which lists them first — Appendix B
 
 **BR-CAL-06 — Solar terms**
 - **Rule:** A solar-term event falls on the solar date, in Vietnam time (UTC+7), on which the sun
@@ -301,7 +306,9 @@ N/A — no message is sent to the user in v1.0.
   Việt Nam (Vietnamese holidays) and Dân gian (folk); the content editor can add more without a
   release, and every platform labels and filters by whatever groups the catalogue has, in the
   catalogue's group order.
-- **Examples:** Phật đản → Phật giáo; 30/4 → Việt Nam; Tết Nguyên Đán → Việt Nam + Dân gian.
+- **Examples:** Vía Văn Thù → Phật giáo; Lễ Phật đản → Phật giáo + Việt Nam; Lễ Vu Lan → Phật giáo +
+  Dân gian; Rằm, Mùng 1 → Phật giáo + Dân gian; 30/4 → Việt Nam; Tết Nguyên Đán → Việt Nam + Dân gian;
+  tiết khí → Dân gian.
 - **Computational:** no
 - **Applies to:** Backend, Website, iOS, Android
 - **Source:** backend SRS FR-007; decision 2026-10-15 (Q3)
@@ -312,10 +319,11 @@ N/A — no message is sent to the user in v1.0.
   first on the home block (BR-CAL-15). The detail view labels the event with its group names.
 - **Examples:** Phật đản → major; Rằm tháng Hai → not major; Tết Dương lịch → not major.
 - **Proposed initial set** (from the prototype and the Android catalogue):
-  > ⚠️ Not confirmed: the initial major events are Rằm tháng Giêng (15/1), Phật nhập Niết bàn (15/2),
-  > vía Quan Âm đản sanh (19/2), Phật đản (15/4), vía Quan Âm thành đạo (19/6), Vu Lan (15/7), vía
-  > Quan Âm xuất gia (19/9) and Phật thành đạo (8/12) — add or remove any? — blocks the seed data
-  > only; all platforms read the mark from the catalogue.
+  > ⚠️ Not confirmed: the initial major events are the 8 seed events Rằm tháng Giêng (Thượng
+  > nguyên, 15/1), Ngày Đức Phật nhập Niết bàn (15/2), Vía Quan Thế Âm đản sinh (19/2), Lễ Phật đản
+  > (15/4), Vía Quan Thế Âm thành đạo (19/6), Lễ Vu Lan (15/7), Vía Quan Thế Âm xuất gia (19/9) and
+  > Ngày Đức Phật thành đạo (8/12) — add or remove any (e.g. Vía Phật A Di Đà 17/11, Đức Phật xuất
+  > gia 8/2)? — blocks the seed data only; all platforms read the mark from the catalogue.
 - **Computational:** no
 - **Applies to:** Backend, Website, iOS, Android
 - **Source:** decision 2026-10-15 (Q4, option 1); prototype `festVals`; Android `MAJOR_KEYS`
@@ -331,8 +339,9 @@ N/A — no message is sent to the user in v1.0.
 **BR-CAL-12 — Order of occurrences**
 - **Rule:** Occurrences are ordered by solar date, then by the event's display order (set by the
   content editor), then by the event's stable identifier, so every platform shows the same order.
-- **Examples:** 2026-02-17 holds Tết Nguyên Đán (display order 1) and Mùng Một (display order 40)
-  → Tết first.
+- **Examples:** 2026-02-17 holds Tết Nguyên Đán, Vía Đức Di Lặc and Mùng 1 âm lịch → listed in
+  their display order, with Mùng 1 last (BR-CAL-05); 2026-12-25 holds Vía Phật A Di Đà and Lễ Giáng
+  sinh → their display order decides.
 - **Computational:** yes → `rules/ordering.json`
 - **Applies to:** Backend, Website, iOS, Android
 - **Source:** backend SRS FR-014
@@ -349,10 +358,14 @@ N/A — no message is sent to the user in v1.0.
 
 **BR-CAL-14 — Content format and empty content**
 - **Rule:** In an event's long description each line is one paragraph; in its guidance each line is
-  one practice, shown as a numbered list (a leading "-", "•" or "*" is dropped). A section whose
-  content is empty is hidden. An event without an image shows the shared default image.
-- **Examples:** guidance "Tụng kinh\nPhóng sanh\nĂn chay" → three numbered rows; empty guidance →
-  no "Phật tử thường làm gì" section.
+  one practice, shown as a numbered list (a leading "-", "•" or "*" is dropped). Clients split on line
+  breaks only, never on commas or semicolons. A section whose content is empty is hidden. An event
+  without an image shows the shared default image.
+- **Examples:** guidance "Đi chùa dự lễ tắm Phật\nCúng dường\nPhóng sinh\nĂn chay" → four
+  numbered rows; empty guidance → no "Phật tử thường làm gì" section. Today every seed guidance is a
+  single line joined by ";" and "," (e.g. Lễ Phật đản: "Đi chùa dự lễ tắm Phật, cúng dường, phóng
+  sinh, ăn chay."), so it shows as one row until the seed is rewritten one practice per line
+  (Appendix B).
 - **Computational:** no
 - **Applies to:** Backend (content rule for the editor), Website, iOS, Android
 - **Source:** iOS AS-FestivalDetail-001; decision 2026-10-15 (Q7, Q11, Q13)
@@ -362,8 +375,10 @@ N/A — no message is sent to the user in v1.0.
   shows Buddhist-group occurrences only, at most three: major events first, then other named events,
   then Rằm and Mùng Một; within each tier in BR-CAL-12 order. The rest is counted as
   "+N sự kiện khác". A month with no Buddhist occurrence still shows its card with an empty message.
-- **Examples:** a month with Phật đản (major), vía Văn Thù (named), Rằm and Mùng Một → shows Phật
-  đản, vía Văn Thù, Mùng Một, "+1"; a month with only Rằm and Mùng Một → both, "+0" not shown.
+- **Examples (2026, seed catalogue, proposed major set):** May → Lễ Phật đản, Vía Văn Thù, Rằm of
+  1 May, "+2" (Mùng 1, Rằm of 31 May); 1/5 and 1/6 are not counted (Việt Nam group). February →
+  Vía Đức Di Lặc, Rằm of 2 Feb, Mùng 1 of 17 Feb, no "+N"; Tết is not shown (Việt Nam + Dân gian).
+  August → Vía Quan Thế Âm thành đạo, Lễ Vu Lan, Vía Đại Thế Chí, "+2".
 - **Computational:** yes → `rules/home-block.json`
 - **Applies to:** Website, iOS, Android
 - **Source:** prototype home block; decision 2026-10-15 (Q3, Q5); replaces iOS AS-Home-003
@@ -371,7 +386,7 @@ N/A — no message is sent to the user in v1.0.
 **BR-CAL-16 — Turned-off events are never shown**
 - **Rule:** The content editor can turn an event off instead of deleting it; a turned-off event has
   no occurrence anywhere.
-- **Examples:** Noel turned off → it disappears from every year on every platform.
+- **Examples:** Lễ Giáng sinh turned off → it disappears from every year on every platform.
 - **Computational:** no
 - **Applies to:** Backend
 - **Source:** backend SRS FR-013
@@ -425,7 +440,8 @@ N/A — no message is sent to the user in v1.0.
   Scenario: A lunar festival shows both dates
     Given the calendar of 2026 is shown
     When the user looks at May
-    Then Phật đản is listed on Sunday 31 May with lunar date 15/4
+    Then Lễ Phật đản is listed on Sunday 31 May with lunar date 15/4
+    And it is listed above Rằm of the same day
 
   Scenario: Past occurrences of the current year stay listed
     Given today is 2026-10-15
@@ -447,13 +463,13 @@ N/A — no message is sent to the user in v1.0.
   Scenario: Filter by group
     Given the calendar of 2026 is shown
     When the user chooses the "Việt Nam" filter
-    Then 30/4 is listed
-    And Phật đản is not listed
+    Then 30/4 and Lễ Phật đản are listed
+    And Lễ Vu Lan is not listed
 
   Scenario: Major events only
     Given the calendar of 2026 is shown
     When the user chooses the "Lễ lớn" filter
-    Then Phật đản and Vu Lan are listed
+    Then Lễ Phật đản and Lễ Vu Lan are listed
     And no Rằm or Mùng Một that is not a major event is listed
 
   Scenario: Filter keeps working after loading another year
@@ -506,8 +522,8 @@ N/A — no message is sent to the user in v1.0.
   ```gherkin
   Scenario: Detail of a festival
     Given today is 2026-10-15
-    When the user opens Phật đản of 2026-05-31
-    Then the view shows "Phật đản", lunar date 15/4, Sunday 31 May 2026 and "Đã qua"
+    When the user opens Lễ Phật đản of 2026-05-31
+    Then the view shows "Lễ Phật đản", lunar date 15/4, Sunday 31 May 2026 and "Đã qua"
     And the guidance is shown as a numbered list
 
   Scenario: Event without image or guidance
@@ -628,13 +644,13 @@ N/A — no message is sent to the user in v1.0.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Mark an event as major
-    Given vía Văn Thù is not a major event
+    Given Vía Văn Thù Bồ Tát is not a major event
     When the content editor marks it as major
     Then after the next load it appears under the "Lễ lớn" filter on every platform
 
   Scenario: Turn an event off
-    When the content editor turns Noel off
-    Then Noel no longer appears in any year on any platform
+    When the content editor turns Lễ Giáng sinh off
+    Then Lễ Giáng sinh no longer appears in any year on any platform
   ```
 
 ### 3.4 Non-functional requirements
@@ -727,9 +743,9 @@ note) · `n/a` · `later`.
 | File | Rule | Cases |
 |---|---|---|
 | `rules/event-placement.json` | BR-CAL-01…07 | 19 |
-| `rules/ordering.json` | BR-CAL-12 | 3 |
+| `rules/ordering.json` | BR-CAL-12 | 4 |
 | `rules/countdown.json` | BR-CAL-13 | 5 |
-| `rules/home-block.json` | BR-CAL-15 | 4 |
+| `rules/home-block.json` | BR-CAL-15 | 5 |
 
 ---
 
@@ -742,6 +758,8 @@ note) · `n/a` · `later`.
 > ⚠️ Not confirmed: the initial set of major events (BR-CAL-10) — blocks the seed data only; all platforms.
 
 > ⚠️ Not confirmed: who checks the seed content against the GHPGVN calendar, and by when (§2.7) — blocks publishing the content; all platforms.
+
+> ⚠️ Not confirmed: Phật đản stays on lunar 15/4 only (GHPGVN practice), or the seed also gets a separate event on lunar 8/4 (traditional Northern date, noted in the seed) — content only; all platforms.
 
 #### Open questions (resolved)
 
@@ -772,4 +790,8 @@ What the backend contract must change for this spec (for `spec-writer`):
    for public routes applies as for other catalogue reads.
 2. Each event carries the major mark (BR-CAL-10), settable as data and loaded by the seed.
 3. The seed file must be kept in version control (today it is excluded) so a fresh setup has events.
+   A copy is at `/mnt/project-files/data/calendar/calendar-events.json`.
 4. Caching headers must suit a public, shared response.
+5. Seed content changes: give Rằm and Mùng 1 the last display orders (today 1 and 2, BR-CAL-05);
+   rewrite every guidance one practice per line (today one line joined by ";" and ",", BR-CAL-14);
+   add the major mark to the agreed events (BR-CAL-10).

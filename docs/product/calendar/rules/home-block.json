@@ -2,34 +2,56 @@
   "rule": [
     "BR-CAL-15"
   ],
-  "description": "Rows of one month card on the home block: Buddhist-group occurrences only; at most three; tier 1 major events, tier 2 other events, tier 3 Rằm / Mùng Một (every-lunar-month events); BR-CAL-12 order inside a tier; the rest counted as more. Identifiers and display orders are illustrative.",
-  "product_spec_version": "1.0",
+  "description": "Rows of one month card on the home block: Buddhist-group occurrences only; at most three; tier 1 major events, tier 2 other events, tier 3 Rằm / Mùng 1 (every-lunar-month events); BR-CAL-12 order inside a tier; the rest counted as more. Months 2026 are the real seed occurrences (backend resolver, 2026-10-15) with the proposed major set (BR-CAL-10) and Rằm / Mùng 1 at the last display orders.",
+  "product_spec_version": "1.1",
   "inputs": {
     "occurrences": "the month's occurrences {event, solar_date, display_order, major, every_lunar_month, groups}"
   },
   "output": {
-    "shown": "event identifiers in display order",
+    "shown": "list of [event code, solar date] in the order shown",
     "more": "count of Buddhist-group occurrences not shown"
   },
   "cases": [
     {
-      "name": "major first, Rằm/Mùng Một last",
+      "name": "May 2026: major, then named, then Rằm/Mùng 1",
       "input": {
         "occurrences": [
           {
-            "event": "mung-mot",
-            "solar_date": "2026-05-17",
-            "display_order": 40,
+            "event": "ram-am-lich",
+            "solar_date": "2026-05-01",
+            "display_order": 53,
             "major": false,
             "every_lunar_month": true,
             "groups": [
-              "buddhist"
+              "buddhist",
+              "folk"
+            ]
+          },
+          {
+            "event": "quoc-te-lao-dong",
+            "solar_date": "2026-05-01",
+            "display_order": 37,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "vietnam"
+            ]
+          },
+          {
+            "event": "mung-1-am-lich",
+            "solar_date": "2026-05-17",
+            "display_order": 52,
+            "major": false,
+            "every_lunar_month": true,
+            "groups": [
+              "buddhist",
+              "folk"
             ]
           },
           {
             "event": "via-van-thu",
             "solar_date": "2026-05-20",
-            "display_order": 10,
+            "display_order": 16,
             "major": false,
             "every_lunar_month": false,
             "groups": [
@@ -39,7 +61,162 @@
           {
             "event": "phat-dan",
             "solar_date": "2026-05-31",
-            "display_order": 1,
+            "display_order": 17,
+            "major": true,
+            "every_lunar_month": false,
+            "groups": [
+              "buddhist",
+              "vietnam"
+            ]
+          },
+          {
+            "event": "ram-am-lich",
+            "solar_date": "2026-05-31",
+            "display_order": 53,
+            "major": false,
+            "every_lunar_month": true,
+            "groups": [
+              "buddhist",
+              "folk"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "shown": [
+          [
+            "phat-dan",
+            "2026-05-31"
+          ],
+          [
+            "via-van-thu",
+            "2026-05-20"
+          ],
+          [
+            "ram-am-lich",
+            "2026-05-01"
+          ]
+        ],
+        "more": 2
+      }
+    },
+    {
+      "name": "February 2026: Tết and Giao thừa are not Buddhist-group",
+      "input": {
+        "occurrences": [
+          {
+            "event": "ram-am-lich",
+            "solar_date": "2026-02-02",
+            "display_order": 53,
+            "major": false,
+            "every_lunar_month": true,
+            "groups": [
+              "buddhist",
+              "folk"
+            ]
+          },
+          {
+            "event": "tiet-lap-xuan",
+            "solar_date": "2026-02-04",
+            "display_order": 43,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "folk"
+            ]
+          },
+          {
+            "event": "ong-cong-ong-tao",
+            "solar_date": "2026-02-10",
+            "display_order": 9,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "folk"
+            ]
+          },
+          {
+            "event": "giao-thua",
+            "solar_date": "2026-02-16",
+            "display_order": 5,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "vietnam",
+              "folk"
+            ]
+          },
+          {
+            "event": "tet-nguyen-dan",
+            "solar_date": "2026-02-17",
+            "display_order": 4,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "vietnam",
+              "folk"
+            ]
+          },
+          {
+            "event": "via-di-lac",
+            "solar_date": "2026-02-17",
+            "display_order": 10,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "buddhist"
+            ]
+          },
+          {
+            "event": "mung-1-am-lich",
+            "solar_date": "2026-02-17",
+            "display_order": 52,
+            "major": false,
+            "every_lunar_month": true,
+            "groups": [
+              "buddhist",
+              "folk"
+            ]
+          },
+          {
+            "event": "mung-2-tet",
+            "solar_date": "2026-02-18",
+            "display_order": 6,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "vietnam",
+              "folk"
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "shown": [
+          [
+            "via-di-lac",
+            "2026-02-17"
+          ],
+          [
+            "ram-am-lich",
+            "2026-02-02"
+          ],
+          [
+            "mung-1-am-lich",
+            "2026-02-17"
+          ]
+        ],
+        "more": 0
+      }
+    },
+    {
+      "name": "August 2026: two major events",
+      "input": {
+        "occurrences": [
+          {
+            "event": "via-quan-the-am-thanh-dao",
+            "solar_date": "2026-08-01",
+            "display_order": 20,
             "major": true,
             "every_lunar_month": false,
             "groups": [
@@ -47,44 +224,127 @@
             ]
           },
           {
-            "event": "ram",
-            "solar_date": "2026-05-31",
-            "display_order": 41,
+            "event": "tiet-lap-thu",
+            "solar_date": "2026-08-07",
+            "display_order": 48,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "folk"
+            ]
+          },
+          {
+            "event": "mung-1-am-lich",
+            "solar_date": "2026-08-13",
+            "display_order": 52,
             "major": false,
             "every_lunar_month": true,
             "groups": [
+              "buddhist",
+              "folk"
+            ]
+          },
+          {
+            "event": "via-dai-the-chi",
+            "solar_date": "2026-08-25",
+            "display_order": 21,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
               "buddhist"
+            ]
+          },
+          {
+            "event": "ram-am-lich",
+            "solar_date": "2026-08-27",
+            "display_order": 53,
+            "major": false,
+            "every_lunar_month": true,
+            "groups": [
+              "buddhist",
+              "folk"
+            ]
+          },
+          {
+            "event": "vu-lan",
+            "solar_date": "2026-08-27",
+            "display_order": 22,
+            "major": true,
+            "every_lunar_month": false,
+            "groups": [
+              "buddhist",
+              "folk"
             ]
           }
         ]
       },
       "expected": {
         "shown": [
-          "phat-dan",
-          "via-van-thu",
-          "mung-mot"
+          [
+            "via-quan-the-am-thanh-dao",
+            "2026-08-01"
+          ],
+          [
+            "vu-lan",
+            "2026-08-27"
+          ],
+          [
+            "via-dai-the-chi",
+            "2026-08-25"
+          ]
         ],
-        "more": 1
+        "more": 2
       }
     },
     {
-      "name": "non-Buddhist events are not shown or counted",
+      "name": "November 2026: no major event, three named events",
       "input": {
         "occurrences": [
           {
-            "event": "mung-mot",
-            "solar_date": "2026-11-09",
-            "display_order": 40,
+            "event": "tiet-lap-dong",
+            "solar_date": "2026-11-07",
+            "display_order": 50,
             "major": false,
-            "every_lunar_month": true,
+            "every_lunar_month": false,
+            "groups": [
+              "folk"
+            ]
+          },
+          {
+            "event": "via-duoc-su",
+            "solar_date": "2026-11-08",
+            "display_order": 27,
+            "major": false,
+            "every_lunar_month": false,
             "groups": [
               "buddhist"
             ]
           },
           {
-            "event": "ngay-nha-giao",
+            "event": "mung-1-am-lich",
+            "solar_date": "2026-11-09",
+            "display_order": 52,
+            "major": false,
+            "every_lunar_month": true,
+            "groups": [
+              "buddhist",
+              "folk"
+            ]
+          },
+          {
+            "event": "via-to-bo-de-dat-ma",
+            "solar_date": "2026-11-13",
+            "display_order": 28,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "buddhist"
+            ]
+          },
+          {
+            "event": "nha-giao-viet-nam",
             "solar_date": "2026-11-20",
-            "display_order": 30,
+            "display_order": 41,
             "major": false,
             "every_lunar_month": false,
             "groups": [
@@ -92,98 +352,55 @@
             ]
           },
           {
-            "event": "ram",
+            "event": "ha-nguyen",
             "solar_date": "2026-11-23",
-            "display_order": 41,
+            "display_order": 29,
+            "major": false,
+            "every_lunar_month": false,
+            "groups": [
+              "buddhist",
+              "folk"
+            ]
+          },
+          {
+            "event": "ram-am-lich",
+            "solar_date": "2026-11-23",
+            "display_order": 53,
             "major": false,
             "every_lunar_month": true,
             "groups": [
-              "buddhist"
+              "buddhist",
+              "folk"
             ]
           }
         ]
       },
       "expected": {
         "shown": [
-          "mung-mot",
-          "ram"
-        ],
-        "more": 0
-      }
-    },
-    {
-      "name": "more than three named events",
-      "input": {
-        "occurrences": [
-          {
-            "event": "a",
-            "solar_date": "2026-03-02",
-            "display_order": 5,
-            "major": false,
-            "every_lunar_month": false,
-            "groups": [
-              "buddhist"
-            ]
-          },
-          {
-            "event": "b",
-            "solar_date": "2026-03-05",
-            "display_order": 6,
-            "major": false,
-            "every_lunar_month": false,
-            "groups": [
-              "buddhist"
-            ]
-          },
-          {
-            "event": "c",
-            "solar_date": "2026-03-08",
-            "display_order": 7,
-            "major": true,
-            "every_lunar_month": false,
-            "groups": [
-              "buddhist"
-            ]
-          },
-          {
-            "event": "d",
-            "solar_date": "2026-03-10",
-            "display_order": 8,
-            "major": false,
-            "every_lunar_month": false,
-            "groups": [
-              "buddhist"
-            ]
-          },
-          {
-            "event": "ram",
-            "solar_date": "2026-03-03",
-            "display_order": 41,
-            "major": false,
-            "every_lunar_month": true,
-            "groups": [
-              "buddhist"
-            ]
-          }
-        ]
-      },
-      "expected": {
-        "shown": [
-          "c",
-          "a",
-          "b"
+          [
+            "via-duoc-su",
+            "2026-11-08"
+          ],
+          [
+            "via-to-bo-de-dat-ma",
+            "2026-11-13"
+          ],
+          [
+            "ha-nguyen",
+            "2026-11-23"
+          ]
         ],
         "more": 2
       }
     },
     {
-      "name": "month with no Buddhist occurrence",
+      "name": "month with no Buddhist occurrence (hypothetical)",
       "input": {
         "occurrences": [
           {
             "event": "quoc-te-lao-dong",
             "solar_date": "2026-05-01",
-            "display_order": 20,
+            "display_order": 37,
             "major": false,
             "every_lunar_month": false,
             "groups": [

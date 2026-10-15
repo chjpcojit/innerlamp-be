@@ -1,5 +1,21 @@
 # Changelog — calendar product spec
 
+## v1.1 — 2026-10-15
+
+- Checked against the seed catalogue the product owner supplied (`calendar-events.json`, DRAFT,
+  51 events; copy at `/mnt/project-files/data/calendar/calendar-events.json`). All 2026 occurrences
+  recomputed with the backend resolver (75).
+- Fixed: Lễ Phật đản is in groups Phật giáo + Việt Nam, so the FR-CAL-003 "Việt Nam" filter scenario
+  now expects it (Lễ Vu Lan is the excluded example); BR-CAL-09 examples use the real groups.
+- Added to BR-CAL-05: on a shared day the named event comes before Rằm / Mùng 1 (the seed lists them
+  first today with display orders 1 and 2). BR-CAL-12 examples use real seed days.
+- BR-CAL-14: clients split guidance on line breaks only; every seed guidance is one line joined by
+  ";" and "," today and must be rewritten (Appendix B item 5).
+- BR-CAL-10: proposed major set named by seed event; BR-CAL-15 examples and `rules/home-block.json`
+  rebuilt from real 2026 months; `rules/ordering.json` uses seed codes.
+- New open item: Phật đản on lunar 15/4 only, or also an event on 8/4 (noted in the seed).
+- Platforms to follow up: Backend (seed changes, Appendix B); clients: none beyond v1.0.
+
 ## v1.0 — 2026-10-15
 
 - First product spec for the Buddhist events calendar (retroactive mode), replacing the product
