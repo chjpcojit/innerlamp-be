@@ -1,0 +1,113 @@
+{
+  "rule": [
+    "BR-STR-10"
+  ],
+  "description": "The quote of a calendar day: the quote number is (day of the year, 1-366, of the Gregorian date) modulo the number of quotes, plus 1; quotes are numbered 1..N in the quote file. The same date always gives the same quote on every platform; the date is the device's date for 'today' or the chosen day.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "date": "Gregorian calendar date, YYYY-MM-DD",
+    "quote_count": "number of quotes in the quote file (300)"
+  },
+  "output": {
+    "day_of_year": "1-366",
+    "quote_number": "1..quote_count"
+  },
+  "cases": [
+    {
+      "name": "first day of the year (2026-01-01)",
+      "input": {
+        "date": "2026-01-01",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 1,
+        "quote_number": 2
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    },
+    {
+      "name": "day 299 gives the last quote (2026-10-26)",
+      "input": {
+        "date": "2026-10-26",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 299,
+        "quote_number": 300
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    },
+    {
+      "name": "day 300 wraps to the first quote (2026-10-27)",
+      "input": {
+        "date": "2026-10-27",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 300,
+        "quote_number": 1
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    },
+    {
+      "name": "day 301 (2026-10-28)",
+      "input": {
+        "date": "2026-10-28",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 301,
+        "quote_number": 2
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    },
+    {
+      "name": "last day, common year (2026-12-31)",
+      "input": {
+        "date": "2026-12-31",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 365,
+        "quote_number": 66
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    },
+    {
+      "name": "leap day (2028-02-29)",
+      "input": {
+        "date": "2028-02-29",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 60,
+        "quote_number": 61
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    },
+    {
+      "name": "last day, leap year (2028-12-31)",
+      "input": {
+        "date": "2028-12-31",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 366,
+        "quote_number": 67
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    },
+    {
+      "name": "day 60 of a common year (2026-03-01)",
+      "input": {
+        "date": "2026-03-01",
+        "quote_count": 300
+      },
+      "expected": {
+        "day_of_year": 60,
+        "quote_number": 61
+      },
+      "source": "BR-STR-10; anh Đức 2026-10-15 (Q9); iOS and Android day-of-year rule"
+    }
+  ]
+}

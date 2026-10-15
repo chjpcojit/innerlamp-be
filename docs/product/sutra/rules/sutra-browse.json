@@ -1,0 +1,1204 @@
+{
+  "rule": [
+    "BR-STR-02",
+    "BR-STR-03",
+    "BR-STR-04"
+  ],
+  "description": "The list a visitor sees: editorial order (position, then identifier); one topic chip (daily chanting, one purpose, or one tradition) and one duration chip (up to N minutes, inclusive) combine with AND; a search term (trimmed, ignoring case and Vietnamese diacritics, đ = d) narrows within the chips. Durations here are illustrative estimates.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "sutras": "list of {id, position (editorial position, 0-based), tradition THERAVADA | MAHAYANA | VAJRAYANA, daily_chant, purposes, duration_minutes (estimate in minutes), title_vi}",
+    "topic": "null (Tất cả), {daily: true}, {purpose: CODE} or {tradition: CODE}",
+    "max_minutes": "null or the duration chip limit (5, 15, 30, 60)",
+    "term": "null or the search term as typed"
+  },
+  "output": {
+    "ids": "identifiers shown, in list order (all pages together)"
+  },
+  "cases": [
+    {
+      "name": "no filter: editorial order whatever the input order",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": null,
+        "max_minutes": null,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "tam-kinh",
+          "chu-dai-bi",
+          "a-di-da",
+          "duoc-su",
+          "tu-bi",
+          "niem-xu",
+          "tara-21"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "daily chip",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": {
+          "daily": true
+        },
+        "max_minutes": null,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "tam-kinh",
+          "chu-dai-bi",
+          "a-di-da",
+          "tu-bi"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "purpose chip",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": {
+          "purpose": "CAU_AN"
+        },
+        "max_minutes": null,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "chu-dai-bi",
+          "duoc-su",
+          "tu-bi"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "tradition chip",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": {
+          "tradition": "THERAVADA"
+        },
+        "max_minutes": null,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "tu-bi",
+          "niem-xu"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "duration chip keeps texts up to the limit (inclusive)",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": null,
+        "max_minutes": 5,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "tam-kinh",
+          "tu-bi"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "duration chip 30",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": null,
+        "max_minutes": 30,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "tam-kinh",
+          "chu-dai-bi",
+          "a-di-da",
+          "tu-bi",
+          "niem-xu",
+          "tara-21"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "topic and duration combine",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": {
+          "tradition": "MAHAYANA"
+        },
+        "max_minutes": 25,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "tam-kinh",
+          "chu-dai-bi",
+          "a-di-da"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "daily and duration combine",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": {
+          "daily": true
+        },
+        "max_minutes": 5,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "tam-kinh",
+          "tu-bi"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "search ignores diacritics and case",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": null,
+        "max_minutes": null,
+        "term": "KINH TU BI"
+      },
+      "expected": {
+        "ids": [
+          "tu-bi"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "search combines with chips",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": {
+          "tradition": "MAHAYANA"
+        },
+        "max_minutes": null,
+        "term": "kinh"
+      },
+      "expected": {
+        "ids": [
+          "tam-kinh",
+          "a-di-da",
+          "duoc-su"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "search trimmed",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": null,
+        "max_minutes": null,
+        "term": "  chu dai bi  "
+      },
+      "expected": {
+        "ids": [
+          "chu-dai-bi"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "nothing matches",
+      "input": {
+        "sutras": [
+          {
+            "id": "niem-xu",
+            "position": 5,
+            "tradition": "THERAVADA",
+            "daily_chant": false,
+            "purposes": [
+              "THIEN_DINH"
+            ],
+            "duration_minutes": 30,
+            "title_vi": "Kinh Niệm Xứ"
+          },
+          {
+            "id": "tara-21",
+            "position": 6,
+            "tradition": "VAJRAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 15,
+            "title_vi": "Tán Tara hai mươi mốt"
+          },
+          {
+            "id": "tu-bi",
+            "position": 4,
+            "tradition": "THERAVADA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Kinh Từ Bi"
+          },
+          {
+            "id": "tam-kinh",
+            "position": 0,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "HOC_GIAO_LY"
+            ],
+            "duration_minutes": 5,
+            "title_vi": "Bát Nhã Ba La Mật Đa Tâm Kinh"
+          },
+          {
+            "id": "duoc-su",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [
+              "CAU_AN"
+            ],
+            "duration_minutes": 80,
+            "title_vi": "Kinh Dược Sư"
+          },
+          {
+            "id": "chu-dai-bi",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "TRI_CHU",
+              "CAU_AN"
+            ],
+            "duration_minutes": 10,
+            "title_vi": "Chú Đại Bi"
+          },
+          {
+            "id": "a-di-da",
+            "position": 2,
+            "tradition": "MAHAYANA",
+            "daily_chant": true,
+            "purposes": [
+              "CAU_SIEU"
+            ],
+            "duration_minutes": 25,
+            "title_vi": "Kinh A Di Đà"
+          }
+        ],
+        "topic": {
+          "tradition": "VAJRAYANA"
+        },
+        "max_minutes": 5,
+        "term": null
+      },
+      "expected": {
+        "ids": []
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    },
+    {
+      "name": "same position falls back to identifier",
+      "input": {
+        "sutras": [
+          {
+            "id": "b-text",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 10,
+            "title_vi": "B"
+          },
+          {
+            "id": "a-text",
+            "position": 3,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 10,
+            "title_vi": "A"
+          },
+          {
+            "id": "c-text",
+            "position": 1,
+            "tradition": "MAHAYANA",
+            "daily_chant": false,
+            "purposes": [],
+            "duration_minutes": 10,
+            "title_vi": "C"
+          }
+        ],
+        "topic": null,
+        "max_minutes": null,
+        "term": null
+      },
+      "expected": {
+        "ids": [
+          "c-text",
+          "a-text",
+          "b-text"
+        ]
+      },
+      "source": "BR-STR-02/03/04; anh Đức 2026-10-15 (Q2, Q3)"
+    }
+  ]
+}
