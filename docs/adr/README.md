@@ -37,4 +37,4 @@ Accepted ADR yet.
 | [ADR-0001](0001-in-app-notifications-and-push.md) | In-app notifications on every platform, push via FCM on iOS and Android | Accepted | 2026-10-14 | cross-cutting (`memorial` first) |
 | [ADR-0002](0002-server-side-memorial-reminders.md) | The backend computes and sends memorial reminders on an hourly schedule | Accepted | 2026-10-14 | `memorial` |
 | [ADR-0003](0003-email-otp-account-verification-without-sms.md) | Accounts are identified by email and verified by an email OTP; SMS is removed | Accepted | 2026-10-14 | `onboarding`, `login`, `genealogy`, `profile` |
-| [ADR-0004](0004-shared-links-are-website-urls-opened-by-the-apps.md) | Shared links are website URLs that the apps open as verified Universal Links / App Links | Proposed | 2026-10-15 | cross-cutting (`article` first) |
+| [ADR-0004](0004-shared-links-are-website-urls-opened-by-the-apps.md) | Shared links are website URLs that the apps open as verified Universal Links / App Links | Accepted | 2026-10-15 | cross-cutting (`article` first) |
