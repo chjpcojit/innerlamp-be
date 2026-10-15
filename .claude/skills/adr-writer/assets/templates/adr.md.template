@@ -89,7 +89,7 @@ this decision expensive to reverse.}}
 | Layer | Follow-up |
 |---|---|
 | Product spec (`ba-writer`) | {{e.g. "memorial product spec cites ADR-NNNN in its header and in the affected BR/FR" or —}} |
-| API contract (`il-spec-be`) | {{named changes, not specified here}} |
+| API contract (`spec-writer`) | {{named changes, not specified here}} |
 | Backend spec / code | {{…}} |
 | Website / iOS / Android | {{…}} |
 | Infrastructure | {{…}} |
