@@ -1,15 +1,15 @@
 # Flow — temple
 
-Version: 1.14
-Last updated: 2026-10-11
-Status: implemented (2026-09-30) — mirror 1:1 của ba Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số. **v1.7 (2026-10-11, chưa có code):** sơ đồ `options` có thêm `province_code`; sơ đồ seed có thêm Step 4 (đối chiếu mã) và đánh số lại Step 5–6.
+Version: 2.0
+Last updated: 2026-10-15
+Status: mirror 1:1 của ba Step-by-step Flow trong `design.md`. **v2.0 (2026-10-15, chưa có code):** sơ đồ danh sách thêm `q`, `region` (kiểm ở Step 2, cùng `WHERE` ở Step 3–4) và trang 12; sơ đồ seed không đổi bước (kiểm định dạng mới nằm trong Step 2).
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
 `top` và `detail` chỉ một câu SQL nên không có diagram — xem "Request flow" trong `design.md`.
 
-## Sequence — Danh sách phân trang (`GET /v1/temples?page=N`)
+## Sequence — Danh sách phân trang, tìm và lọc miền (`GET /v1/temples?page=N&q=&region=`) *(v2.0)*
 
 ```mermaid
 sequenceDiagram
@@ -20,23 +20,29 @@ sequenceDiagram
     participant R as TempleRepository
     participant DB as Postgres
 
-    C->>H: GET /v1/temples?page=N
-    H->>H: Step 1 — page rỗng → 1, ngược lại strconv.Atoi
+    C->>H: GET /v1/temples?page=N&q=…&region=…
+    H->>H: Step 1 — page rỗng → 1, ngược lại strconv.Atoi; ghi nhận q, region có mặt hay không
     alt page không phải số nguyên
         H--xC: 400 INVALID_PAGE {details.field: page}
     else page hợp lệ về kiểu
-        H->>U: List(ctx, page)
-        U->>U: Step 2 — page < 1 hoặc > MaxInt32?
-        alt ngoài khoảng
+        H->>U: List(ctx, filter, page)
+        U->>U: Step 2 — region ∈ north/central/south? q trim 1..100? page trong 1..MaxInt32?
+        alt region sai (kể cả rỗng)
+            U--xH: ErrInvalidTempleRegion
+            H-->>C: 400 INVALID_FILTER {details.field: region}
+        else q sai
+            U--xH: ErrInvalidTempleQuery
+            H-->>C: 400 INVALID_FILTER {details.field: q}
+        else page ngoài khoảng
             U--xH: ErrInvalidPage
             H-->>C: 400 INVALID_PAGE
-        else trong khoảng
-            U->>R: List(ctx, offset, page_size)
-            R->>DB: Step 3 — SELECT count(*) FROM temples
+        else hợp lệ
+            U->>R: List(ctx, filter, offset, 12)
+            R->>DB: Step 3 — SELECT count(*) FROM temples [WHERE region = $n AND (name hoặc aliases khớp q không dấu)]
             DB-->>R: total
             Note over R,DB: Step 3 và Step 4 là hai câu lệnh độc lập, KHÔNG chung transaction/snapshot
-            R->>DB: Step 4 — SELECT … ORDER BY heritage_priority, established_year, id OFFSET $1 LIMIT $2
-            DB-->>R: items (rỗng nếu vượt cuối)
+            R->>DB: Step 4 — SELECT … [cùng WHERE] ORDER BY heritage_priority, established_year, id OFFSET LIMIT
+            DB-->>R: items (rỗng nếu vượt cuối hoặc không khớp)
             R-->>U: items, total
             U->>U: Step 5 — items nil → [], total_pages = ceil(total / page_size)
             U-->>H: TemplePage

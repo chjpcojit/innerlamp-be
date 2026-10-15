@@ -1,8 +1,8 @@
 # Tasks — temple
 
-Version: 1.14
-Last updated: 2026-10-11
-Status: **Phase 10 (v1.7, địa chỉ có cấu trúc) đã làm và kiểm chứng ngày 2026-10-11**: migration `0032`, domain, repository, DTO, dữ liệu 93 chùa, seed, E2E, openapi, web docs, api-contract. Đã áp lên DB dev. Còn `[ ]`: `erd.svg`, OKF. Trạng thái trước v1.7: implemented (2026-09-30) cho Phase 1–4; Phase 5 chưa làm E2E và OKF; Phase 6 là việc hoãn có chủ đích; Phase 7 (`options`: phân trang, `province`, `?q=` không dấu) và Phase 8 (cột `province`, migration `0024`) và Phase 9 (34 đơn vị mới, migration `0025`) đã làm và kiểm chứng trên Postgres thật; còn thiếu E2E riêng cho `options` và làm mới `erd.svg`/OKF.
+Version: 2.0
+Last updated: 2026-10-15
+Status: **v2.0 (2026-10-15): Phase 11–13 mới cho product spec `temple` v1.1, mọi mục `[ ]`.** Phase 1–10 đã làm và kiểm chứng tới 2026-10-11 (còn `[ ]`: `erd.svg`, seed cho môi trường thật).
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -30,7 +30,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] `cmd/seedtemples/main.go` + `parse.go`: đọc file, bỏ chú thích `/* */`, kiểm id/vùng/hạng, kết nối bằng config dev, gọi `Upsert`
 - [x] `assets/data/temple.json`: 93 chùa, đủ ba trường nội dung biên tập
 - [x] Tests: `cmd/seedtemples/parse_test.go` (`TestParseTemples`, `_Rejects`, `_RealDataFile`) chạy và pass ở `-short`; `repository/postgres_temple_repository_test.go` (upsert/find, not found, atomic, ordering, paging) có mặt nhưng cần Postgres, bỏ qua khi `-short`, và `TRUNCATE` dữ liệu dev — chưa chạy lại ở lượt viết spec này
-- [ ] Đưa seed ra khỏi config dev để dùng được ở staging/production, hoặc chốt cách nạp khác — chặn bởi `⚠️ Not confirmed` về quy trình nạp trong `requirements.md`
+- [ ] Đưa seed ra khỏi config dev để dùng được ở staging/production — v2.0: cách nạp đã chốt là file JSON ở mọi môi trường (FR-TPL-010), còn lại là đọc config/secret của môi trường thật
 
 ## Phase 4 — Delivery và tài liệu
 
@@ -48,7 +48,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 
 - [ ] E2E black-box trong `services/appService/e2e/`: ba route, `INVALID_PAGE`, `TEMPLE_NOT_FOUND`, DB chưa seed trả `items: []`
 - [x] `go build ./...` và `go vet ./services/appService/... ./assets/...` sạch
-- [ ] Khái niệm OKF `docs/knowledge/features/temple.md` — do `bdd-okf-docs` tạo sau khi có E2E; chưa có file
+- [x] Khái niệm OKF `docs/knowledge/features/temple.md` — đã có (làm mới sau v2.0 ở Phase 13)
 - [ ] Rà `api-contract.md` cho khớp spec (hai nơi cùng mô tả hợp đồng; chọn giữ cả hai hay gộp về `openapi.yaml`)
 
 ## Phase 7 — `GET /v1/temples/options?page=N&q=` (v1.5, US-TMP-06, AC 19–25)
@@ -118,11 +118,44 @@ Thứ tự khuyến nghị: migration → domain → repository → script dữ 
 - [x] `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml` + `web/docs/src/content/docs/guides/catalogues/temples.md` + `web/docs/src/content/docs/changelog.md`: `Location` và `TempleOption` có trường mới; mô tả `address` đổi nghĩa; ví dụ dùng dữ liệu thật (`temple_north_011` → `Phường Nam Hoa Lư`, `14359`)
 - [x] `docs/specs/features/temple/api-contract.md` (tài liệu client iOS) v1.3: thêm `options` và `q`, `Location` mới, đếm lại 93, ảnh là URL
 - [x] Gỡ `domain/province.go` và `province_test.go` — `grep` xác nhận chỉ còn test của chính nó dùng `IsProvince`
-- [ ] Sinh lại `docs/specs/db/erd.svg` (cần `mmdc`) và OKF `docs/knowledge/features/temple.md` — `il-okf-writer` sau khi code đã kiểm chứng
+- [ ] Sinh lại `docs/specs/db/erd.svg` (cần `mmdc`)
+
+## Phase 11 — Trang 12, tìm `q` và lọc `region` ở danh sách (v2.0, US-TMP-09, AC 5, 39–44)
+
+Trace: hàng "Domain / Filter", "Domain / Repository interface", "Domain / Mock", "Usecase", "Repository", "Delivery / Handler", "Delivery / Error map", "Config" trong `design.md`; Step 1–5 của flow danh sách. Inside-out, test cùng lúc với code (`golang-clean-arch-tdd`).
+
+- [ ] `domain/temple.go`: `TempleFilter`, `IsTempleRegion`, `ErrInvalidTempleRegion`; `TempleRepository.List(ctx, filter, offset, limit)`; cập nhật `mock_temple_repository.go`
+- [ ] `usecase/temple_usecase.go`: `List(ctx, filter, page)` kiểm region → q → page (thứ tự AC 42); tách hàm chuẩn hoá `q` dùng chung với `Options`; test bảng (region sai/rỗng/hoa, q rỗng/101 ký tự, cả hai sai → region)
+- [ ] `repository/postgres_temple_repository.go`: `templeFilterWhere` dùng cho cả đếm và lấy trang; test trên Postgres thật chạy **`docs/product/temple/rules/temple-search-match.json`** (mỗi ca dựng một chùa với `name`/`aliases` của ca) và **`temple-order.json`** (thứ tự BR-TPL-01) cùng lọc `region` và tổ hợp
+- [ ] `delivery/http/temple_handler.go` + `errors.go`: đọc `q`, `region`; `ErrInvalidTempleRegion` → `400 INVALID_FILTER` `details.field = "region"`; `top`/`options` bỏ qua `region` (AC 44); test handler
+- [ ] `config.dev.yaml` (và mọi `config.<env>.yaml` có block `temple:`): `page_size: 12`; test usecase/E2E đang giả định 20 sửa theo
+- [ ] E2E `temple_e2e_test.go`: trang 12, `q` khớp tên khác, `region`, tổ hợp, `INVALID_FILTER` cho từng field, không khớp → `items: []`
+
+## Phase 12 — Giờ lễ, liên hệ, giáo hội, tháng cập nhật (v2.0, US-TMP-10, AC 45–49)
+
+Trace: hàng "Domain / Detail fields", "Repository", "Seed CLI", "Delivery / DTO", "Migration *(v2.0)*", "ERD" trong `design.md`; Step 2 và Step 5 của flow seed.
+
+- [ ] `migrations/0037_temple_contact_hours.sql` (7 cột, idempotent) + `migrations/README.md` + `docs/specs/db/erd.mmd`; thêm `0037` vào danh sách migration của test repository
+- [ ] `domain/temple.go`: trường mới, `TempleContacts`, `ValidOperatingHours` + test bảng (`""`, `06:00 - 18:00`, `18:00 - 06:00`, `6:00 - 18:00`, `24:00 - …`)
+- [ ] `repository/postgres_temple_repository.go`: `templeColumns`/`scanTemple`/`Upsert` 35 cột; test vòng đi về (tháng NULL ↔ zero)
+- [ ] `cmd/seedtemples/parse.go`: đọc khoá tuỳ chọn mới, kiểm AC 47; test từng nhánh từ chối + `_RealDataFile`
+- [ ] `delivery/http/temple_handler.go`: `templeDetailResponse` thêm 4 nhóm trường; summary/option không đổi; test handler (`""`, `null` tháng)
+- [ ] Điền dữ liệu giờ lễ/liên hệ/giáo hội/tháng cập nhật vào `assets/data/temple.json` — việc nội dung, ngoài code; trường chưa có để trống (client hiện "Đang cập nhật")
+- [ ] E2E: chi tiết có đủ 4 nhóm trường, chùa chưa có dữ liệu trả `""`/`null`
+
+## Phase 13 — File dữ liệu vào git, contract và tài liệu (v2.0, AC 50)
+
+Trace: hàng "Data", "API spec" trong `design.md`.
+
+- [ ] `.gitignore`: thêm `!assets/data/temple.json`; commit file từ máy anh Đức (cloud không có bản hiện hành, chỉ có `temple.json.pre-v1.7.bak`)
+- [ ] `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml`: `q`, `region`, `INVALID_FILTER`, `page_size` 12, 4 nhóm trường ở `TempleDetail`; `web/docs/.../catalogues/temples.md` + `changelog.md`
+- [ ] `go build ./...`, `go vet ./services/appService/...`, `go test -short ./services/appService/...`, E2E temple
+- [ ] Làm mới OKF `docs/knowledge/features/temple.md` (`il-okf-writer`) sau khi code đã kiểm chứng
 
 ## Deferred (separate feature, not blocking temple)
 
-- Tạo/sửa/xoá chùa qua backoffice (`admin/requirements.md` trỏ về đây; chưa có spec CRUD — xem `⚠️ Not confirmed` trong `requirements.md`).
-- Ảnh chùa: nguồn, nơi lưu (GCS), quyền sử dụng.
-- Tìm kiếm, lọc theo `region`/`sect`/`heritage_rank`, tìm gần vị trí.
-- Ghi nguồn cho nội dung biên tập (`introduction`, `architecture_heritage`, `visiting_notes`).
+- Tạo/sửa/xoá chùa qua backoffice — ngoài phạm vi (product §1.2).
+- Theo dõi chùa — feature riêng, sau (product §1.2).
+- Ảnh chùa: nơi lưu (GCS), quyền sử dụng; ghi nguồn nội dung biên tập — `⚠️ Not confirmed (product)` trong `requirements.md`.
+- Kiến trúc chi tiết, tiện ích "Kinh sách", bộ ảnh (BR-TPL-06, để sau).
+- Lọc theo `sect`/`heritage_rank`/`province`, tìm gần vị trí.
