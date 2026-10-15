@@ -7,7 +7,7 @@
 | Feature code | `ONB` — IDs are `BR-ONB-NN`, `FR-ONB-NNN`, `NFR-ONB-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.3 |
+| Version | 1.4 |
 | Last updated | 2026-10-15 |
 | Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
@@ -157,10 +157,16 @@ N/A — the screens explain themselves; the terms and privacy policy are separat
 | Splash | iOS, Android | Wordmark, tagline "Tự thắp đèn tâm, tự soi lối về"; advances on its own |
 | Intro step 1 — "Thắp ngọn đèn trong tâm" | iOS, Android | Welcome text; "Bắt đầu"; "Tôi đã có tài khoản"; "Bỏ qua"; progress |
 | Intro step 2 — "Bạn mong cầu điều gì?" | iOS, Android | 6 choices, several may be selected; "Tiếp tục"; "Quay lại"; "Bỏ qua" |
-| Intro step 3 — "Chuông tỉnh thức" | iOS, Android | 3 bell times (05:30, 12:00, 21:30), each on/off; "Tạo tài khoản"; "Quay lại" |
+| Intro step 3 — "Chuông tỉnh thức" | iOS, Android | 3 bell times (05:30, 12:00, 21:30), each on/off; "Tạo tài khoản"; "Quay lại"; "Bỏ qua" |
 | Registration form — "Tạo tài khoản" | all clients | Fields in this order: full name, dharma name (with "Gợi ý"), ordination temple, phone (with country), email, password (with strength hint), terms acceptance; "Đăng ký"; link to sign in |
 | Temple proposal | all clients | Temple name; province and ward picked from the administrative-unit list; street line (optional) |
 | Verification code | all clients | The email address the code went to; 6-digit entry; time left; "Gửi lại mã" after the wait; "Đổi email" back to the form |
+
+"Bỏ qua" (skip) is shown on all three intro steps, as the iOS and Android apps already do.
+
+The registration form's submit button reads "Đăng ký" (register) on every client, also while the
+code is being sent. It is not "Gửi mã xác thực" (send verification code), the label all three
+clients use today.
 
 The email field explains that it is used to sign in and to receive the verification code. The old
 hint "Để nhận biên nhận cúng dường" (for donation receipts only) is no longer true.
@@ -668,7 +674,7 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 | BR-ONB-11 | n/a | drift | drift | drift | Three separate texts today (iOS sheet, web pages, Android static) |
 | FR-ONB-001 | n/a | n/a | done | done | 4 scenarios |
 | FR-ONB-002 | n/a | n/a | drift | drift | 3 scenarios |
-| FR-ONB-003 | drift | drift | drift | planned | 5 scenarios; email code instead of SMS |
+| FR-ONB-003 | drift | drift | drift | planned | 5 scenarios; email code instead of SMS; submit reads "Gửi mã xác thực" on all three clients |
 | FR-ONB-004 | done | done | done | drift | 2 scenarios |
 | FR-ONB-005 | done | done | done | planned | 1 scenario |
 | FR-ONB-006 | done | done | drift | planned | 2 scenarios |
@@ -703,6 +709,8 @@ None.
 
 | Question | Resolution | Date |
 |---|---|---|
+| Is "Bỏ qua" shown on intro step 3? | Yes, on all three steps, as the apps do today | 2026-10-15 |
+| Registration submit label? | "Đăng ký", not "Gửi mã xác thực" | 2026-10-15 |
 | Street line of a proposed temple? | Optional | 2026-10-14 |
 | Does skipping the intro count as seen? | Yes | 2026-10-14 |
 | Website: signed-in user opens the registration page? | Taken to the home page | 2026-10-14 |
