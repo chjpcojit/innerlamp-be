@@ -158,9 +158,9 @@ N/A — the screens explain themselves; the terms and privacy policy are separat
 | Intro step 1 — "Thắp ngọn đèn trong tâm" | iOS, Android | Welcome text; "Bắt đầu"; "Tôi đã có tài khoản"; "Bỏ qua"; progress |
 | Intro step 2 — "Bạn mong cầu điều gì?" | iOS, Android | 6 choices, several may be selected; "Tiếp tục"; "Quay lại"; "Bỏ qua" |
 | Intro step 3 — "Chuông tỉnh thức" | iOS, Android | 3 bell times (05:30, 12:00, 21:30), each on/off; "Tạo tài khoản"; "Quay lại"; "Bỏ qua" |
-| Registration form — "Tạo tài khoản" | all clients | Fields in this order: full name, dharma name (with "Gợi ý"), ordination temple, phone (with country), email, password (with strength hint), terms acceptance; "Đăng ký"; link to sign in |
+| Registration form — heading "Kết duyên cùng InnerLamp" | all clients | Fields in this order: full name, dharma name (with "Gợi ý"), ordination temple, phone (with country), email, password (with strength hint), terms acceptance; "Đăng ký"; link to sign in |
 | Temple proposal | all clients | Temple name; province and ward picked from the administrative-unit list; street line (optional) |
-| Verification code | all clients | The email address the code went to; 6-digit entry; time left; "Gửi lại mã" after the wait; "Đổi email" back to the form |
+| Verification code | all clients | The email address the code went to; 6-digit entry; time left; "Gửi lại mã" after the wait; "Đổi email" back to the form; a hint to look for the email in the inbox and the spam folder |
 
 "Bỏ qua" (skip) is shown on all three intro steps, as the iOS and Android apps already do.
 
@@ -711,6 +711,8 @@ None.
 |---|---|---|
 | Is "Bỏ qua" shown on intro step 3? | Yes, on all three steps, as the apps do today | 2026-10-15 |
 | Registration submit label? | "Đăng ký", not "Gửi mã xác thực" | 2026-10-15 |
+| Registration form heading? | "Kết duyên cùng InnerLamp" (as in the prototype) | 2026-10-15 |
+| What replaces the voice-call hint on the code view? | A hint to check the inbox and the spam folder | 2026-10-15 |
 | Street line of a proposed temple? | Optional | 2026-10-14 |
 | Does skipping the intro count as seen? | Yes | 2026-10-14 |
 | Website: signed-in user opens the registration page? | Taken to the home page | 2026-10-14 |

@@ -5,8 +5,12 @@
 - Clarified (anh Đức, after the registration UI audit): "Bỏ qua" (skip) is shown on all three intro
   steps, matching iOS and Android today (§3.1.1, FR-ONB-001). The registration submit button reads
   "Đăng ký", not "Gửi mã xác thực" (§3.1.1, FR-ONB-003; §4.2 note).
+- Clarified (anh Đức): the registration form heading is "Kết duyên cùng InnerLamp", as in the
+  prototype; the code view hints to look for the email in the inbox and the spam folder, replacing the
+  SMS-era voice-call hint (§3.1.1).
 - No business rule changed; platform specs citing v1.2/v1.3 stay valid.
-- Platforms to follow up: Website, iOS, Android (rename the submit button to "Đăng ký"). iOS and
+- Platforms to follow up: Website, iOS, Android (rename the submit button to "Đăng ký"; add the
+  inbox/spam hint on the code view). iOS and
   Android intro: nothing to change.
 
 ## v1.3 — 2026-10-15
