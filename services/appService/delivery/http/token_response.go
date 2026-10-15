@@ -11,6 +11,17 @@ type HandlerOption func(*tokenSettings)
 
 type tokenSettings struct {
 	accessTokenTTL time.Duration
+
+	// trustForwardedFor is auth_rate_limit.trust_forwarded_for: LoginHandler
+	// resolves the device's IP with the same rule the rate limiter uses
+	// (login AC34).
+	trustForwardedFor bool
+}
+
+// WithTrustForwardedFor makes the handler resolve client IPs from the last
+// X-Forwarded-For entry when no web API key vouches for X-InnerLamp-Client-IP.
+func WithTrustForwardedFor(trust bool) HandlerOption {
+	return func(s *tokenSettings) { s.trustForwardedFor = trust }
 }
 
 // WithAccessTokenTTL sets the access token lifetime reported as `expires_in`.

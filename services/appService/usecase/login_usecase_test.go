@@ -17,20 +17,21 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// Tests for US-002 (login, refresh, logout). The acceptance criteria each test
-// proves are named in the test's own doc comment; the mapping is:
+// Tests for US-002 (login, refresh, logout), login spec v2. The acceptance
+// criteria each test proves are named in the test's own doc comment; the
+// mapping is:
 //
-//	AC1  matching phone+password+device logs in             -> TestLogin_HappyPath
-//	AC2  wrong password / unknown phone / pending-only      -> TestLogin_InvalidCredentials,
+//	AC1  matching email+password+device logs in             -> TestLogin_HappyPath
+//	AC2  wrong password / unknown / pending / unverified    -> TestLogin_InvalidCredentials,
 //	                                                            TestLogin_NoEnumeration
-//	AC3  a new device gets its own session                  -> repo-level (design.md flow 3 step 6b)
-//	AC4  a known device supersedes only its own session     -> repo-level (design.md flow 3 step 6c)
-//	AC5  device without platform / device_model             -> TestLogin_Validation
-//	AC6  bad phone / empty password                         -> TestLogin_Validation
-//	AC7  five consecutive failures lock the number          -> TestLogin_FailurePolicy,
-//	                                                            TestLogin_Locked,
-//	                                                            TestLogin_LockAppliesToUnknownPhone
-//	AC8  access 15m, refresh 7d, sid claim, hashed storage  -> TestLogin_TokenIssuerContract
+//	AC3  bad email / empty password                         -> TestLogin_Validation
+//	AC4  device without platform / device_model             -> TestLogin_Validation
+//	AC5  attempts reserved per email, fifth locks           -> TestLogin_ReservesBeforeCompare,
+//	                                                            TestLogin_TripLockStill401,
+//	                                                            TestLogin_Locked
+//	AC6  a known device supersedes only its own session     -> repo-level
+//	AC7  access 15m, refresh 7d, sid claim, hashed storage  -> TestLogin_TokenIssuerContract
+//	AC8  same hashing as registration                       -> TestLogin_HappyPath (BcryptPasswordHasher)
 //	AC9  refresh rotates the pair                           -> TestRefresh_HappyPath,
 //	                                                            TestRefresh_TokenIssuerContract
 //	AC10 every unusable refresh token is one 401            -> TestRefresh_Invalid
@@ -39,11 +40,6 @@ import (
 //	AC13 logout revokes the session the sid names           -> TestLogout_Revokes
 //	AC14 logout is idempotent and scoped to the user        -> TestLogout_Idempotent,
 //	                                                            TestLogout_ScopedToUser
-//
-// AC3 and AC4 are decided in the repository's transaction (which session rows
-// a login touches), so the use case's half of them is only that it hands the
-// device through unchanged — asserted in TestLogin_HappyPath — and that a
-// device-less session refreshes normally, in TestRefresh_DeviceLessSession.
 
 const (
 	// testUserRowID is the numeric primary key a users row carries. Distinct
@@ -57,14 +53,11 @@ const (
 	// testSessionID, which is the opaque uuid the access token carries as "sid";
 	// the row key is internal and never leaves the database.
 	testSessionRowID = int64(7)
-
-	testLockedUntilMinutes = 15
 )
 
 // testLoginPolicy mirrors config.dev.yaml's `login:` block. Pinned as literals
-// (not read back out of config) so a mis-wired policy fails a test: if the
-// composition root sent the wrong numbers through, the assertions on what
-// RecordLoginFailure receives would still compare against these.
+// (not read back out of config) so a mis-wired policy fails a test: the
+// assertions on what ReserveLoginAttempt receives compare against these.
 var testLoginPolicy = config.LoginConfig{
 	MaxFailedAttempts:  5,
 	LockDuration:       config.Duration(15 * time.Minute),
@@ -74,13 +67,9 @@ var testLoginPolicy = config.LoginConfig{
 // testPasswordHash is BcryptPasswordHasher's hash of testPassword — the scheme
 // registration stores — computed once at package load.
 //
-// DefaultCost, not MinCost. The cost is what TestLogin_NoEnumeration compares:
-// it asserts the unknown-phone branch costs about as much as the known-phone
-// one, and the unknown branch always pays for dummyPasswordHash, which is built
-// at DefaultCost. A MinCost hash here would make the known branch legitimately
-// ~30x cheaper than the unknown one and the ratio assertion would fail for a
-// reason that has nothing to do with the property under test. Matching the
-// costs is what makes the two branches comparable at all.
+// DefaultCost, not MinCost: TestLogin_NoEnumeration compares the cost of the
+// known-account branch with the unknown one, which always pays for
+// dummyPasswordHash at DefaultCost.
 var testPasswordHash = func() string {
 	hash, err := NewBcryptPasswordHasher().Hash(testPassword)
 	if err != nil {
@@ -108,21 +97,26 @@ func newLoginFixture() *loginFixture {
 	}
 }
 
-// testUser builds the account a successful login resolves to.
+// testUser builds the verified account a successful login resolves to.
 func testUser() *domain.User {
+	verifiedAt := time.Now().Add(-time.Hour)
 	return &domain.User{
-		ID:           testUserRowID,
-		Email:        testEmail,
-		PhoneNumber:  testPhoneNumber,
-		PasswordHash: testPasswordHash,
+		ID:              testUserRowID,
+		Email:           testEmail,
+		EmailVerifiedAt: &verifiedAt,
+		PhoneNumber:     testPhoneNumber,
+		PasswordHash:    testPasswordHash,
 	}
 }
 
 // defaultLoginInput is a request that passes every check before the database.
+// The email is the raw, un-normalised form: every repository call must receive
+// testEmail instead, or "User@Example.com" and "user@example.com" would get two
+// counters and double the guess budget.
 func defaultLoginInput() domain.LoginInput {
 	return domain.LoginInput{
-		PhoneNumber: testPhoneNumberRaw,
-		Password:    testPassword,
+		Email:    testEmailRaw,
+		Password: testPassword,
 		Device: domain.DeviceInfo{
 			Platform:    "ios",
 			DeviceModel: "iPhone15,2",
@@ -140,6 +134,23 @@ func withLoginInput(mutate func(*domain.LoginInput)) domain.LoginInput {
 	return input
 }
 
+// expectReserve stubs ReserveLoginAttempt with the exact policy from config and
+// the normalised email, returning attempt.
+func expectReserve(f *loginFixture, attempt *domain.LoginAttempt) *mock.Call {
+	return f.repo.On("ReserveLoginAttempt",
+		mock.Anything,
+		testEmail,
+		testLoginPolicy.MaxFailedAttempts,
+		testLoginPolicy.LockDuration.Duration(),
+		testLoginPolicy.FailureResetWindow.Duration(),
+	).Return(attempt, nil)
+}
+
+// counted is the ordinary reservation result: one attempt counted, no lock.
+func counted() *domain.LoginAttempt {
+	return &domain.LoginAttempt{Email: testEmail, FailedCount: 1, LastFailedAt: time.Now()}
+}
+
 // activeSession is a session row that refreshes and logs out normally.
 func activeSession() *domain.Session {
 	return &domain.Session{
@@ -155,13 +166,8 @@ func activeSession() *domain.Session {
 // Login
 // ---------------------------------------------------------------------------
 
-// TestLogin_HappyPath covers AC1: a matching phone and password opens a session
-// bound to the device, and the result carries the token pair plus the account.
-//
-// The phone number is asserted *normalized* on the calls that reach the
-// repository, because "0901234567" and "+84901234567" must land on the same
-// users row and the same login_attempts row — a raw value would give one human
-// two counters and let them double their guess budget.
+// TestLogin_HappyPath covers AC1 and AC8: a matching email and password (hashed
+// the way registration hashes it) opens a session bound to the device.
 func TestLogin_HappyPath(t *testing.T) {
 	f := newLoginFixture()
 
@@ -173,8 +179,8 @@ func TestLogin_HappyPath(t *testing.T) {
 		RefreshToken: testRefreshToken,
 	}
 
-	f.repo.On("FindLoginAttempt", mock.Anything, testPhoneNumber).Return(nil, nil)
-	f.repo.On("FindUserByPhone", mock.Anything, testPhoneNumber).Return(user, nil)
+	expectReserve(f, counted())
+	f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(user, nil)
 
 	var capturedTTL time.Duration
 	f.repo.On("CreateLoginSession", mock.Anything, user, mock.AnythingOfType("domain.DeviceInfo"), mock.AnythingOfType("time.Duration"), mock.AnythingOfType("domain.TokenIssuer")).
@@ -192,33 +198,26 @@ func TestLogin_HappyPath(t *testing.T) {
 	require.NotNil(t, result.User)
 	assert.Equal(t, testUserRowID, result.User.ID)
 
-	// The session lifetime comes from config, not from a constant in the use
-	// case, so the stored expiry and the signed refresh token cannot drift.
+	// The session lifetime comes from config, so the stored expiry and the
+	// signed refresh token cannot drift.
 	assert.Equal(t, testSessionTTL, capturedTTL)
 
-	// AC3/AC4 are the repository's decision, but the device it decides on is
-	// this layer's to hand over intact — a dropped field would collapse two
-	// distinct devices into one fingerprint.
+	// The device is the repository's to decide on (AC6), this layer's to hand
+	// over intact.
 	capturedDevice := f.repo.Calls[len(f.repo.Calls)-1].Arguments.Get(2).(domain.DeviceInfo)
 	assert.Equal(t, device, capturedDevice)
-
-	// A correct password costs nothing: no attempt is recorded and no lock set.
-	f.repo.AssertNotCalled(t, "RecordLoginFailure", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 }
 
 // TestLogin_TokenIssuerContract proves the issuer handed to the repository
 // really signs both tokens, and that the access token carries the session ID as
-// claim "sid" — logout finds the session through exactly that claim, so losing
-// it would silently break AC13 rather than fail loudly.
+// claim "sid" (AC7) — logout finds the session through exactly that claim.
 func TestLogin_TokenIssuerContract(t *testing.T) {
 	f := newLoginFixture()
 
 	user := testUser()
-	f.repo.On("FindLoginAttempt", mock.Anything, mock.Anything).Return(nil, nil)
-	f.repo.On("FindUserByPhone", mock.Anything, testPhoneNumber).Return(user, nil)
+	expectReserve(f, counted())
+	f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(user, nil)
 
-	// Pinning the exact extra map (not mock.Anything) is what makes this test
-	// fail if the claim is dropped or renamed.
 	f.jwt.On("GenerateAccessToken", "42", testEmail, "user", map[string]any{"sid": testSessionID}).
 		Return(testAccessToken, nil)
 	f.jwt.On("GenerateRefreshToken", "42", mock.Anything).Return(testRefreshToken, nil)
@@ -241,14 +240,13 @@ func TestLogin_TokenIssuerContract(t *testing.T) {
 }
 
 // TestLogin_TokenIssuerFailure pins that a signing failure surfaces as an error
-// rather than an empty token pair, which the repository would otherwise store
-// as a session nobody can use.
+// rather than an empty token pair.
 func TestLogin_TokenIssuerFailure(t *testing.T) {
 	f := newLoginFixture()
 
 	user := testUser()
-	f.repo.On("FindLoginAttempt", mock.Anything, mock.Anything).Return(nil, nil)
-	f.repo.On("FindUserByPhone", mock.Anything, testPhoneNumber).Return(user, nil)
+	expectReserve(f, counted())
+	f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(user, nil)
 	f.jwt.On("GenerateAccessToken", mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return("", errors.New("signing key missing"))
 
@@ -267,38 +265,30 @@ func TestLogin_TokenIssuerFailure(t *testing.T) {
 	assert.ErrorContains(t, err, "signing key missing")
 }
 
-// TestLogin_InvalidCredentials covers AC2 from both directions.
-//
-// The two cases must be indistinguishable: same sentinel, same message, and —
-// because the use case compares against a dummy hash when the account is
-// missing — the same bcrypt cost. A test that only checked the sentinel would
-// still pass if someone reintroduced an early return on the not-found branch.
+// TestLogin_InvalidCredentials covers AC2: every cause is the same sentinel
+// with the same message, the attempt was already counted by the reservation,
+// and no session is opened.
 func TestLogin_InvalidCredentials(t *testing.T) {
+	unverified := testUser()
+	unverified.EmailVerifiedAt = nil
+
 	tests := []struct {
 		name     string
 		user     *domain.User
 		userErr  error
 		password string
 	}{
+		{name: "wrong password", user: testUser(), password: "not-the-password"},
+		{name: "no account for the email", userErr: domain.ErrUserNotFound, password: testPassword},
 		{
-			name:     "wrong password",
-			user:     testUser(),
-			password: "not-the-password",
+			// A registration in flight has no users row yet, so this is the
+			// not-found path — it must not answer "verify your code".
+			name: "email exists only in pending_registration", userErr: domain.ErrUserNotFound, password: testPassword,
 		},
 		{
-			name:     "no account for the number",
-			user:     nil,
-			userErr:  domain.ErrUserNotFound,
-			password: testPassword,
-		},
-		{
-			// A number with a registration in flight has no users row yet, so
-			// this is the not-found path — it must not answer "verify your OTP",
-			// which would confirm the number is mid-registration.
-			name:     "number exists only in pending_registration",
-			user:     nil,
-			userErr:  domain.ErrUserNotFound,
-			password: testPassword,
+			// The correct password on an account whose email was never verified
+			// is refused like any other miss.
+			name: "email_verified_at is NULL", user: unverified, password: testPassword,
 		},
 	}
 
@@ -306,10 +296,8 @@ func TestLogin_InvalidCredentials(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			f := newLoginFixture()
 
-			f.repo.On("FindLoginAttempt", mock.Anything, testPhoneNumber).Return(nil, nil)
-			f.repo.On("FindUserByPhone", mock.Anything, testPhoneNumber).Return(tt.user, tt.userErr)
-			f.repo.On("RecordLoginFailure", mock.Anything, testPhoneNumber, testLoginPolicy.MaxFailedAttempts, testLoginPolicy.LockDuration.Duration(), testLoginPolicy.FailureResetWindow.Duration()).
-				Return(&domain.LoginAttempt{PhoneNumber: testPhoneNumber, FailedCount: 1}, nil)
+			expectReserve(f, counted())
+			f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(tt.user, tt.userErr)
 
 			input := defaultLoginInput()
 			input.Password = tt.password
@@ -317,55 +305,38 @@ func TestLogin_InvalidCredentials(t *testing.T) {
 			result, err := f.usecase.Login(context.Background(), input)
 
 			assert.ErrorIs(t, err, domain.ErrInvalidCredentials)
+			assert.Equal(t, "Email hoặc mật khẩu không đúng", err.Error())
 			assert.Nil(t, result)
 
-			// One sentinel and one message for every cause: the error must not
-			// name which field was wrong, because that alone confirms the
-			// account exists.
-			assert.NotContains(t, err.Error(), "mật khẩu không tồn tại")
-			assert.NotContains(t, err.Error(), "không tìm thấy")
-
-			// The failure is counted, and no session is opened.
-			f.repo.AssertCalled(t, "RecordLoginFailure", mock.Anything, testPhoneNumber, testLoginPolicy.MaxFailedAttempts, testLoginPolicy.LockDuration.Duration(), testLoginPolicy.FailureResetWindow.Duration())
+			f.repo.AssertCalled(t, "ReserveLoginAttempt", mock.Anything, testEmail, testLoginPolicy.MaxFailedAttempts, testLoginPolicy.LockDuration.Duration(), testLoginPolicy.FailureResetWindow.Duration())
 			f.repo.AssertNotCalled(t, "CreateLoginSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 		})
 	}
 }
 
-// TestLogin_Validation covers AC5 (device) and AC6 (phone, password): every one
-// of these returns before the first query and, crucially, before any counter is
-// touched. A malformed request is not a guess, and counting it would let anyone
-// lock a stranger's number out by sending junk.
+// TestLogin_Validation covers AC3 (email, password) and AC4 (device): every one
+// of these returns before the first query and, crucially, before any attempt is
+// reserved. A malformed request is not a guess, and counting it would let
+// anyone lock a stranger's email out by sending junk.
 func TestLogin_Validation(t *testing.T) {
 	tests := []struct {
 		name    string
 		input   domain.LoginInput
 		wantErr error
 
-		// reachesRepo marks the cases that are *not* rejected by validation and
-		// therefore must be allowed through to the first query. The short
-		// password is the one such case: it is refused as a bad credential
-		// rather than as a malformed request, so it asserts the opposite of the
-		// validation rows below — that the lookup DID happen.
+		// reachesRepo marks rows that pass validation and must reach the
+		// reservation (and then fail as an ordinary bad credential).
 		reachesRepo bool
 	}{
 		{
-			name:    "phone is not a number",
-			input:   withLoginInput(func(in *domain.LoginInput) { in.PhoneNumber = "not-a-phone" }),
-			wantErr: domain.ErrInvalidPhone,
+			name:    "email is malformed",
+			input:   withLoginInput(func(in *domain.LoginInput) { in.Email = "not-an-email" }),
+			wantErr: domain.ErrInvalidEmail,
 		},
 		{
-			name:    "phone is missing",
-			input:   withLoginInput(func(in *domain.LoginInput) { in.PhoneNumber = "" }),
-			wantErr: domain.ErrInvalidPhone,
-		},
-		{
-			// "090123" normalizes to seven digits, below pkg/validation's floor
-			// of eight, so NormalizePhone returns "" — see the same case in
-			// register_usecase_test.go for why "0901234" would not do.
-			name:    "phone has too few digits",
-			input:   withLoginInput(func(in *domain.LoginInput) { in.PhoneNumber = "090123" }),
-			wantErr: domain.ErrInvalidPhone,
+			name:    "email is missing",
+			input:   withLoginInput(func(in *domain.LoginInput) { in.Email = "" }),
+			wantErr: domain.ErrInvalidEmail,
 		},
 		{
 			name:    "password is missing",
@@ -373,9 +344,7 @@ func TestLogin_Validation(t *testing.T) {
 			wantErr: domain.ErrInvalidPassword,
 		},
 		{
-			// AC6 rejects an *empty* password, not a short one: a short password
-			// that once met the rule must still be able to log in after the rule
-			// tightens, so length is a registration-time concern only.
+			// AC3: no password rule but "not empty" applies at sign-in.
 			name:        "password is too short but not empty",
 			input:       withLoginInput(func(in *domain.LoginInput) { in.Password = "1234567" }),
 			wantErr:     domain.ErrInvalidCredentials,
@@ -392,11 +361,6 @@ func TestLogin_Validation(t *testing.T) {
 			wantErr: domain.ErrInvalidDevice,
 		},
 		{
-			// Only platform and device_model are required, so blanking the
-			// optional three must not produce ErrInvalidDevice. The row is
-			// marked reachesRepo because that is what proves it: the request is
-			// allowed all the way to the account lookup, where it fails for the
-			// ordinary reason (no such user).
 			name: "optional device fields may be blank",
 			input: withLoginInput(func(in *domain.LoginInput) {
 				in.Device.OSVersion = ""
@@ -413,19 +377,12 @@ func TestLogin_Validation(t *testing.T) {
 			f := newLoginFixture()
 
 			if tt.reachesRepo {
-				// These cases have to be allowed through to the first query,
-				// which is the point: blank optional fields are not a failure,
-				// and a short password is a wrong credential rather than a
-				// malformed request.
-				f.repo.On("FindLoginAttempt", mock.Anything, mock.Anything).Return(nil, nil)
-				f.repo.On("FindUserByPhone", mock.Anything, mock.Anything).Return(nil, domain.ErrUserNotFound)
-				f.repo.On("RecordLoginFailure", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
-					Return(&domain.LoginAttempt{FailedCount: 1}, nil)
+				expectReserve(f, counted())
+				f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(nil, domain.ErrUserNotFound)
 
 				result, err := f.usecase.Login(context.Background(), tt.input)
 				assert.ErrorIs(t, err, tt.wantErr)
 				assert.Nil(t, result)
-				f.repo.AssertCalled(t, "FindLoginAttempt", mock.Anything, mock.Anything)
 				return
 			}
 
@@ -435,27 +392,21 @@ func TestLogin_Validation(t *testing.T) {
 			assert.Nil(t, result)
 
 			// Nothing is read and nothing is counted.
-			f.repo.AssertNotCalled(t, "FindLoginAttempt")
-			f.repo.AssertNotCalled(t, "FindUserByPhone")
-			f.repo.AssertNotCalled(t, "RecordLoginFailure", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+			f.repo.AssertNotCalled(t, "ReserveLoginAttempt", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+			f.repo.AssertNotCalled(t, "FindUserByEmail", mock.Anything, mock.Anything)
 		})
 	}
 }
 
-// TestLogin_NoEnumeration pins AC2's timing property: an unknown phone number
-// still pays for exactly one bcrypt comparison. The assertion is on the *cost*
-// of the call, not on the answer — both branches return the same sentinel, so
-// only the work done differs, and only the work done is what an attacker
-// measures.
+// TestLogin_NoEnumeration pins AC2's timing property: an unknown email still
+// pays for exactly one bcrypt comparison.
 func TestLogin_NoEnumeration(t *testing.T) {
 	measure := func(t *testing.T, user *domain.User, userErr error) time.Duration {
 		t.Helper()
 		f := newLoginFixture()
 
-		f.repo.On("FindLoginAttempt", mock.Anything, mock.Anything).Return(nil, nil)
-		f.repo.On("FindUserByPhone", mock.Anything, mock.Anything).Return(user, userErr)
-		f.repo.On("RecordLoginFailure", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
-			Return(&domain.LoginAttempt{FailedCount: 1}, nil)
+		expectReserve(f, counted())
+		f.repo.On("FindUserByEmail", mock.Anything, mock.Anything).Return(user, userErr)
 
 		input := defaultLoginInput()
 		input.Password = "definitely-not-the-password"
@@ -471,189 +422,125 @@ func TestLogin_NoEnumeration(t *testing.T) {
 	known := measure(t, testUser(), nil)
 	unknown := measure(t, nil, domain.ErrUserNotFound)
 
-	// Both paths run one bcrypt comparison; the ratio is asserted loosely
-	// because a shared CI machine cannot promise anything tighter. What it
-	// catches is the regression that matters: an early return on the not-found
-	// branch, which would make the unknown case ~100x faster, not 2x.
+	// Loose ratio: what it catches is an early return on the not-found branch,
+	// which would make the unknown case ~100x faster, not 2x.
 	ratio := float64(known) / float64(unknown)
-	assert.Greater(t, ratio, 0.2, "unknown-phone branch returned too fast to have hashed anything")
-	assert.Less(t, ratio, 5.0, "known-phone branch did far more work than the unknown one")
+	assert.Greater(t, ratio, 0.2, "unknown-email branch returned too fast to have hashed anything")
+	assert.Less(t, ratio, 5.0, "known-email branch did far more work than the unknown one")
 }
 
-// TestLogin_FailurePolicy covers AC7's counting: the threshold, the lock
-// duration and the reset window are config, and the use case must pass them
-// through rather than deciding any of them itself — the atomic decision lives
-// in the repository's UPSERT.
-func TestLogin_FailurePolicy(t *testing.T) {
+// TestLogin_ReservesBeforeCompare covers AC5's ordering: the reservation runs
+// before the account lookup, so the counter covers emails with no account and
+// concurrent guesses cannot outrun it.
+func TestLogin_ReservesBeforeCompare(t *testing.T) {
 	f := newLoginFixture()
 
-	f.repo.On("FindLoginAttempt", mock.Anything, testPhoneNumber).Return(nil, nil)
-	f.repo.On("FindUserByPhone", mock.Anything, testPhoneNumber).Return(nil, domain.ErrUserNotFound)
+	var order []string
+	expectReserve(f, counted()).Run(func(mock.Arguments) { order = append(order, "reserve") })
+	f.repo.On("FindUserByEmail", mock.Anything, testEmail).
+		Run(func(mock.Arguments) { order = append(order, "find") }).
+		Return(nil, domain.ErrUserNotFound)
 
-	// The fifth failure: the counter trips and the lock is placed, but the
-	// caller is still refused with a 401 — only the *next* request sees 429.
-	lockedUntil := time.Now().Add(15 * time.Minute)
-	f.repo.On("RecordLoginFailure",
-		mock.Anything,
-		testPhoneNumber,
-		testLoginPolicy.MaxFailedAttempts,
-		testLoginPolicy.LockDuration.Duration(),
-		testLoginPolicy.FailureResetWindow.Duration(),
-	).Return(&domain.LoginAttempt{
-		PhoneNumber: testPhoneNumber,
-		FailedCount: testLoginPolicy.MaxFailedAttempts,
-		LockedUntil: &lockedUntil,
-	}, nil)
+	_, err := f.usecase.Login(context.Background(), defaultLoginInput())
 
-	result, err := f.usecase.Login(context.Background(), defaultLoginInput())
-
-	// The failure that trips the limit answers 401, not 429.
 	assert.ErrorIs(t, err, domain.ErrInvalidCredentials)
-	assert.NotErrorIs(t, err, domain.ErrLoginLocked)
-	assert.Nil(t, result)
-
-	f.repo.AssertCalled(t, "RecordLoginFailure",
-		mock.Anything,
-		testPhoneNumber,
-		testLoginPolicy.MaxFailedAttempts,
-		testLoginPolicy.LockDuration.Duration(),
-		testLoginPolicy.FailureResetWindow.Duration(),
-	)
+	assert.Equal(t, []string{"reserve", "find"}, order)
 }
 
-// TestLogin_Locked covers AC7 from the other side: while the lock holds, the
-// password is not compared and the account is not looked up — otherwise an
-// attacker could keep guessing for free, or the correct password would let a
-// locked number straight back in.
+// TestLogin_TripLockStill401 covers AC5's boundary: the attempt whose
+// reservation places the lock still has its password compared and, if wrong,
+// answers 401 — only the next request sees 429.
+func TestLogin_TripLockStill401(t *testing.T) {
+	lockedUntil := time.Now().Add(15 * time.Minute)
+	tripping := &domain.LoginAttempt{
+		Email:        testEmail,
+		FailedCount:  testLoginPolicy.MaxFailedAttempts,
+		LockedUntil:  &lockedUntil,
+		LastFailedAt: time.Now(),
+	}
+
+	t.Run("wrong password is 401, not 429", func(t *testing.T) {
+		f := newLoginFixture()
+		expectReserve(f, tripping)
+		f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(testUser(), nil)
+
+		input := defaultLoginInput()
+		input.Password = "wrong-password"
+		_, err := f.usecase.Login(context.Background(), input)
+
+		assert.ErrorIs(t, err, domain.ErrInvalidCredentials)
+		assert.NotErrorIs(t, err, domain.ErrLoginLocked)
+	})
+
+	t.Run("correct password still logs in", func(t *testing.T) {
+		f := newLoginFixture()
+		expectReserve(f, tripping)
+		f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(testUser(), nil)
+		f.repo.On("CreateLoginSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+			Return(&domain.LoginResult{User: testUser(), AccessToken: testAccessToken, RefreshToken: testRefreshToken}, nil)
+
+		result, err := f.usecase.Login(context.Background(), defaultLoginInput())
+
+		require.NoError(t, err)
+		require.NotNil(t, result)
+	})
+}
+
+// TestLogin_Locked covers AC5 from the other side: while a lock placed by an
+// earlier attempt holds, the account is not looked up and the password is not
+// compared — the correct password is refused too.
 func TestLogin_Locked(t *testing.T) {
 	f := newLoginFixture()
 
 	lockedUntil := time.Now().Add(10 * time.Minute)
-	f.repo.On("FindLoginAttempt", mock.Anything, testPhoneNumber).
-		Return(&domain.LoginAttempt{
-			PhoneNumber: testPhoneNumber,
-			FailedCount: testLoginPolicy.MaxFailedAttempts,
-			LockedUntil: &lockedUntil,
-		}, nil)
+	expectReserve(f, &domain.LoginAttempt{
+		Email:         testEmail,
+		FailedCount:   testLoginPolicy.MaxFailedAttempts,
+		LockedUntil:   &lockedUntil,
+		AlreadyLocked: true,
+	})
 
-	// The correct password is supplied on purpose: the lock must refuse it too.
 	result, err := f.usecase.Login(context.Background(), defaultLoginInput())
 
 	assert.ErrorIs(t, err, domain.ErrLoginLocked)
 	assert.Nil(t, result)
 
-	var lockedErr *domain.LoginLockedError
-	require.ErrorAs(t, err, &lockedErr)
+	lockedErr, ok := errors.AsType[*domain.LoginLockedError](err)
+	require.True(t, ok)
 	assert.WithinDuration(t, lockedUntil, lockedErr.LockedUntil, time.Second)
 
-	f.repo.AssertNotCalled(t, "FindUserByPhone")
-	f.repo.AssertNotCalled(t, "RecordLoginFailure", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+	f.repo.AssertNotCalled(t, "FindUserByEmail", mock.Anything, mock.Anything)
+	f.repo.AssertNotCalled(t, "CreateLoginSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 }
 
-// TestLogin_LockAppliesToUnknownPhone covers AC7's "the counter works for
-// numbers with no account" rule, which is also AC2's: the lock is consulted
-// *before* the account lookup, so a locked number answers 429 whether or not it
-// is registered. Reversing the two would make the lock a registration oracle.
-func TestLogin_LockAppliesToUnknownPhone(t *testing.T) {
-	f := newLoginFixture()
-
-	lockedUntil := time.Now().Add(10 * time.Minute)
-	f.repo.On("FindLoginAttempt", mock.Anything, testPhoneNumber).
-		Return(&domain.LoginAttempt{
-			PhoneNumber: testPhoneNumber,
-			FailedCount: testLoginPolicy.MaxFailedAttempts,
-			LockedUntil: &lockedUntil,
-		}, nil)
-
-	_, err := f.usecase.Login(context.Background(), defaultLoginInput())
-
-	assert.ErrorIs(t, err, domain.ErrLoginLocked)
-	// The lock is answered without ever asking whether the account exists.
-	f.repo.AssertNotCalled(t, "FindUserByPhone")
-}
-
-// TestLogin_ExpiredLockIsNotALock pins the boundary the repository reads rather
-// than scrubs: a deadline already in the past is "not locked", so the login
-// proceeds normally and the stale counter is corrected by the next failure.
-func TestLogin_ExpiredLockIsNotALock(t *testing.T) {
-	f := newLoginFixture()
-
-	expired := time.Now().Add(-time.Minute)
-	f.repo.On("FindLoginAttempt", mock.Anything, testPhoneNumber).
-		Return(&domain.LoginAttempt{
-			PhoneNumber: testPhoneNumber,
-			FailedCount: testLoginPolicy.MaxFailedAttempts,
-			LockedUntil: &expired,
-		}, nil)
-	f.repo.On("FindUserByPhone", mock.Anything, testPhoneNumber).Return(testUser(), nil)
-	f.repo.On("CreateLoginSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.AnythingOfType("domain.TokenIssuer")).
-		Return(&domain.LoginResult{User: testUser(), AccessToken: testAccessToken, RefreshToken: testRefreshToken}, nil)
-
-	result, err := f.usecase.Login(context.Background(), defaultLoginInput())
-
-	require.NoError(t, err)
-	require.NotNil(t, result)
-}
-
-// TestLogin_InfrastructureFailure pins that errors from either port stay
-// infrastructure errors: they must not be mistaken for the sentinels the
-// handler maps to a 4xx, and a failure to *count* a guess must not be swallowed
-// into a 401 as if the counter had worked.
+// TestLogin_InfrastructureFailure pins that errors from the port stay
+// infrastructure errors, not a 401 as if the counter had worked.
 func TestLogin_InfrastructureFailure(t *testing.T) {
-	tests := []struct {
-		name       string
-		attemptErr error
-		user       *domain.User
-		userErr    error
-		sessionErr error
-		wantCause  string
-	}{
-		{
-			name:       "counter read fails",
-			attemptErr: errors.New("connection refused"),
-			wantCause:  "find login attempt",
-		},
-		{
-			name:      "account lookup fails",
-			userErr:   errors.New("connection reset"),
-			wantCause: "find user by phone",
-		},
-		{
-			name:       "counter write fails",
-			userErr:    domain.ErrUserNotFound,
-			attemptErr: nil,
-			wantCause:  "record login failure",
-		},
-	}
+	t.Run("reservation fails", func(t *testing.T) {
+		f := newLoginFixture()
+		f.repo.On("ReserveLoginAttempt", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+			Return(nil, errors.New("deadlock detected"))
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			f := newLoginFixture()
+		_, err := f.usecase.Login(context.Background(), defaultLoginInput())
 
-			if tt.attemptErr != nil && tt.name != "counter write fails" {
-				f.repo.On("FindLoginAttempt", mock.Anything, mock.Anything).Return(nil, tt.attemptErr)
-			} else {
-				f.repo.On("FindLoginAttempt", mock.Anything, mock.Anything).Return(nil, nil)
-			}
+		require.Error(t, err)
+		assert.ErrorContains(t, err, "reserve login attempt")
+		assert.NotErrorIs(t, err, domain.ErrInvalidCredentials)
+		f.repo.AssertNotCalled(t, "FindUserByEmail", mock.Anything, mock.Anything)
+	})
 
-			f.repo.On("FindUserByPhone", mock.Anything, mock.Anything).Return(tt.user, tt.userErr)
+	t.Run("account lookup fails", func(t *testing.T) {
+		f := newLoginFixture()
+		expectReserve(f, counted())
+		f.repo.On("FindUserByEmail", mock.Anything, mock.Anything).Return(nil, errors.New("connection reset"))
 
-			if tt.name == "counter write fails" {
-				f.repo.On("RecordLoginFailure", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
-					Return(nil, errors.New("deadlock detected"))
-			} else {
-				f.repo.On("RecordLoginFailure", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
-					Return(&domain.LoginAttempt{FailedCount: 1}, nil)
-			}
+		_, err := f.usecase.Login(context.Background(), defaultLoginInput())
 
-			_, err := f.usecase.Login(context.Background(), defaultLoginInput())
-
-			require.Error(t, err)
-			assert.ErrorContains(t, err, tt.wantCause)
-			assert.NotErrorIs(t, err, domain.ErrInvalidCredentials)
-			f.repo.AssertNotCalled(t, "CreateLoginSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
-		})
-	}
+		require.Error(t, err)
+		assert.ErrorContains(t, err, "find user by email")
+		assert.NotErrorIs(t, err, domain.ErrInvalidCredentials)
+		f.repo.AssertNotCalled(t, "CreateLoginSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+	})
 }
 
 // TestLogin_SessionCreationFailure pins that a repository failure while opening
@@ -661,8 +548,8 @@ func TestLogin_InfrastructureFailure(t *testing.T) {
 func TestLogin_SessionCreationFailure(t *testing.T) {
 	f := newLoginFixture()
 
-	f.repo.On("FindLoginAttempt", mock.Anything, mock.Anything).Return(nil, nil)
-	f.repo.On("FindUserByPhone", mock.Anything, testPhoneNumber).Return(testUser(), nil)
+	expectReserve(f, counted())
+	f.repo.On("FindUserByEmail", mock.Anything, testEmail).Return(testUser(), nil)
 	f.repo.On("CreateLoginSession", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Return(nil, errors.New("unique violation"))
 
@@ -1000,4 +887,38 @@ func TestLogout_ScopedToUser(t *testing.T) {
 	assert.Equal(t, testUserRowID, args.Get(1).(int64), "user_id must be passed, not just the session id")
 	assert.Equal(t, testSessionID, args.String(2))
 	assert.Equal(t, domain.RevokeReasonLogout, args.String(3))
+}
+
+// ---------------------------------------------------------------------------
+// EnsureSessionActive (login Step A-2, AC21/AC22)
+// ---------------------------------------------------------------------------
+
+func TestEnsureSessionActive(t *testing.T) {
+	ctx := context.Background()
+
+	t.Run("live session passes", func(t *testing.T) {
+		f := newLoginFixture()
+		f.repo.On("IsSessionActive", mock.Anything, testUserRowID, testSessionID).Return(true, nil)
+		require.NoError(t, f.usecase.EnsureSessionActive(ctx, testUserRowID, testSessionID))
+	})
+
+	t.Run("revoked or expired session is ErrSessionRevoked", func(t *testing.T) {
+		f := newLoginFixture()
+		f.repo.On("IsSessionActive", mock.Anything, testUserRowID, testSessionID).Return(false, nil)
+		assert.ErrorIs(t, f.usecase.EnsureSessionActive(ctx, testUserRowID, testSessionID), domain.ErrSessionRevoked)
+	})
+
+	t.Run("empty sid is refused without a query", func(t *testing.T) {
+		f := newLoginFixture()
+		assert.ErrorIs(t, f.usecase.EnsureSessionActive(ctx, testUserRowID, ""), domain.ErrSessionRevoked)
+		f.repo.AssertNotCalled(t, "IsSessionActive", mock.Anything, mock.Anything, mock.Anything)
+	})
+
+	t.Run("database error is not reported as revoked", func(t *testing.T) {
+		f := newLoginFixture()
+		f.repo.On("IsSessionActive", mock.Anything, testUserRowID, testSessionID).Return(false, errors.New("boom"))
+		err := f.usecase.EnsureSessionActive(ctx, testUserRowID, testSessionID)
+		require.Error(t, err)
+		assert.NotErrorIs(t, err, domain.ErrSessionRevoked)
+	})
 }

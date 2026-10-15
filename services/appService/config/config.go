@@ -55,14 +55,21 @@ func (d Duration) Duration() time.Duration {
 
 // AppConfig is appService's full runtime configuration.
 type AppConfig struct {
-	App         AppEnvConfig      `yaml:"app"`
-	Server      ServerConfig      `yaml:"server"`
-	Database    DatabaseConfig    `yaml:"database"`
-	JWT         JWTConfig         `yaml:"jwt"`
-	Storage     StorageConfig     `yaml:"storage"`
-	OTP         OTPConfig         `yaml:"otp"`
-	Mailer      MailerConfig      `yaml:"mailer"`
-	Login       LoginConfig       `yaml:"login"`
+	App      AppEnvConfig   `yaml:"app"`
+	Server   ServerConfig   `yaml:"server"`
+	Database DatabaseConfig `yaml:"database"`
+	JWT      JWTConfig      `yaml:"jwt"`
+	Storage  StorageConfig  `yaml:"storage"`
+	OTP      OTPConfig      `yaml:"otp"`
+	Mailer   MailerConfig   `yaml:"mailer"`
+	Login    LoginConfig    `yaml:"login"`
+
+	// PasswordReset is the forgot-password flow's timing policy (login US-003).
+	PasswordReset PasswordResetConfig `yaml:"password_reset"`
+
+	// AuthRateLimit is the per-IP budget of every /v1/auth/* route (login AC31).
+	AuthRateLimit AuthRateLimitConfig `yaml:"auth_rate_limit"`
+
 	Attestation AttestationConfig `yaml:"attestation"`
 	Temple      TempleConfig      `yaml:"temple"`
 	Deity       DeityConfig       `yaml:"deity"`
@@ -190,6 +197,21 @@ type AppEnvConfig struct {
 type MailerConfig struct {
 	Provider string `yaml:"provider"`
 	From     string `yaml:"from"`
+
+	// DailyBudget is how many auth emails may be sent per UTC day across all
+	// instances (login AC33). Past it every route that would send answers
+	// 429 RATE_LIMITED until the next UTC day. Sized to the provider's free
+	// tier (ADR-0003 rule 7: 100/day).
+	DailyBudget int `yaml:"daily_budget"`
+}
+
+// Validate rejects a missing budget: zero would block every email, which is
+// not "unlimited" and would only show up at the first registration.
+func (c MailerConfig) Validate() error {
+	if c.DailyBudget < 1 {
+		return fmt.Errorf("mailer.daily_budget must be >= 1, got %d", c.DailyBudget)
+	}
+	return nil
 }
 
 // Validate enforces the cross-section startup guard of onboarding AC21 /
@@ -291,6 +313,59 @@ type LoginConfig struct {
 	// stale counter are the same boundary — but settable separately because the
 	// equality is a default, not a constraint.
 	FailureResetWindow Duration `yaml:"failure_reset_window"`
+}
+
+// AuthRateLimitConfig holds the per-IP budgets of every /v1/auth/* route
+// (login AC31). The counters live in the shared rate-limit store
+// (rate_limit_store), so the limit holds across instances when that store is
+// Redis. `logout` is deliberately absent: it is not limited.
+type AuthRateLimitConfig struct {
+	// Send covers register request-otp, register resend-otp and
+	// password-reset request-otp: every route that can send an email.
+	Send RouteRateLimit `yaml:"send"`
+
+	// Verify covers register verify-otp and password-reset confirm.
+	Verify RouteRateLimit `yaml:"verify"`
+
+	// Login covers POST /v1/auth/login.
+	Login RouteRateLimit `yaml:"login"`
+
+	// Refresh covers POST /v1/auth/refresh.
+	Refresh RouteRateLimit `yaml:"refresh"`
+
+	// TrustForwardedFor reads the client IP from the last X-Forwarded-For entry
+	// when no valid web API key vouches for X-InnerLamp-Client-IP (AC34 (b)).
+	// Set it only behind a proxy that appends the real client address (Cloud
+	// Run does).
+	TrustForwardedFor bool `yaml:"trust_forwarded_for"`
+}
+
+// RouteRateLimit is one group's budget: Max requests per client IP per Window.
+type RouteRateLimit struct {
+	Max    int      `yaml:"max"`
+	Window Duration `yaml:"window"`
+}
+
+// Validate rejects a group that is not a positive count over a positive
+// window; a zero would silently block (or, in some stores, never limit).
+func (c AuthRateLimitConfig) Validate() error {
+	for name, g := range map[string]RouteRateLimit{"send": c.Send, "verify": c.Verify, "login": c.Login, "refresh": c.Refresh} {
+		if g.Max < 1 {
+			return fmt.Errorf("auth_rate_limit.%s.max must be >= 1, got %d", name, g.Max)
+		}
+		if g.Window.Duration() <= 0 {
+			return fmt.Errorf("auth_rate_limit.%s.window must be > 0, got %s", name, g.Window.Duration())
+		}
+	}
+	return nil
+}
+
+// PasswordResetConfig holds the forgot-password flow's tunables (login AC25).
+type PasswordResetConfig struct {
+	// MinResponseTime is the floor on request-otp's response time, so the mail
+	// call made only for an email with an account does not reveal the branch.
+	// Tests and dev set it low; production keeps it above the slowest mail call.
+	MinResponseTime Duration `yaml:"min_response_time"`
 }
 
 // TempleConfig holds the temple catalogue's page sizes. Config rather than

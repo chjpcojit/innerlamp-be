@@ -353,6 +353,19 @@ func writeTempConfig(t *testing.T, dbHost, dbPort, appPort string, overrides con
 		rls["backend"] = "memory"
 	}
 
+	// config.dev.yaml ships the production-shaped /v1/auth/* budgets (10 sends an hour,
+	// 100 mails a day). One E2E server registers dozens of accounts from one address, so
+	// they would 429 unrelated tests: every server starts with budgets nothing reaches.
+	// A test about the budgets themselves overrides them below.
+	if arl, ok := doc["auth_rate_limit"].(map[string]any); ok {
+		for _, group := range []string{"send", "verify", "login", "refresh"} {
+			arl[group] = map[string]any{"max": 100000, "window": "1h"}
+		}
+	}
+	if mailer, ok := doc["mailer"].(map[string]any); ok {
+		mailer["daily_budget"] = 100000
+	}
+
 	for block, keys := range overrides {
 		section, ok := doc[block].(map[string]any)
 		require.Truef(t, ok, "config has no %q block to override", block)

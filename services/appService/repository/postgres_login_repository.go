@@ -32,12 +32,13 @@ func NewLoginRepository(db database.Database) domain.LoginRepository {
 // so a column added to the table later cannot silently change what is scanned.
 const userColumns = `id, email, email_verified_at, phone_number, password_hash, full_name, dharma_name, ordination_temple_id, created_at, updated_at`
 
-// FindUserByPhone is flow 1 Step 3. No row is ErrUserNotFound — including a
-// number that exists only in pending_registration, which lives in another table
-// and therefore simply is not found here (AC2).
-func (r *loginRepository) FindUserByPhone(ctx context.Context, phoneNumber string) (*domain.User, error) {
-	query := `SELECT ` + userColumns + ` FROM users WHERE phone_number = $1`
-	return scanUser(r.db.QueryRow(ctx, query, phoneNumber))
+// FindUserByEmail is Step L-4. No row is ErrUserNotFound — including an email
+// that exists only in pending_registration, which lives in another table and
+// therefore simply is not found here (AC2). users.email is stored lower-case
+// (0037), and the caller passes the normalised form.
+func (r *loginRepository) FindUserByEmail(ctx context.Context, email string) (*domain.User, error) {
+	query := `SELECT ` + userColumns + ` FROM users WHERE email = $1`
+	return scanUser(r.db.QueryRow(ctx, query, email))
 }
 
 // FindUserByID rebuilds the account behind a session for the refresh flow.
@@ -69,55 +70,43 @@ func scanUser(row *sql.Row) (*domain.User, error) {
 	return &u, nil
 }
 
-// FindLoginAttempt is flow 1 Step 2: a plain read, no row is (nil, nil).
-func (r *loginRepository) FindLoginAttempt(ctx context.Context, phoneNumber string) (*domain.LoginAttempt, error) {
-	const query = `
-		SELECT phone_number, failed_count, locked_until, last_failed_at
-		FROM login_attempts
-		WHERE phone_number = $1
-	`
-	var (
-		a           domain.LoginAttempt
-		lockedUntil sql.NullTime
-	)
-	if err := r.db.QueryRow(ctx, query, phoneNumber).Scan(&a.PhoneNumber, &a.FailedCount, &lockedUntil, &a.LastFailedAt); err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, nil
-		}
-		return nil, fmt.Errorf("find login attempt: %w", err)
-	}
-	if lockedUntil.Valid {
-		a.LockedUntil = &lockedUntil.Time
-	}
-	return &a, nil
-}
-
-// RecordLoginFailure is flow 1 Step 5: one atomic UPSERT, so concurrent wrong
-// guesses on the same number serialize on the row lock instead of all reading
-// the same starting count (AC7).
+// ReserveLoginAttempt is Step L-3: one atomic UPSERT, so concurrent attempts on
+// the same email serialize on the row lock instead of all reading the same
+// starting count (AC5).
 //
-// A row is stale — count restarts at 1 — when its lock has already expired or
-// its previous failure is older than the reset window. The "new count" used to
-// decide locking is written out in both SET expressions because a SET clause
+// Three cases, decided on the row as it is once the lock is held:
+//   - locked (locked_until > now()): every column keeps its value;
+//   - stale (lock expired, or previous attempt older than the reset window):
+//     count restarts at 1;
+//   - otherwise: count + 1.
+//
+// The new count is written out in both SET expressions because a SET clause
 // cannot see the value another column of the same statement is being given.
-func (r *loginRepository) RecordLoginFailure(ctx context.Context, phoneNumber string, maxAttempts int, lockDuration, resetWindow time.Duration) (*domain.LoginAttempt, error) {
+//
+// already_locked comes from last_failed_at: every counted attempt stamps it
+// with now(), the transaction's start time, and the locked branch leaves it
+// untouched — so it equals now() exactly when this statement counted the
+// attempt. Postgres 16 has no RETURNING OLD to read the pre-update row.
+func (r *loginRepository) ReserveLoginAttempt(ctx context.Context, email string, maxAttempts int, lockDuration, resetWindow time.Duration) (*domain.LoginAttempt, error) {
 	const query = `
-		INSERT INTO login_attempts (phone_number, failed_count, locked_until, last_failed_at, updated_at)
+		INSERT INTO login_attempts (email, failed_count, locked_until, last_failed_at, updated_at)
 		VALUES (
 			$1, 1,
 			CASE WHEN 1 >= $2 THEN now() + make_interval(secs => $3) ELSE NULL END,
 			now(), now()
 		)
-		ON CONFLICT (phone_number) DO UPDATE SET
+		ON CONFLICT (email) DO UPDATE SET
 			failed_count = CASE
-				WHEN (login_attempts.locked_until IS NOT NULL AND login_attempts.locked_until <= now())
+				WHEN login_attempts.locked_until > now() THEN login_attempts.failed_count
+				WHEN login_attempts.locked_until IS NOT NULL
 				  OR login_attempts.last_failed_at < now() - make_interval(secs => $4)
 				THEN 1
 				ELSE login_attempts.failed_count + 1
 			END,
 			locked_until = CASE
+				WHEN login_attempts.locked_until > now() THEN login_attempts.locked_until
 				WHEN (CASE
-					WHEN (login_attempts.locked_until IS NOT NULL AND login_attempts.locked_until <= now())
+					WHEN login_attempts.locked_until IS NOT NULL
 					  OR login_attempts.last_failed_at < now() - make_interval(secs => $4)
 					THEN 1
 					ELSE login_attempts.failed_count + 1
@@ -125,15 +114,18 @@ func (r *loginRepository) RecordLoginFailure(ctx context.Context, phoneNumber st
 				THEN now() + make_interval(secs => $3)
 				ELSE NULL
 			END,
-			last_failed_at = now(),
+			last_failed_at = CASE
+				WHEN login_attempts.locked_until > now() THEN login_attempts.last_failed_at
+				ELSE now()
+			END,
 			updated_at = now()
-		RETURNING failed_count, locked_until, last_failed_at
+		RETURNING failed_count, locked_until, last_failed_at, last_failed_at <> now() AS already_locked
 	`
-	a := domain.LoginAttempt{PhoneNumber: phoneNumber}
+	a := domain.LoginAttempt{Email: email}
 	var lockedUntil sql.NullTime
-	if err := r.db.QueryRow(ctx, query, phoneNumber, maxAttempts, lockDuration.Seconds(), resetWindow.Seconds()).
-		Scan(&a.FailedCount, &lockedUntil, &a.LastFailedAt); err != nil {
-		return nil, fmt.Errorf("record login failure: %w", err)
+	if err := r.db.QueryRow(ctx, query, email, maxAttempts, lockDuration.Seconds(), resetWindow.Seconds()).
+		Scan(&a.FailedCount, &lockedUntil, &a.LastFailedAt, &a.AlreadyLocked); err != nil {
+		return nil, fmt.Errorf("reserve login attempt: %w", err)
 	}
 	if lockedUntil.Valid {
 		a.LockedUntil = &lockedUntil.Time
@@ -213,7 +205,9 @@ func (r *loginRepository) CreateLoginSession(ctx context.Context, user *domain.U
 
 	// (f) In the same transaction: a login whose transaction rolls back must not
 	// have wiped the brute-force counter.
-	if _, err := tx.ExecContext(ctx, `DELETE FROM login_attempts WHERE phone_number = $1`, user.PhoneNumber); err != nil {
+	// Keyed by user.Email: it is the row FindUserByEmail matched on the same
+	// normalised email the reservation used (Step L-5).
+	if _, err := tx.ExecContext(ctx, `DELETE FROM login_attempts WHERE email = $1`, user.Email); err != nil {
 		return nil, fmt.Errorf("reset login attempts: %w", err)
 	}
 
@@ -226,6 +220,22 @@ func (r *loginRepository) CreateLoginSession(ctx context.Context, user *domain.U
 		AccessToken:  accessToken,
 		RefreshToken: refreshToken,
 	}, nil
+}
+
+// IsSessionActive is Step A-2: one lookup on the UNIQUE session_id, matched
+// with user_id so a token cannot vouch for another account's session.
+func (r *loginRepository) IsSessionActive(ctx context.Context, userID int64, sessionID string) (bool, error) {
+	const query = `
+		SELECT EXISTS (
+			SELECT 1 FROM user_sessions
+			WHERE session_id = $1 AND user_id = $2 AND is_revoked = false AND expires_at > now()
+		)
+	`
+	var active bool
+	if err := r.db.QueryRow(ctx, query, sessionID, userID).Scan(&active); err != nil {
+		return false, fmt.Errorf("check session active: %w", err)
+	}
+	return active, nil
 }
 
 const revokeByDeviceSQL = `
