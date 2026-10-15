@@ -418,6 +418,25 @@ func TestRequestOTP_MailerFailure(t *testing.T) {
 	}
 }
 
+// Login AC33: an exhausted daily mail budget is a 429 with its wait, not a 500
+// EMAIL_SEND_FAILED, and the user's own send slot is released.
+func TestRequestOTP_MailBudgetExhausted(t *testing.T) {
+	f := newRegisterFixture()
+	f.stubUpToSave(false)
+	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{}, nil)
+	f.mailer.On("SendRegisterCode", mock.Anything, testEmail, mock.Anything, mock.Anything).
+		Return(&domain.RateLimitedError{RetryAfter: time.Hour})
+	f.otpRepo.On("ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
+
+	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
+
+	rl, ok := errors.AsType[*domain.RateLimitedError](err)
+	require.True(t, ok, "got %v", err)
+	assert.Equal(t, time.Hour, rl.RetryAfter)
+	assert.NotErrorIs(t, err, domain.ErrEmailSendFailed)
+	f.otpRepo.AssertCalled(t, "ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister)
+}
+
 func TestRequestOTP_RepositoryFailure(t *testing.T) {
 	f := newRegisterFixture()
 	f.stubUpToSave(false)

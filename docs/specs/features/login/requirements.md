@@ -1,8 +1,8 @@
 # Requirements — login
 
-Version: 2.3
+Version: 2.4
 Last updated: 2026-10-16
-Status: prospective (v2.0) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi; chưa có code. Code đang chạy là v1.13 (đăng nhập bằng SĐT); phần phiên/refresh/logout giữ nguyên.
+Status: implemented (v2.4, 2026-10-16) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi. Phần phiên/refresh/logout giữ nguyên từ v1.13.
 Module: `identity`
 Code: `services/appService/`
 Product spec: `docs/product/login/product.md` @ v1.2 (và `docs/product/onboarding/product.md` @ v1.2 cho BR-ONB-05/06/09)
@@ -98,7 +98,7 @@ FR-LGN-010, NFR-LGN-03 (chỉ client).
 ## Giới hạn tần suất cho mọi `/v1/auth/*` (NFR-ONB-02, NFR-LGN-02)
 
 31. WHEN a request to a `/v1/auth/*` route exceeds its per-IP budget for the current window, THE SYSTEM SHALL reply `429 RATE_LIMITED` with `retry_after_seconds` and run no handler. Budgets are config (`auth_rate_limit.*`), defaults: `send` (register request-otp, register resend-otp, password-reset request-otp) 10/hour; `verify` (register verify-otp, password-reset confirm) 30/hour; `login` 30/15 min; `refresh` 120/15 min; `logout` not limited. (NFR-LGN-02, NFR-ONB-02)
-32. WHEN counting, THE SYSTEM SHALL keep counters in Postgres (`auth_rate_limits`) with one atomic UPSERT per request, so the limit holds across Cloud Run instances. (platform; ADR-0003 rule 8)
+32. WHEN counting, THE SYSTEM SHALL keep the per-IP counters and the daily mail counter in the service's shared rate-limit store (`rate_limit_store`: Redis, so the limit holds across Cloud Run instances; a Redis error at request time falls back to a per-instance count, never to "no limit"). (platform; supersedes the Postgres `auth_rate_limits` table of v2.0–v2.3, see Open questions)
 33. WHEN the number of emails sent today (UTC) reaches `mailer.daily_budget` (default 100), THE SYSTEM SHALL send no more and reply `429 RATE_LIMITED` with `retry_after_seconds` until the next UTC day, for every route that would send. (NFR-ONB-02)
 34. WHEN resolving the client IP for `/v1/auth/*` (rate limits AC31 and the session's device metadata), THE SYSTEM SHALL use, in order: (a) the `X-InnerLamp-Client-IP` header when the request carries a valid `X-API-Key` (AC16) and the header parses as one IPv4/IPv6 address — the website's server forwards its visitor's IP there; (b) otherwise, when `auth_rate_limit.trust_forwarded_for` is true, the right-most `X-Forwarded-For` entry added by the trusted proxy; (c) otherwise the connection's address. A request without a valid key never has `X-InnerLamp-Client-IP` read; an unparsable value falls through to (b)/(c). (NFR-LGN-02, platform)
 35. WHEN per-email limits are needed, THE SYSTEM SHALL rely on the existing per-email counters: send policy (`otp_send_limits`), code attempts (`otp_codes`) and the sign-in lock (`login_attempts`). (NFR-LGN-02)
@@ -138,8 +138,8 @@ response vẫn như AC23 để không lộ nhánh.
 
 ## Pending (not yet implemented)
 
-AC1–AC5, AC8, AC18 (hai route mới), AC20–AC35 chưa có code — `tasks.md`. AC6, AC7, AC9–AC17, AC19
-đã chạy từ v1.13 và chỉ cần chạy lại test sau khi đổi khoá sang email.
+Không còn AC nào chưa có code. Còn lại là tài liệu theo sau (`tasks.md` Phase 7): `openapi.yaml`,
+`docs/knowledge/features/login.md`, product spec §4.2.
 
 ## Ghi chú kỹ thuật liên quan
 
@@ -159,6 +159,6 @@ AC1–AC5, AC8, AC18 (hai route mới), AC20–AC35 chưa có code — `tasks.md
 - ~~Đặt lại mật khẩu có gỡ khoá đăng nhập không?~~ → Có (anh Đức: "Gỡ như em đề xuất"; product login v1.2 BR-LGN-05). AC28 xoá `login_attempts` trong cùng transaction. Resolved 2026-10-14.
 - ~~Đăng nhập bằng gì?~~ → Email + mật khẩu (ADR-0003 rule 1). Resolved 2026-10-14.
 - ~~Quên mật khẩu đi kênh nào?~~ → Mã qua email đã xác minh; đăng xuất mọi thiết bị; không tự đăng nhập (ADR-0003 rule 5, product BR-LGN-05). Resolved 2026-10-14.
-- ~~Đếm giới hạn ở đâu?~~ → Postgres, không Redis (hạ tầng không có Memorystore). Đề xuất của Claude, anh Đức đồng ý 2026-10-14. Resolved 2026-10-14.
+- ~~Đếm giới hạn ở đâu?~~ → ~~Postgres, không Redis~~ (2026-10-14) **đảo 2026-10-16: Redis**, store dùng chung của commit `fc31897` (`rate_limit_store`). Lý do: store đó đã có, đã bọc fallback memory và ping lúc khởi động, và mọi limiter khác của appService đã dùng nó; một bảng Postgres thứ hai chỉ để đếm là thêm một truy vấn ghi cho mỗi request `/v1/auth/*`. Anh Đức chọn Redis 2026-10-16. Resolved 2026-10-16.
 - ~~Folder cho quên mật khẩu?~~ → Gộp vào `login/` như product spec; `password-reset/` bị xoá ở bước dọn tài liệu cũ. Resolved 2026-10-14.
 - Các quyết định của v1.13 (device, rotation, reuse detection, sliding 7 ngày, `sid`, `X-API-Key`) giữ nguyên — xem `changelog.md` v1.x.

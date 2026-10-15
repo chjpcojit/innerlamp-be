@@ -60,11 +60,29 @@ func (l *ClientIPRateLimit) WrapFunc(next http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
-// rateLimitIP resolves the caller's address for rate limiting. Behind a trusted
-// proxy the last X-Forwarded-For entry is the address that proxy saw; earlier
-// entries are client-supplied and ignored, so a caller cannot rotate a fake
-// value to escape the limit.
+// HeaderClientIP is the header the website's server uses to forward its
+// visitor's address (login AC34). It is read only on a request that carries a
+// valid X-API-Key; elsewhere it is attacker-controlled text.
+const HeaderClientIP = "X-InnerLamp-Client-IP"
+
+// rateLimitIP resolves the caller's address for rate limiting and device
+// metadata (login AC34), in order:
+//
+//	(a) X-InnerLamp-Client-IP, when RequireWebAPIKey saw a valid key on this
+//	    request and the header parses as exactly one IP address;
+//	(b) when trustForwardedFor, the last X-Forwarded-For entry — the address
+//	    the trusted proxy saw; earlier entries are client-supplied and ignored,
+//	    so a caller cannot rotate a fake value to escape the limit;
+//	(c) the TCP peer.
+//
+// An unparsable (a) falls through to (b)/(c); without a valid key the header
+// is never read.
 func rateLimitIP(r *http.Request, trustForwardedFor bool) string {
+	if webKeyVerified(r.Context()) {
+		if ip := net.ParseIP(strings.TrimSpace(r.Header.Get(HeaderClientIP))); ip != nil {
+			return ip.String()
+		}
+	}
 	if trustForwardedFor {
 		if parts := strings.Split(r.Header.Get("X-Forwarded-For"), ","); len(parts) > 0 {
 			if ip := strings.TrimSpace(parts[len(parts)-1]); ip != "" {

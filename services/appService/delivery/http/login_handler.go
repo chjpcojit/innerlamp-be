@@ -3,7 +3,6 @@ package http
 import (
 	"context"
 	"errors"
-	"net"
 	"net/http"
 	"strconv"
 	"strings"
@@ -43,14 +42,14 @@ const (
 )
 
 // loginRequest deliberately carries no validate tags: the use case owns the
-// format rules (phone normalization, empty password, required device fields)
+// format rules (email normalisation, empty password, required device fields)
 // and reports them as domain sentinels, so there is one place they can disagree
 // with themselves rather than two. A missing "device" object decodes to the zero
 // value and is rejected by the use case as INVALID_DEVICE.
 type loginRequest struct {
-	PhoneNumber string        `json:"phone_number"`
-	Password    string        `json:"password"`
-	Device      deviceRequest `json:"device"`
+	Email    string        `json:"email"`
+	Password string        `json:"password"`
+	Device   deviceRequest `json:"device"`
 }
 
 // deviceRequest is only what the client can honestly say about itself. The IP
@@ -93,15 +92,15 @@ func (h *LoginHandler) Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	result, err := h.usecase.Login(r.Context(), domain.LoginInput{
-		PhoneNumber: req.PhoneNumber,
-		Password:    req.Password,
+		Email:    req.Email,
+		Password: req.Password,
 		Device: domain.DeviceInfo{
 			Platform:    platform,
 			DeviceModel: req.Device.DeviceModel,
 			OSVersion:   req.Device.OSVersion,
 			AppVersion:  req.Device.AppVersion,
 			DeviceName:  req.Device.DeviceName,
-			IPAddress:   clientIP(r),
+			IPAddress:   rateLimitIP(r, h.tokens.trustForwardedFor),
 			UserAgent:   r.UserAgent(),
 		},
 	})
@@ -175,16 +174,4 @@ func (h *LoginHandler) Logout(w http.ResponseWriter, r *http.Request) {
 	}
 
 	utils.WriteSuccessResponse(w, nil)
-}
-
-// clientIP is the address the request arrived from, without the port. It does
-// not consult X-Forwarded-For: that header is client-controlled unless a trusted
-// proxy overwrites it, and this value only feeds device metadata, never a
-// security decision.
-func clientIP(r *http.Request) string {
-	host, _, err := net.SplitHostPort(r.RemoteAddr)
-	if err != nil {
-		return r.RemoteAddr
-	}
-	return host
 }

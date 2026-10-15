@@ -98,6 +98,14 @@ func main() {
 	if err := cfg.AdministrativeUnits.Validate(); err != nil {
 		log.Fatalf("invalid administrative_units config: %v", err)
 	}
+	// /v1/auth/* is public and sends mail; without valid per-IP budgets and a
+	// daily mail budget it would be an open mail relay, so stop now (login AC31/AC33).
+	if err := cfg.AuthRateLimit.Validate(); err != nil {
+		log.Fatalf("invalid auth_rate_limit config: %v", err)
+	}
+	if err := cfg.Mailer.Validate(); err != nil {
+		log.Fatalf("invalid mailer config: %v", err)
+	}
 
 	// The events route needs a language to read text in and a cache lifetime to send;
 	// both are required, so a missing calendar block stops the service now.
@@ -236,7 +244,10 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to create mailer: %v", err)
 	}
-	authMailer := repository.NewEmailAuthMailer(appMailer, cfg.Mailer.From)
+	// Every auth email spends one unit of mailer.daily_budget first (login AC33).
+	authMailer := repository.NewBudgetedAuthMailer(
+		repository.NewEmailAuthMailer(appMailer, cfg.Mailer.From),
+		rateLimitStore, rlPrefix, cfg.Mailer.DailyBudget)
 	passwordHasher := usecase.NewBcryptPasswordHasher()
 
 	registrationRepo := repository.NewRegistrationRepository(db)
@@ -256,6 +267,7 @@ func main() {
 	)
 	// accessTTL is what jwtService mints access tokens with; handlers report it as expires_in.
 	accessTTL := deliveryhttp.WithAccessTokenTTL(cfg.JWT.AccessTokenExpiration.Duration())
+	trustXFF := deliveryhttp.WithTrustForwardedFor(cfg.AuthRateLimit.TrustForwardedFor)
 	registerHandler := deliveryhttp.NewRegisterHandler(registerUsecase, validator, accessTTL)
 
 	loginRepo := repository.NewLoginRepository(db)
@@ -267,7 +279,19 @@ func main() {
 		cfg.JWT.RefreshTokenExpiration.Duration(),
 		cfg.Login,
 	)
-	loginHandler := deliveryhttp.NewLoginHandler(loginUsecase, accessTTL)
+	loginHandler := deliveryhttp.NewLoginHandler(loginUsecase, accessTTL, trustXFF)
+
+	// US-003: forgot password. Shares the OTP mechanism (otpService) and the
+	// auth mailer with registration.
+	passwordResetUsecase := usecase.NewPasswordResetUsecase(
+		repository.NewPasswordResetRepository(db),
+		otpService,
+		authMailer,
+		passwordHasher,
+		logger,
+		cfg.PasswordReset,
+	)
+	passwordResetHandler := deliveryhttp.NewPasswordResetHandler(passwordResetUsecase, validator)
 
 	// Attestation: each platform selects its own pkg/attestation driver, because
 	// the two backends are asymmetric — android is playintegrity (server-to-
@@ -487,66 +511,95 @@ func main() {
 		ErrorHandler:     deliveryhttp.WriteAuthError,
 	})
 
+	// Login Step A-2: every Bearer route runs the session check after the
+	// token check, so a revoked session is refused on the next request (AC21).
+	// Only POST /v1/auth/logout uses the bare authMiddleware: logout is
+	// idempotent (AC14) and must answer 200 for an already-ended session.
+	activeSession := deliveryhttp.NewActiveSession(loginUsecase)
+	authed := func(next http.HandlerFunc) http.HandlerFunc {
+		return authMiddleware.AuthenticateFunc(activeSession.WrapFunc(next))
+	}
+
 	mux := http.NewServeMux()
 	// US-001: all three routes are public — the caller has no account yet,
 	// so there is nothing to authenticate. See design.md's Overview.
 	// Every /v1/auth/* route goes through webAPIKey: a wrong X-API-Key is 401, a
 	// missing one means mobile (see RequireWebAPIKey).
 	webAPIKey := deliveryhttp.NewRequireWebAPIKey(cfg.Server.WebAPIKey)
-	mux.HandleFunc("POST /v1/auth/register/request-otp", webAPIKey.WrapFunc(registerHandler.RequestOTP))
-	mux.HandleFunc("POST /v1/auth/register/resend-otp", webAPIKey.WrapFunc(registerHandler.ResendOTP))
+	// Per-IP budgets of the /v1/auth/* groups (login AC31). They sit INSIDE
+	// webAPIKey: the client IP can come from X-InnerLamp-Client-IP only once the
+	// key was validated (AC34). Each group is one limiter, so its routes share a budget.
+	authLimit := func(name string, g appConfig.RouteRateLimit) func(http.HandlerFunc) http.HandlerFunc {
+		l, err := deliveryhttp.NewClientIPRateLimit(int64(g.Max), g.Window.Duration(),
+			cfg.AuthRateLimit.TrustForwardedFor, rlScope("auth:"+name+":ip"))
+		if err != nil {
+			log.Fatalf("failed to build auth %s rate limit: %v", name, err)
+		}
+		// no-store outermost, so the 401/429 the wrappers write carry it too (AC18).
+		return func(next http.HandlerFunc) http.HandlerFunc {
+			return deliveryhttp.NoStore{}.WrapFunc(webAPIKey.WrapFunc(l.WrapFunc(next)))
+		}
+	}
+	authSend := authLimit("send", cfg.AuthRateLimit.Send)
+	authVerify := authLimit("verify", cfg.AuthRateLimit.Verify)
+	authLogin := authLimit("login", cfg.AuthRateLimit.Login)
+	authRefresh := authLimit("refresh", cfg.AuthRateLimit.Refresh)
+	mux.HandleFunc("POST /v1/auth/register/request-otp", authSend(registerHandler.RequestOTP))
+	mux.HandleFunc("POST /v1/auth/register/resend-otp", authSend(registerHandler.ResendOTP))
 	// verify-otp, login and refresh return tokens: noStore keeps them out of any cache (AC20).
 	noStore := deliveryhttp.NoStore{}
-	mux.HandleFunc("POST /v1/auth/register/verify-otp", webAPIKey.WrapFunc(noStore.WrapFunc(registerHandler.VerifyOTP)))
+	mux.HandleFunc("POST /v1/auth/register/verify-otp", authVerify(registerHandler.VerifyOTP))
 
 	// US-002: login and refresh are public — the caller proves itself with a
 	// password / refresh token in the body. logout is wrapped: it identifies the
 	// session from the access token's "sid" claim.
-	mux.HandleFunc("POST /v1/auth/login", webAPIKey.WrapFunc(noStore.WrapFunc(loginHandler.Login)))
-	mux.HandleFunc("POST /v1/auth/refresh", webAPIKey.WrapFunc(noStore.WrapFunc(loginHandler.Refresh)))
+	mux.HandleFunc("POST /v1/auth/password-reset/request-otp", authSend(passwordResetHandler.RequestOTP))
+	mux.HandleFunc("POST /v1/auth/password-reset/confirm", authVerify(passwordResetHandler.Confirm))
+	mux.HandleFunc("POST /v1/auth/login", authLogin(loginHandler.Login))
+	mux.HandleFunc("POST /v1/auth/refresh", authRefresh(loginHandler.Refresh))
 	mux.HandleFunc("POST /v1/auth/logout", webAPIKey.WrapFunc(authMiddleware.AuthenticateFunc(loginHandler.Logout)))
 
 	// memorials: private to the logged-in user. The owner is the access token's user_id claim;
 	// there is no route that takes a user id. The photo routes are not here yet (TD-001, memorial).
-	mux.HandleFunc("POST /v1/memorials", authMiddleware.AuthenticateFunc(memorialHandler.Create))
-	mux.HandleFunc("GET /v1/memorials", authMiddleware.AuthenticateFunc(memorialHandler.List))
-	mux.HandleFunc("GET /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Get))
-	mux.HandleFunc("PUT /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Update))
-	mux.HandleFunc("DELETE /v1/memorials/{id}", authMiddleware.AuthenticateFunc(memorialHandler.Delete))
+	mux.HandleFunc("POST /v1/memorials", authed(memorialHandler.Create))
+	mux.HandleFunc("GET /v1/memorials", authed(memorialHandler.List))
+	mux.HandleFunc("GET /v1/memorials/{id}", authed(memorialHandler.Get))
+	mux.HandleFunc("PUT /v1/memorials/{id}", authed(memorialHandler.Update))
+	mux.HandleFunc("DELETE /v1/memorials/{id}", authed(memorialHandler.Delete))
 
 	// profile: five routes under /v1/users/me, each auth → per-account limit → no-store.
-	registerProfileRoutes(mux, authMiddleware.AuthenticateFunc, profileLimit, noStore, profileHandler)
+	registerProfileRoutes(mux, authed, profileLimit, noStore, profileHandler)
 	// temple announcements: three routes under /v1/users/me, auth → their own per-account limit.
-	registerTempleAnnouncementRoutes(mux, authMiddleware.AuthenticateFunc, templeAnnouncementLimit, templeAnnouncementHandler)
+	registerTempleAnnouncementRoutes(mux, authed, templeAnnouncementLimit, templeAnnouncementHandler)
 
 	// genealogies: private to the owner and the people they invited. The caller's role is
 	// resolved from the database on every request (never from the token), and a caller with no
 	// role gets the same 404 as a tree that does not exist.
-	mux.HandleFunc("POST /v1/genealogies", authMiddleware.AuthenticateFunc(genealogyHandler.Create))
-	mux.HandleFunc("GET /v1/genealogies", authMiddleware.AuthenticateFunc(genealogyHandler.List))
-	mux.HandleFunc("GET /v1/genealogies/{id}", authMiddleware.AuthenticateFunc(genealogyHandler.Get))
-	mux.HandleFunc("PUT /v1/genealogies/{id}", authMiddleware.AuthenticateFunc(genealogyHandler.Update))
-	mux.HandleFunc("DELETE /v1/genealogies/{id}", authMiddleware.AuthenticateFunc(genealogyHandler.Delete))
-	mux.HandleFunc("PUT /v1/genealogies/{id}/chronicle", authMiddleware.AuthenticateFunc(genealogyHandler.UpdateChronicle))
-	mux.HandleFunc("GET /v1/genealogies/{id}/members", authMiddleware.AuthenticateFunc(genealogyMemberHandler.List))
-	mux.HandleFunc("POST /v1/genealogies/{id}/members", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Add))
-	mux.HandleFunc("GET /v1/genealogies/{id}/members/{memberId}", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Get))
-	mux.HandleFunc("PUT /v1/genealogies/{id}/members/{memberId}", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Update))
-	mux.HandleFunc("DELETE /v1/genealogies/{id}/members/{memberId}", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Delete))
-	mux.HandleFunc("PUT /v1/genealogies/{id}/members/{memberId}/relation", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Move))
-	mux.HandleFunc("GET /v1/genealogies/{id}/members/{memberId}/profile", authMiddleware.AuthenticateFunc(genealogyMemberHandler.Profile))
-	mux.HandleFunc("POST /v1/genealogies/{id}/invitations", authMiddleware.AuthenticateFunc(genealogyAccessHandler.Invite))
-	mux.HandleFunc("GET /v1/genealogies/{id}/invitations", authMiddleware.AuthenticateFunc(genealogyAccessHandler.ListInvitations))
-	mux.HandleFunc("DELETE /v1/genealogies/{id}/invitations/{invitationId}", authMiddleware.AuthenticateFunc(genealogyAccessHandler.CancelInvitation))
-	mux.HandleFunc("GET /v1/genealogies/{id}/viewers", authMiddleware.AuthenticateFunc(genealogyAccessHandler.ListViewers))
-	mux.HandleFunc("DELETE /v1/genealogies/{id}/viewers/{userId}", authMiddleware.AuthenticateFunc(genealogyAccessHandler.RemoveViewer))
-	mux.HandleFunc("GET /v1/invitations", authMiddleware.AuthenticateFunc(genealogyInvitationHandler.ListMine))
-	mux.HandleFunc("POST /v1/invitations/{id}/accept", authMiddleware.AuthenticateFunc(genealogyInvitationHandler.Accept))
-	mux.HandleFunc("POST /v1/invitations/{id}/decline", authMiddleware.AuthenticateFunc(genealogyInvitationHandler.Decline))
+	mux.HandleFunc("POST /v1/genealogies", authed(genealogyHandler.Create))
+	mux.HandleFunc("GET /v1/genealogies", authed(genealogyHandler.List))
+	mux.HandleFunc("GET /v1/genealogies/{id}", authed(genealogyHandler.Get))
+	mux.HandleFunc("PUT /v1/genealogies/{id}", authed(genealogyHandler.Update))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}", authed(genealogyHandler.Delete))
+	mux.HandleFunc("PUT /v1/genealogies/{id}/chronicle", authed(genealogyHandler.UpdateChronicle))
+	mux.HandleFunc("GET /v1/genealogies/{id}/members", authed(genealogyMemberHandler.List))
+	mux.HandleFunc("POST /v1/genealogies/{id}/members", authed(genealogyMemberHandler.Add))
+	mux.HandleFunc("GET /v1/genealogies/{id}/members/{memberId}", authed(genealogyMemberHandler.Get))
+	mux.HandleFunc("PUT /v1/genealogies/{id}/members/{memberId}", authed(genealogyMemberHandler.Update))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}/members/{memberId}", authed(genealogyMemberHandler.Delete))
+	mux.HandleFunc("PUT /v1/genealogies/{id}/members/{memberId}/relation", authed(genealogyMemberHandler.Move))
+	mux.HandleFunc("GET /v1/genealogies/{id}/members/{memberId}/profile", authed(genealogyMemberHandler.Profile))
+	mux.HandleFunc("POST /v1/genealogies/{id}/invitations", authed(genealogyAccessHandler.Invite))
+	mux.HandleFunc("GET /v1/genealogies/{id}/invitations", authed(genealogyAccessHandler.ListInvitations))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}/invitations/{invitationId}", authed(genealogyAccessHandler.CancelInvitation))
+	mux.HandleFunc("GET /v1/genealogies/{id}/viewers", authed(genealogyAccessHandler.ListViewers))
+	mux.HandleFunc("DELETE /v1/genealogies/{id}/viewers/{userId}", authed(genealogyAccessHandler.RemoveViewer))
+	mux.HandleFunc("GET /v1/invitations", authed(genealogyInvitationHandler.ListMine))
+	mux.HandleFunc("POST /v1/invitations/{id}/accept", authed(genealogyInvitationHandler.Accept))
+	mux.HandleFunc("POST /v1/invitations/{id}/decline", authed(genealogyInvitationHandler.Decline))
 
 	// lamps: no public read — a visitor sees neither the garden nor its counts.
-	mux.HandleFunc("POST /v1/lamps", authMiddleware.AuthenticateFunc(lampHandler.Light))
-	mux.HandleFunc("GET /v1/lamps", authMiddleware.AuthenticateFunc(lampHandler.Garden))
+	mux.HandleFunc("POST /v1/lamps", authed(lampHandler.Light))
+	mux.HandleFunc("GET /v1/lamps", authed(lampHandler.Garden))
 
 	// temple suggestions: public by design (the caller may have no account). webAPIKey
 	// runs first so a wrong key is refused without spending the caller's rate budget;
@@ -586,10 +639,10 @@ func main() {
 
 	// temple schedule: NOT public, unlike the four routes above — it sits under /v1/temples/{id}
 	// but needs a valid access token (US-TSC-001, FR-009).
-	mux.HandleFunc("GET /v1/temples/{id}/schedule", authMiddleware.AuthenticateFunc(templeScheduleHandler.Schedule))
+	mux.HandleFunc("GET /v1/temples/{id}/schedule", authed(templeScheduleHandler.Schedule))
 
 	// temple events: also needs a valid access token (US-TEV-001, FR-012), same reason as /schedule.
-	mux.HandleFunc("GET /v1/temples/{id}/events", authMiddleware.AuthenticateFunc(templeEventHandler.Events))
+	mux.HandleFunc("GET /v1/temples/{id}/events", authed(templeEventHandler.Events))
 
 	// deities: public, like temples. "/top" is a literal segment, so ServeMux
 	// prefers it over "/{id}".
@@ -607,7 +660,7 @@ func main() {
 	mux.HandleFunc("GET /v1/calendar/image", calendarHandler.Image)
 
 	// calendar events: needs a valid access token, like lamps and memorials.
-	mux.HandleFunc("GET /v1/calendar/events", authMiddleware.AuthenticateFunc(calendarEventHandler.Events))
+	mux.HandleFunc("GET /v1/calendar/events", authed(calendarEventHandler.Events))
 
 	// articles: public, like temples. "/top" is a literal segment, so ServeMux
 	// prefers it over "/{id}".

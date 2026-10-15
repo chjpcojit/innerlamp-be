@@ -129,6 +129,15 @@ var (
 	// errors.Is matches.
 	ErrLoginLocked = errors.New("too many failed login attempts, try again later")
 
+	// ErrRateLimited — a budget that is not per-email ran out: today the daily
+	// email budget (login AC33). The typed RateLimitedError carries the wait.
+	ErrRateLimited = errors.New("too many requests, try again later")
+
+	// ErrSessionRevoked — the access token is validly signed but the session
+	// its "sid" names is revoked, expired or not the token user's (login
+	// AC21). Answered 401 like any other unusable token.
+	ErrSessionRevoked = errors.New("session is no longer active")
+
 	// ErrInvalidDevice — the request carried no usable device description,
 	// missing platform or device_model (AC5). Same category as
 	// ErrInvalidPhone: a malformed request, not a guess, so it neither counts
@@ -245,3 +254,13 @@ type LoginLockedError struct {
 func (e *LoginLockedError) Error() string { return ErrLoginLocked.Error() }
 
 func (e *LoginLockedError) Unwrap() error { return ErrLoginLocked }
+
+// RateLimitedError carries how long until the exhausted budget resets; the
+// sentinel ErrRateLimited is what errors.Is matches.
+type RateLimitedError struct {
+	RetryAfter time.Duration
+}
+
+func (e *RateLimitedError) Error() string { return ErrRateLimited.Error() }
+
+func (e *RateLimitedError) Unwrap() error { return ErrRateLimited }

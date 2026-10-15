@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"sync"
 	"sync/atomic"
 	"testing"
 	"time"
@@ -21,25 +22,24 @@ import (
 )
 
 // TestLoginFlow_E2E drives US-002 (docs/specs/features/login/requirements.md,
-// AC1–AC15) against the real binary and a fresh Postgres. Every subtest
-// registers its own phone number, so they share one server without sharing
-// state.
+// AC1–AC15, v2.3) against the real binary and a fresh Postgres. Every subtest
+// registers its own account, so they share one server without sharing state.
 //
 // What is here and not in the per-layer tests: that cmd/main.go wraps logout
 // in the access-token middleware (AC15), that config values reach the running
-// server (AC7 lock threshold/duration, AC8 token lifetimes), and flows that
+// server (AC5 lock threshold/duration, AC7 token lifetimes), and flows that
 // span several HTTP calls with real DB state in between (AC4, AC9–AC14).
 func TestLoginFlow_E2E(t *testing.T) {
 	baseURL, client := newE2EServer(t)
 	api := &apiClient{t: t, baseURL: baseURL, http: client}
 
-	t.Run("AC1/AC8: login returns tokens, user and the configured lifetimes; local phone form accepted", func(t *testing.T) {
+	t.Run("AC1/AC7: login returns tokens, user and the configured lifetimes; email is case- and space-insensitive", func(t *testing.T) {
 		api.t = t
 		phone := api.registerUser()
 
-		// AC1: 0xxxxxxxxx normalises to the same +84 account.
-		localForm := "0" + strings.TrimPrefix(phone, "+84")
-		res := api.post("/v1/auth/login", loginBody(localForm, testPassword, deviceA), "")
+		// AC1: the email is normalised (trim + lower-case) to the same account.
+		typed := "  " + strings.ToUpper(e2eEmail(phone)) + " "
+		res := api.post("/v1/auth/login", loginBodyEmail(typed, testPassword, deviceA), "")
 		require.Equal(t, http.StatusOK, res.status, res.raw)
 
 		var data struct {
@@ -48,20 +48,21 @@ func TestLoginFlow_E2E(t *testing.T) {
 			User         map[string]any `json:"user"`
 		}
 		res.data(&data)
+		assert.Equal(t, e2eEmail(phone), data.User["email"])
 		assert.Equal(t, phone, data.User["phone_number"])
 
 		access := decodeClaims(t, data.AccessToken)
 		assert.Equal(t, "access", access["token_type"])
-		assert.EqualValues(t, 15*60, access["exp"].(float64)-access["iat"].(float64), "AC8: access token lives 15m")
+		assert.EqualValues(t, 15*60, access["exp"].(float64)-access["iat"].(float64), "AC7: access token lives 15m")
 		sid, _ := access["extra"].(map[string]any)["sid"].(string)
-		assert.NotEmpty(t, sid, "AC8: access token carries sid")
+		assert.NotEmpty(t, sid, "AC7: access token carries sid")
 
 		refresh := decodeClaims(t, data.RefreshToken)
 		assert.Equal(t, "refresh", refresh["token_type"])
-		assert.EqualValues(t, 168*3600, refresh["exp"].(float64)-refresh["iat"].(float64), "AC8: refresh token lives 7 days")
+		assert.EqualValues(t, 168*3600, refresh["exp"].(float64)-refresh["iat"].(float64), "AC7: refresh token lives 7 days")
 	})
 
-	t.Run("AC2: wrong password, unknown phone and pending-only phone are byte-identical 401s", func(t *testing.T) {
+	t.Run("AC2: wrong password, unknown email and pending-only email are byte-identical 401s", func(t *testing.T) {
 		api.t = t
 		registered := api.registerUser()
 		pending := api.nextPhone()
@@ -70,7 +71,7 @@ func TestLoginFlow_E2E(t *testing.T) {
 		bodies := map[string]string{}
 		for name, phone := range map[string]string{
 			"wrong password": registered,
-			"unknown phone":  api.nextPhone(),
+			"unknown email":  api.nextPhone(),
 			"pending only":   pending,
 		} {
 			pw := "Wrong-pass-123"
@@ -79,11 +80,11 @@ func TestLoginFlow_E2E(t *testing.T) {
 			assert.Equal(t, "INVALID_CREDENTIALS", res.errorCode(), name)
 			bodies[name] = res.raw
 		}
-		assert.Equal(t, bodies["wrong password"], bodies["unknown phone"])
+		assert.Equal(t, bodies["wrong password"], bodies["unknown email"])
 		assert.Equal(t, bodies["wrong password"], bodies["pending only"])
 	})
 
-	t.Run("AC3/AC4: a new device keeps the old one; the same device again supersedes only itself", func(t *testing.T) {
+	t.Run("AC6: a new device keeps the old one; the same device again supersedes only itself", func(t *testing.T) {
 		api.t = t
 		phone := api.registerUser()
 
@@ -91,18 +92,18 @@ func TestLoginFlow_E2E(t *testing.T) {
 		b := api.login(phone, deviceB)
 		a2 := api.login(phone, deviceA)
 
-		assert.Equal(t, http.StatusUnauthorized, api.refresh(a1.RefreshToken).status, "AC4: device A's first session is superseded")
-		assert.Equal(t, http.StatusOK, api.refresh(b.RefreshToken).status, "AC3: device B untouched")
-		assert.Equal(t, http.StatusOK, api.refresh(a2.RefreshToken).status, "AC4: device A's new session works")
+		assert.Equal(t, http.StatusUnauthorized, api.refresh(a1.RefreshToken).status, "AC6: device A's first session is superseded")
+		assert.Equal(t, http.StatusOK, api.refresh(b.RefreshToken).status, "AC6: device B untouched")
+		assert.Equal(t, http.StatusOK, api.refresh(a2.RefreshToken).status, "AC6: device A's new session works")
 	})
 
-	t.Run("AC5/AC6: malformed requests are 400 and never count toward the lock", func(t *testing.T) {
+	t.Run("AC3/AC4: malformed requests are 400 and never count toward the lock", func(t *testing.T) {
 		api.t = t
 		phone := api.registerUser()
 
 		for i := 0; i < 5; i++ {
 			res := api.post("/v1/auth/login", map[string]any{
-				"phone_number": phone, "password": testPassword, "device": map[string]any{"platform": "ios"},
+				"email": e2eEmail(phone), "password": testPassword, "device": map[string]any{"platform": "ios"},
 			}, "")
 			require.Equal(t, http.StatusBadRequest, res.status)
 			require.Equal(t, "INVALID_DEVICE", res.errorCode())
@@ -111,15 +112,15 @@ func TestLoginFlow_E2E(t *testing.T) {
 			require.Equal(t, http.StatusBadRequest, res.status)
 			require.Equal(t, "INVALID_PASSWORD", res.errorCode())
 
-			res = api.post("/v1/auth/login", loginBody("not-a-phone", testPassword, deviceA), "")
+			res = api.post("/v1/auth/login", loginBodyEmail("not-an-email", testPassword, deviceA), "")
 			require.Equal(t, http.StatusBadRequest, res.status)
-			require.Equal(t, "INVALID_PHONE", res.errorCode())
+			require.Equal(t, "INVALID_EMAIL", res.errorCode())
 		}
 
 		api.login(phone, deviceA) // 200 — 15 rejected requests did not lock it
 	})
 
-	t.Run("AC7: fifth failure locks for 15 minutes, even the correct password and even with no account", func(t *testing.T) {
+	t.Run("AC5: fifth failure locks for 15 minutes, even the correct password and even with no account", func(t *testing.T) {
 		api.t = t
 		for name, phone := range map[string]string{
 			"registered": api.registerUser(),
@@ -138,6 +139,49 @@ func TestLoginFlow_E2E(t *testing.T) {
 			require.NoError(t, err)
 			assert.WithinDuration(t, time.Now().Add(15*time.Minute), lockedUntil, time.Minute, name)
 		}
+	})
+
+	t.Run("AC5: the lock is keyed by the normalised email, not by how it is typed", func(t *testing.T) {
+		api.t = t
+		phone := api.registerUser()
+		email := e2eEmail(phone)
+		spellings := []string{email, strings.ToUpper(email), " " + email, "  " + strings.ToUpper(email) + "  ", email}
+		for i, typed := range spellings {
+			res := api.post("/v1/auth/login", loginBodyEmail(typed, "Wrong-pass-123", deviceA), "")
+			require.Equal(t, http.StatusUnauthorized, res.status, "attempt %d", i+1)
+		}
+
+		res := api.post("/v1/auth/login", loginBodyEmail(strings.ToUpper(email), testPassword, deviceA), "")
+		require.Equal(t, http.StatusTooManyRequests, res.status, res.raw)
+		assert.Equal(t, "LOGIN_LOCKED", res.errorCode())
+	})
+
+	t.Run("AC5: ten concurrent wrong passwords get five 401s and five 429s", func(t *testing.T) {
+		api.t = t
+		email := e2eEmail(api.registerUser())
+
+		var wg sync.WaitGroup
+		codes := make(chan int, 10)
+		for range 10 {
+			wg.Go(func() {
+				b, _ := json.Marshal(loginBodyEmail(email, "Wrong-pass-123", deviceA))
+				resp, err := api.http.Post(api.baseURL+"/v1/auth/login", "application/json", bytes.NewReader(b))
+				if err != nil {
+					codes <- -1
+					return
+				}
+				_ = resp.Body.Close()
+				codes <- resp.StatusCode
+			})
+		}
+		wg.Wait()
+		close(codes)
+
+		got := map[int]int{}
+		for c := range codes {
+			got[c]++
+		}
+		assert.Equal(t, map[int]int{http.StatusUnauthorized: 5, http.StatusTooManyRequests: 5}, got)
 	})
 
 	t.Run("AC9/AC10/AC11: rotate, reject bad tokens, and revoke on reuse of the previous token", func(t *testing.T) {
@@ -310,8 +354,15 @@ type tokenPair struct {
 	RefreshToken string `json:"refresh_token"`
 }
 
+// loginBody is a login request for the account registered under phone (the
+// harness derives its email, see e2eEmail). Pass a raw email through
+// loginBodyEmail to try other spellings.
 func loginBody(phone, password string, device map[string]any) map[string]any {
-	return map[string]any{"phone_number": phone, "password": password, "device": device}
+	return loginBodyEmail(e2eEmail(phone), password, device)
+}
+
+func loginBodyEmail(email, password string, device map[string]any) map[string]any {
+	return map[string]any{"email": email, "password": password, "device": device}
 }
 
 // --- HTTP client -----------------------------------------------------------
@@ -381,6 +432,35 @@ func (c *apiClient) post(path string, body any, bearer string) *apiResponse {
 	return res
 }
 
+// postWithHeaders is post with extra request headers (e.g. X-API-Key); a nil
+// body sends none.
+func (c *apiClient) postWithHeaders(path string, body any, headers map[string]string) *apiResponse {
+	c.t.Helper()
+	var reader io.Reader
+	if body != nil {
+		b, err := json.Marshal(body)
+		require.NoError(c.t, err)
+		reader = bytes.NewReader(b)
+	}
+	req, err := http.NewRequest(http.MethodPost, c.baseURL+path, reader)
+	require.NoError(c.t, err)
+	if body != nil {
+		req.Header.Set("Content-Type", "application/json")
+	}
+	for k, v := range headers {
+		req.Header.Set(k, v)
+	}
+	resp, err := c.http.Do(req)
+	require.NoError(c.t, err)
+	defer func() { _ = resp.Body.Close() }()
+	raw, err := io.ReadAll(resp.Body)
+	require.NoError(c.t, err)
+
+	res := &apiResponse{t: c.t, status: resp.StatusCode, header: resp.Header, contentType: resp.Header.Get("Content-Type"), raw: string(raw)}
+	require.NoErrorf(c.t, json.Unmarshal(raw, &res.envelope), "%s %s: body is not the JSON envelope: %q", path, resp.Status, raw)
+	return res
+}
+
 func (c *apiClient) nextPhone() string {
 	return fmt.Sprintf("+849%08d", 10000000+phoneSeq.Add(1))
 }
@@ -390,8 +470,8 @@ func (c *apiClient) nextPhone() string {
 // mailer log.
 const devOTPCode = "111111"
 
-// e2eEmail is the account email the harness registers for phone. Login is
-// still phone-based, so tests keep passing phones around and derive the email.
+// e2eEmail is the account email the harness registers for phone. Tests keep
+// passing the phone around as the account's handle and derive the email.
 func e2eEmail(phone string) string {
 	return strings.TrimPrefix(phone, "+") + "@e2e.example.com"
 }

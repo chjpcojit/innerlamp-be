@@ -5,7 +5,9 @@ package http
 
 import (
 	"errors"
+	"math"
 	"net/http"
+	"strconv"
 
 	"github.com/go-playground/validator/v10"
 
@@ -73,6 +75,17 @@ func writeDomainError(w http.ResponseWriter, err error) {
 	if locked, ok := errors.AsType[*domain.LoginLockedError](err); ok {
 		utils.WriteBusinessError(w, http.StatusTooManyRequests, "LOGIN_LOCKED", domain.ErrLoginLocked.Error(),
 			map[string]any{"locked_until": locked.LockedUntil})
+		return
+	}
+
+	if limited, ok := errors.AsType[*domain.RateLimitedError](err); ok {
+		retryAfter := int64(math.Ceil(limited.RetryAfter.Seconds()))
+		if retryAfter < 1 {
+			retryAfter = 1
+		}
+		w.Header().Set("Retry-After", strconv.FormatInt(retryAfter, 10))
+		utils.WriteBusinessError(w, http.StatusTooManyRequests, "RATE_LIMITED", "too many requests",
+			map[string]any{"retry_after_seconds": retryAfter})
 		return
 	}
 

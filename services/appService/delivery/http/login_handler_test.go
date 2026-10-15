@@ -25,15 +25,15 @@ func newLoginTestHandler() (*LoginHandler, *mockLoginUsecase) {
 	return NewLoginHandler(uc), uc
 }
 
-const validLoginBody = `{"phone_number":"0901234567","password":"secret123","device":{"platform":"ios","device_model":"iPhone 15","os_version":"17.4","app_version":"1.0.0","device_name":"My phone"}}`
+const validLoginBody = `{"email":"User@Example.com","password":"secret123","device":{"platform":"ios","device_model":"iPhone 15","os_version":"17.4","app_version":"1.0.0","device_name":"My phone"}}`
 
 func TestLoginHandler_Login(t *testing.T) {
 	t.Run("success maps body and request metadata into the input and returns 200 (AC1)", func(t *testing.T) {
 		h, uc := newLoginTestHandler()
 		created := time.Date(2026, 1, 2, 3, 4, 5, 0, time.UTC)
 		uc.On("Login", mock.Anything, domain.LoginInput{
-			PhoneNumber: "0901234567",
-			Password:    "secret123",
+			Email:    "User@Example.com",
+			Password: "secret123",
 			Device: domain.DeviceInfo{
 				Platform: "ios", DeviceModel: "iPhone 15", OSVersion: "17.4", AppVersion: "1.0.0", DeviceName: "My phone",
 				IPAddress: "203.0.113.9", UserAgent: "innerlamp-ios/1.0",
@@ -66,7 +66,7 @@ func TestLoginHandler_Login(t *testing.T) {
 
 	t.Run("client cannot inject ip_address or user_agent through the body", func(t *testing.T) {
 		h, uc := newLoginTestHandler()
-		rec := doRequest(h.Login, `{"phone_number":"0901234567","password":"x","device":{"platform":"ios","device_model":"m","ip_address":"1.2.3.4"}}`)
+		rec := doRequest(h.Login, `{"email":"User@Example.com","password":"x","device":{"platform":"ios","device_model":"m","ip_address":"1.2.3.4"}}`)
 
 		require.Equal(t, http.StatusBadRequest, rec.Code)
 		assert.Equal(t, "VALIDATION_ERROR", decodeErrorBody(t, rec).Code)
@@ -76,8 +76,8 @@ func TestLoginHandler_Login(t *testing.T) {
 	t.Run("body errors are 400 and never reach the use case", func(t *testing.T) {
 		for name, body := range map[string]string{
 			"empty":         ``,
-			"malformed":     `{"phone_number":`,
-			"unknown field": `{"phone_number":"0901234567","password":"x","nope":1}`,
+			"malformed":     `{"email":`,
+			"unknown field": `{"email":"User@Example.com","password":"x","nope":1}`,
 		} {
 			t.Run(name, func(t *testing.T) {
 				h, uc := newLoginTestHandler()
@@ -93,7 +93,7 @@ func TestLoginHandler_Login(t *testing.T) {
 		h, uc := newLoginTestHandler()
 		// Over DecodeJSONBodyStrict's 1 MB cap; valid JSON otherwise, so only
 		// the size gate can reject it.
-		oversized := `{"phone_number":"0901234567","password":"` + strings.Repeat("x", 1<<20) + `"}`
+		oversized := `{"email":"User@Example.com","password":"` + strings.Repeat("x", 1<<20) + `"}`
 		rec := doRequest(h.Login, oversized)
 
 		require.Equal(t, http.StatusRequestEntityTooLarge, rec.Code)
@@ -113,10 +113,10 @@ func TestLoginHandler_Login(t *testing.T) {
 	}{
 		{"invalid credentials (AC2)", domain.ErrInvalidCredentials, http.StatusUnauthorized, "INVALID_CREDENTIALS", nil},
 		{"wrapped invalid credentials", wrapErr(domain.ErrInvalidCredentials), http.StatusUnauthorized, "INVALID_CREDENTIALS", nil},
-		{"locked (AC7)", &domain.LoginLockedError{LockedUntil: lockedUntil}, http.StatusTooManyRequests, "LOGIN_LOCKED", map[string]any{"locked_until": lockedUntil.Format(time.RFC3339)}},
-		{"invalid device (AC5)", domain.ErrInvalidDevice, http.StatusBadRequest, "INVALID_DEVICE", map[string]any{"field": "device"}},
-		{"invalid phone (AC6)", domain.ErrInvalidPhone, http.StatusBadRequest, "INVALID_PHONE", map[string]any{"field": "phone_number"}},
-		{"invalid password (AC6)", domain.ErrInvalidPassword, http.StatusBadRequest, "INVALID_PASSWORD", map[string]any{"field": "password"}},
+		{"locked (AC5)", &domain.LoginLockedError{LockedUntil: lockedUntil}, http.StatusTooManyRequests, "LOGIN_LOCKED", map[string]any{"locked_until": lockedUntil.Format(time.RFC3339)}},
+		{"invalid device (AC4)", domain.ErrInvalidDevice, http.StatusBadRequest, "INVALID_DEVICE", map[string]any{"field": "device"}},
+		{"invalid email (AC3)", domain.ErrInvalidEmail, http.StatusBadRequest, "INVALID_EMAIL", map[string]any{"field": "email"}},
+		{"invalid password (AC3)", domain.ErrInvalidPassword, http.StatusBadRequest, "INVALID_PASSWORD", map[string]any{"field": "password"}},
 		{"unmapped infra error", errUnmapped, http.StatusInternalServerError, "INTERNAL_ERROR", nil},
 	}
 	for _, tc := range errorCases {
@@ -136,8 +136,8 @@ func TestLoginHandler_Login(t *testing.T) {
 }
 
 func TestLoginHandler_Login_Platform(t *testing.T) {
-	const noPlatformBody = `{"phone_number":"0901234567","password":"secret123","device":{"device_model":"Pixel 8"}}`
-	const webBody = `{"phone_number":"0901234567","password":"secret123","device":{"platform":"web","device_model":"Chrome 126"}}`
+	const noPlatformBody = `{"email":"User@Example.com","password":"secret123","device":{"device_model":"Pixel 8"}}`
+	const webBody = `{"email":"User@Example.com","password":"secret123","device":{"platform":"web","device_model":"Chrome 126"}}`
 	result := &domain.LoginResult{User: &domain.User{ID: 1}, AccessToken: "a", RefreshToken: "r"}
 
 	login := func(h *LoginHandler, body string, verified bool) *httptest.ResponseRecorder {

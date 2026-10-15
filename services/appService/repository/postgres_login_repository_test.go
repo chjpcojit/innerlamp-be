@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"database/sql"
 	"errors"
 	"strconv"
 	"sync"
@@ -54,34 +55,52 @@ func countActiveSessions(t *testing.T, db database.Database, userID int64) int {
 	return n
 }
 
+// findLoginAttempt reads the counter row for email; nil when there is none.
+func findLoginAttempt(t *testing.T, db database.Database, email string) *domain.LoginAttempt {
+	t.Helper()
+	var (
+		a           = domain.LoginAttempt{Email: email}
+		lockedUntil *time.Time
+	)
+	err := db.QueryRow(context.Background(),
+		`SELECT failed_count, locked_until, last_failed_at FROM login_attempts WHERE email = $1`, email).
+		Scan(&a.FailedCount, &lockedUntil, &a.LastFailedAt)
+	if errors.Is(err, sql.ErrNoRows) {
+		return nil
+	}
+	require.NoError(t, err)
+	a.LockedUntil = lockedUntil
+	return &a
+}
+
 func TestLoginRepository_FindUser(t *testing.T) {
 	db := connectTestDB(t)
 	repo := NewLoginRepository(db)
 	ctx := context.Background()
 
-	t.Run("by phone found", func(t *testing.T) {
+	t.Run("by email found", func(t *testing.T) {
 		truncateAll(t, db)
 		id := insertUser(t, db, "+84900000101", "a@example.com")
 
-		u, err := repo.FindUserByPhone(ctx, "+84900000101")
+		u, err := repo.FindUserByEmail(ctx, "a@example.com")
 		require.NoError(t, err)
 		assert.Equal(t, id, u.ID)
-		assert.Equal(t, "a@example.com", u.Email)
+		assert.Equal(t, "+84900000101", u.PhoneNumber)
 		assert.Equal(t, "x", u.PasswordHash)
-		assert.Nil(t, u.EmailVerifiedAt)
+		assert.Nil(t, u.EmailVerifiedAt, "an unverified account is returned; the use case refuses it")
 		assert.Nil(t, u.DharmaName)
 	})
 
-	t.Run("by phone missing is ErrUserNotFound", func(t *testing.T) {
+	t.Run("by email missing is ErrUserNotFound", func(t *testing.T) {
 		truncateAll(t, db)
-		_, err := repo.FindUserByPhone(ctx, "+84900000199")
+		_, err := repo.FindUserByEmail(ctx, "nobody@example.com")
 		assert.ErrorIs(t, err, domain.ErrUserNotFound)
 	})
 
-	t.Run("phone only in pending_registration is ErrUserNotFound (AC2)", func(t *testing.T) {
+	t.Run("email only in pending_registration is ErrUserNotFound (AC2)", func(t *testing.T) {
 		truncateAll(t, db)
 		insertPending(t, db, "+84900000102", "p@example.com", time.Now().Add(time.Hour))
-		_, err := repo.FindUserByPhone(ctx, "+84900000102")
+		_, err := repo.FindUserByEmail(ctx, "p@example.com")
 		assert.ErrorIs(t, err, domain.ErrUserNotFound)
 	})
 
@@ -97,105 +116,109 @@ func TestLoginRepository_FindUser(t *testing.T) {
 	})
 }
 
-func TestLoginRepository_FindLoginAttempt(t *testing.T) {
+func TestLoginRepository_ReserveLoginAttempt(t *testing.T) {
 	db := connectTestDB(t)
 	repo := NewLoginRepository(db)
 	ctx := context.Background()
+	const email = "lock@example.com"
 
-	t.Run("no row is nil,nil", func(t *testing.T) {
-		truncateAll(t, db)
-		a, err := repo.FindLoginAttempt(ctx, "+84900000201")
+	reserve := func(t *testing.T, resetWindow time.Duration) *domain.LoginAttempt {
+		t.Helper()
+		a, err := repo.ReserveLoginAttempt(ctx, email, 5, 15*time.Minute, resetWindow)
 		require.NoError(t, err)
-		assert.Nil(t, a)
-	})
+		return a
+	}
 
-	t.Run("row read back", func(t *testing.T) {
-		truncateAll(t, db)
-		_, err := repo.RecordLoginFailure(ctx, "+84900000202", 5, 15*time.Minute, 15*time.Minute)
-		require.NoError(t, err)
-
-		a, err := repo.FindLoginAttempt(ctx, "+84900000202")
-		require.NoError(t, err)
-		require.NotNil(t, a)
-		assert.Equal(t, 1, a.FailedCount)
-		assert.Nil(t, a.LockedUntil)
-	})
-}
-
-func TestLoginRepository_RecordLoginFailure(t *testing.T) {
-	db := connectTestDB(t)
-	repo := NewLoginRepository(db)
-	ctx := context.Background()
-	const phone = "+84900000301"
-
-	t.Run("counts up and locks on the fifth failure", func(t *testing.T) {
+	t.Run("counts up and locks on the fifth attempt", func(t *testing.T) {
 		truncateAll(t, db)
 		for i := 1; i <= 4; i++ {
-			a, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, 15*time.Minute)
-			require.NoError(t, err)
+			a := reserve(t, 15*time.Minute)
 			assert.Equal(t, i, a.FailedCount)
-			assert.Nil(t, a.LockedUntil, "failure %d must not lock", i)
+			assert.Nil(t, a.LockedUntil, "attempt %d must not lock", i)
+			assert.False(t, a.AlreadyLocked)
 		}
 
-		a, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, 15*time.Minute)
-		require.NoError(t, err)
+		a := reserve(t, 15*time.Minute)
 		assert.Equal(t, 5, a.FailedCount)
 		require.NotNil(t, a.LockedUntil)
 		assert.WithinDuration(t, time.Now().Add(15*time.Minute), *a.LockedUntil, 10*time.Second)
+		assert.False(t, a.AlreadyLocked, "the attempt that trips the lock is still counted and compared")
 	})
 
-	t.Run("failure older than the reset window restarts at 1", func(t *testing.T) {
+	t.Run("while locked nothing changes and AlreadyLocked is set", func(t *testing.T) {
+		truncateAll(t, db)
+		for range 5 {
+			reserve(t, 15*time.Minute)
+		}
+		before := findLoginAttempt(t, db, email)
+
+		a := reserve(t, 15*time.Minute)
+		assert.True(t, a.AlreadyLocked)
+		assert.Equal(t, 5, a.FailedCount)
+		require.NotNil(t, a.LockedUntil)
+		assert.True(t, before.LockedUntil.Equal(*a.LockedUntil), "the lock deadline must not move")
+
+		after := findLoginAttempt(t, db, email)
+		assert.Equal(t, before.FailedCount, after.FailedCount)
+		assert.True(t, before.LastFailedAt.Equal(after.LastFailedAt))
+	})
+
+	t.Run("attempt older than the reset window restarts at 1", func(t *testing.T) {
 		truncateAll(t, db)
 		for range 3 {
-			_, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, 15*time.Minute)
-			require.NoError(t, err)
+			reserve(t, 15*time.Minute)
 		}
-		_, err := db.Exec(ctx, `UPDATE login_attempts SET last_failed_at = now() - interval '16 minutes' WHERE phone_number = $1`, phone)
+		_, err := db.Exec(ctx, `UPDATE login_attempts SET last_failed_at = now() - interval '16 minutes' WHERE email = $1`, email)
 		require.NoError(t, err)
 
-		a, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, 15*time.Minute)
-		require.NoError(t, err)
+		a := reserve(t, 15*time.Minute)
 		assert.Equal(t, 1, a.FailedCount)
 		assert.Nil(t, a.LockedUntil)
 	})
 
-	t.Run("failure inside the reset window keeps counting", func(t *testing.T) {
+	t.Run("attempt inside the reset window keeps counting", func(t *testing.T) {
 		truncateAll(t, db)
 		for range 3 {
-			_, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, 15*time.Minute)
-			require.NoError(t, err)
+			reserve(t, 15*time.Minute)
 		}
-		_, err := db.Exec(ctx, `UPDATE login_attempts SET last_failed_at = now() - interval '14 minutes' WHERE phone_number = $1`, phone)
+		_, err := db.Exec(ctx, `UPDATE login_attempts SET last_failed_at = now() - interval '14 minutes' WHERE email = $1`, email)
 		require.NoError(t, err)
 
-		a, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, 15*time.Minute)
-		require.NoError(t, err)
+		a := reserve(t, 15*time.Minute)
 		assert.Equal(t, 4, a.FailedCount)
 	})
 
 	t.Run("expired lock restarts at 1", func(t *testing.T) {
 		truncateAll(t, db)
 		for range 5 {
-			_, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, time.Hour)
-			require.NoError(t, err)
+			reserve(t, time.Hour)
 		}
-		_, err := db.Exec(ctx, `UPDATE login_attempts SET locked_until = now() - interval '1 second' WHERE phone_number = $1`, phone)
+		_, err := db.Exec(ctx, `UPDATE login_attempts SET locked_until = now() - interval '1 second' WHERE email = $1`, email)
 		require.NoError(t, err)
 
-		a, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, time.Hour)
-		require.NoError(t, err)
+		a := reserve(t, time.Hour)
 		assert.Equal(t, 1, a.FailedCount)
 		assert.Nil(t, a.LockedUntil)
+		assert.False(t, a.AlreadyLocked)
 	})
 
-	t.Run("concurrent failures never lose a count and lock at the threshold", func(t *testing.T) {
+	// AC5: ten concurrent wrong-password requests get at most five password
+	// comparisons — the reservation is what the use case gates the comparison
+	// on, so "not AlreadyLocked" is exactly "compared".
+	t.Run("10 concurrent attempts admit at most 5 comparisons (AC5)", func(t *testing.T) {
 		truncateAll(t, db)
-		const workers = 12
-		var wg sync.WaitGroup
-		errs := make(chan error, workers)
+		const workers = 10
+		var (
+			wg       sync.WaitGroup
+			admitted atomic.Int32
+			errs     = make(chan error, workers)
+		)
 		for range workers {
 			wg.Go(func() {
-				_, err := repo.RecordLoginFailure(ctx, phone, 5, 15*time.Minute, 15*time.Minute)
+				a, err := repo.ReserveLoginAttempt(ctx, email, 5, 15*time.Minute, 15*time.Minute)
+				if err == nil && !a.AlreadyLocked {
+					admitted.Add(1)
+				}
 				errs <- err
 			})
 		}
@@ -205,9 +228,9 @@ func TestLoginRepository_RecordLoginFailure(t *testing.T) {
 			require.NoError(t, err)
 		}
 
-		a, err := repo.FindLoginAttempt(ctx, phone)
-		require.NoError(t, err)
-		assert.Equal(t, workers, a.FailedCount, "every concurrent failure must be counted exactly once")
+		assert.Equal(t, int32(5), admitted.Load())
+		a := findLoginAttempt(t, db, email)
+		assert.Equal(t, 5, a.FailedCount)
 		assert.NotNil(t, a.LockedUntil)
 	})
 }
@@ -311,26 +334,24 @@ func TestLoginRepository_CreateLoginSession(t *testing.T) {
 		assert.False(t, revoked)
 	})
 
-	t.Run("clears the brute-force counter (AC7)", func(t *testing.T) {
+	t.Run("clears the brute-force counter (AC5)", func(t *testing.T) {
 		truncateAll(t, db)
 		user := loginTestUser(t, db, "+84900000406")
 		for range 3 {
-			_, err := repo.RecordLoginFailure(ctx, user.PhoneNumber, 5, 15*time.Minute, 15*time.Minute)
+			_, err := repo.ReserveLoginAttempt(ctx, user.Email, 5, 15*time.Minute, 15*time.Minute)
 			require.NoError(t, err)
 		}
 
 		_, err := repo.CreateLoginSession(ctx, user, testDevice("iPhone 15"), testSessionTTL, uniqueTokenIssuer)
 		require.NoError(t, err)
 
-		a, err := repo.FindLoginAttempt(ctx, user.PhoneNumber)
-		require.NoError(t, err)
-		assert.Nil(t, a)
+		assert.Nil(t, findLoginAttempt(t, db, user.Email))
 	})
 
 	t.Run("issuer failure rolls back everything", func(t *testing.T) {
 		truncateAll(t, db)
 		user := loginTestUser(t, db, "+84900000407")
-		_, err := repo.RecordLoginFailure(ctx, user.PhoneNumber, 5, 15*time.Minute, 15*time.Minute)
+		_, err := repo.ReserveLoginAttempt(ctx, user.Email, 5, 15*time.Minute, 15*time.Minute)
 		require.NoError(t, err)
 
 		boom := errors.New("mint failed")
@@ -344,9 +365,7 @@ func TestLoginRepository_CreateLoginSession(t *testing.T) {
 		assert.Zero(t, devices)
 		assert.Zero(t, sessions)
 
-		a, err := repo.FindLoginAttempt(ctx, user.PhoneNumber)
-		require.NoError(t, err)
-		assert.NotNil(t, a, "a rolled-back login must not have cleared the counter")
+		assert.NotNil(t, findLoginAttempt(t, db, user.Email), "a rolled-back login must not have cleared the counter")
 	})
 
 	t.Run("issuer receives the numeric user id and the stored session id", func(t *testing.T) {
@@ -638,5 +657,158 @@ func TestLoginRepository_RevokeSession(t *testing.T) {
 		var revoked bool
 		require.NoError(t, db.QueryRow(ctx, `SELECT is_revoked FROM user_sessions WHERE id = $1`, rowID).Scan(&revoked))
 		assert.False(t, revoked)
+	})
+}
+
+func TestLoginRepository_IsSessionActive(t *testing.T) {
+	db := connectTestDB(t)
+	repo := NewLoginRepository(db)
+	ctx := context.Background()
+
+	truncateAll(t, db)
+	user := loginTestUser(t, db, "+84900000501")
+	other := loginTestUser(t, db, "+84900000502")
+	_, rowID := seedSession(t, db, repo, user)
+	sid := sessionIDOf(t, db, rowID)
+
+	active, err := repo.IsSessionActive(ctx, user.ID, sid)
+	require.NoError(t, err)
+	assert.True(t, active)
+
+	t.Run("another user's id does not vouch for the session", func(t *testing.T) {
+		active, err := repo.IsSessionActive(ctx, other.ID, sid)
+		require.NoError(t, err)
+		assert.False(t, active)
+	})
+
+	t.Run("unknown session", func(t *testing.T) {
+		active, err := repo.IsSessionActive(ctx, user.ID, "nope")
+		require.NoError(t, err)
+		assert.False(t, active)
+	})
+
+	t.Run("expired session", func(t *testing.T) {
+		_, err := db.Exec(ctx, `UPDATE user_sessions SET expires_at = now() - interval '1 second' WHERE session_id = $1`, sid)
+		require.NoError(t, err)
+		active, err := repo.IsSessionActive(ctx, user.ID, sid)
+		require.NoError(t, err)
+		assert.False(t, active)
+	})
+
+	t.Run("revoked session", func(t *testing.T) {
+		_, err := db.Exec(ctx, `UPDATE user_sessions SET expires_at = now() + interval '1 day' WHERE session_id = $1`, sid)
+		require.NoError(t, err)
+		require.NoError(t, repo.RevokeSession(ctx, user.ID, sid, domain.RevokeReasonLogout))
+		active, err := repo.IsSessionActive(ctx, user.ID, sid)
+		require.NoError(t, err)
+		assert.False(t, active)
+	})
+}
+
+func insertVerifiedUser(t *testing.T, db database.Database, phone, email string) int64 {
+	t.Helper()
+	var id int64
+	require.NoError(t, db.QueryRow(context.Background(),
+		`INSERT INTO users (email, email_verified_at, phone_number, password_hash) VALUES ($1, now(), $2, 'old-hash') RETURNING id`,
+		email, phone).Scan(&id))
+	return id
+}
+
+func TestPasswordResetRepository(t *testing.T) {
+	db := connectTestDB(t)
+	repo := NewPasswordResetRepository(db)
+	logins := NewLoginRepository(db)
+	ctx := context.Background()
+
+	insertOTP := func(t *testing.T, email string) int64 {
+		t.Helper()
+		var id int64
+		require.NoError(t, db.QueryRow(ctx,
+			`INSERT INTO otp_codes (email, purpose, otp_hash, expires_at) VALUES ($1, 'reset_password', 'h', now() + interval '10 minutes') RETURNING id`,
+			email).Scan(&id))
+		return id
+	}
+
+	t.Run("FindVerifiedUserByEmail: verified only", func(t *testing.T) {
+		truncateAll(t, db)
+		id := insertVerifiedUser(t, db, "+84900000601", "v@example.com")
+		insertUser(t, db, "+84900000602", "u@example.com") // email_verified_at NULL
+		insertPending(t, db, "+84900000603", "p@example.com", time.Now().Add(time.Hour))
+
+		u, err := repo.FindVerifiedUserByEmail(ctx, "v@example.com")
+		require.NoError(t, err)
+		assert.Equal(t, id, u.ID)
+
+		for _, email := range []string{"u@example.com", "p@example.com", "none@example.com"} {
+			_, err := repo.FindVerifiedUserByEmail(ctx, email)
+			assert.ErrorIs(t, err, domain.ErrUserNotFound, email)
+		}
+	})
+
+	t.Run("ResetPassword: password, code, every session and the lock change together (AC28)", func(t *testing.T) {
+		truncateAll(t, db)
+		const email = "r@example.com"
+		id := insertVerifiedUser(t, db, "+84900000604", email)
+		user := &domain.User{ID: id, Email: email, PhoneNumber: "+84900000604"}
+		for _, model := range []string{"iPhone", "Pixel"} {
+			_, err := logins.CreateLoginSession(ctx, user, testDevice(model), testSessionTTL, uniqueTokenIssuer)
+			require.NoError(t, err)
+		}
+		for range 5 {
+			_, err := logins.ReserveLoginAttempt(ctx, email, 5, 15*time.Minute, 15*time.Minute)
+			require.NoError(t, err)
+		}
+		require.NotNil(t, findLoginAttempt(t, db, email))
+		otpID := insertOTP(t, email)
+
+		require.NoError(t, repo.ResetPassword(ctx, id, "new-hash", otpID))
+
+		var hash string
+		require.NoError(t, db.QueryRow(ctx, `SELECT password_hash FROM users WHERE id = $1`, id).Scan(&hash))
+		assert.Equal(t, "new-hash", hash)
+
+		var active int
+		require.NoError(t, db.QueryRow(ctx, `SELECT count(*) FROM user_sessions WHERE user_id = $1 AND is_revoked = false`, id).Scan(&active))
+		assert.Zero(t, active)
+		var reason string
+		require.NoError(t, db.QueryRow(ctx, `SELECT DISTINCT revoked_reason FROM user_sessions WHERE user_id = $1`, id).Scan(&reason))
+		assert.Equal(t, domain.RevokeReasonPasswordReset, reason)
+
+		var usedAt *time.Time
+		require.NoError(t, db.QueryRow(ctx, `SELECT used_at FROM otp_codes WHERE id = $1`, otpID).Scan(&usedAt))
+		assert.NotNil(t, usedAt)
+
+		assert.Nil(t, findLoginAttempt(t, db, email), "the sign-in lock is lifted")
+	})
+
+	t.Run("a used code cannot reset again and changes nothing", func(t *testing.T) {
+		truncateAll(t, db)
+		const email = "twice@example.com"
+		id := insertVerifiedUser(t, db, "+84900000605", email)
+		otpID := insertOTP(t, email)
+		require.NoError(t, repo.ResetPassword(ctx, id, "first", otpID))
+
+		err := repo.ResetPassword(ctx, id, "second", otpID)
+
+		assert.ErrorIs(t, err, domain.ErrOTPExpired)
+		var hash string
+		require.NoError(t, db.QueryRow(ctx, `SELECT password_hash FROM users WHERE id = $1`, id).Scan(&hash))
+		assert.Equal(t, "first", hash)
+	})
+
+	t.Run("other users' sessions and counters are untouched", func(t *testing.T) {
+		truncateAll(t, db)
+		id := insertVerifiedUser(t, db, "+84900000606", "a@example.com")
+		other := loginTestUser(t, db, "+84900000607")
+		_, err := logins.CreateLoginSession(ctx, other, testDevice("iPhone"), testSessionTTL, uniqueTokenIssuer)
+		require.NoError(t, err)
+		_, err = logins.ReserveLoginAttempt(ctx, other.Email, 5, 15*time.Minute, 15*time.Minute)
+		require.NoError(t, err)
+		otpID := insertOTP(t, "a@example.com")
+
+		require.NoError(t, repo.ResetPassword(ctx, id, "h", otpID))
+
+		assert.Equal(t, 1, countActiveSessions(t, db, other.ID))
+		assert.NotNil(t, findLoginAttempt(t, db, other.Email))
 	})
 }

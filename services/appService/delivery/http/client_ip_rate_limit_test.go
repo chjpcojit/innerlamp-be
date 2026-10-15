@@ -114,3 +114,62 @@ func TestNewClientIPRateLimit_RejectsInvalidLimit(t *testing.T) {
 	_, err = NewClientIPRateLimit(5, 0, false)
 	assert.Error(t, err)
 }
+
+// TestRateLimitIP_Resolution covers login AC34's order: (a) the forwarded
+// header only with a valid key and a parsable single IP, (b) last XFF entry when
+// trusted, (c) the connection.
+func TestRateLimitIP_Resolution(t *testing.T) {
+	build := func(keyOK bool, clientIPHeader, xff string) *http.Request {
+		r := fromIP("10.0.0.9", xff)
+		if clientIPHeader != "" {
+			r.Header.Set(HeaderClientIP, clientIPHeader)
+		}
+		if keyOK {
+			r = r.WithContext(withWebKeyVerified(r.Context()))
+		}
+		return r
+	}
+	cases := []struct {
+		name  string
+		r     *http.Request
+		trust bool
+		want  string
+	}{
+		{"valid key + header wins over everything", build(true, "203.0.113.7", "198.51.100.1, 198.51.100.2"), true, "203.0.113.7"},
+		{"IPv6 header is canonicalised", build(true, "2001:DB8::1", ""), false, "2001:db8::1"},
+		{"no key: header ignored, falls to peer", build(false, "203.0.113.7", ""), false, "10.0.0.9"},
+		{"no key: header ignored, falls to XFF when trusted", build(false, "203.0.113.7", "198.51.100.1, 198.51.100.2"), true, "198.51.100.2"},
+		{"garbage header with key falls to XFF when trusted", build(true, "not-an-ip", "198.51.100.1, 198.51.100.2"), true, "198.51.100.2"},
+		{"garbage header with key falls to peer otherwise", build(true, "not-an-ip", "198.51.100.1"), false, "10.0.0.9"},
+		{"two addresses in the header are not one address", build(true, "203.0.113.7, 203.0.113.8", ""), false, "10.0.0.9"},
+		{"XFF ignored when not trusted", build(false, "", "198.51.100.1"), false, "10.0.0.9"},
+	}
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			assert.Equal(t, tc.want, rateLimitIP(tc.r, tc.trust))
+		})
+	}
+}
+
+// TestClientIPRateLimit_ForwardedHeaderGivesVisitorsOwnBuckets: behind the
+// website's server every request shares one TCP peer; with a valid key the
+// visitors' forwarded addresses must be counted separately (AC34 (a)).
+func TestClientIPRateLimit_ForwardedHeaderGivesVisitorsOwnBuckets(t *testing.T) {
+	var calls int
+	rl, err := NewClientIPRateLimit(1, time.Hour, false)
+	require.NoError(t, err)
+	h := rl.WrapFunc(okHandler(&calls))
+
+	send := func(visitor string) int {
+		r := fromIP("10.0.0.9", "")
+		r.Header.Set(HeaderClientIP, visitor)
+		r = r.WithContext(withWebKeyVerified(r.Context()))
+		w := httptest.NewRecorder()
+		h(w, r)
+		return w.Code
+	}
+
+	assert.Equal(t, http.StatusNoContent, send("203.0.113.1"))
+	assert.Equal(t, http.StatusNoContent, send("203.0.113.2"), "another visitor, another bucket")
+	assert.Equal(t, http.StatusTooManyRequests, send("203.0.113.1"))
+}

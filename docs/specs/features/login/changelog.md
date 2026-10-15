@@ -4,6 +4,17 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 folder. All four files share one changelog since they change together as one spec unit. Newest
 version first.
 
+## v2.4 (2026-10-16)
+
+Triển khai Phase 1–6. Một quyết định đổi spec: **đếm giới hạn ở Redis** thay vì bảng Postgres `auth_rate_limits`.
+
+- `requirements.md`: AC32 viết lại (store dùng chung, Redis); Open questions đảo "Đếm giới hạn ở đâu" (anh Đức chọn Redis 2026-10-16); Pending không còn AC nào.
+- `design.md`: bảng Layers đổi hàng rate-limit (dùng `ClientIPRateLimit` có sẵn, `BudgetedAuthMailer` bọc `domain.AuthMailer`); migration là `0038_login_attempts_email.sql`, bỏ `auth_rate_limits`; `ResetLoginAttempts` không có method riêng (xoá trong `CreateLoginSession`); mục "Giới hạn tần suất" viết lại; Known gaps thêm: hết ngân sách thư lộ nhánh có/không tài khoản ở request-otp.
+- `flow.md`: chỉ bump version và Status (Step không đổi).
+- `tasks.md`: Phase 1–6 tick; item `auth_rate_limits`/`postgres_rate_limit_store.go` đánh dấu bỏ.
+- Cross-file follow-ups: `docs/knowledge/features/login.md` (il-okf-writer, Phase 7); `openapi.yaml`; onboarding `design.md` "Migration 0037" bước 5 → `0038`, bước 7 bỏ (đã sửa ở migrations/README).
+- Reason: anh Đức chọn Redis khi tới cổng Phase 5.
+
 ## v2.3 (2026-10-16)
 
 Theo sau onboarding v8.1. Không đổi AC.
