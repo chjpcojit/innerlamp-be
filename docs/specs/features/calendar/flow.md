@@ -1,8 +1,8 @@
 # Flow — calendar
 
-Version: 2.1
-Last updated: 2026-10-11
-Status: US-CAL-002 đã triển khai (mirror `design.md`)
+Version: 3.0
+Last updated: 2026-10-15
+Status: mirror `design.md` v3.0 — bước 1a/1b (route công khai) chưa triển khai
 Module: `calendar`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -15,18 +15,23 @@ File này vẽ lại 1:1 hai section "Step-by-step Flow" của `design.md` (US-C
 sequenceDiagram
     autonumber
     participant C as Client
-    participant A as authMiddleware<br/>(jwt/middleware)
+    participant K as webAPIKey<br/>(RequireWebAPIKey)
+    participant L as calendarEventLimit<br/>(ClientIPRateLimit)
     participant H as CalendarEventHandler<br/>(delivery/http)
     participant U as CalendarEventUsecase
     participant R as CalendarEventRepository
     participant DB as Postgres
 
-    C->>A: GET /v1/calendar/events?year=...
-    alt token access hợp lệ
-        A->>H: Events (user_id trong context)
-    else thiếu / hết hạn / sai loại
-        A--xC: 401 (middleware)
+    Note over C,K: v3.0: route công khai, không đọc Authorization
+    C->>K: GET /v1/calendar/events?year=... [X-API-Key tuỳ chọn]
+    alt có X-API-Key nhưng sai
+        K--xC: 401
     end
+    K->>L: khớp khoá, hoặc không có header (app di động)
+    alt IP vượt calendar.events_rate_limit
+        L--xC: 429
+    end
+    L->>H: Events
 
     H->>U: EventsForYear(ctx, year)
     U->>U: year rỗng → năm hiện tại (calendar.timezone); parse + kiểm tra 1900..2100
@@ -58,7 +63,8 @@ sequenceDiagram
     end
 
     U-->>H: {year, groups, events, occurrences}
-    H->>H: giữ sự kiện có occurrence; map DTO; Cache-Control
+    H->>H: giữ sự kiện có occurrence; map DTO (+ is_major, sort_order, recurrence)
+    H->>H: Cache-Control: year rõ ràng → public, max-age; bỏ trống → no-cache
     H-->>C: 200 {year, groups, events, occurrences}
 ```
 
@@ -80,7 +86,7 @@ sequenceDiagram
     end
 
     S->>P: giải mã strict + Verify
-    alt vi phạm (mã trùng, thiếu tham số quy tắc, nhóm không tồn tại, khoá lạ…)
+    alt vi phạm (mã trùng, thiếu tham số quy tắc, nhóm không tồn tại, khoá lạ, Rằm/Mùng 1 không xếp cuối…)
         P--xS: danh sách vi phạm (tối đa 50)
         S--xO: exit 1, không chạm DB
     end
@@ -99,7 +105,7 @@ sequenceDiagram
     rect rgb(235, 240, 255)
         Note over R,DB: MỘT transaction — ghi đè theo code, không DELETE sự kiện vắng trong file
         R->>DB: upsert calendar_groups
-        R->>DB: upsert calendar_events
+        R->>DB: upsert calendar_events (kèm is_major)
         R->>DB: upsert calendar_event_translations (lang = vi)
         R->>DB: xoá rồi chèn lại calendar_event_groups của từng sự kiện
         alt lỗi DB giữa chừng
