@@ -11,11 +11,12 @@
       "Phật đản đặt 15/4 theo thông lệ GHPGVN; nguồn hoatieu.vn ghi 8/4 là vía đản sanh truyền thống Bắc tông, 15/4 là Đại lễ Tam hợp (Nam tông). Chưa có sự kiện riêng cho 8/4.",
       "Tết Nguyên Đán is_public_holiday cho Giao thừa + mùng 1..4 (5 ngày); Thủ tướng quyết định cụ thể từng năm (Đ.112 khoản 3). Nghỉ bù và ngày nghỉ liền kề 2/9 ngoài phạm vi.",
       "Chưa đối chiếu được trang chính thức GHPGVN: tìm kiếm không ra văn bản liệt kê ngày vía.",
-      "Rằm/mùng 1 đã có lunar_monthly nên các rằm lớn (thuong-nguyen, vu-lan, trung-thu, ha-nguyen) là sự kiện thêm, cùng ngày."
+      "Rằm/mùng 1 đã có lunar_monthly nên các rằm lớn (thuong-nguyen, vu-lan, trung-thu, ha-nguyen) là sự kiện thêm, cùng ngày.",
+      "2026-10-15: thêm via-chuan-de (16/3), via-duoc-vuong (28/4), via-nhien-dang (22/8) lấy từ lunar_memorial_days của danh mục Phật & Bồ Tát (phat_botat.json) để mỗi vị có ngày vía trong lịch (product spec deity BR-DTY-05); chưa đối chiếu nguồn bên ngoài."
     ],
     "counts": {
       "groups": 3,
-      "events": 51
+      "events": 54
     }
   },
   "groups": [
@@ -927,6 +928,60 @@
       "guidance": "Theo dõi thời tiết, mùa vụ.",
       "image_url": null,
       "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "via-chuan-de",
+      "kind": "lunar",
+      "lunar_month": 3,
+      "lunar_day": 16,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 52,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Chuẩn Đề Bồ Tát",
+      "short_description": "16 tháng Ba, ngày vía Chuẩn Đề Bồ Tát.",
+      "long_description": "Chuẩn Đề Bồ Tát được tôn xưng là Thất Câu Chi Phật Mẫu (Mẹ của bảy ức chư Phật); 16 tháng Ba là ngày vía.",
+      "guidance": "Lễ Bồ Tát, trì chú Chuẩn Đề, sám hối.",
+      "image_url": null,
+      "source": "InnerLamp deity catalogue (assets/data/phat_botat.json, lunar_memorial_days) — chưa đối chiếu nguồn bên ngoài (2026-10-15)"
+    },
+    {
+      "code": "via-duoc-vuong",
+      "kind": "lunar",
+      "lunar_month": 4,
+      "lunar_day": 28,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 53,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Dược Vương Bồ Tát",
+      "short_description": "28 tháng Tư, ngày vía Dược Vương Bồ Tát.",
+      "long_description": "Dược Vương Bồ Tát, thị giả của Phật Dược Sư, phát nguyện chữa lành thân bệnh và tâm bệnh cho chúng sinh; 28 tháng Tư là ngày vía.",
+      "guidance": "Lễ Bồ Tát, tụng kinh, cầu an cho người bệnh.",
+      "image_url": null,
+      "source": "InnerLamp deity catalogue (assets/data/phat_botat.json, lunar_memorial_days) — chưa đối chiếu nguồn bên ngoài (2026-10-15)"
+    },
+    {
+      "code": "via-nhien-dang",
+      "kind": "lunar",
+      "lunar_month": 8,
+      "lunar_day": 22,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 54,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Phật Nhiên Đăng",
+      "short_description": "22 tháng Tám, ngày vía Phật Nhiên Đăng.",
+      "long_description": "Phật Nhiên Đăng (Định Quang Như Lai) là vị Cổ Phật đã thụ ký cho tiền thân Phật Thích Ca sau này thành Phật; 22 tháng Tám là ngày vía.",
+      "guidance": "Lễ Phật, thắp đèn cúng dường, tụng kinh.",
+      "image_url": null,
+      "source": "InnerLamp deity catalogue (assets/data/phat_botat.json, lunar_memorial_days) — chưa đối chiếu nguồn bên ngoài (2026-10-15)"
     }
   ]
 }

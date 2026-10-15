@@ -17,6 +17,7 @@
       {"lunar_day": 15, "lunar_month": 4, "event_name": "Ngày Đại lễ Phật Đản (Tam Hợp)"},
       {"lunar_day": 8, "lunar_month": 12, "event_name": "Ngày Thành đạo"}
     ],
+    "via_event_codes": ["phat-xuat-gia", "phat-nhap-niet-ban", "phat-dan", "phat-thanh-dao"],
     "iconography": {
       "posture": "Ngồi kiết già trên tòa sen, nhục kế nổi cao, ngực có thể có tướng chữ Vạn",
       "mount_or_throne": "Tòa Kim Cương ngự hoa sen",
@@ -50,6 +51,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 17, "lunar_month": 11, "event_name": "Ngày Vía Đức Phật A Di Đà"}
     ],
+    "via_event_codes": ["via-a-di-da"],
     "iconography": {
       "posture": "Đứng tiếp dẫn hoặc ngồi kiết già, mắt nhìn xuống cõi thế gian",
       "mount_or_throne": "Đài sen báu nâng đỡ",
@@ -83,6 +85,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 30, "lunar_month": 9, "event_name": "Ngày Vía Đức Phật Dược Sư (Tháng thiếu tính ngày 29)"}
     ],
+    "via_event_codes": ["via-duoc-su"],
     "iconography": {
       "posture": "Ngồi kiết già trên đài sen, toàn thân tỏa ánh sắc xanh lưu ly trong suốt",
       "mount_or_throne": "Tòa sen lưu ly",
@@ -116,6 +119,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 1, "lunar_month": 1, "event_name": "Ngày Vía Đức Phật Di Lặc (Mùng 1 Tết Nguyên Đán)"}
     ],
+    "via_event_codes": ["via-di-lac"],
     "iconography": {
       "posture": "Hình tướng hóa thân Bố Đại Hòa Thượng mập mạp, bụng to, nụ cười hoan hỷ rạng rỡ",
       "mount_or_throne": "Ngồi thoải mái tự tại trên túi vải hoặc tựa gốc cây",
@@ -182,6 +186,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 22, "lunar_month": 8, "event_name": "Ngày Vía Đức Phật Nhiên Đăng"}
     ],
+    "via_event_codes": ["via-nhien-dang"],
     "iconography": {
       "posture": "Đứng hoặc ngồi trang nghiêm cổ kính, tỏa ánh lửa sáng ngời",
       "mount_or_throne": "Tòa sen cổ",
@@ -217,6 +222,7 @@
       {"lunar_day": 19, "lunar_month": 6, "event_name": "Ngày Thành đạo Quán Thế Âm"},
       {"lunar_day": 19, "lunar_month": 9, "event_name": "Ngày Xuất gia Quán Thế Âm"}
     ],
+    "via_event_codes": ["via-quan-the-am-dan-sinh", "via-quan-the-am-thanh-dao", "via-quan-the-am-xuat-gia"],
     "iconography": {
       "posture": "Đứng hoặc ngồi tự tại trên đài sen báu hoặc mây ngũ sắc",
       "mount_or_throne": "Tòa sen hoặc ngự trên đầu rồng (Quán Âm Nam Hải)",
@@ -250,6 +256,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 4, "lunar_month": 4, "event_name": "Ngày Vía Đức Bồ Tát Văn Thù"}
     ],
+    "via_event_codes": ["via-van-thu"],
     "iconography": {
       "posture": "Ngồi kiết già uy dũng trên lưng sư tử xanh",
       "mount_or_throne": "Sư tử xanh (Thanh sư)",
@@ -283,6 +290,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 21, "lunar_month": 2, "event_name": "Ngày Vía Đức Bồ Tát Phổ Hiền"}
     ],
+    "via_event_codes": ["via-pho-hien"],
     "iconography": {
       "posture": "Ngồi trang nghiêm trên lưng voi trắng sáu ngà",
       "mount_or_throne": "Voi trắng sáu ngà (Lục nha bạch tượng)",
@@ -316,6 +324,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 30, "lunar_month": 7, "event_name": "Ngày Vía Bồ Tát Địa Tạng (Tháng thiếu tính ngày 29)"}
     ],
+    "via_event_codes": ["via-dia-tang"],
     "iconography": {
       "posture": "Hiện thân hình tướng một vị Tỳ-kheo đầu tròn xuất gia, nét mặt đại từ bi",
       "mount_or_throne": "Tòa sen hoặc cưỡi linh thú Đề Thính",
@@ -349,6 +358,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 13, "lunar_month": 7, "event_name": "Ngày Vía Đức Bồ Tát Đại Thế Chí"}
     ],
+    "via_event_codes": ["via-dai-the-chi"],
     "iconography": {
       "posture": "Đứng hoặc ngồi kiết già, trên vương miện có bảo bình chứa ánh sáng trí huệ",
       "mount_or_throne": "Tòa sen báu ngát hương",
@@ -382,6 +392,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 16, "lunar_month": 3, "event_name": "Ngày Vía Bồ Tát Chuẩn Đề"}
     ],
+    "via_event_codes": ["via-chuan-de"],
     "iconography": {
       "posture": "Ngồi kiết già trên đài sen, có 3 mắt và 18 cánh tay cầm các loại pháp khí khác nhau",
       "mount_or_throne": "Tòa sen ngự trên hồ nước đỡ bởi hai vị Long vương Nanda và Upananda",
@@ -547,6 +558,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 28, "lunar_month": 4, "event_name": "Ngày Vía Đức Bồ Tát Dược Vương"}
     ],
+    "via_event_codes": ["via-duoc-vuong"],
     "iconography": {
       "posture": "Đứng trang nghiêm trên tòa sen, thân tỏa ánh sáng thuần tịnh",
       "mount_or_throne": "Tòa sen",
