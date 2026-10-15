@@ -1,8 +1,8 @@
 # Requirements — onboarding
 
-Version: 8.0
-Last updated: 2026-10-14
-Status: prospective (v8.0) — đổi xác minh từ SMS sang email theo ADR-0003; chưa có code cho v8.0. Code đang chạy là bản v7.5 (OTP qua SMS, cố định `111111`), xem bảng "Thay đổi so với code hiện tại".
+Version: 8.1
+Last updated: 2026-10-16
+Status: implemented (v8.1) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
 Module: `identity`
 Code: `services/appService/`
 Product spec: `docs/product/onboarding/product.md` @ v1.2
@@ -87,8 +87,8 @@ Thay đổi tại chỗ (cùng path, đổi body), trừ `resend-otp` chuyển p
 
 | Method | Path | Request | Success | Failure codes |
 |---|---|---|---|---|
-| POST | `/v1/auth/register/request-otp` | `{ email, password, phone_country, phone_number, full_name, dharma_name?, ordination_temple_id? }` | `200` `{ message, expires_in_seconds, resend_after_seconds }` | `400 VALIDATION_ERROR / INVALID_EMAIL / INVALID_PHONE / INVALID_PASSWORD / INVALID_FULL_NAME / INVALID_DHARMA_NAME / INVALID_TEMPLE`, `409 PHONE_TAKEN`, `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / RATE_LIMITED`, `500 EMAIL_SEND_FAILED` |
-| POST | `/v1/auth/register/resend-otp` (thay `/v1/auth/resend-otp`) | `{ email }` | `200` `{ message, expires_in_seconds, resend_after_seconds, resend_remaining }` | `400 VALIDATION_ERROR / INVALID_EMAIL / PENDING_REGISTRATION_EXPIRED`, `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / RATE_LIMITED`, `500 EMAIL_SEND_FAILED` |
+| POST | `/v1/auth/register/request-otp` | `{ email, password, phone_country, phone_number, full_name, dharma_name?, ordination_temple_id? }` | `200` `{ message, expires_in_seconds, resend_after_seconds }` | `400 VALIDATION_ERROR / INVALID_EMAIL / INVALID_PHONE / INVALID_PASSWORD / INVALID_FULL_NAME / INVALID_DHARMA_NAME / INVALID_TEMPLE`, `409 PHONE_TAKEN`, `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / OTP_LOCKED / RATE_LIMITED`, `500 EMAIL_SEND_FAILED` |
+| POST | `/v1/auth/register/resend-otp` (thay `/v1/auth/resend-otp`) | `{ email }` | `200` `{ message, expires_in_seconds, resend_after_seconds, resend_remaining }` | `400 VALIDATION_ERROR / INVALID_EMAIL / PENDING_REGISTRATION_EXPIRED`, `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / OTP_LOCKED / RATE_LIMITED`, `500 EMAIL_SEND_FAILED` |
 | POST | `/v1/auth/register/verify-otp` | `{ email, otp_code }` | `201` `{ access_token, refresh_token, expires_in, user }` | `400 VALIDATION_ERROR / INVALID_EMAIL / OTP_INVALID / OTP_EXPIRED / PENDING_REGISTRATION_EXPIRED / INVALID_TEMPLE`, `409 PHONE_TAKEN`, `429 OTP_LOCKED / RATE_LIMITED` |
 
 - `phone_country` là mã ISO 3166 trong danh sách 12 nước của BR-ONB-04 (`VN`, `US`, `JP`, `KR`, `TH`, `SG`, `MY`, `TW`, `AU`, `DE`, `FR`, `CA`); `phone_number` là số người dùng gõ. `user.phone_number` trả về dạng E.164.
@@ -123,7 +123,10 @@ Thay đổi tại chỗ (cùng path, đổi body), trừ `resend-otp` chuyển p
 
 ## Pending (not yet implemented)
 
-Toàn bộ AC1–AC23 ở trạng thái v8.0 chưa có code — xem `tasks.md` Phase 1–9.
+- AC22 (giới hạn theo IP + ngân sách thư mỗi ngày): chưa gắn, làm ở login Phase 5.
+- E2E, OpenAPI, OKF: `tasks.md` Phase 8–9.
+
+`request-otp` / `resend-otp` trả `429 OTP_LOCKED` khi mã của email đang bị khoá do nhập sai: phát mã mới không được mở khoá 3 lượt đoán (thêm ở v8.1).
 
 ## Ghi chú kỹ thuật liên quan
 

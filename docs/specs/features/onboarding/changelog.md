@@ -3,6 +3,23 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v8.1 (2026-10-16)
+
+**Implement Phase 1–8** (đăng ký bằng email chạy thật, E2E xanh). Một thay đổi contract nhỏ: `request-otp` / `resend-otp` thêm `429 OTP_LOCKED` — minor bump.
+
+- `tasks.md`: tick Phase 1–8 trừ `erd.svg` (chưa có `mmdc`) và việc bọc `authRateLimit` (tách thành item riêng, chuyển login Phase 5). Item `cmd/main.go` tách làm hai.
+- `requirements.md`: bảng API thêm `429 OTP_LOCKED` cho `request-otp` và `resend-otp` (phát mã mới không được xoá khoá 3 lượt đoán); mục Pending ghi AC22 còn mở.
+- `design.md`: ghi chú "Đã làm" ở Migration 0037 — `0037` chỉ có bước 1–4, 6; bước 5 chuyển login Phase 1 (thêm item ở `login/tasks.md`), bước 7 login Phase 5; TRUNCATE có guard; `0001` có guard index.
+- `flow.md`: no change needed, verified — chỉ bump version.
+- E2E `register_e2e_test.go` viết lại: lấy mã từ log của `LogMailer` (harness có `startServerWithLog`); các ca chùa của bản cũ bị bỏ — chùa chỉ còn được kiểm ở tầng usecase/repository.
+- Quyết định khi implement (Claude tự quyết, ghi lại để anh Đức duyệt qua PR):
+  - Giới hạn theo IP (AC22) chưa gắn: commit `fc31897` đã đưa rate limit của appService sang Redis, trong khi login design đếm bằng bảng `auth_rate_limits` trên Postgres — cần chốt ở login Phase 5.
+  - Login hiện tại (SĐT) đổi sang so mật khẩu qua `domain.PasswordHasher`, để tài khoản mới đăng ký (hash SHA-256 → bcrypt) đăng nhập được.
+  - `mailer.Message` có thêm `From` (lấy từ `mailer.from`).
+  - `request-otp` thiếu trường trả mã `INVALID_*` của trường đó (AC3–AC6) thay vì `VALIDATION_ERROR`.
+  - `CreateUserAndSession` đánh dấu mã đã dùng trước (`WHERE used_at IS NULL`); va chạm `users_email_key` → `OTP_INVALID`.
+- Cross-file follow-ups: `docs/specs/db/erd.svg` (render lại); `docs/specs/api/openapi.yaml` (Phase 9); `docs/knowledge/features/register.md` qua `il-okf-writer` sau khi E2E xanh; product spec §4.2 cột Backend (`ba-writer`).
+
 ## v8.0 (2026-10-14)
 
 **Viết lại toàn bộ spec**: xác minh tài khoản bằng mã qua **email**, bỏ hẳn SMS (ADR-0003, Accepted). Đổi contract của cả ba route đăng ký. Spec nay trích product spec `docs/product/onboarding/product.md` @ v1.2 bằng ID.

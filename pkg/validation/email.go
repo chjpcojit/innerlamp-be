@@ -2,8 +2,36 @@ package validation
 
 import (
 	"net/mail"
+	"regexp"
 	"strings"
+	"unicode/utf8"
 )
+
+// EmailMaxChars is the longest accepted email address, in characters
+// (BR-ONB-05).
+const EmailMaxChars = 254
+
+// emailPattern is BR-ONB-05's shape rule, the one iOS and the website use: no
+// whitespace, exactly one "@", something before it, and a domain containing a
+// dot followed by at least 2 characters.
+var emailPattern = regexp.MustCompile(`^[^\s@]+@[^\s@]+\.[^\s@]{2,}$`)
+
+// NormalizeEmail applies BR-ONB-05 (docs/product/onboarding/product.md): it
+// trims leading/trailing whitespace, lower-cases, and reports whether the
+// result is a valid account email (emailPattern, at most EmailMaxChars
+// characters). Two addresses are the same account exactly when their
+// normalised forms are equal.
+//
+// The trimmed, lower-cased value is returned even when ok is false, so a caller
+// that only wants the canonical form for a lookup can ignore ok; any caller
+// that stores or trusts the address must check ok first.
+func NormalizeEmail(raw string) (email string, ok bool) {
+	email = strings.ToLower(strings.TrimSpace(raw))
+	if email == "" || utf8.RuneCountInString(email) > EmailMaxChars {
+		return email, false
+	}
+	return email, emailPattern.MatchString(email)
+}
 
 // IsValidEmail reports whether raw is usable as an account email address.
 //

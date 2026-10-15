@@ -11,7 +11,7 @@ import (
 // mockRegisterUsecase is a hand-written testify.Mock implementing
 // registerUsecase — this package's own consumer-defined interface — so
 // RegisterHandler is tested without a real use case, repository, JWT
-// service, or SMS sender. See mocking_convention.md.
+// service, or mailer. See mocking_convention.md.
 type mockRegisterUsecase struct {
 	mock.Mock
 }

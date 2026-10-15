@@ -224,7 +224,7 @@ func TestNormalizeEmail(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NormalizeEmail(tt.email); got != tt.want {
+			if got, _ := NormalizeEmail(tt.email); got != tt.want {
 				t.Errorf("NormalizeEmail() = %q, want %q", got, tt.want)
 			}
 		})

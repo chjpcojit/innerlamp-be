@@ -31,6 +31,12 @@ Chỉ đúng 1 method — khớp chữ ký của `secrets.Client` (pkg/secrets),
 - `JWTConfig{Algorithm, SecretKeySecret, SecretKey, AccessTokenExpiration, RefreshTokenExpiration, Issuer, Audience}` — `SecretKey` cũng `yaml:"-"`, tương tự `Password`.
 - `StorageConfig{Backend, ProjectID, DefaultBucket}`
 
+### `app`, `mailer`, `otp.dev_fixed_code` và `AppConfig.Validate()` (onboarding AC21)
+- `app.environment` (`AppEnvConfig.Environment`): `dev` / `staging` / `prod`.
+- `mailer.provider` (`MailerConfig.Provider`): hiện chỉ có `log` (`pkg/mailer.LogMailer`, log cả mã — dev only); `mailer.from`: địa chỉ gửi đặt vào mọi `mailer.Message`.
+- `otp.dev_fixed_code` (`OTPConfig.DevFixedCode`): rỗng = mã ngẫu nhiên `crypto/rand`; dev đặt `"111111"`. `otp.ttl` dev = `600s`.
+- `Validate()` từ chối khởi động khi `app.environment != "dev"` mà `otp.dev_fixed_code` khác rỗng hoặc `mailer.provider == "log"` (so khớp phân biệt hoa thường). `Load` gọi `Validate()` sau khi resolve secret, nên config sai không qua được `Load`.
+
 ### `Duration` (wrapper `time.Duration`)
 Cho phép ghi duration dạng chuỗi trong YAML (`"15m"`, `"168h"`) vì `yaml.v3` không hỗ trợ `time.Duration` sẵn. Có `UnmarshalYAML(value *yaml.Node) error` và `Duration() time.Duration` để lấy giá trị gốc.
 ```go

@@ -13,11 +13,12 @@
 %%        0034_temple_schedules.sql (thoi khoa tu tap cua chua + cac buoc; docs/specs/features/temple-schedule/design.md)
 %%        0035_temple_events.sql (su kien cua chua, mot bang co cot lap; docs/specs/features/temple-event/design.md)
 %%        0036_temple_announcements.sql (thong bao cua chua + don vi phat hanh + users.receive_temple_announcements; docs/specs/features/temple-announcement/design.md)
+%%        0037_auth_email_identity.sql (ADR-0003: otp_codes/otp_send_limits/pending_registration theo email, users.email chu thuong; buoc 5 login_attempts + 7 auth_rate_limits hoan sang migration sau)
 %% Quy ước: quan hệ nét liền (--) = FK có cưỡng chế; nét đứt (..) = ràng buộc logic, KHÔNG FK.
 erDiagram
     users {
         bigint id PK "BIGSERIAL"
-        varchar(255) email UK "NOT NULL, users_email_key"
+        varchar(255) email UK "NOT NULL, users_email_key, chk_users_email_lowercase (0037)"
         timestamptz email_verified_at "NULL - US-001 verify phone_number, khong verify email"
         varchar(20) phone_number UK "NOT NULL, users_phone_number_key"
         varchar(255) password_hash "NOT NULL, bcrypt"
@@ -32,7 +33,7 @@ erDiagram
 
     otp_codes {
         bigint id PK "BIGSERIAL"
-        varchar(20) phone_number "NOT NULL, khong FK"
+        varchar(254) email "NOT NULL, khong FK, idx_otp_codes_email_purpose (0037, thay phone_number)"
         varchar(20) purpose "NOT NULL, CHECK (register, login, reset_password, verify_email)"
         varchar(255) otp_hash "NOT NULL, bcrypt"
         int attempts "NOT NULL DEFAULT 0"
@@ -44,8 +45,8 @@ erDiagram
 
     otp_send_limits {
         bigint id PK "BIGSERIAL"
-        varchar(20) phone_number "NOT NULL, khong FK, UNIQUE (phone_number, purpose)"
-        varchar(20) purpose "NOT NULL, CHECK, UNIQUE (phone_number, purpose)"
+        varchar(254) email "NOT NULL, khong FK, UNIQUE (email, purpose) (0037, thay phone_number)"
+        varchar(20) purpose "NOT NULL, CHECK, UNIQUE (email, purpose)"
         int send_count "NOT NULL DEFAULT 0, dem theo cycle"
         timestamptz last_sent_at "NULL, moc cooldown + reset cycle"
         timestamptz locked_until "NULL, khoa-GUI (khong chan verify-otp)"
@@ -55,8 +56,9 @@ erDiagram
 
     pending_registration {
         bigint id PK "BIGSERIAL"
-        varchar(20) phone_number UK "NOT NULL, target ON CONFLICT khi resend"
-        varchar(255) email "NOT NULL, co y KHONG unique"
+        varchar(20) phone_number "NOT NULL, KHONG con unique (0037)"
+        varchar(255) email UK "NOT NULL, pending_registration_email_key, target ON CONFLICT (0037)"
+        boolean account_exists "NOT NULL DEFAULT false, email da co tai khoan (0037)"
         varchar(255) password_hash "NOT NULL, bcrypt"
         varchar(300) full_name "NULL; bắt buộc ở đăng ký, v7.5"
         varchar(255) dharma_name "NULL"
@@ -136,10 +138,10 @@ erDiagram
     addr_new_wards ||--o{ addr_ward_mappings : "new_ward_code, N:M cu <-> moi"
     temples ||--o{ pending_registration : "ordination_temple_id, FK khong CASCADE"
     user_devices |o--o{ user_sessions : "device_id nullable, ON DELETE SET NULL"
-    users ||..o{ otp_codes : "phone_number, khong FK"
-    users ||..o| pending_registration : "phone_number UNIQUE, khong FK"
+    users ||..o{ otp_codes : "email, khong FK"
+    users ||..o| pending_registration : "email UNIQUE, khong FK"
     users ||..o| login_attempts : "phone_number PK, khong FK"
-    otp_send_limits ||..o{ otp_codes : "chung (phone_number, purpose)"
+    otp_send_limits ||..o{ otp_codes : "chung (email, purpose)"
     sutras ||--o{ sutra_translations : "sutra_id, ON DELETE CASCADE"
     sutra_translations ||--o{ sutra_lines : "translation_id, ON DELETE CASCADE"
     sutras ||--o{ sutra_deities : "sutra_id, ON DELETE CASCADE"

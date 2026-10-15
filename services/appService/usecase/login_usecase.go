@@ -12,8 +12,6 @@ import (
 	"chjpcoj.com.innerlamp/pkg/validation"
 	"chjpcoj.com.innerlamp/services/appService/config"
 	"chjpcoj.com.innerlamp/services/appService/domain"
-
-	"golang.org/x/crypto/bcrypt"
 )
 
 // dummyPasswordHash is compared against whenever the phone number has no
@@ -27,8 +25,11 @@ import (
 // the two is indistinguishable. The plaintext is never a valid password for
 // any account: Submit() rejects the attempt anyway when the user lookup missed,
 // so even a caller who guessed this string gets nothing.
-var dummyPasswordHash = func() []byte {
-	hash, err := bcrypt.GenerateFromPassword([]byte("timing-equalizer-not-a-password"), bcrypt.DefaultCost)
+//
+// Built with BcryptPasswordHasher, the scheme the composition root injects, so
+// comparing against it costs what comparing against a real stored hash costs.
+var dummyPasswordHash = func() string {
+	hash, err := BcryptPasswordHasher{}.Hash("timing-equalizer-not-a-password")
 	if err != nil {
 		panic("hashing the dummy password failed: " + err.Error())
 	}
@@ -46,6 +47,7 @@ var dummyPasswordHash = func() []byte {
 // policy and a device registry in one struct.
 type LoginUsecase struct {
 	logins     domain.LoginRepository
+	passwords  domain.PasswordHasher
 	jwtService jwt.Service
 	logger     logging.Logger
 
@@ -65,6 +67,7 @@ type LoginUsecase struct {
 // implementation is visible here.
 func NewLoginUsecase(
 	logins domain.LoginRepository,
+	passwords domain.PasswordHasher,
 	jwtService jwt.Service,
 	logger logging.Logger,
 	sessionTTL time.Duration,
@@ -72,6 +75,7 @@ func NewLoginUsecase(
 ) *LoginUsecase {
 	return &LoginUsecase{
 		logins:      logins,
+		passwords:   passwords,
 		jwtService:  jwtService,
 		logger:      logger,
 		sessionTTL:  sessionTTL,
@@ -132,12 +136,14 @@ func (u *LoginUsecase) Login(ctx context.Context, input domain.LoginInput) (*dom
 
 	passwordHash := dummyPasswordHash
 	if user != nil {
-		passwordHash = []byte(user.PasswordHash)
+		passwordHash = user.PasswordHash
 	}
 
 	// Exactly one bcrypt comparison on every path, whatever the lookup
 	// returned — that is what keeps the two failure modes the same size.
-	passwordMatches := bcrypt.CompareHashAndPassword(passwordHash, []byte(input.Password)) == nil
+	// The hasher is the one registration stored the hash with
+	// (bcrypt(base64(SHA-256(NFC(pw)))), onboarding AC19).
+	passwordMatches := u.passwords.Compare(passwordHash, input.Password) == nil
 
 	if user == nil || !passwordMatches {
 		if err := u.recordFailure(ctx, phoneNumber); err != nil {

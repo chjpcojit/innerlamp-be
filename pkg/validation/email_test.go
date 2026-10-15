@@ -63,9 +63,40 @@ func TestIsValidEmailAcceptsNormalizedOutput(t *testing.T) {
 
 	for _, input := range raw {
 		t.Run(input, func(t *testing.T) {
-			normalized := NormalizeEmail(input)
+			normalized, _ := NormalizeEmail(input)
 			if !IsValidEmail(normalized) {
 				t.Errorf("IsValidEmail(NormalizeEmail(%q)) = false for %q, want true", input, normalized)
+			}
+		})
+	}
+}
+
+// TestNormalizeEmailRules runs every vector of
+// docs/product/onboarding/rules/email.json (BR-ONB-05).
+func TestNormalizeEmailRules(t *testing.T) {
+	var cases []struct {
+		Name  string `json:"name"`
+		Input struct {
+			Typed string `json:"typed"`
+		} `json:"input"`
+		Expected struct {
+			Valid bool    `json:"valid"`
+			Email *string `json:"email"`
+		} `json:"expected"`
+	}
+	loadRuleCases(t, "email.json", &cases)
+	if len(cases) == 0 {
+		t.Fatal("email.json has no cases")
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.Name, func(t *testing.T) {
+			got, ok := NormalizeEmail(tc.Input.Typed)
+			if ok != tc.Expected.Valid {
+				t.Fatalf("NormalizeEmail(%q) ok = %v, want %v", tc.Input.Typed, ok, tc.Expected.Valid)
+			}
+			if ok && (tc.Expected.Email == nil || got != *tc.Expected.Email) {
+				t.Fatalf("NormalizeEmail(%q) = %q, want %v", tc.Input.Typed, got, tc.Expected.Email)
 			}
 		})
 	}

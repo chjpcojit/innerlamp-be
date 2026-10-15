@@ -10,6 +10,12 @@
 # Point Load() at a real secrets.Client (GCP Secret Manager, etc.) in any
 # non-local environment instead of the mock resolver.
 
+# Deployment environment. Only "dev" may use the dev shortcuts below
+# (otp.dev_fixed_code, mailer.provider "log") — Validate refuses them
+# anywhere else (onboarding AC21).
+app:
+  environment: "dev"
+
 server:
   addr: ":8080"
   # ⚠️ DEV ONLY: serve assets/images at /static/images/ (no CDN yet). Path is relative to the
@@ -47,16 +53,18 @@ storage:
   # any deployed config; real signing is TD-001.
   emulator_host: "localhost:4443"
 
-# ⚠️ DEV ONLY: "log" writes the SMS body to the service log instead of
-# sending it. Point at a real provider's ProviderType once one exists.
-sms:
+# ⚠️ DEV ONLY: "log" writes the whole email (code included) to the service log
+# instead of sending it; refused outside app.environment "dev" (AC21). A real
+# provider ships once the sending domain exists (onboarding design.md "Mailer").
+mailer:
   provider: "log"
+  from: "no-reply@innerlamp.local"
 
 # OTP policy for the registration flow. Every key here is required — a missing
 # one decodes to the Go zero value, and a zero TTL means "already expired"
 # rather than "use a sensible default".
 otp:
-  ttl: "90s"
+  ttl: "600s"
   send_cooldown: "60s"
   max_send_attempts: 3
   send_lock_duration: "30m"
@@ -66,6 +74,10 @@ otp:
   # 30-minute send lock so an attempt can be resumed by resending. Cleanup is
   # the (deferred) job's responsibility; this is the backstop.
   pending_registration_ttl: "24h"
+  # ⚠️ DEV ONLY: every issued code is this value so a developer can register
+  # without reading mail. Empty = crypto/rand. Refused outside app.environment
+  # "dev" (AC21).
+  dev_fixed_code: "111111"
 
 # Login brute-force policy (AC7). Every key is required, for the same reason
 # the otp block's are: a missing one decodes to the Go zero value, and a zero

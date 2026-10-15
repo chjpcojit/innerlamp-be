@@ -6,6 +6,8 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
+var _ Mailer = (*MockMailer)(nil)
+
 // MockMailer is a mock implementation of Mailer for testing.
 type MockMailer struct {
 	mock.Mock
@@ -20,4 +22,9 @@ func (m *MockMailer) SendPasswordResetEmail(ctx context.Context, toEmail, resetT
 // SendAccountInviteEmail mocks the SendAccountInviteEmail method.
 func (m *MockMailer) SendAccountInviteEmail(ctx context.Context, toEmail, name, tempPassword string) error {
 	return m.Called(ctx, toEmail, name, tempPassword).Error(0)
+}
+
+// Send mocks the Send method.
+func (m *MockMailer) Send(ctx context.Context, msg Message) error {
+	return m.Called(ctx, msg).Error(0)
 }

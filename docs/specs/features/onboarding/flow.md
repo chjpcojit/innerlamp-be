@@ -1,8 +1,8 @@
 # Flow — onboarding
 
-Version: 8.0
-Last updated: 2026-10-14
-Status: prospective (v8.0) — sơ đồ đăng ký xác minh bằng email; chưa có code.
+Version: 8.1
+Last updated: 2026-10-16
+Status: implemented (v8.1) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.

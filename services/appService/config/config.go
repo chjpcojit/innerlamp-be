@@ -55,12 +55,13 @@ func (d Duration) Duration() time.Duration {
 
 // AppConfig is appService's full runtime configuration.
 type AppConfig struct {
+	App         AppEnvConfig      `yaml:"app"`
 	Server      ServerConfig      `yaml:"server"`
 	Database    DatabaseConfig    `yaml:"database"`
 	JWT         JWTConfig         `yaml:"jwt"`
 	Storage     StorageConfig     `yaml:"storage"`
 	OTP         OTPConfig         `yaml:"otp"`
-	SMS         SMSConfig         `yaml:"sms"`
+	Mailer      MailerConfig      `yaml:"mailer"`
 	Login       LoginConfig       `yaml:"login"`
 	Attestation AttestationConfig `yaml:"attestation"`
 	Temple      TempleConfig      `yaml:"temple"`
@@ -168,16 +169,48 @@ func (c StorageConfig) Validate() error {
 	return nil
 }
 
-// SMSConfig selects which pkg/sms provider the composition root wires up —
-// "log" (pkg/sms/logsms, the only implementation today) in every
-// environment until a real provider (Twilio, AWS SNS, a GCP equivalent)
-// ships its own subpackage.
-type SMSConfig struct {
+// EnvironmentDev is the only app.environment in which dev shortcuts
+// (otp.dev_fixed_code, mailer.provider "log") are allowed (onboarding AC21).
+const EnvironmentDev = "dev"
+
+// MailerProviderLog is the dev-only pkg/mailer.LogMailer: it writes the whole
+// email, code included, to the service log.
+const MailerProviderLog = "log"
+
+// AppEnvConfig names the deployment environment ("dev", "staging", "prod").
+// It gates the dev shortcuts in AppConfig.Validate.
+type AppEnvConfig struct {
+	Environment string `yaml:"environment"`
+}
+
+// MailerConfig selects the pkg/mailer driver the composition root wires up
+// and the sender address every auth email goes out from. "log" is the only
+// driver today; a real one (Resend/SES) ships when the sending domain exists
+// (onboarding design.md "Mailer").
+type MailerConfig struct {
 	Provider string `yaml:"provider"`
+	From     string `yaml:"from"`
+}
+
+// Validate enforces the cross-section startup guard of onboarding AC21 /
+// otp-mechanism AC3: outside app.environment "dev", a fixed OTP code or the
+// log mailer would hand codes to whoever reads the logs (or to nobody), so
+// the service must refuse to start. Load calls it.
+func (c *AppConfig) Validate() error {
+	if c.App.Environment == EnvironmentDev {
+		return nil
+	}
+	if c.OTP.DevFixedCode != "" {
+		return fmt.Errorf("otp.dev_fixed_code must be empty when app.environment is %q (only allowed in %q)", c.App.Environment, EnvironmentDev)
+	}
+	if c.Mailer.Provider == MailerProviderLog {
+		return fmt.Errorf("mailer.provider %q is not allowed when app.environment is %q (only allowed in %q)", MailerProviderLog, c.App.Environment, EnvironmentDev)
+	}
+	return nil
 }
 
 // OTPConfig holds the OTP policy: how long a code lives, how often a code may
-// be sent, and when a number gets locked.
+// be sent, and when a code gets locked. Every limit is scoped by (email, purpose).
 //
 // These numbers used to be a const block inside the registration use case,
 // justified there as "business decisions, not configuration". That reasoning is
@@ -186,7 +219,7 @@ type SMSConfig struct {
 // configuration. The use case now takes them through its constructor, the way
 // it already took sessionTTL.
 //
-// v5.0 split the old "resend" cap into a per-phone *send* policy: the first
+// v5.0 split the old "resend" cap into a per-(email, purpose) *send* policy: the first
 // send of a cycle is free, every later request-otp AND resend-otp counts, and
 // hitting the cap locks sending for SendLockDuration. See design.md
 // §"OTP send-limit policy".
@@ -194,7 +227,7 @@ type OTPConfig struct {
 	// TTL is how long an issued code can be verified.
 	TTL Duration `yaml:"ttl"`
 
-	// SendCooldown is the floor between two sends for one number (AC5), applied
+	// SendCooldown is the floor between two sends for one (email, purpose) (onboarding AC9), applied
 	// to both request-otp and resend-otp.
 	SendCooldown Duration `yaml:"send_cooldown"`
 
@@ -210,7 +243,7 @@ type OTPConfig struct {
 	// out" are one boundary.
 	SendLockDuration Duration `yaml:"send_lock_duration"`
 
-	// MaxAttempts is how many wrong codes lock the number (AC12).
+	// MaxAttempts is how many wrong codes lock the code (onboarding AC15).
 	MaxAttempts int `yaml:"max_attempts"`
 
 	// LockDuration is how long that lock holds (AC12).
@@ -226,6 +259,11 @@ type OTPConfig struct {
 	// The cleanup job (Deferred) deletes expired rows; this TTL is the backstop
 	// for when that job is not running yet.
 	PendingRegistrationTTL Duration `yaml:"pending_registration_ttl"`
+
+	// DevFixedCode, when non-empty, replaces the random code with this value
+	// so a developer can register without reading mail. Empty = crypto/rand.
+	// AppConfig.Validate refuses it outside app.environment "dev" (AC21).
+	DevFixedCode string `yaml:"dev_fixed_code"`
 }
 
 // LoginConfig holds US-002's brute-force policy: how many consecutive wrong
@@ -953,6 +991,10 @@ func Load(ctx context.Context, source pkgconfig.LoadSource, sg SecretGetter) (*A
 
 	if err := cfg.resolveSecrets(ctx, sg); err != nil {
 		return nil, fmt.Errorf("resolve secrets: %w", err)
+	}
+
+	if err := cfg.Validate(); err != nil {
+		return nil, fmt.Errorf("validate app config: %w", err)
 	}
 
 	return &cfg, nil

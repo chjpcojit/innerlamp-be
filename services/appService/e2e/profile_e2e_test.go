@@ -104,7 +104,7 @@ func TestProfileFlow_E2E(t *testing.T) {
 		res.data(&p)
 		assert.Equal(t, phone, p.PhoneNumber, "AC4: the owner sees the full number")
 		assert.NotEmpty(t, p.Email)
-		assert.False(t, p.EmailVerified)
+		assert.True(t, p.EmailVerified, "onboarding v8.0 AC14: registration verifies the email")
 		keys := res.rawKeys()
 		for _, absent := range []string{"dharma_name", "ordination_temple", "avatar_url", "avatar_url_expires_at"} {
 			assert.NotContains(t, keys, absent, "AC2")
