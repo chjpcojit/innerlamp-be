@@ -1,5 +1,20 @@
 # Changelog — deity product spec
 
+## v1.1 — 2026-10-15
+
+- Added: 12 open questions gathered while writing the four platform specs (Appendix A items 6–17),
+  each also placed inline at its rule or requirement: vía mapping per deity (A6, most blocking),
+  leap-month vía wording (A7), vía with no occurrence (A8), related-sutra order (A9) and list
+  details (A10), iconography labels (A11), share without a mantra (A12), deity page error copy (A13),
+  featured block empty state (A14), empty filter result (A15), offline passed vía (A16), unknown type
+  label (A17).
+- Clarified: BR-DTY-06 — the server picks the next vía; clients send their device date as "today" and
+  only count down (backend deity spec v3.0).
+- Matrix: FR-DTY-004 Website done (error page already offers retry); BR-DTY-08 Website drift (editorial
+  footer note missing); BR-DTY-06 note updated.
+- Platforms to follow up: none until the questions are answered; then Backend (A6, A9), all clients
+  (A7, A8, A10–A17).
+
 ## v1.0 — 2026-10-15
 
 - First product spec for the Buddhas & Bodhisattvas catalogue, written retroactively from the backend

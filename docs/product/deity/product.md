@@ -7,9 +7,9 @@
 | Feature code | `DTY` — IDs are `BR-DTY-NN`, `FR-DTY-NNN`, `NFR-DTY-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.0 |
+| Version | 1.1 |
 | Last updated | 2026-10-15 |
-| Status | confirmed — 5 open items (Appendix A) |
+| Status | confirmed — 17 open items (Appendix A) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | none needed (catalogue is read-only and public; see §2.7) |
@@ -203,6 +203,7 @@ N/A.
   "Bồ Tát", listed under "Tất cả" and "Bồ Tát".
 - **Computational:** no
 - **Applies to:** Backend, all clients
+- > ⚠️ Not confirmed: which label a deity of a type the client does not know gets (today the website shows "Thiên hộ pháp", iOS fails to load it) — blocks forward compatibility on Website, iOS, Android.
 - **Source:** anh Đức, 2026-10-15; replaces the website label "Thiên hộ pháp" and the iOS label
   "Thiên Nữ" (AS-Deity-DEVA) — drift
 - > ⚠️ Not confirmed: whether a "Chư Thiên" chip is added once the catalogue holds more than one deva — no platform is blocked now.
@@ -259,6 +260,7 @@ N/A.
   without any change to the deity.
 - **Computational:** no (placement is covered by `calendar` vectors `event-placement.json`)
 - **Applies to:** Backend (link and occurrences), all clients (show what they receive)
+- > ⚠️ Not confirmed: which festival-calendar events are the vía days of each of the 20 deities, and when a vía day of the current catalogue file has no calendar event, is the event added to the calendar or the day dropped — blocks the deity ↔ vía link (backend seed) and therefore BR-DTY-05, BR-DTY-06 and FR-DTY-006 on every platform.
 - **Source:** anh Đức, 2026-10-15 ("Theo calendar"); replaces the deity's own vía list on the backend,
   the hard-coded dates on the website and Android, and the iOS on-device lunar scan — drift
 
@@ -273,8 +275,10 @@ N/A.
   2026-10-15 → next vía 2026-10-29, "Còn 14 ngày"; today equals an occurrence → that one, "Hôm nay";
   all occurrences of this year passed → the earliest occurrence of next year.
 - **Computational:** yes → `rules/deity-next-via.json`
-- **Applies to:** Backend (gives the next occurrence) or clients (pick it from the occurrences they
-  receive) — the contract decides which; every platform that picks it runs the vectors
+- **Applies to:** Backend — it picks the next vía and runs the vectors (backend deity spec v3.0); each
+  client sends its device date as "today" so the server and the countdown agree, and only counts down
+  (BR-CAL-13)
+- > ⚠️ Not confirmed: how a vía in a leap lunar month is shown on the card and on the vía card (e.g. "Vía dd/MM nhuận âm lịch") — blocks the vía line wording on Website, iOS, Android.
 - **Source:** anh Đức, 2026-10-15 ("Lần vía gần nhất sắp tới"); replaces the iOS rule "first event
   whose name contains 'Đản' or 'Vía'" — drift
 - The vectors' dates are inputs (occurrences as the calendar gives them); they assert only the choice
@@ -386,6 +390,7 @@ N/A.
 - **Business rules:** BR-DTY-04
 - **Verification method:** automated test on each platform
 - **Source:** backend v1.0; prototype `buddha`; website (502 page on failure — replaced by retry)
+- > ⚠️ Not confirmed: what the not-found and load-error states of the deity page say — blocks the deity page error copy on Website, iOS, Android.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Open from the catalogue
@@ -417,6 +422,7 @@ N/A.
 - **Verification method:** automated test on each client; manual QA against the prototype
 - **Source:** prototype `buddha`; website deity page (adds "Hình tượng", kept by anh Đức
   2026-10-15); iOS Deity README
+- > ⚠️ Not confirmed: which row labels the "Hình tượng" (iconography) section uses (posture, seat or mount, sacred objects, meaning), since the prototype has no such section — blocks the iconography copy on Website, iOS, Android.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Full profile
@@ -446,6 +452,7 @@ N/A.
 - **Verification method:** shared vectors `deity-next-via.json`; automated test on each client
 - **Source:** prototype `buddha` (vía card); iOS and Android (countdown); website (lunar date only —
   drift, replaced); anh Đức, 2026-10-15
+- > ⚠️ Not confirmed: how the page shows a vía event that has no occurrence this year or next (e.g. a leap-month-only event): listed with its lunar date only, or left out — blocks the vía list on Website, iOS, Android.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Next vía with countdown
@@ -474,6 +481,8 @@ N/A.
 - **Verification method:** automated test on each platform
 - **Source:** backend `sutra` (deity ↔ sutra links, unused by clients); iOS (matched by title against a
   hard-coded table — drift, replaced); Android sample; anh Đức, 2026-10-15
+- > ⚠️ Not confirmed: which order related sutras follow: the sutra library's order, or the deity's role in the sutra first (subject, speaker, mentioned) as the backend lists them today — blocks the related-sutra order on every platform.
+- > ⚠️ Not confirmed: whether the related-sutra list is capped, what a row shows besides the title, and whether a failed load hides the section or offers "Thử lại" (retry) — blocks the related-sutra section on Website, iOS, Android.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Linked sutra opens
@@ -523,6 +532,7 @@ N/A.
 - **Source:** iOS behaviour (system share); Android (no-op — drift); website (none); anh Đức,
   2026-10-15
 - > ⚠️ Not confirmed: whether the shared text also carries a link to the deity's web page — blocks the shared content on iOS and Android, and what the website copies.
+- > ⚠️ Not confirmed: whether "Chia sẻ" (share) is offered when the deity has no short mantra, and what it then shares — blocks the share action on Website, iOS, Android.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Share a deity
@@ -544,6 +554,8 @@ N/A.
 - **Verification method:** automated test on each client
 - **Source:** prototype `buddhasEmpty`; anh Đức, 2026-10-15; replaces the website's static fallback
   list and the iOS silent empty block — drift
+- > ⚠️ Not confirmed: what the home and library featured blocks show when empty or failed (copy, and whether they offer "Thử lại") — blocks the block empty state on Website, iOS, Android.
+- > ⚠️ Not confirmed: what the catalogue shows when a type filter returns no deity while "Tất cả" has some (the empty-state hint "check the connection" would be wrong there) — blocks the filtered empty state on Website, iOS, Android.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: Backend unreachable
@@ -615,6 +627,8 @@ No personal data is involved.
 | FR-DTY-009 | Website | Uses the browser's share function, or copies the text when there is none | No OS share sheet on desktop browsers |
 | §2.4 | iOS, Android | May keep the last loaded featured list, pages and deity pages readable offline; the website is online only | App caching |
 
+> ⚠️ Not confirmed: what an app shows offline for a saved deity whose next vía has already passed: hide the vía, or show "Đã qua" (passed) — blocks offline vía display on iOS, Android.
+
 ### 3.7 Software system attributes
 
 - **Reliability:** identical inputs give identical pages on every load (BR-DTY-02 stable order).
@@ -643,13 +657,13 @@ QA against the prototype.
 | BR-DTY-03 | drift | drift | drift | planned | Backend pages of 20; website shows backend pages; iOS loads every page |
 | BR-DTY-04 | n/a | done | done | planned | |
 | BR-DTY-05 | planned | drift | drift | drift | Backend stores its own vía list; web and Android hard-code dates; iOS computes on the device |
-| BR-DTY-06 | planned | drift | drift | drift | Web: no next vía; iOS: "Đản/Vía" name match; Android: sample |
+| BR-DTY-06 | planned | drift | drift | drift | Server picks the next vía; clients send the device date and count down. Web: no next vía; iOS: "Đản/Vía" name match; Android: sample |
 | BR-DTY-07 | n/a | drift | done | done | Website shows every vow |
-| BR-DTY-08 | n/a | done | drift | drift | iOS and Android footer show "Báo thông tin sai" |
+| BR-DTY-08 | n/a | drift | drift | drift | Website lacks the editorial footer note; iOS and Android footer show "Báo thông tin sai" |
 | FR-DTY-001 | done | done | done | planned | 2 scenarios |
 | FR-DTY-002 | drift | done | drift | planned | 3 scenarios; page size 12; vía on cards |
 | FR-DTY-003 | done | done | drift | planned | 2 scenarios; iOS filters on the device |
-| FR-DTY-004 | done | drift | done | planned | 3 scenarios; website shows an error page instead of retry |
+| FR-DTY-004 | done | done | done | planned | 3 scenarios; website error page already offers "Thử lại" |
 | FR-DTY-005 | done | drift | drift | drift | 3 scenarios; web lacks the vía card order; iOS hides iconography; Android has no iconography |
 | FR-DTY-006 | planned | drift | drift | drift | 3 scenarios; vía from `calendar` |
 | FR-DTY-007 | done | planned | drift | drift | 2 scenarios; backend links exist |
@@ -680,6 +694,19 @@ QA against the prototype.
 3. > ⚠️ Not confirmed: whether the shared text also carries a link to the deity's web page — blocks the shared content on iOS and Android, and what the website copies.
 4. > ⚠️ Not confirmed: who runs the load in staging and production and from which copy of the file (today a dev-only command and a file kept outside version control) — blocks production content, not the platform specs.
 5. > ⚠️ Not confirmed: whether a "Chư Thiên" chip is added once the catalogue holds more than one deva — no platform is blocked now.
+
+6. > ⚠️ Not confirmed: which festival-calendar events are the vía days of each of the 20 deities, and when a vía day of the current catalogue file has no calendar event, is the event added to the calendar or the day dropped — blocks the deity ↔ vía link (backend seed) and therefore BR-DTY-05, BR-DTY-06 and FR-DTY-006 on every platform.
+7. > ⚠️ Not confirmed: how a vía in a leap lunar month is shown on the card and on the vía card (e.g. "Vía dd/MM nhuận âm lịch") — blocks the vía line wording on Website, iOS, Android.
+8. > ⚠️ Not confirmed: how the page shows a vía event that has no occurrence this year or next (e.g. a leap-month-only event): listed with its lunar date only, or left out — blocks the vía list on Website, iOS, Android.
+9. > ⚠️ Not confirmed: which order related sutras follow: the sutra library's order, or the deity's role in the sutra first (subject, speaker, mentioned) as the backend lists them today — blocks the related-sutra order on every platform.
+10. > ⚠️ Not confirmed: whether the related-sutra list is capped, what a row shows besides the title, and whether a failed load hides the section or offers "Thử lại" (retry) — blocks the related-sutra section on Website, iOS, Android.
+11. > ⚠️ Not confirmed: which row labels the "Hình tượng" (iconography) section uses (posture, seat or mount, sacred objects, meaning), since the prototype has no such section — blocks the iconography copy on Website, iOS, Android.
+12. > ⚠️ Not confirmed: whether "Chia sẻ" (share) is offered when the deity has no short mantra, and what it then shares — blocks the share action on Website, iOS, Android.
+13. > ⚠️ Not confirmed: what the not-found and load-error states of the deity page say — blocks the deity page error copy on Website, iOS, Android.
+14. > ⚠️ Not confirmed: what the home and library featured blocks show when empty or failed (copy, and whether they offer "Thử lại") — blocks the block empty state on Website, iOS, Android.
+15. > ⚠️ Not confirmed: what the catalogue shows when a type filter returns no deity while "Tất cả" has some (the empty-state hint "check the connection" would be wrong there) — blocks the filtered empty state on Website, iOS, Android.
+16. > ⚠️ Not confirmed: what an app shows offline for a saved deity whose next vía has already passed: hide the vía, or show "Đã qua" (passed) — blocks offline vía display on iOS, Android.
+17. > ⚠️ Not confirmed: which label a deity of a type the client does not know gets (today the website shows "Thiên hộ pháp", iOS fails to load it) — blocks forward compatibility on Website, iOS, Android.
 
 #### Open questions (resolved)
 
