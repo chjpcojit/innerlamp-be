@@ -7,7 +7,7 @@
 | Feature code | `TPL` — IDs are `BR-TPL-NN`, `FR-TPL-NNN`, `NFR-TPL-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.1 |
+| Version | 1.2 |
 | Last updated | 2026-10-15 |
 | Status | confirmed — 1 open item (Appendix A) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
@@ -248,7 +248,9 @@ N/A.
 - **Fields added now / later:** the directory now also carries the Rằm & Mùng Một hours, the contacts
   (hotline, fanpage, website, email), the Buddhist sangha body (giáo hội) and the month the temple's data
   was last updated. Architecture style, materials and highlights, the "Kinh sách" amenity and the photo
-  set come later; until then they show "Đang cập nhật" / "Không có" (anh Đức, 2026-10-15).
+  set come later; until then their rows and sections stay visible and show "Đang cập nhật" — including
+  the "Kinh sách" amenity and the photo set, which are never hidden or shown as "Không có" while the data
+  does not exist (anh Đức, 2026-10-15).
 
 **BR-TPL-07 — Distance**
 - **Rule:** The temple page shows "Cách bạn X km" only when the device knows the user's location because
@@ -278,8 +280,9 @@ N/A.
   calendar, the Rằm & Mùng Một hours apply when the temple has them, otherwise the normal hours. Open
   means opening time ≤ now < closing time. Before opening → "mở lại" today's opening time; after
   closing → "mở lại" the next day's opening time (lunar rule applied to that day). Both hour rows are
-  shown, the one in force today marked "Hôm nay". Without opening hours, the status is hidden and the
-  hours show "Đang cập nhật".
+  shown, the one in force today marked "Hôm nay". When the temple has no Rằm & Mùng Một hours of its own,
+  that row shows the normal hours (they are the hours that apply on those days), not "Đang cập nhật".
+  Without opening hours, the status is hidden and the hours show "Đang cập nhật".
 - **Examples:** hours 05:00–20:00, now 19:10 → "Đang mở cửa · đóng lúc 20:00"; now 21:00 →
   "Đã đóng cửa · mở lại 05:00"; Rằm with holiday hours 04:00–22:00, now 21:00 → "Đang mở cửa · đóng lúc
   22:00"; device set to Paris at 14:00 (= 19:00 Vietnam) → judged at 19:00.
@@ -311,6 +314,13 @@ N/A.
     Given the directory holds no temple
     When a visitor opens the home view
     Then the temple block shows its empty state and no error
+
+  Scenario: Featured temples cannot be loaded
+    Given the featured temples cannot be loaded (server error or no connection)
+    When a visitor opens the home view
+    Then the temple block shows the same empty state as an empty directory
+    And no error message, retry action or sample temple is shown
+    And the rest of the home view is unaffected
   ```
 
 **FR-TPL-002 — All temples, page by page**
@@ -448,7 +458,7 @@ N/A.
   and hours (BR-TPL-09) and distance (BR-TPL-07); founding year, heritage rank, sect and region; the
   introduction, collapsed with "Đọc thêm / Thu gọn" when long; abbot, founder and Buddhist sangha body;
   architecture and heritage; amenities (car parking, motorbike parking, vegetarian meals, retreats, and
-  "Kinh sách" when known); numbered visiting notes "01, 02, …"; location and contacts (full address,
+  "Kinh sách", which shows "Đang cập nhật" until the data exists); numbered visiting notes "01, 02, …"; location and contacts (full address,
   region, coordinates, hotline, fanpage, website, email); and a footer with the update month when
   known. Missing values follow BR-TPL-06.
 - **Business rules:** BR-TPL-06, BR-TPL-07, BR-TPL-09
@@ -646,6 +656,9 @@ platform's automated tests and manual QA against the prototype.
 | Open / closed time zone | Always Vietnam time; Rằm / Mùng Một hours on lunar 1st and 15th | 2026-10-15 |
 | Follow action until the follow feature | Hidden | 2026-10-15 |
 | Content loading | From the JSON directory file in every environment | 2026-10-15 |
+| Rằm & Mùng Một row without holiday hours | Shows the normal hours | 2026-10-15 |
+| Fields that come later (architecture, "Kinh sách", photo set) | Shown with "Đang cập nhật", not hidden | 2026-10-15 |
+| Home featured block when loading fails | Same empty state as an empty directory; no error text, no sample temples | 2026-10-15 |
 
 ### Appendix B — Contract handoff (backend)
 

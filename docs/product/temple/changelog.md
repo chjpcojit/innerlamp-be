@@ -1,5 +1,19 @@
 # Changelog — temple product spec
 
+## v1.2 — 2026-10-15
+
+Answers to the three product questions the four platform specs raised. No new rule IDs.
+
+- Resolved (anh Đức): a temple without Rằm & Mùng Một hours shows the normal hours on that row
+  (BR-TPL-09). Already covered by the vector "Rằm without holiday hours uses normal hours"; no vector
+  change.
+- Resolved (anh Đức): fields that come later (architecture details, "Kinh sách", photo set) stay visible
+  with "Đang cập nhật"; "Kinh sách" is no longer "when known" (BR-TPL-06, FR-TPL-007).
+- Resolved (anh Đức): when the featured temples cannot be loaded, the home block shows the same empty
+  state as an empty directory, with no error text and no sample temples (FR-TPL-001, new scenario).
+- Platforms to follow up: Website, iOS and Android specs remove the matching ⚠️ markers; the website
+  drops its sample temples on error.
+
 ## v1.1 — 2026-10-15
 
 - Resolved (anh Đức): the backend adds Rằm & Mùng Một hours, contacts, Buddhist sangha body and update
