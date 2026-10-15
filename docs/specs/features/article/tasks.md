@@ -1,59 +1,72 @@
 # Tasks — article
 
-Version: 2.0
-Last updated: 2026-10-11
-Status: implemented (2026-09-30) cho Phase 1–4; Phase 5 chưa làm E2E; Phase 6 là việc hoãn có chủ đích.
+Version: 3.0
+Last updated: 2026-10-15
+Status: in-progress — Phase 1–4 implemented (2026-09-30); Phase 5 E2E not done; Phase 6 is deliberately deferred; Phase 7 (v3.0 related articles) not started; Phase 8 (content file in git) done.
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
-Mọi mục dưới đây trace về một hàng của bảng "Layers & components" hoặc một Step của "Step-by-step Flow" trong `design.md`. Chỉ `[x]` những gì đã kiểm chứng tồn tại trong code (đã chạy `go build ./...`, `go vet ./services/appService/... ./assets/...`, `go test -short` cho `usecase`, `delivery/http`, `repository` và gọi thật ba route trên server dev ngày 2026-09-30).
+Every item traces to a row of "Layers & components" or a Step of a "Step-by-step Flow" in `design.md`.
+Only items verified in the code are `[x]` (`go build ./...`, `go vet`, `go test -short` for `usecase`,
+`delivery/http`, `repository`, and real calls to the three routes on the dev server, 2026-09-30).
 
 ## Phase 1 — Domain
 
-- [x] `Article`, `ArticlePage` trong `services/appService/domain/article.go` (không tag)
-- [x] `ErrArticleNotFound` trong `domain/article.go`; tái dùng `ErrInvalidPage` (định nghĩa ở `domain/temple.go`)
-- [x] Interface `ArticleRepository` (5 method, thứ tự `sort_order ASC, id ASC` nằm trong hợp đồng) trong `domain/article.go`
-- [x] `domain/mock_article_repository.go` cho test usecase
+- [x] `Article`, `ArticlePage` in `services/appService/domain/article.go` (no tags)
+- [x] `ErrArticleNotFound` in `domain/article.go`; reuse `ErrInvalidPage` (defined in `domain/temple.go`)
+- [x] `ArticleRepository` interface (order `sort_order ASC, id ASC` is part of the contract) in `domain/article.go`
+- [x] `domain/mock_article_repository.go` for usecase tests
 
 ## Phase 2 — Usecase
 
-- [x] `usecase/article_usecase.go`: `Top`, `List` (offset, `total_pages`, chặn `page < 1` / `> MaxInt32`), `Get`, `SeedIfEmpty(load)` (chỉ gọi `load` khi bảng rỗng)
-- [x] Unit tests: `usecase/article_usecase_test.go` — `Top`, `List`, `Get`, `SeedIfEmpty`, dùng mock tay, không DB thật
+- [x] `usecase/article_usecase.go`: `Top`, `List` (offset, `total_pages`, rejects `page < 1` / `> MaxInt32`), `Get`, `SeedIfEmpty(load)`
+- [x] Unit tests: `usecase/article_usecase_test.go` — `Top`, `List`, `Get`, `SeedIfEmpty`, hand-written mock, no real DB
 
-## Phase 3 — Repository và dữ liệu
+## Phase 3 — Repository and data
 
-- [x] `migrations/0012_articles.sql` — bảng `articles`, index `idx_articles_order`
-- [x] `repository/postgres_article_repository.go`: `ListTop`, `List`, `FindByID`, `Count`, `InsertMissing` (một transaction, `ON CONFLICT DO NOTHING`), scan `NULL` ↔ `nil`/`""`
-- [x] `FillMissingImages` (domain interface + mock + `postgres_article_repository.go`) và flag `-fill-images` của `cmd/seedarticles`; test `TestArticleRepository_FillMissingImages` (chạy trên DB scratch, không phải DB dev); đã chạy trên DB dev: 38 dòng được điền
-- [x] Chạy `seedarticles -fill-images` trên DB dev để 22 ảnh mới vào dòng đang `NULL` (đã chạy 2026-10-06: DB 60/60)
-- [x] `assets/data/buddhist_articles.json`: điền `imageURL` cho 60/60 bài: 38 từ `og:image` của `sourceURL`, 15 từ ảnh trong trang nguồn, 7 từ Wikimedia Commons (A-001); `TestParseArticleSeed_EmbeddedData` kiểm mọi bài có URL `https://`
-- [x] `repository/article_seed.go`: `ParseArticleSeed` (kiểm id, title, ngày; `SortOrder` = vị trí)
-- [x] `assets/embed.go` nhúng `assets/data/buddhist_articles.json`
-- [x] `thumbnail_url`: `migrations/0016_article_thumbnail.sql`; `domain.Article.ThumbnailURL`; repository (cột, scan, `InsertMissing`, `FillMissingImages` điền độc lập từng cột); `ParseArticleSeed` đọc `thumbnailURL`; DTO summary/detail trả `thumbnail_url` (`null` khi thiếu); 60 ảnh trong `assets/images/articles/thumb/`; `thumbnailURL` điền cho 60/60 bài; `make lan-urls` cập nhật host cả trong DB
-- [x] Tests cho `thumbnail_url`: `article_handler_test.go` (null và có giá trị), `article_seed_test.go` (mọi bài có URL đúng dạng và file ảnh tồn tại), `postgres_article_repository_test.go` (round-trip và `FillMissingImages_Thumbnail`, đã chạy trên DB scratch `innerlamp_test`; thêm `0016` vào danh sách migration của test)
-- [x] Tests: `repository/postgres_article_repository_test.go` (insert/find, không ghi đè, atomic, thứ tự và phân trang; cần Postgres, bỏ qua khi `-short`, và `TRUNCATE` dữ liệu dev — xem Known gaps trong `design.md`; chưa chạy lại ở lượt viết spec này), `repository/article_seed_test.go` (dữ liệu nhúng và validation)
+- [x] `migrations/0012_articles.sql` — table `articles`, index `idx_articles_order`
+- [x] `repository/postgres_article_repository.go`: `ListTop`, `List`, `FindByID`, `Count`, `InsertMissing` (one transaction, `ON CONFLICT DO NOTHING`), `NULL` ↔ `nil`/`""`
+- [x] `FillMissingImages` (interface + mock + repository) and the `-fill-images` flag of `cmd/seedarticles`; test `TestArticleRepository_FillMissingImages`
+- [x] `repository/article_seed.go`: `ParseArticleSeed` (checks id, title, date; `SortOrder` = position)
+- [x] `assets/embed.go` embeds `assets/data/buddhist_articles.json`
+- [x] `thumbnail_url`: `migrations/0016_article_thumbnail.sql`, entity, repository, seed parser, DTOs (`null` when missing), 60 images in `assets/images/articles/thumb/`
+- [x] Tests: `repository/postgres_article_repository_test.go` (insert/find, no overwrite, atomic, order and paging; needs Postgres, skipped under `-short`), `repository/article_seed_test.go` (embedded data and validation)
 
-## Phase 4 — Delivery và tài liệu
+## Phase 4 — Delivery and docs
 
-- [x] `delivery/http/article_handler.go`: `Top`, `List`, `Get` + DTO summary/detail (`published_date`/`image_url` là `null` khi thiếu; mảng không `null`)
+- [x] `delivery/http/article_handler.go`: `Top`, `List`, `Get` + summary/detail DTOs
 - [x] `delivery/http/errors.go`: `ErrArticleNotFound` → `404 ARTICLE_NOT_FOUND`
-- [x] `config`: `ArticleConfig`, block `article:` trong `config.dev.yaml`
-- [x] `cmd/main.go`: dựng dây, đăng ký 3 route (từ 2026-10-11 không còn gọi `SeedIfEmpty` lúc khởi động; nạp bằng `cmd/seedarticles` / `make ensure-articles`)
+- [x] `config`: `ArticleConfig`, block `article:` in `config.dev.yaml`
+- [x] `cmd/main.go`: wiring, 3 routes registered; no seeding on start
 - [x] Handler tests: `delivery/http/article_handler_test.go` (+ `mock_article_usecase_test.go`)
-- [x] Ghi `0012` vào `migrations/README.md`
-- [x] `web/docs/public/openapi.yaml` (nguồn của site tài liệu): 3 route + schema, ví dụ lấy từ dữ liệu seed
-- [x] `docs/specs/api/openapi.yaml`: 3 route + schema (đã kiểm có `/v1/articles/top`, `/v1/articles`, `/v1/articles/{id}` và `ARTICLE_NOT_FOUND`)
-- [x] Bảng `articles` trong `docs/specs/db/erd.mmd` và `erd.svg` (đã kiểm: render bằng mermaid-cli không lỗi, SVG có bảng)
+- [x] `docs/specs/api/openapi.yaml` and `web/docs/public/openapi.yaml`: 3 routes + schemas
+- [x] Table `articles` in `docs/specs/db/erd.mmd` / `erd.svg`
 
-## Phase 5 — Integration & documentation
+## Phase 5 — Integration
 
-- [ ] E2E black-box trong `services/appService/e2e/`: ba route, `INVALID_PAGE`, `ARTICLE_NOT_FOUND`, và seed lần đầu (khởi động hai lần, lần hai không seed lại)
-- [x] `go build ./...` và `go vet ./services/appService/... ./assets/...` sạch
-- [x] Khái niệm OKF `docs/knowledge/features/article.md` (`status: draft`)
+- [ ] E2E black-box in `services/appService/e2e/article_e2e_test.go`: top, paged list (`INVALID_PAGE`, past the end), detail (`ARTICLE_NOT_FOUND`), related (Phase 7), after running `cmd/seedarticles` on the ephemeral database
+- [x] `go build ./...` and `go vet ./services/appService/... ./assets/...` clean (2026-09-30)
+- [x] OKF concept `docs/knowledge/features/article.md` (`status: draft`)
 
-## Deferred (separate feature, not blocking article)
+## Phase 6 — Deferred (separate features, not blocking article)
 
-- Tạo/sửa/xoá bài viết qua backoffice hoặc lệnh reseed (`⚠️ Not confirmed` trong `requirements.md`).
-- Tìm kiếm, lọc theo `category`/`tag`, bookmark.
-- Sao chép ảnh về GCS (thay cho hotlink) — cần chốt bucket, quyền bản quyền ảnh và thông tin xác thực; xem `requirements.md`.
+- Creating / editing / removing articles in the back office or by a full reseed (product A4).
+- Search, filtering by `category`/`tag`, bookmarks (product out of scope / BR-ART-09).
+- Copying cover images to GCS (instead of hotlinks) — needs a bucket and the image-rights answer (product A1).
+
+## Phase 7 — Related articles (v3.0, design "Step-by-step Flow — Related articles")
+
+- [ ] Config: `ArticleConfig.RelatedLimit` + `article.related_limit: 2` in `config.dev.yaml` (and every env file); validated `> 0` with the other two; config test
+- [ ] Domain: `ArticleRepository.ListRelated(ctx, id, category, limit)` + mock method
+- [ ] Repository: `ListRelated` SQL (`WHERE id <> $1 ORDER BY (lower(btrim(category)) = lower(btrim($2))) DESC, sort_order, id LIMIT $3`); `nil` → empty slice
+- [ ] Repository test: run every case of `docs/product/article/rules/article-related.json` against Postgres (insert the case's articles, call `ListRelated`, compare ids) and `article-order.json` against `List`
+- [ ] Usecase: `ArticleUsecase.Related(ctx, id)` — `FindByID` (→ `ErrArticleNotFound`) then `ListRelated(cfg.RelatedLimit)`; unit tests with the mock (found, not found, DB error on each step)
+- [ ] Handler: `ArticleHandler.Related` → `200 {items}` (summary DTOs, `[]` not `null`); handler tests (200, 404, 500, 405 with `Allow: GET, HEAD`)
+- [ ] Wiring: `mux.HandleFunc("GET /v1/articles/{id}/related", articleHandler.Related)` in `cmd/main.go`
+- [ ] Contract: add `/v1/articles/{id}/related` (operation `articlesRelated`, tag Articles, response `{items: [ArticleSummary]}`, `404 ARTICLE_NOT_FOUND`) to `docs/specs/api/openapi.yaml` and `web/docs/public/openapi.yaml`
+- [ ] E2E: related route in `article_e2e_test.go` (Phase 5)
+
+## Phase 8 — Content file in git (v3.0)
+
+- [x] `.gitignore` exception `!assets/data/buddhist_articles.json` and the file committed (60 articles, root-relative thumbnail paths)

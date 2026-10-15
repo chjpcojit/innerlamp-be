@@ -1,41 +1,51 @@
 # Design — article
 
-Version: 2.0
-Last updated: 2026-10-11
-Status: implemented (2026-09-30) — 3 route đọc + seed lần đầu chạy thật qua binary + Postgres dev; có test usecase/handler/seed parser/repository. Thiếu: E2E (`openapi.yaml` và ERD đã có).
+Version: 3.0
+Last updated: 2026-10-15
+Status: in-progress — top / paged list / detail and the seed command are implemented; related articles (v3.0) are designed, not implemented.
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
 ## Overview
 
-Ba route `GET /v1/articles/*` đều công khai, không đi qua middleware xác thực. Feature chạm đủ bốn layer Clean Architecture của `services/appService` (`domain` → `usecase` → `repository` / `delivery/http`, nối dây ở `cmd/main.go`), sở hữu migration `0012_articles.sql` và `0016_article_thumbnail.sql` (cột `thumbnail_url`), và thêm một package nhỏ `assets/` chỉ để `go:embed` file JSON seed. Cùng hình dạng với danh mục `temple` và `deity` (top + list phân trang + detail, cấu hình `top_limit`/`page_size`), khác ở chỗ seed chạy **tự động một lần khi khởi động** thay vì lệnh `cmd/seedtemples`/`cmd/seeddeities`.
+All `GET /v1/articles*` routes are public and pass no authentication middleware. The feature touches
+the four Clean Architecture layers of `services/appService` (`domain` → `usecase` → `repository` /
+`delivery/http`, wired in `cmd/main.go`), owns migrations `0012_articles.sql` and
+`0016_article_thumbnail.sql`, and uses the small `assets/` package that `go:embed`s the content file.
+Same shape as `temple` and `deity` (top + paged list + detail, `top_limit`/`page_size` config); data is
+loaded only by `cmd/seedarticles`.
+
+v3.0 adds one read: the related articles of one article (BR-ART-04), computed by one SQL query after an
+existence check. No schema change.
 
 ## Layers & components
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Domain / Entity | `services/appService/domain/article.go` | `Article` (mọi cột; `PublishedDate *time.Time`, `ImageURL string` rỗng = chưa có) và `ArticlePage`. Không JSON/db tag. |
-| Domain / Errors | `domain/article.go` | `ErrArticleNotFound` (định nghĩa cạnh entity); `ErrInvalidPage` dùng chung với `temple`/`deity` nhưng **định nghĩa ở `domain/temple.go`**, không phải `domain/errors.go`. |
-| Domain / Repository interface | `domain/article.go` | `ArticleRepository`: `ListTop`, `List`, `FindByID`, `Count`, `InsertMissing`. Thứ tự `sort_order ASC, id ASC` là một phần của hợp đồng. |
-| Domain / Mock | `domain/mock_article_repository.go` | Mock viết tay cho test usecase. |
-| Usecase | `services/appService/usecase/article_usecase.go` | `Top`, `List` (tính offset/`total_pages`, chặn `page < 1` hoặc `> MaxInt32`), `Get`, `SeedIfEmpty(load)`. Kích thước trang lấy từ `config.ArticleConfig`. |
-| Repository | `services/appService/repository/postgres_article_repository.go` | SQL cho bảng `articles`; `InsertMissing` chạy một transaction với `ON CONFLICT (id) DO NOTHING`; `FillMissingImages` chạy `UPDATE … SET image_url = COALESCE(image_url,$2), thumbnail_url = COALESCE(thumbnail_url,$3) …` trong một transaction (mỗi cột điền độc lập, không ghi đè giá trị đã có); `NULL` ↔ `nil`/`""` cho `published_date`/`image_url`/`thumbnail_url`; `pq.Array` cho `body_paragraphs`/`tags`. |
-| Repository / Seed parser | `services/appService/repository/article_seed.go` | `ParseArticleSeed`: giải mã `{"articles":[…]}`, kiểm id/title/ngày, gán `SortOrder` = vị trí trong file. |
-| Embedded data | `assets/embed.go`, `assets/data/buddhist_articles.json` | `go:embed` file JSON vào biến `BuddhistArticlesJSON` để binary tự mang dữ liệu seed, không phụ thuộc thư mục làm việc. |
-| Delivery / Handler | `services/appService/delivery/http/article_handler.go` | `Top`, `List`, `Get`; parse `page`; DTO summary/detail; `published_date` định dạng `2006-01-02`; `nonNil` cho mảng. |
-| Delivery / DTO | `delivery/http/article_handler.go` | `articleSummaryResponse`, `articleDetailResponse` (nhúng summary), `articleTopResponse`, `articleListResponse` — JSON tag chỉ nằm ở đây. |
-| Delivery / Error map | `delivery/http/errors.go` | `ErrArticleNotFound` → `404 ARTICLE_NOT_FOUND`; `ErrInvalidPage` → `400 INVALID_PAGE` (`details.field = "page"`). |
-| Config | `services/appService/config/config.go`, `config.dev.yaml` | `ArticleConfig{TopLimit, PageSize}`, block `article:` (dev: 5 và 10). |
-| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; đăng ký 3 route. **Không seed lúc khởi động** (từ 2026-10-11; dữ liệu nạp bằng `cmd/seedarticles`). Không dính khối `⚠️ DEV ONLY` nào. |
-| Migration | `migrations/0012_articles.sql`, `migrations/0016_article_thumbnail.sql` | Bảng `articles` + index `idx_articles_order (sort_order, id)`; `0016` thêm cột `thumbnail_url TEXT` (NULL). |
-| API spec | `docs/specs/api/openapi.yaml` | **Đã có** 3 route (tag Articles) và schema `ArticleSummary`/`ArticleDetail`; `web/docs/public/openapi.yaml` khớp. |
+| Domain / Entity | `services/appService/domain/article.go` | `Article` (every column; `PublishedDate *time.Time`, `ImageURL`/`ThumbnailURL` `""` = none) and `ArticlePage`. No JSON/db tags. |
+| Domain / Errors | `domain/article.go` | `ErrArticleNotFound`; `ErrInvalidPage` is shared with `temple`/`deity` and defined in `domain/temple.go`. |
+| Domain / Repository interface | `domain/article.go` | `ArticleRepository`: `ListTop`, `List`, `FindByID`, `Count`, `InsertMissing`, `FillMissingImages`, **v3.0** `ListRelated(ctx, id, category, limit)`. The order `sort_order ASC, id ASC` is part of the contract. |
+| Domain / Mock | `domain/mock_article_repository.go` | Hand-written mock for usecase tests; **v3.0** adds `ListRelated`. |
+| Usecase | `services/appService/usecase/article_usecase.go` | `Top`, `List` (offset, `total_pages`, rejects `page < 1` or `> MaxInt32`), `Get`, `SeedIfEmpty(load)` (kept, no production caller), **v3.0** `Related(ctx, id)`: `FindByID` then `ListRelated` with `cfg.RelatedLimit`. |
+| Repository | `services/appService/repository/postgres_article_repository.go` | SQL for `articles`; `InsertMissing` in one transaction with `ON CONFLICT (id) DO NOTHING`; `FillMissingImages` fills `image_url`/`thumbnail_url` only where `NULL`; `NULL` ↔ `nil`/`""`; `pq.Array` for `body_paragraphs`/`tags`. **v3.0** `ListRelated` (query below). |
+| Repository / Seed parser | `services/appService/repository/article_seed.go` | `ParseArticleSeed`: decodes `{"articles":[…]}`, checks id/title/date, sets `SortOrder` = position in the file. |
+| Embedded data | `assets/embed.go`, `assets/data/buddhist_articles.json` | `go:embed` of the content file into `BuddhistArticlesJSON`. **v3.0**: the JSON file is committed (`.gitignore` exception). |
+| Delivery / Handler | `services/appService/delivery/http/article_handler.go` | `Top`, `List`, `Get`, **v3.0** `Related`; parses `page`; summary/detail DTOs; `published_date` as `2006-01-02`; image paths resolved by `imageHost` (`WithImageBase(server.public_base_url)`); `nonNil` for arrays. |
+| Delivery / DTO | `delivery/http/article_handler.go` | `articleSummaryResponse`, `articleDetailResponse` (embeds summary), `articleTopResponse` (also used by `Related`), `articleListResponse`. JSON tags live only here. |
+| Delivery / Error map | `delivery/http/errors.go` | `ErrArticleNotFound` → `404 ARTICLE_NOT_FOUND`; `ErrInvalidPage` → `400 INVALID_PAGE` (`details.field = "page"`). Unchanged in v3.0. |
+| Config | `services/appService/config/config.go`, `config.dev.yaml` | `ArticleConfig{TopLimit, PageSize}` (5, 10); **v3.0** `RelatedLimit` (2), validated `> 0` like the other two. |
+| Wiring | `services/appService/cmd/main.go` | Builds repo → usecase → handler; registers the routes; **v3.0** adds `GET /v1/articles/{id}/related`. No seeding on start. No `⚠️ DEV ONLY` block involved. |
+| Migration | `migrations/0012_articles.sql`, `migrations/0016_article_thumbnail.sql` | Table `articles` + index `idx_articles_order (sort_order, id)`; `thumbnail_url TEXT NULL`. No v3.0 migration. |
+| API spec | `docs/specs/api/openapi.yaml`, `web/docs/public/openapi.yaml` | Three shipped routes with `ArticleSummary`/`ArticleDetail`; **v3.0** adds `/v1/articles/{id}/related` (operation `articlesRelated`) to both copies. |
 
-Ghi chú về route: `mux.HandleFunc("GET /v1/articles/top", …)` là segment literal nên `ServeMux` ưu tiên nó hơn `GET /v1/articles/{id}`.
+Routing note: `GET /v1/articles/top` is a literal segment, so `ServeMux` prefers it over
+`GET /v1/articles/{id}`; `GET /v1/articles/{id}/related` has one more segment and does not collide.
 
 ## Request flow
 
-`top` và `detail` chỉ một câu SQL nên giữ dạng ASCII; `list` (đếm rồi lấy trang) và seed có nhiều bước nên nằm ở Step-by-step Flow và `flow.md`.
+`top` and `detail` are one SQL statement each, so they stay as ASCII; the paged list, related articles
+and the seed have several steps and are in the Step-by-step Flows and `flow.md`.
 
 ```
 GET /v1/articles/top
@@ -54,99 +64,153 @@ GET /v1/articles/{id}
                            └─ sql.ErrNoRows → ErrArticleNotFound → 404 ARTICLE_NOT_FOUND
 ```
 
-> Xem `flow.md` cho sơ đồ sequence Mermaid của hai flow có nhiều bước bên dưới (mirror 1:1).
+> See `flow.md` for the Mermaid sequence diagrams of the three multi-step flows below (1:1 mirror).
 
-## Step-by-step Flow — Danh sách phân trang (`GET /v1/articles?page=N`)
+## Step-by-step Flow — Paged list (`GET /v1/articles?page=N`)
 
-Hai lần truy vấn nối tiếp (đếm, rồi lấy trang) nên flow này có Step-by-step riêng.
+Two sequential queries (count, then page).
 
 ```
-Step 1 — Đọc và kiểm tra `page` (handler)
-- Trigger: request đến route công khai
+Step 1 — Read and check `page` (handler)
+- Trigger: request reaches the public route
 - Pre-condition: —
-- Call: r.URL.Query().Get("page"); rỗng → page = 1, ngược lại strconv.Atoi
+- Call: r.URL.Query().Get("page"); empty → page = 1, else strconv.Atoi
     - Success → Step 2
-    - Failure (không phải số nguyên, kể cả tràn int) → writeDomainError(ErrInvalidPage) → 400 INVALID_PAGE, details.field = "page"
+    - Failure (not an integer, including int overflow) → writeDomainError(ErrInvalidPage) → 400 INVALID_PAGE, details.field = "page"
 
-Step 2 — Kiểm tra khoảng của `page` (usecase)
-- Trigger: handler gọi ArticleUsecase.List(ctx, page)
-- Pre-condition: page là số nguyên
-- Call: ArticleUsecase.List — page < 1 hoặc page > math.MaxInt32
+Step 2 — Check the range of `page` (usecase)
+- Trigger: handler calls ArticleUsecase.List(ctx, page)
+- Pre-condition: page is an integer
+- Call: page < 1 or page > math.MaxInt32
     - Success → Step 3 (offset = (page-1) * page_size)
     - Failure → domain.ErrInvalidPage → 400 INVALID_PAGE
 
-Step 3 — Đếm tổng số bài (repository)
-- Trigger: usecase gọi ArticleRepository.List(offset, limit)
-- Pre-condition: offset/limit hợp lệ
-- Call: ArticleRepository.Count → SELECT count(*) FROM articles
-    - Success → total, sang Step 4
-    - Failure (lỗi DB) → error bọc %w → 500 INTERNAL_ERROR
+Step 3 — Count articles (repository)
+- Trigger: usecase calls ArticleRepository.List(offset, limit)
+- Pre-condition: valid offset/limit
+- Call: SELECT count(*) FROM articles
+    - Success → total, go to Step 4
+    - Failure (DB error) → error wrapped with %w → 500 INTERNAL_ERROR
 
-Step 4 — Lấy trang (repository)
-- Trigger: Step 3 xong
-- Pre-condition: có total
-- Call: SELECT <cột> FROM articles ORDER BY sort_order ASC, id ASC OFFSET $1 LIMIT $2
-    - Success → items (rỗng nếu offset vượt cuối) và total, sang Step 5
-    - Failure (lỗi DB / scan) → error bọc %w → 500 INTERNAL_ERROR
-    - Transaction boundary: không có — Step 3 và Step 4 là hai câu lệnh độc lập, không chung snapshot
+Step 4 — Read the page (repository)
+- Trigger: Step 3 done
+- Pre-condition: total known
+- Call: SELECT <columns> FROM articles ORDER BY sort_order ASC, id ASC OFFSET $1 LIMIT $2
+    - Success → items (empty past the end) and total, go to Step 5
+    - Failure (DB / scan error) → error wrapped with %w → 500 INTERNAL_ERROR
+    - Transaction boundary: none — Step 3 and Step 4 are two independent statements, no shared snapshot
 
-Step 5 — Dựng trang và trả response (usecase + handler)
-- Trigger: repository trả về
+Step 5 — Build the page and respond (usecase + handler)
+- Trigger: repository returns
 - Pre-condition: items, total
-- Call: items nil → []; total_pages = (total + page_size - 1) / page_size; handler map sang DTO summary
+- Call: nil items → []; total_pages = (total + page_size - 1) / page_size; handler maps to summary DTOs
     - Success → 200 {items, page, page_size, total, total_pages}
-    - Failure → không có nhánh lỗi mới
+    - Failure → no new failure branch
 ```
 
-## Step-by-step Flow — Seed bằng lệnh `cmd/seedarticles` (service không tự nạp)
+## Step-by-step Flow — Related articles (`GET /v1/articles/{id}/related`, v3.0)
 
-Bước đếm, bước đọc file và bước ghi là các tác động nối tiếp, trong đó bước ghi là side effect bền vững.
+An existence check, then one selection query. Implements BR-ART-04.
 
 ```
-Step 1 — Đếm số bài đang có (usecase → repository)
-- Trigger: `make ensure-articles` (khi bảng rỗng) hoặc chạy tay `cmd/seedarticles`; lệnh kết nối DB rồi gọi ArticleRepository.InsertMissing. (Từ 2026-10-11 cmd/main.go không còn gọi SeedIfEmpty; `ArticleUsecase.SeedIfEmpty` còn trong code nhưng không có nơi gọi ở production.)
-- Pre-condition: DB kết nối được; migration 0012 đã apply
-- Call: ArticleRepository.Count → SELECT count(*) FROM articles
-    - Success (n = 0) → Step 2
-    - Success (n > 0) → dừng: trả 0 bài đã chèn, KHÔNG gọi load, KHÔNG ghi gì (restart không đụng dữ liệu)
-    - Failure (vd. bảng chưa tồn tại) → error bọc %w → main log.Fatalf "failed to seed articles"
-
-Step 2 — Nạp và kiểm tra dữ liệu seed (repository)
-- Trigger: n = 0
+Step 1 — Read the path (handler)
+- Trigger: request reaches the public route
 - Pre-condition: —
-- Call: load() = repository.ParseArticleSeed(assets.BuddhistArticlesJSON)
-    - Success → danh sách domain.Article, SortOrder = vị trí trong file, sang Step 3
-    - Failure (JSON hỏng, không có bài, id rỗng/trùng, title rỗng, publishedDate sai định dạng) → error → log.Fatalf, chưa ghi gì
+- Call: r.PathValue("id")
+    - Success → Step 2 (no format validation, same as Get: an unknown id is a 404)
+    - Failure → none
 
-Step 3 — Chèn các bài còn thiếu (repository)
-- Trigger: Step 2 xong
-- Pre-condition: seed hợp lệ
-- Call: ArticleRepository.InsertMissing → INSERT … ON CONFLICT (id) DO NOTHING cho từng bài
-    - Success → số dòng thực sự được chèn (60 ở lần đầu), sang Step 4
-    - Failure (lỗi DB) → rollback toàn bộ → error → log.Fatalf
-    - Transaction boundary: mọi INSERT của Step 3 chung MỘT transaction — hoặc đủ hết hoặc không dòng nào
-
-Step 4 — Ghi log (cmd/main.go)
-- Trigger: SeedIfEmpty trả về số bài đã chèn
+Step 2 — Load the current article (usecase → repository)
+- Trigger: handler calls ArticleUsecase.Related(ctx, id)
 - Pre-condition: —
-- Call: nếu số > 0 → logger.Info("seeded articles on first run", "count", n)
-    - Success → tiếp tục khởi động, đăng ký route
-    - Failure → không có nhánh lỗi
+- Call: ArticleRepository.FindByID(ctx, id) → SELECT … FROM articles WHERE id = $1
+    - Success → the article's category, go to Step 3
+    - Failure (no row) → ErrArticleNotFound → 404 ARTICLE_NOT_FOUND
+    - Failure (DB error) → error wrapped with %w → 500 INTERNAL_ERROR
+
+Step 3 — Select the related articles (repository)
+- Trigger: Step 2 found the article
+- Pre-condition: limit = article.related_limit (> 0, checked at config load)
+- Call: ArticleRepository.ListRelated(ctx, id, category, limit) →
+    SELECT <summary columns> FROM articles
+    WHERE id <> $1
+    ORDER BY (lower(btrim(category)) = lower(btrim($2))) DESC, sort_order ASC, id ASC
+    LIMIT $3
+    - Success → 0..limit articles: same-category ones first in editorial order, then the rest in editorial order (BR-ART-04 fill-up); go to Step 4
+    - Failure (DB / scan error) → error wrapped with %w → 500 INTERNAL_ERROR
+    - Transaction boundary: none — Step 2 and Step 3 are independent reads; an article deleted in between only changes which rows come back
+
+Step 4 — Respond (handler)
+- Trigger: usecase returns
+- Pre-condition: items (nil → [])
+- Call: map to summary DTOs (articleTopResponse)
+    - Success → 200 {items}
+    - Failure → no new failure branch
+```
+
+`lower()` on Vietnamese text relies on a UTF-8 `LC_CTYPE` in Postgres, which the temple and sutra
+searches already assume (`unaccent(lower(…))`). The rule's vectors are run against this query
+(repository test) and against a pure ordering helper (usecase test), so both agree.
+
+## Step-by-step Flow — Seed with the `cmd/seedarticles` command (the service never seeds)
+
+Reading the file and the insert transaction are sequential effects; the insert is a persistent side
+effect.
+
+```
+Step 1 — Parse and check the content (cmd/seedarticles → repository)
+- Trigger: `make ensure-articles` (only when the table is empty) or a manual run of cmd/seedarticles
+- Pre-condition: DB reachable; migration 0012 (and 0016) applied
+- Call: repository.ParseArticleSeed(assets.BuddhistArticlesJSON, or the -file content)
+    - Success → []domain.Article, SortOrder = position in the file, go to Step 2
+    - Failure (bad JSON, no article, empty/duplicate id, empty title, bad publishedDate) → log.Fatalf, nothing written
+
+Step 2 — Insert the missing articles (repository)
+- Trigger: Step 1 done
+- Pre-condition: valid content
+- Call: ArticleRepository.InsertMissing → INSERT … ON CONFLICT (id) DO NOTHING per article
+    - Success → number of rows actually inserted (60 on first run), go to Step 3
+    - Failure (DB error, e.g. table missing) → full rollback → log.Fatalf
+    - Transaction boundary: every INSERT of Step 2 in ONE transaction — all or nothing
+
+Step 3 — Fill missing images (repository, only with -fill-images)
+- Trigger: Step 2 done and -fill-images set
+- Pre-condition: —
+- Call: ArticleRepository.FillMissingImages → UPDATE … SET image_url = COALESCE(image_url,$2), thumbnail_url = COALESCE(thumbnail_url,$3) WHERE id = $1
+    - Success → number of rows changed, go to Step 4
+    - Failure → rollback → log.Fatalf
+    - Transaction boundary: one transaction for all UPDATEs
+
+Step 4 — Log (cmd/seedarticles)
+- Trigger: previous step returns
+- Pre-condition: —
+- Call: logger.Info with the inserted (and filled) counts
+    - Success → exit 0
+    - Failure → no failure branch
 ```
 
 ## Deliberately stubbed for now (if applicable)
 
-Không có gì bị stub: mọi method của `ArticleRepository` đều có SQL thật và đã chạy trên Postgres dev.
+Nothing is stubbed: every shipped `ArticleRepository` method runs real SQL. `ListRelated` does not
+exist yet (v3.0, `tasks.md` Phase 7).
 
 ## Known gaps carried by this feature
 
-- **Không có E2E**: chưa có test chạy binary thật với Postgres cho ba route và cho seed lần đầu (`services/appService/e2e/` không có gì về article). Việc "đã chạy thật" là chạy tay trên server dev.
-- **Test repository cần Postgres và xoá dữ liệu dev**: `postgres_article_repository_test.go` gọi `connectTestDB`, bỏ qua khi `-short`; helper đó chạy `TRUNCATE` trên nhiều bảng, trong đó có `articles`, `temples`, `deities` và `users` của DB `innerlamp` (mặc định `localhost:5432`). Chạy xong bảng `articles` của DB dev trống cho tới lần khởi động service kế tiếp (lúc đó seed lại), còn `temples`/`deities` phải seed lại bằng `cmd/seedtemples`/`cmd/seeddeities`. `go test -short` chỉ chạy usecase, handler và seed parser.
-- **Tài liệu schema/API đã đủ**: ERD (`erd.mmd`, `erd.svg`) có bảng `articles`; `docs/specs/api/openapi.yaml` và `web/docs/public/openapi.yaml` đã có ba route.
-- **Sửa file JSON không cập nhật DB có sẵn**: seed chỉ chạy khi bảng rỗng. `cmd/seedarticles` chèn bài mới (`InsertMissing`), và với `-fill-images` gọi `FillMissingImages` để đặt `image_url` cho dòng đang `NULL` (không ghi đè ảnh đã có, không đụng cột khác). Các cột nội dung khác vẫn chỉ đổi được bằng SQL tay; chưa có reseed đầy đủ hay backoffice CRUD.
-- **Bảng bị xoá sạch thì được nạp lại**: điều kiện "không hồi sinh bài đã xoá" chỉ đúng khi còn ít nhất một dòng; xoá toàn bộ bảng rồi khởi động lại sẽ nạp lại đủ 60 bài.
-- **Đếm và lấy trang không cùng snapshot**: nếu có dòng đổi giữa Step 3 và Step 4, `total` có thể lệch `items`. Dữ liệu hiện chỉ đổi bằng SQL tay nên rủi ro thấp.
-- **Hai instance khởi động cùng lúc**: cả hai có thể cùng thấy bảng rỗng; `ON CONFLICT DO NOTHING` làm cho instance đến sau chèn 0 dòng thay vì lỗi, nên an toàn, nhưng cả hai đều parse seed.
-- **`id = "top"` bị route literal che** (xem AC10).
-- **`thumbnail_url` là ảnh vuông 360x360 WebP (~15 KB) do app phục vụ** tại `/static/images/articles/thumb/<id>.webp` (route dev, xem `delivery/http/static_images.go`), cắt giữa từ ảnh gốc và lệch lên trên 10%; URL trong dữ liệu seed mang IP LAN của máy dev nên đổi bằng `make lan-urls`. Đây là bản sao phái sinh của ảnh có bản quyền của bên khác, chỉ dùng cho dev (A-002). DB đã seed trước migration `0016` nhận thumbnail qua `seedarticles -fill-images`.
-- **`image_url` là hotlink**: 60/60 bài trong dữ liệu seed có ảnh: 53 bài trỏ tới server nguồn (`og:image` hoặc ảnh trong bài), 7 bài trỏ tới `thumb.wikimedia.org` (ảnh minh hoạ chủ đề, xem A-001). Ảnh có thể hỏng nếu nguồn đổi URL hoặc chặn hotlink; bản sao trên GCS chưa có. DB đã seed trước đó chỉ nhận 22 ảnh mới qua `seedarticles -fill-images` (đã chạy trên DB dev ngày 2026-10-06: DB đủ 60/60).
+- **No E2E**: no test runs the real binary against Postgres for the article routes
+  (`services/appService/e2e/` has none).
+- **Repository tests need Postgres** and are skipped under `-short`; they run on the scratch database
+  of the test helper.
+- **Editing the content file does not update an existing database**: the seed inserts missing ids
+  only; `-fill-images` fills `NULL` image columns only. Other columns change only by hand-written SQL
+  (product Appendix A item 4).
+- **An emptied table is reloaded**: "never bring back a deleted article" holds only while at least one
+  row remains; `make ensure-articles` on an empty table reloads all 60.
+- **Count and page are not one snapshot** (paged list Step 3/4); data changes only by hand, so the risk
+  is low.
+- **`id = "top"` is shadowed** by the literal route (AC 10).
+- **Thumbnails** are 360x360 WebP copies served by `GET /static/images/` (`server.static_images_dir`),
+  derived from third-party images (A-002); `image_url` is a hotlink (53 source sites, 7 Wikimedia
+  Commons — A-001). No GCS copy yet; rights are open (product A1).
+- **Other embedded data is still untracked**: `assets/embed.go` also embeds
+  `assets/data/dharma_talks.json`, which is not in git, so a fresh clone still fails to build until
+  that file is committed (feature `dharmatalk`, not this one).
