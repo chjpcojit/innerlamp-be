@@ -1,5 +1,11 @@
 # Changelog — calendar
 
+## v3.1 (2026-10-15) — sau khi viết spec ba client
+
+- `requirements.md` / `design.md` / `flow.md`: E23 đổi: request có `X-API-Key` đúng (website) không bị đếm vào giới hạn theo IP, vì website gọi từ một IP server (phát hiện khi viết spec website). Step 1b và sequence vẽ lại nhánh này. `tasks.md` thêm một task cho nhánh bỏ qua giới hạn.
+- Header cite product spec v1.2 (không đổi ID Backend). Resolved: mã nhóm `buddhist` ổn định (BR-CAL-09 v1.2).
+- Xoá `SRS.md` và `api-contract.md` cũ (đã bị product spec + `openapi.yaml` thay thế); sửa các chỗ trỏ tới chúng ở `docs/knowledge/` và `docs/specs/features/temple-event/SRS.md`. Các mục changelog cũ nhắc tới hai file này giữ nguyên làm lịch sử.
+
 ## v3.0 (2026-10-15) — theo product spec `calendar` v1.1
 
 US-CAL-002 chuyển sang cite product spec `docs/product/calendar/product.md` v1.1 (be#21) thay cho `SRS.md`. Bump major vì đổi hợp đồng (route công khai, trường mới) và đổi schema. US-CAL-001 không đổi.

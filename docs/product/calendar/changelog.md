@@ -1,5 +1,25 @@
 # Changelog — calendar product spec
 
+## v1.2 — 2026-10-15
+
+- From the four platform specs (backend v3.0, website / iOS / Android v1.0), which compared this
+  spec with the shipped code. Defaults below are approved by merging this version.
+- §4.2 matrix: website, iOS and Android columns corrected to `drift` where the code differs
+  (BR-CAL-08, 09, 13, 14, 15; FR-CAL-002…008); Android BR-CAL-11 and BR-CAL-14 `n/a` → `planned`.
+- §3.1.1: a messages table (out-of-date, offline, load failure, retry, next year failed, empty home
+  month, not found); the home block shows no countdown, so FR-CAL-006 no longer cites BR-CAL-13.
+- BR-CAL-05 / 08: "nhuận" goes on the lunar date, not on the event name.
+- BR-CAL-09: the Phật giáo group is permanent (the home block depends on it).
+- BR-CAL-14: an empty long description is hidden, never replaced by the short one; platforms show
+  their placeholder until the default image exists (§3.6, new ⚠️ in Appendix A).
+- BR-CAL-15: "current month" is Vietnam time; when one of two years fails, only its months show the
+  failure.
+- §1.2: lunar day marks on calendar grids and Android's temple-tab block are outside this feature.
+- §3.6: website-only upcoming card, dimmed past rows, "Thắp đèn" / "Xem ngày âm" links; placeholder
+  image row.
+- Platforms to follow up: clients re-check their criteria against the messages table and BR-CAL-15;
+  backend: no change from this version.
+
 ## v1.1 — 2026-10-15
 
 - Checked against the seed catalogue the product owner supplied (`calendar-events.json`, DRAFT,

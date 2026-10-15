@@ -9,8 +9,6 @@ generated: { by: claude-code, at: 2026-10-11T04:45:00+07:00 }
 sources:
   - path: docs/specs/features/calendar/requirements.md
     kind: spec
-  - path: docs/specs/features/calendar/api-contract.md
-    kind: spec
   - path: docs/specs/api/openapi.yaml
     kind: openapi
 ---

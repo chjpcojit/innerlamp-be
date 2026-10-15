@@ -1,6 +1,6 @@
 # Flow — calendar
 
-Version: 3.0
+Version: 3.1
 Last updated: 2026-10-15
 Status: mirror `design.md` v3.0 — bước 1a/1b (route công khai) chưa triển khai
 Module: `calendar`
@@ -27,11 +27,15 @@ sequenceDiagram
     alt có X-API-Key nhưng sai
         K--xC: 401
     end
-    K->>L: khớp khoá, hoặc không có header (app di động)
-    alt IP vượt calendar.events_rate_limit
-        L--xC: 429
+    alt X-API-Key đúng (website)
+        K->>H: Events (không qua giới hạn IP)
+    else không có header (app di động)
+        K->>L: đếm theo IP
+        alt IP vượt calendar.events_rate_limit
+            L--xC: 429
+        end
+        L->>H: Events
     end
-    L->>H: Events
 
     H->>U: EventsForYear(ctx, year)
     U->>U: year rỗng → năm hiện tại (calendar.timezone); parse + kiểm tra 1900..2100

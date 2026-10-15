@@ -1,17 +1,17 @@
 # Requirements — calendar
 
-Version: 3.0
+Version: 3.1
 Last updated: 2026-10-15
 Status: US-CAL-001 đã triển khai. US-CAL-002 đã triển khai tới v2.1; các thay đổi v3.0 (route công khai, `is_major`, seed vào git) chưa triển khai
 Module: `calendar`
 Code: `services/appService/`
 
-Product spec: `docs/product/calendar/product.md` @ v1.1 (US-CAL-002 only; US-CAL-001 ảnh theo ngày: none yet, product v1.x)
+Product spec: `docs/product/calendar/product.md` @ v1.2 (US-CAL-002 only; US-CAL-001 ảnh theo ngày: none yet, product v1.x)
 Contract: `docs/specs/api/openapi.yaml` (this repo)
 Implements: BR-CAL-01…12, BR-CAL-14, BR-CAL-16, FR-CAL-001, FR-CAL-002, FR-CAL-004, FR-CAL-010, NFR-CAL-01, NFR-CAL-02
 
 > See `changelog.md` in this folder for the version history of this spec.
-> Từ v3.0 nguồn nghiệp vụ của US-CAL-002 là product spec ở trên. `SRS.md` cùng thư mục đã bị thay thế và sẽ bị xoá.
+> Từ v3.0 nguồn nghiệp vụ của US-CAL-002 là product spec ở trên. `SRS.md` và `api-contract.md` cũ đã xoá ở v3.1 (còn trong git history).
 
 ## User Story
 
@@ -74,7 +74,7 @@ Server giữ **quy tắc lặp** của từng sự kiện (không lưu từng n�
 | E20 | THE SYSTEM SHALL convert solar ↔ lunar dates and compute solar terms so that, for every year in 1900..2100, the result equals the reference tables, with zero mismatches. | NFR-CAL-01, BR-CAL-07 |
 | E21 | WHEN two requests carry the same `year` and the data has not changed, THE SYSTEM SHALL return identical `occurrences`, whoever asks and whenever. | NFR-CAL-02 |
 | E22 | **v3.0** — WHEN the request carries an `X-API-Key` header that does not match `server.web_api_key`, THE SYSTEM SHALL return `401` and no events; WHEN the header is absent, THE SYSTEM SHALL serve the request (app di động). | (platform) |
-| E23 | **v3.0** — WHEN one client IP exceeds `calendar.events_rate_limit` within its window, THE SYSTEM SHALL return `429` until the window passes. | (platform) |
+| E23 | **v3.0, đổi ở v3.1** — WHEN a request without a valid `X-API-Key` comes from a client IP that exceeds `calendar.events_rate_limit` within its window, THE SYSTEM SHALL return `429` until the window passes; WHEN the request carries the valid website key, THE SYSTEM SHALL NOT count it against the limit. | (platform) |
 | E24 | **v3.0** — WHEN the seed file gives an event `is_major`, THE SYSTEM SHALL store it and overwrite it on every later seed run, like `is_public_holiday`; an event without `is_major` in the file SHALL be stored as `false`. | BR-CAL-10, FR-CAL-010 |
 | E25 | **v3.0** — WHEN the seed file gives a `lunar_monthly` event a `sort_order` not greater than that of every other event, THE SYSTEM SHALL refuse the file without writing. | BR-CAL-05 |
 | E26 | **v3.0** — THE SYSTEM SHALL keep the seed file `assets/data/calendar-events.json` in version control, so `make ensure-calendar-events` on a fresh clone loads the catalogue. | (platform) |
@@ -89,7 +89,7 @@ Product IDs có cột Backend `n/a` (không thuộc spec này): BR-CAL-13, BR-CA
 | GET | `/v1/calendar/image?date=YYYY-MM-DD` | public | 200 `{date, id, image_url, author, license, license_url, source_url}` | 400 `INVALID_DATE`, 500 |
 | GET | `/v1/calendar/events?year=YYYY` | **v3.0**: public, `X-API-Key` của website (tuỳ chọn) + giới hạn theo IP; trước v3.0: JWT `access` | 200 `{year, groups[], events[], occurrences[]}` | 400 `INVALID_YEAR`, 401 (sai `X-API-Key`), 429, 500 |
 
-Hình dạng chi tiết: `docs/specs/api/openapi.yaml` (operation `calendarEvents`). `api-contract.md` trong thư mục này là tài liệu cũ, xoá ở bước dọn tài liệu.
+Hình dạng chi tiết: `docs/specs/api/openapi.yaml` (operation `calendarEvents`).
 
 ## Out of scope (this feature boundary, not tracked here)
 
@@ -131,6 +131,8 @@ Hình dạng chi tiết: `docs/specs/api/openapi.yaml` (operation `calendarEvent
 - ~~Rằm / Mùng 1 cùng ngày với lễ có tên?~~ → Lễ có tên trước; seed đưa Rằm / Mùng 1 xuống `sort_order` cuối, `Verify` chặn (E25). Resolved 2026-10-15.
 - ~~Ai xuống dòng phần lễ nghi?~~ → Nội dung seed; server trả nguyên văn (E13). Resolved 2026-10-15.
 - ~~Bảo vệ route công khai thế nào?~~ → Mặc định của spec này: `webAPIKey` + giới hạn theo IP riêng (`calendar.events_rate_limit`), cùng hình dạng `administrative-units`. Resolved 2026-10-15 (mặc định, merge PR = duyệt).
+- ~~Website gọi qua server SvelteKit (một IP) nên bị giới hạn chung?~~ → Request có `X-API-Key` đúng không bị đếm; website tự cache theo năm. Resolved 2026-10-15 (v3.1, phát hiện khi viết spec website).
+- ~~Mã nhóm `buddhist` có ổn định?~~ → Có: nhóm Phật giáo cố định (product BR-CAL-09 v1.2); client được dùng mã `buddhist` làm hằng. Resolved 2026-10-15.
 - ~~Client nhận biết Rằm / Mùng 1 thế nào?~~ → Trường `recurrence` (mặc định của spec này). Resolved 2026-10-15 (mặc định, merge PR = duyệt).
 
 > ⚠️ Not confirmed (product): ai đối chiếu nội dung seed với lịch GHPGVN và khi nào — chặn bỏ nhãn `DRAFT` của seed (Phase 16); câu hỏi đã nằm ở product Appendix A.

@@ -1,6 +1,6 @@
 # Tasks — calendar
 
-Version: 3.0
+Version: 3.1
 Last updated: 2026-10-15
 Status: US-CAL-001 và US-CAL-002 tới v2.1 đã triển khai (Phase 1–13); thay đổi v3.0 (Phase 14–18) chưa làm
 Module: `calendar`
@@ -125,7 +125,8 @@ Thứ tự theo `design.md` v3.0. Viết test cùng lúc (`golang-clean-arch-tdd
 - [ ] `delivery/http/calendar_event_handler.go`: DTO thêm `is_major`, `sort_order`, `recurrence`; `Cache-Control` `public, max-age` khi có `year` (E13, E17)
 - [ ] `delivery/http/calendar_event_handler_test.go`: ba trường mới; header `public`
 - [ ] `cmd/main.go`: `calendarEventLimit` (`rlScope("calendar_events:ip")`); route qua `webAPIKey` + `calendarEventLimit`, bỏ `authMiddleware`; sửa comment (E4, E22, E23)
-- [ ] `services/appService/e2e/calendar_event_e2e_test.go`: thay case E4 cũ; thêm không token → 200, sai `X-API-Key` → 401, vượt hạn mức → 429, `Cache-Control: public`, `is_major` (skill `golang-e2e-verification`)
+- [ ] Bỏ qua `calendarEventLimit` khi `X-API-Key` đúng: middleware cần biết Step 1a đã khớp khoá (cờ trong context do `RequireWebAPIKey` đặt, hoặc một wrapper riêng cho route này); test cả hai nhánh (E23 v3.1)
+- [ ] `services/appService/e2e/calendar_event_e2e_test.go`: thay case E4 cũ; thêm không token → 200, sai `X-API-Key` → 401, vượt hạn mức không có key → 429, có key đúng thì không bị 429, `Cache-Control: public`, `is_major` (skill `golang-e2e-verification`)
 
 ### Phase 18 — Test vectors, contract, kiểm tra
 
