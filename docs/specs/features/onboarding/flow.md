@@ -1,8 +1,8 @@
 # Flow — onboarding
 
-Version: 8.1
+Version: 8.2
 Last updated: 2026-10-16
-Status: implemented (v8.1) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
+Status: implemented (v8.2) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -44,9 +44,13 @@ sequenceDiagram
     end
     U->>R: EmailHasAccount(email) (Step R-5)
     U->>U: hash mật khẩu + O.Generate() → mã, hash mã (Step R-6)
-    U->>R: SavePendingAndIssueOTP(pending{AccountExists}, hash mã) (Step R-7)
+    U->>R: SavePendingAndIssueOTP(pending{AccountExists}, hash mã, canReplace) (Step R-7)
     rect rgb(235, 240, 255)
         Note over R,DB: MỘT transaction (Step R-7)
+        R->>DB: khoá email + FOR UPDATE hàng pending (Step R-7)
+        alt có mã sống và payload khác (canReplace = false)
+            R--xC: 409 REGISTRATION_IN_PROGRESS (AC24)
+        end
         R->>DB: áp send policy (email, register)
         alt cooldown / quá số lượt
             R--xC: 429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED

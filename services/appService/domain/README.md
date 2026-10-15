@@ -54,7 +54,7 @@ một `OTPRepository.IssueOTP` đứng riêng không thể biểu đạt.
 | `PhoneTaken(ctx, phone)` | `users.phone_number` đã có tài khoản? (AC7). Pending cùng SĐT **không** tính |
 | `EmailHasAccount(ctx, email)` | Chỉ để chọn thư ở Step R-8 (AC2), không bao giờ lộ ra response |
 | `TempleExists(ctx, id)` | `SELECT EXISTS` trên `temples` — trả `ErrInvalidTemple` sớm (AC8); FK là chốt chặn cuối |
-| `SavePendingAndIssueOTP(ctx, pending, otpHash, expiresAt, limits)` | Áp send-limit `(email, register)` → UPSERT pending theo `email` (ghi đè, kể cả `account_exists`) → vô hiệu mã cũ → chèn mã mới. Trả `*SendState`. Không ghi `users` |
+| `SavePendingAndIssueOTP(ctx, pending, otpHash, expiresAt, limits, canReplace)` | Áp send-limit `(email, register)` → UPSERT pending theo `email` (ghi đè, kể cả `account_exists`) → vô hiệu mã cũ → chèn mã mới. Trả `*SendState`. Không ghi `users` |
 | `FindPendingRegistration(ctx, email)` | `ErrPendingRegistrationNotFound` / `ErrPendingRegistrationExpired` (use-case gộp cả hai thành Expired, AC12/AC17) |
 | `CreateUserAndSession(ctx, pending, otpID, sessionTTL, issueTokens)` | Một transaction: đánh `used_at` cho mã (`WHERE used_at IS NULL`, không được → `ErrOTPExpired`) → INSERT users (`email_verified_at = now()`) → DELETE pending + bộ đếm gửi → INSERT session. UNIQUE SĐT → `ErrPhoneTaken`, FK chùa → `ErrInvalidTemple` (AC18) |
 | `DeletePendingRegistration(ctx, pendingID)` | Đường production không cần vì `CreateUserAndSession` xoá pending trong tx của nó |

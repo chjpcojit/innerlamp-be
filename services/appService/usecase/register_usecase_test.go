@@ -143,12 +143,13 @@ func defaultRequestInput() domain.RequestRegisterOTPInput {
 
 // requestCapture records what step 1 handed the repository and the mailer.
 type requestCapture struct {
-	pending   *domain.PendingRegistration
-	otpHash   string
-	expiresAt time.Time
-	limits    domain.SendLimits
-	mailed    string // the code emailed, "" for the notice
-	notice    bool
+	pending    *domain.PendingRegistration
+	otpHash    string
+	expiresAt  time.Time
+	limits     domain.SendLimits
+	canReplace func(*domain.PendingRegistration) bool
+	mailed     string // the code emailed, "" for the notice
+	notice     bool
 }
 
 // expectRequestHappy stubs every collaborator of a request-otp that gets
@@ -159,12 +160,13 @@ func (f *registerFixture) expectRequestHappy(accountExists bool) *requestCapture
 	f.repo.On("TempleExists", mock.Anything, testTempleID).Return(true, nil)
 	f.repo.On("EmailHasAccount", mock.Anything, testEmail).Return(accountExists, nil)
 	f.otpRepo.On("FindActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil, domain.ErrOTPInvalid)
-	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
 		Run(func(args mock.Arguments) {
 			c.pending = args.Get(1).(*domain.PendingRegistration)
 			c.otpHash = args.String(2)
 			c.expiresAt = args.Get(3).(time.Time)
 			c.limits = args.Get(4).(domain.SendLimits)
+			c.canReplace, _ = args.Get(5).(func(*domain.PendingRegistration) bool)
 		}).
 		Return(&domain.SendState{Remaining: 3}, nil)
 	if accountExists {
@@ -368,7 +370,7 @@ func TestRequestOTP_SendRefused(t *testing.T) {
 			t.Run(fmt.Sprintf("%s/account_exists=%v", name, accountExists), func(t *testing.T) {
 				f := newRegisterFixture()
 				f.stubUpToSave(accountExists)
-				f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil, refusal)
+				f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil, refusal)
 
 				_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
 
@@ -399,7 +401,7 @@ func TestRequestOTP_MailerFailure(t *testing.T) {
 		t.Run(fmt.Sprintf("account_exists=%v", accountExists), func(t *testing.T) {
 			f := newRegisterFixture()
 			f.stubUpToSave(accountExists)
-			f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{}, nil)
+			f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{}, nil)
 			mailErr := errors.New("smtp: 451 try later")
 			if accountExists {
 				f.mailer.On("SendAccountExistsNotice", mock.Anything, testEmail).Return(mailErr)
@@ -419,7 +421,7 @@ func TestRequestOTP_MailerFailure(t *testing.T) {
 func TestRequestOTP_RepositoryFailure(t *testing.T) {
 	f := newRegisterFixture()
 	f.stubUpToSave(false)
-	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil, errors.New("connection reset"))
+	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(nil, errors.New("connection reset"))
 
 	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
 
@@ -677,5 +679,81 @@ func TestVerifyOTP_CreationConflicts(t *testing.T) {
 
 			assert.ErrorIs(t, err, repoErr)
 		})
+	}
+}
+
+// storedPending is the row a victim's earlier request-otp left behind, hashed
+// with the real hasher so the callback's bcrypt Compare is exercised.
+func storedPending(t *testing.T, password string) *domain.PendingRegistration {
+	t.Helper()
+	hash, err := NewBcryptPasswordHasher().Hash(password)
+	require.NoError(t, err)
+	name, dharma, temple := testFullName, testDharmaName, testTempleID
+	return &domain.PendingRegistration{
+		Email: testEmail, PhoneNumber: testPhoneNumber, PasswordHash: hash,
+		FullName: &name, DharmaName: &dharma, OrdinationTempleID: &temple,
+	}
+}
+
+// AC24: the callback handed to the repository replaces only the same payload.
+func TestRequestOTP_CanReplaceDecision(t *testing.T) {
+	for _, accountExists := range []bool{false, true} {
+		f := newRegisterFixture()
+		c := f.expectRequestHappy(accountExists)
+		_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
+		require.NoError(t, err)
+		require.NotNil(t, c.canReplace)
+
+		t.Run("same payload", func(t *testing.T) {
+			assert.True(t, c.canReplace(storedPending(t, testPassword)))
+		})
+		t.Run("different password", func(t *testing.T) {
+			assert.False(t, c.canReplace(storedPending(t, "attacker-password")))
+		})
+		t.Run("different phone", func(t *testing.T) {
+			p := storedPending(t, testPassword)
+			p.PhoneNumber = "+84999999999"
+			assert.False(t, c.canReplace(p))
+		})
+		t.Run("different full name", func(t *testing.T) {
+			p := storedPending(t, testPassword)
+			other := "Someone Else"
+			p.FullName = &other
+			assert.False(t, c.canReplace(p))
+		})
+		t.Run("different dharma name", func(t *testing.T) {
+			p := storedPending(t, testPassword)
+			p.DharmaName = nil
+			assert.False(t, c.canReplace(p))
+		})
+		t.Run("different temple", func(t *testing.T) {
+			p := storedPending(t, testPassword)
+			p.OrdinationTempleID = nil
+			assert.False(t, c.canReplace(p))
+		})
+	}
+}
+
+// AC24: a live code plus a different payload surfaces ErrRegistrationInProgress
+// and sends no mail, identically for an email with and without an account.
+func TestRequestOTP_RegistrationInProgress(t *testing.T) {
+	for _, accountExists := range []bool{false, true} {
+		f := newRegisterFixture()
+		f.repo.On("PhoneTaken", mock.Anything, testPhoneNumber).Return(false, nil)
+		f.repo.On("TempleExists", mock.Anything, testTempleID).Return(true, nil)
+		f.repo.On("EmailHasAccount", mock.Anything, testEmail).Return(accountExists, nil)
+		f.otpRepo.On("FindActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil, domain.ErrOTPInvalid)
+		f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).
+			Return(nil, &domain.RegistrationInProgressError{RetryAfterSeconds: 42})
+
+		res, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
+
+		assert.Nil(t, res)
+		require.ErrorIs(t, err, domain.ErrRegistrationInProgress)
+		busy, ok := errors.AsType[*domain.RegistrationInProgressError](err)
+		require.True(t, ok)
+		assert.Equal(t, 42, busy.RetryAfterSeconds)
+		f.mailer.AssertNotCalled(t, "SendRegisterCode", mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+		f.mailer.AssertNotCalled(t, "SendAccountExistsNotice", mock.Anything, mock.Anything)
 	}
 }
