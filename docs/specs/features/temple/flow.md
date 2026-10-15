@@ -1,6 +1,6 @@
 # Flow — temple
 
-Version: 2.0
+Version: 2.1
 Last updated: 2026-10-15
 Status: mirror 1:1 của ba Step-by-step Flow trong `design.md`. **v2.0 (2026-10-15, chưa có code):** sơ đồ danh sách thêm `q`, `region` (kiểm ở Step 2, cùng `WHERE` ở Step 3–4) và trang 12; sơ đồ seed không đổi bước (kiểm định dạng mới nằm trong Step 2).
 Module: `content`

@@ -11,8 +11,6 @@ sources:
     kind: spec
   - path: docs/specs/features/temple/design.md
     kind: spec
-  - path: docs/specs/features/temple/api-contract.md
-    kind: spec
   - path: docs/specs/features/temple/flow.md
     kind: spec
   - path: migrations/0005_temples.sql
