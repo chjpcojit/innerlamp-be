@@ -48,35 +48,28 @@ const (
 	RevokeReasonSupersededByLogin = "superseded_by_login"
 )
 
-// LoginAttempt is the per-email brute-force counter behind login AC5.
+// LoginAttempt is the per-phone-number brute-force counter behind AC7.
 //
-// It is keyed by the normalised email and deliberately has no relation to
-// users: the counter must work for emails that have no account, or the lock
-// itself would reveal which emails are registered.
+// It is keyed by phone number and deliberately has no relation to users: the
+// counter must work for numbers that have no account, or the lock itself would
+// reveal which numbers are registered.
 type LoginAttempt struct {
-	Email string
+	PhoneNumber string
 
-	// FailedCount is the number of consecutive attempts reserved so far. An
-	// attempt is reserved before its password is compared (Step L-3), so a
-	// correct one counts too until CreateLoginSession deletes the row.
+	// FailedCount is the number of consecutive failures recorded so far. It is
+	// reset to zero by a successful login, by the lock expiring, and by the
+	// reset window elapsing without a new failure.
 	FailedCount int
 
-	// LockedUntil is when the lock lifts, or nil when the email is not locked.
-	// A past deadline is treated as "not locked" — the row is not scrubbed,
-	// the next reservation simply restarts the count.
+	// LockedUntil is when the lock lifts, or nil when the number is not locked.
+	// A past deadline is treated as "not locked" by the use case — the row is
+	// not scrubbed, it is simply read as unlocked.
 	LockedUntil *time.Time
 
-	// LastFailedAt is when the most recent attempt was reserved. It is what
-	// makes "consecutive" mean attempts each within FailureResetWindow of the
+	// LastFailedAt is when the most recent failure was recorded. It is what
+	// makes "consecutive" mean failures each within FailureResetWindow of the
 	// one before, rather than "ever".
 	LastFailedAt time.Time
-
-	// AlreadyLocked reports that the reservation was refused: a lock placed by
-	// an earlier attempt was still in force, nothing was counted, and the
-	// caller must answer 429 without comparing the password. An attempt that
-	// itself trips the lock has LockedUntil set but AlreadyLocked false — it
-	// still goes on to the comparison (AC5: only the next request sees 429).
-	AlreadyLocked bool
 }
 
 // Session is a row of user_sessions as the refresh flow needs to see it.
@@ -100,7 +93,7 @@ type Session struct {
 
 // LoginInput is the use-case input for POST /v1/auth/login.
 type LoginInput struct {
-	Email       string
+	PhoneNumber string
 	Password    string
 	Device      DeviceInfo
 }
@@ -147,41 +140,47 @@ type LogoutInput struct {
 // The seven methods the login spec names are all here. One more,
 // FindUserByID, is added: RotateSession has to mint an access token, which
 // carries the user's email, and a refresh request arrives knowing only a
-// session row's user_id — there is no email to look the account up by.
+// session row's user_id — there is no phone number to look the account up by.
 // The spec anticipates this ("cần thêm bước đọc"), so the read is a method
 // rather than the session lookup smuggling the email along.
 type LoginRepository interface {
-	// FindUserByEmail looks up an account by its already-normalised email.
-	// Returns ErrUserNotFound when there is no users row — including when the
-	// email exists only in pending_registration. An account whose
-	// EmailVerifiedAt is nil is returned as found; refusing it is the use
-	// case's job, behind the same 401 as a wrong password (AC2).
-	FindUserByEmail(ctx context.Context, email string) (*User, error)
+	// FindUserByPhone looks up an account by its already-normalized phone
+	// number. Returns ErrUserNotFound when there is no users row — including
+	// when the number exists only in pending_registration, which the caller
+	// must not be able to distinguish from "wrong password" (AC2).
+	FindUserByPhone(ctx context.Context, phoneNumber string) (*User, error)
 
 	// FindUserByID loads the account behind userID. Used by the refresh flow to
 	// rebuild an access token's email claim. Returns ErrUserNotFound if the
 	// account is gone, which the caller treats as an invalid refresh token.
 	FindUserByID(ctx context.Context, userID int64) (*User, error)
 
-	// ReserveLoginAttempt counts one attempt against email before its password
-	// is compared, in a single atomic UPSERT (Step L-3, AC5), so N concurrent
-	// guesses cannot all read the same starting count and all be compared.
+	// FindLoginAttempt reads the counter row for phoneNumber. Returns (nil, nil)
+	// when no row exists — a number nobody has ever failed against is not an
+	// error, it is the ordinary first attempt.
+	FindLoginAttempt(ctx context.Context, phoneNumber string) (*LoginAttempt, error)
+
+	// RecordLoginFailure counts one wrong guess against phoneNumber and decides
+	// whether that count locks the number, in a single atomic statement so two
+	// concurrent failures cannot both read the same starting count (AC7).
 	//
-	// While a lock is in force nothing changes and the returned attempt has
-	// AlreadyLocked set. Otherwise the count restarts at 1 when the row is
-	// stale — the previous attempt was more than resetWindow ago, or a lock has
-	// since expired — and is incremented otherwise; reaching maxAttempts sets
-	// LockedUntil to now + lockDuration.
-	ReserveLoginAttempt(ctx context.Context, email string, maxAttempts int, lockDuration, resetWindow time.Duration) (*LoginAttempt, error)
+	// The row is reset to 1 when it is stale — the previous failure was more
+	// than resetWindow ago, or a lock has since expired — so "consecutive"
+	// means each failure within resetWindow of the one before. lockDuration is
+	// measured from this failure, not from the first one.
+	//
+	// The returned attempt carries the new count and the lock deadline, so the
+	// caller can log the lock without a second read. It does not change the
+	// answer the caller gives the user: the failure that trips the limit is
+	// still a 401, and only the next request is refused.
+	RecordLoginFailure(ctx context.Context, phoneNumber string, maxAttempts int, lockDuration, resetWindow time.Duration) (*LoginAttempt, error)
 
 	// CreateLoginSession opens a session for user on device and clears the
-	// brute-force counter, in one transaction (AC1/AC5/AC6).
+	// brute-force counter, in one transaction (AC1/AC3/AC4/AC7).
 	//
 	// It upserts the device, revokes any previous active session of that same
 	// device, mints the token pair through issueTokens against a session ID
-	// chosen here, writes the session row, and deletes the login_attempts row
-	// keyed by user.Email (Step L-5): in the same transaction, so a login that
-	// rolls back has not wiped the counter.
+	// chosen here, writes the session row, and deletes the login_attempts row.
 	// Sessions of the user's other devices, and US-001's device-less sessions,
 	// are untouched.
 	CreateLoginSession(ctx context.Context, user *User, device DeviceInfo, sessionTTL time.Duration, issueTokens TokenIssuer) (*LoginResult, error)

@@ -40,8 +40,8 @@ func (m *MockRegistrationRepository) TempleExists(ctx context.Context, id string
 }
 
 // SavePendingAndIssueOTP mocks the SavePendingAndIssueOTP method.
-func (m *MockRegistrationRepository) SavePendingAndIssueOTP(ctx context.Context, pending *PendingRegistration, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error) {
-	args := m.Called(ctx, pending, otpHash, expiresAt, limits)
+func (m *MockRegistrationRepository) SavePendingAndIssueOTP(ctx context.Context, pending *PendingRegistration, otpHash string, expiresAt time.Time, limits SendLimits, canReplace func(existing *PendingRegistration) bool) (*SendState, error) {
+	args := m.Called(ctx, pending, otpHash, expiresAt, limits, canReplace)
 	if s := args.Get(0); s != nil {
 		return s.(*SendState), args.Error(1)
 	}

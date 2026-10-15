@@ -88,6 +88,12 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		return
 	}
 
+	if busy, ok := errors.AsType[*domain.RegistrationInProgressError](err); ok {
+		utils.WriteBusinessError(w, http.StatusConflict, "REGISTRATION_IN_PROGRESS", domain.ErrRegistrationInProgress.Error(),
+			map[string]any{"retry_after_seconds": busy.RetryAfterSeconds})
+		return
+	}
+
 	if bad, ok := errors.AsType[*domain.MemorialValidationError](err); ok {
 		utils.WriteValidationError(w, "VALIDATION_ERROR", bad.Message, map[string]any{"field": bad.Field})
 		return

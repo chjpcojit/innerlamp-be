@@ -101,12 +101,26 @@ func (r *registrationRepository) EmailHasAccount(ctx context.Context, email stri
 // no OTP behind, and must not consume a send slot. Its typed errors
 // (*OTPResendTooSoonError / *OTPSendLimitedError) are returned as-is for the
 // use case to hand to delivery.
-func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pending *domain.PendingRegistration, otpHash string, expiresAt time.Time, limits domain.SendLimits) (*domain.SendState, error) {
+func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pending *domain.PendingRegistration, otpHash string, expiresAt time.Time, limits domain.SendLimits, canReplace func(existing *domain.PendingRegistration) bool) (*domain.SendState, error) {
 	tx, err := r.db.Begin(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("begin tx: %w", err)
 	}
 	defer func() { _ = tx.Rollback() }()
+
+	// Serialise every request for this email, including the first one (no row
+	// to FOR UPDATE yet): without it two concurrent first requests would both
+	// pass the check and the later upsert would overwrite the earlier payload.
+	if _, err := tx.ExecContext(ctx, `SELECT pg_advisory_xact_lock(hashtext($1))`, "pending_registration:"+pending.Email); err != nil {
+		return nil, fmt.Errorf("lock pending registration: %w", err)
+	}
+
+	// AC24: a live code means someone is mid-registration for this email; only
+	// the same payload may replace it. Runs before the send policy so a
+	// rejected request consumes nothing and leaves no trace.
+	if err := guardLivePending(ctx, tx, pending.Email, canReplace); err != nil {
+		return nil, err
+	}
 
 	state, err := applySendLimits(ctx, tx, pending.Email, otpPurposeRegister, limits, time.Now())
 	if err != nil {
@@ -157,6 +171,51 @@ func (r *registrationRepository) SavePendingAndIssueOTP(ctx context.Context, pen
 		return nil, fmt.Errorf("commit save pending and issue otp: %w", err)
 	}
 	return state, nil
+}
+
+// guardLivePending implements AC24 inside the caller's transaction: lock the
+// pending row, and when a live register code exists refuse the write unless
+// canReplace approves the stored payload.
+func guardLivePending(ctx context.Context, tx *sql.Tx, email string, canReplace func(existing *domain.PendingRegistration) bool) error {
+	if canReplace == nil {
+		return nil
+	}
+	var (
+		existing   domain.PendingRegistration
+		fullName   sql.NullString
+		dharmaName sql.NullString
+		templeID   sql.NullString
+	)
+	err := tx.QueryRowContext(ctx, `
+		SELECT id, email, phone_number, password_hash, full_name, dharma_name, ordination_temple_id, account_exists, expires_at, created_at
+		FROM pending_registration WHERE email = $1 FOR UPDATE`, email).Scan(
+		&existing.ID, &existing.Email, &existing.PhoneNumber, &existing.PasswordHash,
+		&fullName, &dharmaName, &templeID, &existing.AccountExists, &existing.ExpiresAt, &existing.CreatedAt)
+	if errors.Is(err, sql.ErrNoRows) {
+		return nil
+	}
+	if err != nil {
+		return fmt.Errorf("lock pending registration row: %w", err)
+	}
+	existing.FullName = nullStringToPtr(fullName)
+	existing.DharmaName = nullStringToPtr(dharmaName)
+	existing.OrdinationTempleID = nullStringToPtr(templeID)
+
+	var liveUntil sql.NullTime
+	if err := tx.QueryRowContext(ctx, `
+		SELECT max(expires_at) FROM otp_codes
+		WHERE email = $1 AND purpose = $2 AND used_at IS NULL AND expires_at > now()`,
+		email, otpPurposeRegister).Scan(&liveUntil); err != nil {
+		return fmt.Errorf("check live otp: %w", err)
+	}
+	if !liveUntil.Valid || canReplace(&existing) {
+		return nil
+	}
+	secs := int(math.Ceil(time.Until(liveUntil.Time).Seconds()))
+	if secs < 1 {
+		secs = 1
+	}
+	return &domain.RegistrationInProgressError{RetryAfterSeconds: secs}
 }
 
 // IssueOTP is the shared OTP issue flow's write: apply the send policy,

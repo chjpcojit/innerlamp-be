@@ -1,8 +1,8 @@
 # Tasks — onboarding
 
-Version: 8.1
+Version: 8.2
 Last updated: 2026-10-16
-Status: v8.1 — Phase 1–8 xong (trừ `erd.svg` và giới hạn theo IP, chuyển sang login Phase 5); Phase 9 (tài liệu theo sau) còn mở. Task của v1–v7.5 đã xong và nằm trong git history / `changelog.md`.
+Status: v8.2 — Phase 1–8 xong (trừ `erd.svg` và giới hạn theo IP, chuyển sang login Phase 5); Phase 9 (tài liệu theo sau) còn mở. Task của v1–v7.5 đã xong và nằm trong git history / `changelog.md`.
 Module: `identity` (spec folder `onboarding`)
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -59,6 +59,14 @@ tick ở cả ba spec.
 
 - [x] `e2e/register_e2e_test.go` viết lại: đăng ký bằng email (mã đọc từ `MockMailer`/log), email đã có tài khoản trả y hệt và không tạo được tài khoản, SĐT trùng `409`, pending hết hạn, khoá sau 3 lần sai.
 - [x] `go build ./... && go vet ./... && go test -short ./...` xanh; `go test ./services/appService/e2e/` xanh (2026-10-16, 104s).
+
+## Phase 8b — Chặn pre-hijack pending registration (v8.2, AC24)
+
+- [x] `domain`: `ErrRegistrationInProgress` + `RegistrationInProgressError{RetryAfterSeconds}`; `RegistrationRepository.SavePendingAndIssueOTP(..., canReplace func(*PendingRegistration) bool)`; mock cập nhật.
+- [x] `usecase/register_usecase.go`: dựng `canReplace` từ payload gửi lên + `PasswordHasher.Compare`; test: khác payload → lỗi, không mail; cùng payload → qua; hai nhánh `account_exists` y hệt.
+- [x] `repository/postgres_registration_repository.go`: advisory lock + `FOR UPDATE`, kiểm mã sống trước send policy; test Postgres thật: bị từ chối không đổi hàng/mã/đếm, cùng payload thay được, mã hết hạn thì ghi đè, chạy đồng thời chỉ một payload.
+- [x] `delivery/http/errors.go`: `409 REGISTRATION_IN_PROGRESS` + `retry_after_seconds`; handler test.
+- [x] E2E: kẻ lạ `request-otp` cùng email khác mật khẩu/SĐT → `409`; nạn nhân xác minh và đăng nhập bằng mật khẩu/SĐT của mình.
 
 ## Phase 9 — Tài liệu theo sau
 
