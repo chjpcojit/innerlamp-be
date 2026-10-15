@@ -4,6 +4,15 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.0.2 — 2026-10-15
+
+Follows the product spec gallery v1.1 (be#40). Nothing in the backend contract changes.
+
+- `requirements.md`: header cites product.md @ v1.1; a release-gate note records that the credit in every list
+  (AC 11) now also gates the apps' viewer (product §2.7), so v2.0 code (Phase 6–7) is prioritised.
+- `design.md`: version only. No requirement or design change; v1.1 changed client behaviour (error and empty
+  blocks, copy, viewer), none of it on the server.
+
 ## v2.0.1 — 2026-10-15
 
 Cleanup after the platform specs of all four repos were merged.
