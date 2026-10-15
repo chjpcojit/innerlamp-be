@@ -7,9 +7,9 @@
 | Feature code | `TPL` — IDs are `BR-TPL-NN`, `FR-TPL-NNN`, `NFR-TPL-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.0 |
+| Version | 1.1 |
 | Last updated | 2026-10-15 |
-| Status | confirmed scope — 3 open items (Appendix A) |
+| Status | confirmed — 1 open item (Appendix A) |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
 | Architecture decisions | none needed (directory is read-only and public; see §2.7) |
@@ -131,8 +131,9 @@ Network expectation: online. A platform may keep the last loaded content readabl
 
 ### 2.5 Constraints
 
-- Temple content (history, architecture, visiting notes) is edited from public sources; the conditions
-  for showing it and crediting sources are not settled (Appendix A, item 3).
+- Temple content (history, architecture, visiting notes, image links) comes from the JSON directory file
+  loaded by the operator (FR-TPL-010). Crediting sources and image rights are not settled:
+  > ⚠️ Not confirmed: whether edited texts must credit their sources and whether InnerLamp holds the rights to the temple images in the directory file — blocks public release of the content, not the platform specs.
 - Province and ward follow the administrative units in force since 1 July 2025 (34 province-level units,
   two levels: province and ward). There is no district level.
 
@@ -244,7 +245,10 @@ N/A.
 - **Computational:** no
 - **Applies to:** all clients
 - **Source:** prototype ("Trường trống … hiện 'Đang cập nhật', không ẩn dòng"); iOS v2.4 behaviour
-- > ⚠️ Not confirmed: which prototype fields the backend adds now (Rằm & Mùng Một hours, hotline / fanpage / website / email, Buddhist sangha body, update month) and which wait (architecture style, materials and highlights, "Kinh sách" amenity, photo set) — blocks the backend contract and which sections clients can fill; until answered they show "Đang cập nhật" (Appendix A, item 1).
+- **Fields added now / later:** the directory now also carries the Rằm & Mùng Một hours, the contacts
+  (hotline, fanpage, website, email), the Buddhist sangha body (giáo hội) and the month the temple's data
+  was last updated. Architecture style, materials and highlights, the "Kinh sách" amenity and the photo
+  set come later; until then they show "Đang cập nhật" / "Không có" (anh Đức, 2026-10-15).
 
 **BR-TPL-07 — Distance**
 - **Rule:** The temple page shows "Cách bạn X km" only when the device knows the user's location because
@@ -265,18 +269,23 @@ N/A.
 - **Computational:** no
 - **Applies to:** all clients
 - **Source:** anh Đức, 2026-10-15 (Q8 hide offering; Q5 report not built; follow is a later feature)
-- > ⚠️ Not confirmed: hiding the follow action until the follow feature ships is inferred from "theo dõi làm sau" — confirm it is hidden (not shown disabled) — blocks the web and iOS temple page (Appendix A, item 2).
+- The follow action is hidden, not shown disabled (anh Đức, 2026-10-15).
 
 **BR-TPL-09 — Open or closed now**
 - **Rule:** When the temple has opening hours, the temple page shows whether it is open now ("Đang mở
-  cửa · đóng lúc HH:MM" or "Đã đóng cửa · mở lại HH:MM"), comparing the current time with today's
-  hours. Without opening hours, the status is hidden and the hours show "Đang cập nhật".
+  cửa · đóng lúc HH:MM" or "Đã đóng cửa · mở lại HH:MM"). "Now" is always **Vietnam time (UTC+7)**,
+  whatever the device's time zone. On the 1st (Mùng Một) and 15th (Rằm) day of the lunar month, Vietnam
+  calendar, the Rằm & Mùng Một hours apply when the temple has them, otherwise the normal hours. Open
+  means opening time ≤ now < closing time. Before opening → "mở lại" today's opening time; after
+  closing → "mở lại" the next day's opening time (lunar rule applied to that day). Both hour rows are
+  shown, the one in force today marked "Hôm nay". Without opening hours, the status is hidden and the
+  hours show "Đang cập nhật".
 - **Examples:** hours 05:00–20:00, now 19:10 → "Đang mở cửa · đóng lúc 20:00"; now 21:00 →
-  "Đã đóng cửa · mở lại 05:00".
-- **Computational:** yes — vectors are written once the open item below is answered
+  "Đã đóng cửa · mở lại 05:00"; Rằm with holiday hours 04:00–22:00, now 21:00 → "Đang mở cửa · đóng lúc
+  22:00"; device set to Paris at 14:00 (= 19:00 Vietnam) → judged at 19:00.
+- **Computational:** yes → `rules/temple-open-status.json`
 - **Applies to:** all clients
-- **Source:** prototype; iOS behaviour
-- > ⚠️ Not confirmed: whether "now" is always Vietnam time (even for a user abroad) and whether the Rằm / Mùng Một hours replace the normal hours on the 1st and 15th lunar days — blocks the rule's vectors and the status on every client (Appendix A, item 1).
+- **Source:** prototype; iOS behaviour; anh Đức, 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)
 
 ### 3.3 Functional requirements
 
@@ -525,7 +534,9 @@ N/A.
     When the operator loads a file with an unknown ward
     Then the load is refused and the directory is unchanged
   ```
-- > ⚠️ Not confirmed: who loads the directory in staging and production and how (today only a developer command with development settings) — blocks the backend release plan, not the clients (Appendix A, item 3).
+- **Content source:** in every environment the directory is loaded from the JSON directory file
+  (anh Đức, 2026-10-15). The file is the source of truth and must be kept under version control with
+  the backend (Appendix B).
 
 ### 3.4 Non-functional requirements
 
@@ -567,8 +578,8 @@ N/A.
 
 ### 4.1 Verification approach
 
-Computational rules (BR-TPL-01, BR-TPL-05, BR-TPL-07) are verified by running `rules/*.json`: order and
-search on the backend, distance on iOS and Android. Functional requirements are verified by each
+Computational rules (BR-TPL-01, BR-TPL-05, BR-TPL-07, BR-TPL-09) are verified by running `rules/*.json`:
+order and search on the backend, distance on iOS and Android, open status on every client. Functional requirements are verified by each
 platform's automated tests and manual QA against the prototype.
 
 ### 4.2 Traceability matrix
@@ -583,14 +594,14 @@ platform's automated tests and manual QA against the prototype.
 | BR-TPL-06 | done | drift | done | planned | Website hides empty sections |
 | BR-TPL-07 | n/a | n/a | drift | planned | iOS leaves distance blank (no location request) |
 | BR-TPL-08 | n/a | drift | drift | planned | Website and iOS show a follow action; iOS shows "Cúng dường" and the report link |
-| BR-TPL-09 | n/a | drift | done | planned | Website shows the hours text only; open item |
+| BR-TPL-09 | n/a | drift | drift | planned | Website shows the hours text only; iOS uses device time and has no Rằm / Mùng Một hours yet |
 | FR-TPL-001 | done | done | done | planned | 2 scenarios |
 | FR-TPL-002 | drift | done | drift | planned | 3 scenarios; page size 12 |
 | FR-TPL-003 | planned | planned | drift | planned | 4 scenarios |
 | FR-TPL-004 | planned | planned | drift | planned | 3 scenarios |
 | FR-TPL-005 | done | done | done | in-progress | 2 scenarios; via `onboarding` |
 | FR-TPL-006 | done | done | done | planned | 2 scenarios |
-| FR-TPL-007 | in-progress | drift | in-progress | planned | 3 scenarios; fields pending (BR-TPL-06 open item) |
+| FR-TPL-007 | planned | drift | in-progress | planned | 3 scenarios; backend adds holiday hours, contacts, sangha body, update month |
 | FR-TPL-008 | n/a | done | done | planned | 2 scenarios |
 | FR-TPL-009 | n/a | planned | done | planned | 1 scenario |
 | FR-TPL-010 | done | n/a | n/a | n/a | 2 scenarios |
@@ -604,6 +615,7 @@ platform's automated tests and manual QA against the prototype.
 | `rules/temple-order.json` | BR-TPL-01 | 6 |
 | `rules/temple-search-match.json` | BR-TPL-05 | 10 |
 | `rules/temple-distance.json` | BR-TPL-07 | 6 |
+| `rules/temple-open-status.json` | BR-TPL-09 | 10 |
 
 ---
 
@@ -613,9 +625,7 @@ platform's automated tests and manual QA against the prototype.
 
 #### Open (unconfirmed)
 
-1. > ⚠️ Not confirmed: which temple-page fields the backend adds now (Rằm & Mùng Một hours, contacts, sangha body, update month) and which wait (architecture details, "Kinh sách", photo set), and whether open/closed is computed in Vietnam time with Rằm / Mùng Một hours — blocks BR-TPL-06, BR-TPL-09 vectors, the backend contract (all platforms).
-2. > ⚠️ Not confirmed: the follow action is hidden (not shown disabled) until the follow feature ships — blocks BR-TPL-08 on the website and iOS.
-3. > ⚠️ Not confirmed: content operations — who loads the directory in staging/production; where temple images are stored and whether InnerLamp may use them; whether edited texts must credit their sources; who reviews accuracy (e.g. founding year) — blocks the backend release, not the clients.
+1. > ⚠️ Not confirmed: whether edited texts must credit their sources and whether InnerLamp holds the rights to the temple images in the directory file — blocks public release of the content, not the platform specs.
 
 #### Open questions (resolved)
 
@@ -632,6 +642,10 @@ platform's automated tests and manual QA against the prototype.
 | Back-office temple editing | Out of scope; content loaded by the operator | 2026-10-15 |
 | Featured order | Unchanged (heritage rank, founding year) | 2026-10-15 |
 | Spec folder names | `temple` / `Temple`; iOS merges `Temple` + `Temples` | 2026-10-15 |
+| Temple-page fields | Add now: Rằm & Mùng Một hours, contacts, sangha body, update month; later: architecture details, "Kinh sách", photo set | 2026-10-15 |
+| Open / closed time zone | Always Vietnam time; Rằm / Mùng Một hours on lunar 1st and 15th | 2026-10-15 |
+| Follow action until the follow feature | Hidden | 2026-10-15 |
+| Content loading | From the JSON directory file in every environment | 2026-10-15 |
 
 ### Appendix B — Contract handoff (backend)
 
@@ -640,4 +654,7 @@ platform's automated tests and manual QA against the prototype.
    the matches. Invalid region or term → a validation error naming the parameter.
 2. Directory page size becomes 12 (BR-TPL-03); the featured count stays a backend setting.
 3. The short list keeps its current shape and name-only search.
-4. Temple-page fields of Appendix A item 1, once answered.
+4. Temple profile gains: Rằm & Mùng Một opening and closing times, hotline, fanpage, website, email,
+   Buddhist sangha body, and the month the data was last updated — each optional.
+5. The JSON directory file is committed with the backend (today the ignore rule for JSON files keeps it
+   out of version control) and is the input of the content load in every environment.

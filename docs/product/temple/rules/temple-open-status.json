@@ -1,0 +1,221 @@
+{
+  "rule": [
+    "BR-TPL-09"
+  ],
+  "description": "Open/closed status of a temple. The instant is converted to Vietnam time (UTC+7); the lunar day of that Vietnam date decides whether the Rằm & Mùng Một hours apply (lunar day 1 or 15, when the temple has them). Open when opening <= now < closing. Closed before opening → reopens at today's opening; after closing → reopens at the next day's opening (lunar rule applied to that day). vietnam_lunar_day_today (day/month) is given to check the lunar conversion and is not an extra input.",
+  "product_spec_version": "1.1",
+  "inputs": {
+    "now_utc": "instant (ISO 8601, UTC)",
+    "hours": "{open, close} HH:mm Vietnam time, or null",
+    "holiday_hours": "{open, close} for Rằm & Mùng Một, or null",
+    "vietnam_lunar_day_today": "informative: lunar day/month of the Vietnam date"
+  },
+  "output": {
+    "status": "open | closed | hidden",
+    "label": "Vietnamese status line; empty when hidden",
+    "today_row": "normal | holiday | null — the hours row marked 'Hôm nay'"
+  },
+  "cases": [
+    {
+      "name": "normal day, open",
+      "input": {
+        "now_utc": "2026-10-20T12:10:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "9/9"
+      },
+      "expected": {
+        "status": "open",
+        "label": "Đang mở cửa · đóng lúc 20:00",
+        "today_row": "normal"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "normal day, after closing",
+      "input": {
+        "now_utc": "2026-10-20T14:00:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "9/9"
+      },
+      "expected": {
+        "status": "closed",
+        "label": "Đã đóng cửa · mở lại 05:00",
+        "today_row": "normal"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "normal day, before opening",
+      "input": {
+        "now_utc": "2026-10-19T21:30:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "9/9"
+      },
+      "expected": {
+        "status": "closed",
+        "label": "Đã đóng cửa · mở lại 05:00",
+        "today_row": "normal"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "closing time itself counts as closed",
+      "input": {
+        "now_utc": "2026-10-20T13:00:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "9/9"
+      },
+      "expected": {
+        "status": "closed",
+        "label": "Đã đóng cửa · mở lại 05:00",
+        "today_row": "normal"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "Rằm uses holiday hours",
+      "input": {
+        "now_utc": "2026-10-24T14:00:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "15/9"
+      },
+      "expected": {
+        "status": "open",
+        "label": "Đang mở cửa · đóng lúc 22:00",
+        "today_row": "holiday"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "Rằm without holiday hours uses normal hours",
+      "input": {
+        "now_utc": "2026-10-24T14:00:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": null,
+        "vietnam_lunar_day_today": "15/9"
+      },
+      "expected": {
+        "status": "closed",
+        "label": "Đã đóng cửa · mở lại 05:00",
+        "today_row": "normal"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "day before Rằm after closing reopens at holiday opening",
+      "input": {
+        "now_utc": "2026-10-23T14:00:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "14/9"
+      },
+      "expected": {
+        "status": "closed",
+        "label": "Đã đóng cửa · mở lại 04:00",
+        "today_row": "normal"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "Vietnam date decides the lunar day (00:30 on Rằm)",
+      "input": {
+        "now_utc": "2026-10-23T17:30:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "15/9"
+      },
+      "expected": {
+        "status": "closed",
+        "label": "Đã đóng cửa · mở lại 04:00",
+        "today_row": "holiday"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "Mùng Một uses holiday hours",
+      "input": {
+        "now_utc": "2026-11-09T01:00:00Z",
+        "hours": {
+          "open": "05:00",
+          "close": "20:00"
+        },
+        "holiday_hours": {
+          "open": "04:00",
+          "close": "22:00"
+        },
+        "vietnam_lunar_day_today": "1/10"
+      },
+      "expected": {
+        "status": "open",
+        "label": "Đang mở cửa · đóng lúc 22:00",
+        "today_row": "holiday"
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    },
+    {
+      "name": "no opening hours hides the status",
+      "input": {
+        "now_utc": "2026-10-20T12:10:00Z",
+        "hours": null,
+        "holiday_hours": null,
+        "vietnam_lunar_day_today": "9/9"
+      },
+      "expected": {
+        "status": "hidden",
+        "label": "",
+        "today_row": null
+      },
+      "source": "BR-TPL-09; anh Đức 2026-10-15 (Vietnam time, Rằm / Mùng Một hours)"
+    }
+  ]
+}
