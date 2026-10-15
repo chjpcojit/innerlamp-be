@@ -1,5 +1,14 @@
 # Changelog — onboarding product spec
 
+## v1.4 — 2026-10-15
+
+- Clarified (anh Đức, after the registration UI audit): "Bỏ qua" (skip) is shown on all three intro
+  steps, matching iOS and Android today (§3.1.1, FR-ONB-001). The registration submit button reads
+  "Đăng ký", not "Gửi mã xác thực" (§3.1.1, FR-ONB-003; §4.2 note).
+- No business rule changed; platform specs citing v1.2/v1.3 stay valid.
+- Platforms to follow up: Website, iOS, Android (rename the submit button to "Đăng ký"). iOS and
+  Android intro: nothing to change.
+
 ## v1.3 — 2026-10-15
 
 - References only, no requirement changed: the Downstream row and §1.5 now name the one spec folder per
