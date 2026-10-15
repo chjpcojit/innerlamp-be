@@ -292,4 +292,48 @@ func TestRegisterFlow_Email_E2E(t *testing.T) {
 		res = verifyOTP(email, codeFromLastMail(t, serverLog, email))
 		require.Equal(t, http.StatusCreated, res.status, res.raw)
 	})
+
+	t.Run("a different payload cannot hijack a pending registration with a live code (AC24)", func(t *testing.T) {
+		api.t = t
+		const email = "victim@e2e.example.com"
+		const attackerPassword = "attacker-secret-1"
+		victimPhone, attackerPhone := api.nextPhone(), api.nextPhone()
+
+		require.Equal(t, http.StatusOK, requestOTP(email, victimPhone).status)
+		victimCode := codeFromLastMail(t, serverLog, email)
+		mailsBefore := len(mailsTo(t, serverLog, email))
+		var hashBefore string
+		require.NoError(t, db.QueryRow(context.Background(),
+			`SELECT password_hash FROM pending_registration WHERE email = $1`, email).Scan(&hashBefore))
+
+		waitCooldown() // past the cooldown, so only the AC24 guard can refuse
+		res := api.post("/v1/auth/register/request-otp", map[string]any{
+			"email":         email,
+			"password":      attackerPassword,
+			"full_name":     "Nguyen Van An",
+			"phone_country": "VN",
+			"phone_number":  "0" + strings.TrimPrefix(attackerPhone, "+84"),
+		}, "")
+		require.Equal(t, http.StatusConflict, res.status, res.raw)
+		assert.Equal(t, "REGISTRATION_IN_PROGRESS", res.errorCode())
+		assert.Contains(t, res.details(), "retry_after_seconds")
+		assert.Len(t, mailsTo(t, serverLog, email), mailsBefore, "no mail for a rejected request")
+
+		var phone, hashAfter string
+		require.NoError(t, db.QueryRow(context.Background(),
+			`SELECT phone_number, password_hash FROM pending_registration WHERE email = $1`, email).Scan(&phone, &hashAfter))
+		assert.Equal(t, victimPhone, phone)
+		assert.Equal(t, hashBefore, hashAfter, "the victim's password hash is untouched")
+
+		// The victim's code still works and the account is the victim's.
+		res = verifyOTP(email, victimCode)
+		require.Equal(t, http.StatusCreated, res.status, res.raw)
+		assert.Equal(t, 1, countMatching(t, db, "users", "email = $1 AND phone_number = $2", email, victimPhone))
+
+		device := deviceA
+		res = api.post("/v1/auth/login", loginBody(victimPhone, testPassword, device), "")
+		assert.Equal(t, http.StatusOK, res.status, res.raw)
+		res = api.post("/v1/auth/login", loginBody(victimPhone, attackerPassword, device), "")
+		assert.Equal(t, http.StatusUnauthorized, res.status, res.raw)
+	})
 }

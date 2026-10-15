@@ -3,6 +3,16 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v8.2 (2026-10-16)
+
+**Vá pre-hijack pending registration** (phát hiện của security review, quyết định cùng anh Đức) — thay đổi hành vi + contract: `request-otp` thêm `409 REGISTRATION_IN_PROGRESS`. Minor bump.
+
+- Lỗ hổng: AC1 cho "ghi đè hàng pending cùng email", nên ai gọi `request-otp` với email nạn nhân cũng thay được mật khẩu/SĐT/tên và phát mã mới gửi tới nạn nhân; nạn nhân nhập mã thì tài khoản tạo ra với mật khẩu của kẻ lạ.
+- `requirements.md`: AC1 sửa lại (chỉ ghi đè khi không có mã sống hoặc cùng payload); thêm AC24; bảng API thêm `409 REGISTRATION_IN_PROGRESS` cho `request-otp`.
+- `design.md`: Step R-7 thêm khoá email + kiểm mã sống trước send policy, chữ ký có `canReplace`; "Known gaps" ghi phần còn lại (kẻ lạ vẫn bắt chờ tới `otp.ttl`, thư mã không mời vẫn có thể gửi, thư "đã có tài khoản" không ảnh hưởng).
+- `flow.md`: thêm nhánh 409 vào sequence R-7. `tasks.md`: Phase 8b đã tick.
+- `openapi.yaml` chưa cập nhật: file vẫn mô tả hợp đồng v7 (SĐT), đợi Phase 9.
+
 ## v8.1 (2026-10-16)
 
 **Implement Phase 1–8** (đăng ký bằng email chạy thật, E2E xanh). Một thay đổi contract nhỏ: `request-otp` / `resend-otp` thêm `429 OTP_LOCKED` — minor bump.

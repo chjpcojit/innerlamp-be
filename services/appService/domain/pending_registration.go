@@ -11,7 +11,8 @@ import "time"
 // verify-otp steps, and the users row is inserted only after the code matches.
 //
 // One row per email (email is UNIQUE, migration 0037): a fresh request for the
-// same email overwrites the payload. PhoneNumber is NOT unique here — two
+// same email overwrites the payload only when no live code exists or the
+// payload is the same (AC24). PhoneNumber is NOT unique here — two
 // pending registrations may hold the same number, and whoever verifies first
 // keeps it (onboarding AC7, AC18).
 //
