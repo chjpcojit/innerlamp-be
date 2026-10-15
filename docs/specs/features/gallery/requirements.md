@@ -1,11 +1,11 @@
 # Requirements — gallery
 
-Version: 2.0.1
+Version: 2.0.2
 Last updated: 2026-10-15
 Status: in-progress — AC 1–2, 4–10, 12–15, 17–18 are implemented (top / paged list with `type` filter / detail, seed `cmd/seedgallery`); **v2.0 (2026-10-15) not implemented**: credit in the list items, `total` on `top`, the seeder requiring author and licence, the shared order vectors, E2E (AC 3, 11, 16, 19; `tasks.md` Phase 6–8). The content file is already committed (AC 20, be#35).
 Module: `gallery`
 Code: `services/appService/`
-Product spec: `docs/product/gallery/product.md` @ v1.0
+Product spec: `docs/product/gallery/product.md` @ v1.1
 Contract: `docs/specs/api/openapi.yaml` (this repo)
 Implements: BR-GAL-01, BR-GAL-02, BR-GAL-03, BR-GAL-04, BR-GAL-07, BR-GAL-09, FR-GAL-001, FR-GAL-002, FR-GAL-003, FR-GAL-006, FR-GAL-009, NFR-GAL-01, NFR-GAL-02, NFR-GAL-03
 
@@ -118,6 +118,8 @@ Product IDs whose Backend column is `n/a` (not part of this spec): BR-GAL-05, BR
 - v2.0 code: credit in the lists, `total` on `top`, seeder checks, vectors, E2E — `tasks.md` Phase 6–8.
 
 > ⚠️ Not confirmed (product): architecture decision pending — where catalogue photos are stored and served in production (needs an ADR, shared with temple, deity, article) — blocks production release; today photos are served from `assets/images/gallery/` on the dev machine (`⚠️ DEV ONLY`, not in git).
+
+> Release gate (product §2.7, v1.1): the credit in every list (AC 11) is also what lets the apps ship their photo viewer, so backend gallery v2.0 (Phase 6–7) is prioritised ahead of the apps' viewer.
 
 > ⚠️ Not confirmed (product): who runs the load in staging and production and where the photo files come from there — blocks production content; `cmd/seedgallery` uses dev config like the other seeders.
 

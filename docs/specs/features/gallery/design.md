@@ -1,6 +1,6 @@
 # Design — gallery
 
-Version: 2.0.1
+Version: 2.0.2
 Last updated: 2026-10-15
 Status: in-progress — v1.x layers implemented; the **v2.0** rows below are not.
 Module: `gallery`
