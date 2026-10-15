@@ -72,6 +72,9 @@ go.sum
 # docs/product/calendar Appendix B). cmd/seedcalendarevents and cmd/seeddeities load them.
 !assets/data/calendar-events.json
 !assets/data/phat_botat.json
+# Article content: public reading list, not a secret; embedded by assets/embed.go and loaded by
+# cmd/seedarticles (docs/product/article FR-ART-009).
+!assets/data/buddhist_articles.json
 # Product test vectors: shared, not secrets; every platform runs them (docs/product/README.md).
 !docs/product/*/rules/*.json
 # Reviewed ward decisions for temple addresses (docs/specs/features/temple, tasks Phase 10): a record, not a secret.

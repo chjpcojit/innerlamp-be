@@ -630,8 +630,7 @@ QA on real devices once the domain exists.
    found when the article does not exist. Runs `rules/article-related.json`.
 2. The article page needs the thumbnail too (BR-ART-05): already present in the backend response, but
    missing from the iOS contract copy — the backend platform spec states it.
-3. The content file (`assets/data/buddhist_articles.json`) is kept outside version control by the ignore
-   rule for JSON files, yet the backend embeds it at build time; commit it so every environment and a
-   fresh clone build the same content (FR-ART-009).
+3. The content file (`assets/data/buddhist_articles.json`, 60 articles) is committed with the backend
+   (2026-10-15) and is the input of the content load in every environment (FR-ART-009).
 4. The backend platform spec `docs/specs/features/article/` v2.0 is in Vietnamese and predates this
    spec; `spec-writer` rewrites it in English when it cites this spec (repo language policy).
