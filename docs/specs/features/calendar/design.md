@@ -1,9 +1,9 @@
 # Design — calendar
 
-Version: 3.0
+Version: 3.1
 Last updated: 2026-10-15
 Status: US-CAL-001 và US-CAL-002 (tới v2.1) đã triển khai. Các thay đổi v3.0 (đánh dấu **v3.0** bên dưới) chưa triển khai
-Product spec: `docs/product/calendar/product.md` @ v1.1
+Product spec: `docs/product/calendar/product.md` @ v1.2
 Module: `calendar`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -141,7 +141,9 @@ Step 1a — Kiểm tra website API key (middleware webAPIKey)
 Step 1b — Giới hạn theo IP (middleware calendarEventLimit)
 - Trigger: Step 1a pass
 - Pre-condition: calendar.events_rate_limit đã cấu hình (0 là lỗi khởi động)
-- Call: NewClientIPRateLimit đếm request theo IP client trong cửa sổ (store dùng chung rate_limit_store)
+- Call: (v3.1) request đã mang X-API-Key đúng ở Step 1a → bỏ qua giới hạn, sang Step 2 (website gọi từ
+  một IP server và tự cache theo năm); còn lại NewClientIPRateLimit đếm theo IP client trong cửa sổ
+  (store dùng chung rate_limit_store)
     - Success (còn hạn mức) → Step 2
     - Failure (vượt hạn mức) → 429, dừng; không chạm DB
   Confirmed: store lỗi thì rơi về đếm theo instance như các route công khai khác (op_timeout của rate_limit_store).

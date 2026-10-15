@@ -7,7 +7,7 @@
 | Feature code | `CAL` — IDs are `BR-CAL-NN`, `FR-CAL-NNN`, `NFR-CAL-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.1 |
+| Version | 1.2 |
 | Last updated | 2026-10-15 |
 | Status | draft for review — decisions of 2026-10-15 applied and checked against the seed catalogue; the open items in Appendix A are confirmed by review of this PR |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
@@ -53,6 +53,10 @@ FestivalDetail spec and assumptions, the Android local event catalogue and the w
 - Substitute days off (nghỉ bù) and per-year government changes to holidays.
 - Personal events created by a user.
 - Event content in languages other than Vietnamese.
+- Marking lunar day 1 and 15 on a calendar grid or week strip (the lunar calendar screen, v1.x):
+  that is the lunar date of a day, not an event, so BR-CAL-05 does not cover it.
+- Android's temple-tab block "Ngày lễ & ngày chay sắp tới": not part of this feature, but any list
+  of events it shows comes from the catalogue, never from a local list (BR-CAL-05).
 
 ### 1.3 Product overview
 
@@ -89,8 +93,9 @@ page, and from the website's events page.
   lễ" (`festDetail`); `Mo-ta-tinh-nang.md` at `Docs/innerlamp-project/project/docs/` (Android copy),
   sections "Trang chủ" item 4 and "Chùa (tab)" common part.
 - Prior documents:
-  - Backend: `docs/specs/features/calendar/SRS.md` v0.3, `requirements.md` v2.1, `design.md`,
-    `api-contract.md`; `docs/knowledge/features/calendar.md`, `docs/knowledge/api/calendar-events.md`.
+  - Backend: the legacy calendar SRS v0.3 and API contract note (deleted after v1.2; in git history),
+    `docs/specs/features/calendar/` v2.1; `docs/knowledge/features/calendar.md`,
+    `docs/knowledge/api/calendar-events.md`.
   - iOS: `Docs/Specs/FestivalDetail/requirements.md` v1.0; `Docs/Assumptions/Festivals/AS-Festivals-001…002`,
     `Docs/Assumptions/FestivalDetail/AS-FestivalDetail-001…002`, `Docs/Assumptions/Home/AS-Home-003`;
     `Docs/Tech-Debt/FestivalDetail/TD-FestivalDetail-001…002`, `Docs/Tech-Debt/Home/TD-Home-003`;
@@ -201,6 +206,22 @@ N/A — each view explains itself; there is no separate help content.
   three events and "+N sự kiện khác"; a "Tất cả" link (FR-CAL-006).
 - Entry points: home block, temple tab ("Lịch lễ"), deity page, website events page.
 
+- **Home block per month:** name and lunar date only, no countdown (the countdown is on the festival
+  calendar and the detail).
+
+**Messages** (decision 2026-10-15, defaults approved with this version). Every platform uses this
+copy:
+
+| Situation | Text |
+|---|---|
+| Shown from an earlier copy (FR-CAL-007) | Dữ liệu có thể chưa được cập nhật. |
+| Offline, no copy (FR-CAL-008) | Không có kết nối mạng. Vui lòng kiểm tra và thử lại. |
+| Load failure, no copy (FR-CAL-008) | Không tải được lịch lễ. |
+| Retry action | Thử lại |
+| Next year failed to load (FR-CAL-004) | Không tải được năm {year}. |
+| Home month with no Buddhist event (BR-CAL-15) | Tháng này không có ngày lễ Phật giáo. |
+| Event no longer exists (detail opened from an old link) | Không tìm thấy ngày lễ này. |
+
 Layout and styling are defined by the design prototype, not here.
 
 #### 3.1.2 Hardware interfaces
@@ -265,7 +286,8 @@ N/A — no message is sent to the user in v1.0.
 
 **BR-CAL-05 — Rằm and Mùng Một every lunar month, leap months included**
 - **Rule:** Mùng Một (lunar day 1) and Rằm (lunar day 15) are events of the catalogue that occur in
-  every lunar month, leap months included, labelled "(nhuận)" in a leap month. They come from the
+  every lunar month, leap months included; in a leap month the lunar date reads "nhuận" (e.g.
+"15/6 nhuận"), the event name is unchanged. They come from the
   same catalogue as every other event; no platform adds them on its own. On a day that also has a
   named event, both occurrences are shown and the named event comes first: Rằm and Mùng Một take the
   last display orders of the catalogue (BR-CAL-12).
@@ -295,7 +317,7 @@ N/A — no message is sent to the user in v1.0.
 
 **BR-CAL-08 — Both dates on every occurrence**
 - **Rule:** Every occurrence is shown with its solar date and its lunar date (day, month, and
-  "(nhuận)" for a leap month), whichever calendar the event is defined in.
+  "nhuận" after the month for a leap month), whichever calendar the event is defined in.
 - **Examples:** 30/4 → also shows lunar 14/3; Vu Lan → also shows 2025-09-06.
 - **Computational:** no (the dates themselves are covered by BR-CAL-01…07)
 - **Applies to:** Backend, Website, iOS, Android
@@ -305,7 +327,8 @@ N/A — no message is sent to the user in v1.0.
 - **Rule:** Every event belongs to one or more groups. The groups today are Phật giáo (Buddhist),
   Việt Nam (Vietnamese holidays) and Dân gian (folk); the content editor can add more without a
   release, and every platform labels and filters by whatever groups the catalogue has, in the
-  catalogue's group order.
+  catalogue's group order. The Phật giáo group is permanent: the home block (BR-CAL-15) depends on
+  it, so it is never removed and its identifier never changes.
 - **Examples:** Vía Văn Thù → Phật giáo; Lễ Phật đản → Phật giáo + Việt Nam; Lễ Vu Lan → Phật giáo +
   Dân gian; Rằm, Mùng 1 → Phật giáo + Dân gian; 30/4 → Việt Nam; Tết Nguyên Đán → Việt Nam + Dân gian;
   tiết khí → Dân gian.
@@ -358,8 +381,10 @@ N/A — no message is sent to the user in v1.0.
 **BR-CAL-14 — Content format and empty content**
 - **Rule:** In an event's long description each line is one paragraph; in its guidance each line is
   one practice, shown as a numbered list (a leading "-", "•" or "*" is dropped). Clients split on line
-  breaks only, never on commas or semicolons; the content carries its own line breaks. A section whose content is empty is hidden. An event
-  without an image shows the shared default image.
+  breaks only, never on commas or semicolons; the content carries its own line breaks. A section whose content is empty is hidden;
+  an empty long description is not replaced by the short one. An event without an image shows the
+  shared default image; until that image is supplied, each platform shows its existing placeholder
+  (§3.6).
 - **Examples:** guidance "Đi chùa dự lễ tắm Phật\nCúng dường\nPhóng sinh\nĂn chay" → four
   numbered rows; empty guidance → no "Phật tử thường làm gì" section. Today every seed guidance is a
   single line joined by ";" and "," (e.g. Lễ Phật đản: "Đi chùa dự lễ tắm Phật, cúng dường, phóng
@@ -371,7 +396,9 @@ N/A — no message is sent to the user in v1.0.
   breaks, clients cannot know where to break")
 
 **BR-CAL-15 — What the home block shows**
-- **Rule:** The home block shows the months from the current month for six months. Per month it
+- **Rule:** The home block shows the months from the current month (in Vietnam time, as FR-CAL-002)
+  for six months. When the six months span two years and one year cannot be loaded, the months of
+  that year show the load failure with a retry; the other months show their events. Per month it
   shows Buddhist-group occurrences only, at most three: major events first, then other named events,
   then Rằm and Mùng Một; within each tier in BR-CAL-12 order. The rest is counted as
   "+N sự kiện khác". A month with no Buddhist occurrence still shows its card with an empty message.
@@ -561,7 +588,7 @@ N/A — no message is sent to the user in v1.0.
 - **Description:** WHEN the home screen is shown THE SYSTEM SHALL show the Buddhist events block per
   BR-CAL-15; choosing an event opens its detail, and choosing "Tất cả" or "+N sự kiện khác" opens the
   festival calendar.
-- **Business rules:** BR-CAL-10, BR-CAL-12, BR-CAL-13, BR-CAL-15
+- **Business rules:** BR-CAL-10, BR-CAL-12, BR-CAL-15
 - **Verification method:** shared vectors `rules/home-block.json`; automated test on each platform
 - **Source:** prototype home item 4; decision 2026-10-15 (Q3, Q5)
 - **Acceptance criteria:**
@@ -682,6 +709,9 @@ Intentional differences between platforms. Anything not listed here must behave 
 |---|---|---|---|
 | FR-CAL-009 | Website only | Previous / next event links on the detail | Already built on the website; the apps navigate back to the list. Other platforms may add it later without a product change |
 | FR-CAL-007 | Website | "Device copy" means the copy kept by the website server or the browser for the session | The website has no persistent offline store |
+| FR-CAL-002 | Website only | An "upcoming event" card above the list; past rows dimmed | Already built on the website; other platforms may add them later without a product change |
+| FR-CAL-005 | Website only | "Thắp đèn" and "Xem ngày âm" links on the detail | Already built on the website |
+| BR-CAL-14 | All clients | Placeholder image until the shared default image is supplied: website gradient header with the lamp mark; iOS and Android their existing placeholder | Asset not supplied yet (Appendix A) |
 
 ### 3.7 Software system attributes
 
@@ -715,23 +745,23 @@ note) · `n/a` · `later`.
 | BR-CAL-05 | done | done | drift | drift | iOS adds Rằm/Mùng Một locally when missing (AS-Festivals-002) |
 | BR-CAL-06 | done | n/a | n/a | drift | |
 | BR-CAL-07 | done | n/a | n/a | drift | |
-| BR-CAL-08 | done | done | done | done | |
-| BR-CAL-09 | done | done | done | drift | Android shows Buddhist events only |
-| BR-CAL-10 | planned | planned | drift | drift | iOS "Lễ lớn" = every named event; Android fixed list |
-| BR-CAL-11 | done | done | done | n/a | |
+| BR-CAL-08 | done | drift | done | drift | Website and Android omit "(nhuận)" on a leap-month lunar date |
+| BR-CAL-09 | done | drift | drift | drift | Website rows show the first group only; iOS rows show no group names; Android shows Buddhist events only |
+| BR-CAL-10 | planned | planned | drift | drift | iOS "Lễ lớn" = every named event; Android "Lễ lớn" = every named festival |
+| BR-CAL-11 | done | done | done | planned | |
 | BR-CAL-12 | done | done | done | drift | |
-| BR-CAL-13 | n/a | done | done | done | |
-| BR-CAL-14 | done | done | drift | n/a | iOS shows "Chưa có…" instead of hiding; no Android detail |
-| BR-CAL-15 | n/a | planned | drift | drift | iOS/Android show every group, no tiering |
+| BR-CAL-13 | n/a | drift | drift | done | Website: no "Ngày mai", detail counts on server time and shows "Đã qua N ngày"; iOS list writes "còn N ngày" |
+| BR-CAL-14 | done | drift | drift | planned | Website: falls back to the short description, keeps a leading "-"; iOS shows "Chưa có…" instead of hiding; Android has no detail yet |
+| BR-CAL-15 | n/a | drift | drift | drift | Website: current month only, all groups; iOS/Android: every group, no tiering |
 | BR-CAL-16 | done | n/a | n/a | n/a | |
 | FR-CAL-001 | drift | drift | drift | done | Backend requires sign-in today; Android is local |
-| FR-CAL-002 | done | done | done | drift | iOS loads up to 2200; Android local |
-| FR-CAL-003 | n/a | done | drift | drift | Website filters by group only; iOS tabs differ |
-| FR-CAL-004 | done | done | drift | planned | iOS: silent retry, limit 2200 |
-| FR-CAL-005 | n/a | done | drift | planned | iOS shows sutra/temple sections |
-| FR-CAL-006 | n/a | planned | drift | drift | |
-| FR-CAL-007 | n/a | done | planned | planned | iOS TD-Home-003 |
-| FR-CAL-008 | done | done | done | planned | |
+| FR-CAL-002 | done | done | drift | drift | iOS: rows lack group names and major mark, year from device time zone, Rằm/Mùng Một rows not selectable, loads up to 2200; Android local catalogue (list screen exists) |
+| FR-CAL-003 | n/a | drift | drift | drift | Website filters by group only; iOS tabs differ; Android "Lễ lớn" lists every named festival |
+| FR-CAL-004 | done | drift | drift | planned | Website loads current + next year only, no retry; iOS: silent retry, limit 2200 |
+| FR-CAL-005 | n/a | drift | drift | planned | Website: see BR-CAL-14; iOS shows sutra/temple sections; Android has no detail screen |
+| FR-CAL-006 | n/a | drift | drift | drift | See BR-CAL-15; iOS block disappears on failure |
+| FR-CAL-007 | n/a | drift | planned | planned | Website cache drops expired copies, so a backend failure loses the calendar; iOS TD-Home-003 |
+| FR-CAL-008 | done | drift | drift | planned | Website and iOS: no retry; iOS first-load failure is a toast |
 | FR-CAL-009 | n/a | done | n/a | n/a | §3.6 |
 | FR-CAL-010 | done | n/a | n/a | n/a | Back-office screens later |
 | NFR-CAL-01 | in-progress | n/a | n/a | n/a | Full reference table pending |
@@ -759,6 +789,8 @@ note) · `n/a` · `later`.
 
 > ⚠️ Not confirmed: Phật đản stays on lunar 15/4 only (GHPGVN practice), or the seed also gets a separate event on lunar 8/4 (traditional Northern date, noted in the seed) — content only; all platforms.
 
+> ⚠️ Not confirmed: the shared default event image (asset, licence) — platforms show their placeholder until it exists (§3.6).
+
 #### Open questions (resolved)
 
 | Question | Resolution | Date |
@@ -782,6 +814,13 @@ note) · `n/a` · `later`.
 | Is the iOS "Events" screen (courses, registration) part of this feature? | No: temple events of the user's sangha | 2026-10-15 |
 | Substitute days off | Out of scope | 2026-10-11 |
 | Who converts lunar ↔ solar? | The backend | 2026-10-11 |
+| Copy for the out-of-date, offline, failure, retry, empty-month and not-found messages | §3.1.1 messages table (defaults approved with v1.2) | 2026-10-15 |
+| Home block when one of its two years fails | That year's months show the failure and a retry (BR-CAL-15) | 2026-10-15 |
+| "Current month" of the home block | Vietnam time (BR-CAL-15) | 2026-10-15 |
+| Where "nhuận" goes | On the lunar date, not the name (BR-CAL-05, BR-CAL-08) | 2026-10-15 |
+| Does the home block show a countdown? | No (§3.1.1) | 2026-10-15 |
+| Empty long description | Hidden; no fallback to the short description (BR-CAL-14) | 2026-10-15 |
+| Rằm / Mùng 1 marks on calendar grids | Lunar-date display, out of this spec (§1.2) | 2026-10-15 |
 
 ### Appendix B — Contract handoff (backend)
 
