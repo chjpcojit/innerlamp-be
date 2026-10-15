@@ -1,0 +1,75 @@
+{
+  "rule": [
+    "BR-TPL-07"
+  ],
+  "description": "Distance label from the haversine distance in km (Earth radius 6371 km): one decimal (comma separator) under 10 km, whole number (half up) from 10 km; null distance (no location permission) hides the line.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "distance_km": "number or null"
+  },
+  "output": {
+    "label": "Vietnamese label; empty string means the line is hidden"
+  },
+  "cases": [
+    {
+      "name": "no location permission",
+      "input": {
+        "distance_km": null
+      },
+      "expected": {
+        "label": ""
+      },
+      "source": "BR-TPL-07; prototype distance rule; anh Đức 2026-10-15"
+    },
+    {
+      "name": "under 10 km, one decimal",
+      "input": {
+        "distance_km": 3.46
+      },
+      "expected": {
+        "label": "Cách bạn 3,5 km"
+      },
+      "source": "BR-TPL-07; prototype distance rule; anh Đức 2026-10-15"
+    },
+    {
+      "name": "very close",
+      "input": {
+        "distance_km": 0.04
+      },
+      "expected": {
+        "label": "Cách bạn 0,0 km"
+      },
+      "source": "BR-TPL-07; prototype distance rule; anh Đức 2026-10-15"
+    },
+    {
+      "name": "just under 10 km",
+      "input": {
+        "distance_km": 9.94
+      },
+      "expected": {
+        "label": "Cách bạn 9,9 km"
+      },
+      "source": "BR-TPL-07; prototype distance rule; anh Đức 2026-10-15"
+    },
+    {
+      "name": "from 10 km, whole number",
+      "input": {
+        "distance_km": 12.6
+      },
+      "expected": {
+        "label": "Cách bạn 13 km"
+      },
+      "source": "BR-TPL-07; prototype distance rule; anh Đức 2026-10-15"
+    },
+    {
+      "name": "far away",
+      "input": {
+        "distance_km": 1137.2
+      },
+      "expected": {
+        "label": "Cách bạn 1137 km"
+      },
+      "source": "BR-TPL-07; prototype distance rule; anh Đức 2026-10-15"
+    }
+  ]
+}
