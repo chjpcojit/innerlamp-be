@@ -1,56 +1,64 @@
 # Tasks — gallery
 
-Version: 1.1
-Last updated: 2026-10-07
-Status: implemented (2026-10-06) cho Phase 1–4; Phase 5 còn thiếu E2E tự động và OKF. Mọi `[x]` bên dưới đã kiểm chứng ngày 2026-10-06: `go build ./...`, `go vet ./services/appService/...`, `go test -short ./services/appService/...` sạch; repository test chạy trên Postgres thật (DB tạm `innerlamp_test`, đã xoá) pass 5/5; migration + seed chạy trên DB dev (86 ảnh, chạy lần hai vẫn 86); ba route gọi bằng `curl` trên binary thật.
-Module: `content`
+Version: 2.0
+Last updated: 2026-10-15
+Status: in-progress — Phase 1–4 done (except the items marked `[ ]`); **Phase 6–8 (v2.0) not started**; Phase 5 is intentionally deferred work.
+Module: `gallery`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
-Mọi mục dưới đây trace về một hàng của bảng "Layers & components" hoặc một Step của "Step-by-step Flow" trong `design.md`.
+Every item traces to a row of "Layers & components" or a Step of a "Step-by-step Flow" in `design.md`. Only what is verified in code is `[x]`. The v2.0 pass (2026-10-15) re-read `domain/gallery.go`, `usecase/gallery_usecase.go`, `delivery/http/gallery_handler.go`, `cmd/seedgallery/parse.go`, `cmd/main.go`, migration `0017`, and ran `go test -short ./services/appService/cmd/seedgallery/ ./services/appService/usecase/ ./services/appService/delivery/http/ -run Gallery` — all pass (the seeder's real-file test now finds the committed file).
 
 ## Phase 1 — Domain
 
-- [x] `GalleryImage`, `GalleryPage`, hằng `GalleryChua`/`GalleryTuongPhat`/`GalleryThien`/`GalleryLeHoi`, `GalleryTypes`, `IsValidGalleryType` trong `services/appService/domain/gallery.go` (không tag)
-- [x] `ErrGalleryImageNotFound`, `ErrInvalidGalleryType` trong `domain/gallery.go`; tái dùng `ErrInvalidPage`
-- [x] Interface `GalleryRepository` (4 method, `List` nhận `imageType`; thứ tự `sort_order ASC, id ASC` nằm trong hợp đồng)
+- [x] `GalleryImage`, `GalleryPage`, type constants, `GalleryTypes`, `IsValidGalleryType` in `services/appService/domain/gallery.go` (no tags)
+- [x] `ErrGalleryImageNotFound`, `ErrInvalidGalleryType`; reuses `ErrInvalidPage`
+- [x] `GalleryRepository` interface (order `sort_order ASC, id ASC` in the contract)
 - [x] `domain/mock_gallery_repository.go`
 
 ## Phase 2 — Usecase
 
-- [x] `usecase/gallery_usecase.go`: `Top`, `List` (chặn `page`, kiểm `type`, offset, `total_pages`, `items` nil → `[]`), `Get`
-- [x] Unit tests `usecase/gallery_usecase_test.go` — `TestGalleryUsecase_Top`, `_List` (lọc type, page lạ, type lạ), `_Get`, dùng mock tay
+- [x] `usecase/gallery_usecase.go`: `Top`, `List` (page bounds, type check, offset, `total_pages`, nil → `[]`), `Get`
+- [x] Unit tests `usecase/gallery_usecase_test.go` with hand-written mocks
 
-## Phase 3 — Repository, config và dữ liệu
+## Phase 3 — Repository, config and data
 
-- [x] `migrations/0017_gallery_images.sql` — bảng, `CHECK` trên `type`, hai index
-- [x] `repository/postgres_gallery_repository.go`: `ListTop`, `List` (lọc `type` bằng tham số), `FindByID`, `Upsert` một transaction
-- [x] `config`: `GalleryConfig` + block `gallery:` (10 / 20) trong `config.dev.yaml`
-- [x] `cmd/seedgallery/main.go` + `parse.go`: kiểm id/type/title/URL, `sort_order` xen kẽ 4 loại, `Upsert`; target `make seed-gallery`
-- [x] Tests: `cmd/seedgallery/parse_test.go` (file thật 86 mục, validation, xen kẽ); `repository/postgres_gallery_repository_test.go` (upsert/find, not found, atomic, ordering, phân trang + lọc type) — cần Postgres, bỏ qua khi `-short`; thêm `0017` và `gallery_images` vào `applyMigration`/`truncateAll` của harness
-- [x] Seed vào DB dev: 86 ảnh (41 `CHUA`, 21 `TUONG_PHAT`, 12 `THIEN`, 12 `LE_HOI`)
+- [x] `migrations/0017_gallery_images.sql` — table, `CHECK` on `type`, two indexes
+- [x] `repository/postgres_gallery_repository.go`: `ListTop`, `List`, `FindByID`, `Upsert` (one transaction)
+- [x] `config`: `GalleryConfig` + `gallery:` block (10 / 20) in `config.dev.yaml`
+- [x] `cmd/seedgallery/main.go` + `parse.go`: id/type/title/URL checks, type rotation, `Upsert`; `make seed-gallery`
+- [x] Tests: `cmd/seedgallery/parse_test.go`; `repository/postgres_gallery_repository_test.go` (needs Postgres, skipped under `-short`)
+- [x] `assets/data/buddhist_gallery.json` committed with a `.gitignore` exception (be#35) — AC 20
 
-## Phase 4 — Delivery và tài liệu
+## Phase 4 — Delivery and docs
 
-- [x] `delivery/http/gallery_handler.go`: `Top`, `List`, `Get` + DTO summary/detail
-- [x] `delivery/http/errors.go`: `404 GALLERY_IMAGE_NOT_FOUND`, `400 INVALID_GALLERY_TYPE` (`details.field = type`)
-- [x] `cmd/main.go`: dựng dây và đăng ký 3 route
+- [x] `delivery/http/gallery_handler.go`: `Top`, `List`, `Get` + summary/detail DTOs
+- [x] `delivery/http/errors.go`: `404 GALLERY_IMAGE_NOT_FOUND`, `400 INVALID_GALLERY_TYPE`
+- [x] `cmd/main.go`: wiring + 3 routes
 - [x] Handler tests `delivery/http/gallery_handler_test.go` + `mock_gallery_usecase_test.go`
-- [x] `docs/specs/api/openapi.yaml` và `web/docs/public/openapi.yaml`: 3 route, tag `Gallery`, 5 schema (parse YAML được)
-- [x] Ghi `0017` vào `migrations/README.md`; bảng `gallery_images` trong `docs/specs/db/erd.mmd`
-- [ ] Render lại `docs/specs/db/erd.svg` từ `erd.mmd` (chưa chạy mermaid-cli)
-- [x] `api-contract.md` cho client iOS
+- [x] `openapi.yaml` (+ `web/docs/public/`): 3 routes, tag Gallery, schemas (v1.x shape)
+- [ ] Re-render `docs/specs/db/erd.svg` from `erd.mmd`
 
-## Phase 5 — Integration & documentation
+## Phase 5 — Deferred (not this feature's v2.0)
 
-- [ ] E2E black-box trong `services/appService/e2e/`: ba route, lọc `type`, `INVALID_PAGE`, `INVALID_GALLERY_TYPE`, `GALLERY_IMAGE_NOT_FOUND`, bảng rỗng trả `items: []`
-- [x] `go build ./...` và `go vet ./services/appService/...` sạch
-- [ ] Khái niệm OKF `docs/knowledge/features/gallery.md` — do `il-okf-writer` tạo sau khi có E2E; chưa có file
+- Production photo storage and serving — waits on the cross-feature ADR (`requirements.md` ⚠️)
+- Content load outside dev — waits on the same product question
 
-- [x] `scripts/download_gallery_images.py` + `assets/images/gallery/{full,thumb}` (86 + 86 ảnh jpg, ~32 MB) + `credits.json`; JSON trỏ URL LAN; thêm `buddhist_gallery.json` và `seedgallery` vào `make lan-urls`
-- [x] Kiểm chứng: `curl` `http://192.168.1.186:18080/static/images/gallery/{full,thumb}/...` trả `200 image/jpeg`; đủ 86/86 file mỗi loại
+## Phase 6 — v2.0 usecase and delivery (credit in lists, `total` on `top`)
 
-## Deferred (separate feature, not blocking gallery)
+- [ ] `GalleryUsecase.Top` returns `(items, total)` via `GalleryRepository.List(ctx, "", 0, cfg.TopLimit)` — design Step-by-step "Featured photos" Steps 1–3 (AC 1–3)
+- [ ] Remove `GalleryRepository.ListTop` (repository, interface, mock, tests) once `Top` no longer calls it
+- [ ] `gallerySummaryResponse` gains `author`, `license`, `source_url`; `galleryDetailResponse` = same fields; `galleryTopResponse` gains `total` (AC 3, 11, 13)
+- [ ] Update `usecase/gallery_usecase_test.go` (`Top` returns total, empty table → `[]` and `0`) and `delivery/http/gallery_handler_test.go` (credit fields on top and list items, `total` on top)
 
-- Đưa ảnh lên GCS/CDN thay file system dev — chặn bởi `⚠️ Not confirmed` trong `requirements.md`
-- Quy trình nạp dữ liệu ngoài dev — chặn bởi `⚠️ Not confirmed` trong `requirements.md`
+## Phase 7 — v2.0 seeder and contract
+
+- [ ] `parseGallery` refuses an empty `author` or `license` (AC 16); add cases to `parse_test.go`
+- [ ] `cmd/seedgallery/parse_vectors_test.go`: run every case of `docs/product/gallery/rules/gallery-order.json` (type mapping TEMPLE→CHUA, STATUE→TUONG_PHAT, MEDITATION→THIEN, FESTIVAL→LE_HOI; featured = first `top_limit` of the order; filter = order restricted to the type) (AC 19)
+- [ ] `docs/specs/api/openapi.yaml` and `web/docs/public/openapi.yaml`: `GallerySummary` + `author`, `license`, `source_url` (required strings); `GalleryTopEnvelope` + `total`; gallery descriptions in English (copy `diff` must be empty)
+
+## Phase 8 — v2.0 verification
+
+- [ ] `e2e/gallery_e2e_test.go`: `top` (10 items, `total`, credit fields), list page 1 and past the end, `type` filter counts, `INVALID_PAGE`, `INVALID_GALLERY_TYPE` (`details.field`), `GALLERY_IMAGE_NOT_FOUND`, empty table → `items: []`
+- [ ] `go build ./...`, `go vet ./services/appService/...`, `go test -short ./services/appService/...` clean
+- [ ] OKF concept `docs/knowledge/features/gallery.md` — by `il-okf-writer` after E2E

@@ -1,5 +1,7 @@
 # Gallery (ảnh đẹp Phật giáo) — API contract (for iOS)
 
+> **Superseded (2026-10-15)** by `docs/specs/api/openapi.yaml` and `requirements.md` v2.0 — kept only until the website / iOS / Android gallery specs are approved, then deleted. Do not update.
+
 Version: 1.1
 Last updated: 2026-10-07
 Status: implemented + verified against a running server (dev DB, 86 ảnh)
