@@ -1,0 +1,384 @@
+{
+  "rule": [
+    "BR-GAL-02"
+  ],
+  "description": "Gallery order: the four topics rotate (Chùa, Tượng Phật, Cảnh thiền, Lễ hội), file order kept within a topic; a topic that runs out is skipped. Featured = first 10 of that order. A topic filter keeps the same order.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "photos": "list of {id, type TEMPLE | STATUE | MEDITATION | FESTIVAL} in the order of the content file",
+    "type_filter": "null for 'Tất cả', or one type"
+  },
+  "output": {
+    "order": "identifiers in display order (filtered when type_filter is set)",
+    "featured": "identifiers of the featured list (always unfiltered, at most 10)"
+  },
+  "cases": [
+    {
+      "name": "four types rotate in the fixed order",
+      "input": {
+        "photos": [
+          {
+            "id": "t1",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t2",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "s1",
+            "type": "STATUE"
+          },
+          {
+            "id": "s2",
+            "type": "STATUE"
+          },
+          {
+            "id": "m1",
+            "type": "MEDITATION"
+          },
+          {
+            "id": "m2",
+            "type": "MEDITATION"
+          },
+          {
+            "id": "f1",
+            "type": "FESTIVAL"
+          },
+          {
+            "id": "f2",
+            "type": "FESTIVAL"
+          }
+        ],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [
+          "t1",
+          "s1",
+          "m1",
+          "f1",
+          "t2",
+          "s2",
+          "m2",
+          "f2"
+        ],
+        "featured": [
+          "t1",
+          "s1",
+          "m1",
+          "f1",
+          "t2",
+          "s2",
+          "m2",
+          "f2"
+        ]
+      }
+    },
+    {
+      "name": "a type that runs out is skipped; the rest keep rotating",
+      "input": {
+        "photos": [
+          {
+            "id": "t1",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t2",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t3",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t4",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t5",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "s1",
+            "type": "STATUE"
+          },
+          {
+            "id": "s2",
+            "type": "STATUE"
+          },
+          {
+            "id": "m1",
+            "type": "MEDITATION"
+          },
+          {
+            "id": "f1",
+            "type": "FESTIVAL"
+          }
+        ],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [
+          "t1",
+          "s1",
+          "m1",
+          "f1",
+          "t2",
+          "s2",
+          "t3",
+          "t4",
+          "t5"
+        ],
+        "featured": [
+          "t1",
+          "s1",
+          "m1",
+          "f1",
+          "t2",
+          "s2",
+          "t3",
+          "t4",
+          "t5"
+        ]
+      }
+    },
+    {
+      "name": "file order is kept within a type, whatever the file mixes",
+      "input": {
+        "photos": [
+          {
+            "id": "s1",
+            "type": "STATUE"
+          },
+          {
+            "id": "t1",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t2",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "s2",
+            "type": "STATUE"
+          },
+          {
+            "id": "f1",
+            "type": "FESTIVAL"
+          }
+        ],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [
+          "t1",
+          "s1",
+          "f1",
+          "t2",
+          "s2"
+        ],
+        "featured": [
+          "t1",
+          "s1",
+          "f1",
+          "t2",
+          "s2"
+        ]
+      }
+    },
+    {
+      "name": "featured = first 10 of the order",
+      "input": {
+        "photos": [
+          {
+            "id": "t1",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t2",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t3",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t4",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t5",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t6",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "s1",
+            "type": "STATUE"
+          },
+          {
+            "id": "s2",
+            "type": "STATUE"
+          },
+          {
+            "id": "s3",
+            "type": "STATUE"
+          },
+          {
+            "id": "s4",
+            "type": "STATUE"
+          },
+          {
+            "id": "m1",
+            "type": "MEDITATION"
+          },
+          {
+            "id": "m2",
+            "type": "MEDITATION"
+          },
+          {
+            "id": "m3",
+            "type": "MEDITATION"
+          },
+          {
+            "id": "f1",
+            "type": "FESTIVAL"
+          },
+          {
+            "id": "f2",
+            "type": "FESTIVAL"
+          },
+          {
+            "id": "f3",
+            "type": "FESTIVAL"
+          }
+        ],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [
+          "t1",
+          "s1",
+          "m1",
+          "f1",
+          "t2",
+          "s2",
+          "m2",
+          "f2",
+          "t3",
+          "s3",
+          "m3",
+          "f3",
+          "t4",
+          "s4",
+          "t5",
+          "t6"
+        ],
+        "featured": [
+          "t1",
+          "s1",
+          "m1",
+          "f1",
+          "t2",
+          "s2",
+          "m2",
+          "f2",
+          "t3",
+          "s3"
+        ]
+      }
+    },
+    {
+      "name": "a filter keeps the order of that type only",
+      "input": {
+        "photos": [
+          {
+            "id": "t1",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t2",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t3",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "s1",
+            "type": "STATUE"
+          },
+          {
+            "id": "s2",
+            "type": "STATUE"
+          },
+          {
+            "id": "m1",
+            "type": "MEDITATION"
+          }
+        ],
+        "type_filter": "STATUE"
+      },
+      "expected": {
+        "order": [
+          "s1",
+          "s2"
+        ],
+        "featured": [
+          "t1",
+          "s1",
+          "m1",
+          "t2",
+          "s2",
+          "t3"
+        ]
+      }
+    },
+    {
+      "name": "fewer than 10 photos: all are featured",
+      "input": {
+        "photos": [
+          {
+            "id": "t1",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "t2",
+            "type": "TEMPLE"
+          },
+          {
+            "id": "f1",
+            "type": "FESTIVAL"
+          }
+        ],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [
+          "t1",
+          "f1",
+          "t2"
+        ],
+        "featured": [
+          "t1",
+          "f1",
+          "t2"
+        ]
+      }
+    },
+    {
+      "name": "empty catalogue",
+      "input": {
+        "photos": [],
+        "type_filter": null
+      },
+      "expected": {
+        "order": [],
+        "featured": []
+      }
+    }
+  ]
+}

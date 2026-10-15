@@ -1,0 +1,72 @@
+{
+  "rule": [
+    "BR-GAL-07"
+  ],
+  "description": "Home 'Ảnh đẹp Phật giáo' block on the apps: the '+N ảnh' overlay counts every gallery photo not shown in the tiles, N = total − tiles shown; shown only when N > 0.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "total_photos": "number of photos in the whole gallery (all topics)",
+    "tiles_shown": "tiles shown in the block (3, fewer when the gallery is smaller)"
+  },
+  "output": {
+    "more_count": "N in '+N ảnh'",
+    "overlay_shown": "whether the overlay appears"
+  },
+  "cases": [
+    {
+      "name": "86 photos, 3 tiles",
+      "input": {
+        "total_photos": 86,
+        "tiles_shown": 3
+      },
+      "expected": {
+        "more_count": 83,
+        "overlay_shown": true
+      }
+    },
+    {
+      "name": "4 photos, 3 tiles",
+      "input": {
+        "total_photos": 4,
+        "tiles_shown": 3
+      },
+      "expected": {
+        "more_count": 1,
+        "overlay_shown": true
+      }
+    },
+    {
+      "name": "exactly 3 photos: no overlay",
+      "input": {
+        "total_photos": 3,
+        "tiles_shown": 3
+      },
+      "expected": {
+        "more_count": 0,
+        "overlay_shown": false
+      }
+    },
+    {
+      "name": "2 photos: no overlay",
+      "input": {
+        "total_photos": 2,
+        "tiles_shown": 2
+      },
+      "expected": {
+        "more_count": 0,
+        "overlay_shown": false
+      }
+    },
+    {
+      "name": "empty gallery",
+      "input": {
+        "total_photos": 0,
+        "tiles_shown": 0
+      },
+      "expected": {
+        "more_count": 0,
+        "overlay_shown": false
+      }
+    }
+  ]
+}
