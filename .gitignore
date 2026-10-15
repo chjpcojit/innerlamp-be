@@ -75,6 +75,9 @@ go.sum
 # Article content: public reading list, not a secret; embedded by assets/embed.go and loaded by
 # cmd/seedarticles (docs/product/article FR-ART-009).
 !assets/data/buddhist_articles.json
+# Gallery photo list (titles, places, author/licence credits): public content, loaded by cmd/seedgallery
+# (docs/product/gallery FR-GAL-010). The photo files themselves stay out of git.
+!assets/data/buddhist_gallery.json
 # Product test vectors: shared, not secrets; every platform runs them (docs/product/README.md).
 !docs/product/*/rules/*.json
 # Reviewed ward decisions for temple addresses (docs/specs/features/temple, tasks Phase 10): a record, not a secret.
