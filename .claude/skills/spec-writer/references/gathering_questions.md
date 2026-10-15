@@ -1,81 +1,101 @@
-# Hỏi người dùng trước khi viết spec
+# Asking the user before writing a spec
 
-Trước khi sinh hoặc cập nhật bất kỳ file spec nào, hỏi các câu bắt buộc dưới đây bằng công cụ hỏi
-người dùng (hoặc tương đương), tuyệt đối không đoán. File này định nghĩa bộ câu hỏi bắt buộc và
-quy tắc đặt câu hỏi để người dùng dễ trả lời.
+Before generating or updating any spec file, ask the mandatory questions below with the user-question
+tool (or equivalent) — never guess. This file defines the mandatory question set and the phrasing
+rules that make the questions easy to answer.
 
-## Quy tắc đặt câu hỏi
+**Language**: per the Language policy in `CLAUDE.md`, the questions are chat with the user, so they
+are asked in Vietnamese ("anh" for the user, "em" for the agent), technical terms kept in English.
+The quoted example questions below are written that way on purpose. What ends up in the spec —
+including every `⚠️ Not confirmed` marker — is English.
 
-- **Một chủ đề mỗi câu.** Không gộp hai quyết định vào một câu.
-- **Cụ thể, không trừu tượng.** Thay vì "Thiết kế layer thế nào?", hỏi "Feature này có cần bảng DB
+## Phrasing rules
+
+- **One topic per question.** Never merge two decisions into one question.
+- **Concrete, not abstract.** Instead of "Thiết kế layer thế nào?", ask "Feature này có cần bảng DB
   mới không, hay chỉ đọc/ghi trên bảng đã có?"
-- **Đưa ví dụ hoặc mặc định** khi có thể, để người dùng chỉ cần xác nhận thay vì tự soạn câu trả lời:
-  - Kém: "Tiêu chí chấp nhận nên là gì?"
-  - Tốt: "Khi user gửi request với body sai định dạng — trả 400 kèm danh sách field lỗi (mặc định),
+- **Offer an example or a default** where possible, so the user only has to confirm instead of
+  composing an answer:
+  - Weak: "Tiêu chí chấp nhận nên là gì?"
+  - Good: "Khi user gửi request với body sai định dạng — trả 400 kèm danh sách field lỗi (mặc định),
     hay trả 422 với error code riêng?"
-- **Ngắn.** Một câu trả lời được trong một dòng tốt hơn một đoạn phải đọc.
+- **Short.** A question answerable in one line beats a paragraph the user has to read.
 
-## Đọc product spec trước khi hỏi
+## Read the product spec before asking
 
-Đọc `docs/product/<feature>/product.md` trước (xem `upstream_product_spec.md`). Câu nào product spec
-đã trả lời (user story, quy tắc nghiệp vụ, phạm vi, edge case) thì **không hỏi lại** — trích ID.
-Câu nào là quyết định product mà product spec còn thiếu thì không tự chốt ở đây: ghi
-`⚠️ Not confirmed (product)` và chuyển lại cho `ba-writer`. Bộ câu hỏi dưới đây chỉ còn phần kỹ
-thuật của backend.
+Read `docs/product/<feature>/product.md` first (see `upstream_product_spec.md`). Anything the product
+spec already answers (user story, business rules, scope, edge cases) is **not asked again** — cite the
+ID. Anything that is a product decision the product spec is missing is not settled here: record
+`⚠️ Not confirmed (product)` and hand it back to `ba-writer`. The question set below covers only the
+backend's technical part.
 
-## Bộ câu hỏi bắt buộc (trước khi sinh spec mới)
+## Mandatory question set (before generating a new spec)
 
-Hỏi theo thứ tự, từng câu một hoặc gộp thành một form ngắn — tùy định dạng công cụ hỏi:
+Ask in order, one at a time or combined into a short form — depending on the question tool's format.
+Each item gives what to find out, then a suggested Vietnamese phrasing:
 
-1. **Tên feature?** (kebab-case, khớp tên thư mục) — ví dụ `register`, `sutra-list`,
-   `password-reset`.
-2. **Feature này đã được implement trong code chưa?** → quyết định Prospective vs Retroactive
-   (`modes.md`).
-3. **Một câu: ai là người dùng và họ muốn làm gì?** (user story) — hoặc trỏ tới US-XXX đã có trong
-   `requirements.md` hiện tại nếu đang viết tiếp.
-4. **Endpoint/route nào?** (`METHOD /v1/...`) — và method có cần auth không (middleware
-   `RequireAuth` hay public read)?
-5. **Có bảng DB mới không, hay chỉ dùng bảng đã có?** Nếu có: đã có migration chưa, hay cần thêm?
-6. **Flow chính có nhiều hơn một lời gọi ra ngoài theo thứ tự không** (nhiều query, transaction
-   nhiều bảng, gọi external service, upload storage, gửi mail)? Có/Không — nếu có, bắt buộc có
-   section Step-by-step Flow trong `design.md` (xem `step_by_step_flow.md`) **và** sơ đồ Mermaid
-   trong `flow.md` (xem `flow_diagram.md`).
-7. **Với mỗi lời gọi ở câu 6: contract đã chốt chưa** (schema request/response, mã lỗi, HTTP
-   status), hay còn chưa rõ? Cái gì "chưa rõ" trở thành marker `⚠️ Not confirmed`, không được viết
-   như thể đã có.
-8. **Có bước kiểm tra/validate ngầm nào không hiển nhiên từ hành động chính không** — ví dụ check
-   trùng email, rate limit, kiểm tra quyền sở hữu resource, ràng buộc unique ở DB, side effect phụ
-   (audit log, counter)? (Đây là câu làm lộ ra những thứ như "email phải unique" trước khi chúng bị
-   gộp im lặng vào một dòng user story.)
-9. **Có phụ thuộc module/service khác không** — usecase của module `journal` gọi sang `content`,
-   hay handler gọi thẳng external API của bên thứ ba?
+1. **Feature name** (kebab-case, matching the folder name) — e.g. `register`, `sutra-list`,
+   `password-reset`. Ask: "Tên feature là gì? (kebab-case, ví dụ `register`, `password-reset`)"
+2. **Is the feature already implemented in code?** → decides Prospective vs Retroactive
+   (`modes.md`). Ask: "Feature này đã được implement trong code chưa?"
+3. **User story in one sentence: who is the user and what do they want?** — or point to an existing
+   US-XXX in the current `requirements.md` when continuing one. Ask: "Một câu: ai là người dùng và
+   họ muốn làm gì?"
+4. **Which endpoints/routes?** (`METHOD /v1/...`) — and does each need auth (`RequireAuth`
+   middleware, or public read)? Ask: "Endpoint nào (`METHOD /v1/...`)? Có cần auth (`RequireAuth`)
+   hay public read?"
+5. **New DB table, or only existing tables?** If new: does the migration exist yet, or must one be
+   added? Ask: "Có bảng DB mới không, hay chỉ dùng bảng đã có? Nếu có thì đã có migration chưa?"
+6. **Does the main flow make more than one sequential external call** (several queries, a
+   multi-table transaction, an external service call, a storage upload, sending mail)? Yes/No — if
+   yes, a Step-by-step Flow section in `design.md` (see `step_by_step_flow.md`) **and** a Mermaid
+   diagram in `flow.md` (see `flow_diagram.md`) are mandatory. Ask: "Flow chính có nhiều hơn một lời
+   gọi ra ngoài theo thứ tự không (nhiều query, transaction nhiều bảng, external service, upload,
+   gửi mail)?"
+7. **For each call in question 6: is the contract settled** (request/response schema, error codes,
+   HTTP status), or still unclear? Anything "unclear" becomes a `⚠️ Not confirmed` marker and must
+   not be written as if it existed. Ask: "Với từng lời gọi đó, contract (schema, mã lỗi, HTTP status)
+   đã chốt chưa?"
+8. **Is there any implicit check/validation not obvious from the main action** — e.g. a duplicate
+   email check, a rate limit, a resource-ownership check, a DB unique constraint, a secondary side
+   effect (audit log, counter)? (This is the question that surfaces things like "email must be
+   unique" before they get silently folded into a one-line user story.) Ask: "Có bước kiểm tra ngầm
+   nào không — ví dụ check trùng email, rate limit, quyền sở hữu resource, unique constraint, audit
+   log?"
+9. **Any dependency on another module/service** — does the `journal` module's usecase call into
+   `content`, or does the handler call a third-party external API directly? Ask: "Có phụ thuộc
+   module/service khác không, hay gọi thẳng API bên thứ ba?"
 
-## Khi cập nhật spec đã có (không tạo mới)
+## When updating an existing spec (not creating one)
 
-Hỏi thay bằng:
+Ask these instead:
 
-1. **Thay đổi gì?** — một câu: requirement mới, đổi scope (đưa thứ gì đó từ "Out of scope" vào
-   scope), hay trả lời một mục `⚠️ Not confirmed`?
-2. Nếu là trả lời mục `⚠️ Not confirmed`: **câu trả lời là gì**, nói càng đơn giản càng tốt (ví dụ
-   "trả trong cùng response" vs "gọi API riêng" vs "tính ở client").
-3. Nếu là behavior mới/đổi: **có ảnh hưởng tới tiêu chí chấp nhận đã có không, hay hoàn toàn mới?**
-4. Nếu là chi tiết kỹ thuật mới (schema field, mã lỗi, index): **nó chỉ nằm ở `design.md`, hay có
-   làm đổi behavior mà `requirements.md` đang mô tả?**
+1. **What changed?** — one sentence: a new requirement, a scope change (moving something from "Out
+   of scope" into scope), or an answer to a `⚠️ Not confirmed` item? Ask: "Thay đổi gì ạ —
+   requirement mới, đổi scope, hay trả lời một mục `⚠️ Not confirmed`?"
+2. If it answers a `⚠️ Not confirmed` item: **what is the answer**, as simply as possible (e.g. "trả
+   trong cùng response" vs "gọi API riêng" vs "tính ở client").
+3. If it is new/changed behavior: **does it affect existing acceptance criteria, or is it entirely
+   new?** Ask: "Có ảnh hưởng tới tiêu chí chấp nhận đã có không, hay hoàn toàn mới?"
+4. If it is a new technical detail (schema field, error code, index): **does it live only in
+   `design.md`, or does it change the behavior `requirements.md` describes?** Ask: "Chi tiết này chỉ
+   nằm ở `design.md`, hay làm đổi behavior trong `requirements.md`?"
 
-## Quy tắc "không bao giờ bỏ qua"
+## The "never skip" rule
 
-Nếu người dùng không trả lời một câu bắt buộc (từ chối, hoặc nói "chưa chắc"), **không được**:
-- Bỏ nó khỏi spec hoàn toàn.
-- Chọn một mặc định rồi trình bày như thể đã xác nhận.
-- Hỏi lại nhiều lần trong cùng một session — hỏi một lần, rồi tiếp tục với marker mở.
+If the user does not answer a mandatory question (declines, or says "chưa chắc"), you must **not**:
+- Drop it from the spec entirely.
+- Pick a default and present it as if it were confirmed.
+- Ask it again and again in the same session — ask once, then continue with the marker open.
 
-Thay vào đó, ghi vào spec đúng format từ rule 3 của `SKILL.md`:
+Instead, record it in the spec in the exact format from rule 3 of `SKILL.md` (in English, since it is
+committed):
 
 ```
-> ⚠️ Not confirmed: <câu hỏi, một câu> — <nó chặn gì, ví dụ "chặn tasks.md Phase 3 không
-> implement được">.
+> ⚠️ Not confirmed: <the question, one sentence> — <what it blocks, e.g. "blocks tasks.md Phase 3
+> from being implemented">.
 ```
 
-Đặt ở section liên quan nhất (`requirements.md` mục "Pending" cho câu hỏi về behavior/nghiệp vụ,
-`design.md` tại đúng bước flow cho câu hỏi kỹ thuật/API) — không dồn hết lên đầu file, nơi chúng
-mất ngữ cảnh.
+Place it in the most relevant section (`requirements.md` "Pending" for behavior/business questions,
+`design.md` at the exact flow step for technical/API questions) — do not pile them all at the top of
+the file, where they lose their context.

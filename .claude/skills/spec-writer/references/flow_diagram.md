@@ -1,52 +1,53 @@
 # Flow diagram (`flow.md`)
 
-File `flow.md` là bản vẽ (visual) của luồng backend, nằm cạnh bốn file spec còn lại trong
-`docs/specs/features/<feature>/`. Nó **không phải** nơi sinh ra logic mới — nó là gương chiếu 1:1
-của các section "Step-by-step Flow" trong `design.md`, dùng **Mermaid** (khớp tiền lệ `erd.mmd`).
+`flow.md` is the visual of the backend flow, sitting next to the other four spec files in
+`docs/specs/features/<feature>/`. It is **not** a place where new logic is born — it is a 1:1 mirror
+of the "Step-by-step Flow" sections in `design.md`, drawn in **Mermaid** (matching the `erd.mmd`
+precedent).
 
-## Khi nào tạo `flow.md`
+## When to create `flow.md`
 
-Cùng điều kiện với rule 5 của `SKILL.md`: **khi flow chính của feature có 2 lời gọi tuần tự trở
-lên ra hệ thống ngoài** (DB query/transaction, external HTTP API, storage, mailer/SMS, cache, MQ).
-Nếu có section "Step-by-step Flow" trong `design.md` thì **bắt buộc** có `flow.md` tương ứng, và
-ngược lại.
+Same condition as rule 5 of `SKILL.md`: **when the feature's main flow makes 2 or more sequential
+calls to external systems** (DB query/transaction, external HTTP API, storage, mailer/SMS, cache, MQ).
+If `design.md` has a "Step-by-step Flow" section, a matching `flow.md` is **mandatory**, and vice
+versa.
 
-Feature chỉ có đúng một query, không write, không transaction, không gọi ngoài → không có
-Step-by-step Flow → **không có `flow.md`**. Section "Request flow" (ASCII) trong `design.md` đủ.
+A feature with exactly one query, no write, no transaction and no external call → no Step-by-step
+Flow → **no `flow.md`**. The "Request flow" (ASCII) section in `design.md` is enough.
 
-## Quan hệ với `design.md`
+## Relationship with `design.md`
 
-- **`design.md` §Step-by-step Flow là nguồn sự thật.** Nó ghi đủ Trigger / Pre-condition / Call /
-  Success / Failure / Transaction boundary bằng chữ.
-- **`flow.md` vẽ lại đúng nội dung đó**, không thêm bước, không bỏ bước. Mỗi mũi tên trace về một
-  Step; mỗi Step phải xuất hiện dưới dạng message/note/alt-branch.
-- **`design.md` §Request flow** (ASCII) được **thay bằng một con trỏ sang `flow.md`** khi `flow.md`
-  tồn tại — không giữ hai bản vẽ cùng một thứ (một ASCII, một Mermaid) vì chúng sẽ drift. Nếu
-  `flow.md` không tồn tại (feature một query), giữ nguyên ASCII.
+- **`design.md` §Step-by-step Flow is the source of truth.** It spells out Trigger / Pre-condition /
+  Call / Success / Failure / Transaction boundary in words.
+- **`flow.md` redraws exactly that content**, adding no step and dropping none. Every arrow traces
+  back to a Step; every Step must appear as a message/note/alt-branch.
+- **`design.md` §Request flow** (ASCII) is **replaced by a pointer to `flow.md`** once `flow.md`
+  exists — do not keep two drawings of the same thing (one ASCII, one Mermaid), because they will
+  drift. If `flow.md` does not exist (single-query feature), keep the ASCII as is.
 
-Quy trình sinh: viết/xong `design.md` §Step-by-step Flow trước, rồi vẽ `flow.md` từ nó. Một thay
-đổi flow luôn sửa `design.md` trước, rồi cập nhật `flow.md` cho khớp — theo đúng cascade
-`requirements → design (→ flow) → tasks`. Không bao giờ sửa `flow.md` trước rồi mới sửa `design.md`.
+Generation order: write/finish `design.md` §Step-by-step Flow first, then draw `flow.md` from it. A
+flow change always edits `design.md` first, then updates `flow.md` to match — following the cascade
+`requirements → design (→ flow) → tasks`. Never edit `flow.md` first and `design.md` afterwards.
 
-## Cấu trúc file
+## File structure
 
-Một section `###` cho mỗi section "Step-by-step Flow — ..." của `design.md`, cùng tên, cùng thứ
-tự. Mỗi section là một khối ` ```mermaid ` (thường là `sequenceDiagram`).
+One `###` section for each "Step-by-step Flow — ..." section of `design.md`, with the same name, in
+the same order. Each section is one ` ```mermaid ` block (usually a `sequenceDiagram`).
 
-### Participant (actor/layer)
+### Participants (actor/layer)
 
-Đặt tên ngắn, tên file thật trong dấu ngoặc (dùng `<br/>` để xuống dòng):
+Use short names, with the real file name in parentheses (use `<br/>` for a line break):
 
-| Alias | Participant | Ghi chú |
+| Alias | Participant | Notes |
 |---|---|---|
-| `C` | Client | caller của API |
+| `C` | Client | the API caller |
 | `H` | `<Feature>Handler` (delivery/http) | decode + validate + map error → status |
 | `U` | `<Verb><Feature>Usecase` | validation + orchestration |
 | `R` | `<Feature>Repository` | SQL, transaction, row↔entity |
 | `DB` | Postgres | |
-| `S` / `M` / `G` | `pkg/sms` / `pkg/mailer` / GCS / ... | chỉ thêm khi flow chạm external service |
+| `S` / `M` / `G` | `pkg/sms` / `pkg/mailer` / GCS / ... | add only when the flow touches an external service |
 
-Ví dụ:
+Example:
 
 ```mermaid
 participant C as Client
@@ -57,20 +58,20 @@ participant DB as Postgres
 participant S as pkg/sms
 ```
 
-### Mũi tên
+### Arrows
 
-- `->>` lời gọi đồng bộ (request đi); `-->>` trả về (response/entity).
-- `--x` trả về lỗi (sentinel error / 4xx / 5xx). Dùng cho nhánh `else` failure.
-- `activate` / `deactivate` tùy chọn để vẽ call stack — nên dùng khi flow sâu 3 tầng trở lên, bỏ khi
-  gọn.
+- `->>` synchronous call (request going out); `-->>` return (response/entity).
+- `--x` error return (sentinel error / 4xx / 5xx). Use it for the `else` failure branch.
+- `activate` / `deactivate` are optional for drawing the call stack — use them when the flow is 3
+  or more layers deep, skip them when it is compact.
 
 ### Transaction boundary
 
-Bọc các message nằm trong **cùng một transaction** bằng `rect` + `Note over`:
+Wrap the messages that run in **the same transaction** in `rect` + `Note over`:
 
 ```mermaid
 rect rgb(235, 240, 255)
-    Note over R,DB: MỘT transaction
+    Note over R,DB: ONE transaction
     R->>DB: SELECT 1 FROM users WHERE email = $1
     R->>DB: INSERT INTO users (...) RETURNING id
     R->>DB: DELETE FROM pending_registration WHERE id = $1
@@ -78,78 +79,85 @@ rect rgb(235, 240, 255)
 end
 ```
 
-Nếu nhánh lỗi rollback, đặt `else` bên trong `rect` với mũi tên `--x` và ghi chú `rollback`.
+If the failure branch rolls back, put the `else` inside the `rect`, with a `--x` arrow and a
+`rollback` note.
 
-### Nhánh điều kiện
+### Conditional branches
 
-- `alt` / `else` / `end` — nhánh success vs failure (đây là chỗ thể hiện Failure-case của Step).
-- `opt` / `end` — bước chỉ chạy khi có điều kiện (ví dụ "nếu SĐT đang trong cycle gửi").
-- `loop` / `end` — vòng lặp / retry.
+- `alt` / `else` / `end` — success vs failure branch (this is where a Step's Failure case shows).
+- `opt` / `end` — a step that runs only under a condition (e.g. "if the phone number is inside a
+  send cycle").
+- `loop` / `end` — loop / retry.
 
-Mỗi `alt`/`else`/`opt` phải trace về đúng nhánh Success/Failure trong Step tương ứng của
-`design.md` — không bịa nhánh mà `design.md` không nêu.
+Every `alt`/`else`/`opt` must trace back to exactly the Success/Failure branch of the matching Step
+in `design.md` — do not invent a branch that `design.md` does not state.
 
-### Bước thuộc module khác
+### Steps owned by another module
 
-Bước gọi sang external service (SMS, mailer, GCS) hoặc module khác phải ghi rõ bằng `Note`:
+A step that calls an external service (SMS, mailer, GCS) or another module must be called out with a
+`Note`:
 
 ```mermaid
-Note over U,S: thuộc pkg/sms, ngoài scope feature này
+Note over U,S: owned by pkg/sms, outside this feature's scope
 U->>S: SendOTP(phoneNumber, otpCode, purpose)
 ```
 
 ### `⚠️ Not confirmed`
 
-Một bước mà `design.md` đang để marker `⚠️ Not confirmed` phải xuất hiện ở đây dưới dạng `Note` trên
-đúng message — **không** vẽ như thể đã chốt:
+A step that carries a `⚠️ Not confirmed` marker in `design.md` must appear here as a `Note` on the
+exact message — **never** drawn as if it were settled:
 
 ```mermaid
-Note over R,DB: ⚠️ Not confirmed: nếu UPDATE fail sau khi file đã upload GCS, có xóa file không?
+Note over R,DB: ⚠️ Not confirmed: if the UPDATE fails after the file was uploaded to GCS, is the file deleted?
 ```
 
-Khi người dùng trả lời, cập nhật cả `design.md` lẫn `flow.md` trong cùng một version bump.
+When the user answers, update both `design.md` and `flow.md` in the same version bump.
 
-## Khi nào dùng flowchart thay vì sequence
+## When to use a flowchart instead of a sequence diagram
 
-Sequence diagram mạnh với "ai gọi ai, theo thứ tự nào, qua layer nào". Với **nhánh rẽ logic thuần**
-— state machine (send-limit, khoá-nhập-sai), vòng lặp retry, bảng quyết định — flowchart dễ đọc
-hơn. Trong trường hợp đó thêm một section `### Flowchart — ...` bằng `flowchart TB` (hoặc `LR`), và
-ghi rõ nó vẽ bảng quyết định/block nào của `design.md`.
+A sequence diagram is strong at "who calls whom, in what order, through which layer". For **pure
+branching logic** — a state machine (send limit, wrong-entry lock), a retry loop, a decision table —
+a flowchart reads better. In that case add a `### Flowchart — ...` section using `flowchart TB` (or
+`LR`), and state which decision table/block of `design.md` it draws.
 
-Quy tắc nút flowchart (giữ ngắn, tiếng Việt):
+Flowchart node rules (keep them short, in English):
 
 ```mermaid
 flowchart TB
-    A[Nhận request] --> B{Đang trong cycle?}
-    B -- Không / hết 30p --> C[send_count = 0, cho gửi]
-    B -- Có --> D{locked_until > now?}
-    D -- Có --> E[429 OTP_SEND_LIMITED]
-    D -- Không --> F{cooldown?}
-    F -- Có --> G[429 OTP_RESEND_TOO_SOON]
-    F -- Không --> H{số lượt >= trần?}
-    H -- Có --> E
-    H -- Không --> I[send_count++, cho gửi]
+    A[Receive request] --> B{Inside a send cycle?}
+    B -- No / 30 min elapsed --> C[send_count = 0, allow send]
+    B -- Yes --> D{locked_until > now?}
+    D -- Yes --> E[429 OTP_SEND_LIMITED]
+    D -- No --> F{cooldown?}
+    F -- Yes --> G[429 OTP_RESEND_TOO_SOON]
+    F -- No --> H{sends >= cap?}
+    H -- Yes --> E
+    H -- No --> I[send_count++, allow send]
 ```
 
-Không vẽ flowchart **thay** cho sequence khi flow là chuỗi lời gọi qua các layer — hai thứ bổ trợ
-nhau, không thay thế nhau.
+Do not draw a flowchart **instead of** a sequence diagram when the flow is a chain of calls across
+layers — the two complement each other, they do not replace each other.
 
-## Ngôn ngữ nhãn
+## Label language
 
-Keyword Mermaid (`participant`, `sequenceDiagram`, `alt`, `loop`, `rect`, `flowchart`, `-->`) giữ
-tiếng Anh. **Nhãn** participant/message/note viết **tiếng Việt ngắn gọn**, khớp prose tiếng Việt
-của spec và comment `%%` trong `docs/specs/db/erd.mmd`. Ví dụ message `U->>R: FindConflicts(phone,
-email)` — tên method giữ nguyên (vốn là tên Go), phần mô tả đi kèm dùng tiếng Việt.
+Mermaid keywords (`participant`, `sequenceDiagram`, `alt`, `loop`, `rect`, `flowchart`, `-->`) are
+English, and so are the participant/message/note **labels**: short English text, matching the
+English prose of the spec (per the Language policy in `CLAUDE.md`). For example, in the message
+`U->>R: FindConflicts(phone, email)` the method name stays as is (it is a Go name) and any
+accompanying description is English. Older `flow.md` files and the `%%` comments in
+`docs/specs/db/erd.mmd` may still have Vietnamese labels; editing such a diagram rewrites its labels
+in English. User-facing copy quoted in a label (an error message shown to the user) keeps its own
+language.
 
-## Tham gia version + changelog
+## Version + changelog participation
 
-`flow.md` mang header `Version`/`Last updated` giống bốn file kia, và **bump cùng version chung**
-khi thay đổi. Mỗi version bump ghi một dòng `- flow.md: <thay đổi gì>` trong `changelog.md` (xem
-`versioning_and_changelog.md`). Vì `flow.md` là gương của `design.md`, một version mà chỉ sửa
-`design.md` §Step-by-step Flow **bắt buộc** cũng sửa `flow.md` cho khớp trong cùng một bump — không
-có chuyện "chỉ sửa design, để flow drift".
+`flow.md` carries the same `Version`/`Last updated` header as the other four files, and **bumps with
+the shared version** when it changes. Every version bump records a `- flow.md: <what changed>` line
+in `changelog.md` (see `versioning_and_changelog.md`). Because `flow.md` mirrors `design.md`, a
+version that edits only `design.md` §Step-by-step Flow **must** also update `flow.md` to match in the
+same bump — there is no "edit design, let flow drift".
 
-## Ví dụ mẫu (flow verify-otp của onboarding)
+## Worked example (onboarding's verify-otp flow)
 
 ```mermaid
 sequenceDiagram
@@ -165,28 +173,28 @@ sequenceDiagram
     H->>U: VerifyOTP(ctx, input)
 
     U->>R: FindPendingRegistration(phone)
-    alt còn hạn
+    alt not expired
         R-->>U: pending
-    else không có / hết hạn
+    else missing / expired
         R--xU: ErrPendingRegistrationNotFound / ErrPendingRegistrationExpired
         U--xH: 400 OTP_INVALID / PENDING_REGISTRATION_EXPIRED
         H--xC: 400 {...}
     end
 
     U->>R: FindActiveOTP(phone, 'register')
-    alt hàng OTP hiệu lực, chưa khoá
+    alt active OTP row, not locked
         R-->>U: otp
-    else khoá-nhập-sai
+    else wrong-entry lock
         R--xU: ErrOTPLocked
         U--xH: 429 OTP_LOCKED + locked_until
         H--xC: 429 {...}
     end
 
     U->>U: bcrypt.CompareHashAndPassword(otp_hash, otp_code)
-    alt khớp
+    alt match
         U->>R: CreateUserAndSession(ctx, pending, issuer)
         rect rgb(235, 240, 255)
-            Note over R,DB: MỘT transaction
+            Note over R,DB: ONE transaction
             R->>DB: SELECT 1 FROM users WHERE email = $1
             R->>DB: INSERT INTO users (...) RETURNING id
             R->>DB: DELETE FROM pending_registration WHERE id = $1
@@ -196,14 +204,14 @@ sequenceDiagram
         R-->>U: RegisterResult{access_token, refresh_token, user}
         U-->>H: RegisterResult
         H-->>C: 201 {...}
-    else sai mã
-        U->>R: IncrementOTPAttempts / LockOTP (nếu >= 3)
-        R-->>DB: attempts+1, hoặc locked_until = now()+30m
-        U--xH: ErrOTPInvalid (không trả số lần còn lại)
+    else wrong code
+        U->>R: IncrementOTPAttempts / LockOTP (if >= 3)
+        R-->>DB: attempts+1, or locked_until = now()+30m
+        U--xH: ErrOTPInvalid (remaining attempts not returned)
         H--xC: 400 OTP_INVALID
     end
 ```
 
-Chú ý cách ví dụ trên **không** giấu bước nào: re-check email trong transaction, cập nhật
-`used_at`, mint JWT trong tx — mỗi thứ đều là một dòng riêng, đúng như `design.md` Step 5/6 đã
-liệt kê. Đó chính là điểm của file này.
+Notice how the example above hides **no** step: the email re-check inside the transaction, the
+`used_at` update, minting the JWT inside the tx — each is its own line, exactly as `design.md` Steps
+5/6 list them. That is the whole point of this file.

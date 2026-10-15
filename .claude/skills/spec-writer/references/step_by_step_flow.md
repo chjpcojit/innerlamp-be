@@ -1,114 +1,116 @@
-# Step-by-step Flow trong design.md
+# Step-by-step Flow in design.md
 
-> Mỗi section "Step-by-step Flow" trong `design.md` có một **bản vẽ Mermaid tương ứng trong
-> `flow.md`** (sequence diagram là chính, flowchart cho nhánh rẽ logic). Đọc
-> `flow_diagram.md` để biết quy ước vẽ và quy tắc "mirror 1:1, không thêm/bớt bước". File này chỉ
-> quy định phần text trong `design.md`.
+> Every "Step-by-step Flow" section in `design.md` has a **matching Mermaid drawing in `flow.md`**
+> (sequence diagram first, flowchart for branching logic). Read `flow_diagram.md` for the drawing
+> conventions and the "mirror 1:1, add/drop no step" rule. This file only governs the text in
+> `design.md`.
 
-## Vì sao section này tồn tại
+## Why this section exists
 
-Một user story một câu ("người dùng đăng ký bằng email + mật khẩu") không thể mô tả chính xác
-một flow backend nhiều bước — nó âm thầm che mất các bước như "kiểm tra email chưa tồn tại trước
-khi hash mật khẩu", "mở transaction trước khi ghi 2 bảng", hay "gửi email sau khi commit, không
-phải trước". Đây chính là loại chi tiết khiến một AI (hoặc một dev) implement thiếu bước hoặc sai
-thứ tự, vì không có gì trong spec gọi tên chúng ra.
+A one-sentence user story ("the user registers with email + password") cannot accurately describe a
+multi-step backend flow — it silently hides steps like "check the email does not already exist
+before hashing the password", "open a transaction before writing 2 tables", or "send the email after
+commit, not before". This is exactly the kind of detail that makes an AI (or a developer) implement a
+step too few or in the wrong order, because nothing in the spec names them.
 
-Step-by-step Flow sửa việc đó bằng cách bắt buộc mọi lời gọi ra ngoài (DB, external API, storage,
-mailer, cache) trong flow phải được viết riêng từng bước, kèm trigger, pre-condition, và cả nhánh
-thành công lẫn thất bại — để không có gì bị giả định hay tự bịa ra sau này.
+Step-by-step Flow fixes that by requiring every external call (DB, external API, storage, mailer,
+cache) in the flow to be written as its own step, with its trigger, pre-condition, and both the
+success and failure branches — so nothing is assumed or made up later.
 
-## Khi nào bắt buộc
+## When it is mandatory
 
-Theo rule 5 của `SKILL.md`: **bất cứ khi nào flow chính của feature có 2 lời gọi tuần tự trở lên
-ra hệ thống ngoài** — DB query/transaction, external HTTP API, object storage, mailer/SMS, cache,
-message queue — kể cả khi một phần thuộc service/module khác (ví dụ feature này chỉ gọi một usecase
-của module khác không đi qua HTTP).
+Per rule 5 of `SKILL.md`: **whenever the feature's main flow makes 2 or more sequential calls to
+external systems** — DB query/transaction, external HTTP API, object storage, mailer/SMS, cache,
+message queue — even when part of it belongs to another service/module (e.g. this feature only calls
+another module's usecase, not over HTTP).
 
-Nếu flow chỉ có đúng một bước side-effect (một DB query, không transaction, không gọi ngoài), có
-thể thay bằng một đoạn "Data flow" ngắn gọn.
+If the flow has exactly one side-effect step (one DB query, no transaction, no external call), it may
+be replaced by a short "Data flow" paragraph.
 
-Tiêu chí nhận biết nhanh: nếu bạn phải viết chữ "rồi" (then) trong mô tả flow, hoặc có transaction
-bao nhiều bảng, hoặc có side effect xảy ra sau khi ghi DB — bạn cần section này.
+Quick test: if you have to write the word "then" when describing the flow, or a transaction spans
+several tables, or a side effect happens after the DB write — you need this section.
 
-## Hình dạng bắt buộc mỗi bước
-
-```
-Step N — <tên ngắn>
-- Trigger: <request/handler nào, hoặc state nào khiến bước này chạy>
-- Pre-condition: <điều gì phải đúng trước — ví dụ validate đã qua, token còn hợp lệ, transaction
-  đã mở>
-- Call: <loại> <chi tiết> (<field chính>)
-  <ràng buộc đã biết, hoặc chi tiết confirmed/chưa confirmed của chính bước này>
-    - Success → <chuyện gì xảy ra, bước nào tiếp theo>
-    - Failure (<case cụ thể>) → <HTTP status / error code / domain error nào, có rollback không>
-    - Failure (<case khác, nếu có>) → <...>
-```
-
-Với bước thuộc module/service khác, phải nói rõ (ví dụ "Step 3 — Gửi email xác thực (thuộc
-`pkg/mailer`, ngoài scope feature này)") và trỏ sang spec của phần đó thay vì lặp lại chi tiết.
-
-## Ví dụ mẫu (dựng theo format US-001 Register)
+## Required shape of each step
 
 ```
-Step 1 — Validate request (feature này)
-- Trigger: handler nhận POST /v1/auth/register
-- Pre-condition: body parse được, JSON hợp lệ
-- Call: go-playground/validator trên RegisterRequest (email, password >= 8, phone_number E.164,
+Step N — <short name>
+- Trigger: <which request/handler, or which state, makes this step run>
+- Pre-condition: <what must be true beforehand — e.g. validation passed, token still valid,
+  transaction already open>
+- Call: <kind> <details> (<main fields>)
+  <known constraints, or the confirmed/unconfirmed details of this step itself>
+    - Success → <what happens, which step comes next>
+    - Failure (<specific case>) → <which HTTP status / error code / domain error, is there a rollback>
+    - Failure (<other case, if any>) → <...>
+```
+
+For a step owned by another module/service, say so explicitly (e.g. "Step 3 — Send verification
+email (owned by `pkg/mailer`, outside this feature's scope)") and point to that part's spec instead
+of repeating its details.
+
+## Worked example (built in the US-001 Register format)
+
+```
+Step 1 — Validate request (this feature)
+- Trigger: handler receives POST /v1/auth/register
+- Pre-condition: body parses, JSON is valid
+- Call: go-playground/validator on RegisterRequest (email, password >= 8, phone_number E.164,
   dharma_name optional, ordination_place optional)
     - Success → Step 2
-    - Failure (validation) → 400 kèm field errors, dừng; không chạm DB
+    - Failure (validation) → 400 with field errors, stop; the DB is not touched
 
-Step 2 — Kiểm tra email/phone đã tồn tại (feature này)
-- Trigger: Step 1 pass
-- Pre-condition: input đã validate
-- Call: repository.FindByEmail + repository.FindByPhone (2 query, có thể gộp 1 query OR)
-  Confirmed: dedupe dựa vào UNIQUE constraint ở DB, không chỉ dựa vào check trước đó — check này
-  chỉ để trả lỗi thân thiện; race condition vẫn bắt bằng unique violation khi INSERT.
-    - Success (chưa tồn tại) → Step 3
-    - Failure (email đã dùng) → domain.ErrEmailTaken → 409, dừng
-    - Failure (phone đã dùng) → domain.ErrPhoneTaken → 409, dừng
+Step 2 — Check whether email/phone already exist (this feature)
+- Trigger: Step 1 passed
+- Pre-condition: input validated
+- Call: repository.FindByEmail + repository.FindByPhone (2 queries, may be merged into 1 OR query)
+  Confirmed: dedupe relies on the DB UNIQUE constraint, not only on this earlier check — this check
+  only exists to return a friendly error; a race is still caught by the unique violation on INSERT.
+    - Success (does not exist) → Step 3
+    - Failure (email taken) → domain.ErrEmailTaken → 409, stop
+    - Failure (phone taken) → domain.ErrPhoneTaken → 409, stop
 
-Step 3 — Hash password (feature này)
-- Trigger: Step 2 pass
-- Pre-condition: password plaintext đã qua validate độ dài
-- Call: bcrypt.GenerateFromPassword (cost theo config)
+Step 3 — Hash password (this feature)
+- Trigger: Step 2 passed
+- Pre-condition: plaintext password passed the length validation
+- Call: bcrypt.GenerateFromPassword (cost from config)
     - Success → Step 4
-    - Failure (lỗi hash) → 500, log; không ghi gì xuống DB
+    - Failure (hash error) → 500, log; nothing written to the DB
 
-Step 4 — Tạo user (feature này)
-- Trigger: Step 3 pass
-- Pre-condition: password_hash đã có
+Step 4 — Create user (this feature)
+- Trigger: Step 3 passed
+- Pre-condition: password_hash available
 - Call: INSERT INTO users (...) RETURNING id
     - Success → Step 5
-    - Failure (unique violation từ race) → map thành 409 như Step 2, dừng
-    - Failure (DB error khác) → 500, log; không có gì bị ghi một phần (single INSERT, không cần
-      transaction)
+    - Failure (unique violation from a race) → map to 409 as in Step 2, stop
+    - Failure (other DB error) → 500, log; nothing is partially written (single INSERT, no
+      transaction needed)
 
-Step 5 — Sinh token (feature này)
-- Trigger: Step 4 pass
-- Pre-condition: user.id và role đã có
-- Call: pkg/jwt generate access token (15m) + refresh token (30 ngày), lưu refresh vào bảng
-  refresh_tokens (hoặc devices)
+Step 5 — Issue tokens (this feature)
+- Trigger: Step 4 passed
+- Pre-condition: user.id and role available
+- Call: pkg/jwt generate access token (15m) + refresh token (30 days), store the refresh token in
+  the refresh_tokens table (or devices)
     - Success → response 201 {access_token, refresh_token, user}
-    - Failure (lỗi sinh/ghi token) → 500. Lưu ý: user ĐÃ tạo ở Step 4 và không rollback — chấp nhận
-      được vì user có thể login lại; ghi rõ quyết định này, đừng để ngầm hiểu.
+    - Failure (token generation/write error) → 500. Note: the user WAS created in Step 4 and is not
+      rolled back — acceptable because the user can log in again; state this decision explicitly,
+      do not leave it implied.
 ```
 
-Ví dụ trên cho thấy điều quan trọng nhất của section: **nó buộc phải nói ra những chỗ không rõ
-ràng** — Step 5 thất bại thì user đã tạo có bị rollback không? Nếu spec không trả lời, người
-implement sẽ tự chọn, và hai người sẽ chọn khác nhau.
+The example shows the most important property of the section: **it forces the unclear spots to be
+said out loud** — if Step 5 fails, is the created user rolled back? If the spec does not answer, the
+implementer picks, and two implementers will pick differently.
 
-## Chi tiết chưa chốt hiển thị thế nào
+## How an unsettled detail is shown
 
-Nếu hợp đồng/behavior của bước chưa được xác nhận, đánh dấu ngay tại bước đó (không chỉ ở
-`requirements.md`), vì đây là nơi cụ thể nhất cho chi tiết kỹ thuật:
+If a step's contract/behavior is not confirmed yet, mark it right at that step (not only in
+`requirements.md`), because this is the most specific place for a technical detail:
 
 ```
-- Call: UPDATE users SET avatar_url = ... sau khi upload GCS xong
-  ⚠️ Not confirmed: nếu UPDATE DB thất bại sau khi file đã upload lên GCS, có xóa file GCS
-  (compensating action) hay để orphan object? — chặn tasks.md Phase 3 hoàn thành.
+- Call: UPDATE users SET avatar_url = ... after the GCS upload completes
+  ⚠️ Not confirmed: if the DB UPDATE fails after the file was uploaded to GCS, is the GCS file
+  deleted (compensating action) or left as an orphan object? — blocks tasks.md Phase 3 completion.
 ```
 
-Khi người dùng trả lời, sửa bước đó thành khẳng định đã xác nhận, và ghi lại vào `changelog.md` —
-kèm rõ câu trả lời có làm đổi số bước/cấu trúc flow không, hay chỉ gỡ một điểm chưa chắc chắn (cả
-hai đều hợp lệ; phải nói rõ là loại nào).
+When the user answers, rewrite that step as a confirmed statement and record it in `changelog.md` —
+stating clearly whether the answer changed the number of steps/the flow structure, or only removed
+one uncertain point (both are valid; say which one it was).
