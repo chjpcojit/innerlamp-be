@@ -1,0 +1,657 @@
+[
+  {
+    "id": "buddha_shakyamuni",
+    "type": "BUDDHA",
+    "name_vi": "Thích Ca Mâu Ni Phật",
+    "name_sanskrit": "Śākyamuni Buddha",
+    "name_chinese": "釋迦牟尼佛",
+    "title_honorific": "Bổn Sư Thích Ca Mâu Ni Phật",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/buddha_shakyamuni.webp",
+    "image_url": "/static/images/buddhas/full/buddha_shakyamuni.webp",
+    "canonical_source": "Trường Bộ Kinh (Dīgha Nikāya), Kinh Phổ Diệu (Lalitavistara Sūtra)",
+    "core_virtue": "Toàn Giác (Bậc Thầy giác ngộ chỉ đường giải thoát khỏi luân hồi cõi Ta Bà)",
+    "pure_land": "Cõi Ta Bà (Saha World)",
+    "lunar_memorial_days": [
+      {"lunar_day": 8, "lunar_month": 2, "event_name": "Ngày Xuất gia"},
+      {"lunar_day": 15, "lunar_month": 2, "event_name": "Ngày Nhập Niết-bàn"},
+      {"lunar_day": 15, "lunar_month": 4, "event_name": "Ngày Đại lễ Phật Đản (Tam Hợp)"},
+      {"lunar_day": 8, "lunar_month": 12, "event_name": "Ngày Thành đạo"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già trên tòa sen, nhục kế nổi cao, ngực có thể có tướng chữ Vạn",
+      "mount_or_throne": "Tòa Kim Cương ngự hoa sen",
+      "sacred_artifacts": ["Bát khất thực", "Tay phải thủ ấn Xúc Địa (Bhūmisparśa Mudrā) hoặc Chuyển Pháp Luân"],
+      "symbolic_meaning": "Ấn Xúc Địa biểu trưng cho việc lấy đại địa làm chứng cho sự giác ngộ tối thượng không lay chuyển."
+    },
+    "biography_summary": "Thái tử Tất Đạt Đa (Siddhārtha Gautama) sinh ra tại vương quốc Thích Ca (Ấn Độ cổ đại). Chứng kiến sinh lão bệnh tử, Ngài từ bỏ hoàng cung xuất gia tầm đạo, chứng ngộ Vô Thượng Chánh Đẳng Chánh Giác dưới cội Bồ Đề và dành 45 năm thuyết pháp độ sinh.",
+    "great_vows": [
+      "Thị hiện vào đời ác năm trược (Ngũ trược ác thế) để cứu độ chúng sinh đau khổ.",
+      "Khai thị chúng sinh ngộ nhập Phật tri kiến, dứt sạch luân hồi."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Muni Muni Mahāmuni Śākyamuni Svāhā",
+      "short_mantra_sino_vietnamese": "Án Mâu Ni Mâu Ni Ma Ha Mâu Ni Thích Ca Mâu Ni Thoa Ha",
+      "long_dharani_name": "Thích Ca Mâu Ni Phật Căn Bản Chân Ngôn",
+      "dharani_phonetic_snippet": "Nam mô tát bà đà tha, a nga đà gia, đát điệt tha: Án mâu ni mâu ni ma ha mâu ni thích ca mâu ni dạ ta bà ha."
+    }
+  },
+  {
+    "id": "buddha_amitabha",
+    "type": "BUDDHA",
+    "name_vi": "A Di Đà Phật",
+    "name_sanskrit": "Amitābha Buddha / Amitāyus",
+    "name_chinese": "阿彌陀佛",
+    "title_honorific": "Nam Mô Tiếp Dẫn Đạo Sư A Di Đà Phật",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/buddha_amitabha.webp",
+    "image_url": "/static/images/buddhas/full/buddha_amitabha.webp",
+    "canonical_source": "Kinh Vô Lượng Thọ, Kinh A Di Đà, Kinh Quán Vô Lượng Thọ",
+    "core_virtue": "Từ Bi Tiếp Dẫn (Ánh sáng vô lượng, Thọ mạng vô lượng)",
+    "pure_land": "Tây Phương Cực Lạc (Sukhāvatī)",
+    "lunar_memorial_days": [
+      {"lunar_day": 17, "lunar_month": 11, "event_name": "Ngày Vía Đức Phật A Di Đà"}
+    ],
+    "iconography": {
+      "posture": "Đứng tiếp dẫn hoặc ngồi kiết già, mắt nhìn xuống cõi thế gian",
+      "mount_or_throne": "Đài sen báu nâng đỡ",
+      "sacred_artifacts": ["Đài sen báu trên tay trái", "Tay phải duỗi xuống kết ấn Tiếp Dẫn"],
+      "symbolic_meaning": "Tượng trưng cho sự đón rước chúng sinh vãng sanh về cõi Cực Lạc giải thoát."
+    },
+    "biography_summary": "Tiền thân là Tỳ-kheo Pháp Tạng (Dharmākara), đối trước Đức Thế Tự Tại Vương Như Lai phát khởi 48 lời đại nguyện kiến tạo quốc độ Tây Phương Cực Lạc thanh tịnh trang nghiêm để cứu vớt muôn loài.",
+    "great_vows": [
+      "Bốn mươi tám đại nguyện cứu độ mười phương chúng sinh niệm danh hiệu mười niệm liền được vãng sanh.",
+      "Tiếp dẫn hương linh người tu Tịnh nghiệp khi lâm chung về cõi thanh tịnh không còn thối chuyển."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Amṛta Teje Hara Hūṃ",
+      "short_mantra_sino_vietnamese": "Án A Mật Rị Đa Tế Già Đê Hạ Lăng Hồng",
+      "long_dharani_name": "Bạt Nhất Thiết Nghiệp Chướng Căn Bản Đắc Sinh Tịnh Độ Đà La Ni (Chú Vãng Sanh)",
+      "dharani_phonetic_snippet": "Nam mô a di đa bà dạ, đa tha già đa dạ, đa địa dạ tha: A di rị đô bà tỳ, a di rị đa tất đam bà tỳ..."
+    }
+  },
+  {
+    "id": "buddha_bhaisajyaguru",
+    "type": "BUDDHA",
+    "name_vi": "Dược Sư Lưu Ly Quang Vương Phật",
+    "name_sanskrit": "Bhaiṣajyaguru Buddha",
+    "name_chinese": "藥師琉璃光王佛",
+    "title_honorific": "Nam Mô Dược Sư Lưu Ly Quang Vương Phật",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/buddha_bhaisajyaguru.webp",
+    "image_url": "/static/images/buddhas/full/buddha_bhaisajyaguru.webp",
+    "canonical_source": "Kinh Dược Sư Bổn Nguyện Công Đức",
+    "core_virtue": "Trị Liệu & Tiêu Trừ Tai Họa (Chữa lành thân tâm bệnh và diệt trừ đói khổ)",
+    "pure_land": "Đông Phương Tịnh Lưu Ly",
+    "lunar_memorial_days": [
+      {"lunar_day": 30, "lunar_month": 9, "event_name": "Ngày Vía Đức Phật Dược Sư (Tháng thiếu tính ngày 29)"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già trên đài sen, toàn thân tỏa ánh sắc xanh lưu ly trong suốt",
+      "mount_or_throne": "Tòa sen lưu ly",
+      "sacred_artifacts": ["Hũ thuốc cam lồ (hoặc bình bát ngọc)", "Cành thuốc Myrobalan (Kha tử) trên tay"],
+      "symbolic_meaning": "Xua tan bóng tối vô minh và tẩy trừ tất cả độc tố thân bệnh, tâm bệnh của chúng sinh."
+    },
+    "biography_summary": "Khi còn tu Bồ Tát đạo, Ngài phát 12 đại nguyện cứu giúp chúng sinh cõi thế tục thoát khỏi các bệnh tật nan y, thân thể tật nguyền, nghèo hèn đói rách, hướng tâm về con đường chánh pháp an vui.",
+    "great_vows": [
+      "Nguyện thân sáng như ngọc lưu ly, chiếu rọi muôn cõi phá tan tăm tối mê lầm.",
+      "Nguyện cho mọi chúng sinh bị bệnh khổ, không thầy không thuốc, khi nghe danh hiệu Ngài đều tiêu trừ bệnh tật, thân tâm an lạc."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Bhaiṣajye Bhaiṣajye Bhaiṣajya Samudgate Svāhā",
+      "short_mantra_sino_vietnamese": "Án Bệ Sát Thệ Bệ Sát Thệ Bệ Sát Xã Tam Một Yết Đế Thoa Ha",
+      "long_dharani_name": "Dược Sư Quán Đảnh Chân Ngôn",
+      "dharani_phonetic_snippet": "Nam mô Bạc già phạt đế, Bệ sát xã lũ lô thích lưu ly, Bát lạt bà hắc ra xà dã..."
+    }
+  },
+  {
+    "id": "buddha_maitreya",
+    "type": "BUDDHA",
+    "name_vi": "Di Lặc Tôn Phật",
+    "name_sanskrit": "Maitreya Buddha",
+    "name_chinese": "彌勒佛",
+    "title_honorific": "Đương Lai Hạ Sanh Di Lặc Tôn Phật",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/buddha_maitreya.webp",
+    "image_url": "/static/images/buddhas/full/buddha_maitreya.webp",
+    "canonical_source": "Kinh Di Lặc Hạ Sanh, Kinh Di Lặc Thượng Sanh",
+    "core_virtue": "Hỷ Xả & Vui Tươi (Tâm từ vô lượng, mang lại hỷ lạc)",
+    "pure_land": "Cung Trời Đâu Suất (Tuṣita Heaven) / Tương lai hạ sanh cõi Ta Bà",
+    "lunar_memorial_days": [
+      {"lunar_day": 1, "lunar_month": 1, "event_name": "Ngày Vía Đức Phật Di Lặc (Mùng 1 Tết Nguyên Đán)"}
+    ],
+    "iconography": {
+      "posture": "Hình tướng hóa thân Bố Đại Hòa Thượng mập mạp, bụng to, nụ cười hoan hỷ rạng rỡ",
+      "mount_or_throne": "Ngồi thoải mái tự tại trên túi vải hoặc tựa gốc cây",
+      "sacred_artifacts": ["Túi vải càn khôn gom phiền não", "Xâu chuỗi hạt hoặc thỏi vàng biểu trưng phúc lộc"],
+      "symbolic_meaning": "Bụng to dung chứa chuyện khó dung của nhân gian, miệng cười mở rộng niềm vui hỷ xả."
+    },
+    "biography_summary": "Hiện là một vị Nhất Sinh Bổ Xứ Bồ Tát đang thuyết pháp tại nội viện cung trời Đâu Suất. Trong tương lai khi giáo pháp Thích Ca suy tàn, Ngài sẽ hạ sanh nhân gian, thành đạo dưới cội cây Long Hoa độ thoát vô lượng chúng sinh.",
+    "great_vows": [
+      "Tu hạnh Từ tâm tam muội, không ăn thịt chúng sinh, đem lại an lạc tuyệt đối.",
+      "Mở Hội Long Hoa tiếp nhận và hóa độ toàn bộ người đã kết duyên với Phật pháp."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Maitreya Maitreya Mahāmaitreya Svāhā",
+      "short_mantra_sino_vietnamese": "Án Mai Trê Da Mai Trê Da Ma Ha Mai Trê Da Thoa Ha",
+      "long_dharani_name": "Di Lặc Bồ Tát Căn Bản Chân Ngôn",
+      "dharani_phonetic_snippet": "Nam mô tam mãn đa một đà nẫm, mai đát lệ dã tát bà ha."
+    }
+  },
+  {
+    "id": "buddha_vairocana",
+    "type": "BUDDHA",
+    "name_vi": "Tỳ Lô Giá Na Phật",
+    "name_sanskrit": "Vairocana Buddha",
+    "name_chinese": "毗盧遮那佛 / 大日如來",
+    "title_honorific": "Đại Nhật Như Lai (Pháp Thân Phật)",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/buddha_vairocana.webp",
+    "image_url": "/static/images/buddhas/full/buddha_vairocana.webp",
+    "canonical_source": "Kinh Hoa Nghiêm (Avataṃsaka Sūtra), Kinh Đại Nhật (Mahāvairocana Tantra)",
+    "core_virtue": "Pháp Thân Biến Chiếu (Ánh sáng trí tuệ chiếu soi khắp pháp giới bình đẳng)",
+    "pure_land": "Liên Hoa Tạng Thế Giới (Padmagarbha)",
+    "lunar_memorial_days": [
+      {"lunar_day": 15, "lunar_month": 4, "event_name": "Tôn vinh cùng mùa Phật Đản"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già, hai tay kết ấn Trí Quyền (Bodhiraṅgī Mudrā) hoặc ấn Thiền Định",
+      "mount_or_throne": "Tòa ngàn cánh sen báu",
+      "sacred_artifacts": ["Bánh xe Pháp Luân tám nan hoa", "Vương miện Ngũ Phật"],
+      "symbolic_meaning": "Thể hiện chân lý vũ trụ tuyệt đối, thực tại tối hậu của vạn pháp không sinh không diệt."
+    },
+    "biography_summary": "Là biểu hiện tối cao của Pháp Thân (Dharmakāya) trong Tam Thân Phật. Toàn bộ vũ trụ và cõi tịnh độ đều hiển lộ từ tự tính thanh tịnh của Ngài.",
+    "great_vows": [
+      "Chiếu soi ánh sáng đại trí tuệ phá tan bóng tối si ám căn bản của vô minh.",
+      "Duy trì trật tự chân lý của muôn cõi pháp giới bình đẳng."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Vairocana Hūṃ",
+      "short_mantra_sino_vietnamese": "Án Tỳ Lô Giá Na Hồng",
+      "long_dharani_name": "Quang Minh Chân Ngôn",
+      "dharani_phonetic_snippet": "Án a mô già vĩ lô giá nẵng ma cáp mẫu đức lạt ma nỉ bát đức mạ cập phạp lạt bát lạt phạp nhĩ đả dã hồng."
+    }
+  },
+  {
+    "id": "buddha_dipankara",
+    "type": "BUDDHA",
+    "name_vi": "Nhiên Đăng Cổ Phật",
+    "name_sanskrit": "Dīpaṅkara Buddha",
+    "name_chinese": "燃燈古佛",
+    "title_honorific": "Định Quang Như Lai",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/buddha_dipankara.webp",
+    "image_url": "/static/images/buddhas/full/buddha_dipankara.webp",
+    "canonical_source": "Kinh Kim Cương Bát Nhã, Đại Trí Độ Lược Luận",
+    "core_virtue": "Truyền Đăng & Thụ Ký (Ngọn đèn trí tuệ thắp sáng tương lai)",
+    "pure_land": "Cõi Quá Khứ trang nghiêm",
+    "lunar_memorial_days": [
+      {"lunar_day": 22, "lunar_month": 8, "event_name": "Ngày Vía Đức Phật Nhiên Đăng"}
+    ],
+    "iconography": {
+      "posture": "Đứng hoặc ngồi trang nghiêm cổ kính, tỏa ánh lửa sáng ngời",
+      "mount_or_throne": "Tòa sen cổ",
+      "sacred_artifacts": ["Ngọn đèn trí tuệ", "Ấn Vô Úy"],
+      "symbolic_meaning": "Biểu thị sự kế thừa ánh sáng trí tuệ từ vô lượng kiếp trước cho đến đời nay."
+    },
+    "biography_summary": "Là vị Cổ Phật xuất hiện trong thời quá khứ xa xưa. Trong một tiền kiếp, khi Bồ Tát Thích Ca còn là thiện nam tử Nho Đồng (Māṇava), chàng đã trải tóc trên vũng bùn ướt để Phật Nhiên Đăng bước qua và được Ngài thụ ký sau này sẽ thành Phật.",
+    "great_vows": [
+      "Thắp sáng ngọn đèn chánh pháp truyền thừa tiếp nối qua các thời kỳ kiếp nạn.",
+      "Thụ ký cho các hành giả Bồ Tát đạo kiên định tiến bước thành tựu Phật quả."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Dīpaṅkara Mahādīpa Svāhā",
+      "short_mantra_sino_vietnamese": "Án Định Quang Ma Ha Định Quang Thoa Ha",
+      "long_dharani_name": "Định Quang Phật Chân Ngôn",
+      "dharani_phonetic_snippet": "Nam mô định quang như lai gia, đát điệt tha: Án đê bà đê bà ma ha đê bà thích phạp la hồng."
+    }
+  },
+  {
+    "id": "bodhisattva_avalokiteshvara",
+    "type": "BODHISATTVA",
+    "name_vi": "Quán Thế Âm Bồ Tát",
+    "name_sanskrit": "Avalokiteśvara Bodhisattva",
+    "name_chinese": "觀世音菩薩",
+    "title_honorific": "Đại Bi Quán Thế Âm Bồ Tát",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp",
+    "canonical_source": "Kinh Diệu Pháp Liên Hoa (Phẩm Phổ Môn), Kinh Lăng Nghiêm",
+    "core_virtue": "Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát)",
+    "pure_land": "Phổ Đà Lạc Ca Sơn (Potalaka) / Thị giả cõi Tây Phương Cực Lạc",
+    "lunar_memorial_days": [
+      {"lunar_day": 19, "lunar_month": 2, "event_name": "Ngày Đản sinh Quán Thế Âm"},
+      {"lunar_day": 19, "lunar_month": 6, "event_name": "Ngày Thành đạo Quán Thế Âm"},
+      {"lunar_day": 19, "lunar_month": 9, "event_name": "Ngày Xuất gia Quán Thế Âm"}
+    ],
+    "iconography": {
+      "posture": "Đứng hoặc ngồi tự tại trên đài sen báu hoặc mây ngũ sắc",
+      "mount_or_throne": "Tòa sen hoặc ngự trên đầu rồng (Quán Âm Nam Hải)",
+      "sacred_artifacts": ["Bình tịnh thủy chứa nước cam lồ", "Cành dương liễu nhu hòa"],
+      "symbolic_meaning": "Nước cam lồ thanh tịnh rưới mát tâm can, cành dương liễu dẻo dai biểu thị tính nhẫn nhục."
+    },
+    "biography_summary": "Là hiện thân của lòng đại bi vô tận. Ngài quán sát mọi âm thanh đau khổ kêu cầu trong mười phương thế giới, ứng hóa 32 thân hình tướng thích hợp để vào đời cứu độ chúng sinh.",
+    "great_vows": [
+      "Khi chúng sinh gặp khổ nạn ách tai, nhất tâm xưng tụng danh hiệu liền được cứu vớt.",
+      "Tận diệt đau khổ của tất cả ba đường dữ địa ngục, ngạ quỷ, súc sinh."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Maṇi Padme Hūṃ",
+      "short_mantra_sino_vietnamese": "Án Ma Ni Bát Mê Hồng (Lục Tự Đại Minh Chân Ngôn)",
+      "long_dharani_name": "Thiên Thủ Thiên Nhãn Vô Ngại Đại Bi Tâm Đà La Ni",
+      "dharani_phonetic_snippet": "Nam mô hắc ra đát na đa ra dạ da. Nam mô a rị da, bà lô kiết đế thước bát ra da..."
+    }
+  },
+  {
+    "id": "bodhisattva_manjushri",
+    "type": "BODHISATTVA",
+    "name_vi": "Văn Thù Sư Lợi Bồ Tát",
+    "name_sanskrit": "Mañjuśrī Bodhisattva",
+    "name_chinese": "文殊師利菩薩",
+    "title_honorific": "Đại Trí Văn Thù Sư Lợi Bồ Tát",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_manjushri.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_manjushri.webp",
+    "canonical_source": "Kinh Hoa Nghiêm, Kinh Duy Ma Cật Sở Thuyết",
+    "core_virtue": "Đại Trí (Trí tuệ Bát Nhã thực tướng đoạn diệt vô minh)",
+    "pure_land": "Thanh Lương Sơn (Núi Ngũ Đài Sơn) / Thị giả tả biên Phật Thích Ca",
+    "lunar_memorial_days": [
+      {"lunar_day": 4, "lunar_month": 4, "event_name": "Ngày Vía Đức Bồ Tát Văn Thù"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già uy dũng trên lưng sư tử xanh",
+      "mount_or_throne": "Sư tử xanh (Thanh sư)",
+      "sacred_artifacts": ["Gươm báu trí tuệ giơ cao tay phải", "Cuốn kinh Bát Nhã trên cành sen tay trái"],
+      "symbolic_meaning": "Gươm báu chém đứt mọi lưới nghi phiền não, tiếng rống sư tử phá tan sự mê muội si ám."
+    },
+    "biography_summary": "Là bậc thượng thủ của hàng Bồ Tát trong các hội chúng Phật giáo Đại Thừa, biểu trưng cho trí tuệ căn bản không phân biệt. Ngài thường chất vấn các đại đệ tử và triển khai giáo lý thậm thâm Bát Nhã.",
+    "great_vows": [
+      "Nguyện dẫn dắt toàn bộ chúng sinh bước lên thuyền Bát Nhã trí tuệ giải thoát.",
+      "Trở thành thầy chỉ đường của chư Phật trong ba đời quá khứ, hiện tại, vị lai."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ A Ra Pa Ca Na Dhīḥ",
+      "short_mantra_sino_vietnamese": "Án A Ra Ba Giá Na Đê",
+      "long_dharani_name": "Văn Thù Sư Lợi Bồ Tát Ngũ Tự Chân Ngôn",
+      "dharani_phonetic_snippet": "Án a ra ba giá na đê đê đê..."
+    }
+  },
+  {
+    "id": "bodhisattva_samantabhadra",
+    "type": "BODHISATTVA",
+    "name_vi": "Phổ Hiền Bồ Tát",
+    "name_sanskrit": "Samantabhadra Bodhisattva",
+    "name_chinese": "普賢菩薩",
+    "title_honorific": "Đại Hạnh Phổ Hiền Bồ Tát",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_samantabhadra.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_samantabhadra.webp",
+    "canonical_source": "Kinh Hoa Nghiêm (Phẩm Phổ Hiền Hạnh Nguyện)",
+    "core_virtue": "Đại Hạnh (Hành động kiên trì, thực thi các đại nguyện rộng lớn)",
+    "pure_land": "Núi Nga Mi / Thị giả hữu biên Phật Thích Ca",
+    "lunar_memorial_days": [
+      {"lunar_day": 21, "lunar_month": 2, "event_name": "Ngày Vía Đức Bồ Tát Phổ Hiền"}
+    ],
+    "iconography": {
+      "posture": "Ngồi trang nghiêm trên lưng voi trắng sáu ngà",
+      "mount_or_throne": "Voi trắng sáu ngà (Lục nha bạch tượng)",
+      "sacred_artifacts": ["Cành hoa sen trắng hoặc gậy như ý", "Cuốn kinh sách báu"],
+      "symbolic_meaning": "Voi trắng biểu trưng sức mạnh kiên trì nhẫn nại, sáu ngà tượng trưng cho Lục Độ Ba La Mật."
+    },
+    "biography_summary": "Đại diện cho sức mạnh thực hành lý tưởng Bồ Tát đạo trong cuộc sống thực tế. Trong Kinh Hoa Nghiêm, Ngài tuyên thuyết Mười Đại Nguyện Vương hướng dẫn Bồ Tát và chúng sinh quay về cõi Cực Lạc.",
+    "great_vows": [
+      "Nhất giả Lễ kính chư Phật, Nhị giả Xưng tán Như Lai, Tam giả Quảng tu cúng dường.",
+      "Hằng thuận chúng sinh, Phổ giai hồi hướng khắp mười phương pháp giới."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Samantabhadra Mahākaruṇā Hūṃ",
+      "short_mantra_sino_vietnamese": "Án Tam Mãn Đa Bạt Đà La Hồng",
+      "long_dharani_name": "Phổ Hiền Bồ Tát Căn Bản Chân Ngôn",
+      "dharani_phonetic_snippet": "Nam mô tam mãn đa một đà nẫm, án ám hàm xoa đát đa bạt đà la tát bà ha."
+    }
+  },
+  {
+    "id": "bodhisattva_ksitigarbha",
+    "type": "BODHISATTVA",
+    "name_vi": "Địa Tạng Vương Bồ Tát",
+    "name_sanskrit": "Kṣitigarbha Bodhisattva",
+    "name_chinese": "地藏王菩薩",
+    "title_honorific": "Đại Nguyện Địa Tạng Vương Bồ Tát",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_ksitigarbha.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_ksitigarbha.webp",
+    "canonical_source": "Kinh Địa Tạng Bổn Nguyện Công Đức",
+    "core_virtue": "Đại Nguyện (Nguyện lực cứu vớt chúng sinh nơi cõi u minh tối tăm)",
+    "pure_land": "Cõi U Minh / Núi Cửu Hoa Sơn",
+    "lunar_memorial_days": [
+      {"lunar_day": 30, "lunar_month": 7, "event_name": "Ngày Vía Bồ Tát Địa Tạng (Tháng thiếu tính ngày 29)"}
+    ],
+    "iconography": {
+      "posture": "Hiện thân hình tướng một vị Tỳ-kheo đầu tròn xuất gia, nét mặt đại từ bi",
+      "mount_or_throne": "Tòa sen hoặc cưỡi linh thú Đề Thính",
+      "sacred_artifacts": ["Tích trượng cầm tay phải có 12 khoen", "Viên Như Ý Minh Châu trên tay trái"],
+      "symbolic_meaning": "Tích trượng rung mở cánh cửa địa ngục si mê, ngọc minh châu chiếu sáng cõi u tối u minh."
+    },
+    "biography_summary": "Tiền thân là Quang Mục Nữ và Bà-la-môn Nữ hiếu thảo cứu mẹ khỏi chốn trầm luân. Trước Đức Thích Ca tại cung trời Đao Lợi, Ngài nhận lãnh phó chúc ở lại đời ác bảo bọc chúng sinh từ khi Thích Ca nhập diệt cho đến lúc Di Lặc ra đời.",
+    "great_vows": [
+      "Địa ngục vị không, thệ bất thành Phật (Địa ngục chưa trống rỗng, thề chưa thành Phật).",
+      "Chúng sinh độ tận, phương chứng Bồ Đề (Độ hết chúng sinh mới chứng đạo Bồ Đề)."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Ha Ha Ha Vismaye Svāhā",
+      "short_mantra_sino_vietnamese": "Án Ha Ha Ha Vi Tư Ma Duệ Thoa Ha",
+      "long_dharani_name": "Địa Tạng Bồ Tát Diệt Định Nghiệp Chân Ngôn",
+      "dharani_phonetic_snippet": "Án bát la mạt lân đà nảnh ta bà ha."
+    }
+  },
+  {
+    "id": "bodhisattva_mahasthamaprapta",
+    "type": "BODHISATTVA",
+    "name_vi": "Đại Thế Chí Bồ Tát",
+    "name_sanskrit": "Mahāsthāmaprāpta Bodhisattva",
+    "name_chinese": "大勢至菩薩",
+    "title_honorific": "Đại Lực Đại Thế Chí Bồ Tát",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_mahasthamaprapta.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_mahasthamaprapta.webp",
+    "canonical_source": "Kinh Quán Vô Lượng Thọ, Kinh Lăng Nghiêm (Chương Niệm Phật Viên Thông)",
+    "core_virtue": "Đại Lực (Ánh sáng trí tuệ uy dũng dứt trừ ách nạn)",
+    "pure_land": "Tây Phương Cực Lạc (Thị giả hữu biên Phật A Di Đà)",
+    "lunar_memorial_days": [
+      {"lunar_day": 13, "lunar_month": 7, "event_name": "Ngày Vía Đức Bồ Tát Đại Thế Chí"}
+    ],
+    "iconography": {
+      "posture": "Đứng hoặc ngồi kiết già, trên vương miện có bảo bình chứa ánh sáng trí huệ",
+      "mount_or_throne": "Tòa sen báu ngát hương",
+      "sacred_artifacts": ["Cành hoa sen xanh (Thanh liên hoa)"],
+      "symbolic_meaning": "Tượng trưng cho sự thanh tịnh vượt khỏi bùn nhơ thế tục và sức mạnh giải thoát kiên cố."
+    },
+    "biography_summary": "Cùng với Bồ Tát Quán Thế Âm hợp thành Tây Phương Tam Thánh. Ngài dùng ánh sáng trí tuệ chiếu khắp muôn loài, làm chấn động tam thiên đại thiên thế giới mỗi khi bước chân di chuyển, đưa chúng sinh lìa khỏi ba đường ác.",
+    "great_vows": [
+      "Tiếp dẫn người thực hành pháp môn Niệm Phật: Như con nhớ mẹ, tâm Phật tâm ta hòa làm một.",
+      "Dùng trí lực dũng mãnh dập tắt mọi lửa phiền não tham sân của chúng sinh."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Saṃ Jam Jaṃ Saḥ Svāhā",
+      "short_mantra_sino_vietnamese": "Án Tán Nhiễm Nhiễm Tán Thoa Ha",
+      "long_dharani_name": "Đại Thế Chí Bồ Tát Chân Ngôn",
+      "dharani_phonetic_snippet": "Nam mô tam mãn đa một đà nẫm, án hàm hàm thọ đát hàm tát bà ha."
+    }
+  },
+  {
+    "id": "bodhisattva_cundi",
+    "type": "BODHISATTVA",
+    "name_vi": "Chuẩn Đề Bồ Tát",
+    "name_sanskrit": "Cundī Bodhisattva",
+    "name_chinese": "準提菩薩",
+    "title_honorific": "Thất Câu Chi Phật Mẫu Chuẩn Đề",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_cundi.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_cundi.webp",
+    "canonical_source": "Kinh Thất Câu Chi Phật Mẫu Sở Thuyết Chuẩn Đề Đà La Ni",
+    "core_virtue": "Phật Mẫu Hộ Trì (Tâm từ bảo bọc vô lượng, tiêu tai diệt tội)",
+    "pure_land": "Chuẩn Đề Tịnh Cư / Bát Nhã Pháp Giới",
+    "lunar_memorial_days": [
+      {"lunar_day": 16, "lunar_month": 3, "event_name": "Ngày Vía Bồ Tát Chuẩn Đề"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già trên đài sen, có 3 mắt và 18 cánh tay cầm các loại pháp khí khác nhau",
+      "mount_or_throne": "Tòa sen ngự trên hồ nước đỡ bởi hai vị Long vương Nanda và Upananda",
+      "sacred_artifacts": ["Kính báu Chuẩn Đề", "Kinh điển, hoa sen, tích trượng, bảo ấn, bình nước"],
+      "symbolic_meaning": "18 cánh tay biểu trưng cho Thập Bát Bất Cộng Pháp của hàng giác ngộ tối thượng."
+    },
+    "biography_summary": "Được tôn xưng là Mẹ của bảy ức chư Phật (Thất Câu Chi Phật Mẫu). Thần chú của Ngài có sức uy lực vô biên giúp hành giả tại gia phá trừ chướng nạn, cầu đảo tốt lành và tu trì mau thành tựu phước huệ.",
+    "great_vows": [
+      "Bảo hộ người tu tại gia không bị tà ma quấy nhiễu, đời sống gia đình hòa hợp an khang.",
+      "Khiến người trì tụng tiêu trừ nghiệp tội nhiều đời, vãng sanh cõi Phật."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Cale Cule Cunde Svāhā",
+      "short_mantra_sino_vietnamese": "Án Chiết Lệ Chủ Lệ Chuẩn Đề Thoa Ha",
+      "long_dharani_name": "Chuẩn Đề Thần Chú",
+      "dharani_phonetic_snippet": "Nam mô tát đa nẫm, tam miệu tam bồ đề, câu chi nẫm, đát điệt tha: Án, chiết lệ chủ lệ chuẩn đề ta bà ha."
+    }
+  },
+  {
+    "id": "bodhisattva_akashagarbha",
+    "type": "BODHISATTVA",
+    "name_vi": "Hư Không Tạng Bồ Tát",
+    "name_sanskrit": "Ākāśagarbha Bodhisattva",
+    "name_chinese": "虛空藏菩薩",
+    "title_honorific": "Đại Hư Không Tạng Bồ Tát",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_akashagarbha.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_akashagarbha.webp",
+    "canonical_source": "Kinh Hư Không Tạng Bồ Tát Sở Vấn",
+    "core_virtue": "Trí Tuệ & Phước Đức Bao La Như Không Gian",
+    "pure_land": "Đại Trang Nghiêm Thế Giới",
+    "lunar_memorial_days": [
+      {"lunar_day": 15, "lunar_month": 1, "event_name": "Ngày Lễ Cầu Trí Tuệ Thượng Nguyên"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già an định trên tòa hoa sen",
+      "mount_or_throne": "Tòa sen báu",
+      "sacred_artifacts": ["Gươm báu trí tuệ", "Ngọc Như Ý tỏa hào quang trên cành sen"],
+      "symbolic_meaning": "Kho báu trí huệ và phước đức rộng lớn vô cùng vô tận như khoảng không hư không vũ trụ."
+    },
+    "biography_summary": "Là hiện thân của sự giàu có về công đức và trí tuệ tâm linh. Người cầu nguyện Ngài với lòng chí thành sẽ khai thông trí nhớ, tăng trưởng năng lực học tập và phá tan sự nghèo khó si mê.",
+    "great_vows": [
+      "Nguyện ban phát kho tàng Phật pháp vô tận cho những ai bần cùng khốn khó.",
+      "Giúp chúng sinh xua tan tội chướng, đạt được trí nhớ siêu đẳng (viên mãn trí)."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Ākāśagarbha Svāhā",
+      "short_mantra_sino_vietnamese": "Án A Ca Xa Nga La Bà Thoa Ha",
+      "long_dharani_name": "Hư Không Tạng Bồ Tát Trí Huệ Chân Ngôn",
+      "dharani_phonetic_snippet": "Nam mô a ca xá yết bà gia, án a lị kế ma lị mô lị ta bà ha."
+    }
+  },
+  {
+    "id": "bodhisattva_vajrapani",
+    "type": "BODHISATTVA",
+    "name_vi": "Kim Cương Thủ Bồ Tát",
+    "name_sanskrit": "Vajrapāṇi Bodhisattva",
+    "name_chinese": "金剛手菩薩",
+    "title_honorific": "Bí Mật Chủ Kim Cương Thủ",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_vajrapani.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_vajrapani.webp",
+    "canonical_source": "Kinh Đại Nhật, Mật Tông Kim Cương Đỉnh Kinh",
+    "core_virtue": "Hộ Pháp & Uy Lực Tối Thượng (Sức mạnh tiêu trừ ma chướng và chướng ngại nội tâm)",
+    "pure_land": "Liễu Đạt Mật Nghiêm Cõi Mật Tông",
+    "lunar_memorial_days": [
+      {"lunar_day": 8, "lunar_month": 4, "event_name": "Ngày Lễ Hộ Pháp Chư Thiên"}
+    ],
+    "iconography": {
+      "posture": "Thân tướng uy nghiêm dũng mãnh, thế đứng chiến binh (Ấn Tiễn Đột)",
+      "mount_or_throne": "Đạp trên phiến đá lửa hàng phục tà ma",
+      "sacred_artifacts": ["Chày kim cương (Vajra) cầm chắc ở tay phải"],
+      "symbolic_meaning": "Chày kim cương không thể bị phá vỡ, tượng trưng cho bản tính thực tại bất biến tiêu diệt si ám."
+    },
+    "biography_summary": "Là biểu hiện sức mạnh dũng mãnh của tất cả chư Phật mười phương. Ngài là thủ lĩnh của hàng Dạ-xoa hộ pháp, luôn theo sát hộ vệ người tu hành chánh đạo thoát khỏi sự quấy phá của ngoại ma và nội ma.",
+    "great_vows": [
+      "Nguyện bảo vệ mạng mạch chánh pháp và người thọ trì giáo lý Kim Cương Thừa.",
+      "Đập tan tà kiến, giải trừ mọi bùa chú ám hại và sự sợ hãi tột cùng."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Vajrapāṇi Hūṃ Phaṭ",
+      "short_mantra_sino_vietnamese": "Án Phạt Chiết La Ba Ni Hồng Phấn",
+      "long_dharani_name": "Kim Cương Thủ Hộ Pháp Đà La Ni",
+      "dharani_phonetic_snippet": "Nam mô phạt chiết la noa gia, đát điệt tha: Án phạt chiết la hồng phát tra."
+    }
+  },
+  {
+    "id": "bodhisattva_tara_green",
+    "type": "BODHISATTVA",
+    "name_vi": "Lục Độ Mẫu (Tara Xanh)",
+    "name_sanskrit": "Śyāmatārā (Green Tārā)",
+    "name_chinese": "綠度母",
+    "title_honorific": "Thánh Cứu Độ Mẫu Tara Xanh",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_tara_green.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_tara_green.webp",
+    "canonical_source": "Tārā Mūla Tantra, Tán Tụng Hai Mươi Mốt Tán Thán Tara",
+    "core_virtue": "Hành Động Cấp Thiết (Cứu nạn cấp kỳ, chở che tám nỗi sợ hãi lớn)",
+    "pure_land": "Diệu Nguyệt Thế Giới (Cõi Tịnh độ Núi Yarlung)",
+    "lunar_memorial_days": [
+      {"lunar_day": 8, "lunar_month": 1, "event_name": "Ngày Lễ Cầu Bình An Độ Mẫu"}
+    ],
+    "iconography": {
+      "posture": "Ngồi bán già thế du hý, chân phải duỗi nhẹ xuống đất sẵn sàng đứng dậy cứu nạn",
+      "mount_or_throne": "Tòa sen xanh ngọc",
+      "sacred_artifacts": ["Cành sen xanh Utpala cầm nơi tay trái đặt ngang ngực"],
+      "symbolic_meaning": "Tư thế sẵn sàng bật dậy cứu giúp chúng sinh ngay tức khắc khi có tiếng gọi chân thành."
+    },
+    "biography_summary": "Được sinh ra từ giọt nước mắt đại bi của Đức Quán Thế Âm khi nhìn thấy nỗi khổ của muôn loài. Ngài phát thệ nguyện mãi mãi giữ thân nữ nhân để hành trì Bồ Tát đạo và hóa độ chúng sinh cho đến ngày tận thế.",
+    "great_vows": [
+      "Cứu vớt chúng sinh khỏi 8 nỗi sợ hãi lớn: kiêu mạn, si mê, sân hận, ghen tị, tà kiến, tham lam, dục lạc, hoài nghi.",
+      "Mau chóng đáp ứng những lời thỉnh cầu lương thiện của chúng sinh trong tích tắc."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Tāre Tuttāre Ture Svāhā",
+      "short_mantra_sino_vietnamese": "Án Đa Rê Đút Đa Rê Đu Rê Thoa Ha",
+      "long_dharani_name": "Độ Mẫu Căn Bản Chân Ngôn",
+      "dharani_phonetic_snippet": "Án đát nê đát nê đát nê, đát lệ tha bà ha."
+    }
+  },
+  {
+    "id": "bodhisattva_tara_white",
+    "type": "BODHISATTVA",
+    "name_vi": "Bạch Độ Mẫu (Tara Trắng)",
+    "name_sanskrit": "Sitatārā (White Tārā)",
+    "name_chinese": "白度母",
+    "title_honorific": "Trường Thọ Thánh Cứu Độ Mẫu",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_tara_white.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_tara_white.webp",
+    "canonical_source": "Kinh điển Mật Tạng Tạng Truyền",
+    "core_virtue": "Trường Thọ & Chữa Lành (Ban thọ mạng dài lâu, an định thân tâm)",
+    "pure_land": "Thanh Tịnh Cực Lạc Giới",
+    "lunar_memorial_days": [
+      {"lunar_day": 15, "lunar_month": 10, "event_name": "Khóa Lễ Cầu Trường Thọ Dược Sư"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già kim cương tuyệt đối, toàn thân sắc trắng như tuyết thanh khiết",
+      "mount_or_throne": "Đài sen trắng nguyệt luân",
+      "sacred_artifacts": ["Hoa sen trắng tám cánh vươn cao", "Có 7 mắt (3 mắt trên mặt, 4 mắt trong lòng bàn tay, bàn chân)"],
+      "symbolic_meaning": "Bảy con mắt nhìn thấu suốt nỗi khổ đau ở khắp ba cõi mười phương không góc khuất."
+    },
+    "biography_summary": "Là một trong những hóa thân từ bi nhất của Bồ Tát Tara, đại diện cho năng lượng chữa lành dịu mát của tình mẫu tử. Ngài ban tặng tuổi thọ dài lâu cho những ai trì giới và chuyên tâm tu học phụng sự tha nhân.",
+    "great_vows": [
+      "Tăng trưởng thọ mạng và phúc đức cho hành giả để họ hoàn tất con đường tu đạo.",
+      "Xua đuổi bệnh tật nan y và cái chết bất đắc kỳ tử (tai nạn bất ngờ)."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Tāre Tuttāre Ture Mama Āyur-Jñāna-Puṇye Puṣṭiṃ Kuru Svāhā",
+      "short_mantra_sino_vietnamese": "Án Đa Rê Đút Đa Rê Đu Rê Ma Ma A Giác Phổ Ni Bố Sĩ Đinh Cưu Lô Thoa Ha",
+      "long_dharani_name": "Bạch Độ Mẫu Trường Thọ Chân Ngôn",
+      "dharani_phonetic_snippet": "Án đa rê đút đa rê đu rê mama a dũa pu nê..."
+    }
+  },
+  {
+    "id": "bodhisattva_bhaisajyaraja",
+    "type": "BODHISATTVA",
+    "name_vi": "Dược Vương Bồ Tát",
+    "name_sanskrit": "Bhaiṣajyarāja Bodhisattva",
+    "name_chinese": "藥王菩薩",
+    "title_honorific": "Đại Dược Vương Bồ Tát",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_bhaisajyaraja.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_bhaisajyaraja.webp",
+    "canonical_source": "Kinh Diệu Pháp Liên Hoa (Phẩm Dược Vương Bồ Tát Bổn Sự)",
+    "core_virtue": "Xả Thân Cầu Pháp & Trừ Bệnh (Liều thuốc xoa dịu độc chướng)",
+    "pure_land": "Thị giả Phật Dược Sư cõi Tịnh Lưu Ly",
+    "lunar_memorial_days": [
+      {"lunar_day": 28, "lunar_month": 4, "event_name": "Ngày Vía Đức Bồ Tát Dược Vương"}
+    ],
+    "iconography": {
+      "posture": "Đứng trang nghiêm trên tòa sen, thân tỏa ánh sáng thuần tịnh",
+      "mount_or_throne": "Tòa sen",
+      "sacred_artifacts": ["Bình thuốc thần dược", "Cây thuốc thảo mộc trừ độc"],
+      "symbolic_meaning": "Tượng trưng cho tinh thần hy sinh tận hiến và phương thuốc pháp vị tiêu trừ si mê."
+    },
+    "biography_summary": "Tiền thân là Nhất Thiết Chúng Sanh Hỷ Kiến Bồ Tát. Ngài đã từng uống hương dầu thơm và tự thiêu thân mình cúng dường Phật Nhật Nguyệt Tịnh Minh Đức để cầu chánh pháp, chứng đắc hiện nhất thiết sắc thân tam muội.",
+    "great_vows": [
+      "Nguyện làm vị lương y chữa trị mọi vết thương thể xác và tinh thần cho người đau khổ.",
+      "Ban phát giáo pháp như linh dược trị bệnh phiền não tận gốc rễ."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Bhaiṣajyarāja Svāhā",
+      "short_mantra_sino_vietnamese": "Án Bệ Sát Xã La Xà Thoa Ha",
+      "long_dharani_name": "Dược Vương Bồ Tát Trừ Bệnh Chân Ngôn",
+      "dharani_phonetic_snippet": "Án bệ sát xã xà da xà da bệ sát xã ta bà ha."
+    }
+  },
+  {
+    "id": "bodhisattva_vajrasattva",
+    "type": "BODHISATTVA",
+    "name_vi": "Kim Cương Tát Đỏa",
+    "name_sanskrit": "Vajrasattva Bodhisattva",
+    "name_chinese": "金剛薩埵",
+    "title_honorific": "Đại Tịnh Hóa Kim Cương Tát Đỏa",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/bodhisattva_vajrasattva.webp",
+    "image_url": "/static/images/buddhas/full/bodhisattva_vajrasattva.webp",
+    "canonical_source": "Mật Tông Ngũ Bí Mật Nghi Quỹ, Phổ Hiền Hạnh Nguyện",
+    "core_virtue": "Tịnh Hóa Nghiệp Chướng (Rửa sạch mọi giới nguyện ô uế và nghiệp ác)",
+    "pure_land": "Cõi Mật Nghiêm Kim Cương Cực Lạc",
+    "lunar_memorial_days": [
+      {"lunar_day": 15, "lunar_month": 7, "event_name": "Khóa Lễ Sám Hối & Tịnh Hóa"}
+    ],
+    "iconography": {
+      "posture": "Ngồi kiết già an nhiên, thân màu trắng sáng chói rực rỡ như pha lê",
+      "mount_or_throne": "Đài sen trăng sáng",
+      "sacred_artifacts": ["Chày kim cương cầm ở tay phải trước ngực", "Chuông kim cương cầm ở tay trái bên hông"],
+      "symbolic_meaning": "Chày tượng trưng cho Từ bi và Phương tiện thiện xảo; Chuông tượng trưng cho Trí tuệ Bát Nhã tánh không."
+    },
+    "biography_summary": "Là hiện thân của sự thanh tịnh nguyên sơ nơi tâm thức của tất cả chư Phật. Pháp môn thực hành trì tụng Bách Tự Minh Chân Ngôn (chú 100 chữ) của Ngài là phương pháp tối thượng để thanh lọc các nghiệp chướng xấu ác và khôi phục giới luật đã trót phạm.",
+    "great_vows": [
+      "Nguyện khi chưa tẩy sạch mọi tội ác, nghiệp xấu của kẻ chí tâm sám hối thì chưa chứng Phật quả.",
+      "Bảo hộ tâm thức của hành giả luôn duy trì trạng thái thuần khiết, không bị nhiễm trược."
+    ],
+    "mantras": {
+      "short_mantra_sanskrit": "Oṃ Vajrasattva Hūṃ",
+      "short_mantra_sino_vietnamese": "Án Phạt Chiết La Tát Đỏa Hồng",
+      "long_dharani_name": "Bách Tự Minh Chân Ngôn (Mật Chú 100 Chữ Tịnh Hóa Nghiệp)",
+      "dharani_phonetic_snippet": "Oṃ Vajrasattva samayam anupālaya, Vajrasattva tvenopatishṭha, Dṛḍho me bhava, Sutoṣyo me bhava, Supoṣyo me bhava, Anurakto me bhava, Sarva siddhiṃ me prayaccha..."
+    }
+  },
+  {
+    "id": "buddha_seven_past",
+    "type": "BUDDHA",
+    "name_vi": "Thất Phật Quá Khứ",
+    "name_sanskrit": "Saptatathāgata (Sapta Buddha)",
+    "name_chinese": "過去七佛",
+    "title_honorific": "Bảy Đức Phật Quá Khứ",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/buddha_seven_past.webp",
+    "image_url": "/static/images/buddhas/full/buddha_seven_past.webp",
+    "canonical_source": "Kinh Đại Bổn (Mahāpadāna Sutta, Trường Bộ 14)",
+    "core_virtue": "Bảy vị Phật nối tiếp nhau giác ngộ và truyền dạy cùng một Chánh pháp",
+    "pure_land": "",
+    "lunar_memorial_days": [],
+    "iconography": {
+      "posture": "",
+      "mount_or_throne": "",
+      "sacred_artifacts": [],
+      "symbolic_meaning": ""
+    },
+    "biography_summary": "Bảy vị Phật gồm: Tỳ Bà Thi (Vipaśyin), Thi Khí (Śikhin), Tỳ Xá Phù (Viśvabhū), Câu Lưu Tôn (Krakucchanda), Câu Na Hàm Mâu Ni (Kanakamuni), Ca Diếp (Kāśyapa) và Thích Ca Mâu Ni (Śākyamuni). Ba vị đầu thuộc Trang Nghiêm kiếp, bốn vị sau thuộc Hiền kiếp.",
+    "great_vows": [],
+    "mantras": {
+      "short_mantra_sanskrit": "",
+      "short_mantra_sino_vietnamese": "",
+      "long_dharani_name": "Thất Phật Diệt Tội Chân Ngôn",
+      "dharani_phonetic_snippet": ""
+    }
+  },
+  {
+    "id": "deva_sri_mahadevi",
+    "type": "DEVA",
+    "name_vi": "Đại Cát Tường Thiên Nữ",
+    "name_sanskrit": "Śrī Mahādevī",
+    "name_chinese": "大吉祥天女",
+    "title_honorific": "Cát Tường Thiên",
+    "thumbnail_url": "/static/images/buddhas/thumbnails/deva_sri_mahadevi.webp",
+    "image_url": "/static/images/buddhas/full/deva_sri_mahadevi.webp",
+    "canonical_source": "",
+    "core_virtue": "Vị Thiên hộ pháp ban phước đức, cát tường",
+    "pure_land": "",
+    "lunar_memorial_days": [],
+    "iconography": {
+      "posture": "",
+      "mount_or_throne": "",
+      "sacred_artifacts": [],
+      "symbolic_meaning": ""
+    },
+    "biography_summary": "Śrī Mahādevī (Cát Tường Thiên) là vị Thiên nữ hộ pháp, trong Phật giáo được tôn kính như vị ban phước đức và sự cát tường; trong truyền thống Ấn Độ cũng được biết đến là Lakṣmī.",
+    "great_vows": [],
+    "mantras": {
+      "short_mantra_sanskrit": "",
+      "short_mantra_sino_vietnamese": "",
+      "long_dharani_name": "Đại Cát Tường Thiên Nữ Chú",
+      "dharani_phonetic_snippet": ""
+    }
+  }
+]
