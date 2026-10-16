@@ -1,5 +1,13 @@
 # Changelog — login product spec
 
+## v1.4 — 2026-10-16
+
+- Traceability matrix only (§4.2), no requirement changed: the Backend column is `done` for BR-LGN-01,
+  BR-LGN-02, BR-LGN-05, FR-LGN-001, FR-LGN-002, FR-LGN-003, FR-LGN-008, FR-LGN-009 and NFR-LGN-02
+  (email sign-in, password reset and per-IP limits shipped on the backend, 2026-10-16); four notes
+  reworded. Platform specs citing v1.1–v1.3 stay valid.
+- Platforms to follow up: none for the backend. Website, iOS, Android: their own columns are unchanged.
+
 ## v1.3 — 2026-10-15
 
 - References only, no requirement changed: the Downstream row and §1.5 now name the one spec folder per
