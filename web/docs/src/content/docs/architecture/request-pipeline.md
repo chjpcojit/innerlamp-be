@@ -30,15 +30,17 @@ Thứ tự quan trọng, mỗi lớp có lý do:
 ## Bên trong một handler
 
 1. **Decode JSON chặt**: từ chối body rỗng, JSON hỏng, field lạ, hai object liền nhau, sai `Content-Type`. Body quá 1 MB trả `413 PAYLOAD_TOO_LARGE`.
-2. **Kiểm tra định dạng** bằng tag `validate` (email, số điện thoại, độ dài OTP…). Sai thì trả `400 VALIDATION_ERROR` kèm `details` theo từng field.
+2. **Kiểm tra định dạng** bằng tag `validate` (độ dài mã xác minh…; email, số điện thoại, mật khẩu được kiểm ở use case với mã lỗi riêng). Sai thì trả `400 VALIDATION_ERROR` kèm `details` theo từng field.
 3. **Gọi use case**, nơi chứa quy tắc nghiệp vụ.
 4. **Ánh xạ kết quả**: thành công đi qua `WriteSuccessResponse`. Lỗi domain được chuyển thành `(HTTP status, error.code)` ở một chỗ duy nhất, lỗi lạ rơi vào `500 INTERNAL_ERROR` và không lộ nguyên nhân.
 
 ## Xác thực
 
-Chỉ `POST /v1/auth/logout` được bọc middleware JWT (chỉ nhận token loại `access`). Khi bị từ chối, response vẫn dùng envelope chuẩn (`401 UNAUTHORIZED`), và không nói rõ token hết hạn, giả mạo hay sai loại.
+Các route cần đăng nhập (`POST /v1/auth/logout` và các route dữ liệu riêng tư như sổ giỗ chạp, thắp đèn, gia phả) được bọc middleware JWT (chỉ nhận token loại `access`). Khi bị từ chối, response vẫn dùng envelope chuẩn (`401 UNAUTHORIZED`), và không nói rõ token hết hạn, giả mạo hay sai loại. Ngoài `logout`, các route này còn qua bước **kiểm phiên**: access token của phiên đã thu hồi hoặc hết hạn bị `401` ngay ở request kế tiếp, và nếu không kiểm tra được phiên thì trả `503`.
 
-Các route còn lại là công khai: người gọi hoặc chưa có tài khoản (đăng ký), hoặc chứng minh danh tính bằng mật khẩu/refresh token trong body, hoặc chỉ đọc dữ liệu công khai (danh mục).
+Các route còn lại là công khai: người gọi hoặc chưa có tài khoản (đăng ký, quên mật khẩu), hoặc chứng minh danh tính bằng mật khẩu/refresh token trong body, hoặc chỉ đọc dữ liệu công khai (danh mục).
+
+Mọi route `/v1/auth/*` (trừ `logout`) đi qua thêm, theo thứ tự: `Cache-Control: no-store`, kiểm `X-API-Key`, rồi **giới hạn theo IP** (`429 RATE_LIMITED`) trước khi handler chạy. Giới hạn đứng sau kiểm key vì IP của khách web chỉ được tin khi key đúng.
 
 ## Xác thực ở backofficeService
 

@@ -1,8 +1,8 @@
 # Design — login
 
-Version: 2.4
+Version: 2.5
 Last updated: 2026-10-16
-Status: implemented (v2.4, 2026-10-16) — đăng nhập bằng email, quên mật khẩu, giới hạn tần suất, kiểm phiên còn sống. Phiên/refresh/logout của v1.13 giữ nguyên.
+Status: implemented (v2.5, 2026-10-16) — đăng nhập bằng email, quên mật khẩu, giới hạn tần suất, kiểm phiên còn sống. Phiên/refresh/logout của v1.13 giữ nguyên.
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.
