@@ -59,6 +59,9 @@ storage:
 mailer:
   provider: "log"
   from: "no-reply@innerlamp.local"
+  # Emails per UTC day across all instances (login AC33); 100 = the free tier of
+  # the provider ADR-0003 recommends.
+  daily_budget: 100
 
 # OTP policy for the registration flow. Every key here is required — a missing
 # one decodes to the Go zero value, and a zero TTL means "already expired"
@@ -86,6 +89,21 @@ login:
   max_failed_attempts: 5
   lock_duration: "15m"
   failure_reset_window: "15m"
+
+# Per-IP budgets of every /v1/auth/* route (login AC31). Counted in
+# rate_limit_store below. logout is not limited.
+# trust_forwarded_for stays false locally; set it true only behind a proxy that appends the real client IP (Cloud Run).
+auth_rate_limit:
+  send:    { max: 10,  window: "1h" }
+  verify:  { max: 30,  window: "1h" }
+  login:   { max: 30,  window: "15m" }
+  refresh: { max: 120, window: "15m" }
+  trust_forwarded_for: false
+
+# Forgot-password (login AC25): request-otp never answers sooner than this,
+# so sending mail (only for an email with an account) is not observable.
+password_reset:
+  min_response_time: "1500ms"
 
 # Attestation (Play Integrity + App Attest). Each platform selects its own
 # driver — "mock" in dev (fakes results), "playintegrity"/"appattest" in a real

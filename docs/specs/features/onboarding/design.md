@@ -133,7 +133,7 @@ tài khoản" không lộ thông tin, và thêm giới hạn theo IP (middleware
 
 Idempotent theo quy ước repo (`IF EXISTS` / `IF NOT EXISTS`).
 
-**Đã làm (v8.1):** file `0037` chỉ chứa bước 1–4 và 6. Bước 5 chuyển sang migration của login Phase 1 (login vẫn khoá `login_attempts` theo SĐT tới lúc đó), bước 7 sang login Phase 5. Bước 1 chỉ TRUNCATE khi `otp_codes.phone_number` còn tồn tại, để `make migrate` (chạy lại mọi file) không xoá mã đang sống. `0001` có guard tương ứng cho index `idx_otp_codes_phone_purpose`.
+**Đã làm (v8.1):** file `0037` chỉ chứa bước 1–4 và 6. Bước 5 làm ở `migrations/0038_login_attempts_email.sql` (login Phase 1, 2026-10-16); bước 7 (`auth_rate_limits`) bỏ — login v2.4 đếm giới hạn ở Redis. Bước 1 chỉ TRUNCATE khi `otp_codes.phone_number` còn tồn tại, để `make migrate` (chạy lại mọi file) không xoá mã đang sống. `0001` có guard tương ứng cho index `idx_otp_codes_phone_purpose`.
 
 ## Mailer
 

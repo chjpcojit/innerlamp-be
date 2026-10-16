@@ -1137,3 +1137,73 @@ mailer:
 		t.Fatalf("Load() = %v, want mailer.provider error", err)
 	}
 }
+
+// TestLoad_DevYAMLAuthRateLimit pins the login AC31 defaults, AC33's daily mail
+// budget and the forgot-password floor (AC25) as shipped in config.dev.yaml, and
+// that the shipped values pass their own Validate.
+func TestLoad_DevYAMLAuthRateLimit(t *testing.T) {
+	ctx := context.Background()
+	source := pkgconfig.LoadSource("config.dev.yaml")
+	raw, err := pkgconfig.LoadYAML(ctx, source)
+	if err != nil {
+		t.Fatalf("LoadYAML: %v", err)
+	}
+	sg, err := NewMockSecretGetterFromYAML(raw)
+	if err != nil {
+		t.Fatalf("NewMockSecretGetterFromYAML: %v", err)
+	}
+	cfg, err := Load(ctx, source, sg)
+	if err != nil {
+		t.Fatalf("Load: %v", err)
+	}
+
+	want := map[string]struct {
+		got  RouteRateLimit
+		max  int
+		wind time.Duration
+	}{
+		"send":    {cfg.AuthRateLimit.Send, 10, time.Hour},
+		"verify":  {cfg.AuthRateLimit.Verify, 30, time.Hour},
+		"login":   {cfg.AuthRateLimit.Login, 30, 15 * time.Minute},
+		"refresh": {cfg.AuthRateLimit.Refresh, 120, 15 * time.Minute},
+	}
+	for name, w := range want {
+		if w.got.Max != w.max || w.got.Window.Duration() != w.wind {
+			t.Errorf("auth_rate_limit.%s = %d/%s, want %d/%s", name, w.got.Max, w.got.Window.Duration(), w.max, w.wind)
+		}
+	}
+	if err := cfg.AuthRateLimit.Validate(); err != nil {
+		t.Errorf("dev config must be valid: %v", err)
+	}
+	if cfg.Mailer.DailyBudget != 100 {
+		t.Errorf("Mailer.DailyBudget = %d, want 100", cfg.Mailer.DailyBudget)
+	}
+	if err := cfg.Mailer.Validate(); err != nil {
+		t.Errorf("dev mailer config must be valid: %v", err)
+	}
+	if got := cfg.PasswordReset.MinResponseTime.Duration(); got != 1500*time.Millisecond {
+		t.Errorf("PasswordReset.MinResponseTime = %s, want 1.5s", got)
+	}
+}
+
+func TestAuthRateLimitConfig_Validate(t *testing.T) {
+	ok := RouteRateLimit{Max: 1, Window: Duration(time.Minute)}
+	good := AuthRateLimitConfig{Send: ok, Verify: ok, Login: ok, Refresh: ok}
+	if err := good.Validate(); err != nil {
+		t.Fatalf("valid config rejected: %v", err)
+	}
+	for name, mutate := range map[string]func(*AuthRateLimitConfig){
+		"zero max":    func(c *AuthRateLimitConfig) { c.Login.Max = 0 },
+		"zero window": func(c *AuthRateLimitConfig) { c.Refresh.Window = 0 },
+		"missing":     func(c *AuthRateLimitConfig) { c.Send = RouteRateLimit{} },
+	} {
+		c := good
+		mutate(&c)
+		if err := c.Validate(); err == nil {
+			t.Errorf("%s: want an error", name)
+		}
+	}
+	if err := (MailerConfig{}).Validate(); err == nil {
+		t.Error("zero daily_budget must be rejected")
+	}
+}

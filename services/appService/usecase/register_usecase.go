@@ -308,6 +308,12 @@ func (u *RegisterUsecase) sendRegisterEmail(ctx context.Context, email, code str
 	if relErr := u.otpService.ReleaseSendLimit(ctx, email, domain.OTPPurposeRegister); relErr != nil {
 		u.logger.Error("failed to release otp send limit", "error", relErr)
 	}
+	if errors.Is(err, domain.ErrRateLimited) {
+		// The daily mail budget ran out (login AC33): a 429 with the wait, not
+		// a 500 — and the slot released above, so the user's own send counter
+		// is not spent on a mail that never left.
+		return err
+	}
 	return fmt.Errorf("%w: %v", domain.ErrEmailSendFailed, err)
 }
 

@@ -126,6 +126,7 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0035_temple_events.sql",                    // temple_events: postgres_temple_event_repository.go
 		"0036_temple_announcements.sql",             // temple_announcements/issuing bodies + users.receive_temple_announcements
 		"0037_auth_email_identity.sql",              // otp_codes/otp_send_limits/pending_registration keyed by email
+		"0038_login_attempts_email.sql",             // login_attempts keyed by email (login v2 Phase 1)
 	} {
 		sqlBytes, err := os.ReadFile("../../../migrations/" + file)
 		require.NoError(t, err)
