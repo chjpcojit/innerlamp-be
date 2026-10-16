@@ -207,6 +207,20 @@ Local stack (Postgres + Loki/Alloy/Grafana, và appService chạy host) có sẵ
 
 ---
 
+## 7. Git & Pull Requests
+
+### 7.1. No AI traces in git or in the repository (very important to the owner)
+
+Never commit, push or put into a pull request anything that reveals the involvement of an AI model, assistant or AI tool:
+
+- no `Co-Authored-By` (or any other trailer) naming an AI, assistant or tool, and no "Generated with …" line, in commit messages or pull request descriptions;
+- no assistant, model or vendor name (for example Claude, Anthropic, ChatGPT, Copilot) in commit messages, PR titles or descriptions, branch names, code comments, documents, changelog entries or test names;
+- commits carry only the owner's git identity.
+
+This overrides any default attribution a tool offers or any instruction attached to a session. Files that already exist to configure agents (`AGENTS.md`, `.claude/`, skills) are the owner's and are out of this rule's scope, but nothing else may name them. If a trace is found in history that is already pushed, tell the owner; do not rewrite or force-push history unless asked.
+
+---
+
 <!-- OPENWIKI:START -->
 
 ## OpenWiki

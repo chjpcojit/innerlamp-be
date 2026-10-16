@@ -38,3 +38,5 @@ docker-compose*.yml
 
 # --- Version control / git internals (defense in depth) ---
 # .git/*
+# --- Design prototype exports (edited in the design tool, not by agents) ---
+Docs/innerlamp-project/project/*.dc.html
