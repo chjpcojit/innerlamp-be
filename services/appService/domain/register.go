@@ -111,12 +111,21 @@ type RegistrationRepository interface {
 	// SavePendingAndIssueOTP stores the account payload under pending.Email and
 	// issues a fresh code for (email, register), in one transaction (Step R-7).
 	//
-	// The send policy is applied first: a refused send writes nothing and
-	// returns *OTPResendTooSoonError / *OTPSendLimitedError. Then the payload is
-	// UPSERTed on email (replacing an earlier pending row of the same email,
-	// AccountExists included), any still-active code for the pair is
-	// invalidated, and the new code is inserted. No users row is written.
-	SavePendingAndIssueOTP(ctx context.Context, pending *PendingRegistration, otpHash string, expiresAt time.Time, limits SendLimits) (*SendState, error)
+	// Inside the transaction the email is serialised (advisory lock + FOR
+	// UPDATE on the pending row), then: if a live code exists (otp_codes row
+	// for (email, register) with used_at NULL and expires_at in the future)
+	// and canReplace(existing) is false, nothing is written and
+	// *RegistrationInProgressError is returned (AC24). Only then is the send
+	// policy applied — a refused send writes nothing and returns
+	// *OTPResendTooSoonError / *OTPSendLimitedError. Then the payload is
+	// UPSERTed on email (AccountExists included), any still-active code for the
+	// pair is invalidated, and the new code is inserted. No users row is
+	// written.
+	//
+	// canReplace decides "same payload" (the repository must not hash or
+	// compare passwords). It is called at most once, only when a pending row
+	// and a live code both exist, with the locked row. nil means "always".
+	SavePendingAndIssueOTP(ctx context.Context, pending *PendingRegistration, otpHash string, expiresAt time.Time, limits SendLimits, canReplace func(existing *PendingRegistration) bool) (*SendState, error)
 
 	// FindPendingRegistration loads the payload waiting for the normalised
 	// email. Returns ErrPendingRegistrationNotFound if none exists, and

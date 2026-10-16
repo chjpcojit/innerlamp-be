@@ -1,8 +1,8 @@
 # Design — onboarding
 
-Version: 8.1
+Version: 8.2
 Last updated: 2026-10-16
-Status: implemented (v8.1) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
+Status: implemented (v8.2) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -77,11 +77,18 @@ tài khoản" không lộ thông tin, và thêm giới hạn theo IP (middleware
 - Cả hai nhánh làm cùng công việc (AC2).
 
 **Step R-7 — Ghi pending + mã (một transaction)**
-- API: `SavePendingAndIssueOTP(pending{…, AccountExists}, codeHash, expiresAt, limits)`.
-- Trong transaction: áp send policy trên `otp_send_limits (email, 'register')` → UPSERT
-  `pending_registration` theo email (ghi đè lượt cũ, `expires_at = now() + pending_registration_ttl`) →
-  vô hiệu mã đang sống → INSERT `otp_codes`.
-- Failure: `429 OTP_RESEND_TOO_SOON` / `OTP_SEND_LIMITED` (AC9), không ghi gì.
+- API: `SavePendingAndIssueOTP(pending{…, AccountExists}, codeHash, expiresAt, limits, canReplace)`;
+  `canReplace(existing) bool` do usecase dựng (so SĐT, họ tên, pháp danh, chùa và
+  `PasswordHasher.Compare(existing.PasswordHash, password)`); repository không băm/so mật khẩu.
+- Trong transaction, theo thứ tự: khoá email (`pg_advisory_xact_lock`) + `SELECT … FOR UPDATE` hàng
+  pending → nếu có mã sống (`otp_codes` `(email,'register')`, `used_at IS NULL AND expires_at > now()`) mà
+  `canReplace` = false → `409 REGISTRATION_IN_PROGRESS` (AC24), chưa ghi/đếm gì → áp send policy trên
+  `otp_send_limits (email, 'register')` → UPSERT `pending_registration` theo email
+  (`expires_at = now() + pending_registration_ttl`) → vô hiệu mã đang sống → INSERT `otp_codes`.
+  Kiểm tra chạy TRƯỚC send policy nên request bị từ chối không để lại dấu vết và không tốn lượt gửi.
+- Failure: `409 REGISTRATION_IN_PROGRESS` (+`retry_after_seconds` = giây tới khi mã sống hết hạn, làm tròn lên,
+  tối thiểu 1); `429 OTP_RESEND_TOO_SOON` / `OTP_SEND_LIMITED` (AC9); đều không ghi gì. Hai nhánh
+  `account_exists` đều ghi hàng pending nên đều có thể gặp 409 y hệt (AC2).
 
 **Step R-8 — Gửi thư (sau commit)**
 - API: `AuthMailer.SendRegisterCode(email, code, ttl)` hoặc, khi `AccountExists`,
@@ -145,6 +152,12 @@ Idempotent theo quy ước repo (`IF EXISTS` / `IF NOT EXISTS`).
 > ⚠️ Not confirmed: nhà cung cấp email thật (khuyến nghị Resend: miễn phí 3.000 thư/tháng, 100/ngày; hoặc Amazon SES) — chỉ chặn production, cần mua domain gửi thư trước (ADR-0003 rule 7, "Tạm mock").
 
 ## Known gaps
+
+- Bảo mật (v8.2, AC24): trước đây `request-otp` ghi đè hàng pending của email bất kỳ, nên kẻ lạ thay được
+  mật khẩu/SĐT rồi nạn nhân nhập mã mail tới mình (pre-hijack). Nay chỉ ghi đè khi không có mã sống hoặc cùng
+  payload. Còn lại: kẻ lạ vẫn có thể bắt nạn nhân chờ tới `otp.ttl` (tối đa 10 phút) bằng cách gửi trước
+  payload của mình; thư mã không mời vẫn có thể gửi tới email của người khác (bị chặn bởi send limit, AC9);
+  thư "email đã có tài khoản" không bị ảnh hưởng.
 
 - Thời gian gọi mailer khác nhau giữa thư mã và thư báo là nhỏ (cùng một API) — chấp nhận.
 - Hàng hết hạn trong `pending_registration`, `otp_codes`, `auth_rate_limits` chưa có job dọn

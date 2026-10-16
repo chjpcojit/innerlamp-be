@@ -1,8 +1,8 @@
 # Requirements — onboarding
 
-Version: 8.1
+Version: 8.2
 Last updated: 2026-10-16
-Status: implemented (v8.1) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
+Status: implemented (v8.2) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
 Module: `identity`
 Code: `services/appService/`
 Product spec: `docs/product/onboarding/product.md` @ v1.2
@@ -48,7 +48,7 @@ Cả bốn route đều public. Mã lỗi là nội dung `error.code` của enve
 
 **Bước 1 — `POST /v1/auth/register/request-otp`**
 
-1. WHEN a request arrives with valid fields and an email that has no account, THE SYSTEM SHALL normalise the email (trim, lower-case), store the payload with the password hash in `pending_registration` keyed by that email (replacing an earlier pending row of the same email), issue a 6-digit code for purpose `register`, email it, and return `200` with `expires_in_seconds` (= `otp.ttl`) and `resend_after_seconds` (= `otp.send_cooldown`), creating no `users` row. (FR-ONB-003, BR-ONB-08)
+1. WHEN a request arrives with valid fields and an email that has no account, THE SYSTEM SHALL normalise the email (trim, lower-case), store the payload with the password hash in `pending_registration` keyed by that email (replacing an earlier pending row of the same email only when that row has no live code or the new payload is the same — AC24), issue a 6-digit code for purpose `register`, email it, and return `200` with `expires_in_seconds` (= `otp.ttl`) and `resend_after_seconds` (= `otp.send_cooldown`), creating no `users` row. (FR-ONB-003, BR-ONB-08)
 2. WHEN a request arrives with valid fields and an email that already belongs to an account, THE SYSTEM SHALL return the same `200` body as AC1, apply the same send limits, store the pending row marked `account_exists`, issue a code that is never disclosed, and email the account-exists notice instead of the code. Response body, status and the work done before answering (password hash, code hash, one mail call) SHALL be the same as AC1. (BR-ONB-08, NFR-ONB-01)
 3. WHEN `email` is not valid per `rules/email.json` after normalisation, THE SYSTEM SHALL reply `400 INVALID_EMAIL` (details `{field: "email"}`) and write nothing. (BR-ONB-05)
 4. WHEN `phone_country` + `phone_number` are not valid per `rules/phone-number.json` (country not in the list, wrong digit count after dropping separators and one leading 0), THE SYSTEM SHALL reply `400 INVALID_PHONE` (details `{field: "phone_number"}`) and write nothing; WHEN valid, THE SYSTEM SHALL store the E.164 form the vector gives. (BR-ONB-04)
@@ -80,6 +80,7 @@ Cả bốn route đều public. Mã lỗi là nội dung `error.code` của enve
 21. WHEN the service starts with `otp.dev_fixed_code` set or `mailer.provider = log` and `app.environment` is not `dev`, THE SYSTEM SHALL refuse to start. (ADR-0003 rules 6, 7)
 22. WHEN any route of this feature exceeds its per-IP budget or the daily email budget, THE SYSTEM SHALL reply `429 RATE_LIMITED` with `retry_after_seconds` (login AC31–AC35). (NFR-ONB-02)
 23. WHEN a temple proposal is sent after the account exists, THE SYSTEM SHALL handle it through the existing `POST /v1/temple-suggestions` unchanged (street line optional, province and ward required codes). (FR-ONB-006, BR-ONB-10)
+24. WHEN a pending row exists for the email and a code for `(email, register)` is still live (unused and unexpired, a locked code included) and the request's payload differs from the stored one — phone, full name, dharma name, ordination temple, or a password that does not verify against the stored hash — THE SYSTEM SHALL reply `409 REGISTRATION_IN_PROGRESS` with `retry_after_seconds` (seconds until that code expires, rounded up, at least 1), and SHALL NOT change the pending row, the codes or the send counters, consume a send slot, or send any email. WHEN the payload is the same, or no live code exists, AC1/AC2 apply as before. The check and the write SHALL happen in one transaction under a lock on the email, and SHALL give the same answer for an email with and without an account. (BR-ONB-08, NFR-ONB-03; security review 2026-10-16)
 
 ### API contract (confirmed surface for this feature)
 
@@ -87,7 +88,7 @@ Thay đổi tại chỗ (cùng path, đổi body), trừ `resend-otp` chuyển p
 
 | Method | Path | Request | Success | Failure codes |
 |---|---|---|---|---|
-| POST | `/v1/auth/register/request-otp` | `{ email, password, phone_country, phone_number, full_name, dharma_name?, ordination_temple_id? }` | `200` `{ message, expires_in_seconds, resend_after_seconds }` | `400 VALIDATION_ERROR / INVALID_EMAIL / INVALID_PHONE / INVALID_PASSWORD / INVALID_FULL_NAME / INVALID_DHARMA_NAME / INVALID_TEMPLE`, `409 PHONE_TAKEN`, `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / OTP_LOCKED / RATE_LIMITED`, `500 EMAIL_SEND_FAILED` |
+| POST | `/v1/auth/register/request-otp` | `{ email, password, phone_country, phone_number, full_name, dharma_name?, ordination_temple_id? }` | `200` `{ message, expires_in_seconds, resend_after_seconds }` | `400 VALIDATION_ERROR / INVALID_EMAIL / INVALID_PHONE / INVALID_PASSWORD / INVALID_FULL_NAME / INVALID_DHARMA_NAME / INVALID_TEMPLE`, `409 PHONE_TAKEN / REGISTRATION_IN_PROGRESS` (+`retry_after_seconds`), `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / OTP_LOCKED / RATE_LIMITED`, `500 EMAIL_SEND_FAILED` |
 | POST | `/v1/auth/register/resend-otp` (thay `/v1/auth/resend-otp`) | `{ email }` | `200` `{ message, expires_in_seconds, resend_after_seconds, resend_remaining }` | `400 VALIDATION_ERROR / INVALID_EMAIL / PENDING_REGISTRATION_EXPIRED`, `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / OTP_LOCKED / RATE_LIMITED`, `500 EMAIL_SEND_FAILED` |
 | POST | `/v1/auth/register/verify-otp` | `{ email, otp_code }` | `201` `{ access_token, refresh_token, expires_in, user }` | `400 VALIDATION_ERROR / INVALID_EMAIL / OTP_INVALID / OTP_EXPIRED / PENDING_REGISTRATION_EXPIRED / INVALID_TEMPLE`, `409 PHONE_TAKEN`, `429 OTP_LOCKED / RATE_LIMITED` |
 

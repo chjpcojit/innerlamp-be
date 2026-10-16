@@ -52,6 +52,14 @@ var (
 	// AC19). Mapped to 400 INVALID_TEMPLE.
 	ErrInvalidTemple = errors.New("ordination temple does not exist")
 
+	// ErrRegistrationInProgress — a pending registration for this email still
+	// has a live code and the submitted payload differs from the stored one
+	// (onboarding AC24). Refusing it, rather than overwriting, is what stops a
+	// stranger replacing a victim's pending password/phone with their own
+	// (account pre-hijacking). Always returned as *RegistrationInProgressError
+	// so the retry-after reaches the 409 body.
+	ErrRegistrationInProgress = errors.New("a registration for this email is already in progress")
+
 	// ErrOTPInvalid — the submitted OTP is wrong, or there is no active OTP
 	// to check it against (AC4). One sentinel for every "this code does not
 	// work" case on purpose: distinguishing "wrong" from "already used" from
@@ -206,6 +214,16 @@ func (e *OTPResendTooSoonError) Error() string {
 }
 
 func (e *OTPResendTooSoonError) Unwrap() error { return ErrOTPResendTooSoon }
+
+// RegistrationInProgressError carries the seconds until the live code expires
+// (ceil, at least 1) — the payload behind 409 REGISTRATION_IN_PROGRESS.
+type RegistrationInProgressError struct {
+	RetryAfterSeconds int
+}
+
+func (e *RegistrationInProgressError) Error() string { return ErrRegistrationInProgress.Error() }
+
+func (e *RegistrationInProgressError) Unwrap() error { return ErrRegistrationInProgress }
 
 // OTPSendLimitedError reports that the per-(email, purpose) send cap is reached and when
 // sending unlocks — AC5, and the payload behind the 429's locked_until detail.

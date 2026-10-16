@@ -363,3 +363,17 @@ func keys(m map[string]any) []string {
 	}
 	return out
 }
+
+// AC24: a live code for a different payload is a 409 carrying the wait.
+func TestRegisterHandler_RequestOTP_RegistrationInProgress(t *testing.T) {
+	h, uc := newTestHandler(t)
+	uc.On("RequestOTP", mock.Anything, mock.Anything).
+		Return(nil, fmt.Errorf("save: %w", &domain.RegistrationInProgressError{RetryAfterSeconds: 321}))
+
+	rec := doRequest(h.RequestOTP, requestBody)
+
+	require.Equal(t, http.StatusConflict, rec.Code)
+	body := decodeErrorBody(t, rec)
+	require.Equal(t, "REGISTRATION_IN_PROGRESS", body.Code)
+	require.Equal(t, float64(321), body.Details["retry_after_seconds"])
+}

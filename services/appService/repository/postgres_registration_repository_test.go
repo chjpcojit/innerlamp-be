@@ -4,8 +4,10 @@ import (
 	"context"
 	"database/sql"
 	"errors"
+	"fmt"
 	"os"
 	"strconv"
+	"sync"
 	"testing"
 	"time"
 
@@ -268,7 +270,7 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 		pending := newPending("a@example.com", "+84900000010")
 		pending.DharmaName = &dharma
 
-		state, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(10*time.Minute), testSendLimits())
+		state, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(10*time.Minute), testSendLimits(), nil)
 		require.NoError(t, err)
 		require.NotZero(t, pending.ID)
 		require.Equal(t, 0, state.SendCount)
@@ -289,7 +291,7 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 	t.Run("same email overwrites the pending row and invalidates the old code", func(t *testing.T) {
 		truncateAll(t, db)
 		email := "same@example.com"
-		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000011"), "hash-1", time.Now().Add(10*time.Minute), testSendLimits())
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000011"), "hash-1", time.Now().Add(10*time.Minute), testSendLimits(), nil)
 		require.NoError(t, err)
 		first, err := otpRepo.FindActiveOTP(ctx, email, domain.OTPPurposeRegister)
 		require.NoError(t, err)
@@ -298,7 +300,7 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 		second := newPending(email, "+84900000012")
 		second.PasswordHash = "pw-hash-2"
 		second.AccountExists = true
-		_, err = repo.SavePendingAndIssueOTP(ctx, second, "hash-2", time.Now().Add(10*time.Minute), testSendLimits())
+		_, err = repo.SavePendingAndIssueOTP(ctx, second, "hash-2", time.Now().Add(10*time.Minute), testSendLimits(), nil)
 		require.NoError(t, err)
 
 		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM pending_registration WHERE email = $1`, email))
@@ -318,9 +320,9 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 	t.Run("two pending registrations may hold the same phone", func(t *testing.T) {
 		truncateAll(t, db)
 		phone := "+84900000013"
-		_, err := repo.SavePendingAndIssueOTP(ctx, newPending("one@example.com", phone), "h1", time.Now().Add(10*time.Minute), testSendLimits())
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending("one@example.com", phone), "h1", time.Now().Add(10*time.Minute), testSendLimits(), nil)
 		require.NoError(t, err)
-		_, err = repo.SavePendingAndIssueOTP(ctx, newPending("two@example.com", phone), "h2", time.Now().Add(10*time.Minute), testSendLimits())
+		_, err = repo.SavePendingAndIssueOTP(ctx, newPending("two@example.com", phone), "h2", time.Now().Add(10*time.Minute), testSendLimits(), nil)
 		require.NoError(t, err)
 
 		require.Equal(t, 2, queryInt(t, db, `SELECT count(*) FROM pending_registration WHERE phone_number = $1`, phone))
@@ -329,11 +331,11 @@ func TestRegistrationRepository_SavePendingAndIssueOTP(t *testing.T) {
 	t.Run("refused inside the cooldown and writes nothing", func(t *testing.T) {
 		truncateAll(t, db)
 		email := "cool@example.com"
-		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000014"), "hash-1", time.Now().Add(10*time.Minute), testSendLimits())
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000014"), "hash-1", time.Now().Add(10*time.Minute), testSendLimits(), nil)
 		require.NoError(t, err)
 
 		again := newPending(email, "+84900000015")
-		_, err = repo.SavePendingAndIssueOTP(ctx, again, "hash-2", time.Now().Add(10*time.Minute), testSendLimits())
+		_, err = repo.SavePendingAndIssueOTP(ctx, again, "hash-2", time.Now().Add(10*time.Minute), testSendLimits(), nil)
 		require.ErrorIs(t, err, domain.ErrOTPResendTooSoon)
 
 		got, err := repo.FindPendingRegistration(ctx, email)
@@ -884,7 +886,7 @@ func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
 			PhoneNumber: phone, Email: "t1@example.com", PasswordHash: "hash",
 			OrdinationTempleID: &templeID, ExpiresAt: time.Now().Add(time.Hour),
 		}
-		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits())
+		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits(), nil)
 		require.NoError(t, err)
 
 		loaded, err := repo.FindPendingRegistration(ctx, "t1@example.com")
@@ -912,7 +914,7 @@ func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
 			PhoneNumber: phone, Email: "t2@example.com", PasswordHash: "hash",
 			ExpiresAt: time.Now().Add(time.Hour),
 		}
-		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits())
+		_, err := repo.SavePendingAndIssueOTP(ctx, pending, "otphash", time.Now().Add(90*time.Second), testSendLimits(), nil)
 		require.NoError(t, err)
 
 		loaded, err := repo.FindPendingRegistration(ctx, "t2@example.com")
@@ -939,5 +941,142 @@ func TestRegistrationRepository_OrdinationTemple(t *testing.T) {
 		require.Zero(t, users)
 		_, err = repo.FindPendingRegistration(ctx, "t3@example.com")
 		require.NoError(t, err, "pending payload must survive the rollback")
+	})
+}
+
+// AC24: while a live code exists only the same payload may replace the row.
+// Always run with TEST_DB_NAME=innerlamp_test.
+func TestRegistrationRepository_SavePendingAndIssueOTP_LiveCodeGuard(t *testing.T) {
+	db := connectTestDB(t)
+	repo := NewRegistrationRepository(db)
+	ctx := context.Background()
+	deny := func(*domain.PendingRegistration) bool { return false }
+	allow := func(*domain.PendingRegistration) bool { return true }
+
+	type snapshot struct {
+		phone, hash, otpHash string
+		otpRows, limitRows   int
+		sendCount            int
+	}
+	snap := func(t *testing.T, email string) snapshot {
+		t.Helper()
+		var s snapshot
+		require.NoError(t, db.QueryRow(ctx, `SELECT phone_number, password_hash FROM pending_registration WHERE email = $1`, email).Scan(&s.phone, &s.hash))
+		require.NoError(t, db.QueryRow(ctx, `SELECT otp_hash FROM otp_codes WHERE email = $1 AND used_at IS NULL`, email).Scan(&s.otpHash))
+		s.otpRows = queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE email = $1`, email)
+		s.limitRows = queryInt(t, db, `SELECT count(*) FROM otp_send_limits WHERE email = $1`, email)
+		s.sendCount = queryInt(t, db, `SELECT send_count FROM otp_send_limits WHERE email = $1`, email)
+		return s
+	}
+
+	t.Run("different payload with a live code is refused and nothing changes", func(t *testing.T) {
+		truncateAll(t, db)
+		email := "victim@example.com"
+		victim := newPending(email, "+84900000100")
+		victim.PasswordHash = "victim-hash"
+		_, err := repo.SavePendingAndIssueOTP(ctx, victim, "victim-otp", time.Now().Add(10*time.Minute), testSendLimits(), nil)
+		require.NoError(t, err)
+		ageSendLimit(t, db, email) // past the cooldown: only the guard can refuse
+		before := snap(t, email)
+
+		attacker := newPending(email, "+84900000999")
+		attacker.PasswordHash = "attacker-hash"
+		var seen *domain.PendingRegistration
+		_, err = repo.SavePendingAndIssueOTP(ctx, attacker, "attacker-otp", time.Now().Add(10*time.Minute), testSendLimits(),
+			func(existing *domain.PendingRegistration) bool { seen = existing; return false })
+
+		require.ErrorIs(t, err, domain.ErrRegistrationInProgress)
+		busy, ok := errors.AsType[*domain.RegistrationInProgressError](err)
+		require.True(t, ok)
+		require.GreaterOrEqual(t, busy.RetryAfterSeconds, 1)
+		require.LessOrEqual(t, busy.RetryAfterSeconds, 600)
+		require.NotNil(t, seen)
+		require.Equal(t, "victim-hash", seen.PasswordHash)
+		require.Equal(t, "+84900000100", seen.PhoneNumber)
+		require.Equal(t, before, snap(t, email), "row, codes and send counters are untouched")
+	})
+
+	t.Run("same payload replaces the row and issues a new code", func(t *testing.T) {
+		truncateAll(t, db)
+		email := "same-payload@example.com"
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000101"), "otp-1", time.Now().Add(10*time.Minute), testSendLimits(), nil)
+		require.NoError(t, err)
+		ageSendLimit(t, db, email)
+
+		again := newPending(email, "+84900000101")
+		again.PasswordHash = "pw-hash-new"
+		_, err = repo.SavePendingAndIssueOTP(ctx, again, "otp-2", time.Now().Add(10*time.Minute), testSendLimits(), allow)
+		require.NoError(t, err)
+
+		got := snap(t, email)
+		require.Equal(t, "pw-hash-new", got.hash)
+		require.Equal(t, "otp-2", got.otpHash)
+	})
+
+	t.Run("callback is not consulted when the previous code is expired or used", func(t *testing.T) {
+		truncateAll(t, db)
+		email := "expired@example.com"
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000102"), "otp-1", time.Now().Add(10*time.Minute), testSendLimits(), nil)
+		require.NoError(t, err)
+		ageSendLimit(t, db, email)
+		_, err = db.Exec(ctx, `UPDATE otp_codes SET expires_at = now() - interval '1 minute' WHERE email = $1`, email)
+		require.NoError(t, err)
+
+		_, err = repo.SavePendingAndIssueOTP(ctx, newPending(email, "+84900000777"), "otp-2", time.Now().Add(10*time.Minute), testSendLimits(), deny)
+		require.NoError(t, err)
+		require.Equal(t, "+84900000777", snap(t, email).phone)
+	})
+
+	t.Run("no pending row means the callback is never called", func(t *testing.T) {
+		truncateAll(t, db)
+		_, err := repo.SavePendingAndIssueOTP(ctx, newPending("fresh@example.com", "+84900000103"), "otp", time.Now().Add(10*time.Minute), testSendLimits(),
+			func(*domain.PendingRegistration) bool { t.Fatal("must not be called"); return false })
+		require.NoError(t, err)
+	})
+
+	t.Run("concurrent different payloads leave exactly one whole payload", func(t *testing.T) {
+		truncateAll(t, db)
+		email := "race@example.com"
+		const n = 12
+		var (
+			wg       sync.WaitGroup
+			mu       sync.Mutex
+			okCount  int
+			rejected int
+			other    []error
+		)
+		for i := 0; i < n; i++ {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+				p := newPending(email, fmt.Sprintf("+8490000%04d", i))
+				p.PasswordHash = fmt.Sprintf("hash-%d", i)
+				phone, hash := p.PhoneNumber, p.PasswordHash
+				_, err := repo.SavePendingAndIssueOTP(ctx, p, fmt.Sprintf("otp-%d", i), time.Now().Add(10*time.Minute), testSendLimits(),
+					func(e *domain.PendingRegistration) bool { return e.PhoneNumber == phone && e.PasswordHash == hash })
+				mu.Lock()
+				defer mu.Unlock()
+				switch {
+				case err == nil:
+					okCount++
+				case errors.Is(err, domain.ErrRegistrationInProgress):
+					rejected++
+				default:
+					other = append(other, err)
+				}
+			}(i)
+		}
+		wg.Wait()
+
+		require.Empty(t, other, "no failure besides the guard (the first request wins; the rest see a live code)")
+		require.Equal(t, 1, okCount, "only the first writer passes while its code is live")
+		require.Equal(t, n-1, rejected)
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM pending_registration WHERE email = $1`, email))
+		got := snap(t, email)
+		var i int
+		_, err := fmt.Sscanf(got.hash, "hash-%d", &i)
+		require.NoError(t, err)
+		require.Equal(t, fmt.Sprintf("+8490000%04d", i), got.phone, "phone and password hash come from the same request")
+		require.Equal(t, fmt.Sprintf("otp-%d", i), got.otpHash)
 	})
 }

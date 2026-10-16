@@ -185,7 +185,10 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 		AccountExists:      accountExists,
 		ExpiresAt:          now.Add(u.pendingRegistrationTTL),
 	}
-	if _, err := u.registrations.SavePendingAndIssueOTP(ctx, pending, otpHash, u.otpService.CodeExpiry(now), u.otpService.SendLimits()); err != nil {
+	if _, err := u.registrations.SavePendingAndIssueOTP(ctx, pending, otpHash, u.otpService.CodeExpiry(now), u.otpService.SendLimits(), u.samePendingPayload(pending, input.Password)); err != nil {
+		if errors.Is(err, domain.ErrRegistrationInProgress) {
+			return nil, err
+		}
 		return nil, fmt.Errorf("save pending registration: %w", err)
 	}
 
@@ -200,6 +203,26 @@ func (u *RegisterUsecase) RequestOTP(ctx context.Context, input domain.RequestRe
 		ExpiresInSeconds:   u.otpService.ExpiresInSeconds(),
 		ResendAfterSeconds: u.otpService.ResendAfterSeconds(),
 	}, nil
+}
+
+// samePendingPayload builds the AC24 decision handed to the repository: the
+// stored row may be replaced only by the same payload — phone, names, temple
+// and a password that verifies against the stored hash. The comparison runs
+// with the row locked, so it is race-free.
+func (u *RegisterUsecase) samePendingPayload(next *domain.PendingRegistration, password string) func(*domain.PendingRegistration) bool {
+	str := func(p *string) string {
+		if p == nil {
+			return ""
+		}
+		return *p
+	}
+	return func(old *domain.PendingRegistration) bool {
+		return old.PhoneNumber == next.PhoneNumber &&
+			str(old.FullName) == str(next.FullName) &&
+			str(old.DharmaName) == str(next.DharmaName) &&
+			str(old.OrdinationTempleID) == str(next.OrdinationTempleID) &&
+			u.passwords.Compare(old.PasswordHash, password) == nil
+	}
 }
 
 // ResendOTP runs Steps S-2…S-5: a new code for a live pending registration,
