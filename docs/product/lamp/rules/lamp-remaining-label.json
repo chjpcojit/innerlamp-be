@@ -1,0 +1,132 @@
+{
+  "rule": [
+    "BR-LMP-12"
+  ],
+  "description": "Which remaining-time label a lit lamp carries. The kind is shared; each platform renders it with its own localized copy (Vietnamese: \"Còn {days} ngày\", \"Còn dưới 1 ngày\").",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "remaining_seconds": "end moment minus the current moment, in seconds (may be zero or negative)"
+  },
+  "output": {
+    "kind": "days | under_one_day | out",
+    "days": "present when kind is days: remaining time in days rounded up, 1 or more"
+  },
+  "cases": [
+    {
+      "name": "a fresh 7-day lamp shows 7 days",
+      "input": {
+        "remaining_seconds": 604800
+      },
+      "expected": {
+        "kind": "days",
+        "days": 7
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "a fresh 49-day lamp shows 49 days",
+      "input": {
+        "remaining_seconds": 4233600
+      },
+      "expected": {
+        "kind": "days",
+        "days": 49
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "exactly 48 hours shows 2 days",
+      "input": {
+        "remaining_seconds": 172800
+      },
+      "expected": {
+        "kind": "days",
+        "days": 2
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "one second over 48 hours rounds up to 3 days",
+      "input": {
+        "remaining_seconds": 172801
+      },
+      "expected": {
+        "kind": "days",
+        "days": 3
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "exactly 24 hours shows 1 day",
+      "input": {
+        "remaining_seconds": 86400
+      },
+      "expected": {
+        "kind": "days",
+        "days": 1
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "one second over 24 hours rounds up to 2 days",
+      "input": {
+        "remaining_seconds": 86401
+      },
+      "expected": {
+        "kind": "days",
+        "days": 2
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "one second under 24 hours shows under one day",
+      "input": {
+        "remaining_seconds": 86399
+      },
+      "expected": {
+        "kind": "under_one_day"
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "a few hours left shows under one day",
+      "input": {
+        "remaining_seconds": 18000
+      },
+      "expected": {
+        "kind": "under_one_day"
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "one second left shows under one day",
+      "input": {
+        "remaining_seconds": 1
+      },
+      "expected": {
+        "kind": "under_one_day"
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "no time left: the lamp is out and is not shown",
+      "input": {
+        "remaining_seconds": 0
+      },
+      "expected": {
+        "kind": "out"
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    },
+    {
+      "name": "past the end moment: the lamp is out and is not shown",
+      "input": {
+        "remaining_seconds": -30
+      },
+      "expected": {
+        "kind": "out"
+      },
+      "source": "BR-LMP-12 (whole days rounded up; under 24 hours is its own label)"
+    }
+  ]
+}

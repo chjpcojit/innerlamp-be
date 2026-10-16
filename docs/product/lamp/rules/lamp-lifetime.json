@@ -1,0 +1,149 @@
+{
+  "rule": [
+    "BR-LMP-03",
+    "BR-LMP-04"
+  ],
+  "description": "End moment of a lamp and whether it is still lit at a given moment. All moments are absolute instants (UTC); the server clock decides.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "lit_at": "instant the lamp was lit, RFC 3339 UTC",
+    "duration_days": "1, 7, 21 or 49",
+    "now": "the instant being checked, RFC 3339 UTC"
+  },
+  "output": {
+    "end_at": "lit_at + duration_days x 24 hours, RFC 3339 UTC",
+    "is_lit": "true while now is earlier than end_at"
+  },
+  "cases": [
+    {
+      "name": "1-day lamp ends exactly 24 hours after lighting",
+      "input": {
+        "lit_at": "2026-10-10T14:00:00Z",
+        "duration_days": 1,
+        "now": "2026-10-10T14:00:00Z"
+      },
+      "expected": {
+        "end_at": "2026-10-11T14:00:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "7-day lamp ends 168 hours after lighting",
+      "input": {
+        "lit_at": "2026-10-10T14:00:00Z",
+        "duration_days": 7,
+        "now": "2026-10-10T14:00:01Z"
+      },
+      "expected": {
+        "end_at": "2026-10-17T14:00:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "21-day lamp",
+      "input": {
+        "lit_at": "2026-10-10T14:00:00Z",
+        "duration_days": 21,
+        "now": "2026-10-10T14:00:01Z"
+      },
+      "expected": {
+        "end_at": "2026-10-31T14:00:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "49-day lamp crosses a month end",
+      "input": {
+        "lit_at": "2026-10-10T14:00:00Z",
+        "duration_days": 49,
+        "now": "2026-10-10T14:00:01Z"
+      },
+      "expected": {
+        "end_at": "2026-11-28T14:00:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "a lamp lit at 21:00 UTC goes out at 21:00 UTC the next day, whatever the viewer's time zone",
+      "input": {
+        "lit_at": "2026-10-10T21:00:00Z",
+        "duration_days": 1,
+        "now": "2026-10-11T20:59:59Z"
+      },
+      "expected": {
+        "end_at": "2026-10-11T21:00:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "1-day lamp lit on a leap day eve ends on the leap day",
+      "input": {
+        "lit_at": "2028-02-28T10:00:00Z",
+        "duration_days": 1,
+        "now": "2028-02-28T10:00:01Z"
+      },
+      "expected": {
+        "end_at": "2028-02-29T10:00:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "7-day lamp across the year end",
+      "input": {
+        "lit_at": "2026-12-28T08:30:00Z",
+        "duration_days": 7,
+        "now": "2026-12-28T08:30:01Z"
+      },
+      "expected": {
+        "end_at": "2027-01-04T08:30:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "one second before the end moment the lamp is still lit",
+      "input": {
+        "lit_at": "2026-10-10T14:00:00Z",
+        "duration_days": 1,
+        "now": "2026-10-11T13:59:59Z"
+      },
+      "expected": {
+        "end_at": "2026-10-11T14:00:00Z",
+        "is_lit": true
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "at the end moment the lamp is out (end moment is exclusive)",
+      "input": {
+        "lit_at": "2026-10-10T14:00:00Z",
+        "duration_days": 1,
+        "now": "2026-10-11T14:00:00Z"
+      },
+      "expected": {
+        "end_at": "2026-10-11T14:00:00Z",
+        "is_lit": false
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    },
+    {
+      "name": "after the end moment the lamp is out",
+      "input": {
+        "lit_at": "2026-10-10T14:00:00Z",
+        "duration_days": 1,
+        "now": "2026-10-12T00:00:00Z"
+      },
+      "expected": {
+        "end_at": "2026-10-11T14:00:00Z",
+        "is_lit": false
+      },
+      "source": "arithmetic from BR-LMP-03 (days x 24 hours) and BR-LMP-04"
+    }
+  ]
+}
