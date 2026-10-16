@@ -328,6 +328,13 @@ func (u *RegisterUsecase) sendRegisterEmail(ctx context.Context, email, code str
 	}
 
 	u.logger.Error("failed to send registration email", "error", err)
+	// The code was committed before the send, but the user never got it: retire
+	// it, or a corrected resubmission would meet a live code and be refused as a
+	// clash. The pending row stays, so resend-otp still works.
+	// Mã đã commit nhưng người dùng chưa nhận: vô hiệu để form sửa lại gửi được ngay.
+	if invErr := u.otpService.InvalidateActive(ctx, email, domain.OTPPurposeRegister); invErr != nil {
+		u.logger.Error("failed to invalidate undelivered code", "error", invErr)
+	}
 	if relErr := u.otpService.ReleaseSendLimit(ctx, email, domain.OTPPurposeRegister); relErr != nil {
 		u.logger.Error("failed to release otp send limit", "error", relErr)
 	}

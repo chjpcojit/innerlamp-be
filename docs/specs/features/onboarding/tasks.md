@@ -1,8 +1,8 @@
 # Tasks — onboarding
 
-Version: 8.3
+Version: 8.4
 Last updated: 2026-10-16
-Status: v8.3 — Phase 1–9 xong trừ `erd.svg`, OKF và product spec §4.2 (giới hạn theo IP đã làm ở login v2.4; `openapi.yaml` xong ở v8.3). Task của v1–v7.5 đã xong và nằm trong git history / `changelog.md`.
+Status: v8.4 — Phase 1–9 xong trừ `erd.svg`, OKF và product spec §4.2 (giới hạn theo IP đã làm ở login v2.4; `openapi.yaml` xong ở v8.3). Task của v1–v7.5 đã xong và nằm trong git history / `changelog.md`.
 Module: `identity` (spec folder `onboarding`)
 
 > See `changelog.md` in this folder for the version history of this spec.

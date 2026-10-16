@@ -494,6 +494,21 @@ func (r *registrationRepository) ReleaseSendLimit(ctx context.Context, email str
 	return nil
 }
 
+// InvalidateActiveOTP retires the live code for email/purpose after its email
+// could not be sent. It uses the same statement as the issue paths (rows that
+// are already used stay used; a locked row keeps its lock so the wrong-guess
+// deadline still holds), and it is not an error when there is nothing to retire.
+// Vô hiệu mã còn sống sau khi gửi thư lỗi; không có mã thì không lỗi.
+func (r *registrationRepository) InvalidateActiveOTP(ctx context.Context, email string, purpose domain.OTPPurpose) error {
+	if _, err := r.db.Exec(ctx, `
+		UPDATE otp_codes SET used_at = now()
+		WHERE email = $1 AND purpose = $2 AND used_at IS NULL AND (locked_until IS NULL OR locked_until <= now())
+	`, email, string(purpose)); err != nil {
+		return fmt.Errorf("invalidate active otp: %w", err)
+	}
+	return nil
+}
+
 // invalidateActiveOTP marks every unused row for email/purpose as used,
 // without touching rows already locked or spent. Shared by
 // SavePendingAndIssueOTP (flow 1 Step 4(d)) and IssueOTP (Issue OTP Step 2(c))

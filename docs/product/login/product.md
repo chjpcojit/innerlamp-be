@@ -7,7 +7,7 @@
 | Feature code | `LGN` — IDs are `BR-LGN-NN`, `FR-LGN-NNN`, `NFR-LGN-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.3 |
+| Version | 1.4 |
 | Last updated | 2026-10-15 |
 | Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
@@ -548,25 +548,25 @@ sign-in, the lock, sessions, sign-out and reset; the new-password check runs
 
 | ID | Backend | Website | iOS | Android | Note |
 |---|---|---|---|---|---|
-| BR-LGN-01 | drift | drift | drift | drift | Sign-in by phone today; Android requires 8 characters |
-| BR-LGN-02 | drift | drift | done | planned | Lock per phone today; website hard-codes 15 minutes |
+| BR-LGN-01 | done | drift | drift | drift | Website, iOS: sign-in by phone today; Android requires 8 characters |
+| BR-LGN-02 | done | drift | done | planned | Website hard-codes 15 minutes |
 | BR-LGN-03 | done | done | done | planned | |
 | BR-LGN-04 | n/a | drift | drift | planned | Silent today |
-| BR-LGN-05 | planned | planned | drift | planned | Not built; iOS screen is a phone/SMS stub |
+| BR-LGN-05 | done | planned | drift | planned | Clients: iOS screen is a phone/SMS stub |
 | BR-LGN-06 | n/a | done | done | drift | Android enters Home as signed in |
 | BR-LGN-07 | done | done | done | planned | Offline case to check per client |
-| FR-LGN-001 | drift | drift | drift | planned | 2 scenarios |
-| FR-LGN-002 | drift | drift | drift | planned | 1 scenario; message says "Số điện thoại" today |
-| FR-LGN-003 | drift | drift | done | planned | 2 scenarios |
+| FR-LGN-001 | done | drift | drift | planned | 2 scenarios |
+| FR-LGN-002 | done | drift | drift | planned | 1 scenario; clients say "Số điện thoại" today |
+| FR-LGN-003 | done | drift | done | planned | 2 scenarios |
 | FR-LGN-004 | done | done | done | planned | 2 scenarios |
 | FR-LGN-005 | done | drift | drift | planned | 2 scenarios |
 | FR-LGN-006 | done | done | done | planned | 2 scenarios |
 | FR-LGN-007 | n/a | planned | n/a | n/a | 3 scenarios |
-| FR-LGN-008 | planned | planned | drift | planned | 3 scenarios |
-| FR-LGN-009 | planned | planned | planned | planned | 4 scenarios |
+| FR-LGN-008 | done | planned | drift | planned | 3 scenarios |
+| FR-LGN-009 | done | planned | planned | planned | 4 scenarios |
 | FR-LGN-010 | n/a | done | done | drift | 2 scenarios |
 | NFR-LGN-01 | done | n/a | n/a | n/a | Uniform message and timing exist for phone |
-| NFR-LGN-02 | planned | planned | planned | planned | No rate limit today (pentest H-2) |
+| NFR-LGN-02 | done | planned | planned | planned | Backend limits per IP (pentest H-2) |
 | NFR-LGN-03 | n/a | done | done | planned | Android keeps tokens in memory only |
 
 ### 4.3 Test vectors

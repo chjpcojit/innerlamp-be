@@ -20,7 +20,7 @@ Cơ chế OTP dùng chung (otp-mechanism v2.0). Dựng một lần ở compositi
 
 | Tham số | Kiểu | Vai trò |
 |---|---|---|
-| `repo` | `domain.OTPRepository` | `IssueOTP`, `ApplySendLimit`, `FindActiveOTP`, `ConsumeOTPAttempt`, `ReleaseSendLimit` — scope `(email, purpose)` |
+| `repo` | `domain.OTPRepository` | `IssueOTP`, `ApplySendLimit`, `FindActiveOTP`, `ConsumeOTPAttempt`, `ReleaseSendLimit`, `InvalidateActiveOTP` — scope `(email, purpose)` |
 | `logger` | `logging.Logger` | quan sát |
 | `policy` | `config.OTPConfig` | TTL (600s), cooldown, trần gửi, số lần sai, thời gian khoá, `dev_fixed_code` |
 
@@ -59,7 +59,7 @@ Bước 1 (design Step R-2…R-8):
 5. `OTPService.EnsureNotLocked` — mã đang bị khoá nhập sai thì không cấp mã mới (cấp mới = phát lượt đoán mới).
 6. Hash mật khẩu + `OTPService.Generate()` — **cả hai nhánh** làm cùng việc (AC2).
 7. `SavePendingAndIssueOTP` — một transaction, send-limit áp trước (AC9).
-8. Sau commit: `SendRegisterCode` hoặc `SendAccountExistsNotice`. Lỗi → `ReleaseSendLimit` rồi
+8. Sau commit: `SendRegisterCode` hoặc `SendAccountExistsNotice`. Lỗi → `InvalidateActive` (vô hiệu mã chưa tới người dùng) và `ReleaseSendLimit`, rồi
    `ErrEmailSendFailed` (AC10).
 
 ### `ResendOTP(ctx, domain.ResendOTPInput) (*domain.ResendOTPResult, error)`

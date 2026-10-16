@@ -7,8 +7,8 @@
 | Feature code | `ONB` — IDs are `BR-ONB-NN`, `FR-ONB-NNN`, `NFR-ONB-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.4 |
-| Last updated | 2026-10-15 |
+| Version | 1.6 |
+| Last updated | 2026-10-16 |
 | Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
 | API contract | `docs/specs/api/openapi.yaml` (owned by the backend; this spec never restates it) |
@@ -280,19 +280,29 @@ Vietnamese and never contain the password.
 - **Rule:** Submitting the form creates a pending registration and emails a code; no account exists
   yet. The account is created, and the user signed in, only when the right code is entered. A pending
   registration lasts 24 hours; after that the user starts again. Submitting again with the same email
-  replaces the previous pending registration. If the email already belongs to an account, the screen
+  replaces the previous pending registration only when the earlier code has expired or the new details
+  are the same as the stored ones (same phone number, names, ordination temple and password). While the
+  earlier code is still valid and the details differ, the submission is refused: no new code is sent
+  and the pending registration is not changed, so a stranger cannot overwrite someone else's
+  registration. The user stays on the form with every value kept and is told "Vui lòng chờ N giây rồi
+  thử lại" ("Please wait N seconds and try again"), where N is the time left on the earlier code as the
+  backend reports it; clients never assume N. The refusal looks the same for an email that has an
+  account and for one that has none. If the email already belongs to an account, the screen
   behaves exactly as for a new email, and InnerLamp emails that address a notice ("this email already
   has an account — sign in or reset your password") instead of a code, so nobody can learn from the
   screen whether an email is registered (ADR-0003 rule 8). A phone number already used by an account
   is refused on the form with "Số điện thoại này đã được đăng ký", because the number must be unique
   (BR-ONB-04).
 - **Examples:** new email → code emailed. Email of an existing account → same screen, notice emailed,
-  no code works. Pending registration 25 hours old → "Thời gian đăng ký đã hết. Vui lòng đăng ký lại từ
+  no code works. Pending registration with a valid code sent 3 minutes ago, resubmitted with another
+  password → "Vui lòng chờ 420 giây rồi thử lại", form unchanged, no email. Resubmitted with the same
+  details → a new code replaces the old one. Pending registration 25 hours old → "Thời gian đăng ký đã hết. Vui lòng đăng ký lại từ
   đầu."
 - **Computational:** no.
 - **Applies to:** Backend; clients show the outcomes.
-- **Source:** anh Đức, 2026-10-14 (ADR question 7); ADR-0003 rules 2 and 8. Today the backend answers
-  "email already used" openly (drift).
+- **Source:** anh Đức, 2026-10-14 (ADR question 7); ADR-0003 rules 2 and 8; anh Đức, 2026-10-16
+  (refusal while an earlier code is valid; the screen as proposed by the iOS spec). Today the backend
+  answers "email already used" openly (drift) on the clients' side only.
 
 **BR-ONB-09 — Verification code policy**
 - **Rule:**
@@ -408,10 +418,12 @@ Vietnamese and never contain the password.
 - **Description:** WHEN the user submits the registration form with valid values THE SYSTEM SHALL keep
   the registration pending, email a verification code to the given address and open the verification
   code view; WHEN a value is invalid THE SYSTEM SHALL show which field is wrong and why, and keep
-  everything the user typed.
+  everything the user typed; WHEN the same email already has a pending registration whose code is still
+  valid and the submitted details differ from the stored ones THE SYSTEM SHALL stay on the form, keep
+  every value, send no email and tell the user how many seconds to wait before trying again.
 - **Business rules:** BR-ONB-04, BR-ONB-05, BR-ONB-06, BR-ONB-07, BR-ONB-08, BR-ONB-11
 - **Verification method:** shared test vectors on every platform; automated tests; manual QA
-- **Source:** current registration on all platforms; ADR-0003
+- **Source:** current registration on all platforms; ADR-0003; anh Đức, 2026-10-16 (last two scenarios)
 - **Acceptance criteria:**
   ```gherkin
   Scenario: valid form sends a code to the email
@@ -440,6 +452,20 @@ Vietnamese and never contain the password.
     When the user submits a valid form
     Then the user is told the request could not be sent
     And every field keeps its value
+
+  Scenario: a code is still valid and the details differ
+    Given "an@mail.com" was submitted 3 minutes ago and its code is still valid
+    When the user submits "an@mail.com" with another password
+    Then the form stays open with every value kept
+    And the user is told "Vui lòng chờ 420 giây rồi thử lại"
+    And no email is sent
+    And the earlier code still works
+
+  Scenario: the same details are submitted again
+    Given "an@mail.com" was submitted 3 minutes ago and its code is still valid
+    When the user submits the same details again
+    Then the verification code view opens
+    And a new code replaces the old one
   ```
 
 **FR-ONB-004 — Choose the ordination temple**
@@ -664,26 +690,26 @@ Status per platform: `planned` · `in-progress` · `done` · `drift` · `n/a` ·
 | BR-ONB-01 | n/a | n/a | drift | drift | iOS records completion; Android keeps nothing |
 | BR-ONB-02 | n/a | n/a | drift | drift | iOS → registration, Android → intro today |
 | BR-ONB-03 | n/a | n/a | done | done | Android keeps choices in memory only |
-| BR-ONB-04 | drift | drift | done | drift | Backend accepts any valid number; website 9–10 digits, China listed |
-| BR-ONB-05 | drift | done | done | drift | Backend: email not the identifier, case handling to check |
-| BR-ONB-06 | drift | drift | done | drift | Backend has no 64 limit; website counts bytes; Android hint levels differ |
+| BR-ONB-04 | done | drift | done | drift | Website 9–10 digits, China listed |
+| BR-ONB-05 | done | done | done | drift | Android: case handling to check |
+| BR-ONB-06 | done | drift | done | drift | Website counts bytes; Android hint levels differ |
 | BR-ONB-07 | done | drift | drift | drift | Website full name ≥ 2; iOS dharma name required; Android no full name |
-| BR-ONB-08 | drift | drift | drift | planned | Verification by SMS today; email-taken answered openly |
-| BR-ONB-09 | drift | done | done | planned | Backend validity 90 s, fixed code |
+| BR-ONB-08 | done | drift | drift | planned | Verification by SMS today on clients; email-taken answered openly on clients |
+| BR-ONB-09 | done | done | done | planned | Website, iOS, Android: show the times the backend reports |
 | BR-ONB-10 | done | done | drift | drift | iOS never sends the proposal; Android free text |
 | BR-ONB-11 | n/a | drift | drift | drift | Three separate texts today (iOS sheet, web pages, Android static) |
 | FR-ONB-001 | n/a | n/a | done | done | 4 scenarios |
 | FR-ONB-002 | n/a | n/a | drift | drift | 3 scenarios |
-| FR-ONB-003 | drift | drift | drift | planned | 5 scenarios; email code instead of SMS; submit reads "Gửi mã xác thực" on all three clients |
+| FR-ONB-003 | done | drift | drift | planned | 5 scenarios; email code instead of SMS; submit reads "Gửi mã xác thực" on all three clients |
 | FR-ONB-004 | done | done | done | drift | 2 scenarios |
 | FR-ONB-005 | done | done | done | planned | 1 scenario |
 | FR-ONB-006 | done | done | drift | planned | 2 scenarios |
-| FR-ONB-007 | drift | drift | drift | planned | 4 scenarios |
-| FR-ONB-008 | drift | done | drift | planned | 3 scenarios |
+| FR-ONB-007 | done | drift | drift | planned | 4 scenarios |
+| FR-ONB-008 | done | done | drift | planned | 3 scenarios |
 | FR-ONB-009 | n/a | drift | drift | planned | 1 scenario; "Đổi số" today |
 | FR-ONB-010 | done | drift | done | planned | 1 scenario; website stays on the code view |
-| NFR-ONB-01 | drift | n/a | n/a | n/a | Email-taken is revealed today |
-| NFR-ONB-02 | planned | planned | planned | planned | No rate limit today (pentest H-2) |
+| NFR-ONB-01 | done | n/a | n/a | n/a | Backend answers alike for an email with and without an account |
+| NFR-ONB-02 | done | planned | planned | planned | Backend limits per IP; clients show the wait the backend reports |
 | NFR-ONB-03 | done | done | done | planned | |
 
 ### 4.3 Test vectors
@@ -709,6 +735,7 @@ None.
 
 | Question | Resolution | Date |
 |---|---|---|
+| What does the user see when a registration with a valid code is resubmitted with different details? | Stay on the form, keep every value, "Vui lòng chờ N giây rồi thử lại", no email, no change (BR-ONB-08, FR-ONB-003) | 2026-10-16 |
 | Is "Bỏ qua" shown on intro step 3? | Yes, on all three steps, as the apps do today | 2026-10-15 |
 | Registration submit label? | "Đăng ký", not "Gửi mã xác thực" | 2026-10-15 |
 | Street line of a proposed temple? | Optional | 2026-10-14 |

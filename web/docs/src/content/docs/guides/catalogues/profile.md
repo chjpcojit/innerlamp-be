@@ -20,7 +20,7 @@ Năm endpoint đã chạy ở server và luồng upload ảnh (xin vé → uploa
 | Gỡ ảnh đại diện | `DELETE /v1/users/me/avatar` |
 
 :::note
-**Email và số điện thoại chỉ đọc.** Chúng là định danh đăng nhập, nên không đổi được ở đây (đổi cần luồng xác thực riêng, chưa có). Gửi `email` hoặc `phone_number` trong `PATCH` bị từ chối **cả request**.
+**Email và số điện thoại chỉ đọc.** Email là định danh đăng nhập và số điện thoại là thông tin hồ sơ đã xác lập lúc đăng ký, nên không đổi được ở đây (đổi cần luồng xác thực riêng, chưa có). Gửi `email` hoặc `phone_number` trong `PATCH` bị từ chối **cả request**.
 :::
 
 :::note
@@ -36,7 +36,7 @@ Các con số trên trang này (255 ký tự pháp danh, 5 MB ảnh, 5 phút quy
   "success": true,
   "data": {
     "email": "an@example.com",
-    "email_verified": false,
+    "email_verified": true,
     "phone_number": "0901234567",
     "full_name": "Nguyễn Văn An",
     "dharma_name": "Thích Minh An",
@@ -50,7 +50,7 @@ Các con số trên trang này (255 ký tự pháp danh, 5 MB ảnh, 5 phút quy
 | Field | Kiểu | Ghi chú |
 | --- | --- | --- |
 | `email` | string | Luôn có. |
-| `email_verified` | bool | Luôn có. Hiện luôn `false` vì chưa có luồng xác thực email. |
+| `email_verified` | bool | Luôn có. `true` với tài khoản đăng ký qua mã email (email được xác minh ở `verify-otp`), `false` với tài khoản cũ. |
 | `phone_number` | string | Luôn có, đầy đủ, không che. |
 | `full_name` | string | Họ và tên. **Vắng mặt** với tài khoản tạo trước khi đăng ký bắt buộc họ tên. |
 | `dharma_name` | string | Pháp danh. **Vắng mặt** khi chưa có. |

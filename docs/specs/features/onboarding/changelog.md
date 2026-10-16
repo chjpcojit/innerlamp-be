@@ -3,6 +3,17 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v8.4 (2026-10-16)
+
+**Gửi thư lỗi thì vô hiệu mã vừa cấp** — sửa hành vi phía backend, không đổi contract (cùng `500 EMAIL_SEND_FAILED`). Minor bump.
+
+- Vấn đề: ở `request-otp`, hàng pending và mã được commit trước khi gửi thư. Thư lỗi thì người dùng chưa nhận mã nhưng mã vẫn sống tới `otp.ttl`; sửa form (nội dung khác) rồi gửi lại ngay bị AC24 từ chối `409 REGISTRATION_IN_PROGRESS` dù chưa có mã nào tới tay.
+- `requirements.md`: AC10 thêm "vô hiệu mã vừa cấp"; hàng pending giữ nguyên. Product spec cite chuyển sang `product.md` @ v1.6 (v1.5 chỉ đổi ma trận §4.2; v1.6 thêm màn cho `REGISTRATION_IN_PROGRESS`, backend đã làm ở AC24).
+- `design.md`, `flow.md`: Step R-8 (và S-5 qua cùng đường) gọi `OTPService.InvalidateActive` trước `ReleaseSendLimit`; lỗi dọn chỉ log.
+- Code: `OTPRepository.InvalidateActiveOTP`, `OTPService.InvalidateActive`, gọi trong `sendRegisterEmail`; test usecase, otp_service, repository (kể cả kịch bản sửa form sau thư lỗi).
+- Client: không ảnh hưởng. Không đổi mã lỗi, field hay hợp đồng `openapi.yaml`.
+- Mở: password-reset chưa gọi `InvalidateActive` (lỗi thư ở đó bị nuốt, không có AC24 nên không gây 409).
+
 ## v8.3 (2026-10-16)
 
 **`openapi.yaml` khớp hợp đồng đăng ký bằng email** (tasks Phase 9, item 1). Không đổi AC, không đổi code. Minor bump theo quy ước các bản v8.x.

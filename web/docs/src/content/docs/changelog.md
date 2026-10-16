@@ -5,6 +5,11 @@ description: Lịch sử thay đổi của API.
 
 ## v1 (hiện tại)
 
+**Cập nhật 2026-10-16 — phiên bản hợp đồng (`openapi.yaml` 2.1.1):**
+
+- `openapi.yaml` có `info.version` **2.1.1** để client trích dẫn. Từ nay mỗi thay đổi của file bump số này theo semver (MAJOR: phá vỡ client; MINOR: thêm tương thích ngược; PATCH: chỉ sửa chữ), kèm một mục ở changelog này.
+- 2.1.1: `device.platform` của `login` là **tuỳ chọn** (vắng hoặc rỗng thì server lưu `mobile`); chỉ `device.device_model` bắt buộc, `INVALID_DEVICE` chỉ khi thiếu `device` hoặc `device_model`. Hành vi của code không đổi; tài liệu trước đó ghi mâu thuẫn. Client vẫn nên gửi `platform`.
+
 **Cập nhật 2026-10-16 — đăng ký, đăng nhập và quên mật khẩu bằng email:**
 
 Thay đổi hợp đồng, **không tương thích ngược** cho mọi client dùng `/v1/auth/*`. Xác minh tài khoản chuyển từ SMS sang mã gửi qua **email**; đăng nhập bằng email thay cho số điện thoại.

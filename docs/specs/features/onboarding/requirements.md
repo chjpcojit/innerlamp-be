@@ -1,11 +1,11 @@
 # Requirements — onboarding
 
-Version: 8.3
+Version: 8.4
 Last updated: 2026-10-16
-Status: implemented (v8.3) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
+Status: implemented (v8.4) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
 Module: `identity`
 Code: `services/appService/`
-Product spec: `docs/product/onboarding/product.md` @ v1.2
+Product spec: `docs/product/onboarding/product.md` @ v1.6
 Contract: `docs/specs/api/openapi.yaml` (this repo) — đã khớp bảng API bên dưới (v8.3)
 Implements: BR-ONB-04, BR-ONB-05, BR-ONB-06, BR-ONB-07, BR-ONB-08, BR-ONB-09, BR-ONB-10, FR-ONB-003, FR-ONB-004, FR-ONB-005, FR-ONB-006, FR-ONB-007, FR-ONB-008, FR-ONB-010, NFR-ONB-01, NFR-ONB-02, NFR-ONB-03
 Architecture: ADR-0003 (Accepted 2026-10-14)
@@ -57,7 +57,7 @@ Cả bốn route đều public. Mã lỗi là nội dung `error.code` của enve
 7. WHEN the normalised phone number already belongs to an account, THE SYSTEM SHALL reply `409 PHONE_TAKEN` and send nothing. A phone number used only by another pending registration SHALL NOT block the request. (FR-ONB-005, BR-ONB-04)
 8. WHEN `ordination_temple_id` is non-empty and matches no temple, THE SYSTEM SHALL reply `400 INVALID_TEMPLE` and write nothing; empty or absent means "Cư sĩ tu tại gia" and is stored as `NULL`. (FR-ONB-004, BR-ONB-10)
 9. WHEN the send policy refuses the send for `(email, register)` — within the cooldown, or past the cap — THE SYSTEM SHALL reply `429 OTP_RESEND_TOO_SOON` (+`retry_after_seconds`) / `429 OTP_SEND_LIMITED` (+`locked_until`) and write nothing, identically for AC1 and AC2 emails. (BR-ONB-09)
-10. WHEN the mailer fails after the rows were committed, THE SYSTEM SHALL release the send slot and reply `500 EMAIL_SEND_FAILED`. (platform)
+10. WHEN the mailer fails after the rows were committed, THE SYSTEM SHALL release the send slot, retire the code that was just issued (it was never delivered, so it SHALL NOT count as a live code for AC24) and reply `500 EMAIL_SEND_FAILED`; the pending row stays, so `resend-otp` and a corrected resubmission both work. (platform)
 
 **Gửi lại — `POST /v1/auth/register/resend-otp`**
 

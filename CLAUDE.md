@@ -83,6 +83,18 @@ When adding a new driver/provider to any of these packages: implement the interf
 
 Exception: `docs/specs/` and `docs/knowledge/` don't follow the per-folder pattern (spec/OKF docs, not code folders) — linked explicitly where relevant instead.
 
+## OpenAPI versioning rule
+
+`info.version` in `docs/specs/api/openapi.yaml` is the version of the published contract (semver). Clients (website, iOS, Android) cite it, so **every change to `openapi.yaml` bumps it in the same change**; never leave it at the old value:
+
+| Bump | When |
+|---|---|
+| MAJOR | Breaking for an existing client: a path, method, field or error code removed or renamed; a new required request field; a changed type, format, status code or meaning. |
+| MINOR | Backward compatible: a new path, an optional request field, a new response field, a new error code. |
+| PATCH | Wording, examples or descriptions only; no change a client must react to. |
+
+Also: add a dated entry to `web/docs/src/content/docs/changelog.md` that names the new version, and re-sync `web/docs/public/openapi.yaml` (`cd web/docs && node scripts/sync-openapi.mjs`; `npm run dev` / `build` run it too). Several edits in one change get one bump, the highest that applies.
+
 <!-- OPENWIKI:START -->
 
 ## OpenWiki

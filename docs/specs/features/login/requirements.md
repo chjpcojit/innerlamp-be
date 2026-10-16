@@ -5,7 +5,7 @@ Last updated: 2026-10-16
 Status: implemented (v2.5, 2026-10-16) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi. Phần phiên/refresh/logout giữ nguyên từ v1.13.
 Module: `identity`
 Code: `services/appService/`
-Product spec: `docs/product/login/product.md` @ v1.2 (và `docs/product/onboarding/product.md` @ v1.2 cho BR-ONB-05/06/09)
+Product spec: `docs/product/login/product.md` @ v1.4 (và `docs/product/onboarding/product.md` @ v1.6 cho BR-ONB-05/06/09)
 Contract: `docs/specs/api/openapi.yaml` (this repo) — đã khớp bảng API bên dưới (v2.5)
 Implements: BR-LGN-01, BR-LGN-02, BR-LGN-03, BR-LGN-05, BR-LGN-07, FR-LGN-001, FR-LGN-002, FR-LGN-003, FR-LGN-004, FR-LGN-006, FR-LGN-008, FR-LGN-009, NFR-LGN-01, NFR-LGN-02
 Architecture: ADR-0003 (Accepted 2026-10-14)

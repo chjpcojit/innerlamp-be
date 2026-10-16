@@ -497,6 +497,49 @@ func TestRegistrationRepository_SendLimits(t *testing.T) {
 	})
 }
 
+// InvalidateActiveOTP retires the live code of one (email, purpose) after its
+// email could not be sent. Rows that are already spent, locked, for another
+// email or for another purpose stay as they were.
+// Vô hiệu mã còn sống của đúng (email, mục đích); không đụng hàng khác.
+func TestOTPRepository_InvalidateActiveOTP(t *testing.T) {
+	db := connectTestDB(t)
+	otpRepo := NewOTPRepository(db)
+	ctx := context.Background()
+	reg := domain.OTPPurposeRegister
+	email := "undelivered@example.com"
+
+	t.Run("marks the live code used", func(t *testing.T) {
+		truncateAll(t, db)
+		id := insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, nil)
+
+		require.NoError(t, otpRepo.InvalidateActiveOTP(ctx, email, reg))
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE id = $1 AND used_at IS NOT NULL`, id))
+	})
+
+	t.Run("leaves other emails and purposes alone", func(t *testing.T) {
+		truncateAll(t, db)
+		otherEmail := insertOTPRow(t, db, "other@example.com", reg, time.Now().Add(time.Minute), nil, nil)
+		otherPurpose := insertOTPRow(t, db, email, domain.OTPPurposeResetPassword, time.Now().Add(time.Minute), nil, nil)
+
+		require.NoError(t, otpRepo.InvalidateActiveOTP(ctx, email, reg))
+		require.Equal(t, 0, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE id IN ($1, $2) AND used_at IS NOT NULL`, otherEmail, otherPurpose))
+	})
+
+	t.Run("does not touch a code that is already locked", func(t *testing.T) {
+		truncateAll(t, db)
+		locked := time.Now().Add(10 * time.Minute)
+		id := insertOTPRow(t, db, email, reg, time.Now().Add(time.Minute), nil, &locked)
+
+		require.NoError(t, otpRepo.InvalidateActiveOTP(ctx, email, reg))
+		require.Equal(t, 1, queryInt(t, db, `SELECT count(*) FROM otp_codes WHERE id = $1 AND used_at IS NULL`, id))
+	})
+
+	t.Run("no live code is not an error", func(t *testing.T) {
+		truncateAll(t, db)
+		require.NoError(t, otpRepo.InvalidateActiveOTP(ctx, email, reg))
+	})
+}
+
 func TestRegistrationRepository_FindPendingRegistration(t *testing.T) {
 	db := connectTestDB(t)
 	repo := NewRegistrationRepository(db)
@@ -1010,6 +1053,34 @@ func TestRegistrationRepository_SavePendingAndIssueOTP_LiveCodeGuard(t *testing.
 
 		got := snap(t, email)
 		require.Equal(t, "pw-hash-new", got.hash)
+		require.Equal(t, "otp-2", got.otpHash)
+	})
+
+	// The mailer failed after the code was committed: the usecase retires the
+	// undelivered code, and the user's corrected resubmission goes through even
+	// though its payload differs. Without InvalidateActiveOTP it would be refused.
+	// Mail lỗi -> vô hiệu mã chưa gửi tới -> form sửa lại (nội dung khác) vẫn gửi được.
+	t.Run("a different payload is accepted once the undelivered code is invalidated", func(t *testing.T) {
+		truncateAll(t, db)
+		email := "mail-failed@example.com"
+		first := newPending(email, "+84900000102")
+		first.PasswordHash = "first-hash"
+		_, err := repo.SavePendingAndIssueOTP(ctx, first, "otp-never-delivered", time.Now().Add(10*time.Minute), testSendLimits(), nil)
+		require.NoError(t, err)
+		ageSendLimit(t, db, email)
+
+		corrected := newPending(email, "+84900000103")
+		corrected.PasswordHash = "corrected-hash"
+		_, err = repo.SavePendingAndIssueOTP(ctx, corrected, "otp-2", time.Now().Add(10*time.Minute), testSendLimits(), deny)
+		require.ErrorIs(t, err, domain.ErrRegistrationInProgress, "precondition: the live code refuses a different payload")
+
+		require.NoError(t, NewOTPRepository(db).InvalidateActiveOTP(ctx, email, domain.OTPPurposeRegister))
+
+		_, err = repo.SavePendingAndIssueOTP(ctx, corrected, "otp-2", time.Now().Add(10*time.Minute), testSendLimits(), deny)
+		require.NoError(t, err)
+		got := snap(t, email)
+		require.Equal(t, "corrected-hash", got.hash)
+		require.Equal(t, "+84900000103", got.phone)
 		require.Equal(t, "otp-2", got.otpHash)
 	})
 

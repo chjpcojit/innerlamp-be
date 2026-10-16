@@ -1,5 +1,27 @@
 # Changelog — onboarding product spec
 
+## v1.6 — 2026-10-16
+
+- Resolved (anh Đức, "Theo đề xuất của iOS"): what the user sees when a registration whose code is still
+  valid is submitted again with different details. BR-ONB-08 now says an earlier pending registration is
+  replaced only when its code has expired or the details are the same; otherwise the form stays open with
+  every value kept, "Vui lòng chờ N giây rồi thử lại" (N from the backend), no email, nothing changed.
+  FR-ONB-003 gains the sentence and two scenarios. Raised by the iOS spec (assumption AS-Onboarding-001)
+  and the Android spec (criterion 15a, was `⚠️ Not confirmed`).
+- The rule is already how the backend behaves (onboarding backend spec v8.2, AC24, security review
+  2026-10-16); until now the product spec was silent, so no client had a defined screen. Because the
+  user-visible answer is new, clients citing v1.5 must add the screen.
+- Platforms to follow up: Website, iOS, Android (the refusal view; iOS and Android already hold the same
+  assumption). Backend: none.
+
+## v1.5 — 2026-10-16
+
+- Traceability matrix only (§4.2), no requirement changed: the Backend column is `done` for BR-ONB-04,
+  BR-ONB-05, BR-ONB-06, BR-ONB-08, BR-ONB-09, FR-ONB-003, FR-ONB-007, FR-ONB-008, NFR-ONB-01 and
+  NFR-ONB-02 (email registration and per-IP limits shipped on the backend, 2026-10-16); five notes
+  reworded. Platform specs citing v1.2–v1.4 stay valid.
+- Platforms to follow up: none for the backend. Website, iOS, Android: their own columns are unchanged.
+
 ## v1.4 — 2026-10-15
 
 - Clarified (anh Đức, after the registration UI audit): "Bỏ qua" (skip) is shown on all three intro

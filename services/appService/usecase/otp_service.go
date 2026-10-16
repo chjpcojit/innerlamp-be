@@ -144,6 +144,17 @@ func (s *OTPService) ReleaseSendLimit(ctx context.Context, email string, purpose
 	return nil
 }
 
+// InvalidateActive retires the live code for email/purpose. A caller whose
+// email failed to send calls it, so the code the user never received cannot
+// block a corrected resubmission.
+// Vô hiệu mã còn sống khi thư gửi lỗi.
+func (s *OTPService) InvalidateActive(ctx context.Context, email string, purpose domain.OTPPurpose) error {
+	if err := s.repo.InvalidateActiveOTP(ctx, email, purpose); err != nil {
+		return fmt.Errorf("invalidate active otp: %w", err)
+	}
+	return nil
+}
+
 // Verify runs otp-mechanism Steps V-1…V-4: find the active code, refuse it when
 // locked or expired, reserve one attempt atomically, and only then compare the
 // hash. On success it returns the row; the caller marks it used inside its own
