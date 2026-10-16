@@ -186,6 +186,14 @@ func TestOTPService_ReleaseSendLimit(t *testing.T) {
 	f.repo.AssertExpectations(t)
 }
 
+func TestOTPService_InvalidateActive(t *testing.T) {
+	f := newOTPFixture()
+	f.repo.On("InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
+
+	require.NoError(t, f.service.InvalidateActive(context.Background(), testEmail, domain.OTPPurposeRegister))
+	f.repo.AssertExpectations(t)
+}
+
 func TestOTPService_EnsureNotLocked(t *testing.T) {
 	lockedUntil := testNow.Add(10 * time.Minute)
 	past := testNow.Add(-time.Minute)

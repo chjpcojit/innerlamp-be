@@ -409,13 +409,36 @@ func TestRequestOTP_MailerFailure(t *testing.T) {
 				f.mailer.On("SendRegisterCode", mock.Anything, testEmail, mock.Anything, mock.Anything).Return(mailErr)
 			}
 			f.otpRepo.On("ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
+			f.otpRepo.On("InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
 
 			_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
 
 			assert.ErrorIs(t, err, domain.ErrEmailSendFailed)
 			f.otpRepo.AssertCalled(t, "ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister)
+			// The code the user never received must not stay live: it would make a
+			// corrected resubmission look like a clash (REGISTRATION_IN_PROGRESS).
+			// Mã người dùng chưa nhận không được còn hiệu lực.
+			f.otpRepo.AssertCalled(t, "InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister)
 		})
 	}
+}
+
+// A failure to invalidate the undelivered code is only logged: the caller still
+// learns that the email failed, and the send slot is still released.
+// Lỗi vô hiệu mã chỉ ghi log, người dùng vẫn nhận EMAIL_SEND_FAILED.
+func TestRequestOTP_MailerFailure_InvalidateFails(t *testing.T) {
+	f := newRegisterFixture()
+	f.stubUpToSave(false)
+	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{}, nil)
+	f.mailer.On("SendRegisterCode", mock.Anything, testEmail, mock.Anything, mock.Anything).Return(errors.New("smtp down"))
+	f.otpRepo.On("ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
+	f.otpRepo.On("InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(errors.New("db down"))
+
+	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
+
+	assert.ErrorIs(t, err, domain.ErrEmailSendFailed)
+	f.otpRepo.AssertCalled(t, "ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister)
+	f.otpRepo.AssertCalled(t, "InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister)
 }
 
 // Login AC33: an exhausted daily mail budget is a 429 with its wait, not a 500
@@ -427,6 +450,7 @@ func TestRequestOTP_MailBudgetExhausted(t *testing.T) {
 	f.mailer.On("SendRegisterCode", mock.Anything, testEmail, mock.Anything, mock.Anything).
 		Return(&domain.RateLimitedError{RetryAfter: time.Hour})
 	f.otpRepo.On("ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
+	f.otpRepo.On("InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
 
 	_, err := f.usecase.RequestOTP(context.Background(), defaultRequestInput())
 
@@ -435,6 +459,7 @@ func TestRequestOTP_MailBudgetExhausted(t *testing.T) {
 	assert.Equal(t, time.Hour, rl.RetryAfter)
 	assert.NotErrorIs(t, err, domain.ErrEmailSendFailed)
 	f.otpRepo.AssertCalled(t, "ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister)
+	f.otpRepo.AssertCalled(t, "InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister)
 }
 
 func TestRequestOTP_RepositoryFailure(t *testing.T) {
@@ -550,6 +575,7 @@ func TestResendOTP_MailerFailure(t *testing.T) {
 	f.otpRepo.On("IssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{}, nil)
 	f.mailer.On("SendRegisterCode", mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(errors.New("down"))
 	f.otpRepo.On("ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
+	f.otpRepo.On("InvalidateActiveOTP", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)
 
 	_, err := f.usecase.ResendOTP(context.Background(), domain.ResendOTPInput{Email: testEmail})
 

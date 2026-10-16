@@ -1,8 +1,8 @@
 # Flow — onboarding
 
-Version: 8.3
+Version: 8.4
 Last updated: 2026-10-16
-Status: implemented (v8.3) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
+Status: implemented (v8.4) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -64,6 +64,7 @@ sequenceDiagram
         U->>M: SendAccountExistsNotice(email) (Step R-8)
     end
     alt mailer lỗi
+        U->>O: InvalidateActive(email, register)
         U->>O: ReleaseSendLimit(email, register)
         U--xC: 500 EMAIL_SEND_FAILED
     end

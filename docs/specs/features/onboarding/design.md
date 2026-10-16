@@ -1,8 +1,8 @@
 # Design — onboarding
 
-Version: 8.3
+Version: 8.4
 Last updated: 2026-10-16
-Status: implemented (v8.3) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
+Status: implemented (v8.4) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -93,7 +93,7 @@ tài khoản" không lộ thông tin, và thêm giới hạn theo IP (middleware
 **Step R-8 — Gửi thư (sau commit)**
 - API: `AuthMailer.SendRegisterCode(email, code, ttl)` hoặc, khi `AccountExists`,
   `SendAccountExistsNotice(email)`.
-- Failure: `OTPService.ReleaseSendLimit(email, register)` rồi `500 EMAIL_SEND_FAILED` (AC10).
+- Failure: `OTPService.InvalidateActive(email, register)` (mã đã commit nhưng chưa tới người dùng; nếu còn sống thì form sửa lại sẽ bị AC24 từ chối), `OTPService.ReleaseSendLimit(email, register)`, rồi `500 EMAIL_SEND_FAILED` (AC10). Lỗi của hai lệnh dọn chỉ được log; người dùng vẫn nhận `EMAIL_SEND_FAILED`.
 - Success: `200 {message, expires_in_seconds, resend_after_seconds}`.
 
 ## Step-by-step Flow — resend-otp

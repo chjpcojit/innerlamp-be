@@ -51,4 +51,12 @@ type OTPRepository interface {
 	// ReleaseSendLimit drops the send counter for email/purpose, so a send
 	// that failed after its slot was taken does not count (otp-mechanism AC10).
 	ReleaseSendLimit(ctx context.Context, email string, purpose OTPPurpose) error
+
+	// InvalidateActiveOTP marks every unused, unlocked code for email/purpose as
+	// used. A caller whose email never left (the mailer failed after the code
+	// was committed) retires the code the user never received, so a corrected
+	// resubmission is not mistaken for a clash with a live code. Having no live
+	// code is not an error. Mã đã commit nhưng thư không gửi được thì phải vô
+	// hiệu, nếu không form sửa lại gửi lên sẽ bị coi là đụng mã còn sống.
+	InvalidateActiveOTP(ctx context.Context, email string, purpose OTPPurpose) error
 }

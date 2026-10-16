@@ -72,6 +72,7 @@ OTP dùng chung — đăng ký và đặt lại mật khẩu cùng inject. Mọi
 | `FindActiveOTP(ctx, email, purpose)` | Hàng đang khoá (để báo hạn khoá), hoặc hàng mới nhất chưa dùng, chưa hết hạn, chưa từng khoá; không có → `ErrOTPInvalid` |
 | `ConsumeOTPAttempt(ctx, otpID, max, lockUntil)` | Một `UPDATE … WHERE attempts < max RETURNING attempts`: giữ lượt **trước** khi so hash; lượt chạm `max` đặt `locked_until`. `ok=false` = hết lượt |
 | `ReleaseSendLimit(ctx, email, purpose)` | Xoá bộ đếm gửi khi gửi thư lỗi (otp-mechanism AC10) |
+| `InvalidateActiveOTP(ctx, email, purpose)` | Đánh dấu đã dùng mã còn sống khi thư gửi lỗi (onboarding AC10), để mã chưa tới người dùng không chặn form sửa lại |
 
 Concrete `registrationRepository` (`repository/postgres_registration_repository.go`) implement **cả
 hai** interface từ một struct; `NewRegistrationRepository(db)` và `NewOTPRepository(db)` chỉ là hai

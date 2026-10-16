@@ -59,3 +59,9 @@ func (m *MockOTPRepository) ReleaseSendLimit(ctx context.Context, email string, 
 	args := m.Called(ctx, email, purpose)
 	return args.Error(0)
 }
+
+// InvalidateActiveOTP mocks the InvalidateActiveOTP method.
+func (m *MockOTPRepository) InvalidateActiveOTP(ctx context.Context, email string, purpose OTPPurpose) error {
+	args := m.Called(ctx, email, purpose)
+	return args.Error(0)
+}
