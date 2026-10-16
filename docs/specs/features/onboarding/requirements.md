@@ -5,7 +5,7 @@ Last updated: 2026-10-16
 Status: implemented (v8.4) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
 Module: `identity`
 Code: `services/appService/`
-Product spec: `docs/product/onboarding/product.md` @ v1.6
+Product spec: `docs/product/onboarding/product.md` @ v1.7
 Contract: `docs/specs/api/openapi.yaml` (this repo) — đã khớp bảng API bên dưới (v8.3)
 Implements: BR-ONB-04, BR-ONB-05, BR-ONB-06, BR-ONB-07, BR-ONB-08, BR-ONB-09, BR-ONB-10, FR-ONB-003, FR-ONB-004, FR-ONB-005, FR-ONB-006, FR-ONB-007, FR-ONB-008, FR-ONB-010, NFR-ONB-01, NFR-ONB-02, NFR-ONB-03
 Architecture: ADR-0003 (Accepted 2026-10-14)

@@ -1,5 +1,16 @@
 # Changelog — onboarding product spec
 
+## v1.7 — 2026-10-17
+
+- Resolved (anh Đức, "đồng ý"): the phone number and the chosen temple are checked again when the account
+  is created. If the number was taken, or the temple removed, while the user waited for the code, no
+  account is created and the user returns from the code view to the registration form, every value kept,
+  with the error at the field. BR-ONB-08 gains the rule and an example; FR-ONB-005 and FR-ONB-004 gain one
+  scenario each. Raised by the website review; the website, iOS and Android specs already assumed it.
+- The backend already behaves this way (onboarding backend spec AC18). Platform specs citing v1.6 stay
+  valid; clients add the return path where they have none.
+- Platforms to follow up: Website, iOS, Android (state the return path in the platform spec). Backend: none.
+
 ## v1.6 — 2026-10-16
 
 - Resolved (anh Đức, "Theo đề xuất của iOS"): what the user sees when a registration whose code is still

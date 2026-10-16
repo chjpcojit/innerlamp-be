@@ -1,8 +1,8 @@
 # Tasks — login
 
-Version: 2.5
+Version: 2.6
 Last updated: 2026-10-16
-Status: Phase 1–6 xong (2026-10-16); Phase 7: `openapi.yaml` xong (v2.5), còn OKF và product spec §4.2. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
+Status: Phase 1–6 xong (2026-10-16); Phase 7: `openapi.yaml` xong (v2.6), còn OKF và product spec §4.2. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
 Module: `identity` (spec folder `login`)
 
 > See `changelog.md` in this folder for the version history of this spec.

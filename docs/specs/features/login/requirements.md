@@ -1,11 +1,11 @@
 # Requirements — login
 
-Version: 2.5
+Version: 2.6
 Last updated: 2026-10-16
-Status: implemented (v2.5, 2026-10-16) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi. Phần phiên/refresh/logout giữ nguyên từ v1.13.
+Status: implemented (v2.6, 2026-10-16) — đăng nhập bằng email, khoá theo email, quên mật khẩu bằng mã qua email, giới hạn tần suất mọi `/v1/auth/*`, chặn access token của phiên đã thu hồi. Phần phiên/refresh/logout giữ nguyên từ v1.13.
 Module: `identity`
 Code: `services/appService/`
-Product spec: `docs/product/login/product.md` @ v1.4 (và `docs/product/onboarding/product.md` @ v1.6 cho BR-ONB-05/06/09)
+Product spec: `docs/product/login/product.md` @ v1.4 (và `docs/product/onboarding/product.md` @ v1.7 cho BR-ONB-05/06/09)
 Contract: `docs/specs/api/openapi.yaml` (this repo) — đã khớp bảng API bên dưới (v2.5)
 Implements: BR-LGN-01, BR-LGN-02, BR-LGN-03, BR-LGN-05, BR-LGN-07, FR-LGN-001, FR-LGN-002, FR-LGN-003, FR-LGN-004, FR-LGN-006, FR-LGN-008, FR-LGN-009, NFR-LGN-01, NFR-LGN-02
 Architecture: ADR-0003 (Accepted 2026-10-14)
@@ -35,7 +35,7 @@ FR-LGN-010, NFR-LGN-03 (chỉ client).
 1. WHEN a request arrives with an email (normalised per `rules/email.json`), a password and a valid `device` that match a user whose `email_verified_at` is set, THE SYSTEM SHALL return `200` with `access_token`, `refresh_token`, `expires_in` and `user`, and create a session bound to that device. (FR-LGN-001, BR-LGN-01)
 2. WHEN the password is wrong, the email has no account, the email exists only in a pending registration, or the account's `email_verified_at` is `NULL`, THE SYSTEM SHALL return the same `401 INVALID_CREDENTIALS` with message "Email hoặc mật khẩu không đúng", and SHALL run a password comparison against a fixed dummy hash when no account was found so the response time does not differ. (FR-LGN-002, BR-LGN-01, NFR-LGN-01)
 3. WHEN `email` is malformed, THE SYSTEM SHALL reply `400 INVALID_EMAIL`; WHEN `password` is empty, `400 INVALID_PASSWORD`; no other password rule applies at sign-in. Neither counts as a failed attempt. (BR-LGN-01)
-4. WHEN `device` is missing or lacks `platform`/`device_model`, THE SYSTEM SHALL reply `400 INVALID_DEVICE` and not count an attempt. (platform — unchanged from v1.13)
+4. WHEN `device` is missing or lacks `device_model`, THE SYSTEM SHALL reply `400 INVALID_DEVICE` and not count an attempt; a missing or empty `device.platform` is not an error and is stored as `mobile` (AC17). (platform)
 5. WHEN an attempt arrives for an email, THE SYSTEM SHALL reserve it atomically in `login_attempts` (keyed by normalised email, for emails with or without an account) before comparing the password; the fifth consecutive failure, each within `login.failure_reset_window` (15m) of the previous one, SHALL lock that email for `login.lock_duration` (15m). WHILE locked, THE SYSTEM SHALL reply `429 LOGIN_LOCKED` with `locked_until` without checking the password. A successful login SHALL reset the counter. (FR-LGN-003, BR-LGN-02)
 6. WHEN a login comes from a device the user has not used, THE SYSTEM SHALL add a session without touching other devices' sessions; WHEN from a device already used, THE SYSTEM SHALL revoke that device's previous session and create a new one. (FR-LGN-004, BR-LGN-03 — unchanged)
 7. WHEN a login succeeds, THE SYSTEM SHALL issue an access token (`jwt.access_token_expiration`, 15m) carrying `sid`, and a refresh token (168h) stored only as its SHA-256 hash. (BR-LGN-03 — unchanged)
@@ -107,7 +107,7 @@ FR-LGN-010, NFR-LGN-03 (chỉ client).
 
 | Method | Path | Auth | Request | Success | Failure codes |
 |---|---|---|---|---|---|
-| POST | `/v1/auth/login` | public | `{ email, password, device: { platform, device_model, os_version?, app_version?, device_name? } }` | `200` `{ access_token, refresh_token, expires_in, user }` | `400 INVALID_EMAIL / INVALID_PASSWORD / INVALID_DEVICE`, `401 INVALID_CREDENTIALS / INVALID_API_KEY`, `429 LOGIN_LOCKED (+locked_until) / RATE_LIMITED` |
+| POST | `/v1/auth/login` | public | `{ email, password, device: { platform?, device_model, os_version?, app_version?, device_name? } }` | `200` `{ access_token, refresh_token, expires_in, user }` | `400 INVALID_EMAIL / INVALID_PASSWORD / INVALID_DEVICE`, `401 INVALID_CREDENTIALS / INVALID_API_KEY`, `429 LOGIN_LOCKED (+locked_until) / RATE_LIMITED` |
 | POST | `/v1/auth/refresh` | public | `{ refresh_token }` | `200` `{ access_token, refresh_token, expires_in }` | `401 REFRESH_TOKEN_INVALID / INVALID_API_KEY`, `429 RATE_LIMITED` |
 | POST | `/v1/auth/logout` | Bearer access | — | `200` `{ success: true }` | `401 UNAUTHORIZED / INVALID_API_KEY` |
 | POST | `/v1/auth/password-reset/request-otp` | public | `{ email }` | `200` `{ message, expires_in_seconds, resend_after_seconds }` | `400 INVALID_EMAIL`, `429 OTP_RESEND_TOO_SOON / OTP_SEND_LIMITED / OTP_LOCKED / RATE_LIMITED` |

@@ -12,6 +12,7 @@ All four files share one changelog since they change together as one spec unit. 
 - `design.md`, `flow.md`: Step R-8 (và S-5 qua cùng đường) gọi `OTPService.InvalidateActive` trước `ReleaseSendLimit`; lỗi dọn chỉ log.
 - Code: `OTPRepository.InvalidateActiveOTP`, `OTPService.InvalidateActive`, gọi trong `sendRegisterEmail`; test usecase, otp_service, repository (kể cả kịch bản sửa form sau thư lỗi).
 - Client: không ảnh hưởng. Không đổi mã lỗi, field hay hợp đồng `openapi.yaml`.
+- Product spec cite chuyển sang `product.md` @ v1.7 (thêm đường quay về form khi `verify-otp` trả `PHONE_TAKEN` / `INVALID_TEMPLE`, đã khớp AC18; không đổi AC).
 - Mở: password-reset chưa gọi `InvalidateActive` (lỗi thư ở đó bị nuốt, không có AC24 nên không gây 409).
 
 ## v8.3 (2026-10-16)

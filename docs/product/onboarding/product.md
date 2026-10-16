@@ -7,7 +7,7 @@
 | Feature code | `ONB` — IDs are `BR-ONB-NN`, `FR-ONB-NNN`, `NFR-ONB-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 1.6 |
+| Version | 1.7 |
 | Last updated | 2026-10-16 |
 | Status | confirmed — no open items |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive mode) |
@@ -292,15 +292,22 @@ Vietnamese and never contain the password.
   has an account — sign in or reset your password") instead of a code, so nobody can learn from the
   screen whether an email is registered (ADR-0003 rule 8). A phone number already used by an account
   is refused on the form with "Số điện thoại này đã được đăng ký", because the number must be unique
-  (BR-ONB-04).
-- **Examples:** new email → code emailed. Email of an existing account → same screen, notice emailed,
+  (BR-ONB-04). The phone number and the chosen temple are checked again when the account is created,
+  after the right code is entered; if someone else took the number in the meantime, or the temple no
+  longer exists, no account is created and the user goes back from the code view to the registration
+  form, every value kept, with the same message next to the phone field or a request to choose the
+  temple again next to the temple field.
+- **Examples:** The user waits 4 minutes for the code; meanwhile another person registers with the same
+  phone number. The user enters the right code → back on the registration form, "Số điện thoại này đã
+  được đăng ký" under the phone field, nothing lost, no account. New email → code emailed. Email of an existing account → same screen, notice emailed,
   no code works. Pending registration with a valid code sent 3 minutes ago, resubmitted with another
   password → "Vui lòng chờ 420 giây rồi thử lại", form unchanged, no email. Resubmitted with the same
   details → a new code replaces the old one. Pending registration 25 hours old → "Thời gian đăng ký đã hết. Vui lòng đăng ký lại từ
   đầu."
 - **Computational:** no.
 - **Applies to:** Backend; clients show the outcomes.
-- **Source:** anh Đức, 2026-10-14 (ADR question 7); ADR-0003 rules 2 and 8; anh Đức, 2026-10-16
+- **Source:** anh Đức, 2026-10-14 (ADR question 7); ADR-0003 rules 2 and 8; anh Đức, 2026-10-17
+  (return to the form when the phone number or temple fails at account creation); anh Đức, 2026-10-16
   (refusal while an earlier code is valid; the screen as proposed by the iOS spec). Today the backend
   answers "email already used" openly (drift) on the clients' side only.
 
@@ -475,7 +482,7 @@ Vietnamese and never contain the password.
   temples, searchable by name, with "Chưa xuất gia — Cư sĩ tu tại gia" first.
 - **Business rules:** BR-ONB-10
 - **Verification method:** automated tests; manual QA
-- **Source:** backend v7.0, iOS and website today
+- **Source:** backend v7.0, iOS and website today; anh Đức, 2026-10-17 (last scenario)
 - **Acceptance criteria:**
   ```gherkin
   Scenario: pick a temple from the list
@@ -486,6 +493,14 @@ Vietnamese and never contain the password.
   Scenario: no ordination temple
     When the user chooses "Chưa xuất gia — Cư sĩ tu tại gia"
     Then the account is created without an ordination temple
+
+  Scenario: the chosen temple no longer exists when the code is entered
+    Given the form was accepted with a temple and a code was emailed
+    And that temple is removed before the code is entered
+    When the user enters the right code
+    Then no account is created
+    And the registration form opens with every value kept
+    And the user is asked to choose the temple again
   ```
 
 **FR-ONB-005 — Phone number already in use**
@@ -493,10 +508,12 @@ Vietnamese and never contain the password.
 - **Platforms:** Backend, Website, iOS, Android
 - **Description:** WHEN the user submits a phone number that already belongs to an account THE SYSTEM
   SHALL refuse the registration with "Số điện thoại này đã được đăng ký" next to the phone field and
-  suggest signing in.
+  suggest signing in. WHEN the number is taken by someone else after the form was accepted and before
+  the right code is entered THE SYSTEM SHALL create no account and return the user from the code view to
+  the registration form with the same message, every value kept.
 - **Business rules:** BR-ONB-04, BR-ONB-08
 - **Verification method:** automated tests
-- **Source:** current behavior; ADR-0003 rule 3
+- **Source:** current behavior; ADR-0003 rule 3; anh Đức, 2026-10-17 (second sentence)
 - **Acceptance criteria:**
   ```gherkin
   Scenario: phone already used
@@ -504,6 +521,14 @@ Vietnamese and never contain the password.
     When someone submits the form with Việt Nam and "0912345678"
     Then the phone field says "Số điện thoại này đã được đăng ký"
     And no code is sent
+
+  Scenario: phone taken while the code was awaited
+    Given the form was accepted and a code was emailed
+    And another person then registers with the same phone number
+    When the user enters the right code
+    Then no account is created
+    And the registration form opens with every value kept
+    And the phone field says "Số điện thoại này đã được đăng ký"
   ```
 
 **FR-ONB-006 — Propose a missing temple**
@@ -735,6 +760,7 @@ None.
 
 | Question | Resolution | Date |
 |---|---|---|
+| What happens when the phone number is taken, or the temple removed, between the form and the right code? | No account; back to the registration form with every value kept and the error at the field (BR-ONB-08, FR-ONB-004, FR-ONB-005) | 2026-10-17 |
 | What does the user see when a registration with a valid code is resubmitted with different details? | Stay on the form, keep every value, "Vui lòng chờ N giây rồi thử lại", no email, no change (BR-ONB-08, FR-ONB-003) | 2026-10-16 |
 | Is "Bỏ qua" shown on intro step 3? | Yes, on all three steps, as the apps do today | 2026-10-15 |
 | Registration submit label? | "Đăng ký", not "Gửi mã xác thực" | 2026-10-15 |
