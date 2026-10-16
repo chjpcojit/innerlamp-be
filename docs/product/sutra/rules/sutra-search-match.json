@@ -1,0 +1,253 @@
+{
+  "rule": [
+    "BR-STR-04"
+  ],
+  "description": "Whether a search term matches a sutra: trimmed term is a contiguous substring of any title (any language), the collection, or the reference, ignoring case and Vietnamese diacritics (đ = d); wildcard characters are literal. Summary, translator and text lines are never searched.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "term": "search term as typed (1-100 characters after trimming)",
+    "titles": "map of language code to title",
+    "collection": "collection name ('' when none)",
+    "reference": "citation code ('' when none)",
+    "summary": "short Vietnamese description of the text ('' when none); never searched"
+  },
+  "output": {
+    "matches": "true or false"
+  },
+  "cases": [
+    {
+      "name": "no diacritics",
+      "input": {
+        "term": "tam kinh",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "upper case with diacritics",
+      "input": {
+        "term": "TÂM KINH",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "d matches đ",
+      "input": {
+        "term": "ba la mat da",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "title in another language",
+      "input": {
+        "term": "heart sutra",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "collection is searched",
+      "input": {
+        "term": "nhat tung",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "reference is searched",
+      "input": {
+        "term": "t0251",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "reference substring",
+      "input": {
+        "term": "taisho t02",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "surrounding spaces are trimmed",
+      "input": {
+        "term": "  tam kinh  ",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "words must be contiguous",
+      "input": {
+        "term": "kinh tam",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "the summary is not searched",
+      "input": {
+        "term": "quan tu tai",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "wildcard characters are literal: percent",
+      "input": {
+        "term": "tam%kinh",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "wildcard characters are literal: underscore",
+      "input": {
+        "term": "t_m kinh",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    },
+    {
+      "name": "no match",
+      "input": {
+        "term": "kim cang",
+        "titles": {
+          "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+          "en": "The Heart Sutra",
+          "zh": "般若波羅蜜多心經"
+        },
+        "collection": "Nhật tụng",
+        "reference": "Taishō T0251",
+        "summary": "Bản kinh ngắn nói về trí tuệ Quán Tự Tại."
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-STR-04; anh Đức 2026-10-15 (Q3)"
+    }
+  ]
+}

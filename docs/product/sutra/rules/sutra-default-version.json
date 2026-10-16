@@ -1,0 +1,177 @@
+{
+  "rule": [
+    "BR-STR-05"
+  ],
+  "description": "Which version of a text opens first: among the Vietnamese versions, translation, then chant (Sino-Vietnamese or transliteration, as chanted), then meaning, then poem; two of the same variant keep source order. A text with no Vietnamese version is not covered (Appendix A).",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "translations": "list of {key, lang, variant, ordinal (position in the source file, 0-based)}"
+  },
+  "output": {
+    "default_key": "key of the version that opens first"
+  },
+  "cases": [
+    {
+      "name": "Vietnamese translation first",
+      "input": {
+        "translations": [
+          {
+            "key": "en-translation",
+            "lang": "en",
+            "variant": "translation",
+            "ordinal": 0
+          },
+          {
+            "key": "vi-translation",
+            "lang": "vi",
+            "variant": "translation",
+            "ordinal": 1
+          },
+          {
+            "key": "zh-translation",
+            "lang": "zh",
+            "variant": "translation",
+            "ordinal": 2
+          }
+        ]
+      },
+      "expected": {
+        "default_key": "vi-translation"
+      },
+      "source": "BR-STR-05; anh Đức 2026-10-15 (Q4)"
+    },
+    {
+      "name": "translation before chant before meaning before poem",
+      "input": {
+        "translations": [
+          {
+            "key": "vi-poem",
+            "lang": "vi",
+            "variant": "poem",
+            "ordinal": 0
+          },
+          {
+            "key": "vi-meaning",
+            "lang": "vi",
+            "variant": "meaning",
+            "ordinal": 1
+          },
+          {
+            "key": "vi-chant",
+            "lang": "vi",
+            "variant": "chant",
+            "ordinal": 2
+          }
+        ]
+      },
+      "expected": {
+        "default_key": "vi-chant"
+      },
+      "source": "BR-STR-05; anh Đức 2026-10-15 (Q4)"
+    },
+    {
+      "name": "chant before meaning",
+      "input": {
+        "translations": [
+          {
+            "key": "pli-translation",
+            "lang": "pli",
+            "variant": "translation",
+            "ordinal": 0
+          },
+          {
+            "key": "vi-meaning",
+            "lang": "vi",
+            "variant": "meaning",
+            "ordinal": 1
+          },
+          {
+            "key": "vi-chant",
+            "lang": "vi",
+            "variant": "chant",
+            "ordinal": 2
+          }
+        ]
+      },
+      "expected": {
+        "default_key": "vi-chant"
+      },
+      "source": "BR-STR-05; anh Đức 2026-10-15 (Q4)"
+    },
+    {
+      "name": "same variant twice: source order",
+      "input": {
+        "translations": [
+          {
+            "key": "vi-meaning",
+            "lang": "vi",
+            "variant": "meaning",
+            "ordinal": 0
+          },
+          {
+            "key": "vi-meaning-2",
+            "lang": "vi",
+            "variant": "meaning",
+            "ordinal": 1
+          },
+          {
+            "key": "en-translation",
+            "lang": "en",
+            "variant": "translation",
+            "ordinal": 2
+          }
+        ]
+      },
+      "expected": {
+        "default_key": "vi-meaning"
+      },
+      "source": "BR-STR-05; anh Đức 2026-10-15 (Q4)"
+    },
+    {
+      "name": "only a poem in Vietnamese",
+      "input": {
+        "translations": [
+          {
+            "key": "en-translation",
+            "lang": "en",
+            "variant": "translation",
+            "ordinal": 0
+          },
+          {
+            "key": "vi-poem",
+            "lang": "vi",
+            "variant": "poem",
+            "ordinal": 1
+          }
+        ]
+      },
+      "expected": {
+        "default_key": "vi-poem"
+      },
+      "source": "BR-STR-05; anh Đức 2026-10-15 (Q4)"
+    },
+    {
+      "name": "source order does not beat variant order",
+      "input": {
+        "translations": [
+          {
+            "key": "vi-chant",
+            "lang": "vi",
+            "variant": "chant",
+            "ordinal": 0
+          },
+          {
+            "key": "vi-translation",
+            "lang": "vi",
+            "variant": "translation",
+            "ordinal": 1
+          }
+        ]
+      },
+      "expected": {
+        "default_key": "vi-translation"
+      },
+      "source": "BR-STR-05; anh Đức 2026-10-15 (Q4)"
+    }
+  ]
+}
