@@ -8,6 +8,7 @@ version first.
 
 Fixes a contradiction found by the website spec review. No code change.
 
+- Product spec cite for onboarding moved to `product.md` @ v1.7 (return path to the form when account creation fails on phone or temple; no login AC affected).
 - `requirements.md`: AC4 said a missing `platform` was `400 INVALID_DEVICE`, while AC17 and `openapi.yaml` 2.1.1 say an empty platform is stored as `mobile`. The code agrees with AC17 (the handler defaults `platform` before the use case), so AC4 now names only `device` and `device_model`; the API table marks `platform` optional.
 
 ## v2.5 (2026-10-16)
