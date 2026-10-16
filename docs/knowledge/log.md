@@ -1,5 +1,15 @@
 # Knowledge Bundle Update Log
 
+## 2026-10-16
+
+- Deleted `features/sutra.md` and removed it from `index.md`.
+  - Reason: the concept predates search (`q`), `audio_url`, the split reference/licence fields and the by-deity
+    order, and the sutra product spec `docs/product/sutra/product.md` @ v1.0 and the backend spec
+    `docs/specs/features/sutra/` @ v4.0 now describe the feature. Same precedent as the register/login concepts
+    (2026-10-15).
+  - A new concept is written with `il-okf-writer` once the open v4.0 part is built and verified
+    (`docs/specs/features/sutra/tasks.md`, Phase 7).
+
 ## 2026-10-15
 
 - Deleted `features/register.md` and `features/login.md` and removed them from `index.md`.

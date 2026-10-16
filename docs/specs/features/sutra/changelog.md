@@ -4,6 +4,14 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v4.1 — 2026-10-16
+
+Cleanup of the documents that v4.0 flagged as superseded. No requirement or design change, so MINOR.
+
+- `tasks.md` only: the follow-ups for `test-coverage-report.md` (deleted), `docs/knowledge/features/sutra.md`
+  (deleted, to be rewritten after Phase 7) and the assumptions / tech-debt entries (A-002, A-008, TD-006
+  deleted) now say what was done.
+
 ## v4.0 — 2026-10-16
 
 Rebased on the product spec `docs/product/sutra/product.md` @ v1.0 (be#44) and rewritten in English per the
