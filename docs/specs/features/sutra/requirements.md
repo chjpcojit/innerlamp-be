@@ -1,211 +1,215 @@
 # Requirements — sutra
 
-Version: 3.0
-Last updated: 2026-10-11
-Status: implemented (2026-10-03; seed chuyển sang lệnh 2026-10-11) — 4 route, nạp bằng `cmd/seedsutras`; cả 35 tiêu chí đã có test chứng minh, gồm E2E chạy binary thật + Postgres (xem `test-coverage-report.md`); không còn việc nào mở về `durationMinutes` (người dùng quyết định giữ nguyên giá trị đã sinh, 2026-10-03). Dữ liệu nguồn đã có ở `assets/data/sutras/` (153 văn bản) đã có đủ bốn trường `key`, `dailyChant`, `purposes`, `durationMinutes` (2026-10-03; `purposes` chưa được người dùng soát, `durationMinutes` được giữ nguyên theo quyết định của người dùng — xem `tasks.md` Phase 0). v2.12 (2026-10-07) thêm tách trường (`reference`, `license`) và `summary` — đã implement và kiểm chứng (xem `tasks.md` Phase 6); dữ liệu mới đã có trên DB dev (kiểm 2026-10-08).
-Module: `content`
+Version: 4.0
+Last updated: 2026-10-16
+Status: implemented, with one open v4.0 part — 4 routes and the `cmd/seedsutras` command are shipped and covered by repository, handler and E2E tests (153 texts, 391 versions, 64,009 lines, 151 deity links). **v4.0 not implemented**: the seeder and the contract refuse a text without a duration estimate (AC 31, `tasks.md` Phase 7), the vector files are not run yet (AC 4, 8, `tasks.md` Phase 7), and the search route has no latency measurement (AC 30). Search by name (`q`) and the `audio_url` value are shipped (migration `0019`) although v3.0 listed them as out of scope.
+Module: `sutra`
 Code: `services/appService/`
+Product spec: `docs/product/sutra/product.md` @ v1.0
+Contract: `docs/specs/api/openapi.yaml` (this repo)
+Implements: BR-STR-01, BR-STR-02, BR-STR-03, BR-STR-04, BR-STR-05, BR-STR-06, BR-STR-07, BR-STR-08, BR-STR-09, BR-STR-12, BR-STR-13, FR-STR-001, FR-STR-002, FR-STR-003, FR-STR-004, FR-STR-005, FR-STR-006, FR-STR-008, FR-STR-009, FR-STR-012, NFR-STR-01, NFR-STR-02, NFR-STR-03
 
 > See `changelog.md` in this folder for the version history of this spec.
 
-Spec này được viết **prospectively** (trước khi có code) và đã được implement ở Phase 1–4 ngày 2026-10-03; các tiêu chí dưới đây mô tả hành vi đã chạy thật. Dữ liệu nguồn là bộ JSON ở `assets/data/sutras/` (xem `README.md` trong đó).
+This spec was first written prospectively (v1.0, 2026-10-03) and implemented in the same month; v4.0 (2026-10-16) rebases it on the product spec above, rewrites it in English per the Language policy and brings it in line with the code (Retroactive for the shipped part, Prospective for the v4.0 part). It does not restate the product's rules — it cites IDs and says how the backend does them. Where the spec and the shipped code disagree, the code is the source of truth for the shipped part.
 
-Đây là danh mục **chỉ đọc**, công khai, cho kinh / kệ / chú, cùng hình dạng với `temple`, `deity`, `article`: danh sách **phân trang theo `page`**, trang chi tiết, và dữ liệu **tự nạp một lần khi service khởi động lần đầu** từ file JSON nhúng trong binary. Dữ liệu được thu thập từ web nên JSON chỉ là **nguồn nạp một lần**: sau lần nạp đầu, mọi API đọc từ Postgres và JSON không được đọc lại. Khác ở ba điểm: (1) mỗi văn bản có **nhiều bản dịch** (ngôn ngữ, loại bản), (2) nội dung là **hàng chục nghìn dòng** nên được phân trang thêm **theo số dòng mỗi trang** (kinh dài nhất 6.967 dòng), (3) mỗi văn bản **liên kết tới Phật / Bồ tát** (`deities`) và ngược lại.
+The sutra library is a **read-only, public** catalogue shaped like `temple`, `deity`, `article` and `gallery`: a paged list, a detail, and two things the others lack — each text has **several versions** (language × variant) whose lines are served **page by page** (the longest version has 6,967 lines), and each text is **linked to Buddhas and bodhisattvas** (`deities`) in both directions. Four tables (migration `0013`) hold it. The data comes from JSON files that are a **one-time source**: the manually run `cmd/seedsutras` loads them into an empty table, and every route reads Postgres afterwards (the service itself never seeds).
 
-Mỗi văn bản mang các thuộc tính để client lọc và hiển thị: **tông phái** (Nam Tông / Bắc Tông / Kim Cang Thừa), **loại** (kinh / kệ / chú), **kinh nhật tụng hay không**, **mục đích** (cầu an, cầu siêu, trì chú, …) và **thời lượng ước tính** (vd. 15 phút, 30 phút — con số do mình ước tính và ghi, không phải số đo).
+Wire values map to the product's labels (BR-STR-01) as: kind `SUTRA` → Kinh, `VERSE` → Kệ, `DHARANI` → Chú; tradition `THERAVADA` → Nam Tông, `MAHAYANA` → Bắc Tông, `VAJRAYANA` → Kim Cang Thừa; purposes `CAU_AN`, `CAU_SIEU`, `TRI_CHU`, `SAM_HOI`, `HOI_HUONG`, `PHAT_NGUYEN`, `BAO_HIEU`, `THIEN_DINH`, `HOC_GIAO_LY`, `QUY_Y_THO_GIOI` → the ten purposes of BR-STR-03. The labels themselves are the client's.
 
-> Spec này **thay thế hoàn toàn** phần kinh điển và thần chú của spec `content` cũ. Spec `content` cũ (`docs/specs/features/content/requirements.md`) đã bị xoá ngày 2026-10-03 vì kinh và thần chú (spec này), Phật & Bồ Tát (spec `deity`) đều đã có feature riêng; xem lịch sử git nếu cần. `US-SUT-01..06` là mã chính thức.
+Product IDs whose Backend column is `n/a` or "Website, iOS, Android" only (not part of this spec): BR-STR-10 (quote of the day is chosen by the clients), BR-STR-11 (reading preferences), FR-STR-007, FR-STR-010, FR-STR-011. BR-STR-05 is decided by the clients; the backend only keeps the versions in source order (AC 14). BR-STR-06's line text is served unchanged (AC 21).
 
 ---
 
-## US-SUT-01: Duyệt và lọc danh mục kinh theo trang
+## US-SUT-01: Browse, filter and search the library page by page
 
 ## User Story
 
-> Là một **người dùng app (chưa cần đăng nhập)**,
-> Tôi muốn **xem danh mục kinh theo từng trang và lọc theo tông phái, loại, mục đích, kinh nhật tụng hay thời lượng**,
-> Để **chọn đúng bài kinh phù hợp với lúc mình định đọc hoặc tụng**.
+> As an **app or website user (no login needed)**,
+> I want **to browse the library page by page, narrow it by topic and duration, and search it by name**,
+> So that **I find the text I want to read or chant**.
 
 ## Acceptance Criteria (EARS notation)
 
-1. WHEN a `GET /v1/sutras` request arrives without `page` (or with an empty `page=`), THE SYSTEM SHALL serve page 1, and SHALL return `200 OK` with `data` holding `items` (summary shape), `page`, `page_size` (`sutra.page_size`, dev: 20), `total` (số văn bản khớp bộ lọc) and `total_pages` = `ceil(total / page_size)`, ordered by `sort_order` ASC then `id` ASC. (Không cần `Authorization`.)
-2. WHEN sutras are returned by the list, THE SYSTEM SHALL return each one with `id`, `tradition`, `kind`, `collection`, `reference`, `titles`, `daily_chant`, `purposes`, `duration_minutes`, `deities` and `translations`, and SHALL NOT include any line text, `sections`, `source_url`, `source_name`, `note` or `review_status`.
-3. WHEN the request carries any of `tradition`, `kind`, `collection`, `purpose`, `daily`, `max_minutes`, `lang`, THE SYSTEM SHALL return only the sutras matching **all** supplied filters (AND), keep the same ordering, and compute `total` / `total_pages` over the matching sutras only:
+1. WHEN a `GET /v1/sutras` request arrives without `page` (or with an empty `page=`), THE SYSTEM SHALL serve page 1 and return `200 OK` with `data` holding `items` (card shape), `page`, `page_size` (`sutra.page_size`, dev: 20), `total` (the number of texts matching the filters) and `total_pages` = `ceil(total / page_size)`, ordered by `sort_order` ASC then `id` ASC. (No `Authorization` needed.) (FR-STR-001, BR-STR-02, BR-STR-13)
+2. WHEN texts are returned by the list, THE SYSTEM SHALL return each one in the **card shape**: `id`, `tradition`, `kind`, `collection`, `reference`, `summary`, `titles`, `daily_chant`, `purposes`, `duration_minutes`, `audio_url`, `deities` and `translations`, and SHALL NOT include any line text, `sections`, `source_url`, `source_name`, `note`, `review_status` or the other detail-only fields of AC 12–13. (FR-STR-001, BR-STR-01)
+3. WHEN the request carries any of `tradition`, `kind`, `collection`, `purpose`, `daily`, `max_minutes`, `lang`, THE SYSTEM SHALL return only the texts matching **all** supplied filters (AND), keep the same ordering, and compute `total` / `total_pages` over the matching texts only (FR-STR-002, BR-STR-03):
    - `tradition` ∈ `THERAVADA` | `MAHAYANA` | `VAJRAYANA`
    - `kind` ∈ `SUTRA` | `VERSE` | `DHARANI`
-   - `collection` — khớp chính xác với `collection`
-   - `purpose` — sutra có giá trị này trong `purposes`
-   - `daily` ∈ `true` | `false` — khớp `daily_chant`
-   - `max_minutes` — số nguyên ≥ 1; chỉ sutra có `duration_minutes` ≤ giá trị này (sutra `duration_minutes = null` bị loại)
-   - `lang` — sutra có ít nhất một bản dịch ngôn ngữ đó (vd. `vi`)
-4. WHEN a filter value is not allowed (an unknown `tradition`/`kind`/`purpose`, a `daily` that is not `true`/`false`, a `max_minutes` that is not an integer ≥ 1, or an empty value), THE SYSTEM SHALL return `400 INVALID_FILTER` with `details.field` set to the offending parameter name.
-5. WHEN `page` is greater than `total_pages`, THE SYSTEM SHALL return `200 OK` with `items: []` and the same `page_size`/`total`/`total_pages` — không phải lỗi; WHEN the table is empty or no sutra matches, THE SYSTEM SHALL return `items: []` (không phải `null`), `total: 0` and `total_pages: 0`. Client dừng khi `page >= total_pages` hoặc `items` rỗng.
-6. WHEN `page` is not a positive integer (`0`, negative, non-numeric, an integer that overflows, or larger than 2^31−1), THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`.
-7. WHEN a sutra is linked to deities, THE SYSTEM SHALL return them in `deities` as `{deity_id, role, name_vi, thumbnail_url}`, ordered by role (`SUBJECT`, `SPEAKER`, `MENTIONED`) then `deity_id`, so the client can show the related Phật / Bồ tát without a second request.
+   - `collection` — exact match with `collection`
+   - `purpose` — the text has this value among its `purposes`
+   - `daily` ∈ `true` | `false` — matches `daily_chant`
+   - `max_minutes` — integer ≥ 1; only texts whose `duration_minutes` is **at most** this value (the limit itself is included); a text with `duration_minutes = null` is excluded
+   - `lang` — the text has at least one version in this language (e.g. `vi`)
+4. WHEN the request carries `q`, THE SYSTEM SHALL trim it and return only the texts where the term appears anywhere inside **any title (every language in `titles`), the collection name or the citation code (`reference`)**, ignoring letter case and Vietnamese diacritics (`đ` equals `d`), treating `%`, `_` and `\` literally; THE SYSTEM SHALL NOT search the summary, the translators or the lines; and SHALL combine `q` with the other filters (AND), keep the library order (AC 1) and not reorder by relevance. (FR-STR-003, BR-STR-04, BR-STR-02) — covered by the vector files `sutra-browse.json` and `sutra-search-match.json` (`tasks.md` Phase 7).
+5. WHEN a filter value is not allowed — an unknown `tradition`, `kind` or `purpose`; a `daily` that is not `true`/`false`; a `max_minutes` that is not an integer ≥ 1 (or exceeds 2^31−1); a `q` that is empty or whitespace only after trimming, or longer than 100 characters (runes) after trimming; or any other supplied filter that is empty — THE SYSTEM SHALL return `400 INVALID_FILTER` with `details.field` set to the offending parameter name. (A client with an empty search box omits `q`.) (FR-STR-002, FR-STR-003, BR-STR-04)
+6. WHEN `page` is greater than `total_pages`, THE SYSTEM SHALL return `200 OK` with `items: []` and the same `page_size`/`total`/`total_pages` — not an error; WHEN the table is empty or no text matches, THE SYSTEM SHALL return `items: []` (not `null`), `total: 0` and `total_pages: 0`. The client stops when `page >= total_pages` or `items` is empty. (FR-STR-001)
+7. WHEN `page` is not a positive integer (`0`, negative, non-numeric, an integer that overflows, or larger than 2^31−1), THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`. (FR-STR-001)
+8. THE SYSTEM SHALL order and filter the list so that every case of `docs/product/sutra/rules/sutra-browse.json` and `docs/product/sutra/rules/sutra-search-match.json` gives the expected identifiers in the expected order. (BR-STR-02, BR-STR-03, BR-STR-04)
+9. WHEN a text is linked to deities, THE SYSTEM SHALL return them in `deities` as `{deity_id, role, name_vi, thumbnail_url}`, ordered by role (`SUBJECT`, `SPEAKER`, `MENTIONED`) then `deity_id`, so the client shows the related Buddhas and bodhisattvas without a second request. (FR-STR-008, BR-STR-09)
 
-## US-SUT-02: Xem chi tiết một bài kinh
-
-## User Story
-
-> Là một **người dùng app (chưa cần đăng nhập)**,
-> Tôi muốn **mở một bài kinh để xem đủ thông tin trước khi đọc**,
-> Để **biết có những bản dịch nào, dịch giả và nguồn nào, bài kinh có những phẩm nào và nhảy thẳng tới phẩm mình cần**.
-
-## Acceptance Criteria (EARS notation)
-
-8. WHEN a `GET /v1/sutras/{id}` request arrives with an existing `id`, THE SYSTEM SHALL return `200 OK` with the summary fields plus `review_status`, and each element of `translations` extended with `source_name`, `source_url`, `note` and `sections`.
-9. WHEN a translation has sections, THE SYSTEM SHALL return `sections` as `[{name, start_n, line_count}]` in file order, where `start_n` is the `n` of the section's first line, so the client can compute the page of that section as `floor((start_n − 1) / page_size) + 1`; WHEN a translation has none, THE SYSTEM SHALL return `[]`.
-10. WHEN `{id}` matches no sutra, THE SYSTEM SHALL return `404 SUTRA_NOT_FOUND`.
-11. WHEN a sutra has several translations with the same `lang`, THE SYSTEM SHALL distinguish them by `key` (unique within the sutra) and by `variant` (`translation` | `chant` | `meaning` | `poem`), and SHALL return them ordered as in the source file.
-
-36. WHEN a `GET /v1/sutras/{id}` request arrives with an existing `id`, THE SYSTEM SHALL return, besides the fields of AC8, these flat fields (each its own JSON field, never packed into another): `original_title`, `author`, `han_translator`, `reference_note` (strings, `""` when the source has none), `han_translation_year` (integer year CE | `null`) and `summary` (string, Vietnamese, `""` when none was written). THE SYSTEM SHALL NOT return the five fields other than `summary` in the list (`GET /v1/sutras`) or the by-deity list, which keep the card shape plus `summary` (AC41).
-37. THE SYSTEM SHALL keep in `reference` only the citation code of the text (e.g. `Taishō T0450`, `MN 86`, `Dhp 1-20`, `Toh 438, …`) or `""` when the text has none; the title in Hán / Sanskrit, the author, the Hán translator, the year and any remark SHALL be stored and returned in `original_title`, `author`, `han_translator`, `han_translation_year` and `reference_note`.
-38. THE SYSTEM SHALL return, for every translation in the list, the by-deity list and the detail, `license` as one code from the closed set `CC0-1.0` | `CC-BY-NC-4.0` | `PUBLIC_DOMAIN` | `COPY_ALLOWED` | `UNKNOWN`; and, in the detail only, `license_url` (the URL the source gives, `""` when none) and `license_note` (the source's own statement, `""` when none), so the label and the explanation are separate fields.
-39. WHEN a translation's `license` is `UNKNOWN`, THE SYSTEM SHALL still return the translation unchanged (AC8, AC11): the code is descriptive, it never hides a text (đã chốt 2026-10-03: giấy phép tạm không chặn phát hành).
-40. WHEN the seed JSON is parsed (AC29), THE SYSTEM SHALL also treat the seed as invalid when a translation's `license` is outside the closed set of AC38, or when `hanTranslationYear` is present but is neither `null` nor an integer ≥ 1; the fields `originalTitle`, `author`, `hanTranslator`, `referenceNote`, `summary`, `licenseUrl` and `licenseNote` are optional and default to `""`.
-41. THE SYSTEM SHALL return `summary` (string, Vietnamese, `""` when none was written) on every card of the list (`GET /v1/sutras`) and of the by-deity list (`GET /v1/deities/{id}/sutras`), the same value the detail returns, so a client can show the description without a second request per card.
-
-## US-SUT-03: Đọc nội dung kinh theo trang dòng
+## US-SUT-02: Open a sutra page
 
 ## User Story
 
-> Là một **người dùng app (chưa cần đăng nhập)**,
-> Tôi muốn **đọc một bài kinh dài từng trang theo số dòng và cuộn sang trang kế**,
-> Để **không phải chờ tải cả bộ kinh hàng nghìn dòng và có thể mở thẳng tới trang đang đọc**.
+> As an **app or website user (no login needed)**,
+> I want **to open one text and see everything about it before reading**,
+> So that **I know which versions exist, who translated them, where they come from, what the text contains and which part I want to jump to**.
 
 ## Acceptance Criteria (EARS notation)
 
-12. WHEN a `GET /v1/sutras/{id}/lines?translation=<key>` request arrives for an existing sutra and an existing translation `key`, THE SYSTEM SHALL return `200 OK` with `data` holding `translation` (the `key`), `items` (`[{n, text, section}]` ordered by `n` ASC), `page`, `page_size`, `total` (the translation's `line_count`) and `total_pages` = `ceil(total / page_size)`.
-13. WHEN `page` is absent (or empty), THE SYSTEM SHALL serve page 1; WHEN `page_size` is absent, THE SYSTEM SHALL use `sutra.lines_page_size` (dev: 200); THE SYSTEM SHALL return as `items` exactly the lines whose `n` is in `((page − 1) × page_size, page × page_size]`.
-14. WHEN `page` is greater than `total_pages`, THE SYSTEM SHALL return `200 OK` with `items: []` and the same `page_size`/`total`/`total_pages` — không phải lỗi. Client dừng khi `page >= total_pages` hoặc `items` rỗng.
-15. WHEN `page_size` is greater than `sutra.lines_max_page_size` (dev: 500), THE SYSTEM SHALL serve `sutra.lines_max_page_size` lines per page instead of failing, and SHALL echo the value actually used in `page_size`; WHEN `page_size` is not an integer or is less than 1, THE SYSTEM SHALL return `400 INVALID_PAGE_SIZE` with `details.field = "page_size"`.
-16. WHEN `page` is not a positive integer (`0`, negative, non-numeric, an integer that overflows, or larger than 2^31−1), THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`.
-17. WHEN the `translation` query parameter is absent or empty, THE SYSTEM SHALL return `400 INVALID_TRANSLATION` with `details.field = "translation"`.
-18. WHEN `{id}` matches no sutra, THE SYSTEM SHALL return `404 SUTRA_NOT_FOUND`; WHEN the sutra exists but has no translation with that `key`, THE SYSTEM SHALL return `404 TRANSLATION_NOT_FOUND`. (Sutra được kiểm tra trước.)
-19. WHEN a line is returned, THE SYSTEM SHALL return its `text` exactly as stored (không cắt, không sửa chính tả), and `section` as the section name string or JSON `null` when the line belongs to none; and `n` SHALL run 1..`total` without gaps within a translation, so line `n` is always on page `floor((n − 1) / page_size) + 1`.
+10. WHEN a `GET /v1/sutras/{id}` request arrives with an existing `id`, THE SYSTEM SHALL return `200 OK` with the card fields plus `review_status`, and each element of `translations` extended with `source_name`, `source_url`, `note`, `license_url`, `license_note` and `sections`. (FR-STR-004, BR-STR-07)
+11. WHEN `{id}` matches no text, THE SYSTEM SHALL return `404 SUTRA_NOT_FOUND`. (FR-STR-004)
+12. WHEN the detail is returned, THE SYSTEM SHALL return these flat fields, each its own JSON field and never packed into another: `original_title`, `author`, `han_translator`, `reference_note` (strings, `""` when the source has none) and `han_translation_year` (integer year CE | `null`). THE SYSTEM SHALL NOT return these five fields in the list or the by-deity list. (FR-STR-004, BR-STR-07)
+13. THE SYSTEM SHALL keep in `reference` only the citation code of the text (e.g. `Taishō T0450`, `MN 86`, `Dhp 1-20`) or `""` when it has none; the original title, the author, the Chinese translator, the year and any remark live in the fields of AC 12. (BR-STR-07)
+14. WHEN a text has several versions, THE SYSTEM SHALL distinguish them by `key` (unique within the text) and by `variant` (`translation` | `chant` | `meaning` | `poem`), and return them in source order (the `ordinal` of the data file) — the clients choose the version that opens (BR-STR-05) from `lang`, `variant` and this order. (FR-STR-006, BR-STR-05)
+15. WHEN a version has sections, THE SYSTEM SHALL return `sections` as `[{name, start_n, line_count}]` in file order, where `start_n` is the `n` of the section's first line, so the client builds the table of contents and computes the page of a section as `floor((start_n − 1) / page_size) + 1`; WHEN a version has none, THE SYSTEM SHALL return `[]`. (FR-STR-005, BR-STR-06)
+16. THE SYSTEM SHALL return, for every version in the list, the by-deity list and the detail, `license` as one code from the closed set `CC0-1.0` | `CC-BY-NC-4.0` | `PUBLIC_DOMAIN` | `COPY_ALLOWED` | `UNKNOWN`, together with `translator`; and, in the detail only, `license_url` (the URL the source gives, `""` when none) and `license_note` (the source's own statement, `""` when none), so the label and the explanation are separate fields. (BR-STR-07)
+17. WHEN a version's `license` is `UNKNOWN`, THE SYSTEM SHALL still return the version unchanged: the code is descriptive and never hides a text; whether the licence line is shown is the client's (BR-STR-07). (BR-STR-07)
+18. THE SYSTEM SHALL return `review_status` in the detail (`UNREVIEWED` for every text today) so the client can show the notice while a text is unreviewed. (BR-STR-07)
+19. THE SYSTEM SHALL return `summary` (string, Vietnamese, `""` when none was written) on every card of the list and the by-deity list and in the detail, the same value everywhere. (FR-STR-001, FR-STR-004)
+20. THE SYSTEM SHALL return `audio_url` on every card and in the detail as a string, and SHALL return `""` for a text that has no recording (never `null`, never omitted); today no text has one, so every response says "no audio" and the clients decide what to show. (BR-STR-12, FR-STR-004)
 
-## US-SUT-04: Từ Phật / Bồ tát xem các kinh liên quan
+## US-SUT-03: Read a version page by page
 
 ## User Story
 
-> Là một **người dùng app (chưa cần đăng nhập)**,
-> Tôi muốn **từ trang một vị Phật hay Bồ tát xem các bài kinh nói về vị đó hoặc do vị đó thuyết**,
-> Để **đọc đúng những bài kinh gắn với vị mình đang tìm hiểu**.
+> As an **app or website user (no login needed)**,
+> I want **to read a long text a page of lines at a time and open it straight at the page I am reading**,
+> So that **I never wait for thousands of lines to load**.
 
 ## Acceptance Criteria (EARS notation)
 
-20. WHEN a `GET /v1/deities/{id}/sutras` request arrives with an existing deity `id`, THE SYSTEM SHALL return `200 OK` with `data` holding `items` (the linked sutras in the **summary** shape, each with an extra `role` field = the deity's role in that sutra), `page`, `page_size` (`sutra.page_size`), `total` and `total_pages`, ordered by role (`SUBJECT`, `SPEAKER`, `MENTIONED`) then `sort_order` ASC then `id` ASC. `page` is handled as in US-SUT-01 (absent → 1; greater than `total_pages` → `items: []`; invalid → `400 INVALID_PAGE`).
-21. WHEN the request carries `role`, THE SYSTEM SHALL return only the sutras where the deity has that role (and compute `total` over them); WHEN `role` is not `SPEAKER` | `SUBJECT` | `MENTIONED` (or is empty), THE SYSTEM SHALL return `400 INVALID_FILTER` with `details.field = "role"`.
-22. WHEN `{id}` matches no deity, THE SYSTEM SHALL return `404 DEITY_NOT_FOUND` (cùng mã với `GET /v1/deities/{id}`).
-23. WHEN the deity exists but is linked to no sutra (or none with the requested `role`), THE SYSTEM SHALL return `200 OK` with `items: []`, `total: 0` and `total_pages: 0`.
-24. WHEN the path `/v1/deities/{id}/sutras` is requested, THE SYSTEM SHALL route it to this feature and SHALL NOT change the behavior of `/v1/deities/top`, `/v1/deities` or `/v1/deities/{id}`.
+21. WHEN a `GET /v1/sutras/{id}/lines?translation=<key>` request arrives for an existing text and an existing version `key`, THE SYSTEM SHALL return `200 OK` with `data` holding `translation` (the `key`), `items` (`[{n, text, section}]` ordered by `n` ASC), `page`, `page_size`, `total` (the version's `line_count`) and `total_pages` = `ceil(total / page_size)`; each `text` SHALL be exactly as stored (no trimming, no spelling correction), `section` the section name or JSON `null` when the line belongs to none, and `n` SHALL run 1..`total` without gaps, so line `n` is always on page `floor((n − 1) / page_size) + 1`. (FR-STR-005, BR-STR-06)
+22. WHEN `page` is absent (or empty), THE SYSTEM SHALL serve page 1; WHEN `page_size` is absent, THE SYSTEM SHALL use `sutra.lines_page_size` (dev: 200); THE SYSTEM SHALL return as `items` exactly the lines whose `n` is in `((page − 1) × page_size, page × page_size]`. (FR-STR-005, NFR-STR-01)
+23. WHEN `page` is greater than `total_pages`, THE SYSTEM SHALL return `200 OK` with `items: []` and the same `page_size`/`total`/`total_pages` — not an error. (FR-STR-005)
+24. WHEN `page_size` is greater than `sutra.lines_max_page_size` (dev: 500), THE SYSTEM SHALL serve `sutra.lines_max_page_size` lines per page instead of failing and echo the value actually used in `page_size`; WHEN `page_size` is not an integer or is less than 1, THE SYSTEM SHALL return `400 INVALID_PAGE_SIZE` with `details.field = "page_size"`. (FR-STR-005, NFR-STR-01)
+25. WHEN `page` is not a positive integer (`0`, negative, non-numeric, an integer that overflows, or larger than 2^31−1), THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`. (FR-STR-005)
+26. WHEN the `translation` query parameter is absent or empty, THE SYSTEM SHALL return `400 INVALID_TRANSLATION` with `details.field = "translation"`. (FR-STR-005)
+27. WHEN `{id}` matches no text, THE SYSTEM SHALL return `404 SUTRA_NOT_FOUND`; WHEN the text exists but has no version with that `key`, THE SYSTEM SHALL return `404 TRANSLATION_NOT_FOUND`. (The text is checked first.) (FR-STR-005)
 
-## US-SUT-05: Hình dạng dữ liệu nhất quán
+## US-SUT-04: From a Buddha or bodhisattva to the related sutras
 
 ## User Story
 
-> Là một **lập trình viên client**,
-> Tôi muốn **các field thiếu dữ liệu luôn có dạng xác định**,
-> Để **decode một lần mà không phải đoán `null` hay chuỗi rỗng**.
+> As an **app or website user (no login needed)**,
+> I want **to see, on the page of a Buddha or bodhisattva, the texts about them or spoken by them**,
+> So that **I read the texts tied to the one I am learning about**.
 
 ## Acceptance Criteria (EARS notation)
 
-25. WHEN a sutra has no purposes, no deities, no translations, or a translation has no sections, THE SYSTEM SHALL return `[]` for `purposes` / `deities` / `translations` / `sections`, never `null`.
-26. WHEN a sutra has no authored duration estimate (vd. a text with no Vietnamese version), THE SYSTEM SHALL return `duration_minutes` as JSON `null`, not `0`; WHEN it has one, THE SYSTEM SHALL return it unchanged as an integer number of minutes (không làm tròn hay tính lại).
-27. WHEN a sutra is returned, THE SYSTEM SHALL return `titles` as an object mapping language code to title that always contains `vi`, and SHALL return `reference` as `""` when the source has none.
-28. WHEN any sutra route fails, THE SYSTEM SHALL answer in the shared envelope `{"success": false, "error": {code, message, type}, "details"?}`; a non-`GET` request returns `405 METHOD_NOT_ALLOWED` (kèm header `Allow: GET, HEAD`) and an infrastructure failure returns `500 INTERNAL_ERROR` without leaking the cause.
+28. WHEN a `GET /v1/deities/{id}/sutras` request arrives with an existing deity `id`, THE SYSTEM SHALL return `200 OK` with `data` holding `items` (the linked texts in the card shape, each with an extra `role` = the deity's role in that text), `page`, `page_size` (`sutra.page_size`), `total` and `total_pages`, ordered by role (`SUBJECT`, `SPEAKER`, `MENTIONED`), then `sort_order` ASC, then `id` ASC. `page` is handled as in AC 1, 6 and 7. THE SYSTEM SHALL NOT cap the list; WHEN the deity is linked to more texts than one page holds, the client pages. (FR-STR-009, BR-STR-09)
+29. WHEN the request carries `role`, THE SYSTEM SHALL return only the texts where the deity has that role (and compute `total` over them); WHEN `role` is not `SPEAKER` | `SUBJECT` | `MENTIONED` (or is empty), THE SYSTEM SHALL return `400 INVALID_FILTER` with `details.field = "role"`. (FR-STR-009)
+30. WHEN `{id}` matches no deity, THE SYSTEM SHALL return `404 DEITY_NOT_FOUND` (the same code as `GET /v1/deities/{id}`); WHEN the deity exists but is linked to no text (or none with the requested `role`), THE SYSTEM SHALL return `200 OK` with `items: []`, `total: 0` and `total_pages: 0`. (FR-STR-009, BR-STR-09)
+31. WHEN the path `/v1/deities/{id}/sutras` is requested, THE SYSTEM SHALL route it to this feature and SHALL NOT change the behaviour of `/v1/deities/top`, `/v1/deities` or `/v1/deities/{id}`. (platform)
 
-## US-SUT-06: Nạp dữ liệu bằng lệnh seed (service không tự nạp)
+## US-SUT-05: One predictable shape
 
 ## User Story
 
-> Là một **người triển khai hệ thống**,
-> Tôi muốn **một lệnh seed nạp thư viện kinh vào DB, và `make run` tự chạy lệnh đó khi bảng còn rỗng**,
-> Để **môi trường mới có dữ liệu mà service không ghi DB lúc khởi động, và lần chạy lại không đụng vào dữ liệu đã có**.
-
-> Đổi 2026-10-11 (v3.0): appService **không còn seed khi khởi động** (AC29–AC34 nay áp dụng cho `cmd/seedsutras`; `make ensure-sutras` chạy nó khi `sutras` rỗng). Khởi động service trên DB rỗng thành công và phục vụ danh sách rỗng.
+> As a **client developer**,
+> I want **missing data to always have one fixed form**,
+> So that **I decode once without guessing between `null` and an empty string**.
 
 ## Acceptance Criteria (EARS notation)
 
-29. WHEN `cmd/seedsutras` runs AND the `sutras` table has no row, THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/sutras/index.json` and every `<id>.json` it lists) and validate **all** of it before any write, and THE SYSTEM SHALL treat the seed as invalid, make the command exit non-zero with a fatal log and write nothing, when any of these holds:
+32. WHEN a text has no purposes, no deities or no versions, or a version has no sections, THE SYSTEM SHALL return `[]` for `purposes` / `deities` / `translations` / `sections`, never `null`. (platform)
+33. WHEN a text is returned, THE SYSTEM SHALL return `titles` as an object mapping a language code to a title that always contains `vi` (the clients show the Vietnamese title whatever the app language, BR-STR-05), and `reference` as `""` when the text has no citation code. (BR-STR-05)
+34. **v4.0** THE SYSTEM SHALL return `duration_minutes` as an integer number of minutes ≥ 1 for **every** text, unchanged from the stored editorial estimate (not rounded or recomputed), and SHALL NOT return `null`; the contract (`openapi.yaml`) SHALL declare it non-nullable. (BR-STR-08)
+   > ⚠️ Not confirmed (product): BR-STR-08 says every text carries an editorial estimate, but the 10 Vajrayāna texts have none written by an editor — migration `0019` filled them as lines of the first version ÷ 4, rounded up (the migration says the seed JSON carries the same value; unchecked here because the JSON is not in git) — whether an editor must replace that formula value is open for `ba-writer`; this spec only makes the seeder and the contract require a value (AC 38) and keeps the current ones.
+35. WHEN any sutra route fails, THE SYSTEM SHALL answer in the shared envelope `{"success": false, "error": {code, message, type}, "details"?}`; a non-`GET` request returns `405 METHOD_NOT_ALLOWED` (with header `Allow: GET, HEAD`) and an infrastructure failure returns `500 INTERNAL_ERROR` without leaking the cause. (platform)
+36. THE SYSTEM SHALL serve the four routes without an `Authorization` header and without wrapping them in `RequireAuth`: a guest and a signed-in visitor get the same responses. (BR-STR-13)
+
+## US-SUT-06: Load the library with the seed command
+
+## User Story
+
+> As a **deployer**,
+> I want **one command that loads the library into an empty database, and that `make run` runs it when the table is empty**,
+> So that **a new environment has the content, the service never writes to the database on start, and running it again never touches existing data**.
+
+## Acceptance Criteria (EARS notation)
+
+37. WHEN `cmd/seedsutras` runs AND the `sutras` table has no row, THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/sutras/index.json` and every `<id>.json` it lists; flag `-dir` reads a directory on disk instead) and validate **all** of it before any write, and SHALL treat the seed as invalid, exit non-zero with a fatal log and write nothing, when any of these holds: (FR-STR-012)
     - a file listed in `index.json` is missing, or an `id` is empty, duplicated, or different from the file name
     - `tradition`, `kind`, `variant`, a deity `role` or any `purposes` value is outside the allowed sets; `titles.vi` is empty
-    - `dailyChant` is not a boolean; `durationMinutes` is neither `null` nor an integer ≥ 1
-    - a translation has no `key`, or two translations of one sutra share a `key`, or its `n` does not run 1..N without gaps
-    - one sutra lists the same `deity_id` twice
-30. WHEN the seed is valid, THE SYSTEM SHALL check that every referenced `deity_id` exists in the `deities` table, and WHEN some do not, SHALL make the command exit non-zero with a fatal log listing the missing ids and write nothing. (`cmd/seeddeities` phải chạy trước; `make ensure-sutras` tự đảm bảo thứ tự.)
-31. WHEN the seed is valid and every deity exists, THE SYSTEM SHALL insert every sutra with its translations, lines and deity links in **one transaction**, with `sort_order` equal to the sutra's position in `index.json` (0, 1, 2, …), then log `seeded N sutras, …` with the counts of sutras, translations, lines and deity links.
-32. WHEN `cmd/seedsutras` runs AND the `sutras` table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row — so running it again never overwrites an edited sutra and never brings back a deleted one (miễn là bảng còn ít nhất một dòng).
-33. WHEN a seed insert meets a sutra `id` that already exists, THE SYSTEM SHALL leave that sutra untouched and SHALL NOT insert its translations, lines or deity links (`ON CONFLICT (id) DO NOTHING`), so two instances starting at the same time cannot duplicate or overwrite each other.
-34. WHEN the database rejects the seed (kể cả khi migration `0013` chưa được apply), THE SYSTEM SHALL make `cmd/seedsutras` exit non-zero with a fatal log and SHALL leave the tables unchanged (transaction rolled back).
-35. WHEN `cmd/seedsutras` runs (flag `-dir`; mặc định dùng dữ liệu nhúng trong binary), THE SYSTEM SHALL apply the checks and the only-when-empty rule of AC29–AC34 (it is the only way the library is loaded; appService does not seed on start): WHEN the `sutras` table already has at least one row, it SHALL write nothing, log that the sutras are already seeded, and exit with status 0; WHEN seeding succeeds, it SHALL log the counts and exit with status 0; WHEN seeding fails, it SHALL write nothing and exit with a non-zero status.
+    - `dailyChant` is not a boolean; `durationMinutes` is not an integer ≥ 1 (AC 38)
+    - a version has no `key`, or two versions of one text share a `key`, or its `n` does not run 1..N without gaps
+    - one text lists the same `deity_id` twice
+    - a version's `license` is outside the closed set of AC 16, or `hanTranslationYear` is present but is neither `null` nor an integer ≥ 1 (the fields `originalTitle`, `author`, `hanTranslator`, `referenceNote`, `summary`, `licenseUrl` and `licenseNote` are optional and default to `""`)
+38. **v4.0** WHEN a text in the seed has `durationMinutes` equal to `null` or missing, THE SYSTEM SHALL treat the seed as invalid as in AC 37 (until v4.0 the seeder accepted `null`). (BR-STR-08, FR-STR-012)
+39. WHEN the seed is valid, THE SYSTEM SHALL check that every referenced `deity_id` exists in the `deities` table, and WHEN some do not, exit non-zero with a fatal log listing the missing ids and write nothing. (`cmd/seeddeities` runs first; `make ensure-sutras` keeps the order.) (FR-STR-012)
+40. WHEN the seed is valid and every deity exists, THE SYSTEM SHALL insert every text with its versions, lines and deity links in **one transaction**, with `sort_order` equal to the text's position in `index.json` (0, 1, 2, …), which becomes the library order of AC 1, then log `seeded N sutras, …` with the counts of texts, versions, lines and deity links. (FR-STR-012, BR-STR-02)
+41. WHEN `cmd/seedsutras` runs AND the `sutras` table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row, log that the sutras are already seeded and exit with status 0 — so running it again never overwrites an edited text and never brings back a deleted one (as long as the table keeps at least one row). (FR-STR-012)
+42. WHEN a seed insert meets a text `id` that already exists, THE SYSTEM SHALL leave that text untouched and not insert its versions, lines or deity links (`ON CONFLICT (id) DO NOTHING`), so two concurrent runs cannot duplicate or overwrite each other. (FR-STR-012)
+43. WHEN the database rejects the seed (including when migration `0013` has not been applied), THE SYSTEM SHALL make `cmd/seedsutras` exit non-zero with a fatal log and leave the tables unchanged (transaction rolled back). (FR-STR-012)
+
+## Non-functional
+
+44. WHEN the library holds 153 texts and 64,000 lines, THE SYSTEM SHALL answer a card list page, a detail and a page of 200 lines each in a few milliseconds on loopback (measured 2026-10-03: list 2.5 ms, detail ≤ 2.1 ms, 200 lines 1.8 ms — `tasks.md` Phase 5), far inside the 2 s budget of NFR-STR-01 and NFR-STR-02, and SHALL serve a version of any length only through pages of lines (AC 22, 24), never as a whole. A search request (AC 4) SHALL be measured the same way (`tasks.md` Phase 7). (NFR-STR-01, NFR-STR-02, NFR-STR-03)
+    > ⚠️ Not confirmed: the search route (`unaccent` over every title) has not been timed on the current library, and there is no measurement under concurrent load or over a real network — whether the unindexed `unaccent` scan stays inside the budget at 153 texts is expected but unproven; blocks nothing now, and a library several times larger needs a review (NFR-STR-03).
 
 ## API contract (confirmed surface for this feature)
 
-Đã có trong `docs/specs/api/openapi.yaml` (tag Sutras) và `web/docs/public/openapi.yaml`, đối chiếu với handler đã chạy thật.
+Already in `docs/specs/api/openapi.yaml` (tag Sutras), checked against the running handlers.
 
 | Method | Path | Auth | Success | Failure codes |
 |---|---|---|---|---|
-| GET | `/v1/sutras?page=&tradition=&kind=&collection=&purpose=&daily=&max_minutes=&lang=` | public | `200` `{items: [SutraSummary], page, page_size, total, total_pages}` | 400 `INVALID_PAGE` / `INVALID_FILTER`, 405, 500 |
+| GET | `/v1/sutras?page=&tradition=&kind=&collection=&purpose=&daily=&max_minutes=&lang=&q=` | public | `200` `{items: [SutraSummary], page, page_size, total, total_pages}` | 400 `INVALID_PAGE` / `INVALID_FILTER`, 405, 500 |
 | GET | `/v1/sutras/{id}` | public | `200` `SutraDetail` | 404 `SUTRA_NOT_FOUND`, 405, 500 |
 | GET | `/v1/sutras/{id}/lines?translation=&page=&page_size=` | public | `200` `{translation, items: [Line], page, page_size, total, total_pages}` | 400 `INVALID_TRANSLATION` / `INVALID_PAGE` / `INVALID_PAGE_SIZE`, 404 `SUTRA_NOT_FOUND` / `TRANSLATION_NOT_FOUND`, 405, 500 |
 | GET | `/v1/deities/{id}/sutras?page=&role=` | public | `200` `{items: [SutraSummary + role], page, page_size, total, total_pages}` | 400 `INVALID_PAGE` / `INVALID_FILTER`, 404 `DEITY_NOT_FOUND`, 405, 500 |
 
-`SutraSummary`: `id` (slug, string), `summary` (string, `""` nếu chưa có; v2.13), `tradition` (`THERAVADA` | `MAHAYANA` | `VAJRAYANA`), `kind` (`SUTRA` | `VERSE` | `DHARANI`), `collection`, `reference` (`""` nếu không có), `titles` (`{vi, pli?, en?, zh?, sa?, bo?}`), `daily_chant` (bool), `purposes` (`[string]`), `duration_minutes` (int | `null`), `deities` (`[{deity_id, role, name_vi, thumbnail_url}]`), `translations` (`[{key, lang, variant, translator, license, line_count}]`, `license` là mã trong tập đóng `CC0-1.0` | `CC-BY-NC-4.0` | `PUBLIC_DOMAIN` | `COPY_ALLOWED` | `UNKNOWN`).
+`SutraSummary` (the card): `id` (stable slug), `summary` (`""` when none), `tradition`, `kind`, `collection`, `reference` (`""` when none), `titles` (`{vi, pli?, en?, zh?, sa?, bo?}`, always `vi`), `daily_chant` (bool), `purposes` (`[string]`), `duration_minutes` (int; `null` until AC 34 ships), `audio_url` (string, `""` = no audio), `deities` (`[{deity_id, role, name_vi, thumbnail_url}]`), `translations` (`[{key, lang, variant, translator, license, line_count}]`).
 
-`SutraDetail` = `SutraSummary` + `review_status` (`UNREVIEWED` | …), + `original_title`, `author`, `han_translator`, `reference_note`, `han_translation_year` (int | `null`) và mỗi phần tử `translations` thêm `source_name`, `source_url`, `note`, `license_url`, `license_note`, `sections` (`[{name, start_n, line_count}]`). `reference` chỉ còn mã trích dẫn (AC37).
+`SutraDetail` = `SutraSummary` + `review_status`, `original_title`, `author`, `han_translator`, `reference_note`, `han_translation_year` (int | `null`), and every element of `translations` gains `source_name`, `source_url`, `note`, `license_url`, `license_note`, `sections` (`[{name, start_n, line_count}]`).
 
-`Line`: `n` (int, bắt đầu từ 1, liên tục **trong mỗi bản dịch**), `text`, `section` (string | `null`).
+`Line`: `n` (int, from 1, continuous **within one version**), `text`, `section` (string | `null`).
 
-Giá trị `lang` trong dữ liệu hiện có: `vi`, `pli`, `en`, `zh`, `sa`, `bo`. Giá trị `variant`: `translation`, `chant` (âm Hán-Việt/phiên âm để tụng), `meaning` (dịch nghĩa), `poem`.
+`lang` values in the data today: `vi`, `pli`, `en`, `zh`, `sa`, `bo`. `variant` values: `translation`, `chant` (transliteration to chant), `meaning` (explained meaning), `poem`.
 
 ## Out of scope (this feature boundary, not tracked here)
 
-- Tạo/sửa/xoá kinh qua API hoặc backoffice — hiện chỉ có SQL trực tiếp trên các bảng.
-- Cờ `-prune` và việc ghi đè / reseed từ script: không có; `cmd/seedsutras` cũng chỉ nạp khi bảng `sutras` rỗng.
-- Đồng bộ delta (`updated_since`), `audio_url`, `version` — từng có trong spec `content` cũ (đã xoá 2026-10-03, xem lịch sử git), chưa làm.
-- Bookmark, kinh yêu thích, đánh dấu đã đọc, lịch sử tụng, đếm số biến tụng — thuộc module `journal`.
-- Tìm kiếm toàn văn trong nội dung kinh.
-- Gióng hàng từng dòng giữa các ngôn ngữ: `n` chỉ có nghĩa trong một bản dịch, các bản dịch không khớp 1-1.
-- Nhãn hiển thị tiếng Việt của `purposes` (vd. `CAU_AN` → "Cầu an") — client tự ánh xạ.
-- Đăng nhập: bốn route công khai như `temple`, `deity`, `article`.
-- Cập nhật nội dung kinh sau lần seed đầu bằng lệnh reseed hoặc backoffice CRUD — đã chốt hoãn; hiện chỉ đổi được bằng SQL tay (xem "Open questions (resolved)").
-- Xử lý giấy phép/bản quyền các văn bản — đã chốt tạm không quan tâm (xem "Open questions (resolved)"); mã `license` ở AC38 chỉ để mô tả, không chặn hay ẩn văn bản.
-- Bản dịch `summary` sang ngôn ngữ khác (chỉ tiếng Việt) và đưa các trường tách khác ngoài `summary` vào danh sách (chỉ chi tiết).
+- Creating, editing or deleting texts through an API or the back office — today only by hand-written SQL on the tables; no reseed command (product Appendix A item 15).
+- Delta sync (`updated_since`), `version`, offline-first and downloads — separate later specs (product §1.2); each needs an ADR.
+- Audio: the field says "no audio" (AC 20); storing and serving recordings is a later spec.
+- The quote of the day (BR-STR-10, FR-STR-010): the clients pick it from the 300-verse file; the backend serves nothing for it. If the product moves the file to the backend it needs a contract first (product Appendix A item 3, Appendix B item 4).
+- Bookmarks, favourites, reading progress, chant history and counters — module `journal`.
+- Full-text search inside the lines (BR-STR-04: names, collection and citation code only).
+- Line-by-line alignment between versions: `n` only means something inside one version.
+- Vietnamese labels of kinds, traditions and purposes (e.g. `CAU_AN` → "Cầu an") — the clients map them.
+- Translating `summary` or titles into other languages — Vietnamese only until content exists (BR-STR-05).
+- Licence and provenance clearing of the texts — the code is descriptive and never hides a text; clearing is a product decision before any paid or commercial use (product Appendix A item 2).
+- Tracking of the "request a text" action (product Appendix A item 9).
 
 ## Pending (not yet implemented)
 
-- Tách trường (`reference` → `reference` + `original_title` + `author` + `han_translator` + `han_translation_year` + `reference_note`; `license` → `license` + `license_url` + `license_note`) và thêm `summary` (AC36–AC40): đã implement 2026-10-07 (dữ liệu JSON, migration `0020`, domain, seed parser, repository, handler, OpenAPI, ERD, test, E2E); việc áp lên DB dev đã xong (2026-10-08).
-> Đã đóng 2026-10-08: DB dev đã mang dữ liệu mới (153/153 văn bản khớp JSON, kiểm bằng truy vấn trực tiếp và `GET /v1/sutras/{id}`). Môi trường có dữ liệu thật vẫn cần script backfill riêng — chưa có môi trường như vậy.
+- **v4.0 duration rule** (AC 34, AC 38): the seeder refuses a text without `durationMinutes`; the contract drops `null` from `duration_minutes`; the data file is checked for all 153 texts (the seed JSON is not in the git checkout, so the check runs where the file lives). `tasks.md` Phase 7.
+- **Vector files** (AC 8): run `sutra-browse.json` and `sutra-search-match.json` against the repository. `tasks.md` Phase 7.
+- **Search timing** (AC 44). `tasks.md` Phase 7.
 
-- ~~Soát và chỉnh tay `durationMinutes`~~ — đã đóng 2026-10-03: người dùng quyết định giữ nguyên giá trị đã sinh (`tasks.md` Phase 0); độ lệch đã biết (Dược Sư 80 phút, các bộ 14–15 giờ) được chấp nhận, ghi ở TD-007.
+## Technical notes
 
+- Source data: **153** texts, **391** versions, **64,009** lines, **151** deity links. By tradition and kind: Nam Tông 53 sutras + 37 verses; Bắc Tông 23 sutras + 18 verses + 12 mantras; Kim Cang Thừa 7 verses + 3 mantras. Versions by language: `vi` 170, `en` 99, `pli` 90, `bo` 17, `zh` 10, `sa` 5. 10 texts (all Kim Cang Thừa) have **no Vietnamese version** (product Appendix A item 5).
+- The longest version, `phap-hoa/vi`, has 6,967 lines (35 pages of 200); 51 versions have `sections`. Estimated durations of the 143 texts with a Vietnamese version: ≤5 min 63, ≤15 min 27, ≤30 min 13, ≤60 min 21, >60 min 19 (reference: Tâm Kinh ~3 min, Chú Đại Bi ~6, A Di Đà ~24, Kim Cang ~57). The estimate is an editorial value, not a measurement; known outliers are accepted (TD-007, A-005).
+- Deity links by role: `SPEAKER` 84, `MENTIONED` 38, `SUBJECT` 29; `buddha_shakyamuni` appears in 81 texts (5 pages of 20).
+- `deity_id` is a foreign key to `deities.id`; `deities` must be seeded first (`cmd/seeddeities`), otherwise `cmd/seedsutras` aborts (AC 39).
+- `tam-kinh` has two `vi` versions of variant `meaning`, so `lang` + `variant` cannot select a version; `key` (`vi-meaning`, `vi-meaning-2`) does.
+- `id` is a stable slug; some were renamed when the data was merged (e.g. MN 10 is `dai-niem-xu-trung-bo`, DN 22 is `dai-niem-xu-truong-bo`) — clients can cache an `id` safely from this contract on, not before.
+- The seed is ~11 MB of JSON embedded into the binary (`assets/embed.go`, +10.25 MB, +17%); it is kept out of git by the ignore rule for JSON files (TD-001), so a fresh checkout cannot run `cmd/seedsutras` or the seed tests that read it. Loading ~64,000 lines in one transaction took about 1.2–1.8 s on a local Postgres.
+- Page sizes live in the `sutra:` block of `config.<env>.yaml` (dev: `page_size: 20`, `lines_page_size: 200`, `lines_max_page_size: 500`); all three are required and must be > 0. Whether the list page stays 20 or becomes 12 is open in the product spec (Appendix A item 12); the backend follows the config value.
+- Search uses the Postgres `unaccent` extension (migration `0019`); `đ`/`Đ` map to `d`/`D`. The term is a bound parameter and LIKE wildcards are escaped, so nothing from the request is concatenated into SQL.
+- Tables `sutras`, `sutra_translations`, `sutra_lines`, `sutra_deities` belong to migration `0013_sutras.sql`; `0019` adds `audio_url`, the `unaccent` extension and the duration backfill; `0020` splits `reference` / `license` and adds `summary`. They must be applied before the seed (`make migrate`).
 
-## Ghi chú kỹ thuật liên quan
+## Open questions (resolved)
 
-- Dữ liệu nguồn: **153** văn bản, **391** bản dịch, **64.009** dòng, **151** liên kết Phật/Bồ tát. Theo tông phái và loại: Nam Tông 53 kinh + 37 kệ; Bắc Tông 23 kinh + 18 kệ + 12 chú; Kim Cang Thừa 7 kệ + 3 chú. Ngôn ngữ: `vi` 170 bản, `en` 99, `pli` 90, `bo` 17, `zh` 10, `sa` 5. 10 văn bản (toàn Kim Cang Thừa) **không có tiếng Việt**.
-- Bản dịch dài nhất: `phap-hoa/vi` 6.967 dòng (35 trang với 200 dòng/trang); 51 bản dịch có `sections`. Thời lượng đã ghi vào dữ liệu (2026-10-03; gợi ý `ceil(âm tiết / 80)` rồi làm tròn cho dễ đọc, chưa chỉnh tay) của 143 văn bản có tiếng Việt: ≤5 phút 63, ≤15 phút 27, ≤30 phút 13, ≤60 phút 21, >60 phút 19 — tham chiếu: Tâm Kinh ~3 phút, Chú Đại Bi ~6 phút, A Di Đà ~24 phút, Kim Cang ~57 phút.
-- Liên kết Phật/Bồ tát theo vai: `SPEAKER` 84, `MENTIONED` 38, `SUBJECT` 29; `buddha_shakyamuni` đứng trong 81 văn bản (9 trang với `sutra.page_size` = 10, 5 trang với 20).
-- `deity_id` là khoá ngoại tới `deities.id` (`phat_botat.json`, 18 vị); `deities` phải được seed trước (`cmd/seeddeities`) — nếu không, lần khởi động đầu abort (đã chốt — xem "Open questions (resolved)").
-- `tam-kinh` có hai bản `vi` cùng `variant = meaning` (Bình Anson và Trần Trọng Kim) nên `lang` + `variant` không đủ để chọn bản — dữ liệu cần thêm `key` duy nhất theo từng văn bản (`vi-meaning`, `vi-meaning-2`, …).
-- `id` là slug ổn định; một số id đã được đổi trong đợt gộp dữ liệu (vd. MN 10 là `dai-niem-xu-trung-bo`, DN 22 là `dai-niem-xu-truong-bo`) — client cache `id` an toàn sau khi hợp đồng này ra, không trước.
-- Dữ liệu seed ~11 MB JSON được `go:embed` vào binary (`assets/embed.go`), nên binary lớn thêm cỡ đó; seed lần đầu ghi ~64.000 dòng trong một transaction nên khởi động lần đầu chậm hơn các lần sau — đo ngày 2026-10-03 trên Postgres cục bộ: từ lúc chạy process tới `200` đầu tiên mất median 1,82 s ở lần chạy đầu (1,73–2,93 s, 5 lần) và 0,13 s ở các lần sau; binary 70,91 MB khi nhúng thư viện so với 60,66 MB khi chỉ nhúng `index.json` (+10,25 MB, +17%).
-- Bảng `sutras`, `sutra_translations`, `sutra_lines`, `sutra_deities` thuộc migration `0013_sutras.sql` và phải tồn tại trước khi service chạy (`make migrate`), nếu không bước seed lỗi và service không khởi động.
-- Kích thước trang nằm ở block `sutra:` của `config.<env>.yaml` (dev: `page_size: 20`, `lines_page_size: 200`, `lines_max_page_size: 500`); cả ba bắt buộc và phải > 0.
-
-## Open questions (resolved during implementation)
-
-- ~~Tách các trường đang gộp chung và thêm tóm tắt~~ → **tách `reference` thành `reference` (mã trích dẫn) + `original_title` + `author` + `han_translator` + `han_translation_year` + `reference_note`; tách `license` thành mã trong tập đóng + `license_url` + `license_note`; thêm `summary` tiếng Việt**; sáu trường mới chỉ ở chi tiết (danh sách giữ dạng thẻ, tránh phình ~6 KB mỗi trang), `license` (mã) ở cả danh sách. `note` của bản dịch giữ nguyên (một ghi chú biên tập, không gộp nhiều thứ). Resolved 2026-10-07 (người dùng: "những phần gộp em tách ra dùm anh, em tự làm phần summary"; tên trường, tập mã `license` và phạm vi chi tiết-only do em chọn — xem `docs/assumptions/sutra/A-010`; `summary` do em soạn, chưa ai duyệt — xem A-011). Ảnh hưởng: AC36–AC40 mới; `design.md` đổi mô hình dữ liệu, parser và flow Chi tiết; `tasks.md` thêm Phase 6; `flow.md` đổi câu SELECT của Chi tiết (Step 1–2).
-
-- ~~Cách nạp dữ liệu: lệnh seed thủ công hay tự nạp lúc khởi động~~ → **tự nạp một lần khi khởi động lần đầu**, nhúng JSON vào binary (theo cách của `article`); bỏ cờ `-prune` (lệnh `cmd/seedsutras` được thêm lại ở v2.3 làm cửa vào thứ hai, xem mục resolved bên dưới); nạp trong **một** transaction nên lỗi thì không để lại dữ liệu nửa chừng. Resolved 2026-10-03. Ảnh hưởng: `design.md` đổi flow nạp dữ liệu và bỏ `SutraSeeder.ReplaceSutra`/`PruneExcept`; `tasks.md` bỏ các việc của `cmd/seedsutras`, thêm nhúng dữ liệu và `SeedIfEmpty`. Làm rõ ở v2.2 và chốt ở v2.3: thêm script `cmd/seedsutras` làm cửa vào thứ hai (xem mục resolved bên dưới).
-- ~~Danh sách kinh có phân trang không~~ → **có**, bằng `page` / `page_size` / `total` / `total_pages` như `article` và `deity`; route tra ngược theo Phật/Bồ tát cũng phân trang. Resolved 2026-10-03. Ảnh hưởng: `design.md` thêm bước đếm vào hai flow danh sách; `tasks.md` thêm `SutraConfig.PageSize`.
-- ~~Kiểu phân trang nội dung dòng~~ → **theo trang với số dòng mỗi trang**: `page` + `page_size` (số dòng), thay cho con trỏ `after`/`limit` của v1.0. Resolved 2026-10-03 (cách hiểu của spec: `page_size` là tham số tuỳ chọn, mặc định `sutra.lines_page_size`, bị kẹp ở `sutra.lines_max_page_size`). Ảnh hưởng: `design.md` đổi flow đọc dòng sang truy vấn khoảng `n`; `tasks.md` đổi các mục usecase/handler tương ứng.
-- ~~Quy trình cập nhật nội dung sau lần seed đầu (SQL tay, lệnh reseed hay backoffice CRUD)~~ → **dùng SQL tay như `article` hiện nay**; lệnh reseed và backoffice CRUD hoãn, không thuộc feature này. Resolved 2026-10-03 (người dùng "chốt" điểm này mà chưa nêu phương án cụ thể; spec ghi theo mặc định của `article` — sửa lại nếu muốn khác). Ảnh hưởng: không đổi `design.md` ngoài việc đổi ghi chú Known gaps từ "chưa chốt" thành "đã chốt"; `tasks.md` không thêm việc.
-- ~~Hành vi khi lần khởi động đầu mà `deities` chưa được seed~~ → **abort startup** (fatal, nêu các id thiếu, không ghi gì), thứ tự triển khai là migration → `cmd/seeddeities` → service. Resolved 2026-10-03. Ảnh hưởng: `design.md` Step 3 và `flow.md` bỏ marker, ghi là đã chốt; AC30 giữ nguyên.
-- ~~Bảng giá trị `purposes`~~ → **chấp nhận danh sách đề xuất** `CAU_AN`, `CAU_SIEU`, `TRI_CHU`, `SAM_HOI`, `HOI_HUONG`, `PHAT_NGUYEN`, `BAO_HIEU`, `THIEN_DINH`, `HOC_GIAO_LY`, `QUY_Y_THO_GIOI`, và giá trị khởi tạo của `daily_chant`/`purposes` theo bảng trong `design.md`. Resolved 2026-10-03. Ảnh hưởng: `tasks.md` Phase 0 không còn bị chặn bởi việc chốt danh sách; việc duyệt nhãn đã được chốt ở v2.3: không có người duyệt, em gán (xem mục resolved bên dưới).
-- ~~Cách ước tính `duration_minutes`~~ → **ước tính biên tập, giá trị do mình ghi**: nghĩ bài kinh cần 30 phút thì ghi 30. Công thức `ceil(số âm tiết / 80)` (bản `vi` ưu tiên `chant` > `translation` > `meaning` > `poem`, tối thiểu 1) chỉ để **gợi ý giá trị ban đầu**, sau đó làm tròn hoặc chỉnh tay; không cam kết độ chính xác; `null` khi chưa có ước tính. Resolved 2026-10-03, làm rõ lại ở v2.2. Ảnh hưởng: `design.md` bảng "Dữ liệu cần bổ sung" đổi từ "tính bằng script" sang "do mình ghi, script chỉ gợi ý"; `tasks.md` Phase 0 đổi theo; AC26 sửa lời, cách validate của AC29 không đổi.
-- ~~Quyền dùng nội dung (giấy phép, ẩn văn bản chưa rõ giấy phép / chưa duyệt, ghi nguồn)~~ → **tạm không quan tâm** vì ứng dụng miễn phí; API trả mọi văn bản, các trường `license`, `source_name`, `source_url` vẫn được lưu và trả trong chi tiết. Resolved 2026-10-03. Ảnh hưởng: không còn chặn phát hành; `design.md` Known gaps ghi lại là đã hoãn có chủ đích; không đổi `tasks.md`.
-- ~~Mã user story và hợp đồng cũ của `content` (US-005/US-006: `/v1/content/sutras`, `updated_since`, `slug`, `audio_url`, `version`)~~ → **thay US-005 đến US-008 của `content` bằng spec này** (US-007/US-008 là thần chú, được `kind = DHARANI` đảm nhận); `US-SUT-01..06` là mã chính thức. Resolved 2026-10-03 (người dùng: bản cũ không đầy đủ, có bản đầy đủ thì bỏ). Ảnh hưởng: `docs/specs/features/content/requirements.md` đã được sửa cùng ngày rồi **xoá hoàn toàn ở v2.4** (người dùng: kinh, thần chú, Phật và Bồ tát đều đã có feature riêng, file cũ bỏ luôn); các tính năng chỉ có ở bản cũ — đồng bộ delta `updated_since`, `version`, offline-first, `audio_url` — nay chỉ còn ở "Out of scope" của spec này; spec `practice` từng tham chiếu `audio_url` đã bị xoá vì cũ.
-- ~~Ai duyệt việc phân loại `daily_chant` và `purposes`~~ → **không có người duyệt**: nhãn do em (Claude) gán theo bảng trong `design.md`; `review_status` giữ `UNREVIEWED` trong dữ liệu để sau này có người am hiểu duyệt thì đổi; không chặn phát hành. Resolved 2026-10-03 (người dùng: không có ai am hiểu tôn giáo để gán nhãn, giao cho em). Ảnh hưởng: `tasks.md` Phase 0 bỏ mục xác định người duyệt; `design.md` ghi lại ở Known gaps.
-- ~~Bản Chú Đại Bi chuẩn~~ → **giữ bản phatgiao.org.vn (84 câu đánh số)** làm bản cuối; do em quyết vì không có người kiểm tra từng âm. Những chỗ lệch với bản văn xuôi cùng trang và với bản khác (`kiết`/`yết`, `dà`/`già`, …) vẫn ghi trong `note` của file dữ liệu; `review_status` giữ `UNREVIEWED`. Resolved 2026-10-03. Ảnh hưởng: không đổi dữ liệu hay thiết kế.
-- ~~Có thêm script nạp làm cửa vào thứ hai không~~ → **có**: thêm script `cmd/seedsutras` **và** nạp khi server khởi động lần đầu, dùng chung usecase `SeedIfEmpty`; bảng đã có dữ liệu thì bỏ qua ở cả hai cửa vào. Resolved 2026-10-03. Ảnh hưởng: AC35 mới; `design.md` thêm hàng `cmd/seedsutras` và bỏ marker ở Step 1; `flow.md` đổi tên participant và bỏ marker; `tasks.md` thêm việc tạo script.
+- ~~Is an ADR needed?~~ → **No.** Resolved 2026-10-15 in the product spec. Effect: none on this spec.
+- ~~Does the backend give the sections of a version for the table of contents?~~ → **Yes**, `sections` in the detail (AC 15). Resolved 2026-10-15 (anh Đức asked, product spec). Effect: no change — it already existed.
+- ~~What does the backend say about audio?~~ → **"None"** (`audio_url: ""`), the clients decide later. Resolved 2026-10-15 (anh Đức: "BE cứ trả không có"). Effect: AC 20 written down; no code change.
+- ~~Search~~ → server search by name on all clients (`q`, AC 4). Resolved 2026-10-15. Effect: AC 4–5 written from the shipped code; the 100-character term limit is enforced by the usecase (`maxSutraQueryRunes`).
+- ~~Fields that were packed together, and a summary~~ → `reference` split into code + `original_title` + `author` + `han_translator` + `han_translation_year` + `reference_note`; `license` split into a code + `license_url` + `license_note`; Vietnamese `summary` added. Resolved 2026-10-07 (v2.12–v2.13; assumptions A-010, A-011). Effect: AC 10–13, 16, 19.
+- ~~How the data is loaded~~ → manual `cmd/seedsutras` into an empty table, one transaction, validate-all first; the service does not seed on start. Resolved 2026-10-03, changed 2026-10-11. Effect: AC 37–43.
+- ~~Is the list paged~~ → yes, `page` / `page_size` / `total` / `total_pages`; the lines are paged by line count. Resolved 2026-10-03.
+- ~~Missing deities at seed time~~ → abort, write nothing. Resolved 2026-10-03 (AC 39).
+- ~~Values of `purposes`, who reviews the labels, the Great Compassion Mantra version, content updates by hand SQL, licences~~ → ten purposes accepted; labels assigned by the author (no reviewer, `review_status` stays `UNREVIEWED`); phatgiao.org.vn 84-verse version kept; updates by SQL only; licences not blocking release. Resolved 2026-10-03 (A-004, A-006, A-003, TD-002, TD-003). The first and last two are still product open items (Appendix A items 1, 2, 15).
+- ~~Old `content` spec codes (US-005/006)~~ → replaced by this spec on 2026-10-03; `content` was deleted.
