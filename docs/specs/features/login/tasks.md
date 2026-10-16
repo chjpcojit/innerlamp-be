@@ -1,8 +1,8 @@
 # Tasks — login
 
-Version: 2.4
+Version: 2.5
 Last updated: 2026-10-16
-Status: Phase 1–6 xong (2026-10-16); Phase 7 (tài liệu theo sau) chưa làm. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
+Status: Phase 1–6 xong (2026-10-16); Phase 7: `openapi.yaml` xong (v2.5), còn OKF và product spec §4.2. Task của v1.x (login/refresh/logout bằng SĐT) đã xong, xem `changelog.md` và git history.
 Module: `identity` (spec folder `login`)
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -58,7 +58,7 @@ Mỗi item trace về một dòng trong bảng "Layers & components" hoặc mộ
 
 ## Phase 7 — Tài liệu theo sau
 
-- [ ] `docs/specs/api/openapi.yaml`: năm operation + `401` mới trên route Bearer (sau khi handler chạy thật).
+- [x] `docs/specs/api/openapi.yaml`: năm operation + `401` mới trên route Bearer (sau khi handler chạy thật). Làm ở v2.5: năm operation đầy đủ; `401`/`503` của kiểm phiên ghi ở mô tả `bearerAuth` và tag `Auth`, không lặp ở từng route Bearer vì các route đó đã liệt kê `401 UNAUTHORIZED`.
 - [ ] `docs/knowledge/features/login.md`: làm mới bằng `il-okf-writer`.
 - [ ] Product spec §4.2: cột Backend sang `done` (báo `ba-writer`).
 

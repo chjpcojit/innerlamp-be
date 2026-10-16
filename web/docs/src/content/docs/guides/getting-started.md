@@ -37,7 +37,7 @@ Mọi response có body đều dùng một khuôn duy nhất.
 ```json title="Lỗi"
 {
   "success": false,
-  "error": { "code": "OTP_INVALID", "message": "...", "type": "business" },
+  "error": { "code": "INVALID_PHONE", "message": "...", "type": "business" },
   "details": { "field": "phone_number" }
 }
 ```

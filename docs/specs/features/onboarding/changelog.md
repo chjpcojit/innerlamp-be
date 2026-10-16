@@ -3,6 +3,15 @@
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version first.
 
+## v8.3 (2026-10-16)
+
+**`openapi.yaml` khớp hợp đồng đăng ký bằng email** (tasks Phase 9, item 1). Không đổi AC, không đổi code. Minor bump theo quy ước các bản v8.x.
+
+- `docs/specs/api/openapi.yaml`: viết lại ba operation đăng ký — `register/request-otp` (body `email`, `password` 8–64 ký tự, `phone_country`, `phone_number`, `full_name`, `dharma_name?`, `ordination_temple_id?`; `409 PHONE_TAKEN` / `REGISTRATION_IN_PROGRESS`; bỏ `EMAIL_TAKEN`), `register/resend-otp` (**xoá** `/v1/auth/resend-otp`; body `{email}`) và `register/verify-otp` (`{email, otp_code}`). Thêm `429 RATE_LIMITED` + `Retry-After` và `Cache-Control: no-store`; `500 EMAIL_SEND_FAILED` thay `SMS_SEND_FAILED`.
+- Khi viết thấy code khác spec ở ba chỗ, **code thắng** trong OpenAPI (chưa sửa code): (1) `Cache-Control: no-store` có ở cả `request-otp` và `resend-otp` (spec chỉ nêu `verify-otp`); (2) `RATE_LIMITED` luôn kèm header `Retry-After` (spec chỉ nêu `retry_after_seconds`); (3) `phone_number` chỉ nhận chữ số, dấu cách, `.`, `-` (không `+`, không ngoặc).
+- `requirements.md` / `design.md` / `flow.md`: chỉ bump version và Status; Pending bỏ AC22 (đã làm ở login v2.4) và OpenAPI.
+- Còn mở: `erd.svg`, `docs/knowledge/features/register.md` (il-okf-writer), product spec §4.2 (ba-writer).
+
 ## v8.2 (2026-10-16)
 
 **Vá pre-hijack pending registration** (phát hiện của security review, quyết định cùng anh Đức) — thay đổi hành vi + contract: `request-otp` thêm `409 REGISTRATION_IN_PROGRESS`. Minor bump.

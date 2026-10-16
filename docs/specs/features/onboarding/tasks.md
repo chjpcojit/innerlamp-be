@@ -1,8 +1,8 @@
 # Tasks — onboarding
 
-Version: 8.2
+Version: 8.3
 Last updated: 2026-10-16
-Status: v8.2 — Phase 1–8 xong (trừ `erd.svg` và giới hạn theo IP, chuyển sang login Phase 5); Phase 9 (tài liệu theo sau) còn mở. Task của v1–v7.5 đã xong và nằm trong git history / `changelog.md`.
+Status: v8.3 — Phase 1–9 xong trừ `erd.svg`, OKF và product spec §4.2 (giới hạn theo IP đã làm ở login v2.4; `openapi.yaml` xong ở v8.3). Task của v1–v7.5 đã xong và nằm trong git history / `changelog.md`.
 Module: `identity` (spec folder `onboarding`)
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -70,7 +70,7 @@ tick ở cả ba spec.
 
 ## Phase 9 — Tài liệu theo sau
 
-- [ ] `docs/specs/api/openapi.yaml`: ba operation đăng ký theo bảng API (viết sau khi handler chạy thật, theo convention repo).
+- [x] `docs/specs/api/openapi.yaml`: ba operation đăng ký theo bảng API (viết sau khi handler chạy thật, theo convention repo). Làm ở v8.3, cùng lượt với login Phase 7 (xoá `/v1/auth/resend-otp`, thêm `/v1/auth/register/resend-otp`, `409 REGISTRATION_IN_PROGRESS`).
 - [ ] `docs/knowledge/features/register.md`: làm mới bằng `il-okf-writer` sau khi code xong.
 - [ ] Product spec §4.2: đổi cột Backend của các ID trong `Implements` sang `done` (báo `ba-writer`).
 

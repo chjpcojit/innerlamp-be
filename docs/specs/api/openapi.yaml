@@ -3,7 +3,7 @@ info:
   title: InnerLamp API
   version: 1.0.0
   description: |
-    API của hai service: **appService** (client: đăng ký/đăng nhập, hồ sơ cá nhân và ảnh đại diện, attestation thiết bị, danh mục chùa, Phật/Bồ tát và bài viết Phật pháp)
+    API của hai service: **appService** (client: đăng ký/đăng nhập bằng email, quên mật khẩu, hồ sơ cá nhân và ảnh đại diện, attestation thiết bị, danh mục chùa, Phật/Bồ tát và bài viết Phật pháp)
     và **backofficeService** (admin: `/v1/admin/*`). Chọn server tương ứng ở ô Servers.
     Token của hai service không dùng chéo được (khác secret và audience).
 
@@ -34,8 +34,19 @@ servers:
 tags:
   - name: Auth
     description: |
-      Đăng ký 2 bước bằng OTP, đăng nhập, làm mới token, đăng xuất.
+      Đăng ký 2 bước bằng mã gửi qua **email** (không dùng SMS), đăng nhập bằng email và mật khẩu, làm mới token, đăng xuất, quên mật khẩu bằng mã qua email.
       Client web thêm header `X-API-Key` (xem mô tả chung); client mobile không gửi.
+
+      **Giới hạn theo IP.** Mọi route `/v1/auth/*` trừ `logout` có giới hạn theo IP, chia nhóm (số dev, đổi theo cấu hình `auth_rate_limit`):
+      `send` (`register/request-otp`, `register/resend-otp`, `password-reset/request-otp`) 10 lượt/giờ; `verify` (`register/verify-otp`, `password-reset/confirm`) 30 lượt/giờ;
+      `login` 30 lượt/15 phút; `refresh` 120 lượt/15 phút. Các route cùng nhóm dùng chung một bộ đếm. Vượt thì `429 RATE_LIMITED` kèm `details.retry_after_seconds` và header `Retry-After`,
+      handler không chạy. Website gửi IP của khách ở header `X-InnerLamp-Client-IP` (chỉ được đọc khi có `X-API-Key` đúng); mobile bị tính theo địa chỉ kết nối (hoặc `X-Forwarded-For` khi cấu hình tin proxy).
+      Các route gửi thư còn chịu ngân sách thư mỗi ngày (UTC) chung toàn hệ thống; hết ngân sách cũng trả `429 RATE_LIMITED`.
+      Các giới hạn theo email (chờ giữa hai lần gửi, trần số lần gửi, khoá nhập sai mã, khoá đăng nhập) là bộ đếm khác, trả `OTP_*` và `LOGIN_LOCKED`.
+
+      **Cache.** Mọi response của `register/*`, `login`, `refresh` và `password-reset/*` (kể cả lỗi) có `Cache-Control: no-store` và `Pragma: no-cache`. `logout` không có.
+
+      **Phiên.** Mật khẩu được đặt lại thì mọi phiên của tài khoản bị thu hồi; các route Bearer từ chối access token của phiên đó ở request kế tiếp (xem `bearerAuth`).
   - name: TempleSuggestions
     description: |
       Người dùng đề xuất một ngôi chùa chưa có trong danh mục. Công khai (không cần đăng nhập), nhưng ghi vào DB nên có giới hạn theo IP
@@ -118,29 +129,42 @@ paths:
     post:
       tags: [Auth]
       operationId: registerRequestOtp
-      summary: Đăng ký – bước 1, gửi OTP
+      summary: Đăng ký – bước 1, gửi mã qua email
       description: |
-        Kiểm tra thông tin, lưu bản đăng ký chờ xác minh và gửi OTP 6 số qua SMS. Không cần đăng nhập.
+        Kiểm tra thông tin, lưu bản đăng ký chờ xác minh và gửi mã 6 số tới **email**. Không cần đăng nhập.
         Tài khoản **chưa** được tạo ở bước này, chỉ tạo khi `verify-otp` thành công.
 
         Body:
 
         | Field | Kiểu | Bắt buộc | Ghi chú |
         | --- | --- | --- | --- |
-        | `email` | string | có | Đúng định dạng email. Chuẩn hoá phía server. |
-        | `password` | string | có | Tối thiểu 8 ký tự, nếu ngắn hơn trả `INVALID_PASSWORD`. |
-        | `phone_number` | string | có | `+` tuỳ chọn rồi 8–15 chữ số, cho phép dấu cách, `-`, `.`, `(`, `)`. Server chuẩn hoá về E.164, nên `0901234567` và `+84901234567` là một số. |
-        | `full_name` | string | có | Họ và tên. Cắt khoảng trắng đầu cuối, chuẩn hoá NFC, tối đa 300 **ký tự** (`profile.full_name_max_chars`). Thiếu field trả `VALIDATION_ERROR`; toàn khoảng trắng hoặc quá dài trả `INVALID_FULL_NAME`. |
-        | `dharma_name` | string | không | Pháp danh. Cắt khoảng trắng đầu cuối, tối đa 255 **ký tự** (không phải byte; chữ có dấu tính một ký tự; `profile.dharma_name_max_chars`). Quá dài trả `INVALID_DHARMA_NAME`. |
-        | `ordination_temple_id` | string | không | `id` chùa nơi quy y/xuất gia, lấy từ `GET /v1/temples/options` (danh sách rút gọn, phân trang, dành cho màn chọn chùa), hoặc từ `GET /v1/temples` / `GET /v1/temples/{id}`. Bỏ field (hoặc để rỗng) nếu chưa có nơi xuất gia. Id không tồn tại trả `INVALID_TEMPLE`. Thêm một chùa chưa có trong danh sách là việc riêng (đề xuất chùa), không làm ở đây. Trước đây là `ordination_place` (tên chùa dạng text): field đó **đã bị bỏ**, gửi lên sẽ trả `VALIDATION_ERROR`. |
+        | `email` | string | có | Cắt khoảng trắng, chuyển chữ thường, rồi kiểm theo `docs/product/onboarding/rules/email.json`. Sai trả `INVALID_EMAIL` (thiếu field cũng vậy). |
+        | `password` | string | có | 8 đến 64 **ký tự** sau chuẩn hoá NFC, không cắt khoảng trắng, không luật thành phần. Ngoài khoảng đó (hoặc thiếu) trả `INVALID_PASSWORD`. |
+        | `phone_country` | string | có | Mã quốc gia ISO 3166, không phân biệt hoa thường: `VN`, `US`, `JP`, `KR`, `TH`, `SG`, `MY`, `TW`, `AU`, `DE`, `FR`, `CA`. Mã khác trả `INVALID_PHONE`. |
+        | `phone_number` | string | có | Số người dùng gõ, **không** kèm mã quốc gia hay dấu `+`. Cho phép dấu cách, `.`, `-`; ký tự khác không phải chữ số trả `INVALID_PHONE`. Bỏ một số `0` đầu rồi phải đúng số chữ số của nước đó (VN 9, SG 8, US/CA/JP/DE 10, còn lại 9). Server lưu và trả dạng E.164, vd. `0901234567` + `VN` thành `+84901234567`. Số sai trả `INVALID_PHONE`. |
+        | `full_name` | string | có | Họ và tên. Cắt khoảng trắng đầu cuối, chuẩn hoá NFC, tối đa 300 **ký tự** (`profile.full_name_max_chars`). Rỗng, thiếu hoặc quá dài trả `INVALID_FULL_NAME`. |
+        | `dharma_name` | string | không | Pháp danh. Cắt khoảng trắng đầu cuối, tối đa 255 **ký tự** (không phải byte; `profile.dharma_name_max_chars`). Quá dài trả `INVALID_DHARMA_NAME`. Rỗng được lưu là không có. |
+        | `ordination_temple_id` | string | không | `id` chùa nơi quy y/xuất gia, lấy từ `GET /v1/temples/options` (danh sách rút gọn, phân trang, dành cho màn chọn chùa), hoặc từ `GET /v1/temples` / `GET /v1/temples/{id}`. Bỏ field (hoặc để rỗng) nếu chưa có nơi xuất gia. Id không tồn tại trả `INVALID_TEMPLE`. Thêm một chùa chưa có trong danh sách là việc riêng (đề xuất chùa), không làm ở đây. |
 
-        `data` gồm `message`, `expires_in_seconds` (thời gian sống của OTP) và `resend_after_seconds`
-        (phải chờ bao lâu mới gửi lại được). Hiển thị đếm ngược theo hai giá trị này, đừng hard-code.
+        Mỗi field có mã lỗi riêng nên field thiếu hoặc rỗng trả mã `INVALID_*` của chính field đó, không phải `VALIDATION_ERROR`.
+        `VALIDATION_ERROR` chỉ dành cho lỗi cấu trúc: body rỗng, sai JSON, field lạ (kể cả `ordination_place`, `purpose` hay `otp_code` của các bản cũ), sai Content-Type.
 
-        Gọi lại với cùng số điện thoại khi chưa xác minh **không** phải lỗi trùng: bản đăng ký cũ bị ghi đè.
-        Lượt gửi dùng chung bộ đếm với `resend-otp`.
+        `data` gồm `message`, `expires_in_seconds` (thời gian sống của mã, dev: 600) và `resend_after_seconds`
+        (phải chờ bao lâu mới gửi lại được, dev: 60). Hiển thị đếm ngược theo hai giá trị này, đừng hard-code.
 
-        Ở môi trường dev OTP luôn là `111111` và chỉ được ghi vào log của server.
+        **Không lộ email đã đăng ký.** Email đã có tài khoản nhận về đúng response `200` như email mới (cùng body, cùng giới hạn gửi),
+        nhưng thư gửi đi là thư báo "email này đã có tài khoản" thay cho mã, và không có mã nào dùng được cho email đó. Client không phân biệt được hai trường hợp.
+        Ngoại lệ có chủ đích: `409 PHONE_TAKEN` khi số điện thoại thuộc một tài khoản khác.
+
+        Gọi lại với cùng email khi chưa xác minh: nếu mã trước đó đã hết hạn, hoặc dữ liệu gửi lên **y hệt**, bản đăng ký chờ được ghi đè và gửi mã mới.
+        Nếu mã trước còn sống (kể cả đang bị khoá) mà dữ liệu **khác** (số điện thoại, họ tên, pháp danh, chùa hoặc mật khẩu), trả `409 REGISTRATION_IN_PROGRESS`
+        kèm `details.retry_after_seconds` và **không** đổi gì, không gửi thư (chặn người lạ ghi đè mật khẩu của người đang đăng ký dở).
+        Lượt gửi dùng chung bộ đếm theo email với `resend-otp`.
+
+        Mọi response của route này (kể cả lỗi) có `Cache-Control: no-store` và `Pragma: no-cache`. Có giới hạn theo IP (nhóm `send`, dev: 10 lượt/giờ) và ngân sách thư mỗi ngày;
+        vượt thì `429 RATE_LIMITED` kèm `Retry-After`.
+
+        Ở môi trường dev mã luôn là `111111` (`otp.dev_fixed_code`) và thư chỉ được ghi vào log của server (`mailer.provider = log`). Cả hai bị chặn ngoài môi trường `dev`.
       requestBody:
         required: true
         content:
@@ -149,48 +173,71 @@ paths:
             example:
               email: user@example.com
               password: S3cret-pass
+              phone_country: VN
               phone_number: '0901234567'
               full_name: Nguyễn Văn An
               dharma_name: Diệu Tâm
               ordination_temple_id: temple_north_011
       responses:
         '200':
-          description: OTP đã được gửi.
+          description: Mã đã được gửi (hoặc, với email đã có tài khoản, thư báo đã được gửi; response y hệt).
+          headers:
+            Cache-Control: { $ref: '#/components/headers/CacheControlNoStore' }
           content:
             application/json:
               schema: { $ref: '#/components/schemas/OtpSentEnvelope' }
               example:
                 success: true
-                data: { message: otp sent, expires_in_seconds: 90, resend_after_seconds: 60 }
+                data: { message: otp sent, expires_in_seconds: 600, resend_after_seconds: 60 }
         '400':
           description: |
-            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type, thiếu field hoặc sai định dạng email/số điện thoại),
-            `INVALID_PASSWORD` (mật khẩu dưới 8 ký tự), `INVALID_EMAIL`, `INVALID_PHONE`,
+            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type),
+            `INVALID_EMAIL` (`details.field = "email"`), `INVALID_PHONE` (`details.field = "phone_number"`: nước ngoài danh sách hoặc sai số chữ số),
+            `INVALID_PASSWORD` (`details.field = "password"`: dưới 8 hoặc trên 64 ký tự),
             `INVALID_FULL_NAME` (`details.field = "full_name"`: trống hoặc quá 300 ký tự),
             `INVALID_DHARMA_NAME` (`details.field = "dharma_name"`: quá 255 ký tự),
-            `INVALID_TEMPLE` (`ordination_temple_id` không khớp chùa nào).
+            `INVALID_TEMPLE` (`details.field = "ordination_temple_id"`: không khớp chùa nào).
+            Lỗi 400 không ghi gì và không gửi thư.
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               examples:
-                validation:
-                  summary: VALIDATION_ERROR – field sai định dạng
-                  value:
-                    success: false
-                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
-                    details: { email: email, phone_number: phone }
                 unknownField:
                   summary: VALIDATION_ERROR – field lạ
                   value:
                     success: false
                     error: { code: VALIDATION_ERROR, message: unknown field, type: validation }
-                    details: { field: phone }
+                    details: { field: ordination_place }
+                invalidEmail:
+                  summary: INVALID_EMAIL
+                  value:
+                    success: false
+                    error: { code: INVALID_EMAIL, message: invalid email format, type: business }
+                    details: { field: email }
+                invalidPhone:
+                  summary: INVALID_PHONE
+                  value:
+                    success: false
+                    error: { code: INVALID_PHONE, message: invalid phone number, type: business }
+                    details: { field: phone_number }
                 invalidPassword:
                   summary: INVALID_PASSWORD
                   value:
                     success: false
-                    error: { code: INVALID_PASSWORD, message: password must be at least 8 characters, type: business }
+                    error: { code: INVALID_PASSWORD, message: password must be 8 to 64 characters, type: business }
                     details: { field: password }
+                invalidFullName:
+                  summary: INVALID_FULL_NAME
+                  value:
+                    success: false
+                    error: { code: INVALID_FULL_NAME, message: full name is required and must not be too long, type: business }
+                    details: { field: full_name }
+                invalidDharmaName:
+                  summary: INVALID_DHARMA_NAME
+                  value:
+                    success: false
+                    error: { code: INVALID_DHARMA_NAME, message: dharma name is too long, type: business }
+                    details: { field: dharma_name }
                 invalidTemple:
                   summary: INVALID_TEMPLE
                   value:
@@ -200,8 +247,9 @@ paths:
         '401': { $ref: '#/components/responses/InvalidApiKey' }
         '409':
           description: |
-            `PHONE_TAKEN` (số điện thoại đã có tài khoản) hoặc `EMAIL_TAKEN` (email đã có tài khoản,
-            hoặc đang được một số điện thoại khác giữ trong bản đăng ký chờ xác minh).
+            `PHONE_TAKEN`: số điện thoại đã thuộc một tài khoản (một số chỉ nằm trong bản đăng ký dở của người khác thì **không** chặn).
+            `REGISTRATION_IN_PROGRESS`: email này đang có mã còn sống với dữ liệu khác; `details.retry_after_seconds` là số giây tới khi mã hết hạn (tối thiểu 1).
+            Không còn `EMAIL_TAKEN`: email đã có tài khoản đi đường `200` ở trên.
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
@@ -211,122 +259,124 @@ paths:
                   value:
                     success: false
                     error: { code: PHONE_TAKEN, message: phone number already in use, type: business }
-                emailTaken:
-                  summary: EMAIL_TAKEN
+                registrationInProgress:
+                  summary: REGISTRATION_IN_PROGRESS
                   value:
                     success: false
-                    error: { code: EMAIL_TAKEN, message: email already in use, type: business }
+                    error: { code: REGISTRATION_IN_PROGRESS, message: a registration for this email is already in progress, type: business }
+                    details: { retry_after_seconds: 412 }
         '413': { $ref: '#/components/responses/PayloadTooLarge' }
         '429': { $ref: '#/components/responses/OtpRateLimited' }
         '500':
           description: |
-            `SMS_SEND_FAILED` (OTP đã lưu nhưng nhà cung cấp SMS từ chối gửi) hoặc `INTERNAL_ERROR`.
+            `EMAIL_SEND_FAILED` (nhà cung cấp email từ chối gửi; lượt gửi đã được trả lại nên không bị tính) hoặc `INTERNAL_ERROR`.
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               examples:
-                smsSendFailed:
-                  summary: SMS_SEND_FAILED
+                emailSendFailed:
+                  summary: EMAIL_SEND_FAILED
                   value:
                     success: false
-                    error: { code: SMS_SEND_FAILED, message: failed to send otp via sms, type: system }
+                    error: { code: EMAIL_SEND_FAILED, message: failed to send email, type: system }
                 internal:
                   summary: INTERNAL_ERROR
                   value:
                     success: false
                     error: { code: INTERNAL_ERROR, message: internal server error, type: system }
 
-  /v1/auth/resend-otp:
+  /v1/auth/register/resend-otp:
     post:
       tags: [Auth]
-      operationId: resendOtp
-      summary: Gửi lại OTP
+      operationId: registerResendOtp
+      summary: Đăng ký – gửi lại mã
       description: |
-        Phát một OTP mới cho bản đăng ký đang chờ xác minh. Không cần đăng nhập. Chỉ cần số điện thoại,
-        thông tin tài khoản đã được giữ từ bước 1.
+        Phát một mã mới (mã cũ hết hiệu lực) cho bản đăng ký đang chờ xác minh. Không cần đăng nhập. Chỉ cần email,
+        thông tin tài khoản đã được giữ từ bước 1. Route cũ không có tiền tố `register/` (body `phone_number` + `purpose`) **đã bị bỏ**.
 
         Body:
 
         | Field | Kiểu | Bắt buộc | Ghi chú |
         | --- | --- | --- | --- |
-        | `phone_number` | string | có | Số đã dùng ở `request-otp`. |
-        | `purpose` | string | có | `register`, `login`, `reset_password`, `verify_email`. Hiện chỉ `register` được hỗ trợ, ba giá trị còn lại trả `UNSUPPORTED_OTP_PURPOSE`. Giá trị ngoài danh sách trả `VALIDATION_ERROR`. |
+        | `email` | string | có | Email đã dùng ở `request-otp`. Chuẩn hoá như ở đó; sai định dạng (hoặc thiếu) trả `INVALID_EMAIL`. |
 
         `data` giống `request-otp`, cộng thêm `resend_remaining`: số lượt gửi còn lại trước khi bị `OTP_SEND_LIMITED`.
 
-        OTP cũ đã hết hạn hoặc đã dùng **không** phải lỗi ở đây: resend phát mã mới miễn là bản đăng ký còn sống (24 giờ).
+        Mã cũ đã hết hạn hoặc đã dùng **không** phải lỗi ở đây: resend phát mã mới miễn là bản đăng ký còn sống (24 giờ kể từ lần `request-otp` gần nhất).
+        Email đã có tài khoản cũng nhận `200` (thư báo lại), nên route này không cho biết email nào đã đăng ký.
+        Mã đang bị khoá vì nhập sai 3 lần thì phát mã mới **không** mở khoá được: trả `429 OTP_LOCKED`.
+        Khoá gửi (`OTP_SEND_LIMITED`) không chặn việc nhập lại mã hợp lệ gần nhất ở `verify-otp`.
+
+        Response (kể cả lỗi) có `Cache-Control: no-store`. Nhóm giới hạn IP `send` chung với `request-otp` và `password-reset/request-otp`.
       requestBody:
         required: true
         content:
           application/json:
             schema: { $ref: '#/components/schemas/ResendOtpRequest' }
-            example: { phone_number: '0901234567', purpose: register }
+            example: { email: user@example.com }
       responses:
         '200':
-          description: OTP mới đã được gửi.
+          description: Mã mới đã được gửi.
+          headers:
+            Cache-Control: { $ref: '#/components/headers/CacheControlNoStore' }
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ResendOtpEnvelope' }
               example:
                 success: true
-                data: { message: otp sent, expires_in_seconds: 90, resend_after_seconds: 60, resend_remaining: 2 }
+                data: { message: otp sent, expires_in_seconds: 600, resend_after_seconds: 60, resend_remaining: 2 }
         '400':
           description: |
-            `VALIDATION_ERROR`, `OTP_INVALID` (không có bản đăng ký nào đang chờ cho số này, cố ý không trả 404),
-            `PENDING_REGISTRATION_EXPIRED` (bản đăng ký quá 24 giờ, phải gọi lại `request-otp`),
-            `UNSUPPORTED_OTP_PURPOSE`.
+            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type), `INVALID_EMAIL`,
+            `PENDING_REGISTRATION_EXPIRED` (không có bản đăng ký nào cho email này, hoặc đã quá 24 giờ: cùng một code, phải gọi lại `request-otp`).
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               examples:
-                validation:
-                  summary: VALIDATION_ERROR – purpose ngoài danh sách
+                unknownField:
+                  summary: VALIDATION_ERROR – field lạ (body cũ)
                   value:
                     success: false
-                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
-                    details: { purpose: oneof }
-                otpInvalid:
-                  summary: OTP_INVALID – không có bản đăng ký chờ
+                    error: { code: VALIDATION_ERROR, message: unknown field, type: validation }
+                    details: { field: phone_number }
+                invalidEmail:
+                  summary: INVALID_EMAIL
                   value:
                     success: false
-                    error: { code: OTP_INVALID, message: otp code is invalid, type: business }
+                    error: { code: INVALID_EMAIL, message: invalid email format, type: business }
+                    details: { field: email }
                 pendingExpired:
                   summary: PENDING_REGISTRATION_EXPIRED
                   value:
                     success: false
                     error: { code: PENDING_REGISTRATION_EXPIRED, message: pending registration has expired, type: business }
-                unsupportedPurpose:
-                  summary: UNSUPPORTED_OTP_PURPOSE
-                  value:
-                    success: false
-                    error: { code: UNSUPPORTED_OTP_PURPOSE, message: unsupported otp purpose, type: business }
-        '413': { $ref: '#/components/responses/PayloadTooLarge' }
         '401': { $ref: '#/components/responses/InvalidApiKey' }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
         '429': { $ref: '#/components/responses/OtpRateLimited' }
         '500':
-          description: '`SMS_SEND_FAILED` hoặc `INTERNAL_ERROR`.'
+          description: '`EMAIL_SEND_FAILED` hoặc `INTERNAL_ERROR`.'
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               example:
                 success: false
-                error: { code: SMS_SEND_FAILED, message: failed to send otp via sms, type: system }
+                error: { code: EMAIL_SEND_FAILED, message: failed to send email, type: system }
 
   /v1/auth/register/verify-otp:
     post:
       tags: [Auth]
       operationId: registerVerifyOtp
-      summary: Đăng ký – bước 2, xác minh OTP
+      summary: Đăng ký – bước 2, xác minh mã
       description: |
-        Kiểm tra OTP, tạo tài khoản và phiên đầu tiên. Không cần đăng nhập. Thành công là **đã đăng nhập**,
+        Kiểm tra mã, tạo tài khoản (email được đánh dấu đã xác minh) và phiên đầu tiên trong một giao dịch. Không cần đăng nhập. Thành công là **đã đăng nhập**,
         không cần gọi `login` nữa.
 
         Body:
 
         | Field | Kiểu | Bắt buộc | Ghi chú |
         | --- | --- | --- | --- |
-        | `phone_number` | string | có | Số đã dùng ở `request-otp`. |
-        | `otp_code` | string | có | Đúng 6 chữ số. Gửi dạng chuỗi để giữ số 0 ở đầu. |
+        | `email` | string | có | Email đã dùng ở `request-otp`. Sai định dạng (hoặc thiếu) trả `INVALID_EMAIL`. |
+        | `otp_code` | string | có | Đúng 6 chữ số. Gửi dạng chuỗi để giữ số 0 ở đầu. Sai dạng trả `VALIDATION_ERROR`. |
 
         `data` là **AuthResult**:
 
@@ -336,23 +386,29 @@ paths:
         | `refresh_token` | string | JWT, chỉ dùng cho `POST /v1/auth/refresh`. |
         | `expires_in` | int64 | Thời gian sống của `access_token`, giây (dev: 900). |
         | `user.id` | int64 | |
-        | `user.email` | string | Đã chuẩn hoá. |
+        | `user.email` | string | Đã chuẩn hoá (chữ thường). |
         | `user.phone_number` | string | Dạng E.164, vd. `+84901234567`. |
-        | `user.full_name` | string | Họ và tên. Có với mọi tài khoản đăng ký sau khi bắt buộc `full_name`; **không có trong response** với tài khoản cũ chưa có tên. |
+        | `user.full_name` | string | Họ và tên. **Không có trong response** với tài khoản cũ chưa có tên. |
         | `user.dharma_name` | string | **Không có trong response** nếu người dùng không nhập (không phải `null`). |
         | `user.ordination_temple_id` | string | `id` chùa nơi quy y/xuất gia. **Không có trong response** nếu người dùng chưa chọn chùa. Gọi `GET /v1/temples/{id}` để lấy thông tin chùa. |
         | `user.created_at` | string | RFC 3339. |
 
-        Nhập sai OTP 3 lần liên tiếp thì số điện thoại bị khoá 30 phút (`OTP_LOCKED`, cấu hình dev).
+        Nhập sai mã 3 lần thì mã bị khoá 30 phút (`OTP_LOCKED`, cấu hình dev). Mỗi lượt nhập được đếm trước khi so mã nên đoán song song không vượt được số lần.
+        Email đã có tài khoản không bao giờ tạo được tài khoản mới ở đây: mọi mã đều trả `OTP_INVALID`.
+        Mật khẩu chỉ được lưu dưới dạng băm một chiều và không bao giờ được trả lại hay gửi qua email.
+
+        Mọi response của route này (kể cả lỗi) có `Cache-Control: no-store` và `Pragma: no-cache`. Có giới hạn IP (nhóm `verify`, dev: 30 lượt/giờ).
       requestBody:
         required: true
         content:
           application/json:
             schema: { $ref: '#/components/schemas/VerifyOtpRequest' }
-            example: { phone_number: '0901234567', otp_code: '111111' }
+            example: { email: user@example.com, otp_code: '111111' }
       responses:
         '201':
           description: Tài khoản đã được tạo, kèm cặp token của phiên đầu tiên.
+          headers:
+            Cache-Control: { $ref: '#/components/headers/CacheControlNoStore' }
           content:
             application/json:
               schema: { $ref: '#/components/schemas/AuthEnvelope' }
@@ -372,8 +428,10 @@ paths:
                     created_at: '2026-09-30T08:15:30Z'
         '400':
           description: |
-            `VALIDATION_ERROR`, `OTP_INVALID` (sai mã, hoặc không có bản đăng ký chờ: cùng một code cho cả hai),
-            `OTP_EXPIRED` (mã quá 90 giây, gọi `resend-otp`), `PENDING_REGISTRATION_EXPIRED` (bản đăng ký quá 24 giờ),
+            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type, `otp_code` không đủ 6 chữ số), `INVALID_EMAIL`,
+            `OTP_INVALID` (sai mã, hoặc không có mã đang dùng được; cũng là câu trả lời cho mọi mã khi email đã có tài khoản),
+            `OTP_EXPIRED` (mã quá hạn `expires_in_seconds` hoặc đã dùng: gọi `register/resend-otp`),
+            `PENDING_REGISTRATION_EXPIRED` (không có bản đăng ký cho email này, hoặc quá 24 giờ: cùng một code, bắt đầu lại từ `request-otp`),
             `INVALID_TEMPLE` (chùa đã chọn ở bước 1 không còn tồn tại).
           content:
             application/json:
@@ -385,6 +443,12 @@ paths:
                     success: false
                     error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
                     details: { otp_code: len }
+                invalidEmail:
+                  summary: INVALID_EMAIL
+                  value:
+                    success: false
+                    error: { code: INVALID_EMAIL, message: invalid email format, type: business }
+                    details: { field: email }
                 otpInvalid:
                   summary: OTP_INVALID
                   value:
@@ -400,25 +464,23 @@ paths:
                   value:
                     success: false
                     error: { code: PENDING_REGISTRATION_EXPIRED, message: pending registration has expired, type: business }
+                invalidTemple:
+                  summary: INVALID_TEMPLE
+                  value:
+                    success: false
+                    error: { code: INVALID_TEMPLE, message: ordination temple does not exist, type: business }
+                    details: { field: ordination_temple_id }
         '401': { $ref: '#/components/responses/InvalidApiKey' }
         '409':
-          description: '`PHONE_TAKEN` hoặc `EMAIL_TAKEN`: người khác vừa đăng ký xong với số hoặc email này.'
+          description: '`PHONE_TAKEN`: trong lúc chờ, số điện thoại đã thuộc một tài khoản khác. Không có tài khoản hay phiên nào được tạo.'
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               example:
                 success: false
-                error: { code: EMAIL_TAKEN, message: email already in use, type: business }
+                error: { code: PHONE_TAKEN, message: phone number already in use, type: business }
         '413': { $ref: '#/components/responses/PayloadTooLarge' }
-        '429':
-          description: '`OTP_LOCKED`: nhập sai quá số lần cho phép. `details.locked_until` là thời điểm mở khoá.'
-          content:
-            application/json:
-              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
-              example:
-                success: false
-                error: { code: OTP_LOCKED, message: 'too many failed attempts, try again later', type: business }
-                details: { locked_until: '2026-09-30T08:45:30Z' }
+        '429': { $ref: '#/components/responses/OtpVerifyRateLimited' }
         '500': { $ref: '#/components/responses/ServerError' }
 
   /v1/auth/login:
@@ -427,44 +489,50 @@ paths:
       operationId: login
       summary: Đăng nhập
       description: |
-        Đăng nhập bằng số điện thoại và mật khẩu, gắn phiên với thiết bị. Không cần đăng nhập trước.
+        Đăng nhập bằng **email** và mật khẩu, gắn phiên với thiết bị. Không cần đăng nhập trước. (Số điện thoại không còn dùng để đăng nhập.)
 
         Body:
 
         | Field | Kiểu | Bắt buộc | Ghi chú |
         | --- | --- | --- | --- |
-        | `phone_number` | string | có | Chuẩn hoá về E.164 như lúc đăng ký. |
-        | `password` | string | có | Chỉ kiểm tra khác rỗng. |
+        | `email` | string | có | Chuẩn hoá như lúc đăng ký (cắt khoảng trắng, chữ thường). Sai định dạng (hoặc thiếu) trả `INVALID_EMAIL`. |
+        | `password` | string | có | Chỉ kiểm tra khác rỗng (rỗng trả `INVALID_PASSWORD`); luật 8–64 ký tự không áp dụng khi đăng nhập. |
         | `device.platform` | string | không | Vd. `ios`, `android`, `web`. Vắng hoặc rỗng: server lưu `mobile`. `web` chỉ được chấp nhận khi có `X-API-Key` đúng, nếu không `401 INVALID_API_KEY`. |
         | `device.device_model` | string | có | Vd. `iPhone 15`. |
         | `device.os_version` | string | không | |
         | `device.app_version` | string | không | |
         | `device.device_name` | string | không | Tên người dùng đặt cho máy. |
 
-        IP và User-Agent do server lấy từ request. Gửi chúng trong body sẽ bị từ chối như field lạ (`VALIDATION_ERROR`).
+        IP và User-Agent do server lấy từ request, không từ body: gửi chúng trong body bị từ chối như field lạ (`VALIDATION_ERROR`).
+        Client web (server của website) chuyển IP của khách qua header `X-InnerLamp-Client-IP`; server chỉ đọc header đó khi request mang `X-API-Key` đúng.
 
-        `data` là **AuthResult**, cùng cấu trúc với response của `verify-otp`: `access_token`, `refresh_token`, `expires_in`, `user`.
+        `data` là **AuthResult**, cùng cấu trúc với response của `register/verify-otp`: `access_token`, `refresh_token`, `expires_in`, `user`.
 
-        Response của `verify-otp`, `login` và `refresh` (kể cả khi lỗi) luôn có `Cache-Control: no-store` và `Pragma: no-cache`.
+        Response của route này (kể cả lỗi) luôn có `Cache-Control: no-store` và `Pragma: no-cache`.
 
         Hành vi cần biết:
 
-        - Sai mật khẩu, số chưa có tài khoản và số mới chỉ ở bước chờ xác minh đều trả cùng `401 INVALID_CREDENTIALS`.
-        - Sai 5 lần liên tiếp thì khoá 15 phút (cấu hình dev). Lần thứ 5 vẫn trả `401`, lần kế tiếp trả `429 LOGIN_LOCKED` kể cả khi đúng mật khẩu.
+        - Sai mật khẩu, email chưa có tài khoản, email chỉ mới ở bước chờ xác minh và tài khoản chưa xác minh email đều trả cùng `401 INVALID_CREDENTIALS` với cùng message
+          ("Email hoặc mật khẩu không đúng"), và cùng thời gian xử lý. Không dùng route này để dò email nào đã đăng ký.
+        - Khoá theo **email** (cả email chưa có tài khoản, để khoá không lộ email nào đã đăng ký): sai 5 lần liên tiếp (mỗi lần cách lần trước tối đa 15 phút) thì khoá 15 phút (cấu hình dev).
+          Lần thứ 5 vẫn trả `401`, lần kế tiếp trả `429 LOGIN_LOCKED` kể cả khi đúng mật khẩu. Đăng nhập thành công hoặc đặt lại mật khẩu xoá bộ đếm.
         - Request sai định dạng (`400`) không tính là một lần đăng nhập sai.
         - Đăng nhập lại trên cùng thiết bị thu hồi phiên cũ của thiết bị đó, các thiết bị khác không bị ảnh hưởng.
+        - Có giới hạn theo IP (nhóm `login`, dev: 30 lượt/15 phút); vượt thì `429 RATE_LIMITED` kèm `Retry-After`. Đây là bộ đếm khác với khoá theo email ở trên.
       requestBody:
         required: true
         content:
           application/json:
             schema: { $ref: '#/components/schemas/LoginRequest' }
             example:
-              phone_number: '0901234567'
+              email: user@example.com
               password: S3cret-pass
               device: { platform: ios, device_model: iPhone 15, os_version: '18.0', app_version: 1.0.0, device_name: iPhone của Tâm }
       responses:
         '200':
           description: Đăng nhập thành công.
+          headers:
+            Cache-Control: { $ref: '#/components/headers/CacheControlNoStore' }
           content:
             application/json:
               schema: { $ref: '#/components/schemas/AuthEnvelope' }
@@ -484,24 +552,31 @@ paths:
                     created_at: '2026-09-30T08:15:30Z'
         '400':
           description: |
-            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type), `INVALID_PHONE`,
+            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type), `INVALID_EMAIL`,
             `INVALID_PASSWORD` (mật khẩu rỗng), `INVALID_DEVICE` (thiếu `device`, `platform` hoặc `device_model`).
+            Không lỗi nào ở đây tính là một lần đăng nhập sai.
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               examples:
                 unknownField:
-                  summary: VALIDATION_ERROR – field lạ
+                  summary: VALIDATION_ERROR – field lạ (body cũ dùng phone_number)
                   value:
                     success: false
                     error: { code: VALIDATION_ERROR, message: unknown field, type: validation }
-                    details: { field: phone }
-                invalidPhone:
-                  summary: INVALID_PHONE
+                    details: { field: phone_number }
+                invalidEmail:
+                  summary: INVALID_EMAIL
                   value:
                     success: false
-                    error: { code: INVALID_PHONE, message: 'invalid phone number format, expected E.164 e.g. +84...', type: business }
-                    details: { field: phone_number }
+                    error: { code: INVALID_EMAIL, message: invalid email format, type: business }
+                    details: { field: email }
+                invalidPassword:
+                  summary: INVALID_PASSWORD – mật khẩu rỗng
+                  value:
+                    success: false
+                    error: { code: INVALID_PASSWORD, message: password must be 8 to 64 characters, type: business }
+                    details: { field: password }
                 invalidDevice:
                   summary: INVALID_DEVICE
                   value:
@@ -510,7 +585,7 @@ paths:
                     details: { field: device }
         '401':
           description: |
-            `INVALID_CREDENTIALS`: sai số điện thoại hoặc mật khẩu.
+            `INVALID_CREDENTIALS`: sai email hoặc mật khẩu (xem các trường hợp gộp ở trên).
             `INVALID_API_KEY`: `X-API-Key` sai hoặc rỗng, hoặc `device.platform = web` mà không có key đúng.
           content:
             application/json:
@@ -520,7 +595,7 @@ paths:
                   summary: INVALID_CREDENTIALS
                   value:
                     success: false
-                    error: { code: INVALID_CREDENTIALS, message: Số điện thoại hoặc mật khẩu không đúng, type: business }
+                    error: { code: INVALID_CREDENTIALS, message: Email hoặc mật khẩu không đúng, type: business }
                 invalidApiKey:
                   summary: INVALID_API_KEY
                   value:
@@ -528,14 +603,29 @@ paths:
                     error: { code: INVALID_API_KEY, message: invalid api key, type: business }
         '413': { $ref: '#/components/responses/PayloadTooLarge' }
         '429':
-          description: '`LOGIN_LOCKED`: sai quá số lần cho phép. `details.locked_until` là thời điểm mở khoá.'
+          description: |
+            `LOGIN_LOCKED`: email này sai mật khẩu quá số lần cho phép. `details.locked_until` là thời điểm mở khoá (không có `Retry-After`).
+            `RATE_LIMITED`: IP gọi quá nhiều; `details.retry_after_seconds` và header `Retry-After` là số giây cần chờ.
+          headers:
+            Retry-After:
+              description: Chỉ có khi `RATE_LIMITED`. Số giây cần chờ trước khi gọi lại.
+              schema: { type: integer }
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
-              example:
-                success: false
-                error: { code: LOGIN_LOCKED, message: 'too many failed login attempts, try again later', type: business }
-                details: { locked_until: '2026-09-30T08:30:30Z' }
+              examples:
+                loginLocked:
+                  summary: LOGIN_LOCKED
+                  value:
+                    success: false
+                    error: { code: LOGIN_LOCKED, message: 'too many failed login attempts, try again later', type: business }
+                    details: { locked_until: '2026-09-30T08:30:30Z' }
+                rateLimited:
+                  summary: RATE_LIMITED
+                  value:
+                    success: false
+                    error: { code: RATE_LIMITED, message: too many requests, type: business }
+                    details: { retry_after_seconds: 540 }
         '500': { $ref: '#/components/responses/ServerError' }
 
   /v1/auth/refresh:
@@ -554,6 +644,8 @@ paths:
 
         `data` gồm `access_token`, `refresh_token` mới và `expires_in` (giây, của access token mới). Response **không** có `user`.
 
+        Response (kể cả lỗi) có `Cache-Control: no-store` và `Pragma: no-cache`. Có giới hạn theo IP (nhóm `refresh`, dev: 120 lượt/15 phút); vượt thì `429 RATE_LIMITED` kèm `Retry-After`.
+
         Hành vi cần biết:
 
         - Refresh token xoay vòng: token vừa gửi lên hết hiệu lực, luôn lưu token mới. Hạn của phiên được gia hạn theo mỗi lần refresh.
@@ -569,6 +661,8 @@ paths:
       responses:
         '200':
           description: Cặp token mới.
+          headers:
+            Cache-Control: { $ref: '#/components/headers/CacheControlNoStore' }
           content:
             application/json:
               schema: { $ref: '#/components/schemas/RefreshEnvelope' }
@@ -597,6 +691,7 @@ paths:
                 success: false
                 error: { code: REFRESH_TOKEN_INVALID, message: refresh token is invalid, type: business }
         '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429': { $ref: '#/components/responses/AuthRateLimited' }
         '500': { $ref: '#/components/responses/ServerError' }
 
   /v1/auth/logout:
@@ -610,8 +705,9 @@ paths:
         Không có body: phiên được xác định từ claim `sid` của access token, nên client không thể đăng xuất phiên của người khác.
         Refresh token không dùng được làm Bearer.
 
-        Thành công trả envelope **không có `data`**: `{"success": true}`. Gọi lại khi phiên đã bị thu hồi vẫn trả `200`.
-        Sau khi đăng xuất, xoá cả hai token khỏi thiết bị.
+        Thành công trả envelope **không có `data`**: `{"success": true}`. Gọi lại khi phiên đã bị thu hồi vẫn trả `200` (idempotent; khác với các route Bearer khác,
+        route này **không** kiểm phiên còn sống nên không bao giờ trả `401` chỉ vì phiên đã bị thu hồi).
+        Sau khi đăng xuất, xoá cả hai token khỏi thiết bị. Route này không bị giới hạn theo IP.
       security:
         - bearerAuth: []
       responses:
@@ -632,6 +728,137 @@ paths:
               example:
                 success: false
                 error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/auth/password-reset/request-otp:
+    post:
+      tags: [Auth]
+      operationId: passwordResetRequestOtp
+      summary: Quên mật khẩu – xin mã qua email
+      description: |
+        Gửi mã 6 số tới email để đặt lại mật khẩu. Không cần đăng nhập. Gọi lại route này cũng là **gửi lại mã** (không có `resend-otp` riêng cho luồng này),
+        chịu cùng chính sách gửi như đăng ký (chờ giữa hai lần gửi, trần số lần gửi, khoá tạm).
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `email` | string | có | Chuẩn hoá như lúc đăng ký. Sai định dạng (hoặc thiếu) trả `INVALID_EMAIL`, trước khi chạm DB. |
+
+        **Không lộ email đã đăng ký.** Mọi email hợp lệ đều nhận `200` với **cùng** body (`message` luôn là "Nếu email này có tài khoản, mã đã được gửi"),
+        kể cả email chưa có tài khoản hoặc chưa xác minh (khi đó không có thư nào được gửi). Chính sách gửi cũng được áp cho email không có tài khoản nên `429` trông như nhau.
+        Server không trả lời sớm hơn một thời gian tối thiểu (dev: 1,5 giây) để thời gian gọi dịch vụ thư không lộ nhánh. Lỗi gửi thư bị nuốt (chỉ ghi log) nên
+        route này **không** trả `EMAIL_SEND_FAILED`; người dùng bấm gửi lại. Ngoại lệ: hết ngân sách thư trong ngày trả `429 RATE_LIMITED`.
+
+        `data` gồm `message`, `expires_in_seconds` (dev: 600) và `resend_after_seconds` (dev: 60).
+
+        Response (kể cả lỗi) có `Cache-Control: no-store`. Nhóm giới hạn IP `send` (dev: 10 lượt/giờ, chung với đăng ký).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/PasswordResetRequest' }
+            example: { email: user@example.com }
+      responses:
+        '200':
+          description: Câu trả lời giống hệt cho mọi email hợp lệ.
+          headers:
+            Cache-Control: { $ref: '#/components/headers/CacheControlNoStore' }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PasswordResetRequestedEnvelope' }
+              example:
+                success: true
+                data:
+                  message: Nếu email này có tài khoản, mã đã được gửi
+                  expires_in_seconds: 600
+                  resend_after_seconds: 60
+        '400':
+          description: '`VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type) hoặc `INVALID_EMAIL`.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              example:
+                success: false
+                error: { code: INVALID_EMAIL, message: invalid email format, type: business }
+                details: { field: email }
+        '401': { $ref: '#/components/responses/InvalidApiKey' }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429': { $ref: '#/components/responses/OtpRateLimited' }
+        '500': { $ref: '#/components/responses/ServerError' }
+
+  /v1/auth/password-reset/confirm:
+    post:
+      tags: [Auth]
+      operationId: passwordResetConfirm
+      summary: Quên mật khẩu – đặt mật khẩu mới
+      description: |
+        Kiểm tra mã và đặt mật khẩu mới. Không cần đăng nhập.
+
+        Body:
+
+        | Field | Kiểu | Bắt buộc | Ghi chú |
+        | --- | --- | --- | --- |
+        | `email` | string | có | Email đã xin mã. Sai định dạng trả `INVALID_EMAIL`. |
+        | `otp_code` | string | có | Đúng 6 chữ số, dạng chuỗi. Sai dạng trả `VALIDATION_ERROR`. |
+        | `new_password` | string | có | 8 đến 64 ký tự sau NFC, như lúc đăng ký. Sai trả `INVALID_PASSWORD`. |
+
+        Thành công trả `{"success": true}` **không có token**: người dùng phải đăng nhập lại. Trong cùng một giao dịch server đổi mật khẩu, đánh dấu mã đã dùng,
+        **thu hồi mọi phiên** của tài khoản (access token của các thiết bị khác bị từ chối ở request kế tiếp, xem mô tả nhóm Auth) và xoá bộ đếm khoá đăng nhập của email (mở khoá nếu đang bị khoá).
+
+        Nhập sai mã 3 lần thì mã bị khoá 30 phút (`OTP_LOCKED`). Mỗi lượt nhập được đếm trước khi so mã.
+        Email không có tài khoản, mã chưa từng được phát, đã dùng hoặc hết hạn đều trả cùng `OTP_EXPIRED`, nên route này không lộ email nào có tài khoản.
+
+        Response (kể cả lỗi) có `Cache-Control: no-store`. Nhóm giới hạn IP `verify` (dev: 30 lượt/giờ, chung với `register/verify-otp`).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/PasswordResetConfirmRequest' }
+            example: { email: user@example.com, otp_code: '111111', new_password: N3w-S3cret-pass }
+      responses:
+        '200':
+          description: Đã đặt mật khẩu mới; mọi phiên cũ bị thu hồi.
+          headers:
+            Cache-Control: { $ref: '#/components/headers/CacheControlNoStore' }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/EmptySuccessEnvelope' }
+              example: { success: true }
+        '400':
+          description: |
+            `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type, `otp_code` không đủ 6 chữ số; kiểm trước `INVALID_*`),
+            `INVALID_EMAIL`, `INVALID_PASSWORD` (mật khẩu mới ngoài 8 đến 64 ký tự),
+            `OTP_INVALID` (sai mã), `OTP_EXPIRED` (hết hạn, đã dùng, chưa từng phát cho email này, hoặc email không có tài khoản).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+              examples:
+                validation:
+                  summary: VALIDATION_ERROR – otp_code không đủ 6 số
+                  value:
+                    success: false
+                    error: { code: VALIDATION_ERROR, message: request validation failed, type: validation }
+                    details: { otp_code: len }
+                invalidPassword:
+                  summary: INVALID_PASSWORD
+                  value:
+                    success: false
+                    error: { code: INVALID_PASSWORD, message: password must be 8 to 64 characters, type: business }
+                    details: { field: password }
+                otpInvalid:
+                  summary: OTP_INVALID
+                  value:
+                    success: false
+                    error: { code: OTP_INVALID, message: otp code is invalid, type: business }
+                otpExpired:
+                  summary: OTP_EXPIRED
+                  value:
+                    success: false
+                    error: { code: OTP_EXPIRED, message: otp code has expired, type: business }
+        '401': { $ref: '#/components/responses/InvalidApiKey' }
+        '413': { $ref: '#/components/responses/PayloadTooLarge' }
+        '429': { $ref: '#/components/responses/OtpVerifyRateLimited' }
         '500': { $ref: '#/components/responses/ServerError' }
 
   /v1/users/me/temple-announcements:
@@ -1026,7 +1253,7 @@ paths:
 
         Field chưa có giá trị (`full_name` (tài khoản cũ), `dharma_name`, `ordination_temple`, `avatar_url`, `avatar_url_expires_at`) **vắng mặt** trong `data`,
         không phải `null` và không phải chuỗi rỗng. `email`, `email_verified`, `phone_number` luôn có.
-        `email_verified` hiện luôn là `false` vì chưa có luồng xác thực email. `phone_number` trả đầy đủ cho chính chủ.
+        `email_verified` là `true` khi tài khoản đã xác minh email (mọi tài khoản đăng ký bằng mã qua email; chỉ tài khoản dev tạo trước đó mới `false`). `phone_number` trả đầy đủ cho chính chủ.
 
         `avatar_url` là địa chỉ đọc **có chữ ký, sống 15 phút** (`profile.avatar_read_url_ttl`), kèm `avatar_url_expires_at`.
         Không có địa chỉ công khai cố định: hết hạn thì gọi lại endpoint này để lấy địa chỉ mới.
@@ -1042,7 +1269,7 @@ paths:
                 success: true
                 data:
                   email: an@example.com
-                  email_verified: false
+                  email_verified: true
                   phone_number: '0901234567'
                   full_name: Nguyễn Văn An
                   dharma_name: Thích Minh An
@@ -5642,18 +5869,26 @@ components:
       in: header
       name: X-API-Key
       description: |
-        Key dùng chung của website, gửi từ server web trên các route `/v1/auth/*`. Tuỳ chọn ở mức BE (không gửi = mobile),
+        Key dùng chung của website, gửi từ server web trên các route `/v1/auth/*`. Cùng với key đúng, server web có thể gửi `X-InnerLamp-Client-IP` (IP của khách) để giới hạn theo IP đếm đúng người. Tuỳ chọn ở mức BE (không gửi = mobile),
         nhưng **bắt buộc** khi đăng nhập với `device.platform = web`. Sai hoặc rỗng: `401 INVALID_API_KEY`.
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      description: Access token từ login hoặc verify-otp. Refresh token không dùng được.
+      description: |
+        Access token từ `login` hoặc `register/verify-otp`. Refresh token không dùng được. Mọi route Bearer (trừ `POST /v1/auth/logout`) còn kiểm phiên của token (claim `sid`)
+        sau khi kiểm chữ ký: phiên đã đăng xuất, bị thu hồi (đặt lại mật khẩu, phát hiện dùng lại refresh token) hoặc hết hạn trả `401 UNAUTHORIZED` ở request kế tiếp,
+        không phải đợi access token hết hạn. Nếu không kiểm tra được phiên (mất kết nối DB) thì trả `503 SERVICE_UNAVAILABLE`, không bao giờ cho qua.
     adminBearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
       description: Access token từ `POST /v1/admin/auth/login` (audience `innerlamp_backoffice`). Token appService bị từ chối.
+
+  headers:
+    CacheControlNoStore:
+      description: 'Luôn là `no-store` (kèm `Pragma: no-cache`). Response có token hoặc dữ liệu xác thực, không được cache ở trình duyệt, proxy hay CDN.'
+      schema: { type: string, const: no-store }
 
   parameters:
     MemorialId:
@@ -5731,11 +5966,16 @@ components:
             error: { code: PAYLOAD_TOO_LARGE, message: request body too large, type: business }
     OtpRateLimited:
       description: |
-        Bị giới hạn gửi OTP. Lượt gửi của `request-otp` và `resend-otp` dùng chung một bộ đếm theo số điện thoại.
+        Bị giới hạn gửi mã. Lượt gửi của `register/request-otp`, `register/resend-otp` và `password-reset/request-otp` tính theo **email** (mỗi mục đích một bộ đếm).
 
         - `OTP_RESEND_TOO_SOON`: chưa hết thời gian chờ giữa hai lần gửi. `details.retry_after_seconds` là số giây còn lại.
         - `OTP_SEND_LIMITED`: hết lượt gửi. Khoá tạm thời, `details.locked_until` là thời điểm gửi lại được (dev: 30 phút).
-        - `OTP_LOCKED`: số điện thoại đang bị khoá vì nhập sai OTP quá số lần. `details.locked_until` là thời điểm mở khoá.
+        - `OTP_LOCKED`: mã hiện tại của email đang bị khoá vì nhập sai quá số lần. `details.locked_until` là thời điểm mở khoá. Phát mã mới không mở khoá được.
+        - `RATE_LIMITED`: IP gọi quá nhiều (nhóm `send`, dev: 10 lượt/giờ) hoặc đã hết ngân sách thư của ngày (UTC). `details.retry_after_seconds` và header `Retry-After` là số giây cần chờ.
+      headers:
+        Retry-After:
+          description: Chỉ có khi `RATE_LIMITED`. Số giây cần chờ trước khi gọi lại.
+          schema: { type: integer }
       content:
         application/json:
           schema: { $ref: '#/components/schemas/ErrorEnvelope' }
@@ -5758,6 +5998,53 @@ components:
                 success: false
                 error: { code: OTP_LOCKED, message: 'too many failed attempts, try again later', type: business }
                 details: { locked_until: '2026-09-30T08:45:30Z' }
+            rateLimited:
+              summary: RATE_LIMITED
+              value:
+                success: false
+                error: { code: RATE_LIMITED, message: too many requests, type: business }
+                details: { retry_after_seconds: 1800 }
+    OtpVerifyRateLimited:
+      description: |
+        Bị giới hạn ở bước nhập mã.
+
+        - `OTP_LOCKED`: nhập sai mã quá số lần cho phép. `details.locked_until` là thời điểm mở khoá (dev: 30 phút).
+        - `RATE_LIMITED`: IP gọi quá nhiều (nhóm `verify`, dev: 30 lượt/giờ). `details.retry_after_seconds` và header `Retry-After` là số giây cần chờ.
+      headers:
+        Retry-After:
+          description: Chỉ có khi `RATE_LIMITED`. Số giây cần chờ trước khi gọi lại.
+          schema: { type: integer }
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          examples:
+            otpLocked:
+              summary: OTP_LOCKED
+              value:
+                success: false
+                error: { code: OTP_LOCKED, message: 'too many failed attempts, try again later', type: business }
+                details: { locked_until: '2026-09-30T08:45:30Z' }
+            rateLimited:
+              summary: RATE_LIMITED
+              value:
+                success: false
+                error: { code: RATE_LIMITED, message: too many requests, type: business }
+                details: { retry_after_seconds: 900 }
+    AuthRateLimited:
+      description: |
+        `RATE_LIMITED`: IP này đã gọi quá số request cho phép của nhóm giới hạn trong cửa sổ hiện tại (xem mô tả nhóm Auth).
+        `details.retry_after_seconds` và header `Retry-After` là số giây cần chờ. IP lấy từ `X-InnerLamp-Client-IP` (chỉ khi có `X-API-Key` đúng), nếu không thì theo cấu hình proxy hoặc địa chỉ kết nối.
+      headers:
+        Retry-After:
+          description: Số giây cần chờ trước khi gọi lại.
+          schema: { type: integer }
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            success: false
+            error: { code: RATE_LIMITED, message: too many requests, type: business }
+            details: { retry_after_seconds: 300 }
     ProfileRateLimited:
       description: |
         `RATE_LIMITED`: tài khoản này đã gửi quá số request cho phép của nhóm Profile trong một phút (dev: 10, tính cả request đọc).
@@ -5824,7 +6111,7 @@ components:
           type: object
           additionalProperties: true
           description: |
-            Tuỳ chọn, nằm cạnh `error`. Ví dụ `{"field": "phone_number"}`, `{"locked_until": "..."}`,
+            Tuỳ chọn, nằm cạnh `error`. Ví dụ `{"field": "email"}`, `{"locked_until": "..."}`,
             `{"retry_after_seconds": 30}`, hoặc `{tên_field: tag}` cho mỗi field sai.
     EmptySuccessEnvelope:
       type: object
@@ -5835,25 +6122,30 @@ components:
     RequestOtpRequest:
       type: object
       description: Thông tin tài khoản gửi ở bước 1 của đăng ký.
-      required: [email, password, phone_number, full_name]
+      required: [email, password, phone_country, phone_number, full_name]
       additionalProperties: false
       properties:
-        email: { type: string, format: email, description: Email của tài khoản. Chuẩn hoá phía server., example: user@example.com }
-        password: { type: string, minLength: 8, description: Tối thiểu 8 ký tự. Ngắn hơn trả `INVALID_PASSWORD`., example: S3cret-pass }
+        email: { type: string, format: email, description: Email của tài khoản; mã xác minh gửi tới đây. Chuẩn hoá phía server (chữ thường). Sai trả `INVALID_EMAIL`., example: user@example.com }
+        password: { type: string, minLength: 8, maxLength: 64, description: '8 đến 64 ký tự sau NFC, không cắt khoảng trắng, không luật thành phần. Ngoài khoảng đó trả `INVALID_PASSWORD`.', example: S3cret-pass }
+        phone_country:
+          type: string
+          enum: [VN, US, JP, KR, TH, SG, MY, TW, AU, DE, FR, CA]
+          description: Mã quốc gia ISO 3166 của số điện thoại (không phân biệt hoa thường). Ngoài danh sách trả `INVALID_PHONE`.
+          example: VN
         phone_number:
           type: string
-          description: '`+` tuỳ chọn rồi 8–15 chữ số, cho phép dấu cách, `-`, `.`, `(`, `)`. Server chuẩn hoá về E.164.'
+          description: 'Số người dùng gõ, không kèm mã quốc gia hay `+`. Cho phép dấu cách, `.`, `-`. Bỏ một số `0` đầu rồi phải đúng số chữ số của nước đó. Server chuẩn hoá về E.164.'
           example: '0901234567'
-        full_name: { type: string, maxLength: 300, description: Họ và tên. Bắt buộc., example: Nguyễn Văn An }
-        dharma_name: { type: string, description: Pháp danh. Tuỳ chọn., example: Diệu Tâm }
+        full_name: { type: string, maxLength: 300, description: Họ và tên. Bắt buộc; rỗng hoặc quá 300 ký tự trả `INVALID_FULL_NAME`., example: Nguyễn Văn An }
+        dharma_name: { type: string, maxLength: 255, description: Pháp danh. Tuỳ chọn; quá 255 ký tự trả `INVALID_DHARMA_NAME`., example: Diệu Tâm }
         ordination_temple_id: { type: string, description: '`id` chùa nơi quy y/xuất gia (từ `GET /v1/temples`). Tuỳ chọn; rỗng hoặc bỏ field nếu chưa có. Id không tồn tại trả `INVALID_TEMPLE`.', example: temple_north_011 }
     OtpSent:
       type: object
-      description: Kết quả gửi OTP, dùng cho `request-otp`. `resend-otp` trả thêm `resend_remaining`.
+      description: Kết quả gửi mã, dùng cho `register/request-otp`. `register/resend-otp` trả thêm `resend_remaining`.
       required: [message, expires_in_seconds, resend_after_seconds]
       properties:
         message: { type: string, description: Luôn là `otp sent`., example: otp sent }
-        expires_in_seconds: { type: integer, description: Thời gian sống của OTP tính bằng giây (dev là 90)., example: 90 }
+        expires_in_seconds: { type: integer, description: Thời gian sống của mã tính bằng giây (`otp.ttl`, dev là 600)., example: 600 }
         resend_after_seconds: { type: integer, description: Phải chờ bao nhiêu giây mới gửi lại được (dev là 60)., example: 60 }
     OtpSentEnvelope:
       type: object
@@ -5863,15 +6155,10 @@ components:
         data: { $ref: '#/components/schemas/OtpSent' }
     ResendOtpRequest:
       type: object
-      required: [phone_number, purpose]
+      required: [email]
       additionalProperties: false
       properties:
-        phone_number: { type: string, description: Số đã dùng ở `request-otp`., example: '0901234567' }
-        purpose:
-          type: string
-          enum: [register, login, reset_password, verify_email]
-          description: Hiện chỉ `register` được hỗ trợ, ba giá trị còn lại trả `UNSUPPORTED_OTP_PURPOSE`.
-          example: register
+        email: { type: string, format: email, description: Email đã dùng ở `register/request-otp`., example: user@example.com }
     ResendOtpEnvelope:
       type: object
       required: [success, data]
@@ -5886,11 +6173,39 @@ components:
                 resend_remaining: { type: integer, description: Số lượt gửi còn lại trước khi bị `OTP_SEND_LIMITED`., example: 2 }
     VerifyOtpRequest:
       type: object
-      required: [phone_number, otp_code]
+      required: [email, otp_code]
       additionalProperties: false
       properties:
-        phone_number: { type: string, description: Số đã dùng ở `request-otp`., example: '0901234567' }
+        email: { type: string, format: email, description: Email đã dùng ở `register/request-otp`., example: user@example.com }
         otp_code: { type: string, pattern: '^[0-9]{6}$', description: Đúng 6 chữ số. Gửi dạng chuỗi để giữ số 0 ở đầu., example: '111111' }
+    PasswordResetRequest:
+      type: object
+      required: [email]
+      additionalProperties: false
+      properties:
+        email: { type: string, format: email, description: Email của tài khoản cần đặt lại mật khẩu. Sai định dạng trả `INVALID_EMAIL`., example: user@example.com }
+    PasswordResetRequested:
+      type: object
+      description: Kết quả xin mã đặt lại mật khẩu. Giống hệt cho mọi email hợp lệ (có hay không có tài khoản).
+      required: [message, expires_in_seconds, resend_after_seconds]
+      properties:
+        message: { type: string, description: Luôn là câu trung tính, không nói đã gửi thư hay chưa., example: Nếu email này có tài khoản, mã đã được gửi }
+        expires_in_seconds: { type: integer, description: Thời gian sống của mã tính bằng giây (dev là 600)., example: 600 }
+        resend_after_seconds: { type: integer, description: Phải chờ bao nhiêu giây mới xin lại được (dev là 60)., example: 60 }
+    PasswordResetRequestedEnvelope:
+      type: object
+      required: [success, data]
+      properties:
+        success: { type: boolean, const: true }
+        data: { $ref: '#/components/schemas/PasswordResetRequested' }
+    PasswordResetConfirmRequest:
+      type: object
+      required: [email, otp_code, new_password]
+      additionalProperties: false
+      properties:
+        email: { type: string, format: email, description: Email đã xin mã., example: user@example.com }
+        otp_code: { type: string, pattern: '^[0-9]{6}$', description: Đúng 6 chữ số, dạng chuỗi., example: '111111' }
+        new_password: { type: string, minLength: 8, maxLength: 64, description: '8 đến 64 ký tự sau NFC, như lúc đăng ký. Ngoài khoảng đó trả `INVALID_PASSWORD`.', example: N3w-S3cret-pass }
 
     Device:
       type: object
@@ -5905,11 +6220,11 @@ components:
         device_name: { type: string, description: Tên người dùng đặt cho máy. Tuỳ chọn., example: iPhone của Tâm }
     LoginRequest:
       type: object
-      required: [phone_number, password, device]
+      required: [email, password, device]
       additionalProperties: false
       properties:
-        phone_number: { type: string, description: Chuẩn hoá về E.164 như lúc đăng ký., example: '0901234567' }
-        password: { type: string, description: Chỉ kiểm tra khác rỗng., example: S3cret-pass }
+        email: { type: string, format: email, description: Chuẩn hoá như lúc đăng ký. Sai trả `INVALID_EMAIL`., example: user@example.com }
+        password: { type: string, description: Chỉ kiểm tra khác rỗng (rỗng trả `INVALID_PASSWORD`)., example: S3cret-pass }
         device: { $ref: '#/components/schemas/Device' }
     RefreshRequest:
       type: object
@@ -5920,18 +6235,19 @@ components:
 
     User:
       type: object
-      description: Tài khoản người dùng, trả trong response của `verify-otp` và `login`.
+      description: Tài khoản người dùng, trả trong response của `register/verify-otp` và `login`.
       required: [id, email, phone_number, created_at]
       properties:
         id: { type: integer, format: int64, description: ID tài khoản., example: 42 }
         email: { type: string, format: email, description: Email đã chuẩn hoá., example: user@example.com }
         phone_number: { type: string, description: Số điện thoại dạng E.164., example: '+84901234567' }
+        full_name: { type: string, description: Họ và tên. Không có trong response với tài khoản cũ chưa có tên (không phải `null`)., example: Nguyễn Văn An }
         dharma_name: { type: string, description: Pháp danh. Không có trong response nếu người dùng không nhập (không phải `null`)., example: Diệu Tâm }
         ordination_temple_id: { type: string, description: '`id` chùa nơi quy y/xuất gia. Không có trong response nếu người dùng chưa chọn chùa (không phải `null`).', example: temple_north_011 }
         created_at: { type: string, format: date-time, description: Thời điểm tạo tài khoản (RFC 3339)., example: '2026-09-30T08:15:30Z' }
     AuthResult:
       type: object
-      description: Cặp token và tài khoản, dùng chung cho `verify-otp` và `login`.
+      description: Cặp token và tài khoản, dùng chung cho `register/verify-otp` và `login`.
       required: [access_token, refresh_token, expires_in, user]
       properties:
         access_token: { type: string, description: 'JWT, gửi ở header `Authorization: Bearer`. Dev: sống 15 phút.', example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9… }
@@ -7773,7 +8089,7 @@ components:
       required: [email, email_verified, phone_number]
       properties:
         email: { type: string, format: email }
-        email_verified: { type: boolean, description: 'Hiện luôn `false`: chưa có luồng xác thực email.' }
+        email_verified: { type: boolean, description: '`true` khi `users.email_verified_at` đã có, tức tài khoản đã xác minh email bằng mã lúc đăng ký.' }
         phone_number: { type: string, description: Đầy đủ, không che. }
         dharma_name: { type: string, description: Pháp danh. Vắng mặt khi chưa có. }
         ordination_temple: { $ref: '#/components/schemas/TempleRef' }

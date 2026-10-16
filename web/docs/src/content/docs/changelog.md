@@ -5,6 +5,23 @@ description: Lịch sử thay đổi của API.
 
 ## v1 (hiện tại)
 
+**Cập nhật 2026-10-16 — đăng ký, đăng nhập và quên mật khẩu bằng email:**
+
+Thay đổi hợp đồng, **không tương thích ngược** cho mọi client dùng `/v1/auth/*`. Xác minh tài khoản chuyển từ SMS sang mã gửi qua **email**; đăng nhập bằng email thay cho số điện thoại.
+
+- `POST /v1/auth/register/request-otp`: body thêm `phone_country` (`VN`, `US`, `JP`, `KR`, `TH`, `SG`, `MY`, `TW`, `AU`, `DE`, `FR`, `CA`) và `phone_number` là số người dùng gõ (không kèm mã quốc gia, không `+`, đúng số chữ số của nước đó; server trả `user.phone_number` dạng E.164). Mật khẩu 8 đến 64 ký tự. Mỗi field có mã lỗi riêng: field thiếu trả `INVALID_EMAIL` / `INVALID_PHONE` / `INVALID_PASSWORD` / `INVALID_FULL_NAME`, không còn `VALIDATION_ERROR`. Mã sống 600 giây (trước 90).
+- **Bỏ `409 EMAIL_TAKEN`.** Email đã có tài khoản nhận về `200` y hệt email mới (thư gửi đi là thư báo thay cho mã), nên không dò được email nào đã đăng ký. `409 PHONE_TAKEN` chỉ khi số thuộc một tài khoản. Thêm `409 REGISTRATION_IN_PROGRESS` (+ `details.retry_after_seconds`) khi email đang có mã còn sống với dữ liệu khác. Thêm `500 EMAIL_SEND_FAILED` thay `SMS_SEND_FAILED`.
+- **Đổi đường dẫn gửi lại mã:** `POST /v1/auth/resend-otp` (`{phone_number, purpose}`) bị **xoá**, thay bằng `POST /v1/auth/register/resend-otp` với `{email}`. Bỏ mã lỗi `UNSUPPORTED_OTP_PURPOSE`.
+- `POST /v1/auth/register/verify-otp`: body `{email, otp_code}` thay `{phone_number, otp_code}`. Đồng thời trả `Cache-Control: no-store`.
+- `POST /v1/auth/login`: body `{email, password, device}` thay `{phone_number, ...}`; lỗi `INVALID_CREDENTIALS` có message "Email hoặc mật khẩu không đúng"; khoá `LOGIN_LOCKED` tính theo email (kể cả email chưa có tài khoản). Sai định dạng email trả `INVALID_EMAIL`.
+- Thêm **quên mật khẩu** (2 endpoint, công khai): `POST /v1/auth/password-reset/request-otp {email}` luôn trả `200` cùng một body cho mọi email hợp lệ; `POST /v1/auth/password-reset/confirm {email, otp_code, new_password}` đặt mật khẩu mới, thu hồi mọi phiên, gỡ khoá đăng nhập, **không** trả token (đăng nhập lại).
+- **Giới hạn theo IP** cho mọi `/v1/auth/*` trừ `logout`: nhóm `send` (10/giờ), `verify` (30/giờ), `login` (30/15 phút), `refresh` (120/15 phút) ở dev; vượt thì `429 RATE_LIMITED` kèm `details.retry_after_seconds` và header `Retry-After`. Hết ngân sách thư mỗi ngày cũng trả `RATE_LIMITED`. Website gửi IP của khách ở header `X-InnerLamp-Client-IP` (chỉ được tin khi có `X-API-Key` đúng).
+- Mọi response của `register/*`, `login`, `refresh` và `password-reset/*` (kể cả lỗi) có `Cache-Control: no-store`.
+- Các route Bearer (trừ `logout`) từ chối access token của **phiên đã thu hồi** (`401 UNAUTHORIZED`) ngay ở request kế tiếp, và trả `503` nếu không kiểm tra được phiên. Trước đây access token dùng được tới khi hết hạn.
+- `GET /v1/users/me`: `email_verified` là `true` với tài khoản đăng ký bằng mã email.
+- `openapi.yaml`: viết lại sáu operation Auth cho khớp code, thêm hai operation `password-reset/*`, response `OtpVerifyRateLimited` / `AuthRateLimited` / header `CacheControlNoStore`, schema `PasswordReset*`; `User` thêm `full_name`; `RequestOtpRequest` thêm `phone_country`.
+- Xem [Đăng ký và đăng nhập](/guides/register-and-login/).
+
 **Cập nhật 2026-10-14 — thông báo của chùa:**
 
 - Thêm `GET /v1/users/me/temple-announcements?page=&page_size=` (**cần đăng nhập**): thông báo còn hiệu lực của chùa quy y hiện tại của người dùng, mới nhất trước, kèm `receive`, `temple` và phân trang `page`. Chùa do server suy ra từ hồ sơ, không có tham số chọn chùa. Công tắc tắt hoặc chưa có chùa quy y trả `200` với `items: []`.
@@ -35,7 +52,7 @@ description: Lịch sử thay đổi của API.
 
 69 endpoint appService đang có (cộng 5 endpoint hồ sơ cá nhân và 1 endpoint sự kiện lịch mới ở dạng spec, chưa có ở server):
 
-- **Auth**: `register/request-otp`, `register/verify-otp`, `resend-otp`, `login`, `refresh`, `logout`.
+- **Auth**: `register/request-otp`, `register/resend-otp`, `register/verify-otp`, `login`, `refresh`, `logout`, `password-reset/request-otp`, `password-reset/confirm`.
 - **Attestation**: `attestation/challenge`, `assertion/challenge`, `attestation/verify`.
 - **Chùa**: `temples/top`, `temples`, `temples/{id}`.
 - **Thời khoá chùa** (cần đăng nhập): `temples/{id}/schedule`.

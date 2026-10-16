@@ -4,6 +4,14 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 folder. All four files share one changelog since they change together as one spec unit. Newest
 version first.
 
+## v2.5 (2026-10-16)
+
+**`openapi.yaml` khớp hợp đồng đăng nhập v2** (tasks Phase 7, item 1). Không đổi AC, không đổi code.
+
+- `docs/specs/api/openapi.yaml`: `login` theo email (`INVALID_EMAIL`, message "Email hoặc mật khẩu không đúng", `LOGIN_LOCKED` chỉ có `locked_until`, `RATE_LIMITED`), `refresh` (+ `429`), `logout` (idempotent, không giới hạn IP), thêm `password-reset/request-otp` và `password-reset/confirm` (luôn `200` ở bước xin mã, thu hồi mọi phiên khi đổi). Tag `Auth` mô tả bốn nhóm giới hạn theo IP, `Cache-Control: no-store`, `X-InnerLamp-Client-IP`; `bearerAuth` mô tả kiểm phiên (`401` ngay request kế tiếp, `503` khi không kiểm được). Profile: `email_verified` không còn "luôn false".
+- Code thắng spec ở hai chỗ (chưa sửa code): (1) `Cache-Control: no-store` được đặt cho **mọi** route `/v1/auth/*` có giới hạn IP (cả `request-otp`, `resend-otp`), spec AC18 chỉ liệt kê các route trả token; (2) `RATE_LIMITED` kèm header `Retry-After`, spec chỉ nêu `retry_after_seconds`. Ngoài ra `password-reset/confirm` có thể trả `VALIDATION_ERROR` (`otp_code` sai dạng), bảng API chưa liệt kê.
+- Còn mở: `docs/knowledge/features/login.md` (il-okf-writer), product spec §4.2 (ba-writer).
+
 ## v2.4 (2026-10-16)
 
 Triển khai Phase 1–6. Một quyết định đổi spec: **đếm giới hạn ở Redis** thay vì bảng Postgres `auth_rate_limits`.

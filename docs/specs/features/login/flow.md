@@ -1,8 +1,8 @@
 # Flow — login
 
-Version: 2.4
+Version: 2.5
 Last updated: 2026-10-16
-Status: implemented (v2.4) — đăng nhập bằng email, kiểm phiên còn sống, quên mật khẩu. Sơ đồ refresh/logout của v1.13 không đổi (xem git history bản v1.13 nếu cần).
+Status: implemented (v2.5) — đăng nhập bằng email, kiểm phiên còn sống, quên mật khẩu. Sơ đồ refresh/logout của v1.13 không đổi (xem git history bản v1.13 nếu cần).
 Module: `identity`
 
 > See `changelog.md` in this folder for the version history of this spec.

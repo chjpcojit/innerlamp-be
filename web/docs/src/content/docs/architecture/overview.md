@@ -19,7 +19,7 @@ flowchart TB
 
     App --> PG[(PostgreSQL<br/>database innerlamp)]
     Back --> PG
-    App --> SMS[SMS provider]
+    App --> AppMail[Mailer]
     App --> Att["Google Play Integrity<br/>Apple App Attest"]
     Back --> Mail[Mailer]
 
@@ -43,9 +43,9 @@ flowchart TB
 | --- | --- | --- |
 | Người dùng | Client cuối (mobile, web) | Admin vận hành hệ thống |
 | Cổng dev | `:8080` | `:8081` |
-| Tài khoản | Bảng `users`, tự đăng ký bằng OTP qua SMS | Bảng `admins`, **không** tự đăng ký |
+| Tài khoản | Bảng `users`, tự đăng ký bằng mã gửi qua email | Bảng `admins`, **không** tự đăng ký |
 | JWT | audience `innerlamp_users`, secret riêng, có refresh token và phiên theo thiết bị | audience `innerlamp_backoffice`, secret riêng, chỉ access token |
-| Service ngoài | SMS, Play Integrity, App Attest | Mailer (gửi lời mời và mật khẩu tạm) |
+| Service ngoài | Mailer (mã đăng ký và đặt lại mật khẩu), Play Integrity, App Attest | Mailer (gửi lời mời và mật khẩu tạm) |
 | Route | 18 endpoint, xem [API Reference](/api-reference/) | 8 endpoint `/v1/admin/*` (tài khoản và duyệt đề xuất chùa), xem mục Admin trong [API Reference](/api-reference/) |
 
 Token của service này bị service kia từ chối, vì khác secret và audience. Đây là ranh giới tin cậy giữa client và admin.
@@ -78,8 +78,8 @@ Cả hai service dùng chung một bố cục Clean Architecture (`domain`, `use
 | Lớp | Trách nhiệm | Không được làm |
 | --- | --- | --- |
 | `domain` | Entity, lỗi nghiệp vụ, interface. Không phụ thuộc lớp nào khác. | Biết về HTTP hay SQL. |
-| `usecase` | Quy tắc nghiệp vụ: chuẩn hoá số điện thoại, giới hạn OTP, khoá đăng nhập… | Biết về HTTP. |
-| `repository` | Cài đặt truy cập dữ liệu (Postgres) và dịch vụ ngoài (SMS, verifier). | Chứa quy tắc nghiệp vụ. |
+| `usecase` | Quy tắc nghiệp vụ: chuẩn hoá email và số điện thoại, giới hạn gửi mã, khoá đăng nhập… | Biết về HTTP. |
+| `repository` | Cài đặt truy cập dữ liệu (Postgres) và dịch vụ ngoài (mailer, verifier). | Chứa quy tắc nghiệp vụ. |
 | `delivery/http` | Đọc request, kiểm tra định dạng, gọi use case, ánh xạ lỗi domain sang mã lỗi HTTP. | Chứa quy tắc nghiệp vụ. |
 | `cmd` | Nối mọi thứ lại và đăng ký route. | |
 
@@ -96,7 +96,7 @@ Các package lớn đều theo cùng một mẫu **interface + factory**: packag
 | `database` | Kết nối DB (PostgreSQL, MySQL, MongoDB) |
 | `jwt` | Tạo và xác thực token, kèm middleware xác thực |
 | `session` | Quản lý phiên |
-| `sms` | Gửi SMS (dev: chỉ ghi log) |
+| `mailer` | Gửi email (dev: chỉ ghi log) |
 | `attestation` | Xác minh Play Integrity, App Attest (dev: mock) |
 | `secrets` | Đọc secret (env, AWS, GCP) |
 | `storage` | Lưu file (S3, GCS) |
@@ -110,8 +110,8 @@ Hệ thống nhắm tới môi trường container/serverless (GCP Cloud Run, GK
 
 Một số phần đang là bản dev, cần thay trước khi lên production:
 
-- **OTP** cố định là `111111`.
-- **SMS** chỉ ghi log, không gửi thật.
+- **Mã xác minh** cố định là `111111` (`otp.dev_fixed_code`).
+- **Mailer** của appService (`mailer.provider = log`) chỉ ghi thư, kèm mã, vào log, không gửi thật. Cả hai bị chặn khởi động ngoài môi trường `dev`.
 - **Attestation** dùng driver `mock`.
 - **Secret** (mật khẩu DB, khoá JWT) đọc dạng plaintext từ file cấu hình, ở cả hai service.
 - **Mailer** của backofficeService chỉ ghi log lời mời, không gửi thật; mật khẩu tạm là hằng số `111111`.

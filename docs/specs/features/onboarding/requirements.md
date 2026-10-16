@@ -1,12 +1,12 @@
 # Requirements — onboarding
 
-Version: 8.2
+Version: 8.3
 Last updated: 2026-10-16
-Status: implemented (v8.2) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev). Còn mở: giới hạn theo IP (AC22, login Phase 5), `erd.svg`, OpenAPI, OKF — xem `tasks.md`.
+Status: implemented (v8.3) — đăng ký xác minh bằng email chạy thật (mailer `log` ở dev); giới hạn theo IP (AC22) đã gắn ở login v2.4; `openapi.yaml` đã cập nhật (v8.3). Còn mở: `erd.svg`, OKF — xem `tasks.md`.
 Module: `identity`
 Code: `services/appService/`
 Product spec: `docs/product/onboarding/product.md` @ v1.2
-Contract: `docs/specs/api/openapi.yaml` (this repo) — cần cập nhật theo bảng API bên dưới (`tasks.md` Phase 9)
+Contract: `docs/specs/api/openapi.yaml` (this repo) — đã khớp bảng API bên dưới (v8.3)
 Implements: BR-ONB-04, BR-ONB-05, BR-ONB-06, BR-ONB-07, BR-ONB-08, BR-ONB-09, BR-ONB-10, FR-ONB-003, FR-ONB-004, FR-ONB-005, FR-ONB-006, FR-ONB-007, FR-ONB-008, FR-ONB-010, NFR-ONB-01, NFR-ONB-02, NFR-ONB-03
 Architecture: ADR-0003 (Accepted 2026-10-14)
 
@@ -124,8 +124,8 @@ Thay đổi tại chỗ (cùng path, đổi body), trừ `resend-otp` chuyển p
 
 ## Pending (not yet implemented)
 
-- AC22 (giới hạn theo IP + ngân sách thư mỗi ngày): chưa gắn, làm ở login Phase 5.
-- E2E, OpenAPI, OKF: `tasks.md` Phase 8–9.
+- AC22 (giới hạn theo IP + ngân sách thư mỗi ngày): đã gắn ở login v2.4 (Phase 5).
+- OKF và product spec §4.2: `tasks.md` Phase 9. OpenAPI đã xong ở v8.3.
 
 `request-otp` / `resend-otp` trả `429 OTP_LOCKED` khi mã của email đang bị khoá do nhập sai: phát mã mới không được mở khoá 3 lượt đoán (thêm ở v8.1).
 
