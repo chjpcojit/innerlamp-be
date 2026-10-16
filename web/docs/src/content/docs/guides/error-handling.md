@@ -60,7 +60,7 @@ Mọi lỗi dùng chung [envelope](/guides/getting-started/#response-envelope). 
 | 400 | `INVALID_EMAIL` | Email không hợp lệ. |
 | 400 | `INVALID_PASSWORD` | Mật khẩu ngoài 8 đến 64 ký tự (đăng ký, đặt lại mật khẩu), hoặc rỗng (đăng nhập). |
 | 400 | `INVALID_FULL_NAME`, `INVALID_DHARMA_NAME`, `INVALID_TEMPLE` | Họ tên trống hoặc quá 300 ký tự, pháp danh quá 255 ký tự, hoặc `ordination_temple_id` không khớp chùa nào (đăng ký). |
-| 400 | `INVALID_DEVICE` | Thiếu `device.platform` hoặc `device.device_model`. |
+| 400 | `INVALID_DEVICE` | Thiếu `device` hoặc `device.device_model`. |
 | 400 | `OTP_INVALID` | Mã sai (hoặc, ở đăng ký, email đã có tài khoản: mọi mã đều sai). |
 | 400 | `OTP_EXPIRED` | Mã đã hết hạn hoặc đã dùng (ở đặt lại mật khẩu: cũng khi email không có tài khoản hoặc chưa phát mã). |
 | 400 | `PENDING_REGISTRATION_EXPIRED` | Không có lượt đăng ký chờ cho email này, hoặc đã quá 24 giờ: bắt đầu lại từ bước 1. |

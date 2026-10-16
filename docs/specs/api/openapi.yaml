@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: InnerLamp API
-  version: 1.0.0
+  version: 2.1.1
   description: |
     API của hai service: **appService** (client: đăng ký/đăng nhập bằng email, quên mật khẩu, hồ sơ cá nhân và ảnh đại diện, attestation thiết bị, danh mục chùa, Phật/Bồ tát và bài viết Phật pháp)
     và **backofficeService** (admin: `/v1/admin/*`). Chọn server tương ứng ở ô Servers.
@@ -553,7 +553,7 @@ paths:
         '400':
           description: |
             `VALIDATION_ERROR` (body rỗng, sai JSON, field lạ, sai Content-Type), `INVALID_EMAIL`,
-            `INVALID_PASSWORD` (mật khẩu rỗng), `INVALID_DEVICE` (thiếu `device`, `platform` hoặc `device_model`).
+            `INVALID_PASSWORD` (mật khẩu rỗng), `INVALID_DEVICE` (thiếu `device` hoặc `device.device_model`; `platform` vắng thì server lưu `mobile`, không phải lỗi).
             Không lỗi nào ở đây tính là một lần đăng nhập sai.
           content:
             application/json:
@@ -6210,10 +6210,10 @@ components:
     Device:
       type: object
       description: Thông tin client tự khai về thiết bị. IP và User-Agent do server lấy từ request.
-      required: [platform, device_model]
+      required: [device_model]
       additionalProperties: false
       properties:
-        platform: { type: string, description: 'Nền tảng, vd. `ios`, `android`, `web`. Bắt buộc.', example: ios }
+        platform: { type: string, description: 'Nền tảng, vd. `ios`, `android`, `web`. Tuỳ chọn: vắng hoặc rỗng thì server lưu `mobile`. `web` chỉ được chấp nhận khi có `X-API-Key` đúng.', example: ios }
         device_model: { type: string, description: Model máy. Bắt buộc., example: iPhone 15 }
         os_version: { type: string, description: Phiên bản hệ điều hành. Tuỳ chọn., example: '18.0' }
         app_version: { type: string, description: Phiên bản app. Tuỳ chọn., example: 1.0.0 }

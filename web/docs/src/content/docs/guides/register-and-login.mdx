@@ -237,7 +237,7 @@ Trả `200` với [`AuthResult`](#authresult).
 | 400 | `VALIDATION_ERROR` | Body rỗng, sai JSON, field lạ (kể cả `phone_number` của bản cũ), sai Content-Type. | Sửa request. |
 | 400 | `INVALID_EMAIL` | Email sai định dạng. | Báo lỗi ở ô email. |
 | 400 | `INVALID_PASSWORD` | Mật khẩu rỗng. | Báo lỗi ở ô mật khẩu. |
-| 400 | `INVALID_DEVICE` | Thiếu `device`, `platform` hoặc `device_model`. | Sửa request. |
+| 400 | `INVALID_DEVICE` | Thiếu `device` hoặc `device_model`. | Sửa request. |
 | 401 | `INVALID_CREDENTIALS` | Sai email hoặc mật khẩu. | Cho nhập lại, gợi ý "Quên mật khẩu". |
 | 401 | `INVALID_API_KEY` | `X-API-Key` sai hoặc rỗng, hoặc `platform = web` mà không có key đúng. | Lỗi cấu hình server web, không retry. |
 | 429 | `LOGIN_LOCKED` | Sai 5 lần liên tiếp. Lần thứ 5 vẫn là `401`, lần kế tiếp mới là `429`, kể cả khi đúng mật khẩu. | Chờ tới `details.locked_until`, hoặc đặt lại mật khẩu. |
