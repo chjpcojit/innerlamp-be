@@ -4,6 +4,12 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 folder. All four files share one changelog since they change together as one spec unit. Newest
 version first.
 
+## v2.6 (2026-10-16)
+
+Fixes a contradiction found by the website spec review. No code change.
+
+- `requirements.md`: AC4 said a missing `platform` was `400 INVALID_DEVICE`, while AC17 and `openapi.yaml` 2.1.1 say an empty platform is stored as `mobile`. The code agrees with AC17 (the handler defaults `platform` before the use case), so AC4 now names only `device` and `device_model`; the API table marks `platform` optional.
+
 ## v2.5 (2026-10-16)
 
 **`openapi.yaml` khớp hợp đồng đăng nhập v2** (tasks Phase 7, item 1). Không đổi AC, không đổi code.
