@@ -1,29 +1,35 @@
-# Handoff — 2026-10-16 15:54
-<!-- tự sinh khi kết thúc phiên 29af7e1c bằng claude-haiku-4-5-20251001; /handoff để ghi bản chất lượng cao hơn -->
+# Handoff — 2026-10-14 20:32
+<!-- tự sinh khi kết thúc phiên 36af07db bằng claude-haiku-4-5-20251001; /handoff để ghi bản chất lượng cao hơn -->
 
 ## Đang làm dở
-- Tạo PR login v2 (chưa tạo vì không có gh CLI)
-- Tạo PR OpenAPI + web/docs (chưa tạo vì không có gh CLI)
+- erd.svg regenerate (blocked: mmdc tool not available on machine)
+- OKF concept for temple-announcement (awaiting user/code review sign-off)
 
 ## Việc tiếp theo
-1. Cài gh, tạo hai PR và gửi links
-2. Điều tra npm run build fail trong worktree
-3. Regenerate erd.svg, write OKF concept cho temple-announcement, fix E2E tests
+1. Confirm temple-announcement code review & write OKF concept
+2. Fix E2E administrative-units fail (root cause TBD)
+3. Fix E2E dharma-talk + 4 parallel test DB state/transaction issues
 
 ## Tồn đọng / blocker
-- Máy không có gh CLI để tạo PR
-- npm run build fail trong docs/openapi-auth-v2 worktree (pass ngoài worktree, root cause chưa xác định)
-- mmdc tool không có để regenerate erd.svg
+- erd.svg: mmdc tool not available, cannot regenerate mermaid diagram
+- OKF concept pending user code review confirm for temple-announcement
+- E2E administrative-units FAIL (root cause TBD)
+- E2E dharma-talk FAIL (root cause TBD)
+- E2E 4 parallel test FAIL (DB state/transaction issues)
+- Shared file conflicts: config.go/main.go/errors.go block temple-suggestion & genealogy
 
 ## Quyết định gần đây
-- OpenAPI paths: /v1/auth/resend-otp bỏ, /v1/auth/password-reset/* thêm vào, theo code thực tế
-- Error codes mới: INVALID_EMAIL, REGISTRATION_IN_PROGRESS (kèm retry_after_seconds), EMAIL_SEND_FAILED, OTP_LOCKED, RATE_LIMITED
-- PR 2 base vào feat/login-v2 (không phải main) vì PR 1 chưa merge
+- temple-announcement: body_max_chars=5000 (spec không định), page_size max 50(app)/100(backoffice)
+- temple-announcement: page_size vượt max hạ, không error; ban phát hành null/dài → 400 VALIDATION_ERROR
+- temple-announcement: content_editor role đăng thông báo như admin; phân trang page+page_size+total
+- temple-announcement: rate limit 60 req/window:1m, 429 RATE_LIMITED; p95<500ms với 200 thông báo
+- User auth: Bearer only, 401 UNAUTHORIZED; Rate limit /v1/users/me*: 10 req/phút/account
+- Ordination temple: PATCH /v1/users/me {ordination_temple_id}, null=delete, 10 req/phút
+- Practice schedule: GET /v1/temples/{id}/schedule, weekday 0=Sun…6=Sat, [] means daily
 
 ## Nợ tài liệu (tự động)
 Code đã đổi nhưng chưa có concept OKF nào trỏ tới (dùng skill `il-okf-writer` sau khi code đã kiểm chứng):
 - pkg/mailer/ (2 file: log_mailer.go, mailer.go)
-- pkg/validation/ (3 file: email.go, phone_countries.go, validation.go)
 - services/backofficeService/cmd/ (1 file: main.go)
 - services/backofficeService/cmd/seedadmin/ (1 file: main.go)
 - services/backofficeService/config/ (1 file: config.go)

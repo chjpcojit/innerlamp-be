@@ -2,7 +2,27 @@
 
 Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks.md` in this folder.
 All four files share one changelog since they change together as one spec unit. Newest version
-first. (`api-contract.md` là tài liệu client có version riêng, không thuộc bộ này.)
+first. (`api-contract.md` cũ đã gỡ ở v2.1; hợp đồng nằm ở `docs/specs/api/openapi.yaml`.)
+
+## v2.1 (2026-10-15)
+
+Bước 4 của quy trình tài liệu: xoá tài liệu cũ sau khi product spec v1.1 và spec bốn platform đã được duyệt. Không đổi yêu cầu hay thiết kế.
+
+- Xoá `api-contract.md` (tài liệu client iOS v1.3): hợp đồng nằm ở `docs/specs/api/openapi.yaml`, hành vi ở `docs/product/temple/product.md`.
+- `tasks.md` (2.0 → 2.1): mục "Rà `api-contract.md`" ở Phase 5 đánh `[x]` (đã gộp về `openapi.yaml`); mục Phase 4 ghi file đã gỡ.
+- `design.md` (2.0 → 2.1): Known gaps trỏ về `api-contract.md` cũ qua lịch sử git. `requirements.md`, `flow.md` (2.0 → 2.1): no change needed, verified — chỉ header.
+- Ngoài thư mục: `deity/api-contract.md` trỏ về `openapi.yaml` thay cho file đã xoá; OKF `docs/knowledge/features/temple.md` bỏ nguồn `api-contract.md` (làm mới toàn bộ OKF vẫn là Phase 13).
+- Giữ nguyên (cố ý): `address-decisions.*`, `address-review.md` (bản ghi dữ liệu địa chỉ), `docs/assumptions/temple/A-001…005` (quy ước repo: không xoá file giả định).
+
+## v2.0 (2026-10-15)
+
+Viết lại để trỏ lên product spec `docs/product/temple/product.md` @ v1.1 (bước 3 của quy trình tài liệu) và thêm phần mới product yêu cầu. MAJOR vì hành vi `GET /v1/temples` đổi (trang 12, tham số mới, lỗi mới).
+
+- `requirements.md` (1.14 → 2.0): header `Product spec` / `Contract` / `Architecture` / `Implements`; mục "Ràng buộc từ product spec"; gắn ID (`FR-TPL-*`/`BR-TPL-*`/`(platform)`) cho AC 1–38; AC 5 đổi `page_size` thành 12; thêm US-TMP-09 (AC 39–44, `q` tên + tên khác, `region`), US-TMP-10 (AC 45–49, giờ lễ, liên hệ, giáo hội, tháng cập nhật, kiểm ở seed, migration `0037`), US-TMP-11 (AC 50, `temple.json` vào git). Đóng 4 marker cũ (mã user story, quy trình nạp, tiêu chí nổi bật, phạm vi backoffice); còn 1 marker product (ghi nguồn + quyền ảnh) và 1 marker dữ liệu.
+- `design.md` (1.14 → 2.0): hàng mới Domain / Detail fields, Domain / Filter, Migration `0037`; Repository có `templeFilterWhere` (khớp `aliases` bằng `unnest`); handler/usecase/error map/DTO/config/seed/data/API spec/ERD cập nhật; Step-by-step Flow danh sách viết lại (Step 1–2 thêm `q`, `region`); flow seed thêm kiểm AC 47 ở Step 2 và 35 cột ở Step 5; Known gaps cập nhật.
+- `flow.md` (1.14 → 2.0): sequence danh sách vẽ lại theo flow mới (ba nhánh lỗi ở Step 2, cùng `WHERE` ở Step 3–4). Sơ đồ `options` và seed: no change needed, verified (kiểm định dạng mới nằm trong Step 2 của seed, không thêm bước).
+- `tasks.md` (1.14 → 2.0): Phase 11–13 mới, mọi mục `[ ]`; OKF Phase 5 đánh `[x]` (file đã có); Deferred viết lại theo product.
+- Theo sau (không sửa ở đây): `docs/specs/api/openapi.yaml` + bản web, `migrations/0037`, `docs/specs/db/erd.mmd`, `.gitignore`, OKF `docs/knowledge/features/temple.md` — đều là mục của Phase 11–13.
 
 ## v1.14 (2026-10-11)
 

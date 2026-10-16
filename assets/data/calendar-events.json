@@ -1,0 +1,987 @@
+{
+  "meta": {
+    "name": "Calendar events — Phật giáo, Việt Nam, dân gian",
+    "version": "2026-10-11",
+    "format": 1,
+    "lang": "vi",
+    "status": "DRAFT: ngày vía Phật/Bồ Tát đã đối chiếu với hoatieu.vn (2026-10-11); nội dung mô tả do em soạn, chưa đối chiếu nguồn chính thức GHPGVN. Ngày dương của tiết khí và ngày âm sẽ kiểm bằng bảng tham chiếu khi có bộ chuyển đổi.",
+    "notes": [
+      "image_url để null theo quyết định 2026-10-11.",
+      "Vía Địa Tạng (30/7) và Dược Sư (30/9) dùng kind lunar_last_day: ngày 30 nếu tháng đủ, lùi về 29 nếu tháng thiếu (quyết định 2026-10-11).",
+      "Phật đản đặt 15/4 theo thông lệ GHPGVN; nguồn hoatieu.vn ghi 8/4 là vía đản sanh truyền thống Bắc tông, 15/4 là Đại lễ Tam hợp (Nam tông). Chưa có sự kiện riêng cho 8/4.",
+      "Tết Nguyên Đán is_public_holiday cho Giao thừa + mùng 1..4 (5 ngày); Thủ tướng quyết định cụ thể từng năm (Đ.112 khoản 3). Nghỉ bù và ngày nghỉ liền kề 2/9 ngoài phạm vi.",
+      "Chưa đối chiếu được trang chính thức GHPGVN: tìm kiếm không ra văn bản liệt kê ngày vía.",
+      "Rằm/mùng 1 đã có lunar_monthly nên các rằm lớn (thuong-nguyen, vu-lan, trung-thu, ha-nguyen) là sự kiện thêm, cùng ngày.",
+      "2026-10-15: thêm via-chuan-de (16/3), via-duoc-vuong (28/4), via-nhien-dang (22/8) lấy từ lunar_memorial_days của danh mục Phật & Bồ Tát (phat_botat.json) để mỗi vị có ngày vía trong lịch (product spec deity BR-DTY-05); chưa đối chiếu nguồn bên ngoài."
+    ],
+    "counts": {
+      "groups": 3,
+      "events": 54
+    }
+  },
+  "groups": [
+    {
+      "code": "buddhist",
+      "name": "Phật giáo",
+      "sort_order": 1
+    },
+    {
+      "code": "vietnam",
+      "name": "Việt Nam",
+      "sort_order": 2
+    },
+    {
+      "code": "folk",
+      "name": "Dân gian",
+      "sort_order": 3
+    }
+  ],
+  "events": [
+    {
+      "code": "mung-1-am-lich",
+      "kind": "lunar_monthly",
+      "lunar_day": 1,
+      "is_public_holiday": false,
+      "sort_order": 1,
+      "groups": [
+        "buddhist",
+        "folk"
+      ],
+      "name": "Mùng 1 âm lịch",
+      "short_description": "Ngày đầu tháng âm lịch, ngày sóc.",
+      "long_description": "Mùng 1 là ngày đầu tháng âm lịch. Phật tử và nhiều gia đình thường đi chùa lễ Phật, ăn chay, cúng gia tiên và cầu bình an cho cả tháng.",
+      "guidance": "Đi chùa lễ Phật, dâng hương hoa; cúng gia tiên; có thể ăn chay và làm việc thiện.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "ram-am-lich",
+      "kind": "lunar_monthly",
+      "lunar_day": 15,
+      "is_public_holiday": false,
+      "sort_order": 2,
+      "groups": [
+        "buddhist",
+        "folk"
+      ],
+      "name": "Rằm",
+      "short_description": "Ngày 15 âm lịch, ngày vọng (trăng tròn).",
+      "long_description": "Rằm là ngày 15 âm lịch hằng tháng, ngày trăng tròn. Phật tử thường lên chùa lễ Phật, ăn chay, tụng kinh; gia đình cúng gia tiên.",
+      "guidance": "Đi chùa lễ Phật, tụng kinh, ăn chay; cúng gia tiên bằng hương hoa, trà quả.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "tet-duong-lich",
+      "kind": "solar",
+      "solar_month": 1,
+      "solar_day": 1,
+      "is_public_holiday": true,
+      "sort_order": 3,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Tết Dương lịch",
+      "short_description": "Ngày đầu năm theo dương lịch.",
+      "long_description": "Tết Dương lịch (1/1) là ngày nghỉ lễ chính thức đầu năm mới theo dương lịch.",
+      "guidance": "Có thể đi chùa đầu năm, cầu bình an.",
+      "image_url": null,
+      "source": "Bộ luật Lao động 2019, Điều 112; https://vneconomy.vn/lich-nghi-le-gio-to-hung-vuong-ngay-chien-thang-30-4-1-5.htm (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "tet-nguyen-dan",
+      "kind": "lunar",
+      "lunar_month": 1,
+      "lunar_day": 1,
+      "is_leap_month": false,
+      "is_public_holiday": true,
+      "sort_order": 4,
+      "groups": [
+        "vietnam",
+        "folk"
+      ],
+      "name": "Tết Nguyên Đán",
+      "short_description": "Mùng 1 Tết, ngày đầu năm âm lịch.",
+      "long_description": "Tết Nguyên Đán là lễ tết lớn nhất của người Việt, khởi đầu năm âm lịch mới; gia đình sum họp, cúng tổ tiên, chúc nhau năm mới an lành.",
+      "guidance": "Cúng gia tiên, chúc Tết, lễ chùa đầu năm; kiêng cãi vã, quét nhà đổ rác trong ngày.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "giao-thua",
+      "kind": "lunar_last_day",
+      "lunar_month": 12,
+      "is_public_holiday": true,
+      "sort_order": 5,
+      "groups": [
+        "vietnam",
+        "folk"
+      ],
+      "name": "Giao thừa",
+      "short_description": "Đêm cuối năm âm lịch, khoảnh khắc chuyển giao năm cũ và năm mới.",
+      "long_description": "Giao thừa là thời khắc chuyển từ năm cũ sang năm mới; gia đình cúng giao thừa ngoài trời và trong nhà để tiễn năm cũ, đón năm mới. Giao thừa rơi vào ngày 30 tháng Chạp nếu tháng đủ, ngày 29 nếu tháng thiếu.",
+      "guidance": "Cúng giao thừa, thắp hương gia tiên; nhiều người đi chùa lễ đầu năm, hái lộc.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "mung-2-tet",
+      "kind": "lunar",
+      "lunar_month": 1,
+      "lunar_day": 2,
+      "is_leap_month": false,
+      "is_public_holiday": true,
+      "sort_order": 6,
+      "groups": [
+        "vietnam",
+        "folk"
+      ],
+      "name": "Mùng 2 Tết",
+      "short_description": "Ngày thứ hai của năm âm lịch.",
+      "long_description": "Mùng 2 Tết thường là ngày chúc Tết bên ngoại, thầy cô và những người thân quen.",
+      "guidance": "Thăm hỏi, chúc Tết người thân, thầy cô.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "mung-3-tet",
+      "kind": "lunar",
+      "lunar_month": 1,
+      "lunar_day": 3,
+      "is_leap_month": false,
+      "is_public_holiday": true,
+      "sort_order": 7,
+      "groups": [
+        "vietnam",
+        "folk"
+      ],
+      "name": "Mùng 3 Tết",
+      "short_description": "Ngày thứ ba của năm âm lịch.",
+      "long_description": "Mùng 3 Tết là ngày nhiều nhà làm lễ tạ năm mới và đi chùa lễ Phật đầu năm.",
+      "guidance": "Đi chùa lễ Phật; nhiều nhà làm lễ cúng tiễn ông bà.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "mung-4-tet",
+      "kind": "lunar",
+      "lunar_month": 1,
+      "lunar_day": 4,
+      "is_leap_month": false,
+      "is_public_holiday": true,
+      "sort_order": 8,
+      "groups": [
+        "vietnam",
+        "folk"
+      ],
+      "name": "Mùng 4 Tết",
+      "short_description": "Ngày thứ tư của năm âm lịch.",
+      "long_description": "Mùng 4 Tết là ngày nghỉ lễ cuối của kỳ nghỉ Tết Nguyên Đán theo quy định hiện hành.",
+      "guidance": "Thăm hỏi họ hàng, bạn bè.",
+      "image_url": null,
+      "source": "Bộ luật Lao động 2019, Điều 112; https://vneconomy.vn/lich-nghi-le-gio-to-hung-vuong-ngay-chien-thang-30-4-1-5.htm (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "ong-cong-ong-tao",
+      "kind": "lunar",
+      "lunar_month": 12,
+      "lunar_day": 23,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 9,
+      "groups": [
+        "folk"
+      ],
+      "name": "Ông Công, Ông Táo",
+      "short_description": "Ngày 23 tháng Chạp, tiễn Táo quân về trời.",
+      "long_description": "Ngày 23 tháng Chạp, theo tín ngưỡng dân gian, Táo quân về trời tâu việc gia đình với Ngọc Hoàng; gia đình cúng tiễn và thả cá chép.",
+      "guidance": "Cúng mâm cơm hoặc hương hoa, trà quả, cá chép tiễn Táo quân.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "via-di-lac",
+      "kind": "lunar",
+      "lunar_month": 1,
+      "lunar_day": 1,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 10,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Đức Di Lặc",
+      "short_description": "Ngày vía Phật Di Lặc, mùng 1 tháng Giêng.",
+      "long_description": "Mùng 1 tháng Giêng là ngày vía Đức Phật Di Lặc, vị Phật tương lai theo kinh điển.",
+      "guidance": "Lễ Phật, cúng dường, cầu an đầu năm.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "thuong-nguyen",
+      "kind": "lunar",
+      "lunar_month": 1,
+      "lunar_day": 15,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 11,
+      "groups": [
+        "buddhist",
+        "folk"
+      ],
+      "name": "Rằm tháng Giêng (Thượng nguyên)",
+      "short_description": "Ngày Rằm đầu năm, còn gọi Tết Nguyên Tiêu.",
+      "long_description": "Rằm tháng Giêng là ngày Thượng nguyên, rằm lớn đầu năm. Phật tử đi chùa dâng sớ cầu an, gia đình cúng gia tiên.",
+      "guidance": "Đi chùa lễ Phật, cầu an đầu năm; cúng gia tiên.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "phat-xuat-gia",
+      "kind": "lunar",
+      "lunar_month": 2,
+      "lunar_day": 8,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 12,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Ngày Đức Phật xuất gia",
+      "short_description": "Mùng 8 tháng Hai, kỷ niệm Thái tử Tất Đạt Đa xuất gia.",
+      "long_description": "Theo truyền thống Bắc tông, mùng 8 tháng Hai là ngày Thái tử Tất Đạt Đa rời cung điện đi tìm con đường giải thoát.",
+      "guidance": "Lễ Phật, tụng kinh, sám hối.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "phat-nhap-niet-ban",
+      "kind": "lunar",
+      "lunar_month": 2,
+      "lunar_day": 15,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 13,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Ngày Đức Phật nhập Niết bàn",
+      "short_description": "Rằm tháng Hai, kỷ niệm Đức Phật nhập Niết bàn.",
+      "long_description": "Rằm tháng Hai là ngày kỷ niệm Đức Phật nhập Niết bàn theo truyền thống Bắc tông.",
+      "guidance": "Lễ Phật, tụng kinh, thiền định.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "via-quan-the-am-dan-sinh",
+      "kind": "lunar",
+      "lunar_month": 2,
+      "lunar_day": 19,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 14,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Quan Thế Âm đản sinh",
+      "short_description": "19 tháng Hai, ngày vía Bồ Tát Quan Thế Âm.",
+      "long_description": "19 tháng Hai là ngày vía đản sinh của Bồ Tát Quan Thế Âm, vị Bồ Tát đại bi cứu khổ.",
+      "guidance": "Đi chùa lễ Bồ Tát, niệm danh hiệu Quan Thế Âm, ăn chay.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "via-pho-hien",
+      "kind": "lunar",
+      "lunar_month": 2,
+      "lunar_day": 21,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 15,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Phổ Hiền Bồ Tát",
+      "short_description": "21 tháng Hai, ngày vía Phổ Hiền Bồ Tát.",
+      "long_description": "Phổ Hiền Bồ Tát tiêu biểu cho hạnh nguyện; ngày 21 tháng Hai được nhiều chùa tổ chức lễ vía.",
+      "guidance": "Lễ Bồ Tát, tụng kinh, phát nguyện.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "via-van-thu",
+      "kind": "lunar",
+      "lunar_month": 4,
+      "lunar_day": 4,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 16,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Văn Thù Bồ Tát",
+      "short_description": "Mùng 4 tháng Tư, ngày vía Văn Thù Sư Lợi Bồ Tát.",
+      "long_description": "Văn Thù Sư Lợi Bồ Tát tiêu biểu cho trí tuệ; mùng 4 tháng Tư là ngày vía được tổ chức ở nhiều chùa.",
+      "guidance": "Lễ Bồ Tát, tụng kinh, cầu trí tuệ.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "phat-dan",
+      "kind": "lunar",
+      "lunar_month": 4,
+      "lunar_day": 15,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 17,
+      "groups": [
+        "buddhist",
+        "vietnam"
+      ],
+      "name": "Lễ Phật đản",
+      "short_description": "Rằm tháng Tư, kỷ niệm ngày đản sinh của Đức Phật.",
+      "long_description": "Phật đản là đại lễ của Phật giáo, kỷ niệm ngày Thái tử Tất Đạt Đa đản sinh tại vườn Lumbini. Theo truyền thống Bắc tông Việt Nam, lễ được cử hành vào Rằm tháng Tư.",
+      "guidance": "Đi chùa dự lễ tắm Phật, cúng dường, phóng sinh, ăn chay.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "an-cu-ket-ha",
+      "kind": "lunar",
+      "lunar_month": 4,
+      "lunar_day": 16,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 18,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Ngày an cư kiết hạ",
+      "short_description": "16 tháng Tư, chư Tăng Ni Bắc tông bắt đầu mùa an cư kiết hạ.",
+      "long_description": "An cư kiết hạ là ba tháng chư Tăng, Ni tu học tập trung tại một nơi, bắt đầu từ 16 tháng Tư theo Bắc tông.",
+      "guidance": "Phật tử hộ trì, cúng dường chư Tăng Ni an cư.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "via-ho-phap-vi-da",
+      "kind": "lunar",
+      "lunar_month": 6,
+      "lunar_day": 3,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 19,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Hộ Pháp Vi Đà",
+      "short_description": "Mùng 3 tháng Sáu, ngày vía Bồ Tát Vi Đà.",
+      "long_description": "Bồ Tát Vi Đà là vị hộ pháp bảo vệ Phật pháp và chùa chiền; mùng 3 tháng Sáu là ngày vía.",
+      "guidance": "Lễ Phật, cầu bảo hộ Phật pháp.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "via-quan-the-am-thanh-dao",
+      "kind": "lunar",
+      "lunar_month": 6,
+      "lunar_day": 19,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 20,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Quan Thế Âm thành đạo",
+      "short_description": "19 tháng Sáu, ngày vía thành đạo của Bồ Tát Quan Thế Âm.",
+      "long_description": "19 tháng Sáu là ngày vía Quan Thế Âm Bồ Tát thành đạo.",
+      "guidance": "Lễ Bồ Tát, niệm danh hiệu Quan Thế Âm.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "via-dai-the-chi",
+      "kind": "lunar",
+      "lunar_month": 7,
+      "lunar_day": 13,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 21,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Đại Thế Chí Bồ Tát",
+      "short_description": "13 tháng Bảy, ngày vía Đại Thế Chí Bồ Tát.",
+      "long_description": "Đại Thế Chí Bồ Tát là một trong Tam thánh Tây phương cùng Phật A Di Đà và Quan Thế Âm; 13 tháng Bảy là ngày vía.",
+      "guidance": "Lễ Bồ Tát, niệm Phật.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "vu-lan",
+      "kind": "lunar",
+      "lunar_month": 7,
+      "lunar_day": 15,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 22,
+      "groups": [
+        "buddhist",
+        "folk"
+      ],
+      "name": "Lễ Vu Lan",
+      "short_description": "Rằm tháng Bảy, mùa báo hiếu cha mẹ và cầu siêu.",
+      "long_description": "Vu Lan là đại lễ báo hiếu của Phật giáo, gắn với tích Bồ Tát Mục Kiền Liên cứu mẹ. Rằm tháng Bảy cũng là ngày Tự tứ của chư Tăng và là dịp xá tội vong nhân theo dân gian.",
+      "guidance": "Đi chùa dự lễ Vu Lan, cài hoa hồng, cúng dường, cầu siêu, báo hiếu cha mẹ.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "via-dia-tang",
+      "kind": "lunar_last_day",
+      "is_public_holiday": false,
+      "sort_order": 23,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Địa Tạng Bồ Tát",
+      "short_description": "Cuối tháng Bảy, ngày vía Bồ Tát Địa Tạng.",
+      "long_description": "Địa Tạng Bồ Tát có đại nguyện cứu độ chúng sinh trong cõi khổ; 30 tháng Bảy là ngày vía. Vía rơi vào ngày cuối tháng: ngày 30 nếu tháng đủ, ngày 29 nếu tháng thiếu.",
+      "guidance": "Lễ Bồ Tát, tụng kinh Địa Tạng, cầu siêu.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)",
+      "lunar_month": 7
+    },
+    {
+      "code": "trung-thu",
+      "kind": "lunar",
+      "lunar_month": 8,
+      "lunar_day": 15,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 24,
+      "groups": [
+        "folk"
+      ],
+      "name": "Tết Trung thu",
+      "short_description": "Rằm tháng Tám, Tết thiếu nhi, rước đèn phá cỗ.",
+      "long_description": "Tết Trung thu là rằm tháng Tám, ngày trăng tròn nhất năm; trẻ em rước đèn, phá cỗ, gia đình sum họp.",
+      "guidance": "Bày cỗ trông trăng, rước đèn, tặng bánh trung thu.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "via-quan-the-am-xuat-gia",
+      "kind": "lunar",
+      "lunar_month": 9,
+      "lunar_day": 19,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 25,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Quan Thế Âm xuất gia",
+      "short_description": "19 tháng Chín, ngày vía xuất gia của Bồ Tát Quan Thế Âm.",
+      "long_description": "19 tháng Chín là ngày vía Quan Thế Âm Bồ Tát xuất gia.",
+      "guidance": "Lễ Bồ Tát, niệm danh hiệu Quan Thế Âm.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "tet-trung-cuu",
+      "kind": "lunar",
+      "lunar_month": 9,
+      "lunar_day": 9,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 26,
+      "groups": [
+        "folk"
+      ],
+      "name": "Tết Trùng Cửu",
+      "short_description": "Mùng 9 tháng Chín, Tết người cao tuổi theo dân gian.",
+      "long_description": "Tết Trùng Cửu (mùng 9 tháng Chín) có nơi gọi là Tết người cao tuổi; người ta leo núi, uống rượu cúc.",
+      "guidance": "Thăm hỏi, chúc sức khoẻ ông bà, người cao tuổi.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "via-duoc-su",
+      "kind": "lunar_last_day",
+      "is_public_holiday": false,
+      "sort_order": 27,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Dược Sư Phật",
+      "short_description": "Cuối tháng Chín, ngày vía Phật Dược Sư.",
+      "long_description": "Phật Dược Sư là Phật Đông phương Tịnh lưu ly, nguyện chữa bệnh và cứu khổ; 30 tháng Chín là ngày vía. Vía rơi vào ngày cuối tháng: ngày 30 nếu tháng đủ, ngày 29 nếu tháng thiếu.",
+      "guidance": "Lễ Phật, tụng kinh Dược Sư, cầu bình an.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)",
+      "lunar_month": 9
+    },
+    {
+      "code": "via-to-bo-de-dat-ma",
+      "kind": "lunar",
+      "lunar_month": 10,
+      "lunar_day": 5,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 28,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Tổ Bồ Đề Đạt Ma",
+      "short_description": "Mùng 5 tháng Mười, ngày vía Tổ Bồ Đề Đạt Ma.",
+      "long_description": "Bồ Đề Đạt Ma là Sơ tổ Thiền tông Trung Hoa, người truyền thiền sang phương Đông; mùng 5 tháng Mười là ngày vía.",
+      "guidance": "Lễ Tổ, tụng kinh, toạ thiền.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "ha-nguyen",
+      "kind": "lunar",
+      "lunar_month": 10,
+      "lunar_day": 15,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 29,
+      "groups": [
+        "buddhist",
+        "folk"
+      ],
+      "name": "Rằm tháng Mười (Hạ nguyên)",
+      "short_description": "Rằm tháng Mười, Tết Hạ nguyên.",
+      "long_description": "Rằm tháng Mười là ngày Hạ nguyên, tiết cuối trong Tam nguyên; có nơi cúng tạ ơn đất, mùa màng.",
+      "guidance": "Đi chùa lễ Phật, cúng gia tiên.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "via-a-di-da",
+      "kind": "lunar",
+      "lunar_month": 11,
+      "lunar_day": 17,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 30,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Phật A Di Đà",
+      "short_description": "17 tháng Mười Một, ngày vía Phật A Di Đà.",
+      "long_description": "Phật A Di Đà là giáo chủ cõi Tây phương Cực lạc; 17 tháng Mười Một là ngày vía của Ngài, được Phật tử Tịnh độ đặc biệt coi trọng.",
+      "guidance": "Lễ Phật, niệm danh hiệu A Di Đà, tụng kinh.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "phat-thanh-dao",
+      "kind": "lunar",
+      "lunar_month": 12,
+      "lunar_day": 8,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 31,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Ngày Đức Phật thành đạo",
+      "short_description": "Mùng 8 tháng Chạp, kỷ niệm Đức Phật thành đạo.",
+      "long_description": "Mùng 8 tháng Chạp là ngày kỷ niệm Đức Phật thành đạo dưới cội Bồ đề theo truyền thống Bắc tông.",
+      "guidance": "Lễ Phật, thiền định, nhiều chùa nấu cháo cúng dường.",
+      "image_url": null,
+      "source": "https://hoatieu.vn/cac-ngay-le-phat-trong-nam-207649 (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "tet-han-thuc",
+      "kind": "lunar",
+      "lunar_month": 3,
+      "lunar_day": 3,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 32,
+      "groups": [
+        "folk"
+      ],
+      "name": "Tết Hàn thực",
+      "short_description": "Mùng 3 tháng Ba, cúng bánh trôi bánh chay.",
+      "long_description": "Tết Hàn thực mùng 3 tháng Ba, có nơi ăn đồ nguội và làm bánh trôi, bánh chay để cúng tổ tiên.",
+      "guidance": "Làm bánh trôi, bánh chay cúng tổ tiên.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "gio-to-hung-vuong",
+      "kind": "lunar",
+      "lunar_month": 3,
+      "lunar_day": 10,
+      "is_leap_month": false,
+      "is_public_holiday": true,
+      "sort_order": 33,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Giỗ Tổ Hùng Vương",
+      "short_description": "Mùng 10 tháng Ba, ngày giỗ Tổ các vua Hùng.",
+      "long_description": "Giỗ Tổ Hùng Vương là ngày quốc lễ, tưởng nhớ các vua Hùng đã có công dựng nước.",
+      "guidance": "Thắp hương tưởng niệm; về Đền Hùng (Phú Thọ).",
+      "image_url": null,
+      "source": "Bộ luật Lao động 2019, Điều 112; https://vneconomy.vn/lich-nghi-le-gio-to-hung-vuong-ngay-chien-thang-30-4-1-5.htm (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "tet-doan-ngo",
+      "kind": "lunar",
+      "lunar_month": 5,
+      "lunar_day": 5,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 34,
+      "groups": [
+        "folk"
+      ],
+      "name": "Tết Đoan Ngọ",
+      "short_description": "Mùng 5 tháng Năm, Tết diệt sâu bọ.",
+      "long_description": "Tết Đoan Ngọ mùng 5 tháng Năm, người Việt ăn hoa quả, rượu nếp để diệt sâu bọ.",
+      "guidance": "Ăn rượu nếp, hoa quả; cúng gia tiên.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "quoc-te-phu-nu",
+      "kind": "solar",
+      "solar_month": 3,
+      "solar_day": 8,
+      "is_public_holiday": false,
+      "sort_order": 35,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Quốc tế Phụ nữ",
+      "short_description": "8/3, ngày tôn vinh phụ nữ.",
+      "long_description": "Ngày Quốc tế Phụ nữ 8/3 tôn vinh người phụ nữ.",
+      "guidance": "Tặng hoa, lời chúc.",
+      "image_url": null,
+      "source": "Ngày kỷ niệm theo quy ước chung — chưa đối chiếu văn bản"
+    },
+    {
+      "code": "giai-phong-mien-nam",
+      "kind": "solar",
+      "solar_month": 4,
+      "solar_day": 30,
+      "is_public_holiday": true,
+      "sort_order": 36,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Giải phóng miền Nam",
+      "short_description": "30/4, ngày thống nhất đất nước.",
+      "long_description": "30/4/1975 đánh dấu miền Nam được giải phóng, đất nước thống nhất.",
+      "guidance": "Nghỉ lễ, hoạt động kỷ niệm.",
+      "image_url": null,
+      "source": "Bộ luật Lao động 2019, Điều 112; https://vneconomy.vn/lich-nghi-le-gio-to-hung-vuong-ngay-chien-thang-30-4-1-5.htm (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "quoc-te-lao-dong",
+      "kind": "solar",
+      "solar_month": 5,
+      "solar_day": 1,
+      "is_public_holiday": true,
+      "sort_order": 37,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Quốc tế Lao động",
+      "short_description": "1/5, ngày của người lao động.",
+      "long_description": "Ngày Quốc tế Lao động 1/5.",
+      "guidance": "Nghỉ lễ, hoạt động kỷ niệm.",
+      "image_url": null,
+      "source": "Bộ luật Lao động 2019, Điều 112; https://vneconomy.vn/lich-nghi-le-gio-to-hung-vuong-ngay-chien-thang-30-4-1-5.htm (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "quoc-te-thieu-nhi",
+      "kind": "solar",
+      "solar_month": 6,
+      "solar_day": 1,
+      "is_public_holiday": false,
+      "sort_order": 38,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Quốc tế Thiếu nhi",
+      "short_description": "1/6, ngày của trẻ em.",
+      "long_description": "Ngày Quốc tế Thiếu nhi 1/6.",
+      "guidance": "Tặng quà, vui chơi cùng trẻ em.",
+      "image_url": null,
+      "source": "Ngày kỷ niệm theo quy ước chung — chưa đối chiếu văn bản"
+    },
+    {
+      "code": "quoc-khanh",
+      "kind": "solar",
+      "solar_month": 9,
+      "solar_day": 2,
+      "is_public_holiday": true,
+      "sort_order": 39,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Quốc khánh",
+      "short_description": "2/9, ngày Độc lập.",
+      "long_description": "Ngày Quốc khánh 2/9 kỷ niệm Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập năm 1945. Ngày nghỉ liền kề (1/9 hoặc 3/9) do Chính phủ quyết định từng năm, không nằm trong dữ liệu này.",
+      "guidance": "Nghỉ lễ, treo cờ.",
+      "image_url": null,
+      "source": "Bộ luật Lao động 2019, Điều 112; https://vneconomy.vn/lich-nghi-le-gio-to-hung-vuong-ngay-chien-thang-30-4-1-5.htm (đối chiếu 2026-10-11)"
+    },
+    {
+      "code": "phu-nu-viet-nam",
+      "kind": "solar",
+      "solar_month": 10,
+      "solar_day": 20,
+      "is_public_holiday": false,
+      "sort_order": 40,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Phụ nữ Việt Nam",
+      "short_description": "20/10, ngày Phụ nữ Việt Nam.",
+      "long_description": "Ngày Phụ nữ Việt Nam 20/10.",
+      "guidance": "Tặng hoa, lời chúc.",
+      "image_url": null,
+      "source": "Ngày kỷ niệm theo quy ước chung — chưa đối chiếu văn bản"
+    },
+    {
+      "code": "nha-giao-viet-nam",
+      "kind": "solar",
+      "solar_month": 11,
+      "solar_day": 20,
+      "is_public_holiday": false,
+      "sort_order": 41,
+      "groups": [
+        "vietnam"
+      ],
+      "name": "Nhà giáo Việt Nam",
+      "short_description": "20/11, ngày tri ân thầy cô.",
+      "long_description": "Ngày Nhà giáo Việt Nam 20/11.",
+      "guidance": "Tri ân thầy cô.",
+      "image_url": null,
+      "source": "Ngày kỷ niệm theo quy ước chung — chưa đối chiếu văn bản"
+    },
+    {
+      "code": "giang-sinh",
+      "kind": "solar",
+      "solar_month": 12,
+      "solar_day": 25,
+      "is_public_holiday": false,
+      "sort_order": 42,
+      "groups": [
+        "folk"
+      ],
+      "name": "Lễ Giáng sinh",
+      "short_description": "25/12, lễ Noel.",
+      "long_description": "Lễ Giáng sinh 25/12 là ngày lễ của Kitô giáo, được đón rộng rãi ở Việt Nam.",
+      "guidance": "Gặp gỡ bạn bè, người thân.",
+      "image_url": null,
+      "source": "Phong tục dân gian Việt Nam — chưa đối chiếu"
+    },
+    {
+      "code": "tiet-lap-xuan",
+      "kind": "solar_term",
+      "solar_term_longitude": 315,
+      "is_public_holiday": false,
+      "sort_order": 43,
+      "groups": [
+        "folk"
+      ],
+      "name": "Lập xuân",
+      "short_description": "Tiết khí mở đầu mùa xuân.",
+      "long_description": "Lập xuân là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 315°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-xuan-phan",
+      "kind": "solar_term",
+      "solar_term_longitude": 0,
+      "is_public_holiday": false,
+      "sort_order": 44,
+      "groups": [
+        "folk"
+      ],
+      "name": "Xuân phân",
+      "short_description": "Ngày ngày đêm dài bằng nhau, giữa mùa xuân.",
+      "long_description": "Xuân phân là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 0°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-thanh-minh",
+      "kind": "solar_term",
+      "solar_term_longitude": 15,
+      "is_public_holiday": false,
+      "sort_order": 45,
+      "groups": [
+        "folk"
+      ],
+      "name": "Thanh minh",
+      "short_description": "Tiết trời trong sáng, thường đi tảo mộ.",
+      "long_description": "Thanh minh là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 15°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-lap-ha",
+      "kind": "solar_term",
+      "solar_term_longitude": 45,
+      "is_public_holiday": false,
+      "sort_order": 46,
+      "groups": [
+        "folk"
+      ],
+      "name": "Lập hạ",
+      "short_description": "Tiết khí mở đầu mùa hạ.",
+      "long_description": "Lập hạ là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 45°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-ha-chi",
+      "kind": "solar_term",
+      "solar_term_longitude": 90,
+      "is_public_holiday": false,
+      "sort_order": 47,
+      "groups": [
+        "folk"
+      ],
+      "name": "Hạ chí",
+      "short_description": "Ngày dài nhất năm ở bán cầu Bắc.",
+      "long_description": "Hạ chí là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 90°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-lap-thu",
+      "kind": "solar_term",
+      "solar_term_longitude": 135,
+      "is_public_holiday": false,
+      "sort_order": 48,
+      "groups": [
+        "folk"
+      ],
+      "name": "Lập thu",
+      "short_description": "Tiết khí mở đầu mùa thu.",
+      "long_description": "Lập thu là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 135°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-thu-phan",
+      "kind": "solar_term",
+      "solar_term_longitude": 180,
+      "is_public_holiday": false,
+      "sort_order": 49,
+      "groups": [
+        "folk"
+      ],
+      "name": "Thu phân",
+      "short_description": "Ngày ngày đêm dài bằng nhau, giữa mùa thu.",
+      "long_description": "Thu phân là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 180°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-lap-dong",
+      "kind": "solar_term",
+      "solar_term_longitude": 225,
+      "is_public_holiday": false,
+      "sort_order": 50,
+      "groups": [
+        "folk"
+      ],
+      "name": "Lập đông",
+      "short_description": "Tiết khí mở đầu mùa đông.",
+      "long_description": "Lập đông là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 225°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "tiet-dong-chi",
+      "kind": "solar_term",
+      "solar_term_longitude": 270,
+      "is_public_holiday": false,
+      "sort_order": 51,
+      "groups": [
+        "folk"
+      ],
+      "name": "Đông chí",
+      "short_description": "Ngày ngắn nhất năm ở bán cầu Bắc.",
+      "long_description": "Đông chí là một trong 24 tiết khí, tính theo vị trí của Mặt Trời trên hoàng đạo (hoàng kinh 270°). Ngày dương lịch của tiết khí đổi nhẹ theo năm.",
+      "guidance": "Theo dõi thời tiết, mùa vụ.",
+      "image_url": null,
+      "source": "Tiết khí 15° theo hoàng kinh Mặt Trời; https://isdi.vast.vn/bantin/BantinKHCN022019.pdf — ngày dương sẽ đối chiếu bằng bảng tham chiếu (E20)"
+    },
+    {
+      "code": "via-chuan-de",
+      "kind": "lunar",
+      "lunar_month": 3,
+      "lunar_day": 16,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 52,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Chuẩn Đề Bồ Tát",
+      "short_description": "16 tháng Ba, ngày vía Chuẩn Đề Bồ Tát.",
+      "long_description": "Chuẩn Đề Bồ Tát được tôn xưng là Thất Câu Chi Phật Mẫu (Mẹ của bảy ức chư Phật); 16 tháng Ba là ngày vía.",
+      "guidance": "Lễ Bồ Tát, trì chú Chuẩn Đề, sám hối.",
+      "image_url": null,
+      "source": "InnerLamp deity catalogue (assets/data/phat_botat.json, lunar_memorial_days) — chưa đối chiếu nguồn bên ngoài (2026-10-15)"
+    },
+    {
+      "code": "via-duoc-vuong",
+      "kind": "lunar",
+      "lunar_month": 4,
+      "lunar_day": 28,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 53,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Dược Vương Bồ Tát",
+      "short_description": "28 tháng Tư, ngày vía Dược Vương Bồ Tát.",
+      "long_description": "Dược Vương Bồ Tát, thị giả của Phật Dược Sư, phát nguyện chữa lành thân bệnh và tâm bệnh cho chúng sinh; 28 tháng Tư là ngày vía.",
+      "guidance": "Lễ Bồ Tát, tụng kinh, cầu an cho người bệnh.",
+      "image_url": null,
+      "source": "InnerLamp deity catalogue (assets/data/phat_botat.json, lunar_memorial_days) — chưa đối chiếu nguồn bên ngoài (2026-10-15)"
+    },
+    {
+      "code": "via-nhien-dang",
+      "kind": "lunar",
+      "lunar_month": 8,
+      "lunar_day": 22,
+      "is_leap_month": false,
+      "is_public_holiday": false,
+      "sort_order": 54,
+      "groups": [
+        "buddhist"
+      ],
+      "name": "Vía Phật Nhiên Đăng",
+      "short_description": "22 tháng Tám, ngày vía Phật Nhiên Đăng.",
+      "long_description": "Phật Nhiên Đăng (Định Quang Như Lai) là vị Cổ Phật đã thụ ký cho tiền thân Phật Thích Ca sau này thành Phật; 22 tháng Tám là ngày vía.",
+      "guidance": "Lễ Phật, thắp đèn cúng dường, tụng kinh.",
+      "image_url": null,
+      "source": "InnerLamp deity catalogue (assets/data/phat_botat.json, lunar_memorial_days) — chưa đối chiếu nguồn bên ngoài (2026-10-15)"
+    }
+  ]
+}

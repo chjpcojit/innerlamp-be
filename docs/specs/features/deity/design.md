@@ -1,163 +1,261 @@
 # Design — deity
 
-Version: 2.3
-Last updated: 2026-10-12
-Status: implemented (2026-09-30) — 3 route đọc chạy thật qua binary + Postgres dev; có test usecase/handler/seed parser/repository. Thiếu: E2E, OKF concept, ảnh dùng được; seed chỉ chạy bằng CLI với config dev. **v2.2–2.3: phần lọc `type` của `GET /v1/deities` đã implement** — các hàng/Step đánh dấu "(v2.2)" bên dưới phản ánh code hiện tại.
-Module: `content`
+Version: 3.1
+Last updated: 2026-10-15
+Status: in-progress — 3 read routes + seed have run for real (dev); the `type` filter has E2E. **v3.0 not implemented**: the rows / Steps marked **(v3.0)** are design, with no code yet (page size 12, vía links to the festival calendar, `next_via` / `via_events`, the `date` parameter, catalogue file in git).
+Module: `deity`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
 ## Overview
 
-Ba route (`GET /v1/deities/top`, `GET /v1/deities`, `GET /v1/deities/{id}`) đều công khai, không đi qua middleware xác thực. Feature chạm đủ bốn layer Clean Architecture của `services/appService` (`domain` → `usecase` → `repository` / `delivery/http`, nối dây ở `cmd/main.go`) và sở hữu migration `0007_deities.sql`. Dữ liệu vào bảng bằng lệnh `cmd/seeddeities` (upsert theo `id`), **không** có seed tự động khi khởi động và file JSON **không** được nhúng vào binary. Cùng hình dạng với `temple` và `article`, nhưng khác ở một điểm: thứ tự dựa hoàn toàn vào `sort_order` (vị trí trong file) chứ không có cột xếp hạng dẫn xuất.
+The three routes (`GET /v1/deities/top`, `GET /v1/deities`, `GET /v1/deities/{id}`) are all public and do not go through the auth middleware. The feature touches all four Clean Architecture layers of `services/appService` (`domain` → `usecase` → `repository` / `delivery/http`, wired in `cmd/main.go`) and owns migrations `0007_deities.sql`, `0015_deities_deva_type.sql` and (v3.0) the vía-link migration. Data enters the table through the `cmd/seeddeities` command (upsert by `id`); there is **no** seeding at startup, and the JSON file is **not** embedded in the binary. Same shape as `temple` and `article`; the difference is that ordering relies entirely on `sort_order` (position in the file).
+
+**(v3.0)** Ngày vía (a deity's commemoration days, "vía days") are no longer deity data: each deity links to festival-calendar events (`calendar_events.code`), and every deity read computes the next vía occurrence with the `calendar` feature's own date calculator (`domain.ResolveOccurrences`) — the server computes, the client only counts down. The deity usecase therefore also depends on `domain.CalendarEventRepository` (read-only `ListActiveEvents`) and a clock; it does not call `CalendarEventUsecase` and changes nothing in the `calendar` feature.
 
 ## Layers & components
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Domain / Entity | `services/appService/domain/deity.go` | `Deity` (mọi cột), `MemorialDay`, `Iconography`, `Mantras`, `DeityPage`, hằng `DeityBuddha`/`DeityBodhisattva`. Không JSON/db tag. |
-| Domain / Errors | `domain/deity.go` | `ErrDeityNotFound`; `ErrInvalidPage` dùng chung, **định nghĩa ở `domain/temple.go`**. (v2.2) thêm `ErrInvalidDeityType` và hàm `IsValidDeityType(string) bool` (khớp chính xác ba hằng `DeityBuddha`/`DeityBodhisattva`/`DeityDeva`), theo mẫu `ErrInvalidGalleryType` của `gallery`. |
-| Domain / Repository interface | `domain/deity.go` | `DeityRepository`: `ListTop`, `List`, `FindByID`, `Upsert`. Thứ tự `sort_order ASC, id ASC` là một phần của hợp đồng. (v2.2) `List(ctx, deityType, offset, limit)` — `deityType == ""` là không lọc. |
-| Domain / Mock | `domain/mock_deity_repository.go` | Mock viết tay cho test usecase. |
-| Usecase | `services/appService/usecase/deity_usecase.go` | `Top`, `ListDeities` (tính offset/`total_pages`, chặn `page < 1` hoặc `> MaxInt32`, `items` nil → `[]`), `Get`. Kích thước trang lấy từ `config.DeityConfig`. (v2.2) chữ ký `ListDeities(ctx, deityType, page)`: kiểm `page` trước, rồi `deityType != "" && !IsValidDeityType` → `ErrInvalidDeityType`; `""` = mọi loại. |
-| Repository | `services/appService/repository/postgres_deity_repository.go` | SQL cho bảng `deities` với `deityColumns`/`deityOrder` dùng chung mọi lần đọc; (v2.2) `List` thêm `WHERE type = $n` chỉ khi `deityType != ""`, cho cả câu đếm và câu lấy trang; `Upsert` chạy một transaction với `ON CONFLICT (id) DO UPDATE` ghi đè mọi cột; `lunar_memorial_days` marshal/unmarshal JSONB qua `memorialDayJSON`; `pq.Array` cho `sacred_artifacts`/`great_vows`; `sql.ErrNoRows` → `ErrDeityNotFound`. |
-| Seed CLI | `services/appService/cmd/seeddeities/main.go`, `parse.go` | `main`: đọc file (`-file`), nạp config + secret dev, kết nối DB, gọi `Upsert` — cùng khung với `seedtemples`. `parseDeities`: giải mã JSON thuần, kiểm id rỗng/trùng, `type`, `name_vi`; gán `SortOrder` = vị trí trong file. |
-| Data | `assets/data/phat_botat.json` | 18 mục (6 Phật, 12 Bồ tát), JSON thuần. Đọc từ đĩa lúc chạy seed (đường dẫn tính từ thư mục hiện tại) — không `go:embed`. |
-| Delivery / Handler | `services/appService/delivery/http/deity_handler.go` | `Top`, `ListDeities`, `Get`; parse `page`; (v2.2) đọc `type` thô từ query (`r.URL.Query().Get("type")`) và chuyển cho usecase, không tự kiểm; interface `deityUsecase` khai báo phía consumer. |
-| Delivery / DTO | `delivery/http/deity_handler.go` | `deitySummaryResponse`, `deityDetailResponse` (nhúng summary), `memorialDayResponse`, `iconographyResponse`, `mantrasResponse`, `deityTopResponse`, `deityListResponse` — JSON tag chỉ nằm ở đây. URL ảnh là `string` (không `null`); `sacred_artifacts`/`great_vows`/`lunar_memorial_days` không bao giờ `null`. |
-| Delivery / Error map | `delivery/http/errors.go` | `ErrDeityNotFound` → `404 DEITY_NOT_FOUND`; `ErrInvalidPage` → `400 INVALID_PAGE` (`details.field = "page"`); (v2.2) `ErrInvalidDeityType` → `400 INVALID_DEITY_TYPE` (`details.field = "type"`); còn lại → `500 INTERNAL_ERROR`. |
-| Delivery / Fallback | `delivery/http/fallback.go` | `WithAPIFallback` đổi 404/405 của `ServeMux` thành envelope `NOT_FOUND` / `METHOD_NOT_ALLOWED`. Dùng chung mọi route. |
-| Config | `services/appService/config/config.go`, `config.dev.yaml` | `DeityConfig{TopLimit, PageSize}`, block `deity:` (dev: 10 và 20). |
-| Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; đăng ký `GET /v1/deities/top`, `GET /v1/deities` (phân trang), `GET /v1/deities/{id}`. Không gọi seed. Không dính khối `⚠️ DEV ONLY` nào của `main.go` (riêng `cmd/seeddeities` có khối DEV ONLY của nó). |
-| Migration | `migrations/0007_deities.sql` | Bảng `deities` (`CHECK` trên `type`, `lunar_memorial_days JSONB`, hai cột `TEXT[]`), index `idx_deities_type_order (type, sort_order, id)` và `idx_deities_order (sort_order, id)`. |
-| API spec | `docs/specs/api/openapi.yaml` | **Đã có** 3 route (tag Deities) và schema; `web/docs/public/openapi.yaml` khớp. |
-| ERD | `docs/specs/db/erd.mmd`, `erd.svg` | **Đã có** bảng `deities` (không FK tới bảng nào). |
+| Domain / Entity | `services/appService/domain/deity.go` | `Deity`, `Iconography`, `Mantras`, `DeityPage`, constants `DeityBuddha`/`DeityBodhisattva`/`DeityDeva`, `IsValidDeityType`. No JSON/db tags. **(v3.0)** `Deity` drops `LunarMemorialDays` and the `MemorialDay` type; adds `ViaEventCodes []string` (linked calendar event codes, catalogue content). |
+| Domain / Vía (v3.0, not yet built) | `services/appService/domain/deity_via.go` | Pure functions, no clock, no I/O. `DeityVia{Event CalendarEvent; Next *CalendarOccurrence}`. `PickNextVia(occurrences []CalendarOccurrence, sortOrder map[string]int, today time.Time) *CalendarOccurrence` — the earliest occurrence with `SolarDate >= today`, ties broken by `sortOrder` then `EventCode` (BR-DTY-06, BR-CAL-12); this is the function `rules/deity-next-via.json` runs against. `ResolveDeityVias(events []CalendarEvent, today time.Time) []DeityVia` — calls `ResolveOccurrences(events, Y)` and `(…, Y+1)` (skipping `Y+1` when `Y = 2100`), takes the first occurrence `>= today` for each event, sorts per AC 28 (events with no occurrence last). `NextVia([]DeityVia) *DeityVia` = the first element with `Next != nil`. |
+| Domain / Errors | `domain/deity.go` | `ErrDeityNotFound`, `ErrInvalidDeityType`; reuses `ErrInvalidPage` (`domain/temple.go`). **(v3.0)** reuses `ErrInvalidDate` (`domain/calendar.go`). |
+| Domain / Repository interface | `domain/deity.go` | `DeityRepository`: `ListTop`, `List(ctx, deityType, offset, limit)`, `FindByID`, `Upsert`. The order `sort_order ASC, id ASC` is part of the contract. **(v3.0)** every read returns `ViaEventCodes` (sorted by code); `Upsert` also writes the vía links; adds `MissingCalendarEvents(ctx, codes []string) ([]string, error)` for the seed. |
+| Domain / Mock | `domain/mock_deity_repository.go` | Hand-written mock for usecase tests. **(v3.0)** adds `MissingCalendarEvents`. The usecase reuses the existing `domain/mock_calendar_event_repository.go`. |
+| Usecase | `services/appService/usecase/deity_usecase.go` | `Top`, `ListDeities` (offset, `total_pages`, rejects `page < 1` / `> MaxInt32`, checks `type`, nil `items` → `[]`), `Get`. **(v3.0)** the constructor also takes `domain.CalendarEventRepository`, `config.CalendarConfig` (`Timezone`, `DefaultLanguage`) and `now func() time.Time`; the three methods also take `date string`: empty → today in `calendar.timezone`, otherwise parse `YYYY-MM-DD` with year 1900..2100 like `CalendarUsecase` (error → `ErrInvalidDate`), checked after `page` and `type`. After reading the deities: one `ListActiveEvents(lang)` call, filtered by each deity's `ViaEventCodes` (codes not in the active list are ignored — BR-CAL-16), `ResolveDeityVias`, `NextVia`. Returns `domain.DeityWithVia{Deity; Vias []DeityVia; Next *DeityVia}` (or a page of it). |
+| Repository | `services/appService/repository/postgres_deity_repository.go` | SQL for `deities` with shared `deityColumns`/`deityOrder`; `List` adds `WHERE type = $n` when filtering, for both the count query and the page query; `Upsert` is one transaction `ON CONFLICT (id) DO UPDATE` overwriting every column; `pq.Array` for `sacred_artifacts`/`great_vows`; `sql.ErrNoRows` → `ErrDeityNotFound`. **(v3.0)** drops the `lunar_memorial_days` column and `memorialDayJSON`; `deityColumns` adds `ARRAY(SELECT event_code FROM deity_via_events v WHERE v.deity_id = d.id ORDER BY event_code)` (no extra query); `Upsert` in the same transaction: `DELETE FROM deity_via_events WHERE deity_id = ANY($1)` then `INSERT` the file's links again; `MissingCalendarEvents` = the codes in `codes` that are not in `calendar_events` (inactive included — an inactive code is still valid to link). |
+| Seed CLI | `services/appService/cmd/seeddeities/main.go`, `parse.go` | `main`: reads the file (`-file`), loads dev config + secrets (`⚠️ DEV ONLY`), connects to the DB, calls `Upsert`. `parseDeities`: plain JSON, checks empty/duplicate id, `type` ∈ the 3 types, `name_vi`; `SortOrder` = position in the file. **(v3.0)** `sourceDeity` drops `lunar_memorial_days`, adds `via_event_codes: [string]` (each code non-empty, no duplicates within one deity); `main` calls `MissingCalendarEvents` with every code before `Upsert`; any missing code → `log.Fatalf` listing the codes, nothing written. |
+| Data | `assets/data/phat_botat.json` | 20 entries (7 Phật (Buddhas), 12 Bồ tát (Bodhisattvas), 1 Chư Thiên (deva)), plain JSON, read from disk at seed time. **Currently caught by `.gitignore` (`*.json`) and missing from this checkout.** **(v3.0)** put in git via the exception `!assets/data/phat_botat.json`; each entry has `via_event_codes` instead of `lunar_memorial_days` (content blocked by the `⚠️ Not confirmed (product)` on the vía mapping in `requirements.md`). |
+| Delivery / Handler | `services/appService/delivery/http/deity_handler.go` | `Top`, `ListDeities`, `Get`; parses `page`; reads `type` raw. The `deityUsecase` interface is declared on the consumer side. **(v3.0)** reads `date` raw (`r.URL.Query().Get("date")`) for all three routes and passes it to the usecase without checking it itself. |
+| Delivery / DTO | `delivery/http/deity_handler.go` | `deitySummaryResponse`, `deityDetailResponse`, `iconographyResponse`, `mantrasResponse`, `deityTopResponse`, `deityListResponse` — JSON tags only here. Image URLs go through `imageHost.url` (root-relative → absolute; `""` stays `""`). **(v3.0)** summary adds `next_via *deityViaResponse` (`{event_code, name, solar_date, lunar_date}`, `lunar_date` in the same shape as the `GET /v1/calendar/events` occurrence); detail adds `via_events []deityViaEventResponse` (`{event_code, name, next_occurrence *{solar_date, lunar_date}}`) and `lunar_memorial_days` derived from `via_events` (AC 30, `memorialDayResponse` kept as a pure DTO with no domain counterpart any more). Arrays are never `null`. |
+| Delivery / Error map | `delivery/http/errors.go` | `ErrDeityNotFound` → `404 DEITY_NOT_FOUND`; `ErrInvalidPage` → `400 INVALID_PAGE`; `ErrInvalidDeityType` → `400 INVALID_DEITY_TYPE`; everything else → `500`. **(v3.0)** `ErrInvalidDate` is already mapped to `400 INVALID_DATE`, `details.field` defaulting to `"date"` (`errors.go` was read) — no change needed in this file. |
+| Delivery / Images | `delivery/http/image_url.go` | Shared `imageHost`: a value starting with `/` is prefixed with `server.public_base_url` (empty = the request's origin); any other value is returned unchanged. |
+| Delivery / Fallback | `delivery/http/fallback.go` | `WithAPIFallback` turns `ServeMux` 404/405 into the envelope. Shared. |
+| Config | `services/appService/config/config.go`, `config.dev.yaml` | `DeityConfig{TopLimit, PageSize}` (dev: 10, 20). **(v3.0)** `page_size: 12`. The deity usecase also reads `cfg.Calendar.Timezone` and `cfg.Calendar.DefaultLanguage` (no new keys). |
+| Wiring | `services/appService/cmd/main.go` | Builds repo → usecase → handler (`imageBase` = `WithImageBase(cfg.Server.PublicBaseURL)`); registers the 3 routes. **(v3.0)** passes `calendarEventRepo` (already built for calendar), `cfg.Calendar`, `time.Now` into `NewDeityUsecase`. Does not touch the `⚠️ DEV ONLY` block of `main.go`. `GET /v1/deities/{id}/sutras` belongs to `sutra` and is unchanged. |
+| Migration | `migrations/0007_deities.sql`, `0015_deities_deva_type.sql`, `0021_relative_image_urls.sql` | Table `deities`, `CHECK` on the three types, indexes `idx_deities_order`, `idx_deities_type_order`; relative images. **(v3.0, not yet built)** `migrations/00NN_deity_via_events.sql` (the next free number at implementation time, `0037` today): `CREATE TABLE IF NOT EXISTS deity_via_events (deity_id VARCHAR(64) REFERENCES deities(id) ON DELETE CASCADE, event_code VARCHAR(64) REFERENCES calendar_events(code), PRIMARY KEY (deity_id, event_code))`, index `(event_code)`; `ALTER TABLE deities DROP COLUMN IF EXISTS lunar_memorial_days`. Depends on `0031_calendar_events.sql`. |
+| Make / data | `Makefile` | `ensure-deities` / `seed-deities`. **(v3.0)** `ensure-data` runs `ensure-calendar-events` before `ensure-deities` (FK + code check), `ensure-deities` depends on `ensure-calendar-events`. |
+| E2E harness | `services/appService/e2e/harness.go` | Seeds `deities` from `assets/data/phat_botat.json` (minimal columns). **(v3.0)** reads the committed file; vía tests also need a minimal seed of calendar events and links. |
+| API spec | `docs/specs/api/openapi.yaml`, `web/docs/public/openapi.yaml` | Has the 3 routes + schemas (tag Deities). **(v3.0) not yet updated**: `page_size` 12, `date`, `INVALID_DATE`, `next_via`, `via_events`, `lunar_memorial_days` deprecated, image examples (currently `http://192.168.1.186:8080/...`). Change in the same pass as the handler. |
+| ERD | `docs/specs/db/erd.mmd`, `erd.svg` | Has the `deities` table. **(v3.0)** add `deity_via_events` + its two FKs, drop `lunar_memorial_days`. |
 
-Ghi chú về route: `mux.HandleFunc("GET /v1/deities/top", …)` là segment literal nên `ServeMux` ưu tiên nó hơn `GET /v1/deities/{id}`. Danh sách phân trang là `GET /v1/deities` (đúng path gốc, không segment thêm) nên không đụng `top` hay `{id}`. (v2.2) Lọc loại là tham số query `type` trên chính route này, không thêm route mới nên không đổi bảng route của `cmd/main.go`.
+Note on routes: `GET /v1/deities/top` is a literal segment, so `ServeMux` prefers it over `GET /v1/deities/{id}`; `GET /v1/deities/{id}/sutras` (the `sutra` spec) is longer, so it does not clash with detail. The new parameter (`date`) is a query parameter and does not change the route table.
 
 ## Request flow
 
-`top` và `detail` chỉ một câu SQL nên giữ dạng ASCII; danh sách phân trang (đếm cả bảng rồi lấy trang) và seed có nhiều bước nên nằm ở Step-by-step Flow và `flow.md`.
+From v3.0 all three read routes have several steps (read deities → read the calendar catalogue → compute vía), so each route has its own Step-by-step Flow below.
+
+> See `flow.md` for the Mermaid sequence diagrams (a 1:1 mirror of the Step-by-step Flows below).
+
+## Step-by-step Flow — Paged list of Buddhas and Bodhisattvas (`GET /v1/deities?type=&page=N&date=`)
 
 ```
-GET /v1/deities/top
-  └─ public
-       └─ DeityHandler.Top                             (delivery/http)
-            └─ DeityUsecase.Top(ctx)                   (usecase)
-                 └─ DeityRepository.ListTop(limit)     (repository)
-                      └─ SELECT <cột> FROM deities ORDER BY sort_order, id LIMIT $1   (mọi loại)
-
-GET /v1/deities/{id}
-  └─ public
-       └─ DeityHandler.Get                             (delivery/http)
-            └─ DeityUsecase.Get(ctx, id)               (usecase)
-                 └─ DeityRepository.FindByID(id)       (repository)
-                      └─ SELECT <cột> FROM deities WHERE id = $1   (Phật hoặc Bồ tát)
-                           └─ sql.ErrNoRows → ErrDeityNotFound → 404 DEITY_NOT_FOUND
-```
-
-> Xem `flow.md` cho sơ đồ sequence Mermaid của hai flow có nhiều bước bên dưới (mirror 1:1).
-
-## Step-by-step Flow — Danh sách Phật và Bồ tát phân trang (`GET /v1/deities?type=&page=N`)
-
-Hai lần truy vấn nối tiếp (đếm, rồi lấy trang) nên flow này có Step-by-step riêng. (v2.2) Thêm tham số `type` tuỳ chọn; các Step đánh dấu (v2.2) đã có trong code.
-
-```
-Step 1 — Đọc `page` và `type` (handler)
-- Trigger: request đến route công khai
+Step 1 — Read `page`, `type`, `date` (handler)
+- Trigger: a request reaches the public route
 - Pre-condition: —
-- Call: r.URL.Query().Get("page"); rỗng → page = 1, ngược lại strconv.Atoi. (v2.2) deityType = r.URL.Query().Get("type") (chuỗi thô, rỗng = không lọc)
+- Call: r.URL.Query().Get("page"); empty → page = 1, otherwise strconv.Atoi. deityType = Get("type") (raw string). (v3.0) date = Get("date") (raw string)
     - Success → Step 2
-    - Failure (page không phải số nguyên, kể cả tràn int) → writeDomainError(ErrInvalidPage) → 400 INVALID_PAGE, details.field = "page"
+    - Failure (page is not an integer, including int overflow) → ErrInvalidPage → 400 INVALID_PAGE, details.field = "page"
 
-Step 2 — Kiểm tra `page` rồi `type` (usecase)
-- Trigger: handler gọi DeityUsecase.ListDeities(ctx, deityType, page)
-- Pre-condition: page là số nguyên
-- Call: DeityUsecase.ListDeities — page < 1 hoặc page > math.MaxInt32; rồi (v2.2) deityType != "" và !IsValidDeityType(deityType)
-    - Success → Step 3 (offset = (page-1) * page_size, tính trên danh sách đã lọc)
-    - Failure (page) → domain.ErrInvalidPage → 400 INVALID_PAGE
-    - Failure (v2.2, type lạ) → domain.ErrInvalidDeityType → 400 INVALID_DEITY_TYPE, details.field = "type"
+Step 2 — Check `page`, then `type`, then `date` (usecase)
+- Trigger: the handler calls DeityUsecase.ListDeities(ctx, deityType, page, date)
+- Pre-condition: page is an integer
+- Call: page < 1 or > math.MaxInt32; then deityType != "" and !IsValidDeityType; then (v3.0) date empty → today = now() in calendar.timezone, otherwise parse YYYY-MM-DD, year 1900..2100
+    - Success → Step 3 (offset = (page-1) * page_size on the filtered list; page_size = 12 from v3.0)
+    - Failure (page) → ErrInvalidPage → 400 INVALID_PAGE
+    - Failure (unknown type) → ErrInvalidDeityType → 400 INVALID_DEITY_TYPE, details.field = "type"
+    - Failure (v3.0, invalid date) → ErrInvalidDate → 400 INVALID_DATE, details.field = "date"; DB not touched yet
 
-Step 3 — Đếm số deity (repository)
-- Trigger: usecase gọi DeityRepository.List(deityType, offset, limit)
-- Pre-condition: offset/limit hợp lệ; deityType rỗng hoặc đã qua IsValidDeityType
-- Call: SELECT count(*) FROM deities [WHERE type = $1 — (v2.2) chỉ khi deityType != ""]
-    - Success → total (khớp bộ lọc), sang Step 4
-    - Failure (lỗi DB) → error bọc %w → 500 INTERNAL_ERROR
+Step 3 — Count the deities (repository)
+- Trigger: the usecase calls DeityRepository.List(ctx, deityType, offset, limit)
+- Pre-condition: parameters are valid
+- Call: SELECT count(*) FROM deities [WHERE type = $1]
+    - Success → total (matching the filter), go to Step 4
+    - Failure (DB error) → error wrapped with %w → 500 INTERNAL_ERROR
 
-Step 4 — Lấy trang (repository)
-- Trigger: Step 3 xong
-- Pre-condition: có total
-- Call: SELECT <cột> FROM deities [WHERE type = $1 — (v2.2)] ORDER BY sort_order ASC, id ASC OFFSET $n LIMIT $m
-    - Success → items (rỗng nếu offset vượt cuối) và total, sang Step 5
-    - Failure (lỗi DB / scan / `lunar_memorial_days` không giải mã được) → error bọc %w → 500 INTERNAL_ERROR
-    - Transaction boundary: không có — Step 3 và Step 4 là hai câu lệnh độc lập, không chung snapshot
+Step 4 — Fetch the page (repository)
+- Trigger: Step 3 done
+- Pre-condition: total is known
+- Call: SELECT <columns> (v3.0: plus ARRAY(SELECT event_code FROM deity_via_events …) AS via_event_codes) FROM deities d [WHERE type = $1] ORDER BY sort_order, id OFFSET $n LIMIT $m
+    - Success → items (empty if offset is past the end) and total, go to Step 5
+    - Failure (DB / scan error) → error wrapped with %w → 500 INTERNAL_ERROR
+    - Transaction boundary: none — Step 3 and Step 4 are two independent statements, not sharing a snapshot
 
-Step 5 — Dựng trang và trả response (usecase + handler)
-- Trigger: repository trả về
+Step 5 — Read the festival-calendar catalogue (v3.0, calendar repository)
+- Trigger: Step 4 returned; skipped when items is empty or no deity has via_event_codes
+- Pre-condition: lang = calendar.default_language
+- Call: CalendarEventRepository.ListActiveEvents(ctx, lang) — one query, only is_active events (BR-CAL-16), with rule, name, sort_order
+    - Success → Step 6
+    - Failure (DB error) → error wrapped with %w → 500 INTERNAL_ERROR (no page returned without vía)
+
+Step 6 — Compute the next vía occurrence (v3.0, pure domain)
+- Trigger: Step 5 done
+- Pre-condition: today (Step 2), the list of active events
+- Call: for each deity: filter events by ViaEventCodes (non-active code → dropped) → ResolveDeityVias(events, today) → NextVia
+    - Success → Step 7
+    - Failure → no error branch (an invalid rule is skipped by ResolveOccurrences, as in calendar)
+
+Step 7 — Build the page and return the response (usecase + handler)
+- Trigger: Step 6 done (or Step 4/5 when skipped)
 - Pre-condition: items, total
-- Call: items nil → []; total_pages = (total + page_size - 1) / page_size; handler map sang DTO summary
+- Call: nil items → []; total_pages = (total + page_size - 1) / page_size; the handler maps to the summary DTO (+ next_via, null when none)
     - Success → 200 {items, page, page_size, total, total_pages}
-    - Failure → không có nhánh lỗi mới
+    - Failure → no new error branch
 ```
 
-## Step-by-step Flow — Nạp dữ liệu bằng `cmd/seeddeities`
+## Step-by-step Flow — Featured Buddhas and Bodhisattvas (`GET /v1/deities/top?date=`) (v3.0)
 
-Đọc file, kiểm tra, kết nối và ghi là các bước nối tiếp, trong đó bước ghi là side effect bền vững. Đây là lệnh chạy tay, **không** thuộc quá trình khởi động của appService.
+Before v3.0 this was one SQL query; v3.0 adds reading the calendar catalogue and computing vía, so it now has several steps.
 
 ```
-Step 1 — Đọc file nguồn (seeddeities/main.go)
-- Trigger: operator chạy `go run ./services/appService/cmd/seeddeities [-file <path>]`
-- Pre-condition: thư mục hiện tại là gốc repo nếu dùng đường dẫn mặc định `assets/data/phat_botat.json`
+Step 1 — Read `date` (handler)
+- Trigger: a request reaches the public route
+- Pre-condition: —
+- Call: date = r.URL.Query().Get("date") (raw string) → DeityUsecase.Top(ctx, date)
+    - Success → Step 2
+    - Failure → none (the handler does not check it itself)
+
+Step 2 — Determine "today" (usecase)
+- Trigger: Step 1
+- Pre-condition: —
+- Call: date empty → today in calendar.timezone; otherwise parse as in list Step 2
+    - Success → Step 3
+    - Failure (invalid date) → ErrInvalidDate → 400 INVALID_DATE, details.field = "date"; DB not touched yet
+
+Step 3 — Fetch the featured deities (repository)
+- Trigger: Step 2 done
+- Pre-condition: limit = deity.top_limit (10)
+- Call: SELECT <columns> + via_event_codes FROM deities ORDER BY sort_order, id LIMIT $1
+    - Success → items (may be empty), go to Step 4
+    - Failure (DB / scan error) → 500 INTERNAL_ERROR
+
+Step 4 — Read the festival-calendar catalogue (calendar repository)
+- Trigger: Step 3 done; skipped when no deity has via_event_codes
+- Call: CalendarEventRepository.ListActiveEvents(ctx, lang)
+    - Success → Step 5
+    - Failure (DB error) → 500 INTERNAL_ERROR
+
+Step 5 — Compute the next vía occurrence (pure domain)
+- Trigger: Step 4 done
+- Call: as in list Step 6
+    - Success → Step 6
+    - Failure → no error branch
+
+Step 6 — Return the response (handler)
+- Trigger: Step 5 done
+- Call: map to the summary DTO (+ next_via); nil items → []
+    - Success → 200 {items}
+    - Failure → no new error branch
+```
+
+## Step-by-step Flow — Detail of one deity (`GET /v1/deities/{id}?date=`) (v3.0)
+
+```
+Step 1 — Read `id`, `date` (handler)
+- Trigger: a request reaches the public route
+- Pre-condition: —
+- Call: r.PathValue("id"), r.URL.Query().Get("date") → DeityUsecase.Get(ctx, id, date)
+    - Success → Step 2
+    - Failure → none
+
+Step 2 — Determine "today" (usecase)
+- Trigger: Step 1
+- Call: as in top Step 2
+    - Success → Step 3
+    - Failure (invalid date) → 400 INVALID_DATE; DB not touched yet (date is checked before looking up id)
+
+Step 3 — Find the deity (repository)
+- Trigger: Step 2 done
+- Call: SELECT <columns> + via_event_codes FROM deities WHERE id = $1
+    - Success → deity, go to Step 4
+    - Failure (sql.ErrNoRows) → ErrDeityNotFound → 404 DEITY_NOT_FOUND
+    - Failure (other DB error) → 500 INTERNAL_ERROR
+
+Step 4 — Read the festival-calendar catalogue (calendar repository)
+- Trigger: Step 3 done; skipped when via_event_codes is empty
+- Call: CalendarEventRepository.ListActiveEvents(ctx, lang)
+    - Success → Step 5
+    - Failure (DB error) → 500 INTERNAL_ERROR
+
+Step 5 — Compute every vía day and the next occurrence (pure domain)
+- Trigger: Step 4 done
+- Call: ResolveDeityVias(the deity's events, today) → vias (each active event once, Next or nil, sorted per AC 28); NextVia(vias)
+    - Success → Step 6
+    - Failure → no error branch
+
+Step 6 — Return the response (handler)
+- Trigger: Step 5 done
+- Call: map to the detail DTO: next_via, via_events, lunar_memorial_days (derived from the via_events that have a next_occurrence: that occurrence's lunar day/month + the event name), nil arrays → []
+    - Success → 200 DeityDetail
+    - Failure → no new error branch
+```
+
+## Step-by-step Flow — Loading data with `cmd/seeddeities`
+
+A manually run command, **not** part of appService startup. (v3.0) Needs the calendar catalogue loaded first (`make ensure-calendar-events`).
+
+```
+Step 1 — Read the source file (seeddeities/main.go)
+- Trigger: the operator runs `go run ./services/appService/cmd/seeddeities [-file <path>]`
+- Pre-condition: the current directory is the repo root when using the default path `assets/data/phat_botat.json` (v3.0: the file is in git)
 - Call: os.ReadFile(*file)
     - Success → Step 2
-    - Failure (không có file / không đọc được) → log.Fatalf "read <file>", thoát; chưa chạm DB
+    - Failure (no file / unreadable) → log.Fatalf "read <file>", exit; DB not touched yet
 
-Step 2 — Kiểm tra dữ liệu (seeddeities/parse.go)
-- Trigger: Step 1 xong
-- Pre-condition: nội dung file trong bộ nhớ
-- Call: parseDeities → json.Unmarshal (JSON thuần, không bỏ chú thích) → với mỗi mục: id không rỗng và không trùng, type ∈ {BUDDHA, BODHISATTVA}, name_vi không rỗng; SortOrder = chỉ số trong file
-    - Success → danh sách domain.Deity, sang Step 3
-    - Failure (JSON hỏng, không có mục, id rỗng/trùng, type lạ, name_vi rỗng) → log.Fatalf "parse <file>", thoát; chưa chạm DB
+Step 2 — Validate the data (seeddeities/parse.go)
+- Trigger: Step 1 done
+- Pre-condition: the file content is in memory
+- Call: parseDeities → json.Unmarshal → each entry: id non-empty/not duplicated, type ∈ {BUDDHA, BODHISATTVA, DEVA}, name_vi non-empty; (v3.0) via_event_codes: each code non-empty, no duplicates within the same entry; SortOrder = index in the file
+    - Success → []domain.Deity, go to Step 3
+    - Failure (broken JSON, no entries, empty/duplicate id, unknown type, empty name_vi, v3.0 empty/duplicate vía code) → log.Fatalf "parse <file>"; DB not touched yet
 
-Step 3 — Nạp config và kết nối DB (seeddeities/main.go)
-- Trigger: Step 2 xong
-- Pre-condition: có danh sách hợp lệ; `CONFIG_PATH` (mặc định `services/appService/config/config.dev.yaml`)
-- Call: pkgconfig.LoadSource/LoadYAML → appConfig.NewMockSecretGetterFromYAML (⚠️ DEV ONLY) → appConfig.Load → database.New + db.Connect (timeout 30 giây)
+Step 3 — Load config and connect to the DB (seeddeities/main.go)
+- Trigger: Step 2 done
+- Pre-condition: `CONFIG_PATH` (default `services/appService/config/config.dev.yaml`)
+- Call: pkgconfig.LoadSource/LoadYAML → appConfig.NewMockSecretGetterFromYAML (⚠️ DEV ONLY) → appConfig.Load → database.New + Connect (30-second timeout)
     - Success → Step 4
-    - Failure (thiếu config/secret, không kết nối được DB) → log.Fatalf, thoát; chưa ghi gì
+    - Failure (missing config/secret, cannot connect to the DB) → log.Fatalf; nothing written yet
 
-Step 4 — Upsert mọi mục (repository)
-- Trigger: Step 3 xong
-- Pre-condition: DB kết nối được; migration 0007 đã apply
-- Call: DeityRepository.Upsert → với mỗi mục marshal lunar_memorial_days sang JSON rồi INSERT INTO deities (23 cột) … ON CONFLICT (id) DO UPDATE SET <mọi cột>, updated_at = now()
-    - Success → commit, sang Step 5
-    - Failure (lỗi marshal, lỗi DB: CHECK `type`, thiếu bảng, mất kết nối) → rollback toàn bộ → log.Fatalf "seed deities"
-    - Transaction boundary: mọi INSERT/UPDATE của Step 4 chung MỘT transaction — hoặc đủ hết hoặc không dòng nào
+Step 4 — Check that the calendar event codes exist (v3.0, repository)
+- Trigger: Step 3 done
+- Pre-condition: DB connected; migration 0031 + the vía-link migration applied; calendar catalogue loaded
+- Call: DeityRepository.MissingCalendarEvents(ctx, every via_event_codes code) — SELECT the codes not present in calendar_events
+    - Success (none missing) → Step 5
+    - Failure (some codes missing) → log.Fatalf listing the missing codes; nothing written
+    - Failure (DB error) → log.Fatalf; nothing written
 
-Step 5 — Ghi log (seeddeities/main.go)
-- Trigger: Upsert thành công
-- Pre-condition: —
+Step 5 — Upsert every entry and the vía links (repository)
+- Trigger: Step 4 done
+- Pre-condition: data valid, every code exists
+- Call: DeityRepository.Upsert → INSERT INTO deities (<columns>) … ON CONFLICT (id) DO UPDATE SET <every column>, updated_at = now(); (v3.0) DELETE FROM deity_via_events WHERE deity_id = ANY($ids); INSERT INTO deity_via_events (deity_id, event_code) for each link
+    - Success → commit, go to Step 6
+    - Failure (DB error: CHECK type, FK event_code because a code was deleted between Step 4 and 5, missing table, lost connection) → full rollback → log.Fatalf "seed deities"
+    - Transaction boundary: every INSERT/UPDATE/DELETE of Step 5 shares ONE transaction — all or nothing
+
+Step 6 — Log (seeddeities/main.go)
+- Trigger: Upsert succeeded
 - Call: log.Printf "seeded %d deities from %s"
-    - Success → thoát 0
-    - Failure → không có nhánh lỗi
+    - Success → exit 0
+    - Failure → no error branch
 ```
+
+Note: a deity removed from the file stays in the table (there is no cleanup step); its vía links stay unchanged because the `DELETE` only touches the `id`s present in the file.
 
 ## Deliberately stubbed for now (if applicable)
 
-Không có gì bị stub ở phía đọc: mọi method của `DeityRepository` đều có SQL thật. Riêng hai URL ảnh là **dữ liệu giữ chỗ** chứ không phải code stub — xem Known gaps.
+No stubbed code. Everything **(v3.0)** is not yet done (not a stub) — `tasks.md` Phase 8–10.
 
 ## Known gaps carried by this feature
 
-- **Không có E2E**: `services/appService/e2e/` không có gì về deity. Việc "đã chạy thật" là chạy tay trên server dev với 18 mục (theo `api-contract.md`); lượt viết spec này không gọi lại server.
-- **Test repository cần Postgres và xoá dữ liệu dev**: `postgres_deity_repository_test.go` gọi `connectTestDB`, bỏ qua khi `-short`; helper `truncateAll` chạy `TRUNCATE … temples, deities, articles, users …` trên DB `innerlamp` (mặc định `localhost:5432`). Chạy xong bảng `deities` trống, phải seed lại bằng `cmd/seeddeities`. `go test -short` chỉ chạy usecase, handler và seed parser. Lượt viết spec này chỉ chạy `-short`, chưa chạy test repository.
-- **Ảnh không phân giải được**: cả 18 mục có `thumbnail_url = assets/images/buddhas/thumbnails/<id>.webp` (đường dẫn tương đối, không có route nào phục vụ) và `image_url = https://cdn.yourapp.com/images/buddhas/full/<id>.webp` (host giữ chỗ). API trả nguyên xi (AC 13); client hiện không tải được ảnh nào.
-- **Ảnh không theo quy ước `null` của `temple`/`article`**: hai URL luôn là chuỗi, một mục không có ảnh sẽ trả `""` thay vì `null`. Client cần biết khác biệt này giữa các danh mục.
-- **Index `idx_deities_type_order` được dùng lại** khi lọc `type` (v2.2): `WHERE type = $1 ORDER BY sort_order, id` khớp đúng thứ tự cột của index; bảng hiện chỉ ~20 dòng nên chưa cần đo, nhưng không cần migration mới.
-- **Giá trị `type` và dữ liệu seed lệch spec cũ**: migration `0015_deities_deva_type.sql` và `cmd/seeddeities/parse.go` đã nhận thêm `DEVA`; phần mô tả "18 mục / hai loại" ở các chỗ khác trong spec này là bản cũ, chưa được rà lại ở v2.2 (chỉ sửa các chỗ liên quan tới bộ lọc).
-- **Seed không tự chạy và dùng config dev**: appService khởi động không đụng bảng `deities`; `cmd/seeddeities` gắn với `config.dev.yaml` và secret dev (`⚠️ DEV ONLY`) nên chưa dùng được cho staging/production (`⚠️ Not confirmed` trong `requirements.md`).
-- **Upsert ghi đè mọi cột và không xoá**: chạy lại seed đưa mọi cột (kể cả `sort_order`) về đúng nội dung file, và mục bị xoá khỏi file **vẫn nằm trong bảng** — không có bước dọn.
-- **Validation ở seeder chỉ một phần**: `parseDeities` kiểm id, `type`, `name_vi`; các trường còn lại (ngày âm, mantra…) không bị kiểm, ví dụ `lunar_day = 45` vẫn qua.
-- **Một dòng có JSONB hỏng làm hỏng cả trang**: `scanDeity` trả lỗi khi `lunar_memorial_days` không giải mã được → `500` cho mọi request đọc dòng đó, kể cả `top` và danh sách. Chỉ xảy ra nếu ai đó sửa cột bằng SQL tay.
-- **Đếm và lấy trang không cùng snapshot**: nếu có dòng đổi giữa Step 3 và Step 4 của flow phân trang, `total` có thể lệch `items`. Dữ liệu chỉ đổi khi chạy seed nên rủi ro thấp.
-- **OKF chưa có deity**: `docs/knowledge/features/` chưa có `deity.md`. ERD đã có bảng `deities`.
+- **Catalogue file missing and ignored**: `assets/data/phat_botat.json` matches `*.json` in `.gitignore`; this checkout has no such file, so `TestParseDeities_RealDataFile` fails (`open ../../../../assets/data/phat_botat.json: no such file or directory`, run 2026-10-15) and the E2E harness cannot seed. Fixed in Phase 8 (AC 33).
+- **The calendar catalogue is not in git either** (`assets/data/calendar-events.json`, `calendar` spec E26 not done) — deity v3.0 depends on it for both the seed (FK) and E2E.
+- **E2E covers only the `type` filter** (`e2e/deity_e2e_test.go`); `top` and `detail` have none yet.
+- **The repository test uses a real DB**: `postgres_deity_repository_test.go` needs Postgres (`TEST_DB_NAME=innerlamp_test` to avoid `TRUNCATE`-ing dev data), skipped under `-short`.
+- **The seed uses dev config** (`⚠️ DEV ONLY`), not yet usable for staging/production (product Appendix A item 4).
+- **Upsert overwrites every column and never deletes** entries removed from the file.
+- **Seeder validation is partial**: mantras, đại nguyện (great vows), etc. are not checked.
+- **Count and page fetch do not share a snapshot**: data only changes on seed, low risk.
+- **(v3.0) Two-year window**: an event that only exists in years with a leap month may have no occurrence in `Y`..`Y+1` → `next_occurrence: null` even though the deity has a link.
+- **(v3.0) Every request reads the whole calendar catalogue** (~51 events) to filter by code: cheap at the current size; if the catalogue grows, replace it with a query by code list.
+- **(v3.0) The response depends on "today"**: no public `Cache-Control` added; without `date` the result changes with the date in `calendar.timezone`.
+- **No OKF for deity yet** (`docs/knowledge/features/deity.md`).

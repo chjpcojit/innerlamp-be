@@ -1,0 +1,161 @@
+{
+  "rule": [
+    "BR-TPL-01"
+  ],
+  "description": "Directory order: heritage rank (most important first), then founding year ascending, then stable identifier ascending.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "temples": "list of {id, heritage_rank, founded_year}; heritage_rank is one of the 8 ranks in rank_order"
+  },
+  "rank_order": [
+    "DI_SAN_THE_GIOI",
+    "DI_TICH_QUOC_GIA_DAC_BIET",
+    "KHU_DU_LICH_QUOC_GIA",
+    "DI_TICH_QUOC_GIA",
+    "DANH_LAM_THANG_CANH",
+    "DI_TICH_CAP_TINH",
+    "DI_TICH_CAP_THANH_PHO",
+    "CHUA_XEP_HANG"
+  ],
+  "output": {
+    "ids": "identifiers in directory order"
+  },
+  "cases": [
+    {
+      "name": "rank beats age",
+      "input": {
+        "temples": [
+          {
+            "id": "b",
+            "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+            "founded_year": 1049
+          },
+          {
+            "id": "a",
+            "heritage_rank": "DI_SAN_THE_GIOI",
+            "founded_year": 1300
+          }
+        ]
+      },
+      "expected": {
+        "ids": [
+          "a",
+          "b"
+        ]
+      },
+      "source": "BR-TPL-01; backend v1.0 ranking, confirmed 2026-10-15"
+    },
+    {
+      "name": "same rank, older first",
+      "input": {
+        "temples": [
+          {
+            "id": "x",
+            "heritage_rank": "DI_TICH_QUOC_GIA",
+            "founded_year": 1700
+          },
+          {
+            "id": "y",
+            "heritage_rank": "DI_TICH_QUOC_GIA",
+            "founded_year": 1600
+          }
+        ]
+      },
+      "expected": {
+        "ids": [
+          "y",
+          "x"
+        ]
+      },
+      "source": "BR-TPL-01; backend v1.0 ranking, confirmed 2026-10-15"
+    },
+    {
+      "name": "same rank and year, identifier breaks the tie",
+      "input": {
+        "temples": [
+          {
+            "id": "temple_south_002",
+            "heritage_rank": "DI_TICH_CAP_TINH",
+            "founded_year": 1900
+          },
+          {
+            "id": "temple_north_010",
+            "heritage_rank": "DI_TICH_CAP_TINH",
+            "founded_year": 1900
+          }
+        ]
+      },
+      "expected": {
+        "ids": [
+          "temple_north_010",
+          "temple_south_002"
+        ]
+      },
+      "source": "BR-TPL-01; backend v1.0 ranking, confirmed 2026-10-15"
+    },
+    {
+      "name": "lowest rank last",
+      "input": {
+        "temples": [
+          {
+            "id": "r",
+            "heritage_rank": "CHUA_XEP_HANG",
+            "founded_year": 1000
+          },
+          {
+            "id": "s",
+            "heritage_rank": "DI_TICH_CAP_THANH_PHO",
+            "founded_year": 2000
+          }
+        ]
+      },
+      "expected": {
+        "ids": [
+          "s",
+          "r"
+        ]
+      },
+      "source": "BR-TPL-01; backend v1.0 ranking, confirmed 2026-10-15"
+    },
+    {
+      "name": "national tourist area between special national relic and national relic",
+      "input": {
+        "temples": [
+          {
+            "id": "n",
+            "heritage_rank": "DI_TICH_QUOC_GIA",
+            "founded_year": 1100
+          },
+          {
+            "id": "t",
+            "heritage_rank": "KHU_DU_LICH_QUOC_GIA",
+            "founded_year": 1990
+          },
+          {
+            "id": "s",
+            "heritage_rank": "DI_TICH_QUOC_GIA_DAC_BIET",
+            "founded_year": 1500
+          }
+        ]
+      },
+      "expected": {
+        "ids": [
+          "s",
+          "t",
+          "n"
+        ]
+      },
+      "source": "BR-TPL-01; backend v1.0 ranking, confirmed 2026-10-15"
+    },
+    {
+      "name": "empty directory",
+      "input": {
+        "temples": []
+      },
+      "expected": {
+        "ids": []
+      },
+      "source": "BR-TPL-02"
+    }
+  ]
+}

@@ -35,7 +35,7 @@ Unanswered → `⚠️ Not confirmed` inline and in "Open questions".
 
 Components and data flow in a few lines or an ASCII/Mermaid diagram; where the data lives; which
 platform owns which step; what changes in the API contract (named, not specified — the contract is
-written later by `il-spec-be`).
+written later by `spec-writer`).
 
 ## 4. Assessment dimensions (same table for every option, status quo included)
 

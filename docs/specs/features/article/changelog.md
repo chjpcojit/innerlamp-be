@@ -4,6 +4,26 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v3.0 (2026-10-15)
+
+Rebased on the product spec `docs/product/article/product.md` v1.0 and rewritten in English (repo
+language policy). Adds related articles and puts the content file under version control.
+
+- `requirements.md`: header `Product spec` / `Contract` / `Implements`; every criterion tagged with its
+  BR-ART/FR-ART ID or `(platform)`; duplicate AC 13 (empty arrays) renumbered 19; new US-ART-06
+  related articles (AC 20–25, BR-ART-04, vectors `article-related.json`); AC 26 content file in git;
+  resolved the four v2.0 `⚠️` items against the product spec; product hand-backs: correcting a loaded
+  article (A4), content and image rights (A1).
+- `design.md`: `ListRelated`, `Related`, `related_limit`, new route; Step-by-step Flow "Related
+  articles"; seed flow corrected to the command as it runs today (parse first, then insert, optional
+  `-fill-images`); known gap: `assets/data/dharma_talks.json` still untracked.
+- `flow.md`: English; new sequence "Related articles"; seed sequence redrawn for `cmd/seedarticles`.
+- `tasks.md`: English; Phase 7 (related articles, incl. `openapi.yaml`), Phase 8 (content file, done).
+- Code in the same change: `.gitignore` exception and `assets/data/buddhist_articles.json` committed.
+- Follow-ups outside this folder: `docs/specs/api/openapi.yaml` + `web/docs/public/openapi.yaml`
+  (Phase 7); OKF `docs/knowledge/features/article.md` to refresh with `il-okf-writer` after Phase 7
+  ships; no migration, no ERD change.
+
 ## v2.0 (2026-10-11)
 
 appService **không còn seed bài viết khi khởi động**: việc nạp chuyển sang lệnh seed, `make run` chạy lệnh đó khi bảng rỗng. Hợp đồng HTTP không đổi.

@@ -1,5 +1,30 @@
 # Changelog — calendar
 
+## v3.1 (2026-10-15) — sau khi viết spec ba client
+
+- `requirements.md` / `design.md` / `flow.md`: E23 đổi: request có `X-API-Key` đúng (website) không bị đếm vào giới hạn theo IP, vì website gọi từ một IP server (phát hiện khi viết spec website). Step 1b và sequence vẽ lại nhánh này. `tasks.md` thêm một task cho nhánh bỏ qua giới hạn.
+- Header cite product spec v1.2 (không đổi ID Backend). Resolved: mã nhóm `buddhist` ổn định (BR-CAL-09 v1.2).
+- Xoá `SRS.md` và `api-contract.md` cũ (đã bị product spec + `openapi.yaml` thay thế); sửa các chỗ trỏ tới chúng ở `docs/knowledge/` và `docs/specs/features/temple-event/SRS.md`. Các mục changelog cũ nhắc tới hai file này giữ nguyên làm lịch sử.
+
+## v3.0 (2026-10-15) — theo product spec `calendar` v1.1
+
+US-CAL-002 chuyển sang cite product spec `docs/product/calendar/product.md` v1.1 (be#21) thay cho `SRS.md`. Bump major vì đổi hợp đồng (route công khai, trường mới) và đổi schema. US-CAL-001 không đổi.
+
+- `requirements.md`: header `Product spec` / `Contract` / `Implements`; cột "SRS" thành "Product" (BR-/FR-/NFR-CAL). Đổi E4 (route công khai), E13 (thêm `is_major`, `sort_order`, `recurrence`; giữ nguyên xuống dòng), E17 (`private` → `public`), E19 (thêm `is_major`). Thêm E22 (`X-API-Key` sai → 401), E23 (429 theo IP), E24 (seed nạp `is_major`), E25 (seed chặn Rằm/Mùng 1 không xếp cuối), E26 (seed vào git), E27 (chạy test vector của product). User story đổi sang khách + người đăng nhập trên ba client. Hai quyết định "Xác thực" và "cờ lễ lớn" chuyển sang resolved 2026-10-15.
+- Mặc định do spec này chọn (merge PR = duyệt): bảo vệ route công khai bằng `webAPIKey` + giới hạn theo IP riêng `calendar.events_rate_limit`, cùng hình dạng `administrative-units`; trường `recurrence` để client nhận biết Rằm / Mùng 1 cho khối Home (BR-CAL-15); `is_major` tuỳ chọn trong seed (thiếu = `false`, giữ `format: 1`).
+- `design.md`: các dòng **v3.0** trong Layers & components (domain, repository, handler, config, migration `0037`, seed CLI, data, test vectors, wiring, openapi, E2E); mô hình dữ liệu thêm `is_major`; response shape thêm ba trường; Step-by-step Flow lấy sự kiện thay bước JWT bằng Step 1a (`webAPIKey`) + 1b (giới hạn IP), Step 6 đổi `Cache-Control`; flow seed thêm luật Verify và `is_major`; Known gaps thêm rủi ro route công khai.
+- `flow.md`: sequence lấy sự kiện thay participant `authMiddleware` bằng `webAPIKey` + `calendarEventLimit`; seed thêm `is_major` và luật Verify mới. Mirror 1:1 `design.md` v3.0.
+- `tasks.md`: thêm Phase 14–18, mọi item `[ ]`. Phase 1–13 giữ `[x]` (đã đối chiếu code: `cmd/main.go` vẫn bọc `authMiddleware`, handler vẫn `private`).
+- Reason: product spec v1.1 (quyết định 2026-10-15: calendar công khai, cờ lễ lớn, seed vào git, nội dung seed sửa theo BR-CAL-05/10/14).
+
+Cross-file follow-ups (chưa làm ở đây):
+- `docs/specs/api/openapi.yaml`: bỏ `security`, thêm `X-API-Key`, `401`, `429`, ba trường (Phase 18).
+- `migrations/0037_*.sql`, `migrations/README.md`, `docs/specs/db/erd.mmd` / `erd.svg` (Phase 14).
+- `.gitignore` + `assets/data/calendar-events.json` (Phase 16).
+- `docs/knowledge/features/calendar.md`: chưa có; `il-okf-writer` sau khi kiểm chứng.
+- `SRS.md`, `api-contract.md` trong thư mục này: đã bị product spec + `openapi.yaml` thay thế, xoá ở bước dọn tài liệu cũ.
+- Product spec §4.2: cột Backend của FR-CAL-001 và BR-CAL-10 đổi sang `done` sau khi triển khai (`ba-writer`).
+
 ## v2.1 (2026-10-11) — US-CAL-002 triển khai
 
 Triển khai toàn bộ US-CAL-002 (Phase 6–13). Không đổi AC; sửa các chỗ spec lệch thực tế khi code.

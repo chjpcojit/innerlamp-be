@@ -1,0 +1,72 @@
+{
+  "rule": [
+    "BR-CAL-13"
+  ],
+  "description": "Countdown label of an occurrence relative to today's date on the device.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "today": "solar date YYYY-MM-DD (device date)",
+    "solar_date": "solar date of the occurrence"
+  },
+  "output": {
+    "days": "solar_date minus today, whole days",
+    "label": "today | tomorrow | days_left | passed (copy: Hôm nay / Ngày mai / Còn n ngày / Đã qua)"
+  },
+  "cases": [
+    {
+      "name": "same day",
+      "input": {
+        "today": "2026-10-15",
+        "solar_date": "2026-10-15"
+      },
+      "expected": {
+        "days": 0,
+        "label": "today"
+      }
+    },
+    {
+      "name": "next day",
+      "input": {
+        "today": "2026-10-15",
+        "solar_date": "2026-10-16"
+      },
+      "expected": {
+        "days": 1,
+        "label": "tomorrow"
+      }
+    },
+    {
+      "name": "ten days later",
+      "input": {
+        "today": "2026-10-15",
+        "solar_date": "2026-10-25"
+      },
+      "expected": {
+        "days": 10,
+        "label": "days_left"
+      }
+    },
+    {
+      "name": "across the new year",
+      "input": {
+        "today": "2026-12-30",
+        "solar_date": "2027-01-02"
+      },
+      "expected": {
+        "days": 3,
+        "label": "days_left"
+      }
+    },
+    {
+      "name": "already passed",
+      "input": {
+        "today": "2026-10-15",
+        "solar_date": "2026-10-10"
+      },
+      "expected": {
+        "days": -5,
+        "label": "passed"
+      }
+    }
+  ]
+}

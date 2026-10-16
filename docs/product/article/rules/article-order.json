@@ -1,0 +1,101 @@
+{
+  "rule": [
+    "BR-ART-01"
+  ],
+  "description": "Editorial order: position ASC, then id ASC (byte order). Used for featured, pages and related articles.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "articles": "list of {id, position}"
+  },
+  "output": {
+    "ordered_ids": "ids in display order"
+  },
+  "cases": [
+    {
+      "name": "positions in order",
+      "input": {
+        "articles": [
+          {
+            "id": "x",
+            "position": 1
+          },
+          {
+            "id": "y",
+            "position": 0
+          },
+          {
+            "id": "z",
+            "position": 2
+          }
+        ]
+      },
+      "expected": {
+        "ordered_ids": [
+          "y",
+          "x",
+          "z"
+        ]
+      },
+      "source": "BR-ART-01; backend v1.0"
+    },
+    {
+      "name": "same position: smaller id first",
+      "input": {
+        "articles": [
+          {
+            "id": "b",
+            "position": 3
+          },
+          {
+            "id": "a",
+            "position": 3
+          },
+          {
+            "id": "c",
+            "position": 0
+          }
+        ]
+      },
+      "expected": {
+        "ordered_ids": [
+          "c",
+          "a",
+          "b"
+        ]
+      },
+      "source": "BR-ART-01; backend v1.0"
+    },
+    {
+      "name": "empty list",
+      "input": {
+        "articles": []
+      },
+      "expected": {
+        "ordered_ids": []
+      },
+      "source": "BR-ART-01; backend v1.0"
+    },
+    {
+      "name": "article added at the end of the file is last",
+      "input": {
+        "articles": [
+          {
+            "id": "new",
+            "position": 60
+          },
+          {
+            "id": "old",
+            "position": 59
+          }
+        ]
+      },
+      "expected": {
+        "ordered_ids": [
+          "old",
+          "new"
+        ]
+      },
+      "source": "BR-ART-01; backend v1.0"
+    }
+  ]
+}

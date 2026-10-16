@@ -331,9 +331,9 @@ func TestRegisterFlow_Email_E2E(t *testing.T) {
 		assert.Equal(t, 1, countMatching(t, db, "users", "email = $1 AND phone_number = $2", email, victimPhone))
 
 		device := deviceA
-		res = api.post("/v1/auth/login", loginBody(victimPhone, testPassword, device), "")
+		res = api.post("/v1/auth/login", loginBodyEmail(email, testPassword, device), "")
 		assert.Equal(t, http.StatusOK, res.status, res.raw)
-		res = api.post("/v1/auth/login", loginBody(victimPhone, attackerPassword, device), "")
+		res = api.post("/v1/auth/login", loginBodyEmail(email, attackerPassword, device), "")
 		assert.Equal(t, http.StatusUnauthorized, res.status, res.raw)
 	})
 }

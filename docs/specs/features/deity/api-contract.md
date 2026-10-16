@@ -1,12 +1,18 @@
-# Phật / Bồ tát catalogue — API contract (for iOS)
+# Phật / Bồ tát (Buddha / Bodhisattva) catalogue — API contract (for iOS)
 
-Version: 1.3
-Last updated: 2026-10-12
-Status: implemented + verified against a running server (dev DB, 18 deities: 6 BUDDHA, 12 BODHISATTVA)
+Version: 1.5
+Last updated: 2026-10-15
+Status: **superseded** — kept only until the website / iOS / Android deity specs are approved, then deleted
+
+> ⚠️ Stale since spec v3.0 (2026-10-15). Do not build from this file. The contract is
+> `docs/specs/api/openapi.yaml` (tag Deities) and the backend spec `requirements.md` / `design.md` in this
+> folder, which cite product spec `docs/product/deity/product.md` @ v1.0. Known differences: 20 deities
+> (incl. `DEVA`), page size 12 (v3.0), image URLs are absolute (root-relative paths + server base URL),
+> `next_via` / `via_events` / `date` (v3.0), `lunar_memorial_days` deprecated.
 Code: `services/appService/delivery/http/deity_handler.go`, `usecase/deity_usecase.go`, `repository/postgres_deity_repository.go`
 Data: `assets/data/phat_botat.json` → table `deities` (`migrations/0007_deities.sql`) via `go run ./services/appService/cmd/seeddeities` (idempotent)
 
-All endpoints are **public**, `GET` only. Envelope and error format are the same as the temple catalogue (`docs/specs/features/temple/api-contract.md`).
+All endpoints are **public**, `GET` only. Envelope and error format are the same as the temple catalogue (`docs/specs/api/openapi.yaml`, tag Temples).
 
 ## Ordering
 

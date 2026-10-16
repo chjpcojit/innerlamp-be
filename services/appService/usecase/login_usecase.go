@@ -158,10 +158,19 @@ func (u *LoginUsecase) Login(ctx context.Context, input domain.LoginInput) (*dom
 		// can see a lock being placed; the caller is told nothing — the attempt
 		// that tripped the limit is still a 401, only the next one meets 429.
 		if attempt.LockedUntil != nil {
-			u.logger.Warn("login locked after repeated failures",
-				"email", email,
-				"locked_until", *attempt.LockedUntil,
-			)
+			// The raw email is personal data and, for an address with no
+			// account, says nothing an operator can act on: log the account id
+			// when there is one.
+			if user != nil {
+				u.logger.Warn("login locked after repeated failures",
+					"user_id", user.ID,
+					"locked_until", *attempt.LockedUntil,
+				)
+			} else {
+				u.logger.Warn("login locked after repeated failures",
+					"locked_until", *attempt.LockedUntil,
+				)
+			}
 		}
 		return nil, domain.ErrInvalidCredentials
 	}

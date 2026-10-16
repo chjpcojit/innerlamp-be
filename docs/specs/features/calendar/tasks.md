@@ -1,8 +1,8 @@
 # Tasks — calendar
 
-Version: 2.1
-Last updated: 2026-10-11
-Status: US-CAL-001 và US-CAL-002 đã triển khai (Phase 1–13); dữ liệu seed là bản nháp chưa đối chiếu nguồn chính thức
+Version: 3.1
+Last updated: 2026-10-15
+Status: US-CAL-001 và US-CAL-002 tới v2.1 đã triển khai (Phase 1–13); thay đổi v3.0 (Phase 14–18) chưa làm
 Module: `calendar`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -89,12 +89,52 @@ Thứ tự theo `design.md`: logic thuần trước (không DB), rồi schema, r
 
 ### Phase 13 — Wiring, E2E & docs
 
-- [x] `cmd/main.go`: dựng repository/usecase/handler; `GET /v1/calendar/events` qua `authMiddleware.AuthenticateFunc` (E4)
+- [x] `cmd/main.go`: dựng repository/usecase/handler; `GET /v1/calendar/events` qua `authMiddleware.AuthenticateFunc` (E4 của v2.x; v3.0 đổi ở Phase 17)
 - [x] `services/appService/e2e/`: kiểm tra qua binary thật — 401 không token / sai loại token, `INVALID_YEAR`, năm hợp lệ trả đủ `groups/events/occurrences`, Cache-Control hai trường hợp (skill `golang-e2e-verification`)
 - [x] `docs/specs/api/openapi.yaml`: thêm `/v1/calendar/events`, schema, `INVALID_YEAR`
 - [x] `api-contract.md`: thay ví dụ minh hoạ bằng response lấy từ server thật
 - [x] `go build ./... && go vet ./... && go test -short ./...`; chạy server thật + `curl` kiểm E1–E17
 - [x] Cập nhật `docs/specs/features/memorial/requirements.md`: bỏ/sửa câu "server không biết lịch âm" (xem follow-up changelog)
+
+## US-CAL-002 v3.0 — theo product spec `calendar` v1.1 *(chưa làm)*
+
+Thứ tự theo `design.md` v3.0. Viết test cùng lúc (`golang-clean-arch-tdd`).
+
+### Phase 14 — Migration + domain + repository: `is_major`
+
+- [ ] `migrations/0037_calendar_events_is_major.sql` (kiểm số kế tiếp lúc viết); `migrations/README.md`; `docs/specs/db/erd.mmd` + sinh lại `erd.svg` (E19, E24)
+- [ ] `domain/calendar_event.go`: `CalendarEvent.IsMajor` (E13, E19)
+- [ ] `repository/postgres_calendar_event_repository.go`: `ListActiveEvents` đọc `is_major`; `ReplaceCatalogue` ghi đè `is_major` (E24)
+- [ ] `repository/postgres_calendar_event_repository_test.go` (với `TEST_DB_NAME=innerlamp_test`): `is_major` được lưu, ghi đè khi seed lại, mặc định `false`
+
+### Phase 15 — Seed CLI
+
+- [ ] `cmd/seedcalendarevents/parse.go`: khoá `is_major` tuỳ chọn; `CalendarCatalogue.Verify()` thêm luật `lunar_monthly` có `sort_order` lớn nhất (E24, E25)
+- [ ] `cmd/seedcalendarevents/parse_test.go`: thiếu `is_major` = `false`; `is_major` không phải bool bị từ chối; Rằm có `sort_order` nhỏ hơn một sự kiện có tên bị từ chối
+
+### Phase 16 — Dữ liệu seed vào git
+
+- [ ] `.gitignore`: thêm `!assets/data/calendar-events.json` (E26)
+- [ ] `assets/data/calendar-events.json`: lấy từ `/mnt/project-files/data/calendar/calendar-events.json`; Rằm / Mùng 1 `sort_order` 52 / 53 và dồn các sự kiện có tên về 1…51 giữ thứ tự cũ; `guidance` của mọi sự kiện viết lại một việc một dòng; `is_major: true` cho 10 sự kiện của BR-CAL-10; `meta.version` mới; anh Đức duyệt nội dung trong PR (BR-CAL-05, BR-CAL-10, BR-CAL-14)
+- [ ] `-dry-run` trên file mới, rồi `make seed-calendar-events` ở DB dev; kiểm lại `rules/ordering.json` và `rules/home-block.json` khớp dữ liệu thật
+- [ ] Giữ nhãn `DRAFT` tới khi có người đối chiếu GHPGVN (⚠️ ở `requirements.md`)
+
+### Phase 17 — Config, delivery, wiring: route công khai
+
+- [ ] `config/config.go` + `config.dev.yaml`: `calendar.events_rate_limit` (`max`, `window`, `trust_forwarded_for`), bắt buộc; cập nhật `config_test.go` (E23)
+- [ ] `delivery/http/calendar_event_handler.go`: DTO thêm `is_major`, `sort_order`, `recurrence`; `Cache-Control` `public, max-age` khi có `year` (E13, E17)
+- [ ] `delivery/http/calendar_event_handler_test.go`: ba trường mới; header `public`
+- [ ] `cmd/main.go`: `calendarEventLimit` (`rlScope("calendar_events:ip")`); route qua `webAPIKey` + `calendarEventLimit`, bỏ `authMiddleware`; sửa comment (E4, E22, E23)
+- [ ] Bỏ qua `calendarEventLimit` khi `X-API-Key` đúng: middleware cần biết Step 1a đã khớp khoá (cờ trong context do `RequireWebAPIKey` đặt, hoặc một wrapper riêng cho route này); test cả hai nhánh (E23 v3.1)
+- [ ] `services/appService/e2e/calendar_event_e2e_test.go`: thay case E4 cũ; thêm không token → 200, sai `X-API-Key` → 401, vượt hạn mức không có key → 429, có key đúng thì không bị 429, `Cache-Control: public`, `is_major` (skill `golang-e2e-verification`)
+
+### Phase 18 — Test vectors, contract, kiểm tra
+
+- [ ] `domain/calendar_event_vectors_test.go`: chạy mọi case của `docs/product/calendar/rules/event-placement.json` và `rules/ordering.json`, đọc thẳng từ `docs/product/` (E27)
+- [ ] `docs/specs/api/openapi.yaml`: `/v1/calendar/events` bỏ `security`, thêm `X-API-Key` tuỳ chọn, `401`, `429`; `CalendarEvent` thêm `is_major`, `sort_order`, `recurrence`; mô tả `Cache-Control: public`
+- [ ] `go build ./... && go vet ./... && go test -short ./...` + `go test ./services/appService/e2e/`; chạy server thật + `curl` không token
+- [ ] Cập nhật cột Backend của product spec §4.2 (FR-CAL-001, BR-CAL-10 → `done`) qua `ba-writer`
+- [ ] `docs/knowledge/features/calendar.md`: gọi `il-okf-writer` sau khi kiểm chứng (khi anh yêu cầu)
 
 ## Deferred
 

@@ -58,7 +58,7 @@ InnerLamp is a Buddhist-practice companion app (memorials, sutras, temples, gene
 
 ### 1.5 References
 
-- `docs/specs/features/calendar/SRS.md` — shared calendar events, lunar conversion rules (reused here, not extended).
+- `docs/product/calendar/product.md` — shared calendar events, lunar conversion rules (reused here, not extended).
 - `docs/specs/features/temple/requirements.md` — temple catalogue this feature attaches to.
 - Web research 2026-10-13 (news and travel articles, not official temple announcements) on the kinds of events temples hold: periodic repentance on lunar 14 and 30, Bát quan trai retreats on lunar 15 and 30, summer retreats with registration, retreat postponement.
 

@@ -423,7 +423,7 @@ func TestRequestOTP_MailerFailure(t *testing.T) {
 func TestRequestOTP_MailBudgetExhausted(t *testing.T) {
 	f := newRegisterFixture()
 	f.stubUpToSave(false)
-	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{}, nil)
+	f.repo.On("SavePendingAndIssueOTP", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything).Return(&domain.SendState{}, nil)
 	f.mailer.On("SendRegisterCode", mock.Anything, testEmail, mock.Anything, mock.Anything).
 		Return(&domain.RateLimitedError{RetryAfter: time.Hour})
 	f.otpRepo.On("ReleaseSendLimit", mock.Anything, testEmail, domain.OTPPurposeRegister).Return(nil)

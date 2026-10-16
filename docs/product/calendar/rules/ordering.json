@@ -1,0 +1,114 @@
+{
+  "rule": [
+    "BR-CAL-12",
+    "BR-CAL-05"
+  ],
+  "description": "Order of occurrences: solar date, then the event's display order, then the event's stable identifier. Codes are seed codes; display orders are inputs (Rằm / Mùng 1 carry the last orders per BR-CAL-05, not their current seed values 1 and 2).",
+  "product_spec_version": "1.1",
+  "inputs": {
+    "occurrences": "list of {event, display_order, solar_date}"
+  },
+  "output": {
+    "order": "list of event codes in display order"
+  },
+  "cases": [
+    {
+      "name": "earlier date first",
+      "input": {
+        "occurrences": [
+          {
+            "event": "phat-dan",
+            "display_order": 17,
+            "solar_date": "2026-05-31"
+          },
+          {
+            "event": "tet-nguyen-dan",
+            "display_order": 4,
+            "solar_date": "2026-02-17"
+          }
+        ]
+      },
+      "expected": {
+        "order": [
+          "tet-nguyen-dan",
+          "phat-dan"
+        ]
+      }
+    },
+    {
+      "name": "Tết day: named events first, Mùng 1 last",
+      "input": {
+        "occurrences": [
+          {
+            "event": "mung-1-am-lich",
+            "display_order": 52,
+            "solar_date": "2026-02-17"
+          },
+          {
+            "event": "via-di-lac",
+            "display_order": 10,
+            "solar_date": "2026-02-17"
+          },
+          {
+            "event": "tet-nguyen-dan",
+            "display_order": 4,
+            "solar_date": "2026-02-17"
+          }
+        ]
+      },
+      "expected": {
+        "order": [
+          "tet-nguyen-dan",
+          "via-di-lac",
+          "mung-1-am-lich"
+        ]
+      }
+    },
+    {
+      "name": "Phật đản above Rằm on the same day",
+      "input": {
+        "occurrences": [
+          {
+            "event": "ram-am-lich",
+            "display_order": 53,
+            "solar_date": "2026-05-31"
+          },
+          {
+            "event": "phat-dan",
+            "display_order": 17,
+            "solar_date": "2026-05-31"
+          }
+        ]
+      },
+      "expected": {
+        "order": [
+          "phat-dan",
+          "ram-am-lich"
+        ]
+      }
+    },
+    {
+      "name": "same day and display order: code order",
+      "input": {
+        "occurrences": [
+          {
+            "event": "via-a-di-da",
+            "display_order": 30,
+            "solar_date": "2026-12-25"
+          },
+          {
+            "event": "giang-sinh",
+            "display_order": 30,
+            "solar_date": "2026-12-25"
+          }
+        ]
+      },
+      "expected": {
+        "order": [
+          "giang-sinh",
+          "via-a-di-da"
+        ]
+      }
+    }
+  ]
+}

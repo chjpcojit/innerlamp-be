@@ -20,12 +20,15 @@ references/modes.md.
 ## User Story
 
 <!--
-One sentence per user story, in Vietnamese, in this exact blockquote shape (matches the existing
-files under docs/specs/features/):
+One sentence per user story, in English (Language policy in CLAUDE.md), in this exact blockquote
+shape:
 
-> Là một **<actor>**,
-> Tôi muốn **<action>**,
-> Để **<goal>**.
+> As a **<actor>**,
+> I want **<action>**,
+> So that **<goal>**.
+
+Older files under docs/specs/features/ may still use the Vietnamese shape ("Là một / Tôi muốn /
+Để"); editing such a file rewrites its user stories in this English shape.
 
 Keep the existing US-NNN numbering from the module's original user-story file — do not renumber.
 One section per US-NNN below, each with its own Acceptance Criteria.
@@ -35,8 +38,9 @@ One section per US-NNN below, each with its own Acceptance Criteria.
 
 <!--
 Every bullet must follow: WHEN <trigger>, THE SYSTEM SHALL <behavior>.
-Mixed-language is correct here: the EARS line stays English, any clarifying parenthetical can be
-Vietnamese. See references/ears_notation.md for the full pattern + good/bad examples.
+Everything here is English, including any clarifying parenthetical; only user-facing copy quoted
+from the product (e.g. an error message shown to the user) keeps its own language, with an English
+gloss. See references/ears_notation.md for the full pattern + good/bad examples.
 
 Do not describe hidden validation/duplicate-check/side-effect steps only in prose here — name that
 a check happens and what the caller sees; the *how* (which query, which write, in what order,
@@ -75,11 +79,12 @@ considered complete; Out of scope items are permanently someone else's responsib
 
 -
 
-## Ghi chú kỹ thuật liên quan
+## Technical notes
 
 <!--
-The closing technical-notes section every file under docs/specs/ carries. Free-form Vietnamese
-prose: endpoints, schema deltas, module/service naming, middleware requirements, existing
+The closing technical-notes section every file under docs/specs/ carries (older files may still
+title it "Ghi chú kỹ thuật liên quan" until they are next edited; editing one renames it to
+"Technical notes" and rewrites it in English). Free-form English prose: endpoints, schema deltas, module/service naming, middleware requirements, existing
 conventions this feature must follow. Anything that is an open decision goes to "Open questions"
 below instead of being asserted here as fact.
 -->

@@ -1,8 +1,9 @@
 # Design — calendar
 
-Version: 2.1
-Last updated: 2026-10-11
-Status: US-CAL-001 và US-CAL-002 đã triển khai; US-CAL-002 verified bằng test từng tầng và E2E (binary thật + Postgres thật). Dữ liệu seed là bản nháp chưa đối chiếu nguồn chính thức
+Version: 3.1
+Last updated: 2026-10-15
+Status: US-CAL-001 và US-CAL-002 (tới v2.1) đã triển khai. Các thay đổi v3.0 (đánh dấu **v3.0** bên dưới) chưa triển khai
+Product spec: `docs/product/calendar/product.md` @ v1.2
 Module: `calendar`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -12,7 +13,7 @@ Module: `calendar`
 Module có hai route, hình dạng khác nhau:
 
 - **`GET /v1/calendar/image`** (US-CAL-001, đã triển khai): công khai, chỉ đọc, **không có DB** — "repository" là bộ phân tích `manifest.json` nhúng sẵn, danh sách ảnh nằm trong bộ nhớ. Không đổi trong phiên bản này.
-- **`GET /v1/calendar/events`** (US-CAL-002, mới): cần JWT `access`, chỉ đọc, **có DB** (bốn bảng `calendar_*`). Mỗi request đọc danh mục sự kiện (một vài dòng, đổi được qua BO) rồi **tính** ngày của năm được hỏi bằng bộ chuyển đổi âm ↔ dương và công thức tiết khí — kết quả không lưu. Một seed CLI nạp danh mục từ file JSON.
+- **`GET /v1/calendar/events`** (US-CAL-002): **công khai từ v3.0** (FR-CAL-001), qua `webAPIKey` và giới hạn theo IP như `administrative-units`; trước v3.0 cần JWT `access`. Chỉ đọc, **có DB** (bốn bảng `calendar_*`). Mỗi request đọc danh mục sự kiện (một vài dòng, đổi được qua BO) rồi **tính** ngày của năm được hỏi bằng bộ chuyển đổi âm ↔ dương và công thức tiết khí — kết quả không lưu. Một seed CLI nạp danh mục từ file JSON.
 
 US-CAL-002 chạm đủ bốn layer của `services/appService`, thêm một package thuần tính toán `domain/lunarcal`, một migration dự kiến `migrations/0031_calendar_events.sql`, một block config và một lệnh `cmd/seedcalendarevents`. Hình dạng gần nhất: `administrative-units` / `temple` (danh mục đọc + nạp bằng CLI upsert).
 
@@ -34,20 +35,23 @@ US-CAL-002 chạm đủ bốn layer của `services/appService`, thêm một pac
 
 | Layer | File | Responsibility |
 |---|---|---|
-| Domain / Entity | `services/appService/domain/calendar_event.go` | `CalendarEvent` (`Code`, `Name`, `ShortDescription`, `LongDescription`, `Guidance`, `ImageURL *string`, `Groups []string`, `IsPublicHoliday`, `SortOrder`, `Rule`), `RecurrenceRule` (`Kind` ∈ `solar` / `lunar` / `lunar_monthly` / `lunar_last_day` / `solar_term`; `SolarMonth`, `SolarDay`, `LunarMonth`, `LunarDay`, `IsLeapMonth`, `SolarTermLongitude`), `CalendarGroup` (`Code`, `Name`), `CalendarOccurrence` (`EventCode`, `SolarDate`, `LunarDate`), `LunarDate` (`Day`, `Month`, `Year`, `IsLeapMonth`), `ErrInvalidYear`. Không có tag JSON. |
+| Domain / Entity | `services/appService/domain/calendar_event.go` | `CalendarEvent` (`Code`, `Name`, `ShortDescription`, `LongDescription`, `Guidance`, `ImageURL *string`, `Groups []string`, `IsPublicHoliday`, **v3.0** `IsMajor`, `SortOrder`, `Rule`), `RecurrenceRule` (`Kind` ∈ `solar` / `lunar` / `lunar_monthly` / `lunar_last_day` / `solar_term`; `SolarMonth`, `SolarDay`, `LunarMonth`, `LunarDay`, `IsLeapMonth`, `SolarTermLongitude`), `CalendarGroup` (`Code`, `Name`), `CalendarOccurrence` (`EventCode`, `SolarDate`, `LunarDate`), `LunarDate` (`Day`, `Month`, `Year`, `IsLeapMonth`), `ErrInvalidYear`. Không có tag JSON. |
 | Domain / Repository interface | `services/appService/domain/calendar_event_repository.go`, `mock_calendar_event_repository.go` | `CalendarEventRepository`: `ListActiveEvents(ctx, lang)`, `ListGroups(ctx)`, `ReplaceCatalogue(ctx, Catalogue)` (seed). Mock theo mẫu `mock_administrative_unit_repository.go`. |
 | Domain / Pure logic | `services/appService/domain/lunarcal/` | Không phụ thuộc gì ngoài `math`/`time`. `SolarToLunar(y,m,d)`, `LunarToSolar(lunarYear, month, day, isLeap)`, `LeapMonth(lunarYear)`, `DaysInLunarMonth(lunarYear, month, isLeap)`, `LunarMonths(lunarYear)`, `SolarTermDate(year, longitudeDeg)`. Múi giờ cố định **UTC+7** (định nghĩa của lịch âm Việt Nam, không phải cấu hình theo môi trường — ghi bằng hằng + comment). Giữ trong `domain/` vì mới một service dùng; nâng lên `pkg/` nếu service khác cần. |
 | Domain / Pure logic | `services/appService/domain/calendar_event_resolver.go` | `ResolveOccurrences(events, year) []CalendarOccurrence`: áp từng `RecurrenceRule` cho `year` (xem "Sinh ngày theo quy tắc"), lọc theo năm dương, sắp xếp. Thuần, không I/O, không đọc đồng hồ. |
-| Repository | `services/appService/repository/postgres_calendar_event_repository.go` | `NewCalendarEventRepository(db)`. `ListActiveEvents`: **một** SELECT `calendar_events` JOIN `calendar_event_translations` (`lang = $1`) với `is_active`, kèm danh sách nhóm của từng sự kiện (`array_agg` theo `calendar_groups.sort_order`). `ListGroups`: SELECT `calendar_groups` sắp theo `sort_order, code`. `ReplaceCatalogue`: **một** transaction, `INSERT … ON CONFLICT … DO UPDATE` (nhóm, sự kiện, bản dịch), thay liên kết nhóm của từng sự kiện; **không DELETE** sự kiện vắng mặt trong file (BO tắt bằng `is_active`). |
+| Repository | `services/appService/repository/postgres_calendar_event_repository.go` | `NewCalendarEventRepository(db)`. **v3.0**: `ListActiveEvents` đọc thêm `is_major`; `ReplaceCatalogue` ghi `is_major` (ghi đè như `is_public_holiday`, E24). `ListActiveEvents`: **một** SELECT `calendar_events` JOIN `calendar_event_translations` (`lang = $1`) với `is_active`, kèm danh sách nhóm của từng sự kiện (`array_agg` theo `calendar_groups.sort_order`). `ListGroups`: SELECT `calendar_groups` sắp theo `sort_order, code`. `ReplaceCatalogue`: **một** transaction, `INSERT … ON CONFLICT … DO UPDATE` (nhóm, sự kiện, bản dịch), thay liên kết nhóm của từng sự kiện; **không DELETE** sự kiện vắng mặt trong file (BO tắt bằng `is_active`). |
 | Usecase | `services/appService/usecase/calendar_event_usecase.go` | `CalendarEventUsecase.EventsForYear(ctx, year string)`: bỏ trống → năm hiện tại theo `calendar.timezone`; parse số nguyên, kiểm tra 1900..2100 → `ErrInvalidYear`; đọc nhóm + sự kiện từ repository; `ResolveOccurrences`; trả `{Year, Groups, Events, Occurrences}`. Đồng hồ tiêm vào để test (như `CalendarUsecase`). Tách khỏi `CalendarUsecase` để không đổi chữ ký `NewCalendarUsecase` của route ảnh. |
-| Delivery | `services/appService/delivery/http/calendar_event_handler.go` | `GET /v1/calendar/events`; DTO riêng (`year`, `groups`, `events`, `occurrences`); `lunar_date` là object; `image_url` có thể `null`; đặt `Cache-Control` (E17). |
+| Delivery | `services/appService/delivery/http/calendar_event_handler.go` | `GET /v1/calendar/events`; DTO riêng (`year`, `groups`, `events`, `occurrences`); `lunar_date` là object; `image_url` có thể `null`; đặt `Cache-Control` (E17). **v3.0**: DTO sự kiện thêm `is_major`, `sort_order`, `recurrence` (= `Rule.Kind`) (E13); `Cache-Control` có `year` đổi `private` → `public`. |
 | Delivery / errors | `services/appService/delivery/http/errors.go` | Thêm `ErrInvalidYear` → `400 INVALID_YEAR`, `details.field = "year"`. |
-| Config | `services/appService/config/config.go`, `config.dev.yaml` | `CalendarConfig` thêm `DefaultLanguage` (`vi`), `EventsCacheMaxAge` (cùng kiểu với `administrative_units.cache_max_age`). Giá trị không nhạy cảm, đổi theo môi trường → để trong config, không để hằng trong usecase/domain. Cả hai bắt buộc: rỗng/0 là lỗi cấu hình (fail ở khởi động). |
+| Config | `services/appService/config/config.go`, `config.dev.yaml` | **v3.0**: `CalendarConfig` thêm `EventsRateLimit` (`max`, `window`, `trust_forwarded_for`, cùng kiểu `administrative_units.rate_limit`), bắt buộc, 0 là lỗi (E23). Từ v2.0: `CalendarConfig` thêm `DefaultLanguage` (`vi`), `EventsCacheMaxAge` (cùng kiểu với `administrative_units.cache_max_age`). Giá trị không nhạy cảm, đổi theo môi trường → để trong config, không để hằng trong usecase/domain. Cả hai bắt buộc: rỗng/0 là lỗi cấu hình (fail ở khởi động). |
 | Migration | `migrations/0031_calendar_events.sql` | Bốn bảng, xem "Mô hình dữ liệu". Idempotent (`IF NOT EXISTS`) như các file khác. |
-| Seed CLI | `services/appService/cmd/seedcalendarevents/main.go`, `parse.go` | `-file` (mặc định `assets/data/calendar-events.json`), `-dry-run`. Giải mã **strict**, `Verify`, nạp qua `ReplaceCatalogue`. Cùng khung `seedadminunits` (`⚠️ DEV ONLY` config/secret). |
-| Data | `assets/data/calendar-events.json` *(team thu thập, bản nháp)* | `meta` + `groups` + `events`; mỗi sự kiện có `source` (ghi nguồn để review, không nạp vào DB). Đọc từ đĩa lúc chạy seed, không `go:embed`. |
-| Wiring | `services/appService/cmd/main.go` | Dựng repository/usecase/handler; đăng ký `mux.HandleFunc("GET /v1/calendar/events", authMiddleware.AuthenticateFunc(calendarEventHandler.Events))` (cùng cách `GET /v1/lamps`). |
-| API spec | `docs/specs/api/openapi.yaml` | Thêm `/v1/calendar/events` (security bearer), schema `CalendarEventsResponse`, `CalendarOccurrence`, `LunarDate`, code `INVALID_YEAR`. |
+| Migration **v3.0** | `migrations/0037_calendar_events_is_major.sql` *(số kế tiếp sau `0036`; kiểm lại lúc viết)* | `ALTER TABLE calendar_events ADD COLUMN IF NOT EXISTS is_major BOOLEAN NOT NULL DEFAULT false`. Không backfill trong migration: chạy lại seed để đặt cờ (E24). Cập nhật `migrations/README.md` và ERD `docs/specs/db/erd.mmd` / `erd.svg`. |
+| Seed CLI | `services/appService/cmd/seedcalendarevents/main.go`, `parse.go` | `-file` (mặc định `assets/data/calendar-events.json`), `-dry-run`. Giải mã **strict**, `Verify`, nạp qua `ReplaceCatalogue`. Cùng khung `seedadminunits` (`⚠️ DEV ONLY` config/secret). **v3.0**: khoá `is_major` (bool, tuỳ chọn, thiếu = `false`, giữ `format: 1` vì file cũ vẫn hợp lệ); `CalendarCatalogue.Verify()` thêm luật: mọi sự kiện `lunar_monthly` có `sort_order` lớn hơn mọi sự kiện khác (E25). |
+| Data | `assets/data/calendar-events.json` *(team thu thập, bản nháp)* | `meta` + `groups` + `events`; mỗi sự kiện có `source` (ghi nguồn để review, không nạp vào DB). Đọc từ đĩa lúc chạy seed, không `go:embed`. **v3.0**: đưa vào git (E26) với ngoại lệ `!assets/data/calendar-events.json` trong `.gitignore`; sửa nội dung: Rằm / Mùng 1 `sort_order` 52 / 53 (sau 51 sự kiện có tên, khớp `rules/ordering.json`), `guidance` một việc một dòng (`\n`), `is_major: true` cho 10 sự kiện của BR-CAL-10; `meta.version` mới. Nguồn: bản ở `/mnt/project-files/data/calendar/calendar-events.json`. |
+| Test vectors **v3.0** | `services/appService/domain/calendar_event_vectors_test.go` | Đọc `docs/product/calendar/rules/event-placement.json` và `ordering.json` bằng đường dẫn tương đối tới gốc repo (không copy), chạy mọi case qua `ResolveOccurrences` (E27). Case dùng `code` của seed: dựng sự kiện từ quy tắc ghi trong case, không cần DB. |
+| Wiring | `services/appService/cmd/main.go` | Dựng repository/usecase/handler. **v3.0**: dựng `calendarEventLimit` bằng `deliveryhttp.NewClientIPRateLimit` từ `cfg.Calendar.EventsRateLimit`, scope `rlScope("calendar_events:ip")` (cùng store, hạn mức riêng với `administrativeUnitLimit`); đăng ký `mux.HandleFunc("GET /v1/calendar/events", webAPIKey.WrapFunc(calendarEventLimit.WrapFunc(calendarEventHandler.Events)))`, bỏ `authMiddleware` (E4, E22, E23). Sửa comment "needs a login". |
+| API spec | `docs/specs/api/openapi.yaml` | Đã có `/v1/calendar/events`. **v3.0**: bỏ `security: bearer`, thêm header `X-API-Key` tuỳ chọn và response `401` (sai key) + `429`; `CalendarEvent` thêm `is_major`, `sort_order`, `recurrence` (enum năm kind) vào `required`; mô tả `Cache-Control: public`. |
+| E2E **v3.0** | `services/appService/e2e/calendar_event_e2e_test.go` | Thay case "E4: behind the access-token middleware" bằng: không token → 200; sai `X-API-Key` → 401; `Cache-Control` `public`; `is_major` của seed test trả đúng; vượt giới hạn → 429. |
 
 ## Mô hình dữ liệu
 
@@ -56,7 +60,7 @@ Bốn bảng (chi tiết cột/ràng buộc chốt khi viết migration; ERD `do
 | Bảng | Khoá | Cột chính | Ghi chú |
 |---|---|---|---|
 | `calendar_groups` | `code` | `name` (vi), `sort_order` | Nhóm là **dữ liệu**: seed ban đầu `buddhist`, `vietnam`, `folk`; BO thêm được (E14). |
-| `calendar_events` | `code` | `kind`, `solar_month`, `solar_day`, `lunar_month`, `lunar_day`, `is_leap_month`, `solar_term_longitude`, `is_public_holiday`, `image_url` (null), `sort_order`, `is_active` | Mỗi `kind` bắt buộc đúng tập cột của nó (CHECK theo `kind`); cột còn lại NULL. `is_public_holiday`, `is_active` mặc định `false`/`true`. |
+| `calendar_events` | `code` | `kind`, `solar_month`, `solar_day`, `lunar_month`, `lunar_day`, `is_leap_month`, `solar_term_longitude`, `is_public_holiday`, **v3.0** `is_major` (mặc định `false`), `image_url` (null), `sort_order`, `is_active` | Mỗi `kind` bắt buộc đúng tập cột của nó (CHECK theo `kind`); cột còn lại NULL. `is_public_holiday`, `is_active` mặc định `false`/`true`. |
 | `calendar_event_translations` | `(event_code, lang)` | `name`, `short_description`, `long_description`, `guidance` | v1 chỉ có `lang = 'vi'`. Thêm ngôn ngữ = thêm dòng, không đổi `calendar_events`. |
 | `calendar_event_groups` | `(event_code, group_code)` | — | Mỗi sự kiện ≥ 1 nhóm (kiểm ở seed/BO, không CHECK được ở DB). |
 
@@ -95,7 +99,8 @@ data: {
   year: 2026,
   groups:      [ {code, name} … ],
   events:      [ {code, name, short_description, long_description, guidance,
-                  image_url|null, groups:[code…], is_public_holiday} … ],   // mỗi sự kiện một lần
+                  image_url|null, groups:[code…], is_public_holiday,
+                  is_major, sort_order, recurrence} … ],                   // mỗi sự kiện một lần; 3 trường cuối từ v3.0
   occurrences: [ {event_code, solar_date:"YYYY-MM-DD",
                   lunar_date:{day, month, year, is_leap_month}} … ]          // đã sắp xếp
 }
@@ -124,15 +129,27 @@ Route ảnh không có Step-by-step Flow (chỉ tính trong bộ nhớ, không l
 ## Step-by-step Flow — Lấy sự kiện của một năm (`GET /v1/calendar/events`)
 
 ```
-Step 1 — Xác thực (middleware)
+(v3.0: Step 1a/1b thay bước "xác thực JWT" của v2.x; route không còn đọc `Authorization`.)
+
+Step 1a — Kiểm tra website API key (middleware webAPIKey)
 - Trigger: request tới GET /v1/calendar/events
-- Pre-condition: route được bọc authMiddleware.AuthenticateFunc, RequireTokenType = "access"
-- Call: jwt/middleware kiểm tra chữ ký, hạn, loại token; đặt user_id vào context
-    - Success → Step 2
-    - Failure (thiếu/hết hạn/sai loại token) → 401 theo middleware hiện có, dừng; không chạm DB
+- Pre-condition: route được bọc webAPIKey.WrapFunc (RequireWebAPIKey, cfg.Server.WebAPIKey)
+- Call: so header X-API-Key với khoá website
+    - Success (khớp, hoặc không có header = app di động) → Step 1b
+    - Failure (có header nhưng sai) → 401, dừng; không tốn hạn mức, không chạm DB
+
+Step 1b — Giới hạn theo IP (middleware calendarEventLimit)
+- Trigger: Step 1a pass
+- Pre-condition: calendar.events_rate_limit đã cấu hình (0 là lỗi khởi động)
+- Call: (v3.1) request đã mang X-API-Key đúng ở Step 1a → bỏ qua giới hạn, sang Step 2 (website gọi từ
+  một IP server và tự cache theo năm); còn lại NewClientIPRateLimit đếm theo IP client trong cửa sổ
+  (store dùng chung rate_limit_store)
+    - Success (còn hạn mức) → Step 2
+    - Failure (vượt hạn mức) → 429, dừng; không chạm DB
+  Confirmed: store lỗi thì rơi về đếm theo instance như các route công khai khác (op_timeout của rate_limit_store).
 
 Step 2 — Xác định năm (handler → usecase)
-- Trigger: Step 1 pass
+- Trigger: Step 1b pass
 - Pre-condition: query `year` là chuỗi (có thể rỗng)
 - Call: CalendarEventUsecase.EventsForYear: rỗng → năm hiện tại theo calendar.timezone; ngược lại
   strconv.Atoi nghiêm ngặt (không "2026.5", không khoảng trắng), kiểm tra 1900..2100
@@ -170,8 +187,9 @@ Step 5 — Sinh occurrence (thuần, không I/O)
 Step 6 — Dựng response và Cache-Control (handler)
 - Trigger: Step 5 pass
 - Pre-condition: có {year, groups, events, occurrences}
-- Call: giữ chỉ những sự kiện có occurrence; map sang DTO; đặt Cache-Control: `year` rõ ràng →
-  `private, max-age=<calendar.events_cache_max_age>`, bỏ trống → `no-cache`;
+- Call: giữ chỉ những sự kiện có occurrence; map sang DTO (v3.0: thêm is_major, sort_order, recurrence);
+  đặt Cache-Control: `year` rõ ràng → `public, max-age=<calendar.events_cache_max_age>` (v3.0; trước
+  đó `private`), bỏ trống → `no-cache`;
   utils.WriteSuccessResponse
     - Success → 200
     - Failure (lỗi ghi response) → log, không thể đổi status
@@ -193,7 +211,8 @@ Step 2 — Giải mã strict và kiểm tra (seed CLI, parse.go)
 - Call: giải mã strict (khoá lạ là lỗi, dữ liệu thừa sau JSON là lỗi); Verify: `code` duy nhất,
   tên (vi) không rỗng, `kind` hợp lệ và có đủ tham số theo "Bảng tham số theo kind" (khoảng giá trị,
   `solar_term_longitude` bội của 15, tháng/ngày hợp lệ), mỗi sự kiện ≥ 1 nhóm và nhóm tồn tại trong
-  `groups` của file, `sort_order` ≥ 1; in tối đa 50 vi phạm
+  `groups` của file, `sort_order` ≥ 1; v3.0: `is_major` nếu có phải là bool, và mọi sự kiện
+  `lunar_monthly` có `sort_order` lớn hơn mọi sự kiện khác (E25); in tối đa 50 vi phạm
     - Success → Step 3 (`-dry-run` dừng ở đây, không cần DB)
     - Failure (vi phạm) → in danh sách, exit 1; không chạm DB
 
@@ -207,7 +226,7 @@ Step 3 — Kết nối DB (seed CLI)
 Step 4 — Nạp catalogue trong một transaction (repository)
 - Trigger: Step 3 pass
 - Pre-condition: dữ liệu đã Verify
-- Call: BEGIN; upsert `calendar_groups`; upsert `calendar_events`; upsert `calendar_event_translations`
+- Call: BEGIN; upsert `calendar_groups`; upsert `calendar_events` (v3.0: kèm `is_major`); upsert `calendar_event_translations`
   (lang = vi); với mỗi sự kiện: xoá rồi chèn lại `calendar_event_groups`; COMMIT
   Confirmed: ghi đè nội dung đã có theo `code` (quyết định 2026-10-11: ở dev chạy lại thì đè); không
   DELETE sự kiện vắng trong file; không guard production (đang develop).
@@ -226,6 +245,7 @@ Step 5 — Báo cáo (seed CLI)
 - US-CAL-002 ảnh sự kiện: `image_url` lưu nguyên giá trị trong DB, seed để `null`. Khi có ảnh phải chốt nơi lưu/CDN và ghi công (giống ảnh ngày) — việc riêng.
 - Tên nhóm chỉ có một ngôn ngữ (`calendar_groups.name`); thêm ngôn ngữ cần bảng dịch cho nhóm. Sự kiện đã có bảng dịch.
 - Hai lần đọc DB không trong transaction (Step 3–4): chấp nhận vì chỉ đọc và dữ liệu hiếm đổi; mã nhóm lạ bị bỏ qua.
+- v3.0 route công khai: mỗi request (kể cả khách) vẫn đọc DB hai lần. Chặn lạm dụng bằng giới hạn theo IP và `Cache-Control: public` (CDN/proxy giữ được câu trả lời của năm rõ ràng). `X-API-Key` không phải bí mật với app di động (thiếu header vẫn được phục vụ), nên nó chỉ phân biệt website, không chặn ai.
 - Tính toán mỗi request, không cache trong bộ nhớ: ~vài chục sự kiện, vài trăm phép tính — dư sức với mục tiêu 200 ms (NFR-001). Nếu cần, cache kết quả theo `(year, version danh mục)` sau.
 - Cơ chế quản trị (BO) chưa có: tới lúc đó seed chỉ chạy ở dev; không có guard chặn chạy seed đè dữ liệu BO ở môi trường khác.
 - Tiết khí nào là sự kiện do người soạn seed chọn; cơ chế hỗ trợ cả 24 tiết (bội của 15°).

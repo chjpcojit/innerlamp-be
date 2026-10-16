@@ -1,0 +1,148 @@
+{
+  "rule": [
+    "BR-TPL-05"
+  ],
+  "description": "Whether a directory search term matches a temple: trimmed term is a substring of the name or of one alias, ignoring case and Vietnamese diacritics (đ = d); wildcard characters are literal. The province and address are never searched.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "term": "search term as typed (1-100 characters after trimming)",
+    "name": "temple name",
+    "aliases": "list of alias strings"
+  },
+  "output": {
+    "matches": "true or false"
+  },
+  "cases": [
+    {
+      "name": "no diacritics, lower case",
+      "input": {
+        "term": "bich dong",
+        "name": "Chùa Bích Động",
+        "aliases": [
+          "Bạch Ngọc Thạch Sơn Động"
+        ]
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "upper case with diacritics",
+      "input": {
+        "term": "BÍCH ĐỘNG",
+        "name": "Chùa Bích Động",
+        "aliases": []
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "d matches đ",
+      "input": {
+        "term": "dong yen tu",
+        "name": "Chùa Đồng Yên Tử",
+        "aliases": [
+          "Thiên Trúc Tự"
+        ]
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "matches an alias",
+      "input": {
+        "term": "dien huu",
+        "name": "Chùa Một Cột",
+        "aliases": [
+          "Diên Hựu Tự",
+          "Liên Hoa Đài"
+        ]
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "substring inside a word",
+      "input": {
+        "term": "quoc",
+        "name": "Chùa Trấn Quốc",
+        "aliases": []
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "surrounding spaces are trimmed",
+      "input": {
+        "term": "  tran quoc  ",
+        "name": "Chùa Trấn Quốc",
+        "aliases": []
+      },
+      "expected": {
+        "matches": true
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "province is not searched",
+      "input": {
+        "term": "Hà Nội",
+        "name": "Chùa Trấn Quốc",
+        "aliases": [
+          "Khai Quốc Tự"
+        ]
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "no match",
+      "input": {
+        "term": "vinh nghiem",
+        "name": "Chùa Trấn Quốc",
+        "aliases": [
+          "Khai Quốc Tự"
+        ]
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "percent sign is literal",
+      "input": {
+        "term": "50%",
+        "name": "Chùa Trấn Quốc",
+        "aliases": []
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    },
+    {
+      "name": "underscore is literal",
+      "input": {
+        "term": "tran_quoc",
+        "name": "Chùa Trấn Quốc",
+        "aliases": []
+      },
+      "expected": {
+        "matches": false
+      },
+      "source": "BR-TPL-05; anh Đức 2026-10-15"
+    }
+  ]
+}
