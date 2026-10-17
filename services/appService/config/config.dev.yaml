@@ -142,12 +142,17 @@ gallery:
 
 # Ảnh Phật theo ngày cho màn Lịch âm. timezone is required (the "today" used when the request has no date).
 # ⚠️ DEV ONLY: empty image_base_url builds image_url from the request's host; set a CDN URL in production.
-# default_language / events_cache_max_age are required by GET /v1/calendar/events (sự kiện lịch).
+# default_language / events_cache_max_age / events_rate_limit are required by GET /v1/calendar/events (sự kiện lịch).
 calendar:
   timezone: "Asia/Ho_Chi_Minh"
   image_base_url: ""
   default_language: "vi"
   events_cache_max_age: "24h"
+  # GET /v1/calendar/events is public (no JWT): per-IP limit, skipped for the valid web API key.
+  events_rate_limit:
+    max: 60
+    window: "1m"
+    trust_forwarded_for: false
 
 # Sự kiện của chùa (GET /v1/temples/{id}/events). All three keys are required.
 temple_event:

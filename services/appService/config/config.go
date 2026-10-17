@@ -439,13 +439,31 @@ type CalendarConfig struct {
 	// language.
 	DefaultLanguage string `yaml:"default_language"`
 
-	// EventsCacheMaxAge is how long a client may reuse the events of an explicit
-	// year, sent as Cache-Control: private, max-age=<seconds> (dev: "24h"). The
+	// EventsCacheMaxAge is how long a client or shared cache may reuse the events of an
+	// explicit year, sent as Cache-Control: public, max-age=<seconds> (dev: "24h"). The
 	// catalogue only changes when an operator reloads it.
 	EventsCacheMaxAge Duration `yaml:"events_cache_max_age"`
+
+	// EventsRateLimit caps how many GET /v1/calendar/events a client IP may make per
+	// window. The route is public (v3.0); a request with the valid web API key is not
+	// counted. Required: a missing or zero value is rejected, never "unlimited".
+	EventsRateLimit CalendarEventsRateLimit `yaml:"events_rate_limit"`
 }
 
-// Validate rejects a missing events language or cache lifetime. The timezone
+// CalendarEventsRateLimit is the per-IP limit of GET /v1/calendar/events.
+type CalendarEventsRateLimit struct {
+	// Max is the number of requests allowed per Window (dev: 60).
+	Max int `yaml:"max"`
+
+	// Window is the length of the counting window (dev: "1m").
+	Window Duration `yaml:"window"`
+
+	// TrustForwardedFor reads the client IP from the last X-Forwarded-For entry
+	// instead of the TCP peer; see TempleSuggestionRateLimit for when it is safe.
+	TrustForwardedFor bool `yaml:"trust_forwarded_for"`
+}
+
+// Validate rejects a missing events language, cache lifetime or rate limit. The timezone
 // and image base URL are checked where they are used (NewCalendarUsecase).
 func (c CalendarConfig) Validate() error {
 	if c.DefaultLanguage == "" {
@@ -456,6 +474,12 @@ func (c CalendarConfig) Validate() error {
 	}
 	if c.EventsCacheMaxAge.Duration() < time.Second {
 		return fmt.Errorf("calendar.events_cache_max_age must be >= 1s, got %s", c.EventsCacheMaxAge.Duration())
+	}
+	if c.EventsRateLimit.Max < 1 {
+		return fmt.Errorf("calendar.events_rate_limit.max must be >= 1, got %d", c.EventsRateLimit.Max)
+	}
+	if c.EventsRateLimit.Window.Duration() <= 0 {
+		return fmt.Errorf("calendar.events_rate_limit.window must be > 0, got %s", c.EventsRateLimit.Window.Duration())
 	}
 	return nil
 }

@@ -173,3 +173,26 @@ func TestClientIPRateLimit_ForwardedHeaderGivesVisitorsOwnBuckets(t *testing.T) 
 	assert.Equal(t, http.StatusNoContent, send("203.0.113.2"), "another visitor, another bucket")
 	assert.Equal(t, http.StatusTooManyRequests, send("203.0.113.1"))
 }
+
+func TestClientIPRateLimit_WebKeySkipsTheLimit(t *testing.T) {
+	var calls int
+	rl, err := NewClientIPRateLimit(1, time.Hour, false)
+	require.NoError(t, err)
+	h := rl.WrapFuncUnlessWebKey(okHandler(&calls))
+
+	// Without the key the second request from one address is limited.
+	for i, want := range []int{http.StatusNoContent, http.StatusTooManyRequests} {
+		w := httptest.NewRecorder()
+		h(w, fromIP("10.0.0.1", ""))
+		assert.Equal(t, want, w.Code, "request %d without a key", i+1)
+	}
+
+	// With the verified key the same address is never counted.
+	for i := 0; i < 5; i++ {
+		w := httptest.NewRecorder()
+		r := fromIP("10.0.0.1", "")
+		r = r.WithContext(withWebKeyVerified(r.Context()))
+		h(w, r)
+		assert.Equal(t, http.StatusNoContent, w.Code, "request %d with the key", i+1)
+	}
+}

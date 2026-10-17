@@ -38,7 +38,7 @@ func calendarCatalogue() domain.CalendarCatalogue {
 				Groups: []string{"vietnam"}, IsPublicHoliday: true, SortOrder: 2,
 				Rule: domain.RecurrenceRule{Kind: domain.KindSolar, SolarMonth: 4, SolarDay: 30}},
 			{Code: "phat-dan", Name: "Lễ Phật đản", ShortDescription: "s2", LongDescription: "l2", Guidance: "g2",
-				Groups: []string{"vietnam", "buddhist", "folk"}, SortOrder: 1, ImageURL: calendarStr("https://cdn.example/phat-dan.jpg"),
+				Groups: []string{"vietnam", "buddhist", "folk"}, SortOrder: 1, IsMajor: true, ImageURL: calendarStr("https://cdn.example/phat-dan.jpg"),
 				Rule: domain.RecurrenceRule{Kind: domain.KindLunar, LunarMonth: 4, LunarDay: 15}},
 			{Code: "ram", Name: "Rằm", ShortDescription: "s3", LongDescription: "l3", Guidance: "g3",
 				Groups: []string{"buddhist"}, SortOrder: 3,
@@ -97,6 +97,33 @@ func TestCalendarReplaceAndList(t *testing.T) {
 	assert.Equal(t, domain.RecurrenceRule{Kind: domain.KindLunarLastDay, LunarMonth: 12}, byCode["giao-thua"].Rule)
 	assert.Equal(t, domain.RecurrenceRule{Kind: domain.KindSolarTerm, SolarTermLongitude: 0}, byCode["xuan-phan"].Rule,
 		"0° is a valid longitude and must round-trip as a solar term")
+}
+
+func TestCalendarIsMajorStoredAndOverwritten(t *testing.T) {
+	repo, _ := newCalendarEventRepo(t)
+	ctx := context.Background()
+	require.NoError(t, repo.ReplaceCatalogue(ctx, calendarCatalogue()))
+
+	majorOf := func() map[string]bool {
+		events, err := repo.ListActiveEvents(ctx, "vi")
+		require.NoError(t, err)
+		out := map[string]bool{}
+		for _, e := range events {
+			out[e.Code] = e.IsMajor
+		}
+		return out
+	}
+	got := majorOf()
+	assert.True(t, got["phat-dan"])
+	assert.False(t, got["ram"], "an event without the mark is stored as false")
+
+	c := calendarCatalogue()
+	c.Events[1].IsMajor = false
+	c.Events[0].IsMajor = true
+	require.NoError(t, repo.ReplaceCatalogue(ctx, c))
+	got = majorOf()
+	assert.False(t, got["phat-dan"], "a later seed run overwrites is_major")
+	assert.True(t, got["giai-phong"])
 }
 
 func TestCalendarReplaceIsIdempotent(t *testing.T) {

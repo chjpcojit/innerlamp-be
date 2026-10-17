@@ -17,9 +17,9 @@ type calendarEventUsecase interface {
 	EventsForYear(ctx context.Context, year string) (domain.CalendarEventsResult, error)
 }
 
-// CalendarEventHandler serves GET /v1/calendar/events. The route requires a
-// valid access token; the wiring (cmd/main.go) puts the JWT middleware in
-// front of it, so the handler itself does not look at the caller.
+// CalendarEventHandler serves GET /v1/calendar/events. The route is public (v3.0):
+// the wiring (cmd/main.go) puts the web API key check and the per-IP limit in
+// front of it, and the handler does not look at the caller.
 type CalendarEventHandler struct {
 	usecase calendarEventUsecase
 	// explicitYearCacheControl is sent when the request names a year.
@@ -27,11 +27,11 @@ type CalendarEventHandler struct {
 }
 
 // NewCalendarEventHandler wires the handler. cacheMaxAge is how long a client
-// may reuse the events of an explicit year (config: calendar.events_cache_max_age).
+// (and a shared cache) may reuse the events of an explicit year (config: calendar.events_cache_max_age).
 func NewCalendarEventHandler(usecase calendarEventUsecase, cacheMaxAge time.Duration) *CalendarEventHandler {
 	return &CalendarEventHandler{
 		usecase:                  usecase,
-		explicitYearCacheControl: "private, max-age=" + strconv.Itoa(int(cacheMaxAge/time.Second)),
+		explicitYearCacheControl: "public, max-age=" + strconv.Itoa(int(cacheMaxAge/time.Second)),
 	}
 }
 
@@ -49,6 +49,11 @@ type calendarEventResponse struct {
 	ImageURL         *string  `json:"image_url"`
 	Groups           []string `json:"groups"`
 	IsPublicHoliday  bool     `json:"is_public_holiday"`
+	IsMajor          bool     `json:"is_major"`
+	SortOrder        int      `json:"sort_order"`
+	// Recurrence is the kind of the repeat rule (solar, lunar, lunar_monthly, lunar_last_day,
+	// solar_term); clients use it to tell Rằm / Mùng 1 (lunar_monthly) apart (BR-CAL-15).
+	Recurrence string `json:"recurrence"`
 }
 
 type calendarLunarDateResponse struct {
@@ -72,7 +77,7 @@ type calendarEventsResponse struct {
 }
 
 // Events serves GET /v1/calendar/events?year=YYYY. year is optional (empty =
-// the current year). An explicit year is cacheable by the user's app; an
+// the current year). An explicit year is cacheable by the client and by a shared cache; an
 // omitted one changes when the year turns, so it is not.
 func (h *CalendarEventHandler) Events(w http.ResponseWriter, r *http.Request) {
 	requested := r.URL.Query().Get("year")
@@ -106,6 +111,7 @@ func (h *CalendarEventHandler) Events(w http.ResponseWriter, r *http.Request) {
 			Code: e.Code, Name: e.Name, ShortDescription: e.ShortDescription,
 			LongDescription: e.LongDescription, Guidance: e.Guidance, ImageURL: e.ImageURL,
 			Groups: groups, IsPublicHoliday: e.IsPublicHoliday,
+			IsMajor: e.IsMajor, SortOrder: e.SortOrder, Recurrence: string(e.Rule.Kind),
 		})
 	}
 	for _, o := range res.Occurrences {

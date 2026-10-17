@@ -54,6 +54,20 @@ func TestParseCatalogueReadsEverything(t *testing.T) {
 	assert.Empty(t, c.Verify())
 }
 
+func TestParseCatalogueIsMajor(t *testing.T) {
+	d := goodDoc()
+	d["events"].([]any)[0].(map[string]any)["is_major"] = true
+	c, _, err := parseCatalogue(encode(t, d))
+	require.NoError(t, err)
+	assert.True(t, c.Events[0].IsMajor)
+	assert.False(t, c.Events[1].IsMajor, "absent is_major is false")
+
+	d = goodDoc()
+	d["events"].([]any)[0].(map[string]any)["is_major"] = "yes"
+	_, _, err = parseCatalogue(encode(t, d))
+	require.Error(t, err, "is_major must be a boolean")
+}
+
 func TestParseCatalogueRefuses(t *testing.T) {
 	cases := []struct {
 		name   string

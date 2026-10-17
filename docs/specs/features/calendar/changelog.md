@@ -1,5 +1,23 @@
 # Changelog — calendar
 
+## v3.2 (2026-10-17) — triển khai v3.0 và thêm sự kiện cho các vị Phật / Bồ Tát
+
+Triển khai Phase 14–18 (không đổi AC). `openapi.yaml` 2.1.1 → **2.2.0** (MINOR: route công khai, ba field mới, thêm `429`).
+
+- Code: migration `0039_calendar_events_is_major.sql` (số `0037` trong spec cũ đã bị auth email dùng); `domain.CalendarEvent.IsMajor`; repository đọc / ghi `is_major`; seed nhận `is_major` (tuỳ chọn) và `Verify` chặn `lunar_monthly` không đứng cuối `sort_order` (E25); handler trả `is_major`, `sort_order`, `recurrence` và `Cache-Control: public`; `calendar.events_rate_limit` (bắt buộc) và `ClientIPRateLimit.WrapFuncUnlessWebKey` (key web hợp lệ không bị đếm, E23); route `GET /v1/calendar/events` qua `webAPIKey` + giới hạn IP, bỏ JWT (E4, E22).
+- Test: handler, domain `Verify`, seed parse, repository (`TEST_DB_NAME=innerlamp_test`), config, middleware, `domain/calendar_event_vectors_test.go` đọc thẳng `docs/product/calendar/rules/*.json` (E27), E2E với binary thật (route công khai, `X-API-Key` sai 401, 429 chỉ khi không có key, `is_major`, Rằm / Mùng 1 cuối, vía của các vị Phật / Bồ Tát).
+- Dữ liệu: `assets/data/calendar-events.json` (đã nằm trong git, E26) sửa theo BR-CAL-05 / 10 / 14: Mùng 1 / Rằm `sort_order` 59 / 60, `guidance` một việc một dòng, `is_major: true` cho 10 sự kiện.
+- **Thêm 6 sự kiện** cho các vị trong `phat_botat.json` có ngày vía nhưng chưa có trong lịch: Tỳ Lô Giá Na (15/4), Hư Không Tạng (15/1), Kim Cương Thủ (8/4), Lục Độ Mẫu (8/1), Bạch Độ Mẫu (15/10), Kim Cương Tát Đỏa (15/7); `via_event_codes` của sáu vị được điền. Quyết định của anh Đức 2026-10-17: vị nào có ngày vía thì thêm sự kiện vào lịch (trả lời câu hỏi mở của product deity BR-DTY-05: thêm, không bỏ ngày). Ngày lấy từ danh mục, **chưa có nguồn ngoài xác nhận**. Danh mục từ 54 lên 60 sự kiện (trước đó 51 → 54 ngày 2026-10-15).
+- Tài liệu: `openapi.yaml` 2.2.0 + `web/docs/public/openapi.yaml`, `web/docs/.../guides/catalogues/calendar.md` (bỏ cảnh báo "đang là spec" đã lỗi thời), `web/docs/.../changelog.md`.
+
+Follow-ups còn lại:
+- Product spec calendar: cột Backend §4.2 (FR-CAL-001, BR-CAL-10 → `done`), nội dung 6 sự kiện mới và số 60 sự kiện (`ba-writer`).
+- Product spec deity: câu hỏi "thêm sự kiện hay bỏ ngày" đã có trả lời; cập nhật Appendix (`ba-writer`).
+- `docs/knowledge/features/calendar.md`, `erd.svg`.
+- Đối chiếu nội dung seed với lịch GHPGVN.
+- Dev DB cần chạy `make migrate` rồi `make seed-calendar-events` để nhận `is_major` và 6 sự kiện mới.
+- Ba client (website, iOS, Android) cần tích hợp theo hợp đồng 2.2.0.
+
 ## v3.1 (2026-10-15) — sau khi viết spec ba client
 
 - `requirements.md` / `design.md` / `flow.md`: E23 đổi: request có `X-API-Key` đúng (website) không bị đếm vào giới hạn theo IP, vì website gọi từ một IP server (phát hiện khi viết spec website). Step 1b và sequence vẽ lại nhánh này. `tasks.md` thêm một task cho nhánh bỏ qua giới hạn.

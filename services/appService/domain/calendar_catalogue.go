@@ -110,5 +110,19 @@ func (c CalendarCatalogue) Verify() []string {
 			inEvent[g] = true
 		}
 	}
+
+	// BR-CAL-05 / E25: Mùng 1 and Rằm come last on a day that also has a named event, so every
+	// lunar_monthly event must sort after every other event.
+	maxOther := 0
+	for _, e := range c.Events {
+		if e.Rule.Kind != KindLunarMonthly && e.SortOrder > maxOther {
+			maxOther = e.SortOrder
+		}
+	}
+	for _, e := range c.Events {
+		if e.Rule.Kind == KindLunarMonthly && e.SortOrder <= maxOther {
+			add("event %q: lunar_monthly sort_order %d must be greater than every other event's (highest is %d)", e.Code, e.SortOrder, maxOther)
+		}
+	}
 	return issues
 }

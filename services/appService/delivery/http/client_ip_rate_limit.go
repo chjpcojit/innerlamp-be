@@ -60,6 +60,21 @@ func (l *ClientIPRateLimit) WrapFunc(next http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
+// WrapFuncUnlessWebKey is WrapFunc, except a request that carries the valid web
+// API key (RequireWebAPIKey ran first and marked it) skips the limit. The website
+// calls from a few server addresses and caches per year, so counting it would
+// throttle every visitor together (calendar E23). Wrap it inside RequireWebAPIKey.
+func (l *ClientIPRateLimit) WrapFuncUnlessWebKey(next http.HandlerFunc) http.HandlerFunc {
+	limited := l.WrapFunc(next)
+	return func(w http.ResponseWriter, r *http.Request) {
+		if webKeyVerified(r.Context()) {
+			next(w, r)
+			return
+		}
+		limited(w, r)
+	}
+}
+
 // HeaderClientIP is the header the website's server uses to forward its
 // visitor's address (login AC34). It is read only on a request that carries a
 // valid X-API-Key; elsewhere it is attacker-controlled text.

@@ -104,8 +104,11 @@ type CalendarEvent struct {
 	// Groups holds group codes, in display order.
 	Groups          []string
 	IsPublicHoliday bool
-	SortOrder       int
-	Rule            RecurrenceRule
+	// IsMajor marks a "Lễ lớn" (BR-CAL-10): set by the content editor, shown highlighted,
+	// under the "Lễ lớn" filter and first on the home block.
+	IsMajor   bool
+	SortOrder int
+	Rule      RecurrenceRule
 }
 
 // CalendarLunarDate is a lunar date, named apart from genealogy.go's year-less

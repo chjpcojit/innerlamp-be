@@ -27,8 +27,10 @@ func sampleEventsResult() domain.CalendarEventsResult {
 		Groups: []domain.CalendarGroup{{Code: "vietnam", Name: "Việt Nam"}, {Code: "folk", Name: "Dân gian"}},
 		Events: []domain.CalendarEvent{
 			{Code: "tet", Name: "Tết Nguyên Đán", ShortDescription: "s", LongDescription: "l", Guidance: "g",
-				ImageURL: &image, Groups: []string{"vietnam", "folk"}, IsPublicHoliday: true},
-			{Code: "ram", Name: "Rằm", ShortDescription: "s", LongDescription: "l", Guidance: "g"},
+				ImageURL: &image, Groups: []string{"vietnam", "folk"}, IsPublicHoliday: true, IsMajor: true, SortOrder: 4,
+				Rule: domain.RecurrenceRule{Kind: domain.KindLunar, LunarMonth: 1, LunarDay: 1}},
+			{Code: "ram", Name: "Rằm", ShortDescription: "s", LongDescription: "l", Guidance: "g", SortOrder: 60,
+				Rule: domain.RecurrenceRule{Kind: domain.KindLunarMonthly, LunarDay: 15}},
 		},
 		Occurrences: []domain.CalendarOccurrence{
 			{EventCode: "tet", SolarDate: time.Date(2026, 2, 17, 0, 0, 0, 0, time.UTC),
@@ -46,7 +48,7 @@ func TestCalendarEventHandler_ExplicitYear(t *testing.T) {
 	rec := doGet(newCalendarEventMux(uc), "/v1/calendar/events?year=2026")
 
 	require.Equal(t, http.StatusOK, rec.Code, rec.Body.String())
-	assert.Equal(t, "private, max-age=86400", rec.Header().Get("Cache-Control"))
+	assert.Equal(t, "public, max-age=86400", rec.Header().Get("Cache-Control"))
 	data := decode(t, rec)["data"].(map[string]any)
 	assert.EqualValues(t, 2026, data["year"])
 
@@ -61,10 +63,16 @@ func TestCalendarEventHandler_ExplicitYear(t *testing.T) {
 	assert.Equal(t, "https://cdn.example/x.jpg", tet["image_url"])
 	assert.Equal(t, []any{"vietnam", "folk"}, tet["groups"])
 	assert.Equal(t, true, tet["is_public_holiday"])
+	assert.Equal(t, true, tet["is_major"])
+	assert.EqualValues(t, 4, tet["sort_order"])
+	assert.Equal(t, "lunar", tet["recurrence"])
 	ram := events[1].(map[string]any)
 	assert.Nil(t, ram["image_url"], "image_url is null, not absent")
 	assert.Contains(t, ram, "image_url")
 	assert.Equal(t, []any{}, ram["groups"], "no groups is [], not null")
+	assert.Equal(t, false, ram["is_major"], "is_major is false, not absent")
+	assert.EqualValues(t, 60, ram["sort_order"])
+	assert.Equal(t, "lunar_monthly", ram["recurrence"])
 
 	occ := data["occurrences"].([]any)
 	require.Len(t, occ, 2)

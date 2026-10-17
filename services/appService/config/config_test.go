@@ -862,17 +862,21 @@ func TestLoad_DevYAMLStorageConfig(t *testing.T) {
 }
 
 func TestCalendarConfig_Validate(t *testing.T) {
-	ok := CalendarConfig{Timezone: "Asia/Ho_Chi_Minh", DefaultLanguage: "vi", EventsCacheMaxAge: Duration(24 * time.Hour)}
+	limit := CalendarEventsRateLimit{Max: 60, Window: Duration(time.Minute)}
+	ok := CalendarConfig{Timezone: "Asia/Ho_Chi_Minh", DefaultLanguage: "vi", EventsCacheMaxAge: Duration(24 * time.Hour), EventsRateLimit: limit}
 	if err := ok.Validate(); err != nil {
 		t.Fatalf("valid config rejected: %v", err)
 	}
 	for name, c := range map[string]CalendarConfig{
 		"zero value":     {},
-		"no language":    {EventsCacheMaxAge: Duration(time.Hour)},
-		"long language":  {DefaultLanguage: "vietnamese", EventsCacheMaxAge: Duration(time.Hour)},
-		"no cache age":   {DefaultLanguage: "vi"},
-		"sub-second age": {DefaultLanguage: "vi", EventsCacheMaxAge: Duration(500 * time.Millisecond)},
-		"negative cache": {DefaultLanguage: "vi", EventsCacheMaxAge: Duration(-time.Hour)},
+		"no language":    {EventsCacheMaxAge: Duration(time.Hour), EventsRateLimit: limit},
+		"long language":  {DefaultLanguage: "vietnamese", EventsCacheMaxAge: Duration(time.Hour), EventsRateLimit: limit},
+		"no cache age":   {DefaultLanguage: "vi", EventsRateLimit: limit},
+		"sub-second age": {DefaultLanguage: "vi", EventsCacheMaxAge: Duration(500 * time.Millisecond), EventsRateLimit: limit},
+		"negative cache": {DefaultLanguage: "vi", EventsCacheMaxAge: Duration(-time.Hour), EventsRateLimit: limit},
+		"no rate limit":  {DefaultLanguage: "vi", EventsCacheMaxAge: Duration(time.Hour)},
+		"zero max":       {DefaultLanguage: "vi", EventsCacheMaxAge: Duration(time.Hour), EventsRateLimit: CalendarEventsRateLimit{Window: Duration(time.Minute)}},
+		"zero window":    {DefaultLanguage: "vi", EventsCacheMaxAge: Duration(time.Hour), EventsRateLimit: CalendarEventsRateLimit{Max: 60}},
 	} {
 		if err := c.Validate(); err == nil {
 			t.Errorf("%s: want error, got nil", name)
@@ -896,7 +900,8 @@ func TestLoad_DevYAMLCalendarConfig(t *testing.T) {
 		t.Fatalf("Load: %v", err)
 	}
 	if cfg.Calendar.Timezone != "Asia/Ho_Chi_Minh" || cfg.Calendar.DefaultLanguage != "vi" ||
-		cfg.Calendar.EventsCacheMaxAge.Duration() != 24*time.Hour {
+		cfg.Calendar.EventsCacheMaxAge.Duration() != 24*time.Hour ||
+		cfg.Calendar.EventsRateLimit.Max != 60 || cfg.Calendar.EventsRateLimit.Window.Duration() != time.Minute {
 		t.Errorf("Calendar = %+v", cfg.Calendar)
 	}
 	if err := cfg.Calendar.Validate(); err != nil {
