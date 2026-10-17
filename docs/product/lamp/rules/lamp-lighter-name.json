@@ -1,0 +1,71 @@
+{
+  "rule": [
+    "BR-LMP-09"
+  ],
+  "description": "The lighter's name other users see on a lamp, decided at the moment of lighting and never changed afterwards. The account's full name is never used.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "dharma_name": "the lighter's dharma name at the moment of lighting; null or empty when none",
+    "hide_name": "true when the lighter chose to hide their name"
+  },
+  "output": {
+    "displayed_name": "the name or the anonymous label"
+  },
+  "cases": [
+    {
+      "name": "dharma name is shown",
+      "input": {
+        "dharma_name": "Thích Minh An",
+        "hide_name": false
+      },
+      "expected": {
+        "displayed_name": "Thích Minh An"
+      },
+      "source": "BR-LMP-09"
+    },
+    {
+      "name": "hidden name shows Vô danh even when a dharma name exists",
+      "input": {
+        "dharma_name": "Thích Minh An",
+        "hide_name": true
+      },
+      "expected": {
+        "displayed_name": "Vô danh"
+      },
+      "source": "BR-LMP-09"
+    },
+    {
+      "name": "no dharma name shows Vô danh",
+      "input": {
+        "dharma_name": null,
+        "hide_name": false
+      },
+      "expected": {
+        "displayed_name": "Vô danh"
+      },
+      "source": "BR-LMP-09"
+    },
+    {
+      "name": "empty dharma name shows Vô danh",
+      "input": {
+        "dharma_name": "",
+        "hide_name": false
+      },
+      "expected": {
+        "displayed_name": "Vô danh"
+      },
+      "source": "BR-LMP-09"
+    },
+    {
+      "name": "no dharma name and hidden shows Vô danh",
+      "input": {
+        "dharma_name": null,
+        "hide_name": true
+      },
+      "expected": {
+        "displayed_name": "Vô danh"
+      },
+      "source": "BR-LMP-09"
+    }
+  ]
+}

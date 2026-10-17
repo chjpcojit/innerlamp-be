@@ -1,0 +1,476 @@
+{
+  "rule": [
+    "BR-LMP-01",
+    "BR-LMP-02",
+    "BR-LMP-06",
+    "BR-LMP-07"
+  ],
+  "description": "Whether a lamp the user submits is accepted, and the normalized recipient and prayer that are kept. Lamp type and intention use the product codes OIL_LAMP, LOTUS_CANDLE, FLOWER_LANTERN and PEACE, SALVATION, MERIT_DEDICATION, GRATITUDE as test-local labels. A value written as {\"repeat\": s, \"times\": n} is the string s repeated n times; {\"concat\": [...]} joins its parts. Characters are counted after Unicode NFC normalization.",
+  "product_spec_version": "1.0",
+  "inputs": {
+    "lamp_type": "one of the three lamp types",
+    "intention": "one of the four intentions",
+    "recipient": "free text, possibly empty",
+    "prayer": "free text or null",
+    "duration_days": "integer"
+  },
+  "output": {
+    "valid": "true when the lamp is accepted",
+    "field": "when not valid: which input is rejected",
+    "recipient": "kept recipient after trimming; null when blank",
+    "prayer": "kept prayer after trimming; null when blank",
+    "dedicated_to": "all_beings when the recipient is blank"
+  },
+  "cases": [
+    {
+      "name": "minimal valid lamp",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "every lamp type is accepted: lotus candle",
+      "input": {
+        "lamp_type": "LOTUS_CANDLE",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "every lamp type is accepted: floating flower lantern",
+      "input": {
+        "lamp_type": "FLOWER_LANTERN",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "every intention is accepted: salvation of the departed",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "SALVATION",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "every intention is accepted: merit dedication",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "MERIT_DEDICATION",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "every intention is accepted: gratitude",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "GRATITUDE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "duration 1 days is accepted",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 1
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "duration 21 days is accepted",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 21
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "duration 49 days is accepted",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 49
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "duration outside the allowed set is rejected",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 5
+      },
+      "expected": {
+        "valid": false,
+        "field": "duration_days"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "duration zero is rejected",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 0
+      },
+      "expected": {
+        "valid": false,
+        "field": "duration_days"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "unknown lamp type is rejected",
+      "input": {
+        "lamp_type": "CANDLE",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": false,
+        "field": "lamp_type"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "unknown intention is rejected",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "WEALTH",
+        "recipient": "Bà ngoại",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": false,
+        "field": "intention"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "surrounding spaces are removed from the recipient",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "  Bà ngoại  ",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "empty recipient means all beings",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": null,
+        "prayer": null,
+        "dedicated_to": "all_beings"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "recipient of only spaces means all beings",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "   ",
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": null,
+        "prayer": null,
+        "dedicated_to": "all_beings"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "recipient of 100 characters is accepted",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": {
+          "repeat": "a",
+          "times": 100
+        },
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": {
+          "repeat": "a",
+          "times": 100
+        },
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "recipient of 101 characters is rejected",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": {
+          "repeat": "a",
+          "times": 101
+        },
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": false,
+        "field": "recipient"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "100 Vietnamese characters typed as base letter plus combining marks count as 100 characters",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": {
+          "repeat": "ệ",
+          "times": 100
+        },
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": {
+          "repeat": "ệ",
+          "times": 100
+        },
+        "prayer": null
+      },
+      "source": "BR-LMP-06 (characters are counted after Unicode NFC normalization)"
+    },
+    {
+      "name": "101 Vietnamese characters in decomposed form are rejected",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": {
+          "repeat": "ệ",
+          "times": 101
+        },
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": false,
+        "field": "recipient"
+      },
+      "source": "BR-LMP-06 (characters are counted after Unicode NFC normalization)"
+    },
+    {
+      "name": "the recipient is also trimmed before counting: 100 characters plus spaces is accepted",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": {
+          "concat": [
+            "  ",
+            {
+              "repeat": "a",
+              "times": 100
+            },
+            "  "
+          ]
+        },
+        "prayer": null,
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": {
+          "repeat": "a",
+          "times": 100
+        },
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "prayer of 300 characters is accepted",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": {
+          "repeat": "a",
+          "times": 300
+        },
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": {
+          "repeat": "a",
+          "times": 300
+        }
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "prayer of 301 characters is rejected",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": {
+          "repeat": "a",
+          "times": 301
+        },
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": false,
+        "field": "prayer"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "empty prayer means no prayer",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": "",
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "prayer of only spaces means no prayer",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": "  ",
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": null
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    },
+    {
+      "name": "prayer keeps its inner text and loses surrounding spaces",
+      "input": {
+        "lamp_type": "OIL_LAMP",
+        "intention": "PEACE",
+        "recipient": "Bà ngoại",
+        "prayer": " Mong bà bình an ",
+        "duration_days": 7
+      },
+      "expected": {
+        "valid": true,
+        "recipient": "Bà ngoại",
+        "prayer": "Mong bà bình an"
+      },
+      "source": "BR-LMP-01, BR-LMP-02, BR-LMP-06, BR-LMP-07"
+    }
+  ]
+}

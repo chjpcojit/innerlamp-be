@@ -1,5 +1,7 @@
 # Software Requirements Specification — Lamp Lighting
 
+> Superseded by [docs/product/lamp/product.md](../../../product/lamp/product.md) (v1.0) — kept for history; do not update.
+
 | Field | Value |
 |---|---|
 | Document type | Software Requirements Specification (SRS) — IEEE 29148-2018 |
