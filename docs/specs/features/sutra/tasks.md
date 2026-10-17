@@ -1,6 +1,6 @@
 # Tasks — sutra
 
-Version: 4.0
+Version: 4.1
 Last updated: 2026-10-16
 Status: Phases 0–6 are done and were verified (2026-10-03 to 2026-10-11, evidence below; `go build`, `go vet`, `go test -short` on the whole repo, repository tests on a real Postgres 16, the full E2E suite against the real binary). **Phase 7 (v4.0) is open**: nothing in it is implemented. The search route (Phase 3–4) was shipped after v3.0 was written and is tested at the usecase, repository and E2E level.
 Module: `sutra`
@@ -66,7 +66,7 @@ Every item traces to a row of the "Layers & components" table or a Step of a "St
 - [x] E2E in `services/appService/e2e/sutra_e2e_test.go` against the real binary and an ephemeral Postgres: the four routes, filters, search (`KINH HANH PHUC`, accented, English title, no hit, `q` ANDed with `tradition`, empty / blank `q` → `INVALID_FILTER`), the load command and its refusals
 - [x] `go build ./...`, `go vet ./...`, `go test -short ./...` clean on the whole repo; the full E2E suite passes
 - [x] ERD `docs/specs/db/erd.mmd` / `erd.svg`, `migrations/README.md`, `Makefile` (`ensure-sutras`, `seed-sutras`, `seed`), `docs/development/local-stack.md`
-- [x] OKF concept `docs/knowledge/features/sutra.md`, assumptions `docs/assumptions/sutra/A-001…011`, tech debt `docs/tech-debt/sutra/TD-001…010` — written; the OKF concept predates search, `audio_url` and the split fields and is stale (follow-up for `il-okf-writer`, see below)
+- [x] OKF concept `docs/knowledge/features/sutra.md`, assumptions `docs/assumptions/sutra/A-001…011`, tech debt `docs/tech-debt/sutra/TD-001…010` — written; the OKF concept predated search, `audio_url` and the split fields and was deleted on 2026-10-16 (rewrite with `il-okf-writer` after Phase 7)
 
 ## Phase 6 — Split fields and summary (v2.12–v2.13, now AC 10–13, 16, 19, 37)
 
@@ -82,15 +82,14 @@ Every item traces to a row of the "Layers & components" table or a Step of a "St
 - [ ] After the contract change: `SutraSummary.DurationMinutes` becomes `int` in the DTO if the domain no longer holds `null`, otherwise keep `*int` for rows read from a database loaded before v4.0; decide in the implementing change and record it in `design.md`
 - [ ] `repository/sutra_vectors_test.go` — run every case of `docs/product/sutra/rules/sutra-browse.json` and `sutra-search-match.json` against a real Postgres: insert each case's illustrative texts, apply its topic / `max_minutes` / term, compare the identifiers and their order (AC 4, 8). The files `sutra-default-version.json` and `sutra-daily-quote.json` belong to the clients (BR-STR-05, BR-STR-10), not to this backend
 - [ ] Time `GET /v1/sutras?q=` on the full library as in Phase 5 (a one-term search over 153 texts, with and without accents) and record the figures (AC 44)
-- [ ] Regenerate the coverage audit against the 44 criteria of this spec (`golang-e2e-verification`) and close the follow-ups listed in the old `test-coverage-report.md`
+- [ ] Regenerate the coverage audit against the 44 criteria of this spec (`golang-e2e-verification`) (the old `test-coverage-report.md`, which used the v3.0 numbering, was deleted on 2026-10-16; create the new one from the template)
 
 ## Follow-ups outside this spec (flagged, not edited here)
 
 - `docs/specs/api/openapi.yaml` and `web/docs/public/openapi.yaml` — Phase 7 wording above
-- `docs/knowledge/features/sutra.md` — stale (search, `audio_url`, the split fields, the by-deity order); refresh with `il-okf-writer`
+- `docs/knowledge/features/sutra.md` — deleted 2026-10-16 as stale; write the new concept with `il-okf-writer` after Phase 7
 - `docs/specs/db/erd.mmd` — check `audio_url` (migration `0019`)
-- `docs/specs/features/sutra/test-coverage-report.md` — uses the old AC numbering of v3.0; regenerate or delete in the cleanup step
-- `docs/assumptions/sutra/` and `docs/tech-debt/sutra/` — entries that this spec and the product spec now supersede are cleaned up in the final cleanup PR, after the user approves the list
+- `docs/assumptions/sutra/` and `docs/tech-debt/sutra/` — cleaned up 2026-10-16: A-002, A-008 and TD-006 deleted; the other entries are still cited by this spec or the product spec and stay
 
 ## Deferred (separate feature, not blocking sutra)
 

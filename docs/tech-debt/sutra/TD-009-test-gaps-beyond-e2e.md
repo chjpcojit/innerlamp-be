@@ -6,7 +6,7 @@ severity: low
 status: open
 created: 2026-10-03
 owner: ducnguyen-wee
-code: services/appService/e2e/sutra_e2e_test.go; docs/specs/features/sutra/test-coverage-report.md
+code: services/appService/e2e/sutra_e2e_test.go
 ---
 
 # TD-009 — Behaviours the tests cannot reach / Các hành vi mà test chưa với tới
@@ -19,9 +19,9 @@ code: services/appService/e2e/sutra_e2e_test.go; docs/specs/features/sutra/test-
 
 ## 2. Why accepted / Vì sao chấp nhận
 
-**EN** — These need fault injection or process orchestration that black-box tests cannot do cheaply; the gaps are listed in `test-coverage-report.md`.
+**EN** — These need fault injection or process orchestration that black-box tests cannot do cheaply; the gaps are listed in section 1 above.
 
-**VI** — Cần chèn lỗi hoặc điều phối process mà test hộp đen khó làm rẻ; các khoảng trống đã được liệt kê trong `test-coverage-report.md`.
+**VI** — Cần chèn lỗi hoặc điều phối process mà test hộp đen khó làm rẻ; các khoảng trống được liệt kê ở mục 1 trên.
 
 ## 3. Risk if unpaid / Rủi ro nếu không trả
 
