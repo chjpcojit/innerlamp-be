@@ -74,7 +74,7 @@ Each item traces to a row of the "Layers & components" table or a Step in `desig
 - [ ] `docs/specs/api/openapi.yaml`: `recipient` optional in `LampRequest`, nullable in `Lamp` and `GardenLamp`, `is_mine` in `GardenLamp`; bump `info.version` 2.1.1 → 3.0.0 (MAJOR: a response field becomes nullable)
 - [ ] `web/docs/src/content/docs/changelog.md`: dated entry naming 3.0.0; re-sync `web/docs/public/openapi.yaml` (`cd web/docs && node scripts/sync-openapi.mjs`); update the `lamps.md` web doc
 - [ ] `docs/specs/db/erd.mmd`: `recipient` nullable; regenerate `erd.svg` (see Phase 3)
-- [ ] Delete the legacy `docs/specs/features/lamp/SRS.md` (it carries a "Superseded by" banner) in the separate cleanup PR, after the user approves the file list
+- [x] Delete the legacy `docs/specs/features/lamp/SRS.md` (removed 2026-10-17 after the user approved the file list)
 
 ## Deferred (separate feature, not blocking lamp)
 

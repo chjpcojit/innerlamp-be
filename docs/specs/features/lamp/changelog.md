@@ -16,7 +16,7 @@ Version history of the spec set `requirements.md` / `design.md` / `flow.md` / `t
 - New migration dropping `NOT NULL` on `lamps.recipient` (Phase 6); update `migrations/README.md`.
 - `docs/specs/db/erd.mmd` (`recipient` nullable) and `erd.svg` regeneration.
 - `docs/knowledge/features/lamp.md`: write with `il-okf-writer` after v2.0 is implemented and verified.
-- Delete the legacy `SRS.md` in the cleanup PR once the user approves the file list.
+- Done 2026-10-17: the legacy `SRS.md` was deleted in the cleanup PR after the user approved the file list.
 
 ## v1.3 (2026-10-11)
 
