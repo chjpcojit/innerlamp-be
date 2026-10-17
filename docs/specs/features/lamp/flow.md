@@ -1,15 +1,15 @@
 # Flow — lamp
 
-Version: 1.3
-Last updated: 2026-10-11
-Status: implemented — mirror 1:1 của `design.md` v1.2 (flow thắp đèn và vườn đèn không đổi so với v1.1).
+Version: 2.0
+Last updated: 2026-10-17
+Status: v1 flows implemented; v2.0 changes (blank recipient → `nil`, `IS NOT DISTINCT FROM` on the recipient, `is_mine` in the garden query) are design only. 1:1 mirror of `design.md` v2.0.
 Module: `lamp`
 
 > See `changelog.md` in this folder for the version history of this spec.
 
-## Sequence — Thắp đèn (POST /v1/lamps)
+## Sequence — Light a lamp (POST /v1/lamps)
 
-Vẽ lại Step L-1 → L-4 của `design.md`.
+Redraws Step L-1 → L-4 of `design.md`.
 
 ```mermaid
 sequenceDiagram
@@ -22,54 +22,54 @@ sequenceDiagram
     participant DB as Postgres
 
     C->>M: POST /v1/lamps (Bearer access token)
-    alt token hợp lệ
-        M->>H: userID trong context
-    else thiếu / hết hạn / sai loại token
+    alt valid token
+        M->>H: userID in context
+    else missing / expired / wrong token type
         M--xC: 401
     end
 
     H->>H: DecodeJSONBodyStrict
     H->>U: Light(ctx, userID, req)
-    U->>U: trim + NFC, validate AC3-AC8, now, litAt, endAt
-    alt không hợp lệ
+    U->>U: trim + NFC, blank recipient → nil (v2.0), validate AC 3-8, now, litAt, endAt
+    alt invalid
         U--xH: LampValidationError
         H--xC: 400 VALIDATION_ERROR + details.field
     end
 
-    U->>R: Light(ctx, in{now, maxActive, dedupeWindow})
+    U->>R: Light(ctx, p{lamp, maxActive, dedupeWindow})
 
     rect rgb(235, 240, 255)
-        Note over R,DB: MỘT transaction
+        Note over R,DB: ONE transaction
         R->>DB: SELECT dharma_name FROM users WHERE id FOR UPDATE
-        R->>DB: SELECT đèn trùng nội dung trong dedupeWindow
-        alt có đèn trùng
-            R-->>U: đèn đã có, created=false
-        else không trùng
+        R->>DB: SELECT duplicate lamp inside dedupeWindow (recipient and prayer IS NOT DISTINCT FROM)
+        alt duplicate found
+            R-->>U: existing lamp, created=false
+        else not a duplicate
             R->>DB: SELECT count(*) WHERE user_id AND end_at > now
             alt count >= maxActive
                 R--xU: ErrLampLimitReached → rollback
-            else còn chỗ
+            else room left
                 R->>DB: INSERT INTO lamps (...) RETURNING id
-                R-->>U: đèn mới, created=true
+                R-->>U: new lamp, created=true
             end
         end
     end
 
-    alt đèn mới
+    alt new lamp
         U-->>H: Lamp, created=true
         H-->>C: 201 Lamp
-    else đèn trùng
+    else duplicate
         U-->>H: Lamp, created=false
         H-->>C: 200 Lamp
-    else đủ trần
+    else cap reached
         U--xH: ErrLampLimitReached
         H--xC: 409 LAMP_LIMIT_REACHED
     end
 ```
 
-## Sequence — Xem vườn đèn (GET /v1/lamps)
+## Sequence — See the lamp garden (GET /v1/lamps)
 
-Vẽ lại Step G-1 → G-4 của `design.md`.
+Redraws Step G-1 → G-4 of `design.md`.
 
 ```mermaid
 sequenceDiagram
@@ -82,35 +82,35 @@ sequenceDiagram
     participant DB as Postgres
 
     C->>M: GET /v1/lamps?lamp_type=&limit=&cursor=
-    alt token hợp lệ
-        M->>H: request đã xác thực
-    else thiếu / hết hạn / sai loại token
+    alt valid token
+        M->>H: authenticated request, userID in context
+    else missing / expired / wrong token type
         M--xC: 401
     end
 
-    H->>U: Garden(ctx, query)
-    U->>U: validate lamp_type, limit, cursor, kẹp limit, now
-    alt tham số sai
+    H->>U: Garden(ctx, userID, query)
+    U->>U: validate lamp_type, limit, cursor, clamp limit, now, viewerID
+    alt bad parameter
         U--xH: ErrInvalidLampFilter / ErrInvalidLimit / ErrInvalidCursor
         H--xC: 400 INVALID_FILTER / INVALID_LIMIT / INVALID_CURSOR
     end
 
-    U->>R: Garden(ctx, q{lampType, limit, cursor, now})
+    U->>R: Garden(ctx, q{lampType, limit, cursor, now, viewerID})
 
     rect rgb(235, 240, 255)
-        Note over R,DB: MỘT transaction chỉ đọc, REPEATABLE READ
+        Note over R,DB: ONE read-only transaction, REPEATABLE READ
         R->>DB: SELECT lamp_type, count(*) WHERE end_at > now GROUP BY lamp_type
-        Note over R,DB: ⚠️ Not confirmed: cách đếm có đạt mục tiêu hiệu năng khi số đèn lớn? Chưa có mục tiêu/khối lượng.
-        R->>DB: SELECT trang keyset WHERE end_at > now [AND lamp_type] [AND (lit_at,id) < cursor] ORDER BY lit_at DESC, id DESC LIMIT limit+1
-        alt thành công
-            R-->>U: dòng, total, counts
-        else lỗi DB
-            R--xU: lỗi → 500
+        Note over R,DB: ⚠️ Not confirmed: does the counting meet the performance goal when lamps are many? No target or volume yet.
+        R->>DB: SELECT keyset page, (user_id = viewer) AS is_mine, WHERE end_at > now [AND lamp_type] [AND (lit_at,id) < cursor] ORDER BY lit_at DESC, id DESC LIMIT limit+1
+        alt success
+            R-->>U: rows, total, counts
+        else DB error
+            R--xU: error → 500
         end
     end
 
-    U->>U: cắt về limit, has_more, next_cursor, counts đủ ba loại
+    U->>U: trim to limit, has_more, next_cursor, counts for all three types
     U-->>H: GardenPage
-    H->>H: map response, bỏ lit_at, lighter_name NULL → "Vô danh"
+    H->>H: map response, drop lit_at, lighter_name NULL → "Vô danh", recipient NULL → null, keep is_mine
     H-->>C: 200 {items, total, counts, has_more, next_cursor}
 ```
