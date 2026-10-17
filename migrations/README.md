@@ -3,7 +3,7 @@
 ## Mục đích
 Schema Postgres cho appService. Mỗi file là một bước thay đổi schema, đánh số tăng dần, áp theo thứ tự.
 
-Hiện có **ba mươi tám** file (`0001`–`0038`). `0001`–`0003` là phần identity của appService; `0004`–`0014` do các feature sau thêm vào và một số (`0006`, `0008`–`0010`) thuộc `backofficeService`, dùng chung cùng một Postgres:
+Hiện có **ba mươi chín** file (`0001`–`0039`). `0001`–`0003` là phần identity của appService; `0004`–`0014` do các feature sau thêm vào và một số (`0006`, `0008`–`0010`) thuộc `backofficeService`, dùng chung cùng một Postgres:
 
 | File | Feature | Nội dung |
 |---|---|---|
@@ -44,6 +44,7 @@ Hiện có **ba mươi tám** file (`0001`–`0038`). `0001`–`0003` là phần
 | `0036_temple_announcements.sql` | temple-announcement (US-TAN-001/002) | `temple_issuing_bodies` (ban phát hành theo chùa, unique `(temple_id, lower(name))`), `temple_announcements` (`source` ∈ `admin`/`system`, CHECK `expires_at > published_at`, `revoked_at` đặt một lần; trạng thái ACTIVE/EXPIRED/REVOKED suy ra khi đọc, không lưu), index một phần `idx_temple_announcements_active`, và cột `users.receive_temple_announcements` (mặc định TRUE, một công tắc cho mọi thiết bị). FK `ON DELETE CASCADE` từ `temples`. Phụ thuộc `0005`. Idempotent. |
 | `0037_auth_email_identity.sql` | onboarding v8.1 / otp-mechanism v2.1 (ADR-0003) | Đổi khoá OTP/đăng ký dở từ SĐT sang email: `otp_codes.email` (+ `idx_otp_codes_email_purpose`), `otp_send_limits.email` `UNIQUE (email, purpose)`, `pending_registration` `UNIQUE (email)` + `account_exists`, bỏ UNIQUE/index trên `pending_registration.phone_number`; `users.email` chữ thường + `chk_users_email_lowercase`. TRUNCATE ba bảng tạm, chỉ khi `otp_codes.phone_number` còn tồn tại. Bước 5 (`login_attempts` theo email) làm ở `0038`; bước 7 (`auth_rate_limits`) bỏ, đếm ở Redis. Phụ thuộc `0001`, `0003`. Idempotent. |
 | `0038_login_attempts_email.sql` | login v2.4 (ADR-0003) | `login_attempts` khoá chính đổi từ `phone_number` sang `email VARCHAR(254)` (PK `login_attempts_pkey`): TRUNCATE chỉ khi cột `phone_number` còn tồn tại, rồi DROP/ADD cột + ADD PRIMARY KEY có guard. Bộ đếm vẫn không FK tới `users` (khoá áp cho email chưa có tài khoản). Không có bảng đếm giới hạn: `/v1/auth/*` đếm ở `rate_limit_store` (Redis). Phụ thuộc `0002`. Idempotent. |
+| `0039_calendar_events_is_major.sql` | calendar v3.0 (BR-CAL-10) | `calendar_events.is_major BOOLEAN NOT NULL DEFAULT false` (cờ "Lễ lớn", seed nạp). Dòng cũ nhận `false` tới khi seed lại. Phụ thuộc `0031`. Idempotent (`ADD COLUMN IF NOT EXISTS`). |
 
 `0002` là **tiến hoá** của `0001`, không phải bootstrap: nó `ALTER TABLE user_sessions ADD COLUMN` nên **phải chạy sau** `0001`. Chạy `0002` một mình trên DB trống sẽ lỗi `relation "user_sessions" does not exist`. Mọi file đều **idempotent**: mọi câu lệnh là `CREATE TABLE IF NOT EXISTS` / `ADD COLUMN IF NOT EXISTS` / `CREATE INDEX IF NOT EXISTS` / `DROP COLUMN IF EXISTS`, nên apply lại chỉ sinh `NOTICE ... skipping` chứ không lỗi (đã kiểm chứng: chạy `migrate` lần hai exit 0). Service `migrate` trong `docker-compose.yml` dựa vào tính chất này — xem `docs/development/local-stack.md`.
 
@@ -127,7 +128,7 @@ Nếu sau này cần golang-migrate thật (rollback, version tracking, CI apply
 - `docs/specs/features/dharmatalk/` — spec của tính năng dùng `0014` (ba loại phương tiện, `needs_review`, seed lần đầu).
 - `docs/specs/features/sutra/` — spec của tính năng dùng `0013` (seed lần đầu, phân trang dòng, liên kết với `deities`).
 - `docs/specs/features/profile/` — spec của tính năng dùng `0029` (ảnh đại diện, khoá object, thư mục tạm/chính).
-- `docs/specs/features/calendar/` — spec của tính năng dùng `0031` (sự kiện lịch theo quy tắc lặp, dữ liệu seed, ngày âm tính khi đọc).
+- `docs/specs/features/calendar/` — spec của tính năng dùng `0031` và `0039` (sự kiện lịch theo quy tắc lặp, dữ liệu seed, ngày âm tính khi đọc).
 - `docs/specs/features/temple-schedule/` — spec của tính năng dùng `0034` (thời khoá tu tập của chùa, bước theo `position`, dữ liệu seed mock).
 - `docs/specs/features/temple-event/` — spec của tính năng dùng `0035` (sự kiện của chùa, quy tắc lặp, ngày âm tính khi đọc, dữ liệu seed mock).
 - `docs/specs/features/temple-announcement/` — spec của tính năng dùng `0036` (thông báo của chùa, ban phát hành, công tắc nhận theo user).

@@ -33,6 +33,9 @@ type calEvent struct {
 	ImageURL         *string  `json:"image_url"`
 	Groups           []string `json:"groups"`
 	IsPublicHoliday  bool     `json:"is_public_holiday"`
+	IsMajor          bool     `json:"is_major"`
+	SortOrder        int      `json:"sort_order"`
+	Recurrence       string   `json:"recurrence"`
 }
 
 type calLunar struct {
@@ -98,10 +101,10 @@ func seedCalendar(t *testing.T, cfgPath, file string, extra ...string) runResult
 // against the real binary and a fresh Postgres, with the catalogue loaded by the
 // real seed command.
 //
-// What is here and not in the per-layer tests: that cmd/main.go puts the route
-// behind the access-token middleware, that the seed command and the service agree
-// on the schema, and that the dates the API computes for a real year are the ones
-// the published calendar gives.
+// What is here and not in the per-layer tests: that cmd/main.go serves the route
+// publicly behind the web API key and the per-IP limit (v3.0), that the seed command
+// and the service agree on the schema, and that the dates the API computes for a
+// real year are the ones the published calendar gives.
 func TestCalendarEventsFlow_E2E(t *testing.T) {
 	requireE2E(t)
 	host, port, cleanupDB := startPostgres(t)
@@ -111,19 +114,23 @@ func TestCalendarEventsFlow_E2E(t *testing.T) {
 	seed := seedCalendar(t, cfgPath, calendarEventsDataPath)
 	require.Equal(t, 0, seed.exitCode, "seed failed:\n%s", seed.stderr)
 
-	baseURL, stop := startServer(t, host, port, nil)
+	// The dev budget (60 a minute) is plenty for a person and too small for this test, which makes
+	// dozens of calls from one address; the 429 case below starts its own server with a tiny budget.
+	baseURL, stop := startServer(t, host, port, configOverrides{"calendar": {
+		"events_rate_limit": map[string]any{"max": 100000, "window": "1h", "trust_forwarded_for": false},
+	}})
 	t.Cleanup(stop)
 	api := &apiClient{t: t, baseURL: baseURL, http: &http.Client{Timeout: 5 * time.Second}}
 	db := openDB(t, host, port)
+	webKey := devWebAPIKey(t)
 
-	token := api.login(api.registerUser(), deviceA).AccessToken
 	get := func(year string) (*apiResponse, calEventsData) {
 		api.t = t
 		path := "/v1/calendar/events"
 		if year != "" {
 			path += "?year=" + year
 		}
-		res := api.do(http.MethodGet, path, nil, token)
+		res := api.getKeyed(path, nil)
 		var d calEventsData
 		if res.status == http.StatusOK {
 			res.data(&d)
@@ -131,20 +138,73 @@ func TestCalendarEventsFlow_E2E(t *testing.T) {
 		return res, d
 	}
 
-	t.Run("E4: the route is behind the access-token middleware", func(t *testing.T) {
+	t.Run("E4/E22: the route is public; a wrong X-API-Key is 401, the right one is served", func(t *testing.T) {
 		api.t = t
-		pair := api.login(api.registerUser(), deviceA)
+		path := "/v1/calendar/events?year=2026"
 
-		none := api.do(http.MethodGet, "/v1/calendar/events?year=2026", nil, "")
-		assert.Equal(t, http.StatusUnauthorized, none.status, none.raw)
-		assert.Equal(t, "UNAUTHORIZED", none.errorCode())
-		assert.NotContains(t, none.raw, "occurrences")
+		none := api.getKeyed(path, nil)
+		assert.Equal(t, http.StatusOK, none.status, none.raw)
+		assert.Contains(t, none.raw, "occurrences")
 
-		garbage := api.do(http.MethodGet, "/v1/calendar/events?year=2026", nil, "not-a-jwt")
-		assert.Equal(t, http.StatusUnauthorized, garbage.status)
+		// A bearer token (valid or not) is never looked at.
+		for _, bearer := range []string{"not-a-jwt", api.login(api.registerUser(), deviceA).RefreshToken} {
+			res := api.do(http.MethodGet, path, nil, bearer)
+			assert.Equal(t, http.StatusOK, res.status, res.raw)
+		}
 
-		refresh := api.do(http.MethodGet, "/v1/calendar/events?year=2026", nil, pair.RefreshToken)
-		assert.Equal(t, http.StatusUnauthorized, refresh.status, "a refresh token is not an access token")
+		wrong := "not-the-key"
+		bad := api.getKeyed(path, &wrong)
+		assert.Equal(t, http.StatusUnauthorized, bad.status, bad.raw)
+		assert.Equal(t, "INVALID_API_KEY", bad.errorCode())
+		assert.NotContains(t, bad.raw, "occurrences")
+
+		good := api.getKeyed(path, &webKey)
+		assert.Equal(t, http.StatusOK, good.status, good.raw)
+	})
+
+	t.Run("E13/E24/E25: is_major, sort_order and recurrence are returned; Rằm and Mùng 1 sort last", func(t *testing.T) {
+		_, d := get("2026")
+		majors := map[string]bool{}
+		maxNamed := 0
+		for _, e := range d.Events {
+			if e.IsMajor {
+				majors[e.Code] = true
+			}
+			if e.Recurrence != "lunar_monthly" && e.SortOrder > maxNamed {
+				maxNamed = e.SortOrder
+			}
+		}
+		for _, code := range []string{"thuong-nguyen", "phat-xuat-gia", "phat-nhap-niet-ban", "via-quan-the-am-dan-sinh",
+			"phat-dan", "via-quan-the-am-thanh-dao", "vu-lan", "via-quan-the-am-xuat-gia", "via-a-di-da", "phat-thanh-dao"} {
+			assert.True(t, majors[code], "%s is a major event", code)
+		}
+		assert.Len(t, majors, 10, "exactly the ten events of BR-CAL-10")
+
+		for _, code := range []string{"mung-1-am-lich", "ram-am-lich"} {
+			e, ok := d.event(code)
+			require.True(t, ok, code)
+			assert.Equal(t, "lunar_monthly", e.Recurrence)
+			assert.False(t, e.IsMajor)
+			assert.Greater(t, e.SortOrder, maxNamed, "%s sorts after every named event", code)
+		}
+		tet, _ := d.event("tet-nguyen-dan")
+		assert.Equal(t, "lunar", tet.Recurrence)
+		gt, _ := d.event("giao-thua")
+		assert.Equal(t, "lunar_last_day", gt.Recurrence)
+		tm, _ := d.event("tiet-thanh-minh")
+		assert.Equal(t, "solar_term", tm.Recurrence)
+		assert.Contains(t, tet.Guidance, "\n", "guidance carries one practice per line")
+	})
+
+	t.Run("deity vía events: each catalogue vía day has a calendar event", func(t *testing.T) {
+		_, d := get("2026")
+		for _, code := range []string{"le-ty-lo-gia-na", "le-cau-tri-hu-khong-tang", "le-ho-phap-kim-cuong-thu",
+			"le-cau-binh-an-tara-xanh", "le-cau-truong-tho-tara-trang", "le-sam-hoi-kim-cuong-tat-doa"} {
+			e, ok := d.event(code)
+			require.True(t, ok, code)
+			assert.Contains(t, e.Groups, "buddhist")
+			assert.NotEmpty(t, d.on(code), code)
+		}
 	})
 
 	t.Run("E1/E5/E13/E14: a year returns groups, events and occurrences with both dates", func(t *testing.T) {
@@ -253,14 +313,14 @@ func TestCalendarEventsFlow_E2E(t *testing.T) {
 		}
 	})
 
-	t.Run("E2/E17: omitted year is this year and not cached; explicit year is cached privately", func(t *testing.T) {
+	t.Run("E2/E17: omitted year is this year and not cached; explicit year is cached publicly", func(t *testing.T) {
 		omitted, d := get("")
 		require.Equal(t, http.StatusOK, omitted.status, omitted.raw)
 		assert.Equal(t, time.Now().In(time.FixedZone("ICT", 7*3600)).Year(), d.Year)
 		assert.Equal(t, "no-cache", omitted.header.Get("Cache-Control"))
 
 		explicit, _ := get("2027")
-		assert.Equal(t, "private, max-age=86400", explicit.header.Get("Cache-Control"))
+		assert.Equal(t, "public, max-age=86400", explicit.header.Get("Cache-Control"))
 	})
 
 	t.Run("E16: an inactive event is not returned, and re-seeding does not switch it back on", func(t *testing.T) {
@@ -313,4 +373,60 @@ func TestCalendarEventsFlow_E2E(t *testing.T) {
 		dry := seedCalendar(t, cfgPath, calendarEventsDataPath, "-dry-run")
 		assert.Equal(t, 0, dry.exitCode, dry.stderr)
 	})
+
+	t.Run("E25: a file whose Rằm does not sort last is refused without writing", func(t *testing.T) {
+		raw, err := os.ReadFile(calendarEventsDataPath)
+		require.NoError(t, err)
+		var doc map[string]any
+		require.NoError(t, json.Unmarshal(raw, &doc))
+		for _, e := range doc["events"].([]any) {
+			if m := e.(map[string]any); m["code"] == "ram-am-lich" {
+				m["sort_order"] = 1
+			}
+		}
+		bad, err := json.Marshal(doc)
+		require.NoError(t, err)
+		badPath := filepath.Join(t.TempDir(), "ram-first.json")
+		require.NoError(t, os.WriteFile(badPath, bad, 0o600))
+
+		before := countRows(t, db, "calendar_events")
+		res := seedCalendar(t, cfgPath, badPath)
+		assert.Equal(t, 1, res.exitCode, res.stderr)
+		assert.Contains(t, res.stderr, "lunar_monthly sort_order")
+		assert.Equal(t, before, countRows(t, db, "calendar_events"))
+	})
+}
+
+// TestCalendarEventsRateLimit_E2E drives E23: the per-IP limit answers 429 once a client without
+// the web key spends it, while a request with the valid key is never counted.
+func TestCalendarEventsRateLimit_E2E(t *testing.T) {
+	requireE2E(t)
+	host, port, cleanupDB := startPostgres(t)
+	t.Cleanup(cleanupDB)
+
+	cfgPath := writeTempConfig(t, host, port, "0", nil)
+	seed := seedCalendar(t, cfgPath, calendarEventsDataPath)
+	require.Equal(t, 0, seed.exitCode, "seed failed:\n%s", seed.stderr)
+
+	baseURL, stop := startServer(t, host, port, configOverrides{"calendar": {
+		"events_rate_limit": map[string]any{"max": 3, "window": "1h", "trust_forwarded_for": false},
+	}})
+	t.Cleanup(stop)
+	api := &apiClient{t: t, baseURL: baseURL, http: &http.Client{Timeout: 5 * time.Second}}
+	webKey := devWebAPIKey(t)
+	path := "/v1/calendar/events?year=2026"
+
+	for i := 1; i <= 3; i++ {
+		res := api.getKeyed(path, nil)
+		require.Equal(t, http.StatusOK, res.status, "request %d is within the limit: %s", i, res.raw)
+	}
+	limited := api.getKeyed(path, nil)
+	assert.Equal(t, http.StatusTooManyRequests, limited.status, limited.raw)
+	assert.Equal(t, "RATE_LIMITED", limited.errorCode())
+	assert.NotContains(t, limited.raw, "occurrences")
+
+	for i := 1; i <= 6; i++ {
+		res := api.getKeyed(path, &webKey)
+		assert.Equal(t, http.StatusOK, res.status, "request %d with the web key is not counted: %s", i, res.raw)
+	}
 }

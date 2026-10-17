@@ -153,6 +153,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 15, "lunar_month": 4, "event_name": "Tôn vinh cùng mùa Phật Đản"}
     ],
+    "via_event_codes": ["le-ty-lo-gia-na"],
     "iconography": {
       "posture": "Ngồi kiết già, hai tay kết ấn Trí Quyền (Bodhiraṅgī Mudrā) hoặc ấn Thiền Định",
       "mount_or_throne": "Tòa ngàn cánh sen báu",
@@ -426,6 +427,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 15, "lunar_month": 1, "event_name": "Ngày Lễ Cầu Trí Tuệ Thượng Nguyên"}
     ],
+    "via_event_codes": ["le-cau-tri-hu-khong-tang"],
     "iconography": {
       "posture": "Ngồi kiết già an định trên tòa hoa sen",
       "mount_or_throne": "Tòa sen báu",
@@ -459,6 +461,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 8, "lunar_month": 4, "event_name": "Ngày Lễ Hộ Pháp Chư Thiên"}
     ],
+    "via_event_codes": ["le-ho-phap-kim-cuong-thu"],
     "iconography": {
       "posture": "Thân tướng uy nghiêm dũng mãnh, thế đứng chiến binh (Ấn Tiễn Đột)",
       "mount_or_throne": "Đạp trên phiến đá lửa hàng phục tà ma",
@@ -492,6 +495,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 8, "lunar_month": 1, "event_name": "Ngày Lễ Cầu Bình An Độ Mẫu"}
     ],
+    "via_event_codes": ["le-cau-binh-an-tara-xanh"],
     "iconography": {
       "posture": "Ngồi bán già thế du hý, chân phải duỗi nhẹ xuống đất sẵn sàng đứng dậy cứu nạn",
       "mount_or_throne": "Tòa sen xanh ngọc",
@@ -525,6 +529,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 15, "lunar_month": 10, "event_name": "Khóa Lễ Cầu Trường Thọ Dược Sư"}
     ],
+    "via_event_codes": ["le-cau-truong-tho-tara-trang"],
     "iconography": {
       "posture": "Ngồi kiết già kim cương tuyệt đối, toàn thân sắc trắng như tuyết thanh khiết",
       "mount_or_throne": "Đài sen trắng nguyệt luân",
@@ -592,6 +597,7 @@
     "lunar_memorial_days": [
       {"lunar_day": 15, "lunar_month": 7, "event_name": "Khóa Lễ Sám Hối & Tịnh Hóa"}
     ],
+    "via_event_codes": ["le-sam-hoi-kim-cuong-tat-doa"],
     "iconography": {
       "posture": "Ngồi kiết già an nhiên, thân màu trắng sáng chói rực rỡ như pha lê",
       "mount_or_throne": "Đài sen trăng sáng",

@@ -5,6 +5,17 @@ description: Lịch sử thay đổi của API.
 
 ## v1 (hiện tại)
 
+**Cập nhật 2026-10-17 — lịch sự kiện công khai, lễ lớn, vía của chư Phật / Bồ Tát (`openapi.yaml` 2.2.0):**
+
+Thay đổi tương thích ngược (MINOR) cho `GET /v1/calendar/events`; client cũ vẫn chạy.
+
+- **Route công khai.** Không còn cần `Authorization` (header nếu có thì bị bỏ qua), nên khách chưa đăng nhập và website xem được. Client web gửi `X-API-Key` (sai thì `401 INVALID_API_KEY`); mobile không gửi. Mất mã `401 UNAUTHORIZED` của route này.
+- **Giới hạn theo IP:** thêm `429 RATE_LIMITED` (kèm `details.retry_after_seconds`; dev 60 lượt/phút). Request mang `X-API-Key` đúng không bị đếm.
+- **Cache:** có `year` thì `Cache-Control: public, max-age=…` (trước là `private`), CDN / proxy giữ được.
+- **Ba field mới** trong `events[]`: `is_major` (bool, "Lễ lớn"), `sort_order` (thứ tự trong ngày; Mùng 1 / Rằm luôn lớn nhất), `recurrence` (`solar` | `lunar` | `lunar_monthly` | `lunar_last_day` | `solar_term`). Client nhận biết Mùng 1 / Rằm bằng `recurrence = lunar_monthly`, không so `code`.
+- **Nội dung seed:** `guidance` mỗi dòng một việc (tách bằng `\n`); thêm 6 sự kiện cho các vị Phật / Bồ Tát chưa có ngày trong lịch (Tỳ Lô Giá Na, Hư Không Tạng, Kim Cương Thủ, Lục Độ Mẫu, Bạch Độ Mẫu, Kim Cương Tát Đỏa; ngày lấy từ danh mục, chưa đối chiếu GHPGVN), nâng danh mục lên 60 sự kiện.
+- Xem [Lịch âm](/guides/catalogues/calendar/).
+
 **Cập nhật 2026-10-16 — phiên bản hợp đồng (`openapi.yaml` 2.1.1):**
 
 - `openapi.yaml` có `info.version` **2.1.1** để client trích dẫn. Từ nay mỗi thay đổi của file bump số này theo semver (MAJOR: phá vỡ client; MINOR: thêm tương thích ngược; PATCH: chỉ sửa chữ), kèm một mục ở changelog này.

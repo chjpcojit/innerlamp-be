@@ -33,22 +33,24 @@ type groupJSON struct {
 // eventJSON uses pointers for the rule parameters so "absent" is told apart
 // from 0 — 0° is a real solar term (Xuân phân).
 type eventJSON struct {
-	Code               string   `json:"code"`
-	Kind               string   `json:"kind"`
-	SolarMonth         *int     `json:"solar_month"`
-	SolarDay           *int     `json:"solar_day"`
-	LunarMonth         *int     `json:"lunar_month"`
-	LunarDay           *int     `json:"lunar_day"`
-	IsLeapMonth        bool     `json:"is_leap_month"`
-	SolarTermLongitude *int     `json:"solar_term_longitude"`
-	IsPublicHoliday    bool     `json:"is_public_holiday"`
-	SortOrder          int      `json:"sort_order"`
-	Groups             []string `json:"groups"`
-	Name               string   `json:"name"`
-	ShortDescription   string   `json:"short_description"`
-	LongDescription    string   `json:"long_description"`
-	Guidance           string   `json:"guidance"`
-	ImageURL           *string  `json:"image_url"`
+	Code               string `json:"code"`
+	Kind               string `json:"kind"`
+	SolarMonth         *int   `json:"solar_month"`
+	SolarDay           *int   `json:"solar_day"`
+	LunarMonth         *int   `json:"lunar_month"`
+	LunarDay           *int   `json:"lunar_day"`
+	IsLeapMonth        bool   `json:"is_leap_month"`
+	SolarTermLongitude *int   `json:"solar_term_longitude"`
+	IsPublicHoliday    bool   `json:"is_public_holiday"`
+	// IsMajor is optional; absent means false (BR-CAL-10).
+	IsMajor          bool     `json:"is_major"`
+	SortOrder        int      `json:"sort_order"`
+	Groups           []string `json:"groups"`
+	Name             string   `json:"name"`
+	ShortDescription string   `json:"short_description"`
+	LongDescription  string   `json:"long_description"`
+	Guidance         string   `json:"guidance"`
+	ImageURL         *string  `json:"image_url"`
 	// Source documents where the event's date and text came from, for review.
 	// It is required but not loaded into the database.
 	Source string `json:"source"`
@@ -166,6 +168,7 @@ func parseCatalogue(src []byte) (domain.CalendarCatalogue, parseReport, error) {
 			ImageURL:         image,
 			Groups:           e.Groups,
 			IsPublicHoliday:  e.IsPublicHoliday,
+			IsMajor:          e.IsMajor,
 			SortOrder:        e.SortOrder,
 			Rule: domain.RecurrenceRule{
 				Kind:               domain.CalendarEventKind(e.Kind),

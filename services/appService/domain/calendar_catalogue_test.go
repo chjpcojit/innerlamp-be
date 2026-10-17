@@ -23,6 +23,14 @@ func TestCatalogueVerifyOK(t *testing.T) {
 	assert.Empty(t, goodCatalogue().Verify())
 }
 
+func TestCatalogueVerifyMonthlyLastOK(t *testing.T) {
+	c := goodCatalogue()
+	c.Events = append(c.Events, CalendarEvent{
+		Code: "ram", Name: "R", ShortDescription: "s", LongDescription: "l", Guidance: "g",
+		Groups: []string{"folk"}, SortOrder: 2, Rule: RecurrenceRule{Kind: KindLunarMonthly, LunarDay: 15}})
+	assert.Empty(t, c.Verify())
+}
+
 func TestCatalogueVerifyProblems(t *testing.T) {
 	long := strings.Repeat("x", 300)
 	cases := []struct {
@@ -48,6 +56,11 @@ func TestCatalogueVerifyProblems(t *testing.T) {
 		{"unknown group", func(c *CalendarCatalogue) { c.Events[0].Groups = []string{"nope"} }, "does not exist"},
 		{"group twice", func(c *CalendarCatalogue) { c.Events[0].Groups = []string{"folk", "folk"} }, "listed twice"},
 		{"sort order", func(c *CalendarCatalogue) { c.Events[0].SortOrder = 0 }, "sort_order must be >= 1"},
+		{"monthly not last", func(c *CalendarCatalogue) {
+			c.Events = append(c.Events, CalendarEvent{
+				Code: "ram", Name: "R", ShortDescription: "s", LongDescription: "l", Guidance: "g",
+				Groups: []string{"folk"}, SortOrder: 1, Rule: RecurrenceRule{Kind: KindLunarMonthly, LunarDay: 15}})
+		}, "lunar_monthly sort_order"},
 		{"empty image", func(c *CalendarCatalogue) { e := ""; c.Events[0].ImageURL = &e }, "image_url"},
 	}
 	for _, tc := range cases {

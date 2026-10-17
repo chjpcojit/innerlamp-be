@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: InnerLamp API
-  version: 2.1.1
+  version: 2.2.0
   description: |
     API của hai service: **appService** (client: đăng ký/đăng nhập bằng email, quên mật khẩu, hồ sơ cá nhân và ảnh đại diện, attestation thiết bị, danh mục chùa, Phật/Bồ tát và bài viết Phật pháp)
     và **backofficeService** (admin: `/v1/admin/*`). Chọn server tương ứng ở ô Servers.
@@ -112,7 +112,7 @@ tags:
   - name: Gallery
     description: Ảnh đẹp Phật giáo (chùa, tượng Phật, thiền, lễ hội) kèm ghi công tác giả (chỉ đọc).
   - name: Calendar
-    description: Ảnh Phật theo ngày cho màn Lịch âm, kèm ghi công tác giả (công khai), và sự kiện lịch Phật giáo / Việt Nam / dân gian theo năm (cần đăng nhập). Chỉ đọc.
+    description: Ảnh Phật theo ngày cho màn Lịch âm, kèm ghi công tác giả (công khai), và sự kiện lịch Phật giáo / Việt Nam / dân gian theo năm (công khai, có giới hạn theo IP). Chỉ đọc.
   - name: Articles
     description: Bài viết Phật pháp (chỉ đọc).
   - name: DharmaTalks
@@ -3088,7 +3088,10 @@ paths:
       operationId: calendarEvents
       summary: Sự kiện lịch của một năm (Phật giáo, Việt Nam, dân gian)
       description: |
-        Spec: `docs/specs/features/calendar/` (US-CAL-002). Đã đối chiếu với server thật.
+        Spec: `docs/specs/features/calendar/` (US-CAL-002), product spec `docs/product/calendar/` v1.2. **Công khai** (từ 2.2.0): không cần đăng nhập,
+        header `Authorization` nếu có thì bị bỏ qua. Client web gửi `X-API-Key` như các route khác (sai thì `401 INVALID_API_KEY`); không gửi (mobile)
+        vẫn được phục vụ. Có giới hạn theo IP (`calendar.events_rate_limit`, dev: 60 lượt/phút; vượt thì `429 RATE_LIMITED`); request mang `X-API-Key`
+        đúng **không** bị đếm vào giới hạn này.
 
         Trả các sự kiện rơi vào **một năm dương** (1/1 đến 31/12), mỗi lần xảy ra có **cả ngày dương lẫn ngày âm**. Muốn xem năm
         sau thì gọi lại với `year + 1` ("load more"); gọi năm trước cũng được. Client tự lọc theo tháng đang xem từ `occurrences`.
@@ -3106,12 +3109,18 @@ paths:
         - `lunar_date.is_leap_month = true` khi rơi vào tháng nhuận.
         - `is_public_holiday` chỉ đúng cho **ngày của sự kiện**; ngày nghỉ bù không có occurrence.
         - `image_url` là `null` khi chưa có ảnh (bản đầu chưa có ảnh sự kiện). Chỉ có tiếng Việt.
+        - `is_major` (2.2.0): sự kiện "Lễ lớn" do biên tập đánh dấu (hiện 10 sự kiện: Rằm tháng Giêng, Đức Phật xuất gia, nhập Niết bàn, Quan Thế Âm đản sinh / thành đạo /
+          xuất gia, Phật đản, Vu Lan, vía Phật A Di Đà, Đức Phật thành đạo). Client dùng cho bộ lọc "Lễ lớn" và khối Home.
+        - `sort_order` (2.2.0): thứ tự hiển thị của sự kiện trong cùng một ngày. Mùng 1 và Rằm luôn có `sort_order` lớn nhất nên đứng sau sự kiện có tên cùng ngày.
+        - `recurrence` (2.2.0): kiểu quy tắc lặp của sự kiện (`solar`, `lunar`, `lunar_monthly`, `lunar_last_day`, `solar_term`). Mùng 1 / Rằm là `lunar_monthly`;
+          client dùng giá trị này để nhận biết chúng thay vì so `code`. Nên decode kiểu mở (giá trị lạ về "khác").
+        - `guidance` mỗi dòng là một việc nên làm (tách bằng `\n`); `long_description` mỗi dòng là một đoạn. Client tách theo xuống dòng, không tách theo dấu phẩy hay chấm phẩy.
+        - Mọi vị Phật / Bồ Tát có ngày vía đều có sự kiện tương ứng ở đây: lịch là nguồn duy nhất của ngày vía (BR-DTY-05), client không giữ danh sách ngày vía riêng.
         - Nhóm (`groups`) là dữ liệu, có thể được back-office thêm về sau: tên hiển thị lấy từ `data.groups`, đừng hard-code ba mã.
 
-        Cache: có `year` thì `Cache-Control: private, max-age=<calendar.events_cache_max_age>` (dev: 24 giờ); bỏ trống `year` thì
-        `no-cache` (kết quả đổi khi sang năm mới).
-      security:
-        - bearerAuth: []
+        Cache: có `year` thì `Cache-Control: public, max-age=<calendar.events_cache_max_age>` (dev: 24 giờ; CDN / proxy cache được vì câu trả lời giống nhau cho mọi người);
+        bỏ trống `year` thì `no-cache` (kết quả đổi khi sang năm mới).
+      security: []
       parameters:
         - name: year
           in: query
@@ -3141,6 +3150,9 @@ paths:
                       image_url: null
                       groups: [vietnam, folk]
                       is_public_holiday: true
+                      is_major: false
+                      sort_order: 2
+                      recurrence: lunar
                   occurrences:
                     - event_code: tet-nguyen-dan
                       solar_date: '2026-02-17'
@@ -3154,14 +3166,16 @@ paths:
                 success: false
                 error: { code: INVALID_YEAR, message: year must be a whole number between 1900 and 2100, type: business }
                 details: { field: year }
-        '401':
-          description: '`UNAUTHORIZED`: thiếu token, token sai, hết hạn hoặc không phải access token.'
+        '401': { $ref: '#/components/responses/InvalidApiKey' }
+        '429':
+          description: '`RATE_LIMITED`: IP này vượt `calendar.events_rate_limit` trong cửa sổ hiện tại (request mang `X-API-Key` đúng không bị đếm). `details.retry_after_seconds` là thời gian chờ.'
           content:
             application/json:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               example:
                 success: false
-                error: { code: UNAUTHORIZED, message: unauthorized, type: business }
+                error: { code: RATE_LIMITED, message: too many requests, type: business }
+                details: { retry_after_seconds: 12 }
         '500': { $ref: '#/components/responses/ServerError' }
 
   /v1/gallery/top:
@@ -6706,13 +6720,13 @@ components:
         name: { type: string, description: 'Tên hiển thị (tiếng Việt).', example: Phật giáo }
     CalendarEvent:
       type: object
-      required: [code, name, short_description, long_description, guidance, image_url, groups, is_public_holiday]
+      required: [code, name, short_description, long_description, guidance, image_url, groups, is_public_holiday, is_major, sort_order, recurrence]
       properties:
         code: { type: string, description: 'Ổn định, khoá của sự kiện.', example: phat-dan }
         name: { type: string }
         short_description: { type: string }
         long_description: { type: string }
-        guidance: { type: string, description: 'Hướng dẫn lễ nghi.' }
+        guidance: { type: string, description: 'Hướng dẫn lễ nghi; mỗi dòng (`\n`) là một việc nên làm. `""` khi không có.' }
         image_url: { type: [string, 'null'], description: '`null` khi chưa có ảnh.' }
         groups:
           type: array
@@ -6720,6 +6734,12 @@ components:
           minItems: 1
           items: { type: string }
         is_public_holiday: { type: boolean, description: 'Nghỉ lễ chính thức, chỉ đúng cho ngày của sự kiện.' }
+        is_major: { type: boolean, description: 'Sự kiện "Lễ lớn" do biên tập đánh dấu (BR-CAL-10). Thêm ở 2.2.0.' }
+        sort_order: { type: integer, minimum: 1, description: 'Thứ tự hiển thị trong cùng một ngày; Mùng 1 và Rằm lớn nhất (BR-CAL-05). Thêm ở 2.2.0.' }
+        recurrence:
+          type: string
+          description: 'Kiểu quy tắc lặp. Mùng 1 / Rằm là `lunar_monthly`. Nên decode kiểu mở (giá trị lạ về "khác"). Thêm ở 2.2.0.'
+          enum: [solar, lunar, lunar_monthly, lunar_last_day, solar_term]
     CalendarOccurrence:
       type: object
       required: [event_code, solar_date, lunar_date]

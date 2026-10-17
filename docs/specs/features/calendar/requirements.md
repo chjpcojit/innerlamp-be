@@ -1,8 +1,8 @@
 # Requirements — calendar
 
-Version: 3.1
-Last updated: 2026-10-15
-Status: US-CAL-001 đã triển khai. US-CAL-002 đã triển khai tới v2.1; các thay đổi v3.0 (route công khai, `is_major`, seed vào git) chưa triển khai
+Version: 3.2
+Last updated: 2026-10-17
+Status: US-CAL-001 và US-CAL-002 (kể cả v3.0: route công khai, `is_major`, seed vào git) đã triển khai và có test, E2E với binary thật. Còn: đối chiếu nội dung seed với lịch GHPGVN
 Module: `calendar`
 Code: `services/appService/`
 
@@ -103,12 +103,12 @@ Hình dạng chi tiết: `docs/specs/api/openapi.yaml` (operation `calendarEvent
 
 ## Pending (not yet implemented)
 
-- Toàn bộ dòng **v3.0** ở bảng AC (E4, E13 phần mới, E17, E19 phần mới, E22–E27): `tasks.md` Phase 14–18.
-- Sửa nội dung seed (Phase 16): Rằm / Mùng 1 xuống `sort_order` cuối, `guidance` một việc một dòng, `is_major` cho 10 sự kiện của BR-CAL-10.
-- Đối chiếu nội dung seed với lịch GHPGVN: chưa có người nhận (product Appendix A).
+- Đối chiếu nội dung seed với lịch GHPGVN: chưa có người nhận (product Appendix A). Giữ nhãn `DRAFT`.
+- Sáu sự kiện thêm ngày 2026-10-17 cho các vị còn thiếu ngày trong lịch (Tỳ Lô Giá Na, Hư Không Tạng, Kim Cương Thủ, Lục Độ Mẫu, Bạch Độ Mẫu, Kim Cương Tát Đỏa) lấy ngày từ `phat_botat.json`, chưa có nguồn ngoài xác nhận (tìm web không thấy): cần người đối chiếu.
 - Bảng tham chiếu độc lập đầy đủ 1900..2100 cho E20 (NFR-CAL-01 `in-progress`).
 - `thumbnail_url` của ảnh ngày; ảnh cho sự kiện (seed để `null`, client hiện ảnh mặc định).
 - Tên nhóm đa ngôn ngữ (`calendar_groups.name` chỉ tiếng Việt).
+- `erd.svg` chưa vẽ lại cho cột `is_major` (`erd.mmd` là nguồn và đã cập nhật).
 
 ## Ghi chú kỹ thuật liên quan
 
@@ -117,7 +117,7 @@ Hình dạng chi tiết: `docs/specs/api/openapi.yaml` (operation `calendarEvent
 - US-CAL-002 lưu **quy tắc**, không lưu từng năm; ngày được tính khi trả API (product §2.5).
 - Từ v3.0 route sự kiện công khai giống `administrative-units`: `webAPIKey` rồi giới hạn theo IP. Không có dữ liệu cá nhân nên không cần JWT (product §3.7). Response giống nhau cho mọi người nên đổi `private` sang `public` để CDN/proxy cache được.
 - `recurrence` trả kind của quy tắc (`solar`, `lunar`, `lunar_monthly`, `lunar_last_day`, `solar_term`) để client biết sự kiện nào là Rằm / Mùng 1 (tầng 3 của BR-CAL-15) mà không phải so `code`. `sort_order` trả để client sắp lại khi gộp nhiều năm hoặc chạy `rules/ordering.json`.
-- Seed sẽ vào git (bỏ khỏi `.gitignore` bằng ngoại lệ `!assets/data/calendar-events.json`, như `administrative-units.json`). Bản hiện tại: `/mnt/project-files/data/calendar/calendar-events.json` (51 sự kiện, `DRAFT`).
+- Seed sẽ vào git (bỏ khỏi `.gitignore` bằng ngoại lệ `!assets/data/calendar-events.json`, như `administrative-units.json`). Đã vào git (v3.2): 60 sự kiện, `DRAFT`.
 - Năm hợp lệ 1900..2100 là phạm vi đã kiểm chứng của bộ chuyển đổi âm ↔ dương. BR-CAL-07 ≡ BR-MEM-10: memorial và calendar phải cho cùng ngày âm.
 
 ## Open questions (resolved during implementation)

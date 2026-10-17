@@ -42,7 +42,7 @@ func (r *calendarEventRepository) ListGroups(ctx context.Context) ([]domain.Cale
 func (r *calendarEventRepository) ListActiveEvents(ctx context.Context, lang string) ([]domain.CalendarEvent, error) {
 	rows, err := r.db.Query(ctx, `
 		SELECT e.code, e.kind, e.solar_month, e.solar_day, e.lunar_month, e.lunar_day,
-		       e.is_leap_month, e.solar_term_longitude, e.is_public_holiday, e.image_url, e.sort_order,
+		       e.is_leap_month, e.solar_term_longitude, e.is_public_holiday, e.is_major, e.image_url, e.sort_order,
 		       t.name, t.short_description, t.long_description, t.guidance,
 		       COALESCE(string_agg(eg.group_code, ',' ORDER BY cg.sort_order, eg.group_code), '')
 		FROM calendar_events e
@@ -65,7 +65,7 @@ func (r *calendarEventRepository) ListActiveEvents(ctx context.Context, lang str
 			groups                                     string
 		)
 		err := s.Scan(&ev.Code, &kind, &solarMonth, &solarDay, &lunarMonth, &lunarDay,
-			&ev.Rule.IsLeapMonth, &longitude, &ev.IsPublicHoliday, &image, &ev.SortOrder,
+			&ev.Rule.IsLeapMonth, &longitude, &ev.IsPublicHoliday, &ev.IsMajor, &image, &ev.SortOrder,
 			&ev.Name, &ev.ShortDescription, &ev.LongDescription, &ev.Guidance, &groups)
 		if err != nil {
 			return ev, err
@@ -110,7 +110,7 @@ func (r *calendarEventRepository) ReplaceCatalogue(ctx context.Context, c domain
 
 	if err := upsertBatched(ctx, tx, upsertSpec{"calendar_events",
 		[]string{"code", "kind", "solar_month", "solar_day", "lunar_month", "lunar_day",
-			"is_leap_month", "solar_term_longitude", "is_public_holiday", "image_url", "sort_order"},
+			"is_leap_month", "solar_term_longitude", "is_public_holiday", "is_major", "image_url", "sort_order"},
 		[]string{"code"}},
 		c.Events, eventRow); err != nil {
 		return err
@@ -179,5 +179,5 @@ func eventRow(e domain.CalendarEvent) []any {
 		image = *e.ImageURL
 	}
 	return []any{e.Code, string(e.Rule.Kind), solarMonth, solarDay, lunarMonth, lunarDay,
-		e.Rule.IsLeapMonth, longitude, e.IsPublicHoliday, image, e.SortOrder}
+		e.Rule.IsLeapMonth, longitude, e.IsPublicHoliday, e.IsMajor, image, e.SortOrder}
 }

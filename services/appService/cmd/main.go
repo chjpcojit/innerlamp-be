@@ -364,13 +364,19 @@ func main() {
 	calendarHandler := deliveryhttp.NewCalendarHandler(calendarUsecase, cfg.Calendar.ImageBaseURL)
 
 	// Calendar events (sự kiện lịch): the catalogue of repeat rules lives in Postgres and is loaded by
-	// cmd/seedcalendarevents; dates of the asked year are computed per request. Needs a login.
+	// cmd/seedcalendarevents; dates of the asked year are computed per request. Public since v3.0.
 	calendarEventRepo := repository.NewCalendarEventRepository(db)
 	calendarEventUsecase, err := usecase.NewCalendarEventUsecase(calendarEventRepo, cfg.Calendar, time.Now, logger)
 	if err != nil {
 		log.Fatalf("invalid calendar config: %v", err)
 	}
 	calendarEventHandler := deliveryhttp.NewCalendarEventHandler(calendarEventUsecase, cfg.Calendar.EventsCacheMaxAge.Duration())
+	calendarEventLimit, err := deliveryhttp.NewClientIPRateLimit(
+		int64(cfg.Calendar.EventsRateLimit.Max), cfg.Calendar.EventsRateLimit.Window.Duration(),
+		cfg.Calendar.EventsRateLimit.TrustForwardedFor, rlScope("calendar_events:ip"))
+	if err != nil {
+		log.Fatalf("failed to build calendar events rate limit: %v", err)
+	}
 
 	// Temple schedule (thời khoá tu tập): the standing practice routine of one temple, rows loaded by
 	// cmd/seedtempleschedules. Needs a login. docs/specs/features/temple-schedule/.
@@ -659,8 +665,10 @@ func main() {
 	// calendar image: public, like gallery.
 	mux.HandleFunc("GET /v1/calendar/image", calendarHandler.Image)
 
-	// calendar events: needs a valid access token, like lamps and memorials.
-	mux.HandleFunc("GET /v1/calendar/events", authed(calendarEventHandler.Events))
+	// calendar events: public by design (v3.0; the festival calendar has no personal data and the
+	// website renders it for visitors). webAPIKey first so a wrong key is refused without spending
+	// the caller's budget, then the per-IP limit, which a valid web key skips. No JWT.
+	mux.HandleFunc("GET /v1/calendar/events", webAPIKey.WrapFunc(calendarEventLimit.WrapFuncUnlessWebKey(calendarEventHandler.Events)))
 
 	// articles: public, like temples. "/top" is a literal segment, so ServeMux
 	// prefers it over "/{id}".

@@ -1,8 +1,8 @@
 # Flow — calendar
 
-Version: 3.1
-Last updated: 2026-10-15
-Status: mirror `design.md` v3.0 — bước 1a/1b (route công khai) chưa triển khai
+Version: 3.2
+Last updated: 2026-10-17
+Status: mirror `design.md` v3.0; bước 1a/1b (route công khai) đã triển khai
 Module: `calendar`
 
 > See `changelog.md` in this folder for the version history of this spec.

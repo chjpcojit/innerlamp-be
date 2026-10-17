@@ -321,6 +321,7 @@ erDiagram
         boolean is_leap_month "NOT NULL DEFAULT false, chi co nghia voi kind = lunar"
         smallint solar_term_longitude "NULL, boi cua 15 trong 0..345, chi kind = solar_term"
         boolean is_public_holiday "NOT NULL DEFAULT false, chi ngay cua su kien, khong co nghi bu"
+        boolean is_major "NOT NULL DEFAULT false, 0039; co Le lon (BR-CAL-10), seed nap"
         varchar(500) image_url "NULL, seed de trong"
         int sort_order "NOT NULL CHECK >= 1"
         boolean is_active "NOT NULL DEFAULT true, BO tat thay vi xoa"
