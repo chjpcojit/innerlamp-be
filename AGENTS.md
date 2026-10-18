@@ -181,6 +181,20 @@ Bốn nguyên tắc giảm các lỗi phổ biến của LLM khi code: giả đ�
 - Không hỏi lại điều người dùng đã trả lời hoặc đã nói "tự quyết". Nếu buộc phải hỏi thì hỏi **một lần**, gộp các câu, kèm đề xuất mặc định.
 - Điều này tinh chỉnh nguyên tắc 1 ở §5.1 chứ không thay thế: vẫn phải nêu rõ giả định, chỉ là không dừng việc để chờ trả lời cho những điều có thể quyết và ghi lại.
 
+### 5.5. Client sessions (cross-session messaging)
+
+Each client of this backend has its own Claude Code session. When the owner says "the clients" / "3 clients" / "all clients", or names one platform, resolve it to the session title below and message that session (`SendMessage` with `to` set to its `local_…` id, or `send_message` with `session_id`). Look the id up with `list_sessions` by exact title; never guess an id.
+
+| Platform | Session title | Working directory |
+|---|---|---|
+| Android | `[Android]-InnerLamp` | `/Users/chjpcoj/Documents/Programming/Android/InnerLamp` |
+| iOS | `[iOS]-InnerLamp` | `/Users/chjpcoj/Documents/Programming/iOS/InnerLamp` |
+| Website | `[Website]-InnerLamp` | `/Users/chjpcoj/Documents/Programming/website/innerlamp` |
+
+- "All clients" = all three rows; send the same self-contained message to each (contract version, commit/PR hash, what changed, what the client must do).
+- Do not confuse these with the `Justo` sessions (`[iOS]-Justo`, `[BE]-Justo`), which belong to a different project.
+- A message is not an acknowledgement: do not treat silence as agreement. Contract changes still go through `docs/specs/api/openapi.yaml` and its version bump.
+
 ---
 
 ## 6. Các Lệnh Thao Tác Cơ Bản (Standard Commands)
