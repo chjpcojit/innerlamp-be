@@ -196,6 +196,15 @@ Each client of this backend has its own Claude Code session. When the owner says
 - **Reporting rule:** when `[BE]-InnerLamp` assigns work to a client (e.g. "update to the new API"), that client MUST message `[BE]-InnerLamp` when the work is done, or when it is blocked. The report is short and self-contained: what was done, the contract version it now targets, the commit/PR, test status, and any mismatch left. Work the client starts on its own does not need a report.
 - A message is not an acknowledgement: do not treat silence as agreement. Contract changes still go through `docs/specs/api/openapi.yaml` and its version bump.
 
+### 5.6. Replying to the owner (short and definite)
+
+- Open with the verdict, stated definitively: the task is **done** or **not done** (or **blocked**), never "mostly" or "should be fine". One line per task when there are several.
+- Follow with the **reason** in one or two lines: the evidence (test run, command output, file) when done; the concrete cause when not done or blocked.
+- Add detail only when it is relevant to the verdict: what is left, what was assumed, the impact on other work, or a decision the owner must make. Explain that part fully; leave everything else out.
+- No preamble, no recap of what the owner said, no list of steps taken unless a step explains the verdict.
+- Anything not verified is labelled "not verified", not folded into "done".
+- Example: `Task A: done. Build and unit tests pass (go test -short ./...). Not verified: the E2E suite (needs Docker, not running).` / `Task B: not done. Blocked by the missing GCS credentials; needs the owner to decide whether to stub the upload.`
+
 ---
 
 ## 6. Các Lệnh Thao Tác Cơ Bản (Standard Commands)
