@@ -193,6 +193,7 @@ Each client of this backend has its own Claude Code session. When the owner says
 
 - "All clients" = all three rows; send the same self-contained message to each (contract version, commit/PR hash, what changed, what the client must do).
 - Do not confuse these with the `Justo` sessions (`[iOS]-Justo`, `[BE]-Justo`), which belong to a different project.
+- **Reporting rule:** when `[BE]-InnerLamp` assigns work to a client (e.g. "update to the new API"), that client MUST message `[BE]-InnerLamp` when the work is done, or when it is blocked. The report is short and self-contained: what was done, the contract version it now targets, the commit/PR, test status, and any mismatch left. Work the client starts on its own does not need a report.
 - A message is not an acknowledgement: do not treat silence as agreement. Contract changes still go through `docs/specs/api/openapi.yaml` and its version bump.
 
 ---
