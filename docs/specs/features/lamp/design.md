@@ -1,8 +1,8 @@
 # Design — lamp
 
-Version: 2.0
-Last updated: 2026-10-17
-Status: v1 (domain, config, usecase, repository, migration `0027`, handler, wiring, OpenAPI) is implemented and verified (2026-10-10): unit, repository (real Postgres) and E2E (real binary + Postgres) tests pass. **v2.0 is design only, not implemented** (`tasks.md` Phase 6–8): optional recipient, `is_mine`, vector-file test, OpenAPI 3.0.0. Open `⚠️ Not confirmed`: garden latency target; retention of expired lamps. `erd.svg` not regenerated (no `mmdc`).
+Version: 2.1
+Last updated: 2026-10-27
+Status: v1 (domain, config, usecase, repository, migration `0027`, handler, wiring, OpenAPI) is implemented and verified (2026-10-10): unit, repository (real Postgres) and E2E (real binary + Postgres) tests pass. **v2.0 implemented and verified (2026-10-27)** (`tasks.md` Phase 6–8): optional recipient (migration `0040`), `is_mine`, vector-file test, OpenAPI 3.0.0. Open `⚠️ Not confirmed`: garden latency target; retention of expired lamps.
 Module: `lamp`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -162,10 +162,8 @@ None. Retention of expired lamps (marker in `requirements.md`) has no route or j
 
 ## Known gaps carried by this feature
 
-- **v2.0 is not implemented**: the code still requires a recipient, has no `is_mine`, and the lamp vector files are not run by any test (`tasks.md` Phase 6–8).
 - `lamps.user_id` is `ON DELETE CASCADE`, now confirmed as the intended behavior (AC 29). The expired-lamp retention period is still open (marker in `requirements.md`); changing it needs a new migration, never an edit of `0027`.
 - Both routes are wrapped in `authMiddleware.AuthenticateFunc` in `cmd/main.go`, and `e2e/lamp_e2e_test.go` proves both return 401 without a token, with a junk token or with a refresh token.
 - The 5-second dedupe window is checked at the repository level (real Postgres); E2E only proves `201` then `200`. The "after 5 seconds it is a new lamp" half needs a real wait and has no E2E test.
-- `docs/specs/db/erd.mmd` has the `lamps` table, but `erd.svg` is not regenerated because this machine has no `mmdc`; the repo has no script for it.
-- The `usecase` package does not compile under plain `go test` because `genealogy_member_usecase_test.go` (unfinished genealogy work) references a missing `GenealogyMemberUsecase`; the lamp tests ran through `-overlay` that drops that file. Not part of this feature.
+- `erd.svg` has no script in the repo; it was regenerated on 2026-10-27 with `npx @mermaid-js/mermaid-cli@11.4.2`.
 - Cursor paging differs from the `page`/`total_pages` convention of the other list features (decided on purpose); clients must support both styles.

@@ -17,7 +17,7 @@ type lampData struct {
 	ID           int64   `json:"id"`
 	LampType     string  `json:"lamp_type"`
 	Intention    string  `json:"intention"`
-	Recipient    string  `json:"recipient"`
+	Recipient    *string `json:"recipient"`
 	Prayer       *string `json:"prayer"`
 	DurationDays int     `json:"duration_days"`
 	IsAnonymous  bool    `json:"is_anonymous"`
@@ -27,11 +27,12 @@ type lampData struct {
 }
 
 type gardenLampData struct {
-	ID          int64  `json:"id"`
-	LampType    string `json:"lamp_type"`
-	Recipient   string `json:"recipient"`
-	LighterName string `json:"lighter_name"`
-	EndAt       string `json:"end_at"`
+	ID          int64   `json:"id"`
+	LampType    string  `json:"lamp_type"`
+	Recipient   *string `json:"recipient"`
+	LighterName string  `json:"lighter_name"`
+	IsMine      bool    `json:"is_mine"`
+	EndAt       string  `json:"end_at"`
 }
 
 type gardenData struct {
@@ -326,7 +327,6 @@ func TestLampFlow_E2E(t *testing.T) {
 		}{
 			{"lamp type", func(m map[string]any) { m["lamp_type"] = "CANDLE" }, "lamp_type"},
 			{"intention", func(m map[string]any) { m["intention"] = "WEALTH" }, "intention"},
-			{"empty recipient", func(m map[string]any) { m["recipient"] = "   " }, "recipient"},
 			{"long recipient", func(m map[string]any) { m["recipient"] = strings.Repeat("ạ", 101) }, "recipient"},
 			{"long prayer", func(m map[string]any) { m["prayer"] = strings.Repeat("ế", 301) }, "prayer"},
 			{"duration", func(m map[string]any) { m["duration_days"] = 5 }, "duration_days"},
@@ -356,6 +356,100 @@ func TestLampFlow_E2E(t *testing.T) {
 		var l lampData
 		res.data(&l)
 		assert.Nil(t, l.Prayer, "a blank prayer is stored as null")
+	})
+}
+
+// v2.0 (AC 25, 26, 27): a lamp may have no recipient, and the garden marks the
+// caller's own lamps with is_mine without revealing anyone else's.
+// VI: v2.0: đèn có thể không có người nhận, và vườn đèn đánh dấu đèn của chính người
+// gọi bằng is_mine mà không lộ chủ của đèn khác.
+func TestLampFlow_V2_E2E(t *testing.T) {
+	requireE2E(t)
+	host, port, cleanupDB := startPostgres(t)
+	t.Cleanup(cleanupDB)
+	baseURL, stop := startServer(t, host, port, configOverrides{})
+	t.Cleanup(stop)
+	api := &apiClient{t: t, baseURL: baseURL, http: &http.Client{Timeout: 5 * time.Second}}
+	db := openDB(t, host, port)
+
+	me := api.login(api.registerUser(), deviceA).AccessToken
+	other := api.login(api.registerUser(), deviceA).AccessToken
+
+	t.Run("AC26: a lamp without a recipient is lit and read back as null", func(t *testing.T) {
+		api.t = t
+		for name, edit := range map[string]func(m map[string]any){
+			"absent": func(m map[string]any) { delete(m, "recipient") },
+			"null":   func(m map[string]any) { m["recipient"] = nil },
+			"blank":  func(m map[string]any) { m["recipient"] = "   " },
+		} {
+			body := lampBody("x", "OIL_LAMP", 1)
+			edit(body)
+			body["prayer"] = "nguyện " + name // distinct, so no replay of the previous one
+			res := api.do(http.MethodPost, "/v1/lamps", body, me)
+			require.Equal(t, http.StatusCreated, res.status, "%s: %s", name, res.raw)
+			assert.Contains(t, res.raw, `"recipient":null`, name)
+			var l lampData
+			res.data(&l)
+			assert.Nil(t, l.Recipient, name)
+		}
+		assert.Equal(t, 3, countRows(t, db, "lamps WHERE recipient IS NULL"), "stored as NULL, never ''")
+
+		res, g := api.garden("", other)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		require.Len(t, g.Items, 3)
+		for _, it := range g.Items {
+			assert.Nil(t, it.Recipient)
+		}
+	})
+
+	t.Run("AC10: a double tap without a recipient lights one lamp", func(t *testing.T) {
+		api.t = t
+		tok := api.login(api.registerUser(), deviceA).AccessToken
+		body := lampBody("x", "LOTUS_CANDLE", 7)
+		delete(body, "recipient")
+		require.Equal(t, http.StatusCreated, api.do(http.MethodPost, "/v1/lamps", body, tok).status)
+		second := api.do(http.MethodPost, "/v1/lamps", body, tok)
+		assert.Equal(t, http.StatusOK, second.status, second.raw)
+		assert.Equal(t, 1, countRows(t, db, fmt.Sprintf("lamps WHERE user_id = %s", userIDOf(t, tok))))
+	})
+
+	t.Run("AC25/AC27: is_mine marks only the caller's lamps", func(t *testing.T) {
+		api.t = t
+		anon := lampBody("Mẹ", "FLOWER_LANTERN", 1)
+		anon["is_anonymous"] = true
+		res := api.do(http.MethodPost, "/v1/lamps", anon, me)
+		require.Equal(t, http.StatusCreated, res.status, res.raw)
+		var mineAnon lampData
+		res.data(&mineAnon)
+		res = api.do(http.MethodPost, "/v1/lamps", lampBody("Cha", "OIL_LAMP", 1), other)
+		require.Equal(t, http.StatusCreated, res.status, res.raw)
+		var theirs lampData
+		res.data(&theirs)
+
+		mineIDs := map[int64]bool{}
+		myCount := countRows(t, db, fmt.Sprintf("lamps WHERE user_id = %s", userIDOf(t, me)))
+
+		res, g := api.garden("", me)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		for _, it := range g.Items {
+			if it.IsMine {
+				mineIDs[it.ID] = true
+			}
+			if it.ID == mineAnon.ID {
+				assert.True(t, it.IsMine, "my anonymous lamp is still mine")
+				assert.Equal(t, "Vô danh", it.LighterName, "and still shows no name")
+			}
+			if it.ID == theirs.ID {
+				assert.False(t, it.IsMine)
+			}
+		}
+		assert.Len(t, mineIDs, myCount, "every lit lamp of mine, and only those")
+
+		_, asOther := api.garden("", other)
+		for _, it := range asOther.Items {
+			assert.Equal(t, it.ID == theirs.ID, it.IsMine, "lamp %d seen by the other user", it.ID)
+		}
+		assert.NotContains(t, res.raw, `"user_id"`, "the owner id never leaves the server")
 	})
 }
 

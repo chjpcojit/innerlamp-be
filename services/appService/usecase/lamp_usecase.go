@@ -76,12 +76,18 @@ func (u *LampUsecase) build(in domain.LampInput) (*domain.Lamp, error) {
 		return nil, invalidLamp("intention", "intention must be one of PEACE, SALVATION, MERIT_DEDICATION, GRATITUDE")
 	}
 
-	recipient := normalizeLampText(in.Recipient)
-	if recipient == "" {
-		return nil, invalidLamp("recipient", "recipient is required")
-	}
-	if utf8.RuneCountInString(recipient) > u.cfg.RecipientMaxChars {
-		return nil, invalidLamp("recipient", fmt.Sprintf("recipient must be at most %d characters", u.cfg.RecipientMaxChars))
+	// A blank recipient is not an error since v2.0: the lamp is dedicated to all
+	// beings and stored without one (BR-LMP-06).
+	// VI: Từ v2.0, recipient trống không còn là lỗi: đèn dành cho tất cả chúng sanh
+	// và được lưu không có người nhận (BR-LMP-06).
+	var recipient *string
+	if in.Recipient != nil {
+		if r := normalizeLampText(*in.Recipient); r != "" {
+			if utf8.RuneCountInString(r) > u.cfg.RecipientMaxChars {
+				return nil, invalidLamp("recipient", fmt.Sprintf("recipient must be at most %d characters", u.cfg.RecipientMaxChars))
+			}
+			recipient = &r
+		}
 	}
 
 	var prayer *string
@@ -117,8 +123,10 @@ func (u *LampUsecase) durationAllowed(days int) bool {
 
 // Garden returns one page of the lit lamps of all users plus the total and
 // per-type counts. A bad filter, limit or cursor is reported before any read.
-func (u *LampUsecase) Garden(ctx context.Context, f domain.GardenFilter) (*domain.GardenPage, error) {
-	q := domain.GardenQuery{Limit: u.cfg.PageSize, Now: u.clock()}
+// viewerID only marks the viewer's own lamps (IsMine); it never filters.
+// VI: viewerID chỉ dùng để đánh dấu đèn của chính người xem (IsMine), không lọc.
+func (u *LampUsecase) Garden(ctx context.Context, viewerID int64, f domain.GardenFilter) (*domain.GardenPage, error) {
+	q := domain.GardenQuery{Limit: u.cfg.PageSize, Now: u.clock(), ViewerID: viewerID}
 
 	if f.LampType != nil {
 		t := domain.LampType(*f.LampType)

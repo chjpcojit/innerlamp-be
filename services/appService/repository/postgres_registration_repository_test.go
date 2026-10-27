@@ -129,6 +129,7 @@ func applyMigration(t *testing.T, db database.Database) {
 		"0036_temple_announcements.sql",             // temple_announcements/issuing bodies + users.receive_temple_announcements
 		"0037_auth_email_identity.sql",              // otp_codes/otp_send_limits/pending_registration keyed by email
 		"0038_login_attempts_email.sql",             // login_attempts keyed by email (login v2 Phase 1)
+		"0040_lamps_recipient_optional.sql",         // lamps.recipient nullable (lamp v2.0)
 	} {
 		sqlBytes, err := os.ReadFile("../../../migrations/" + file)
 		require.NoError(t, err)

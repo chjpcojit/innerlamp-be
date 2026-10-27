@@ -13,7 +13,7 @@ import (
 // declared here (the consumer) so the handler is tested with a mock.
 type lampUsecase interface {
 	Light(ctx context.Context, userID int64, in domain.LampInput) (lamp *domain.Lamp, created bool, err error)
-	Garden(ctx context.Context, f domain.GardenFilter) (*domain.GardenPage, error)
+	Garden(ctx context.Context, viewerID int64, f domain.GardenFilter) (*domain.GardenPage, error)
 }
 
 // LampHandler serves lighting a lamp and the garden of lit lamps. Both routes
@@ -30,11 +30,13 @@ func NewLampHandler(usecase lampUsecase) *LampHandler {
 
 // lampRequest is the body of POST /v1/lamps. Server-owned fields (id, user_id,
 // lit_at, end_at, lighter_name) are deliberately absent, so the strict decoder
-// rejects them as unknown fields.
+// rejects them as unknown fields. recipient may be absent, null or blank: all
+// three mean the lamp has no recipient.
+// VI: recipient có thể không gửi, null hoặc trống: cả ba đều là đèn không có người nhận.
 type lampRequest struct {
 	LampType     string  `json:"lamp_type"`
 	Intention    string  `json:"intention"`
-	Recipient    string  `json:"recipient"`
+	Recipient    *string `json:"recipient"`
 	Prayer       *string `json:"prayer"`
 	DurationDays int     `json:"duration_days"`
 	IsAnonymous  bool    `json:"is_anonymous"`
@@ -53,7 +55,7 @@ type lampResponse struct {
 	ID           int64     `json:"id"`
 	LampType     string    `json:"lamp_type"`
 	Intention    string    `json:"intention"`
-	Recipient    string    `json:"recipient"`
+	Recipient    *string   `json:"recipient"`
 	Prayer       *string   `json:"prayer"`
 	DurationDays int       `json:"duration_days"`
 	IsAnonymous  bool      `json:"is_anonymous"`
@@ -71,12 +73,14 @@ func newLampResponse(l *domain.Lamp) lampResponse {
 }
 
 // gardenLampResponse is one lamp as other users see it: no intention, prayer,
-// owner or anonymity flag.
+// owner or anonymity flag. is_mine only tells the viewer which lamps are theirs.
+// VI: is_mine chỉ cho người xem biết đèn nào là của mình, không lộ chủ đèn khác.
 type gardenLampResponse struct {
 	ID          int64     `json:"id"`
 	LampType    string    `json:"lamp_type"`
-	Recipient   string    `json:"recipient"`
+	Recipient   *string   `json:"recipient"`
 	LighterName string    `json:"lighter_name"`
+	IsMine      bool      `json:"is_mine"`
 	EndAt       time.Time `json:"end_at"`
 }
 
@@ -93,7 +97,7 @@ func newGardenResponse(p *domain.GardenPage) gardenResponse {
 	for _, g := range p.Items {
 		items = append(items, gardenLampResponse{
 			ID: g.ID, LampType: string(g.LampType), Recipient: g.Recipient,
-			LighterName: g.DisplayName(), EndAt: g.EndAt.UTC(),
+			LighterName: g.DisplayName(), IsMine: g.IsMine, EndAt: g.EndAt.UTC(),
 		})
 	}
 	counts := make(map[string]int, len(domain.AllLampTypes))
@@ -129,9 +133,11 @@ func (h *LampHandler) Light(w http.ResponseWriter, r *http.Request) {
 
 // Garden serves GET /v1/lamps: every user's lit lamps, newest first, one page at
 // a time, with the totals. The caller's identity is required but never used to
-// filter.
+// filter; it only sets is_mine.
+// VI: Danh tính người gọi là bắt buộc nhưng không dùng để lọc; chỉ dùng để tính is_mine.
 func (h *LampHandler) Garden(w http.ResponseWriter, r *http.Request) {
-	if _, ok := currentUserID(w, r); !ok {
+	userID, ok := currentUserID(w, r)
+	if !ok {
 		return
 	}
 	query := r.URL.Query()
@@ -146,7 +152,7 @@ func (h *LampHandler) Garden(w http.ResponseWriter, r *http.Request) {
 		f.Cursor = &v[0]
 	}
 
-	page, err := h.usecase.Garden(r.Context(), f)
+	page, err := h.usecase.Garden(r.Context(), userID, f)
 	if err != nil {
 		writeDomainError(w, err)
 		return

@@ -24,7 +24,7 @@ Field lạ (kể cả `id`, `user_id`, `lit_at`, `end_at`, `lighter_name`) bị 
 | --- | --- | --- | --- |
 | `lamp_type` | string | có | `OIL_LAMP` (đèn dầu), `LOTUS_CANDLE` (nến sen), `FLOWER_LANTERN` (hoa đăng). |
 | `intention` | string | có | Tâm nguyện: `PEACE` (cầu an), `SALVATION` (cầu siêu), `MERIT_DEDICATION` (hồi hướng), `GRATITUDE` (tri ân). |
-| `recipient` | string | có | Dành cho ai, văn bản tự do, 1–100 ký tự sau khi cắt khoảng trắng đầu cuối. Đếm theo ký tự, không theo byte. |
+| `recipient` | string \| null | không | Dành cho ai, văn bản tự do, tối đa 100 ký tự sau khi cắt khoảng trắng đầu cuối. Đếm theo ký tự, không theo byte. Vắng, `null`, rỗng hoặc toàn khoảng trắng là đèn **không có người nhận** (dành cho tất cả chúng sanh), lưu thành `null`. |
 | `prayer` | string | không | Lời nguyện, tối đa 300 ký tự. Rỗng hoặc toàn khoảng trắng được lưu thành `null`. |
 | `duration_days` | int | có | Số ngày đèn sáng: `1`, `7`, `21` hoặc `49`. |
 | `is_anonymous` | bool | không | Mặc định `false`. `true` = ẩn tên người thắp trong vườn đèn. |
@@ -47,7 +47,8 @@ Thắp mới trả `201`. `data` chỉ trả cho **chính người thắp**:
 | Field | Kiểu | Ghi chú |
 | --- | --- | --- |
 | `id` | int | |
-| `lamp_type`, `intention`, `recipient` | string | Như đã gửi (`recipient` đã cắt khoảng trắng). |
+| `lamp_type`, `intention` | string | Như đã gửi. |
+| `recipient` | string \| null | Như đã gửi, đã cắt khoảng trắng; `null` khi không có người nhận. App hiển thị "Tất cả chúng sanh" cho `null`. |
 | `prayer` | string \| null | |
 | `duration_days` | int | |
 | `is_anonymous` | bool | |
@@ -56,11 +57,11 @@ Thắp mới trả `201`. `data` chỉ trả cho **chính người thắp**:
 
 ### Bấm đúp
 
-Gửi lại **đúng nội dung vừa thắp** trong vòng 5 giây không tạo đèn thứ hai: server trả `200` với đèn đã có (không phải `201`). Điều này đúng cả khi người dùng đang ở mức 20 đèn. Gửi cùng nội dung sau 5 giây là một ngọn đèn mới. Client có thể coi `200` và `201` đều là thành công.
+Gửi lại **đúng nội dung vừa thắp** trong vòng 5 giây không tạo đèn thứ hai: server trả `200` với đèn đã có (không phải `201`). Điều này đúng cả khi người dùng đang ở mức 20 đèn. Hai lần gửi cùng không có người nhận cũng là cùng nội dung. Gửi cùng nội dung sau 5 giây là một ngọn đèn mới. Client có thể coi `200` và `201` đều là thành công.
 
 ## Vườn đèn
 
-`GET /v1/lamps` trả các ngọn đèn **đang sáng** của **tất cả** người dùng, đèn mới thắp lên đầu. Người gọi không ảnh hưởng kết quả.
+`GET /v1/lamps` trả các ngọn đèn **đang sáng** của **tất cả** người dùng, đèn mới thắp lên đầu. Người gọi không lọc kết quả; chỉ quyết định `is_mine` của từng đèn.
 
 | Query | Ghi chú |
 | --- | --- |
@@ -73,8 +74,8 @@ Gửi lại **đúng nội dung vừa thắp** trong vòng 5 giây không tạo 
   "success": true,
   "data": {
     "items": [
-      { "id": 41, "lamp_type": "LOTUS_CANDLE", "recipient": "Thầy", "lighter_name": "Thích Minh An", "end_at": "2026-10-17T18:00:00Z" },
-      { "id": 40, "lamp_type": "OIL_LAMP", "recipient": "Mẹ", "lighter_name": "Vô danh", "end_at": "2026-10-11T10:00:00Z" }
+      { "id": 41, "lamp_type": "LOTUS_CANDLE", "recipient": "Thầy", "lighter_name": "Thích Minh An", "is_mine": true, "end_at": "2026-10-17T18:00:00Z" },
+      { "id": 40, "lamp_type": "OIL_LAMP", "recipient": null, "lighter_name": "Vô danh", "is_mine": false, "end_at": "2026-10-11T10:00:00Z" }
     ],
     "total": 10,
     "counts": { "OIL_LAMP": 5, "LOTUS_CANDLE": 3, "FLOWER_LANTERN": 2 },
@@ -86,7 +87,8 @@ Gửi lại **đúng nội dung vừa thắp** trong vòng 5 giây không tạo 
 
 | Field | Kiểu | Ghi chú |
 | --- | --- | --- |
-| `items[]` | object[] | Mỗi mục chỉ có `id`, `lamp_type`, `recipient`, `lighter_name`, `end_at`. **Tâm nguyện và lời nguyện không bao giờ được trả cho người khác.** `items: []` khi chưa có đèn nào. |
+| `items[]` | object[] | Mỗi mục chỉ có `id`, `lamp_type`, `recipient` (`null` khi không có người nhận), `lighter_name`, `is_mine`, `end_at`. **Tâm nguyện và lời nguyện không bao giờ được trả cho người khác.** `items: []` khi chưa có đèn nào. |
+| `items[].is_mine` | bool | `true` khi người gọi là người thắp đèn này, kể cả đèn ẩn danh của chính mình (app dùng để đánh dấu "Đèn của tôi"). Không có field nào lộ chủ của đèn người khác. |
 | `total` | int | Tổng số đèn đang sáng của mọi người dùng và mọi loại. |
 | `counts` | object | Số đèn đang sáng theo từng loại, luôn đủ ba khoá, `0` khi không có. |
 | `has_more` | bool | Còn trang sau hay không. |

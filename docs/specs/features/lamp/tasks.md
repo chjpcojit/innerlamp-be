@@ -1,8 +1,8 @@
 # Tasks — lamp
 
-Version: 2.0
-Last updated: 2026-10-17
-Status: Phase 1–5 (v1) implemented and verified 2026-10-10/11 — unit, repository (real Postgres) and E2E tests pass. **Phase 6–8 (v2.0) not started, every item `[ ]`.** Open `⚠️ Not confirmed`: garden latency target; retention of expired lamps. `erd.svg` not regenerated (no `mmdc`).
+Version: 2.1
+Last updated: 2026-10-27
+Status: Phase 1–5 (v1) implemented and verified 2026-10-10/11; Phase 6–8 (v2.0) implemented and verified 2026-10-27 — unit, vector, repository (real Postgres) and E2E tests pass. Open `⚠️ Not confirmed`: garden latency target; retention of expired lamps. Open task: the OKF concept.
 Module: `lamp`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -33,7 +33,7 @@ Each item traces to a row of the "Layers & components" table or a Step in `desig
 - [x] `ON DELETE` of `lamps.user_id` decided: `ON DELETE CASCADE` (same as `memorials`); confirmed as intended in v2.0 (AC 29)
 - [x] `migrations/0027_lamps.sql` (idempotent `IF NOT EXISTS`; CHECKs for enums, `end_at > lit_at`, anonymous ⇒ `lighter_name IS NULL`; indexes `idx_lamps_lit`, `idx_lamps_type_lit`, `idx_lamps_user_end`); `migrations/README.md` updated — number `0027` because `0026` is taken by `0026_administrative_units.sql`
 - [x] `docs/specs/db/erd.mmd` updated (table `lamps` + relation `users 1—N lamps`)
-- [ ] Regenerate `docs/specs/db/erd.svg` from `erd.mmd` with `mmdc` — this machine has no `mmdc`
+- [x] Regenerate `docs/specs/db/erd.svg` from `erd.mmd` (2026-10-27, `npx @mermaid-js/mermaid-cli@11.4.2`)
 - [x] `repository/postgres_lamp_repository.go`: `Light` (one tx: lock `users` + read `dharma_name`, dedupe, cap, insert), `Garden` (`READ ONLY` `REPEATABLE READ` tx: `GROUP BY` counts + keyset page `LIMIT limit+1`); explicit column list, `context`, `%w`
 - [x] Repository tests (`postgres_lamp_repository_test.go`, real Postgres): cap of 20 even with two concurrent `Light`, expired lamps not counted, dedupe inside/outside the window, anonymous keeps no name, changing `dharma_name` does not change old lamps, keyset without repeats/gaps when a lamp expires between pages, `counts` unchanged by `lamp_type`
 
@@ -53,27 +53,27 @@ Each item traces to a row of the "Layers & components" table or a Step in `desig
 
 ## Phase 6 — Optional recipient (v2.0, AC 6, 26; design: Layers rows Domain, Usecase, Repository, DTO, Migration; Step L-2, L-3c, L-4)
 
-- [ ] New migration (next free number — `0038` is the latest at spec time; check at implementation) with `ALTER TABLE lamps ALTER COLUMN recipient DROP NOT NULL`, idempotent; update `migrations/README.md`; never edit `0027`
-- [ ] `domain/lamp.go`: `Lamp.Recipient` and `GardenLamp.Recipient` become `*string`
-- [ ] `usecase/lamp_usecase.go` (`Light`): after trim + NFC, an empty recipient becomes `nil`; the max-length check applies only when present; update the mock if its signature uses the field
-- [ ] `repository/postgres_lamp_repository.go` (`Light`): dedupe compares `recipient IS NOT DISTINCT FROM $5`; insert/scan handle `NULL`
-- [ ] `delivery/http/lamp_handler.go`: `lampRequest.Recipient *string` (absent, `null` and blank all mean none); `lampResponse` and `gardenLampResponse` return JSON `null`, never `""`
-- [ ] Tests: usecase (blank/whitespace-only/absent recipient → `nil`, no `VALIDATION_ERROR`), repository on real Postgres (two identical no-recipient requests inside the window → one row; no-recipient and with-recipient lamps are not duplicates), handler (`null` in both responses), E2E (light without recipient → `201`, garden returns `recipient: null`)
+- [x] `migrations/0040_lamps_recipient_optional.sql` (next free number at implementation) with `ALTER TABLE lamps ALTER COLUMN recipient DROP NOT NULL`, idempotent; update `migrations/README.md`; never edit `0027`
+- [x] `domain/lamp.go`: `Lamp.Recipient` and `GardenLamp.Recipient` become `*string`
+- [x] `usecase/lamp_usecase.go` (`Light`): after trim + NFC, an empty recipient becomes `nil`; the max-length check applies only when present; update the mock if its signature uses the field
+- [x] `repository/postgres_lamp_repository.go` (`Light`): dedupe compares `recipient IS NOT DISTINCT FROM $5`; insert/scan handle `NULL`
+- [x] `delivery/http/lamp_handler.go`: `lampRequest.Recipient *string` (absent, `null` and blank all mean none); `lampResponse` and `gardenLampResponse` return JSON `null`, never `""`
+- [x] Tests: usecase (blank/whitespace-only/absent recipient → `nil`, no `VALIDATION_ERROR`), repository on real Postgres (two identical no-recipient requests inside the window → one row; no-recipient and with-recipient lamps are not duplicates), handler (`null` in both responses), E2E (light without recipient → `201`, garden returns `recipient: null`)
 
 ## Phase 7 — `is_mine` and the vector files (v2.0, AC 25, 27, 30; design: Layers rows Domain, Usecase, Repository, Handler, DTO, Test/vectors; Step G-2, G-3c, G-4)
 
-- [ ] `domain/lamp.go`: `GardenLamp.IsMine bool`, `GardenQuery.ViewerID int64`
-- [ ] `usecase/lamp_usecase.go`: `Garden(ctx, userID, f)` passes `userID` as `ViewerID`
-- [ ] `repository/postgres_lamp_repository.go` (`Garden`): select `(user_id = $viewer) AS is_mine`; do not load `user_id` into the entity
-- [ ] `delivery/http/lamp_handler.go`: `Garden` reads `userID` from context; `gardenLampResponse.IsMine` → `is_mine`
-- [ ] Tests: repository (own lamp `true`, other users' `false`, own anonymous lamp `true` with the name still absent, flag unchanged by `lamp_type`/`limit`/`cursor`), handler, E2E (two users)
-- [ ] `usecase/lamp_vectors_test.go`: load `docs/product/lamp/rules/lamp-lifetime.json`, `lamp-input-validation.json`, `lamp-lighter-name.json`; support the `{"repeat":..,"times":..}` and `{"concat":[..]}` notations; count characters after NFC; every case passes
+- [x] `domain/lamp.go`: `GardenLamp.IsMine bool`, `GardenQuery.ViewerID int64`
+- [x] `usecase/lamp_usecase.go`: `Garden(ctx, userID, f)` passes `userID` as `ViewerID`
+- [x] `repository/postgres_lamp_repository.go` (`Garden`): select `(user_id = $viewer) AS is_mine`; do not load `user_id` into the entity
+- [x] `delivery/http/lamp_handler.go`: `Garden` reads `userID` from context; `gardenLampResponse.IsMine` → `is_mine`
+- [x] Tests: repository (own lamp `true`, other users' `false`, own anonymous lamp `true` with the name still absent, flag unchanged by `lamp_type`/`limit`/`cursor`), handler, E2E (two users)
+- [x] `usecase/lamp_vectors_test.go`: load `docs/product/lamp/rules/lamp-lifetime.json`, `lamp-input-validation.json`, `lamp-lighter-name.json`; support the `{"repeat":..,"times":..}` and `{"concat":[..]}` notations; count characters after NFC; every case passes
 
 ## Phase 8 — Contract and documentation (v2.0; design: Layers rows API spec, DB spec)
 
-- [ ] `docs/specs/api/openapi.yaml`: `recipient` optional in `LampRequest`, nullable in `Lamp` and `GardenLamp`, `is_mine` in `GardenLamp`; bump `info.version` 2.1.1 → 3.0.0 (MAJOR: a response field becomes nullable)
-- [ ] `web/docs/src/content/docs/changelog.md`: dated entry naming 3.0.0; re-sync `web/docs/public/openapi.yaml` (`cd web/docs && node scripts/sync-openapi.mjs`); update the `lamps.md` web doc
-- [ ] `docs/specs/db/erd.mmd`: `recipient` nullable; regenerate `erd.svg` (see Phase 3)
+- [x] `docs/specs/api/openapi.yaml`: `recipient` optional in `LampRequest`, nullable in `Lamp` and `GardenLamp`, `is_mine` in `GardenLamp`; bump `info.version` 2.1.1 → 3.0.0 (MAJOR: a response field becomes nullable)
+- [x] `web/docs/src/content/docs/changelog.md`: dated entry naming 3.0.0; re-sync `web/docs/public/openapi.yaml` (`cd web/docs && node scripts/sync-openapi.mjs`); update the `lamps.md` web doc
+- [x] `docs/specs/db/erd.mmd`: `recipient` nullable; `erd.svg` regenerated (see Phase 3)
 - [x] Delete the legacy `docs/specs/features/lamp/SRS.md` (removed 2026-10-17 after the user approved the file list)
 
 ## Deferred (separate feature, not blocking lamp)
