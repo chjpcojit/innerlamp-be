@@ -1,0 +1,1527 @@
+{
+ "id": "tat-ca-cac-lau-hoac",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 2",
+ "summary": "Kinh trong Trung Bộ (MN 2), Thế Tôn giảng cho các Tỷ-kheo tại Jetavana về các pháp môn phòng hộ và đoạn trừ lậu hoặc. Bài nêu sự khác nhau giữa như lý tác ý và không như lý tác ý, rồi trình bày các cách đoạn trừ lậu hoặc: bằng tri kiến, phòng hộ, thọ dụng, kham nhẫn, tránh né, trừ diệt và tu tập.",
+ "titles": {
+  "vi": "Kinh Tất cả các lậu hoặc",
+  "pli": "Sabbāsavasutta",
+  "en": "All the Defilements"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 40,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn2/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn ở Sāvatthi (Xá-vệ), tại Jetavana (Kỳ-đà Lâm), vườn ông Anāthapiṇḍika (Cấp Cô Độc)."
+    },
+    {
+     "n": 3,
+     "text": "Khi ở tại chỗ ấy, Thế Tôn gọi các Tỷ-kheo: “Này các Tỷ-kheo!”"
+    },
+    {
+     "n": 4,
+     "text": "—“ Bạch Thế Tôn”, các Tỷ-kheo ấy vâng đáp Thế Tôn."
+    },
+    {
+     "n": 5,
+     "text": "Thế Tôn nói: “Này các Tỷ-kheo, Ta sẽ giảng cho các Người pháp môn phòng hộ tất cả lậu hoặc”. Hãy nghe và khéo tác ý. Ta sẽ nói”.:” Thưa vâng, bạch Thế Tôn”. Thế Tôn nói như sau"
+    },
+    {
+     "n": 6,
+     "text": "—Này các Tỷ-kheo, Ta giảng sự diệt tận các lậu hoặc cho người biết, cho người thấy, không phải cho người không biết, cho người không thấy.",
+     "section": "(Tóm lược)"
+    },
+    {
+     "n": 7,
+     "text": "Và này các Tỷ-kheo, thế nào là sự diệt tận các lậu hoặc cho người biết, cho người thấy: có như lý tác ý và không như lý tác ý.",
+     "section": "(Tóm lược)"
+    },
+    {
+     "n": 8,
+     "text": "Này các Tỷ-kheo, do không như lý tác ý, các lậu hoặc chưa sanh được sanh khởi, và các lậu hoặc đã sanh được tăng trưởng.",
+     "section": "(Tóm lược)"
+    },
+    {
+     "n": 9,
+     "text": "Này các Tỷ-kheo, do như lý tác ý, các lậu hoặc chưa sanh không sanh khởi, và các lậu hoặc đã sanh được trừ diệt.",
+     "section": "(Tóm lược)"
+    },
+    {
+     "n": 10,
+     "text": "Này các Tỷ-kheo, có những lậu hoặc phải do tri kiến được đoạn trừ, có những lậu hoặc phải do phòng hộ được đoạn trừ, có những lậu hoặc phải do thọ dụng được đoạn trừ, có những lậu hoặc phải do kham nhẫn được đoạn trừ,",
+     "section": "(Tóm lược)"
+    },
+    {
+     "n": 11,
+     "text": "có những lậu hoặc phải do tránh né được đoạn trừ, có những lậu hoặc phải do trừ diệt được đoạn trừ, có những lậu hoặc phải do tu tập được đoạn trừ.",
+     "section": "(Tóm lược)"
+    },
+    {
+     "n": 12,
+     "text": "Này các Tỷ-kheo, và thế nào là các lậu hoặc phải do tri kiến được đoạn trừ?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 13,
+     "text": "Này các Tỷ-kheo, ở đây có kẻ phàm phu ít nghe, không được thấy các bậc Thánh, không thuần thục pháp các bậc Thánh, không tu tập pháp các bậc Thánh, không được thấy các bậc Chơn nhơn,",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 14,
+     "text": "không thuần thục pháp các bậc Chơn nhơn, không tu tập pháp các bậc Chơn nhơn, không tuệ tri các pháp cần phải tác ý, không tuệ tri các pháp không cần phải tác ý;",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 15,
+     "text": "vị này vì không tuệ tri các pháp cần phải tác ý, vì không tuệ tri các pháp không cần phải tác ý nên tác ý các pháp không cần phải tác ý và không tác ý các pháp cần phải tác ý.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 16,
+     "text": "Này các Tỷ-kheo, và thế nào là các pháp không cần phải tác ý mà vị ấy tác ý?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 17,
+     "text": "Này các Tỷ-kheo, nghĩa là các pháp do vị ấy tác ý mà dục lậu chưa sanh được sanh khởi, hay dục lậu đã sanh được tăng trưởng;",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 18,
+     "text": "hay hữu lậu chưa sanh được sanh khởi, hay hữu lậu đã sanh được tăng trưởng, hay vô minh lậu chưa sanh được sanh khởi, hay vô minh lậu đã sanh được tăng trưởng.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 19,
+     "text": "Những pháp ấy là những pháp không cần phải tác ý mà vị ấy tác ý.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 20,
+     "text": "Này các Tỷ-kheo, và thế nào là các pháp cần phải tác ý mà vị ấy không tác ý?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 21,
+     "text": "Này các Tỷ-kheo, nghĩa là các pháp do vị ấy tác ý mà dục lậu chưa sanh không sanh khởi, hay dục lậu đã sanh được trừ diệt, hay hữu lậu chưa sanh không sanh khởi, hay hữu lậu đã sanh được trừ diệt,",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 22,
+     "text": "hay vô minh lậu chưa sanh không sanh khởi, hay vô minh lậu đã sanh được trừ diệt.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 23,
+     "text": "Những pháp ấy là những pháp cần phải tác ý mà các vị ấy không tác ý.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 24,
+     "text": "Do vị ấy tác ý các pháp không nên tác ý, do vị ấy không tác ý các pháp cần phải tác ý, nên các lậu hoặc chưa sanh được sanh khởi, và các lậu hoặc đã sanh được tăng trưởng.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 25,
+     "text": "Vị ấy không như lý tác ý như sau: “Ta có mặt trong thời quá khứ, hay ta không có mặt trong thời quá khứ?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 26,
+     "text": "Ta có mặt trong thời quá khứ như thế nào?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 27,
+     "text": "Ta có mặt trong thời quá khứ hình vóc như thế nào?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 28,
+     "text": "Trước kia ta là gì và ta đã có mặt như thế nào trong thời quá khứ?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 29,
+     "text": "Ta sẽ có mặt trong thời vị lai hay ta sẽ không có mặt trong thời vị lai?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 30,
+     "text": "Ta sẽ có mặt trong thời vị lai như thế nào?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 31,
+     "text": "Ta sẽ có mặt trong thời vị lai, hình vóc như thế nào?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 32,
+     "text": "Trước kia ta là gì và ta sẽ có mặt như thế nào trong thời vị lai?”",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 33,
+     "text": "Hay nay vị ấy có nghi ngờ về mình trong thời hiện tại: “Ta có mặt hay ta không có mặt? Ta có mặt như thế nào? Ta có mặt hình vóc như thế nào? Chúng sanh này từ đâu đến? Và rồi nó sẽ đi đâu?”.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 34,
+     "text": "Với người không như lý tác ý như vậy, một trong sáu tà kiến này khởi lên: “Ta có tự ngã”, tà kiến này khởi lên với người ấy như thật, như chơn; “Ta không có tự ngã”, tà kiến này khởi lên với người ấy như thật như chơn;",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 35,
+     "text": "“Do tự mình, ta tưởng tri ta có tự ngã”, tà kiến này khởi lên với người ấy như thật, như chơn; “Do tự mình, ta tưởng tri ta không có tự ngã”, tà kiến này khởi lên với người ấy như thật, như chơn.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 36,
+     "text": "“Không do tự mình, ta tưởng tri ta có tự ngã”, tà kiến này khởi lên với người ấy như thật, như chơn; hay tà kiến này khởi lên với người ấy:",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 37,
+     "text": "“Chính tự ngã của ta nói, cảm giác, hưởng thọ quả báo các nghiệp thiện ác đã làm chỗ này, chỗ kia, chính tự ngã ấy của ta là thường trú, thường hằng, hằng tồn, không chuyển biến, và sẽ vĩnh viễn tồn tại”.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 38,
+     "text": "Này các Tỷ-kheo, như vậy gọi là tà kiến, kiến trù lâm, kiến hoang vu, kiến hý luận, kiến tranh chấp, kiến kiết phược.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 39,
+     "text": "Này các Tỷ-kheo, trói buộc bởi kiến kiết sử, kẻ phàm phu ít nghe không được giải thoát khỏi sanh, già, chết, sầu, bi, khổ, ưu, não. Ta nói kẻ ấy không thoát khỏi khổ đau.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 40,
+     "text": "Này các Tỷ-kheo, và vị Thánh đệ tử nghe nhiều, được thấy các bậc Thánh, thuần thục pháp các bậc Thánh, tu tập pháp các bậc Thánh;",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 41,
+     "text": "được thấy các bậc Chơn nhơn, thuần thục pháp các bậc Chơn nhơn, tu tập pháp các bậc Chơn nhơn, tuệ tri các pháp cần phải tác ý, tuệ tri các pháp không cần phải tác ý.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 42,
+     "text": "Vị này, nhờ tuệ tri các pháp cần phải tác ý, nhờ tuệ tri các pháp không cần phải tác ý, nên không tác ý các pháp không cần phải tác ý và tác ý các pháp cần phải tác ý.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 43,
+     "text": "Và này các Tỷ-kheo, thế nào là các pháp không cần phải tác ý và vị này không tác ý?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 44,
+     "text": "Này các Tỷ-kheo, những pháp nào do vị ấy tác ý mà dục lậu chưa sanh được sanh khởi, hay dục lậu đã sanh được tăng trưởng; hay hữu lậu chưa sanh …",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 45,
+     "text": "(như trên) … hay vô minh lậu chưa sanh được khởi, hay vô minh lậu đã sanh được tăng trưởng.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 46,
+     "text": "Đó là những pháp không nên tác ý và vị ấy không tác ý.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 47,
+     "text": "Và này các Tỷ-kheo, thế nào là các pháp cần phải tác ý và vị ấy tác ý?",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 48,
+     "text": "Này các Tỷ-kheo, những pháp nào do vị ấy tác ý mà dục lậu chưa sanh không sanh khởi, hay dục lậu đã sanh được trừ diệt, hay hữu lậu chưa sanh …",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 49,
+     "text": "(như trên) … hay vô minh lậu chưa sanh không sanh khởi, hay vô minh lậu đã sanh được trừ diệt, đó là những pháp cần phải tác ý và vị ấy tác ý.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 50,
+     "text": "Nhờ vị ấy không tác ý các pháp không cần phải tác ý, tác ý các pháp cần phải tác ý nên các lậu hoặc chưa sanh không sanh khởi và các lậu hoặc đã sanh được trừ diệt.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 51,
+     "text": "Vị ấy như lý tác ý: “Đây là khổ”, như lý tác ý: “Đây là khổ tập”, như lý tác ý: “Đây là khổ diệt”, như lý tác ý: “Đây là con đường đưa đến khổ diệt”.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 52,
+     "text": "Nhờ vị ấy tác ý như vậy, ba kiết sử được trừ diệt: thân kiến, nghi, giới cấm thủ.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 53,
+     "text": "Này các Tỷ-kheo, các pháp ấy được gọi là các lậu hoặc phải do tri kiến được đoạn trừ.",
+     "section": "(Các lậu hoặc phải do tri kiến được đoạn trừ)"
+    },
+    {
+     "n": 54,
+     "text": "Và này các Tỷ-kheo, thế nào là các lậu hoặc phải do phòng hộ được đoạn trừ? Ở đây, có Tỷ-kheo như lý giác sát, sống phòng hộ với sự phòng hộ mắt.",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 55,
+     "text": "Này các Tỷ-kheo, nếu Tỷ-kheo ấy sống không phòng hộ với sự phòng hộ mắt, các lậu hoặc tàn hại và nhiệt não có thể khởi lên.",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 56,
+     "text": "Nếu sống phòng hộ với sự phòng hộ mắt, các lậu hoặc tàn hại và nhiệt não ấy không còn nữa.",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 57,
+     "text": "Vị ấy như lý giác sát, sống phòng hộ với sự phòng hộ lỗ tai …",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 58,
+     "text": "(như trên) … sống phòng hộ với sự phòng hộ lỗ mũi …",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 59,
+     "text": "(như trên) … sống phòng hộ với sự phòng hộ lưỡi …",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 60,
+     "text": "(như trên) … sống như lý giác sát phòng hộ với sự phòng hộ thân …",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 61,
+     "text": "(như trên) … sống như lý giác sát phòng hộ với sự phòng hộ ý.",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 62,
+     "text": "Này các Tỷ-kheo, nếu Tỷ-kheo ấy sống không phòng hộ với sự phòng hộ ý, các lậu hoặc tàn hại và nhiệt não ấy có thể khởi lên.",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 63,
+     "text": "Nếu sống phòng hộ ý, các lậu hoặc tàn hại và nhiệt não ấy không còn nữa.",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 64,
+     "text": "Này các Tỷ-kheo, các pháp ấy được gọi là các lậu hoặc phải do phòng hộ được đoạn trừ.",
+     "section": "(Các lậu hoặc phải do phòng hộ được đoạn trừ)"
+    },
+    {
+     "n": 65,
+     "text": "Và này các Tỷ-kheo, thế nào là các lậu hoặc phải do thọ dụng được đoạn trừ?",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 66,
+     "text": "Này các Tỷ-kheo, ở đây, Tỷ-kheo như lý giác sát, thọ dụng y phục, chỉ để ngăn ngừa lạnh, ngăn ngừa nóng, ngăn ngừa sự xúc chạm của ruồi, muỗi, gió, sức nóng mặt trời, các loài bò sát,",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 67,
+     "text": "chỉ với mục đích che đậy sự trần truồng.",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 68,
+     "text": "Vị ấy như lý giác sát, thọ dụng món ăn khất thực không phải để vui đùa, không phải để đam mê, không phải để trang sức, không phải để tự làm đẹp mình, mà chỉ để thân này được sống lâu và được bảo dưỡng,",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 69,
+     "text": "để thân này khỏi bị thương hại, để hỗ trợ phạm hạnh, nghĩ rằng:",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 70,
+     "text": "“Như vậy, ta diệt trừ các cảm thọ cũ và không cho khởi lên các cảm thọ mới, và ta sẽ không có lỗi lầm, sống được an ổn”.",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 71,
+     "text": "Vị ấy như lý giác sát, thọ dụng sàng tọa, chỉ để ngăn ngừa lạnh, ngăn ngừa nóng, ngăn ngừa sự xúc chạm của ruồi, muỗi, gió, sức nóng mặt trời, các loại bò sát, chỉ để giải trừ nguy hiểm của thời tiết,",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 72,
+     "text": "chỉ với mục đích sống độc cư an tịnh.",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 73,
+     "text": "Vị ấy như lý giác sát thọ dụng dược phẩm trị bệnh, chỉ để ngăn chận các cảm giác khổ thống đã sanh, để được ly khổ hoàn toàn.",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 74,
+     "text": "Này các Tỷ-kheo, nếu vị ấy không thọ dụng như vậy, các lậu hoặc tàn hại và nhiệt não có thể khởi lên.",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 75,
+     "text": "Nếu vị ấy thọ dụng như vậy, các lậu hoặc tàn hại và nhiệt não ấy không còn nữa.",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 76,
+     "text": "Này các Tỷ-kheo, các pháp ấy được gọi là các lậu hoặc phải do thọ dụng được đoạn trừ.",
+     "section": "(Các lậu hoặc phải do thọ dụng được đoạn trừ)"
+    },
+    {
+     "n": 77,
+     "text": "Và này các Tỷ-kheo, thế nào là các lậu hoặc phải do kham nhẫn được đoạn trừ?",
+     "section": "(Các lậu hoặc phải do kham nhẫn được đoạn trừ)"
+    },
+    {
+     "n": 78,
+     "text": "Này các Tỷ-kheo, ở đây, có Tỷ-kheo như lý giác sát, kham nhẫn lạnh, nóng, đói, khát, sự xúc chạm của ruồi, muỗi, gió, sức nóng mặt trời, các loài bò sát; kham nhẫn những cách nói mạ lị phỉ báng.",
+     "section": "(Các lậu hoặc phải do kham nhẫn được đoạn trừ)"
+    },
+    {
+     "n": 79,
+     "text": "Vị ấy có tánh kham nhẫn các cảm thọ về thân, những cảm thọ thống khổ, khốc liệt, đau nhói, nhức nhối, không sung sướng, không thích thú, chết điếng người.",
+     "section": "(Các lậu hoặc phải do kham nhẫn được đoạn trừ)"
+    },
+    {
+     "n": 80,
+     "text": "Này các Tỷ-kheo, nếu vị ấy không kham nhẫn như vậy, các lậu hoặc tàn hại và nhiệt não có thể khởi lên.",
+     "section": "(Các lậu hoặc phải do kham nhẫn được đoạn trừ)"
+    },
+    {
+     "n": 81,
+     "text": "Nếu vị ấy kham nhẫn như vậy, các lậu hoặc tàn hại và nhiệt não ấy không còn nữa.",
+     "section": "(Các lậu hoặc phải do kham nhẫn được đoạn trừ)"
+    },
+    {
+     "n": 82,
+     "text": "Này các Tỷ-kheo, các pháp ấy được gọi là các lậu hoặc phải do kham nhẫn được đoạn trừ.",
+     "section": "(Các lậu hoặc phải do kham nhẫn được đoạn trừ)"
+    },
+    {
+     "n": 83,
+     "text": "Và này các Tỷ-kheo, thế nào là các lậu hoặc phải do tránh né được đoạn trừ?",
+     "section": "(Các lậu hoặc phải do tránh né được đoạn trừ)"
+    },
+    {
+     "n": 84,
+     "text": "Này các Tỷ-kheo, ở đây, Tỷ-kheo như lý giác sát tránh né voi dữ, tránh né ngựa dữ, tránh né bò dữ, tránh né chó dữ, rắn, khúc cây, gai góc, hố sâu, vực núi, ao nước nhớp, vũng nước.",
+     "section": "(Các lậu hoặc phải do tránh né được đoạn trừ)"
+    },
+    {
+     "n": 85,
+     "text": "Có những chỗ ngồi không xứng đáng ngồi, những trú xứ không nên lai vãng, những bạn bè ác độc mà nếu giao du thì bị các vị đồng phạm hạnh có trí nghi ngờ, khinh thường;",
+     "section": "(Các lậu hoặc phải do tránh né được đoạn trừ)"
+    },
+    {
+     "n": 86,
+     "text": "vị ấy như lý giác sát tránh né chỗ ngồi không xứng đáng ấy, trú xứ không nên lai vãng ấy và các bạn độc ác ấy.",
+     "section": "(Các lậu hoặc phải do tránh né được đoạn trừ)"
+    },
+    {
+     "n": 87,
+     "text": "Này các Tỷ-kheo, nếu vị ấy không tránh né như vậy, các lậu hoặc tàn hại và nhiệt não ấy có thể khởi lên.",
+     "section": "(Các lậu hoặc phải do tránh né được đoạn trừ)"
+    },
+    {
+     "n": 88,
+     "text": "Nếu vị ấy tránh né như vậy, các lậu hoặc tàn hại và nhiệt não ấy không còn nữa.",
+     "section": "(Các lậu hoặc phải do tránh né được đoạn trừ)"
+    },
+    {
+     "n": 89,
+     "text": "Này các Tỷ-kheo, các pháp ấy được gọi là các lậu hoặc phải do tránh né được đoạn trừ.",
+     "section": "(Các lậu hoặc phải do tránh né được đoạn trừ)"
+    },
+    {
+     "n": 90,
+     "text": "Và này các Tỷ-kheo, thế nào là các lậu hoặc phải do trừ diệt được đoạn trừ?",
+     "section": "(Các lậu hoặc phải do trừ diệt được đoạn trừ)"
+    },
+    {
+     "n": 91,
+     "text": "Này các Tỷ-kheo, ở đây, Tỷ-kheo như lý giác sát không có chấp nhận dục niệm đã khởi lên, từ bỏ, trừ diệt, diệt tận, không cho tồn tại (dục niệm ấy);",
+     "section": "(Các lậu hoặc phải do trừ diệt được đoạn trừ)"
+    },
+    {
+     "n": 92,
+     "text": "không có chấp nhận sân niệm đã khởi lên, từ bỏ, trừ diệt, diệt tận, không cho tồn tại (sân niệm ấy); không có chấp nhận hại niệm đã khởi lên, từ bỏ, trừ diệt, diệt tận, không cho tồn tại (hại niệm ấy);",
+     "section": "(Các lậu hoặc phải do trừ diệt được đoạn trừ)"
+    },
+    {
+     "n": 93,
+     "text": "không chấp nhận các ác bất thiện pháp luôn luôn khởi lên, từ bỏ, trừ diệt, diệt tận, không cho tồn tại (các ác bất thiện pháp ấy).",
+     "section": "(Các lậu hoặc phải do trừ diệt được đoạn trừ)"
+    },
+    {
+     "n": 94,
+     "text": "Này các Tỷ-kheo, nếu vị ấy không trừ diệt như vậy, các lậu hoặc tàn hại và nhiệt não ấy có thể khởi lên.",
+     "section": "(Các lậu hoặc phải do trừ diệt được đoạn trừ)"
+    },
+    {
+     "n": 95,
+     "text": "Nếu vị ấy trừ diệt như vậy, các lậu hoặc tàn hại và nhiệt não ấy không còn nữa.",
+     "section": "(Các lậu hoặc phải do trừ diệt được đoạn trừ)"
+    },
+    {
+     "n": 96,
+     "text": "Này các Tỷ-kheo, các pháp ấy được gọi là các lậu hoặc phải do trừ diệt được đoạn diệt.",
+     "section": "(Các lậu hoặc phải do trừ diệt được đoạn trừ)"
+    },
+    {
+     "n": 97,
+     "text": "Và này các Tỷ-kheo, thế nào là các lậu hoặc phải do tu tập được đoạn trừ?",
+     "section": "(Các lậu hoặc phải do tu tập được đoạn trừ)"
+    },
+    {
+     "n": 98,
+     "text": "Này các Tỷ-kheo, ở đây, Tỷ-kheo như lý giác sát tu tập niệm giác chi, niệm giác chi này y viễn ly, y ly tham, y đoạn diệt, hướng đến từ bỏ; như lý giác sát tu tập trạch pháp giác chi …",
+     "section": "(Các lậu hoặc phải do tu tập được đoạn trừ)"
+    },
+    {
+     "n": 99,
+     "text": "(như trên) … tu tập tinh tấn giác chi … tu tập hỷ giác chi … tu tập khinh an giác chi … tu tập định giác chi … tu tập xả giác chi; xả giác chi này y viễn ly, y ly tham, y đoạn diệt, hướng đến từ bỏ.",
+     "section": "(Các lậu hoặc phải do tu tập được đoạn trừ)"
+    },
+    {
+     "n": 100,
+     "text": "Này các Tỷ-kheo, nếu vị ấy không tu tập như vậy, các lậu hoặc tàn hại và nhiệt não ấy có thể khởi lên.",
+     "section": "(Các lậu hoặc phải do tu tập được đoạn trừ)"
+    },
+    {
+     "n": 101,
+     "text": "Nếu vị ấy tu tập như vậy, các lậu hoặc tàn hại và nhiệt não ấy không còn nữa.",
+     "section": "(Các lậu hoặc phải do tu tập được đoạn trừ)"
+    },
+    {
+     "n": 102,
+     "text": "Này các Tỷ-kheo, các pháp ấy được gọi là các lậu hoặc phải do tu tập được đoạn trừ.",
+     "section": "(Các lậu hoặc phải do tu tập được đoạn trừ)"
+    },
+    {
+     "n": 103,
+     "text": "Này các Tỷ-kheo, đối với Tỷ-kheo những lậu hoặc nào phải do tri kiến được đoạn trừ đã được tri kiến đoạn trừ, những lậu hoặc nào phải do phòng hộ được đoạn trừ đã được phòng hộ đoạn trừ,",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 104,
+     "text": "những lậu hoặc nào phải do thọ dụng được đoạn trừ đã được thọ dụng đoạn trừ, những lậu hoặc nào phải do kham nhẫn được đoạn trừ đã được kham nhẫn đoạn trừ,",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 105,
+     "text": "những lậu hoặc nào phải do tránh né được đoạn trừ đã được tránh né đoạn trừ, những lậu hoặc nào phải do trừ diệt được đoạn trừ đã được trừ diệt đoạn trừ,",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 106,
+     "text": "những lậu hoặc nào phải do tu tập được đoạn trừ đã được tu tập đoạn trừ;",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 107,
+     "text": "này các Tỷ-kheo, Tỷ-kheo ấy được gọi là đã sống phòng hộ với sự phòng hộ tất cả lậu hoặc, đã đoạn diệt khát ái, đã thoát ly kiết sử, đã chánh quán kiêu mạn, đã diệt tận khổ đau.",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 108,
+     "text": "Thế Tôn thuyết giảng như vậy. Các Tỷ-kheo ấy hoan hỷ, tín thọ lời dạy của Thế Tôn.",
+     "section": "(Kết luận)"
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn2/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Tatra kho bhagavā bhikkhū āmantesi: “bhikkhavo”ti."
+    },
+    {
+     "n": 3,
+     "text": "“Bhadante”ti te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“sabbāsavasaṁvarapariyāyaṁ vo, bhikkhave, desessāmi."
+    },
+    {
+     "n": 5,
+     "text": "Taṁ suṇātha, sādhukaṁ manasi karotha, bhāsissāmī”ti."
+    },
+    {
+     "n": 6,
+     "text": "“Evaṁ, bhante”ti kho te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 7,
+     "text": "“Jānato ahaṁ, bhikkhave, passato āsavānaṁ khayaṁ vadāmi, no ajānato no apassato."
+    },
+    {
+     "n": 8,
+     "text": "Kiñca, bhikkhave, jānato kiñca passato āsavānaṁ khayaṁ vadāmi?"
+    },
+    {
+     "n": 9,
+     "text": "Yoniso ca manasikāraṁ ayoniso ca manasikāraṁ."
+    },
+    {
+     "n": 10,
+     "text": "Ayoniso, bhikkhave, manasikaroto anuppannā ceva āsavā uppajjanti, uppannā ca āsavā pavaḍḍhanti; yoniso ca kho, bhikkhave, manasikaroto anuppannā ceva āsavā na uppajjanti, uppannā ca āsavā pahīyanti."
+    },
+    {
+     "n": 11,
+     "text": "Atthi, bhikkhave, āsavā dassanā pahātabbā, atthi āsavā saṁvarā pahātabbā, atthi āsavā paṭisevanā pahātabbā, atthi āsavā adhivāsanā pahātabbā, atthi āsavā parivajjanā pahātabbā, atthi āsavā vinodanā pahātabbā,"
+    },
+    {
+     "n": 12,
+     "text": "atthi āsavā bhāvanā pahātabbā."
+    },
+    {
+     "n": 13,
+     "text": "Katame ca, bhikkhave, āsavā dassanā pahātabbā?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 14,
+     "text": "Idha, bhikkhave, assutavā puthujjano ariyānaṁ adassāvī ariyadhammassa akovido ariyadhamme avinīto, sappurisānaṁ adassāvī sappurisadhammassa akovido sappurisadhamme avinīto— manasikaraṇīye dhamme nappajānāti,",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 15,
+     "text": "amanasikaraṇīye dhamme nappajānāti. So manasikaraṇīye dhamme appajānanto amanasikaraṇīye dhamme appajānanto, ye dhammā na manasikaraṇīyā, te dhamme manasi karoti, ye dhammā manasikaraṇīyā te dhamme na manasi karoti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 16,
+     "text": "Katame ca, bhikkhave, dhammā na manasikaraṇīyā ye dhamme manasi karoti?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 17,
+     "text": "Yassa, bhikkhave, dhamme manasikaroto anuppanno vā kāmāsavo uppajjati, uppanno vā kāmāsavo pavaḍḍhati; anuppanno vā bhavāsavo uppajjati, uppanno vā bhavāsavo pavaḍḍhati;",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 18,
+     "text": "anuppanno vā avijjāsavo uppajjati, uppanno vā avijjāsavo pavaḍḍhati— ime dhammā na manasikaraṇīyā ye dhamme manasi karoti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 19,
+     "text": "Katame ca, bhikkhave, dhammā manasikaraṇīyā ye dhamme na manasi karoti?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 20,
+     "text": "Yassa, bhikkhave, dhamme manasikaroto anuppanno vā kāmāsavo na uppajjati, uppanno vā kāmāsavo pahīyati; anuppanno vā bhavāsavo na uppajjati, uppanno vā bhavāsavo pahīyati;",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 21,
+     "text": "anuppanno vā avijjāsavo na uppajjati, uppanno vā avijjāsavo pahīyati— ime dhammā manasikaraṇīyā ye dhamme na manasi karoti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 22,
+     "text": "Tassa amanasikaraṇīyānaṁ dhammānaṁ manasikārā manasikaraṇīyānaṁ dhammānaṁ amanasikārā anuppannā ceva āsavā uppajjanti uppannā ca āsavā pavaḍḍhanti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 23,
+     "text": "So evaṁ ayoniso manasi karoti: ‘ahosiṁ nu kho ahaṁ atītamaddhānaṁ? Na nu kho ahosiṁ atītamaddhānaṁ? Kiṁ nu kho ahosiṁ atītamaddhānaṁ? Kathaṁ nu kho ahosiṁ atītamaddhānaṁ?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 24,
+     "text": "Kiṁ hutvā kiṁ ahosiṁ nu kho ahaṁ atītamaddhānaṁ?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 25,
+     "text": "Bhavissāmi nu kho ahaṁ anāgatamaddhānaṁ? Na nu kho bhavissāmi anāgatamaddhānaṁ? Kiṁ nu kho bhavissāmi anāgatamaddhānaṁ?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 26,
+     "text": "Kathaṁ nu kho bhavissāmi anāgatamaddhānaṁ?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 27,
+     "text": "Kiṁ hutvā kiṁ bhavissāmi nu kho ahaṁ anāgatamaddhānan’ti?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 28,
+     "text": "Etarahi vā paccuppannamaddhānaṁ ajjhattaṁ kathaṅkathī hoti: ‘ahaṁ nu khosmi? No nu khosmi? Kiṁ nu khosmi? Kathaṁ nu khosmi? Ayaṁ nu kho satto kuto āgato? So kuhiṁ gāmī bhavissatī’ti?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 29,
+     "text": "Tassa evaṁ ayoniso manasikaroto channaṁ diṭṭhīnaṁ aññatarā diṭṭhi uppajjati.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 30,
+     "text": "‘Atthi me attā’ti vā assa saccato thetato diṭṭhi uppajjati; ‘natthi me attā’ti vā assa saccato thetato diṭṭhi uppajjati; ‘attanāva attānaṁ sañjānāmī’ti vā assa saccato thetato diṭṭhi uppajjati;",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 31,
+     "text": "‘attanāva anattānaṁ sañjānāmī’ti vā assa saccato thetato diṭṭhi uppajjati; ‘anattanāva attānaṁ sañjānāmī’ti vā assa saccato thetato diṭṭhi uppajjati; atha vā panassa evaṁ diṭṭhi hoti:",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 32,
+     "text": "‘yo me ayaṁ attā vado vedeyyo tatra tatra kalyāṇapāpakānaṁ kammānaṁ vipākaṁ paṭisaṁvedeti so kho pana me ayaṁ attā nicco dhuvo sassato avipariṇāmadhammo sassatisamaṁ tatheva ṭhassatī’ti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 33,
+     "text": "Idaṁ vuccati, bhikkhave, diṭṭhigataṁ diṭṭhigahanaṁ diṭṭhikantāraṁ diṭṭhivisūkaṁ diṭṭhivipphanditaṁ diṭṭhisaṁyojanaṁ.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 34,
+     "text": "Diṭṭhisaṁyojanasaṁyutto, bhikkhave, assutavā puthujjano na parimuccati jātiyā jarāya maraṇena sokehi paridevehi dukkhehi domanassehi upāyāsehi; ‘na parimuccati dukkhasmā’ti vadāmi.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 35,
+     "text": "Sutavā ca kho, bhikkhave, ariyasāvako— ariyānaṁ dassāvī ariyadhammassa kovido ariyadhamme suvinīto,",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 36,
+     "text": "sappurisānaṁ dassāvī sappurisadhammassa kovido sappurisadhamme suvinīto— manasikaraṇīye dhamme pajānāti amanasikaraṇīye dhamme pajānāti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 37,
+     "text": "So manasikaraṇīye dhamme pajānanto amanasikaraṇīye dhamme pajānanto ye dhammā na manasikaraṇīyā te dhamme na manasi karoti, ye dhammā manasikaraṇīyā te dhamme manasi karoti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 38,
+     "text": "Katame ca, bhikkhave, dhammā na manasikaraṇīyā ye dhamme na manasi karoti?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 39,
+     "text": "Yassa, bhikkhave, dhamme manasikaroto anuppanno vā kāmāsavo uppajjati, uppanno vā kāmāsavo pavaḍḍhati; anuppanno vā bhavāsavo uppajjati, uppanno vā bhavāsavo pavaḍḍhati;",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 40,
+     "text": "anuppanno vā avijjāsavo uppajjati, uppanno vā avijjāsavo pavaḍḍhati— ime dhammā na manasikaraṇīyā, ye dhamme na manasi karoti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 41,
+     "text": "Katame ca, bhikkhave, dhammā manasikaraṇīyā ye dhamme manasi karoti?",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 42,
+     "text": "Yassa, bhikkhave, dhamme manasikaroto anuppanno vā kāmāsavo na uppajjati, uppanno vā kāmāsavo pahīyati; anuppanno vā bhavāsavo na uppajjati, uppanno vā bhavāsavo pahīyati;",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 43,
+     "text": "anuppanno vā avijjāsavo na uppajjati, uppanno vā avijjāsavo pahīyati— ime dhammā manasikaraṇīyā ye dhamme manasi karoti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 44,
+     "text": "Tassa amanasikaraṇīyānaṁ dhammānaṁ amanasikārā manasikaraṇīyānaṁ dhammānaṁ manasikārā anuppannā ceva āsavā na uppajjanti, uppannā ca āsavā pahīyanti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 45,
+     "text": "So ‘idaṁ dukkhan’ti yoniso manasi karoti, ‘ayaṁ dukkhasamudayo’ti yoniso manasi karoti, ‘ayaṁ dukkhanirodho’ti yoniso manasi karoti, ‘ayaṁ dukkhanirodhagāminī paṭipadā’ti yoniso manasi karoti.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 46,
+     "text": "Tassa evaṁ yoniso manasikaroto tīṇi saṁyojanāni pahīyanti— sakkāyadiṭṭhi, vicikicchā, sīlabbataparāmāso.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 47,
+     "text": "Ime vuccanti, bhikkhave, āsavā dassanā pahātabbā.",
+     "section": "1. Dassanāpahātabbaāsava"
+    },
+    {
+     "n": 48,
+     "text": "Katame ca, bhikkhave, āsavā saṁvarā pahātabbā?",
+     "section": "2. Saṁvarāpahātabbaāsava"
+    },
+    {
+     "n": 49,
+     "text": "Idha, bhikkhave, bhikkhu paṭisaṅkhā yoniso cakkhundriyasaṁvarasaṁvuto viharati.",
+     "section": "2. Saṁvarāpahātabbaāsava"
+    },
+    {
+     "n": 50,
+     "text": "Yañhissa, bhikkhave, cakkhundriyasaṁvaraṁ asaṁvutassa viharato uppajjeyyuṁ āsavā vighātapariḷāhā, cakkhundriyasaṁvaraṁ saṁvutassa viharato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "2. Saṁvarāpahātabbaāsava"
+    },
+    {
+     "n": 51,
+     "text": "Paṭisaṅkhā yoniso sotindriyasaṁvarasaṁvuto viharati …pe… ghānindriyasaṁvarasaṁvuto viharati …pe… jivhindriyasaṁvarasaṁvuto viharati …pe… kāyindriyasaṁvarasaṁvuto viharati …pe… manindriyasaṁvarasaṁvuto viharati.",
+     "section": "2. Saṁvarāpahātabbaāsava"
+    },
+    {
+     "n": 52,
+     "text": "Yañhissa, bhikkhave, manindriyasaṁvaraṁ asaṁvutassa viharato uppajjeyyuṁ āsavā vighātapariḷāhā, manindriyasaṁvaraṁ saṁvutassa viharato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "2. Saṁvarāpahātabbaāsava"
+    },
+    {
+     "n": 53,
+     "text": "Yañhissa, bhikkhave, saṁvaraṁ asaṁvutassa viharato uppajjeyyuṁ āsavā vighātapariḷāhā, saṁvaraṁ saṁvutassa viharato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "2. Saṁvarāpahātabbaāsava"
+    },
+    {
+     "n": 54,
+     "text": "Ime vuccanti, bhikkhave, āsavā saṁvarā pahātabbā.",
+     "section": "2. Saṁvarāpahātabbaāsava"
+    },
+    {
+     "n": 55,
+     "text": "Katame ca, bhikkhave, āsavā paṭisevanā pahātabbā?",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 56,
+     "text": "Idha, bhikkhave, bhikkhu paṭisaṅkhā yoniso cīvaraṁ paṭisevati: ‘yāvadeva sītassa paṭighātāya, uṇhassa paṭighātāya, ḍaṁsamakasavātātapasarīsapasamphassānaṁ paṭighātāya, yāvadeva hirikopīnappaṭicchādanatthaṁ’.",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 57,
+     "text": "Paṭisaṅkhā yoniso piṇḍapātaṁ paṭisevati:",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 58,
+     "text": "‘neva davāya, na madāya, na maṇḍanāya, na vibhūsanāya, yāvadeva imassa kāyassa ṭhitiyā yāpanāya, vihiṁsūparatiyā, brahmacariyānuggahāya, iti purāṇañca vedanaṁ paṭihaṅkhāmi navañca vedanaṁ na uppādessāmi,",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 59,
+     "text": "yātrā ca me bhavissati anavajjatā ca phāsuvihāro ca’.",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 60,
+     "text": "Paṭisaṅkhā yoniso senāsanaṁ paṭisevati: ‘yāvadeva sītassa paṭighātāya, uṇhassa paṭighātāya, ḍaṁsamakasavātātapasarīsapasamphassānaṁ paṭighātāya, yāvadeva utuparissayavinodanapaṭisallānārāmatthaṁ’.",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 61,
+     "text": "Paṭisaṅkhā yoniso gilānappaccayabhesajjaparikkhāraṁ paṭisevati: ‘yāvadeva uppannānaṁ veyyābādhikānaṁ vedanānaṁ paṭighātāya, abyābajjhaparamatāya’.",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 62,
+     "text": "Yañhissa, bhikkhave, appaṭisevato uppajjeyyuṁ āsavā vighātapariḷāhā, paṭisevato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 63,
+     "text": "Ime vuccanti, bhikkhave, āsavā paṭisevanā pahātabbā.",
+     "section": "3. Paṭisevanāpahātabbaāsava"
+    },
+    {
+     "n": 64,
+     "text": "Katame ca, bhikkhave, āsavā adhivāsanā pahātabbā?",
+     "section": "4. Adhivāsanāpahātabbaāsava"
+    },
+    {
+     "n": 65,
+     "text": "Idha, bhikkhave, bhikkhu paṭisaṅkhā yoniso khamo hoti sītassa uṇhassa, jighacchāya pipāsāya. Ḍaṁsamakasavātātapasarīsapasamphassānaṁ, duruttānaṁ durāgatānaṁ vacanapathānaṁ,",
+     "section": "4. Adhivāsanāpahātabbaāsava"
+    },
+    {
+     "n": 66,
+     "text": "uppannānaṁ sārīrikānaṁ vedanānaṁ dukkhānaṁ tibbānaṁ kharānaṁ kaṭukānaṁ asātānaṁ amanāpānaṁ pāṇaharānaṁ adhivāsakajātiko hoti.",
+     "section": "4. Adhivāsanāpahātabbaāsava"
+    },
+    {
+     "n": 67,
+     "text": "Yañhissa, bhikkhave, anadhivāsayato uppajjeyyuṁ āsavā vighātapariḷāhā, adhivāsayato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "4. Adhivāsanāpahātabbaāsava"
+    },
+    {
+     "n": 68,
+     "text": "Ime vuccanti, bhikkhave, āsavā adhivāsanā pahātabbā.",
+     "section": "4. Adhivāsanāpahātabbaāsava"
+    },
+    {
+     "n": 69,
+     "text": "Katame ca, bhikkhave, āsavā parivajjanā pahātabbā?",
+     "section": "5. Parivajjanāpahātabbaāsava"
+    },
+    {
+     "n": 70,
+     "text": "Idha, bhikkhave, bhikkhu paṭisaṅkhā yoniso caṇḍaṁ hatthiṁ parivajjeti, caṇḍaṁ assaṁ parivajjeti, caṇḍaṁ goṇaṁ parivajjeti, caṇḍaṁ kukkuraṁ parivajjeti, ahiṁ khāṇuṁ kaṇṭakaṭṭhānaṁ sobbhaṁ papātaṁ candanikaṁ oḷigallaṁ.",
+     "section": "5. Parivajjanāpahātabbaāsava"
+    },
+    {
+     "n": 71,
+     "text": "Yathārūpe anāsane nisinnaṁ yathārūpe agocare carantaṁ yathārūpe pāpake mitte bhajantaṁ viññū sabrahmacārī pāpakesu ṭhānesu okappeyyuṁ, so tañca anāsanaṁ tañca agocaraṁ te ca pāpake mitte paṭisaṅkhā yoniso parivajjeti.",
+     "section": "5. Parivajjanāpahātabbaāsava"
+    },
+    {
+     "n": 72,
+     "text": "Yañhissa, bhikkhave, aparivajjayato uppajjeyyuṁ āsavā vighātapariḷāhā, parivajjayato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "5. Parivajjanāpahātabbaāsava"
+    },
+    {
+     "n": 73,
+     "text": "Ime vuccanti, bhikkhave, āsavā parivajjanā pahātabbā.",
+     "section": "5. Parivajjanāpahātabbaāsava"
+    },
+    {
+     "n": 74,
+     "text": "Katame ca, bhikkhave, āsavā vinodanā pahātabbā?",
+     "section": "6. Vinodanāpahātabbaāsava"
+    },
+    {
+     "n": 75,
+     "text": "Idha, bhikkhave, bhikkhu paṭisaṅkhā yoniso uppannaṁ kāmavitakkaṁ nādhivāseti pajahati vinodeti byantīkaroti anabhāvaṁ gameti,",
+     "section": "6. Vinodanāpahātabbaāsava"
+    },
+    {
+     "n": 76,
+     "text": "uppannaṁ byāpādavitakkaṁ …pe… uppannaṁ vihiṁsāvitakkaṁ …pe… uppannuppanne pāpake akusale dhamme nādhivāseti pajahati vinodeti byantīkaroti anabhāvaṁ gameti.",
+     "section": "6. Vinodanāpahātabbaāsava"
+    },
+    {
+     "n": 77,
+     "text": "Yañhissa, bhikkhave, avinodayato uppajjeyyuṁ āsavā vighātapariḷāhā, vinodayato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "6. Vinodanāpahātabbaāsava"
+    },
+    {
+     "n": 78,
+     "text": "Ime vuccanti, bhikkhave, āsavā vinodanā pahātabbā.",
+     "section": "6. Vinodanāpahātabbaāsava"
+    },
+    {
+     "n": 79,
+     "text": "Katame ca, bhikkhave, āsavā bhāvanā pahātabbā?",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 80,
+     "text": "Idha, bhikkhave, bhikkhu paṭisaṅkhā yoniso satisambojjhaṅgaṁ bhāveti vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ;",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 81,
+     "text": "paṭisaṅkhā yoniso dhammavicayasambojjhaṅgaṁ bhāveti …pe… vīriyasambojjhaṅgaṁ bhāveti … pītisambojjhaṅgaṁ bhāveti … passaddhisambojjhaṅgaṁ bhāveti … samādhisambojjhaṅgaṁ bhāveti … upekkhāsambojjhaṅgaṁ bhāveti",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 82,
+     "text": "vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ.",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 83,
+     "text": "Yañhissa, bhikkhave, abhāvayato uppajjeyyuṁ āsavā vighātapariḷāhā, bhāvayato evaṁsa te āsavā vighātapariḷāhā na honti.",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 84,
+     "text": "Ime vuccanti, bhikkhave, āsavā bhāvanā pahātabbā.",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 85,
+     "text": "Yato kho, bhikkhave, bhikkhuno ye āsavā dassanā pahātabbā te dassanā pahīnā honti, ye āsavā saṁvarā pahātabbā te saṁvarā pahīnā honti, ye āsavā paṭisevanā pahātabbā te paṭisevanā pahīnā honti,",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 86,
+     "text": "ye āsavā adhivāsanā pahātabbā te adhivāsanā pahīnā honti, ye āsavā parivajjanā pahātabbā te parivajjanā pahīnā honti, ye āsavā vinodanā pahātabbā te vinodanā pahīnā honti,",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 87,
+     "text": "ye āsavā bhāvanā pahātabbā te bhāvanā pahīnā honti;",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 88,
+     "text": "ayaṁ vuccati, bhikkhave: ‘bhikkhu sabbāsavasaṁvarasaṁvuto viharati, acchecchi taṇhaṁ, vivattayi saṁyojanaṁ, sammā mānābhisamayā antamakāsi dukkhassā’”ti.",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 89,
+     "text": "Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṁ abhinandunti.",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    },
+    {
+     "n": 90,
+     "text": "Sabbāsavasuttaṁ niṭṭhitaṁ dutiyaṁ.",
+     "section": "7. Bhāvanāpahātabbaāsava"
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn2/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "There the Buddha addressed the mendicants, “Mendicants!”"
+    },
+    {
+     "n": 3,
+     "text": "“Venerable sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 4,
+     "text": "“Mendicants, I will teach you the explanation of the restraint of all defilements."
+    },
+    {
+     "n": 5,
+     "text": "Listen and apply your mind well, I will speak.”"
+    },
+    {
+     "n": 6,
+     "text": "“Yes, sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 7,
+     "text": "“Mendicants, I say that the ending of defilements is for one who knows and sees, not for one who does not know or see. For one who knows and sees what?"
+    },
+    {
+     "n": 8,
+     "text": "Rational application of mind and irrational application of mind."
+    },
+    {
+     "n": 9,
+     "text": "When you apply the mind irrationally, defilements arise, and once arisen they grow."
+    },
+    {
+     "n": 10,
+     "text": "When you apply the mind rationally, defilements don’t arise, and those that have already arisen are given up."
+    },
+    {
+     "n": 11,
+     "text": "Some defilements should be given up by seeing, some by restraint, some by using, some by enduring, some by avoiding, some by dispelling, and some by developing."
+    },
+    {
+     "n": 12,
+     "text": "And what are the defilements that should be given up by seeing?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 13,
+     "text": "Take an unlearned ordinary person who has not seen the noble ones, and is neither skilled nor trained in the teaching of the noble ones.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 14,
+     "text": "They’ve not seen true persons, and are neither skilled nor trained in the teaching of the true persons.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 15,
+     "text": "They don’t understand to which things they should apply the mind and to which things they should not apply the mind.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 16,
+     "text": "So they apply the mind to things they shouldn’t and don’t apply the mind to things they should.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 17,
+     "text": "And what are the things to which they apply the mind but should not?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 18,
+     "text": "They are the things that, when the mind is applied to them, give rise to unarisen defilements and make arisen defilements grow: the defilements of sensual desire, desire to be reborn, and ignorance.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 19,
+     "text": "These are the things to which they apply the mind but should not.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 20,
+     "text": "And what are the things to which they do not apply the mind but should?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 21,
+     "text": "They are the things that, when the mind is applied to them, do not give rise to unarisen defilements and give up arisen defilements: the defilements of sensual desire, desire to be reborn, and ignorance.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 22,
+     "text": "These are the things to which they do not apply the mind but should.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 23,
+     "text": "Because of applying the mind to what they should not and not applying the mind to what they should, unarisen defilements arise and arisen defilements grow.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 24,
+     "text": "This is how they apply the mind irrationally: ‘Did I exist in the past? Did I not exist in the past? What was I in the past? How was I in the past?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 25,
+     "text": "After being what, what did I become in the past? Will I exist in the future? Will I not exist in the future? What will I be in the future? How will I be in the future?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 26,
+     "text": "After being what, what will I become in the future?’",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 27,
+     "text": "Or they are undecided about the present thus: ‘Am I? Am I not? What am I? How am I?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 28,
+     "text": "This sentient being—where did it come from? And where will it go?’",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 29,
+     "text": "When they apply the mind irrationally in this way, one of the following six views arises in them and is taken as a genuine fact. The view: ‘My self survives.’ The view: ‘My self does not survive.’",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 30,
+     "text": "The view: ‘I perceive the self with the self.’",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 31,
+     "text": "The view: ‘I perceive what is not-self with the self.’",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 32,
+     "text": "The view: ‘I perceive the self with what is not-self.’",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 33,
+     "text": "Or they have such a view: ‘This self of mine is he, the one who speaks, the one who knows, who experiences the results of good and bad deeds in all the different realms.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 34,
+     "text": "This self is permanent, everlasting, eternal, and imperishable, and will last forever and ever.’",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 35,
+     "text": "This is called a misconception, the thicket of views, the desert of views, the twist of views, the dodge of views, the fetter of views.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 36,
+     "text": "An unlearned ordinary person who is fettered by views is not freed from rebirth, old age, and death, from sorrow, lamentation, pain, sadness, and distress.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 37,
+     "text": "They’re not freed from suffering, I say.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 38,
+     "text": "But take a learned noble disciple who has seen the noble ones, and is skilled and trained in the teaching of the noble ones.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 39,
+     "text": "They’ve seen true persons, and are skilled and trained in the teaching of the true persons.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 40,
+     "text": "They understand to which things they should apply the mind and to which things they should not apply the mind.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 41,
+     "text": "So they apply the mind to things they should and don’t apply the mind to things they shouldn’t.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 42,
+     "text": "And what are the things to which they don’t apply the mind and should not?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 43,
+     "text": "They are the things that, when the mind is applied to them, give rise to unarisen defilements and make arisen defilements grow: the defilements of sensual desire, desire to be reborn, and ignorance.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 44,
+     "text": "These are the things to which they don’t apply the mind and should not.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 45,
+     "text": "And what are the things to which they do apply the mind and should?",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 46,
+     "text": "They are the things that, when the mind is applied to them, do not give rise to unarisen defilements and give up arisen defilements: the defilements of sensual desire, desire to be reborn, and ignorance.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 47,
+     "text": "These are the things to which they do apply the mind and should.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 48,
+     "text": "Because of not applying the mind to what they should not and applying the mind to what they should, unarisen defilements don’t arise and arisen defilements are given up.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 49,
+     "text": "They rationally apply the mind: ‘This is suffering’ … ‘This is the origin of suffering’ … ‘This is the cessation of suffering’ …",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 50,
+     "text": "‘This is the practice that leads to the cessation of suffering’.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 51,
+     "text": "And as they do so, they give up three fetters: substantialist view, doubt, and misapprehension of precepts and observances.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 52,
+     "text": "These are called the defilements that should be given up by seeing.",
+     "section": "1. Defilements Given Up by Seeing"
+    },
+    {
+     "n": 53,
+     "text": "And what are the defilements that should be given up by restraint?",
+     "section": "2. Defilements Given Up by Restraint"
+    },
+    {
+     "n": 54,
+     "text": "Take a mendicant who, reflecting rationally, lives restraining the eye faculty.",
+     "section": "2. Defilements Given Up by Restraint"
+    },
+    {
+     "n": 55,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without restraint of the eye faculty do not arise when there is such restraint.",
+     "section": "2. Defilements Given Up by Restraint"
+    },
+    {
+     "n": 56,
+     "text": "Reflecting rationally, they live restraining the ear faculty … the nose faculty … the tongue faculty … the body faculty … the mind faculty.",
+     "section": "2. Defilements Given Up by Restraint"
+    },
+    {
+     "n": 57,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without restraint of the mind faculty do not arise when there is such restraint.",
+     "section": "2. Defilements Given Up by Restraint"
+    },
+    {
+     "n": 58,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without restraint do not arise when there is such restraint.",
+     "section": "2. Defilements Given Up by Restraint"
+    },
+    {
+     "n": 59,
+     "text": "These are called the defilements that should be given up by restraint.",
+     "section": "2. Defilements Given Up by Restraint"
+    },
+    {
+     "n": 60,
+     "text": "And what are the defilements that should be given up by using?",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 61,
+     "text": "Take a mendicant who, reflecting rationally, makes use of robes: ‘Only for the sake of warding off cold and heat; for warding off the touch of flies, mosquitoes, wind, sun, and reptiles;",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 62,
+     "text": "and for covering up the private parts.’",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 63,
+     "text": "Reflecting rationally, they make use of almsfood: ‘Not for fun, indulgence, adornment, or decoration, but only to sustain this body, to avoid harm, and to support spiritual practice.",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 64,
+     "text": "In this way, I shall put an end to old discomfort and not give rise to new discomfort, and I will have the means to keep going, blamelessness, and a comfortable abiding.’",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 65,
+     "text": "Reflecting rationally, they make use of lodgings: ‘Only for the sake of warding off cold and heat; for warding off the touch of flies, mosquitoes, wind, sun, and reptiles;",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 66,
+     "text": "to shelter from harsh weather and to enjoy retreat.’",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 67,
+     "text": "Reflecting rationally, they make use of medicines and supplies for the sick: ‘Only for the sake of warding off the pains of illness and to promote good health.’",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 68,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without using these things do not arise when they are used.",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 69,
+     "text": "These are called the defilements that should be given up by using.",
+     "section": "3. Defilements Given Up by Using"
+    },
+    {
+     "n": 70,
+     "text": "And what are the defilements that should be given up by enduring?",
+     "section": "4. Defilements Given Up by Enduring"
+    },
+    {
+     "n": 71,
+     "text": "Take a mendicant who, reflecting rationally, endures cold, heat, hunger, and thirst.",
+     "section": "4. Defilements Given Up by Enduring"
+    },
+    {
+     "n": 72,
+     "text": "They endure the touch of flies, mosquitoes, wind, sun, and reptiles.",
+     "section": "4. Defilements Given Up by Enduring"
+    },
+    {
+     "n": 73,
+     "text": "They endure rude and unwelcome criticism.",
+     "section": "4. Defilements Given Up by Enduring"
+    },
+    {
+     "n": 74,
+     "text": "And they put up with physical pain—sharp, severe, acute, unpleasant, disagreeable, and life-threatening.",
+     "section": "4. Defilements Given Up by Enduring"
+    },
+    {
+     "n": 75,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without enduring these things do not arise when they are endured.",
+     "section": "4. Defilements Given Up by Enduring"
+    },
+    {
+     "n": 76,
+     "text": "These are called the defilements that should be given up by enduring.",
+     "section": "4. Defilements Given Up by Enduring"
+    },
+    {
+     "n": 77,
+     "text": "And what are the defilements that should be given up by avoiding?",
+     "section": "5. Defilements Given Up by Avoiding"
+    },
+    {
+     "n": 78,
+     "text": "Take a mendicant who, reflecting rationally, avoids a wild elephant, a wild horse, a wild ox, a wild dog, a snake, a stump, thorny ground, a pit, a cliff, a swamp, and a sewer.",
+     "section": "5. Defilements Given Up by Avoiding"
+    },
+    {
+     "n": 79,
+     "text": "Reflecting rationally, they avoid sitting on inappropriate seats, walking in inappropriate neighborhoods, and mixing with bad friends—whatever sensible spiritual companions would believe to be a bad setting.",
+     "section": "5. Defilements Given Up by Avoiding"
+    },
+    {
+     "n": 80,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without avoiding these things do not arise when they are avoided.",
+     "section": "5. Defilements Given Up by Avoiding"
+    },
+    {
+     "n": 81,
+     "text": "These are called the defilements that should be given up by avoiding.",
+     "section": "5. Defilements Given Up by Avoiding"
+    },
+    {
+     "n": 82,
+     "text": "And what are the defilements that should be given up by dispelling?",
+     "section": "6. Defilements Given Up by Dispelling"
+    },
+    {
+     "n": 83,
+     "text": "Take a mendicant who, reflecting rationally, doesn’t tolerate a sensual, malicious, or cruel thought that has arisen, but gives it up, dispels it, eliminates it, and obliterates it.",
+     "section": "6. Defilements Given Up by Dispelling"
+    },
+    {
+     "n": 84,
+     "text": "They don’t tolerate any bad, unskillful qualities that have arisen, but give them up, dispel them, eliminate them, and obliterate them.",
+     "section": "6. Defilements Given Up by Dispelling"
+    },
+    {
+     "n": 85,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without dispelling these things do not arise when they are dispelled.",
+     "section": "6. Defilements Given Up by Dispelling"
+    },
+    {
+     "n": 86,
+     "text": "These are called the defilements that should be given up by dispelling.",
+     "section": "6. Defilements Given Up by Dispelling"
+    },
+    {
+     "n": 87,
+     "text": "And what are the defilements that should be given up by developing?",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 88,
+     "text": "Take a mendicant who, reflecting rationally, develops the awakening factors of mindfulness, investigation of principles, energy, rapture, tranquility, immersion, and equanimity, which rely on seclusion, fading away,",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 89,
+     "text": "and cessation, and ripen as letting go.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 90,
+     "text": "For the distressing and feverish defilements that might arise in someone who lives without developing these things do not arise when they are developed.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 91,
+     "text": "These are called the defilements that should be given up by developing.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 92,
+     "text": "Now, take a mendicant who, by seeing, has given up the defilements that should be given up by seeing.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 93,
+     "text": "By restraint, they’ve given up the defilements that should be given up by restraint.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 94,
+     "text": "By using, they’ve given up the defilements that should be given up by using.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 95,
+     "text": "By enduring, they’ve given up the defilements that should be given up by enduring.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 96,
+     "text": "By avoiding, they’ve given up the defilements that should be given up by avoiding.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 97,
+     "text": "By dispelling, they’ve given up the defilements that should be given up by dispelling.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 98,
+     "text": "By developing, they’ve given up the defilements that should be given up by developing.",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 99,
+     "text": "They’re called a mendicant who lives having restrained all defilements, who has cut off craving, cast off the fetters, and by rightly comprehending conceit has made an end of suffering.”",
+     "section": "7. Defilements Given Up by Developing"
+    },
+    {
+     "n": 100,
+     "text": "That is what the Buddha said. Satisfied, the mendicants approved what the Buddha said.",
+     "section": "7. Defilements Given Up by Developing"
+    }
+   ]
+  }
+ ]
+}

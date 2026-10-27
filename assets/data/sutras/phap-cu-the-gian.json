@@ -1,0 +1,642 @@
+{
+ "id": "phap-cu-the-gian",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 167-178",
+ "summary": "Phẩm kệ trong Kinh Pháp Cú (Tiểu Bộ, Dhp 167–178) nói về cách sống giữa thế gian. Kệ khuyên chớ theo pháp hạ liệt, chớ buông lung hay tin tà kiến, hãy nỗ lực sống theo chánh hạnh. Phẩm cũng nhắc nhìn đời như bọt nước, như cảnh huyển, và kết bằng ý rằng quả Dự Lưu còn hơn việc thống lãnh cõi đất hay sinh lên cõi trời.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Thế Gian",
+  "pli": "Lokavagga",
+  "en": "The World"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp167-178/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Chớ theo pháp hạ liệt."
+    },
+    {
+     "n": 2,
+     "text": "Chớ sống mặc, buông lung;"
+    },
+    {
+     "n": 3,
+     "text": "Chớ tin theo tà kiến,"
+    },
+    {
+     "n": 4,
+     "text": "Chớ tăng trưởng tục trần."
+    },
+    {
+     "n": 5,
+     "text": "Nỗ lực, chớ phóng dật!"
+    },
+    {
+     "n": 6,
+     "text": "Hãy sống theo chánh hạnh;"
+    },
+    {
+     "n": 7,
+     "text": "Người chánh hạnh hưởng lạc,"
+    },
+    {
+     "n": 8,
+     "text": "Cả đời này, đời sau."
+    },
+    {
+     "n": 9,
+     "text": "Hãy khéo sống chánh hạnh,"
+    },
+    {
+     "n": 10,
+     "text": "Chớ sống theo tà hạnh!"
+    },
+    {
+     "n": 11,
+     "text": "Người chánh hạnh hưởng lạc,"
+    },
+    {
+     "n": 12,
+     "text": "Cả đời này, đời sau."
+    },
+    {
+     "n": 13,
+     "text": "Hãy nhìn như bọt nước,"
+    },
+    {
+     "n": 14,
+     "text": "Hãy nhìn như cảnh huyển!"
+    },
+    {
+     "n": 15,
+     "text": "Quán nhìn đời như vậy,"
+    },
+    {
+     "n": 16,
+     "text": "Thần chết không bắt gặp."
+    },
+    {
+     "n": 17,
+     "text": "Hãy đến nhìn đời này,"
+    },
+    {
+     "n": 18,
+     "text": "Như xe vua lộng lẫy,"
+    },
+    {
+     "n": 19,
+     "text": "Người ngu mới tham đắm,"
+    },
+    {
+     "n": 20,
+     "text": "Kẻ trí nào đắm say."
+    },
+    {
+     "n": 21,
+     "text": "Ai sống trước buông lung,"
+    },
+    {
+     "n": 22,
+     "text": "Sau sống không phóng dật,"
+    },
+    {
+     "n": 23,
+     "text": "Chói sáng rực đời này."
+    },
+    {
+     "n": 24,
+     "text": "Như trăng thoát mây che."
+    },
+    {
+     "n": 25,
+     "text": "Ai dùng các hạnh lành,"
+    },
+    {
+     "n": 26,
+     "text": "Làm xóa mờ nghiệp ác,"
+    },
+    {
+     "n": 27,
+     "text": "Chói sáng rực đời này,"
+    },
+    {
+     "n": 28,
+     "text": "Như trăng thoát mây che."
+    },
+    {
+     "n": 29,
+     "text": "Đời này thật mù quáng,"
+    },
+    {
+     "n": 30,
+     "text": "Ít kẻ thấy rõ ràng."
+    },
+    {
+     "n": 31,
+     "text": "Như chim thoát khỏi lưới,"
+    },
+    {
+     "n": 32,
+     "text": "Rất ít đi thiên giới."
+    },
+    {
+     "n": 33,
+     "text": "Như chim thiên nga bay,"
+    },
+    {
+     "n": 34,
+     "text": "Thần thông liệng giữa trời;"
+    },
+    {
+     "n": 35,
+     "text": "Chiến thắng ma, ma quân,"
+    },
+    {
+     "n": 36,
+     "text": "Kẻ trí thoát đời này."
+    },
+    {
+     "n": 37,
+     "text": "Ai vi phạm một pháp,"
+    },
+    {
+     "n": 38,
+     "text": "Ai nói lời vọng ngữ,"
+    },
+    {
+     "n": 39,
+     "text": "Ai bác bỏ đời sau,"
+    },
+    {
+     "n": 40,
+     "text": "Không ác nào không làm."
+    },
+    {
+     "n": 41,
+     "text": "Keo kiết không sanh thiên,"
+    },
+    {
+     "n": 42,
+     "text": "Kẻ ngu ghét bố thí,"
+    },
+    {
+     "n": 43,
+     "text": "Người trí thích bố thí,"
+    },
+    {
+     "n": 44,
+     "text": "Đời sau, được hưởng lạc."
+    },
+    {
+     "n": 45,
+     "text": "Hơn thống lãnh cõi đất,"
+    },
+    {
+     "n": 46,
+     "text": "Hơn được sanh cõi trời,"
+    },
+    {
+     "n": 47,
+     "text": "Hơn chủ trì vũ trụ,"
+    },
+    {
+     "n": 48,
+     "text": "Quả Dự Lưu tối thắng."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp167-178/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Hīnaṁ dhammaṁ na seveyya,"
+    },
+    {
+     "n": 2,
+     "text": "pamādena na saṁvase;"
+    },
+    {
+     "n": 3,
+     "text": "Micchādiṭṭhiṁ na seveyya,"
+    },
+    {
+     "n": 4,
+     "text": "na siyā lokavaḍḍhano."
+    },
+    {
+     "n": 5,
+     "text": "Uttiṭṭhe nappamajjeyya,"
+    },
+    {
+     "n": 6,
+     "text": "dhammaṁ sucaritaṁ care;"
+    },
+    {
+     "n": 7,
+     "text": "Dhammacārī sukhaṁ seti,"
+    },
+    {
+     "n": 8,
+     "text": "asmiṁ loke paramhi ca."
+    },
+    {
+     "n": 9,
+     "text": "Dhammaṁ care sucaritaṁ,"
+    },
+    {
+     "n": 10,
+     "text": "na naṁ duccaritaṁ care;"
+    },
+    {
+     "n": 11,
+     "text": "Dhammacārī sukhaṁ seti,"
+    },
+    {
+     "n": 12,
+     "text": "asmiṁ loke paramhi ca."
+    },
+    {
+     "n": 13,
+     "text": "Yathā pubbuḷakaṁ passe,"
+    },
+    {
+     "n": 14,
+     "text": "yathā passe marīcikaṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Evaṁ lokaṁ avekkhantaṁ,"
+    },
+    {
+     "n": 16,
+     "text": "maccurājā na passati."
+    },
+    {
+     "n": 17,
+     "text": "Etha passathimaṁ lokaṁ,"
+    },
+    {
+     "n": 18,
+     "text": "cittaṁ rājarathūpamaṁ;"
+    },
+    {
+     "n": 19,
+     "text": "Yattha bālā visīdanti,"
+    },
+    {
+     "n": 20,
+     "text": "natthi saṅgo vijānataṁ."
+    },
+    {
+     "n": 21,
+     "text": "Yo ca pubbe pamajjitvā,"
+    },
+    {
+     "n": 22,
+     "text": "pacchā so nappamajjati;"
+    },
+    {
+     "n": 23,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 24,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 25,
+     "text": "Yassa pāpaṁ kataṁ kammaṁ,"
+    },
+    {
+     "n": 26,
+     "text": "kusalena pidhīyati;"
+    },
+    {
+     "n": 27,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 28,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 29,
+     "text": "Andhabhūto ayaṁ loko,"
+    },
+    {
+     "n": 30,
+     "text": "tanukettha vipassati;"
+    },
+    {
+     "n": 31,
+     "text": "Sakuṇo jālamuttova,"
+    },
+    {
+     "n": 32,
+     "text": "appo saggāya gacchati."
+    },
+    {
+     "n": 33,
+     "text": "Haṁsādiccapathe yanti,"
+    },
+    {
+     "n": 34,
+     "text": "ākāse yanti iddhiyā;"
+    },
+    {
+     "n": 35,
+     "text": "Nīyanti dhīrā lokamhā,"
+    },
+    {
+     "n": 36,
+     "text": "jetvā māraṁ savāhiniṁ."
+    },
+    {
+     "n": 37,
+     "text": "Ekaṁ dhammaṁ atītassa,"
+    },
+    {
+     "n": 38,
+     "text": "musāvādissa jantuno;"
+    },
+    {
+     "n": 39,
+     "text": "Vitiṇṇaparalokassa,"
+    },
+    {
+     "n": 40,
+     "text": "natthi pāpaṁ akāriyaṁ."
+    },
+    {
+     "n": 41,
+     "text": "Na ve kadariyā devalokaṁ vajanti,"
+    },
+    {
+     "n": 42,
+     "text": "Bālā have nappasaṁsanti dānaṁ;"
+    },
+    {
+     "n": 43,
+     "text": "Dhīro ca dānaṁ anumodamāno,"
+    },
+    {
+     "n": 44,
+     "text": "Teneva so hoti sukhī parattha."
+    },
+    {
+     "n": 45,
+     "text": "Pathabyā ekarajjena,"
+    },
+    {
+     "n": 46,
+     "text": "saggassa gamanena vā;"
+    },
+    {
+     "n": 47,
+     "text": "Sabbalokādhipaccena,"
+    },
+    {
+     "n": 48,
+     "text": "sotāpattiphalaṁ varaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp167-178/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Don’t resort to lowly things,"
+    },
+    {
+     "n": 2,
+     "text": "don’t abide in negligence,"
+    },
+    {
+     "n": 3,
+     "text": "don’t resort to wrong views,"
+    },
+    {
+     "n": 4,
+     "text": "don’t perpetuate the world."
+    },
+    {
+     "n": 5,
+     "text": "Get up, don’t be heedless,"
+    },
+    {
+     "n": 6,
+     "text": "live by principle, with good conduct."
+    },
+    {
+     "n": 7,
+     "text": "For one of good conduct sleeps at ease,"
+    },
+    {
+     "n": 8,
+     "text": "in this world and the next."
+    },
+    {
+     "n": 9,
+     "text": "Live by principle, with good conduct,"
+    },
+    {
+     "n": 10,
+     "text": "don’t conduct yourself badly."
+    },
+    {
+     "n": 11,
+     "text": "For one of good conduct sleeps at ease,"
+    },
+    {
+     "n": 12,
+     "text": "in this world and the next."
+    },
+    {
+     "n": 13,
+     "text": "Look upon the world"
+    },
+    {
+     "n": 14,
+     "text": "as a bubble"
+    },
+    {
+     "n": 15,
+     "text": "or a mirage,"
+    },
+    {
+     "n": 16,
+     "text": "then the King of Death won’t see you."
+    },
+    {
+     "n": 17,
+     "text": "Come, see this world decked out"
+    },
+    {
+     "n": 18,
+     "text": "like a fancy royal chariot."
+    },
+    {
+     "n": 19,
+     "text": "Here fools founder,"
+    },
+    {
+     "n": 20,
+     "text": "but the discerning are not chained."
+    },
+    {
+     "n": 21,
+     "text": "He who once was heedless,"
+    },
+    {
+     "n": 22,
+     "text": "but turned to heedfulness,"
+    },
+    {
+     "n": 23,
+     "text": "shines upon this world"
+    },
+    {
+     "n": 24,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 25,
+     "text": "Someone whose bad deed"
+    },
+    {
+     "n": 26,
+     "text": "is supplanted by the good,"
+    },
+    {
+     "n": 27,
+     "text": "shines upon this world,"
+    },
+    {
+     "n": 28,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 29,
+     "text": "Blind is the world,"
+    },
+    {
+     "n": 30,
+     "text": "few are those who clearly see."
+    },
+    {
+     "n": 31,
+     "text": "Only a handful go to heaven,"
+    },
+    {
+     "n": 32,
+     "text": "like a bird freed from a net."
+    },
+    {
+     "n": 33,
+     "text": "Swans fly by the sun’s path,"
+    },
+    {
+     "n": 34,
+     "text": "psychic sages fly through space."
+    },
+    {
+     "n": 35,
+     "text": "The attentive leave the world,"
+    },
+    {
+     "n": 36,
+     "text": "having vanquished Māra with his legions."
+    },
+    {
+     "n": 37,
+     "text": "When a personage, spurning the hereafter,"
+    },
+    {
+     "n": 38,
+     "text": "transgresses in just one thing—"
+    },
+    {
+     "n": 39,
+     "text": "lying—"
+    },
+    {
+     "n": 40,
+     "text": "there is no evil they would not do."
+    },
+    {
+     "n": 41,
+     "text": "The miserly don’t ascend to heaven,"
+    },
+    {
+     "n": 42,
+     "text": "it takes a fool to not praise giving."
+    },
+    {
+     "n": 43,
+     "text": "The attentive celebrate giving,"
+    },
+    {
+     "n": 44,
+     "text": "and so find happiness in the hereafter."
+    },
+    {
+     "n": 45,
+     "text": "The fruit of stream-entry is better"
+    },
+    {
+     "n": 46,
+     "text": "than being the one king of the earth,"
+    },
+    {
+     "n": 47,
+     "text": "than going to heaven,"
+    },
+    {
+     "n": 48,
+     "text": "than lordship over all the world."
+    }
+   ]
+  }
+ ]
+}

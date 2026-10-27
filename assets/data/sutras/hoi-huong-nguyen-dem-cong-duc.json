@@ -1,0 +1,67 @@
+{
+ "id": "hoi-huong-nguyen-dem-cong-duc",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Hồi hướng",
+ "reference": "",
+ "summary": "Bài kệ hồi hướng gồm tám câu, thường đọc ở cuối thời kinh hoặc buổi lễ. Người tụng nguyện đem công đức đã tu để trang nghiêm cõi Phật Tịnh Độ, đền đáp bốn ân nặng ở trên và cứu khổ chúng sinh ba đường ở dưới. Bài kệ cũng mong ai thấy nghe đều phát tâm Bồ-đề, và khi hết báo thân này cùng sinh về cõi Cực Lạc.",
+ "titles": {
+  "vi": "Hồi hướng (Nguyện đem công đức này)",
+  "zh": "迴向偈",
+  "en": "Dedication of merit (May this merit...)"
+ },
+ "deities": [],
+ "dailyChant": true,
+ "purposes": [
+  "HOI_HUONG"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-poem",
+   "lang": "vi",
+   "variant": "poem",
+   "translator": "Tổng hợp (không ghi dịch giả)",
+   "sourceName": "Phatgiao.org.vn - \"Nghi thức niệm Phật hằng ngày\" (Tổng hợp) - mục \"6. Hồi hướng\" (8 câu kệ đầu)",
+   "sourceUrl": "https://phatgiao.org.vn/nghi-thuc-niem-phat-hang-ngay-d37046.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Bỏ phần chú giải trong ngoặc đơn của nguồn (ân cha mẹ, ân Tam bảo...; địa ngục, ngạ quỷ, súc sanh). Giữ ngắt dòng theo nguồn; không lấy các lời khấn nguyện dài ở dưới.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nguyện đem công đức này,"
+    },
+    {
+     "n": 2,
+     "text": "Trang nghiêm Phật Tịnh Độ"
+    },
+    {
+     "n": 3,
+     "text": "Trên đền bốn ân nặng"
+    },
+    {
+     "n": 4,
+     "text": "Dưới cứu khổ ba đường"
+    },
+    {
+     "n": 5,
+     "text": "Nếu có ai thấy nghe,"
+    },
+    {
+     "n": 6,
+     "text": "Đều phát lòng bồ đề"
+    },
+    {
+     "n": 7,
+     "text": "Hết một báo thân này,"
+    },
+    {
+     "n": 8,
+     "text": "Đồng sanh cõi Cực Lạc."
+    }
+   ]
+  }
+ ]
+}

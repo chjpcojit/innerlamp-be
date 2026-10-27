@@ -1,0 +1,79 @@
+{
+ "id": "mani-mantra",
+ "tradition": "VAJRAYANA",
+ "kind": "DHARANI",
+ "collection": "Mật tông / Quán Thế Âm",
+ "reference": "mi pham rgya mtsho gsung 'bum vol. 25: 547-548",
+ "summary": "Thần chú sáu chữ Om Mani Padme Hum của Bồ Tát Quán Thế Âm (Avalokiteshvara) trong Phật giáo Tây Tạng, gắn với tâm đại bi. Đây là thần chú được trì tụng và khắc trên bánh xe cầu nguyện, đá mani ở nhiều nơi theo truyền thống Tây Tạng. Văn bản trong thư viện chỉ ghi nguyên câu chú tiếng Phạn.",
+ "titles": {
+  "vi": "Lục Tự Đại Minh",
+  "bo": "ཡི་གེ་དྲུག་པ།",
+  "sa": "Oṃ maṇi padme hūṃ",
+  "en": "The Six-Syllable Mantra of Avalokiteshvara"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "TRI_CHU"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "sa-chant",
+   "lang": "sa",
+   "variant": "chant",
+   "translator": "Lotsawa House (transliteration on page)",
+   "sourceName": "Lotsawa House - Visualization and Recitation of the Six-Syllable Mantra of Avalokiteshvara, by Mipham Rinpoche",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/mipham/six-syllable-avalokiteshvara",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Traditional mantra; transliteration and phrase segmentation as given on the source page (phrases split at the page spacing / word boundaries only, no words changed).",
+   "lines": [
+    {
+     "n": 1,
+     "text": "oṃ maṇi padme hūṃ"
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Tibetan text on page",
+   "sourceName": "Lotsawa House - Visualization and Recitation of the Six-Syllable Mantra of Avalokiteshvara, by Mipham Rinpoche",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/mipham/six-syllable-avalokiteshvara",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Traditional mantra; transliteration and phrase segmentation as given on the source page (phrases split at the page spacing / word boundaries only, no words changed). Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྂ།"
+    }
+   ]
+  },
+  {
+   "key": "bo-chant",
+   "lang": "bo",
+   "variant": "chant",
+   "translator": "Lotsawa House",
+   "sourceName": "Lotsawa House - Visualization and Recitation of the Six-Syllable Mantra of Avalokiteshvara, by Mipham Rinpoche",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/mipham/six-syllable-avalokiteshvara",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Latin-script phonetic rendering of the Tibetan pronunciation, as given on the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "om mani pemé hung"
+    }
+   ]
+  }
+ ]
+}

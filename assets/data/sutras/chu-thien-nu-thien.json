@@ -1,0 +1,130 @@
+{
+ "id": "chu-thien-nu-thien",
+ "tradition": "MAHAYANA",
+ "kind": "DHARANI",
+ "collection": "Thập Chú",
+ "reference": "",
+ "summary": "Một trong Thập Chú, bài chú cầu nguyện hướng về Đại Cát Tường Thiên Nữ, mở đầu bằng quy y Tam Bảo rồi quy y Cát Tường Đại Thiên. Phần nghĩa trong nguồn là lời khẩn cầu cho bản thân và chúng sinh được viên mãn, được lòng Đại Từ soi sáng và gìn giữ những điều lợi ích. Thường được tụng cùng các bài chú khác trong thời khóa Thập Chú.",
+ "titles": {
+  "vi": "Đại Cát Tường Thiên Nữ Chú (Thiện Nữ Thiên Chú)",
+  "zh": "大吉祥天女咒",
+  "en": "Great Auspicious Heavenly Goddess Mantra",
+  "sa": "Śrī Mahādevī Dhāraṇī"
+ },
+ "deities": [
+  {
+   "deity_id": "deva_sri_mahadevi",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "TRI_CHU"
+ ],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "không ghi (bản Việt âm phổ thông)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Âm Hán\" của nguồn (phiên âm Hán-Việt). Ngắt dòng theo câu của nguồn; câu dài ngắt tại dấu phẩy. Giữ nguyên dấu gạch nối/viết hoa của nguồn. Đối chiếu Thiện Thành: \"Tăng-dà\" / \"Tăng Già\"; \"phú lầu na\" / \"phú lâu na\"; \"phạ lặt tha\" / \"phạ lạt tha\"; \"đạt mạ đế\" / \"đạt ma đế\"; \"phã\" / \"phả\"; \"tam mạn đà, đạt xá ni\" / \"tam mạn đà đạt xá ni\".",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nam-mô Phật-đà."
+    },
+    {
+     "n": 2,
+     "text": "Nam-mô Đạt-mạ."
+    },
+    {
+     "n": 3,
+     "text": "Nam-mô Tăng-dà."
+    },
+    {
+     "n": 4,
+     "text": "Nam-mô thất lỵ, ma ha để tỷ da, đát nể dã tha, ba lỵ phú lầu na giá lỵ, tam mạn đà, đạt xá ni,"
+    },
+    {
+     "n": 5,
+     "text": "ma ha tỳ ha ra dà đế, tam mạn đà, tỳ ni dà đế, ma ha ca rị dã, ba nể ba ra,"
+    },
+    {
+     "n": 6,
+     "text": "ba nể tát rị phạ lặt tha, tam mạn đà, tu bác lê đế, phú lệ na, a rị na, đạt mạ đế,"
+    },
+    {
+     "n": 7,
+     "text": "ma ha tỳ cổ tất đế, ma ha Di-Lặc đế, lâu phã tăng kỳ đế, hê đế tỷ, tăng kỳ hê đế, tam mạn đà,"
+    },
+    {
+     "n": 8,
+     "text": "a tha a nậu, đà-la-ni."
+    }
+   ]
+  },
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "variant": "meaning",
+   "translator": "không ghi (nguồn do Minh Chính tổng hợp)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Nghĩa\" của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Quy y Phật, Quy Y Pháp, Quy y Tăng."
+    },
+    {
+     "n": 2,
+     "text": "Quy y Cát Tường Đại Thiên."
+    },
+    {
+     "n": 3,
+     "text": "Chú nói như vậy:"
+    },
+    {
+     "n": 4,
+     "text": "Hỡi Đấng quyền năng hay ban bố sự viên mãn thù thắng !"
+    },
+    {
+     "n": 5,
+     "text": "Đấng chủ tể Đại Tác Nghiệp hay nhìn thấy khắp nẻo rộng lớn !"
+    },
+    {
+     "n": 6,
+     "text": "Hãy khéo léo làm cho tất cả đều được đầy đủ."
+    },
+    {
+     "n": 7,
+     "text": "Hãy khiến cho khắp tất cả mọi nơi đều được sự viên mãn thù thắng tối thượng."
+    },
+    {
+     "n": 8,
+     "text": "Hãy thể hiện lòng Đại Từ làm cho Lý Pháp Tính tỏa sáng màu nhiệm rộng lớn khiến cho con và chúng sinh được thích ứng với sự lợi ích chân chính."
+    },
+    {
+     "n": 9,
+     "text": "Mừng thay Đấng biểu hiện của lòng yêu thương."
+    },
+    {
+     "n": 10,
+     "text": "Đấng chân chính gìn giữ sự lợi ích."
+    },
+    {
+     "n": 11,
+     "text": "Hãy giúp cho con và chúng sinh đều gìn giữ được khắp mọi tài sản lợi ích."
+    }
+   ]
+  }
+ ]
+}

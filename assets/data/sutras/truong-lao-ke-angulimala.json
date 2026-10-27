@@ -1,0 +1,1049 @@
+{
+ "id": "truong-lao-ke-angulimala",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Kệ",
+ "reference": "Thag 16.8",
+ "summary": "Kệ ngôn của trưởng lão Aṅgulimāla trong Trưởng Lão Kệ (Tiểu Bộ, Thag 16.8), kể lại cuộc gặp giữa tên cướp và đức Phật. Đức Phật nói Ngài đã đứng lại vì không còn hành hạ chúng sanh, còn Aṅgulimāla thì chưa. Nghe vậy, ông quăng bỏ vũ khí và xin xuất gia, về sau chiếu sáng thế gian như trăng thoát khỏi mây và đạt đến sự cạn kiệt lậu hoặc.",
+ "titles": {
+  "vi": "Trưởng Lão Kệ - Aṅgulimāla",
+  "pli": "Aṅgulimālattheragāthā",
+  "en": "Aṅgulimāla"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thag16.8/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Này ông Sa-môn, trong khi ông đang đi, ông lại nói: ‘Ta đã đứng lại,’ còn tôi đã đứng lại thì ông lại nói: ‘Ngươi chưa đứng lại.’"
+    },
+    {
+     "n": 2,
+     "text": "Này ông Sa-môn, tôi hỏi ông về ý nghĩa này: ‘Tại sao ông đã đứng lại, còn tôi thì chưa đứng lại?’"
+    },
+    {
+     "n": 3,
+     "text": "‘Này Aṅgulimāla, Ta luôn luôn đứng lại sau khi đã ngưng hẳn việc hành hạ đối với tất cả chúng sanh, còn ngươi thì không tự hạn chế đối với các sinh mạng, vì thế Ta đã đứng lại, còn ngươi thì chưa đứng lại.’"
+    },
+    {
+     "n": 4,
+     "text": "Quả thật, vị đại ẩn sĩ, bậc Sa-môn đã đi vào khu rừng lớn, lâu nay đã được con kính ngưỡng."
+    },
+    {
+     "n": 5,
+     "text": "Sau khi nghe Ngài nói câu kệ ngôn gắn liền với Giáo Pháp, con đây sẽ từ bỏ ngàn điều xấu xa."
+    },
+    {
+     "n": 6,
+     "text": "Nói như vậy, kẻ cướp đã quăng bỏ thanh gươm và vũ khí vào hố, vào khe núi, vào vực thẳm."
+    },
+    {
+     "n": 7,
+     "text": "Kẻ cướp đã đảnh lễ các bàn chân của đấng Thiện Thệ, rồi ngay tại chỗ ấy đã cầu xin đức Phật việc xuất gia."
+    },
+    {
+     "n": 8,
+     "text": "Và đức Phật, đấng Bi Mẫn, vị Đại Ẩn Sĩ, bậc Đạo Sư của thế gian luôn cả chư Thiên, khi ấy đã nói với vị ấy rằng: ‘Này tỳ khưu, hãy đến;’ chính điều này đã là trạng thái tỳ khưu đối với vị ấy."
+    },
+    {
+     "n": 9,
+     "text": "Và vị nào trước đây đã bị xao lãng, về sau không bị xao lãng, vị ấy chiếu sáng thế gian này, tựa như mặt trăng được thoát khỏi đám mây."
+    },
+    {
+     "n": 10,
+     "text": "Đối với vị nào, nghiệp ác đã tạo được chận đứng nhờ vào thiện pháp, vị ấy chiếu sáng thế gian này, tựa như mặt trăng được thoát khỏi đám mây."
+    },
+    {
+     "n": 11,
+     "text": "Thật vậy, vị tỳ khưu trẻ tuổi nào gắn bó vào lời dạy của đức Phật, vị ấy chiếu sáng thế gian này, tựa như mặt trăng được thoát khỏi đám mây."
+    },
+    {
+     "n": 12,
+     "text": "Mong rằng ngay cả những kẻ thù của tôi hãy lắng nghe lời giảng về Giáo Pháp."
+    },
+    {
+     "n": 13,
+     "text": "Mong rằng ngay cả những kẻ thù của tôi hãy gắn bó vào lời dạy của đức Phật."
+    },
+    {
+     "n": 14,
+     "text": "Mong rằng ngay cả những kẻ thù của tôi hãy kết giao với những người tốt, là những người giúp cho (người khác) hành theo Chánh Pháp."
+    },
+    {
+     "n": 15,
+     "text": "Mong rằng chính những kẻ thù của tôi hãy lắng nghe Giáo Pháp của những vị thuyết giảng về nhẫn nại và ca ngợi về sự không chống đối vào lúc thích hợp, và mong rằng họ hãy thực hành đúng theo điều ấy."
+    },
+    {
+     "n": 16,
+     "text": "Bởi vì con người ấy sẽ không hãm hại tôi hoặc bất cứ người nào khác, có thể đạt được sự an tịnh tuyệt đối, có thể bảo vệ các loài cử động hoặc không cử động."
+    },
+    {
+     "n": 17,
+     "text": "Thật vậy, những người đào kênh dẫn nước, những người làm tên uốn thẳng cây tên, những người thợ mộc uốn nắn thanh gỗ, những vị sáng suốt huấn luyện bản thân."
+    },
+    {
+     "n": 18,
+     "text": "Nhiều người thuần phục bằng gậy gộc, bằng các móc câu và các roi vọt."
+    },
+    {
+     "n": 19,
+     "text": "Tôi được thuần phục không bằng gậy, không bằng dao bởi vị như thế ấy."
+    },
+    {
+     "n": 20,
+     "text": "‘Người Vô Hại’ là tên của tôi, trước đây là kẻ hãm hại."
+    },
+    {
+     "n": 21,
+     "text": "Hôm nay, tôi có tên đúng đắn, tôi không hãm hại bất cứ người nào."
+    },
+    {
+     "n": 22,
+     "text": "Trước đây, tôi đã là kẻ cướp, được biết tiếng là ‘Aṅgulimāla.’"
+    },
+    {
+     "n": 23,
+     "text": "Trong khi bị cuốn trôi bởi vòng nước lũ mạnh mẽ, tôi đã đi đến nương nhờ đức Phật."
+    },
+    {
+     "n": 24,
+     "text": "Trước đây, tôi đã có bàn tay vấy máu, được biết tiếng là ‘Aṅgulimāla.’"
+    },
+    {
+     "n": 25,
+     "text": "Hãy nhìn xem việc đi đến nương nhờ, (nhờ vậy) lối dẫn đến hiện hữu đã được xóa sạch."
+    },
+    {
+     "n": 26,
+     "text": "Sau khi tạo ra nhiều nghiệp như thế ấy, có sự đưa đến khổ cảnh, chịu tác động bởi quả thành tựu của nghiệp, tôi thọ dụng thức ăn không phải nợ nần."
+    },
+    {
+     "n": 27,
+     "text": "Những kẻ ngu si, có trí tồi, bám víu vào sự xao lãng, còn những người thông minh bảo vệ sự không xao lãng, tựa như bảo vệ tài sản hạng nhất."
+    },
+    {
+     "n": 28,
+     "text": "Ngươi chớ bám víu vào sự xao lãng, chớ bám víu vào sự thân thiết với niềm thích thú dục trần, bởi vì người không bị xao lãng, trong khi tham thiền, đạt được sự an lạc tối thượng."
+    },
+    {
+     "n": 29,
+     "text": "Việc đi đến (gặp đức Phật) của tôi là tốt đẹp, không phải là việc tránh xa (Ngài), điều ấy đã được khuyên bảo một cách sái quấy đến tôi là không đúng; trong số các pháp được phân hạng, tôi đã đạt đến pháp cao nhất."
+    },
+    {
+     "n": 30,
+     "text": "Việc đi đến (gặp đức Phật) của tôi là tốt đẹp, không phải là việc tránh xa (Ngài), điều ấy đã được khuyên bảo một cách sái quấy đến tôi là không đúng; ba Minh đã được thành tựu, lời dạy của đức Phật đã được thực hành."
+    },
+    {
+     "n": 31,
+     "text": "Ở khu rừng hoặc ở gốc cây, ở những núi non hoặc ở những hang động, tại nơi ấy, ở ngay tại nơi ấy, vào lúc ấy, tôi đã đứng, với tâm tư chấn động."
+    },
+    {
+     "n": 32,
+     "text": "Tôi nằm, tôi đứng một cách an lạc, tôi duy trì mạng sống một cách an lạc, không còn có bẫy sập của Ma Vương, tôi đã được bậc Đạo Sư thương xót."
+    },
+    {
+     "n": 33,
+     "text": "Trước đây, tôi đã là dòng dõi Bà-la-môn, là cao quý từ hai tộc (cha và mẹ), hôm nay tôi đây là người con trai của đức Thiện Thệ, đấng Pháp Vương, bậc Đạo Sư."
+    },
+    {
+     "n": 34,
+     "text": "Có tham ái đã được xa lìa, không còn chấp thủ, có cánh cửa (của các giác quan) đã được canh phòng, đã khéo được thu thúc, sau khi tiêu diệt gốc rễ của sầu khổ, tôi đã đạt được sự cạn kiệt của các lậu hoặc."
+    },
+    {
+     "n": 35,
+     "text": "Bậc Đạo Sư đã được tôi hầu hạ, lời dạy của đức Phật đã được thực hành, vật mang nặng đã được đặt xuống, lối dẫn đến hiện hữu đã được xóa sạch.”"
+    },
+    {
+     "n": 36,
+     "text": "Đại đức trưởng lão Aṅgulimāla đã nói những lời kệ như thế."
+    },
+    {
+     "n": 37,
+     "text": "Kệ ngôn của trưởng lão Aṅgulimāla."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag16.8/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Gacchaṁ vadesi samaṇaṭṭhitomhi,"
+    },
+    {
+     "n": 2,
+     "text": "Mamañca brūsi ṭhitamaṭṭhitoti;"
+    },
+    {
+     "n": 3,
+     "text": "Pucchāmi taṁ samaṇa etamatthaṁ,"
+    },
+    {
+     "n": 4,
+     "text": "‘Kathaṁ ṭhito tvaṁ ahamaṭṭhitomhi’”."
+    },
+    {
+     "n": 5,
+     "text": "“Ṭhito ahaṁ aṅgulimāla sabbadā,"
+    },
+    {
+     "n": 6,
+     "text": "Sabbesu bhūtesu nidhāya daṇḍaṁ;"
+    },
+    {
+     "n": 7,
+     "text": "Tuvañca pāṇesu asaññatosi,"
+    },
+    {
+     "n": 8,
+     "text": "Tasmā ṭhitohaṁ tuvamaṭṭhitosi”."
+    },
+    {
+     "n": 9,
+     "text": "“Cirassaṁ vata me mahito mahesī,"
+    },
+    {
+     "n": 10,
+     "text": "Mahāvanaṁ samaṇo paccapādi;"
+    },
+    {
+     "n": 11,
+     "text": "Sohaṁ cajissāmi sahassapāpaṁ,"
+    },
+    {
+     "n": 12,
+     "text": "Sutvāna gāthaṁ tava dhammayuttaṁ”."
+    },
+    {
+     "n": 13,
+     "text": "Icceva coro asimāvudhañca,"
+    },
+    {
+     "n": 14,
+     "text": "Sobbhe papāte narake anvakāsi;"
+    },
+    {
+     "n": 15,
+     "text": "Avandi coro sugatassa pāde,"
+    },
+    {
+     "n": 16,
+     "text": "Tattheva pabbajjamayāci buddhaṁ."
+    },
+    {
+     "n": 17,
+     "text": "Buddho ca kho kāruṇiko mahesi,"
+    },
+    {
+     "n": 18,
+     "text": "Yo satthā lokassa sadevakassa;"
+    },
+    {
+     "n": 19,
+     "text": "“Tamehi bhikkhū”ti tadā avoca,"
+    },
+    {
+     "n": 20,
+     "text": "Eseva tassa ahu bhikkhubhāvo."
+    },
+    {
+     "n": 21,
+     "text": "“Yo ca pubbe pamajjitvā,"
+    },
+    {
+     "n": 22,
+     "text": "pacchā so nappamajjati;"
+    },
+    {
+     "n": 23,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 24,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 25,
+     "text": "Yassa pāpaṁ kataṁ kammaṁ,"
+    },
+    {
+     "n": 26,
+     "text": "kusalena pidhīyati;"
+    },
+    {
+     "n": 27,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 28,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 29,
+     "text": "Yo have daharo bhikkhu,"
+    },
+    {
+     "n": 30,
+     "text": "yuñjati buddhasāsane;"
+    },
+    {
+     "n": 31,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 32,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 33,
+     "text": "Disāpi me dhammakathaṁ suṇantu,"
+    },
+    {
+     "n": 34,
+     "text": "Disāpi me yuñjantu buddhasāsane;"
+    },
+    {
+     "n": 35,
+     "text": "Disāpi me te manuje bhajantu,"
+    },
+    {
+     "n": 36,
+     "text": "Ye dhammamevādapayanti santo."
+    },
+    {
+     "n": 37,
+     "text": "Disā hi me khantivādānaṁ,"
+    },
+    {
+     "n": 38,
+     "text": "avirodhappasaṁsinaṁ;"
+    },
+    {
+     "n": 39,
+     "text": "Suṇantu dhammaṁ kālena,"
+    },
+    {
+     "n": 40,
+     "text": "tañca anuvidhīyantu."
+    },
+    {
+     "n": 41,
+     "text": "Na hi jātu so mamaṁ hiṁse,"
+    },
+    {
+     "n": 42,
+     "text": "aññaṁ vā pana kiñcanaṁ;"
+    },
+    {
+     "n": 43,
+     "text": "Pappuyya paramaṁ santiṁ,"
+    },
+    {
+     "n": 44,
+     "text": "rakkheyya tasathāvare."
+    },
+    {
+     "n": 45,
+     "text": "Udakañhi nayanti nettikā,"
+    },
+    {
+     "n": 46,
+     "text": "Usukārā namayanti tejanaṁ;"
+    },
+    {
+     "n": 47,
+     "text": "Dāruṁ namayanti tacchakā,"
+    },
+    {
+     "n": 48,
+     "text": "Attānaṁ damayanti paṇḍitā."
+    },
+    {
+     "n": 49,
+     "text": "Daṇḍeneke damayanti,"
+    },
+    {
+     "n": 50,
+     "text": "aṅkusebhi kasāhi ca;"
+    },
+    {
+     "n": 51,
+     "text": "Adaṇḍena asatthena,"
+    },
+    {
+     "n": 52,
+     "text": "ahaṁ dantomhi tādinā."
+    },
+    {
+     "n": 53,
+     "text": "‘Ahiṁsako’ti me nāmaṁ,"
+    },
+    {
+     "n": 54,
+     "text": "hiṁsakassa pure sato;"
+    },
+    {
+     "n": 55,
+     "text": "Ajjāhaṁ saccanāmomhi,"
+    },
+    {
+     "n": 56,
+     "text": "na naṁ hiṁsāmi kiñcanaṁ."
+    },
+    {
+     "n": 57,
+     "text": "Coro ahaṁ pure āsiṁ,"
+    },
+    {
+     "n": 58,
+     "text": "aṅgulimāloti vissuto;"
+    },
+    {
+     "n": 59,
+     "text": "Vuyhamāno mahoghena,"
+    },
+    {
+     "n": 60,
+     "text": "buddhaṁ saraṇamāgamaṁ."
+    },
+    {
+     "n": 61,
+     "text": "Lohitapāṇi pure āsiṁ,"
+    },
+    {
+     "n": 62,
+     "text": "aṅgulimāloti vissuto;"
+    },
+    {
+     "n": 63,
+     "text": "Saraṇagamanaṁ passa,"
+    },
+    {
+     "n": 64,
+     "text": "bhavanetti samūhatā."
+    },
+    {
+     "n": 65,
+     "text": "Tādisaṁ kammaṁ katvāna,"
+    },
+    {
+     "n": 66,
+     "text": "bahuṁ duggatigāminaṁ;"
+    },
+    {
+     "n": 67,
+     "text": "Phuṭṭho kammavipākena,"
+    },
+    {
+     "n": 68,
+     "text": "anaṇo bhuñjāmi bhojanaṁ."
+    },
+    {
+     "n": 69,
+     "text": "Pamādamanuyuñjanti,"
+    },
+    {
+     "n": 70,
+     "text": "bālā dummedhino janā;"
+    },
+    {
+     "n": 71,
+     "text": "Appamādañca medhāvī,"
+    },
+    {
+     "n": 72,
+     "text": "dhanaṁ seṭṭhaṁva rakkhati."
+    },
+    {
+     "n": 73,
+     "text": "Mā pamādamanuyuñjetha,"
+    },
+    {
+     "n": 74,
+     "text": "mā kāmaratisanthavaṁ;"
+    },
+    {
+     "n": 75,
+     "text": "Appamatto hi jhāyanto,"
+    },
+    {
+     "n": 76,
+     "text": "pappoti paramaṁ sukhaṁ."
+    },
+    {
+     "n": 77,
+     "text": "Svāgataṁ nāpagataṁ,"
+    },
+    {
+     "n": 78,
+     "text": "netaṁ dummantitaṁ mama;"
+    },
+    {
+     "n": 79,
+     "text": "Savibhattesu dhammesu,"
+    },
+    {
+     "n": 80,
+     "text": "yaṁ seṭṭhaṁ tadupāgamaṁ."
+    },
+    {
+     "n": 81,
+     "text": "Svāgataṁ nāpagataṁ,"
+    },
+    {
+     "n": 82,
+     "text": "netaṁ dummantitaṁ mama;"
+    },
+    {
+     "n": 83,
+     "text": "Tisso vijjā anuppattā,"
+    },
+    {
+     "n": 84,
+     "text": "kataṁ buddhassa sāsanaṁ."
+    },
+    {
+     "n": 85,
+     "text": "Araññe rukkhamūle vā,"
+    },
+    {
+     "n": 86,
+     "text": "pabbatesu guhāsu vā;"
+    },
+    {
+     "n": 87,
+     "text": "Tattha tattheva aṭṭhāsiṁ,"
+    },
+    {
+     "n": 88,
+     "text": "ubbiggamanaso tadā."
+    },
+    {
+     "n": 89,
+     "text": "Sukhaṁ sayāmi ṭhāyāmi,"
+    },
+    {
+     "n": 90,
+     "text": "sukhaṁ kappemi jīvitaṁ;"
+    },
+    {
+     "n": 91,
+     "text": "Ahatthapāso mārassa,"
+    },
+    {
+     "n": 92,
+     "text": "aho satthānukampito."
+    },
+    {
+     "n": 93,
+     "text": "Brahmajacco pure āsiṁ,"
+    },
+    {
+     "n": 94,
+     "text": "udicco ubhato ahu;"
+    },
+    {
+     "n": 95,
+     "text": "Sojja putto sugatassa,"
+    },
+    {
+     "n": 96,
+     "text": "dhammarājassa satthuno."
+    },
+    {
+     "n": 97,
+     "text": "Vītataṇho anādāno,"
+    },
+    {
+     "n": 98,
+     "text": "guttadvāro susaṁvuto;"
+    },
+    {
+     "n": 99,
+     "text": "Aghamūlaṁ vadhitvāna,"
+    },
+    {
+     "n": 100,
+     "text": "patto me āsavakkhayo."
+    },
+    {
+     "n": 101,
+     "text": "Pariciṇṇo mayā satthā,"
+    },
+    {
+     "n": 102,
+     "text": "kataṁ buddhassa sāsanaṁ;"
+    },
+    {
+     "n": 103,
+     "text": "Ohito garuko bhāro,"
+    },
+    {
+     "n": 104,
+     "text": "bhavanetti samūhatā”ti."
+    },
+    {
+     "n": 105,
+     "text": "… Aṅgulimālo thero …."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag16.8/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“While walking, ascetic, you say ‘I’ve stopped.’"
+    },
+    {
+     "n": 2,
+     "text": "And I have stopped, but you tell me I’ve not."
+    },
+    {
+     "n": 3,
+     "text": "I’m asking you this, ascetic:"
+    },
+    {
+     "n": 4,
+     "text": "how is it you’ve stopped and I have not?”"
+    },
+    {
+     "n": 5,
+     "text": "“Aṅgulimāla, I have forever stopped—"
+    },
+    {
+     "n": 6,
+     "text": "I’ve laid aside violence toward all creatures."
+    },
+    {
+     "n": 7,
+     "text": "But you can’t stop yourself from harming living creatures;"
+    },
+    {
+     "n": 8,
+     "text": "that’s why I’ve stopped, but you have not.”"
+    },
+    {
+     "n": 9,
+     "text": "“Oh, at long last a renowned great seer,"
+    },
+    {
+     "n": 10,
+     "text": "an ascetic has followed me into this deep wood."
+    },
+    {
+     "n": 11,
+     "text": "Now that I’ve heard your verse on Dhamma,"
+    },
+    {
+     "n": 12,
+     "text": "I shall discard a thousand evils.”"
+    },
+    {
+     "n": 13,
+     "text": "With these words, the bandit hurled his sword and weapons"
+    },
+    {
+     "n": 14,
+     "text": "down a cliff into an abyss."
+    },
+    {
+     "n": 15,
+     "text": "He venerated the Holy One’s feet,"
+    },
+    {
+     "n": 16,
+     "text": "and requested the going forth from the Buddha right away."
+    },
+    {
+     "n": 17,
+     "text": "Then the Buddha, the compassionate great seer,"
+    },
+    {
+     "n": 18,
+     "text": "the Teacher of the world with its gods,"
+    },
+    {
+     "n": 19,
+     "text": "said to him, “Come, monk!”"
+    },
+    {
+     "n": 20,
+     "text": "And with that he became a monk."
+    },
+    {
+     "n": 21,
+     "text": "“He who once was heedless,"
+    },
+    {
+     "n": 22,
+     "text": "but turned to heedfulness,"
+    },
+    {
+     "n": 23,
+     "text": "shines upon this world,"
+    },
+    {
+     "n": 24,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 25,
+     "text": "Someone whose bad deed"
+    },
+    {
+     "n": 26,
+     "text": "is supplanted by the good,"
+    },
+    {
+     "n": 27,
+     "text": "shines upon this world,"
+    },
+    {
+     "n": 28,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 29,
+     "text": "A young mendicant"
+    },
+    {
+     "n": 30,
+     "text": "devoted to the Buddha’s teaching,"
+    },
+    {
+     "n": 31,
+     "text": "shines upon this world,"
+    },
+    {
+     "n": 32,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 33,
+     "text": "May even my enemies hear a Dhamma talk!"
+    },
+    {
+     "n": 34,
+     "text": "May even my enemies devote themselves to the Buddha’s teaching!"
+    },
+    {
+     "n": 35,
+     "text": "May even my enemies associate with those good men"
+    },
+    {
+     "n": 36,
+     "text": "who establish others in the Dhamma!"
+    },
+    {
+     "n": 37,
+     "text": "May even my enemies hear Dhamma at the right time,"
+    },
+    {
+     "n": 38,
+     "text": "from those who teach acceptance,"
+    },
+    {
+     "n": 39,
+     "text": "praising acquiescence;"
+    },
+    {
+     "n": 40,
+     "text": "and may they follow that path!"
+    },
+    {
+     "n": 41,
+     "text": "For then they’d never wish harm"
+    },
+    {
+     "n": 42,
+     "text": "upon myself or others."
+    },
+    {
+     "n": 43,
+     "text": "Having arrived at ultimate peace,"
+    },
+    {
+     "n": 44,
+     "text": "they’d look after creatures firm and frail."
+    },
+    {
+     "n": 45,
+     "text": "For while irrigators guide water,"
+    },
+    {
+     "n": 46,
+     "text": "fletchers bend arrows straight,"
+    },
+    {
+     "n": 47,
+     "text": "and carpenters bend timber straight,"
+    },
+    {
+     "n": 48,
+     "text": "the astute tame themselves."
+    },
+    {
+     "n": 49,
+     "text": "Some tame by using the rod,"
+    },
+    {
+     "n": 50,
+     "text": "some with goads, and some with whips."
+    },
+    {
+     "n": 51,
+     "text": "But the unaffected one tamed me"
+    },
+    {
+     "n": 52,
+     "text": "without rod or sword."
+    },
+    {
+     "n": 53,
+     "text": "My name is ‘Harmless’,"
+    },
+    {
+     "n": 54,
+     "text": "though I used to be harmful."
+    },
+    {
+     "n": 55,
+     "text": "The name I bear today is true,"
+    },
+    {
+     "n": 56,
+     "text": "for I do no harm to anyone."
+    },
+    {
+     "n": 57,
+     "text": "I used to be a bandit,"
+    },
+    {
+     "n": 58,
+     "text": "the notorious Aṅgulimāla."
+    },
+    {
+     "n": 59,
+     "text": "Swept away in a great flood,"
+    },
+    {
+     "n": 60,
+     "text": "I went to the Buddha for refuge."
+    },
+    {
+     "n": 61,
+     "text": "I used to have blood on my hands,"
+    },
+    {
+     "n": 62,
+     "text": "the notorious Aṅgulimāla."
+    },
+    {
+     "n": 63,
+     "text": "See the refuge I’ve found—"
+    },
+    {
+     "n": 64,
+     "text": "the leash to existence is eradicated."
+    },
+    {
+     "n": 65,
+     "text": "I’ve done many of the sort of deeds"
+    },
+    {
+     "n": 66,
+     "text": "that lead to a bad destination."
+    },
+    {
+     "n": 67,
+     "text": "The result of my deeds has already struck me,"
+    },
+    {
+     "n": 68,
+     "text": "so I enjoy my food free of debt."
+    },
+    {
+     "n": 69,
+     "text": "Fools and simpletons"
+    },
+    {
+     "n": 70,
+     "text": "devote themselves to negligence."
+    },
+    {
+     "n": 71,
+     "text": "But the wise protect diligence"
+    },
+    {
+     "n": 72,
+     "text": "as their best treasure."
+    },
+    {
+     "n": 73,
+     "text": "Don’t devote yourself to negligence,"
+    },
+    {
+     "n": 74,
+     "text": "or delight in erotic intimacy."
+    },
+    {
+     "n": 75,
+     "text": "For if you’re diligent and practice absorption,"
+    },
+    {
+     "n": 76,
+     "text": "you’ll attain ultimate happiness."
+    },
+    {
+     "n": 77,
+     "text": "It was welcome, not unwelcome,"
+    },
+    {
+     "n": 78,
+     "text": "the advice I got was good."
+    },
+    {
+     "n": 79,
+     "text": "Of the well-explained teachings,"
+    },
+    {
+     "n": 80,
+     "text": "I arrived at the best."
+    },
+    {
+     "n": 81,
+     "text": "It was welcome, not unwelcome,"
+    },
+    {
+     "n": 82,
+     "text": "the advice I got was good."
+    },
+    {
+     "n": 83,
+     "text": "I’ve attained the three knowledges,"
+    },
+    {
+     "n": 84,
+     "text": "and fulfilled the Buddha’s instructions.”"
+    },
+    {
+     "n": 85,
+     "text": "“In the wilderness, at a tree’s root,"
+    },
+    {
+     "n": 86,
+     "text": "on mountains, or in caves—"
+    },
+    {
+     "n": 87,
+     "text": "it used to be that wherever I stood,"
+    },
+    {
+     "n": 88,
+     "text": "my mind was anxious."
+    },
+    {
+     "n": 89,
+     "text": "But now I lie down happily and stand up happily,"
+    },
+    {
+     "n": 90,
+     "text": "I live my life happily,"
+    },
+    {
+     "n": 91,
+     "text": "out of Māra’s reach;"
+    },
+    {
+     "n": 92,
+     "text": "the Teacher had sympathy for me."
+    },
+    {
+     "n": 93,
+     "text": "I used to be of brahmin birth,"
+    },
+    {
+     "n": 94,
+     "text": "highborn on both sides,"
+    },
+    {
+     "n": 95,
+     "text": "now I’m a son of the Holy One,"
+    },
+    {
+     "n": 96,
+     "text": "the Teacher, King of Dhamma."
+    },
+    {
+     "n": 97,
+     "text": "I am rid of craving, free of grasping,"
+    },
+    {
+     "n": 98,
+     "text": "my sense doors are guarded and well-restrained."
+    },
+    {
+     "n": 99,
+     "text": "I’ve destroyed the root of gloom,"
+    },
+    {
+     "n": 100,
+     "text": "and attained the ending of defilements."
+    },
+    {
+     "n": 101,
+     "text": "I’ve served the Teacher"
+    },
+    {
+     "n": 102,
+     "text": "and fulfilled the Buddha’s instructions."
+    },
+    {
+     "n": 103,
+     "text": "The heavy burden is laid down,"
+    },
+    {
+     "n": 104,
+     "text": "the leash to existence is eradicated.”"
+    }
+   ]
+  }
+ ]
+}

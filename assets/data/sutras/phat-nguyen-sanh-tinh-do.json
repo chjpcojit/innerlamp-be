@@ -1,0 +1,56 @@
+{
+ "id": "phat-nguyen-sanh-tinh-do",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Phát nguyện",
+ "reference": "",
+ "summary": "Bài kệ bốn câu ngắn trong phần phát nguyện của nhật tụng, thể hiện ý nguyện được sinh về Tịnh độ ở phương Tây theo pháp môn niệm Phật. Kệ dùng hình ảnh chín phẩm hoa sen, hoa nở thấy Phật, chứng vô sinh và có chư Bồ tát bất thoái làm bạn đồng tu.",
+ "titles": {
+  "vi": "Phát nguyện sanh Tịnh Độ",
+  "zh": "願生淨土",
+  "en": "Vow to be reborn in the Pure Land"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "PHAT_NGUYEN"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Tổng hợp (không ghi dịch giả)",
+   "sourceName": "Phatgiao.org.vn - \"Nghi thức niệm Phật hằng ngày\" (Tổng hợp) - mục \"5. Phát nguyện\"",
+   "sourceUrl": "https://phatgiao.org.vn/nghi-thuc-niem-phat-hang-ngay-d37046.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nguyện sanh Tịnh Độ ở Tây Phương"
+    },
+    {
+     "n": 2,
+     "text": "Chín phẩm hoa sen là Cha Mẹ,"
+    },
+    {
+     "n": 3,
+     "text": "Hoa nở thấy Phật chứng vô sanh,"
+    },
+    {
+     "n": 4,
+     "text": "Bồ Tát bất thối là bạn lữ."
+    }
+   ]
+  }
+ ]
+}

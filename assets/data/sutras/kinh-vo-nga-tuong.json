@@ -1,0 +1,577 @@
+{
+ "id": "kinh-vo-nga-tuong",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tương Ưng Bộ",
+ "reference": "SN 22.59",
+ "summary": "Bài kinh thuộc Tương Ưng Bộ (SN 22.59), được Đức Phật giảng cho nhóm năm vị Tỷ-kheo tại vườn Lộc Uyển, thành Bārānasī (Ba-la-nại). Ngài lần lượt phân tích năm uẩn gồm sắc, thọ, tưởng, hành, thức đều là vô ngã, vô thường nên không thể xem là của ta hay là tự ngã. Kinh kết thúc với việc năm vị Tỷ-kheo giải thoát khỏi các lậu hoặc.",
+ "titles": {
+  "vi": "Kinh Vô Ngã Tướng",
+  "pli": "Anattalakkhaṇasutta",
+  "en": "The Characteristic of Not-Self"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/sn22.59/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh đã được Hòa thượng Thích Minh Châu dịch sang Việt ngữ và Thiền viện Vạn Hạnh phát hành trong đầu thập niên 1980. Sau đó, trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được tái bản năm 1993 và có số thứ tự từ 12 đến 16.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Một thời Thế Tôn ở Bārānasī (Ba-la-nại), tại Isìpatana (Chư Tiên đọa xứ), vườn Lộc Uyển."
+    },
+    {
+     "n": 2,
+     "text": "Ở đây Thế Tôn nói với đoàn năm vị Tỷ-kheo: “Này các Tỷ-kheo”. “Thưa vâng bạch Thế Tôn”. Các Tỷ-kheo ấy vâng đáp Thế Tôn. Thế Tôn nói như sau:"
+    },
+    {
+     "n": 3,
+     "text": "—Sắc, này các Tỷ-kheo, là vô ngã. Này các Tỷ-kheo, nếu sắc là ngã, thời sắc không thể đi đến bệnh hoạn và có thể được các sắc như sau: “Mong rằng sắc của tôi là như thế này!"
+    },
+    {
+     "n": 4,
+     "text": "Mong rằng sắc của tôi chẳng phải như thế này!”"
+    },
+    {
+     "n": 5,
+     "text": "Và này các Tỷ-kheo, vì sắc là vô ngã. Do vậy sắc đi đến bệnh hoạn, và không thể có được các sắc: “Mong rằng sắc của tôi như thế này!"
+    },
+    {
+     "n": 6,
+     "text": "Mong rằng sắc của tôi chẳng phải như thế này!”"
+    },
+    {
+     "n": 7,
+     "text": "Thọ, này các Tỷ-kheo, là vô ngã. Này các Tỷ-kheo, nếu thọ là ngã, thời thọ không thể đi đến bệnh hoạn, và có thể được các thọ như sau: “Mong rằng thọ của tôi như thế này!"
+    },
+    {
+     "n": 8,
+     "text": "Mong rằng thọ của tôi chẳng phải như thế này!”"
+    },
+    {
+     "n": 9,
+     "text": "Và này các Tỷ-kheo, vì thọ là vô ngã. Do vậy, thọ đi đến bệnh hoạn, và không thể có được các thọ: “Mong rằng thọ của tôi như thế này!"
+    },
+    {
+     "n": 10,
+     "text": "Mong rằng thọ của tôi chẳng phải như thế này!”"
+    },
+    {
+     "n": 11,
+     "text": "Tưởng là vô ngã …"
+    },
+    {
+     "n": 12,
+     "text": "Các hành là vô ngã, này các Tỷ-kheo, nếu các hành là ngã, thời các hành không thể đi đến bệnh hoạn và có thể được các hành như sau: “Mong rằng các hành của tôi như thế này!"
+    },
+    {
+     "n": 13,
+     "text": "Mong rằng các hành của tôi chẳng phải như thế này!”"
+    },
+    {
+     "n": 14,
+     "text": "Và này các Tỷ-kheo, vì các hành là vô ngã."
+    },
+    {
+     "n": 15,
+     "text": "Do vậy, các hành đi đến bệnh hoạn, và không thể có được các hành: “Mong rằng các hành của tôi như thế này!"
+    },
+    {
+     "n": 16,
+     "text": "Mong rằng các hành của tôi không phải như thế này!”"
+    },
+    {
+     "n": 17,
+     "text": "Thức là vô ngã, này các Tỷ-kheo, nếu thức là ngã, thời thức không thể đi đến bệnh hoạn, và có thể có được các thức như sau: “Mong rằng thức của tôi như thế này!"
+    },
+    {
+     "n": 18,
+     "text": "Mong rằng thức của tôi chẳng phải như thế này!”"
+    },
+    {
+     "n": 19,
+     "text": "Và này các Tỷ-kheo, vì thức là vô ngã. Do vậy, thức đi đến bệnh hoạn, và không có thể có được thức: “Mong rằng thức của tôi như thế này!"
+    },
+    {
+     "n": 20,
+     "text": "Mong rằng thức của tôi chẳng phải như thế này!”"
+    },
+    {
+     "n": 21,
+     "text": "Này các Tỷ-kheo, các Ông nghĩ thế nào? Sắc là thường hay vô thường?"
+    },
+    {
+     "n": 22,
+     "text": "—Là vô thường, bạch Thế Tôn!"
+    },
+    {
+     "n": 23,
+     "text": "—Cái gì vô thường là khổ hay lạc?"
+    },
+    {
+     "n": 24,
+     "text": "—Là khổ, bạch Thế Tôn."
+    },
+    {
+     "n": 25,
+     "text": "—Cái gì vô thường, khổ, chịu sự biến hoại, có hợp lý chăng khi quán cái ấy là: ” Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”?"
+    },
+    {
+     "n": 26,
+     "text": "—Thưa không, bạch Thế Tôn."
+    },
+    {
+     "n": 27,
+     "text": "—Thọ … Tưởng … Các hành …"
+    },
+    {
+     "n": 28,
+     "text": "Thức là thường hay vô thường?"
+    },
+    {
+     "n": 29,
+     "text": "—Là vô thường, bạch Thế Tôn."
+    },
+    {
+     "n": 30,
+     "text": "—Cái gì vô thường là khổ hay lạc?"
+    },
+    {
+     "n": 31,
+     "text": "—Là khổ, bạch Thế Tôn."
+    },
+    {
+     "n": 32,
+     "text": "—Cái gì vô thường, khổ, chịu sự biến hoại, có hợp lý chăng khi quán cái ấy là: “Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”?"
+    },
+    {
+     "n": 33,
+     "text": "—Thưa không, bạch Thế Tôn."
+    },
+    {
+     "n": 34,
+     "text": "—Do vậy, này các Tỷ-kheo, phàm sắc gì quá khứ, vị lai, hiện tại, thuộc nội hay ngoại, thô hay tế, liệt hay thắng, xa hay gần; tất cả sắc cần phải như thật quán với chánh trí tuệ như sau:"
+    },
+    {
+     "n": 35,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”."
+    },
+    {
+     "n": 36,
+     "text": "Phàm thọ gì …"
+    },
+    {
+     "n": 37,
+     "text": "Phàm tưởng gì …"
+    },
+    {
+     "n": 38,
+     "text": "Phàm các hành gì …"
+    },
+    {
+     "n": 39,
+     "text": "Phàm thức gì quá khứ, vị lai, hiện tại, thuộc nội hay ngoại, thô hay tế, liệt hay thắng, xa hay gần; tất cả thức cần phải như thật quán với chánh trí tuệ như sau:"
+    },
+    {
+     "n": 40,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”."
+    },
+    {
+     "n": 41,
+     "text": "Thấy vậy, này các Tỷ-kheo, bậc Đa văn Thánh đệ tử yếm ly đối với sắc, yếm ly đối với thọ, yếm ly đối với tưởng, yếm y đối với các hành, yếm ly đối với thức. Do yếm ly, vị ấy ly tham. Do ly tham, vị ấy giải thoát."
+    },
+    {
+     "n": 42,
+     "text": "Trong sự giải thoát, trí khởi lên: “Ta đã được giải thoát”."
+    },
+    {
+     "n": 43,
+     "text": "Vị ấy biết rõ: “Sanh đã tận, Phạm hạnh đã thành, những việc nên làm đã làm, không còn trở lui trạng thái này nữa”."
+    },
+    {
+     "n": 44,
+     "text": "Thế Tôn thuyết như vậy. Nhóm năm vị Tỷ-kheo hoan hỷ, tín thọ lời Thế Tôn dạy."
+    },
+    {
+     "n": 45,
+     "text": "Trong khi lời dạy này được nói lên, tâm của nhóm năm vị Tỷ-kheo được giải thoát khỏi các lậu hoặc, không có chấp thủ."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn22.59/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ekaṁ samayaṁ bhagavā bārāṇasiyaṁ viharati isipatane migadāye."
+    },
+    {
+     "n": 2,
+     "text": "Tatra kho bhagavā pañcavaggiye bhikkhū āmantesi:"
+    },
+    {
+     "n": 3,
+     "text": "“bhikkhavo”ti."
+    },
+    {
+     "n": 4,
+     "text": "“Bhadante”ti te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 5,
+     "text": "“Rūpaṁ, bhikkhave, anattā. Rūpañca hidaṁ, bhikkhave, attā abhavissa, nayidaṁ rūpaṁ ābādhāya saṁvatteyya, labbhetha ca rūpe: ‘evaṁ me rūpaṁ hotu, evaṁ me rūpaṁ mā ahosī’ti."
+    },
+    {
+     "n": 6,
+     "text": "Yasmā ca kho, bhikkhave, rūpaṁ anattā, tasmā rūpaṁ ābādhāya saṁvattati, na ca labbhati rūpe: ‘evaṁ me rūpaṁ hotu, evaṁ me rūpaṁ mā ahosī’ti."
+    },
+    {
+     "n": 7,
+     "text": "Vedanā anattā. Vedanā ca hidaṁ, bhikkhave, attā abhavissa, nayidaṁ vedanā ābādhāya saṁvatteyya, labbhetha ca vedanāya: ‘evaṁ me vedanā hotu, evaṁ me vedanā mā ahosī’ti."
+    },
+    {
+     "n": 8,
+     "text": "Yasmā ca kho, bhikkhave, vedanā anattā, tasmā vedanā ābādhāya saṁvattati, na ca labbhati vedanāya: ‘evaṁ me vedanā hotu, evaṁ me vedanā mā ahosī’ti."
+    },
+    {
+     "n": 9,
+     "text": "Saññā anattā …pe…"
+    },
+    {
+     "n": 10,
+     "text": "saṅkhārā anattā. Saṅkhārā ca hidaṁ, bhikkhave, attā abhavissaṁsu, nayidaṁ saṅkhārā ābādhāya saṁvatteyyuṁ, labbhetha ca saṅkhāresu: ‘evaṁ me saṅkhārā hontu, evaṁ me saṅkhārā mā ahesun’ti."
+    },
+    {
+     "n": 11,
+     "text": "Yasmā ca kho, bhikkhave, saṅkhārā anattā, tasmā saṅkhārā ābādhāya saṁvattanti, na ca labbhati saṅkhāresu: ‘evaṁ me saṅkhārā hontu, evaṁ me saṅkhārā mā ahesun’ti."
+    },
+    {
+     "n": 12,
+     "text": "Viññāṇaṁ anattā. Viññāṇañca hidaṁ, bhikkhave, attā abhavissa, nayidaṁ viññāṇaṁ ābādhāya saṁvatteyya, labbhetha ca viññāṇe: ‘evaṁ me viññāṇaṁ hotu, evaṁ me viññāṇaṁ mā ahosī’ti."
+    },
+    {
+     "n": 13,
+     "text": "Yasmā ca kho, bhikkhave, viññāṇaṁ anattā, tasmā viññāṇaṁ ābādhāya saṁvattati, na ca labbhati viññāṇe: ‘evaṁ me viññāṇaṁ hotu, evaṁ me viññāṇaṁ mā ahosī’ti."
+    },
+    {
+     "n": 14,
+     "text": "Taṁ kiṁ maññatha, bhikkhave, rūpaṁ niccaṁ vā aniccaṁ vā”ti?"
+    },
+    {
+     "n": 15,
+     "text": "“Aniccaṁ, bhante”."
+    },
+    {
+     "n": 16,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vā taṁ sukhaṁ vā”ti?"
+    },
+    {
+     "n": 17,
+     "text": "“Dukkhaṁ, bhante”."
+    },
+    {
+     "n": 18,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vipariṇāmadhammaṁ, kallaṁ nu taṁ samanupassituṁ: ‘etaṁ mama, esohamasmi, eso me attā’”ti?"
+    },
+    {
+     "n": 19,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 20,
+     "text": "“Vedanā …"
+    },
+    {
+     "n": 21,
+     "text": "saññā …"
+    },
+    {
+     "n": 22,
+     "text": "saṅkhārā …"
+    },
+    {
+     "n": 23,
+     "text": "viññāṇaṁ niccaṁ vā aniccaṁ vā”ti?"
+    },
+    {
+     "n": 24,
+     "text": "“Aniccaṁ, bhante”."
+    },
+    {
+     "n": 25,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vā taṁ sukhaṁ vā”ti?"
+    },
+    {
+     "n": 26,
+     "text": "“Dukkhaṁ, bhante”."
+    },
+    {
+     "n": 27,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vipariṇāmadhammaṁ, kallaṁ nu taṁ samanupassituṁ: ‘etaṁ mama, esohamasmi, eso me attā’”ti?"
+    },
+    {
+     "n": 28,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 29,
+     "text": "“Tasmātiha, bhikkhave, yaṁ kiñci rūpaṁ atītānāgatapaccuppannaṁ ajjhattaṁ vā bahiddhā vā oḷārikaṁ vā sukhumaṁ vā hīnaṁ vā paṇītaṁ vā yaṁ dūre santike vā, sabbaṁ rūpaṁ:"
+    },
+    {
+     "n": 30,
+     "text": "‘netaṁ mama, nesohamasmi, na meso attā’ti evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 31,
+     "text": "Yā kāci vedanā atītānāgatapaccuppannā ajjhattā vā bahiddhā vā …pe… yā dūre santike vā, sabbā vedanā: ‘netaṁ mama, nesohamasmi, na meso attā’ti evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 32,
+     "text": "Yā kāci saññā …pe…"
+    },
+    {
+     "n": 33,
+     "text": "ye keci saṅkhārā atītānāgatapaccuppannā ajjhattaṁ vā bahiddhā vā …pe… ye dūre santike vā, sabbe saṅkhārā: ‘netaṁ mama, nesohamasmi, na meso attā’ti evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 34,
+     "text": "Yaṁ kiñci viññāṇaṁ atītānāgatapaccuppannaṁ ajjhattaṁ vā bahiddhā vā oḷārikaṁ vā sukhumaṁ vā hīnaṁ vā paṇītaṁ vā yaṁ dūre santike vā, sabbaṁ viññāṇaṁ:"
+    },
+    {
+     "n": 35,
+     "text": "‘netaṁ mama, nesohamasmi, na meso attā’ti evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 36,
+     "text": "Evaṁ passaṁ, bhikkhave, sutavā ariyasāvako rūpasmimpi nibbindati, vedanāyapi nibbindati, saññāyapi nibbindati, saṅkhāresupi nibbindati, viññāṇasmimpi nibbindati. Nibbindaṁ virajjati; virāgā vimuccati."
+    },
+    {
+     "n": 37,
+     "text": "Vimuttasmiṁ vimuttamiti ñāṇaṁ hoti."
+    },
+    {
+     "n": 38,
+     "text": "‘Khīṇā jāti, vusitaṁ brahmacariyaṁ, kataṁ karaṇīyaṁ, nāparaṁ itthattāyā’ti pajānātī”ti."
+    },
+    {
+     "n": 39,
+     "text": "Idamavoca bhagavā. Attamanā pañcavaggiyā bhikkhū bhagavato bhāsitaṁ abhinanduṁ."
+    },
+    {
+     "n": 40,
+     "text": "Imasmiñca pana veyyākaraṇasmiṁ bhaññamāne pañcavaggiyānaṁ bhikkhūnaṁ anupādāya āsavehi cittāni vimucciṁsūti."
+    },
+    {
+     "n": 41,
+     "text": "Sattamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn22.59/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "At one time the Buddha was staying near Varanasi in the deer park at Isipatana."
+    },
+    {
+     "n": 2,
+     "text": "There the Buddha addressed the group of five mendicants:"
+    },
+    {
+     "n": 3,
+     "text": "“Mendicants!”"
+    },
+    {
+     "n": 4,
+     "text": "“Venerable sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 5,
+     "text": "“Mendicants, form is not-self. For if form were self, it wouldn’t lead to affliction."
+    },
+    {
+     "n": 6,
+     "text": "And you could compel form: ‘May my form be like this! May it not be like that!’"
+    },
+    {
+     "n": 7,
+     "text": "But because form is not-self, it leads to affliction."
+    },
+    {
+     "n": 8,
+     "text": "And you can’t compel form: ‘May my form be like this! May it not be like that!’"
+    },
+    {
+     "n": 9,
+     "text": "Feeling is not-self …"
+    },
+    {
+     "n": 10,
+     "text": "Perception is not-self …"
+    },
+    {
+     "n": 11,
+     "text": "Choices are not-self …"
+    },
+    {
+     "n": 12,
+     "text": "Consciousness is not-self. For if consciousness were self, it wouldn’t lead to affliction."
+    },
+    {
+     "n": 13,
+     "text": "And you could compel consciousness: ‘May my consciousness be like this! May it not be like that!’"
+    },
+    {
+     "n": 14,
+     "text": "But because consciousness is not-self, it leads to affliction."
+    },
+    {
+     "n": 15,
+     "text": "And you can’t compel consciousness: ‘May my consciousness be like this! May it not be like that!’"
+    },
+    {
+     "n": 16,
+     "text": "What do you think, mendicants? Is form permanent or impermanent?”"
+    },
+    {
+     "n": 17,
+     "text": "“Impermanent, sir.”"
+    },
+    {
+     "n": 18,
+     "text": "“But if it’s impermanent, is it suffering or happiness?”"
+    },
+    {
+     "n": 19,
+     "text": "“Suffering, sir.”"
+    },
+    {
+     "n": 20,
+     "text": "“But if it’s impermanent, suffering, and perishable, is it fit to be regarded thus: ‘This is mine, I am this, this is my self’?”"
+    },
+    {
+     "n": 21,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 22,
+     "text": "“Is feeling permanent or impermanent?” …"
+    },
+    {
+     "n": 23,
+     "text": "“Is perception permanent or impermanent?” …"
+    },
+    {
+     "n": 24,
+     "text": "“Are choices permanent or impermanent?” …"
+    },
+    {
+     "n": 25,
+     "text": "“Is consciousness permanent or impermanent?”"
+    },
+    {
+     "n": 26,
+     "text": "“Impermanent, sir.”"
+    },
+    {
+     "n": 27,
+     "text": "“But if it’s impermanent, is it suffering or happiness?”"
+    },
+    {
+     "n": 28,
+     "text": "“Suffering, sir.”"
+    },
+    {
+     "n": 29,
+     "text": "“But if it’s impermanent, suffering, and perishable, is it fit to be regarded thus: ‘This is mine, I am this, this is my self’?”"
+    },
+    {
+     "n": 30,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 31,
+     "text": "“So you should truly see any kind of form at all—past, future, or present; internal or external; solid or subtle; inferior or superior; far or near: all form—with right understanding:"
+    },
+    {
+     "n": 32,
+     "text": "‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 33,
+     "text": "Any kind of feeling at all …"
+    },
+    {
+     "n": 34,
+     "text": "Any kind of perception at all …"
+    },
+    {
+     "n": 35,
+     "text": "Any kind of choices at all …"
+    },
+    {
+     "n": 36,
+     "text": "You should truly see any kind of consciousness at all—past, future, or present; internal or external; solid or subtle; inferior or superior; far or near: all consciousness—with right understanding:"
+    },
+    {
+     "n": 37,
+     "text": "‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 38,
+     "text": "Seeing this, a learned noble disciple grows disillusioned with form, feeling, perception, choices, and consciousness. Being disillusioned, desire fades away. When desire fades away they’re freed."
+    },
+    {
+     "n": 39,
+     "text": "When they’re freed, they know they’re freed."
+    },
+    {
+     "n": 40,
+     "text": "They understand: ‘Rebirth is ended, the spiritual journey has been completed, what had to be done has been done, there is nothing further for this place.’”"
+    },
+    {
+     "n": 41,
+     "text": "That is what the Buddha said. Satisfied, the group of five mendicants approved what the Buddha said."
+    },
+    {
+     "n": 42,
+     "text": "And while this discourse was being spoken, the minds of the group of five mendicants were freed from defilements by not grasping."
+    }
+   ]
+  }
+ ]
+}

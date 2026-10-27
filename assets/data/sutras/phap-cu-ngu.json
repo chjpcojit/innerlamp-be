@@ -1,0 +1,882 @@
+{
+ "id": "phap-cu-ngu",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 60-75",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 60-75), nói về người ngu và so sánh với người trí. Phẩm nhắc người ngu thấy đêm dài, đường dài vì không biết chánh pháp, sinh ưu não vì chấp con và tài sản là của mình, và khuyên thà sống một mình còn hơn làm bạn với kẻ ngu, không ham lợi dưỡng, cung kính.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Ngu",
+  "pli": "Bālavagga",
+  "en": "Fools"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 5,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp60-75/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Đêm dài cho kẻ thức,"
+    },
+    {
+     "n": 2,
+     "text": "Đường dài cho kẻ mệt,"
+    },
+    {
+     "n": 3,
+     "text": "Luân hồi dài, kẻ ngu,"
+    },
+    {
+     "n": 4,
+     "text": "Không biết chơn diệu pháp."
+    },
+    {
+     "n": 5,
+     "text": "Tìm không được bạn đường,"
+    },
+    {
+     "n": 6,
+     "text": "Hơn mình hay bằng mình,"
+    },
+    {
+     "n": 7,
+     "text": "Thà quyết sống một mình,"
+    },
+    {
+     "n": 8,
+     "text": "Không làm bạn kẻ ngu."
+    },
+    {
+     "n": 9,
+     "text": "“Con tôi, tài sản tôi”,"
+    },
+    {
+     "n": 10,
+     "text": "Người ngu sanh ưu não,"
+    },
+    {
+     "n": 11,
+     "text": "Tự ta, ta không có,"
+    },
+    {
+     "n": 12,
+     "text": "Con đâu, tài sản đâu?"
+    },
+    {
+     "n": 13,
+     "text": "Người ngu nghĩ mình ngu,"
+    },
+    {
+     "n": 14,
+     "text": "Nhờ vậy thành có trí."
+    },
+    {
+     "n": 15,
+     "text": "Người ngu tưởng có trí,"
+    },
+    {
+     "n": 16,
+     "text": "Thật xứng gọi chí ngu."
+    },
+    {
+     "n": 17,
+     "text": "Người ngu, dầu trọn đời,"
+    },
+    {
+     "n": 18,
+     "text": "Thân cận người có trí,"
+    },
+    {
+     "n": 19,
+     "text": "Không biết được Chánh pháp,"
+    },
+    {
+     "n": 20,
+     "text": "Như muỗng với vị canh."
+    },
+    {
+     "n": 21,
+     "text": "Người trí, dù một khắc,"
+    },
+    {
+     "n": 22,
+     "text": "Thân cận người có trí,"
+    },
+    {
+     "n": 23,
+     "text": "Biết ngay chân diệu pháp,"
+    },
+    {
+     "n": 24,
+     "text": "Như lưỡi với vị canh."
+    },
+    {
+     "n": 25,
+     "text": "Người ngu si thiếu trí,"
+    },
+    {
+     "n": 26,
+     "text": "Tự ngã thành kẻ thù."
+    },
+    {
+     "n": 27,
+     "text": "Làm các nghiệp không thiện,"
+    },
+    {
+     "n": 28,
+     "text": "Phải chịu quả đắng cay."
+    },
+    {
+     "n": 29,
+     "text": "Nghiệp làm không chánh thiện,"
+    },
+    {
+     "n": 30,
+     "text": "Làm rồi sanh ăn năn,"
+    },
+    {
+     "n": 31,
+     "text": "Mặt nhuốm lệ, khóc than,"
+    },
+    {
+     "n": 32,
+     "text": "Lãnh chịu quả dị thục."
+    },
+    {
+     "n": 33,
+     "text": "Và nghiệp làm chánh thiện,"
+    },
+    {
+     "n": 34,
+     "text": "Làm rồi không ăn năn,"
+    },
+    {
+     "n": 35,
+     "text": "Hoan hỷ, ý đẹp lòng,"
+    },
+    {
+     "n": 36,
+     "text": "Hưởng thọ quả dị thục."
+    },
+    {
+     "n": 37,
+     "text": "Người ngu nghĩ là ngọt,"
+    },
+    {
+     "n": 38,
+     "text": "Khi ác chưa chín muồi;"
+    },
+    {
+     "n": 39,
+     "text": "Ác nghiệp chín muồi rồi,"
+    },
+    {
+     "n": 40,
+     "text": "Người ngu chịu khổ đau."
+    },
+    {
+     "n": 41,
+     "text": "Tháng tháng với ngọn cỏ,"
+    },
+    {
+     "n": 42,
+     "text": "Người ngu có ăn uống"
+    },
+    {
+     "n": 43,
+     "text": "Không bằng phần mười sáu,"
+    },
+    {
+     "n": 44,
+     "text": "Người hiểu pháp hữu vi."
+    },
+    {
+     "n": 45,
+     "text": "Nghiệp ác đã được làm,"
+    },
+    {
+     "n": 46,
+     "text": "Như sữa, không đông ngay,"
+    },
+    {
+     "n": 47,
+     "text": "Cháy ngầm theo kẻ ngu,"
+    },
+    {
+     "n": 48,
+     "text": "Như lửa tro che đậy."
+    },
+    {
+     "n": 49,
+     "text": "Tự nó chịu bất hạnh,"
+    },
+    {
+     "n": 50,
+     "text": "Khi danh đến kẻ ngu."
+    },
+    {
+     "n": 51,
+     "text": "Vận may bị tổn hại,"
+    },
+    {
+     "n": 52,
+     "text": "Đầu nó bị nát tan."
+    },
+    {
+     "n": 53,
+     "text": "Ưa danh không tương xứng,"
+    },
+    {
+     "n": 54,
+     "text": "Muốn ngồi trước tỳ-kheo,"
+    },
+    {
+     "n": 55,
+     "text": "ưa quyền tại tịnh xá,"
+    },
+    {
+     "n": 56,
+     "text": "Muốn mọi người lễ kính."
+    },
+    {
+     "n": 57,
+     "text": "“Mong cả hai tăng, tục,"
+    },
+    {
+     "n": 58,
+     "text": "Nghĩ rằng chính ta làm."
+    },
+    {
+     "n": 59,
+     "text": "Trong mọi việc lớn nhỏ,"
+    },
+    {
+     "n": 60,
+     "text": "Phải theo mệnh lệnh ta”"
+    },
+    {
+     "n": 61,
+     "text": "Người ngu nghĩ như vậy"
+    },
+    {
+     "n": 62,
+     "text": "Dục và mạn tăng trưởng."
+    },
+    {
+     "n": 63,
+     "text": "Khác thay duyên thế lợi,"
+    },
+    {
+     "n": 64,
+     "text": "Khác thay đường Niết-bàn."
+    },
+    {
+     "n": 65,
+     "text": "Tỳ-kheo, đệ tử Phật,"
+    },
+    {
+     "n": 66,
+     "text": "Hãy như vậy thắng tri."
+    },
+    {
+     "n": 67,
+     "text": "Chớ ưa thích cung kính,"
+    },
+    {
+     "n": 68,
+     "text": "Hãy tu hạnh viễn ly."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp60-75/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Dīghā jāgarato ratti,"
+    },
+    {
+     "n": 2,
+     "text": "dīghaṁ santassa yojanaṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Dīgho bālāna saṁsāro,"
+    },
+    {
+     "n": 4,
+     "text": "saddhammaṁ avijānataṁ."
+    },
+    {
+     "n": 5,
+     "text": "Carañce nādhigaccheyya,"
+    },
+    {
+     "n": 6,
+     "text": "Seyyaṁ sadisamattano;"
+    },
+    {
+     "n": 7,
+     "text": "Ekacariyaṁ daḷhaṁ kayirā,"
+    },
+    {
+     "n": 8,
+     "text": "Natthi bāle sahāyatā."
+    },
+    {
+     "n": 9,
+     "text": "Puttā matthi dhanaṁ matthi,"
+    },
+    {
+     "n": 10,
+     "text": "iti bālo vihaññati;"
+    },
+    {
+     "n": 11,
+     "text": "Attā hi attano natthi,"
+    },
+    {
+     "n": 12,
+     "text": "kuto puttā kuto dhanaṁ."
+    },
+    {
+     "n": 13,
+     "text": "Yo bālo maññati bālyaṁ,"
+    },
+    {
+     "n": 14,
+     "text": "paṇḍito vāpi tena so;"
+    },
+    {
+     "n": 15,
+     "text": "Bālo ca paṇḍitamānī,"
+    },
+    {
+     "n": 16,
+     "text": "sa ve “bālo”ti vuccati."
+    },
+    {
+     "n": 17,
+     "text": "Yāvajīvampi ce bālo,"
+    },
+    {
+     "n": 18,
+     "text": "paṇḍitaṁ payirupāsati;"
+    },
+    {
+     "n": 19,
+     "text": "Na so dhammaṁ vijānāti,"
+    },
+    {
+     "n": 20,
+     "text": "dabbī sūparasaṁ yathā."
+    },
+    {
+     "n": 21,
+     "text": "Muhuttamapi ce viññū,"
+    },
+    {
+     "n": 22,
+     "text": "paṇḍitaṁ payirupāsati;"
+    },
+    {
+     "n": 23,
+     "text": "Khippaṁ dhammaṁ vijānāti,"
+    },
+    {
+     "n": 24,
+     "text": "jivhā sūparasaṁ yathā."
+    },
+    {
+     "n": 25,
+     "text": "Caranti bālā dummedhā,"
+    },
+    {
+     "n": 26,
+     "text": "amitteneva attanā;"
+    },
+    {
+     "n": 27,
+     "text": "Karontā pāpakaṁ kammaṁ,"
+    },
+    {
+     "n": 28,
+     "text": "yaṁ hoti kaṭukapphalaṁ."
+    },
+    {
+     "n": 29,
+     "text": "Na taṁ kammaṁ kataṁ sādhu,"
+    },
+    {
+     "n": 30,
+     "text": "yaṁ katvā anutappati;"
+    },
+    {
+     "n": 31,
+     "text": "Yassa assumukho rodaṁ,"
+    },
+    {
+     "n": 32,
+     "text": "vipākaṁ paṭisevati."
+    },
+    {
+     "n": 33,
+     "text": "Tañca kammaṁ kataṁ sādhu,"
+    },
+    {
+     "n": 34,
+     "text": "yaṁ katvā nānutappati;"
+    },
+    {
+     "n": 35,
+     "text": "Yassa patīto sumano,"
+    },
+    {
+     "n": 36,
+     "text": "vipākaṁ paṭisevati."
+    },
+    {
+     "n": 37,
+     "text": "Madhuṁvā maññati bālo,"
+    },
+    {
+     "n": 38,
+     "text": "yāva pāpaṁ na paccati;"
+    },
+    {
+     "n": 39,
+     "text": "Yadā ca paccati pāpaṁ,"
+    },
+    {
+     "n": 40,
+     "text": "atha dukkhaṁ nigacchati."
+    },
+    {
+     "n": 41,
+     "text": "Māse māse kusaggena,"
+    },
+    {
+     "n": 42,
+     "text": "bālo bhuñjeyya bhojanaṁ;"
+    },
+    {
+     "n": 43,
+     "text": "Na so saṅkhātadhammānaṁ,"
+    },
+    {
+     "n": 44,
+     "text": "kalaṁ agghati soḷasiṁ."
+    },
+    {
+     "n": 45,
+     "text": "Na hi pāpaṁ kataṁ kammaṁ,"
+    },
+    {
+     "n": 46,
+     "text": "Sajjukhīraṁva muccati;"
+    },
+    {
+     "n": 47,
+     "text": "Ḍahantaṁ bālamanveti,"
+    },
+    {
+     "n": 48,
+     "text": "Bhasmacchannova pāvako."
+    },
+    {
+     "n": 49,
+     "text": "Yāvadeva anatthāya,"
+    },
+    {
+     "n": 50,
+     "text": "ñattaṁ bālassa jāyati;"
+    },
+    {
+     "n": 51,
+     "text": "Hanti bālassa sukkaṁsaṁ,"
+    },
+    {
+     "n": 52,
+     "text": "muddhamassa vipātayaṁ."
+    },
+    {
+     "n": 53,
+     "text": "Asantaṁ bhāvanamiccheyya,"
+    },
+    {
+     "n": 54,
+     "text": "Purekkhārañca bhikkhusu;"
+    },
+    {
+     "n": 55,
+     "text": "Āvāsesu ca issariyaṁ,"
+    },
+    {
+     "n": 56,
+     "text": "Pūjaṁ parakulesu ca."
+    },
+    {
+     "n": 57,
+     "text": "Mameva kata maññantu,"
+    },
+    {
+     "n": 58,
+     "text": "gihī pabbajitā ubho;"
+    },
+    {
+     "n": 59,
+     "text": "Mamevātivasā assu,"
+    },
+    {
+     "n": 60,
+     "text": "kiccākiccesu kismici;"
+    },
+    {
+     "n": 61,
+     "text": "Iti bālassa saṅkappo,"
+    },
+    {
+     "n": 62,
+     "text": "icchā māno ca vaḍḍhati."
+    },
+    {
+     "n": 63,
+     "text": "Aññā hi lābhūpanisā,"
+    },
+    {
+     "n": 64,
+     "text": "aññā nibbānagāminī;"
+    },
+    {
+     "n": 65,
+     "text": "Evametaṁ abhiññāya,"
+    },
+    {
+     "n": 66,
+     "text": "bhikkhu buddhassa sāvako;"
+    },
+    {
+     "n": 67,
+     "text": "Sakkāraṁ nābhinandeyya,"
+    },
+    {
+     "n": 68,
+     "text": "vivekamanubrūhaye."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp60-75/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Long is the night for the wakeful;"
+    },
+    {
+     "n": 2,
+     "text": "long is the league for the weary;"
+    },
+    {
+     "n": 3,
+     "text": "long transmigrate the fools"
+    },
+    {
+     "n": 4,
+     "text": "who don’t understand the true teaching."
+    },
+    {
+     "n": 5,
+     "text": "If while wandering you find no partner"
+    },
+    {
+     "n": 6,
+     "text": "equal or better than yourself,"
+    },
+    {
+     "n": 7,
+     "text": "then firmly resolve to wander alone—"
+    },
+    {
+     "n": 8,
+     "text": "there’s no fellowship with fools."
+    },
+    {
+     "n": 9,
+     "text": "“Sons are mine, wealth is mine”—"
+    },
+    {
+     "n": 10,
+     "text": "thus the fool frets."
+    },
+    {
+     "n": 11,
+     "text": "For even your self is not your own,"
+    },
+    {
+     "n": 12,
+     "text": "let alone your sons or wealth."
+    },
+    {
+     "n": 13,
+     "text": "The fool who thinks they’re a fool"
+    },
+    {
+     "n": 14,
+     "text": "is wise at least to that extent."
+    },
+    {
+     "n": 15,
+     "text": "But the true fool is said to be one"
+    },
+    {
+     "n": 16,
+     "text": "who imagines that they are wise."
+    },
+    {
+     "n": 17,
+     "text": "Though a fool attends to the wise"
+    },
+    {
+     "n": 18,
+     "text": "even for the rest of their life,"
+    },
+    {
+     "n": 19,
+     "text": "they still don’t understand the teaching,"
+    },
+    {
+     "n": 20,
+     "text": "like a spoon the taste of the soup."
+    },
+    {
+     "n": 21,
+     "text": "If a clever person attends to the wise"
+    },
+    {
+     "n": 22,
+     "text": "even just for an hour or so,"
+    },
+    {
+     "n": 23,
+     "text": "they swiftly understand the teaching,"
+    },
+    {
+     "n": 24,
+     "text": "like a tongue the taste of the soup."
+    },
+    {
+     "n": 25,
+     "text": "Fools and simpletons behave"
+    },
+    {
+     "n": 26,
+     "text": "like their own worst enemies,"
+    },
+    {
+     "n": 27,
+     "text": "doing wicked deeds"
+    },
+    {
+     "n": 28,
+     "text": "that ripen as bitter fruit."
+    },
+    {
+     "n": 29,
+     "text": "It’s not good to do a deed"
+    },
+    {
+     "n": 30,
+     "text": "that plagues you later on,"
+    },
+    {
+     "n": 31,
+     "text": "for which you weep and wail,"
+    },
+    {
+     "n": 32,
+     "text": "as its effect stays with you."
+    },
+    {
+     "n": 33,
+     "text": "It is good to do a deed"
+    },
+    {
+     "n": 34,
+     "text": "that doesn’t plague you later on,"
+    },
+    {
+     "n": 35,
+     "text": "that gladdens and cheers,"
+    },
+    {
+     "n": 36,
+     "text": "as its effect stays with you."
+    },
+    {
+     "n": 37,
+     "text": "The fool imagines that evil is sweet,"
+    },
+    {
+     "n": 38,
+     "text": "so long as it has not yet ripened."
+    },
+    {
+     "n": 39,
+     "text": "But as soon as that evil ripens,"
+    },
+    {
+     "n": 40,
+     "text": "they fall into suffering."
+    },
+    {
+     "n": 41,
+     "text": "Month after month a fool may eat"
+    },
+    {
+     "n": 42,
+     "text": "food from a grass-blade’s tip;"
+    },
+    {
+     "n": 43,
+     "text": "but they’ll never be worth a sixteenth part"
+    },
+    {
+     "n": 44,
+     "text": "of one who has appraised the teaching."
+    },
+    {
+     "n": 45,
+     "text": "For a wicked deed that has been done"
+    },
+    {
+     "n": 46,
+     "text": "does not curdle quickly like milk."
+    },
+    {
+     "n": 47,
+     "text": "Smoldering, it follows the fool,"
+    },
+    {
+     "n": 48,
+     "text": "like a fire smothered over with ash."
+    },
+    {
+     "n": 49,
+     "text": "Whatever fame a fool may get,"
+    },
+    {
+     "n": 50,
+     "text": "it only gives rise to harm."
+    },
+    {
+     "n": 51,
+     "text": "Whatever good features they have it ruins,"
+    },
+    {
+     "n": 52,
+     "text": "and blows their head into bits."
+    },
+    {
+     "n": 53,
+     "text": "They’d seek the esteem that they lack,"
+    },
+    {
+     "n": 54,
+     "text": "and status among the mendicants;"
+    },
+    {
+     "n": 55,
+     "text": "authority over monasteries,"
+    },
+    {
+     "n": 56,
+     "text": "and honor among other families."
+    },
+    {
+     "n": 57,
+     "text": "“Let both layfolk and renunciants think"
+    },
+    {
+     "n": 58,
+     "text": "the work was done by me alone."
+    },
+    {
+     "n": 59,
+     "text": "In anything at all that’s to be done,"
+    },
+    {
+     "n": 60,
+     "text": "let them fall under my sway alone.”"
+    },
+    {
+     "n": 61,
+     "text": "So thinks the fool,"
+    },
+    {
+     "n": 62,
+     "text": "their greed and pride only growing."
+    },
+    {
+     "n": 63,
+     "text": "For the means to profit and the path to quenching"
+    },
+    {
+     "n": 64,
+     "text": "are two quite different things."
+    },
+    {
+     "n": 65,
+     "text": "A mendicant disciple of the Buddha,"
+    },
+    {
+     "n": 66,
+     "text": "understanding what this really means,"
+    },
+    {
+     "n": 67,
+     "text": "would never delight in honors,"
+    },
+    {
+     "n": 68,
+     "text": "but rather would foster seclusion."
+    }
+   ]
+  }
+ ]
+}

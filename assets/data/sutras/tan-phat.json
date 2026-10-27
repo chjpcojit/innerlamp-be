@@ -1,0 +1,131 @@
+{
+ "id": "tan-phat",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Tán Phật",
+ "reference": "",
+ "summary": "Bài tán thán đức Phật Thích Ca trong phần nhật tụng. Bài nói trên trời dưới trời không ai sánh bằng Phật, và dù đếm được số hạt bụi, uống cạn nước biển, đo được hư không thì cũng không nói hết công đức của Ngài. Cuối bài là lời xưng danh hiệu Bổn sư Thích Ca Mâu Ni Phật, vị đạo sư của ba cõi.",
+ "titles": {
+  "vi": "Tán Phật (Thiên thượng thiên hạ vô như Phật)",
+  "zh": "讚佛",
+  "en": "Praise of the Buddha"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "HT. Thích Trí Quang (dịch âm, theo Thiền môn nhật tụng Huế)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch âm",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu1.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Thiên thượng thiên hạ vô như Phật, thập phương thế giới diệc vô tỷ, thế gian sở hữu ngã tận kiến, nhất thế vô hữu như Phật giả."
+    },
+    {
+     "n": 2,
+     "text": "Sát trần tâm niệm khả sổ tri, đại hải trung thủy khả ẩm tận, hư không khả lượng phong khả hệ, vô năng thuyết tận Phật công đức."
+    },
+    {
+     "n": 3,
+     "text": "Nam mô Sa bà thế giới, tam giới đại sư, tứ sinh từ phụ, nhân thiên giáo chủ, thiên bách ức hóa thân, bổn sư hòa thượng Thích ca mâu ni phật."
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "HT. Thích Trí Quang (dịch nghĩa)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch nghĩa",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu3.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn. Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Trên trời dưới trời"
+    },
+    {
+     "n": 2,
+     "text": "không ai như Phật,"
+    },
+    {
+     "n": 3,
+     "text": "mười phương quốc độ"
+    },
+    {
+     "n": 4,
+     "text": "cũng không sánh bằng;"
+    },
+    {
+     "n": 5,
+     "text": "vũ trụ có gì"
+    },
+    {
+     "n": 6,
+     "text": "con xét thấy hết,"
+    },
+    {
+     "n": 7,
+     "text": "tất cả không ai"
+    },
+    {
+     "n": 8,
+     "text": "không gì như Phật."
+    },
+    {
+     "n": 9,
+     "text": "Ý nghĩ như bụi"
+    },
+    {
+     "n": 10,
+     "text": "có thể đếm biết,"
+    },
+    {
+     "n": 11,
+     "text": "nước trong biển cả"
+    },
+    {
+     "n": 12,
+     "text": "có thể uống sạch,"
+    },
+    {
+     "n": 13,
+     "text": "không gian lường được,"
+    },
+    {
+     "n": 14,
+     "text": "gió lớn buộc được,"
+    },
+    {
+     "n": 15,
+     "text": "nói không hết được"
+    },
+    {
+     "n": 16,
+     "text": "công đức Phật đà."
+    },
+    {
+     "n": 17,
+     "text": "Kính lạy đức Thích ca mâu ni phật, là hòa thượng bổn sư, giáo chủ quốc độ Sa bà, vị thầy cao cả của ba cõi, vị cha từ bi của bốn loài, giáo hóa cho cả nhân thiên, phân thân đến ngàn trăm ức."
+    }
+   ]
+  }
+ ]
+}

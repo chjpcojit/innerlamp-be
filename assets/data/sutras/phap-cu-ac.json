@@ -1,0 +1,738 @@
+{
+ "id": "phap-cu-ac",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 116-128",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 116-128), khuyên mau làm việc lành và ngăn tâm khỏi điều ác. Phẩm nhắc rằng không nên xem thường điều ác nhỏ vì như giọt nước nhỏ có thể làm đầy bình, và quả của nghiệp ác không thể trốn tránh ở bất cứ đâu. Điều thiện cũng cần được làm đều đặn để tích lũy an lạc.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Ác",
+  "pli": "Pāpavagga",
+  "en": "Wickedness"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp116-128/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Hãy gấp làm điều lành,"
+    },
+    {
+     "n": 2,
+     "text": "Ngăn tâm làm điều ác."
+    },
+    {
+     "n": 3,
+     "text": "Ai chậm làm việc lành,"
+    },
+    {
+     "n": 4,
+     "text": "Ý ưa thích việc ác."
+    },
+    {
+     "n": 5,
+     "text": "Nếu người làm điều ác,"
+    },
+    {
+     "n": 6,
+     "text": "Chớ tiếp tục làm thêm."
+    },
+    {
+     "n": 7,
+     "text": "Chớ ước muốn điều ác,"
+    },
+    {
+     "n": 8,
+     "text": "Chứa ác, tất chịu khổ."
+    },
+    {
+     "n": 9,
+     "text": "Nếu người làm điều thiện,"
+    },
+    {
+     "n": 10,
+     "text": "Nên tiếp tục làm thêm."
+    },
+    {
+     "n": 11,
+     "text": "Hãy ước muốn điều thiện,"
+    },
+    {
+     "n": 12,
+     "text": "Chứa thiện, được an lạc."
+    },
+    {
+     "n": 13,
+     "text": "Người ác thấy là hiền."
+    },
+    {
+     "n": 14,
+     "text": "Khi ác chưa chín muồi,"
+    },
+    {
+     "n": 15,
+     "text": "Khi ác nghiệp chín muồi,"
+    },
+    {
+     "n": 16,
+     "text": "Người ác mới thấy ác."
+    },
+    {
+     "n": 17,
+     "text": "Người hiền thấy là ác,"
+    },
+    {
+     "n": 18,
+     "text": "Khi thiện chưa chín muồi,"
+    },
+    {
+     "n": 19,
+     "text": "Khi thiện nghiệp chín muồi,"
+    },
+    {
+     "n": 20,
+     "text": "Người hiền thấy là thiện."
+    },
+    {
+     "n": 21,
+     "text": "Chớ chê khinh điều ác,"
+    },
+    {
+     "n": 22,
+     "text": "Cho rằng “chưa đến mình”,"
+    },
+    {
+     "n": 23,
+     "text": "Như nước nhỏ từng giọt,"
+    },
+    {
+     "n": 24,
+     "text": "Rồi bình cũng đầy tràn."
+    },
+    {
+     "n": 25,
+     "text": "Người ngu chứa đầy ác"
+    },
+    {
+     "n": 26,
+     "text": "Do chất chứa dần dần."
+    },
+    {
+     "n": 27,
+     "text": "Chớ chê khinh điều thiện"
+    },
+    {
+     "n": 28,
+     "text": "Cho rằng “chưa đến mình”,"
+    },
+    {
+     "n": 29,
+     "text": "Như nước nhỏ từng giọt,"
+    },
+    {
+     "n": 30,
+     "text": "Rồi bình cũng đầy tràn."
+    },
+    {
+     "n": 31,
+     "text": "Người trí chứa đầy thiện,"
+    },
+    {
+     "n": 32,
+     "text": "Do chất chứa dần dần."
+    },
+    {
+     "n": 33,
+     "text": "Ít bạn đường, nhiều tiền,"
+    },
+    {
+     "n": 34,
+     "text": "Người buôn tránh đường hiểm."
+    },
+    {
+     "n": 35,
+     "text": "Muốn sống, tránh thuốc độc,"
+    },
+    {
+     "n": 36,
+     "text": "Hãy tránh ác như vậy."
+    },
+    {
+     "n": 37,
+     "text": "Bàn tay không thương tích,"
+    },
+    {
+     "n": 38,
+     "text": "Có thể cầm thuốc độc."
+    },
+    {
+     "n": 39,
+     "text": "Không thương tích, tránh độc,"
+    },
+    {
+     "n": 40,
+     "text": "Không làm, không có ác."
+    },
+    {
+     "n": 41,
+     "text": "Hại người không ác tâm,"
+    },
+    {
+     "n": 42,
+     "text": "Người thanh tịnh, không uế,"
+    },
+    {
+     "n": 43,
+     "text": "Tội ác đến kẻ ngu,"
+    },
+    {
+     "n": 44,
+     "text": "Như ngược gió tung bụi."
+    },
+    {
+     "n": 45,
+     "text": "Một số sinh bào thai,"
+    },
+    {
+     "n": 46,
+     "text": "Kẻ ác sinh địa ngục,"
+    },
+    {
+     "n": 47,
+     "text": "Người thiện lên cõi trời,"
+    },
+    {
+     "n": 48,
+     "text": "Vô lậu chứng Niết-bàn."
+    },
+    {
+     "n": 49,
+     "text": "Không trên trời, giữa biển,"
+    },
+    {
+     "n": 50,
+     "text": "Không lánh vào động núi,"
+    },
+    {
+     "n": 51,
+     "text": "Không chỗ nào trên đời,"
+    },
+    {
+     "n": 52,
+     "text": "Trốn được quả ác nghiệp."
+    },
+    {
+     "n": 53,
+     "text": "Không trên trời, giữa biển,"
+    },
+    {
+     "n": 54,
+     "text": "Không lánh vào động núi,"
+    },
+    {
+     "n": 55,
+     "text": "Không chỗ nào trên đời,"
+    },
+    {
+     "n": 56,
+     "text": "Trốn khỏi tay thần chết."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp116-128/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Abhittharetha kalyāṇe,"
+    },
+    {
+     "n": 2,
+     "text": "pāpā cittaṁ nivāraye;"
+    },
+    {
+     "n": 3,
+     "text": "Dandhañhi karoto puññaṁ,"
+    },
+    {
+     "n": 4,
+     "text": "pāpasmiṁ ramatī mano."
+    },
+    {
+     "n": 5,
+     "text": "Pāpañce puriso kayirā,"
+    },
+    {
+     "n": 6,
+     "text": "Na naṁ kayirā punappunaṁ;"
+    },
+    {
+     "n": 7,
+     "text": "Na tamhi chandaṁ kayirātha,"
+    },
+    {
+     "n": 8,
+     "text": "Dukkho pāpassa uccayo."
+    },
+    {
+     "n": 9,
+     "text": "Puññañce puriso kayirā,"
+    },
+    {
+     "n": 10,
+     "text": "kayirā naṁ punappunaṁ;"
+    },
+    {
+     "n": 11,
+     "text": "Tamhi chandaṁ kayirātha,"
+    },
+    {
+     "n": 12,
+     "text": "sukho puññassa uccayo."
+    },
+    {
+     "n": 13,
+     "text": "Pāpopi passati bhadraṁ,"
+    },
+    {
+     "n": 14,
+     "text": "Yāva pāpaṁ na paccati;"
+    },
+    {
+     "n": 15,
+     "text": "Yadā ca paccati pāpaṁ,"
+    },
+    {
+     "n": 16,
+     "text": "Atha pāpo pāpāni passati."
+    },
+    {
+     "n": 17,
+     "text": "Bhadropi passati pāpaṁ,"
+    },
+    {
+     "n": 18,
+     "text": "Yāva bhadraṁ na paccati;"
+    },
+    {
+     "n": 19,
+     "text": "Yadā ca paccati bhadraṁ,"
+    },
+    {
+     "n": 20,
+     "text": "Atha bhadro bhadrāni passati."
+    },
+    {
+     "n": 21,
+     "text": "Māvamaññetha pāpassa,"
+    },
+    {
+     "n": 22,
+     "text": "na mantaṁ āgamissati;"
+    },
+    {
+     "n": 23,
+     "text": "Udabindunipātena,"
+    },
+    {
+     "n": 24,
+     "text": "udakumbhopi pūrati;"
+    },
+    {
+     "n": 25,
+     "text": "Bālo pūrati pāpassa,"
+    },
+    {
+     "n": 26,
+     "text": "thokaṁ thokampi ācinaṁ."
+    },
+    {
+     "n": 27,
+     "text": "Māvamaññetha puññassa,"
+    },
+    {
+     "n": 28,
+     "text": "na mandaṁ āgamissati;"
+    },
+    {
+     "n": 29,
+     "text": "Udabindunipātena,"
+    },
+    {
+     "n": 30,
+     "text": "udakumbhopi pūrati;"
+    },
+    {
+     "n": 31,
+     "text": "Dhīro pūrati puññassa,"
+    },
+    {
+     "n": 32,
+     "text": "thokaṁ thokampi ācinaṁ."
+    },
+    {
+     "n": 33,
+     "text": "Vāṇijova bhayaṁ maggaṁ,"
+    },
+    {
+     "n": 34,
+     "text": "appasattho mahaddhano;"
+    },
+    {
+     "n": 35,
+     "text": "Visaṁ jīvitukāmova,"
+    },
+    {
+     "n": 36,
+     "text": "pāpāni parivajjaye."
+    },
+    {
+     "n": 37,
+     "text": "Pāṇimhi ce vaṇo nāssa,"
+    },
+    {
+     "n": 38,
+     "text": "hareyya pāṇinā visaṁ;"
+    },
+    {
+     "n": 39,
+     "text": "Nābbaṇaṁ visamanveti,"
+    },
+    {
+     "n": 40,
+     "text": "natthi pāpaṁ akubbato."
+    },
+    {
+     "n": 41,
+     "text": "Yo appaduṭṭhassa narassa dussati,"
+    },
+    {
+     "n": 42,
+     "text": "Suddhassa posassa anaṅgaṇassa;"
+    },
+    {
+     "n": 43,
+     "text": "Tameva bālaṁ pacceti pāpaṁ,"
+    },
+    {
+     "n": 44,
+     "text": "Sukhumo rajo paṭivātaṁva khitto."
+    },
+    {
+     "n": 45,
+     "text": "Gabbhameke uppajjanti,"
+    },
+    {
+     "n": 46,
+     "text": "nirayaṁ pāpakammino;"
+    },
+    {
+     "n": 47,
+     "text": "Saggaṁ sugatino yanti,"
+    },
+    {
+     "n": 48,
+     "text": "parinibbanti anāsavā."
+    },
+    {
+     "n": 49,
+     "text": "Na antalikkhe na samuddamajjhe,"
+    },
+    {
+     "n": 50,
+     "text": "Na pabbatānaṁ vivaraṁ pavissa;"
+    },
+    {
+     "n": 51,
+     "text": "Na vijjatī so jagatippadeso,"
+    },
+    {
+     "n": 52,
+     "text": "Yatthaṭṭhito mucceyya pāpakammā."
+    },
+    {
+     "n": 53,
+     "text": "Na antalikkhe na samuddamajjhe,"
+    },
+    {
+     "n": 54,
+     "text": "Na pabbatānaṁ vivaraṁ pavissa;"
+    },
+    {
+     "n": 55,
+     "text": "Na vijjatī so jagatippadeso,"
+    },
+    {
+     "n": 56,
+     "text": "Yatthaṭṭhitaṁ nappasaheyya maccu."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp116-128/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Rush to do good,"
+    },
+    {
+     "n": 2,
+     "text": "shield your mind from evil;"
+    },
+    {
+     "n": 3,
+     "text": "for when you’re slow to do good,"
+    },
+    {
+     "n": 4,
+     "text": "your thoughts delight in wickedness."
+    },
+    {
+     "n": 5,
+     "text": "If you do something bad,"
+    },
+    {
+     "n": 6,
+     "text": "don’t do it again and again,"
+    },
+    {
+     "n": 7,
+     "text": "don’t set your heart on it,"
+    },
+    {
+     "n": 8,
+     "text": "for piling up evil is suffering."
+    },
+    {
+     "n": 9,
+     "text": "If you do something good,"
+    },
+    {
+     "n": 10,
+     "text": "do it again and again,"
+    },
+    {
+     "n": 11,
+     "text": "set your heart on it,"
+    },
+    {
+     "n": 12,
+     "text": "for piling up goodness is joyful."
+    },
+    {
+     "n": 13,
+     "text": "Even the wicked see good things,"
+    },
+    {
+     "n": 14,
+     "text": "so long as their wickedness has not ripened."
+    },
+    {
+     "n": 15,
+     "text": "But as soon as that wickedness ripens,"
+    },
+    {
+     "n": 16,
+     "text": "then the wicked see wicked things."
+    },
+    {
+     "n": 17,
+     "text": "Even the good see wicked things,"
+    },
+    {
+     "n": 18,
+     "text": "so long as their goodness has not ripened."
+    },
+    {
+     "n": 19,
+     "text": "But as soon as that goodness ripens,"
+    },
+    {
+     "n": 20,
+     "text": "then the good see good things."
+    },
+    {
+     "n": 21,
+     "text": "Think not lightly of evil,"
+    },
+    {
+     "n": 22,
+     "text": "that it won’t come back to you."
+    },
+    {
+     "n": 23,
+     "text": "The pot is filled with water"
+    },
+    {
+     "n": 24,
+     "text": "falling drop by drop;"
+    },
+    {
+     "n": 25,
+     "text": "the fool is filled with wickedness"
+    },
+    {
+     "n": 26,
+     "text": "piled up bit by bit."
+    },
+    {
+     "n": 27,
+     "text": "Think not lightly of goodness,"
+    },
+    {
+     "n": 28,
+     "text": "that it won’t come back to you."
+    },
+    {
+     "n": 29,
+     "text": "The pot is filled with water"
+    },
+    {
+     "n": 30,
+     "text": "falling drop by drop;"
+    },
+    {
+     "n": 31,
+     "text": "the attentive one is filled with goodness"
+    },
+    {
+     "n": 32,
+     "text": "piled up bit by bit."
+    },
+    {
+     "n": 33,
+     "text": "Avoid wickedness,"
+    },
+    {
+     "n": 34,
+     "text": "as a merchant with rich cargo and small escort"
+    },
+    {
+     "n": 35,
+     "text": "would avoid a dangerous road,"
+    },
+    {
+     "n": 36,
+     "text": "or one who loves life would avoid drinking poison."
+    },
+    {
+     "n": 37,
+     "text": "You can carry poison in your hand"
+    },
+    {
+     "n": 38,
+     "text": "if it has no wound,"
+    },
+    {
+     "n": 39,
+     "text": "for poison does not infect without a wound;"
+    },
+    {
+     "n": 40,
+     "text": "nothing bad happens unless you do bad."
+    },
+    {
+     "n": 41,
+     "text": "Whoever wrongs a man who has done no wrong,"
+    },
+    {
+     "n": 42,
+     "text": "a pure man who has not a blemish,"
+    },
+    {
+     "n": 43,
+     "text": "the evil backfires on the fool,"
+    },
+    {
+     "n": 44,
+     "text": "like fine dust thrown upwind."
+    },
+    {
+     "n": 45,
+     "text": "Some are born in a womb;"
+    },
+    {
+     "n": 46,
+     "text": "evildoers go to hell;"
+    },
+    {
+     "n": 47,
+     "text": "the virtuous go to heaven;"
+    },
+    {
+     "n": 48,
+     "text": "the undefiled are fully extinguished."
+    },
+    {
+     "n": 49,
+     "text": "Not in midair, nor mid-ocean,"
+    },
+    {
+     "n": 50,
+     "text": "nor hiding in a mountain cleft;"
+    },
+    {
+     "n": 51,
+     "text": "you’ll find no place on the planet"
+    },
+    {
+     "n": 52,
+     "text": "to escape your wicked deeds."
+    },
+    {
+     "n": 53,
+     "text": "Not in midair, nor mid-ocean,"
+    },
+    {
+     "n": 54,
+     "text": "nor hiding in a mountain cleft;"
+    },
+    {
+     "n": 55,
+     "text": "you’ll find no place on the planet"
+    },
+    {
+     "n": 56,
+     "text": "where you won’t be vanquished by death."
+    }
+   ]
+  }
+ ]
+}

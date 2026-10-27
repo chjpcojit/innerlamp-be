@@ -1,0 +1,733 @@
+{
+ "id": "foundation-of-all-qualities",
+ "tradition": "VAJRAYANA",
+ "kind": "VERSE",
+ "collection": "Mật tông / Lamrim",
+ "reference": "",
+ "author": "Je Tsongkhapa Lobzang Drakpa",
+ "summary": "Bài kệ cầu nguyện nổi tiếng của Je Tsongkhapa, tóm lược Lamrim, tức các giai đoạn trên con đường giác ngộ. Bài bắt đầu từ việc nương tựa vị thầy tốt, rồi nhắc đến thân người quý hiếm, vô thường, nhân quả, tâm xuất ly, bồ đề tâm và trí tuệ về tánh Không. Mỗi đoạn là một lời nguyện xin gia trì để thực hành. Kết thúc bằng nguyện mau đạt quả vị Kim Cang Trì.",
+ "titles": {
+  "vi": "Nền Tảng Của Mọi Công Đức",
+  "bo": "ཡོན་ཏན་གཞིར་གྱུར་མ།",
+  "en": "The Foundation of All Qualities"
+ },
+ "deities": [],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 14,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Adam Pearcey, 2018",
+   "sourceName": "Lotsawa House - The Foundation of All Qualities, by Je Tsongkhapa",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/tsongkhapa/foundation-of-all-qualities",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "lines": [
+    {
+     "n": 1,
+     "text": "The foundation of all qualities is the gracious guru;"
+    },
+    {
+     "n": 2,
+     "text": "And to rely upon him or her correctly is the root of the path."
+    },
+    {
+     "n": 3,
+     "text": "Inspire us to understand this well and rouse our energies,"
+    },
+    {
+     "n": 4,
+     "text": "So that we may follow with the greatest respect!"
+    },
+    {
+     "n": 5,
+     "text": "Inspire us so that we may realize how this excellent support,"
+    },
+    {
+     "n": 6,
+     "text": "With its once-found freedoms, is so rare and momentous;"
+    },
+    {
+     "n": 7,
+     "text": "And let us always be determined, day and night,"
+    },
+    {
+     "n": 8,
+     "text": "To make the most of this precious opportunity!"
+    },
+    {
+     "n": 9,
+     "text": "Let us remember that life and limb are as transient and ephemeral"
+    },
+    {
+     "n": 10,
+     "text": "As bubbles in water: death, the destroyer, approaches swiftly;"
+    },
+    {
+     "n": 11,
+     "text": "And after death the results of positive and negative actions"
+    },
+    {
+     "n": 12,
+     "text": "Will accompany us, just as a shadow follows the body."
+    },
+    {
+     "n": 13,
+     "text": "Inspire us so that we may gain firm conviction in this,"
+    },
+    {
+     "n": 14,
+     "text": "And remain always conscientious:"
+    },
+    {
+     "n": 15,
+     "text": "Avoiding even the slightest harmful actions,"
+    },
+    {
+     "n": 16,
+     "text": "While cultivating every form of virtue!"
+    },
+    {
+     "n": 17,
+     "text": "Inspire us to see the shortcomings of mundane pleasures,"
+    },
+    {
+     "n": 18,
+     "text": "Which only disappoint, lead to every form of suffering"
+    },
+    {
+     "n": 19,
+     "text": "And cannot be relied upon;"
+    },
+    {
+     "n": 20,
+     "text": "Instead let us enthusiastically pursue the bliss of liberation!"
+    },
+    {
+     "n": 21,
+     "text": "Inspire us so that, motivated by this pure intention,"
+    },
+    {
+     "n": 22,
+     "text": "With mindfulness, vigilance and conscientiousness,"
+    },
+    {
+     "n": 23,
+     "text": "We may take to heart the pratimokṣa vows,"
+    },
+    {
+     "n": 24,
+     "text": "Which are the very root of the teachings."
+    },
+    {
+     "n": 25,
+     "text": "Just as we have fallen into the ocean of existence,"
+    },
+    {
+     "n": 26,
+     "text": "All other beings, our very own past mothers, have too—"
+    },
+    {
+     "n": 27,
+     "text": "Inspire us to see this and to master supreme bodhicitta,"
+    },
+    {
+     "n": 28,
+     "text": "And to take responsibility for liberating all beings."
+    },
+    {
+     "n": 29,
+     "text": "Inspire us to see that even if we develop the intention,"
+    },
+    {
+     "n": 30,
+     "text": "Unless we train in the three types of ethical discipline,"
+    },
+    {
+     "n": 31,
+     "text": "We will not attain awakening, and thus to apply ourselves"
+    },
+    {
+     "n": 32,
+     "text": "With great energy to upholding the bodhisattva vows."
+    },
+    {
+     "n": 33,
+     "text": "Inspire us to calm distraction towards the erroneous,"
+    },
+    {
+     "n": 34,
+     "text": "And to enquire correctly into the genuine nature,"
+    },
+    {
+     "n": 35,
+     "text": "So that we may swiftly generate within our minds"
+    },
+    {
+     "n": 36,
+     "text": "The path that perfectly unites tranquility and insight."
+    },
+    {
+     "n": 37,
+     "text": "Inspire us, so that having trained in the common path"
+    },
+    {
+     "n": 38,
+     "text": "And become suitable vessels, we may easily set out"
+    },
+    {
+     "n": 39,
+     "text": "On the sublime approach of fortunate individuals"
+    },
+    {
+     "n": 40,
+     "text": "And enter the Vajrayāna, supreme among vehicles."
+    },
+    {
+     "n": 41,
+     "text": "At that time, inspire us with unfeigned certainty"
+    },
+    {
+     "n": 42,
+     "text": "In the teaching that pure vows and commitment"
+    },
+    {
+     "n": 43,
+     "text": "Are the basis for attaining two types of siddhi,"
+    },
+    {
+     "n": 44,
+     "text": "And let us guard them even at the risk of our lives."
+    },
+    {
+     "n": 45,
+     "text": "Then, inspire us, so that having realized they key points"
+    },
+    {
+     "n": 46,
+     "text": "Of the two stages, which are the essence of the tantras,"
+    },
+    {
+     "n": 47,
+     "text": "We may never waver from the yoga of the four sessions"
+    },
+    {
+     "n": 48,
+     "text": "And practise according to the noble guru's instructions."
+    },
+    {
+     "n": 49,
+     "text": "Thus, may you inspire us with your blessings,"
+    },
+    {
+     "n": 50,
+     "text": "So that the spiritual guides who reveal the excellent path"
+    },
+    {
+     "n": 51,
+     "text": "And companions who practise authentically may live long,"
+    },
+    {
+     "n": 52,
+     "text": "And all outer and inner obstacles may be fully pacified!"
+    },
+    {
+     "n": 53,
+     "text": "In all our lives, may we never be separated from genuine gurus,"
+    },
+    {
+     "n": 54,
+     "text": "May we enjoy the splendour of the Dharma,"
+    },
+    {
+     "n": 55,
+     "text": "And by perfecting the qualities of the paths and stages,"
+    },
+    {
+     "n": 56,
+     "text": "May we swiftly attain the level of Vajradhara!"
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Classical Tibetan (pre-modern author)",
+   "sourceName": "Lotsawa House - The Foundation of All Qualities, by Je Tsongkhapa",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/tsongkhapa/foundation-of-all-qualities",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ཡོན་ཏན་ཀུན་གྱི་གཞིར་གྱུར་དྲིན་ཅན་རྗེ། །"
+    },
+    {
+     "n": 2,
+     "text": "ཚུལ་བཞིན་བསྟེན་པ་ལམ་གྱི་རྩ་བ་རུ། །"
+    },
+    {
+     "n": 3,
+     "text": "ལེགས་པར་མཐོང་ནས་འབད་པ་དུ་མ་ཡིས། །"
+    },
+    {
+     "n": 4,
+     "text": "གུས་པ་ཆེན་པོས་བསྟེན་པར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 5,
+     "text": "ལན་ཅིག་རྙེད་པའི་དལ་བའི་རྟེན་བཟང་འདི། །"
+    },
+    {
+     "n": 6,
+     "text": "ཤིན་ཏུ་རྙེད་དཀའ་དོན་ཆེ་ཤེས་གྱུར་ནས། །"
+    },
+    {
+     "n": 7,
+     "text": "ཉིན་མཚན་ཀུན་ཏུ་སྙིང་པོ་ལེན་པའི་བློ། །"
+    },
+    {
+     "n": 8,
+     "text": "རྒྱུན་ཆད་མེད་པར་སྐྱེ་བར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 9,
+     "text": "ལུས་སྲོག་གཡོ་བ་ཆུ་ཡི་ཆུ་བུར་བཞིན། །"
+    },
+    {
+     "n": 10,
+     "text": "མྱུར་དུ་འཇིག་པའི་འཆི་བ་དྲན་པ་དང༌། །"
+    },
+    {
+     "n": 11,
+     "text": "ཤི་བའི་རྗེས་སུ་ལུས་དང་གྲིབ་མ་བཞིན། །"
+    },
+    {
+     "n": 12,
+     "text": "དཀར་ནག་ལས་འབྲས་ཕྱི་བཞིན་འབྲང་བ་ལ། །"
+    },
+    {
+     "n": 13,
+     "text": "ངེས་པ་བརྟན་པོ་རྙེད་ནས་ཉེས་པའི་ཚོགས། །"
+    },
+    {
+     "n": 14,
+     "text": "ཕྲ་ཞིང་ཕྲ་བ་རྣམས་ཀྱང་སྤོང་བ་དང༌། །"
+    },
+    {
+     "n": 15,
+     "text": "དགེ་ཚོགས་མཐའ་དག་སྒྲུབ་པར་བྱེད་པ་ལ། །"
+    },
+    {
+     "n": 16,
+     "text": "རྟག་ཏུ་བག་དང་ལྡན་པར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 17,
+     "text": "སྤྱད་པས་མི་ངོམས་སྡུག་བསྔལ་ཀུན་གྱི་སྒོ། །"
+    },
+    {
+     "n": 18,
+     "text": "ཡིད་བརྟན་མི་རུང་སྲིད་པའི་ཕུན་ཚོགས་ཀྱི། །"
+    },
+    {
+     "n": 19,
+     "text": "ཉེས་དམིགས་རིག་ནས་ཐར་བའི་བདེ་བ་ལ། །"
+    },
+    {
+     "n": 20,
+     "text": "དོན་གཉེར་ཆེན་པོ་སྐྱེ་བར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 21,
+     "text": "རྣམ་དག་བསམ་པ་དེ་ཡིས་དྲངས་པ་ཡི། །"
+    },
+    {
+     "n": 22,
+     "text": "དྲན་དང་ཤེས་བཞིན་བག་ཡོད་ཆེན་པོ་ཡིས། །"
+    },
+    {
+     "n": 23,
+     "text": "བསྟན་པའི་རྩ་བ་སོ་སོར་ཐར་བ་ལ། །"
+    },
+    {
+     "n": 24,
+     "text": "སྒྲུབ་པ་སྙིང་པོར་བྱེད་པར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 25,
+     "text": "རང་ཉིད་སྲིད་མཚོར་ལྷུང་བ་ཇི་བཞིན་དུ། །"
+    },
+    {
+     "n": 26,
+     "text": "མར་གྱུར་འགྲོ་བ་ཀུན་ཀྱང་དེ་འདྲ་བར། །"
+    },
+    {
+     "n": 27,
+     "text": "མཐོང་ནས་འགྲོ་བ་སྒྲོལ་བའི་ཁུར་འཁྱེར་བའི། །"
+    },
+    {
+     "n": 28,
+     "text": "བྱང་ཆུབ་སེམས་མཆོག་འབྱོངས་པར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 29,
+     "text": "སེམས་ཙམ་བསྐྱེད་ཀྱང་ཚུལ་ཁྲིམས་རྣམ་གསུམ་ལ། །"
+    },
+    {
+     "n": 30,
+     "text": "གོམས་པ་མེད་ན་བྱང་ཆུབ་མི་འགྲུབ་པར། །"
+    },
+    {
+     "n": 31,
+     "text": "ལེགས་པར་མཐོང་ནས་རྒྱལ་སྲས་སྡོམ་པ་ལ། །"
+    },
+    {
+     "n": 32,
+     "text": "བརྩོན་པ་དྲག་པོས་སློབ་པར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 33,
+     "text": "ལོག་པའི་ཡུལ་ལ་གཡེངས་པ་ཞི་བྱེད་ཅིང༌། །"
+    },
+    {
+     "n": 34,
+     "text": "ཡང་དག་དོན་ལ་ཚུལ་བཞིན་དཔྱོད་པ་ཡིས། །"
+    },
+    {
+     "n": 35,
+     "text": "ཞི་གནས་ལྷག་མཐོང་ཟུང་དུ་འབྲེལ་བའི་ལམ། །"
+    },
+    {
+     "n": 36,
+     "text": "མྱུར་དུ་རྒྱུད་ལ་སྐྱེ་བར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 37,
+     "text": "ཐུན་མོང་ལམ་སྦྱང་སྣོད་དུ་གྱུར་པ་ན། །"
+    },
+    {
+     "n": 38,
+     "text": "ཐེག་པ་ཀུན་གྱི་མཆོག་གྱུར་རྡོ་རྗེ་ཐེག།"
+    },
+    {
+     "n": 39,
+     "text": "སྐལ་བཟང་སྐྱེ་བོའི་འཇུག་ངོགས་དམ་པ་དེར། །"
+    },
+    {
+     "n": 40,
+     "text": "བདེ་བླག་ཉིད་དུ་འཇུག་པར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 41,
+     "text": "དེ་ཚེ་དངོས་གྲུབ་རྣམ་གཉིས་སྒྲུབ་པའི་གཞི། །"
+    },
+    {
+     "n": 42,
+     "text": "རྣམ་དག་དམ་ཚིག་སྡོམ་པར་གསུངས་པ་ལ། །"
+    },
+    {
+     "n": 43,
+     "text": "བཅོས་མ་མིན་པའི་ངེས་པ་རྙེད་གྱུར་ནས། །"
+    },
+    {
+     "n": 44,
+     "text": "སྲོག་དང་བསྡོས་ཏེ་སྲུང་བར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 45,
+     "text": "དེ་ནས་རྒྱུད་སྡེ་སྙིང་པོ་རིམ་གཉིས་ཀྱི། །"
+    },
+    {
+     "n": 46,
+     "text": "གནད་རྣམས་ཇི་བཞིན་རྟོགས་ནས་བརྩོན་པ་ཡིས། །"
+    },
+    {
+     "n": 47,
+     "text": "ཐུན་བཞིའི་རྣལ་འབྱོར་སྤྱོད་ལས་མི་གཡེལ་བར། །"
+    },
+    {
+     "n": 48,
+     "text": "དམ་པའི་གསུང་བཞིན་སྒྲུབ་པར་བྱིན་གྱིས་རློབས། །"
+    },
+    {
+     "n": 49,
+     "text": "དེ་ལྟར་ལམ་བཟང་སྟོན་པའི་བཤེས་གཉེན་དང༌། །"
+    },
+    {
+     "n": 50,
+     "text": "ཚུལ་བཞིན་སྒྲུབ་པའི་གྲོགས་རྣམས་ཞབས་བརྟན་ཅིང༌། །"
+    },
+    {
+     "n": 51,
+     "text": "ཕྱི་དང་ནང་གི་བར་དུ་གཅོད་པའི་ཚོགས། །"
+    },
+    {
+     "n": 52,
+     "text": "ཉེ་བར་ཞི་བར་བྱིན་གྱིས་བརླབ་ཏུ་གསོལ། །"
+    },
+    {
+     "n": 53,
+     "text": "སྐྱེ་བ་ཀུན་ཏུ་ཡང་དག་བླ་མ་དང་། །"
+    },
+    {
+     "n": 54,
+     "text": "འབྲལ་མེད་ཆོས་ཀྱི་དཔལ་ལ་ལོངས་སྤྱོད་ཅིང་། །"
+    },
+    {
+     "n": 55,
+     "text": "ས་དང་ལམ་གྱི་ཡོན་ཏན་རབ་རྫོགས་ནས། །"
+    },
+    {
+     "n": 56,
+     "text": "རྡོ་རྗེ་འཆང་གི་གོ་འཕང་མྱུར་ཐོབ་ཤོག །"
+    }
+   ]
+  },
+  {
+   "key": "bo-chant",
+   "lang": "bo",
+   "variant": "chant",
+   "translator": "Lotsawa House",
+   "sourceName": "Lotsawa House - The Foundation of All Qualities, by Je Tsongkhapa",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/tsongkhapa/foundation-of-all-qualities",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Latin-script phonetic rendering of the Tibetan pronunciation, as given on the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "yönten kün gyi zhir gyur drinchen jé"
+    },
+    {
+     "n": 2,
+     "text": "tsulzhin tenpa lam gyi tsawa ru"
+    },
+    {
+     "n": 3,
+     "text": "lekpar tong né bepa duma yi"
+    },
+    {
+     "n": 4,
+     "text": "güpa chenpö tenpar jingyi lob"
+    },
+    {
+     "n": 5,
+     "text": "len chik nyepé dalwé ten zang di"
+    },
+    {
+     "n": 6,
+     "text": "shintu nyé ka dön ché shé gyur né"
+    },
+    {
+     "n": 7,
+     "text": "nyintsen küntu nyingpo lenpé lo"
+    },
+    {
+     "n": 8,
+     "text": "gyünché mepar kyewar jingyi lob"
+    },
+    {
+     "n": 9,
+     "text": "lü sok yowa chu yi chubur zhin"
+    },
+    {
+     "n": 10,
+     "text": "nyurdu jikpé chiwa drenpa dang"
+    },
+    {
+     "n": 11,
+     "text": "shiwé jesu lü dang dribma zhin"
+    },
+    {
+     "n": 12,
+     "text": "karnak lé dré chizhin drangwa la"
+    },
+    {
+     "n": 13,
+     "text": "ngepa tenpo nyé né nyepé tsok"
+    },
+    {
+     "n": 14,
+     "text": "tra zhing trawa nam kyang pongwa dang"
+    },
+    {
+     "n": 15,
+     "text": "gé tsok tadak drubpar jepa la"
+    },
+    {
+     "n": 16,
+     "text": "taktu bak dang denpar jingyi lob"
+    },
+    {
+     "n": 17,
+     "text": "chepé mi ngom dukngal kün gyi go"
+    },
+    {
+     "n": 18,
+     "text": "yiten mi rung sipé püntsok kyi"
+    },
+    {
+     "n": 19,
+     "text": "nyemik rik né tarwé dewa la"
+    },
+    {
+     "n": 20,
+     "text": "dönnyer chenpo kyewar jingyi lob"
+    },
+    {
+     "n": 21,
+     "text": "nam dak sampa dé yi drangpa yi"
+    },
+    {
+     "n": 22,
+     "text": "dren dang shezhin bakyö chenpo yi"
+    },
+    {
+     "n": 23,
+     "text": "tenpé tsawa sosor tarwa la"
+    },
+    {
+     "n": 24,
+     "text": "drubpa nyingpor jepar jingyi lob"
+    },
+    {
+     "n": 25,
+     "text": "rangnyi si tsor lhungwa jizhin du"
+    },
+    {
+     "n": 26,
+     "text": "mar gyur drowa kün kyang dedrawar"
+    },
+    {
+     "n": 27,
+     "text": "tong né drowa drolwé khur khyerwé"
+    },
+    {
+     "n": 28,
+     "text": "changchub sem chok jongpar jingyi lob"
+    },
+    {
+     "n": 29,
+     "text": "semtsam kyé kyang tsultrim nam sum la"
+    },
+    {
+     "n": 30,
+     "text": "gompamé na changchub mi drubpar"
+    },
+    {
+     "n": 31,
+     "text": "lekpar tong né gyalsé dompa la"
+    },
+    {
+     "n": 32,
+     "text": "tsönpa drakpö lobpar jingyi lob"
+    },
+    {
+     "n": 33,
+     "text": "lokpé yul la yengpa zhijé ching"
+    },
+    {
+     "n": 34,
+     "text": "yangdak dön la tsulzhin chöpa yi"
+    },
+    {
+     "n": 35,
+     "text": "zhiné lhaktong zung du drelwé lam"
+    },
+    {
+     "n": 36,
+     "text": "nyurdu gyü la kyewar jingyi lob"
+    },
+    {
+     "n": 37,
+     "text": "tünmong lam jang nö du gyurpa na"
+    },
+    {
+     "n": 38,
+     "text": "tekpa kün gyi chokgyur dorjé tek"
+    },
+    {
+     "n": 39,
+     "text": "kalzang kyewö jukngok dampa der"
+    },
+    {
+     "n": 40,
+     "text": "delak nyi du jukpar jingyi lob"
+    },
+    {
+     "n": 41,
+     "text": "detsé ngödrub nam nyi drubpé zhi"
+    },
+    {
+     "n": 42,
+     "text": "namdak damtsik dompar sungpa la"
+    },
+    {
+     "n": 43,
+     "text": "chöma minpé ngepa nyé gyur né"
+    },
+    {
+     "n": 44,
+     "text": "sok dang dö té sungwar jingyi lob"
+    },
+    {
+     "n": 45,
+     "text": "dené gyüdé nyingpo rim nyi kyi"
+    },
+    {
+     "n": 46,
+     "text": "né nam jizhin tok né tsönpa yi"
+    },
+    {
+     "n": 47,
+     "text": "tün zhi naljor chö lé mi yelwar"
+    },
+    {
+     "n": 48,
+     "text": "dampé sung zhin drubpar jingyi lob"
+    },
+    {
+     "n": 49,
+     "text": "detar lamzang tönpé shenyen dang"
+    },
+    {
+     "n": 50,
+     "text": "tsulzhin drubpé drok nam zhabten ching"
+    },
+    {
+     "n": 51,
+     "text": "chi dang nang gi bardu chöpé tsok"
+    },
+    {
+     "n": 52,
+     "text": "nyewar zhiwar jingyi lab tu sol"
+    },
+    {
+     "n": 53,
+     "text": "kyewa küntu yangdak lama dang"
+    },
+    {
+     "n": 54,
+     "text": "dralmé chö kyi pal la longchö ching"
+    },
+    {
+     "n": 55,
+     "text": "sa dang lam gyi yönten rabdzok né"
+    },
+    {
+     "n": 56,
+     "text": "dorjé chang gi gopang nyur tob shok"
+    }
+   ]
+  }
+ ]
+}

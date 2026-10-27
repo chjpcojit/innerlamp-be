@@ -1,0 +1,1122 @@
+{
+ "id": "phap-cu-cau-ue",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 235-255",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 235-255), nói về những cấu uế của tâm và hạnh. Phẩm nhắc người đọc sống tinh cần, tự làm hòn đảo cho mình, và dần dần gột bỏ cấu uế như thợ vàng lọc bụi khỏi vàng. Phẩm cũng chỉ ra những lỗi như lười biếng, buông lung, vô minh là cấu uế, và nhấn mạnh sự thanh tịnh nơi chính mình.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Cấu Uế",
+  "pli": "Malavagga",
+  "en": "Stains"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 6,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp235-255/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ngươi nay giống lá héo,"
+    },
+    {
+     "n": 2,
+     "text": "Diêm sứ đang chờ ngươi,"
+    },
+    {
+     "n": 3,
+     "text": "Ngươi đứng trước cửa chết,"
+    },
+    {
+     "n": 4,
+     "text": "Đường trường thiếu tư lương."
+    },
+    {
+     "n": 5,
+     "text": "Hãy tự làm hòn đảo,"
+    },
+    {
+     "n": 6,
+     "text": "Tinh cần gấp, sáng suốt."
+    },
+    {
+     "n": 7,
+     "text": "Trừ cấu uế, thanh tịnh,"
+    },
+    {
+     "n": 8,
+     "text": "Đến Thánh địa chư Thiên."
+    },
+    {
+     "n": 9,
+     "text": "Đời ngươi nay sắp tàn,"
+    },
+    {
+     "n": 10,
+     "text": "Tiến gần đến Diêm Vương."
+    },
+    {
+     "n": 11,
+     "text": "Giữa đường không nơi nghỉ,"
+    },
+    {
+     "n": 12,
+     "text": "Đường trường thiếu tư lương."
+    },
+    {
+     "n": 13,
+     "text": "Hãy tự làm hòn đảo,"
+    },
+    {
+     "n": 14,
+     "text": "Tinh cần gấp, sáng suốt."
+    },
+    {
+     "n": 15,
+     "text": "Trừ cấu uế, thanh tịnh,"
+    },
+    {
+     "n": 16,
+     "text": "Chẳng trở lại sanh già."
+    },
+    {
+     "n": 17,
+     "text": "Bậc trí theo tuần tự."
+    },
+    {
+     "n": 18,
+     "text": "Từng sát na trừ dần"
+    },
+    {
+     "n": 19,
+     "text": "Như thợ vàng lọc bụi"
+    },
+    {
+     "n": 20,
+     "text": "Trừ cấu uế nơi mình."
+    },
+    {
+     "n": 21,
+     "text": "Như sét từ sắt sinh,"
+    },
+    {
+     "n": 22,
+     "text": "Sắt sanh lại ăn sắt,"
+    },
+    {
+     "n": 23,
+     "text": "Cũng vậy, quá lợi dưỡng"
+    },
+    {
+     "n": 24,
+     "text": "Tự nghiệp dẫn cõi ác."
+    },
+    {
+     "n": 25,
+     "text": "Không tụng làm nhớp kinh,"
+    },
+    {
+     "n": 26,
+     "text": "Không đứng dậy, bẩn nhà,"
+    },
+    {
+     "n": 27,
+     "text": "Biếng nhác làm nhơ sắc,"
+    },
+    {
+     "n": 28,
+     "text": "Phóng dật uế người canh."
+    },
+    {
+     "n": 29,
+     "text": "Tà hạnh nhơ đàn bà,"
+    },
+    {
+     "n": 30,
+     "text": "Xan tham nhớp kẻ thí,"
+    },
+    {
+     "n": 31,
+     "text": "Ác pháp là vết nhơ,"
+    },
+    {
+     "n": 32,
+     "text": "Đời này và đời sau."
+    },
+    {
+     "n": 33,
+     "text": "Trong hàng cầu uế ấy,"
+    },
+    {
+     "n": 34,
+     "text": "Vô minh, nhơ tối thượng,"
+    },
+    {
+     "n": 35,
+     "text": "Đoạn nhơ ấy, tỳ-kheo,"
+    },
+    {
+     "n": 36,
+     "text": "Thành bậc không uế nhiễm."
+    },
+    {
+     "n": 37,
+     "text": "Dễ thay, sống không hổ"
+    },
+    {
+     "n": 38,
+     "text": "Sống lỗ mãng như quạ,"
+    },
+    {
+     "n": 39,
+     "text": "Sống công kích huyênh hoang,"
+    },
+    {
+     "n": 40,
+     "text": "Sống liều lĩnh, nhiễm ô."
+    },
+    {
+     "n": 41,
+     "text": "Khó thay, sống xấu hổ,"
+    },
+    {
+     "n": 42,
+     "text": "Thường thường cầu thanh tịnh."
+    },
+    {
+     "n": 43,
+     "text": "Sống vô tư, khiêm tốn,"
+    },
+    {
+     "n": 44,
+     "text": "Trong sạch và sáng suốt."
+    },
+    {
+     "n": 45,
+     "text": "Ai ở đời sát sinh,"
+    },
+    {
+     "n": 46,
+     "text": "Nói láo không chân thật,"
+    },
+    {
+     "n": 47,
+     "text": "Ở đời lấy không cho,"
+    },
+    {
+     "n": 48,
+     "text": "Qua lại với vợ người."
+    },
+    {
+     "n": 49,
+     "text": "Uống rượu men, rượu nấu,"
+    },
+    {
+     "n": 50,
+     "text": "Người sống đam mê vậy,"
+    },
+    {
+     "n": 51,
+     "text": "Chính ngay tại đời này,"
+    },
+    {
+     "n": 52,
+     "text": "Tự đào bới gốc mình."
+    },
+    {
+     "n": 53,
+     "text": "Vậy người, hãy nên biết,"
+    },
+    {
+     "n": 54,
+     "text": "Không chế ngự là ác,"
+    },
+    {
+     "n": 55,
+     "text": "Chớ để tham phi pháp,"
+    },
+    {
+     "n": 56,
+     "text": "Làm người đau khổ dài."
+    },
+    {
+     "n": 57,
+     "text": "Do tín tâm, hỷ tâm"
+    },
+    {
+     "n": 58,
+     "text": "Loài người mới bố thí."
+    },
+    {
+     "n": 59,
+     "text": "Ở đây ai bất mãn"
+    },
+    {
+     "n": 60,
+     "text": "Người khác được ăn uống,"
+    },
+    {
+     "n": 61,
+     "text": "Người ấy ngày hoặc đêm,"
+    },
+    {
+     "n": 62,
+     "text": "Không đạt được tâm tịnh?"
+    },
+    {
+     "n": 63,
+     "text": "Ai cắt được, phá được,"
+    },
+    {
+     "n": 64,
+     "text": "Tận gốc nhổ tâm ấy."
+    },
+    {
+     "n": 65,
+     "text": "Người ấy ngày hoặc đêm,"
+    },
+    {
+     "n": 66,
+     "text": "Tất đến được tâm định."
+    },
+    {
+     "n": 67,
+     "text": "Lửa nào bằng lửa tham!"
+    },
+    {
+     "n": 68,
+     "text": "Chấp nào bằng sân hận!"
+    },
+    {
+     "n": 69,
+     "text": "Lưới nào bằng lưới si!"
+    },
+    {
+     "n": 70,
+     "text": "Sông nào bằng sông ái!"
+    },
+    {
+     "n": 71,
+     "text": "Dễ thay thấy lỗi người,"
+    },
+    {
+     "n": 72,
+     "text": "Lỗi mình thấy mới khó."
+    },
+    {
+     "n": 73,
+     "text": "Lỗi người ta phanh tìm,"
+    },
+    {
+     "n": 74,
+     "text": "Như sàng trấu trong gạo."
+    },
+    {
+     "n": 75,
+     "text": "Còn lỗi mình, che đậy,"
+    },
+    {
+     "n": 76,
+     "text": "Như kẻ gian dấu bài."
+    },
+    {
+     "n": 77,
+     "text": "Ai thấy lỗi của người,"
+    },
+    {
+     "n": 78,
+     "text": "Thường sanh lòng chỉ trích,"
+    },
+    {
+     "n": 79,
+     "text": "Người ấy lậu hoặc tăng,"
+    },
+    {
+     "n": 80,
+     "text": "Rất xa lậu hoặc diệt."
+    },
+    {
+     "n": 81,
+     "text": "Hư không, không dấu chân,"
+    },
+    {
+     "n": 82,
+     "text": "Ngoài đây, không sa môn,"
+    },
+    {
+     "n": 83,
+     "text": "Chúng sanh thích hý luận,"
+    },
+    {
+     "n": 84,
+     "text": "Như Lai, hý luận trừ."
+    },
+    {
+     "n": 85,
+     "text": "Hư không, không dấu chân,"
+    },
+    {
+     "n": 86,
+     "text": "Ngoài đây, không sa môn."
+    },
+    {
+     "n": 87,
+     "text": "Các hành không thường trú,"
+    },
+    {
+     "n": 88,
+     "text": "Chư Phật không dao động."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp235-255/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Paṇḍupalāsova dānisi,"
+    },
+    {
+     "n": 2,
+     "text": "Yamapurisāpi ca te upaṭṭhitā;"
+    },
+    {
+     "n": 3,
+     "text": "Uyyogamukhe ca tiṭṭhasi,"
+    },
+    {
+     "n": 4,
+     "text": "Pātheyyampi ca te na vijjati."
+    },
+    {
+     "n": 5,
+     "text": "So karohi dīpamattano,"
+    },
+    {
+     "n": 6,
+     "text": "Khippaṁ vāyama paṇḍito bhava;"
+    },
+    {
+     "n": 7,
+     "text": "Niddhantamalo anaṅgaṇo,"
+    },
+    {
+     "n": 8,
+     "text": "Dibbaṁ ariyabhūmiṁ upehisi."
+    },
+    {
+     "n": 9,
+     "text": "Upanītavayo ca dānisi,"
+    },
+    {
+     "n": 10,
+     "text": "Sampayātosi yamassa santikaṁ;"
+    },
+    {
+     "n": 11,
+     "text": "Vāso te natthi antarā,"
+    },
+    {
+     "n": 12,
+     "text": "Pātheyyampi ca te na vijjati."
+    },
+    {
+     "n": 13,
+     "text": "So karohi dīpamattano,"
+    },
+    {
+     "n": 14,
+     "text": "Khippaṁ vāyama paṇḍito bhava;"
+    },
+    {
+     "n": 15,
+     "text": "Niddhantamalo anaṅgaṇo,"
+    },
+    {
+     "n": 16,
+     "text": "Na punaṁ jātijaraṁ upehisi."
+    },
+    {
+     "n": 17,
+     "text": "Anupubbena medhāvī,"
+    },
+    {
+     "n": 18,
+     "text": "thokaṁ thokaṁ khaṇe khaṇe;"
+    },
+    {
+     "n": 19,
+     "text": "Kammāro rajatasseva,"
+    },
+    {
+     "n": 20,
+     "text": "niddhame malamattano."
+    },
+    {
+     "n": 21,
+     "text": "Ayasāva malaṁ samuṭṭhitaṁ,"
+    },
+    {
+     "n": 22,
+     "text": "Tatuṭṭhāya tameva khādati;"
+    },
+    {
+     "n": 23,
+     "text": "Evaṁ atidhonacārinaṁ,"
+    },
+    {
+     "n": 24,
+     "text": "Sāni kammāni nayanti duggatiṁ."
+    },
+    {
+     "n": 25,
+     "text": "Asajjhāyamalā mantā,"
+    },
+    {
+     "n": 26,
+     "text": "anuṭṭhānamalā gharā;"
+    },
+    {
+     "n": 27,
+     "text": "Malaṁ vaṇṇassa kosajjaṁ,"
+    },
+    {
+     "n": 28,
+     "text": "pamādo rakkhato malaṁ."
+    },
+    {
+     "n": 29,
+     "text": "Malitthiyā duccaritaṁ,"
+    },
+    {
+     "n": 30,
+     "text": "maccheraṁ dadato malaṁ;"
+    },
+    {
+     "n": 31,
+     "text": "Malā ve pāpakā dhammā,"
+    },
+    {
+     "n": 32,
+     "text": "asmiṁ loke paramhi ca."
+    },
+    {
+     "n": 33,
+     "text": "Tato malā malataraṁ,"
+    },
+    {
+     "n": 34,
+     "text": "avijjā paramaṁ malaṁ;"
+    },
+    {
+     "n": 35,
+     "text": "Etaṁ malaṁ pahantvāna,"
+    },
+    {
+     "n": 36,
+     "text": "nimmalā hotha bhikkhavo."
+    },
+    {
+     "n": 37,
+     "text": "Sujīvaṁ ahirikena,"
+    },
+    {
+     "n": 38,
+     "text": "kākasūrena dhaṁsinā;"
+    },
+    {
+     "n": 39,
+     "text": "Pakkhandinā pagabbhena,"
+    },
+    {
+     "n": 40,
+     "text": "saṅkiliṭṭhena jīvitaṁ."
+    },
+    {
+     "n": 41,
+     "text": "Hirīmatā ca dujjīvaṁ,"
+    },
+    {
+     "n": 42,
+     "text": "niccaṁ sucigavesinā;"
+    },
+    {
+     "n": 43,
+     "text": "Alīnenāppagabbhena,"
+    },
+    {
+     "n": 44,
+     "text": "suddhājīvena passatā."
+    },
+    {
+     "n": 45,
+     "text": "Yo pāṇamatipāteti,"
+    },
+    {
+     "n": 46,
+     "text": "musāvādañca bhāsati;"
+    },
+    {
+     "n": 47,
+     "text": "Loke adinnamādiyati,"
+    },
+    {
+     "n": 48,
+     "text": "paradārañca gacchati."
+    },
+    {
+     "n": 49,
+     "text": "Surāmerayapānañca,"
+    },
+    {
+     "n": 50,
+     "text": "yo naro anuyuñjati;"
+    },
+    {
+     "n": 51,
+     "text": "Idheva meso lokasmiṁ,"
+    },
+    {
+     "n": 52,
+     "text": "mūlaṁ khaṇati attano."
+    },
+    {
+     "n": 53,
+     "text": "Evaṁ bho purisa jānāhi,"
+    },
+    {
+     "n": 54,
+     "text": "pāpadhammā asaññatā;"
+    },
+    {
+     "n": 55,
+     "text": "Mā taṁ lobho adhammo ca,"
+    },
+    {
+     "n": 56,
+     "text": "ciraṁ dukkhāya randhayuṁ."
+    },
+    {
+     "n": 57,
+     "text": "Dadāti ve yathāsaddhaṁ,"
+    },
+    {
+     "n": 58,
+     "text": "yathāpasādanaṁ jano;"
+    },
+    {
+     "n": 59,
+     "text": "Tattha yo ca maṅku bhavati,"
+    },
+    {
+     "n": 60,
+     "text": "paresaṁ pānabhojane;"
+    },
+    {
+     "n": 61,
+     "text": "Na so divā vā rattiṁ vā,"
+    },
+    {
+     "n": 62,
+     "text": "samādhimadhigacchati."
+    },
+    {
+     "n": 63,
+     "text": "Yassa cetaṁ samucchinnaṁ,"
+    },
+    {
+     "n": 64,
+     "text": "mūlaghaccaṁ samūhataṁ;"
+    },
+    {
+     "n": 65,
+     "text": "Sa ve divā vā rattiṁ vā,"
+    },
+    {
+     "n": 66,
+     "text": "samādhimadhigacchati."
+    },
+    {
+     "n": 67,
+     "text": "Natthi rāgasamo aggi,"
+    },
+    {
+     "n": 68,
+     "text": "natthi dosasamo gaho;"
+    },
+    {
+     "n": 69,
+     "text": "Natthi mohasamaṁ jālaṁ,"
+    },
+    {
+     "n": 70,
+     "text": "natthi taṇhāsamā nadī."
+    },
+    {
+     "n": 71,
+     "text": "Sudassaṁ vajjamaññesaṁ,"
+    },
+    {
+     "n": 72,
+     "text": "attano pana duddasaṁ;"
+    },
+    {
+     "n": 73,
+     "text": "Paresaṁ hi so vajjāni,"
+    },
+    {
+     "n": 74,
+     "text": "opunāti yathā bhusaṁ;"
+    },
+    {
+     "n": 75,
+     "text": "Attano pana chādeti,"
+    },
+    {
+     "n": 76,
+     "text": "kaliṁva kitavā saṭho."
+    },
+    {
+     "n": 77,
+     "text": "Paravajjānupassissa,"
+    },
+    {
+     "n": 78,
+     "text": "niccaṁ ujjhānasaññino;"
+    },
+    {
+     "n": 79,
+     "text": "Āsavā tassa vaḍḍhanti,"
+    },
+    {
+     "n": 80,
+     "text": "ārā so āsavakkhayā."
+    },
+    {
+     "n": 81,
+     "text": "Ākāseva padaṁ natthi,"
+    },
+    {
+     "n": 82,
+     "text": "samaṇo natthi bāhire;"
+    },
+    {
+     "n": 83,
+     "text": "Papañcābhiratā pajā,"
+    },
+    {
+     "n": 84,
+     "text": "nippapañcā tathāgatā."
+    },
+    {
+     "n": 85,
+     "text": "Ākāseva padaṁ natthi,"
+    },
+    {
+     "n": 86,
+     "text": "samaṇo natthi bāhire;"
+    },
+    {
+     "n": 87,
+     "text": "Saṅkhārā sassatā natthi,"
+    },
+    {
+     "n": 88,
+     "text": "natthi buddhānamiñjitaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp235-255/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Today you’re like a withered leaf,"
+    },
+    {
+     "n": 2,
+     "text": "Yama’s men await you."
+    },
+    {
+     "n": 3,
+     "text": "You stand at the departure gates,"
+    },
+    {
+     "n": 4,
+     "text": "yet you have no supplies for the road."
+    },
+    {
+     "n": 5,
+     "text": "Make an island of yourself!"
+    },
+    {
+     "n": 6,
+     "text": "Swiftly strive, learn to be wise!"
+    },
+    {
+     "n": 7,
+     "text": "Purged of stains, flawless,"
+    },
+    {
+     "n": 8,
+     "text": "you’ll go to the heavenly realm of the noble ones."
+    },
+    {
+     "n": 9,
+     "text": "You’ve journeyed the stages of life,"
+    },
+    {
+     "n": 10,
+     "text": "and now you set out to meet Yama."
+    },
+    {
+     "n": 11,
+     "text": "Along the way there’s nowhere to stay,"
+    },
+    {
+     "n": 12,
+     "text": "yet you have no supplies for the road."
+    },
+    {
+     "n": 13,
+     "text": "Make an island of yourself!"
+    },
+    {
+     "n": 14,
+     "text": "Swiftly strive, learn to be wise!"
+    },
+    {
+     "n": 15,
+     "text": "Purged of stains, flawless,"
+    },
+    {
+     "n": 16,
+     "text": "you’ll not come again to rebirth and old age."
+    },
+    {
+     "n": 17,
+     "text": "A smart person would purge"
+    },
+    {
+     "n": 18,
+     "text": "their own stains gradually,"
+    },
+    {
+     "n": 19,
+     "text": "bit by bit, moment by moment,"
+    },
+    {
+     "n": 20,
+     "text": "like a smith smelting silver."
+    },
+    {
+     "n": 21,
+     "text": "It is the rust born on the iron"
+    },
+    {
+     "n": 22,
+     "text": "that eats away the place it arose."
+    },
+    {
+     "n": 23,
+     "text": "And so it is their own deeds"
+    },
+    {
+     "n": 24,
+     "text": "that lead the overly-ascetic to a bad place."
+    },
+    {
+     "n": 25,
+     "text": "Not rehearsing is the stain of hymns."
+    },
+    {
+     "n": 26,
+     "text": "The stain of houses is neglect."
+    },
+    {
+     "n": 27,
+     "text": "Laziness is the stain of beauty."
+    },
+    {
+     "n": 28,
+     "text": "A guard’s stain is negligence."
+    },
+    {
+     "n": 29,
+     "text": "Misconduct is a woman’s stain."
+    },
+    {
+     "n": 30,
+     "text": "A giver’s stain is stinginess."
+    },
+    {
+     "n": 31,
+     "text": "Bad qualities are a stain"
+    },
+    {
+     "n": 32,
+     "text": "in this world and the next."
+    },
+    {
+     "n": 33,
+     "text": "But a worse stain than these"
+    },
+    {
+     "n": 34,
+     "text": "is ignorance, the worst stain of all."
+    },
+    {
+     "n": 35,
+     "text": "Having given up that stain,"
+    },
+    {
+     "n": 36,
+     "text": "be without stains, mendicants!"
+    },
+    {
+     "n": 37,
+     "text": "Life is easy for the shameless."
+    },
+    {
+     "n": 38,
+     "text": "With all the rude courage of a crow,"
+    },
+    {
+     "n": 39,
+     "text": "they live pushy,"
+    },
+    {
+     "n": 40,
+     "text": "rude, and corrupt."
+    },
+    {
+     "n": 41,
+     "text": "Life is hard for the conscientious,"
+    },
+    {
+     "n": 42,
+     "text": "always seeking purity,"
+    },
+    {
+     "n": 43,
+     "text": "neither clinging nor rude,"
+    },
+    {
+     "n": 44,
+     "text": "pure of livelihood and discerning."
+    },
+    {
+     "n": 45,
+     "text": "Take anyone in this world"
+    },
+    {
+     "n": 46,
+     "text": "who kills living creatures,"
+    },
+    {
+     "n": 47,
+     "text": "speaks falsely, steals,"
+    },
+    {
+     "n": 48,
+     "text": "commits adultery,"
+    },
+    {
+     "n": 49,
+     "text": "and indulges in drinking"
+    },
+    {
+     "n": 50,
+     "text": "beer and wine."
+    },
+    {
+     "n": 51,
+     "text": "Right here they dig up"
+    },
+    {
+     "n": 52,
+     "text": "the root of their own self."
+    },
+    {
+     "n": 53,
+     "text": "Know this, my man:"
+    },
+    {
+     "n": 54,
+     "text": "they are unrestrained and wicked."
+    },
+    {
+     "n": 55,
+     "text": "Don’t let that greed and unrighteousness"
+    },
+    {
+     "n": 56,
+     "text": "inflict pain on you for long."
+    },
+    {
+     "n": 57,
+     "text": "The people give according to their faith,"
+    },
+    {
+     "n": 58,
+     "text": "according to their confidence."
+    },
+    {
+     "n": 59,
+     "text": "If you get upset over that,"
+    },
+    {
+     "n": 60,
+     "text": "over others’ food and drink,"
+    },
+    {
+     "n": 61,
+     "text": "you’ll not, by day or by night,"
+    },
+    {
+     "n": 62,
+     "text": "become immersed in samādhi."
+    },
+    {
+     "n": 63,
+     "text": "Those who have cut that out,"
+    },
+    {
+     "n": 64,
+     "text": "dug it up at the root, eradicated it,"
+    },
+    {
+     "n": 65,
+     "text": "they will, by day or by night,"
+    },
+    {
+     "n": 66,
+     "text": "become immersed in samādhi."
+    },
+    {
+     "n": 67,
+     "text": "There is no fire like greed,"
+    },
+    {
+     "n": 68,
+     "text": "no crime like hate,"
+    },
+    {
+     "n": 69,
+     "text": "no net like delusion,"
+    },
+    {
+     "n": 70,
+     "text": "no river like craving."
+    },
+    {
+     "n": 71,
+     "text": "It’s easy to see the faults of others,"
+    },
+    {
+     "n": 72,
+     "text": "hard to see one’s own."
+    },
+    {
+     "n": 73,
+     "text": "For the faults of others"
+    },
+    {
+     "n": 74,
+     "text": "are tossed high like hay,"
+    },
+    {
+     "n": 75,
+     "text": "while one’s own are hidden,"
+    },
+    {
+     "n": 76,
+     "text": "as a cheat hides a bad hand."
+    },
+    {
+     "n": 77,
+     "text": "When you look for the flaws of others,"
+    },
+    {
+     "n": 78,
+     "text": "always finding fault,"
+    },
+    {
+     "n": 79,
+     "text": "your defilements only grow,"
+    },
+    {
+     "n": 80,
+     "text": "you’re far from ending defilements."
+    },
+    {
+     "n": 81,
+     "text": "In the atmosphere there is no track,"
+    },
+    {
+     "n": 82,
+     "text": "there’s no true ascetic outside here."
+    },
+    {
+     "n": 83,
+     "text": "People enjoy proliferation,"
+    },
+    {
+     "n": 84,
+     "text": "the Realized Ones are free of proliferation."
+    },
+    {
+     "n": 85,
+     "text": "In the atmosphere there is no track,"
+    },
+    {
+     "n": 86,
+     "text": "there’s no true ascetic outside here."
+    },
+    {
+     "n": 87,
+     "text": "No conditions last forever,"
+    },
+    {
+     "n": 88,
+     "text": "the Awakened Ones are not shaken."
+    }
+   ]
+  }
+ ]
+}

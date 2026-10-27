@@ -1,0 +1,731 @@
+{
+ "id": "sam-hoi-sau-can",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Sám hối",
+ "reference": "",
+ "originalTitle": "Khóa Hư Lục",
+ "author": "Trần Thái Tông",
+ "summary": "Khoa nghi sám hối do vua Trần Thái Tông soạn, in trong Khóa Hư Lục, dùng để sám hối những nghiệp tạo ra từ sáu căn là mắt, tai, mũi, lưỡi, thân, ý. Phần tựa nói nghiệp ác chất chứa nhờ sức sám hối mà có thể tiêu trừ. Bài chia theo các thời trong ngày, có lễ Tam bảo, dâng hương và phát nguyện, cuối bài là ba lời tự quy y.",
+ "titles": {
+  "vi": "Sám Hối Sáu Căn (Khóa Hư Lục)",
+  "zh": "六根懺悔",
+  "en": "Repentance of the Six Senses"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "SAM_HOI"
+ ],
+ "durationMinutes": 30,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "không ghi dịch giả (tác giả: Trần Thái Tông hoàng đế ngự chế - Trúc Lâm Sơ Tổ)",
+   "sourceName": "Phatgiao.org.vn - \"Kinh sám hối sáu căn\"",
+   "sourceUrl": "https://phatgiao.org.vn/kinh-sam-hoi-sau-can-d99351.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Văn Việt (Khóa Hư Lục). Trường section là các đề mục của nguồn (DÂNG HƯƠNG, SÁM HỐI, CHÍ TÂM KHUYẾN THỈNH...). Bỏ chỉ dẫn \"(1 lạy)\", \"(3 lần)\"; giữ nguyên các khoảng trắng lạ của nguồn như \"Tam- bảo\". Đoạn văn dài tách theo câu.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tựa khoa nghi sám hối: Đi đường bộ phải có xe.",
+     "section": "Tựa"
+    },
+    {
+     "n": 2,
+     "text": "Qua sông cần có đò. Chiếc áo nhơ cả 10 năm, một ngày giặt kỹ có thể sạch.",
+     "section": "Tựa"
+    },
+    {
+     "n": 3,
+     "text": "Nghiệp ác chứa từ trăm ngàn kiếp, nhờ sức sám hối có thể tiêu trừ.",
+     "section": "Tựa"
+    },
+    {
+     "n": 4,
+     "text": "Thương thay! Giác tánh bản lai viên minh thanh tịnh như vầng thái hư trong trẻo.",
+     "section": "Tựa"
+    },
+    {
+     "n": 5,
+     "text": "Chỉ vì mê vọng mà chia thành thánh phàm trí ngu.",
+     "section": "Tựa"
+    },
+    {
+     "n": 6,
+     "text": "Đức Phật ta phương tiện chỉ nẻo đường về, ứng bệnh cho thuốc, dạy chúng sanh siêng năng quy y lễ sám.",
+     "section": "Tựa"
+    },
+    {
+     "n": 7,
+     "text": "Tâm xưa làm ác như mặt trăng bị mây che. Tâm nay làm lành như đuốc tan bóng tối.",
+     "section": "Tựa"
+    },
+    {
+     "n": 8,
+     "text": "Công dụng lễ sám thật lớn vô cùng.",
+     "section": "Tựa"
+    },
+    {
+     "n": 9,
+     "text": "Người học mờ mịt, gốc thiện mong manh. Ngày thời căn trần kích thích, lưới nghiệp buộc ràng.",
+     "section": "Tựa"
+    },
+    {
+     "n": 10,
+     "text": "Đêm thời ngủ say như chết, chiêm bao mơ mộng.",
+     "section": "Tựa"
+    },
+    {
+     "n": 11,
+     "text": "Vô minh chính là gốc tai ương muôn họa.",
+     "section": "Tựa"
+    },
+    {
+     "n": 12,
+     "text": "Bao nghiệp chất chứa đều từ sáu căn gây ra nên Trẫm thân chế khoa nghi sám hối, lời nói ít nghĩa lý gần, khiến người thấy nghe dễ hiểu, vui đọc, ham tụng mà phát tâm siêng năng sám hối.",
+     "section": "Tựa"
+    },
+    {
+     "n": 13,
+     "text": "Bởi hoa xuân nở ven ngõ tía,",
+     "section": "Tựa"
+    },
+    {
+     "n": 14,
+     "text": "Nên có oanh vàng đậu liễu xanh.",
+     "section": "Tựa"
+    },
+    {
+     "n": 15,
+     "text": "Vì mong lợi mình lợi người nên tạm lập phương tiện.",
+     "section": "Tựa"
+    },
+    {
+     "n": 16,
+     "text": "Xin những bậc mắt sáng miễn chê cười.",
+     "section": "Tựa"
+    },
+    {
+     "n": 17,
+     "text": "Trần Thái Tông hoàng đế ngự chế (Trúc Lâm Sơ Tổ)",
+     "section": "Tựa"
+    },
+    {
+     "n": 18,
+     "text": "Nam Mô A Di Đà Phật",
+     "section": "Tựa"
+    },
+    {
+     "n": 19,
+     "text": "Vầng ô vừa hé sáng, mặt đất rạng dần dần. Mắt lóa bao màu sắc, tâm vương mọi cảnh trần.",
+     "section": "KHÓA HƯ LỤC"
+    },
+    {
+     "n": 20,
+     "text": "Đừng tham ôm thân xác, hãy sớm cất đầu lên.",
+     "section": "KHÓA HƯ LỤC"
+    },
+    {
+     "n": 21,
+     "text": "Sáu niệm luôn luôn nhớ, mong cầu hợp nẻo chân.",
+     "section": "KHÓA HƯ LỤC"
+    },
+    {
+     "n": 22,
+     "text": "Nam mô tận hư không biến pháp giới thập phương tam thế nhất thiết thường trụ Phật- đà- da- tôn.",
+     "section": "KHÓA HƯ LỤC"
+    },
+    {
+     "n": 23,
+     "text": "Nam mô tận hư không biến pháp giới thập phương tam thế nhất thiết thường trụ Đạt- ma- da- tạng.",
+     "section": "KHÓA HƯ LỤC"
+    },
+    {
+     "n": 24,
+     "text": "Nam mô tận hư không biến pháp giới thập phương tam thế nhất thiết thường trụ Tăng- già- da- chúng.",
+     "section": "KHÓA HƯ LỤC"
+    },
+    {
+     "n": 25,
+     "text": "Con dâng hương giới, hương định, hương tuệ, hương giải thoát, hương giải thoát tri kiến.",
+     "section": "DÂNG HƯƠNG"
+    },
+    {
+     "n": 26,
+     "text": "Năm thứ hương này kết thành đài mây sáng trưng pháp giới, cúng dường mười phương thường trụ Tam- bảo, khắp huân chúng sanh phát tâm Bồ- đề, xa lìa vọng hoặc, thành đạo vô thượng.",
+     "section": "DÂNG HƯƠNG"
+    },
+    {
+     "n": 27,
+     "text": "Nam mô Bổn Sư Thích Ca Mâu Ni Phật",
+     "section": "DÂNG HƯƠNG"
+    },
+    {
+     "n": 28,
+     "text": "Kính tâu đại giác mười phương, hùng sư tam thế, từ sáu căn ngộ được tánh linh, nhiếp chín loài về sen chín phẩm.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 29,
+     "text": "Giờ này vầng hồng chiếu đỉnh, trời quang nắng sáng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 30,
+     "text": "Nhưng mặt trời lên cao để rồi lặn. Con người có thịnh ắt có suy.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 31,
+     "text": "Hình thế chẳng lâu bền, sang giàu đâu còn mãi.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 32,
+     "text": "Ngày nay chẳng tạo nhân lành, mai sau đi về đường khổ.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 33,
+     "text": "Cầu khai tâm Phật, bừng sáng chiếu soi, vô minh tan hết.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 34,
+     "text": "Chúng con từ vô thủy quên mất bản tâm, chẳng biết bản chánh, luôn hồi chịu khổ vì sáu căn sai.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 35,
+     "text": "Nếu không sám hối thật khó giải thoát. Hôm nay một lòng tin kính, chúng con quy mạng đỉnh lễ vô thượng Tam- bảo, cầu xin sám hối.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 36,
+     "text": "Nghiệp căn mắt là: Ham xem nhân ác, chẳng đoái sự lành.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 37,
+     "text": "Lầm ngó không hoa, quên nhận trăng thật. Ghét yêu nổi rối, đẹp xấu tranh bày.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 38,
+     "text": "Lóa mắt xem càn mờ đường chánh kiến, xanh qua trắng tới, tía phải vàng soi, con mắt trông tà hệt kẻ thông manh.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 39,
+     "text": "Mày xanh má phấn, mang liếc trộm nhìn, có mắt như mù nào thấy bản lai diện mục.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 40,
+     "text": "Gặp người giàu có, dua nịnh ngó nhìn. Gặp kẻ nghèo hèn, bỏ qua chẳng đoái.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 41,
+     "text": "Thiên hạ đau khổ, đưa mắt lạnh lung. Người than lìa trần, nước mắt như mưa.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 42,
+     "text": "Trong chùa điện Phật, không thèm chiêm ngưỡng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 43,
+     "text": "Gái trai gặp gỡ, mắt liếc mày đưa, mê man quên lễ, chẳng e hộ pháp, chẳng sợ long thần.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 44,
+     "text": "Tội lỗi vô cùng từ nơi căn mắt. Đọa vào địa ngục, trải bao nhiêu kiếp, như cát sông Hằng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 45,
+     "text": "Được lên làm người lại hỏng căn mắt. Nếu không sám hối, thật khó giải thoát.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 46,
+     "text": "Nay trước Tam- bảo, chúng con chí thành cầu xin sám hối",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 47,
+     "text": "Nghiệp căn tai là: Biếng nghe chánh pháp, ưa lóng chuyện tà.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 48,
+     "text": "Mê mất gốc thật, chạy theo sai lầm. Vang vang đàn sáo, cho là rồng ngâm.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 49,
+     "text": "Nhịp nhàng mõ chuông, coi như ếch ộp. Văn kinh lời kệ, chẳng để vào tai.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 50,
+     "text": "Tình tứ hát ca, mắc liền thích thú. Thoảng nghe khen hão, hí hửng tìm cầu, lời phải điều hay, chẳng thèm đón nhận.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 51,
+     "text": "Nói dông nói dài thì kề tai ghé má. Thầy hay bạn hiền, răn dạy đinh ninh lại bịt tai không đoái.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 52,
+     "text": "Tiếng vòng tiếng xuyến đã nảy lòng tham, nghe nửa câu kinh, liền như tai ngựa.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 53,
+     "text": "Tội lỗi vô cùng từ nơi căn tai. Đọa vào địa ngục, trải bao nhiêu kiếp, như cát sông Hằng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 54,
+     "text": "Được lên làm người lại hỏng căn tai. Nếu không sám hối, thật khó giải thoát.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 55,
+     "text": "Nay trước Tam- bảo, chúng con chí thành cầu xin sám hối",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 56,
+     "text": "Nghiệp căn mũi là: Ngồi thiền trên bờ ao, thoáng thọ hương sen, đã bị quỷ thần kết tội ăn trộm.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 57,
+     "text": "Nữ nhân đi qua, hít thở hương thơm son phấn tỏa ra, liền bị thiên long chê là đạo hạnh có vết.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 58,
+     "text": "Huống chi chỉ tham lan xông xạ ướp, chẳng thiết năm phần hương Pháp- thân.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 59,
+     "text": "Tai đào má hạnh quyến luyến chẳng rời, giác hoa tâm hương kéo về chẳng được.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 60,
+     "text": "Lư trầm cúng Phật, buông lung ngửi khói, nào nghĩ lễ nghi.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 61,
+     "text": "Nước mũi hỉ bừa bản nhơ tịnh địa. say sưa ngủ bậy, tháp Phật hiện đường, hơi thở nồng nàn hun kinh xông tượng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 62,
+     "text": "Hôi tanh ăn uống, đam mê như lợn rúc phân.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 63,
+     "text": "Tội lỗi vô cùng từ nơi căn mũi. Đọa vào địa ngục, trải bao nhiêu kiếp, như cát sông Hằng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 64,
+     "text": "Được lên làm người lại hỏng căn mũi. Nếu không sám hối, thật khó giải thoát.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 65,
+     "text": "Nay trước Tam- bảo, chúng con chí thành cầu xin sám hối",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 66,
+     "text": "Nghiệp căn lưỡi là: Tham đủ mọi vị, nếm cả béo gầy.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 67,
+     "text": "Tàn hại sinh linh, nuôi sướng thân miệng. Nấu nướng loài bay hay chạy, mổ chiên loài lăn loài bơi.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 68,
+     "text": "Máu thịt tanh miệng, hành tỏi ướp lòng. Cơm chay khó nuốt, coi tựa người đau.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 69,
+     "text": "Mỡ thịt hân hoan, tiệc tùng vui vẻ. Cưới vợ gả chồng, giết hại sinh linh vì ba tấc lưỡi.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 70,
+     "text": "Lại còn nói dối, bày chuyện thêu dệt, hai lưỡi ác khẩu, chê bai Tam- bảo, nguyền rủa mẹ cha.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 71,
+     "text": "Ngạo mạn thánh hiền, báng vua lừa chúa, giọng hay lời khéo, ngậm độc phun người, rèm pha kẻ khác, che đậy lỗi mình.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 72,
+     "text": "Khoe khoang tự hào, sỉ nhục người nghèo, xua đuổi Tăng Ni, đánh mắng tôi tớ.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 73,
+     "text": "Nịnh hót khen chê, bào chữa lỗi lầm, lấy hư làm thật, chuyện có nói không.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 74,
+     "text": "Cợt đùa trong phòng Tăng, ồn ào trên điện Phật.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 75,
+     "text": "Tội lỗi vô cùng từ nơi căn lưỡi. Đọa vào địa ngục, trải bao nhiêu kiếp, như cát sông Hằng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 76,
+     "text": "Được lên làm người lại bị câm ngọng. Nếu không sám hối, thật khó giải thoát.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 77,
+     "text": "Nay trước Tam- bảo, chúng con chí thành cầu xin sám hối",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 78,
+     "text": "Nghiệp căn thân là: Tinh cha máu mẹ, giả hợp nên hình.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 79,
+     "text": "Năm tạng trăm xương, cùng nhau kết lại, chấp làm thể mình quên mất Pháp- thân, sinh dâm, sát, trộm.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 80,
+     "text": "Nghiệp sát sinh là: Tàn nhẫn độc ác, không lòng nhân từ.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 81,
+     "text": "Giết hại chúng sanh, nào hay một thể. Lầm hại, cố sát, tự làm sai người.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 82,
+     "text": "Vẽ bùa trù yểm. hoặc chế thuốc độc, hoặc đốt núi rừng, lấp cạn khe suối, giăng chài giăng lưới, thả cắt suỵt chó.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 83,
+     "text": "Thấy nghe mừng vui, nghĩ đến tưởng làm, cử động vận hành, đều thành nghiệp sát.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 84,
+     "text": "Nghiệp trộm cắp là: Thấy vật của người, liền nảy lòng tham.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 85,
+     "text": "Đập khóa mở ngăn, sờ bao mò túi. Của Phật thường trụ, cướp làm của riêng, không sợ thần giận.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 86,
+     "text": "Chẳng những vàng ngọc, mới phạm tội tà, cây kim ngọn cỏ, cũng thành nghiệp trộm.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 87,
+     "text": "Nghiệp tà dâm là: Lòng mê sắc tiếng, mắt đắm phấn son, chẳng đoái liêm trinh, riêng sinh lòng dục.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 88,
+     "text": "Hoặc nơi tinh khiết, điện Phật phòng Tăng, gần gũi gái trai, cùng nhau đùa giỡn.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 89,
+     "text": "Tung hoa ném quả, chạm chân vỗ vai, phá rào leo tường, đều thành dâm nghiệp.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 90,
+     "text": "Các tội lỗi ấy không bến không bờ. Đến khi chết đi sa xuống địa ngục, trai ôm cột đồng, gái nằm chông sắt.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 91,
+     "text": "Muôn kếp đọa đày, được lên làm người lại còn dư báo.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 92,
+     "text": "Nếu không sám hối sao được tiêu trừ. Nay trước Tam- bảo, chúng con chí thành cầu xin sám hối",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 93,
+     "text": "Nghiệp căn ý là: Nghĩ tưởng liên miên, không một khắc cảnh trần dừng, gắn bó cảnh trần, vùi tâm trọng thưởng.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 94,
+     "text": "Như tằm kéo kén, càng dệt càng dầy. Như con thiêu thân vào lửa tự đốt.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 95,
+     "text": "Hôn mê chẳng tỉnh, đảo điên sinh càn, rối loạn tấc lòng đều do 3 độc:",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 96,
+     "text": "Tội tham sẻn là: Mưu ngầm vơ vét, bủn xỉn tiếc bòn.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 97,
+     "text": "Vốn 1 lời 10 còn chưa vừa ý. Của như nước chứa, lòng tựa chén rò, rót vào bao nhiêu cũng không thỏa mãn.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 98,
+     "text": "Tiền nát thóc mục, chẳng cứu người nghèo. Vải chất lụa chồng, đâu giúp kẻ rách.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 99,
+     "text": "Vơ vào cả trăm vẫn cho là ít, mất đi một chút gọi là hại to.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 100,
+     "text": "Trên từ ngọc báu, dưới đến tơ gai, khu đụn chất đầy, ngày tính đêm lo, thân tâm vất vả đều do tham nghiệp.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 101,
+     "text": "Tội sân giận là: Gốc do tính tham, lửa giận phực cháy.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 102,
+     "text": "Mắt trợn miệng gào, công kích, đánh lộn. Chẳng những người tục đến cả Tăng Ni, kinh sách luận bàn, tổn thương hòa khí, chê cả sư trưởng, bới móc mẹ cha, héo là úa cành, nồng nàn lửa độc.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 103,
+     "text": "Buông lời tổn vật, mở miệng hại người, không nghĩ từ bi, không vâng luật cấm.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 104,
+     "text": "Nói tợ thần thánh xúc cảnh như ngu, tuy ở cửa Không, khư khư chấp ngã.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 105,
+     "text": "Trái ý nổi sân trở lại hại mình. Như cây sinh lửa, lửa cháy đốt cây.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 106,
+     "text": "Tội ngu si là: Căn tính đần độn, ý thức tối tăm, không biết tôn ty, không phân thiện ác, ích kỷ hại người, báng Phật chiêu ương, nhổ trời ướt mặt.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 107,
+     "text": "Quên ân quên đức, bội nghĩa bội nhận. Không xét không nghĩ đều do si nghiệp.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 108,
+     "text": "Những tội như thế rất nặng rất sâu. Đến khi chết đi sa xuống địa ngục, trải trăm ngàn kiếp mới lên làm người lại chịu ngoan báo.",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 109,
+     "text": "Nếu không sám hối làm sao tiêu trừ. Nay trước Tam- bảo, chúng con chí thành cầu xin sám hối",
+     "section": "SÁM HỐI"
+    },
+    {
+     "n": 110,
+     "text": "Khuyến thỉnh mười phương ba đời Phật,",
+     "section": "CHÍ TÂM KHUYẾN THỈNH"
+    },
+    {
+     "n": 111,
+     "text": "Cùng chư Bồ- tát, Thánh Hiền Tăng,",
+     "section": "CHÍ TÂM KHUYẾN THỈNH"
+    },
+    {
+     "n": 112,
+     "text": "Rộng khai phương tiện từ bi tâm",
+     "section": "CHÍ TÂM KHUYẾN THỈNH"
+    },
+    {
+     "n": 113,
+     "text": "Tiếp dẫn chúng sinh lên bờ giác",
+     "section": "CHÍ TÂM KHUYẾN THỈNH"
+    },
+    {
+     "n": 114,
+     "text": "Con nay vui vẻ tin theo Phật,Hôm mai thành kính sám tội xưa,Bậc thang Thập Địa nguyện tiến lên, Bồ- đề chân tâm không thoái chuyển",
+     "section": "CHÍ TÂM TÙY HỶ"
+    },
+    {
+     "n": 115,
+     "text": "Chúng con hồi tâm quy đạo thánh,",
+     "section": "CHÍ TÂM HỒI HƯỚNG"
+    },
+    {
+     "n": 116,
+     "text": "Dập đầu đỉnh lễ đức Từ Bi,",
+     "section": "CHÍ TÂM HỒI HƯỚNG"
+    },
+    {
+     "n": 117,
+     "text": "Nguyện công đức này cùng chúng sanh,",
+     "section": "CHÍ TÂM HỒI HƯỚNG"
+    },
+    {
+     "n": 118,
+     "text": "Nhờ thắng nhân đây thành chánh giác",
+     "section": "CHÍ TÂM HỒI HƯỚNG"
+    },
+    {
+     "n": 119,
+     "text": "Chúng sinh vô biên thệ nguyện độ,",
+     "section": "CHÍ TÂM PHÁT NGUYỆN"
+    },
+    {
+     "n": 120,
+     "text": "Phiền não vô tận thệ nguyện đoạn,",
+     "section": "CHÍ TÂM PHÁT NGUYỆN"
+    },
+    {
+     "n": 121,
+     "text": "Pháp môn vô lượng thệ nguyện học,",
+     "section": "CHÍ TÂM PHÁT NGUYỆN"
+    },
+    {
+     "n": 122,
+     "text": "Phật đạo vô lượng thệ nguyện thành",
+     "section": "CHÍ TÂM PHÁT NGUYỆN"
+    },
+    {
+     "n": 123,
+     "text": "Đời mộng ảo chuông chùa cảnh tỉnh,",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 124,
+     "text": "Chuông chí tôn vang khắp nhà nhà,",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 125,
+     "text": "Còn ham giấc ngủ ngon mài mệt,",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 126,
+     "text": "Chẳng quản vầng đông ánh chói lòa.",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 127,
+     "text": "Dằng dặc đêm dài còn có sáng,",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 128,
+     "text": "Mịt mờ lối quỷ khó lần ra.",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 129,
+     "text": "Nay không gắng gỏi tu hành đạo,",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 130,
+     "text": "Ngày khác làm sao thấy Phật đà.",
+     "section": "CẢNH SÁCH"
+    },
+    {
+     "n": 131,
+     "text": "Tam bảo chứng minh, oai thần hộ niệm. Bồ- tát Thanh- văn, Phạm Vương, Đế Thích, Tứ Thiên Vương chúng, thiên long bát bộ, hộ pháp tôn thần, từ bi gia hộ…. tội chướng tiêu trừ, trí tuệ khai minh, bốn mùa an ổn,",
+     "section": "PHỤC NGUYỆN"
+    },
+    {
+     "n": 132,
+     "text": "chỗ ở phong nhiêu, phước thọ tăng long, tùy tâm mãn nguyện.",
+     "section": "PHỤC NGUYỆN"
+    },
+    {
+     "n": 133,
+     "text": "Hiện tiền Bồ- tát khải phát, Phật sự viên thành, mai sau được Phật Di Đà thọ ký.",
+     "section": "PHỤC NGUYỆN"
+    },
+    {
+     "n": 134,
+     "text": "Âm siêu dương thái, pháp giới chúng sinh đồng thành Phật đạo.",
+     "section": "PHỤC NGUYỆN"
+    },
+    {
+     "n": 135,
+     "text": "Tự quy y Phật, xin nguyện chúng sanh hiểu rõ đạo lớn, phát tâm Bồ-đề",
+     "section": "TAM QUY"
+    },
+    {
+     "n": 136,
+     "text": "Tự quy y Pháp, xin nguyện chúng sanh vào sâu kinh tạng, trí tuệ như biển",
+     "section": "TAM QUY"
+    },
+    {
+     "n": 137,
+     "text": "Tự quy y Tăng, xin nguyện chúng sinh thống lý đại chúng, hết thảy không ngại",
+     "section": "TAM QUY"
+    }
+   ]
+  }
+ ]
+}

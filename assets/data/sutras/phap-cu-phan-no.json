@@ -1,0 +1,762 @@
+{
+ "id": "phap-cu-phan-no",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 221-234",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 221-234), nói về cách chế ngự sự giận dữ. Phẩm khuyên bỏ phẫn nộ và kiêu mạn, ví người chặn được cơn giận như người đánh xe giữ cương, lấy không giận thắng giận, lấy thiện thắng ác, và nhấn mạnh bậc trí gìn giữ thân, lời nói và tâm ý.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Phẫn Nộ",
+  "pli": "Kodhavagga",
+  "en": "Anger"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp221-234/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Bỏ phẫn nộ, ly mạn,"
+    },
+    {
+     "n": 2,
+     "text": "Vượt qua mọi kiết sử,"
+    },
+    {
+     "n": 3,
+     "text": "Không chấp trước danh sắc."
+    },
+    {
+     "n": 4,
+     "text": "Khổ không theo vô sản."
+    },
+    {
+     "n": 5,
+     "text": "Ai chận được phẫn nộ,"
+    },
+    {
+     "n": 6,
+     "text": "Như dừng xe đang lăn,"
+    },
+    {
+     "n": 7,
+     "text": "Ta gọi người đánh xe,"
+    },
+    {
+     "n": 8,
+     "text": "Kẻ khác, cầm cương hờ."
+    },
+    {
+     "n": 9,
+     "text": "Lấy không giận thắng giận,"
+    },
+    {
+     "n": 10,
+     "text": "Lấy thiện thắng không thiện,"
+    },
+    {
+     "n": 11,
+     "text": "Lấy thí thắng xan tham,"
+    },
+    {
+     "n": 12,
+     "text": "Lấy chơn thắng hư ngụy."
+    },
+    {
+     "n": 13,
+     "text": "Nói thật, không phẫn nộ,"
+    },
+    {
+     "n": 14,
+     "text": "Của ít, thí người xin,"
+    },
+    {
+     "n": 15,
+     "text": "Nhờ ba việc lành này,"
+    },
+    {
+     "n": 16,
+     "text": "Người đến gần thiên giới."
+    },
+    {
+     "n": 17,
+     "text": "Bậc hiền không hại ai,"
+    },
+    {
+     "n": 18,
+     "text": "Thân thường được chế ngự"
+    },
+    {
+     "n": 19,
+     "text": "Đạt được cảnh bất tử,"
+    },
+    {
+     "n": 20,
+     "text": "Đến đây, không ưu sầu."
+    },
+    {
+     "n": 21,
+     "text": "Những người thường giác tỉnh,"
+    },
+    {
+     "n": 22,
+     "text": "Ngày đêm siêng tu học,"
+    },
+    {
+     "n": 23,
+     "text": "Chuyên tâm hướng Niết bàn,"
+    },
+    {
+     "n": 24,
+     "text": "Mọi lậu hoặc được tiêu."
+    },
+    {
+     "n": 25,
+     "text": "A-tu-la, nên biết,"
+    },
+    {
+     "n": 26,
+     "text": "Xưa vậy, nay cũng vậy,"
+    },
+    {
+     "n": 27,
+     "text": "Ngồi im, bị người chê,"
+    },
+    {
+     "n": 28,
+     "text": "Nói nhiều, bị người chê,"
+    },
+    {
+     "n": 29,
+     "text": "Nói vừa phải, bị chê."
+    },
+    {
+     "n": 30,
+     "text": "Làm người không bị chê, Thật khó tìm ở đời."
+    },
+    {
+     "n": 31,
+     "text": "Xưa, vị lai, và nay,"
+    },
+    {
+     "n": 32,
+     "text": "Đâu có sự kiện này,"
+    },
+    {
+     "n": 33,
+     "text": "Người hoàn toàn bị chê,"
+    },
+    {
+     "n": 34,
+     "text": "Người trọn vẹn được khen."
+    },
+    {
+     "n": 35,
+     "text": "Sáng sáng, thẩm xét kỹ."
+    },
+    {
+     "n": 36,
+     "text": "Bậc có trí tán thán."
+    },
+    {
+     "n": 37,
+     "text": "Bậc trí không tỳ vết,"
+    },
+    {
+     "n": 38,
+     "text": "Đầy đủ giới định tuệ."
+    },
+    {
+     "n": 39,
+     "text": "Hạnh sáng như vàng ròng,"
+    },
+    {
+     "n": 40,
+     "text": "Ai dám chê vị ấy?"
+    },
+    {
+     "n": 41,
+     "text": "Chư thiên phải khen thưởng,"
+    },
+    {
+     "n": 42,
+     "text": "Phạm Thiên cũng tán dương."
+    },
+    {
+     "n": 43,
+     "text": "Giữ thân đừng phẫn nộ,"
+    },
+    {
+     "n": 44,
+     "text": "Phòng thân khéo bảo vệ,"
+    },
+    {
+     "n": 45,
+     "text": "Từ bỏ thân làm ác,"
+    },
+    {
+     "n": 46,
+     "text": "Với thân làm hạnh lành."
+    },
+    {
+     "n": 47,
+     "text": "Giữ lời đừng phẫn nộ,"
+    },
+    {
+     "n": 48,
+     "text": "Phòng lời khéo bảo vệ,"
+    },
+    {
+     "n": 49,
+     "text": "Từ bỏ lời thô ác,"
+    },
+    {
+     "n": 50,
+     "text": "Với lời, nói điều lành."
+    },
+    {
+     "n": 51,
+     "text": "Giữ ý đừng phẫn nộ,"
+    },
+    {
+     "n": 52,
+     "text": "Phòng ý, khéo bảo vệ,"
+    },
+    {
+     "n": 53,
+     "text": "Từ bỏ ý nghĩ ác,"
+    },
+    {
+     "n": 54,
+     "text": "Với ý, nghĩ hạnh lành."
+    },
+    {
+     "n": 55,
+     "text": "Bậc trí bảo vệ thân,"
+    },
+    {
+     "n": 56,
+     "text": "Bảo vệ luôn lời nói"
+    },
+    {
+     "n": 57,
+     "text": "Bảo vệ cả tâm tư,"
+    },
+    {
+     "n": 58,
+     "text": "Ba nghiệp khéo bảo vệ."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp221-234/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Kodhaṁ jahe vippajaheyya mānaṁ,"
+    },
+    {
+     "n": 2,
+     "text": "Saṁyojanaṁ sabbamatikkameyya;"
+    },
+    {
+     "n": 3,
+     "text": "Taṁ nāmarūpasmimasajjamānaṁ,"
+    },
+    {
+     "n": 4,
+     "text": "Akiñcanaṁ nānupatanti dukkhā."
+    },
+    {
+     "n": 5,
+     "text": "Yo ve uppatitaṁ kodhaṁ,"
+    },
+    {
+     "n": 6,
+     "text": "rathaṁ bhantaṁva vāraye;"
+    },
+    {
+     "n": 7,
+     "text": "Tamahaṁ sārathiṁ brūmi,"
+    },
+    {
+     "n": 8,
+     "text": "rasmiggāho itaro jano."
+    },
+    {
+     "n": 9,
+     "text": "Akkodhena jine kodhaṁ,"
+    },
+    {
+     "n": 10,
+     "text": "asādhuṁ sādhunā jine;"
+    },
+    {
+     "n": 11,
+     "text": "Jine kadariyaṁ dānena,"
+    },
+    {
+     "n": 12,
+     "text": "saccenālikavādinaṁ."
+    },
+    {
+     "n": 13,
+     "text": "Saccaṁ bhaṇe na kujjheyya,"
+    },
+    {
+     "n": 14,
+     "text": "dajjā appampi yācito;"
+    },
+    {
+     "n": 15,
+     "text": "Etehi tīhi ṭhānehi,"
+    },
+    {
+     "n": 16,
+     "text": "gacche devāna santike."
+    },
+    {
+     "n": 17,
+     "text": "Ahiṁsakā ye munayo,"
+    },
+    {
+     "n": 18,
+     "text": "niccaṁ kāyena saṁvutā;"
+    },
+    {
+     "n": 19,
+     "text": "Te yanti accutaṁ ṭhānaṁ,"
+    },
+    {
+     "n": 20,
+     "text": "yattha gantvā na socare."
+    },
+    {
+     "n": 21,
+     "text": "Sadā jāgaramānānaṁ,"
+    },
+    {
+     "n": 22,
+     "text": "ahorattānusikkhinaṁ;"
+    },
+    {
+     "n": 23,
+     "text": "Nibbānaṁ adhimuttānaṁ,"
+    },
+    {
+     "n": 24,
+     "text": "atthaṁ gacchanti āsavā."
+    },
+    {
+     "n": 25,
+     "text": "Porāṇametaṁ atula,"
+    },
+    {
+     "n": 26,
+     "text": "netaṁ ajjatanāmiva;"
+    },
+    {
+     "n": 27,
+     "text": "Nindanti tuṇhimāsīnaṁ,"
+    },
+    {
+     "n": 28,
+     "text": "nindanti bahubhāṇinaṁ;"
+    },
+    {
+     "n": 29,
+     "text": "Mitabhāṇimpi nindanti,"
+    },
+    {
+     "n": 30,
+     "text": "natthi loke anindito."
+    },
+    {
+     "n": 31,
+     "text": "Na cāhu na ca bhavissati,"
+    },
+    {
+     "n": 32,
+     "text": "na cetarahi vijjati;"
+    },
+    {
+     "n": 33,
+     "text": "Ekantaṁ nindito poso,"
+    },
+    {
+     "n": 34,
+     "text": "ekantaṁ vā pasaṁsito."
+    },
+    {
+     "n": 35,
+     "text": "Yañce viññū pasaṁsanti,"
+    },
+    {
+     "n": 36,
+     "text": "anuvicca suve suve;"
+    },
+    {
+     "n": 37,
+     "text": "Acchiddavuttiṁ medhāviṁ,"
+    },
+    {
+     "n": 38,
+     "text": "paññāsīlasamāhitaṁ."
+    },
+    {
+     "n": 39,
+     "text": "Nikkhaṁ jambonadasseva,"
+    },
+    {
+     "n": 40,
+     "text": "ko taṁ ninditumarahati;"
+    },
+    {
+     "n": 41,
+     "text": "Devāpi naṁ pasaṁsanti,"
+    },
+    {
+     "n": 42,
+     "text": "brahmunāpi pasaṁsito."
+    },
+    {
+     "n": 43,
+     "text": "Kāyappakopaṁ rakkheyya,"
+    },
+    {
+     "n": 44,
+     "text": "kāyena saṁvuto siyā;"
+    },
+    {
+     "n": 45,
+     "text": "Kāyaduccaritaṁ hitvā,"
+    },
+    {
+     "n": 46,
+     "text": "kāyena sucaritaṁ care."
+    },
+    {
+     "n": 47,
+     "text": "Vacīpakopaṁ rakkheyya,"
+    },
+    {
+     "n": 48,
+     "text": "vācāya saṁvuto siyā;"
+    },
+    {
+     "n": 49,
+     "text": "Vacīduccaritaṁ hitvā,"
+    },
+    {
+     "n": 50,
+     "text": "vācāya sucaritaṁ care."
+    },
+    {
+     "n": 51,
+     "text": "Manopakopaṁ rakkheyya,"
+    },
+    {
+     "n": 52,
+     "text": "manasā saṁvuto siyā;"
+    },
+    {
+     "n": 53,
+     "text": "Manoduccaritaṁ hitvā,"
+    },
+    {
+     "n": 54,
+     "text": "manasā sucaritaṁ care."
+    },
+    {
+     "n": 55,
+     "text": "Kāyena saṁvutā dhīrā,"
+    },
+    {
+     "n": 56,
+     "text": "atho vācāya saṁvutā;"
+    },
+    {
+     "n": 57,
+     "text": "Manasā saṁvutā dhīrā,"
+    },
+    {
+     "n": 58,
+     "text": "te ve suparisaṁvutā."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp221-234/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Give up anger, get rid of conceit,"
+    },
+    {
+     "n": 2,
+     "text": "and escape every fetter."
+    },
+    {
+     "n": 3,
+     "text": "Sufferings don’t befall one who has nothing,"
+    },
+    {
+     "n": 4,
+     "text": "not clinging to name and form."
+    },
+    {
+     "n": 5,
+     "text": "When anger surges like a lurching chariot,"
+    },
+    {
+     "n": 6,
+     "text": "keep it in check."
+    },
+    {
+     "n": 7,
+     "text": "That’s what I call a charioteer;"
+    },
+    {
+     "n": 8,
+     "text": "others just hold the reins."
+    },
+    {
+     "n": 9,
+     "text": "Defeat anger with kindness,"
+    },
+    {
+     "n": 10,
+     "text": "villainy with virtue,"
+    },
+    {
+     "n": 11,
+     "text": "stinginess with giving,"
+    },
+    {
+     "n": 12,
+     "text": "and lies with truth."
+    },
+    {
+     "n": 13,
+     "text": "Speak the truth, do not be angry,"
+    },
+    {
+     "n": 14,
+     "text": "and give when asked, if only a little."
+    },
+    {
+     "n": 15,
+     "text": "By these three means,"
+    },
+    {
+     "n": 16,
+     "text": "you may enter the presence of the gods."
+    },
+    {
+     "n": 17,
+     "text": "Those harmless sages,"
+    },
+    {
+     "n": 18,
+     "text": "always restrained in body,"
+    },
+    {
+     "n": 19,
+     "text": "go to the state that does not pass,"
+    },
+    {
+     "n": 20,
+     "text": "where there is no sorrow."
+    },
+    {
+     "n": 21,
+     "text": "Always wakeful,"
+    },
+    {
+     "n": 22,
+     "text": "practicing night and day,"
+    },
+    {
+     "n": 23,
+     "text": "focused only on extinguishment,"
+    },
+    {
+     "n": 24,
+     "text": "their defilements come to an end."
+    },
+    {
+     "n": 25,
+     "text": "It’s always been this way, Atula,"
+    },
+    {
+     "n": 26,
+     "text": "it’s not just today."
+    },
+    {
+     "n": 27,
+     "text": "They blame you when you’re silent,"
+    },
+    {
+     "n": 28,
+     "text": "they blame you when you speak a lot,"
+    },
+    {
+     "n": 29,
+     "text": "and even when you speak just right:"
+    },
+    {
+     "n": 30,
+     "text": "no one in the world escapes blame."
+    },
+    {
+     "n": 31,
+     "text": "There never was, nor will be,"
+    },
+    {
+     "n": 32,
+     "text": "nor is there today,"
+    },
+    {
+     "n": 33,
+     "text": "someone who is wholly praised"
+    },
+    {
+     "n": 34,
+     "text": "or wholly blamed."
+    },
+    {
+     "n": 35,
+     "text": "If, after watching them day in day out,"
+    },
+    {
+     "n": 36,
+     "text": "discerning people praise"
+    },
+    {
+     "n": 37,
+     "text": "that sage of impeccable conduct,"
+    },
+    {
+     "n": 38,
+     "text": "endowed with ethics and wisdom;"
+    },
+    {
+     "n": 39,
+     "text": "like a pendant of Black Plum River gold,"
+    },
+    {
+     "n": 40,
+     "text": "who is worthy to criticize them?"
+    },
+    {
+     "n": 41,
+     "text": "Even the gods praise them,"
+    },
+    {
+     "n": 42,
+     "text": "and by the Divinity, too, they’re praised."
+    },
+    {
+     "n": 43,
+     "text": "Guard against ill-tempered deeds,"
+    },
+    {
+     "n": 44,
+     "text": "be restrained in body."
+    },
+    {
+     "n": 45,
+     "text": "Giving up bad bodily conduct,"
+    },
+    {
+     "n": 46,
+     "text": "conduct yourself well in body."
+    },
+    {
+     "n": 47,
+     "text": "Guard against ill-tempered words,"
+    },
+    {
+     "n": 48,
+     "text": "be restrained in speech."
+    },
+    {
+     "n": 49,
+     "text": "Giving up bad verbal conduct,"
+    },
+    {
+     "n": 50,
+     "text": "conduct yourself well in speech."
+    },
+    {
+     "n": 51,
+     "text": "Guard against ill-tempered thoughts,"
+    },
+    {
+     "n": 52,
+     "text": "be restrained in mind."
+    },
+    {
+     "n": 53,
+     "text": "Giving up bad mental conduct,"
+    },
+    {
+     "n": 54,
+     "text": "conduct yourself well in mind."
+    },
+    {
+     "n": 55,
+     "text": "An attentive one is restrained in body"
+    },
+    {
+     "n": 56,
+     "text": "restrained also in speech,"
+    },
+    {
+     "n": 57,
+     "text": "in thought, too, they are restrained:"
+    },
+    {
+     "n": 58,
+     "text": "they are restrained in every way."
+    }
+   ]
+  }
+ ]
+}

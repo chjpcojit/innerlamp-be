@@ -1,0 +1,906 @@
+{
+ "id": "phap-cu-phap-tru",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 256-272",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 256-272), bàn về thế nào là người sống đúng pháp. Phẩm nhấn mạnh không phải nói nhiều hay hình thức bên ngoài làm nên bậc trí hay người giữ pháp, mà là công bằng, không oán sợ, giữ giới, sống thanh tịnh, đồng thời nhắc tỳ-kheo chớ tự mãn khi lậu hoặc chưa diệt.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Pháp Trụ",
+  "pli": "Dhammaṭṭhavagga",
+  "en": "The Just"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 5,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp256-272/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ngươi đâu phải pháp trụ,"
+    },
+    {
+     "n": 2,
+     "text": "Xử sự quá chuyên chế,"
+    },
+    {
+     "n": 3,
+     "text": "Bậc trí cần phân biệt"
+    },
+    {
+     "n": 4,
+     "text": "Cả hai chánh và tà!"
+    },
+    {
+     "n": 5,
+     "text": "Không chuyên chế, đúng pháp,"
+    },
+    {
+     "n": 6,
+     "text": "Công bằng, dắt dẫn người,"
+    },
+    {
+     "n": 7,
+     "text": "Bậc trí sống đúng pháp,"
+    },
+    {
+     "n": 8,
+     "text": "Thật xứng danh Pháp trụ."
+    },
+    {
+     "n": 9,
+     "text": "Không phải vì nói nhiều,"
+    },
+    {
+     "n": 10,
+     "text": "Mới xứng danh bậc trí."
+    },
+    {
+     "n": 11,
+     "text": "An ổn, không oán sợ."
+    },
+    {
+     "n": 12,
+     "text": "Thật đáng gọi bậc Trí."
+    },
+    {
+     "n": 13,
+     "text": "Không phải vì nói nhiều,"
+    },
+    {
+     "n": 14,
+     "text": "Mới xứng danh trì pháp,"
+    },
+    {
+     "n": 15,
+     "text": "Những ai tuy nghe ít,"
+    },
+    {
+     "n": 16,
+     "text": "Nhưng thân hành đúng pháp,"
+    },
+    {
+     "n": 17,
+     "text": "Không phóng túng chánh pháp,"
+    },
+    {
+     "n": 18,
+     "text": "Mới xứng danh trì pháp."
+    },
+    {
+     "n": 19,
+     "text": "Không phải là trưởng lão,"
+    },
+    {
+     "n": 20,
+     "text": "Nếu cho có bạc đầu."
+    },
+    {
+     "n": 21,
+     "text": "Người chỉ tuổi tác cao,"
+    },
+    {
+     "n": 22,
+     "text": "Được gọi là “Lão ngu”."
+    },
+    {
+     "n": 23,
+     "text": "Ai chân thật, đúng pháp,"
+    },
+    {
+     "n": 24,
+     "text": "Không hại, biết chế phục,"
+    },
+    {
+     "n": 25,
+     "text": "Bậc trí không cấu uế,"
+    },
+    {
+     "n": 26,
+     "text": "Mới xứng danh “Trưởng Lão”."
+    },
+    {
+     "n": 27,
+     "text": "Không phải nói lưu loát,"
+    },
+    {
+     "n": 28,
+     "text": "Không phải sắc mặt đẹp,"
+    },
+    {
+     "n": 29,
+     "text": "Thành được người lương thiện,"
+    },
+    {
+     "n": 30,
+     "text": "Nếu ganh, tham, dối trá."
+    },
+    {
+     "n": 31,
+     "text": "Ai cắt được, phá được"
+    },
+    {
+     "n": 32,
+     "text": "Tận gốc nhổ tâm ấy"
+    },
+    {
+     "n": 33,
+     "text": "Người trí ấy diệt sân,"
+    },
+    {
+     "n": 34,
+     "text": "Được gọi người hiền thiện."
+    },
+    {
+     "n": 35,
+     "text": "Đầu trọc, không Sa-môn"
+    },
+    {
+     "n": 36,
+     "text": "Nếu phóng túng, nói láo."
+    },
+    {
+     "n": 37,
+     "text": "Ai còn đầy dục tham,"
+    },
+    {
+     "n": 38,
+     "text": "Sao được gọi Sa-môn?"
+    },
+    {
+     "n": 39,
+     "text": "Ai lắng dịu hoàn toàn,"
+    },
+    {
+     "n": 40,
+     "text": "Các điều ác lớn nhỏ,"
+    },
+    {
+     "n": 41,
+     "text": "Vì lắng dịu ác pháp,"
+    },
+    {
+     "n": 42,
+     "text": "Được gọi là Sa-môn."
+    },
+    {
+     "n": 43,
+     "text": "Chỉ khất thực nhờ người,"
+    },
+    {
+     "n": 44,
+     "text": "Đâu phải là Tỳ-kheo!"
+    },
+    {
+     "n": 45,
+     "text": "Phải theo pháp toàn diện,"
+    },
+    {
+     "n": 46,
+     "text": "Khất sĩ không, không đủ."
+    },
+    {
+     "n": 47,
+     "text": "Ai vượt qua thiện ác,"
+    },
+    {
+     "n": 48,
+     "text": "Chuyên sống đời Phạm Hạnh,"
+    },
+    {
+     "n": 49,
+     "text": "Sống thẩm sát ở đời,"
+    },
+    {
+     "n": 50,
+     "text": "Mới xứng danh tỳ-kheo."
+    },
+    {
+     "n": 51,
+     "text": "Im lặng nhưng ngu si,"
+    },
+    {
+     "n": 52,
+     "text": "Đâu được gọi ẩn sĩ?"
+    },
+    {
+     "n": 53,
+     "text": "Như người cầm cán cân,"
+    },
+    {
+     "n": 54,
+     "text": "Bậc trí chọn điều lành."
+    },
+    {
+     "n": 55,
+     "text": "Từ bỏ các ác pháp,"
+    },
+    {
+     "n": 56,
+     "text": "Mới thật là ẩn sĩ."
+    },
+    {
+     "n": 57,
+     "text": "Ai thật hiểu hai đời"
+    },
+    {
+     "n": 58,
+     "text": "Mới được gọi ẩn sĩ."
+    },
+    {
+     "n": 59,
+     "text": "Còn sát hại sinh linh,"
+    },
+    {
+     "n": 60,
+     "text": "Đâu được gọi Hiền thánh."
+    },
+    {
+     "n": 61,
+     "text": "Không hại mọi hữu tình,"
+    },
+    {
+     "n": 62,
+     "text": "Mới được gọi Hiền thánh."
+    },
+    {
+     "n": 63,
+     "text": "Chẳng phải chỉ giới cấm"
+    },
+    {
+     "n": 64,
+     "text": "Cũng không phải học nhiều,"
+    },
+    {
+     "n": 65,
+     "text": "Chẳng phải chứng thiền định,"
+    },
+    {
+     "n": 66,
+     "text": "Sống thanh vắng một mình."
+    },
+    {
+     "n": 67,
+     "text": "“Ta hưởng an ổn lạc,"
+    },
+    {
+     "n": 68,
+     "text": "Phàm phu chưa hưởng được”:"
+    },
+    {
+     "n": 69,
+     "text": "Tỳ-kheo, chớ tự tin"
+    },
+    {
+     "n": 70,
+     "text": "Khi lậu hoặc chưa diệt."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp256-272/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Na tena hoti dhammaṭṭho,"
+    },
+    {
+     "n": 2,
+     "text": "yenatthaṁ sāhasā naye;"
+    },
+    {
+     "n": 3,
+     "text": "Yo ca atthaṁ anatthañca,"
+    },
+    {
+     "n": 4,
+     "text": "ubho niccheyya paṇḍito."
+    },
+    {
+     "n": 5,
+     "text": "Asāhasena dhammena,"
+    },
+    {
+     "n": 6,
+     "text": "samena nayatī pare;"
+    },
+    {
+     "n": 7,
+     "text": "Dhammassa gutto medhāvī,"
+    },
+    {
+     "n": 8,
+     "text": "“dhammaṭṭho”ti pavuccati."
+    },
+    {
+     "n": 9,
+     "text": "Na tena paṇḍito hoti,"
+    },
+    {
+     "n": 10,
+     "text": "yāvatā bahu bhāsati;"
+    },
+    {
+     "n": 11,
+     "text": "Khemī averī abhayo,"
+    },
+    {
+     "n": 12,
+     "text": "“paṇḍito”ti pavuccati."
+    },
+    {
+     "n": 13,
+     "text": "Na tāvatā dhammadharo,"
+    },
+    {
+     "n": 14,
+     "text": "yāvatā bahu bhāsati;"
+    },
+    {
+     "n": 15,
+     "text": "Yo ca appampi sutvāna,"
+    },
+    {
+     "n": 16,
+     "text": "dhammaṁ kāyena passati;"
+    },
+    {
+     "n": 17,
+     "text": "Sa ve dhammadharo hoti,"
+    },
+    {
+     "n": 18,
+     "text": "yo dhammaṁ nappamajjati."
+    },
+    {
+     "n": 19,
+     "text": "Na tena thero so hoti,"
+    },
+    {
+     "n": 20,
+     "text": "yenassa palitaṁ siro;"
+    },
+    {
+     "n": 21,
+     "text": "Paripakko vayo tassa,"
+    },
+    {
+     "n": 22,
+     "text": "“moghajiṇṇo”ti vuccati."
+    },
+    {
+     "n": 23,
+     "text": "Yamhi saccañca dhammo ca,"
+    },
+    {
+     "n": 24,
+     "text": "ahiṁsā saṁyamo damo;"
+    },
+    {
+     "n": 25,
+     "text": "Sa ve vantamalo dhīro,"
+    },
+    {
+     "n": 26,
+     "text": "“thero” iti pavuccati."
+    },
+    {
+     "n": 27,
+     "text": "Na vākkaraṇamattena,"
+    },
+    {
+     "n": 28,
+     "text": "vaṇṇapokkharatāya vā;"
+    },
+    {
+     "n": 29,
+     "text": "Sādhurūpo naro hoti,"
+    },
+    {
+     "n": 30,
+     "text": "issukī maccharī saṭho."
+    },
+    {
+     "n": 31,
+     "text": "Yassa cetaṁ samucchinnaṁ,"
+    },
+    {
+     "n": 32,
+     "text": "mūlaghaccaṁ samūhataṁ;"
+    },
+    {
+     "n": 33,
+     "text": "Sa vantadoso medhāvī,"
+    },
+    {
+     "n": 34,
+     "text": "“sādhurūpo”ti vuccati."
+    },
+    {
+     "n": 35,
+     "text": "Na muṇḍakena samaṇo,"
+    },
+    {
+     "n": 36,
+     "text": "abbato alikaṁ bhaṇaṁ;"
+    },
+    {
+     "n": 37,
+     "text": "Icchālobhasamāpanno,"
+    },
+    {
+     "n": 38,
+     "text": "samaṇo kiṁ bhavissati."
+    },
+    {
+     "n": 39,
+     "text": "Yo ca sameti pāpāni,"
+    },
+    {
+     "n": 40,
+     "text": "aṇuṁthūlāni sabbaso;"
+    },
+    {
+     "n": 41,
+     "text": "Samitattā hi pāpānaṁ,"
+    },
+    {
+     "n": 42,
+     "text": "“samaṇo”ti pavuccati."
+    },
+    {
+     "n": 43,
+     "text": "Na tena bhikkhu so hoti,"
+    },
+    {
+     "n": 44,
+     "text": "yāvatā bhikkhate pare;"
+    },
+    {
+     "n": 45,
+     "text": "Vissaṁ dhammaṁ samādāya,"
+    },
+    {
+     "n": 46,
+     "text": "bhikkhu hoti na tāvatā."
+    },
+    {
+     "n": 47,
+     "text": "Yodha puññañca pāpañca,"
+    },
+    {
+     "n": 48,
+     "text": "bāhetvā brahmacariyavā;"
+    },
+    {
+     "n": 49,
+     "text": "Saṅkhāya loke carati,"
+    },
+    {
+     "n": 50,
+     "text": "sa ve “bhikkhū”ti vuccati."
+    },
+    {
+     "n": 51,
+     "text": "Na monena munī hoti,"
+    },
+    {
+     "n": 52,
+     "text": "mūḷharūpo aviddasu;"
+    },
+    {
+     "n": 53,
+     "text": "Yo ca tulaṁva paggayha,"
+    },
+    {
+     "n": 54,
+     "text": "varamādāya paṇḍito."
+    },
+    {
+     "n": 55,
+     "text": "Pāpāni parivajjeti,"
+    },
+    {
+     "n": 56,
+     "text": "sa munī tena so muni;"
+    },
+    {
+     "n": 57,
+     "text": "Yo munāti ubho loke,"
+    },
+    {
+     "n": 58,
+     "text": "“muni” tena pavuccati."
+    },
+    {
+     "n": 59,
+     "text": "Na tena ariyo hoti,"
+    },
+    {
+     "n": 60,
+     "text": "yena pāṇāni hiṁsati;"
+    },
+    {
+     "n": 61,
+     "text": "Ahiṁsā sabbapāṇānaṁ,"
+    },
+    {
+     "n": 62,
+     "text": "“ariyo”ti pavuccati."
+    },
+    {
+     "n": 63,
+     "text": "Na sīlabbatamattena,"
+    },
+    {
+     "n": 64,
+     "text": "bāhusaccena vā pana;"
+    },
+    {
+     "n": 65,
+     "text": "Atha vā samādhilābhena,"
+    },
+    {
+     "n": 66,
+     "text": "vivittasayanena vā."
+    },
+    {
+     "n": 67,
+     "text": "Phusāmi nekkhammasukhaṁ,"
+    },
+    {
+     "n": 68,
+     "text": "aputhujjanasevitaṁ;"
+    },
+    {
+     "n": 69,
+     "text": "Bhikkhu vissāsamāpādi,"
+    },
+    {
+     "n": 70,
+     "text": "appatto āsavakkhayaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp256-272/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "You don’t become just"
+    },
+    {
+     "n": 2,
+     "text": "by passing hasty judgment."
+    },
+    {
+     "n": 3,
+     "text": "An astute person evaluates both"
+    },
+    {
+     "n": 4,
+     "text": "what is pertinent and what is irrelevant."
+    },
+    {
+     "n": 5,
+     "text": "A wise one judges others without haste,"
+    },
+    {
+     "n": 6,
+     "text": "justly and impartially;"
+    },
+    {
+     "n": 7,
+     "text": "that guardian of the law"
+    },
+    {
+     "n": 8,
+     "text": "is said to be just."
+    },
+    {
+     "n": 9,
+     "text": "You’re not an astute scholar"
+    },
+    {
+     "n": 10,
+     "text": "just because you speak a lot."
+    },
+    {
+     "n": 11,
+     "text": "One who is secure, free of enmity and fear,"
+    },
+    {
+     "n": 12,
+     "text": "is said to be astute."
+    },
+    {
+     "n": 13,
+     "text": "You’re not one who has memorized the teaching"
+    },
+    {
+     "n": 14,
+     "text": "just because you recite a lot."
+    },
+    {
+     "n": 15,
+     "text": "Someone who directly sees the teaching"
+    },
+    {
+     "n": 16,
+     "text": "after hearing only a little"
+    },
+    {
+     "n": 17,
+     "text": "is truly one who has memorized the teaching,"
+    },
+    {
+     "n": 18,
+     "text": "for they can never forget it."
+    },
+    {
+     "n": 19,
+     "text": "You don’t become a senior"
+    },
+    {
+     "n": 20,
+     "text": "by getting some grey hairs;"
+    },
+    {
+     "n": 21,
+     "text": "for one ripe only in age,"
+    },
+    {
+     "n": 22,
+     "text": "is said to have aged in vain."
+    },
+    {
+     "n": 23,
+     "text": "One who is truthful and principled,"
+    },
+    {
+     "n": 24,
+     "text": "harmless, restrained, and self-controlled,"
+    },
+    {
+     "n": 25,
+     "text": "attentive, purged of stains,"
+    },
+    {
+     "n": 26,
+     "text": "is said to be a senior."
+    },
+    {
+     "n": 27,
+     "text": "Not by mere enunciation,"
+    },
+    {
+     "n": 28,
+     "text": "or a beautiful complexion"
+    },
+    {
+     "n": 29,
+     "text": "does a person become holy,"
+    },
+    {
+     "n": 30,
+     "text": "if they’re jealous, stingy, and devious."
+    },
+    {
+     "n": 31,
+     "text": "But if they’ve cut that out,"
+    },
+    {
+     "n": 32,
+     "text": "dug it up at the root, eradicated it,"
+    },
+    {
+     "n": 33,
+     "text": "that intelligent one, purged of vice,"
+    },
+    {
+     "n": 34,
+     "text": "is said to be holy."
+    },
+    {
+     "n": 35,
+     "text": "A liar and breaker of vows is no ascetic"
+    },
+    {
+     "n": 36,
+     "text": "just because they shave their head."
+    },
+    {
+     "n": 37,
+     "text": "How on earth can one be an ascetic"
+    },
+    {
+     "n": 38,
+     "text": "who’s full of desire and greed?"
+    },
+    {
+     "n": 39,
+     "text": "One who stops all wicked deeds,"
+    },
+    {
+     "n": 40,
+     "text": "great and small,"
+    },
+    {
+     "n": 41,
+     "text": "because of stopping wicked deeds"
+    },
+    {
+     "n": 42,
+     "text": "is said to be an ascetic."
+    },
+    {
+     "n": 43,
+     "text": "You don’t become a mendicant"
+    },
+    {
+     "n": 44,
+     "text": "just by begging from others."
+    },
+    {
+     "n": 45,
+     "text": "One who has undertaken domestic duties"
+    },
+    {
+     "n": 46,
+     "text": "has not yet become a mendicant."
+    },
+    {
+     "n": 47,
+     "text": "But one living a spiritual life,"
+    },
+    {
+     "n": 48,
+     "text": "who has banished both merit and evil,"
+    },
+    {
+     "n": 49,
+     "text": "who wanders having appraised the world,"
+    },
+    {
+     "n": 50,
+     "text": "is said to be a mendicant."
+    },
+    {
+     "n": 51,
+     "text": "You don’t become a sage by being sagelike,"
+    },
+    {
+     "n": 52,
+     "text": "while still confused and ignorant."
+    },
+    {
+     "n": 53,
+     "text": "The astute one who holds the scales,"
+    },
+    {
+     "n": 54,
+     "text": "taking only the best,"
+    },
+    {
+     "n": 55,
+     "text": "and shunning the bad—"
+    },
+    {
+     "n": 56,
+     "text": "that is a sage, and that is how one becomes a sage."
+    },
+    {
+     "n": 57,
+     "text": "One who sagely weighs both in the world,"
+    },
+    {
+     "n": 58,
+     "text": "is thereby said to be a sage."
+    },
+    {
+     "n": 59,
+     "text": "You don’t become a noble one"
+    },
+    {
+     "n": 60,
+     "text": "by harming living beings."
+    },
+    {
+     "n": 61,
+     "text": "One harmless toward all living beings"
+    },
+    {
+     "n": 62,
+     "text": "is said to be a noble one."
+    },
+    {
+     "n": 63,
+     "text": "Not by precepts and observances,"
+    },
+    {
+     "n": 64,
+     "text": "nor by much learning,"
+    },
+    {
+     "n": 65,
+     "text": "nor by meditative immersion,"
+    },
+    {
+     "n": 66,
+     "text": "nor by living in seclusion,"
+    },
+    {
+     "n": 67,
+     "text": "do I experience the bliss of renunciation"
+    },
+    {
+     "n": 68,
+     "text": "not frequented by ordinary people."
+    },
+    {
+     "n": 69,
+     "text": "A mendicant cannot rest confident"
+    },
+    {
+     "n": 70,
+     "text": "without attaining the end of defilements."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1601 @@
+{
+ "id": "quan-vo-luong-tho",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Tịnh Độ",
+ "reference": "Taishō T0365",
+ "hanTranslator": "Cương Lương Da Xá",
+ "summary": "Kinh Tịnh Độ do ngài Cương Lương Da Xá dịch sang Hán, Đức Phật thuyết tại núi Kỳ Xà Quật, thành Vương Xá. Kinh mở đầu bằng cảnh thái tử A Xà Thế giam vua cha Tần Bà Sa La, bà Vi Đề Hi cầu Phật chỉ cho cõi thanh tịnh. Đức Phật dạy các phép quán tưởng về cõi Cực Lạc và đức Phật Vô Lượng Thọ, cùng các phẩm vãng sinh. A Nan thuật lại cho đại chúng. Là một trong ba bộ kinh căn bản của Tịnh Độ tông.",
+ "titles": {
+  "vi": "Kinh Quán Vô Lượng Thọ Phật",
+  "zh": "佛說觀無量壽佛經",
+  "sa": "Amitāyurdhyāna Sūtra",
+  "en": "Sutra of the Meditation on the Buddha Amitayus"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "SUBJECT"
+  },
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "SUBJECT"
+  },
+  {
+   "deity_id": "bodhisattva_mahasthamaprapta",
+   "role": "SUBJECT"
+  },
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "bodhisattva_manjushri",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "CAU_SIEU"
+ ],
+ "durationMinutes": 110,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Hòa thượng Thích Trí Tịnh",
+   "sourceName": "BuddhaSasana (budsas.org) - Kinh Quán Vô Lượng Thọ Phật",
+   "sourceUrl": "https://www.budsas.org/uni/u-kinh-bt-ngan/qvltp.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement on page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vậy, tôi nghe một lúc đức Phật Thích Ca Mâu Ni Như Lai ở tại thành Vương Xá trong núi Kỳ Đà Quật, cùng chúng đại Tỳ kheo, một ngàn hai trăm năm mươi người câu hội."
+    },
+    {
+     "n": 2,
+     "text": "Chúng Bồ tát có ba vạn hai ngàn, Văn Thù Sư Lợi Pháp Vương Tử đại Bồ tát làm thượng thủ."
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ thành Vương Xá có một Thái Tử tên là A Xà Thế, thuận theo lời bảo của ác hữu Điều Đạt, bắt Vua cha Tần Bà Sa La nhốt trong nhà tối bảy từng cửa, cấm các quan không một ai được vào."
+    },
+    {
+     "n": 4,
+     "text": "Quốc Thái phu nhơn tên là Vi Đề Hi cung kính Đại Vương, tắm gội sạch sẽ, lấy tô và mật nhồi mì sợi rồi trét lên thân, trong hột chuỗi ngọc đeo đựng nước nho, đi vào ngục thăm Đại Vương kín đáo dâng lên."
+    },
+    {
+     "n": 5,
+     "text": "Đại Vương Tần Bà Sa La ăn mì, uống nước nho, rồi xin nước súc miệng."
+    },
+    {
+     "n": 6,
+     "text": "Súc miệng xong, Đại Vương chắp tay cung kính hướng về núi Kỳ Xà Quật vói đảnh lễ Thế Tôn mà bạch rằng: \" Tôn giả Đại Mục Kiền Liên là thân hữu của tôi, nguyện hưng từ bi truyền thọ giới Bát Quan Trai cho tôi\"."
+    },
+    {
+     "n": 7,
+     "text": "Liền đó Tôn Giả Đại Mục Kiền Liên, như chim ưng, bay mau đến chỗ Vua, truyền giới Bát Quan Trai cho Vua."
+    },
+    {
+     "n": 8,
+     "text": "Ngày ngày đều như vậy, đến truyền giới cho Vua."
+    },
+    {
+     "n": 9,
+     "text": "Đức Thế Tôn cũng sai Tôn giả Phú Lâu Na đến vì Vua mà thuyết pháp."
+    },
+    {
+     "n": 10,
+     "text": "Thời gian như vậy trải qua hai mươi mốt ngày, Đại Vương Tần Bà Sa La ăn mì mật, uống nước nho, lại được thọ giới Bát Quan Trai, được nghe thuyết pháp nên nhan sắc Vua hòa vui."
+    },
+    {
+     "n": 11,
+     "text": "A Xà Thế hỏi người giữ cửa ngục rằng: \" Hôm nay Phụ Vương ta vẫn còn sống ư?"
+    },
+    {
+     "n": 12,
+     "text": "\". Người giữ cửa ngục tâu rằng: \" Tâu Đại Vương!"
+    },
+    {
+     "n": 13,
+     "text": "Quốc Thái phu nhơn trên thân trét mì mật, trong chuỗi ngọc đựng nước nho, đem dâng lên Vua."
+    },
+    {
+     "n": 14,
+     "text": "Còn có Sa môn Đại Mục Kiền Liên và Phú Lâu Na đi từ trên hư không đến vì Vua thuyết pháp, chẳng thế cấm cản được\"."
+    },
+    {
+     "n": 15,
+     "text": "A Xà Thế nghe lời ấy giận Mẹ mình rằng: \"Mẹ ta là giặc làm bạn với giặc."
+    },
+    {
+     "n": 16,
+     "text": "Sa Môn ác nhơn huyễn hoặc chú thuật khiến ác vương ấy nhiều ngày mà chẳng chết\"."
+    },
+    {
+     "n": 17,
+     "text": "A Xà Thế liền cầm gươm bén muốn giết mẹ."
+    },
+    {
+     "n": 18,
+     "text": "Lúc ấy có một đại thần tên là Nguyệt Quang, thông minh nhiều trí, cùng với Kỳ Bà đến lễ Vua A Xà Thế mà tâu rằng: \" Tâu Đại Vương!"
+    },
+    {
+     "n": 19,
+     "text": "Chúng Thần nghe Tỳ Đà Luận kinh nói từ kiếp sơ đến nay có các ác vương, vì tham ngôi Vua mà giết hại cha mình, đến số một vạn tám ngàn."
+    },
+    {
+     "n": 20,
+     "text": "Chưa từng nghe nói có kẻ vô đạo hại mẹ. Nay Đại Vương làm sự sát nghịch này làm ô uế dòng Sát Đế Lợi."
+    },
+    {
+     "n": 21,
+     "text": "Chúng thần chẳng nở nghe. Đây là Chiên Đà La."
+    },
+    {
+     "n": 22,
+     "text": "Chúng tôi chẳng nên còn ở lại nơi đây\". Hai vị thần tâu rồi lấy tay vỗ lên gươm đi lui mà ra."
+    },
+    {
+     "n": 23,
+     "text": "A Xà Thế kinh sợ, hãi hùng bảo Kỳ Bà rằng: \"Còn anh cũng chẳng vì ta chăng?\"."
+    },
+    {
+     "n": 24,
+     "text": "Kỳ Bà tâu rằng: \" Đại Vương cẩn thận chớ có hại mẹ\"."
+    },
+    {
+     "n": 25,
+     "text": "A Xà Thế nghe lời ấy, sám hối cầu cứu, liền bỏ gươm, thôi không hại mẹ, truyền lịnh cho nội quan nhốt mẹ vào thâm cung chẳng cho ra nữa."
+    },
+    {
+     "n": 26,
+     "text": "Vi Đề Hi bị giam nhốt rồi, sầu lo tiều tụy, vói hướng về núi Kỳ Xà Quật lạy Phật mà nói rằng: \" Ngày trước Đức Như Lai Thế Tôn thường hay sai Tôn giả A Nan đến thăm hỏi tôi."
+    },
+    {
+     "n": 27,
+     "text": "Nay tôi sầu lo, đức Thế Tôn oai trọng không sao được thấy."
+    },
+    {
+     "n": 28,
+     "text": "Duy nguyện đức Thế Tôn sai các Tôn giả Đại Mục Kiền Liên và A Nan đến cho tôi được thấy."
+    },
+    {
+     "n": 29,
+     "text": "Nói xong, Vi Đề Hi buồn khóc, lệ rơi như mưa, vói hướng lạy Phật, trong khoảng thời gian chưa cất đầu lên."
+    },
+    {
+     "n": 30,
+     "text": "Đức Thế Tôn ở núi Kỳ Xà Quật biết tâm niệm của Vi Đề Hi, liền bảo Đại Mục Kiền Liên và A Nan đi từ trên hư không."
+    },
+    {
+     "n": 31,
+     "text": "Đức Phật từ núi Kỳ Xà Quật ẩn mất, hiện ra nơi Vương cung."
+    },
+    {
+     "n": 32,
+     "text": "Vi Đề Hi lạy rồi ngước đầu lên, thấy Thế Tôn Thích Ca Mâu Ni Phật, thân màu tử kim, ngồi trên hoa sen trăm báu, Tôn giả Đại Mục Kiền Liên hầu bên tả, Tôn giả A Nan hầu bên hữu."
+    },
+    {
+     "n": 33,
+     "text": "Trong hư không hàng Phạm Vương, Đế Thích, Hộ Thế Tứ Vương mưa hoa trời khắp nơi để cúng dường."
+    },
+    {
+     "n": 34,
+     "text": "Vi Đề Hi thấy Phật Thế Tôn, liền tự bứt chuỗi ngọc, cả thân mình gieo xuống đất kêu khóc hướng Phật mà bạch rằng: \" Bạch đức Thế Tôn!"
+    },
+    {
+     "n": 35,
+     "text": "Xưa tôi tội gì mà sanh đứa ác tử ấy. Đức Thế Tôn lại có nhơn duyên gì mà cùng làm quyến thuộc với Đề Bà Đạt Đa."
+    },
+    {
+     "n": 36,
+     "text": "Duy nguyện đức Thế Tôn vì tôi mà nói rộng những xứ không có lo khổ tôi sẽ vãng sanh, tôi không còn thích cõi Diêm phù Đề trược ác thế nầy.Xứ trược ác nầy đầy những địa ngục, ngạ quỷ, súc sanh, nhiều khối bất thiện."
+    },
+    {
+     "n": 37,
+     "text": "Nguyện tôi đời vị lai chẳng nghe danh từ ác, chẳng thấy người ác."
+    },
+    {
+     "n": 38,
+     "text": "Nay tôi hướng về Thế Tôn, năm vóc gieo xuống đất, cầu thương cho tôi sám hối."
+    },
+    {
+     "n": 39,
+     "text": "Duy nguyện Phật Nhựt dạy tôi quán nơi xứ nghiệp hành thanh tịnh\"."
+    },
+    {
+     "n": 40,
+     "text": "Đức Thế Tôn phóng ánh sáng giữa hai mày, ánh sáng ấy màu chơn kim, chiếu khắp mười phương vô lượng thế giới, trở về trụ tại đỉnh đầu Phật, hóa làm đài chơn kim lớn như núi Tu Di,"
+    },
+    {
+     "n": 41,
+     "text": "bao nhiêu quốc độ thanh tịnh vi diệu của mười phương chư Phật đều hiện rõ trong đài vàng ấy."
+    },
+    {
+     "n": 42,
+     "text": "Hoặc có quốc độ thất bửu hiệp thành. Hoặc có quốc độ thuần là liên hoa."
+    },
+    {
+     "n": 43,
+     "text": "Lại có quốc độ như tự tại Thiên cung. Lại có quốc độ như gương pha lê."
+    },
+    {
+     "n": 44,
+     "text": "Có vô lượng quốc độ chư Phật như vậy trang nghiêm xinh đẹp, khiến Vi Đề Hi được thấy."
+    },
+    {
+     "n": 45,
+     "text": "Vi Đề Hi bạch Phật rằng: \" Bạch đức Thế Tôn!"
+    },
+    {
+     "n": 46,
+     "text": "Dầu các Phật độ ấy đều thanh tịnh đều có quang minh."
+    },
+    {
+     "n": 47,
+     "text": "Nay tôi thích sanh về Cực Lạc thế giới, chỗ của đức Phật A Di Đà."
+    },
+    {
+     "n": 48,
+     "text": "Duy nguyện đức Thế Tôn dạy tôi tư duy, dạy tôi chánh thọ\"."
+    },
+    {
+     "n": 49,
+     "text": "Đức Thế Tôn liền mĩm cười, có ánh sáng ngũ sắc từ miệng Phật phóng ra, mỗi mỗi ánh sáng chiếu đỉnh đầu vua Tần Bà Sa La."
+    },
+    {
+     "n": 50,
+     "text": "Dầu bị giam cầm ngục tối, tâm nhãn vua không chướng ngại xa thấy đức Thế Tôn, vua đầu mặt lạy Phật, tự nhiên tăng tiến đạo lực thành bực A Na Hàm."
+    },
+    {
+     "n": 51,
+     "text": "Đức Phật bảo Vi Đề Hi: \" Nay Thái phu nhơn có biết chăng?"
+    },
+    {
+     "n": 52,
+     "text": "Phật A Di Đà cách đây chẳng xa, bà nên nhiếp niệm quán kỹ cõi nước ấy thì tịnh nghiệp được thành."
+    },
+    {
+     "n": 53,
+     "text": "Nay ta sẽ vì bà mà nói rộng các pháp quán, cùng khiến đời vị lai tất cả hàng phàm phu, những người muốn tu tịnh nghiệp được thọ sanh Tây Phương Cực Lạc quốc độ ."
+    },
+    {
+     "n": 54,
+     "text": "Nầy Vi Đề Hi! Người muốn sang nước Cực Lạc ấy nên tu ba phước."
+    },
+    {
+     "n": 55,
+     "text": "Một là hiếu nuôi cha mẹ, kính thờ bực Sư Trưởng, có tâm nhơn từ chẳng giết hại và tu tập mười nghiệp lành."
+    },
+    {
+     "n": 56,
+     "text": "Hai là thọ trì Tam Quy y, đầy đủ các cấm giới và chẳng phạm oai nghi."
+    },
+    {
+     "n": 57,
+     "text": "Ba là phát tâm Bồ Đề, sâu tin nhơn quả, đọc tụng Kinh điển Đại Thừa và khuyên dạy sách tiến người tu hành."
+    },
+    {
+     "n": 58,
+     "text": "Ba sự như vậy gọi là tịnh nghiệp. Nầy Vi Đề Hi!"
+    },
+    {
+     "n": 59,
+     "text": "Nay bà có biết chăng? Ba tịnh nghiệp ấy là chánh nhơn tịnh nghiệp của tam thế chư Phật quá khứ, vị lai, hiện tại."
+    },
+    {
+     "n": 60,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi rằng: \" Lắng nghe, lắng nghe, khéo suy nghĩ nhớ kỹ."
+    },
+    {
+     "n": 61,
+     "text": "Nay Như Lai vì tất cả chúng sanh đời vị lai, những kẽ bị giặc phiền não nhiễu hại mà nói nghiệp thanh tịnh."
+    },
+    {
+     "n": 62,
+     "text": "Lành thay cho Vi Đề Hi khéo hỏi được việc ấy."
+    },
+    {
+     "n": 63,
+     "text": "Nầy A Nan ! Ông nên thọ trì rộng vì đại chúng mà tuyên nói lời Phật."
+    },
+    {
+     "n": 64,
+     "text": "Hôm nay chư Phật vì Vi Đề Hi và vị lai tất cả chúng sanh quán nơi Tây Phương Cực Lạc quốc độ, do nguyện lực Phật nên sẽ được quốc độ thanh tịnh ấy, như cầm gương sáng tự thấy hình tượng mặt mình."
+    },
+    {
+     "n": 65,
+     "text": "Thấy những sự vui cùng cực vi diệu của quốc độ ấy, nên tâm vui mừng liền được Vô Sanh Pháp Nhẫn.\"."
+    },
+    {
+     "n": 66,
+     "text": "Đức Phật bảo Vi Đề Hi: \" Bà là phàm phu, tâm tưởng yếu kém, chưa được thiên nhãn chẳng thể thấy được xa."
+    },
+    {
+     "n": 67,
+     "text": "Chư Phật Như Lai có phương tiện lạ khiến bà được thấy\"."
+    },
+    {
+     "n": 68,
+     "text": "Vi Đề Hi bạch Phật rằng: \" Bạch đức Thế Tôn!"
+    },
+    {
+     "n": 69,
+     "text": "Như hôm nay tôi nhờ oai lực của đức Phật Thế Tôn mà được thấy quốc độ Cực Lạc ấy."
+    },
+    {
+     "n": 70,
+     "text": "Nếu sau khi đức Phật Thế Tôn diệt độ, các chúng sanh trược ác, bất thiện, bị ngũ khổ bức ngặt, họ làm thế nào có thể được thấy A Di Đà Phật Cực Lạc Thế Giới?\"."
+    },
+    {
+     "n": 71,
+     "text": "Đức Phật bảo Vi Đề Hi: \" Bà và chúng sanh nên phải chuyên tâm buộc niệm một chỗ, tưởng nơi phương Tây."
+    },
+    {
+     "n": 72,
+     "text": "Tưởng niệm thế nào? Tất cả chúng sanh, những người có mắt sáng mà chẳng phải là kẻ sanh manh, thì đều thấy mặt nhựt lặn cả."
+    },
+    {
+     "n": 73,
+     "text": "Phàm người tu tập quán tưởng nên phát khởi tưởng niệm, ngồi quay thẳng hướng về phía Tây, quán kỹ chỗ mặt nhựt sắp lặn, khiến tâm niệm trụ vững chuyên tưởng nhớ chẳng dời."
+    },
+    {
+     "n": 74,
+     "text": "Thấy mặt nhựt sắp lặn, dạng như mặt trống đồng treo."
+    },
+    {
+     "n": 75,
+     "text": "Đã thấy mặt nhựt rồi, nhắm mắt mở mắt đều khiến phải sáng tỏ."
+    },
+    {
+     "n": 76,
+     "text": "Đây là nhựt tưởng, gọi là pháp quán ban đầu."
+    },
+    {
+     "n": 77,
+     "text": "Kế đó quán tưởng nước. Thấy nước đứng trong, cũng khiến phải sáng tỏ, ý tưởng không phân tán."
+    },
+    {
+     "n": 78,
+     "text": "Đã thấy nước rồi, nên quán tưởng băng, thấy băng chói suốt, tưởng làm lưu ly."
+    },
+    {
+     "n": 79,
+     "text": "Tưởng nầy thành rồi, thấy đất lưu ly trong ngoài suốt chói, phía dưới có tràng vàng, kim cương, thất bửu bưng chống đất lưu ly."
+    },
+    {
+     "n": 80,
+     "text": "Kim tràng ấy tám phương đầy đủ tám cạnh."
+    },
+    {
+     "n": 81,
+     "text": "Mỗi mỗi phương tiện do trăm châu báu làm thành."
+    },
+    {
+     "n": 82,
+     "text": "Mỗi mỗi bửu châu có ngàn ánh sáng. Mỗi mỗi ánh sáng có tám vạn bốn ngàn màu chói đất lưu ly, sáng như ức ngàn mặt nhựt chẳng thể thấy đủ hết được."
+    },
+    {
+     "n": 83,
+     "text": "Trên đất lưu ly, có dây hoàng kim xen kết lẫn lộn với thất bửu, giăng phân ranh giới chừng ngằn ngang rộng phân minh."
+    },
+    {
+     "n": 84,
+     "text": "Trong mỗi mỗi thất bửu ấy có ánh sáng ngũ sắc."
+    },
+    {
+     "n": 85,
+     "text": "Ánh sáng ấy như đóa hoa, lại có như sao như trăng, lững lờ trên hư không tạo thành đài ánh sáng."
+    },
+    {
+     "n": 86,
+     "text": "Có ngàn vạn lầu các do trăm báu hiệp thành."
+    },
+    {
+     "n": 87,
+     "text": "Hai bên đài dều riêng có trăm ức hoa tràng, với vô lượng nhạc khí, dùng làm trang nghiêm."
+    },
+    {
+     "n": 88,
+     "text": "Tám thứ gió mát từ ánh sáng phát ra, xao động các nhạc khí ấy, vang ra tiếng diễn nói khổ, không, vô thường, vô ngã."
+    },
+    {
+     "n": 89,
+     "text": "Đây là thủy tưởng gọi là pháp quán thứ hai."
+    },
+    {
+     "n": 90,
+     "text": "Lúc quán tưởng này đã thành, phải mỗi mỗi sự quán thấy thật rõ ràng, lúc nhắm mắt, lúc mở mắt chớ để tan mất, chỉ trừ lúc ăn, thường nhớ sự ấy."
+    },
+    {
+     "n": 91,
+     "text": "Như tưởng quán ấy gọi là thô, thấy đất Cực Lạc quốc độ."
+    },
+    {
+     "n": 92,
+     "text": "Nếu được tam muội thì thấy đất cõi nước Cực Lạc tỏ rõ phân minh, chẳng thể nói đủ hết."
+    },
+    {
+     "n": 93,
+     "text": "Đây là địa tưởng, gọi là pháp quán thứ ba."
+    },
+    {
+     "n": 94,
+     "text": "Đức Phật bảo Tôn giả A Nan: \" Nầy A Nan!"
+    },
+    {
+     "n": 95,
+     "text": "Ông thọ trì lời Phật vì đời vị lai tất cả đại chúng, những người muốn thoát khổ, mà nói pháp quán địa ấy."
+    },
+    {
+     "n": 96,
+     "text": "Nếu người quán địa ấy thì trừ được tội sanh tử trong tám mươi ức kiếp, bỏ thân hiện tại, đời khác quyết định thọ sanh quốc độ thanh tịnh, tâm được không nghi."
+    },
+    {
+     "n": 97,
+     "text": "Quán tưởng đây gọi là chánh quán. Nếu quán tưởng khác thì gọi là tà quán\"."
+    },
+    {
+     "n": 98,
+     "text": "Đức Phật bảo Tôn giả A Nan và Vi Đề Hi : \" Địa quán thành rồi, kế tưởng Bửu Thọ."
+    },
+    {
+     "n": 99,
+     "text": "Người quán cây báu phải quán mỗi mỗi cây."
+    },
+    {
+     "n": 100,
+     "text": "Tưởng bảy lớp hàng cây báu. Mỗi cây báu cao tám ngàn do tuần."
+    },
+    {
+     "n": 101,
+     "text": "Các cây báu ấy đều đầy đủ bông lá bảy báu."
+    },
+    {
+     "n": 102,
+     "text": "Mỗi mỗi bông lá tưởng màu khác lạ. Trong màu lưu ly phóng ánh sáng màu hoàng kim."
+    },
+    {
+     "n": 103,
+     "text": "Trong màu pha lê phóng ánh sáng màu hồng."
+    },
+    {
+     "n": 104,
+     "text": "Trong màu mã não phóng ánh sáng màu xa cừ."
+    },
+    {
+     "n": 105,
+     "text": "Trong màu xa cừ phóng ánh sáng màu lục chơn châu."
+    },
+    {
+     "n": 106,
+     "text": "San hô hổ phách tất cả các báu dùng làm chói đẹp."
+    },
+    {
+     "n": 107,
+     "text": "Màn lưới diệu chơn châu giăng che trên cây báu."
+    },
+    {
+     "n": 108,
+     "text": "Trên mỗi mỗi cây báu có bảy lớp màn lưới."
+    },
+    {
+     "n": 109,
+     "text": "Khoảng mỗi mỗi lưới có năm trăm ức cung điện xinh đẹp, vi diệu, như cung Trời Phạm Vương, có các thiên đồng tử tự nhiên ở trong ấy."
+    },
+    {
+     "n": 110,
+     "text": "Mỗi mỗi đồng tử có năm trăm ức châu ma ni Thích Ca Tỳ lăng già, dùng làm chuỗi đeo."
+    },
+    {
+     "n": 111,
+     "text": "Ánh sáng mỗi châu ma ni ấy chiếu trăm ức do tuần, dường như hòa hiệp ánh sáng của trăm ức nhựt nguyệt chẳng thể kể hết."
+    },
+    {
+     "n": 112,
+     "text": "Các báu xen lẫn màu sắc sáng đẹp nhất trong các màu sắc."
+    },
+    {
+     "n": 113,
+     "text": "Các cây báu ấy hàng hàng ngay nhau, lá lá kế nhau."
+    },
+    {
+     "n": 114,
+     "text": "Giữa khoảng các lá sanh những hoa vi diệu."
+    },
+    {
+     "n": 115,
+     "text": "Trên hoa tự nhiên có quả thất bửu. Mỗi mỗi lá cây ngang rộng đều hai mươi lăm do tuần."
+    },
+    {
+     "n": 116,
+     "text": "Lá ấy có ngàn màu, trăm thứ lằn vẽ như chuỗi ngọc Trời."
+    },
+    {
+     "n": 117,
+     "text": "Có những hoa vi diệu màu diêm phù đàn kim, như vòng lửa xoay chói sáng, uyển chuyển khoảng giửa lá, vọt sanh những quả như bình báu của Thiên Đế Thích, phóng đại quang minh hóa thành tràng phan và vô lượng lọng báu."
+    },
+    {
+     "n": 118,
+     "text": "Trong lọng báu ấy chói hiện tất cả Phật sự trong toàn cõi thế giới, thập phương thế giới chư Phật cũng hiện bóng trong lọng báu ấy."
+    },
+    {
+     "n": 119,
+     "text": "Thấy Bửu Thọ ấy rồi, cũng phải mỗi mỗi quán sát thân cây, nhánh lá, bông trái đều phải phân minh."
+    },
+    {
+     "n": 120,
+     "text": "Đây là thọ tưởng gọi là pháp quán thứ tư."
+    },
+    {
+     "n": 121,
+     "text": "Kế nên tưởng nước. Người muốn tưởng nước nên biết Cực Lạc thế giới có ao nước bát công đức."
+    },
+    {
+     "n": 122,
+     "text": "Mỗi mỗi ao nước bảy báu làm thành. Báu ấy nhu nhuyến từ như ý châu vương sanh, chia làm mười bốn chi, mỗi mỗi chi làm sắc đẹp bảy báu."
+    },
+    {
+     "n": 123,
+     "text": "Hoàng kim làm lòng ao. Dưới lòng ao có kim cương nhiều màu làm cát tráng đáy."
+    },
+    {
+     "n": 124,
+     "text": "Trong nước mỗi mỗi ao báu ấy đều có sáu mươi ức hoa sen thất bửu."
+    },
+    {
+     "n": 125,
+     "text": "Mỗi mỗi hoa sen tròn đều mười hai do tuần."
+    },
+    {
+     "n": 126,
+     "text": "Nước ma ni chảy rót trong khoảng lá, theo thân cây sen mà lên xuống, phát ra âm thanh vi diệu diễn nói khổ, không, vô thường, vô ngã, các Ba La Mật, còn có tiếng tán thán tướng hảo của chư Phật."
+    },
+    {
+     "n": 127,
+     "text": "Như ý châu vương phóng ra ánh sáng vi diệu màu hoàng kim."
+    },
+    {
+     "n": 128,
+     "text": "Ánh sáng ấy hóa ra các giống chim màu trăm báu, hòa hót êm nhã, thường tán thán niệm Phật, niệm pháp, niệm Tăng."
+    },
+    {
+     "n": 129,
+     "text": "Đây là tưởng nước bát công đức gọi là pháp quán thứ năm."
+    },
+    {
+     "n": 130,
+     "text": "Trong quốc độ Cực Lạc diệu bửu ấy, mỗi mỗi khu vực có năm trăm ức lầu báu."
+    },
+    {
+     "n": 131,
+     "text": "Trong lầu các ấy có vô lượng chư Thiên trỗi thiên kỷ nhạc."
+    },
+    {
+     "n": 132,
+     "text": "Còn có nhạc khí treo ở hư không, như bửu tràng cõi Trời, chẳng đánh tự kêu."
+    },
+    {
+     "n": 133,
+     "text": "Trong các âm thanh ấy đều diễn nói niệm Phật, niệm pháp, niệm Tỳ Kheo Tăng."
+    },
+    {
+     "n": 134,
+     "text": "Pháp tưởng này thành rồi, gọi là thô thấy Cực Lạc thế giới bửu thọ, bửu địa, và bửu trì, đây là tổng quán tưởng gọi là pháp quán thứ sáu."
+    },
+    {
+     "n": 135,
+     "text": "Nếu thấy như vậy thì trừ vô lượng ức kiếp cực trọng ác nghiệp, sau khi mạng chung, quyết định sanh nước Cực Lạc."
+    },
+    {
+     "n": 136,
+     "text": "Quán đây gọi là chánh quán, nếu quán khác thì gọi là tà quán\"."
+    },
+    {
+     "n": 137,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi: \" Lắng nghe, lắng nghe, khéo suy nghĩ nhớ kỷ đó."
+    },
+    {
+     "n": 138,
+     "text": "Ta sẽ vì các ngươi phân biệt giải thuyết pháp trừ khổ não."
+    },
+    {
+     "n": 139,
+     "text": "Các ngươi ghi nhớ, thọ trì, rộng vì đại chúng phân biệt giải thuyết\"."
+    },
+    {
+     "n": 140,
+     "text": "Lúc đức Thích Ca Mâu Ni Thế Tôn nói lời ấy, Phật Vô Lượng Thọ hiện đứng trên hư không, Quán Thế Âm Bồ tát đứng hầu bên tả, Đại Thế Chí Bồ tát đứng hầu bên hữu, ánh sáng chói rực chẳng thể thấy rõ hết,"
+    },
+    {
+     "n": 141,
+     "text": "trăm ngàn lần màu vàng diêm phù đàn kim chẳng thể sánh được."
+    },
+    {
+     "n": 142,
+     "text": "Vi Đề Hi thấy Phật Vô Lượng Thọ rồi tiếp tục lễ lạy."
+    },
+    {
+     "n": 143,
+     "text": "Lễ lạy xong, Vi Đề Hi bạch Phật rằng: \" Bạch Đức Thế Tôn!"
+    },
+    {
+     "n": 144,
+     "text": "Nay tôi nhơn oai lực Phật mà được thấy Vô Lượng Thọ Như Lai cùng hai Đại Sĩ Quán Thế AÂm Bồ tát và Đại Thế Chí Bồ tát."
+    },
+    {
+     "n": 145,
+     "text": "Đời vị lai, các chúng sanh sẽ phải thế nào quán thấy Phật Vô Lượng Thọ và hai Bồ tát ấy?\" Đức Phật bảo Vi Đề Hi: \"Ngươi muốn quán Phật Vô Lượng Thọ thì nên khởi tưởng niệm:"
+    },
+    {
+     "n": 146,
+     "text": "Ở trên mặt đất thất bửu tưởng có hoa sen, trên mỗi mỗi cánh hoa tưởng màu bá bửu, có tám vạn bốn ngàn đường gân dường như bức họa cõi Trời, mỗi đường gân có tám vạn bốn ngàn ánh sáng tỏ rõ rành rẽ đều được thấy cả."
+    },
+    {
+     "n": 147,
+     "text": "Cánh hoa nhỏ nhất ngang rộng hai trăm năm mươi do tuần, toàn hoa sen ấy có đủ tám vạn bốn ngàn cánh."
+    },
+    {
+     "n": 148,
+     "text": "Khoảng mỗi cánh hoa có trăm ức ma ni châu vương để làm sáng đẹp."
+    },
+    {
+     "n": 149,
+     "text": "Mỗi mỗi châu ma ni vương ấy phóng ra ngàn ánh sáng, ánh sáng ấy như lọng bảy báu hiệp thành che khắp mặt đất."
+    },
+    {
+     "n": 150,
+     "text": "Đài hoa sen ấy bằng báu thích ca tỳ lăng già, có tám vạn kim cương chân thúc ca bửu, phạm ma ni bửu và lưới diệu chơn châu, dùng để nghiêm sức."
+    },
+    {
+     "n": 151,
+     "text": "Ở trên đài ấy, tự nhiên có bốn trụ bửu tràng, mỗi mỗi bửu tràng cao lớn như trăm ngàn muôn ức núi Tu Di."
+    },
+    {
+     "n": 152,
+     "text": "Trên bửu tràng có màn báu như Dạ Ma Thiên cung, còn có năm trăm ức bửu châu có tám vạn bốn ngàn ánh sáng."
+    },
+    {
+     "n": 153,
+     "text": "Mỗi mỗi ánh sáng làm tám vạn bốn ngàn kim sắc nhiều loại lạ khác nhau."
+    },
+    {
+     "n": 154,
+     "text": "Mỗi mỗi kim sắc khắp cả cõi nước Cực Lạc, nơi nơi biến hóa, đều riêng làm những tướng hình khác lạ:"
+    },
+    {
+     "n": 155,
+     "text": "hoặc làm đài kim cương, làm lưới chơn châu, hoặc làm mây nhiều loại hoa, nơi mười phương diện, tùy ý biến hiện ra làm Phật sự."
+    },
+    {
+     "n": 156,
+     "text": "Đây là tưởng tòa ngồi hoa sen, gọi là pháp quán thứ bảy."
+    },
+    {
+     "n": 157,
+     "text": "Này A Nan! Hoa sen vi diệu như vậy là do bổn nguyện lực của pháp Tạng Tỳ Kheo, tiền thân Phật Vô Lượng Thọ cảm thành."
+    },
+    {
+     "n": 158,
+     "text": "Nếu người muốn niệm đức Phật ấy thì phải trước tưởng hoa tòa ấy."
+    },
+    {
+     "n": 159,
+     "text": "Lúc quán tưởng chẳng được tạp quán. Đều phải quán mỗi mỗi chi tiết, mỗi mỗi cánh hoa, mỗi mỗi bửu châu, mỗi mỗi ánh sáng, mỗi mỗi đài, mỗi mỗi tràng đều phải phân minh, như thấy tượng mặt mình hiện trong gương."
+    },
+    {
+     "n": 160,
+     "text": "Pháp tưởng này thành, diệt trừ trăm muôn ức kiếp tội sanh tử, tất định sẽ sanh Cực Lạc thế giới."
+    },
+    {
+     "n": 161,
+     "text": "Quán như vậy gọi là chánh quán, nếu quán khác thì gọi là tà quán."
+    },
+    {
+     "n": 162,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi: \"Thấy hoa tòa rồi kế nên tưởng Phật."
+    },
+    {
+     "n": 163,
+     "text": "Tại sao vậy?"
+    },
+    {
+     "n": 164,
+     "text": "Vì chư Phật Như Lai là thân pháp giới vào khắp trong tâm tưởng của tất cả chúng sanh, nên lúc các ngươi tâm tưởng Phật, tâm ấy tức là ba mươi hai tướng, tám mươi tùy hình hảo, tâm ấy làm Phật, tâm ấy là Phật."
+    },
+    {
+     "n": 165,
+     "text": "Chư Phật Chánh Biến Tri hải từ tâm tưởng sanh, vì vậy nên nhứt tâm buộc niệm, quán kỹ đức Phật ấy, đức Như Lai, Ứng Cúng, Chánh Biến Tri."
+    },
+    {
+     "n": 166,
+     "text": "Người muốn tưởng đức Phật ấy trước nên tưởng hình tượng."
+    },
+    {
+     "n": 167,
+     "text": "Thấy một bửu tượng màu như vàng diêm phù đàn ngồi trên hoa tòa kia."
+    },
+    {
+     "n": 168,
+     "text": "Thấy tượng Phật ngồi rồi, tâm nhãn được khai thông, tỏ rõ phân minh thấy quốc độ Cực Lạc thất bửu trang nghiêm, đất báu, ao báu, cây báu bày hàng."
+    },
+    {
+     "n": 169,
+     "text": "Màn lưới báu cõi Trời giăng che phía trên, các màn lưới báu đầy khắp hư không, thấy sự như vậy khiến rất rõ ràng, như thấy trong lòng bàn tay."
+    },
+    {
+     "n": 170,
+     "text": "Thấy sự ấy rồi, lại nên tưởng một hoa sen lớn ở bên tả tượng Phật như trước không khác."
+    },
+    {
+     "n": 171,
+     "text": "Rồi lại tưởng một hoa sen lớn như trước ở bên hữu tượng Phật."
+    },
+    {
+     "n": 172,
+     "text": "Rồi tưởng một tượng Quán Thế Âm Bồ tát ngồi tòa sen bên tả, cũng kim sắc như trước."
+    },
+    {
+     "n": 173,
+     "text": "Rồi tưởng tượng Đại Thế Chí Bồ tát ngồi hoa sen bên hữu."
+    },
+    {
+     "n": 174,
+     "text": "Lúc pháp tưởng này thành rồi, tượng Phật và tượng Bồ tát đều phóng ánh sáng."
+    },
+    {
+     "n": 175,
+     "text": "Ánh sáng ấy kim sắc chiếu những bửu thọ."
+    },
+    {
+     "n": 176,
+     "text": "Dưới mỗi mỗi bửu thọ đều có ba tòa hoa sen, tượng Phật và hai tượng Bồ tát ngồi trên ấy như vậy khắp cả quốc độ Cực Lạc."
+    },
+    {
+     "n": 177,
+     "text": "Lúc pháp tưởng này đã thành, hành giả nên nghe nước chảy, ánh sáng, các bửu thọ, những chim cưu, nhạn, uyên ương, đều diễn nói diệu pháp, lúc xuất định, lúc nhập định luôn nghe diệu pháp."
+    },
+    {
+     "n": 178,
+     "text": "Pháp được nghe trong định, lúc xuất định nhớ giữ chẳng bỏ, phải khế hiệp với lời trong Kinh."
+    },
+    {
+     "n": 179,
+     "text": "Nếu chẳng hiệp thì gọi là vọng tưởng. Nếu hiệp thì gọi là thô tưởng thấy Cực Lạc thế giới."
+    },
+    {
+     "n": 180,
+     "text": "Đây là tưởng tượng, gọi là pháp quán thứ tám."
+    },
+    {
+     "n": 181,
+     "text": "Quán pháp này trừ được vô lượng ức kiếp tội sanh tử."
+    },
+    {
+     "n": 182,
+     "text": "Nơi thân hiện tại được niệm Phật tam muội”."
+    },
+    {
+     "n": 183,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi: \"Kế lại, nên quán Phật Vô Lượng Thọ thân tướng quang minh."
+    },
+    {
+     "n": 184,
+     "text": "A Nan phải biết Phật Vô Lượng Thọ thân như trăm ngàn muôn ức sắc vàng diêm phù đàn Trời Dạ Ma, thân Phật cao sáu mươi muôn ức na do tha hằng hà sa do tuần, bạch hào giữa hai mày xoay bên hữu,"
+    },
+    {
+     "n": 185,
+     "text": "uyển chuyển như năm tòa núi Tu Di, mắt Phật như bốn đại hải xanh biếc và trắng phân minh."
+    },
+    {
+     "n": 186,
+     "text": "Các lỗ lông nơi thân Phật phóng ánh sáng ra như núi Tu Di."
+    },
+    {
+     "n": 187,
+     "text": "Viên quang của Phật ấy như trăm ức Đại Thiên thế giới."
+    },
+    {
+     "n": 188,
+     "text": "Trong viên quang ấy có trăm vạn ức na do tha hằng hà sa Hóa Phật."
+    },
+    {
+     "n": 189,
+     "text": "Mỗi mỗi Hóa Phật cũng có đông nhiều vô số Hóa Bồ Tát làm thị giả."
+    },
+    {
+     "n": 190,
+     "text": "Thân Phật Vô Lượng Thọ có tám vạn bốn ngàn tướng."
+    },
+    {
+     "n": 191,
+     "text": "Trong mỗi mỗi tướng đều riêng có tám vạn bốn ngàn tùy hình hảo."
+    },
+    {
+     "n": 192,
+     "text": "Trong mỗi mỗi hình hảo còn có tám vạn bốn ngàn quang minh, mỗi mỗi quang minh chiếu khắp thập phương thế giới, nhiếp lấy chúng sanh niệm Phật chẳng bỏ sót."
+    },
+    {
+     "n": 193,
+     "text": "Quang minh tướng hảo và Hóa Phật ấy chẳng thể nói đủ hết, chỉ nên nhớ tưởng khiến tâm nhãn được thấy."
+    },
+    {
+     "n": 194,
+     "text": "Thấy sự ấy, liền thấy thập phương chiếu khắp tất cả chư Phật."
+    },
+    {
+     "n": 195,
+     "text": "Vì thấy chư Phật nên gọi là niệm Phật tam muội."
+    },
+    {
+     "n": 196,
+     "text": "Quán tưởng đây gọi là quán thân tất cả Phật, vì quán thân Phật nên cũng thấy tâm Phật."
+    },
+    {
+     "n": 197,
+     "text": "Phật tâm là đại từ bi tâm, dùng từ vô duyên nhiếp thọ các chúng sanh."
+    },
+    {
+     "n": 198,
+     "text": "Người tu quán này, bỏ thân, đời khác sanh trước chư Phật được Vô Sanh Nhẫn."
+    },
+    {
+     "n": 199,
+     "text": "Vì vậy nên người trí phải buộc niệm, quán kỹ Vô Lượng Thọ Phật, từ một tướng hảo mà vào, chỉ quán lông trắng giữa hai mày khiến rất tỏ rõ."
+    },
+    {
+     "n": 200,
+     "text": "Được thấy lông trắng ấy rồi thì tám vạn bốn ngàn tướng hảo tự nhiên sẽ hiện."
+    },
+    {
+     "n": 201,
+     "text": "Thấy Phật Vô Lượng Thọ, liền thấy vô lượng chư Phật mười phương."
+    },
+    {
+     "n": 202,
+     "text": "Vì thấy vô lượng chư Phật nên được chư Phật hiện tiền thọ ký."
+    },
+    {
+     "n": 203,
+     "text": "Đây là khắp quán tưởng tất cả sắc thân Phật gọi là pháp quán thứ chín."
+    },
+    {
+     "n": 204,
+     "text": "Quán như đây gọi là chánh quán, nếu quán khác gọi là tà quán\"."
+    },
+    {
+     "n": 205,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi: \" Đã thấy Vô Lượng Thọ Phật tỏ rõ phân minh rồi, kế cũng nên quán Quán Thế Âm Bồ Tát."
+    },
+    {
+     "n": 206,
+     "text": "Bồ Tát này thân cao tám mươi vạn ức na do tha do tuần, thân màu tử kim, đỉnh có nhục kế, cổ có viên quang mỗi phương diện đều trăm ngàn do tuần."
+    },
+    {
+     "n": 207,
+     "text": "Trong viên quang có năm trăm Hóa Phật như Thích Ca Mâu Ni."
+    },
+    {
+     "n": 208,
+     "text": "Mỗi mỗi Hóa Phật có năm trăm Hóa Bồ Tát và vô lượng chư Thiên làm thị giả."
+    },
+    {
+     "n": 209,
+     "text": "Trong ánh sáng toàn thân hiện tất cả sắc tướng của chúng sanh trong ngũ đạo."
+    },
+    {
+     "n": 210,
+     "text": "Trên đỉnh có thiên quang bằng tỳ lăng già ma ni bửu."
+    },
+    {
+     "n": 211,
+     "text": "Trong thiên quang có một Hóa Phật, đứng cao hai mươi lăm do tuần."
+    },
+    {
+     "n": 212,
+     "text": "Mặt của Quán Thế Âm Bồ Tát như màu vàng diêm phù đàn."
+    },
+    {
+     "n": 213,
+     "text": "Lông trắng giữa hai mày đủ màu thất bửu, chiếu ra tám vạn bốn ngàn thứ ánh sáng."
+    },
+    {
+     "n": 214,
+     "text": "Mỗi mỗi ánh sáng có vô lượng vô số trăm ngàn Hóa Phật."
+    },
+    {
+     "n": 215,
+     "text": "Mỗi mỗi Hóa Phật có vô số Hóa Bồ Tát làm thị giả, biến hiện tự tại khắp thập phương thế giới."
+    },
+    {
+     "n": 216,
+     "text": "Cánh tay màu như hoa sen hồng có tám mươi ức ánh sáng vi diệu làm chuỗi đeo."
+    },
+    {
+     "n": 217,
+     "text": "Trong chuỗi đeo, ánh sáng ấy khắp hiện tất cả sự trang nghiêm."
+    },
+    {
+     "n": 218,
+     "text": "Bàn tay màu năm trăm ức hoa sen đẹp. Bàn tay mười đầu ngón, mỗi mỗi đầu ngón có tám vạn bốn ngàn lằn dường như ấn văn."
+    },
+    {
+     "n": 219,
+     "text": "Mỗi mỗi lằn có tám vạn bốn ngàn ánh sáng, ánh sáng ấy mềm dịu chiếu khắp tất cả."
+    },
+    {
+     "n": 220,
+     "text": "Bồ Tát dùng tay báu này tiếp dẫn chúng sanh."
+    },
+    {
+     "n": 221,
+     "text": "Lúc Bồ Tát cất chân lên, dưới lòng bàn chân có tướng thiên bức luân tự nhiên hóa thành năm trăm ức đài quang minh."
+    },
+    {
+     "n": 222,
+     "text": "Lúc để chân xuống, có hoa kim cương ma ni rải rắc tất cả, không chỗ nào là chẳng đầy khắp."
+    },
+    {
+     "n": 223,
+     "text": "Các tướng khác nơi thân Bồ Tát đầy đủ những hình hảo như thân Phật không khác, chỉ có nhục kế trên đỉnh và vô kiến đảnh tướng chẳng bằng Thế Tôn."
+    },
+    {
+     "n": 224,
+     "text": "Đây là tướng sắc thân chơn thiệt của Quán Thế Âm Bồ Tát, gọi là pháp quán thứ mười."
+    },
+    {
+     "n": 225,
+     "text": "Nếu người muốn thấy Quán Thế AÂm Bồ Tát nên tu quán ấy."
+    },
+    {
+     "n": 226,
+     "text": "Tu quán ấy thì chẳng gặp các tai họa, trừ sạch nghiệp chướng, trừ tội sanh tử trong vô số kiếp."
+    },
+    {
+     "n": 227,
+     "text": "Quán Thế Âm Bồ Tát ấy chỉ nghe danh hiệu còn được phước vô lượng huống là quán kỹ."
+    },
+    {
+     "n": 228,
+     "text": "Nếu người muốn Quán Thế Âm Bồ Tát thì trước quán nhục kế, sau quán thiên quang."
+    },
+    {
+     "n": 229,
+     "text": "Các tướng khác cũng theo thứ tự mà quán kỹ, đều phải tỏ rõ như nhìn trong bàn tay."
+    },
+    {
+     "n": 230,
+     "text": "Quán như đây gọi là chán quán, nếu quán khác thì gọi là tà quán."
+    },
+    {
+     "n": 231,
+     "text": "Kế đó quán Đại Thế Chí Bồ Tát. Bồ Tát này thân lượng lớn nhỏ đều đồng như Quán Thế Âm Bồ Tát."
+    },
+    {
+     "n": 232,
+     "text": "Viên Quang mỗi mặt đều một trăm hai mươi lăm do tuần, chiếu hai trăm năm mươi do tuần."
+    },
+    {
+     "n": 233,
+     "text": "Ánh sáng toàn thân chiếu toàn thân quốc độ màu tử kim."
+    },
+    {
+     "n": 234,
+     "text": "Chúng sanh có duyên thảy đều được thấy. Chỉ thấy ánh sáng một lỗ lông của Bồ Tát này liền thấy quang minh tịnh diệu vô lượng chư Phật mười phương, vì vậy nên đặt hiệu Bồ Tát này là Vô Biên Quang."
+    },
+    {
+     "n": 235,
+     "text": "Dùng ánh sáng trí huệ chiếu khắp tất cả, khiến lìa tam đồ được vô thượng lực nên Bồ Tát nầy có tên là Đại Thế Chí."
+    },
+    {
+     "n": 236,
+     "text": "Thiên Quang của Đại Thế Chí Bồ Tát có năm trăm hoa báu, mỗi mỗi hoa báu có năm trăm đài báu, trong mỗi mỗi đài, tướng dài ngắn của quốc độ thanh tịnh vi diệu chư Phật mười phương đều hiện rõ."
+    },
+    {
+     "n": 237,
+     "text": "Nhục kế trên dỉnh như hoa bát đầu ma, trên nhục kế có một bình báu đựng các ánh sáng khắp hiện Phật sự."
+    },
+    {
+     "n": 238,
+     "text": "Các thân tướng khác như Quán Thế Âm không khác."
+    },
+    {
+     "n": 239,
+     "text": "Lúc Đại Thế Chí Bồ Tát đi, thập phương thế giới tất cả chấn động."
+    },
+    {
+     "n": 240,
+     "text": "Đương lúc bất động có năm trăm ức hoa báu, mỗi mỗi hoa báu trang nghiêm cao rõ như Cực Lạc thế giới."
+    },
+    {
+     "n": 241,
+     "text": "Lúc Bồ Tát này ngồi, quốc độ thất bửu đồng thời dao động."
+    },
+    {
+     "n": 242,
+     "text": "Từ Hạ phương Kim Quang Phật thế giới nhẫn đến Thượng phương Quang Minh Vương Phật thế giới, trong khoảng giữa ấy, vô lượng vô số phân thân Vô Lượng Thọ Phật, phân thân Quán Thế Âm Bồ Tát, phân thân Đại Thế Chí Bồ Tát,"
+    },
+    {
+     "n": 243,
+     "text": "thảy đều vân tập Cực Lạc thế giới, chật đầy hư không, ngồi tòa liên hoa, diễn nói diệu pháp độ khổ chúng sanh."
+    },
+    {
+     "n": 244,
+     "text": "Tu pháp quán này gọi là quán thấy Đại Thế Chí Bồ Tát."
+    },
+    {
+     "n": 245,
+     "text": "Đây là quán thấy tướng sắc thân thiệt Đai Thế Chí, gọi là pháp quán thứ mười một."
+    },
+    {
+     "n": 246,
+     "text": "Quán Đại Thế Chí Bồ Tát trừ vô số kiếp vô số tội sanh tử."
+    },
+    {
+     "n": 247,
+     "text": "Người tu quán này chẳng còn ở bào thai, thường du hành quốc độ thanh tịnh vi diệu chư Phật."
+    },
+    {
+     "n": 248,
+     "text": "Pháp quán này thành rồi, gọi là đầy đủ quán Quán Thế Âm Bồ Tát và Đại Thế Chí Bồ Tát."
+    },
+    {
+     "n": 249,
+     "text": "Lúc thấy sự ấy rồi, nên khởi tự tâm sanh nơi Tây Phương Cực Lạc thế giới, trong hoa sen ngồi kiết già, tưởng hoa sen búp lại, tưởng hoa sen nở ra."
+    },
+    {
+     "n": 250,
+     "text": "Lúc hoa sen nở có ánh sáng năm trăm màu chiếu đến thân."
+    },
+    {
+     "n": 251,
+     "text": "Tưởng mắt mở ra thấy Phật và Bồ Tát đầy cả hư không, nước, chim, cây, rừng, cùng chư Phật phát ra âm thanh đều diễn nói diệu pháp hiệp với mười hai bộ Kinh."
+    },
+    {
+     "n": 252,
+     "text": "Lúc xuất định nhớ giữ không mất. Thấy sự này rồi, gọi là thấy Vô Lượng Thọ Phật Cực Lạc thế giới."
+    },
+    {
+     "n": 253,
+     "text": "Đây là phổ quán tưởng gọi là pháp quán thứ mười hai."
+    },
+    {
+     "n": 254,
+     "text": "Vô Lượng Thọ Phật hóa thân vô số, cùng Quán Thế Âm Bồ Tát và Đại Thế Chí Bồ Tát thường đến chỗ hành nhơn ấy\"."
+    },
+    {
+     "n": 255,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi: \" Người muốn chí tâm sanh Cực Lạc thế giới, trước nên quán tượng Phật Vô Lượng Thọ cao một trượng sáu xích ở trên mặt nước ao báu."
+    },
+    {
+     "n": 256,
+     "text": "Như trước đã nói, Vô Lượng Thọ Phật thân lượng vô biên chẳng phải tâm lực của phàm phu kịp được."
+    },
+    {
+     "n": 257,
+     "text": "Nhưng do nguyện lực đời trước của đức Như Lai ấy, nên ai có tâm nhớ tưởng thì ắt được thành tựu."
+    },
+    {
+     "n": 258,
+     "text": "Chỉ tưởng tượng Phật, được phước vô lượng, huống là quán đủ thân tướng của Phật."
+    },
+    {
+     "n": 259,
+     "text": "A Di Đà Phật thần thông như ý, nơi mười phương quốc độ biến hiện tự tại."
+    },
+    {
+     "n": 260,
+     "text": "Hoặc hiện thân lớn đầy trong hư không, hoặc hiện thân nhỏ một trượng sáu xích, hoặc là tám xích."
+    },
+    {
+     "n": 261,
+     "text": "Thân hình Phật hiện ra đều màu chơn kim, viên quang Hóa Phật và hoa sen báu như đã nói ở trên."
+    },
+    {
+     "n": 262,
+     "text": "Quán Thế Âm Bồ Tát và Đại Thế Chí Bồ tát ở tất cả xứ, thân đồng với chúng sanh."
+    },
+    {
+     "n": 263,
+     "text": "Chỉ quán tưởng trên đầu, biết là Quán Thế Âm hay Đại Thế Chí."
+    },
+    {
+     "n": 264,
+     "text": "Hai đại Bồ Tát ấy trợ Phật A Di Đà khắp hóa độ tất cả."
+    },
+    {
+     "n": 265,
+     "text": "Đây là tạp tưởng quán gọi là quán thứ mười ba.\" Đức Phật bảo A Nan và Vi Đề Hi: \"Người sanh Cực Lạc thế giới, bậc Thượng Phẩm Thượng Sanh ấy."
+    },
+    {
+     "n": 266,
+     "text": "Nếu có chúng sanh nguyện sanh Cực Lạc thế giới phát ba thứ tâm liền được vãng sanh."
+    },
+    {
+     "n": 267,
+     "text": "Những gì là ba tâm? Một là chí thành tâm, hai là thâm tâm và ba là hồi hướng phát nguyện tâm."
+    },
+    {
+     "n": 268,
+     "text": "Người đủ ba tâm này ắt sanh Cực Lạc thế giới."
+    },
+    {
+     "n": 269,
+     "text": "Còn có ba hạng chúng sanh sẽ được vãng sanh."
+    },
+    {
+     "n": 270,
+     "text": "Những gì là ba hạng? Một là từ tâm bất sát, đủ các giới hạnh."
+    },
+    {
+     "n": 271,
+     "text": "Hai là đọc tụng kinh điển Phương Đẳng Đại Thừa."
+    },
+    {
+     "n": 272,
+     "text": "Ba là tu hành Lục Niệm, hồi hướng phát nguyện, nguyện sanh Cực Lạc."
+    },
+    {
+     "n": 273,
+     "text": "Người đủ các công đức này từ một ngày đến bảy ngày liền được vãng sanh."
+    },
+    {
+     "n": 274,
+     "text": "Lúc sanh về nước ấy, vì người này tinh tiến dũng mãnh, nên A Di Đà Như Lai cùng Quán Thế Âm, Đại Thế Chí, vô số Hóa Phật, trăm ngàn Tỳ Kheo Thanh Văn đại chúng, vô lượng chư Thiên, cung điện bảy báu."
+    },
+    {
+     "n": 275,
+     "text": "Quán Thế AÂm Bồ tát cầm đài kim cương cùng Đại Thế Chí Bồ tát đến trước hành nhơn."
+    },
+    {
+     "n": 276,
+     "text": "A Di Đà Phật phóng đại quang minh chiếu thân hành giả, cùng các Bồ Tát trao tay nghinh tiếp."
+    },
+    {
+     "n": 277,
+     "text": "Quán Thế Âm, Đại Thế Chí, cùng vô số Bồ Tát, tán thán hành giả, khuyến khích, sách tiến tâm hành giả."
+    },
+    {
+     "n": 278,
+     "text": "Hành giả thấy rồi, hoan hỉ dũng dước, tự thấy thân mình ngồi đài kim cương, đi theo sau Phật."
+    },
+    {
+     "n": 279,
+     "text": "Như khoảng khảy ngón tay, vãng sanh nước Cực Lạc."
+    },
+    {
+     "n": 280,
+     "text": "Sanh nước Cực Lạc rồi, thấy sắc thân Phật A Di Đà đầy đủ các tướng."
+    },
+    {
+     "n": 281,
+     "text": "Thấy chư Bồ Tát sắc tướng đầy đủ. Quang minh cây rừng báu diễn nói diệu pháp."
+    },
+    {
+     "n": 282,
+     "text": "Nghe rồi liền ngộ Vô Sanh Pháp Nhẫn. Trong thời gian giây lát, đi khắp thập phương thế giới kính thờ chư Phật."
+    },
+    {
+     "n": 283,
+     "text": "Ở trước chư Phật thứ đệ thọ ký. Trở về bổn quốc được vô lượng trăm ngàn môn đà la ni."
+    },
+    {
+     "n": 284,
+     "text": "Đây gọi là người Thượng Phẩm Thượng Sanh."
+    },
+    {
+     "n": 285,
+     "text": "Người Thượng Phẩm Trung Sanh ấy, người này bất tất thọ trì đọc tụng Kinh điển Phương Đẳng Đại Thừa, chỉ khéo hiểu nghĩa thú, nơi Đệ Nhứt nghĩa tâm chẳng kinh động, thâm tín nhơn quả, chẳng hủy báng Đại Thừa."
+    },
+    {
+     "n": 286,
+     "text": "Đem công đức ấy hồi hướng, nguyện cầu sanh Cực Lạc thế giới."
+    },
+    {
+     "n": 287,
+     "text": "Người có công hạnh như vậy, lúc lâm chung, A Di Đà Phật cùng Quán Thế Âm, Đại Thế Chí, vô lượng đại chúng vây quanh, cầm đài tử kim đến trước hành giả, khen rằng: Nầy Pháp tử!"
+    },
+    {
+     "n": 288,
+     "text": "Ngươi hành Đại Thừa, hiểu Đệ Nhất Nghĩa, nên nay ta đến nghinh tiếp ngươi."
+    },
+    {
+     "n": 289,
+     "text": "Đức Phật A Di Đà cùng ngàn Hóa Phật đồng thời trao tay."
+    },
+    {
+     "n": 290,
+     "text": "Hành giả ấy tự thấy mình ngồi đài kim tử, chắp tay xếp cánh tán thán chư Phật."
+    },
+    {
+     "n": 291,
+     "text": "Như khoảng một niệm, liền sanh Cực Lạc trong ao thất bửu."
+    },
+    {
+     "n": 292,
+     "text": "Đài kim tử ấy như hoa sen lớn qua một đêm liền nở."
+    },
+    {
+     "n": 293,
+     "text": "Thân hành giả màu vàng tử ma, dưới chân cũng có hoa sen bảy báu."
+    },
+    {
+     "n": 294,
+     "text": "Phật và Bồ Tát đồng thời phóng quang chiếu thân hành giả mắt liền mở sáng."
+    },
+    {
+     "n": 295,
+     "text": "Nhơn túc tập trước, nên khắp nghe các âm thanh thuần nói thậm thâm Đệ Nhất Nghĩa Đế."
+    },
+    {
+     "n": 296,
+     "text": "Hành giả ấy liền xuống kim đài lạy Phật, chắp tay tán thán Thế Tôn, qua bảy ngày liền được chẳng thối chuyển Vô Thượng Bồ Đề, liền có thể bay đi đến khắp mười phương kính thờ chư Phật, ở trước chư Phật tu các tam muội,"
+    },
+    {
+     "n": 297,
+     "text": "qua một tiểu kiếp được Vô Sanh Nhẫn, hiện tiền thọ ký."
+    },
+    {
+     "n": 298,
+     "text": "Đây gọi là người Thượng Phẩm Trung Sanh vậy."
+    },
+    {
+     "n": 299,
+     "text": "Người Thượng Phẩm Hạ sanh ấy. Người này cũng tin nhơn quả, chẳng hủy báng Đại Thừa, chỉ phát tâm Vô Thượng Bồ Đề."
+    },
+    {
+     "n": 300,
+     "text": "Đem công đức ấy hồi hướng, nguyện cầu sanh Cực Lạc thế giới."
+    },
+    {
+     "n": 301,
+     "text": "Hành giả ấy lúc lâm chung, A Di Đà Phật cùng Quán Thế Âm , Đại Thế Chí và chư Bồ Tát cầm hoa sen vàng, hóa làm năm trăm Phật đến rước."
+    },
+    {
+     "n": 302,
+     "text": "Năm trăm hóa Phật đồng thời trao tay khen rằng: Này Pháp tử, nay ngươi thanh tịnh phát tâm Vô Thượng Bồ Đề, ta đến rước ngươi."
+    },
+    {
+     "n": 303,
+     "text": "Hành giả lúc thấy sự ấy, liền tự thấy thân mình ngồi kim liên hoa."
+    },
+    {
+     "n": 304,
+     "text": "Ngồi rồi, hoa búp lại, theo sau Phật, liền được vãng sanh Cực Lạc thế giới trong ao thất bửu."
+    },
+    {
+     "n": 305,
+     "text": "Qua một ngày một đêm kim liên hoa mới nở."
+    },
+    {
+     "n": 306,
+     "text": "Qua bảy ngày mới được thấy Phật. Dầu thấy thân Phật mà chẳng thấy tỏ rõ các tướng hảo."
+    },
+    {
+     "n": 307,
+     "text": "Sau hai mươi mốt ngày mới thấy rõ hết. Nghe các âm thanh đều diễn diệu pháp, đi khắp mười phương cúng dường chư Phật."
+    },
+    {
+     "n": 308,
+     "text": "Ở trước chư Phật nghe thậm thâm pháp. Qua ba tiểu kiếp, được bá pháp minh môn, trụ bực Hoan Hỉ Địa."
+    },
+    {
+     "n": 309,
+     "text": "Đây gọi là người Thượng Phẩm Hạ Sanh vậy."
+    },
+    {
+     "n": 310,
+     "text": "Đây gọi là pháp tưởng hàng Thượng Phẩm vãng sanh, gọi là pháp quán thứ mười bốn\" Đức Phật bảo A Nan và Vi Đề Hi: \"Người Trung Phẩm Thượng Sanh ấy."
+    },
+    {
+     "n": 311,
+     "text": "Nếu có chúng sanh thọ trì ngũ giới, trì bát giới trai, tu hành các giới, chẳng tạo ngũ nghịch, không có các tội lỗi."
+    },
+    {
+     "n": 312,
+     "text": "Đem thiện căn này nguyện cầu sanh Cực Lạc thế giới."
+    },
+    {
+     "n": 313,
+     "text": "Hành giả lúc lâm chung, A Di Đà Phật cùng các Tỳ kheo quyến thuộc vây quanh, phóng ánh sáng kim sắc đến chỗ hành giả, diễn nói khổ, không, vô thường, vô ngã, tán thán xuất gia được lìa các sự khổ."
+    },
+    {
+     "n": 314,
+     "text": "Hành giả thấy rồi lòng rất vui mừng, tự thấy thân mình ngồi đài liên hoa, quỳ dài chắp tay đảnh lễ Phật, lúc chưa cất đầu lên liền được vãng sanh Cực Lạc thế giới, liên hoa liền nở."
+    },
+    {
+     "n": 315,
+     "text": "Lúc hoa sen nở, nghe các âm thanh tán thán Tứ Đế, liền được A La Hán đạo, Tam Minh, Lục Thông, đủ Bát giải thoát."
+    },
+    {
+     "n": 316,
+     "text": "Đây gọi là người Trung Phẩm Thượng Sanh vậy."
+    },
+    {
+     "n": 317,
+     "text": "Người Trung Phẩm Trung Sanh ấy. Nếu có chúng sanh hoặc một ngày đêm trì bát giới trai, hoặc một ngày một đêm trì giới Sa di, hoặc một ngày một đêm trì Cụ Túc giới, oai nghi không kém thiếu."
+    },
+    {
+     "n": 318,
+     "text": "Đem công đức này hồi hướng, nguyện sanh Tây Phương Cực Lạc thế giới."
+    },
+    {
+     "n": 319,
+     "text": "Do giới hương huân tu, hành giả này lúc lâm chung thấy A Di Đà Phật cùng các quyến thuộc phóng kim sắc quang, cầm bửu liên hoa đến trước hành giả."
+    },
+    {
+     "n": 320,
+     "text": "Hành giả tự nghe hư không có tiếng khen rằng: Này Thiện Nam tử, như ngươi, hàng thiện nhơn, tùy thuận lời dạy tam thế chư Phật nên ta đến rước."
+    },
+    {
+     "n": 321,
+     "text": "Hành giả tự thấy thân mình ngồi trên hoa sen, hoa sen liền búp lại, sanh trong ao báu Tây Phương Cực Lạc thế giới."
+    },
+    {
+     "n": 322,
+     "text": "Qua bảy ngày liên hoa mới nở. Hoa nở rồi, mở mắt chắp tay tán thán Thế Tôn, nghe pháp hoan hỉ được quả Tu Đà Hoàn."
+    },
+    {
+     "n": 323,
+     "text": "Qua nửa kiếp thành bực A La Hán. Đây gọi là người Trung Phẩm Trung Sanh vậy."
+    },
+    {
+     "n": 324,
+     "text": "Người Trung Phẩm Hạ Sanh ấy. Nếu có thiện nam, thiện nữ hiếu dưỡng cha mẹ, làm việc nhơn từ thế gian."
+    },
+    {
+     "n": 325,
+     "text": "Người này lúc lâm chung, gặp thiện tri thức vì họ mà nói rộng những sự vui nơi quốc độ Phật A Di Đà, cùng nói bốn mươi tám nguyện của Pháp Tạng Tỳ Kheo, nghe rồi liền chết."
+    },
+    {
+     "n": 326,
+     "text": "Ví như khoảng thời gian tráng sĩ co duỗi chân tay, liền được vãng sanh Tây Phương Cực Lạc thế giới."
+    },
+    {
+     "n": 327,
+     "text": "Qua bảy ngày, gặp Quán Thế Âm và Đại Thế Chí Bồ Tát, nghe pháp hoan hỉ được quả Tu Đà Hoàn."
+    },
+    {
+     "n": 328,
+     "text": "Qua một tiểu kiếp thành A La Hán. Đây gọi là người Trung Phẩm Hạ Sanh vậy.\" Đức Phật bảo A Nan và Vi Đề Hi: \"Người Hạ Phẩm Thượng Sanh ấy."
+    },
+    {
+     "n": 329,
+     "text": "Hoặc có chúng sanh tạo những nghiệp ác. Người ngu như vậy, dầu chẳng hủy báng Kinh điển Phương Đẳng Đại Thừa, mà tạo nhiều việc ác, không có tàm quí."
+    },
+    {
+     "n": 330,
+     "text": "Người này lúc lâm chung, gặp thiện tri thức vì họ mà nói mười hai bộ Kinh Đại Thừa danh tự đầu đề."
+    },
+    {
+     "n": 331,
+     "text": "Do nghe tên các Kinh như vậy, dứt trừ ngàn kiếp ác nghiệp cực trọng."
+    },
+    {
+     "n": 332,
+     "text": "Trí giả lại bảo chắp tay xếp cánh, xưng Nam Mô A Di Đà Phật."
+    },
+    {
+     "n": 333,
+     "text": "Do xưng danh hiệu Phật nên trừ năm mươi ức kiếp tội sanh tử."
+    },
+    {
+     "n": 334,
+     "text": "Lúc ấy Phật A Di Đà liền sai Hóa Phật, hóa Quán Thế Âm, hóa Đại Thế Chí đến trước hành giả, khen rằng: Nầy thiện nam tử !"
+    },
+    {
+     "n": 335,
+     "text": "Vì ngươi xưng danh hiệu Phật, các tội tiêu diệt, ta đến rước ngươi."
+    },
+    {
+     "n": 336,
+     "text": "Nghe lời nói ấy rồi, hành giả liền thấy quang minh của Hóa Phật chiếu sáng cả nhà."
+    },
+    {
+     "n": 337,
+     "text": "Thấy rồi hoan hỉ mạng chung, ngồi bửu liên hoa theo sau Hóa Phật, sanh trong ao báu Cực Lạc thế giới ."
+    },
+    {
+     "n": 338,
+     "text": "Qua bốn mươi chín ngày hoa sen mới nờ. Đương lúc hoa nở, Đại bi Quán Thế AÂm Bồ Tát và Đại Thế Chí Bồ Tát phóng đại quang minh đứng trước người ấy, vì người ấy nói thậm thâm nhị bộ Kinh."
+    },
+    {
+     "n": 339,
+     "text": "Người ấy nghe rồi tin hiểu phát Vô Thượng đạo tâm."
+    },
+    {
+     "n": 340,
+     "text": "Qua mười tiểu kiếp, đủ bá pháp minh môn, được nhập bậc Sơ Địa."
+    },
+    {
+     "n": 341,
+     "text": "Đây gọi là người Hạ Phẩm Thượng Sanh vậy\"."
+    },
+    {
+     "n": 342,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi: \"Người Hạ Phẩm Trung Sanh ấy."
+    },
+    {
+     "n": 343,
+     "text": "Hoặc có chúng sanh hủy phạm ngũ giới, bát giới và cụ túc giới."
+    },
+    {
+     "n": 344,
+     "text": "Người ngu này trộm của vật Tăng kỳ, trộm của vật hiện tiền Tăng, bất tịnh thuyết pháp, không có tàm quí, dùng các ác nghiệp để tự trang nghiêm."
+    },
+    {
+     "n": 345,
+     "text": "Người tội như đây do nghiệp ác phải đọa địa ngục đồng thời hiện đến."
+    },
+    {
+     "n": 346,
+     "text": "Gặp thiện tri thức, vì lòng đại từ bi, vì người ấy mà khen nói Thập Lực oai đức của đức Phật A Di Đà, rộng khen quang minh thần lực của đức Phật A Di Đà, cũng tán dương Giới, Định, Huệ, Giải thoát, Giải thoát tri kiến."
+    },
+    {
+     "n": 347,
+     "text": "Người ấy nghe rồi trừ tám mươi ức kiếp tội sanh tử."
+    },
+    {
+     "n": 348,
+     "text": "Lửa mạnh địa ngục biến thành gió mát, thổi các thiên hoa bay đến."
+    },
+    {
+     "n": 349,
+     "text": "Trên hoa đều có Hóa Phật, Hóa Bồ Tát tiếp rước người ấy."
+    },
+    {
+     "n": 350,
+     "text": "Trong khoảng một niệm liền sanh trong hoa sen nơi ao báu Cực Lạc thế giới."
+    },
+    {
+     "n": 351,
+     "text": "Qua sáu kiếp hoa sen mới nở. Quán Thế Âm Bồ Tát và Đại Thế Chí Bồ Tát dùng phạm âm thanh an úy người ấy, vì người ấy mà nói Kinh điển Đại Thừa thậm thâm."
+    },
+    {
+     "n": 352,
+     "text": "Nghe pháp rồi, người ấy liền phát tâm Vô Thượng Đạo."
+    },
+    {
+     "n": 353,
+     "text": "Đây gọi là người Hạ Phẩm Trung Sanh vậy\"."
+    },
+    {
+     "n": 354,
+     "text": "Đức Phật bảo A Nan và Vi Đề Hi: \"Người Hạ Phẩm Hạ Sanh ấy."
+    },
+    {
+     "n": 355,
+     "text": "Hoặc có chúng sanh tạo nghiệp bất thiện ngũ nghịch, thập ác, đủ các bất thiện."
+    },
+    {
+     "n": 356,
+     "text": "Người ngu như vậy, do các ác nghiệp phải đọa ác đạo, trải qua nhiều kiếp thọ khổ vô cùng."
+    },
+    {
+     "n": 357,
+     "text": "Người ngu ấy, lúc lâm chung, gặp thiện tri thức dùng nhiều lời an ủi, vì nói diệu pháp dạy bảo niệm Phật."
+    },
+    {
+     "n": 358,
+     "text": "Người ấy bị khổ bức không rảnh niệm được."
+    },
+    {
+     "n": 359,
+     "text": "Thiện hữu bảo rằng nếu người chẳng phải niệm Phật kia được, thì ngươi xưng danh hiệu Phật A Di Đà, như vậy chí tâm khiến tiếng xưng danh chẳng dứt đủ mười niệm."
+    },
+    {
+     "n": 360,
+     "text": "Nên xưng như vầy: Nam Mô A Di Đà Phật. Do xưng danh hiệu Phật, nên trong mỗi niệm trừ tám mươi ức kiếp tội sanh tử."
+    },
+    {
+     "n": 361,
+     "text": "Lúc mạng chung, thấy kim liên hoa dường như mặt nhựt trụ trước người ấy."
+    },
+    {
+     "n": 362,
+     "text": "Như khoảng một niệm, liền được vãng sanh Cực Lạc thế giới, ở trong hoa sen mãn mười hai đại kiếp hoa sen ấy mới nở."
+    },
+    {
+     "n": 363,
+     "text": "Quán Thế Âm Bồ Tát và Đại Thế Chí Bồ Tát dùng âm thanh đại bi vì người ấy diễn nói thiệt tướng các pháp, nói pháp trừ diệt tội."
+    },
+    {
+     "n": 364,
+     "text": "Người ấy nghe pháp rồi, rất vui mừng liền phát tâm Vô Thượng Bồ Đề."
+    },
+    {
+     "n": 365,
+     "text": "Đây gọi là người Hạ Phẩm Hạ Sanh vậy\". Quốc Thái phu nhơn Vi Đề Hi cùng năm trăm thị nữ nghe lời đức Phật nói về mười sáu pháp quán ấy, liền lúc đó thấy tướng rộng lớn Cực Lạc thế giới."
+    },
+    {
+     "n": 366,
+     "text": "Được thấy sắc thân Phật A Di Đà và hai Bồ Tát Quán Thế Âm, Đại Thế Chí, lòng rất hoan hỷ khen chưa từng có."
+    },
+    {
+     "n": 367,
+     "text": "Vi Đề Hi hoát nhiên đại ngộ được Vô Sanh Nhẫn."
+    },
+    {
+     "n": 368,
+     "text": "Năm trăm thị nữ phát tâm Vô Thượng Bồ Đề nguyện sanh Cực Lạc thế giới."
+    },
+    {
+     "n": 369,
+     "text": "Đức Thế Tôn thọ ký đều sẽ vãng sanh. Sanh nước Cực Lạc rồi được chư Phật hiện tiền tam muội."
+    },
+    {
+     "n": 370,
+     "text": "Còn có vô lượng chư Thiên phát tâm Vô Thượng Đạo."
+    },
+    {
+     "n": 371,
+     "text": "Lúc bấy giờ Tôn giả A Nan từ chỗ ngồi đứng dậy bạch Phật rằng: “ Bạch Đức Thế Tôn!"
+    },
+    {
+     "n": 372,
+     "text": "Kinh này sẽ gọi là tên gì? Pháp yếu này sẽ thọ trì như thế nào?\"."
+    },
+    {
+     "n": 373,
+     "text": "Đức Phật nói: \"Này A Nan! Kinh này tên là Quán Cực Lạc Quốc Độ Vô Lượng Thọ Phật, Quán Thế Âm Bồ Tát, Đại Thế Chí Bồ Tát."
+    },
+    {
+     "n": 374,
+     "text": "Cũng có tên là Tịnh Trừ Nghiệp Chướng Sanh Chư Phật Tiền."
+    },
+    {
+     "n": 375,
+     "text": "Ông nên thọ trì như vậy chớ để quên mất."
+    },
+    {
+     "n": 376,
+     "text": "Người hành tam muội này thì thân hiện đời được thấy Vô Lượng Thọ Phật, Quán Thế Âm Bồ Tát và Đại Thế Chí Bồ Tát."
+    },
+    {
+     "n": 377,
+     "text": "Nếu thiện nam, thiện nữ chỉ nghe danh hiệu Quán Thế Âm Bồ Tát và Đại Thế Chí Bồ Tát thì trừ vô lượng kiếp tội sanh tử, huống là nhớ niệm."
+    },
+    {
+     "n": 378,
+     "text": "Nếu là người niệm Phật, nên biết người ấy là hoa phân đà lợi trong loài người."
+    },
+    {
+     "n": 379,
+     "text": "Quán Thế Âm và Đại Thế Chí Bồ Tát là thắng hữu của người ấy."
+    },
+    {
+     "n": 380,
+     "text": "Người ấy sẽ ngồi đạo tràng sanh vào nhà chư Phật\"."
+    },
+    {
+     "n": 381,
+     "text": "Đức Phật bảo Tôn giả A Nan: \" Này A Nan!"
+    },
+    {
+     "n": 382,
+     "text": "Ngươi phải trì lời này cho tốt. Người trì lời này tức là trì danh hiệu Vô Lượng Thọ Phật\"."
+    },
+    {
+     "n": 383,
+     "text": "Phật nói Kinh này rồi, Tôn giả Mục Kiền Liên, Tôn giả A Nan và Vi Đề Hi, cùng thị nữ quyến thuộc, nghe lời đức Phật dạy tất cả đều rất vui mừng."
+    },
+    {
+     "n": 384,
+     "text": "Bấy giờ đức Thế Tôn chân đi trên hư không trở về núi Kỳ Xà Quật."
+    },
+    {
+     "n": 385,
+     "text": "Tôn giả A Nan vì đại chúng nói rộng sự ấy."
+    },
+    {
+     "n": 386,
+     "text": "Vô Lượng chư Thiên Long Bát Bộ, nghe lời Phật nói đều rất vui mừng lạy Phật lui ra./."
+    }
+   ]
+  }
+ ]
+}

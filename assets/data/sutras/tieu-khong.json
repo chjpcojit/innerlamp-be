@@ -1,0 +1,1153 @@
+{
+ "id": "tieu-khong",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 121",
+ "summary": "Kinh trong Trung Bộ (MN 121), Tôn giả Ānanda thưa lại điều đã nghe từ Thế Tôn về việc an trú trong không tánh. Thế Tôn xác nhận và dùng hình ảnh giảng đường Lộc Mẫu vắng người, vật để dạy cách tuần tự bỏ dần các tưởng thô và an trú vào không tánh thanh tịnh.",
+ "titles": {
+  "vi": "Kinh Tiểu không",
+  "pli": "Cūḷasuññatasutta",
+  "en": "The Shorter Discourse on Emptiness"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 30,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn121/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn trú ở Sāvatthi (Xá-vệ), tại Pubbārāma (Đông Viên), lâu đài của Migaramatu (Lộc Mẫu)."
+    },
+    {
+     "n": 3,
+     "text": "Rồi Tôn giả Ānanda, vào buổi chiều, từ Thiền tịnh độc cư đứng dậy, đi đến Thế Tôn, sau khi đến đảnh lễ Thế Tôn, rồi ngồi xuống một bên, Tôn giả Ānanda bạch Thế Tôn"
+    },
+    {
+     "n": 4,
+     "text": "—Một thời, bạch Thế Tôn, Thế Tôn trú giữa các Sakka (Thích-ca)."
+    },
+    {
+     "n": 5,
+     "text": "Nagaraka là tên một thị trấn của các Sakka."
+    },
+    {
+     "n": 6,
+     "text": "Tại đấy, bạch Thế Tôn, con được nghe trước mặt Thế Tôn, con được ghi nhớ trước mặt Thế Tôn như sau: “Này Ānanda, Ta nhờ an trú không, nên nay an trú rất nhiều”."
+    },
+    {
+     "n": 7,
+     "text": "Phải chăng, bạch Thế Tôn, điều con đã nghe là nghe đúng, ghi nhớ đúng, tác ý đúng, thọ trì đúng?"
+    },
+    {
+     "n": 8,
+     "text": "—Thật vậy, này Ānanda, điều Ông đã nghe là nghe đúng, ghi nhớ đúng, tác ý đúng, thọ trì đúng."
+    },
+    {
+     "n": 9,
+     "text": "Thuở xưa và nay, này Ānanda, Ta nhờ an trú không, nên nay an trú rất nhiều."
+    },
+    {
+     "n": 10,
+     "text": "Ví như lâu đài Lộc Mẫu này không có voi, bò, ngựa, ngựa cái, không có vàng và bạc, không có đàn bà, đàn ông tụ hội, và chỉ có một cái không phải không, tức là sự nhất trí (ekattam) do duyên chúng Tỷ-kheo;"
+    },
+    {
+     "n": 11,
+     "text": "cũng vậy, này Ānanda, Tỷ-kheo không tác ý thôn tưởng, không tác ý nhơn tưởng, chỉ tác ý sự nhất trí, do duyên lâm tưởng."
+    },
+    {
+     "n": 12,
+     "text": "Tâm của vị ấy được thích thú hân hoan, an trú, hướng đến lâm tưởng."
+    },
+    {
+     "n": 13,
+     "text": "Vị ấy tuệ tri như sau: “Các ưu phiền do duyên thôn tưởng không có mặt ở đây; các ưu phiền do duyên nhân tưởng không có mặt ở đây."
+    },
+    {
+     "n": 14,
+     "text": "Và chỉ có một ưu phiền này, tức là sự nhất trí do duyên lâm tưởng”."
+    },
+    {
+     "n": 15,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có thôn tưởng”."
+    },
+    {
+     "n": 16,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có nhân tưởng”."
+    },
+    {
+     "n": 17,
+     "text": "Và chỉ có một cái này không phải không, tức là sự nhất trí (ekattam) do duyên lâm tưởng”."
+    },
+    {
+     "n": 18,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 19,
+     "text": "Nhưng đối với cái còn lại, ở đây, vị ấy tuệ tri: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 20,
+     "text": "Như vậy, này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, không tánh."
+    },
+    {
+     "n": 21,
+     "text": "Lại nữa, này các Tỷ-kheo, Tỷ-kheo không tác ý nhân tưởng, không tác ý lâm tưởng, chỉ tác ý sự nhất trí do duyên địa tưởng."
+    },
+    {
+     "n": 22,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến địa tưởng."
+    },
+    {
+     "n": 23,
+     "text": "Ví như, này Ānanda, tấm da con bò đực được căng thẳng trên một trăm cọc gỗ, đặc tánh tấm da được đoạn trừ (vigatavasika); cũng vậy, này Ānanda, Tỷ-kheo, không tác ý đối với tất cả vật gì trên đất này:"
+    },
+    {
+     "n": 24,
+     "text": "đất khô và vùng lầy, sông và vùng lầy, các cây có thân và có gai, núi và đất bằng, vị ấy tác ý sự nhất trí do duyên địa tưởng."
+    },
+    {
+     "n": 25,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến địa tưởng."
+    },
+    {
+     "n": 26,
+     "text": "Vị ấy tuệ tri như sau: “Các ưu phiền do duyên nhân tưởng không có mặt ở đây; các ưu phiền do duyên lâm tưởng không có mặt ở đây."
+    },
+    {
+     "n": 27,
+     "text": "Và chỉ có một ưu phiền này, sự nhất trí do duyên địa tưởng”."
+    },
+    {
+     "n": 28,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có nhơn tưởng”."
+    },
+    {
+     "n": 29,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có lâm tưởng, và chỉ có một cái này không phải không, tức là sự nhất trí do duyên địa tưởng”."
+    },
+    {
+     "n": 30,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 31,
+     "text": "Nhưng đối với cái còn lại, ở đây vị ấy tuệ tri: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 32,
+     "text": "Này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, không tánh."
+    },
+    {
+     "n": 33,
+     "text": "Lại nữa, này Ānanda, Tỷ-kheo không tác ý lâm tưởng, không tác ý địa tưởng, tác ý sự nhất trí do duyên Không vô biên xứ."
+    },
+    {
+     "n": 34,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến Không vô biên xứ."
+    },
+    {
+     "n": 35,
+     "text": "Vị ấy tuệ tri như sau: “Các ưu phiền, do duyên lâm tưởng không có mặt ở đây; các ưu phiền do duyên địa tưởng không có mặt ở đây."
+    },
+    {
+     "n": 36,
+     "text": "Và chỉ có một ưu phiền này, tức là sự nhất trí do duyên Không vô biên xứ tưởng”."
+    },
+    {
+     "n": 37,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có lâm tưởng”."
+    },
+    {
+     "n": 38,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có địa tưởng, và chỉ có một cái này không phải không, tức là sự nhất trí do duyên Không vô biên xứ tưởng”."
+    },
+    {
+     "n": 39,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 40,
+     "text": "Nhưng đối với cái còn lại, ở đây vị ấy biết: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 41,
+     "text": "Này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, không tánh."
+    },
+    {
+     "n": 42,
+     "text": "Lại nữa, này Ānanda, Tỷ-kheo không tác ý địa tưởng, không tác ý Không vô biên xứ tưởng, chỉ tác ý sự nhất trí do duyên Thức vô biên xứ."
+    },
+    {
+     "n": 43,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến Thức vô biên xứ."
+    },
+    {
+     "n": 44,
+     "text": "Vị ấy tuệ tri như sau: “Các ưu phiền do duyên địa tưởng không có mặt ở đây; các ưu phiền do duyên Không vô biên xứ tưởng không có mặt ở đây."
+    },
+    {
+     "n": 45,
+     "text": "Và chỉ có một ưu phiền này, tức là sự nhất trí do duyên Thức vô biên xứ tưởng”."
+    },
+    {
+     "n": 46,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có địa tưởng”."
+    },
+    {
+     "n": 47,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có Không vô biên xứ tưởng, và chỉ có một cái này không phải không, tức là sự nhất trí do duyên Thức vô biên xứ tưởng”."
+    },
+    {
+     "n": 48,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 49,
+     "text": "Nhưng đối với cái còn lại, ở đây vị ấy tuệ tri: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 50,
+     "text": "Này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, không tánh."
+    },
+    {
+     "n": 51,
+     "text": "Lại nữa, này Ānanda, Tỷ-kheo không tác ý Không vô biên xứ tưởng, không tác ý Thức vô biên xứ tưởng, chỉ tác ý sự nhất trí do duyên Vô sở hữu xứ tưởng."
+    },
+    {
+     "n": 52,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến Vô sở hữu xứ."
+    },
+    {
+     "n": 53,
+     "text": "Vị ấy tuệ tri như sau: “Các ưu phiền do duyên Không vô biên xứ tưởng không có mặt ở đây; các ưu phiền do duyên Thức vô biên xứ tưởng không có mặt ở đây."
+    },
+    {
+     "n": 54,
+     "text": "Và chỉ có một ưu phiền này, tức là sự nhất trí do duyên Vô sở hữu xứ tưởng”."
+    },
+    {
+     "n": 55,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có Không vô biên xứ tưởng”."
+    },
+    {
+     "n": 56,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có Thức vô biên xứ tưởng, và chỉ có một cái này không phải không, tức là sự nhất trí do duyên Vô sở hữu xứ tưởng”."
+    },
+    {
+     "n": 57,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 58,
+     "text": "Nhưng đối với cái còn lại, ở đây, vị ấy tuệ tri: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 59,
+     "text": "Này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, không tánh."
+    },
+    {
+     "n": 60,
+     "text": "Lại nữa, này Ānanda, Tỷ-kheo không tác ý Thức vô biên xứ tưởng, không tác ý Vô sở hữu xứ tưởng, chỉ tác ý sự nhất trí do duyên Phi tưởng phi phi tưởng xứ tưởng."
+    },
+    {
+     "n": 61,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến Phi tưởng phi phi tưởng xứ."
+    },
+    {
+     "n": 62,
+     "text": "Vị ấy biết như sau: “Các ưu phiền do duyên Thức vô biên xứ tưởng không có mặt ở đây; các ưu phiền do duyên Vô sở hữu xứ tưởng không có mặt ở đây."
+    },
+    {
+     "n": 63,
+     "text": "Và chỉ có một ưu phiền này, tức là sự nhất trí do duyên Phi tưởng phi phi tưởng xứ tưởng."
+    },
+    {
+     "n": 64,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có Thức vô biên xứ tưởng”."
+    },
+    {
+     "n": 65,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có Vô sở hữu xứ tưởng, và chỉ có một cái này không phải không, tức là sự nhất trí do duyên Phi tưởng phi phi tưởng xứ tưởng."
+    },
+    {
+     "n": 66,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 67,
+     "text": "Nhưng đối với cái còn lại, ở đây, vị ấy tuệ tri: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 68,
+     "text": "Này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, không tánh."
+    },
+    {
+     "n": 69,
+     "text": "Lại nữa, này Ānanda, Tỷ-kheo không tác ý Vô sở hữu xứ tưởng, không có tác ý Phi tưởng phi phi tưởng xứ tưởng, tác ý sự nhất trí do duyên Vô tướng tâm định."
+    },
+    {
+     "n": 70,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến Vô tướng tâm định."
+    },
+    {
+     "n": 71,
+     "text": "Vị ấy tuệ tri như sau: “Các ưu phiền do duyên Vô sở hữu xứ tưởng không có mặt ở đây; các ưu phiền do duyên Phi tưởng phi phi tưởng xứ tưởng không có mặt ở đây."
+    },
+    {
+     "n": 72,
+     "text": "Và chỉ có một ưu phiền này, tức là sáu nhập duyên mạng, duyên với thân này”."
+    },
+    {
+     "n": 73,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có Vô sở hữu xứ tưởng”."
+    },
+    {
+     "n": 74,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có Phi tưởng phi phi tưởng xứ tưởng."
+    },
+    {
+     "n": 75,
+     "text": "Và chỉ có một cái này không phải không, tức là sáu nhập duyên mạng, duyên với thân này”."
+    },
+    {
+     "n": 76,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 77,
+     "text": "Nhưng đối với cái còn lại, ở đây vị ấy tuệ tri: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 78,
+     "text": "Này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, không tánh."
+    },
+    {
+     "n": 79,
+     "text": "Lại nữa, này Ānanda, vị Tỷ-kheo không tác ý Vô sở hữu xứ tưởng, không tác ý Phi tưởng phi phi tưởng xứ tưởng, tác ý sự nhứt trí do duyên Vô tướng tâm định."
+    },
+    {
+     "n": 80,
+     "text": "Tâm vị ấy được thích thú, hân hoan, an trú, hướng đến Vô tướng tâm định."
+    },
+    {
+     "n": 81,
+     "text": "Vị ấy tuệ tri như sau: “Vô tướng tâm định này thuộc hữu vi, do tâm tư tạo nên."
+    },
+    {
+     "n": 82,
+     "text": "Phàm cái gì thuộc hữu vi, do tâm tư tạo nên, cái ấy là vô thường, chịu sự đoạn diệt”, vị ấy tuệ tri như vậy."
+    },
+    {
+     "n": 83,
+     "text": "Do vị ấy tuệ tri như vậy, thấy như vậy, tâm được giải thoát khỏi dục lậu, tâm được giải thoát khỏi hữu lậu, tâm được giải thoát khỏi vô minh lậu."
+    },
+    {
+     "n": 84,
+     "text": "Trong sự giải thoát, là sự hiểu biết (nana) rằng đã được giải thoát."
+    },
+    {
+     "n": 85,
+     "text": "Vị ấy tuệ tri: “Sanh đã tận, Phạm hạnh đã thành, những việc nên làm đã làm, không còn phải trở lại trạng thái này nữa”."
+    },
+    {
+     "n": 86,
+     "text": "Vị ấy tuệ tri: “Các ưu phiền do duyên dục lậu không có mặt ở đây; các ưu phiền do duyên hữu lậu không có mặt có ở đây; các ưu phiền do duyên vô minh lậu không có mặt ở đây."
+    },
+    {
+     "n": 87,
+     "text": "Và chỉ ở một ưu phiền này, tức là sáu nhập duyên mạng, duyên với thân này”."
+    },
+    {
+     "n": 88,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có dục lậu”."
+    },
+    {
+     "n": 89,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có hữu lậu”."
+    },
+    {
+     "n": 90,
+     "text": "Vị ấy tuệ tri: “Loại tưởng này không có vô minh lậu."
+    },
+    {
+     "n": 91,
+     "text": "Và chỉ có một cái này không phải không, tức là sáu nhập duyên mạng, duyên với thân này”."
+    },
+    {
+     "n": 92,
+     "text": "Và cái gì không có mặt ở đây, vị ấy xem cái ấy là không có."
+    },
+    {
+     "n": 93,
+     "text": "Nhưng đối với cái còn lại, ở đây vị ấy biết: “Cái kia có, cái này có”."
+    },
+    {
+     "n": 94,
+     "text": "Này Ānanda, cái này đối với vị ấy là như vậy, thật có, không điên đảo, sự thực hiện hoàn toàn thanh tịnh, Không tánh."
+    },
+    {
+     "n": 95,
+     "text": "Này Ānanda, phàm có những Sa-môn hay Bà-la-môn nào trong quá khứ sau khi chứng đạt, đã an trú cứu cánh vô thượng thanh tịnh Không tánh (Sunnatam),"
+    },
+    {
+     "n": 96,
+     "text": "tất cả các vị ấy sau khi chứng đạt đều chỉ an trú cứu cánh vô thượng thanh tịnh Không tánh này."
+    },
+    {
+     "n": 97,
+     "text": "Này Ānanda, phàm có những Sa-môn hay Bà-la-môn nào trong tương lai, sau khi chứng đạt sẽ an trú cứu cánh vô thượng thanh tịnh Không tánh,"
+    },
+    {
+     "n": 98,
+     "text": "tất cả các vị ấy sau khi chứng đạt đều sẽ an trú cứu cánh vô thượng thanh tịnh Không tánh này."
+    },
+    {
+     "n": 99,
+     "text": "Này Ānanda, phàm có những Sa-môn hay Bà-la-môn nào trong hiện tại, sau khi chứng đạt và an trú cứu cánh vô thượng thanh tịnh Không tánh,"
+    },
+    {
+     "n": 100,
+     "text": "tất cả các vị ấy sau khi chứng đạt nếu an trú cứu cánh vô thượng thanh tịnh Không tánh này."
+    },
+    {
+     "n": 101,
+     "text": "Do vậy, này Ānanda, sau khi chứng đạt Ta sẽ an trú cứu cánh vô thượng thanh tịnh Không tánh."
+    },
+    {
+     "n": 102,
+     "text": "Như vậy, này Ānanda, các Ông cần phải học tập."
+    },
+    {
+     "n": 103,
+     "text": "Thế Tôn thuyết giảng như vậy. Tôn giả Ānanda hoan hỷ tín thọ lời Thế Tôn dạy."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn121/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati pubbārāme migāramātupāsāde."
+    },
+    {
+     "n": 2,
+     "text": "Atha kho āyasmā ānando sāyanhasamayaṁ paṭisallānā vuṭṭhito yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 3,
+     "text": "Ekamantaṁ nisinno kho āyasmā ānando bhagavantaṁ etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“Ekamidaṁ, bhante, samayaṁ bhagavā sakkesu viharati nagarakaṁ nāma sakyānaṁ nigamo."
+    },
+    {
+     "n": 5,
+     "text": "Tattha me, bhante, bhagavato sammukhā sutaṁ, sammukhā paṭiggahitaṁ: ‘suññatāvihārenāhaṁ, ānanda, etarahi bahulaṁ viharāmī’ti."
+    },
+    {
+     "n": 6,
+     "text": "Kacci metaṁ, bhante, sussutaṁ suggahitaṁ sumanasikataṁ sūpadhāritan”ti?"
+    },
+    {
+     "n": 7,
+     "text": "“Taggha te etaṁ, ānanda, sussutaṁ suggahitaṁ sumanasikataṁ sūpadhāritaṁ."
+    },
+    {
+     "n": 8,
+     "text": "Pubbepāhaṁ, ānanda, etarahipi suññatāvihārena bahulaṁ viharāmi."
+    },
+    {
+     "n": 9,
+     "text": "Seyyathāpi, ānanda, ayaṁ migāramātupāsādo suñño hatthigavassavaḷavena, suñño jātarūparajatena, suñño itthipurisasannipātena atthi cevidaṁ asuññataṁ yadidaṁ— bhikkhusaṅghaṁ paṭicca ekattaṁ;"
+    },
+    {
+     "n": 10,
+     "text": "evameva kho, ānanda, bhikkhu amanasikaritvā gāmasaññaṁ, amanasikaritvā manussasaññaṁ, araññasaññaṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 11,
+     "text": "Tassa araññasaññāya cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati."
+    },
+    {
+     "n": 12,
+     "text": "So evaṁ pajānāti: ‘ye assu darathā gāmasaññaṁ paṭicca tedha na santi, ye assu darathā manussasaññaṁ paṭicca tedha na santi, atthi cevāyaṁ darathamattā yadidaṁ— araññasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 13,
+     "text": "So ‘suññamidaṁ saññāgataṁ gāmasaññāyā’ti pajānāti, ‘suññamidaṁ saññāgataṁ manussasaññāyā’ti pajānāti, ‘atthi cevidaṁ asuññataṁ yadidaṁ— araññasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 14,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 15,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 16,
+     "text": "Puna caparaṁ, ānanda, bhikkhu amanasikaritvā manussasaññaṁ, amanasikaritvā araññasaññaṁ, pathavīsaññaṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 17,
+     "text": "Tassa pathavīsaññāya cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati."
+    },
+    {
+     "n": 18,
+     "text": "Seyyathāpi, ānanda, āsabhacammaṁ saṅkusatena suvihataṁ vigatavalikaṁ;"
+    },
+    {
+     "n": 19,
+     "text": "evameva kho, ānanda, bhikkhu yaṁ imissā pathaviyā ukkūlavikkūlaṁ nadīviduggaṁ khāṇukaṇṭakaṭṭhānaṁ pabbatavisamaṁ taṁ sabbaṁ amanasikaritvā pathavīsaññaṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 20,
+     "text": "Tassa pathavīsaññāya cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati."
+    },
+    {
+     "n": 21,
+     "text": "So evaṁ pajānāti: ‘ye assu darathā manussasaññaṁ paṭicca tedha na santi, ye assu darathā araññasaññaṁ paṭicca tedha na santi, atthi cevāyaṁ darathamattā yadidaṁ— pathavīsaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 22,
+     "text": "So ‘suññamidaṁ saññāgataṁ manussasaññāyā’ti pajānāti, ‘suññamidaṁ saññāgataṁ araññasaññāyā’ti pajānāti, ‘atthi cevidaṁ asuññataṁ yadidaṁ— pathavīsaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 23,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 24,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 25,
+     "text": "Puna caparaṁ, ānanda, bhikkhu amanasikaritvā araññasaññaṁ, amanasikaritvā pathavīsaññaṁ, ākāsānañcāyatanasaññaṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 26,
+     "text": "Tassa ākāsānañcāyatanasaññāya cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati."
+    },
+    {
+     "n": 27,
+     "text": "So evaṁ pajānāti: ‘ye assu darathā araññasaññaṁ paṭicca tedha na santi, ye assu darathā pathavīsaññaṁ paṭicca tedha na santi, atthi cevāyaṁ darathamattā yadidaṁ— ākāsānañcāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 28,
+     "text": "So ‘suññamidaṁ saññāgataṁ araññasaññāyā’ti pajānāti, ‘suññamidaṁ saññāgataṁ pathavīsaññāyā’ti pajānāti, ‘atthi cevidaṁ asuññataṁ yadidaṁ— ākāsānañcāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 29,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 30,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 31,
+     "text": "Puna caparaṁ, ānanda, bhikkhu amanasikaritvā pathavīsaññaṁ, amanasikaritvā ākāsānañcāyatanasaññaṁ, viññāṇañcāyatanasaññaṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 32,
+     "text": "Tassa viññāṇañcāyatanasaññāya cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati."
+    },
+    {
+     "n": 33,
+     "text": "So evaṁ pajānāti: ‘ye assu darathā pathavīsaññaṁ paṭicca tedha na santi, ye assu darathā ākāsānañcāyatanasaññaṁ paṭicca tedha na santi, atthi cevāyaṁ darathamattā yadidaṁ— viññāṇañcāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 34,
+     "text": "So ‘suññamidaṁ saññāgataṁ pathavīsaññāyā’ti pajānāti, ‘suññamidaṁ saññāgataṁ ākāsānañcāyatanasaññāyā’ti pajānāti, ‘atthi cevidaṁ asuññataṁ yadidaṁ— viññāṇañcāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 35,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 36,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 37,
+     "text": "Puna caparaṁ, ānanda, bhikkhu amanasikaritvā ākāsānañcāyatanasaññaṁ, amanasikaritvā viññāṇañcāyatanasaññaṁ, ākiñcaññāyatanasaññaṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 38,
+     "text": "Tassa ākiñcaññāyatanasaññāya cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati. So evaṁ pajānāti:"
+    },
+    {
+     "n": 39,
+     "text": "‘ye assu darathā ākāsānañcāyatanasaññaṁ paṭicca tedha na santi, ye assu darathā viññāṇañcāyatanasaññaṁ paṭicca tedha na santi, atthi cevāyaṁ darathamattā yadidaṁ— ākiñcaññāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 40,
+     "text": "So ‘suññamidaṁ saññāgataṁ ākāsānañcāyatanasaññāyā’ti pajānāti, ‘suññamidaṁ saññāgataṁ viññāṇañcāyatanasaññāyā’ti pajānāti, ‘atthi cevidaṁ asuññataṁ yadidaṁ— ākiñcaññāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 41,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 42,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 43,
+     "text": "Puna caparaṁ, ānanda bhikkhu amanasikaritvā viññāṇañcāyatanasaññaṁ, amanasikaritvā ākiñcaññāyatanasaññaṁ, nevasaññānāsaññāyatanasaññaṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 44,
+     "text": "Tassa nevasaññānāsaññāyatanasaññāya cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati. So evaṁ pajānāti:"
+    },
+    {
+     "n": 45,
+     "text": "‘ye assu darathā viññāṇañcāyatanasaññaṁ paṭicca tedha na santi, ye assu darathā ākiñcaññāyatanasaññaṁ paṭicca tedha na santi, atthi cevāyaṁ darathamattā yadidaṁ— nevasaññānāsaññāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 46,
+     "text": "So ‘suññamidaṁ saññāgataṁ viññāṇañcāyatanasaññāyā’ti pajānāti, ‘suññamidaṁ saññāgataṁ ākiñcaññāyatanasaññāyā’ti pajānāti, ‘atthi cevidaṁ asuññataṁ yadidaṁ— nevasaññānāsaññāyatanasaññaṁ paṭicca ekattan’ti."
+    },
+    {
+     "n": 47,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 48,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 49,
+     "text": "Puna caparaṁ, ānanda, bhikkhu amanasikaritvā ākiñcaññāyatanasaññaṁ, amanasikaritvā nevasaññānāsaññāyatanasaññaṁ, animittaṁ cetosamādhiṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 50,
+     "text": "Tassa animitte cetosamādhimhi cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati. So evaṁ pajānāti:"
+    },
+    {
+     "n": 51,
+     "text": "‘ye assu darathā ākiñcaññāyatanasaññaṁ paṭicca tedha na santi, ye assu darathā nevasaññānāsaññāyatanasaññaṁ paṭicca tedha na santi,"
+    },
+    {
+     "n": 52,
+     "text": "atthi cevāyaṁ darathamattā yadidaṁ— imameva kāyaṁ paṭicca saḷāyatanikaṁ jīvitapaccayā’ti."
+    },
+    {
+     "n": 53,
+     "text": "So ‘suññamidaṁ saññāgataṁ ākiñcaññāyatanasaññāyā’ti pajānāti, ‘suññamidaṁ saññāgataṁ nevasaññānāsaññāyatanasaññāyā’ti pajānāti, ‘atthi cevidaṁ asuññataṁ yadidaṁ— imameva kāyaṁ paṭicca saḷāyatanikaṁ jīvitapaccayā’ti."
+    },
+    {
+     "n": 54,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 55,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 56,
+     "text": "Puna caparaṁ, ānanda, bhikkhu amanasikaritvā ākiñcaññāyatanasaññaṁ, amanasikaritvā nevasaññānāsaññāyatanasaññaṁ, animittaṁ cetosamādhiṁ paṭicca manasi karoti ekattaṁ."
+    },
+    {
+     "n": 57,
+     "text": "Tassa animitte cetosamādhimhi cittaṁ pakkhandati pasīdati santiṭṭhati adhimuccati."
+    },
+    {
+     "n": 58,
+     "text": "So evaṁ pajānāti: ‘ayampi kho animitto cetosamādhi abhisaṅkhato abhisañcetayito’."
+    },
+    {
+     "n": 59,
+     "text": "‘Yaṁ kho pana kiñci abhisaṅkhataṁ abhisañcetayitaṁ tadaniccaṁ nirodhadhamman’ti pajānāti."
+    },
+    {
+     "n": 60,
+     "text": "Tassa evaṁ jānato evaṁ passato kāmāsavāpi cittaṁ vimuccati, bhavāsavāpi cittaṁ vimuccati, avijjāsavāpi cittaṁ vimuccati. Vimuttasmiṁ vimuttamiti ñāṇaṁ hoti."
+    },
+    {
+     "n": 61,
+     "text": "‘Khīṇā jāti, vusitaṁ brahmacariyaṁ, kataṁ karaṇīyaṁ, nāparaṁ itthattāyā’ti pajānāti."
+    },
+    {
+     "n": 62,
+     "text": "So evaṁ pajānāti: ‘ye assu darathā kāmāsavaṁ paṭicca tedha na santi, ye assu darathā bhavāsavaṁ paṭicca tedha na santi, ye assu darathā avijjāsavaṁ paṭicca tedha na santi,"
+    },
+    {
+     "n": 63,
+     "text": "atthi cevāyaṁ darathamattā yadidaṁ— imameva kāyaṁ paṭicca saḷāyatanikaṁ jīvitapaccayā’ti."
+    },
+    {
+     "n": 64,
+     "text": "So ‘suññamidaṁ saññāgataṁ kāmāsavenā’ti pajānāti, ‘suññamidaṁ saññāgataṁ bhavāsavenā’ti pajānāti, ‘suññamidaṁ saññāgataṁ avijjāsavenā’ti pajānāti,"
+    },
+    {
+     "n": 65,
+     "text": "‘atthi cevidaṁ asuññataṁ yadidaṁ— imameva kāyaṁ paṭicca saḷāyatanikaṁ jīvitapaccayā’ti."
+    },
+    {
+     "n": 66,
+     "text": "Iti yañhi kho tattha na hoti tena taṁ suññaṁ samanupassati, yaṁ pana tattha avasiṭṭhaṁ hoti taṁ ‘santamidaṁ atthī’ti pajānāti."
+    },
+    {
+     "n": 67,
+     "text": "Evampissa esā, ānanda, yathābhuccā avipallatthā parisuddhā paramānuttarā suññatāvakkanti bhavati."
+    },
+    {
+     "n": 68,
+     "text": "Yepi hi keci, ānanda, atītamaddhānaṁ samaṇā vā brāhmaṇā vā parisuddhaṁ paramānuttaraṁ suññataṁ upasampajja vihariṁsu, sabbe te imaṁyeva parisuddhaṁ paramānuttaraṁ suññataṁ upasampajja vihariṁsu."
+    },
+    {
+     "n": 69,
+     "text": "Yepi hi keci, ānanda, anāgatamaddhānaṁ samaṇā vā brāhmaṇā vā parisuddhaṁ paramānuttaraṁ suññataṁ upasampajja viharissanti, sabbe te imaṁyeva parisuddhaṁ paramānuttaraṁ suññataṁ upasampajja viharissanti."
+    },
+    {
+     "n": 70,
+     "text": "Yepi hi keci, ānanda, etarahi samaṇā vā brāhmaṇā vā parisuddhaṁ paramānuttaraṁ suññataṁ upasampajja viharanti, sabbe te imaṁyeva parisuddhaṁ paramānuttaraṁ suññataṁ upasampajja viharanti."
+    },
+    {
+     "n": 71,
+     "text": "Tasmātiha, ānanda, ‘parisuddhaṁ paramānuttaraṁ suññataṁ upasampajja viharissāmā’ti— evañhi vo, ānanda, sikkhitabban”ti."
+    },
+    {
+     "n": 72,
+     "text": "Idamavoca bhagavā. Attamano āyasmā ānando bhagavato bhāsitaṁ abhinandīti."
+    },
+    {
+     "n": 73,
+     "text": "Cūḷasuññatasuttaṁ niṭṭhitaṁ paṭhamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn121/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in the stilt longhouse of Migāra’s mother in the Eastern Monastery."
+    },
+    {
+     "n": 2,
+     "text": "Then in the late afternoon, Venerable Ānanda came out of retreat and went to the Buddha."
+    },
+    {
+     "n": 3,
+     "text": "He bowed, sat down to one side, and said to him:"
+    },
+    {
+     "n": 4,
+     "text": "“Sir, this one time the Buddha was staying in the land of the Sakyans where they have a town named Townsville."
+    },
+    {
+     "n": 5,
+     "text": "There I heard and learned this in the presence of the Buddha: ‘Ānanda, these days I usually practice the meditation on emptiness.’"
+    },
+    {
+     "n": 6,
+     "text": "I trust I properly heard, learned, applied the mind, and remembered that from the Buddha?”"
+    },
+    {
+     "n": 7,
+     "text": "“Indeed, Ānanda, you properly heard, learned, applied the mind, and remembered that."
+    },
+    {
+     "n": 8,
+     "text": "Now, as before, I usually practice the meditation on emptiness."
+    },
+    {
+     "n": 9,
+     "text": "Consider this stilt longhouse of Migāra’s mother."
+    },
+    {
+     "n": 10,
+     "text": "It’s empty of elephants, cows, horses, and mares; of gold and silver; and of gatherings of men and women."
+    },
+    {
+     "n": 11,
+     "text": "There is only this that is not emptiness, namely, the oneness dependent on the mendicant Saṅgha."
+    },
+    {
+     "n": 12,
+     "text": "In the same way, a mendicant—ignoring the perception of the village and the perception of people—focuses on the oneness dependent on the perception of wilderness."
+    },
+    {
+     "n": 13,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that perception of wilderness."
+    },
+    {
+     "n": 14,
+     "text": "They understand: ‘Here there is no stress due to the perception of village or the perception of people."
+    },
+    {
+     "n": 15,
+     "text": "There is only this modicum of stress, namely the oneness dependent on the perception of wilderness.’"
+    },
+    {
+     "n": 16,
+     "text": "They understand: ‘This field of perception is empty of the perception of the village."
+    },
+    {
+     "n": 17,
+     "text": "It is empty of the perception of people."
+    },
+    {
+     "n": 18,
+     "text": "There is only this that is not emptiness, namely the oneness dependent on the perception of wilderness.’"
+    },
+    {
+     "n": 19,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 20,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, and pure."
+    },
+    {
+     "n": 21,
+     "text": "Furthermore, a mendicant—ignoring the perception of people and the perception of wilderness—focuses on the oneness dependent on the perception of earth."
+    },
+    {
+     "n": 22,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that perception of earth."
+    },
+    {
+     "n": 23,
+     "text": "As a bull’s hide is rid of folds when fully stretched out by a hundred pegs, so too, ignoring the hilly terrain, inaccessible riverlands, stumps and thorns, and rugged mountains,"
+    },
+    {
+     "n": 24,
+     "text": "they focus on the oneness dependent on the perception of earth."
+    },
+    {
+     "n": 25,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that perception of earth."
+    },
+    {
+     "n": 26,
+     "text": "They understand: ‘Here there is no stress due to the perception of people or the perception of wilderness."
+    },
+    {
+     "n": 27,
+     "text": "There is only this modicum of stress, namely the oneness dependent on the perception of earth.’"
+    },
+    {
+     "n": 28,
+     "text": "They understand: ‘This field of perception is empty of the perception of people."
+    },
+    {
+     "n": 29,
+     "text": "It is empty of the perception of wilderness."
+    },
+    {
+     "n": 30,
+     "text": "There is only this that is not emptiness, namely the oneness dependent on the perception of earth.’"
+    },
+    {
+     "n": 31,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 32,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, and pure."
+    },
+    {
+     "n": 33,
+     "text": "Furthermore, a mendicant—ignoring the perception of wilderness and the perception of earth—focuses on the oneness dependent on the perception of the dimension of infinite space."
+    },
+    {
+     "n": 34,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that perception of the dimension of infinite space."
+    },
+    {
+     "n": 35,
+     "text": "They understand: ‘Here there is no stress due to the perception of wilderness or the perception of earth."
+    },
+    {
+     "n": 36,
+     "text": "There is only this modicum of stress, namely the oneness dependent on the perception of the dimension of infinite space.’"
+    },
+    {
+     "n": 37,
+     "text": "They understand: ‘This field of perception is empty of the perception of wilderness. It is empty of the perception of earth."
+    },
+    {
+     "n": 38,
+     "text": "There is only this that is not emptiness, namely the oneness dependent on the perception of the dimension of infinite space.’"
+    },
+    {
+     "n": 39,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 40,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, and pure."
+    },
+    {
+     "n": 41,
+     "text": "Furthermore, a mendicant—ignoring the perception of earth and the perception of the dimension of infinite space—focuses on the oneness dependent on the perception of the dimension of infinite consciousness."
+    },
+    {
+     "n": 42,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that perception of the dimension of infinite consciousness."
+    },
+    {
+     "n": 43,
+     "text": "They understand: ‘Here there is no stress due to the perception of earth or the perception of the dimension of infinite space."
+    },
+    {
+     "n": 44,
+     "text": "There is only this modicum of stress, namely the oneness dependent on the perception of the dimension of infinite consciousness.’"
+    },
+    {
+     "n": 45,
+     "text": "They understand: ‘This field of perception is empty of the perception of earth."
+    },
+    {
+     "n": 46,
+     "text": "It is empty of the perception of the dimension of infinite space."
+    },
+    {
+     "n": 47,
+     "text": "There is only this modicum of stress, namely the oneness dependent on the perception of the dimension of infinite consciousness.’"
+    },
+    {
+     "n": 48,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 49,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, and pure."
+    },
+    {
+     "n": 50,
+     "text": "Furthermore,"
+    },
+    {
+     "n": 51,
+     "text": "a mendicant—ignoring the perception of the dimension of infinite space and the perception of the dimension of infinite consciousness—focuses on the oneness dependent on the perception of the dimension of nothingness."
+    },
+    {
+     "n": 52,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that perception of the dimension of nothingness."
+    },
+    {
+     "n": 53,
+     "text": "They understand: ‘Here there is no stress due to the perception of the dimension of infinite space or the perception of the dimension of infinite consciousness."
+    },
+    {
+     "n": 54,
+     "text": "There is only this modicum of stress, namely the oneness dependent on the perception of the dimension of nothingness.’"
+    },
+    {
+     "n": 55,
+     "text": "They understand: ‘This field of perception is empty of the perception of the dimension of infinite space."
+    },
+    {
+     "n": 56,
+     "text": "It is empty of the perception of the dimension of infinite consciousness."
+    },
+    {
+     "n": 57,
+     "text": "There is only this that is not emptiness, namely the oneness dependent on the perception of the dimension of nothingness.’"
+    },
+    {
+     "n": 58,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 59,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, and pure."
+    },
+    {
+     "n": 60,
+     "text": "Furthermore,"
+    },
+    {
+     "n": 61,
+     "text": "a mendicant—ignoring the perception of the dimension of infinite consciousness and the perception of the dimension of nothingness—focuses on the oneness dependent on the perception of the dimension of neither perception"
+    },
+    {
+     "n": 62,
+     "text": "nor non-perception. Their mind leaps forth, gains confidence, settles down, and becomes decided in that perception of the dimension of neither perception nor non-perception."
+    },
+    {
+     "n": 63,
+     "text": "They understand: ‘Here there is no stress due to the perception of the dimension of infinite consciousness or the perception of the dimension of nothingness."
+    },
+    {
+     "n": 64,
+     "text": "There is only this modicum of stress, namely the oneness dependent on the perception of the dimension of neither perception nor non-perception.’"
+    },
+    {
+     "n": 65,
+     "text": "They understand: ‘This field of perception is empty of the perception of the dimension of infinite consciousness."
+    },
+    {
+     "n": 66,
+     "text": "It is empty of the perception of the dimension of nothingness."
+    },
+    {
+     "n": 67,
+     "text": "There is only this that is not emptiness, namely the oneness dependent on the perception of the dimension of neither perception nor non-perception.’"
+    },
+    {
+     "n": 68,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 69,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, and pure."
+    },
+    {
+     "n": 70,
+     "text": "Furthermore,"
+    },
+    {
+     "n": 71,
+     "text": "a mendicant—ignoring the perception of the dimension of nothingness and the perception of the dimension of neither perception nor non-perception—focuses on the oneness dependent on the signless immersion of the heart."
+    },
+    {
+     "n": 72,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that signless immersion of the heart."
+    },
+    {
+     "n": 73,
+     "text": "They understand: ‘Here there is no stress due to the perception of the dimension of nothingness or the perception of the dimension of neither perception nor non-perception."
+    },
+    {
+     "n": 74,
+     "text": "There is only this modicum of stress, namely that related to the six sense fields dependent on this body and conditioned by life.’"
+    },
+    {
+     "n": 75,
+     "text": "They understand: ‘This field of perception is empty of the perception of the dimension of nothingness."
+    },
+    {
+     "n": 76,
+     "text": "It is empty of the perception of the dimension of neither perception nor non-perception."
+    },
+    {
+     "n": 77,
+     "text": "There is only this that is not emptiness, namely that related to the six sense fields dependent on this body and conditioned by life.’"
+    },
+    {
+     "n": 78,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 79,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, and pure."
+    },
+    {
+     "n": 80,
+     "text": "Furthermore,"
+    },
+    {
+     "n": 81,
+     "text": "a mendicant—ignoring the perception of the dimension of nothingness and the perception of the dimension of neither perception nor non-perception—focuses on the oneness dependent on the signless immersion of the heart."
+    },
+    {
+     "n": 82,
+     "text": "Their mind leaps forth, gains confidence, settles down, and becomes decided in that signless immersion of the heart."
+    },
+    {
+     "n": 83,
+     "text": "They understand: ‘Even this signless immersion of the heart is produced by choices and intentions.’"
+    },
+    {
+     "n": 84,
+     "text": "They understand: ‘But whatever is produced by choices and intentions is impermanent and liable to cessation.’"
+    },
+    {
+     "n": 85,
+     "text": "Knowing and seeing like this, their mind is freed from the defilements of sensuality, desire to be reborn, and ignorance."
+    },
+    {
+     "n": 86,
+     "text": "When they’re freed, they know they’re freed."
+    },
+    {
+     "n": 87,
+     "text": "They understand: ‘Rebirth is ended, the spiritual journey has been completed, what had to be done has been done, there is nothing further for this place.’"
+    },
+    {
+     "n": 88,
+     "text": "They understand: ‘Here there is no stress due to the defilements of sensuality, desire to be reborn, or ignorance."
+    },
+    {
+     "n": 89,
+     "text": "There is only this modicum of stress, namely that related to the six sense fields dependent on this body and conditioned by life.’"
+    },
+    {
+     "n": 90,
+     "text": "They understand: ‘This field of perception is empty of the perception of the defilements of sensuality, desire to be reborn, and ignorance."
+    },
+    {
+     "n": 91,
+     "text": "There is only this that is not emptiness, namely that related to the six sense fields dependent on this body and conditioned by life.’"
+    },
+    {
+     "n": 92,
+     "text": "And so they regard it as empty of what is not there, but as to what remains they understand that it is present."
+    },
+    {
+     "n": 93,
+     "text": "That’s how emptiness manifests in them—genuine, undistorted, pure, and supreme."
+    },
+    {
+     "n": 94,
+     "text": "Whatever ascetics and brahmins enter and remain in the pure, ultimate, supreme emptiness—whether in the past, future, or present—all of them enter and remain in this same pure, ultimate, supreme emptiness."
+    },
+    {
+     "n": 95,
+     "text": "So, Ānanda, you should train like this: ‘We will enter and remain in the pure, ultimate, supreme emptiness.’ That’s how you should train.”"
+    },
+    {
+     "n": 96,
+     "text": "That is what the Buddha said. Satisfied, Venerable Ānanda approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

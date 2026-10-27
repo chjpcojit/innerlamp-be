@@ -1,0 +1,1889 @@
+{
+ "id": "vi-du-cai-cua",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 21",
+ "summary": "Kinh trong Trung Bộ (MN 21). Nhân việc Tôn giả Moliya Phagguna giao du quá mức với các Tỷ-kheo-ni, Thế Tôn dạy các Tỷ-kheo giữ tâm không biến đổi, không nói lời ác dù bị mắng chửi. Ngài dùng ví dụ cái cưa: kể cả khi bị kẻ cướp xẻ thân bằng cưa, vẫn không sân hận, và khuyên luôn nhớ lời dạy này.",
+ "titles": {
+  "vi": "Kinh Ví dụ cái cưa",
+  "pli": "Kakacūpamasutta",
+  "en": "The Simile of the Saw"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 50,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn21/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời, Thế Tôn ở Sāvatthi (Xá-vệ), tại Jetavana (Kỳ-đà Lâm), vườn ông Anāthapiṇḍika (Cấp Cô Độc)."
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ, Tôn giả Moliya Phagguna sống liên hệ với các Tỷ-kheo ni một cách quá độ."
+    },
+    {
+     "n": 4,
+     "text": "Tôn giả Moliya Phagguna sống liên hệ với các Tỷ-kheo-ni như sau: Nếu có Tỷ-kheo nào, trước mặt Tôn giả Moliya Phagguna nói xấu các Tỷ-kheo-ni ấy, Tôn giả Moliya Phagguna liền phẫn nộ, bất mãn, vấn tội ngay;"
+    },
+    {
+     "n": 5,
+     "text": "nếu có Tỷ-kheo nào, trước mặt các Tỷ-kheo ni ấy, nói xấu Tôn giả Moliya Phagguna, các Tỷ-kheo ni ấy liền phẫn nộ, bất mãn, vấn tội ngay."
+    },
+    {
+     "n": 6,
+     "text": "Tôn giả Moliya Phagguna sống liên hệ với các Tỷ-kheo-ni như vậy."
+    },
+    {
+     "n": 7,
+     "text": "Có một Tỷ-kheo khác đi đến chỗ Thế Tôn ở, sau khi đến, đảnh lễ Thế Tôn và ngồi xuống một bên."
+    },
+    {
+     "n": 8,
+     "text": "Sau khi ngồi xuống một bên, Tỷ-kheo ấy bạch Thế Tôn"
+    },
+    {
+     "n": 9,
+     "text": "—Bạch Thế Tôn, Tôn giả Moliya Phagguna sống liên hệ với các Tỷ-kheo ni một cách quá độ."
+    },
+    {
+     "n": 10,
+     "text": "Bạch Thế Tôn, Tôn giả Moliya Phagguna sống liên hệ với các Tỷ-kheo-ni như sau:"
+    },
+    {
+     "n": 11,
+     "text": "Nếu có Tỷ-kheo nào, trước mặt Tôn giả Moliya Phagguna nói xấu các Tỷ-kheo-ni ấy, Tôn giả Moliya Phagguna liền phẫn nộ, bất mãn và vấn tội ngay;"
+    },
+    {
+     "n": 12,
+     "text": "nếu có Tỷ-kheo nào, trước mặt các Tỷ-kheo ni ấy, nói xấu Tôn giả Moliya Phagguna, các Tỷ-kheo-ni ấy liền phẫn nộ, bất mãn và vấn tội ngay."
+    },
+    {
+     "n": 13,
+     "text": "Bạch Thế Tôn, Tôn giả Moliya Phagguna sống liên hệ với các Tỷ-kheo-ni một cách quá độ như vậy."
+    },
+    {
+     "n": 14,
+     "text": "Thế Tôn gọi một Tỷ-kheo khác và bảo"
+    },
+    {
+     "n": 15,
+     "text": "—Này Tỷ-kheo, hãy đi, nhân danh Ta, cho gọi Tỷ-kheo Moliya Phagguna: “Hiền giả Phagguna, bậc Đạo Sư gọi Hiền giả”."
+    },
+    {
+     "n": 16,
+     "text": "—Bạch Thế Tôn, vâng!"
+    },
+    {
+     "n": 17,
+     "text": "Tỷ-kheo ấy vâng đáp Thế Tôn, đi đến chỗ Tôn giả Moliya Phagguna, khi đến xong, liền thưa Tôn giả Moliya Phagguna"
+    },
+    {
+     "n": 18,
+     "text": "—Hiền giả Moliya Phagguna, bậc Đạo Sư gọi Hiền giả."
+    },
+    {
+     "n": 19,
+     "text": "—Vâng, Hiền giả."
+    },
+    {
+     "n": 20,
+     "text": "Tỷ-kheo Moliya Phagguna vâng đáp Tỷ-kheo ấy, đến chỗ Thế Tôn ở, khi đến xong, đảnh lễ Thế Tôn rồi ngồi xuống một bên."
+    },
+    {
+     "n": 21,
+     "text": "Thế Tôn nói với Tôn giả Moliya Phagguna đang ngồi xuống một bên"
+    },
+    {
+     "n": 22,
+     "text": "—Này Phagguna, có đúng sự thật không, như lời người ta đồn là Ông sống liên hệ với các Tỷ-kheo-ni một cách quá độ."
+    },
+    {
+     "n": 23,
+     "text": "Người ta đồn Ông sống liên hệ với các Tỷ-kheo-ni như sau: “Nếu Tỷ-kheo nào, trước mặt Ông nói xấu các Tỷ-kheo-ni ấy, Ông liền phẫn nộ, bất mãn, vấn tội ngay;"
+    },
+    {
+     "n": 24,
+     "text": "nếu Tỷ-kheo nào, trước mặt các Tỷ-kheo-ni ấy, nói xấu Ông, các Tỷ-kheo-ni ấy liền phẫn nộ, bất mãn, vấn tội ngay”."
+    },
+    {
+     "n": 25,
+     "text": "Này Phagguna, có phải Ông sống liên hệ với các Tỷ-kheo-ni như vậy?"
+    },
+    {
+     "n": 26,
+     "text": "—Bạch Thế Tôn, có như vậy."
+    },
+    {
+     "n": 27,
+     "text": "—Này Phagguna, có phải Ông là Thiện nam tử, vì lòng tin, đã xuất gia từ bỏ gia đình, sống không gia đình?"
+    },
+    {
+     "n": 28,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 29,
+     "text": "—Này Phagguna, thật không xứng đáng cho Ông, một Thiện nam tử, vì lòng tin đã xuất gia, từ bỏ gia đình, sống không gia đình, mà sống liên hệ với các Tỷ-kheo-ni một cách quá độ như vậy."
+    },
+    {
+     "n": 30,
+     "text": "Do vậy, này Phagguna, nếu có ai trước mặt Ông, nói xấu các Tỷ-kheo-ni ấy, này Phagguna, Ông phải từ bỏ những dục liên hệ đến thế tục, những tư duy liên hệ đến thế tục."
+    },
+    {
+     "n": 31,
+     "text": "Này Phagguna, Ông phải học tập như sau: “Mong rằng tâm của ta sẽ không bi biến nhiễm!"
+    },
+    {
+     "n": 32,
+     "text": "Mong rằng ta sẽ không nói những lời ác ngữ!"
+    },
+    {
+     "n": 33,
+     "text": "Mong rằng ta sẽ sống với lòng lân mẫn, với tâm từ bi, không ôm lòng sân hận!” Này Phagguna, Ông phải học tập như vậy."
+    },
+    {
+     "n": 34,
+     "text": "Do vậy, này Phagguna, nếu có ai trước mặt Ông, lấy tay đánh những Tỷ-kheo-ni ấy, lấy đất ném, lấy gậy đập, lấy gươm đánh, này Phagguna, Ông phải từ bỏ những dục … không ôm lòng sân hận."
+    },
+    {
+     "n": 35,
+     "text": "Này Phagguna, Ông phải học tập như vậy. Do vậy, này Phagguna, nếu có ai trước mặt Ông nói xấu (ai), này Phagguna, Ông phải từ bỏ những dục … không ôm lòng sân hận. Này Phagguna, Ông phải học tập như vậy."
+    },
+    {
+     "n": 36,
+     "text": "Do vậy, này Phagguna, nếu có ai trước mặt Ông lấy tay đánh, lấy đất ném, lấy gậy đập, lấy gươm đánh, này Phagguna, Ông phải từ bỏ những dục liên hệ đến thế tục, những tư duy liên hệ đến thế tục."
+    },
+    {
+     "n": 37,
+     "text": "Này Phagguna, Ông phải học tập như sau: “Mong rằng tâm của ta sẽ không bị biến nhiễm!"
+    },
+    {
+     "n": 38,
+     "text": "Mong rằng ta sẽ không nói những lời ác ngữ!"
+    },
+    {
+     "n": 39,
+     "text": "Mong rằng ta sẽ sống với lòng lân mẫn, với tâm từ bi, không ôm lòng sân hận!” Này Phagguna, Ông phải học tập như vậy."
+    },
+    {
+     "n": 40,
+     "text": "Rồi Thế Tôn nói với các Tỷ-kheo"
+    },
+    {
+     "n": 41,
+     "text": "—Này các Tỷ-kheo, một thời các Tỷ-kheo của Ta có tâm rất thuần thục hoan hỷ."
+    },
+    {
+     "n": 42,
+     "text": "Này các Tỷ-kheo, ở đây, Ta bảo các Tỷ-kheo, này các Tỷ-kheo, Ta theo hạnh nhất tọa thực."
+    },
+    {
+     "n": 43,
+     "text": "Chư Tỷ-kheo, sống theo hạnh nhất tọa thực, Ta cảm thấy không bệnh tật, không ốm đau, nhẹ nhàng, khang kiện và sảng khoái."
+    },
+    {
+     "n": 44,
+     "text": "Chư Tỷ-kheo, các Ngươi hãy sống theo hạnh nhất tọa thực."
+    },
+    {
+     "n": 45,
+     "text": "Chư Tỷ-kheo, các Ngươi theo hạnh nhất tọa thực thời các Ngươi sẽ cảm thấy không bệnh tật, không ốm đau, nhẹ nhàng, khang kiện và sảng khoái."
+    },
+    {
+     "n": 46,
+     "text": "Chư Tỷ-kheo, Ta không cần phải giảng dạy gì cho các Tỷ-kheo ấy; chư Tỷ-kheo, Ta chỉ cần khơi dậy ức niệm nơi các Tỷ-kheo ấy."
+    },
+    {
+     "n": 47,
+     "text": "Chư Tỷ-kheo, ví như trên đất bằng, tại chỗ ngã tư, có một chiếc xe đang đậu, thắng với ngựa hay, có roi ngựa đặt ngang sẵn sàng."
+    },
+    {
+     "n": 48,
+     "text": "Có người mã thuật sư thiện xảo, người đánh xe điều ngự các con ngựa đáng được điều ngự, leo lên xe ấy, tay trái nắm lấy dây cương, tay mặt cầm lấy roi ngựa, có thể đánh xe ngựa ấy đi tới đi lui,"
+    },
+    {
+     "n": 49,
+     "text": "tại chỗ nào và như thế nào, theo ý mình muốn."
+    },
+    {
+     "n": 50,
+     "text": "Cũng vậy chư Tỷ-kheo, Ta không cần phải giảng dạy gì cho các Tỷ-kheo ấy; chư Tỷ-kheo, Ta chỉ cần khơi dậy ức niệm nơi các Tỷ-kheo ấy."
+    },
+    {
+     "n": 51,
+     "text": "Do vậy, này các Tỷ-kheo, hãy từ bỏ bất thiện, hãy nỗ lực đối với các thiện pháp, như vậy các Ngươi mới thành tựu sự trưởng thành, hưng thịnh, lớn mạnh trong Pháp và Luật này."
+    },
+    {
+     "n": 52,
+     "text": "Chư Tỷ-kheo, cũng như gần một thôn làng hay thị trấn nhỏ, có ngôi rừng cây tala lớn, ngôi rừng bị các cây leo y lan bao phủ."
+    },
+    {
+     "n": 53,
+     "text": "Có một người đến khu rừng này, muốn lợi ích cho ngôi rừng, muốn hạnh phúc, muốn an ổn khỏi các ách phược cho ngôi rừng."
+    },
+    {
+     "n": 54,
+     "text": "Người ấy chặt đứt các nhành cây cong thiếu hẳn sinh lực, vất chúng ra khỏi ngôi rừng, dọn dẹp trong rừng sạch sẽ."
+    },
+    {
+     "n": 55,
+     "text": "Người ấy săn sóc kỹ lưỡng các nhánh cây tala thẳng thắn, khéo mọc."
+    },
+    {
+     "n": 56,
+     "text": "Chư Tỷ-kheo, sau một thời gian, ngôi rừng như vậy được trưởng thành, hưng thịnh, lớn mạnh."
+    },
+    {
+     "n": 57,
+     "text": "Cũng vậy, này các Tỷ-kheo, các Ngươi hãy từ bỏ bất thiện, hãy nỗ lực đối với các thiện pháp, như vậy các Ngươi mới thành tựu sự trưởng thành, hưng thịnh, lớn mạnh trong Pháp và Luật này."
+    },
+    {
+     "n": 58,
+     "text": "Chư Tỷ-kheo, thuở xưa, tại thành Sāvatthi này có nữ gia chủ tên là Vedehika."
+    },
+    {
+     "n": 59,
+     "text": "Chư Tỷ-kheo, tiếng đồn tốt đẹp sau đây được khởi lên về nữ gia chủ Vedehika: “Nữ gia chủ Vedehika là hiền thục, nữ gia chủ Vedehika là nhu thuận; nữ gia chủ Vedehika là ôn hòa”."
+    },
+    {
+     "n": 60,
+     "text": "Chư Tỷ-kheo, nữ gia chủ Vedehika có người nữ tỳ tên là Kālī, người này khéo tay, siêng năng, và làm việc cẩn thận chu toàn."
+    },
+    {
+     "n": 61,
+     "text": "Chư Tỷ-kheo, nữ tỳ Kālī khởi lên ý nghĩ: “Chủ của ta được tiếng đồn tốt đẹp khởi lên như sau: “Nữ gia chủ Vedehika là hiền thục; nữ gia chủ Vedehika là nhu thuận; nữ gia chủ Vedehika là ôn hòa”."
+    },
+    {
+     "n": 62,
+     "text": "Không biết nữ chủ của ta có nội sân mà không tỏ lộ hay không có nội sân, hay vì công việc ta làm cẩn thận chu toàn nên nữ chủ ta có nội sân nhưng không tỏ lộ, không phải không có. Vậy ta hãy thử nữ chủ của ta!”"
+    },
+    {
+     "n": 63,
+     "text": "Chư Tỷ-kheo, rồi nữ tỳ Kālī sáng ngày sau dậy thật trễ."
+    },
+    {
+     "n": 64,
+     "text": "Chư Tỷ-kheo, nữ gia chủ Vedehika nói với nữ tỳ Kālī"
+    },
+    {
+     "n": 65,
+     "text": "—Này Kālī!"
+    },
+    {
+     "n": 66,
+     "text": "—Thưa Nữ chủ, có việc gì?"
+    },
+    {
+     "n": 67,
+     "text": "—Sao hôm nay Ngươi dậy trễ vậy?"
+    },
+    {
+     "n": 68,
+     "text": "—Thưa nữ chủ, có việc gì đâu?"
+    },
+    {
+     "n": 69,
+     "text": "—Thật sự không có việc gì à? Ác nữ tỳ kia, hôm nay Ngươi dậy trễ!”"
+    },
+    {
+     "n": 70,
+     "text": "Và nữ chủ phẫn nộ, bất mãn, trừng mắt."
+    },
+    {
+     "n": 71,
+     "text": "Chư Tỷ-kheo, nữ tỳ Kālī suy nghĩ: “Nữ chủ của ta thật sự có nội sân nhưng không tỏ lộ, không phải không có."
+    },
+    {
+     "n": 72,
+     "text": "Vì những công việc ta làm cẩn thận chu toàn, nên nữ chủ của ta tuy có nội sân nhưng không tỏ lộ, không phải không có. Vậy Ta hãy thử thêm nữa nữ chủ của ta!”"
+    },
+    {
+     "n": 73,
+     "text": "Chư Tỷ-kheo, rồi nữ tỳ Kālī ngày sau lại dậy trễ hơn nữa."
+    },
+    {
+     "n": 74,
+     "text": "Chư Tỷ-kheo, nữ chủ Vedehika nói với nữ tỳ Kālī"
+    },
+    {
+     "n": 75,
+     "text": "—Này Kālī!"
+    },
+    {
+     "n": 76,
+     "text": "—Thưa Nữ chủ, có việc gì?"
+    },
+    {
+     "n": 77,
+     "text": "—Sao hôm nay Ngươi dậy trễ vậy?"
+    },
+    {
+     "n": 78,
+     "text": "—Thưa Nữ chủ, có việc gì đâu?"
+    },
+    {
+     "n": 79,
+     "text": "—Thật sự không có việc gì à? Ác nữ tỳ kia, hôm nay Ngươi dậy trễ!"
+    },
+    {
+     "n": 80,
+     "text": "Và nữ chủ phẫn nộ, bất mãn, thốt lên những lời bất mãn."
+    },
+    {
+     "n": 81,
+     "text": "Chư Tỷ-kheo, nữ tỳ Kālī suy nghĩ: “Nữ chủ của ta thật sự có nội sân nhưng không tỏ lộ, không phải không có."
+    },
+    {
+     "n": 82,
+     "text": "Vì những công việc ta làm cẩn thận chu toàn nên nữ chủ của ta tuy có nội sân nhưng không tỏ lộ, không phải không có. Vậy ta hãy thử thêm nữa nữ chủ của ta!”"
+    },
+    {
+     "n": 83,
+     "text": "Chư Tỷ-kheo, rồi nữ tỳ Kālī sáng hôm sau lại dậy trễ hơn nữa."
+    },
+    {
+     "n": 84,
+     "text": "Chư Tỷ-kheo, nữ chủ Vedehika nói với nữ tỳ Kālī"
+    },
+    {
+     "n": 85,
+     "text": "—Này Kālī!"
+    },
+    {
+     "n": 86,
+     "text": "—Thưa Nữ chủ, có việc gì?"
+    },
+    {
+     "n": 87,
+     "text": "—Sao hôm nay Ngươi dậy trễ vậy?"
+    },
+    {
+     "n": 88,
+     "text": "—Thưa Nữ chủ, có việc gì đâu?"
+    },
+    {
+     "n": 89,
+     "text": "—Thật sự không có việc gì à? Ác nữ tỳ kia, hôm nay Ngươi dậy trễ!"
+    },
+    {
+     "n": 90,
+     "text": "Rồi phẫn nộ, không hoan hỷ, nàng cầm cái then gài cửa, đánh một cú trên đầu nữ tỳ khiến bể đầu."
+    },
+    {
+     "n": 91,
+     "text": "Chư Tỷ-kheo, nữ tỳ Kālī, với đầu bể máu chảy, liền đi kể lể với các nhà láng giềng"
+    },
+    {
+     "n": 92,
+     "text": "—Hãy xem việc làm của nữ chủ hiền thục! Hãy xem việc làm của nữ chủ nhu thuận! Hãy xem việc làm của nữ chủ ôn hòa!"
+    },
+    {
+     "n": 93,
+     "text": "Sao nữ chủ nói với nữ tỳ độc nhất: “Hôm nay Ngươi dậy trễ”, rồi phẫn nộ, bất mãn, nàng cầm then gài cửa, đánh tôi một cú trên đầu khiến bể đầu”."
+    },
+    {
+     "n": 94,
+     "text": "Chư Tỷ-kheo, sau một thời gian, tiếng đồn xấu sau đây được khởi lên về nữ chủ Vedehika: “Nữ chủ Vedehika là độc ác! Nữ chủ Vedehika là không nhu thuận! Nữ chủ Vedehika là không ôn hòa!”"
+    },
+    {
+     "n": 95,
+     "text": "Cũng vậy chư Tỷ-kheo, ở đây, Tỷ-kheo hết sức hiền lành, hết sức nhu thuận, hết sức ôn hòa trong khi chưa bị những lời nói bất khả ý, xúc phạm."
+    },
+    {
+     "n": 96,
+     "text": "Và chư Tỷ-kheo, chỉ khi nào Tỷ-kheo bị những lời nói bất khả ý, xúc phạm mà vị ấy vẫn hết sức hiền lành, hết sức nhu thuận, hết sức ôn hòa, khi ấy vị ấy mới được xem là hiền lành, mới được xem là nhu thuận,"
+    },
+    {
+     "n": 97,
+     "text": "mới được xem là ôn hòa. Chư Tỷ-kheo, Ta không gọi một Tỷ-kheo là dễ nói, khi vị ấy dễ nói về các vật dụng như y áo, món ăn, sàng tọa, dược phẩm trị bệnh, khi vị ấy thành tựu được tánh dễ nói. Vì sao vậy?"
+    },
+    {
+     "n": 98,
+     "text": "Chư Tỷ-kheo, Tỷ-kheo ấy khi không được các vật dụng như y áo, thức ăn, sàng tọa, dược phẩm trị bệnh, không còn là dễ nói, không còn thành tựu tánh dễ nói."
+    },
+    {
+     "n": 99,
+     "text": "Chư Tỷ-kheo, Tỷ-kheo nào tôn trọng Pháp, cung kính Pháp, sùng kính Pháp trở thành dễ nói, thành tựu tánh dễ nói, vị ấy Ta mới gọi là dễ nói."
+    },
+    {
+     "n": 100,
+     "text": "Do vậy, này các Tỷ-kheo, hãy suy nghĩ: “Chỉ vì tôn trọng Pháp, cung kính Pháp, sùng kính Pháp chúng ta sẽ trở thành dễ nói, thành tựu tánh dễ nói”."
+    },
+    {
+     "n": 101,
+     "text": "Chư Tỷ-kheo, các Ngươi phải học tập như vậy."
+    },
+    {
+     "n": 102,
+     "text": "Chư Tỷ-kheo, có năm loại ngôn ngữ mà các Ngươi có thể dùng khi nói với các người khác:"
+    },
+    {
+     "n": 103,
+     "text": "đúng thời hay phi thời, chơn thực hay không chơn thực, nhu nhuyến hay thô bạo, có lợi ích hay không lợi ích, với từ tâm hay với sân tâm."
+    },
+    {
+     "n": 104,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ngươi có thể nói đúng thời hay phi thời."
+    },
+    {
+     "n": 105,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ngươi có thể nói lời chơn thực hay nói lời không chơn thực."
+    },
+    {
+     "n": 106,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ngươi có thể nói lời nhu nhuyến hay nói lời thô bạo."
+    },
+    {
+     "n": 107,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ngươi có thể nói lời lợi ích hay nói lời không lợi ích."
+    },
+    {
+     "n": 108,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ngươi có thể nói với từ tâm hay với sân tâm."
+    },
+    {
+     "n": 109,
+     "text": "Chư Tỷ-kheo, ở tại đây, các Ngươi cần phải học tập như sau:"
+    },
+    {
+     "n": 110,
+     "text": "“Chúng ta sẽ giữ tâm của chúng ta không biến nhiễm, chúng ta sẽ không thốt ra những lời ác ngữ, chúng ta sẽ sống với lòng lân mẫn, với tâm từ bi, với nội tâm không sân hận."
+    },
+    {
+     "n": 111,
+     "text": "Chúng ta sẽ sống bao phủ người này với tâm câu hữu với từ."
+    },
+    {
+     "n": 112,
+     "text": "Và với người này là đối tượng, ta sống biến mãn cùng khắp thế giới với tâm câu hữu với từ, quảng địa vô biên, không hận, không sân”."
+    },
+    {
+     "n": 113,
+     "text": "Chư Tỷ-kheo, như vậy các Ngươi cần phải học tập."
+    },
+    {
+     "n": 114,
+     "text": "Chư Tỷ-kheo, ví như một người đến, cầm xẻng và thúng, nói như sau:"
+    },
+    {
+     "n": 115,
+     "text": "“Tôi sẽ làm cho đất lớn này không thành đất nữa”, và người ấy đào chỗ này chỗ kia, rải đất chỗ này chỗ kia, nhổ nước miếng chỗ này chỗ kia, đi tiểu tiện chỗ này chỗ kia, với ý nghĩ:"
+    },
+    {
+     "n": 116,
+     "text": "“Ngươi trở thành không phải đất, Ngươi trở thành không phải đất”. Chư Tỷ-kheo, nghĩ thế nào?"
+    },
+    {
+     "n": 117,
+     "text": "Người ấy có thể làm cho đất lớn này trở thành không phải đất chăng?"
+    },
+    {
+     "n": 118,
+     "text": "—Bạch Thế Tôn, không. Vì sao vậy? Vì đất lớn này thâm sâu và vô lượng, không dễ gì khiến cho đất lớn này trở thành không phải đất, trước khi người ấy bị mệt nhoài và bị thất bại."
+    },
+    {
+     "n": 119,
+     "text": "—Cũng vậy, này chư Tỷ-kheo, có năm loại ngôn ngữ này mà các Ông có thể nói với người khác: “Đúng thời hay phi thời … hay với sân tâm”."
+    },
+    {
+     "n": 120,
+     "text": "Các Tỷ-kheo, khi nói với các người khác, các Ông có thể nói: “Đúng thời … hay với sân tâm”."
+    },
+    {
+     "n": 121,
+     "text": "Các Tỷ-kheo, ở tại đây, các Ông cần phải học tập như sau: “Chúng ta sẽ giữ tâm của chúng ta không biến nhiễm; chúng ta sẽ không thốt ra những lời ác ngữ;"
+    },
+    {
+     "n": 122,
+     "text": "chúng ta sẽ sống với lòng lân mẫn, với tâm từ bi, với nội tâm không sân hận; chúng ta sẽ sống biến mãn người này với tâm câu hữu với từ."
+    },
+    {
+     "n": 123,
+     "text": "Và với người này là đối tượng, ta sống biến mãn cùng khắp thế giới, với tâm câu hữu với từ, quảng đại, vô biên, không hận, không sân”."
+    },
+    {
+     "n": 124,
+     "text": "Các Tỷ-kheo, các Ông cần phải học tập như vậy."
+    },
+    {
+     "n": 125,
+     "text": "Chư Tỷ-kheo, ví như một người đến, cầm màu sơn, màu vàng, màu xanh sẫm hay màu đỏ tía; người ấy có thể nói như sau: “Ta sẽ viết các hình sắc trên hư không này. Ta sẽ làm cho các hình sắc hiển hiện”."
+    },
+    {
+     "n": 126,
+     "text": "Các Tỷ-kheo, các Ông nghĩ thế nào? Người ấy có thể viết các hình sắc trên hư không và làm cho các hình sắc hiển hiện được không?"
+    },
+    {
+     "n": 127,
+     "text": "—Bạch Thế Tôn, không thể được. Vì sao vậy?"
+    },
+    {
+     "n": 128,
+     "text": "Bạch Thế Tôn, hư không là vô sắc, không thể thấy được. Ở đây, không dễ gì viết các hình sắc và làm hình sắc hiển hiện, trước khi người ấy bị mệt nhoài và bị thất bại."
+    },
+    {
+     "n": 129,
+     "text": "—Cũng vậy, này Tỷ-kheo, có năm loại ngôn ngữ này mà các Ông có thể nói với người khác: “Đúng thời hay phi thời … hay với sân tâm … (như trên) …"
+    },
+    {
+     "n": 130,
+     "text": "Và với người này là đối tượng, ta sống biến mãn cùng khắp thế giới với tâm câu hữu với từ, quảng đại, vô biên, không hận, không sân”."
+    },
+    {
+     "n": 131,
+     "text": "Chư Tỷ-kheo, các Ông cần phải học tập như vậy."
+    },
+    {
+     "n": 132,
+     "text": "Chư Tỷ-kheo, ví như một người đến, cầm một bó cỏ khô đang cháy và nói như sau: “Ta với bó cỏ khô đang cháy này sẽ hâm nóng và đun sôi sông Hằng này. Chư Tỷ-kheo, các Ông nghĩ thế nào?"
+    },
+    {
+     "n": 133,
+     "text": "Người ấy, với bỏ cỏ khô đang cháy có thể hâm nóng và đun sôi sông Hằng được không?"
+    },
+    {
+     "n": 134,
+     "text": "—Bạch Thế Tôn, không. Vì sao vậy? Bạch Thế Tôn, vì sông Hằng thâm sâu và vô lượng, không dễ gì với bó cỏ khô đang cháy có thể hâm nóng và đun sôi sông Hằng được, trước khi người ấy mệt nhoài và bị thất bại."
+    },
+    {
+     "n": 135,
+     "text": "—Cũng vậy, này chư Tỷ-kheo, có năm loại ngôn ngữ này mà các Ông có thể nói với các người khác: “Đúng thời hay phi thời … hay với sân tâm”."
+    },
+    {
+     "n": 136,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ông có thể nói: “Đúng thời … hay với sân tâm … (như trên) …"
+    },
+    {
+     "n": 137,
+     "text": "Và với người này là đối tượng, ta sống biến mãn cùng khắp thế giới với tâm câu hữu với từ, quảng đại, vô biên, không hận, không sân”."
+    },
+    {
+     "n": 138,
+     "text": "Chư Tỷ-kheo, các Ông cần phải học tập như vậy."
+    },
+    {
+     "n": 139,
+     "text": "—Chư Tỷ-kheo, ví như một cái bị bằng da mèo, đã được thuộc chín, khéo thuộc, khéo thuộc cùng khắp, nhu nhuyến, như bông, không còn tiếng xì, tiếng xọp, và một người đến, cầm gậy hay cầm mẻ sành và nói như sau:"
+    },
+    {
+     "n": 140,
+     "text": "“Ta sẽ lấy cái gậy hay với cái mẻ sành làm cho cái bị bằng da mèo này, đã được thuộc chín, khéo thuộc, khéo thuộc cùng khắp, nhu nhuyễn, như bông, không còn tiếng xì, tiếng xọp, phát ra tiếng xì, tiếng xọp”."
+    },
+    {
+     "n": 141,
+     "text": "Chư Tỷ-kheo, các Ông nghĩ thế nào?"
+    },
+    {
+     "n": 142,
+     "text": "Người ấy có thể, với cái gậy hay với cái mẻ sành làm cho cái bị bằng da mèo này đã được thuộc chín, khéo thuộc, khéo thuộc cùng khắp, nhu nhuyễn, như bông, không còn tiếng xì, tiếng xọp, phát ra tiếng xì,"
+    },
+    {
+     "n": 143,
+     "text": "tiếng xọp được không?"
+    },
+    {
+     "n": 144,
+     "text": "—Bạch Thế Tôn, không. Vì sao vậy?"
+    },
+    {
+     "n": 145,
+     "text": "Bạch Thế Tôn, cái bị bằng da mèo này đã được thuộc chín, khéo thuộc, khéo thuộc cùng khắp, nhu nhuyễn, như bông, không còn tiếng xì, tiếng xọp, không dễ gì làm cho cái bị ấy phát ra tiếng xì, tiếng xọp được,"
+    },
+    {
+     "n": 146,
+     "text": "trước khi người ấy bị mệt nhoài và bị thất bại."
+    },
+    {
+     "n": 147,
+     "text": "—Cũng vậy, chư Tỷ-kheo, có năm loại ngôn ngữ mà các Ông có thể dùng khi nói với các người khác:"
+    },
+    {
+     "n": 148,
+     "text": "“Đúng thời hay phi thời, chơn thực hay không chơn thực, nhu nhuyễn hay thô bạo, có lợi ích hay không lợi ích, với từ tâm hay với sân tâm”."
+    },
+    {
+     "n": 149,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ông có thể nói đúng thời hay phi thời."
+    },
+    {
+     "n": 150,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ông có thể nói lời chơn thực hay nói lời không chơn thực."
+    },
+    {
+     "n": 151,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ông có thể nói lời nhu nhuyễn hay nói lời thô bạo."
+    },
+    {
+     "n": 152,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ông có thể nói lời lợi ích hay nói lời không lợi ích."
+    },
+    {
+     "n": 153,
+     "text": "Chư Tỷ-kheo, khi nói với các người khác, các Ông có thể nói với từ tâm hay với sân tâm."
+    },
+    {
+     "n": 154,
+     "text": "Chư Tỷ-kheo, ở tại đây, các Ông cần phải học tập như sau: “Chúng ta sẽ giữ tâm của chúng ta không biến nhiễm, chúng ta sẽ không thốt ra những lời ác ngữ;"
+    },
+    {
+     "n": 155,
+     "text": "chúng ta sẽ sống với lòng lân mẫn, với tâm từ bi, với nội tâm không sân hận."
+    },
+    {
+     "n": 156,
+     "text": "Chúng ta sẽ sống biến mãn người này với tâm câu hữu với từ."
+    },
+    {
+     "n": 157,
+     "text": "Và với người này là đối tượng, ta sống biến mãn cùng khắp thế giới với tâm câu hữu với từ, quảng đại, vô biên, không hận, không sân” Chư Tỷ-kheo, các Ông cần phải học tập như vậy."
+    },
+    {
+     "n": 158,
+     "text": "Chư Tỷ-kheo, như những kẻ đạo tặc hạ liệt, dùng cưa hai lưỡi mà cưa tay, cưa chân;"
+    },
+    {
+     "n": 159,
+     "text": "dầu vậy, nếu một ai ở đây khởi ý nhiễm loạn, người ấy do vậy không phải là người thực hành giáo pháp của Ta. Ở đây, chư Tỷ-kheo các Ông phải học tập như sau: “Chúng ta sẽ giữ tâm của chúng ta không biến nhiễm;"
+    },
+    {
+     "n": 160,
+     "text": "chúng ta sẽ không thốt ra những lời ác ngữ; chúng ta sẽ sống với lòng lân mẫn, với tâm từ bi, với nội tâm không sân hận."
+    },
+    {
+     "n": 161,
+     "text": "Chúng ta sẽ sống bao phủ người này với tâm câu hữu với từ."
+    },
+    {
+     "n": 162,
+     "text": "Và với người này là đối tượng, ta sống biến mãn cùng khắp thế giới với tâm câu hữu với từ, quảng đại, vô biên, không hận, không sân”."
+    },
+    {
+     "n": 163,
+     "text": "Chư Tỷ-kheo, các Ông cần phải học tập như vậy."
+    },
+    {
+     "n": 164,
+     "text": "Và này chư Tỷ-kheo, nếu các Ông luôn luôn suy tư lời dạy ví dụ cái cưa này, thì này các Tỷ-kheo, các Ông có thấy loại ngôn ngữ nào, dầu tế nhị hay thô bạo mà các Ông không kham nhẫn được chăng?"
+    },
+    {
+     "n": 165,
+     "text": "—Bạch Thế Tôn, không."
+    },
+    {
+     "n": 166,
+     "text": "—Chư Tỷ-kheo, do vậy, hãy luôn luôn suy tư lời dạy ví như cái cưa này, và các Ông sẽ được hạnh phúc an lạc lâu ngày."
+    },
+    {
+     "n": 167,
+     "text": "Thế Tôn thuyết giảng như vậy. Các Tỷ-kheo ấy hoan hỷ, tín thọ lời Thế Tôn dạy."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn21/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Tena kho pana samayena āyasmā moḷiyaphagguno bhikkhunīhi saddhiṁ ativelaṁ saṁsaṭṭho viharati."
+    },
+    {
+     "n": 3,
+     "text": "Evaṁ saṁsaṭṭho āyasmā moḷiyaphagguno bhikkhunīhi saddhiṁ viharati— sace koci bhikkhu āyasmato moḷiyaphaggunassa sammukhā tāsaṁ bhikkhunīnaṁ avaṇṇaṁ bhāsati,"
+    },
+    {
+     "n": 4,
+     "text": "tenāyasmā moḷiyaphagguno kupito anattamano adhikaraṇampi karoti."
+    },
+    {
+     "n": 5,
+     "text": "Sace pana koci bhikkhu tāsaṁ bhikkhunīnaṁ sammukhā āyasmato moḷiyaphaggunassa avaṇṇaṁ bhāsati, tena tā bhikkhuniyo kupitā anattamanā adhikaraṇampi karonti."
+    },
+    {
+     "n": 6,
+     "text": "Evaṁ saṁsaṭṭho āyasmā moḷiyaphagguno bhikkhunīhi saddhiṁ viharati."
+    },
+    {
+     "n": 7,
+     "text": "Atha kho aññataro bhikkhu yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 8,
+     "text": "Ekamantaṁ nisinno kho so bhikkhu bhagavantaṁ etadavoca: “āyasmā, bhante, moḷiyaphagguno bhikkhunīhi saddhiṁ ativelaṁ saṁsaṭṭho viharati."
+    },
+    {
+     "n": 9,
+     "text": "Evaṁ saṁsaṭṭho, bhante, āyasmā moḷiyaphagguno bhikkhunīhi saddhiṁ viharati— sace koci bhikkhu āyasmato moḷiyaphaggunassa sammukhā tāsaṁ bhikkhunīnaṁ avaṇṇaṁ bhāsati,"
+    },
+    {
+     "n": 10,
+     "text": "tenāyasmā moḷiyaphagguno kupito anattamano adhikaraṇampi karoti."
+    },
+    {
+     "n": 11,
+     "text": "Sace pana koci bhikkhu tāsaṁ bhikkhunīnaṁ sammukhā āyasmato moḷiyaphaggunassa avaṇṇaṁ bhāsati, tena tā bhikkhuniyo kupitā anattamanā adhikaraṇampi karonti."
+    },
+    {
+     "n": 12,
+     "text": "Evaṁ saṁsaṭṭho, bhante, āyasmā moḷiyaphagguno bhikkhunīhi saddhiṁ viharatī”ti."
+    },
+    {
+     "n": 13,
+     "text": "Atha kho bhagavā aññataraṁ bhikkhuṁ āmantesi: “ehi tvaṁ, bhikkhu, mama vacanena moḷiyaphaggunaṁ bhikkhuṁ āmantehi: ‘satthā taṁ, āvuso phagguna, āmantetī’”ti."
+    },
+    {
+     "n": 14,
+     "text": "“Evaṁ, bhante”ti kho so bhikkhu bhagavato paṭissutvā yenāyasmā moḷiyaphagguno tenupasaṅkami; upasaṅkamitvā āyasmantaṁ moḷiyaphaggunaṁ etadavoca: “satthā taṁ, āvuso phagguna, āmantetī”ti."
+    },
+    {
+     "n": 15,
+     "text": "“Evamāvuso”ti kho āyasmā moḷiyaphagguno tassa bhikkhuno paṭissutvā yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 16,
+     "text": "Ekamantaṁ nisinnaṁ kho āyasmantaṁ moḷiyaphaggunaṁ bhagavā etadavoca:"
+    },
+    {
+     "n": 17,
+     "text": "“Saccaṁ kira tvaṁ, phagguna, bhikkhunīhi saddhiṁ ativelaṁ saṁsaṭṭho viharasi?"
+    },
+    {
+     "n": 18,
+     "text": "Evaṁ saṁsaṭṭho kira tvaṁ, phagguna, bhikkhunīhi saddhiṁ viharasi— sace koci bhikkhu tuyhaṁ sammukhā tāsaṁ bhikkhunīnaṁ avaṇṇaṁ bhāsati, tena tvaṁ kupito anattamano adhikaraṇampi karosi."
+    },
+    {
+     "n": 19,
+     "text": "Sace pana koci bhikkhu tāsaṁ bhikkhunīnaṁ sammukhā tuyhaṁ avaṇṇaṁ bhāsati, tena tā bhikkhuniyo kupitā anattamanā adhikaraṇampi karonti."
+    },
+    {
+     "n": 20,
+     "text": "Evaṁ saṁsaṭṭho kira tvaṁ, phagguna, bhikkhunīhi saddhiṁ viharasī”ti?"
+    },
+    {
+     "n": 21,
+     "text": "“Evaṁ, bhante”ti."
+    },
+    {
+     "n": 22,
+     "text": "“Nanu tvaṁ, phagguna, kulaputto saddhā agārasmā anagāriyaṁ pabbajito”ti?"
+    },
+    {
+     "n": 23,
+     "text": "“Evaṁ, bhante”ti."
+    },
+    {
+     "n": 24,
+     "text": "“Na kho te etaṁ, phagguna, patirūpaṁ kulaputtassa saddhā agārasmā anagāriyaṁ pabbajitassa, yaṁ tvaṁ bhikkhunīhi saddhiṁ ativelaṁ saṁsaṭṭho vihareyyāsi."
+    },
+    {
+     "n": 25,
+     "text": "Tasmātiha, phagguna, tava cepi koci sammukhā tāsaṁ bhikkhunīnaṁ avaṇṇaṁ bhāseyya, tatrāpi tvaṁ, phagguna, ye gehasitā chandā ye gehasitā vitakkā te pajaheyyāsi."
+    },
+    {
+     "n": 26,
+     "text": "Tatrāpi te, phagguna, evaṁ sikkhitabbaṁ: ‘na ceva me cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāmi, hitānukampī ca viharissāmi mettacitto, na dosantaro’ti. Evañhi te, phagguna, sikkhitabbaṁ."
+    },
+    {
+     "n": 27,
+     "text": "Tasmātiha, phagguna, tava cepi koci sammukhā tāsaṁ bhikkhunīnaṁ pāṇinā pahāraṁ dadeyya, leḍḍunā pahāraṁ dadeyya, daṇḍena pahāraṁ dadeyya, satthena pahāraṁ dadeyya."
+    },
+    {
+     "n": 28,
+     "text": "Tatrāpi tvaṁ, phagguna, ye gehasitā chandā ye gehasitā vitakkā te pajaheyyāsi."
+    },
+    {
+     "n": 29,
+     "text": "Tatrāpi te, phagguna, evaṁ sikkhitabbaṁ ‘na ceva me cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāmi, hitānukampī ca viharissāmi mettacitto, na dosantaro’ti. Evañhi te, phagguna, sikkhitabbaṁ."
+    },
+    {
+     "n": 30,
+     "text": "Tasmātiha, phagguna, tava cepi koci sammukhā avaṇṇaṁ bhāseyya, tatrāpi tvaṁ, phagguna, ye gehasitā chandā ye gehasitā vitakkā te pajaheyyāsi."
+    },
+    {
+     "n": 31,
+     "text": "Tatrāpi te, phagguna, evaṁ sikkhitabbaṁ ‘na ceva me cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāmi, hitānukampī ca viharissāmi mettacitto, na dosantaro’ti. Evañhi te, phagguna, sikkhitabbaṁ."
+    },
+    {
+     "n": 32,
+     "text": "Tasmātiha, phagguna, tava cepi koci pāṇinā pahāraṁ dadeyya, leḍḍunā pahāraṁ dadeyya, daṇḍena pahāraṁ dadeyya, satthena pahāraṁ dadeyya, tatrāpi tvaṁ, phagguna, ye gehasitā chandā ye gehasitā vitakkā te pajaheyyāsi."
+    },
+    {
+     "n": 33,
+     "text": "Tatrāpi te, phagguna, evaṁ sikkhitabbaṁ ‘na ceva me cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāmi, hitānukampī ca viharissāmi mettacitto, na dosantaro’ti. Evañhi te, phagguna, sikkhitabban”ti."
+    },
+    {
+     "n": 34,
+     "text": "Atha kho bhagavā bhikkhū āmantesi:"
+    },
+    {
+     "n": 35,
+     "text": "“ārādhayiṁsu vata me, bhikkhave, bhikkhū ekaṁ samayaṁ cittaṁ."
+    },
+    {
+     "n": 36,
+     "text": "Idhāhaṁ, bhikkhave, bhikkhū āmantesiṁ— ahaṁ kho, bhikkhave, ekāsanabhojanaṁ bhuñjāmi."
+    },
+    {
+     "n": 37,
+     "text": "Ekāsanabhojanaṁ kho ahaṁ, bhikkhave, bhuñjamāno appābādhatañca sañjānāmi appātaṅkatañca lahuṭṭhānañca balañca phāsuvihārañca."
+    },
+    {
+     "n": 38,
+     "text": "Etha tumhepi, bhikkhave, ekāsanabhojanaṁ bhuñjatha."
+    },
+    {
+     "n": 39,
+     "text": "Ekāsanabhojanaṁ kho, bhikkhave, tumhepi bhuñjamānā appābādhatañca sañjānissatha appātaṅkatañca lahuṭṭhānañca balañca phāsuvihārañcāti."
+    },
+    {
+     "n": 40,
+     "text": "Na me, bhikkhave, tesu bhikkhūsu anusāsanī karaṇīyā ahosi; satuppādakaraṇīyameva me, bhikkhave, tesu bhikkhūsu ahosi."
+    },
+    {
+     "n": 41,
+     "text": "Seyyathāpi, bhikkhave, subhūmiyaṁ catumahāpathe ājaññaratho yutto assa ṭhito odhastapatodo."
+    },
+    {
+     "n": 42,
+     "text": "Tamenaṁ dakkho yoggācariyo assadammasārathi abhiruhitvā, vāmena hatthena rasmiyo gahetvā, dakkhiṇena hatthena patodaṁ gahetvā, yenicchakaṁ yadicchakaṁ sāreyyapi paccāsāreyyapi."
+    },
+    {
+     "n": 43,
+     "text": "Evameva kho, bhikkhave, na me tesu bhikkhūsu anusāsanī karaṇīyā ahosi, satuppādakaraṇīyameva me, bhikkhave, tesu bhikkhūsu ahosi."
+    },
+    {
+     "n": 44,
+     "text": "Tasmātiha, bhikkhave, tumhepi akusalaṁ pajahatha, kusalesu dhammesu āyogaṁ karotha."
+    },
+    {
+     "n": 45,
+     "text": "Evañhi tumhepi imasmiṁ dhammavinaye vuddhiṁ virūḷhiṁ vepullaṁ āpajjissatha."
+    },
+    {
+     "n": 46,
+     "text": "Seyyathāpi, bhikkhave, gāmassa vā nigamassa vā avidūre mahantaṁ sālavanaṁ. Tañcassa eḷaṇḍehi sañchannaṁ."
+    },
+    {
+     "n": 47,
+     "text": "Tassa kocideva puriso uppajjeyya atthakāmo hitakāmo yogakkhemakāmo."
+    },
+    {
+     "n": 48,
+     "text": "So yā tā sālalaṭṭhiyo kuṭilā ojāpaharaṇiyo tā chetvā bahiddhā nīhareyya, antovanaṁ suvisodhitaṁ visodheyya."
+    },
+    {
+     "n": 49,
+     "text": "Yā pana tā sālalaṭṭhiyo ujukā sujātā tā sammā parihareyya."
+    },
+    {
+     "n": 50,
+     "text": "Evañhetaṁ, bhikkhave, sālavanaṁ aparena samayena vuddhiṁ virūḷhiṁ vepullaṁ āpajjeyya."
+    },
+    {
+     "n": 51,
+     "text": "Evameva kho, bhikkhave, tumhepi akusalaṁ pajahatha, kusalesu dhammesu āyogaṁ karotha."
+    },
+    {
+     "n": 52,
+     "text": "Evañhi tumhepi imasmiṁ dhammavinaye vuddhiṁ virūḷhiṁ vepullaṁ āpajjissatha."
+    },
+    {
+     "n": 53,
+     "text": "Bhūtapubbaṁ, bhikkhave, imissāyeva sāvatthiyā vedehikā nāma gahapatānī ahosi."
+    },
+    {
+     "n": 54,
+     "text": "Vedehikāya, bhikkhave, gahapatāniyā evaṁ kalyāṇo kittisaddo abbhuggato: ‘soratā vedehikā gahapatānī, nivātā vedehikā gahapatānī, upasantā vedehikā gahapatānī’ti."
+    },
+    {
+     "n": 55,
+     "text": "Vedehikāya kho pana, bhikkhave, gahapatāniyā kāḷī nāma dāsī ahosi dakkhā analasā susaṁvihitakammantā."
+    },
+    {
+     "n": 56,
+     "text": "Atha kho, bhikkhave, kāḷiyā dāsiyā etadahosi: ‘mayhaṁ kho ayyāya evaṁ kalyāṇo kittisaddo abbhuggato: “soratā vedehikā gahapatānī, nivātā vedehikā gahapatānī, upasantā vedehikā gahapatānī”ti."
+    },
+    {
+     "n": 57,
+     "text": "Kiṁ nu kho me ayyā santaṁyeva nu kho ajjhattaṁ kopaṁ na pātukaroti udāhu asantaṁ udāhu mayhamevete kammantā susaṁvihitā yena me ayyā santaṁyeva ajjhattaṁ kopaṁ na pātukaroti, no asantaṁ? Yannūnāhaṁ ayyaṁ vīmaṁseyyan’ti."
+    },
+    {
+     "n": 58,
+     "text": "Atha kho, bhikkhave, kāḷī dāsī divā uṭṭhāsi."
+    },
+    {
+     "n": 59,
+     "text": "Atha kho, bhikkhave, vedehikā gahapatānī kāḷiṁ dāsiṁ etadavoca: ‘he je kāḷī’ti."
+    },
+    {
+     "n": 60,
+     "text": "‘Kiṁ, ayye’ti?"
+    },
+    {
+     "n": 61,
+     "text": "‘Kiṁ, je, divā uṭṭhāsī’ti?"
+    },
+    {
+     "n": 62,
+     "text": "‘Na khvayye, kiñcī’ti."
+    },
+    {
+     "n": 63,
+     "text": "‘No vata re kiñci, pāpi dāsi, divā uṭṭhāsī’ti kupitā anattamanā bhākuṭiṁ akāsi."
+    },
+    {
+     "n": 64,
+     "text": "Atha kho, bhikkhave, kāḷiyā dāsiyā etadahosi: ‘santaṁyeva kho me ayyā ajjhattaṁ kopaṁ na pātukaroti, no asantaṁ; mayhamevete kammantā susaṁvihitā, yena me ayyā santaṁyeva ajjhattaṁ kopaṁ na pātukaroti, no asantaṁ."
+    },
+    {
+     "n": 65,
+     "text": "Yannūnāhaṁ bhiyyoso mattāya ayyaṁ vīmaṁseyyan’ti."
+    },
+    {
+     "n": 66,
+     "text": "Atha kho, bhikkhave, kāḷī dāsī divātaraṁyeva uṭṭhāsi."
+    },
+    {
+     "n": 67,
+     "text": "Atha kho, bhikkhave, vedehikā gahapatānī kāḷiṁ dāsiṁ etadavoca: ‘he je kāḷī’ti."
+    },
+    {
+     "n": 68,
+     "text": "‘Kiṁ, ayye’ti?"
+    },
+    {
+     "n": 69,
+     "text": "‘Kiṁ, je, divātaraṁ uṭṭhāsī’ti?"
+    },
+    {
+     "n": 70,
+     "text": "‘Na khvayye, kiñcī’ti."
+    },
+    {
+     "n": 71,
+     "text": "‘No vata re kiñci, pāpi dāsi, divātaraṁ uṭṭhāsī’ti kupitā anattamanā anattamanavācaṁ nicchāresi."
+    },
+    {
+     "n": 72,
+     "text": "Atha kho, bhikkhave, kāḷiyā dāsiyā etadahosi: ‘santaṁyeva kho me ayyā ajjhattaṁ kopaṁ na pātukaroti, no asantaṁ."
+    },
+    {
+     "n": 73,
+     "text": "Mayhamevete kammantā susaṁvihitā, yena me ayyā santaṁyeva ajjhattaṁ kopaṁ na pātukaroti, no asantaṁ."
+    },
+    {
+     "n": 74,
+     "text": "Yannūnāhaṁ bhiyyoso mattāya ayyaṁ vīmaṁseyyan’ti."
+    },
+    {
+     "n": 75,
+     "text": "Atha kho, bhikkhave, kāḷī dāsī divātaraṁyeva uṭṭhāsi."
+    },
+    {
+     "n": 76,
+     "text": "Atha kho, bhikkhave, vedehikā gahapatānī kāḷiṁ dāsiṁ etadavoca: ‘he je kāḷī’ti."
+    },
+    {
+     "n": 77,
+     "text": "‘Kiṁ, ayye’ti?"
+    },
+    {
+     "n": 78,
+     "text": "‘Kiṁ, je, divā uṭṭhāsī’ti?"
+    },
+    {
+     "n": 79,
+     "text": "‘Na khvayye, kiñcī’ti."
+    },
+    {
+     "n": 80,
+     "text": "‘No vata re kiñci, pāpi dāsi, divā uṭṭhāsī’ti kupitā anattamanā aggaḷasūciṁ gahetvā sīse pahāraṁ adāsi, sīsaṁ vobhindi."
+    },
+    {
+     "n": 81,
+     "text": "Atha kho, bhikkhave, kāḷī dāsī bhinnena sīsena lohitena galantena paṭivissakānaṁ ujjhāpesi: ‘passathayye, soratāya kammaṁ; passathayye, nivātāya kammaṁ, passathayye, upasantāya kammaṁ."
+    },
+    {
+     "n": 82,
+     "text": "Kathañhi nāma ekadāsikāya divā uṭṭhāsīti kupitā anattamanā aggaḷasūciṁ gahetvā sīse pahāraṁ dassati, sīsaṁ vobhindissatī’ti."
+    },
+    {
+     "n": 83,
+     "text": "Atha kho, bhikkhave, vedehikāya gahapatāniyā aparena samayena evaṁ pāpako kittisaddo abbhuggacchi: ‘caṇḍī vedehikā gahapatānī, anivātā vedehikā gahapatānī, anupasantā vedehikā gahapatānī’ti."
+    },
+    {
+     "n": 84,
+     "text": "Evameva kho, bhikkhave, idhekacco bhikkhu tāvadeva soratasorato hoti nivātanivāto hoti upasantūpasanto hoti yāva na amanāpā vacanapathā phusanti."
+    },
+    {
+     "n": 85,
+     "text": "Yato ca, bhikkhave, bhikkhuṁ amanāpā vacanapathā phusanti, atha bhikkhu ‘sorato’ti veditabbo, ‘nivāto’ti veditabbo, ‘upasanto’ti veditabbo."
+    },
+    {
+     "n": 86,
+     "text": "Nāhaṁ taṁ, bhikkhave, bhikkhuṁ ‘suvaco’ti vadāmi yo cīvarapiṇḍapātasenāsanagilānappaccayabhesajjaparikkhārahetu suvaco hoti, sovacassataṁ āpajjati. Taṁ kissa hetu?"
+    },
+    {
+     "n": 87,
+     "text": "Tañhi so, bhikkhave, bhikkhu cīvarapiṇḍapātasenāsanagilānappaccayabhesajjaparikkhāraṁ alabhamāno na suvaco hoti, na sovacassataṁ āpajjati."
+    },
+    {
+     "n": 88,
+     "text": "Yo ca kho, bhikkhave, bhikkhu dhammaṁyeva sakkaronto, dhammaṁ garuṁ karonto, dhammaṁ mānento, dhammaṁ pūjento, dhammaṁ apacāyamāno suvaco hoti, sovacassataṁ āpajjati, tamahaṁ ‘suvaco’ti vadāmi."
+    },
+    {
+     "n": 89,
+     "text": "Tasmātiha, bhikkhave, ‘dhammaṁyeva sakkarontā, dhammaṁ garuṁ karontā, dhammaṁ mānentā, dhammaṁ pūjentā, dhammaṁ apacāyamānā suvacā bhavissāma, sovacassataṁ āpajjissāmā’ti. Evañhi vo, bhikkhave, sikkhitabbaṁ."
+    },
+    {
+     "n": 90,
+     "text": "Pañcime, bhikkhave, vacanapathā yehi vo pare vadamānā vadeyyuṁ— kālena vā akālena vā; bhūtena vā abhūtena vā; saṇhena vā pharusena vā; atthasaṁhitena vā anatthasaṁhitena vā; mettacittā vā dosantarā vā."
+    },
+    {
+     "n": 91,
+     "text": "Kālena vā, bhikkhave, pare vadamānā vadeyyuṁ akālena vā; bhūtena vā, bhikkhave, pare vadamānā vadeyyuṁ abhūtena vā; saṇhena vā, bhikkhave, pare vadamānā vadeyyuṁ pharusena vā;"
+    },
+    {
+     "n": 92,
+     "text": "atthasaṁhitena vā, bhikkhave, pare vadamānā vadeyyuṁ anatthasaṁhitena vā; mettacittā vā, bhikkhave, pare vadamānā vadeyyuṁ dosantarā vā."
+    },
+    {
+     "n": 93,
+     "text": "Tatrāpi vo, bhikkhave, evaṁ sikkhitabbaṁ: ‘na ceva no cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāma, hitānukampī ca viharissāma mettacittā, na dosantarā."
+    },
+    {
+     "n": 94,
+     "text": "Tañca puggalaṁ mettāsahagatena cetasā pharitvā viharissāma, tadārammaṇañca sabbāvantaṁ lokaṁ mettāsahagatena cittena vipulena mahaggatena appamāṇena averena abyābajjhena pharitvā viharissāmā’ti."
+    },
+    {
+     "n": 95,
+     "text": "Evañhi vo, bhikkhave, sikkhitabbaṁ."
+    },
+    {
+     "n": 96,
+     "text": "Seyyathāpi, bhikkhave, puriso āgaccheyya kudālapiṭakaṁ ādāya."
+    },
+    {
+     "n": 97,
+     "text": "So evaṁ vadeyya: ‘ahaṁ imaṁ mahāpathaviṁ apathaviṁ karissāmī’ti."
+    },
+    {
+     "n": 98,
+     "text": "So tatra tatra vikhaṇeyya, tatra tatra vikireyya, tatra tatra oṭṭhubheyya, tatra tatra omutteyya: ‘apathavī bhavasi, apathavī bhavasī’ti."
+    },
+    {
+     "n": 99,
+     "text": "Taṁ kiṁ maññatha, bhikkhave, api nu so puriso imaṁ mahāpathaviṁ apathaviṁ kareyyā”ti?"
+    },
+    {
+     "n": 100,
+     "text": "“No hetaṁ, bhante”. “Taṁ kissa hetu”? “Ayañhi, bhante, mahāpathavī gambhīrā appameyyā."
+    },
+    {
+     "n": 101,
+     "text": "Sā na sukarā apathavī kātuṁ; yāvadeva ca pana so puriso kilamathassa vighātassa bhāgī assā”ti."
+    },
+    {
+     "n": 102,
+     "text": "“Evameva kho, bhikkhave, pañcime vacanapathā yehi vo pare vadamānā vadeyyuṁ— kālena vā akālena vā; bhūtena vā abhūtena vā; saṇhena vā pharusena vā; atthasaṁhitena vā anatthasaṁhitena vā; mettacittā vā dosantarā vā."
+    },
+    {
+     "n": 103,
+     "text": "Kālena vā, bhikkhave, pare vadamānā vadeyyuṁ akālena vā; bhūtena vā bhikkhave, pare vadamānā vadeyyuṁ abhūtena vā; saṇhena vā, bhikkhave, pare vadamānā vadeyyuṁ pharusena vā;"
+    },
+    {
+     "n": 104,
+     "text": "atthasaṁhitena vā, bhikkhave, pare vadamānā vadeyyuṁ anatthasaṁhitena vā; mettacittā vā, bhikkhave, pare vadamānā vadeyyuṁ dosantarā vā."
+    },
+    {
+     "n": 105,
+     "text": "Tatrāpi vo, bhikkhave, evaṁ sikkhitabbaṁ: ‘na ceva no cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāma, hitānukampī ca viharissāma mettacittā na dosantarā."
+    },
+    {
+     "n": 106,
+     "text": "Tañca puggalaṁ mettāsahagatena cetasā pharitvā viharissāma, tadārammaṇañca sabbāvantaṁ lokaṁ pathavisamena cetasā vipulena mahaggatena appamāṇena averena abyābajjhena pharitvā viharissāmā’ti."
+    },
+    {
+     "n": 107,
+     "text": "Evañhi vo, bhikkhave, sikkhitabbaṁ."
+    },
+    {
+     "n": 108,
+     "text": "Seyyathāpi, bhikkhave, puriso āgaccheyya lākhaṁ vā haliddiṁ vā nīlaṁ vā mañjiṭṭhaṁ vā ādāya."
+    },
+    {
+     "n": 109,
+     "text": "So evaṁ vadeyya: ‘ahaṁ imasmiṁ ākāse rūpaṁ likhissāmi, rūpapātubhāvaṁ karissāmī’ti."
+    },
+    {
+     "n": 110,
+     "text": "Taṁ kiṁ maññatha, bhikkhave, api nu so puriso imasmiṁ ākāse rūpaṁ likheyya, rūpapātubhāvaṁ kareyyā”ti?"
+    },
+    {
+     "n": 111,
+     "text": "“No hetaṁ, bhante”. “Taṁ kissa hetu”? “Ayañhi, bhante, ākāso arūpī anidassano."
+    },
+    {
+     "n": 112,
+     "text": "Tattha na sukaraṁ rūpaṁ likhituṁ, rūpapātubhāvaṁ kātuṁ; yāvadeva ca pana so puriso kilamathassa vighātassa bhāgī assā”ti."
+    },
+    {
+     "n": 113,
+     "text": "“Evameva kho, bhikkhave,"
+    },
+    {
+     "n": 114,
+     "text": "pañcime vacanapathā yehi vo pare vadamānā vadeyyuṁ kālena vā akālena vā …pe… tadārammaṇañca sabbāvantaṁ lokaṁ ākāsasamena cetasā vipulena mahaggatena appamāṇena averena abyābajjhena pharitvā viharissāmā’ti."
+    },
+    {
+     "n": 115,
+     "text": "Evañhi vo, bhikkhave, sikkhitabbaṁ."
+    },
+    {
+     "n": 116,
+     "text": "Seyyathāpi, bhikkhave, puriso āgaccheyya ādittaṁ tiṇukkaṁ ādāya."
+    },
+    {
+     "n": 117,
+     "text": "So evaṁ vadeyya: ‘ahaṁ imāya ādittāya tiṇukkāya gaṅgaṁ nadiṁ santāpessāmi samparitāpessāmī’ti."
+    },
+    {
+     "n": 118,
+     "text": "Taṁ kiṁ maññatha, bhikkhave, api nu so puriso ādittāya tiṇukkāya gaṅgaṁ nadiṁ santāpeyya samparitāpeyyā”ti?"
+    },
+    {
+     "n": 119,
+     "text": "“No hetaṁ, bhante”. “Taṁ kissa hetu”? “Gaṅgā hi, bhante, nadī gambhīrā appameyyā."
+    },
+    {
+     "n": 120,
+     "text": "Sā na sukarā ādittāya tiṇukkāya santāpetuṁ samparitāpetuṁ; yāvadeva ca pana so puriso kilamathassa vighātassa bhāgī assā”ti."
+    },
+    {
+     "n": 121,
+     "text": "“Evameva kho, bhikkhave,"
+    },
+    {
+     "n": 122,
+     "text": "pañcime vacanapathā yehi vo pare vadamānā vadeyyuṁ kālena vā akālena vā …pe… tadārammaṇañca sabbāvantaṁ lokaṁ gaṅgāsamena cetasā vipulena mahaggatena appamāṇena averena abyābajjhena pharitvā viharissāmā’ti."
+    },
+    {
+     "n": 123,
+     "text": "Evañhi vo, bhikkhave, sikkhitabbaṁ."
+    },
+    {
+     "n": 124,
+     "text": "Seyyathāpi, bhikkhave, biḷārabhastā madditā sumadditā suparimadditā, mudukā tūlinī chinnasassarā chinnabhabbharā."
+    },
+    {
+     "n": 125,
+     "text": "Atha puriso āgaccheyya kaṭṭhaṁ vā kathalaṁ vā ādāya."
+    },
+    {
+     "n": 126,
+     "text": "So evaṁ vadeyya: ‘ahaṁ imaṁ biḷārabhastaṁ madditaṁ sumadditaṁ suparimadditaṁ, mudukaṁ tūliniṁ, chinnasassaraṁ chinnabhabbharaṁ kaṭṭhena vā kathalena vā sarasaraṁ karissāmi bharabharaṁ karissāmī’ti."
+    },
+    {
+     "n": 127,
+     "text": "Taṁ kiṁ maññatha, bhikkhave, api nu so puriso amuṁ biḷārabhastaṁ madditaṁ sumadditaṁ suparimadditaṁ, mudukaṁ tūliniṁ, chinnasassaraṁ chinnabhabbharaṁ kaṭṭhena vā kathalena vā sarasaraṁ kareyya, bharabharaṁ kareyyā”ti?"
+    },
+    {
+     "n": 128,
+     "text": "“No hetaṁ, bhante”. “Taṁ kissa hetu”? “Amu hi, bhante, biḷārabhastā madditā sumadditā suparimadditā, mudukā tūlinī, chinnasassarā chinnabhabbharā."
+    },
+    {
+     "n": 129,
+     "text": "Sā na sukarā kaṭṭhena vā kathalena vā sarasaraṁ kātuṁ bharabharaṁ kātuṁ; yāvadeva ca pana so puriso kilamathassa vighātassa bhāgī assā”ti."
+    },
+    {
+     "n": 130,
+     "text": "“Evameva kho, bhikkhave, pañcime vacanapathā yehi vo pare vadamānā vadeyyuṁ kālena vā akālena vā; bhūtena vā abhūtena vā; saṇhena vā pharusena vā; atthasaṁhitena vā anatthasaṁhitena vā; mettacittā vā dosantarā vā."
+    },
+    {
+     "n": 131,
+     "text": "Kālena vā, bhikkhave, pare vadamānā vadeyyuṁ akālena vā; bhūtena vā, bhikkhave, pare vadamānā vadeyyuṁ abhūtena vā; saṇhena vā, bhikkhave, pare vadamānā vadeyyuṁ pharusena vā;"
+    },
+    {
+     "n": 132,
+     "text": "atthasaṁhitena vā, bhikkhave, pare vadamānā vadeyyuṁ anatthasaṁhitena vā; mettacittā vā, bhikkhave, pare vadamānā vadeyyuṁ dosantarā vā."
+    },
+    {
+     "n": 133,
+     "text": "Tatrāpi vo, bhikkhave, evaṁ sikkhitabbaṁ: ‘na ceva no cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāma hitānukampī ca viharissāma mettacittā na dosantarā."
+    },
+    {
+     "n": 134,
+     "text": "Tañca puggalaṁ mettāsahagatena cetasā pharitvā viharissāma, tadārammaṇañca sabbāvantaṁ lokaṁ biḷārabhastāsamena cetasā vipulena mahaggatena appamāṇena averena abyābajjhena pharitvā viharissāmā’ti."
+    },
+    {
+     "n": 135,
+     "text": "Evañhi vo, bhikkhave, sikkhitabbaṁ."
+    },
+    {
+     "n": 136,
+     "text": "Ubhatodaṇḍakena cepi, bhikkhave, kakacena corā ocarakā aṅgamaṅgāni okanteyyuṁ, tatrāpi yo mano padūseyya, na me so tena sāsanakaro."
+    },
+    {
+     "n": 137,
+     "text": "Tatrāpi vo, bhikkhave, evaṁ sikkhitabbaṁ: ‘na ceva no cittaṁ vipariṇataṁ bhavissati, na ca pāpikaṁ vācaṁ nicchāressāma, hitānukampī ca viharissāma mettacittā na dosantarā."
+    },
+    {
+     "n": 138,
+     "text": "Tañca puggalaṁ mettāsahagatena cetasā pharitvā viharissāma tadārammaṇañca sabbāvantaṁ lokaṁ mettāsahagatena cetasā vipulena mahaggatena appamāṇena averena abyābajjhena pharitvā viharissāmā’ti."
+    },
+    {
+     "n": 139,
+     "text": "Evañhi vo, bhikkhave, sikkhitabbaṁ."
+    },
+    {
+     "n": 140,
+     "text": "Imañca tumhe, bhikkhave, kakacūpamaṁ ovādaṁ abhikkhaṇaṁ manasi kareyyātha."
+    },
+    {
+     "n": 141,
+     "text": "Passatha no tumhe, bhikkhave, taṁ vacanapathaṁ, aṇuṁ vā thūlaṁ vā, yaṁ tumhe nādhivāseyyāthā”ti?"
+    },
+    {
+     "n": 142,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 143,
+     "text": "“Tasmātiha, bhikkhave, imaṁ kakacūpamaṁ ovādaṁ abhikkhaṇaṁ manasikarotha."
+    },
+    {
+     "n": 144,
+     "text": "Taṁ vo bhavissati dīgharattaṁ hitāya sukhāyā”ti."
+    },
+    {
+     "n": 145,
+     "text": "Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṁ abhinandunti."
+    },
+    {
+     "n": 146,
+     "text": "Kakacūpamasuttaṁ niṭṭhitaṁ paṭhamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn21/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "Now at that time, Venerable Phagguna of the Top-Knot was spending too long mixing closely with some nuns."
+    },
+    {
+     "n": 3,
+     "text": "So much so that if any mendicant criticized those nuns in his presence, Phagguna of the Top-Knot got angry and upset, and even instigated disciplinary proceedings."
+    },
+    {
+     "n": 4,
+     "text": "And if any mendicant criticized Phagguna of the Top-Knot in their presence, those nuns got angry and upset, and even instigated disciplinary proceedings."
+    },
+    {
+     "n": 5,
+     "text": "That’s how close Phagguna of the Top-Knot was with those nuns."
+    },
+    {
+     "n": 6,
+     "text": "Then a mendicant went up to the Buddha, bowed, sat down to one side, and told him what was going on."
+    },
+    {
+     "n": 7,
+     "text": "So the Buddha addressed one of the monks, “Please, monk, in my name tell the mendicant Phagguna of the Top-Knot that the Teacher summons him.”"
+    },
+    {
+     "n": 8,
+     "text": "“Yes, sir,” that monk replied. He went to Phagguna of the Top-Knot and said to him, “Reverend Phagguna, the Teacher summons you.”"
+    },
+    {
+     "n": 9,
+     "text": "“Yes, reverend,” Phagguna replied. He went to the Buddha, bowed, and sat down to one side. The Buddha said to him:"
+    },
+    {
+     "n": 10,
+     "text": "“Is it really true, Phagguna, that you’ve been spending too long mixing closely with some nuns?"
+    },
+    {
+     "n": 11,
+     "text": "So much so that if any mendicant criticizes those nuns in your presence, you get angry and upset, and even instigate disciplinary proceedings?"
+    },
+    {
+     "n": 12,
+     "text": "And if any mendicant criticizes you in those nuns’ presence, they get angry and upset, and even instigate disciplinary proceedings?"
+    },
+    {
+     "n": 13,
+     "text": "Is that how close you’ve become with those nuns?”"
+    },
+    {
+     "n": 14,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 15,
+     "text": "“Phagguna, are you not a gentleman who has gone forth out of faith from the lay life to homelessness?”"
+    },
+    {
+     "n": 16,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 17,
+     "text": "“As such, it’s not appropriate for you to mix so closely with those nuns."
+    },
+    {
+     "n": 18,
+     "text": "So if anyone criticizes those nuns in your presence, you should give up any desires or thoughts of domestic life."
+    },
+    {
+     "n": 19,
+     "text": "If that happens, you should train like this: ‘My mind will not degenerate. I will blurt out no bad words."
+    },
+    {
+     "n": 20,
+     "text": "I will remain full of sympathy, with a heart of love and no secret hate.’ That’s how you should train."
+    },
+    {
+     "n": 21,
+     "text": "So even if someone strikes those nuns with fists, stones, rods, and swords in your presence, you should give up any desires or thoughts of domestic life."
+    },
+    {
+     "n": 22,
+     "text": "If that happens, you should train like this: ‘My mind will not degenerate. I will blurt out no bad words."
+    },
+    {
+     "n": 23,
+     "text": "I will remain full of sympathy, with a heart of love and no secret hate.’ That’s how you should train."
+    },
+    {
+     "n": 24,
+     "text": "So if anyone criticizes you in your presence, you should give up any desires or thoughts of domestic life."
+    },
+    {
+     "n": 25,
+     "text": "If that happens, you should train like this: ‘My mind will not degenerate. I will blurt out no bad words."
+    },
+    {
+     "n": 26,
+     "text": "I will remain full of sympathy, with a heart of love and no secret hate.’ That’s how you should train."
+    },
+    {
+     "n": 27,
+     "text": "So Phagguna, even if someone strikes you with fists, stones, rods, and swords, you should give up any desires or thoughts of domestic life."
+    },
+    {
+     "n": 28,
+     "text": "If that happens, you should train like this: ‘My mind will not degenerate. I will blurt out no bad words."
+    },
+    {
+     "n": 29,
+     "text": "I will remain full of sympathy, with a heart of love and no secret hate.’ That’s how you should train.”"
+    },
+    {
+     "n": 30,
+     "text": "Then the Buddha said to the mendicants:"
+    },
+    {
+     "n": 31,
+     "text": "“Mendicants, I used to be satisfied with the mendicants."
+    },
+    {
+     "n": 32,
+     "text": "Once, I addressed them: ‘I eat my food in one sitting per day."
+    },
+    {
+     "n": 33,
+     "text": "Doing so, I find that I’m healthy and well, nimble, strong, and living comfortably."
+    },
+    {
+     "n": 34,
+     "text": "You too should eat your food in one sitting per day."
+    },
+    {
+     "n": 35,
+     "text": "Doing so, you’ll find that you’re healthy and well, nimble, strong, and living comfortably.’"
+    },
+    {
+     "n": 36,
+     "text": "I didn’t have to keep on instructing those mendicants; I just had to prompt their mindfulness."
+    },
+    {
+     "n": 37,
+     "text": "Suppose a chariot stood harnessed to thoroughbreds at a level crossroads, with a goad ready."
+    },
+    {
+     "n": 38,
+     "text": "A deft horse trainer, a master charioteer, might mount the chariot, taking the reins in his right hand and goad in the left."
+    },
+    {
+     "n": 39,
+     "text": "He’d drive out and back wherever he wishes, whenever he wishes."
+    },
+    {
+     "n": 40,
+     "text": "In the same way, I didn’t have to keep on instructing those mendicants; I just had to prompt their mindfulness."
+    },
+    {
+     "n": 41,
+     "text": "So, mendicants, you too should give up what’s unskillful and devote yourselves to skillful qualities."
+    },
+    {
+     "n": 42,
+     "text": "In this way you’ll achieve growth, improvement, and maturity in this teaching and training."
+    },
+    {
+     "n": 43,
+     "text": "Suppose that not far from a town or village there was a large grove of sal trees that was choked with castor-oil weeds."
+    },
+    {
+     "n": 44,
+     "text": "Then along comes a person who wants to help protect and nurture that grove."
+    },
+    {
+     "n": 45,
+     "text": "They’d cut down the crooked sal saplings that were robbing the sap, and throw them out."
+    },
+    {
+     "n": 46,
+     "text": "They’d clean up the interior of the grove, and properly care for the straight, well-formed sal saplings."
+    },
+    {
+     "n": 47,
+     "text": "In this way, in due course, that sal grove would grow, increase, and mature."
+    },
+    {
+     "n": 48,
+     "text": "In the same way, mendicants, you too should give up what’s unskillful and devote yourselves to skillful qualities."
+    },
+    {
+     "n": 49,
+     "text": "In this way you’ll achieve growth, improvement, and maturity in this teaching and training."
+    },
+    {
+     "n": 50,
+     "text": "Once upon a time, mendicants, right here in Sāvatthī there was a housewife named Vedehikā."
+    },
+    {
+     "n": 51,
+     "text": "She had this good reputation: ‘The housewife Vedehikā is gentle, placid, and calm.’"
+    },
+    {
+     "n": 52,
+     "text": "Now, Vedehikā had a bonded maid named Kāḷī who was deft, tireless, and well-organized in her work."
+    },
+    {
+     "n": 53,
+     "text": "Then Kāḷī thought, ‘My mistress has a good reputation as being gentle, placid, and calm."
+    },
+    {
+     "n": 54,
+     "text": "But does she actually have anger in her and just not show it? Or does she have no anger?"
+    },
+    {
+     "n": 55,
+     "text": "Or is it just because my work is well-organized that she doesn’t show anger, even though she still has it inside? Why don’t I test my mistress?’"
+    },
+    {
+     "n": 56,
+     "text": "So Kāḷī got up during the day. Vedehikā said to her, ‘Oi wench, Kāḷī!’"
+    },
+    {
+     "n": 57,
+     "text": "‘What is it, ma’am?’"
+    },
+    {
+     "n": 58,
+     "text": "‘You’re getting up in the day—what’s up with you, wench?’"
+    },
+    {
+     "n": 59,
+     "text": "‘Nothing, ma’am.’"
+    },
+    {
+     "n": 60,
+     "text": "‘Oh, so nothing’s up, you naughty maid, but you get up in the day!’ Angry and upset, she scowled."
+    },
+    {
+     "n": 61,
+     "text": "Then Kāḷī thought, ‘My mistress actually has anger in her and just doesn’t show it; it’s not that she has no anger."
+    },
+    {
+     "n": 62,
+     "text": "It’s just because my work is well-organized that she doesn’t show anger, even though she still has it inside. Why don’t I test my mistress further?’"
+    },
+    {
+     "n": 63,
+     "text": "So Kāḷī got up later in the day. Vedehikā said to her, ‘Oi wench, Kāḷī!’"
+    },
+    {
+     "n": 64,
+     "text": "‘What is it, ma’am?’"
+    },
+    {
+     "n": 65,
+     "text": "‘You’re getting up later in the day—what’s up with you, wench?’"
+    },
+    {
+     "n": 66,
+     "text": "‘Nothing, ma’am.’"
+    },
+    {
+     "n": 67,
+     "text": "‘Oh, so nothing’s up, you naughty maid, but you get up later in the day!’"
+    },
+    {
+     "n": 68,
+     "text": "Angry and upset, she blurted out angry words."
+    },
+    {
+     "n": 69,
+     "text": "Then Kāḷī thought, ‘My mistress actually has anger in her and just doesn’t show it; it’s not that she has no anger."
+    },
+    {
+     "n": 70,
+     "text": "It’s just because my work is well-organized that she doesn’t show anger, even though she still has it inside. Why don’t I test my mistress further?’"
+    },
+    {
+     "n": 71,
+     "text": "So Kāḷī got up even later in the day. Vedehikā said to her, ‘Oi wench, Kāḷī!’"
+    },
+    {
+     "n": 72,
+     "text": "‘What is it, ma’am?’"
+    },
+    {
+     "n": 73,
+     "text": "‘You’re getting up even later in the day—what’s up with you, wench?’"
+    },
+    {
+     "n": 74,
+     "text": "‘Nothing, ma’am.’"
+    },
+    {
+     "n": 75,
+     "text": "‘Oh, so nothing’s up, you naughty maid, but you get up even later in the day!’"
+    },
+    {
+     "n": 76,
+     "text": "Angry and upset, she grabbed a door-pin and hit Kāḷī on the head, cracking it open."
+    },
+    {
+     "n": 77,
+     "text": "Then Kāḷī, with blood pouring from her cracked skull, denounced her mistress to the neighbors, ‘See, ladies, what the gentle one did! See what the placid one did! See what the calm one did!"
+    },
+    {
+     "n": 78,
+     "text": "How on earth can she grab a door-pin and hit her only maid on the head, cracking it open, just for getting up late?’"
+    },
+    {
+     "n": 79,
+     "text": "Then after some time the housewife Vedehikā got this bad reputation: ‘The housewife Vedehikā is fierce, ill-tempered, and not calm at all.’"
+    },
+    {
+     "n": 80,
+     "text": "In the same way, a mendicant may be the gentlest of the gentle, the most placid of the placid, the calmest of the calm, so long as they don’t encounter any disagreeable criticism."
+    },
+    {
+     "n": 81,
+     "text": "But it’s when they encounter disagreeable criticism that you’ll know whether they’re really gentle, placid, and calm."
+    },
+    {
+     "n": 82,
+     "text": "I don’t say that a mendicant is easy to admonish if they make themselves easy to admonish only for the sake of robes, almsfood, lodgings, and medicines and supplies for the sick. Why is that?"
+    },
+    {
+     "n": 83,
+     "text": "Because when they don’t get robes, almsfood, lodgings, and medicines and supplies for the sick, they’re no longer easy to admonish."
+    },
+    {
+     "n": 84,
+     "text": "But when a mendicant is easy to admonish purely because they honor, respect, revere, worship, and venerate the teaching, then I say that they’re easy to admonish."
+    },
+    {
+     "n": 85,
+     "text": "So, mendicants, you should train yourselves: ‘We will be easy to admonish purely because we honor, respect, revere, worship, and venerate the teaching.’ That’s how you should train."
+    },
+    {
+     "n": 86,
+     "text": "Mendicants, there are these five ways in which others might criticize you."
+    },
+    {
+     "n": 87,
+     "text": "Their speech may be timely or untimely, true or false, gentle or harsh, beneficial or harmful, from a heart of love or from secret hate."
+    },
+    {
+     "n": 88,
+     "text": "When others criticize you, they may do so in any of these ways."
+    },
+    {
+     "n": 89,
+     "text": "If that happens, you should train like this: ‘Our minds will not degenerate. We will blurt out no bad words."
+    },
+    {
+     "n": 90,
+     "text": "We will remain full of sympathy, with a heart of love and no secret hate."
+    },
+    {
+     "n": 91,
+     "text": "We will meditate spreading a heart of love to that individual."
+    },
+    {
+     "n": 92,
+     "text": "And with them as a basis, we will meditate spreading a heart full of love to everyone in the world—abundant, expansive, limitless, free of enmity and ill will.’ That’s how you should train."
+    },
+    {
+     "n": 93,
+     "text": "Suppose a person was to come along carrying a spade and basket and say, ‘I shall make this great earth be without earth!’"
+    },
+    {
+     "n": 94,
+     "text": "And they’d dig all over, scatter all over, spit all over, and urinate all over, saying, ‘Be without earth! Be without earth!’"
+    },
+    {
+     "n": 95,
+     "text": "What do you think, mendicants? Could that person make this great earth be without earth?”"
+    },
+    {
+     "n": 96,
+     "text": "“No, sir. Why is that? Because this great earth is deep and limitless."
+    },
+    {
+     "n": 97,
+     "text": "It’s not easy to make it be without earth."
+    },
+    {
+     "n": 98,
+     "text": "That person will eventually get weary and frustrated.”"
+    },
+    {
+     "n": 99,
+     "text": "“In the same way, there are these five ways in which others might criticize you."
+    },
+    {
+     "n": 100,
+     "text": "Their speech may be timely or untimely, true or false, gentle or harsh, beneficial or harmful, from a heart of love or from secret hate."
+    },
+    {
+     "n": 101,
+     "text": "When others criticize you, they may do so in any of these ways."
+    },
+    {
+     "n": 102,
+     "text": "If that happens, you should train like this: ‘Our minds will not degenerate. We will blurt out no bad words."
+    },
+    {
+     "n": 103,
+     "text": "We will remain full of sympathy, with a heart of love and no secret hate."
+    },
+    {
+     "n": 104,
+     "text": "We will meditate spreading a heart of love to that individual."
+    },
+    {
+     "n": 105,
+     "text": "And with them as a basis, we will meditate spreading a heart like the earth to everyone in the world—abundant, expansive, limitless, free of enmity and ill will.’ That’s how you should train."
+    },
+    {
+     "n": 106,
+     "text": "Suppose a person was to come along with dye such as red lac, turmeric, indigo, or rose madder, and say, ‘I shall draw pictures in space, making pictures appear there.’"
+    },
+    {
+     "n": 107,
+     "text": "What do you think, mendicants? Could that person draw pictures in space?”"
+    },
+    {
+     "n": 108,
+     "text": "“No, sir. Why is that? Because space has no form or appearance. It’s not easy to draw pictures there."
+    },
+    {
+     "n": 109,
+     "text": "That person will eventually get weary and frustrated.”"
+    },
+    {
+     "n": 110,
+     "text": "“In the same way, if others criticize you in any of these five ways … you should train like this: ‘…"
+    },
+    {
+     "n": 111,
+     "text": "We will meditate spreading a heart of love to that person."
+    },
+    {
+     "n": 112,
+     "text": "And with them as a basis, we will meditate spreading a heart like space to everyone in the world—abundant, expansive, limitless, free of enmity and ill will.’ That’s how you should train."
+    },
+    {
+     "n": 113,
+     "text": "Suppose a person was to come along carrying a blazing grass torch, and say, ‘I shall burn and scorch the Ganges River with this blazing grass torch.’"
+    },
+    {
+     "n": 114,
+     "text": "What do you think, mendicants? Could that person burn and scorch the Ganges River with a blazing grass torch?”"
+    },
+    {
+     "n": 115,
+     "text": "“No, sir. Why is that? Because the Ganges River is deep and limitless."
+    },
+    {
+     "n": 116,
+     "text": "It’s not easy to burn and scorch it with a blazing grass torch."
+    },
+    {
+     "n": 117,
+     "text": "That person will eventually get weary and frustrated.”"
+    },
+    {
+     "n": 118,
+     "text": "“In the same way, if others criticize you in any of these five ways … you should train like this: ‘…"
+    },
+    {
+     "n": 119,
+     "text": "We will meditate spreading a heart of love to that individual."
+    },
+    {
+     "n": 120,
+     "text": "And with them as a basis, we will meditate spreading a heart like the Ganges to everyone in the world—abundant, expansive, limitless, free of enmity and ill will.’ That’s how you should train."
+    },
+    {
+     "n": 121,
+     "text": "Suppose there was a catskin bag that was rubbed, well-rubbed, very well-rubbed, soft, silky, rid of rustling and crackling."
+    },
+    {
+     "n": 122,
+     "text": "Then a person comes along carrying a stick or a stone, and says, ‘I shall make this soft catskin bag rustle and crackle with this stick or stone.’"
+    },
+    {
+     "n": 123,
+     "text": "What do you think, mendicants? Could that person make that soft catskin bag rustle and crackle with that stick or stone?”"
+    },
+    {
+     "n": 124,
+     "text": "“No, sir. Why is that? Because that catskin bag is rubbed, well-rubbed, very well-rubbed, soft, silky, rid of rustling and crackling."
+    },
+    {
+     "n": 125,
+     "text": "It’s not easy to make it rustle or crackle with a stick or stone."
+    },
+    {
+     "n": 126,
+     "text": "That person will eventually get weary and frustrated.”"
+    },
+    {
+     "n": 127,
+     "text": "“In the same way, there are these five ways in which others might criticize you."
+    },
+    {
+     "n": 128,
+     "text": "Their speech may be timely or untimely, true or false, gentle or harsh, beneficial or harmful, from a heart of love or from secret hate."
+    },
+    {
+     "n": 129,
+     "text": "When others criticize you, they may do so in any of these ways."
+    },
+    {
+     "n": 130,
+     "text": "If that happens, you should train like this: ‘Our minds will not degenerate. We will blurt out no bad words."
+    },
+    {
+     "n": 131,
+     "text": "We will remain full of sympathy, with a heart of love and no secret hate."
+    },
+    {
+     "n": 132,
+     "text": "We will meditate spreading a heart of love to that individual."
+    },
+    {
+     "n": 133,
+     "text": "And with them as a basis, we will meditate spreading a heart like a catskin bag to everyone in the world—abundant, expansive, limitless, free of enmity and ill will.’ That’s how you should train."
+    },
+    {
+     "n": 134,
+     "text": "Even if low-down bandits were to sever you limb from limb with a two-handed saw, anyone who had a malevolent thought on that account would not be following my instructions."
+    },
+    {
+     "n": 135,
+     "text": "If that happens, you should train like this: ‘Our minds will not degenerate. We will blurt out no bad words."
+    },
+    {
+     "n": 136,
+     "text": "We will remain full of sympathy, with a heart of love and no secret hate."
+    },
+    {
+     "n": 137,
+     "text": "We will meditate spreading a heart of love to that individual."
+    },
+    {
+     "n": 138,
+     "text": "And with them as a basis, we will meditate spreading a heart full of love to everyone in the world—abundant, expansive, limitless, free of enmity and ill will.’ That’s how you should train."
+    },
+    {
+     "n": 139,
+     "text": "If you frequently reflect on this advice on the simile of the saw, do you see any criticism, large or small, that you could not endure?”"
+    },
+    {
+     "n": 140,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 141,
+     "text": "“So, mendicants, you should frequently reflect on this advice on the simile of the saw."
+    },
+    {
+     "n": 142,
+     "text": "This will be for your lasting welfare and happiness.”"
+    },
+    {
+     "n": 143,
+     "text": "That is what the Buddha said. Satisfied, the mendicants approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

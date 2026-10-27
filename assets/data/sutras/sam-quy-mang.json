@@ -1,0 +1,908 @@
+{
+ "id": "sam-quy-mang",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Sám hối",
+ "reference": "",
+ "summary": "Bài sám hối thường tụng trong nghi thức sám, mở đầu bằng việc quy mạng chư Phật, Pháp và Tăng. Bài tự nhận mình lạc vào mê lầm, chạy theo sắc thanh mà tạo nghiệp qua sáu căn sáu trần, rồi nương Tam bảo một lòng sám hối. Bài nguyện thoát khỏi biển phiền não, đến bờ Bồ đề, và cùng chúng sinh thành Phật đạo.",
+ "titles": {
+  "vi": "Sám Quy Mạng (Bài Qui Mạng)",
+  "zh": "歸命懺",
+  "en": "Repentance verses taking refuge (Zhishan / Yishan version)"
+ },
+ "deities": [],
+ "dailyChant": true,
+ "purposes": [
+  "SAM_HOI"
+ ],
+ "durationMinutes": 7,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "HT. Thích Trí Quang (dịch âm, theo Thiền môn nhật tụng Huế)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch âm",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu1.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn. Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Qui mạng thập phương Điều ngự sư, diễn dương thanh tịnh Vi diệu pháp, tam thừa tứ quả Giải thoát tăng, nguyện tứ từ bi ai nhiếp thọ."
+    },
+    {
+     "n": 2,
+     "text": "Đệ tử chúng đẳng"
+    },
+    {
+     "n": 3,
+     "text": "tự vi chân tánh,"
+    },
+    {
+     "n": 4,
+     "text": "uổng nhập mê lưu;"
+    },
+    {
+     "n": 5,
+     "text": "tùy sinh tử dĩ phiêu trầm,"
+    },
+    {
+     "n": 6,
+     "text": "trục sắc thanh nhi tham nhiễm."
+    },
+    {
+     "n": 7,
+     "text": "Thập triền thập sử"
+    },
+    {
+     "n": 8,
+     "text": "tích thành hữu lậu chi nhân,"
+    },
+    {
+     "n": 9,
+     "text": "lục căn lục trần"
+    },
+    {
+     "n": 10,
+     "text": "vọng tác vô biên chi tội."
+    },
+    {
+     "n": 11,
+     "text": "Mê luân khổ hải,"
+    },
+    {
+     "n": 12,
+     "text": "thâm nịch tà đồ."
+    },
+    {
+     "n": 13,
+     "text": "Trước ngã đam nhân,"
+    },
+    {
+     "n": 14,
+     "text": "cử uổng thố trực."
+    },
+    {
+     "n": 15,
+     "text": "Lụy sinh nghiệp chướng,"
+    },
+    {
+     "n": 16,
+     "text": "nhất thế khiên vưu,"
+    },
+    {
+     "n": 17,
+     "text": "ngưỡng Tam bảo dĩ từ bi,"
+    },
+    {
+     "n": 18,
+     "text": "lịch nhất tâm nhi sám hối."
+    },
+    {
+     "n": 19,
+     "text": "Sở nguyện Năng nhân chẩn bạt,"
+    },
+    {
+     "n": 20,
+     "text": "thiện hữu đề huề;"
+    },
+    {
+     "n": 21,
+     "text": "xuất phiền não chi thâm uyên,"
+    },
+    {
+     "n": 22,
+     "text": "đáo bồ đề chi bỉ ngạn."
+    },
+    {
+     "n": 23,
+     "text": "Thử thế phước cơ mạng vị"
+    },
+    {
+     "n": 24,
+     "text": "các nguyện xương long,"
+    },
+    {
+     "n": 25,
+     "text": "lai sinh trí chủng linh miêu"
+    },
+    {
+     "n": 26,
+     "text": "đồng hy tăng tú."
+    },
+    {
+     "n": 27,
+     "text": "Sinh phùng trung quốc,"
+    },
+    {
+     "n": 28,
+     "text": "trưởng ngộ minh sư."
+    },
+    {
+     "n": 29,
+     "text": "Chánh tín xuất gia,"
+    },
+    {
+     "n": 30,
+     "text": "đồng chân nhập đạo."
+    },
+    {
+     "n": 31,
+     "text": "Lục căn thông lợi,"
+    },
+    {
+     "n": 32,
+     "text": "tam nghiệp thuần hòa."
+    },
+    {
+     "n": 33,
+     "text": "Bất nhiễm thế duyên,"
+    },
+    {
+     "n": 34,
+     "text": "thường tu phạn hạnh."
+    },
+    {
+     "n": 35,
+     "text": "Chấp trì cấm giới,"
+    },
+    {
+     "n": 36,
+     "text": "trần nghiệp bất xâm;"
+    },
+    {
+     "n": 37,
+     "text": "nghiêm hộ uy nghi,"
+    },
+    {
+     "n": 38,
+     "text": "quyên phi vô tổn."
+    },
+    {
+     "n": 39,
+     "text": "Bất phùng bát nạn,"
+    },
+    {
+     "n": 40,
+     "text": "bất khuyết tứ duyên."
+    },
+    {
+     "n": 41,
+     "text": "Bát nhã trí dĩ hiện tiền,"
+    },
+    {
+     "n": 42,
+     "text": "bồ đề tâm nhi bất thoái."
+    },
+    {
+     "n": 43,
+     "text": "Tu tập chánh pháp,"
+    },
+    {
+     "n": 44,
+     "text": "liễu ngộ đại thừa."
+    },
+    {
+     "n": 45,
+     "text": "Khai lục độ chi hạnh môn,"
+    },
+    {
+     "n": 46,
+     "text": "việt tam kỳ chi kiếp hải."
+    },
+    {
+     "n": 47,
+     "text": "Kiến pháp tràng ư xứ xứ,"
+    },
+    {
+     "n": 48,
+     "text": "phá nghi võng ư trùng trùng."
+    },
+    {
+     "n": 49,
+     "text": "Hàng phục chúng ma,"
+    },
+    {
+     "n": 50,
+     "text": "thiệu long Tam bảo."
+    },
+    {
+     "n": 51,
+     "text": "Thừa sự thập phương chư Phật"
+    },
+    {
+     "n": 52,
+     "text": "vô hữu bì lao,"
+    },
+    {
+     "n": 53,
+     "text": "tu học nhất thế pháp môn"
+    },
+    {
+     "n": 54,
+     "text": "tất giai thông đạt."
+    },
+    {
+     "n": 55,
+     "text": "Quảng tác phước tuệ,"
+    },
+    {
+     "n": 56,
+     "text": "phổ lợi trần sa."
+    },
+    {
+     "n": 57,
+     "text": "Đắc lục chủng chi thần thông,"
+    },
+    {
+     "n": 58,
+     "text": "viên nhất sinh chi Phật quả."
+    },
+    {
+     "n": 59,
+     "text": "Nhiên hậu bất xả pháp giới,"
+    },
+    {
+     "n": 60,
+     "text": "biến nhập trần lao."
+    },
+    {
+     "n": 61,
+     "text": "Đẳng Quan âm chi từ tâm,"
+    },
+    {
+     "n": 62,
+     "text": "hành Phổ hiền chi nguyện hải:"
+    },
+    {
+     "n": 63,
+     "text": "Tha phương thử giới,"
+    },
+    {
+     "n": 64,
+     "text": "trục loại tùy hình,"
+    },
+    {
+     "n": 65,
+     "text": "ứng hiện sắc thân,"
+    },
+    {
+     "n": 66,
+     "text": "diễn dương diệu pháp."
+    },
+    {
+     "n": 67,
+     "text": "Nê lê khổ thú,"
+    },
+    {
+     "n": 68,
+     "text": "ngạ quỉ đạo trung,"
+    },
+    {
+     "n": 69,
+     "text": "hoặc phóng đại quang minh,"
+    },
+    {
+     "n": 70,
+     "text": "hoặc hiện chư thần biến."
+    },
+    {
+     "n": 71,
+     "text": "Kỳ hữu kiến ngã tướng,"
+    },
+    {
+     "n": 72,
+     "text": "nãi chí văn ngã danh,"
+    },
+    {
+     "n": 73,
+     "text": "giai phát bồ đề tâm,"
+    },
+    {
+     "n": 74,
+     "text": "vĩnh xuất luân hồi khổ."
+    },
+    {
+     "n": 75,
+     "text": "Hỏa hoạch băng hà chi địa"
+    },
+    {
+     "n": 76,
+     "text": "biến tác hương lâm,"
+    },
+    {
+     "n": 77,
+     "text": "ẩm đồng thực thiết chi đồ"
+    },
+    {
+     "n": 78,
+     "text": "hóa sinh tịnh độ."
+    },
+    {
+     "n": 79,
+     "text": "Phi mao đới giác,"
+    },
+    {
+     "n": 80,
+     "text": "phụ trái hàm oan,"
+    },
+    {
+     "n": 81,
+     "text": "tận bãi tân toan,"
+    },
+    {
+     "n": 82,
+     "text": "hàm triêm lợi lạc."
+    },
+    {
+     "n": 83,
+     "text": "Tật dịch thế nhi hiện vi dược thảo,"
+    },
+    {
+     "n": 84,
+     "text": "cứu liệu trầm kha;"
+    },
+    {
+     "n": 85,
+     "text": "cơ cẩn thời nhi hóa tác đạo lương,"
+    },
+    {
+     "n": 86,
+     "text": "tế chư bần nỗi."
+    },
+    {
+     "n": 87,
+     "text": "Đản hữu lợi ích,"
+    },
+    {
+     "n": 88,
+     "text": "vô bất hưng sùng."
+    },
+    {
+     "n": 89,
+     "text": "Thứ kỳ lụy thế oan thân,"
+    },
+    {
+     "n": 90,
+     "text": "hiện tồn quyến thuộc,"
+    },
+    {
+     "n": 91,
+     "text": "xuất tứ sinh chi cốt một,"
+    },
+    {
+     "n": 92,
+     "text": "xả vạn kiếp chi ái triền,"
+    },
+    {
+     "n": 93,
+     "text": "đẳng dữ hàm sinh"
+    },
+    {
+     "n": 94,
+     "text": "tề thành Phật đạo."
+    },
+    {
+     "n": 95,
+     "text": "Hư không hữu tận,"
+    },
+    {
+     "n": 96,
+     "text": "ngã nguyện vô cùng;"
+    },
+    {
+     "n": 97,
+     "text": "tình dữ vô tình"
+    },
+    {
+     "n": 98,
+     "text": "đồng viên chủng trí."
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "HT. Thích Trí Quang (dịch nghĩa)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch nghĩa",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu3.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn. Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Kính lạy khắp mười phương"
+    },
+    {
+     "n": 2,
+     "text": "các đức Điều ngự sư,"
+    },
+    {
+     "n": 3,
+     "text": "cùng với Vi diệu pháp"
+    },
+    {
+     "n": 4,
+     "text": "do các ngài tuyên dương,"
+    },
+    {
+     "n": 5,
+     "text": "và những Giải thoát tăng"
+    },
+    {
+     "n": 6,
+     "text": "là bốn quả ba thừa,"
+    },
+    {
+     "n": 7,
+     "text": "nguyện ban lòng từ mẫn"
+    },
+    {
+     "n": 8,
+     "text": "nhiếp thọ cho chúng con."
+    },
+    {
+     "n": 9,
+     "text": "Đệ tử chúng con"
+    },
+    {
+     "n": 10,
+     "text": "tự trái tánh thật,"
+    },
+    {
+     "n": 11,
+     "text": "vào oan dòng mê;"
+    },
+    {
+     "n": 12,
+     "text": "nổi chìm theo sống chết,"
+    },
+    {
+     "n": 13,
+     "text": "tham nhiễm với sắc thanh."
+    },
+    {
+     "n": 14,
+     "text": "Mười triền mười sử"
+    },
+    {
+     "n": 15,
+     "text": "chứa thành nguyên nhân hữu lậu,"
+    },
+    {
+     "n": 16,
+     "text": "sáu căn sáu trần"
+    },
+    {
+     "n": 17,
+     "text": "gây nên tội lỗi vô biên."
+    },
+    {
+     "n": 18,
+     "text": "Chìm hoài biển khổ,"
+    },
+    {
+     "n": 19,
+     "text": "lún sâu đường tà."
+    },
+    {
+     "n": 20,
+     "text": "Chấp trước bản ngã,"
+    },
+    {
+     "n": 21,
+     "text": "đam mê tha nhân;"
+    },
+    {
+     "n": 22,
+     "text": "nâng đỡ kẻ cong,"
+    },
+    {
+     "n": 23,
+     "text": "loại bỏ người thẳng."
+    },
+    {
+     "n": 24,
+     "text": "Nghiệp chướng nhiều đời,"
+    },
+    {
+     "n": 25,
+     "text": "lỡ lầm bao kiếp,"
+    },
+    {
+     "n": 26,
+     "text": "ngửa mong Tam bảo"
+    },
+    {
+     "n": 27,
+     "text": "dũ lòng từ bi,"
+    },
+    {
+     "n": 28,
+     "text": "lọc sạch nhất tâm"
+    },
+    {
+     "n": 29,
+     "text": "cầu xin sám hối."
+    },
+    {
+     "n": 30,
+     "text": "Chúng con nguyện cầu"
+    },
+    {
+     "n": 31,
+     "text": "được đức Năng nhân cứu vớt"
+    },
+    {
+     "n": 32,
+     "text": "được các thiện hữu dắt dìu,"
+    },
+    {
+     "n": 33,
+     "text": "ra khỏi hầm hố phiền não"
+    },
+    {
+     "n": 34,
+     "text": "vượt đến bến bờ bồ đề."
+    },
+    {
+     "n": 35,
+     "text": "Đời này"
+    },
+    {
+     "n": 36,
+     "text": "nền phước đức ngôi sinh mạng"
+    },
+    {
+     "n": 37,
+     "text": "đều mong tốt thịnh,"
+    },
+    {
+     "n": 38,
+     "text": "kiếp sau"
+    },
+    {
+     "n": 39,
+     "text": "giống tuệ giác lúa tâm linh"
+    },
+    {
+     "n": 40,
+     "text": "đều cầu lớn tươi."
+    },
+    {
+     "n": 41,
+     "text": "Sinh nhằm xứ trung tâm"
+    },
+    {
+     "n": 42,
+     "text": "lớn gặp thầy minh trí,"
+    },
+    {
+     "n": 43,
+     "text": "xuất gia với đức chánh tín"
+    },
+    {
+     "n": 44,
+     "text": "nhập đạo bằng tuổi đồng chân,"
+    },
+    {
+     "n": 45,
+     "text": "sáu căn lanh sáng"
+    },
+    {
+     "n": 46,
+     "text": "ba nghiệp thuần hòa,"
+    },
+    {
+     "n": 47,
+     "text": "không nhiễm thế duyên"
+    },
+    {
+     "n": 48,
+     "text": "thường tu phạn hạnh,"
+    },
+    {
+     "n": 49,
+     "text": "chấp trì giới luật"
+    },
+    {
+     "n": 50,
+     "text": "trần nghiệp không thể xâm phạm"
+    },
+    {
+     "n": 51,
+     "text": "nghiêm hộ uy nghi"
+    },
+    {
+     "n": 52,
+     "text": "côn trùng cũng khó tổn thương."
+    },
+    {
+     "n": 53,
+     "text": "Không gặp tám nạn"
+    },
+    {
+     "n": 54,
+     "text": "chẳng thiếu bốn duyên,"
+    },
+    {
+     "n": 55,
+     "text": "trí bát nhã thường hiện tiền"
+    },
+    {
+     "n": 56,
+     "text": "tâm bồ đề không thoái chuyển,"
+    },
+    {
+     "n": 57,
+     "text": "tu tập chánh pháp"
+    },
+    {
+     "n": 58,
+     "text": "liễu ngộ đại thừa,"
+    },
+    {
+     "n": 59,
+     "text": "mở cửa hạnh nguyện"
+    },
+    {
+     "n": 60,
+     "text": "sáu ba la mật,"
+    },
+    {
+     "n": 61,
+     "text": "vượt biển đời kiếp"
+    },
+    {
+     "n": 62,
+     "text": "ba a tăng kỳ."
+    },
+    {
+     "n": 63,
+     "text": "Nơi nơi dựng cờ chánh pháp"
+    },
+    {
+     "n": 64,
+     "text": "lớp lớp phá lưới hoài nghi,"
+    },
+    {
+     "n": 65,
+     "text": "chiến thắng loài ma"
+    },
+    {
+     "n": 66,
+     "text": "thừa kế dòng Phật,"
+    },
+    {
+     "n": 67,
+     "text": "phụng sự mười phương Phật đà"
+    },
+    {
+     "n": 68,
+     "text": "không hề mệt nhọc,"
+    },
+    {
+     "n": 69,
+     "text": "tu học toàn bộ pháp môn"
+    },
+    {
+     "n": 70,
+     "text": "đều được thông suốt,"
+    },
+    {
+     "n": 71,
+     "text": "thực hành rộng lớn"
+    },
+    {
+     "n": 72,
+     "text": "mọi thứ phước tuệ,"
+    },
+    {
+     "n": 73,
+     "text": "ích lợi cùng khắp"
+    },
+    {
+     "n": 74,
+     "text": "các loài chúng sinh,"
+    },
+    {
+     "n": 75,
+     "text": "thành tựu sáu pháp thần thông"
+    },
+    {
+     "n": 76,
+     "text": "viên mãn một đời Phật quả."
+    },
+    {
+     "n": 77,
+     "text": "Thế rồi sau đó"
+    },
+    {
+     "n": 78,
+     "text": "không bỏ pháp giới"
+    },
+    {
+     "n": 79,
+     "text": "khắp vào trần lao,"
+    },
+    {
+     "n": 80,
+     "text": "đồng đẳng với từ tâm Quan âm"
+    },
+    {
+     "n": 81,
+     "text": "hoạt động theo hạnh nguyện Phổ hiền:"
+    },
+    {
+     "n": 82,
+     "text": "Cõi này cõi khác"
+    },
+    {
+     "n": 83,
+     "text": "tùy loại tùy hình,"
+    },
+    {
+     "n": 84,
+     "text": "ứng hiện sắc thân"
+    },
+    {
+     "n": 85,
+     "text": "tuyên dương diệu pháp."
+    },
+    {
+     "n": 86,
+     "text": "Chỗ khổ địa ngục"
+    },
+    {
+     "n": 87,
+     "text": "đường khốn ngạ quỉ"
+    },
+    {
+     "n": 88,
+     "text": "thì phóng ánh sáng lớn"
+    },
+    {
+     "n": 89,
+     "text": "hoặc hiện thần biến nhiều,"
+    },
+    {
+     "n": 90,
+     "text": "những người thấy hình"
+    },
+    {
+     "n": 91,
+     "text": "những ai nghe tiếng"
+    },
+    {
+     "n": 92,
+     "text": "đều phát bồ đề tâm"
+    },
+    {
+     "n": 93,
+     "text": "đều thoát luân hồi khổ."
+    },
+    {
+     "n": 94,
+     "text": "Chỗ vạc lửa sông băng"
+    },
+    {
+     "n": 95,
+     "text": "thì biến thành rừng hương,"
+    },
+    {
+     "n": 96,
+     "text": "loài uống đồng ăn sắt"
+    },
+    {
+     "n": 97,
+     "text": "đều hóa sinh cõi tịnh,"
+    },
+    {
+     "n": 98,
+     "text": "khoác lông đội sừng"
+    },
+    {
+     "n": 99,
+     "text": "mắc nợ ngậm oan"
+    },
+    {
+     "n": 100,
+     "text": "hết cả cay chua"
+    },
+    {
+     "n": 101,
+     "text": "đồng nhuần lợi lạc."
+    },
+    {
+     "n": 102,
+     "text": "Lúc bịnh thì hiện làm dược liệu"
+    },
+    {
+     "n": 103,
+     "text": "chữa cơn trầm trọng,"
+    },
+    {
+     "n": 104,
+     "text": "thời đói lại hóa thành thóc lúa"
+    },
+    {
+     "n": 105,
+     "text": "cứu kẻ đói nghèo,"
+    },
+    {
+     "n": 106,
+     "text": "hễ có ích lợi"
+    },
+    {
+     "n": 107,
+     "text": "thì làm tất cả."
+    },
+    {
+     "n": 108,
+     "text": "Ước nguyện thân thù bao kiếp"
+    },
+    {
+     "n": 109,
+     "text": "cầu mong bà con hiện tại"
+    },
+    {
+     "n": 110,
+     "text": "đều thoát bốn loài chìm ngập"
+    },
+    {
+     "n": 111,
+     "text": "đều bỏ muôn kiếp ái ân,"
+    },
+    {
+     "n": 112,
+     "text": "cùng mọi sinh linh"
+    },
+    {
+     "n": 113,
+     "text": "cùng thành Phật trí."
+    },
+    {
+     "n": 114,
+     "text": "Không gian có hết"
+    },
+    {
+     "n": 115,
+     "text": "nguyện con không cùng,"
+    },
+    {
+     "n": 116,
+     "text": "hữu tình vô tình"
+    },
+    {
+     "n": 117,
+     "text": "đồng thành Phật đạo."
+    }
+   ]
+  }
+ ]
+}

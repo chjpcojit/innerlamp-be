@@ -1,0 +1,3277 @@
+{
+ "id": "vi-du-con-ran",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 22",
+ "summary": "Kinh trong Trung Bộ (MN 22). Tỷ-kheo Ariṭṭha khởi tà kiến cho rằng thọ hưởng dục không gây chướng ngại. Thế Tôn quở trách và dạy bằng các ví dụ: nắm rắn đúng cách hay sai cách, và chiếc bè chỉ dùng để qua sông. Bài nhấn mạnh học Pháp để giải thoát, không để tranh luận hay chấp thủ.",
+ "titles": {
+  "vi": "Kinh Ví dụ con rắn",
+  "pli": "Alagaddūpamasutta",
+  "en": "The Simile of the Snake"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 90,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn22/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn ở Sāvatthi (Xá-vệ), tại Jetavana (Kỳ-đà Lâm), vườn ông Anāthapiṇḍika (Cấp Cô Độc)."
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ, Tỷ-kheo tên là Ariṭṭha, xưa làm nghề huấn luyện chim ưng, khởi lên ác tà kiến như sau:"
+    },
+    {
+     "n": 4,
+     "text": "“Theo như ta hiểu pháp Thế Tôn thuyết giảng, khi thọ dụng những pháp được Thế Tôn gọi là chướng ngại pháp, thật sự không có chướng ngại gì”."
+    },
+    {
+     "n": 5,
+     "text": "Một số đông Tỷ-kheo nghe như sau: “Tỷ-kheo tên Ariṭṭha, xưa làm nghề huấn luyện chim ưng, khởi lên ác tà kiến như sau:"
+    },
+    {
+     "n": 6,
+     "text": "“Theo như ta hiểu pháp Thế Tôn thuyết giảng, khi thọ dụng những pháp được Thế Tôn gọi là chướng ngại pháp, thật sự không có chướng ngại gì”."
+    },
+    {
+     "n": 7,
+     "text": "Rồi những Tỷ-kheo ấy đi đến chỗ Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, khi đến xong, liền nói với Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng như sau"
+    },
+    {
+     "n": 8,
+     "text": "—Này Hiền giả Ariṭṭha, có đúng sự thật rằng, Hiền giả khởi lên ác tà kiến như sau: “Theo như tôi hiểu … thật sự không có chướng ngại gì”?"
+    },
+    {
+     "n": 9,
+     "text": "—Thật sự là vậy, chư Hiền. Theo như tôi hiểu … không có chướng ngại gì."
+    },
+    {
+     "n": 10,
+     "text": "Rồi những Tỷ-kheo ấy muốn Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng từ bỏ ác tà kiến ấy, liền cật vấn, nạn vấn lý do, thảo luận—“ Hiền giả Ariṭṭha, chớ nói như vậy, chớ xuyên tạc Thế Tôn."
+    },
+    {
+     "n": 11,
+     "text": "Xuyên tạc Thế Tôn là không tốt. Thế Tôn không có nói như vậy."
+    },
+    {
+     "n": 12,
+     "text": "Hiền giả Ariṭṭha, Thế Tôn đã dùng nhiều pháp môn thuyết chướng đạo pháp."
+    },
+    {
+     "n": 13,
+     "text": "Và những ai thọ dụng chúng tự đủ bị chướng ngại."
+    },
+    {
+     "n": 14,
+     "text": "Thế Tôn đã thuyết các dục vui ít, khổ nhiều, não nhiều, do vậy nguy hiểm càng nhiều hơn."
+    },
+    {
+     "n": 15,
+     "text": "Thế Tôn đã thuyết các dục được ví như khúc xương …"
+    },
+    {
+     "n": 16,
+     "text": "Thế Tôn đã thuyết các dục được ví như một miếng thịt …"
+    },
+    {
+     "n": 17,
+     "text": "Thế Tôn đã thuyết các dục được ví như bó đuốc cỏ khô …"
+    },
+    {
+     "n": 18,
+     "text": "Thế Tôn đã thuyết các dục được ví như hố than hừng …"
+    },
+    {
+     "n": 19,
+     "text": "Thế Tôn đã thuyết các dục được ví như cơn mộng …"
+    },
+    {
+     "n": 20,
+     "text": "Thế Tôn đã thuyết các dục được ví như vật dụng cho mượn …"
+    },
+    {
+     "n": 21,
+     "text": "Thế Tôn đã thuyết các dục được ví như trái cây …"
+    },
+    {
+     "n": 22,
+     "text": "Thế Tôn đã thuyết các dục vọng được ví như lò thịt …"
+    },
+    {
+     "n": 23,
+     "text": "Thế Tôn đã thuyết các dục vọng được ví như gậy nhọn …"
+    },
+    {
+     "n": 24,
+     "text": "Thế Tôn đã thuyết các dục được ví như đầu rắn, vui ít khổ nhiều, não nhiều và do vậy, nguy hiểm càng nhiều hơn”."
+    },
+    {
+     "n": 25,
+     "text": "Tỷ-kheo Ariṭṭha xưa làm nghề huấn luyện chim ưng, dầu được các Tỷ-kheo ấy cật vấn, chất vấn thảo luận, vẫn nói lên ác tà kiến ấy, cứng đầu, chấp chặt, nắm chặt tà kiến ấy:"
+    },
+    {
+     "n": 26,
+     "text": "“Thật sự là vậy, theo như tôi hiểu, pháp Thế Tôn thuyết giảng … không có chướng ngại gì”."
+    },
+    {
+     "n": 27,
+     "text": "Vì các Tỷ-kheo không thể làm cho Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, từ bỏ ác tà kiến ấy, nên họ đến chỗ Thế Tôn ở, khi đến xong, đảnh lễ Thế Tôn và ngồi xuống một bên."
+    },
+    {
+     "n": 28,
+     "text": "Sau khi ngồi xuống một bên, những Tỷ-kheo ấy bạch Thế Tôn"
+    },
+    {
+     "n": 29,
+     "text": "—Bạch Thế Tôn, Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, khởi lên ác tà kiến như sau: “Theo tôi hiểu, pháp Thế Tôn thuyết giảng … không có chướng ngại gì”."
+    },
+    {
+     "n": 30,
+     "text": "Bạch Thế Tôn, chúng con nghe: “Tỷ-kheo tên Ariṭṭha, xưa làm nghề huấn luyện chim ưng … không có chướng ngại gì”."
+    },
+    {
+     "n": 31,
+     "text": "Bạch Thế Tôn, rồi chúng con đi đến chỗ Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, khi đến xong, liền nói với Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng—“ Này Hiền giả Ariṭṭha, có đúng sự thật chăng?"
+    },
+    {
+     "n": 32,
+     "text": "Hiền giả khởi lên ác tà kiến như sau: “Theo như tôi hiểu … thật sự không có chướng ngại gì”."
+    },
+    {
+     "n": 33,
+     "text": "Bạch Thế Tôn, khi nghe nói vậy, Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, nói với chúng con như sau—“ Thật sự là vậy."
+    },
+    {
+     "n": 34,
+     "text": "Chư Hiền, theo như tôi hiểu … thật sự không có chướng ngại gì”."
+    },
+    {
+     "n": 35,
+     "text": "Bạch Thế Tôn, chúng con muốn khiến Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, từ bỏ ác tà kiến ấy, liền cật vấn, nạn vấn lý do, thảo luận—“ Hiền giả Ariṭṭha, chớ nói như vậy! Chớ xuyên tạc Thế Tôn."
+    },
+    {
+     "n": 36,
+     "text": "Xuyên tạc Thế Tôn là không tốt. Thế Tôn không có nói như vậy, Hiền giả Ariṭṭha, Thế Tôn đã dùng nhiều pháp môn thuyết chướng đạo pháp."
+    },
+    {
+     "n": 37,
+     "text": "Và những ai thọ dụng chúng, tự đủ bị chướng ngại."
+    },
+    {
+     "n": 38,
+     "text": "Thế Tôn đã thuyết các dục vui ít, khổ nhiều, não nhiều, do vậy nguy hiểm càng nhiều hơn."
+    },
+    {
+     "n": 39,
+     "text": "Thế Tôn đã thuyết các dục được ví như khúc xương …"
+    },
+    {
+     "n": 40,
+     "text": "Thế Tôn đã thuyết các dục được ví như đầu rắn, vui ít, khổ nhiều, não nhiều, và do vậy nguy hiểm càng nhiều hơn”."
+    },
+    {
+     "n": 41,
+     "text": "Bạch Thế Tôn, Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, dầu được chúng con cật vấn, nạn vấn lý do, thảo luận, vẫn nói lên ác tà kiến ấy, cứng đầu, chấp chặt, nắm chặt tà kiến ấy:"
+    },
+    {
+     "n": 42,
+     "text": "“Thật sự là vậy, theo tôi hiểu, pháp Thế Tôn thuyết giảng … không có chướng ngại gì”."
+    },
+    {
+     "n": 43,
+     "text": "Bạch Thế Tôn, vì chúng con không thể làm cho Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, từ bỏ ác tà kiến ấy, nên chúng con đến hỏi Thế Tôn ý nghĩa này."
+    },
+    {
+     "n": 44,
+     "text": "Rồi Thế Tôn cho gọi một Tỷ-kheo khác"
+    },
+    {
+     "n": 45,
+     "text": "—Này Tỷ-kheo, hãy đi và nhân danh Ta gọi Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng rằng: “Hiền giả Ariṭṭha, bậc Đạo Sư gọi Hiền giả”."
+    },
+    {
+     "n": 46,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 47,
+     "text": "Tỷ-kheo ấy vâng lời Thế Tôn, đến chỗ Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, sau khi đến, liền nói với Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng"
+    },
+    {
+     "n": 48,
+     "text": "—Hiền giả Ariṭṭha, bậc Đạo sư gọi Hiền giả."
+    },
+    {
+     "n": 49,
+     "text": "—Thưa vâng, Hiền giả."
+    },
+    {
+     "n": 50,
+     "text": "Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, đáp lời Tỷ-kheo ấy, đi đến chỗ Thế Tôn ở, sau khi đến, đảnh lễ Thế Tôn rồi ngồi xuống một bên."
+    },
+    {
+     "n": 51,
+     "text": "Thế Tôn nói với Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, đang ngồi xuống một bên"
+    },
+    {
+     "n": 52,
+     "text": "—Này Ariṭṭha, có thật chăng, Ông khởi lên ác tà kiến như sau: “Theo như tôi hiểu … thật sự không có chướng ngại gì”?"
+    },
+    {
+     "n": 53,
+     "text": "—Thật sự là vậy, bạch Thế Tôn. Theo như con hiểu, thật sự không có chướng ngại gì."
+    },
+    {
+     "n": 54,
+     "text": "—Này kẻ ngu si kia, sao Ông lại hiểu pháp Ta thuyết giảng như vậy?"
+    },
+    {
+     "n": 55,
+     "text": "Này kẻ ngu si kia, có phải chăng, Ta đã dùng nhiều pháp môn thuyết chướng đạo pháp."
+    },
+    {
+     "n": 56,
+     "text": "Và những ai thọ dụng chúng tự đủ bị chướng ngại?"
+    },
+    {
+     "n": 57,
+     "text": "Ta đã thuyết các dục vui ít, khổ nhiều, não nhiều, do vậy nguy hiểm càng nhiều hơn."
+    },
+    {
+     "n": 58,
+     "text": "Ta đã thuyết các dục được ví như khúc xương …"
+    },
+    {
+     "n": 59,
+     "text": "Ta đã thuyết các dục được ví như miếng thịt … được ví như bó đuốc cỏ khô … được ví như hố than hừng … được ví như cơn mộng … được ví như vật dụng cho mượn … được ví như trái cây … được ví như lò thịt … được ví như gậy"
+    },
+    {
+     "n": 60,
+     "text": "nhọn … Ta đã thuyết các dục được ví như đầu rắn, vui ít, khổ nhiều, não nhiều, và do vậy nguy hiểm càng nhiều hơn."
+    },
+    {
+     "n": 61,
+     "text": "Và này kẻ ngu si kia, không những Ông xuyên tạc Ta, vì Ông đã tự chấp thủ sai lạc, Ông tự phá hoại Ông và tạo nên nhiều tổn đức."
+    },
+    {
+     "n": 62,
+     "text": "Này kẻ ngu si kia, và như vậy sẽ đưa đến bất hạnh và đau khổ lâu dài cho Ông."
+    },
+    {
+     "n": 63,
+     "text": "Rồi Thế Tôn gọi các Tỷ-kheo"
+    },
+    {
+     "n": 64,
+     "text": "—Chư Tỷ-kheo, các Ông nghĩ thế nào? Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng này có thể khởi lên tia lửa sáng gì trong Pháp và Luật này không?"
+    },
+    {
+     "n": 65,
+     "text": "—Bạch Thế Tôn, làm sao có thể được! Không thể được, bạch Thế Tôn."
+    },
+    {
+     "n": 66,
+     "text": "Được nói vậy, Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, im lặng, hổ thẹn, thụt vai, cúi đầu, lo âu, câm miệng."
+    },
+    {
+     "n": 67,
+     "text": "Rồi Thế Tôn, sau khi biết được Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng đang im lặng, hổ thẹn, thụt vai, cúi đầu, lo âu, câm miệng, bèn nói với Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng"
+    },
+    {
+     "n": 68,
+     "text": "—Này kẻ ngu si kia, người ta sẽ được biết Ông qua ác tà kiến của chính Ông. Ở đây, Ta sẽ hỏi các Tỷ-kheo."
+    },
+    {
+     "n": 69,
+     "text": "Rồi Thế Tôn gọi các Tỷ-kheo"
+    },
+    {
+     "n": 70,
+     "text": "—Chư Tỷ-kheo, các Ông có hiểu pháp Ta thuyết giảng, giống như Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng này, không những đã xuyên tạc Ta vì đã tự chấp thủ sai lạc,"
+    },
+    {
+     "n": 71,
+     "text": "mà còn tự phá hoại mình và gây nên nhiều tổn đức?"
+    },
+    {
+     "n": 72,
+     "text": "—Bạch Thế Tôn, không. Bạch Thế Tôn, Thế Tôn đã dùng nhiều pháp môn thuyết chướng đạo pháp; và những ai thọ dụng chúng, tự đủ bị chướng ngại."
+    },
+    {
+     "n": 73,
+     "text": "Thế Tôn đã thuyết các dục vui ít, khổ nhiều, não nhiều, do vậy nguy hiểm càng nhiều hơn, Thế Tôn đã thuyết các dục ví như khúc xương … (như trên) …"
+    },
+    {
+     "n": 74,
+     "text": "Thế Tôn đã thuyết các dục ví như đầu rắn, vui ít, khổ nhiều, não nhiều và do vậy nguy hiểm càng nhiều hơn."
+    },
+    {
+     "n": 75,
+     "text": "—Lành thay, chư Tỷ-kheo! Lành thay, chư Tỷ-kheo!"
+    },
+    {
+     "n": 76,
+     "text": "Các Ông hiểu pháp Ta thuyết giảng như vậy."
+    },
+    {
+     "n": 77,
+     "text": "Chư Tỷ-kheo, Ta đã dùng nhiều pháp môn thuyết chướng đạo pháp, và những ai thọ dụng chúng, tự đủ bị chướng ngại."
+    },
+    {
+     "n": 78,
+     "text": "Ta đã thuyết các dục vui ít, khổ nhiều, não nhiều, và do vậy nguy hiểm càng nhiều hơn."
+    },
+    {
+     "n": 79,
+     "text": "Ta đã thuyết các dục ví như khúc xương … (như trên) …"
+    },
+    {
+     "n": 80,
+     "text": "Ta đã thuyết các dục ví như đầu rắn, vui ít, khổ nhiều, não nhiều, và do vậy nguy hiểm càng nhiều hơn."
+    },
+    {
+     "n": 81,
+     "text": "Nhưng Tỷ-kheo Ariṭṭha, xưa làm nghề huấn luyện chim ưng, không những xuyên tạc Ta vì đã tự chấp thủ sai lạc mà còn tự phá hoại mình và tạo nên nhiều tổn đức, và như vậy sẽ đưa đến bất hạnh,"
+    },
+    {
+     "n": 82,
+     "text": "đau khổ lâu ngày cho kẻ ngu si ấy."
+    },
+    {
+     "n": 83,
+     "text": "Thật sự, này các Tỷ-kheo, sự kiện này không xảy ra, người ta có thể thọ dụng các dục ngoài các dục, ngoài các dục tưởng, ngoài các dục tầm."
+    },
+    {
+     "n": 84,
+     "text": "Chư Tỷ-kheo, ở đây có một số người ngu si học pháp, như Kinh, Ứng tụng, Giải thuyết, Kệ tụng, Cảm hứng ngữ, Như thị ngữ, Bổn sanh, Vị tằng hữu pháp, Phương quảng.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 85,
+     "text": "Sau khi học các pháp này, họ không quán sát ý nghĩa những pháp ấy với trí tuệ.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 86,
+     "text": "Những pháp ấy, vì ý nghĩa không được trí tuệ quán sát, nên không trở thành rõ ràng.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 87,
+     "text": "Họ học các pháp chỉ vì lợi ích, muốn chỉ trích người khác, chỉ vì lợi ích, muốn khoái khẩu biện luận, và họ không đạt được mục tiêu mà sự học pháp hướng đến.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 88,
+     "text": "Những pháp ấy vì nắm giữ sai lạc nên đưa họ đến bất hạnh, đau khổ lâu dài. Vì sao vậy?",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 89,
+     "text": "Này các Tỷ-kheo, vì nắm giữ sai lạc các pháp.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 90,
+     "text": "Chư Tỷ-kheo, ví như một người ưa muốn rắn nước, tìm cầu rắn nước, đi khắp chỗ để tìm rắn nước.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 91,
+     "text": "Người đó thấy một con rắn nước lớn, và người đó bắt con rắn ấy ở lưng hay ở đuôi.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 92,
+     "text": "Con rắn ấy có thể quay lại cắn người đó nơi tay, nơi cánh tay hay ở một phần nào khác của cơ thể, và người đó có thể do nhân này mà bị chết hay bị đau khổ gần như chết. Vì sao vậy?",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 93,
+     "text": "Chư Tỷ-kheo, vì nắm bắt con rắn một cách sai lạc.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 94,
+     "text": "Cũng vậy này các Tỷ-kheo, ở đây, một số người ngu si học pháp …",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 95,
+     "text": "Chư Tỷ-kheo, vì sự chấp thủ các pháp sai lạc.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 96,
+     "text": "Ở đây, này các Tỷ-kheo, một số Thiện nam tử học pháp, như Kinh, Ứng tụng, Giải thuyết, Kệ tụng, Cảm hứng ngữ, Như thị ngữ, Bổn sanh, Vị tằng hữu pháp, Phương quảng.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 97,
+     "text": "Sau khi học các pháp này, họ quán sát ý nghĩa những pháp ấy với trí tuệ.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 98,
+     "text": "Những pháp ấy, vì ý nghĩa được trí tuệ quán sát, nên trở thành rõ ràng.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 99,
+     "text": "Họ học pháp không vì lợi ích, muốn chỉ trích người khác, không vì lợi ích, muốn khoái khẩu biện luận, và họ đạt được mục tiêu mà sự học pháp hướng đến.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 100,
+     "text": "Những pháp ấy, vì khéo nắm giữ, nên đưa họ đến hạnh phúc, an lạc lâu dài. Vì sao vậy?",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 101,
+     "text": "Này các Tỷ-kheo, vì khéo nắm giữ các pháp.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 102,
+     "text": "Chư Tỷ-kheo, ví như một người ưa muốn rắn nước, tìm cầu rắn nước đi khắp chỗ để tìm rắn nước. Người đó thấy một con rắn nước lớn.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 103,
+     "text": "Người đó có thể khéo đè con rắn nước với cây gậy có nạng.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 104,
+     "text": "Sau khi khéo đè với cây gậy có nạng, người đó có thể khéo nắm giữ cổ rắn.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 105,
+     "text": "Chư Tỷ-kheo, dầu cho con rắn nước ấy có thể cuốn thân nó xung quanh tay, hay cánh tay, hay một thân phần nào khác, người đó cũng không vì nhân duyên ấy đi đến chỗ chết hay đến sự đau khổ gần như chết. Vì sao vậy?",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 106,
+     "text": "Chư Tỷ-kheo, vì khéo nắm giữ con rắn nước vậy.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 107,
+     "text": "Cũng vậy, chư Tỷ-kheo, ở đây, một số Thiện nam tử học pháp … chư Tỷ-kheo, vì khéo nắm giữ các pháp vậy.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 108,
+     "text": "Do vậy, này các Tỷ-kheo, hãy hiểu rõ ý nghĩa lời Ta thuyết giảng và thọ trì như vậy.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 109,
+     "text": "Nếu có ai không hiểu rõ ý nghĩa lời Ta thuyết giảng thì ở nơi đây, các Ông hãy hỏi Ta hay hỏi những bậc Tỷ-kheo trí thức.",
+     "section": "(Ví dụ con rắn)"
+    },
+    {
+     "n": 110,
+     "text": "Chư Tỷ-kheo, Ta sẽ giảng pháp cho các Ông, ví như chiếc bè để vượt qua, không phải để nắm giữ lấy. Hãy nghe và khéo tác ý, Ta sẽ giảng.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 111,
+     "text": "—Thưa vâng, bạch Thế Tôn.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 112,
+     "text": "Những Tỷ-kheo ấy vâng đáp Thế Tôn. Thế Tôn thuyết giảng như sau",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 113,
+     "text": "—Này các Tỷ-kheo, ví như có người đang đi trên con đường lớn dài, đến một vùng nước rộng, bờ bên này nguy hiểm và hãi hùng, bờ bên kia an ổn và không kinh hãi,",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 114,
+     "text": "nhưng không có thuyền để vượt qua hay không có cầu bắc qua từ bờ này đến bờ kia.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 115,
+     "text": "Người đó tự suy nghĩ: “Đây là vùng nước rộng, bờ bên này nguy hiểm và hãi hùng, bờ bên kia an ổn và không kinh hãi, nhưng không có thuyền để vượt qua hay không có cầu bắc qua từ bờ này đến bờ kia.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 116,
+     "text": "Nay ta hãy thâu góp cỏ, cây, nhánh, lá, cột lại thành chiếc bè, và dựa trên chiếc bè này, tinh tấn dùng tay chân, có thể vượt qua bờ bên kia một cách an toàn”.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 117,
+     "text": "Chư Tỷ-kheo, rồi người đó thâu góp cỏ, cây, nhánh, lá cột lại thành chiếc bè, và nhờ chiếc bè này, tinh tấn dùng tay chân vượt qua bờ bên kia một cách an toàn.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 118,
+     "text": "Khi qua bờ bên kia rồi, Người đó suy nghĩ: “Chiếc bè này lợi ích nhiều cho ta, nhờ chiếc bè này, ta tinh tấn dùng tay chân để vượt qua bờ bên kia một cách an toàn.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 119,
+     "text": "Nay ta hãy đội chiếc bè này trên đầu hay vác nó trên vai, và đi đến chỗ nào ta muốn”. Chư Tỷ-kheo, các Ông nghĩ thế nào?",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 120,
+     "text": "Chư Tỷ-kheo, nếu người đó làm như vậy, thì có làm đúng với sở dụng của chiếc bè chăng?",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 121,
+     "text": "—Bạch Thế Tôn, không.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 122,
+     "text": "—Chư Tỷ-kheo, người đó phải làm thế nào cho đúng sở dụng của chiếc bè? Ở đây, chư Tỷ-kheo, người đó sau khi vượt qua bờ bên kia, có thể suy nghĩ: “Chiếc bè này lợi ích nhiều cho ta.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 123,
+     "text": "Nhờ chiếc bè này, ta tinh tấn dùng tay chân đã vượt qua bờ bên kia một cách an toàn.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 124,
+     "text": "Nay ta hãy kéo chiếc bè này lên trên bờ đất khô, hay nhận chìm xuống nước, và đi đến chỗ nào ta muốn”.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 125,
+     "text": "Chư Tỷ-kheo, làm như vậy, người đó làm đúng sở dụng chiếc bè ấy.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 126,
+     "text": "Cũng vậy, này chư Tỷ-kheo, Ta thuyết pháp như chiếc bè để vượt qua, không phải để nắm giữ lấy.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 127,
+     "text": "Chư Tỷ-kheo, các Ông cần hiểu ví dụ cái bè.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 128,
+     "text": "Chánh pháp còn phải bỏ đi, huống nữa là phi pháp.",
+     "section": "(Ví dụ chiếc bè)"
+    },
+    {
+     "n": 129,
+     "text": "Này các Tỷ-kheo, có sáu kiến xứ.",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 130,
+     "text": "Thế nào là sáu? Ở đây, này các Tỷ-kheo, có kẻ vô văn phàm phu, không đi đến yết kiến các bậc Thánh, không thuần thục pháp các bậc Thánh, không tu tập pháp các bậc Thánh, không đi đến yết kiến các bậc Chơn nhơn,",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 131,
+     "text": "không thuần thục pháp các bậc Chơn nhơn, không tu tập pháp các bậc Chơn nhơn, xem sắc pháp:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 132,
+     "text": "“Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”, xem cảm thọ: “Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”, xem tưởng:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 133,
+     "text": "“Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”, xem các hành:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 134,
+     "text": "“Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”, xem cái gì được thấy, được nghe, được cảm xúc, được ý thức, được đạt tới, được tìm cầu, được ý suy tư:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 135,
+     "text": "“Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”, và bất cứ kiến xứ nào đều nói rằng:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 136,
+     "text": "“Đây là thế giới, đây là tự ngã, sau khi chết, tôi sẽ thường còn, thường hằng, thường trú, không biến chuyển, tôi sẽ trú như thế này cho đến mãi mãi”, xem như vậy là:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 137,
+     "text": "“Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”.",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 138,
+     "text": "Và này chư Tỷ-kheo, có vị Đa văn Thánh đệ tử đi đến yết kiến các bậc Thánh, thuần thục các pháp bậc Thánh, tu tập pháp các bậc Thánh, đi đến yết kiến các bậc Chơn nhơn, thuần thục pháp các bậc Chơn nhơn,",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 139,
+     "text": "tu tập pháp các bậc Chơn nhơn, xem sắc pháp:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 140,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”, xem cảm thọ: “Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”, xem tưởng:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 141,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”, xem các hành:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 142,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”, xem cái gì được thấy, được nghe, được cảm xúc, được ý thức, được đạt tới, được tìm cầu, được ý suy tư:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 143,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”, và bất cứ kiến xứ nào đều nói rằng:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 144,
+     "text": "“Đây là thế giới, đây là tự ngã, sau khi chết tôi sẽ thường còn, thường hằng, thường trú, không biến chuyển, tôi sẽ trú như thế này cho đến mãi mãi”, xem như vậy là:",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 145,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”.",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 146,
+     "text": "Vị này do quán sát như vậy, đối với sự vật chẳng thật có nên không có lo âu, phiền muộn.",
+     "section": "(Các kiến xứ)"
+    },
+    {
+     "n": 147,
+     "text": "Được nghe nói vậy, một Tỷ-kheo khác bạch Thế Tôn",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 148,
+     "text": "—Có thể có cái gì không thực có ở ngoài, có thể gây lo âu phiền muộn?",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 149,
+     "text": "Thế Tôn đáp",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 150,
+     "text": "—Có thể có, này Tỷ-kheo, ở đây, có người nghĩ như sau: “Cái gì chắc chắn đã là của tôi, nay chắc chắn không còn là của tôi.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 151,
+     "text": "Cái gì chắc chắn có thể là của tôi, chắc chắn tôi không được cái ấy”.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 152,
+     "text": "Người đó sầu muộn, than vãn, khóc lóc, đấm ngực, đi đến bất tỉnh.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 153,
+     "text": "Này Tỷ-kheo, như vậy, có cái không thực có ở ngoài, có thể gây lo âu, phiền muộn.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 154,
+     "text": "—Bạch Thế Tôn, có thể có cái gì không thực có ở ngoài, có thể không gây lo âu phiền muộn?",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 155,
+     "text": "Thế Tôn đáp",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 156,
+     "text": "—Có thể có, này Tỷ-kheo, ở đây, này Tỷ-kheo, có người không nghĩ như sau: “Cái gì chắc chắn đã là của tôi, nay chắc chắn không còn là của tôi.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 157,
+     "text": "Cái gì chắc chắn có thể là của tôi, chắc chắn tôi không được cái ấy”.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 158,
+     "text": "Người đó không sầu muộn, than vãn, khóc lóc, không đấm ngực, không đi đến bất tỉnh.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 159,
+     "text": "Như vậy, này Tỷ-kheo, có cái không thực có ở ngoài, không gây lo âu phiền muộn.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 160,
+     "text": "—Bạch Thế Tôn, có thể có cái gì không thực có ở trong có thể gây ra lo âu phiền muộn?",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 161,
+     "text": "Thế Tôn đáp",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 162,
+     "text": "—Có thể có, này Tỷ-kheo, ở đây, này Tỷ-kheo, có người có (tà) kiến như sau: “Đây là thế giới, đây là tự ngã, sau khi chết, tôi sẽ thường còn, thường hằng, thường trú không biến chuyển.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 163,
+     "text": "Tôi sẽ trú như thế này cho đến mãi mãi”.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 164,
+     "text": "Người này nghe Như Lai hay đệ tử Như Lai thuyết pháp để bạt trừ tất cả kiến xứ, cố chấp, thiên chấp, thiên kiến, tùy miên, sự tịnh chỉ mọi hành động, sự từ bỏ mọi sanh y, sự diệt trừ khát ái đưa đến ly tham, đoạn diệt,",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 165,
+     "text": "Niết-bàn. Người đó có thể nghĩ như sau: “Chắc chắn ta sẽ bị đoạn diệt, chắc chắn ta sẽ bị hoại diệt, chắc chắn ta sẽ không tồn tại”.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 166,
+     "text": "Người đó sầu muộn, than vãn, khóc lóc, đấm ngực, đi đến bất tỉnh.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 167,
+     "text": "Này Tỷ-kheo, như vậy là có cái không thực có ở trong có thể gây ra lo âu phiền muộn.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 168,
+     "text": "—Bạch Thế Tôn, có thể có cái gì không thực có ở trong, không gây ra lo âu, phiền muộn?",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 169,
+     "text": "Thế Tôn đáp",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 170,
+     "text": "—Có thể có, này Tỷ-kheo, ở đây, có người không có (tà) kiến như sau: “Đây là thế giới, đây là tự ngã, sau khi chết, tôi sẽ thường còn, thường hằng, thường trú, không biến chuyển, tôi sẽ trú như thế này cho đến mãi mãi”.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 171,
+     "text": "Người này nghe Như Lai hay đệ tử Như Lai thuyết pháp để bạt trừ tất cả kiến xứ, cố chấp, thiên chấp, thiên kiến, tùy miên, sự tịnh chi mọi hành động, sự từ bỏ mọi sanh y, sự diệt trừ khát ái để đưa đến ly tham,",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 172,
+     "text": "đoạn diệt, Niết-bàn. Vị ấy không nghĩ như sau: “Chắc chắn ta sẽ bị đoạn diệt, chắc chắn ta sẽ bị hoại diệt, chắc chắn ta sẽ không tồn tại”.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 173,
+     "text": "Vị ấy không sầu muộn, than vãn, khóc lóc; vị ấy không đấm ngực, không đi đến bất tỉnh.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 174,
+     "text": "Này các Tỷ-kheo, như vậy là có cái không thực có ở trong, không gây ra lo âu, phiền muộn.",
+     "section": "(Lo âu)"
+    },
+    {
+     "n": 175,
+     "text": "Này các Tỷ-kheo, các Ông có thể nắm giữ một vật sở hữu gì, và vật sở hữu được nắm giữ ấy sẽ thường còn, thường hằng, thường trú, không chuyển biến, có thể trú như thế này mãi mãi không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 176,
+     "text": "Chư Tỷ-kheo, các Ông có thể thấy một vật sở hữu nào được nắm giữ và vật sở hữu được nắm giữ ấy sẽ thường còn, thường hằng, thường trú, không chuyển biến, có thể trú như thế này mãi mãi không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 177,
+     "text": "—Bạch Thế Tôn, không.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 178,
+     "text": "—Lành thay, này các Tỷ-kheo. Này các Tỷ-kheo, Ta cũng không thấy một vật sở hữu được nắm giữ nào, mà vật sở hữu được nắm giữ ấy sẽ thường còn, thường hằng, thường trú, không chuyển biến, có thể trú như thế này mãi mãi.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 179,
+     "text": "Này các Tỷ-kheo, các Ông có thể chấp thủ Ngã luận thủ nào mà Ngã luận thủ ấy được chấp thủ như vậy lại không khởi lên sầu, bi, khổ, ưu, não không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 180,
+     "text": "Này các Tỷ-kheo, các Ông có thấy Ngã luận thủ nào mà Ngã luận thủ ấy được chấp thủ như vậy lại không khởi lên sầu, bi, khổ, ưu, não không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 181,
+     "text": "—Bạch Thế Tôn không.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 182,
+     "text": "—Lành thay, này các Tỷ-kheo. Này các Tỷ-kheo, Ta cũng không thấy Ngã luận thủ nào mà Ngã luận thủ ấy được chấp thủ như vậy lại không khởi lên sầu, bi, khổ, ưu, não.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 183,
+     "text": "Này các Tỷ-kheo, các Ông có kiến y nào, mà kiến y ấy được y chỉ như vậy lại không khởi lên sầu, bi, khổ, ưu, não không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 184,
+     "text": "Này các Tỷ-kheo, các Ông có thấy kiến y nào, mà kiến y ấy được y chỉ như vậy lại không khởi lên sầu, bi, khổ, ưu, não không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 185,
+     "text": "—Bạch Thế Tôn, không",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 186,
+     "text": "—Lành thay, này các Tỷ-kheo! Này các Tỷ-kheo, Ta cũng không thấy một kiến y nào, mà kiến y ấy được y chỉ như vậy, lại không khởi lên sầu, bi, khổ, ưu, não.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 187,
+     "text": "Chư Tỷ-kheo, nếu có ngã thời có ngã sở thuộc của tôi không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 188,
+     "text": "—Bạch Thế Tôn, có.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 189,
+     "text": "—Chư Tỷ-kheo, nếu có ngã sở thuộc, thời có ngã của tôi không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 190,
+     "text": "—Bạch Thế Tôn, có.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 191,
+     "text": "—Chư Tỷ-kheo, nếu ngã và ngã sở thuộc không thể được chấp nhận là thường còn, thường hằng, thì kiến xứ này:",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 192,
+     "text": "“Đây là thế giới, đây là tự ngã, sau khi chết tôi sẽ thành thường còn, thường hằng, thường trú, không biến chuyển, tôi sẽ trú như thế này cho đến mãi mãi”.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 193,
+     "text": "Này các Tỷ-kheo, kiến xứ ấy là hoàn toàn, triệt để chẳng ngu si không?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 194,
+     "text": "—Bạch Thế Tôn, làm sao có thể hoàn toàn, triệt để chẳng ngu si được!",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 195,
+     "text": "—Này các Tỷ-kheo, các Ông nghĩ thế nào? Sắc là thường hay vô thường?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 196,
+     "text": "—Bạch Thế Tôn, vô thường.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 197,
+     "text": "—Cái gì vô thường là khổ hay lạc?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 198,
+     "text": "—Bạch Thế Tôn, khổ.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 199,
+     "text": "—Cái gì vô thường, khổ, chịu sự biến hoại, thì có hợp lý chăng khi chánh quán cái ấy là: “Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 200,
+     "text": "—Bạch Thế Tôn, không.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 201,
+     "text": "—Chư Tỷ-kheo, cảm thọ là thường hay vô thường?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 202,
+     "text": "—Bạch Thế Tôn, là vô thường.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 203,
+     "text": "—Cái gì vô thường là khổ hay lạc?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 204,
+     "text": "—Bạch Thế Tôn, là khổ.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 205,
+     "text": "—Cái gì vô thường, khổ, chịu sự biến hoại thì có hợp lý chăng khi chánh quán cái ấy là: “Cái này là của tôi … tự ngã của tôi”?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 206,
+     "text": "—Bạch Thế Tôn, không.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 207,
+     "text": "—Chư Tỷ-kheo, tưởng là thường hay vô thường?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 208,
+     "text": "—Bạch Thế Tôn, vô thường.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 209,
+     "text": "—Cái gì vô thường…?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 210,
+     "text": "—Bạch Thế Tôn, không.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 211,
+     "text": "—Chư Tỷ-kheo, các hành là thường hay vô thường … chư Tỷ-kheo, thức là thường hay vô thường?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 212,
+     "text": "—Bạch Thế Tôn, vô thường.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 213,
+     "text": "—Cái gì vô thường là khổ hay lạc?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 214,
+     "text": "—Bạch Thế Tôn, khổ.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 215,
+     "text": "- Cái gì vô thường, khổ thì có hợp lý chăng, khi chánh quán cái ấy là: “Cái này là của tôi, cái này là tôi, cái này là tự ngã của tôi”?",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 216,
+     "text": "—Bạch Thế Tôn, không.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 217,
+     "text": "—Do vậy, này các Tỷ-kheo, bất cứ các sắc pháp nào, quá khứ, tương lai, hiện tại, nội hay ngoại, thô hay tế, liệt hay thắng, xa hay gần; tất cả sắc pháp là:",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 218,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”, cần phải như thật quán với chánh trí tuệ. Bất cứ cảm thọ nào … Bất cứ tưởng nào … Bất cứ hành nào …",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 219,
+     "text": "Bất cứ thức nào, quá khứ, vị lai, hiện tại, nội hay ngoại, thô hay tế, liệt hay thắng, xa hay gần, tất cả thức là:",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 220,
+     "text": "“Cái này không phải của tôi, cái này không phải là tôi, cái này không phải tự ngã của tôi”, cần phải như thật quán với chánh trí tuệ.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 221,
+     "text": "Chư Tỷ-kheo, nhờ thấy vậy, vị Đa văn Thánh đệ tử yểm ly đối với sắc, yểm ly đối với thọ, yểm ly đối với tưởng, yểm ly đối với hành, yểm ly đối với thức, do yểm ly nên ly tham, do ly tham, nên được giải thoát,",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 222,
+     "text": "trong sự giải thoát có trí khởi lên, biết được đã giải thoát.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 223,
+     "text": "Vị ấy biết: “Sanh đã tận, phạm hạnh đã thành, những gì nên làm đã làm, không còn trở lui tại đây với một đời sống khác”.",
+     "section": "(Vô thường và vô ngã)"
+    },
+    {
+     "n": 224,
+     "text": "Chư Tỷ-kheo, Tỷ-kheo ấy được gọi là vị đã vất bỏ đi các chướng ngại vật, là vị đã lấp đầy các thông hào, là vị đã nhổ lên cột trụ, là vị đã mở tung các lề khóa, là bậc Thánh đã hạ cây cờ xuống, đã đặt gánh nặng xuống,",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 225,
+     "text": "không có gì hệ lụy.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 226,
+     "text": "Và thế nào là Tỷ-kheo đã vất bỏ đi các chướng ngại? Ở đây, này các Tỷ-kheo, là đã đoạn trừ vô minh, cắt tận gốc rễ, làm cho như cây ta-la bị chặt đầu, khiến không thể tái sanh trong tương lai,",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 227,
+     "text": "không có khả năng sanh khởi. Chư Tỷ-kheo, như vậy là Tỷ-kheo đã vất bỏ đi các chướng ngại.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 228,
+     "text": "Này các Tỷ-kheo, thế nào là Tỷ-kheo đã lấp đầy các thông hào? Ở đây, này các Tỷ-kheo, Tỷ-kheo đã đoạn trừ tái sanh và sự luân chuyển sanh tử, đã cắt tận gốc rễ, làm cho như cây ta-la bị chặt đầu,",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 229,
+     "text": "khiến không thể tái sanh trong tương lai, không có khả năng sanh khởi.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 230,
+     "text": "Chư Tỷ-kheo, như vậy là Tỷ-kheo đã lấp đầy thông hào.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 231,
+     "text": "Này các Tỷ-kheo, thế nào là Tỷ-kheo đã nhổ lên cột trụ? Ở đây, này các Tỷ-kheo, Tỷ-kheo đã đoạn trừ khát ái, đã cắt tận gốc rễ, làm cho như cây ta-la bị chặt đầu, khiến không thể tái sanh trong tương lai,",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 232,
+     "text": "không có khả năng sanh khởi. Chư Tỷ-kheo, như vậy là Tỷ-kheo đã nhổ lên cột trụ.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 233,
+     "text": "Này các Tỷ-kheo, thế nào là Tỷ-kheo đã mở tung các lề khóa? Ở đây, này các Tỷ-kheo, Tỷ-kheo đã đoạn trừ năm hạ phần kiết sử, đã cắt tận gốc rễ, làm cho như cây ta-la bị chặt đầu, khiến không thể tái sanh trong tương lai,",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 234,
+     "text": "không có khả năng sanh khởi. Chư Tỷ-kheo, như vậy là Tỷ-kheo đã mở tung các lề khóa.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 235,
+     "text": "Này các Tỷ-kheo, thế nào là Tỷ-kheo bậc Thánh, đã hạ cây cờ xuống, đã đặt gánh nặng xuống, không có gì hệ lụy? Ở đây, này các Tỷ-kheo, Tỷ-kheo đã đoạn trừ ngã mạn, đã cắt tận gốc rễ, làm cho như cây ta-la bị chặt đầu,",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 236,
+     "text": "khiến không thể tái sanh trong tương lai, không có khả năng sanh khởi.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 237,
+     "text": "Chư Tỷ-kheo, như vậy là vị Tỷ-kheo bậc Thánh, đã hạ cây cờ xuống, đã đặt gánh nặng xuống, không có gì hệ lụy.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 238,
+     "text": "Chư Tỷ-kheo, Tỷ-kheo đã giải thoát như vậy, thì chư Thiên ở Đế thích Thiên giới, Phạm thiên giới, Sanh chủ giới sẽ không tìm được dấu vết của Tỷ-kheo ấy, nếu nghĩ rằng: “Y ở đây, có thức của Như Lai”. Vì sao vậy?",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 239,
+     "text": "Chư Tỷ-kheo, Ta nói ngay ở hiện tại, một Như Lai không thể tìm thấy dấu vết”.",
+     "section": "(Bậc A-la-hán)"
+    },
+    {
+     "n": 240,
+     "text": "Chư Tỷ-kheo, Ta nói như vậy, thuyết như vậy, một số Sa-môn, Bà-la-môn xuyên tạc Ta một cách phi chơn, hồ đồ, hư vọng, không thực:",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 241,
+     "text": "“Sa-môn Gotama chủ trương chủ nghĩa hư vô, đề cao đoạn diệt, hủy diệt, sự tiêu diệt các hữu tình”.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 242,
+     "text": "Nhưng này các Tỷ-kheo, Ta không là như vậy, Ta không nói như vậy, Ta không như các Sa-môn, Bà-la-môn ấy đã xuyên tạc một cách phi chơn, hồ đồ, hư vọng, không thật:",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 243,
+     "text": "“Sa-môn Gotama chủ trương chủ nghĩa hư vô, đề cao đoạn diệt, hủy diệt, sự tiêu diệt các hữu tình”.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 244,
+     "text": "Chư Tỷ-kheo, xưa cũng như nay, Ta chỉ nói lên sự khổ và sự diệt khổ.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 245,
+     "text": "Chư Tỷ-kheo, nếu ở đây những người khác nhiếc mắng, phỉ báng, làm cho Như Lai tức giận, thì này các Tỷ-kheo, ở đây, Như Lai không có sân hận, không có bất mãn, tâm không phẫn nộ.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 246,
+     "text": "Chư Tỷ-kheo, nếu ở đây, những người khác cung kính, tôn trọng, lễ bái, cúng dường Như Lai, thì này các Tỷ-kheo, ở đây Như Lai không có hoan hỷ, sung sướng, Tâm không thích thú.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 247,
+     "text": "Chư Tỷ-kheo, nếu những người khác cung kính, tôn trọng, lễ bái, cúng dường Như Lai, thì này các Tỷ-kheo, ở đây Như Lai suy nghĩ: “Đây là điều xưa kia đã từng biết rõ: ở đây là trách nhiệm Ta phải làm”.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 248,
+     "text": "Do vậy, này các Tỷ-kheo, nếu có những người khác nhiếc mắng, phỉ báng, làm cho các Ông tức giận, ở đây các Ông chớ có sân hận, bất mãn, tâm chớ khởi phẫn nộ.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 249,
+     "text": "Do vậy, này các Tỷ-kheo, nếu có những người khác cung kính, tôn trọng, lễ bái cúng dường các Ông, thì ở đây, các Ông chớ có hoan hỷ, sung sướng, tâm sanh thích thú.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 250,
+     "text": "Do vậy, này các Tỷ-kheo, nếu có những người khác cung kính, tôn trọng, lễ bái cúng dường các Ông, thì ở đây, các Ông hãy suy nghĩ: “Đây là điều xưa kia đã từng biết rõ, đây là những trách nhiệm ta phải làm”.",
+     "section": "(Xuyên tạc Như Lai)"
+    },
+    {
+     "n": 251,
+     "text": "Do vậy, này các Tỷ-kheo, cái gì không phải của các Ông, các Ông hãy từ bỏ.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 252,
+     "text": "Các Ông từ bỏ, sẽ đưa lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 253,
+     "text": "Chư Tỷ-kheo, cái gì không phải của các Ông?",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 254,
+     "text": "Chư Tỷ-kheo, sắc không phải của các Ông, hãy từ bỏ sắc.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 255,
+     "text": "Các Ông từ bỏ sắc sẽ đưa lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 256,
+     "text": "Chư Tỷ-kheo, thọ không phải của các Ông, hãy từ bỏ thọ.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 257,
+     "text": "Các Ông từ bỏ thọ sẽ đưa lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 258,
+     "text": "Chư Tỷ-kheo, tưởng không phải của các Ông, hãy từ bỏ tưởng.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 259,
+     "text": "Các Ông từ bỏ tưởng sẽ đem lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 260,
+     "text": "Chư Tỷ-kheo, các hành không phải của các Ông, hãy từ bỏ các hành.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 261,
+     "text": "Các Ông từ bỏ các hành sẽ đem lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 262,
+     "text": "Chư Tỷ-kheo, thức không phải của các Ông, hãy từ bỏ thức.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 263,
+     "text": "Các Ông từ bỏ thức sẽ đem lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 264,
+     "text": "Chư Tỷ-kheo, các Ông nghĩ thế nào? Trong rừng Jetavana này, nếu có người thâu lượm cỏ, cây, nhành, lá rồi đốt hay làm với chúng tùy theo ý muốn, các Ông có nghĩ chăng?",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 265,
+     "text": "Người ấy thâu lượm chúng ta, đốt chúng ta hay làm với chúng ta tùy theo ý muốn?",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 266,
+     "text": "—Bạch Thế Tôn, không. Vì sao vậy? Bạch Thế Tôn, vì nó không phải tự ngã hay không phải sở thuộc của ngã.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 267,
+     "text": "—Cũng vậy, này các Tỷ-kheo, cái gì không phải của các Ông, các Ông hãy từ bỏ.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 268,
+     "text": "Các Ông từ bỏ sẽ đưa lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 269,
+     "text": "Chư Tỷ-kheo, và cái gì không phải của các Ông?",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 270,
+     "text": "Chư Tỷ-kheo, sắc không phải của các Ông, hãy từ bỏ sắc.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 271,
+     "text": "Các Ông từ bỏ sắc sẽ đưa lại hạnh phúc, an lạc lâu dài cho các Ông. Chư Tỷ-kheo, thọ … (như trên) … Chư Tỷ-kheo tưởng … (như trên) … Chư Tỷ-kheo, hành …",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 272,
+     "text": "Chư Tỷ-kheo, thức không phải của các Ông, hãy từ bỏ thức.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 273,
+     "text": "Các Ông từ bỏ thức sẽ đem lại hạnh phúc, an lạc lâu dài cho các Ông.",
+     "section": "(Không sở hữu)"
+    },
+    {
+     "n": 274,
+     "text": "Chư Tỷ-kheo, như vậy, pháp được Ta khéo giảng, làm cho tỏ lộ, làm cho khai thông, làm cho khai thị, được loại trừ các vải quấn cũ.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 275,
+     "text": "Chư Tỷ-kheo, vì pháp được Ta khéo giảng, làm tỏ lộ, làm cho khai thông, làm cho khai thị, được loại trừ các vải quấn cũ, nên những vị Tỷ-kheo, là bậc A-la-hán, các lậu hoặc đã tận, tu hành thành mãn, việc nên làm đã làm,",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 276,
+     "text": "gánh nặng đã đặt xuống, lý tưởng đã thành đạt, hữu kiết sử đã đoạn trừ, được giải thoát nhờ chánh trí, vòng luân chuyển (sanh tử) của những vị này không thể chỉ bày.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 277,
+     "text": "Chư Tỷ-kheo, như vậy, pháp được Ta khéo giảng … được loại trừ các vải quấn cũ.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 278,
+     "text": "Chư Tỷ-kheo, vì pháp được Ta khéo giảng, được loại trừ các vải quấn cũ, nên những Tỷ-kheo nào đã đoạn trừ năm hạ phần kiết sử, thì những vị này thành các vị hóa sanh, nhập diệt tại đây,",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 279,
+     "text": "không còn phải trở lui vào đời này nữa.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 280,
+     "text": "Chư Tỷ-kheo, như vậy, pháp được Ta khéo giảng … được loại trừ các vãi quấn cũ.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 281,
+     "text": "Chư Tỷ-kheo, vì pháp được Ta khéo giảng … được loại trừ các vải quấn cũ, nên những Tỷ-kheo nào đã đoạn trừ ba kiết sử, đã làm cho muội lược tham sân si, thì tất cả những vị ấy thành bậc Nhất lai,",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 282,
+     "text": "chỉ đến đời này một lần nữa sẽ diệt tận khổ đau.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 283,
+     "text": "Chư Tỷ-kheo, như vậy, pháp được Ta khéo giảng … được loại trừ các vãi quấn cũ.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 284,
+     "text": "Chư Tỷ-kheo, vì pháp được Ta khéo giảng … được loại trừ các vải quấn cũ, nên những Tỷ-kheo nào đoạn trừ ba kiết sử, thì tất cả những vị ấy trở thành bậc Dự lưu, không còn bị đọa lạc ác thú,",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 285,
+     "text": "quyết định hướng đến chánh giác.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 286,
+     "text": "Chư Tỷ-kheo, như vậy, pháp được Ta khéo giảng … được loại trừ các vải quấn cũ.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 287,
+     "text": "Chư Tỷ-kheo, vì pháp được ta khéo giảng … được loại trừ các vải quấn cũ, nên những Tỷ-kheo nào là những vị tùy pháp hành, tùy tín hành, thì tất cả những vị này sẽ hướng về chánh giác.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 288,
+     "text": "Chư Tỷ-kheo, như vậy pháp được Ta khéo giảng … được loại trừ khỏi các vải quấn cũ.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 289,
+     "text": "Chư Tỷ-kheo, vì pháp được Ta khéo giảng, làm cho tỏ lộ, làm cho khai thông, làm cho khai thị, được loại trừ các vải quấn cũ, nên những vị nào chỉ đủ lòng tin nơi Ta, chỉ đủ lòng thương mến đối với Ta,",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 290,
+     "text": "thì tất cả những vị ấy được hướng về chư Thiên.",
+     "section": "(Pháp khéo giảng)"
+    },
+    {
+     "n": 291,
+     "text": "Thế Tôn thuyết giảng như vậy. Những Tỷ-kheo ấy hoan hỷ, tín thọ lời Thế Tôn dạy.",
+     "section": "(Pháp khéo giảng)"
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn22/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Tena kho pana samayena ariṭṭhassa nāma bhikkhuno gaddhabādhipubbassa evarūpaṁ pāpakaṁ diṭṭhigataṁ uppannaṁ hoti:"
+    },
+    {
+     "n": 3,
+     "text": "“tathāhaṁ bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā”ti."
+    },
+    {
+     "n": 4,
+     "text": "Assosuṁ kho sambahulā bhikkhū: “ariṭṭhassa kira nāma bhikkhuno gaddhabādhipubbassa evarūpaṁ pāpakaṁ diṭṭhigataṁ uppannaṁ:"
+    },
+    {
+     "n": 5,
+     "text": "‘tathāhaṁ bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’”ti."
+    },
+    {
+     "n": 6,
+     "text": "Atha kho te bhikkhū yena ariṭṭho bhikkhu gaddhabādhipubbo tenupasaṅkamiṁsu; upasaṅkamitvā ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etadavocuṁ: “saccaṁ kira te, āvuso ariṭṭha, evarūpaṁ pāpakaṁ diṭṭhigataṁ uppannaṁ:"
+    },
+    {
+     "n": 7,
+     "text": "‘tathāhaṁ bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’”ti."
+    },
+    {
+     "n": 8,
+     "text": "“Evaṁ byā kho ahaṁ, āvuso, bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā”ti."
+    },
+    {
+     "n": 9,
+     "text": "Atha kho tepi bhikkhū ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etasmā pāpakā diṭṭhigatā vivecetukāmā samanuyuñjanti samanugāhanti samanubhāsanti: “mā hevaṁ, āvuso ariṭṭha, avaca, mā bhagavantaṁ abbhācikkhi;"
+    },
+    {
+     "n": 10,
+     "text": "na hi sādhu bhagavato abbhakkhānaṁ, na hi bhagavā evaṁ vadeyya."
+    },
+    {
+     "n": 11,
+     "text": "Anekapariyāyenāvuso ariṭṭha, antarāyikā dhammā antarāyikā vuttā bhagavatā, alañca pana te paṭisevato antarāyāya."
+    },
+    {
+     "n": 12,
+     "text": "Appassādā kāmā vuttā bhagavatā bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo."
+    },
+    {
+     "n": 13,
+     "text": "Aṭṭhikaṅkalūpamā kāmā vuttā bhagavatā … maṁsapesūpamā kāmā vuttā bhagavatā … tiṇukkūpamā kāmā vuttā bhagavatā … aṅgārakāsūpamā kāmā vuttā bhagavatā … supinakūpamā kāmā vuttā bhagavatā … yācitakūpamā kāmā vuttā bhagavatā"
+    },
+    {
+     "n": 14,
+     "text": "… rukkhaphalūpamā kāmā vuttā bhagavatā … asisūnūpamā kāmā vuttā bhagavatā … sattisūlūpamā kāmā vuttā bhagavatā … sappasirūpamā kāmā vuttā bhagavatā bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo”ti."
+    },
+    {
+     "n": 15,
+     "text": "Evampi kho ariṭṭho bhikkhu gaddhabādhipubbo tehi bhikkhūhi samanuyuñjiyamāno samanugāhiyamāno samanubhāsiyamāno tadeva pāpakaṁ diṭṭhigataṁ thāmasā parāmāsā abhinivissa voharati:"
+    },
+    {
+     "n": 16,
+     "text": "“evaṁ byā kho ahaṁ, āvuso, bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā”ti."
+    },
+    {
+     "n": 17,
+     "text": "Yato kho te bhikkhū nāsakkhiṁsu ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etasmā pāpakā diṭṭhigatā vivecetuṁ, atha kho te bhikkhū yena bhagavā tenupasaṅkamiṁsu; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdiṁsu."
+    },
+    {
+     "n": 18,
+     "text": "Ekamantaṁ nisinnā kho te bhikkhū bhagavantaṁ etadavocuṁ: “ariṭṭhassa nāma, bhante, bhikkhuno gaddhabādhipubbassa evarūpaṁ pāpakaṁ diṭṭhigataṁ uppannaṁ:"
+    },
+    {
+     "n": 19,
+     "text": "‘tathāhaṁ bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’ti. Assumha kho mayaṁ, bhante:"
+    },
+    {
+     "n": 20,
+     "text": "‘ariṭṭhassa kira nāma bhikkhuno gaddhabādhipubbassa evarūpaṁ pāpakaṁ diṭṭhigataṁ uppannaṁ— tathāhaṁ bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’ti."
+    },
+    {
+     "n": 21,
+     "text": "Atha kho mayaṁ, bhante, yena ariṭṭho bhikkhu gaddhabādhipubbo tenupasaṅkamimha; upasaṅkamitvā ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etadavocumha:"
+    },
+    {
+     "n": 22,
+     "text": "‘saccaṁ kira te, āvuso ariṭṭha, evarūpaṁ pāpakaṁ diṭṭhigataṁ uppannaṁ— tathāhaṁ bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’ti?"
+    },
+    {
+     "n": 23,
+     "text": "Evaṁ vutte, bhante, ariṭṭho bhikkhu gaddhabādhipubbo amhe etadavoca: ‘evaṁ byā kho ahaṁ, āvuso, bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’ti."
+    },
+    {
+     "n": 24,
+     "text": "Atha kho mayaṁ, bhante, ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etasmā pāpakā diṭṭhigatā vivecetukāmā samanuyuñjimha samanugāhimha samanubhāsimha: ‘mā hevaṁ, āvuso ariṭṭha, avaca, mā bhagavantaṁ abbhācikkhi;"
+    },
+    {
+     "n": 25,
+     "text": "na hi sādhu bhagavato abbhakkhānaṁ, na hi bhagavā evaṁ vadeyya."
+    },
+    {
+     "n": 26,
+     "text": "Anekapariyāyenāvuso ariṭṭha, antarāyikā dhammā antarāyikā vuttā bhagavatā, alañca pana te paṭisevato antarāyāya."
+    },
+    {
+     "n": 27,
+     "text": "Appassādā kāmā vuttā bhagavatā bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo."
+    },
+    {
+     "n": 28,
+     "text": "Aṭṭhikaṅkalūpamā kāmā vuttā bhagavatā …pe… sappasirūpamā kāmā vuttā bhagavatā bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo’ti."
+    },
+    {
+     "n": 29,
+     "text": "Evampi kho, bhante, ariṭṭho bhikkhu gaddhabādhipubbo amhehi samanuyuñjiyamāno samanugāhiyamāno samanubhāsiyamāno tadeva pāpakaṁ diṭṭhigataṁ thāmasā parāmāsā abhinivissa voharati:"
+    },
+    {
+     "n": 30,
+     "text": "‘evaṁ byā kho ahaṁ, āvuso, bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’ti."
+    },
+    {
+     "n": 31,
+     "text": "Yato kho mayaṁ, bhante, nāsakkhimha ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etasmā pāpakā diṭṭhigatā vivecetuṁ, atha mayaṁ etamatthaṁ bhagavato ārocemā”ti."
+    },
+    {
+     "n": 32,
+     "text": "Atha kho bhagavā aññataraṁ bhikkhuṁ āmantesi: “ehi tvaṁ, bhikkhu, mama vacanena ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ āmantehi: ‘satthā taṁ, āvuso ariṭṭha, āmantetī’”ti."
+    },
+    {
+     "n": 33,
+     "text": "“Evaṁ, bhante”ti kho so bhikkhu bhagavato paṭissutvā, yena ariṭṭho bhikkhu gaddhabādhipubbo tenupasaṅkami; upasaṅkamitvā ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etadavoca: “satthā taṁ, āvuso ariṭṭha, āmantetī”ti."
+    },
+    {
+     "n": 34,
+     "text": "“Evamāvuso”ti kho ariṭṭho bhikkhu gaddhabādhipubbo tassa bhikkhuno paṭissutvā yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 35,
+     "text": "Ekamantaṁ nisinnaṁ kho ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ bhagavā etadavoca:"
+    },
+    {
+     "n": 36,
+     "text": "“saccaṁ kira te, ariṭṭha, evarūpaṁ pāpakaṁ diṭṭhigataṁ uppannaṁ: ‘tathāhaṁ bhagavatā dhammaṁ desitaṁ ājānāmi yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’”ti?"
+    },
+    {
+     "n": 37,
+     "text": "“Evaṁ byā kho ahaṁ, bhante, bhagavatā dhammaṁ desitaṁ ājānāmi: ‘yathā yeme antarāyikā dhammā vuttā bhagavatā te paṭisevato nālaṁ antarāyāyā’”ti."
+    },
+    {
+     "n": 38,
+     "text": "“Kassa kho nāma tvaṁ, moghapurisa, mayā evaṁ dhammaṁ desitaṁ ājānāsi?"
+    },
+    {
+     "n": 39,
+     "text": "Nanu mayā, moghapurisa, anekapariyāyena antarāyikā dhammā antarāyikā vuttā? Alañca pana te paṭisevato antarāyāya."
+    },
+    {
+     "n": 40,
+     "text": "Appassādā kāmā vuttā mayā, bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo."
+    },
+    {
+     "n": 41,
+     "text": "Aṭṭhikaṅkalūpamā kāmā vuttā mayā … maṁsapesūpamā kāmā vuttā mayā … tiṇukkūpamā kāmā vuttā mayā … aṅgārakāsūpamā kāmā vuttā mayā … supinakūpamā kāmā vuttā mayā … yācitakūpamā kāmā vuttā mayā … rukkhaphalūpamā kāmā vuttā"
+    },
+    {
+     "n": 42,
+     "text": "mayā … asisūnūpamā kāmā vuttā mayā … sattisūlūpamā kāmā vuttā mayā … sappasirūpamā kāmā vuttā mayā,"
+    },
+    {
+     "n": 43,
+     "text": "bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo."
+    },
+    {
+     "n": 44,
+     "text": "Atha ca pana tvaṁ, moghapurisa, attanā duggahitena amhe ceva abbhācikkhasi, attānañca khanasi, bahuñca apuññaṁ pasavasi."
+    },
+    {
+     "n": 45,
+     "text": "Tañhi te, moghapurisa, bhavissati dīgharattaṁ ahitāya dukkhāyā”ti."
+    },
+    {
+     "n": 46,
+     "text": "Atha kho bhagavā bhikkhū āmantesi: “Taṁ kiṁ maññatha, bhikkhave, api nāyaṁ ariṭṭho bhikkhu gaddhabādhipubbo usmīkatopi imasmiṁ dhammavinaye”ti?"
+    },
+    {
+     "n": 47,
+     "text": "“Kiñhi siyā, bhante; no hetaṁ, bhante”ti."
+    },
+    {
+     "n": 48,
+     "text": "Evaṁ vutte, ariṭṭho bhikkhu gaddhabādhipubbo tuṇhībhūto maṅkubhūto pattakkhandho adhomukho pajjhāyanto appaṭibhāno nisīdi."
+    },
+    {
+     "n": 49,
+     "text": "Atha kho bhagavā ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ tuṇhībhūtaṁ maṅkubhūtaṁ pattakkhandhaṁ adhomukhaṁ pajjhāyantaṁ appaṭibhānaṁ viditvā ariṭṭhaṁ bhikkhuṁ gaddhabādhipubbaṁ etadavoca:"
+    },
+    {
+     "n": 50,
+     "text": "“paññāyissasi kho tvaṁ, moghapurisa, etena sakena pāpakena diṭṭhigatena. Idhāhaṁ bhikkhū paṭipucchissāmī”ti."
+    },
+    {
+     "n": 51,
+     "text": "Atha kho bhagavā bhikkhū āmantesi:"
+    },
+    {
+     "n": 52,
+     "text": "“tumhepi me, bhikkhave, evaṁ dhammaṁ desitaṁ ājānātha yathāyaṁ ariṭṭho bhikkhu gaddhabādhipubbo attanā duggahitena amhe ceva abbhācikkhati, attānañca khanati, bahuñca apuññaṁ pasavatī”ti?"
+    },
+    {
+     "n": 53,
+     "text": "“No hetaṁ, bhante. Anekapariyāyena hi no, bhante, antarāyikā dhammā antarāyikā vuttā bhagavatā; alañca pana te paṭisevato antarāyāya."
+    },
+    {
+     "n": 54,
+     "text": "Appassādā kāmā vuttā bhagavatā bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo."
+    },
+    {
+     "n": 55,
+     "text": "Aṭṭhikaṅkalūpamā kāmā vuttā bhagavatā …pe… sappasirūpamā kāmā vuttā bhagavatā bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo”ti."
+    },
+    {
+     "n": 56,
+     "text": "“Sādhu sādhu, bhikkhave, sādhu, kho me tumhe, bhikkhave, evaṁ dhammaṁ desitaṁ ājānātha."
+    },
+    {
+     "n": 57,
+     "text": "Anekapariyāyena hi kho, bhikkhave, antarāyikā dhammā vuttā mayā, alañca pana te paṭisevato antarāyāya."
+    },
+    {
+     "n": 58,
+     "text": "Appassādā kāmā vuttā mayā, bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo."
+    },
+    {
+     "n": 59,
+     "text": "Aṭṭhikaṅkalūpamā kāmā vuttā mayā …pe… sappasirūpamā kāmā vuttā mayā, bahudukkhā bahupāyāsā, ādīnavo ettha bhiyyo."
+    },
+    {
+     "n": 60,
+     "text": "Atha ca panāyaṁ ariṭṭho bhikkhu gaddhabādhipubbo attanā duggahitena amhe ceva abbhācikkhati, attānañca khanati, bahuñca apuññaṁ pasavati."
+    },
+    {
+     "n": 61,
+     "text": "Tañhi tassa moghapurisassa bhavissati dīgharattaṁ ahitāya dukkhāya."
+    },
+    {
+     "n": 62,
+     "text": "So vata, bhikkhave, aññatreva kāmehi aññatra kāmasaññāya aññatra kāmavitakkehi kāme paṭisevissatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 63,
+     "text": "Idha, bhikkhave, ekacce moghapurisā dhammaṁ pariyāpuṇanti— suttaṁ, geyyaṁ, veyyākaraṇaṁ, gāthaṁ, udānaṁ, itivuttakaṁ, jātakaṁ, abbhutadhammaṁ, vedallaṁ."
+    },
+    {
+     "n": 64,
+     "text": "Te taṁ dhammaṁ pariyāpuṇitvā tesaṁ dhammānaṁ paññāya atthaṁ na upaparikkhanti."
+    },
+    {
+     "n": 65,
+     "text": "Tesaṁ te dhammā paññāya atthaṁ anupaparikkhataṁ na nijjhānaṁ khamanti."
+    },
+    {
+     "n": 66,
+     "text": "Te upārambhānisaṁsā ceva dhammaṁ pariyāpuṇanti itivādappamokkhānisaṁsā ca."
+    },
+    {
+     "n": 67,
+     "text": "Yassa catthāya dhammaṁ pariyāpuṇanti tañcassa atthaṁ nānubhonti."
+    },
+    {
+     "n": 68,
+     "text": "Tesaṁ te dhammā duggahitā dīgharattaṁ ahitāya dukkhāya saṁvattanti. Taṁ kissa hetu? Duggahitattā, bhikkhave, dhammānaṁ."
+    },
+    {
+     "n": 69,
+     "text": "Seyyathāpi, bhikkhave, puriso alagaddatthiko alagaddagavesī alagaddapariyesanaṁ caramāno. So passeyya mahantaṁ alagaddaṁ. Tamenaṁ bhoge vā naṅguṭṭhe vā gaṇheyya."
+    },
+    {
+     "n": 70,
+     "text": "Tassa so alagaddo paṭiparivattitvā hatthe vā bāhāya vā aññatarasmiṁ vā aṅgapaccaṅge ḍaṁseyya."
+    },
+    {
+     "n": 71,
+     "text": "So tatonidānaṁ maraṇaṁ vā nigaccheyya maraṇamattaṁ vā dukkhaṁ. Taṁ kissa hetu? Duggahitattā, bhikkhave, alagaddassa."
+    },
+    {
+     "n": 72,
+     "text": "Evameva kho, bhikkhave, idhekacce moghapurisā dhammaṁ pariyāpuṇanti— suttaṁ, geyyaṁ, veyyākaraṇaṁ, gāthaṁ, udānaṁ, itivuttakaṁ, jātakaṁ, abbhutadhammaṁ, vedallaṁ."
+    },
+    {
+     "n": 73,
+     "text": "Te taṁ dhammaṁ pariyāpuṇitvā tesaṁ dhammānaṁ paññāya atthaṁ na upaparikkhanti."
+    },
+    {
+     "n": 74,
+     "text": "Tesaṁ te dhammā paññāya atthaṁ anupaparikkhataṁ na nijjhānaṁ khamanti."
+    },
+    {
+     "n": 75,
+     "text": "Te upārambhānisaṁsā ceva dhammaṁ pariyāpuṇanti itivādappamokkhānisaṁsā ca."
+    },
+    {
+     "n": 76,
+     "text": "Yassa catthāya dhammaṁ pariyāpuṇanti tañcassa atthaṁ nānubhonti."
+    },
+    {
+     "n": 77,
+     "text": "Tesaṁ te dhammā duggahitā dīgharattaṁ ahitāya dukkhāya saṁvattanti. Taṁ kissa hetu? Duggahitattā, bhikkhave, dhammānaṁ."
+    },
+    {
+     "n": 78,
+     "text": "Idha pana, bhikkhave, ekacce kulaputtā dhammaṁ pariyāpuṇanti— suttaṁ, geyyaṁ, veyyākaraṇaṁ, gāthaṁ, udānaṁ, itivuttakaṁ, jātakaṁ, abbhutadhammaṁ, vedallaṁ."
+    },
+    {
+     "n": 79,
+     "text": "Te taṁ dhammaṁ pariyāpuṇitvā tesaṁ dhammānaṁ paññāya atthaṁ upaparikkhanti."
+    },
+    {
+     "n": 80,
+     "text": "Tesaṁ te dhammā paññāya atthaṁ upaparikkhataṁ nijjhānaṁ khamanti."
+    },
+    {
+     "n": 81,
+     "text": "Te na ceva upārambhānisaṁsā dhammaṁ pariyāpuṇanti na itivādappamokkhānisaṁsā ca."
+    },
+    {
+     "n": 82,
+     "text": "Yassa catthāya dhammaṁ pariyāpuṇanti tañcassa atthaṁ anubhonti."
+    },
+    {
+     "n": 83,
+     "text": "Tesaṁ te dhammā suggahitā dīgharattaṁ hitāya sukhāya saṁvattanti. Taṁ kissa hetu? Suggahitattā bhikkhave dhammānaṁ."
+    },
+    {
+     "n": 84,
+     "text": "Seyyathāpi, bhikkhave, puriso alagaddatthiko alagaddagavesī alagaddapariyesanaṁ caramāno. So passeyya mahantaṁ alagaddaṁ."
+    },
+    {
+     "n": 85,
+     "text": "Tamenaṁ ajapadena daṇḍena suniggahitaṁ niggaṇheyya."
+    },
+    {
+     "n": 86,
+     "text": "Ajapadena daṇḍena suniggahitaṁ niggahitvā, gīvāya suggahitaṁ gaṇheyya."
+    },
+    {
+     "n": 87,
+     "text": "Kiñcāpi so, bhikkhave, alagaddo tassa purisassa hatthaṁ vā bāhaṁ vā aññataraṁ vā aṅgapaccaṅgaṁ bhogehi paliveṭheyya, atha kho so neva tatonidānaṁ maraṇaṁ vā nigaccheyya maraṇamattaṁ vā dukkhaṁ. Taṁ kissa hetu?"
+    },
+    {
+     "n": 88,
+     "text": "Suggahitattā, bhikkhave, alagaddassa."
+    },
+    {
+     "n": 89,
+     "text": "Evameva kho, bhikkhave, idhekacce kulaputtā dhammaṁ pariyāpuṇanti— suttaṁ, geyyaṁ, veyyākaraṇaṁ, gāthaṁ, udānaṁ, itivuttakaṁ, jātakaṁ, abbhutadhammaṁ, vedallaṁ."
+    },
+    {
+     "n": 90,
+     "text": "Te taṁ dhammaṁ pariyāpuṇitvā tesaṁ dhammānaṁ paññāya atthaṁ upaparikkhanti."
+    },
+    {
+     "n": 91,
+     "text": "Tesaṁ te dhammā paññāya atthaṁ upaparikkhataṁ nijjhānaṁ khamanti."
+    },
+    {
+     "n": 92,
+     "text": "Te na ceva upārambhānisaṁsā dhammaṁ pariyāpuṇanti, na itivādappamokkhānisaṁsā ca."
+    },
+    {
+     "n": 93,
+     "text": "Yassa catthāya dhammaṁ pariyāpuṇanti, tañcassa atthaṁ anubhonti."
+    },
+    {
+     "n": 94,
+     "text": "Tesaṁ te dhammā suggahitā dīgharattaṁ atthāya hitāya sukhāya saṁvattanti. Taṁ kissa hetu? Suggahitattā, bhikkhave, dhammānaṁ."
+    },
+    {
+     "n": 95,
+     "text": "Tasmātiha, bhikkhave, yassa me bhāsitassa atthaṁ ājāneyyātha, tathā naṁ dhāreyyātha."
+    },
+    {
+     "n": 96,
+     "text": "Yassa ca pana me bhāsitassa atthaṁ na ājāneyyātha, ahaṁ vo tattha paṭipucchitabbo, ye vā panāssu viyattā bhikkhū."
+    },
+    {
+     "n": 97,
+     "text": "Kullūpamaṁ vo, bhikkhave, dhammaṁ desessāmi nittharaṇatthāya, no gahaṇatthāya."
+    },
+    {
+     "n": 98,
+     "text": "Taṁ suṇātha, sādhukaṁ manasikarotha, bhāsissāmī”ti."
+    },
+    {
+     "n": 99,
+     "text": "“Evaṁ, bhante”ti kho te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 100,
+     "text": "“Seyyathāpi, bhikkhave, puriso addhānamaggappaṭipanno."
+    },
+    {
+     "n": 101,
+     "text": "So passeyya mahantaṁ udakaṇṇavaṁ, orimaṁ tīraṁ sāsaṅkaṁ sappaṭibhayaṁ, pārimaṁ tīraṁ khemaṁ appaṭibhayaṁ; na cassa nāvā santāraṇī uttarasetu vā apārā pāraṁ gamanāya."
+    },
+    {
+     "n": 102,
+     "text": "Tassa evamassa: ‘ayaṁ kho mahāudakaṇṇavo, orimaṁ tīraṁ sāsaṅkaṁ sappaṭibhayaṁ, pārimaṁ tīraṁ khemaṁ appaṭibhayaṁ; natthi ca nāvā santāraṇī uttarasetu vā apārā pāraṁ gamanāya."
+    },
+    {
+     "n": 103,
+     "text": "Yannūnāhaṁ tiṇakaṭṭhasākhāpalāsaṁ saṅkaḍḍhitvā, kullaṁ bandhitvā, taṁ kullaṁ nissāya hatthehi ca pādehi ca vāyamamāno sotthinā pāraṁ uttareyyan’ti."
+    },
+    {
+     "n": 104,
+     "text": "Atha kho so, bhikkhave, puriso tiṇakaṭṭhasākhāpalāsaṁ saṅkaḍḍhitvā, kullaṁ bandhitvā taṁ kullaṁ nissāya hatthehi ca pādehi ca vāyamamāno sotthinā pāraṁ uttareyya."
+    },
+    {
+     "n": 105,
+     "text": "Tassa purisassa uttiṇṇassa pāraṅgatassa evamassa: ‘bahukāro kho me ayaṁ kullo; imāhaṁ kullaṁ nissāya hatthehi ca pādehi ca vāyamamāno sotthinā pāraṁ uttiṇṇo."
+    },
+    {
+     "n": 106,
+     "text": "Yannūnāhaṁ imaṁ kullaṁ sīse vā āropetvā khandhe vā uccāretvā yena kāmaṁ pakkameyyan’ti."
+    },
+    {
+     "n": 107,
+     "text": "Taṁ kiṁ maññatha, bhikkhave, api nu so puriso evaṅkārī tasmiṁ kulle kiccakārī assā”ti?"
+    },
+    {
+     "n": 108,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 109,
+     "text": "“Kathaṅkārī ca so, bhikkhave, puriso tasmiṁ kulle kiccakārī assa?"
+    },
+    {
+     "n": 110,
+     "text": "Idha, bhikkhave, tassa purisassa uttiṇṇassa pāraṅgatassa evamassa: ‘bahukāro kho me ayaṁ kullo; imāhaṁ kullaṁ nissāya hatthehi ca pādehi ca vāyamamāno sotthinā pāraṁ uttiṇṇo."
+    },
+    {
+     "n": 111,
+     "text": "Yannūnāhaṁ imaṁ kullaṁ thale vā ussādetvā udake vā opilāpetvā yena kāmaṁ pakkameyyan’ti."
+    },
+    {
+     "n": 112,
+     "text": "Evaṅkārī kho so, bhikkhave, puriso tasmiṁ kulle kiccakārī assa."
+    },
+    {
+     "n": 113,
+     "text": "Evameva kho, bhikkhave, kullūpamo mayā dhammo desito nittharaṇatthāya, no gahaṇatthāya."
+    },
+    {
+     "n": 114,
+     "text": "Kullūpamaṁ vo, bhikkhave, dhammaṁ desitaṁ, ājānantehi dhammāpi vo pahātabbā pageva adhammā."
+    },
+    {
+     "n": 115,
+     "text": "Chayimāni, bhikkhave, diṭṭhiṭṭhānāni. Katamāni cha?"
+    },
+    {
+     "n": 116,
+     "text": "Idha, bhikkhave, assutavā puthujjano ariyānaṁ adassāvī ariyadhammassa akovido ariyadhamme avinīto, sappurisānaṁ adassāvī sappurisadhammassa akovido sappurisadhamme avinīto, rūpaṁ ‘etaṁ mama, esohamasmi,"
+    },
+    {
+     "n": 117,
+     "text": "eso me attā’ti samanupassati; vedanaṁ ‘etaṁ mama, esohamasmi, eso me attā’ti samanupassati; saññaṁ ‘etaṁ mama, esohamasmi, eso me attā’ti samanupassati; saṅkhāre ‘etaṁ mama, esohamasmi, eso me attā’ti samanupassati;"
+    },
+    {
+     "n": 118,
+     "text": "yampi taṁ diṭṭhaṁ sutaṁ mutaṁ viññātaṁ pattaṁ pariyesitaṁ, anuvicaritaṁ manasā tampi ‘etaṁ mama, esohamasmi, eso me attā’ti samanupassati;"
+    },
+    {
+     "n": 119,
+     "text": "yampi taṁ diṭṭhiṭṭhānaṁ— so loko so attā, so pecca bhavissāmi nicco dhuvo sassato avipariṇāmadhammo, sassatisamaṁ tatheva ṭhassāmīti— tampi ‘etaṁ mama, esohamasmi, eso me attā’ti samanupassati."
+    },
+    {
+     "n": 120,
+     "text": "Sutavā ca kho, bhikkhave, ariyasāvako ariyānaṁ dassāvī ariyadhammassa kovido ariyadhamme suvinīto, sappurisānaṁ dassāvī sappurisadhammassa kovido sappurisadhamme suvinīto, rūpaṁ ‘netaṁ mama, nesohamasmi,"
+    },
+    {
+     "n": 121,
+     "text": "na meso attā’ti samanupassati;"
+    },
+    {
+     "n": 122,
+     "text": "vedanaṁ ‘netaṁ mama, nesohamasmi, na meso attā’ti samanupassati; saññaṁ ‘netaṁ mama, nesohamasmi, na meso attā’ti samanupassati; saṅkhāre ‘netaṁ mama, nesohamasmi, na meso attā’ti samanupassati;"
+    },
+    {
+     "n": 123,
+     "text": "yampi taṁ diṭṭhaṁ sutaṁ mutaṁ viññātaṁ pattaṁ pariyesitaṁ, anuvicaritaṁ manasā, tampi ‘netaṁ mama, nesohamasmi, na meso attā’ti samanupassati;"
+    },
+    {
+     "n": 124,
+     "text": "yampi taṁ diṭṭhiṭṭhānaṁ— so loko so attā, so pecca bhavissāmi nicco dhuvo sassato avipariṇāmadhammo, sassatisamaṁ tatheva ṭhassāmīti— tampi ‘netaṁ mama, nesohamasmi, na meso attā’ti samanupassati."
+    },
+    {
+     "n": 125,
+     "text": "So evaṁ samanupassanto asati na paritassatī”ti."
+    },
+    {
+     "n": 126,
+     "text": "Evaṁ vutte, aññataro bhikkhu bhagavantaṁ etadavoca: “siyā nu kho, bhante, bahiddhā asati paritassanā”ti?"
+    },
+    {
+     "n": 127,
+     "text": "“Siyā, bhikkhū”ti—bhagavā avoca. “Idha bhikkhu ekaccassa evaṁ hoti: ‘ahu vata me, taṁ vata me natthi; siyā vata me, taṁ vatāhaṁ na labhāmī’ti."
+    },
+    {
+     "n": 128,
+     "text": "So socati kilamati paridevati urattāḷiṁ kandati sammohaṁ āpajjati."
+    },
+    {
+     "n": 129,
+     "text": "Evaṁ kho, bhikkhu, bahiddhā asati paritassanā hotī”ti."
+    },
+    {
+     "n": 130,
+     "text": "“Siyā pana, bhante, bahiddhā asati aparitassanā”ti?"
+    },
+    {
+     "n": 131,
+     "text": "“Siyā, bhikkhū”ti—bhagavā avoca. “Idha bhikkhu ekaccassa na evaṁ hoti: ‘ahu vata me, taṁ vata me natthi; siyā vata me, taṁ vatāhaṁ na labhāmī’ti."
+    },
+    {
+     "n": 132,
+     "text": "So na socati na kilamati na paridevati na urattāḷiṁ kandati na sammohaṁ āpajjati."
+    },
+    {
+     "n": 133,
+     "text": "Evaṁ kho, bhikkhu, bahiddhā asati aparitassanā hotī”ti."
+    },
+    {
+     "n": 134,
+     "text": "“Siyā nu kho, bhante, ajjhattaṁ asati paritassanā”ti?"
+    },
+    {
+     "n": 135,
+     "text": "“Siyā, bhikkhū”ti—bhagavā avoca. “Idha, bhikkhu, ekaccassa evaṁ diṭṭhi hoti: ‘so loko so attā, so pecca bhavissāmi nicco dhuvo sassato avipariṇāmadhammo, sassatisamaṁ tatheva ṭhassāmī’ti."
+    },
+    {
+     "n": 136,
+     "text": "So suṇāti tathāgatassa vā tathāgatasāvakassa vā sabbesaṁ diṭṭhiṭṭhānādhiṭṭhānapariyuṭṭhānābhinivesānusayānaṁ samugghātāya sabbasaṅkhārasamathāya sabbūpadhipaṭinissaggāya taṇhākkhayāya virāgāya nirodhāya nibbānāya dhammaṁ"
+    },
+    {
+     "n": 137,
+     "text": "desentassa. Tassa evaṁ hoti: ‘ucchijjissāmi nāmassu, vinassissāmi nāmassu, nassu nāma bhavissāmī’ti."
+    },
+    {
+     "n": 138,
+     "text": "So socati kilamati paridevati urattāḷiṁ kandati sammohaṁ āpajjati."
+    },
+    {
+     "n": 139,
+     "text": "Evaṁ kho, bhikkhu, ajjhattaṁ asati paritassanā hotī”ti."
+    },
+    {
+     "n": 140,
+     "text": "“Siyā pana, bhante, ajjhattaṁ asati aparitassanā”ti?"
+    },
+    {
+     "n": 141,
+     "text": "“Siyā, bhikkhū”ti bhagavā avoca. “Idha, bhikkhu, ekaccassa na evaṁ diṭṭhi hoti: ‘so loko so attā, so pecca bhavissāmi nicco dhuvo sassato avipariṇāmadhammo, sassatisamaṁ tatheva ṭhassāmī’ti."
+    },
+    {
+     "n": 142,
+     "text": "So suṇāti tathāgatassa vā tathāgatasāvakassa vā sabbesaṁ diṭṭhiṭṭhānādhiṭṭhānapariyuṭṭhānābhinivesānusayānaṁ samugghātāya sabbasaṅkhārasamathāya sabbūpadhipaṭinissaggāya taṇhākkhayāya virāgāya nirodhāya nibbānāya dhammaṁ"
+    },
+    {
+     "n": 143,
+     "text": "desentassa. Tassa na evaṁ hoti: ‘ucchijjissāmi nāmassu, vinassissāmi nāmassu, nassu nāma bhavissāmī’ti."
+    },
+    {
+     "n": 144,
+     "text": "So na socati na kilamati na paridevati na urattāḷiṁ kandati na sammohaṁ āpajjati."
+    },
+    {
+     "n": 145,
+     "text": "Evaṁ kho, bhikkhu, ajjhattaṁ asati aparitassanā hoti."
+    },
+    {
+     "n": 146,
+     "text": "Taṁ, bhikkhave, pariggahaṁ pariggaṇheyyātha, yvāssa pariggaho nicco dhuvo sassato avipariṇāmadhammo, sassatisamaṁ tatheva tiṭṭheyya."
+    },
+    {
+     "n": 147,
+     "text": "Passatha no tumhe, bhikkhave, taṁ pariggahaṁ yvāssa pariggaho nicco dhuvo sassato avipariṇāmadhammo, sassatisamaṁ tatheva tiṭṭheyyā”ti?"
+    },
+    {
+     "n": 148,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 149,
+     "text": "“Sādhu, bhikkhave. Ahampi kho taṁ, bhikkhave, pariggahaṁ na samanupassāmi yvāssa pariggaho nicco dhuvo sassato avipariṇāmadhammo sassatisamaṁ tatheva tiṭṭheyya."
+    },
+    {
+     "n": 150,
+     "text": "Taṁ, bhikkhave, attavādupādānaṁ upādiyetha, yaṁsa attavādupādānaṁ upādiyato na uppajjeyyuṁ sokaparidevadukkhadomanassupāyāsā."
+    },
+    {
+     "n": 151,
+     "text": "Passatha no tumhe, bhikkhave, taṁ attavādupādānaṁ yaṁsa attavādupādānaṁ upādiyato na uppajjeyyuṁ sokaparidevadukkhadomanassupāyāsā”ti?"
+    },
+    {
+     "n": 152,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 153,
+     "text": "“Sādhu, bhikkhave. Ahampi kho taṁ, bhikkhave, attavādupādānaṁ na samanupassāmi yaṁsa attavādupādānaṁ upādiyato na uppajjeyyuṁ sokaparidevadukkhadomanassupāyāsā."
+    },
+    {
+     "n": 154,
+     "text": "Taṁ, bhikkhave, diṭṭhinissayaṁ nissayetha yaṁsa diṭṭhinissayaṁ nissayato na uppajjeyyuṁ sokaparidevadukkhadomanassupāyāsā."
+    },
+    {
+     "n": 155,
+     "text": "Passatha no tumhe, bhikkhave, taṁ diṭṭhinissayaṁ yaṁsa diṭṭhinissayaṁ nissayato na uppajjeyyuṁ sokaparidevadukkhadomanassupāyāsā”ti?"
+    },
+    {
+     "n": 156,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 157,
+     "text": "“Sādhu, bhikkhave. Ahampi kho taṁ, bhikkhave, diṭṭhinissayaṁ na samanupassāmi yaṁsa diṭṭhinissayaṁ nissayato na uppajjeyyuṁ sokaparidevadukkhadomanassupāyāsā."
+    },
+    {
+     "n": 158,
+     "text": "Attani vā, bhikkhave, sati ‘attaniyaṁ me’ti assā”ti?"
+    },
+    {
+     "n": 159,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 160,
+     "text": "“Attaniye vā, bhikkhave, sati ‘attā me’ti assā”ti?"
+    },
+    {
+     "n": 161,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 162,
+     "text": "“Attani ca, bhikkhave, attaniye ca saccato thetato anupalabbhamāne, yampi taṁ diṭṭhiṭṭhānaṁ:"
+    },
+    {
+     "n": 163,
+     "text": "‘so loko so attā, so pecca bhavissāmi nicco dhuvo sassato avipariṇāmadhammo, sassatisamaṁ tatheva ṭhassāmī’ti— nanāyaṁ, bhikkhave, kevalo paripūro bāladhammo”ti?"
+    },
+    {
+     "n": 164,
+     "text": "“Kiñhi no siyā, bhante, kevalo hi, bhante, paripūro bāladhammo”ti."
+    },
+    {
+     "n": 165,
+     "text": "“Taṁ kiṁ maññatha, bhikkhave, rūpaṁ niccaṁ vā aniccaṁ vā”ti?"
+    },
+    {
+     "n": 166,
+     "text": "“Aniccaṁ, bhante”."
+    },
+    {
+     "n": 167,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vā taṁ sukhaṁ vā”ti?"
+    },
+    {
+     "n": 168,
+     "text": "“Dukkhaṁ, bhante”."
+    },
+    {
+     "n": 169,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vipariṇāmadhammaṁ, kallaṁ nu taṁ samanupassituṁ— etaṁ mama, esohamasmi, eso me attā”ti?"
+    },
+    {
+     "n": 170,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 171,
+     "text": "“Taṁ kiṁ maññatha, bhikkhave, vedanā …pe… saññā … saṅkhārā … viññāṇaṁ niccaṁ vā aniccaṁ vā”ti?"
+    },
+    {
+     "n": 172,
+     "text": "“Aniccaṁ, bhante”."
+    },
+    {
+     "n": 173,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vā taṁ sukhaṁ vā”ti?"
+    },
+    {
+     "n": 174,
+     "text": "“Dukkhaṁ, bhante”."
+    },
+    {
+     "n": 175,
+     "text": "“Yaṁ panāniccaṁ dukkhaṁ vipariṇāmadhammaṁ, kallaṁ nu taṁ samanupassituṁ— etaṁ mama, esohamasmi, eso me attā”ti?"
+    },
+    {
+     "n": 176,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 177,
+     "text": "“Tasmātiha, bhikkhave, yaṁ kiñci rūpaṁ atītānāgatapaccuppannaṁ, ajjhattaṁ vā bahiddhā vā, oḷārikaṁ vā sukhumaṁ vā, hīnaṁ vā paṇītaṁ vā, yaṁ dūre santike vā, sabbaṁ rūpaṁ ‘netaṁ mama, nesohamasmi,"
+    },
+    {
+     "n": 178,
+     "text": "na meso attā’ti—evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 179,
+     "text": "Yā kāci vedanā …pe… yā kāci saññā … ye keci saṅkhārā … yaṁ kiñci viññāṇaṁ atītānāgatapaccuppannaṁ, ajjhattaṁ vā bahiddhā vā, oḷārikaṁ vā sukhumaṁ vā, hīnaṁ vā paṇītaṁ vā, yaṁ dūre santike vā, sabbaṁ viññāṇaṁ ‘netaṁ mama,"
+    },
+    {
+     "n": 180,
+     "text": "nesohamasmi, na meso attā’ti—evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 181,
+     "text": "Evaṁ passaṁ, bhikkhave, sutavā ariyasāvako rūpasmiṁ nibbindati, vedanāya nibbindati, saññāya nibbindati, saṅkhāresu nibbindati, viññāṇasmiṁ nibbindati, nibbidā virajjati, virāgā vimuccati,"
+    },
+    {
+     "n": 182,
+     "text": "vimuttasmiṁ vimuttamiti ñāṇaṁ hoti."
+    },
+    {
+     "n": 183,
+     "text": "‘Khīṇā jāti, vusitaṁ brahmacariyaṁ, kataṁ karaṇīyaṁ, nāparaṁ itthattāyā’ti pajānāti."
+    },
+    {
+     "n": 184,
+     "text": "Ayaṁ vuccati, bhikkhave, bhikkhu ukkhittapaligho itipi, saṅkiṇṇaparikkho itipi, abbūḷhesiko itipi, niraggaḷo itipi, ariyo pannaddhajo pannabhāro visaṁyutto itipi."
+    },
+    {
+     "n": 185,
+     "text": "Kathañca, bhikkhave, bhikkhu ukkhittapaligho hoti?"
+    },
+    {
+     "n": 186,
+     "text": "Idha, bhikkhave, bhikkhuno avijjā pahīnā hoti, ucchinnamūlā tālāvatthukatā anabhāvaṅkatā, āyatiṁ anuppādadhammā."
+    },
+    {
+     "n": 187,
+     "text": "Evaṁ kho, bhikkhave, bhikkhu ukkhittapaligho hoti."
+    },
+    {
+     "n": 188,
+     "text": "Kathañca, bhikkhave, bhikkhu saṅkiṇṇaparikkho hoti?"
+    },
+    {
+     "n": 189,
+     "text": "Idha, bhikkhave, bhikkhuno ponobbhaviko jātisaṁsāro pahīno hoti, ucchinnamūlo tālāvatthukato anabhāvaṅkato, āyatiṁ anuppādadhammo."
+    },
+    {
+     "n": 190,
+     "text": "Evaṁ kho, bhikkhave, bhikkhu saṅkiṇṇaparikkho hoti."
+    },
+    {
+     "n": 191,
+     "text": "Kathañca, bhikkhave, bhikkhu abbūḷhesiko hoti?"
+    },
+    {
+     "n": 192,
+     "text": "Idha, bhikkhave, bhikkhuno taṇhā pahīnā hoti, ucchinnamūlā tālāvatthukatā anabhāvaṅkatā, āyatiṁ anuppādadhammā."
+    },
+    {
+     "n": 193,
+     "text": "Evaṁ kho, bhikkhave, bhikkhu abbūḷhesiko hoti."
+    },
+    {
+     "n": 194,
+     "text": "Kathañca, bhikkhave, bhikkhu niraggaḷo hoti?"
+    },
+    {
+     "n": 195,
+     "text": "Idha, bhikkhave, bhikkhuno pañca orambhāgiyāni saṁyojanāni pahīnāni honti, ucchinnamūlāni tālāvatthukatāni anabhāvaṅkatāni, āyatiṁ anuppādadhammāni."
+    },
+    {
+     "n": 196,
+     "text": "Evaṁ kho, bhikkhave, bhikkhu niraggaḷo hoti."
+    },
+    {
+     "n": 197,
+     "text": "Kathañca, bhikkhave, bhikkhu ariyo pannaddhajo pannabhāro visaṁyutto hoti?"
+    },
+    {
+     "n": 198,
+     "text": "Idha, bhikkhave, bhikkhuno asmimāno pahīno hoti, ucchinnamūlo tālāvatthukato anabhāvaṅkato, āyatiṁ anuppādadhammo."
+    },
+    {
+     "n": 199,
+     "text": "Evaṁ kho, bhikkhave, bhikkhu ariyo pannaddhajo pannabhāro visaṁyutto hoti."
+    },
+    {
+     "n": 200,
+     "text": "Evaṁ vimuttacittaṁ kho, bhikkhave, bhikkhuṁ saindā devā sabrahmakā sapajāpatikā anvesaṁ nādhigacchanti: ‘idaṁ nissitaṁ tathāgatassa viññāṇan’ti. Taṁ kissa hetu?"
+    },
+    {
+     "n": 201,
+     "text": "Diṭṭhevāhaṁ, bhikkhave, dhamme tathāgataṁ ananuvijjoti vadāmi."
+    },
+    {
+     "n": 202,
+     "text": "Evaṁvādiṁ kho maṁ, bhikkhave, evamakkhāyiṁ eke samaṇabrāhmaṇā asatā tucchā musā abhūtena abbhācikkhanti: ‘venayiko samaṇo gotamo, sato sattassa ucchedaṁ vināsaṁ vibhavaṁ paññāpetī’ti."
+    },
+    {
+     "n": 203,
+     "text": "Yathā cāhaṁ na, bhikkhave, yathā cāhaṁ na vadāmi, tathā maṁ te bhonto samaṇabrāhmaṇā asatā tucchā musā abhūtena abbhācikkhanti: ‘venayiko samaṇo gotamo, sato sattassa ucchedaṁ vināsaṁ vibhavaṁ paññāpetī’ti."
+    },
+    {
+     "n": 204,
+     "text": "Pubbe cāhaṁ, bhikkhave, etarahi ca dukkhañceva paññāpemi, dukkhassa ca nirodhaṁ."
+    },
+    {
+     "n": 205,
+     "text": "Tatra ce, bhikkhave, pare tathāgataṁ akkosanti paribhāsanti rosenti vihesenti, tatra, bhikkhave, tathāgatassa na hoti āghāto na appaccayo na cetaso anabhiraddhi."
+    },
+    {
+     "n": 206,
+     "text": "Tatra ce, bhikkhave, pare tathāgataṁ sakkaronti garuṁ karonti mānenti pūjenti, tatra, bhikkhave, tathāgatassa na hoti ānando na somanassaṁ na cetaso uppilāvitattaṁ."
+    },
+    {
+     "n": 207,
+     "text": "Tatra ce, bhikkhave, pare vā tathāgataṁ sakkaronti garuṁ karonti mānenti pūjenti, tatra, bhikkhave, tathāgatassa evaṁ hoti: ‘yaṁ kho idaṁ pubbe pariññātaṁ tattha me evarūpā kārā karīyantī’ti."
+    },
+    {
+     "n": 208,
+     "text": "Tasmātiha, bhikkhave, tumhe cepi pare akkoseyyuṁ paribhāseyyuṁ roseyyuṁ viheseyyuṁ, tatra tumhe hi na āghāto na appaccayo na cetaso anabhiraddhi karaṇīyā."
+    },
+    {
+     "n": 209,
+     "text": "Tasmātiha, bhikkhave, tumhe cepi pare sakkareyyuṁ garuṁ kareyyuṁ māneyyuṁ pūjeyyuṁ, tatra tumhehi na ānando na somanassaṁ na cetaso uppilāvitattaṁ karaṇīyaṁ."
+    },
+    {
+     "n": 210,
+     "text": "Tasmātiha, bhikkhave, tumhe cepi pare sakkareyyuṁ garuṁ kareyyuṁ māneyyuṁ pūjeyyuṁ, tatra tumhākaṁ evamassa: ‘yaṁ kho idaṁ pubbe pariññātaṁ, tattha me evarūpā kārā karīyantī’ti."
+    },
+    {
+     "n": 211,
+     "text": "Tasmātiha, bhikkhave, yaṁ na tumhākaṁ taṁ pajahatha; taṁ vo pahīnaṁ dīgharattaṁ hitāya sukhāya bhavissati."
+    },
+    {
+     "n": 212,
+     "text": "Kiñca, bhikkhave, na tumhākaṁ? Rūpaṁ, bhikkhave, na tumhākaṁ, taṁ pajahatha; taṁ vo pahīnaṁ dīgharattaṁ hitāya sukhāya bhavissati."
+    },
+    {
+     "n": 213,
+     "text": "Vedanā, bhikkhave, na tumhākaṁ, taṁ pajahatha; sā vo pahīnā dīgharattaṁ hitāya sukhāya bhavissati."
+    },
+    {
+     "n": 214,
+     "text": "Saññā, bhikkhave, na tumhākaṁ, taṁ pajahatha; sā vo pahīnā dīgharattaṁ hitāya sukhāya bhavissati."
+    },
+    {
+     "n": 215,
+     "text": "Saṅkhārā, bhikkhave, na tumhākaṁ, te pajahatha; te vo pahīnā dīgharattaṁ hitāya sukhāya bhavissanti."
+    },
+    {
+     "n": 216,
+     "text": "Viññāṇaṁ, bhikkhave, na tumhākaṁ, taṁ pajahatha; taṁ vo pahīnaṁ dīgharattaṁ hitāya sukhāya bhavissati."
+    },
+    {
+     "n": 217,
+     "text": "Taṁ kiṁ maññatha, bhikkhave, yaṁ imasmiṁ jetavane tiṇakaṭṭhasākhāpalāsaṁ, taṁ jano hareyya vā daheyya vā yathāpaccayaṁ vā kareyya."
+    },
+    {
+     "n": 218,
+     "text": "Api nu tumhākaṁ evamassa: ‘amhe jano harati vā dahati vā yathāpaccayaṁ vā karotī’”ti?"
+    },
+    {
+     "n": 219,
+     "text": "“No hetaṁ, bhante”. “Taṁ kissa hetu”? “Na hi no etaṁ, bhante, attā vā attaniyaṁ vā”ti."
+    },
+    {
+     "n": 220,
+     "text": "“Evameva kho, bhikkhave, yaṁ na tumhākaṁ taṁ pajahatha; taṁ vo pahīnaṁ dīgharattaṁ hitāya sukhāya bhavissati. Kiñca, bhikkhave, na tumhākaṁ?"
+    },
+    {
+     "n": 221,
+     "text": "Rūpaṁ, bhikkhave, na tumhākaṁ, taṁ pajahatha; taṁ vo pahīnaṁ dīgharattaṁ hitāya sukhāya bhavissati."
+    },
+    {
+     "n": 222,
+     "text": "Vedanā, bhikkhave …pe… saññā, bhikkhave … saṅkhārā, bhikkhave …pe… viññāṇaṁ, bhikkhave, na tumhākaṁ, taṁ pajahatha; taṁ vo pahīnaṁ dīgharattaṁ hitāya sukhāya bhavissati."
+    },
+    {
+     "n": 223,
+     "text": "Evaṁ svākkhāto, bhikkhave, mayā dhammo uttāno vivaṭo pakāsito chinnapilotiko."
+    },
+    {
+     "n": 224,
+     "text": "Evaṁ svākkhāte, bhikkhave, mayā dhamme uttāne vivaṭe pakāsite chinnapilotike ye te bhikkhū arahanto khīṇāsavā vusitavanto katakaraṇīyā ohitabhārā anuppattasadatthā parikkhīṇabhavasaṁyojanā sammadaññāvimuttā,"
+    },
+    {
+     "n": 225,
+     "text": "vaṭṭaṁ tesaṁ natthi paññāpanāya."
+    },
+    {
+     "n": 226,
+     "text": "Evaṁ svākkhāto, bhikkhave, mayā dhammo uttāno vivaṭo pakāsito chinnapilotiko."
+    },
+    {
+     "n": 227,
+     "text": "Evaṁ svākkhāte, bhikkhave, mayā dhamme uttāne vivaṭe pakāsite chinnapilotike yesaṁ bhikkhūnaṁ pañcorambhāgiyāni saṁyojanāni pahīnāni, sabbe te opapātikā, tattha parinibbāyino, anāvattidhammā tasmā lokā."
+    },
+    {
+     "n": 228,
+     "text": "Evaṁ svākkhāto, bhikkhave, mayā dhammo uttāno vivaṭo pakāsito chinnapilotiko."
+    },
+    {
+     "n": 229,
+     "text": "Evaṁ svākkhāte, bhikkhave, mayā dhamme uttāne vivaṭe pakāsite chinnapilotike yesaṁ bhikkhūnaṁ tīṇi saṁyojanāni pahīnāni, rāgadosamohā tanubhūtā, sabbe te sakadāgāmino,"
+    },
+    {
+     "n": 230,
+     "text": "sakideva imaṁ lokaṁ āgantvā dukkhassantaṁ karissanti."
+    },
+    {
+     "n": 231,
+     "text": "Evaṁ svākkhāto, bhikkhave, mayā dhammo uttāno vivaṭo pakāsito chinnapilotiko."
+    },
+    {
+     "n": 232,
+     "text": "Evaṁ svākkhāte, bhikkhave, mayā dhamme uttāne vivaṭe pakāsite chinnapilotike yesaṁ bhikkhūnaṁ tīṇi saṁyojanāni pahīnāni, sabbe te sotāpannā, avinipātadhammā, niyatā sambodhiparāyanā."
+    },
+    {
+     "n": 233,
+     "text": "Evaṁ svākkhāto, bhikkhave, mayā dhammo uttāno vivaṭo pakāsito chinnapilotiko."
+    },
+    {
+     "n": 234,
+     "text": "Evaṁ svākkhāte, bhikkhave, mayā dhamme uttāne vivaṭe pakāsite chinnapilotike ye te bhikkhū dhammānusārino saddhānusārino sabbe te sambodhiparāyanā."
+    },
+    {
+     "n": 235,
+     "text": "Evaṁ svākkhāto, bhikkhave, mayā dhammo uttāno vivaṭo pakāsito chinnapilotiko."
+    },
+    {
+     "n": 236,
+     "text": "Evaṁ svākkhāte, bhikkhave, mayā dhamme uttāne vivaṭe pakāsite chinnapilotike yesaṁ mayi saddhāmattaṁ pemamattaṁ sabbe te saggaparāyanā”ti."
+    },
+    {
+     "n": 237,
+     "text": "Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṁ abhinandunti."
+    },
+    {
+     "n": 238,
+     "text": "Alagaddūpamasuttaṁ niṭṭhitaṁ dutiyaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn22/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "Now at that time a mendicant named Ariṭṭha, who had previously been a vulture trapper, had the following harmful misconception:"
+    },
+    {
+     "n": 3,
+     "text": "“As I understand the Buddha’s teaching, the acts that he says are obstructions are not really obstructions for the one who performs them.”"
+    },
+    {
+     "n": 4,
+     "text": "Several mendicants heard this rumour. They went up to Ariṭṭha and said to him, “Is it really true, Reverend Ariṭṭha, that you have such a harmful misconception:"
+    },
+    {
+     "n": 5,
+     "text": "‘As I understand the Buddha’s teaching, the acts that he says are obstructions are not really obstructions for the one who performs them’?”"
+    },
+    {
+     "n": 6,
+     "text": "“Indeed, reverends. As I understand the Buddha’s teaching, the acts that he says are obstructions are not really obstructions for the one who performs them.”"
+    },
+    {
+     "n": 7,
+     "text": "Then, wishing to dissuade Ariṭṭha from his view, the mendicants pursued, pressed, and grilled him, “Don’t say that, Ariṭṭha!"
+    },
+    {
+     "n": 8,
+     "text": "Don’t misrepresent the Buddha, for misrepresentation of the Buddha is not good. And the Buddha would not say that."
+    },
+    {
+     "n": 9,
+     "text": "In many ways the Buddha has said that obstructive acts are obstructive, and that they really do obstruct the one who performs them."
+    },
+    {
+     "n": 10,
+     "text": "The Buddha says that sensual pleasures give little gratification and much suffering and distress, and they are all the more full of drawbacks."
+    },
+    {
+     "n": 11,
+     "text": "With the similes of a skeleton … a scrap of meat … a grass torch … a pit of glowing coals … a dream … borrowed goods … fruit on a tree … a butcher’s knife and chopping board … swords and spears … a cobra’s head,"
+    },
+    {
+     "n": 12,
+     "text": "the Buddha says that sensual pleasures give little gratification and much suffering and distress, and they are all the more full of drawbacks.”"
+    },
+    {
+     "n": 13,
+     "text": "But even though the mendicants pursued, pressed, and grilled him in this way, Ariṭṭha obstinately stuck to his misconception and insisted on it."
+    },
+    {
+     "n": 14,
+     "text": "When they weren’t able to dissuade Ariṭṭha from his view, the mendicants went to the Buddha, bowed, sat down to one side, and told him what had happened."
+    },
+    {
+     "n": 15,
+     "text": "So the Buddha addressed one of the monks, “Please, monk, in my name tell the mendicant Ariṭṭha, formerly a vulture trapper, that the Teacher summons him.”"
+    },
+    {
+     "n": 16,
+     "text": "“Yes, sir,” that monk replied. He went to Ariṭṭha and said to him, “Reverend Ariṭṭha, the Teacher summons you.”"
+    },
+    {
+     "n": 17,
+     "text": "“Yes, reverend,” Ariṭṭha replied. He went to the Buddha, bowed, and sat down to one side. The Buddha said to him,"
+    },
+    {
+     "n": 18,
+     "text": "“Is it really true, Ariṭṭha, that you have such a harmful misconception: ‘As I understand the Buddha’s teaching, the acts that he says are obstructions are not really obstructions for the one who performs them’?”"
+    },
+    {
+     "n": 19,
+     "text": "“Indeed, sir. As I understand the Buddha’s teaching, the acts that he says are obstructions are not really obstructions for the one who performs them.”"
+    },
+    {
+     "n": 20,
+     "text": "“Futile man, who on earth have you ever known me to teach in that way?"
+    },
+    {
+     "n": 21,
+     "text": "Haven’t I said in many ways that obstructive acts are obstructive, and that they really do obstruct the one who performs them?"
+    },
+    {
+     "n": 22,
+     "text": "I’ve said that sensual pleasures give little gratification and much suffering and distress, and they are all the more full of drawbacks."
+    },
+    {
+     "n": 23,
+     "text": "With the similes of a skeleton … a scrap of meat … a grass torch … a pit of glowing coals … a dream … borrowed goods … fruit on a tree … a butcher’s knife and chopping board … swords and spears … a cobra’s head,"
+    },
+    {
+     "n": 24,
+     "text": "I’ve said that sensual pleasures give little gratification and much suffering and distress, and they are all the more full of drawbacks."
+    },
+    {
+     "n": 25,
+     "text": "But still you misrepresent me by your wrong grasp, harm yourself, and brim with much wickedness."
+    },
+    {
+     "n": 26,
+     "text": "This will be for your lasting harm and suffering.”"
+    },
+    {
+     "n": 27,
+     "text": "Then the Buddha said to the mendicants, “What do you think, mendicants?"
+    },
+    {
+     "n": 28,
+     "text": "Has this mendicant Ariṭṭha kindled even a spark of ardor in this teaching and training?”"
+    },
+    {
+     "n": 29,
+     "text": "“How could that be, sir? No, sir.” When this was said, Ariṭṭha sat silent, dismayed, shoulders drooping, downcast, depressed, with nothing to say."
+    },
+    {
+     "n": 30,
+     "text": "Knowing this, the Buddha said, “Futile man, you will be known by your own harmful misconception."
+    },
+    {
+     "n": 31,
+     "text": "I’ll question the mendicants about this.”"
+    },
+    {
+     "n": 32,
+     "text": "Then the Buddha said to the mendicants, “Mendicants, do you understand my teaching as Ariṭṭha does, when he misrepresents me by his wrong grasp, harms himself, and brims with much wickedness?”"
+    },
+    {
+     "n": 33,
+     "text": "“No, sir. For in many ways the Buddha has told us that obstructive acts are obstructive, and that they really do obstruct the one who performs them."
+    },
+    {
+     "n": 34,
+     "text": "The Buddha has said that sensual pleasures give little gratification and much suffering and distress, and they are all the more full of drawbacks."
+    },
+    {
+     "n": 35,
+     "text": "With the similes of a skeleton … a cobra’s head, the Buddha has said that sensual pleasures give little gratification and much suffering and distress, and they are all the more full of drawbacks.”"
+    },
+    {
+     "n": 36,
+     "text": "“Good, good, mendicants! It’s good that you understand my teaching like this."
+    },
+    {
+     "n": 37,
+     "text": "For in many ways I have said that obstructive acts are obstructive …"
+    },
+    {
+     "n": 38,
+     "text": "I’ve said that sensual pleasures give little gratification and much suffering and distress, and they are all the more full of drawbacks."
+    },
+    {
+     "n": 39,
+     "text": "But still this Ariṭṭha misrepresents me by his wrong grasp, harms himself, and brims with much wickedness."
+    },
+    {
+     "n": 40,
+     "text": "This will be for his lasting harm and suffering."
+    },
+    {
+     "n": 41,
+     "text": "Truly, mendicants, it is quite impossible to perform sensual acts without sensual desires, sensual perceptions, and sensual thoughts."
+    },
+    {
+     "n": 42,
+     "text": "Take a futile person who memorizes the teaching— statements, mixed prose & verse, discussions, verses, inspired exclamations, legends, stories of past lives, amazing stories, and elaborations."
+    },
+    {
+     "n": 43,
+     "text": "But they don’t examine the meaning of those teachings with wisdom, and so don’t come to an acceptance of them after deliberation."
+    },
+    {
+     "n": 44,
+     "text": "They memorize the teaching for the sake of finding fault and winning debates."
+    },
+    {
+     "n": 45,
+     "text": "They don’t realize the goal for which they memorized them."
+    },
+    {
+     "n": 46,
+     "text": "Because they’re wrongly grasped, those teachings lead to their lasting harm and suffering. Why is that?"
+    },
+    {
+     "n": 47,
+     "text": "Because of their wrong grasp of the teachings."
+    },
+    {
+     "n": 48,
+     "text": "Suppose there was a person in need of a cobra."
+    },
+    {
+     "n": 49,
+     "text": "And while wandering in search of a cobra they’d see a big cobra, and grasp it by the coil or the tail."
+    },
+    {
+     "n": 50,
+     "text": "But that cobra would twist back and bite them on the hand or the arm or other major or minor limb, resulting in death or deadly pain. Why is that?"
+    },
+    {
+     "n": 51,
+     "text": "Because of their wrong grasp of the cobra."
+    },
+    {
+     "n": 52,
+     "text": "In the same way, a futile person memorizes the teaching … and those teachings lead to their lasting harm and suffering. Why is that?"
+    },
+    {
+     "n": 53,
+     "text": "Because of their wrong grasp of the teachings."
+    },
+    {
+     "n": 54,
+     "text": "Now, take a gentleman who memorizes the teaching— statements, mixed prose & verse, discussions, verses, inspired exclamations, legends, stories of past lives, amazing stories, and elaborations."
+    },
+    {
+     "n": 55,
+     "text": "And once he’s memorized them, he examines their meaning with wisdom, and comes to an acceptance of them after deliberation."
+    },
+    {
+     "n": 56,
+     "text": "He doesn’t memorize the teaching for the sake of finding fault and winning debates."
+    },
+    {
+     "n": 57,
+     "text": "He realizes the goal for which he memorized them."
+    },
+    {
+     "n": 58,
+     "text": "Because they’re correctly grasped, those teachings lead to his lasting welfare and happiness. Why is that?"
+    },
+    {
+     "n": 59,
+     "text": "Because of his correct grasp of the teachings."
+    },
+    {
+     "n": 60,
+     "text": "Suppose there was a person in need of a cobra."
+    },
+    {
+     "n": 61,
+     "text": "And while wandering in search of a cobra they’d see a big cobra, and hold it down carefully with a cleft stick."
+    },
+    {
+     "n": 62,
+     "text": "Only then would they correctly grasp it by the neck."
+    },
+    {
+     "n": 63,
+     "text": "And even though that cobra might wrap its coils around that person’s hand or arm or some other major or minor limb, that wouldn’t result in death or deadly pain. Why is that?"
+    },
+    {
+     "n": 64,
+     "text": "Because of their correct grasp of the cobra."
+    },
+    {
+     "n": 65,
+     "text": "In the same way, a gentleman memorizes the teaching … and those teachings lead to his lasting welfare and happiness. Why is that?"
+    },
+    {
+     "n": 66,
+     "text": "Because of his correct grasp of the teachings."
+    },
+    {
+     "n": 67,
+     "text": "So, mendicants, when you understand what I’ve said, you should remember it accordingly."
+    },
+    {
+     "n": 68,
+     "text": "But if I’ve said anything that you don’t understand, you should ask me about it, or some competent mendicants."
+    },
+    {
+     "n": 69,
+     "text": "Mendicants, I will teach you a simile of the teaching as a raft: for crossing over, not for holding on."
+    },
+    {
+     "n": 70,
+     "text": "Listen and apply your mind well, I will speak.”"
+    },
+    {
+     "n": 71,
+     "text": "“Yes, sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 72,
+     "text": "“Suppose there was a person traveling along the road."
+    },
+    {
+     "n": 73,
+     "text": "They’d see a large deluge, whose near shore was dubious and perilous, while the far shore was a sanctuary free of peril."
+    },
+    {
+     "n": 74,
+     "text": "But there was no ferryboat or bridge for crossing over."
+    },
+    {
+     "n": 75,
+     "text": "They’d think, ‘Why don’t I gather grass, sticks, branches, and leaves and make a raft?"
+    },
+    {
+     "n": 76,
+     "text": "Riding on the raft, and paddling with my hands and feet, I can safely reach the far shore.’ And so they’d do exactly that."
+    },
+    {
+     "n": 77,
+     "text": "And when they’d crossed over to the far shore, they’d think, ‘This raft has been very helpful to me."
+    },
+    {
+     "n": 78,
+     "text": "Riding on the raft, and paddling with my hands and feet, I have safely crossed over to the far shore."
+    },
+    {
+     "n": 79,
+     "text": "Why don’t I hoist it on my head or pick it up on my shoulder and go wherever I want?’"
+    },
+    {
+     "n": 80,
+     "text": "What do you think, mendicants? Would that person be doing what should be done with that raft?”"
+    },
+    {
+     "n": 81,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 82,
+     "text": "“And what, mendicants, should that person do with the raft?"
+    },
+    {
+     "n": 83,
+     "text": "When they’d crossed over they should think, ‘This raft has been very helpful to me. …"
+    },
+    {
+     "n": 84,
+     "text": "Why don’t I beach it on dry land or set it adrift on the water and go wherever I want?’"
+    },
+    {
+     "n": 85,
+     "text": "That’s what that person should do with the raft."
+    },
+    {
+     "n": 86,
+     "text": "In the same way, I have taught a simile of the teaching as a raft: for crossing over, not for holding on."
+    },
+    {
+     "n": 87,
+     "text": "By understanding the simile of the raft, you will even give up the teachings, let alone what is not the teachings."
+    },
+    {
+     "n": 88,
+     "text": "Mendicants, there are these six grounds for views. What six?"
+    },
+    {
+     "n": 89,
+     "text": "Take an unlearned ordinary person who has not seen the noble ones, and is neither skilled nor trained in the teaching of the noble ones."
+    },
+    {
+     "n": 90,
+     "text": "They’ve not seen true persons, and are neither skilled nor trained in the teaching of the true persons."
+    },
+    {
+     "n": 91,
+     "text": "They regard form as: ‘This is mine, I am this, this is my self.’"
+    },
+    {
+     "n": 92,
+     "text": "They also regard feeling … perception … choices … whatever is seen, heard, thought, known, attained, sought, and explored by the mind as: ‘This is mine, I am this, this is my self.’"
+    },
+    {
+     "n": 93,
+     "text": "And as for this ground for views: ‘The cosmos and the self are one and the same."
+    },
+    {
+     "n": 94,
+     "text": "After death I will be that, permanent, everlasting, eternal, imperishable, and will last forever and ever.’"
+    },
+    {
+     "n": 95,
+     "text": "They regard this also as: ‘This is mine, I am this, this is my self.’"
+    },
+    {
+     "n": 96,
+     "text": "But a learned noble disciple has seen the noble ones, and is skilled and trained in the teaching of the noble ones."
+    },
+    {
+     "n": 97,
+     "text": "They’ve seen true persons, and are skilled and trained in the teaching of the true persons."
+    },
+    {
+     "n": 98,
+     "text": "They regard form like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 99,
+     "text": "They also regard feeling … perception … choices … whatever is seen, heard, thought, known, attained, sought, and explored by the mind like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 100,
+     "text": "And the same for this ground for views: ‘The cosmos and the self are one and the same."
+    },
+    {
+     "n": 101,
+     "text": "After death I will be that, permanent, everlasting, eternal, imperishable, and will last forever and ever.’"
+    },
+    {
+     "n": 102,
+     "text": "They also regard like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 103,
+     "text": "Seeing in this way they’re not anxious about what doesn’t exist.”"
+    },
+    {
+     "n": 104,
+     "text": "When he said this, one of the mendicants said to the Buddha, “Sir, can there be anxiety about what doesn’t exist externally?”"
+    },
+    {
+     "n": 105,
+     "text": "“There can, mendicant,” said the Buddha."
+    },
+    {
+     "n": 106,
+     "text": "“It’s when someone thinks, ‘Oh, it once was mine but is mine no more."
+    },
+    {
+     "n": 107,
+     "text": "Oh, it could be mine but I do not get it.’"
+    },
+    {
+     "n": 108,
+     "text": "They sorrow and wail and lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 109,
+     "text": "That’s how there is anxiety about what doesn’t exist externally.”"
+    },
+    {
+     "n": 110,
+     "text": "“But can there be no anxiety about what doesn’t exist externally?”"
+    },
+    {
+     "n": 111,
+     "text": "“There can, mendicant,” said the Buddha."
+    },
+    {
+     "n": 112,
+     "text": "“It’s when someone doesn’t think, ‘Oh, it once was mine but is mine no more."
+    },
+    {
+     "n": 113,
+     "text": "Oh, it could be mine but I do not get it.’"
+    },
+    {
+     "n": 114,
+     "text": "They don’t sorrow and wail and lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 115,
+     "text": "That’s how there is no anxiety about what doesn’t exist externally.”"
+    },
+    {
+     "n": 116,
+     "text": "“But can there be anxiety about what doesn’t exist internally?”"
+    },
+    {
+     "n": 117,
+     "text": "“There can, mendicant,” said the Buddha."
+    },
+    {
+     "n": 118,
+     "text": "“It’s when someone has such a view: ‘The cosmos and the self are one and the same."
+    },
+    {
+     "n": 119,
+     "text": "After death I will be that, permanent, everlasting, eternal, imperishable, and will last forever and ever.’"
+    },
+    {
+     "n": 120,
+     "text": "They hear the Realized One or their disciple teaching Dhamma for the uprooting of all grounds, fixations, obsessions, insistences, and underlying tendencies regarding views;"
+    },
+    {
+     "n": 121,
+     "text": "for the stilling of all activities, the letting go of all attachments, the ending of craving, fading away, cessation, extinguishment."
+    },
+    {
+     "n": 122,
+     "text": "They think, ‘Whoa, I’m going to be annihilated and destroyed! I won’t even exist any more!’"
+    },
+    {
+     "n": 123,
+     "text": "They sorrow and wail and lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 124,
+     "text": "That’s how there is anxiety about what doesn’t exist internally.”"
+    },
+    {
+     "n": 125,
+     "text": "“But can there be no anxiety about what doesn’t exist internally?”"
+    },
+    {
+     "n": 126,
+     "text": "“There can,” said the Buddha. “It’s when someone doesn’t have such a view: ‘The cosmos and the self are one and the same."
+    },
+    {
+     "n": 127,
+     "text": "After death I will be that, permanent, everlasting, eternal, imperishable, and will last forever and ever.’"
+    },
+    {
+     "n": 128,
+     "text": "They hear the Realized One or their disciple teaching Dhamma for the uprooting of all grounds, fixations, obsessions, insistences, and underlying tendencies regarding views;"
+    },
+    {
+     "n": 129,
+     "text": "for the stilling of all activities, the letting go of all attachments, the ending of craving, fading away, cessation, extinguishment."
+    },
+    {
+     "n": 130,
+     "text": "They don’t think, ‘Whoa, I’m going to be annihilated and destroyed! I won’t even exist any more!’"
+    },
+    {
+     "n": 131,
+     "text": "They don’t sorrow and wail and lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 132,
+     "text": "That’s how there is no anxiety about what doesn’t exist internally."
+    },
+    {
+     "n": 133,
+     "text": "Mendicants, it would make sense to be possessive about something that’s permanent, everlasting, eternal, imperishable, and will last forever and ever. But do you see any such possession?”"
+    },
+    {
+     "n": 134,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 135,
+     "text": "“Good, mendicants! I also can’t see any such possession."
+    },
+    {
+     "n": 136,
+     "text": "It would make sense to grasp at a theory of self that didn’t give rise to sorrow, lamentation, pain, sadness, and distress."
+    },
+    {
+     "n": 137,
+     "text": "But do you see any such theory of self?”"
+    },
+    {
+     "n": 138,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 139,
+     "text": "“Good, mendicants! I also can’t see any such theory of self."
+    },
+    {
+     "n": 140,
+     "text": "It would make sense to rely on a view that didn’t give rise to sorrow, lamentation, pain, sadness, and distress."
+    },
+    {
+     "n": 141,
+     "text": "But do you see any such view to rely on?”"
+    },
+    {
+     "n": 142,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 143,
+     "text": "“Good, mendicants! I also can’t see any such view to rely on."
+    },
+    {
+     "n": 144,
+     "text": "Mendicants, were a self to exist, would there be the thought, ‘Belonging to my self’?”"
+    },
+    {
+     "n": 145,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 146,
+     "text": "“Were what belongs to a self to exist, would there be the thought, ‘My self’?”"
+    },
+    {
+     "n": 147,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 148,
+     "text": "“But since a self and what belongs to a self are not found as a genuine fact, is not the following a totally foolish teaching: ‘The cosmos and the self are one and the same."
+    },
+    {
+     "n": 149,
+     "text": "After death I will be that, permanent, everlasting, eternal, imperishable, and will last forever and ever’?”"
+    },
+    {
+     "n": 150,
+     "text": "“How could it not, sir? It’s a totally foolish teaching.”"
+    },
+    {
+     "n": 151,
+     "text": "“What do you think, mendicants? Is form permanent or impermanent?”"
+    },
+    {
+     "n": 152,
+     "text": "“Impermanent, sir.”"
+    },
+    {
+     "n": 153,
+     "text": "“But if it’s impermanent, is it suffering or happiness?”"
+    },
+    {
+     "n": 154,
+     "text": "“Suffering, sir.”"
+    },
+    {
+     "n": 155,
+     "text": "“But if it’s impermanent, suffering, and perishable, is it fit to be regarded thus: ‘This is mine, I am this, this is my self’?”"
+    },
+    {
+     "n": 156,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 157,
+     "text": "“What do you think, mendicants? Is feeling … perception … choices … consciousness permanent or impermanent?”"
+    },
+    {
+     "n": 158,
+     "text": "“Impermanent, sir.”"
+    },
+    {
+     "n": 159,
+     "text": "“But if it’s impermanent, is it suffering or happiness?”"
+    },
+    {
+     "n": 160,
+     "text": "“Suffering, sir.”"
+    },
+    {
+     "n": 161,
+     "text": "“But if it’s impermanent, suffering, and perishable, is it fit to be regarded thus: ‘This is mine, I am this, this is my self’?”"
+    },
+    {
+     "n": 162,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 163,
+     "text": "“So, mendicants, you should truly see any kind of form at all—past, future, or present; internal or external; solid or subtle; inferior or superior; far or near: all form—with right understanding:"
+    },
+    {
+     "n": 164,
+     "text": "‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 165,
+     "text": "You should truly see any kind of feeling … perception … choices … consciousness at all—past, future, or present; internal or external; solid or subtle; inferior or superior; far or near:"
+    },
+    {
+     "n": 166,
+     "text": "all consciousness—with right understanding: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 167,
+     "text": "Seeing this, a learned noble disciple grows disillusioned with form, feeling, perception, choices, and consciousness. Being disillusioned, desire fades away. When desire fades away they’re freed."
+    },
+    {
+     "n": 168,
+     "text": "When they’re freed, they know they’re freed."
+    },
+    {
+     "n": 169,
+     "text": "They understand: ‘Rebirth is ended, the spiritual journey has been completed, what had to be done has been done, there is nothing further for this place.’"
+    },
+    {
+     "n": 170,
+     "text": "Such a mendicant is one who is called ‘one who has lifted the cross-bar’, ‘one who has filled in the moat’, ‘one who has pulled up the pillar’, ‘one who is unimpeded’,"
+    },
+    {
+     "n": 171,
+     "text": "and also ‘a noble one with banner lowered and burden dropped, detached’."
+    },
+    {
+     "n": 172,
+     "text": "And how has a mendicant raised the cross-bar?"
+    },
+    {
+     "n": 173,
+     "text": "It’s when a mendicant has given up ignorance, cut it off at the root, made it like a palm stump, obliterated it, so it’s unable to arise in the future."
+    },
+    {
+     "n": 174,
+     "text": "That’s how a mendicant has lifted the cross-bar."
+    },
+    {
+     "n": 175,
+     "text": "And how has a mendicant filled in the moat?"
+    },
+    {
+     "n": 176,
+     "text": "It’s when a mendicant has given up transmigrating through births in future lives, cut it off at the root, made it like a palm stump, obliterated it, so it’s unable to arise in the future."
+    },
+    {
+     "n": 177,
+     "text": "That’s how a mendicant has filled in the moat."
+    },
+    {
+     "n": 178,
+     "text": "And how has a mendicant pulled up the pillar?"
+    },
+    {
+     "n": 179,
+     "text": "It’s when a mendicant has given up craving, cut it off at the root, made it like a palm stump, obliterated it, so it’s unable to arise in the future."
+    },
+    {
+     "n": 180,
+     "text": "That’s how a mendicant has pulled up the pillar."
+    },
+    {
+     "n": 181,
+     "text": "And how is a mendicant unimpeded? It’s when a mendicant has given up the five lower fetters, cut them off at the root, made them like a palm stump, obliterated them, so they’re unable to arise in the future."
+    },
+    {
+     "n": 182,
+     "text": "That’s how a mendicant is unimpeded."
+    },
+    {
+     "n": 183,
+     "text": "And how is a mendicant a noble one with with banner lowered and burden dropped, detached?"
+    },
+    {
+     "n": 184,
+     "text": "It’s when a mendicant has given up the conceit ‘I am’, cut it off at the root, made it like a palm stump, obliterated it, so it’s unable to arise in the future."
+    },
+    {
+     "n": 185,
+     "text": "That’s how a mendicant is a noble one with banner lowered and burden dropped, detached."
+    },
+    {
+     "n": 186,
+     "text": "When a mendicant’s mind was freed like this, the gods together with Indra, the Divinity, and the Progenitor, search as they may, will not discover: ‘This is the basis of that realized one’s consciousness.’ Why is that?"
+    },
+    {
+     "n": 187,
+     "text": "Because even in this very life that realized one is not found, I say."
+    },
+    {
+     "n": 188,
+     "text": "Though I state and assert this, certain ascetics and brahmins misrepresent me with the incorrect, hollow, false, untruthful claim: ‘The ascetic Gotama is an exterminator."
+    },
+    {
+     "n": 189,
+     "text": "He advocates the annihilation, eradication, and nonexistence of an existing being.’"
+    },
+    {
+     "n": 190,
+     "text": "They misrepresent me as what I am not, and saying what I do not say."
+    },
+    {
+     "n": 191,
+     "text": "In the past, as today, what I describe is suffering and the cessation of suffering."
+    },
+    {
+     "n": 192,
+     "text": "This being so, if others abuse, attack, harass, and trouble the Realized One, he doesn’t get resentful, bitter, and emotionally exasperated."
+    },
+    {
+     "n": 193,
+     "text": "Or if others honor, respect, revere, or venerate him, he doesn’t get thrilled, elated, and emotionally excited."
+    },
+    {
+     "n": 194,
+     "text": "If they praise him, he just thinks, ‘They do such things for me regarding what in the past was completely understood.’"
+    },
+    {
+     "n": 195,
+     "text": "So, mendicants, if others abuse, attack, harass, and trouble you, don’t make yourselves resentful, bitter, and emotionally exasperated."
+    },
+    {
+     "n": 196,
+     "text": "Or if others honor, respect, revere, or venerate you, don’t make yourselves thrilled, elated, and emotionally excited."
+    },
+    {
+     "n": 197,
+     "text": "If they praise you, just think, ‘They do such things for us regarding what in the past was completely understood.’"
+    },
+    {
+     "n": 198,
+     "text": "So, mendicants, give up what isn’t yours."
+    },
+    {
+     "n": 199,
+     "text": "Giving it up will be for your lasting welfare and happiness."
+    },
+    {
+     "n": 200,
+     "text": "And what isn’t yours? Form isn’t yours: give it up."
+    },
+    {
+     "n": 201,
+     "text": "Giving it up will be for your lasting welfare and happiness."
+    },
+    {
+     "n": 202,
+     "text": "Feeling … perception … choices … consciousness isn’t yours: give it up."
+    },
+    {
+     "n": 203,
+     "text": "Giving it up will be for your lasting welfare and happiness."
+    },
+    {
+     "n": 204,
+     "text": "What do you think, mendicants? Suppose a person was to carry off the grass, sticks, branches, and leaves in this Jeta’s Grove, or burn them, or do what they want with them."
+    },
+    {
+     "n": 205,
+     "text": "Would you think, ‘This person is carrying us off, burning us, or doing what they want with us’?”"
+    },
+    {
+     "n": 206,
+     "text": "“No, sir. Why is that? Because to us that’s neither self nor belonging to self.”"
+    },
+    {
+     "n": 207,
+     "text": "“In the same way, mendicants, give up what isn’t yours."
+    },
+    {
+     "n": 208,
+     "text": "Giving it up will be for your lasting welfare and happiness. And what isn’t yours?"
+    },
+    {
+     "n": 209,
+     "text": "Form … feeling … perception … choices … consciousness isn’t yours: give it up."
+    },
+    {
+     "n": 210,
+     "text": "Giving it up will be for your lasting welfare and happiness."
+    },
+    {
+     "n": 211,
+     "text": "The teaching well-explained thus by me is clarified, revealed, illuminated, and stripped of patchwork."
+    },
+    {
+     "n": 212,
+     "text": "In this teaching thus well-explained, for those mendicants who are perfected, who have ended the defilements, completed the spiritual journey, done what had to be done, laid down the burden, achieved their heart’s goal,"
+    },
+    {
+     "n": 213,
+     "text": "utterly ended the fetter of continued existence, and are rightly freed through enlightenment, there is no cycle of rebirths to be found. …"
+    },
+    {
+     "n": 214,
+     "text": "In this teaching thus well-explained, those mendicants who have given up the five lower fetters are all reborn spontaneously."
+    },
+    {
+     "n": 215,
+     "text": "They are extinguished there, and are not liable to return from that world. …"
+    },
+    {
+     "n": 216,
+     "text": "In this teaching thus well-explained, those mendicants who, having given up three fetters, and weakened greed, hate, and delusion, are all once-returners."
+    },
+    {
+     "n": 217,
+     "text": "They come back to this world once only, then make an end of suffering. …"
+    },
+    {
+     "n": 218,
+     "text": "In this teaching thus well-explained, those mendicants who have ended three fetters are all stream-enterers, not liable to be reborn in the underworld, assured, destined for awakening. …"
+    },
+    {
+     "n": 219,
+     "text": "In this teaching thus well-explained, those mendicants who are followers of teachings or followers by faith are all are assured, destined for awakening."
+    },
+    {
+     "n": 220,
+     "text": "The teaching well-explained thus by me is clarified, revealed, illuminated, and stripped of patchwork."
+    },
+    {
+     "n": 221,
+     "text": "In this teaching thus well-explained, those who have a degree of faith and love for me are all bound for heaven.”"
+    },
+    {
+     "n": 222,
+     "text": "That is what the Buddha said. Satisfied, the mendicants approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

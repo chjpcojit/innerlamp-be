@@ -1,0 +1,3420 @@
+{
+ "id": "giao-gioi-thi-ca-la-viet",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trường Bộ",
+ "reference": "DN 31",
+ "summary": "Kinh trong Trường Bộ (DN 31). Thế Tôn gặp thanh niên Singāla đang lễ sáu phương theo lời cha dặn, và giảng ý nghĩa của sáu phương như các mối quan hệ: cha mẹ, thầy trò, vợ chồng, bạn bè, người làm công và bậc tu hành. Ngài cũng dạy tránh các điều ác, bạn xấu và phép ứng xử của người tại gia.",
+ "titles": {
+  "vi": "Kinh Giáo thọ Thi-ca-la-việt",
+  "pli": "Siṅgālasutta",
+  "en": "Advice to Sigālaka"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 50,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/dn31/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vậy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn sống ở Rājagaha (Vương Xá thành), tại Veluvana (Trúc Lâm), Kalandakanivāpa (chỗ tìm ăn của loài sóc)."
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ, Singàlaka (Thi-ca-la-việt), gia chủ tử, dậy sớm, ra khỏi thành Vương Xá, với áo thấm nước, với tóc thấm nước, chấp tay đảnh lễ các phương hướng, hướng Đông, hướng Nam, hướng Tây, hướng Bắc, hướng Hạ,"
+    },
+    {
+     "n": 4,
+     "text": "hướng Thượng."
+    },
+    {
+     "n": 5,
+     "text": "Rồi Thế Tôn buổi sáng đắp y, cầm y bát vào thành Vương Xá khất thực."
+    },
+    {
+     "n": 6,
+     "text": "Thế Tôn thấy Singàlaka, gia chủ tử, dậy sớm, ra khỏi thành Vương Xá, với áo thấm nước, với tóc thấm nước, chấp tay đảnh lễ các phương hướng, hướng Đông, hướng Nam, hướng Tây, hướng Bắc, hướng Hạ, hướng Thượng."
+    },
+    {
+     "n": 7,
+     "text": "Thấy vậy Ngài nói với Singàlaka, gia chủ tử"
+    },
+    {
+     "n": 8,
+     "text": "—Này Gia chủ tử, vì sao Ngươi dậy sớm, ra khỏi thành Vương Xá, với áo thấm ướt, với tóc thấm ướt chấp tay đảnh lễ các phương hướng, hướng Đông … hướng Thượng?"
+    },
+    {
+     "n": 9,
+     "text": "- Bạch Thế Tôn, thân phụ con khi gần chết có dặn con: “Này con thân yêu, hãy đảnh lễ các phương hướng”."
+    },
+    {
+     "n": 10,
+     "text": "Bạch Thế Tôn, con kính tín, cung kính, tôn trọng, đảnh lễ lời nói của thân phụ con, buổi sáng dậy sớm, ra khỏi thành Vương Xá, với áo thấm ướt, với tóc thấm ướt, chấp tay đảnh lễ các phương hướng,"
+    },
+    {
+     "n": 11,
+     "text": "hướng Đông … hướng Thượng."
+    },
+    {
+     "n": 12,
+     "text": "- Này Gia chủ tử, trong luật pháp của bậc Thánh, lễ bái sáu phương không phải như vậy."
+    },
+    {
+     "n": 13,
+     "text": "- Bạch Thế Tôn, trong luật pháp của bậc Thánh, thế nào là lễ bái sáu phương?"
+    },
+    {
+     "n": 14,
+     "text": "Bạch Thế Tôn, trong luật pháp của bậc Thánh, đảnh lễ sáu phương phải như thế nào? Lành thay! Thế Tôn hãy giảng pháp ấy cho con!"
+    },
+    {
+     "n": 15,
+     "text": "- Này Gia chủ tử, hãy nghe và suy nghiệm kỹ, Ta sẽ giảng."
+    },
+    {
+     "n": 16,
+     "text": "- Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 17,
+     "text": "Singàlaka, gia chủ tử vâng lời Thế Tôn. Thế Tôn giảng như sau"
+    },
+    {
+     "n": 18,
+     "text": "—Này Gia chủ tử, đối với vị Thánh đệ tử, bốn nghiệp phiền não được diệt trừ, không làm ác nghiệp theo bốn lý do, không theo sáu nguyên nhân để phung phí tài sản."
+    },
+    {
+     "n": 19,
+     "text": "Vị này, nhờ từ bỏ mười bốn ác pháp, trở thành vị che chở sáu phương; vị này đã thực hành để chiến thắng hai đời, vị này đã chiến thắng đời này và đời sau."
+    },
+    {
+     "n": 20,
+     "text": "Sau khi thân hoại mạng chung, vị này sanh ở thiện thú, Thiên giới."
+    },
+    {
+     "n": 21,
+     "text": "Thế nào là bốn nghiệp phiền não đã được diệt trừ?"
+    },
+    {
+     "n": 22,
+     "text": "Này Gia chủ tử, đó là nghiệp phiền não sát sanh, nghiệp phiền não trộm cắp, nghiệp phiền não tà dâm, nghiệp phiền não nói láo."
+    },
+    {
+     "n": 23,
+     "text": "Bốn nghiệp phiền não này đã được trừ diệt."
+    },
+    {
+     "n": 24,
+     "text": "Thế Tôn thuyết giảng như vậy."
+    },
+    {
+     "n": 25,
+     "text": "Thiện thệ thuyết giảng xong, bậc Đạo Sư lại giảng thêm:"
+    },
+    {
+     "n": 26,
+     "text": "Sát sanh và trộm cắp,"
+    },
+    {
+     "n": 27,
+     "text": "Nói láo, lấy vợ người,"
+    },
+    {
+     "n": 28,
+     "text": "Kẻ trí không tán thán,"
+    },
+    {
+     "n": 29,
+     "text": "Những hạnh nghiệp như vậy."
+    },
+    {
+     "n": 30,
+     "text": "Thế nào là không làm ác nghiệp theo bốn lý do?"
+    },
+    {
+     "n": 31,
+     "text": "Ác nghiệp làm do tham dục, ác nghiệp làm do sân hận, ác nghiệp làm do ngu si, ác nghiệp làm do sợ hãi."
+    },
+    {
+     "n": 32,
+     "text": "Này Gia chủ tử, vì vị Thánh đệ tử không tham dục, không sân hận, không ngu si, không sợ hãi, nên không làm ác nghiệp theo bốn lý do."
+    },
+    {
+     "n": 33,
+     "text": "Thế Tôn thuyết giảng như vậy."
+    },
+    {
+     "n": 34,
+     "text": "Thiện Thệ thuyết giảng xong, bậc Đạo Sư lại giảng thêm:"
+    },
+    {
+     "n": 35,
+     "text": "Ai phản lại Chánh pháp,"
+    },
+    {
+     "n": 36,
+     "text": "Vì tham, sân, bố, si,"
+    },
+    {
+     "n": 37,
+     "text": "Thanh danh bị sứt mẻ"
+    },
+    {
+     "n": 38,
+     "text": "Như mặt trăng đêm khuyết."
+    },
+    {
+     "n": 39,
+     "text": "Ai không phản Chánh pháp,"
+    },
+    {
+     "n": 40,
+     "text": "Vì tham, sân, bố, si,"
+    },
+    {
+     "n": 41,
+     "text": "Thanh danh được tròn đủ,"
+    },
+    {
+     "n": 42,
+     "text": "Như mặt trăng đêm đầy."
+    },
+    {
+     "n": 43,
+     "text": "Thế nào là không theo sáu nguyên nhân phung phí tài sản?"
+    },
+    {
+     "n": 44,
+     "text": "Này Gia chủ tử, đam mê các loại rượu là nguyên nhân phung phí tài sản."
+    },
+    {
+     "n": 45,
+     "text": "Du hành đường phố phi thời là nguyên nhân phung phí tài sản."
+    },
+    {
+     "n": 46,
+     "text": "La cà đình đám hí viện là nguyên nhân phung phí tài sản."
+    },
+    {
+     "n": 47,
+     "text": "Đam mê cờ bạc là nguyên nhân phung phí tài sản."
+    },
+    {
+     "n": 48,
+     "text": "Giao du ác hữu là nguyên nhân phung phí tài sản."
+    },
+    {
+     "n": 49,
+     "text": "Quen thói lười biếng là nguyên nhân phung phí tài sản."
+    },
+    {
+     "n": 50,
+     "text": "Này Gia chủ tử, đam mê các loại rượu có sáu nguy hiểm: Tài sản hiện tại bị tổn thất, đấu tranh tăng trưởng, bệnh tật dễ xâm nhập, thương tổn danh dự, để lộ âm tàng, và thứ sáu là trí lực tổn hại."
+    },
+    {
+     "n": 51,
+     "text": "Này Gia chủ tử, đam mê các loại rượu có sau nguy hiểm như vậy."
+    },
+    {
+     "n": 52,
+     "text": "Này Gia chủ tử, du hành đường phố phi thời có sáu nguy hiểm:"
+    },
+    {
+     "n": 53,
+     "text": "Tự mình không được che chở hộ trì, vợ con không được che chở hộ trì, tài sản không được che chở hộ trì, bị tình nghi là tác giả các ác sự, nạn nhân các tin đồn thất thiệt, tự rước vào thân nhiều khổ não."
+    },
+    {
+     "n": 54,
+     "text": "Này Gia chủ tử, du hành đường phố phi thời có sáu nguy hiểm như vậy."
+    },
+    {
+     "n": 55,
+     "text": "Này Gia chủ tử, la cà đình đám hý viện có sáu nguy hiểm: Luôn luôn tìm xem chỗ nào có múa, chỗ nào có ca, chỗ nào có nhạc, chỗ nào có tán tụng, chỗ nào có nhạc tay, chỗ nào có trống."
+    },
+    {
+     "n": 56,
+     "text": "Này Gia chủ tử, la cà đình đám hý viện có sáu nguy hiểm như vậy."
+    },
+    {
+     "n": 57,
+     "text": "Này Gia chủ tử, đam mê cờ bạc có sáu nguy hiểm:"
+    },
+    {
+     "n": 58,
+     "text": "Nếu thắng thì sanh oán thù, nếu thua thì tâm sanh sầu muộn, tài sản hiện tại bị tổn thất, tại hội trường (pháp đình) lời nói không hiệu lực, bằng hữu đồng liêu khinh miệt,"
+    },
+    {
+     "n": 59,
+     "text": "vấn đề cưới gả không được tín nhiệm vì người đam mê cờ bạc không xứng để có vợ."
+    },
+    {
+     "n": 60,
+     "text": "Này Gia chủ tử, đam mê cờ bạc có sáu nguy hiểm như vậy."
+    },
+    {
+     "n": 61,
+     "text": "Này Gia chủ tử, thân cận các ác hữu có sáu nguy hiểm: Những kẻ cờ bạc, loạn hành, nghiện rượu, những kẻ trá ngụy, lường gạt, bạo động là những người bạn, là những thân hữu của người ấy."
+    },
+    {
+     "n": 62,
+     "text": "Này Gia chủ tử, thân cận ác hữu có sáu nguy hiểm như vậy."
+    },
+    {
+     "n": 63,
+     "text": "Này Gia chủ tử, quen thói lười biếng có sáu nguy hiểm: “quá lạnh”, không làm việc; “quá nóng”, không làm việc; “quá trễ” không làm việc; “quá sớm”, không làm việc; “tôi đói quá”, không làm việc;"
+    },
+    {
+     "n": 64,
+     "text": "“tôi quá no”, không làm việc. Trong khi những công việc phải làm lại không làm."
+    },
+    {
+     "n": 65,
+     "text": "Tài sản chưa có không xây dựng lên, tài sản có rồi bị tiêu thất."
+    },
+    {
+     "n": 66,
+     "text": "Này Gia chủ tử, quen thói lười biếng có sáu nguy hiểm như vậy. Thế Tôn thuyết giảng như vậy."
+    },
+    {
+     "n": 67,
+     "text": "Thiện Thệ thuyết giảng xong, bậc Đạo Sư lại giảng thêm:"
+    },
+    {
+     "n": 68,
+     "text": "Có bạn gọi bạn rượu,"
+    },
+    {
+     "n": 69,
+     "text": "Có bạn, bạn bằng mồm,"
+    },
+    {
+     "n": 70,
+     "text": "Bạn lúc thật hữu sự,"
+    },
+    {
+     "n": 71,
+     "text": "Mới xứng danh bạn bè."
+    },
+    {
+     "n": 72,
+     "text": "Ngủ ngày, thông vợ người,"
+    },
+    {
+     "n": 73,
+     "text": "Ưa đấu tranh, làm hại,"
+    },
+    {
+     "n": 74,
+     "text": "Thân ác hữu, xan tham,"
+    },
+    {
+     "n": 75,
+     "text": "Sáu sự não hại người."
+    },
+    {
+     "n": 76,
+     "text": "Ác hữu, ác bạn lữ,"
+    },
+    {
+     "n": 77,
+     "text": "Ác hạnh, hành ác xứ,"
+    },
+    {
+     "n": 78,
+     "text": "Đời này cả đời sau,"
+    },
+    {
+     "n": 79,
+     "text": "Hai đời, người bị hại."
+    },
+    {
+     "n": 80,
+     "text": "Cờ bạc và đàn bà,"
+    },
+    {
+     "n": 81,
+     "text": "Rượu chè, múa và hát"
+    },
+    {
+     "n": 82,
+     "text": "Ngủ ngày, đi phi thời"
+    },
+    {
+     "n": 83,
+     "text": "Thân ác hữu, xan tham,"
+    },
+    {
+     "n": 84,
+     "text": "Sáu sự não hại người."
+    },
+    {
+     "n": 85,
+     "text": "Chơi xúc xắc, uống rượu"
+    },
+    {
+     "n": 86,
+     "text": "Theo đuổi đàn bà người,"
+    },
+    {
+     "n": 87,
+     "text": "Lẽ sống của người khác,"
+    },
+    {
+     "n": 88,
+     "text": "Thân cận kẻ hạ tiện,"
+    },
+    {
+     "n": 89,
+     "text": "Không thân cận bậc trí,"
+    },
+    {
+     "n": 90,
+     "text": "Người ấy tự héo mòn,"
+    },
+    {
+     "n": 91,
+     "text": "Như trăng trong mùa khuyết."
+    },
+    {
+     "n": 92,
+     "text": "Rượu chè không tiền của,"
+    },
+    {
+     "n": 93,
+     "text": "Khao khát, tìm tửu điếm,"
+    },
+    {
+     "n": 94,
+     "text": "Bị chìm trong nợ nần,"
+    },
+    {
+     "n": 95,
+     "text": "Như chìm trong bồn nước,"
+    },
+    {
+     "n": 96,
+     "text": "Mau chóng tự hại mình,"
+    },
+    {
+     "n": 97,
+     "text": "Như kẻ mất gia đình."
+    },
+    {
+     "n": 98,
+     "text": "Ai quen thói ngủ ngày,"
+    },
+    {
+     "n": 99,
+     "text": "Thức trọn suốt đêm trường,"
+    },
+    {
+     "n": 100,
+     "text": "Luôn luôn say sướt mướt,"
+    },
+    {
+     "n": 101,
+     "text": "Không thể sống gia đình."
+    },
+    {
+     "n": 102,
+     "text": "Ở đây ai hay than:"
+    },
+    {
+     "n": 103,
+     "text": "Ôi quá lạnh, quá nóng,"
+    },
+    {
+     "n": 104,
+     "text": "Quá chiều, quá trễ giờ,"
+    },
+    {
+     "n": 105,
+     "text": "Sẽ bỏ bê công việc."
+    },
+    {
+     "n": 106,
+     "text": "Lợi ích, điều tốt lành,"
+    },
+    {
+     "n": 107,
+     "text": "Bị trôi dạt một bên."
+    },
+    {
+     "n": 108,
+     "text": "Ai xem lạnh và nóng,"
+    },
+    {
+     "n": 109,
+     "text": "Nhẹ nhàng hơn cỏ lau,"
+    },
+    {
+     "n": 110,
+     "text": "Làm mọi công chuyện mình,"
+    },
+    {
+     "n": 111,
+     "text": "Hạnh phúc không từ bỏ."
+    },
+    {
+     "n": 112,
+     "text": "Này Gia chủ từ, có bốn hạng người phải xem không phải bạn, dầu tự cho là bạn: Người vật gì cũng lấy phải được xem không phải bạn, dầu tự cho là bạn;"
+    },
+    {
+     "n": 113,
+     "text": "người chỉ biết nói giỏi phải được xem không phải bạn, dầu tự cho là bạn; người khéo nịnh hót phải được xem không phải bạn, dầu tự cho là bạn; người tiêu pha xa xỉ phải được xem không phải bạn, dầu tự cho là bạn."
+    },
+    {
+     "n": 114,
+     "text": "Này Gia chủ tử, có bốn trường hợp người vật gì cũng lấy phải được xem không phải bạn, dầu tự cho là bạn: Người vật gì cũng lấy, cho ít xin nhiều, vì sợ mà làm, làm vì mưu lợi cho mình."
+    },
+    {
+     "n": 115,
+     "text": "Này Gia chủ tử, như vậy là bốn trường hợp người vật gì cũng lấy phải được xem không phải bạn, dầu tự cho là bạn."
+    },
+    {
+     "n": 116,
+     "text": "Này Gia chủ tử, có bốn trường hợp, người chỉ biết nói giỏi phải được xem không phải bạn, dầu tự cho là bạn: Tỏ lộ thân tình việc đã qua; tỏ lộ thân tình việc chưa đến; mua chuộc cảm tình bằng sáo ngữ;"
+    },
+    {
+     "n": 117,
+     "text": "khi có công việc, tự tỏ sự bất lực của mình."
+    },
+    {
+     "n": 118,
+     "text": "Này Gia chủ tử, như vậy là bốn trường hợp, người chỉ biết nói giỏi phải được xem không phải bạn, dầu tự cho là bạn."
+    },
+    {
+     "n": 119,
+     "text": "Này Gia chủ tử, có bốn trường hợp, kẻ nịnh hót phải được xem không phải bạn, dầu tự cho là bạn: Đồng ý các việc ác; không đồng ý các việc thiện; trước mặt tán thán; sau lưng chỉ trích."
+    },
+    {
+     "n": 120,
+     "text": "Này Gia chủ tử, như vậy là bốn trường hợp kẻ nịnh hót phải được xem không phải bạn, dầu tự cho là bạn."
+    },
+    {
+     "n": 121,
+     "text": "Này Gia chủ tử, có bốn trường hợp, người tiêu pha xa xỉ phải được xem không phải bạn, dầu tự cho là bạn: Là bạn khi mình đam mê các loại rượu; là bạn khi mình du hành đường phố phi thời;"
+    },
+    {
+     "n": 122,
+     "text": "là bạn khi mình la cà đình đám hý viện; là bạn khi mình đam mê cờ bạc."
+    },
+    {
+     "n": 123,
+     "text": "Này Gia chủ tử, như vậy có bốn trường hợp, người tiêu pha xa xỉ phải được xem không phải bạn, dầu tự cho là bạn."
+    },
+    {
+     "n": 124,
+     "text": "Thế Tôn thuyết giảng như vậy."
+    },
+    {
+     "n": 125,
+     "text": "Thiện Thệ thuyết giảng xong, bậc Đạo Sư lại giảng thêm:"
+    },
+    {
+     "n": 126,
+     "text": "Người bạn gì cũng lấy,"
+    },
+    {
+     "n": 127,
+     "text": "Người bạn chỉ nói giỏi,"
+    },
+    {
+     "n": 128,
+     "text": "Người nói lời nịnh hót,"
+    },
+    {
+     "n": 129,
+     "text": "Người tiêu pha xa xỉ."
+    },
+    {
+     "n": 130,
+     "text": "Cả bốn, không phải bạn,"
+    },
+    {
+     "n": 131,
+     "text": "Biết vậy, người trí tránh,"
+    },
+    {
+     "n": 132,
+     "text": "Như đường đầy sợ hãi."
+    },
+    {
+     "n": 133,
+     "text": "Này Gia chủ tử, bốn loại bạn này phải được xem là bạn chân thật: Người bạn giúp đỡ phải được xem là bạn chân thật; người bạn chung thủy trong khổ cũng như trong vui phải được xem là bạn chân thật;"
+    },
+    {
+     "n": 134,
+     "text": "người bạn khuyên điều lợi ích phải được xem là bạn chân thật; người bạn có lòng thương tưởng phải được xem là bạn chân thật."
+    },
+    {
+     "n": 135,
+     "text": "Này Gia chủ tử, có bốn trường hợp, người bạn giúp đỡ phải được xem là bạn chân thật:"
+    },
+    {
+     "n": 136,
+     "text": "Che chở cho bạn khi bạn vô ý phóng dật, che chở của cải cho bạn khi bạn vô ý phóng dật, là chỗ nương tựa cho bạn khi bạn sợ hãi, khi bạn có công việc sẽ giúp đỡ cho bạn của cải gấp hai lần những gì bạn thiếu."
+    },
+    {
+     "n": 137,
+     "text": "Này Gia chủ tử, như vậy có bốn trường hợp, người bạn giúp đỡ phải được xem là người bạn chân thật."
+    },
+    {
+     "n": 138,
+     "text": "Này Gia chủ tử, có bốn trường hợp, người bạn chung thủy trong khổ cũng như trong vui phải được xem là người bạn chân thật: Nói cho bạn biết điều bí mật của mình; giữ gìn kín điều bí mật của bạn;"
+    },
+    {
+     "n": 139,
+     "text": "không bỏ bạn khi bạn gặp khó khăn; dám hy sinh thân mạng vì bạn."
+    },
+    {
+     "n": 140,
+     "text": "Này Gia chủ tử, như vậy có bốn trường hợp, người bạn chung thủy trong khổ cũng như trong vui phải được xem là người bạn chân thật."
+    },
+    {
+     "n": 141,
+     "text": "Này Gia chủ tử, có bốn trường hợp, người bạn khuyên điều lợi ích phải được xem là người bạn chân thật: Ngăn chận bạn không làm điều ác; khuyến khích bạn làm điều thiện; cho bạn nghe điều bạn chưa nghe;"
+    },
+    {
+     "n": 142,
+     "text": "cho bạn biết con đường lên cõi chư Thiên."
+    },
+    {
+     "n": 143,
+     "text": "Này Gia chủ tử, như vậy có bốn trường hợp, người bạn khuyên điều lợi ích phải được xem là người bạn chân thật."
+    },
+    {
+     "n": 144,
+     "text": "Này Gia chủ tử, có bốn trường hợp, người bạn thương tưởng phải được xem là người bạn chân thật: Không hoan hỷ khi bạn gặp hoạn nạn; hoan hỷ khi bạn gặp may mắn; ngăn chận những ai nói xấu bạn;"
+    },
+    {
+     "n": 145,
+     "text": "khuyến khích những ai tán thán bạn. Này Gia chủ tử, như vậy có bốn trường hợp, người bạn thương tưởng phải được xem là người bạn chân thật."
+    },
+    {
+     "n": 146,
+     "text": "Thế Tôn thuyết giảng như vậy."
+    },
+    {
+     "n": 147,
+     "text": "Thiện thệ thuyết giảng xong, bậc Đạo Sư lại giảng thêm:"
+    },
+    {
+     "n": 148,
+     "text": "Bạn sẵn sàng giúp đỡ,"
+    },
+    {
+     "n": 149,
+     "text": "Bạn chung thủy khổ vui,"
+    },
+    {
+     "n": 150,
+     "text": "Bạn khuyến khích lợi ích,"
+    },
+    {
+     "n": 151,
+     "text": "Bạn có lòng thương tưởng."
+    },
+    {
+     "n": 152,
+     "text": "Biết rõ bốn bạn này,"
+    },
+    {
+     "n": 153,
+     "text": "Người trí phục vụ họ,"
+    },
+    {
+     "n": 154,
+     "text": "Như mẹ đối con ruột."
+    },
+    {
+     "n": 155,
+     "text": "Người trí giữ giới luật,"
+    },
+    {
+     "n": 156,
+     "text": "Sáng như lửa đồi cao."
+    },
+    {
+     "n": 157,
+     "text": "Người tích trữ tài sản,"
+    },
+    {
+     "n": 158,
+     "text": "Như cử chỉ con ong."
+    },
+    {
+     "n": 159,
+     "text": "Tài sản được chồng chất,"
+    },
+    {
+     "n": 160,
+     "text": "Như ụ mối đùn cao,"
+    },
+    {
+     "n": 161,
+     "text": "Người cư xử như vậy,"
+    },
+    {
+     "n": 162,
+     "text": "Chất chứa các tài sản,"
+    },
+    {
+     "n": 163,
+     "text": "Vừa đủ để lợi ích"
+    },
+    {
+     "n": 164,
+     "text": "Cho chính gia đình mình."
+    },
+    {
+     "n": 165,
+     "text": "Tài sản cần chia bốn"
+    },
+    {
+     "n": 166,
+     "text": "Để kết hợp bạn bè:"
+    },
+    {
+     "n": 167,
+     "text": "Một phần mình an hưởng,"
+    },
+    {
+     "n": 168,
+     "text": "Hai phần dành công việc,"
+    },
+    {
+     "n": 169,
+     "text": "Phần tư, phần để dành,"
+    },
+    {
+     "n": 170,
+     "text": "Phòng khó khăn hoạn nạn."
+    },
+    {
+     "n": 171,
+     "text": "Này Gia chủ tử, vị Thánh đệ tử hộ trì sáu phương như thế nào?"
+    },
+    {
+     "n": 172,
+     "text": "Này Gia chủ tử, sáu phương này cần được hiểu như sau: Phương Đông cần được hiểu là cha mẹ. Phương Nam cần được hiểu là sư trưởng. Phương Tây cần được hiểu là vợ con. Phương Bắc cần được hiểu là bạn bè."
+    },
+    {
+     "n": 173,
+     "text": "Phương Dưới cần được hiểu là tôi tớ, lao công."
+    },
+    {
+     "n": 174,
+     "text": "Phương Trên cần được hiểu là Sa-môn, Bà-la-môn."
+    },
+    {
+     "n": 175,
+     "text": "Này Gia chủ tử, có năm trường hợp, người con phải phụng dưỡng cha mẹ như phương Đông: “Được nuôi dưỡng, tôi sẽ nuôi dưỡng lại cha mẹ; tôi sẽ làm bổn phận đối với cha mẹ; tôi sẽ gìn giữ gia đình và truyền thống;"
+    },
+    {
+     "n": 176,
+     "text": "tôi bảo vệ tài sản thừa tự; tôi sẽ làm tang lễ khi cha mẹ qua đời”."
+    },
+    {
+     "n": 177,
+     "text": "Này Gia chủ tử, được con phụng dưỡng như phương Đông, theo năm cách như vậy, cha mẹ có lòng thương tưởng đến con theo năm cách: Ngăn chận con làm điều ác; khuyến khích con làm điều thiện;"
+    },
+    {
+     "n": 178,
+     "text": "dạy con nghề nghiệp, cưới vợ xứng đáng cho con; đúng thời trao của thừa tự cho con."
+    },
+    {
+     "n": 179,
+     "text": "Này Gia chủ tử, như vậy là cha mẹ được con phụng dưỡng như phương Đông theo năm cách và cha mẹ có lòng thương tưởng con theo năm cách."
+    },
+    {
+     "n": 180,
+     "text": "Như vậy phương Đông được che chở, được trở thành an ổn và thoát khỏi các sự sợ hãi."
+    },
+    {
+     "n": 181,
+     "text": "Này Gia chủ tử, có năm cách, đệ tử phụng dưỡng các bậc sư trưởng như phương Nam: Đứng dậy để chào, hầu hạ thầy, hăng hái học tập, tự phục vụ thầy, chú tâm học hỏi nghề nghiệp."
+    },
+    {
+     "n": 182,
+     "text": "Này Gia chủ tử, được đệ tử phụng dưỡng như phương Nam theo năm cách như vậy, các bậc sư trưởng có lòng thương tưởng đến các đệ tử theo năm cách: Huấn luyện đệ tử những gì mình đã được khéo huấn luyến;"
+    },
+    {
+     "n": 183,
+     "text": "dạy cho bảo trì những gì mình được khéo bảo trì; dạy cho thuần thục các nghề nghiệp; khen đệ tử với các bạn bè quen thuộc; bảo đảm nghề nghiệp cho đệ tử về mọi mặt."
+    },
+    {
+     "n": 184,
+     "text": "Này Gia chủ tử, như vậy là bậc sư trưởng được đệ tử phụng dưỡng như phương Nam theo năm cách và sư trưởng có lòng thương tưởng đến đệ tử theo năm cách."
+    },
+    {
+     "n": 185,
+     "text": "Như vậy phương Nam được che chở, được trở thành an ổn và thoát khỏi các sự sợ hãi."
+    },
+    {
+     "n": 186,
+     "text": "Này Gia chủ tử, có năm cách, người chồng phải đối xử với vợ như phương Tây: Kính trọng vợ, không bất kính đối với vợ; trung thành với vợ; giao quyền hành cho vợ; sắm đồ nữ trang với vợ;"
+    },
+    {
+     "n": 187,
+     "text": "Này Gia chủ tử, được chồng đối xử như phương Tây theo năm cách như vậy, người vợ có lòng thương tưởng chồng theo năm cách: Thi hành tốt đẹp bổn phận của mình; khéo tiếp đón bà con; trung thành với chồng;"
+    },
+    {
+     "n": 188,
+     "text": "khéo gìn giữ tài sản của chồng; khéo léo và nhanh nhẹn làm mọi công việc."
+    },
+    {
+     "n": 189,
+     "text": "Này Gia chủ, người vợ được người chồng đối xử như phương Tây theo năm cách và người vợ có lòng thương tưởng chồng theo năm cách."
+    },
+    {
+     "n": 190,
+     "text": "Như vậy phương Tây được che chở, được trở thành an ổn và thoát khỏi các sự sợ hãi."
+    },
+    {
+     "n": 191,
+     "text": "Này Gia chủ tử, có năm cách vị thiện nam tử đối xử với bạn bè như phương Bắc: Bố thí, ái ngữ, lợi hành, đồng sự, không lường gạt."
+    },
+    {
+     "n": 192,
+     "text": "Này Gia chủ tử, được vị thiện nam tử đối xử như phương Bắc theo năm cách như vậy, bạn bè có lòng thương kính vị thiện nam tử theo năm cách: Che chở nếu vị thiện nam tử phóng túng;"
+    },
+    {
+     "n": 193,
+     "text": "bảo trì tài sản của vị thiện nam tử nếu vị này phóng túng; trở thành chỗ nương tựa khi vị thiện nam tử gặp nguy hiểm; không tránh xa khi vị thiện nam tử gặp khó khăn; kính trọng gia đình của vị thiện nam tử."
+    },
+    {
+     "n": 194,
+     "text": "Như vậy các bạn bè được vị thiện nam tử đối xử như phương Bắc theo năm cách và bạn bè có lòng thương tưởng vị thiện nam tử theo năm cách."
+    },
+    {
+     "n": 195,
+     "text": "Như vậy phương Bắc được che chở, được trở thành an ổn và thoát khỏi các sự sợ hãi."
+    },
+    {
+     "n": 196,
+     "text": "Này Gia chủ tử, có năm cách một vị Thánh chủ nhân đối xử với hạng nô bộc như phương Dưới: Giao việc đúng theo sức lực của họ; lo cho họ ăn uống và tiền lương; điều trị cho họ khi bệnh hoạn;"
+    },
+    {
+     "n": 197,
+     "text": "chia xẻ các mỹ vị đặc biệt cho họ; thỉnh thoảng cho họ nghỉ phép."
+    },
+    {
+     "n": 198,
+     "text": "Này Gia chủ tử, các hàng nô bộc được Thánh chủ nhân đối xử như phương Dưới với năm cách như kia, có lòng thương tưởng đối với vị chủ nhân theo năm cách như sau: Dậy trước khi chủ dậy; đi ngủ sau chủ;"
+    },
+    {
+     "n": 199,
+     "text": "tự bằng lòng với các vật đã cho; khéo làm các công việc; đem danh tiếng tốt đẹp cho chủ."
+    },
+    {
+     "n": 200,
+     "text": "Này Gia chủ tử, các hàng nô bộc được vị Thánh chủ nhân đối xử như phương Dưới với năm cách, có lòng thương tưởng đối với Thánh chủ nhân theo năm cách."
+    },
+    {
+     "n": 201,
+     "text": "Như vậy phương Dưới được che chở, được trở thành an ổn và thoát khỏi các sự sợ hãi."
+    },
+    {
+     "n": 202,
+     "text": "Này Gia chủ tử, có năm cách vị thiện nam tử đối xử với các vị Sa-môn, Bà-la-môn như phương Trên: Có lòng từ trong hành động về thân; có lòng từ trong hành động về khẩu; có lòng từ trong hành động về ý;"
+    },
+    {
+     "n": 203,
+     "text": "mở rộng cửa để đón các vị ấy; cúng dường các vị ấy các vật dụng cần thiết."
+    },
+    {
+     "n": 204,
+     "text": "Này Gia chủ tử, các vị Bà-la-môn, Sa-môn được vị thiện nam tử đối xử như phương Trên theo năm cách như vậy, có lòng thương tưởng vị thiện nam tử ấy theo năm cách sau đây: Ngăn họ không làm điều ác;"
+    },
+    {
+     "n": 205,
+     "text": "khuyến khích họ làm điều thiện; thương xót họ với tâm từ bi, dạy họ những điều chưa nghe; làm cho thanh tịnh điều đã được nghe; chỉ bày con đường đưa đến cõi Trời."
+    },
+    {
+     "n": 206,
+     "text": "Này Gia chủ tử, các vị Sa-môn, Bà-la-môn được thiện nam tử đối xử như phương Trên với năm cách, và các vị Sa-môn, Bà-la-môn có lòng thương tưởng vị thiện nam tử theo năm cách."
+    },
+    {
+     "n": 207,
+     "text": "Như vậy phương Trên được che chở, được trở thành an ổn và thoát khỏi các sự sợ hãi."
+    },
+    {
+     "n": 208,
+     "text": "Thế Tôn thuyết giảng như vậy."
+    },
+    {
+     "n": 209,
+     "text": "Thiện thệ thuyết giảng xong, bậc Đạo Sư lại giảng thêm:"
+    },
+    {
+     "n": 210,
+     "text": "Cha mẹ là phương Đông,"
+    },
+    {
+     "n": 211,
+     "text": "Sư trưởng là phương Nam,"
+    },
+    {
+     "n": 212,
+     "text": "Vợ chồng là phương Tây,"
+    },
+    {
+     "n": 213,
+     "text": "Bạn bè là phương Bắc,"
+    },
+    {
+     "n": 214,
+     "text": "Nô bộc là phương Dưới,"
+    },
+    {
+     "n": 215,
+     "text": "Sa-môn, Bà-la-môn,"
+    },
+    {
+     "n": 216,
+     "text": "Có nghĩa là phương Trên."
+    },
+    {
+     "n": 217,
+     "text": "Cư sĩ vì gia đình,"
+    },
+    {
+     "n": 218,
+     "text": "Đảnh lễ phương hướng ấy."
+    },
+    {
+     "n": 219,
+     "text": "Kẻ trí giữ Giới, Luật,"
+    },
+    {
+     "n": 220,
+     "text": "Từ tốn và biện tài,"
+    },
+    {
+     "n": 221,
+     "text": "Khiêm nhường và nhu thuận,"
+    },
+    {
+     "n": 222,
+     "text": "Nhờ vậy được danh xưng."
+    },
+    {
+     "n": 223,
+     "text": "Dậy sớm không biếng nhác,"
+    },
+    {
+     "n": 224,
+     "text": "Bất động giữa hiểm nguy,"
+    },
+    {
+     "n": 225,
+     "text": "Người hiền, không phạm giới,"
+    },
+    {
+     "n": 226,
+     "text": "Nhờ vậy được danh xưng."
+    },
+    {
+     "n": 227,
+     "text": "Nhiếp chúng, tạo nên bạn,"
+    },
+    {
+     "n": 228,
+     "text": "Từ ái, tâm bao dung,"
+    },
+    {
+     "n": 229,
+     "text": "Dẫn đạo, khuyến hóa đạo,"
+    },
+    {
+     "n": 230,
+     "text": "Nhờ vậy được danh xưng."
+    },
+    {
+     "n": 231,
+     "text": "Bố thí và ái ngữ,"
+    },
+    {
+     "n": 232,
+     "text": "Lợi hành bất cứ ai,"
+    },
+    {
+     "n": 233,
+     "text": "Đồng sự trong mọi việc,"
+    },
+    {
+     "n": 234,
+     "text": "Theo trường hợp xử sự."
+    },
+    {
+     "n": 235,
+     "text": "Chính những nhiếp sự này,"
+    },
+    {
+     "n": 236,
+     "text": "Khiến thế giới xoay quanh,"
+    },
+    {
+     "n": 237,
+     "text": "Như bánh xe quay lăn,"
+    },
+    {
+     "n": 238,
+     "text": "Vòng theo trục xe chính."
+    },
+    {
+     "n": 239,
+     "text": "Nhiếp sự này vắng mặt,"
+    },
+    {
+     "n": 240,
+     "text": "Không có mẹ hưởng thọ,"
+    },
+    {
+     "n": 241,
+     "text": "Hay không cha hưởng thọ,"
+    },
+    {
+     "n": 242,
+     "text": "Sự hiếu kính của con."
+    },
+    {
+     "n": 243,
+     "text": "Do vậy bậc có trí,"
+    },
+    {
+     "n": 244,
+     "text": "Đối với nhiếp pháp này,"
+    },
+    {
+     "n": 245,
+     "text": "Như quán sát chấp trì,"
+    },
+    {
+     "n": 246,
+     "text": "Nhờ vậy thành vĩ đại,"
+    },
+    {
+     "n": 247,
+     "text": "Được tán thánh, danh xưng."
+    },
+    {
+     "n": 248,
+     "text": "Khi được nghe vậy, Singàlaka, gia chủ tử bạch Thế Tôn: “Thật vi diệu thay, bạch Thế Tôn!"
+    },
+    {
+     "n": 249,
+     "text": "Như người dựng đứng lại những gì bị quăng ngã xuống, phơi bày ra những gì bị che kín, chỉ đường cho người bị lạc hướng, đem đèn sáng vào trong bóng tối để những ai có mắt có thể thấy sắc."
+    },
+    {
+     "n": 250,
+     "text": "Cũng vậy, Chánh pháp đã được Thế Tôn dùng nhiều phương tiện trình bày, giải thích."
+    },
+    {
+     "n": 251,
+     "text": "Bạch Thế Tôn, nay con xin quy y Thế Tôn, quy y Pháp và chúng Tỷ-kheo."
+    },
+    {
+     "n": 252,
+     "text": "Mong Thế Tôn nhận con làm đệ tử, từ nay trở đi cho đến mạng chung, con trọn đời quy ngưỡng."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dn31/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā rājagahe viharati veḷuvane kalandakanivāpe."
+    },
+    {
+     "n": 2,
+     "text": "Tena kho pana samayena siṅgālako gahapatiputto kālasseva uṭṭhāya rājagahā nikkhamitvā allavattho allakeso pañjaliko puthudisā namassati— puratthimaṁ disaṁ dakkhiṇaṁ disaṁ pacchimaṁ disaṁ uttaraṁ disaṁ heṭṭhimaṁ disaṁ"
+    },
+    {
+     "n": 3,
+     "text": "uparimaṁ disaṁ."
+    },
+    {
+     "n": 4,
+     "text": "Atha kho bhagavā pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya rājagahaṁ piṇḍāya pāvisi."
+    },
+    {
+     "n": 5,
+     "text": "Addasā kho bhagavā siṅgālakaṁ gahapatiputtaṁ kālasseva vuṭṭhāya rājagahā nikkhamitvā allavatthaṁ allakesaṁ pañjalikaṁ puthudisā namassantaṁ— puratthimaṁ disaṁ dakkhiṇaṁ disaṁ pacchimaṁ disaṁ uttaraṁ disaṁ heṭṭhimaṁ disaṁ"
+    },
+    {
+     "n": 6,
+     "text": "uparimaṁ disaṁ. Disvā siṅgālakaṁ gahapatiputtaṁ etadavoca: “kiṁ nu kho tvaṁ, gahapatiputta,"
+    },
+    {
+     "n": 7,
+     "text": "kālasseva vuṭṭhāya rājagahā nikkhamitvā allavattho allakeso pañjaliko puthudisā namassasi— puratthimaṁ disaṁ dakkhiṇaṁ disaṁ pacchimaṁ disaṁ uttaraṁ disaṁ heṭṭhimaṁ disaṁ uparimaṁ disan”ti?"
+    },
+    {
+     "n": 8,
+     "text": "“Pitā maṁ, bhante, kālaṁ karonto evaṁ avaca: ‘disā, tāta, namasseyyāsī’ti. So kho ahaṁ, bhante,"
+    },
+    {
+     "n": 9,
+     "text": "pituvacanaṁ sakkaronto garuṁ karonto mānento pūjento kālasseva uṭṭhāya rājagahā nikkhamitvā allavattho allakeso pañjaliko puthudisā namassāmi— puratthimaṁ disaṁ dakkhiṇaṁ disaṁ pacchimaṁ disaṁ uttaraṁ disaṁ heṭṭhimaṁ"
+    },
+    {
+     "n": 10,
+     "text": "disaṁ uparimaṁ disan”ti."
+    },
+    {
+     "n": 11,
+     "text": "“Na kho, gahapatiputta, ariyassa vinaye evaṁ cha disā namassitabbā”ti.",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 12,
+     "text": "“Yathā kathaṁ pana, bhante, ariyassa vinaye cha disā namassitabbā?",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 13,
+     "text": "Sādhu me, bhante, bhagavā tathā dhammaṁ desetu, yathā ariyassa vinaye cha disā namassitabbā”ti.",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 14,
+     "text": "“Tena hi, gahapatiputta, suṇohi sādhukaṁ manasikarohi bhāsissāmī”ti.",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 15,
+     "text": "“Evaṁ, bhante”ti kho siṅgālako gahapatiputto bhagavato paccassosi. Bhagavā etadavoca:",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 16,
+     "text": "“Yato kho, gahapatiputta, ariyasāvakassa cattāro kammakilesā pahīnā honti, catūhi ca ṭhānehi pāpakammaṁ na karoti, cha ca bhogānaṁ apāyamukhāni na sevati,",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 17,
+     "text": "so evaṁ cuddasa pāpakāpagato chaddisāpaṭicchādī ubholokavijayāya paṭipanno hoti.",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 18,
+     "text": "Tassa ayañceva loko āraddho hoti paro ca loko.",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 19,
+     "text": "So kāyassa bhedā paraṁ maraṇā sugatiṁ saggaṁ lokaṁ upapajjati.",
+     "section": "1. Cha disā"
+    },
+    {
+     "n": 20,
+     "text": "Katamassa cattāro kammakilesā pahīnā honti?",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 21,
+     "text": "Pāṇātipāto kho, gahapatiputta, kammakileso, adinnādānaṁ kammakileso, kāmesumicchācāro kammakileso, musāvādo kammakileso.",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 22,
+     "text": "Imassa cattāro kammakilesā pahīnā hontī”ti.",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 23,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato athāparaṁ etadavoca satthā:",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 24,
+     "text": "“Pāṇātipāto adinnādānaṁ,",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 25,
+     "text": "Musāvādo ca vuccati;",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 26,
+     "text": "Paradāragamanañceva,",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 27,
+     "text": "Nappasaṁsanti paṇḍitā”ti.",
+     "section": "2. Cattāro kammakilesā"
+    },
+    {
+     "n": 28,
+     "text": "“Katamehi catūhi ṭhānehi pāpakammaṁ na karoti?",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 29,
+     "text": "Chandāgatiṁ gacchanto pāpakammaṁ karoti, dosāgatiṁ gacchanto pāpakammaṁ karoti, mohāgatiṁ gacchanto pāpakammaṁ karoti, bhayāgatiṁ gacchanto pāpakammaṁ karoti.",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 30,
+     "text": "Yato kho, gahapatiputta, ariyasāvako neva chandāgatiṁ gacchati, na dosāgatiṁ gacchati, na mohāgatiṁ gacchati, na bhayāgatiṁ gacchati; imehi catūhi ṭhānehi pāpakammaṁ na karotī”ti.",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 31,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato athāparaṁ etadavoca satthā:",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 32,
+     "text": "“Chandā dosā bhayā mohā,",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 33,
+     "text": "yo dhammaṁ ativattati;",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 34,
+     "text": "Nihīyati yaso tassa,",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 35,
+     "text": "kāḷapakkheva candimā.",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 36,
+     "text": "Chandā dosā bhayā mohā,",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 37,
+     "text": "yo dhammaṁ nātivattati;",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 38,
+     "text": "Āpūrati yaso tassa,",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 39,
+     "text": "sukkapakkheva candimā”ti.",
+     "section": "3. Catuṭhānaṁ"
+    },
+    {
+     "n": 40,
+     "text": "“Katamāni cha bhogānaṁ apāyamukhāni na sevati?",
+     "section": "4. Cha apāyamukhāni"
+    },
+    {
+     "n": 41,
+     "text": "Surāmerayamajjappamādaṭṭhānānuyogo kho, gahapatiputta, bhogānaṁ apāyamukhaṁ, vikālavisikhācariyānuyogo bhogānaṁ apāyamukhaṁ, samajjābhicaraṇaṁ bhogānaṁ apāyamukhaṁ, jūtappamādaṭṭhānānuyogo bhogānaṁ apāyamukhaṁ,",
+     "section": "4. Cha apāyamukhāni"
+    },
+    {
+     "n": 42,
+     "text": "pāpamittānuyogo bhogānaṁ apāyamukhaṁ, ālasyānuyogo bhogānaṁ apāyamukhaṁ.",
+     "section": "4. Cha apāyamukhāni"
+    },
+    {
+     "n": 43,
+     "text": "Cha khome, gahapatiputta, ādīnavā surāmerayamajjappamādaṭṭhānānuyoge.",
+     "section": "5. Surāmerayassa cha ādīnavā"
+    },
+    {
+     "n": 44,
+     "text": "Sandiṭṭhikā dhanajāni, kalahappavaḍḍhanī, rogānaṁ āyatanaṁ, akittisañjananī, kopīnanidaṁsanī, paññāya dubbalikaraṇītveva chaṭṭhaṁ padaṁ bhavati.",
+     "section": "5. Surāmerayassa cha ādīnavā"
+    },
+    {
+     "n": 45,
+     "text": "Ime kho, gahapatiputta, cha ādīnavā surāmerayamajjappamādaṭṭhānānuyoge.",
+     "section": "5. Surāmerayassa cha ādīnavā"
+    },
+    {
+     "n": 46,
+     "text": "Cha khome, gahapatiputta, ādīnavā vikālavisikhācariyānuyoge.",
+     "section": "6. Vikālacariyāya cha ādīnavā"
+    },
+    {
+     "n": 47,
+     "text": "Attāpissa agutto arakkhito hoti, puttadāropissa agutto arakkhito hoti, sāpateyyampissa aguttaṁ arakkhitaṁ hoti, saṅkiyo ca hoti pāpakesu ṭhānesu, abhūtavacanañca tasmiṁ rūhati, bahūnañca dukkhadhammānaṁ purakkhato hoti.",
+     "section": "6. Vikālacariyāya cha ādīnavā"
+    },
+    {
+     "n": 48,
+     "text": "Ime kho, gahapatiputta, cha ādīnavā vikālavisikhācariyānuyoge.",
+     "section": "6. Vikālacariyāya cha ādīnavā"
+    },
+    {
+     "n": 49,
+     "text": "Cha khome, gahapatiputta, ādīnavā samajjābhicaraṇe.",
+     "section": "7. Samajjābhicaraṇassa cha ādīnavā"
+    },
+    {
+     "n": 50,
+     "text": "Kva naccaṁ, kva gītaṁ, kva vāditaṁ, kva akkhānaṁ, kva pāṇissaraṁ, kva kumbhathunanti.",
+     "section": "7. Samajjābhicaraṇassa cha ādīnavā"
+    },
+    {
+     "n": 51,
+     "text": "Ime kho, gahapatiputta, cha ādīnavā samajjābhicaraṇe.",
+     "section": "7. Samajjābhicaraṇassa cha ādīnavā"
+    },
+    {
+     "n": 52,
+     "text": "Cha khome, gahapatiputta, ādīnavā jūtappamādaṭṭhānānuyoge.",
+     "section": "8. Jūtappamādassa cha ādīnavā"
+    },
+    {
+     "n": 53,
+     "text": "Jayaṁ veraṁ pasavati, jino vittamanusocati, sandiṭṭhikā dhanajāni, sabhāgatassa vacanaṁ na rūhati, mittāmaccānaṁ paribhūto hoti, āvāhavivāhakānaṁ apatthito hoti: ‘akkhadhutto ayaṁ purisapuggalo nālaṁ dārabharaṇāyā’ti.",
+     "section": "8. Jūtappamādassa cha ādīnavā"
+    },
+    {
+     "n": 54,
+     "text": "Ime kho, gahapatiputta, cha ādīnavā jūtappamādaṭṭhānānuyoge.",
+     "section": "8. Jūtappamādassa cha ādīnavā"
+    },
+    {
+     "n": 55,
+     "text": "Cha khome, gahapatiputta, ādīnavā pāpamittānuyoge.",
+     "section": "9. Pāpamittatāya cha ādīnavā"
+    },
+    {
+     "n": 56,
+     "text": "Ye dhuttā, ye soṇḍā, ye pipāsā, ye nekatikā, ye vañcanikā, ye sāhasikā. Tyāssa mittā honti te sahāyā.",
+     "section": "9. Pāpamittatāya cha ādīnavā"
+    },
+    {
+     "n": 57,
+     "text": "Ime kho, gahapatiputta, cha ādīnavā pāpamittānuyoge.",
+     "section": "9. Pāpamittatāya cha ādīnavā"
+    },
+    {
+     "n": 58,
+     "text": "Cha khome, gahapatiputta, ādīnavā ālasyānuyoge.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 59,
+     "text": "Atisītanti kammaṁ na karoti, atiuṇhanti kammaṁ na karoti, atisāyanti kammaṁ na karoti, atipātoti kammaṁ na karoti, atichātosmīti kammaṁ na karoti, atidhātosmīti kammaṁ na karoti.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 60,
+     "text": "Tassa evaṁ kiccāpadesabahulassa viharato anuppannā ceva bhogā nuppajjanti, uppannā ca bhogā parikkhayaṁ gacchanti.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 61,
+     "text": "Ime kho, gahapatiputta, cha ādīnavā ālasyānuyoge”ti.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 62,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato athāparaṁ etadavoca satthā:",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 63,
+     "text": "“Hoti pānasakhā nāma,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 64,
+     "text": "hoti sammiyasammiyo;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 65,
+     "text": "Yo ca atthesu jātesu,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 66,
+     "text": "sahāyo hoti so sakhā.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 67,
+     "text": "Ussūraseyyā paradārasevanā,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 68,
+     "text": "Verappasavo ca anatthatā ca;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 69,
+     "text": "Pāpā ca mittā sukadariyatā ca,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 70,
+     "text": "Ete cha ṭhānā purisaṁ dhaṁsayanti.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 71,
+     "text": "Pāpamitto pāpasakho,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 72,
+     "text": "pāpaācāragocaro;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 73,
+     "text": "Asmā lokā paramhā ca,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 74,
+     "text": "ubhayā dhaṁsate naro.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 75,
+     "text": "Akkhitthiyo vāruṇī naccagītaṁ,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 76,
+     "text": "Divā soppaṁ pāricariyā akāle;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 77,
+     "text": "Pāpā ca mittā sukadariyatā ca,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 78,
+     "text": "Ete cha ṭhānā purisaṁ dhaṁsayanti.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 79,
+     "text": "Akkhehi dibbanti suraṁ pivanti,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 80,
+     "text": "Yantitthiyo pāṇasamā paresaṁ;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 81,
+     "text": "Nihīnasevī na ca vuddhasevī,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 82,
+     "text": "Nihīyate kāḷapakkheva cando.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 83,
+     "text": "Yo vāruṇī addhano akiñcano,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 84,
+     "text": "Pipāso pivaṁ papāgato;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 85,
+     "text": "Udakamiva iṇaṁ vigāhati,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 86,
+     "text": "Akulaṁ kāhiti khippamattano.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 87,
+     "text": "Na divā soppasīlena,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 88,
+     "text": "rattimuṭṭhānadessinā;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 89,
+     "text": "Niccaṁ mattena soṇḍena,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 90,
+     "text": "sakkā āvasituṁ gharaṁ.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 91,
+     "text": "Atisītaṁ atiuṇhaṁ,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 92,
+     "text": "atisāyamidaṁ ahu;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 93,
+     "text": "Iti vissaṭṭhakammante,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 94,
+     "text": "atthā accenti māṇave.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 95,
+     "text": "Yodha sītañca uṇhañca,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 96,
+     "text": "tiṇā bhiyyo na maññati;",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 97,
+     "text": "Karaṁ purisakiccāni,",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 98,
+     "text": "so sukhaṁ na vihāyatī”ti.",
+     "section": "10. Ālasyassa cha ādīnavā"
+    },
+    {
+     "n": 99,
+     "text": "“Cattārome, gahapatiputta, amittā mittapatirūpakā veditabbā.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 100,
+     "text": "Aññadatthuharo amitto mittapatirūpako veditabbo, vacīparamo amitto mittapatirūpako veditabbo, anuppiyabhāṇī amitto mittapatirūpako veditabbo, apāyasahāyo amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 101,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi aññadatthuharo amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 102,
+     "text": "Aññadatthuharo hoti,",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 103,
+     "text": "appena bahumicchati;",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 104,
+     "text": "Bhayassa kiccaṁ karoti,",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 105,
+     "text": "sevati atthakāraṇā.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 106,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi aññadatthuharo amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 107,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi vacīparamo amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 108,
+     "text": "Atītena paṭisantharati, anāgatena paṭisantharati, niratthakena saṅgaṇhāti, paccuppannesu kiccesu byasanaṁ dasseti.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 109,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi vacīparamo amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 110,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi anuppiyabhāṇī amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 111,
+     "text": "Pāpakampissa anujānāti, kalyāṇampissa anujānāti, sammukhāssa vaṇṇaṁ bhāsati, parammukhāssa avaṇṇaṁ bhāsati.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 112,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi anuppiyabhāṇī amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 113,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi apāyasahāyo amitto mittapatirūpako veditabbo.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 114,
+     "text": "Surāmerayamajjappamādaṭṭhānānuyoge sahāyo hoti, vikālavisikhācariyānuyoge sahāyo hoti, samajjābhicaraṇe sahāyo hoti, jūtappamādaṭṭhānānuyoge sahāyo hoti.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 115,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi apāyasahāyo amitto mittapatirūpako veditabbo”ti.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 116,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato athāparaṁ etadavoca satthā:",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 117,
+     "text": "“Aññadatthuharo mitto,",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 118,
+     "text": "yo ca mitto vacīparo;",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 119,
+     "text": "Anuppiyañca yo āha,",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 120,
+     "text": "apāyesu ca yo sakhā.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 121,
+     "text": "Ete amitte cattāro,",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 122,
+     "text": "iti viññāya paṇḍito;",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 123,
+     "text": "Ārakā parivajjeyya,",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 124,
+     "text": "maggaṁ paṭibhayaṁ yathā”ti.",
+     "section": "11. Mittapatirūpaka"
+    },
+    {
+     "n": 125,
+     "text": "“Cattārome, gahapatiputta, mittā suhadā veditabbā.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 126,
+     "text": "Upakāro mitto suhado veditabbo, samānasukhadukkho mitto suhado veditabbo, atthakkhāyī mitto suhado veditabbo, anukampako mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 127,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi upakāro mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 128,
+     "text": "Pamattaṁ rakkhati, pamattassa sāpateyyaṁ rakkhati, bhītassa saraṇaṁ hoti, uppannesu kiccakaraṇīyesu taddiguṇaṁ bhogaṁ anuppadeti.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 129,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi upakāro mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 130,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi samānasukhadukkho mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 131,
+     "text": "Guyhamassa ācikkhati, guyhamassa parigūhati, āpadāsu na vijahati, jīvitaṁpissa atthāya pariccattaṁ hoti.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 132,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi samānasukhadukkho mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 133,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi atthakkhāyī mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 134,
+     "text": "Pāpā nivāreti, kalyāṇe niveseti, assutaṁ sāveti, saggassa maggaṁ ācikkhati.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 135,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi atthakkhāyī mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 136,
+     "text": "Catūhi kho, gahapatiputta, ṭhānehi anukampako mitto suhado veditabbo.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 137,
+     "text": "Abhavenassa na nandati, bhavenassa nandati, avaṇṇaṁ bhaṇamānaṁ nivāreti, vaṇṇaṁ bhaṇamānaṁ pasaṁsati.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 138,
+     "text": "Imehi kho, gahapatiputta, catūhi ṭhānehi anukampako mitto suhado veditabbo”ti.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 139,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato athāparaṁ etadavoca satthā:",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 140,
+     "text": "“Upakāro ca yo mitto,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 141,
+     "text": "sukhe dukkhe ca yo sakhā;",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 142,
+     "text": "Atthakkhāyī ca yo mitto,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 143,
+     "text": "yo ca mittānukampako.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 144,
+     "text": "Etepi mitte cattāro,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 145,
+     "text": "iti viññāya paṇḍito;",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 146,
+     "text": "Sakkaccaṁ payirupāseyya,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 147,
+     "text": "mātā puttaṁva orasaṁ;",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 148,
+     "text": "Paṇḍito sīlasampanno,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 149,
+     "text": "jalaṁ aggīva bhāsati.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 150,
+     "text": "Bhoge saṁharamānassa,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 151,
+     "text": "bhamarasseva irīyato;",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 152,
+     "text": "Bhogā sannicayaṁ yanti,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 153,
+     "text": "vammikovupacīyati.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 154,
+     "text": "Evaṁ bhoge samāhatvā,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 155,
+     "text": "alamatto kule gihī;",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 156,
+     "text": "Catudhā vibhaje bhoge,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 157,
+     "text": "sa ve mittāni ganthati.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 158,
+     "text": "Ekena bhoge bhuñjeyya,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 159,
+     "text": "dvīhi kammaṁ payojaye;",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 160,
+     "text": "Catutthañca nidhāpeyya,",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 161,
+     "text": "āpadāsu bhavissatī”ti.",
+     "section": "12. Suhadamitta"
+    },
+    {
+     "n": 162,
+     "text": "“Kathañca, gahapatiputta, ariyasāvako chaddisāpaṭicchādī hoti? Cha imā, gahapatiputta, disā veditabbā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 163,
+     "text": "Puratthimā disā mātāpitaro veditabbā, dakkhiṇā disā ācariyā veditabbā, pacchimā disā puttadārā veditabbā, uttarā disā mittāmaccā veditabbā, heṭṭhimā disā dāsakammakarā veditabbā, uparimā disā samaṇabrāhmaṇā veditabbā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 164,
+     "text": "Pañcahi kho, gahapatiputta, ṭhānehi puttena puratthimā disā mātāpitaro paccupaṭṭhātabbā— bhato ne bharissāmi, kiccaṁ nesaṁ karissāmi, kulavaṁsaṁ ṭhapessāmi, dāyajjaṁ paṭipajjāmi,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 165,
+     "text": "atha vā pana petānaṁ kālaṅkatānaṁ dakkhiṇaṁ anuppadassāmīti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 166,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi puttena puratthimā disā mātāpitaro paccupaṭṭhitā pañcahi ṭhānehi puttaṁ anukampanti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 167,
+     "text": "Pāpā nivārenti, kalyāṇe nivesenti, sippaṁ sikkhāpenti, patirūpena dārena saṁyojenti, samaye dāyajjaṁ niyyādenti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 168,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi puttena puratthimā disā mātāpitaro paccupaṭṭhitā imehi pañcahi ṭhānehi puttaṁ anukampanti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 169,
+     "text": "Evamassa esā puratthimā disā paṭicchannā hoti khemā appaṭibhayā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 170,
+     "text": "Pañcahi kho, gahapatiputta, ṭhānehi antevāsinā dakkhiṇā disā ācariyā paccupaṭṭhātabbā— uṭṭhānena upaṭṭhānena sussusāya pāricariyāya sakkaccaṁ sippapaṭiggahaṇena.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 171,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi antevāsinā dakkhiṇā disā ācariyā paccupaṭṭhitā pañcahi ṭhānehi antevāsiṁ anukampanti— suvinītaṁ vinenti, suggahitaṁ gāhāpenti, sabbasippassutaṁ samakkhāyino bhavanti,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 172,
+     "text": "mittāmaccesu paṭiyādenti, disāsu parittāṇaṁ karonti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 173,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi antevāsinā dakkhiṇā disā ācariyā paccupaṭṭhitā imehi pañcahi ṭhānehi antevāsiṁ anukampanti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 174,
+     "text": "Evamassa esā dakkhiṇā disā paṭicchannā hoti khemā appaṭibhayā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 175,
+     "text": "Pañcahi kho, gahapatiputta, ṭhānehi sāmikena pacchimā disā bhariyā paccupaṭṭhātabbā— sammānanāya anavamānanāya anaticariyāya issariyavossaggena alaṅkārānuppadānena.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 176,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi sāmikena pacchimā disā bhariyā paccupaṭṭhitā pañcahi ṭhānehi sāmikaṁ anukampati— susaṁvihitakammantā ca hoti, saṅgahitaparijanā ca, anaticārinī ca, sambhatañca anurakkhati,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 177,
+     "text": "dakkhā ca hoti analasā sabbakiccesu. Imehi kho, gahapatiputta, pañcahi ṭhānehi sāmikena pacchimā disā bhariyā paccupaṭṭhitā imehi pañcahi ṭhānehi sāmikaṁ anukampati.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 178,
+     "text": "Evamassa esā pacchimā disā paṭicchannā hoti khemā appaṭibhayā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 179,
+     "text": "Pañcahi kho, gahapatiputta, ṭhānehi kulaputtena uttarā disā mittāmaccā paccupaṭṭhātabbā— dānena peyyavajjena atthacariyāya samānattatāya avisaṁvādanatāya.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 180,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi kulaputtena uttarā disā mittāmaccā paccupaṭṭhitā pañcahi ṭhānehi kulaputtaṁ anukampanti— pamattaṁ rakkhanti, pamattassa sāpateyyaṁ rakkhanti, bhītassa saraṇaṁ honti,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 181,
+     "text": "āpadāsu na vijahanti, aparapajā cassa paṭipūjenti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 182,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi kulaputtena uttarā disā mittāmaccā paccupaṭṭhitā imehi pañcahi ṭhānehi kulaputtaṁ anukampanti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 183,
+     "text": "Evamassa esā uttarā disā paṭicchannā hoti khemā appaṭibhayā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 184,
+     "text": "Pañcahi kho, gahapatiputta, ṭhānehi ayyirakena heṭṭhimā disā dāsakammakarā paccupaṭṭhātabbā— yathābalaṁ kammantasaṁvidhānena bhattavetanānuppadānena gilānupaṭṭhānena acchariyānaṁ rasānaṁ saṁvibhāgena samaye vossaggena.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 185,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi ayyirakena heṭṭhimā disā dāsakammakarā paccupaṭṭhitā pañcahi ṭhānehi ayyirakaṁ anukampanti— pubbuṭṭhāyino ca honti, pacchā nipātino ca, dinnādāyino ca, sukatakammakarā ca,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 186,
+     "text": "kittivaṇṇaharā ca. Imehi kho, gahapatiputta, pañcahi ṭhānehi ayyirakena heṭṭhimā disā dāsakammakarā paccupaṭṭhitā imehi pañcahi ṭhānehi ayyirakaṁ anukampanti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 187,
+     "text": "Evamassa esā heṭṭhimā disā paṭicchannā hoti khemā appaṭibhayā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 188,
+     "text": "Pañcahi kho, gahapatiputta, ṭhānehi kulaputtena uparimā disā samaṇabrāhmaṇā paccupaṭṭhātabbā— mettena kāyakammena mettena vacīkammena mettena manokammena anāvaṭadvāratāya āmisānuppadānena.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 189,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi kulaputtena uparimā disā samaṇabrāhmaṇā paccupaṭṭhitā chahi ṭhānehi kulaputtaṁ anukampanti— pāpā nivārenti, kalyāṇe nivesenti, kalyāṇena manasā anukampanti, assutaṁ sāventi,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 190,
+     "text": "sutaṁ pariyodāpenti, saggassa maggaṁ ācikkhanti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 191,
+     "text": "Imehi kho, gahapatiputta, pañcahi ṭhānehi kulaputtena uparimā disā samaṇabrāhmaṇā paccupaṭṭhitā imehi chahi ṭhānehi kulaputtaṁ anukampanti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 192,
+     "text": "Evamassa esā uparimā disā paṭicchannā hoti khemā appaṭibhayā”ti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 193,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato athāparaṁ etadavoca satthā:",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 194,
+     "text": "“Mātāpitā disā pubbā,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 195,
+     "text": "ācariyā dakkhiṇā disā;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 196,
+     "text": "Puttadārā disā pacchā,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 197,
+     "text": "mittāmaccā ca uttarā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 198,
+     "text": "Dāsakammakarā heṭṭhā,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 199,
+     "text": "uddhaṁ samaṇabrāhmaṇā;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 200,
+     "text": "Etā disā namasseyya,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 201,
+     "text": "alamatto kule gihī.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 202,
+     "text": "Paṇḍito sīlasampanno,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 203,
+     "text": "saṇho ca paṭibhānavā;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 204,
+     "text": "Nivātavutti atthaddho,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 205,
+     "text": "tādiso labhate yasaṁ.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 206,
+     "text": "Uṭṭhānako analaso,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 207,
+     "text": "āpadāsu na vedhati;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 208,
+     "text": "Acchinnavutti medhāvī,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 209,
+     "text": "tādiso labhate yasaṁ.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 210,
+     "text": "Saṅgāhako mittakaro,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 211,
+     "text": "vadaññū vītamaccharo;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 212,
+     "text": "Netā vinetā anunetā,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 213,
+     "text": "tādiso labhate yasaṁ.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 214,
+     "text": "Dānañca peyyavajjañca,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 215,
+     "text": "atthacariyā ca yā idha;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 216,
+     "text": "Samānattatā ca dhammesu,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 217,
+     "text": "tattha tattha yathārahaṁ;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 218,
+     "text": "Ete kho saṅgahā loke,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 219,
+     "text": "rathassāṇīva yāyato.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 220,
+     "text": "Ete ca saṅgahā nāssu,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 221,
+     "text": "na mātā puttakāraṇā;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 222,
+     "text": "Labhetha mānaṁ pūjaṁ vā,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 223,
+     "text": "pitā vā puttakāraṇā.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 224,
+     "text": "Yasmā ca saṅgahā ete,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 225,
+     "text": "sammapekkhanti paṇḍitā;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 226,
+     "text": "Tasmā mahattaṁ papponti,",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 227,
+     "text": "pāsaṁsā ca bhavanti te”ti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 228,
+     "text": "Evaṁ vutte, siṅgālako gahapatiputto bhagavantaṁ etadavoca: “abhikkantaṁ, bhante, abhikkantaṁ, bhante.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 229,
+     "text": "Seyyathāpi, bhante, nikkujjitaṁ vā ukkujjeyya, paṭicchannaṁ vā vivareyya, mūḷhassa vā maggaṁ ācikkheyya, andhakāre vā telapajjotaṁ dhāreyya ‘cakkhumanto rūpāni dakkhantī’ti;",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 230,
+     "text": "evamevaṁ bhagavatā anekapariyāyena dhammo pakāsito.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 231,
+     "text": "Esāhaṁ, bhante, bhagavantaṁ saraṇaṁ gacchāmi dhammañca bhikkhusaṅghañca.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 232,
+     "text": "Upāsakaṁ maṁ bhagavā dhāretu, ajjatagge pāṇupetaṁ saraṇaṁ gatan”ti.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    },
+    {
+     "n": 233,
+     "text": "Siṅgālasuttaṁ niṭṭhitaṁ aṭṭhamaṁ.",
+     "section": "13. Chaddisāpaṭicchādanakaṇḍa"
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dn31/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Rājagaha in the Bamboo Grove, the squirrels’ feeding ground."
+    },
+    {
+     "n": 2,
+     "text": "Now at that time the householder’s son Sigālaka rose early and left Rājagaha."
+    },
+    {
+     "n": 3,
+     "text": "With his clothes and hair all wet, he raised his cupped palms to revere the various quarters— east, south, west, north, below, and above."
+    },
+    {
+     "n": 4,
+     "text": "Then the Buddha robed up in the morning and, taking his bowl and robe, entered Rājagaha for alms."
+    },
+    {
+     "n": 5,
+     "text": "He saw Sigālaka revering the various quarters and said to him, “Householder’s son, why are you revering the various quarters in this way?”"
+    },
+    {
+     "n": 6,
+     "text": "“Sir, on his deathbed my father said to me: ‘My dear, please revere the quarters.’"
+    },
+    {
+     "n": 7,
+     "text": "Honoring, respecting, and venerating my father’s words, I rose early and left Rājagaha and, with my clothes and hair all wet, raised my cupped palms to revere the various quarters— east, south, west, north, below,"
+    },
+    {
+     "n": 8,
+     "text": "and above.”"
+    },
+    {
+     "n": 9,
+     "text": "“Householder’s son, that’s not how the six directions should be revered in the training of the Noble One.”",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 10,
+     "text": "“But sir, how should the six directions be revered in the training of the Noble One? Sir, please teach me this.”",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 11,
+     "text": "“Well then, householder’s son, listen and apply your mind well, I will speak.”",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 12,
+     "text": "“Yes, sir,” replied Sigālaka. The Buddha said this:",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 13,
+     "text": "“Householder’s son, a noble disciple gives up four corrupt deeds, doesn’t do bad deeds on four grounds, and avoids six drains on wealth.",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 14,
+     "text": "When they’ve left these fourteen bad things behind they have the six directions covered.",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 15,
+     "text": "They’re practicing to win in both worlds, and they succeed in this world and the next.",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 16,
+     "text": "When their body breaks up, after death, they’re reborn in a good place, a heavenly realm.",
+     "section": "1. The Six Directions"
+    },
+    {
+     "n": 17,
+     "text": "What four corrupt deeds have they given up?",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 18,
+     "text": "Killing living creatures, stealing, sexual misconduct, and lying: these are corrupt deeds.",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 19,
+     "text": "These are the four corrupt deeds they’ve given up.”",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 20,
+     "text": "That is what the Buddha said. Then the Holy One, the Teacher, went on to say:",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 21,
+     "text": "“Killing, stealing,",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 22,
+     "text": "telling lies,",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 23,
+     "text": "and committing adultery:",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 24,
+     "text": "astute people don’t praise these things.”",
+     "section": "2. Four Corrupt Deeds"
+    },
+    {
+     "n": 25,
+     "text": "“On what four grounds do they not do bad deeds?",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 26,
+     "text": "One does bad deeds prejudiced by favoritism, hostility, stupidity, and cowardice.",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 27,
+     "text": "When a noble disciple is not prejudiced by favoritism, hostility, stupidity, and cowardice, they don’t do bad deeds on these four grounds.”",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 28,
+     "text": "That is what the Buddha said. Then the Holy One, the Teacher, went on to say:",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 29,
+     "text": "“If you act against the teaching",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 30,
+     "text": "out of favoritism, hostility, cowardice, or stupidity,",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 31,
+     "text": "your fame shrinks,",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 32,
+     "text": "like the moon in the waning fortnight.",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 33,
+     "text": "If you don’t act against the teaching",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 34,
+     "text": "out of favoritism, hostility, cowardice, and stupidity,",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 35,
+     "text": "your fame swells,",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 36,
+     "text": "like the moon in the waxing fortnight.”",
+     "section": "3. Four Grounds"
+    },
+    {
+     "n": 37,
+     "text": "“What six drains on wealth do they avoid?",
+     "section": "4. Six Drains on Wealth"
+    },
+    {
+     "n": 38,
+     "text": "Habitually engaging in the following things is a drain on wealth: beer, wine, and liquor intoxicants; roaming the street markets at night; frequenting festivals; gambling; bad friends; laziness.",
+     "section": "4. Six Drains on Wealth"
+    },
+    {
+     "n": 39,
+     "text": "There are these six drawbacks of habitually consuming intoxicants of beer, wine, and liquor.",
+     "section": "5. Six Drawbacks of Drinking"
+    },
+    {
+     "n": 40,
+     "text": "Immediate loss of wealth, promotion of quarrels, susceptibility to illness, disrepute, indecent exposure; and weakened wisdom is the sixth thing.",
+     "section": "5. Six Drawbacks of Drinking"
+    },
+    {
+     "n": 41,
+     "text": "These are the six drawbacks of habitually consuming intoxicants of beer, wine, and liquor.",
+     "section": "5. Six Drawbacks of Drinking"
+    },
+    {
+     "n": 42,
+     "text": "There are these six drawbacks of roaming the street markets at night.",
+     "section": "6. Six Drawbacks of Roaming the Street Markets at Night"
+    },
+    {
+     "n": 43,
+     "text": "Yourself, your partners and children, and your property are all left unguarded. You’re suspected of bad deeds. Untrue rumors spread about you.",
+     "section": "6. Six Drawbacks of Roaming the Street Markets at Night"
+    },
+    {
+     "n": 44,
+     "text": "You’re at the forefront of many things that entail suffering.",
+     "section": "6. Six Drawbacks of Roaming the Street Markets at Night"
+    },
+    {
+     "n": 45,
+     "text": "These are the six drawbacks of roaming the street markets at night.",
+     "section": "6. Six Drawbacks of Roaming the Street Markets at Night"
+    },
+    {
+     "n": 46,
+     "text": "There are these six drawbacks of frequenting festivals.",
+     "section": "7. Six Drawbacks of Festivals"
+    },
+    {
+     "n": 47,
+     "text": "You’re always thinking: ‘Where’s the dancing? Where’s the singing? Where’s the music? Where are the stories? Where’s the applause? Where are the kettledrums?’",
+     "section": "7. Six Drawbacks of Festivals"
+    },
+    {
+     "n": 48,
+     "text": "These are the six drawbacks of frequenting festivals.",
+     "section": "7. Six Drawbacks of Festivals"
+    },
+    {
+     "n": 49,
+     "text": "There are these six drawbacks of habitually gambling. Victory breeds enmity. The loser mourns their money. There is immediate loss of wealth.",
+     "section": "8. Six Drawbacks of Gambling"
+    },
+    {
+     "n": 50,
+     "text": "A gambler’s word carries no weight in public assembly.",
+     "section": "8. Six Drawbacks of Gambling"
+    },
+    {
+     "n": 51,
+     "text": "Friends and colleagues treat them with contempt.",
+     "section": "8. Six Drawbacks of Gambling"
+    },
+    {
+     "n": 52,
+     "text": "And no one wants to marry a gambler, for they think: ‘This individual is a gambler—they’re not able to support a partner.’",
+     "section": "8. Six Drawbacks of Gambling"
+    },
+    {
+     "n": 53,
+     "text": "These are the six drawbacks of habitually gambling.",
+     "section": "8. Six Drawbacks of Gambling"
+    },
+    {
+     "n": 54,
+     "text": "There are these six drawbacks of bad friends.",
+     "section": "9. Six Drawbacks of Bad Friends"
+    },
+    {
+     "n": 55,
+     "text": "You become friends and companions with those who are addicts, carousers, drunkards, frauds, swindlers, and thugs.",
+     "section": "9. Six Drawbacks of Bad Friends"
+    },
+    {
+     "n": 56,
+     "text": "These are the six drawbacks of bad friends.",
+     "section": "9. Six Drawbacks of Bad Friends"
+    },
+    {
+     "n": 57,
+     "text": "There are these six drawbacks of habitual laziness.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 58,
+     "text": "You don’t get your work done because you think: ‘It’s too cold! It’s too hot. It’s too late! It’s too early! I’m too hungry! I’m too full!’",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 59,
+     "text": "By dwelling on so many excuses for not working, you don’t make any more money, and the money you already have runs out.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 60,
+     "text": "These are the six drawbacks of habitual laziness.”",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 61,
+     "text": "That is what the Buddha said. Then the Holy One, the Teacher, went on to say:",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 62,
+     "text": "“Some are just drinking buddies,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 63,
+     "text": "some call you their dear, dear friend;",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 64,
+     "text": "but a friend in times of need",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 65,
+     "text": "is a comrade indeed.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 66,
+     "text": "Sleeping late, adultery,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 67,
+     "text": "making enemies, harmfulness,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 68,
+     "text": "bad friends, and avarice:",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 69,
+     "text": "these six grounds ruin a person.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 70,
+     "text": "With bad friends, bad comrades,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 71,
+     "text": "bad behavior and alms-resort,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 72,
+     "text": "a man falls to ruin",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 73,
+     "text": "in both this world and the next.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 74,
+     "text": "Dice, women, toddy, song and dance;",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 75,
+     "text": "sleeping by day and roaming at night;",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 76,
+     "text": "bad friends, and avarice:",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 77,
+     "text": "these six grounds ruin a person.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 78,
+     "text": "They play dice and drink beer,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 79,
+     "text": "and consort with women loved by others.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 80,
+     "text": "Associating with the worse, not the better,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 81,
+     "text": "they diminish like the waning moon.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 82,
+     "text": "One who is broke and destitute due to toddy,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 83,
+     "text": "thirsty, drinking in the bar,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 84,
+     "text": "drowning in debt,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 85,
+     "text": "will quickly lose their way.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 86,
+     "text": "When you’re in the habit of sleeping late,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 87,
+     "text": "seeing night as time to rise,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 88,
+     "text": "and always getting drunk,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 89,
+     "text": "you can’t keep up the household life.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 90,
+     "text": "‘Too cold, too hot,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 91,
+     "text": "too late,’ they say.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 92,
+     "text": "When the young neglect their work like this,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 93,
+     "text": "riches pass them by.",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 94,
+     "text": "But one who considers heat and cold",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 95,
+     "text": "as no more than blades of grass—",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 96,
+     "text": "he does his duties as a man,",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 97,
+     "text": "and happiness never fails.”",
+     "section": "10. Six Drawbacks of Laziness"
+    },
+    {
+     "n": 98,
+     "text": "“Householder’s son, you should recognize these four enemies disguised as friends: the taker, the talker, the flatterer, the spender.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 99,
+     "text": "You can recognize a fake friend who’s all take on four grounds.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 100,
+     "text": "Your possessions end up theirs.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 101,
+     "text": "Giving little, they expect a lot.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 102,
+     "text": "They do their duty out of fear.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 103,
+     "text": "They associate for their own advantage.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 104,
+     "text": "You can recognize a fake friend who’s all take on these four grounds.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 105,
+     "text": "You can recognize a fake friend who’s all talk on four grounds. They’re hospitable in the past. They’re hospitable in the future.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 106,
+     "text": "They’re full of meaningless pleasantries.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 107,
+     "text": "When something needs doing in the present they point to their own misfortune.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 108,
+     "text": "You can recognize a fake friend who’s all talk on these four grounds.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 109,
+     "text": "You can recognize a fake friend who’s a flatterer on four grounds.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 110,
+     "text": "They support you equally in doing bad and doing good.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 111,
+     "text": "They praise you to your face, and put you down behind your back.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 112,
+     "text": "You can recognize a fake friend who’s a flatterer on these four grounds.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 113,
+     "text": "You can recognize a fake friend who’s a spender on four grounds.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 114,
+     "text": "They accompany you when drinking, roaming the street markets at night, frequenting festivals, and gambling.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 115,
+     "text": "You can recognize a fake friend who’s a spender on these four grounds.”",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 116,
+     "text": "That is what the Buddha said. Then the Holy One, the Teacher, went on to say:",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 117,
+     "text": "“One friend is all take,",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 118,
+     "text": "another all talk;",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 119,
+     "text": "one’s just a flatterer,",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 120,
+     "text": "and one’s a comrade who spends.",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 121,
+     "text": "An astute person understands",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 122,
+     "text": "these four enemies for what they are",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 123,
+     "text": "and keeps them at a distance,",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 124,
+     "text": "as they’d shun a risky road.”",
+     "section": "11. Fake Friends"
+    },
+    {
+     "n": 125,
+     "text": "“Householder’s son, you should recognize these four good-hearted friends: the helper, the friend in good times and bad, the counselor, and the one who’s sympathetic.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 126,
+     "text": "You can recognize a good-hearted friend who’s a helper on four grounds. They guard you when you’re negligent.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 127,
+     "text": "They guard your property when you’re negligent. They keep you safe in times of danger.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 128,
+     "text": "When something needs doing, they provide you with twice the money you need.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 129,
+     "text": "You can recognize a good-hearted friend who’s a helper on these four grounds.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 130,
+     "text": "You can recognize a good-hearted friend who’s the same in good times and bad on four grounds. They tell you secrets. They keep your secrets.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 131,
+     "text": "They don’t abandon you in times of trouble.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 132,
+     "text": "They’d even give their life for your welfare.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 133,
+     "text": "You can recognize a good-hearted friend who’s the same in good times and bad on these four grounds.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 134,
+     "text": "You can recognize a good-hearted friend who’s a counselor on four grounds. They keep you from doing bad. They support you in doing good. They teach you what you do not know. They explain the path to heaven.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 135,
+     "text": "You can recognize a good-hearted friend who’s a counselor on these four grounds.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 136,
+     "text": "You can recognize a good-hearted friend who’s sympathetic on four grounds. They don’t delight in your misfortune. They delight in your good fortune. They keep others from criticizing you. They encourage praise of you.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 137,
+     "text": "You can recognize a good-hearted friend who’s sympathetic on these four grounds.”",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 138,
+     "text": "That is what the Buddha said. Then the Holy One, the Teacher, went on to say:",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 139,
+     "text": "“A friend who’s a helper,",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 140,
+     "text": "one the same in both pleasure and pain,",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 141,
+     "text": "a friend of good counsel,",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 142,
+     "text": "and one of sympathy;",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 143,
+     "text": "an astute person understands",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 144,
+     "text": "these four friends for what they are",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 145,
+     "text": "and carefully looks after them,",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 146,
+     "text": "like a mother the child at her breast.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 147,
+     "text": "The astute and virtuous",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 148,
+     "text": "shine like a burning flame.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 149,
+     "text": "They pick up riches as bees",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 150,
+     "text": "roaming round pick up pollen.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 151,
+     "text": "And their riches proceed to grow,",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 152,
+     "text": "like a termite mound piling up.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 153,
+     "text": "In gathering wealth like this,",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 154,
+     "text": "a householder does enough for their family.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 155,
+     "text": "And they’d hold on to friends",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 156,
+     "text": "by dividing their wealth in four.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 157,
+     "text": "One portion is to enjoy.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 158,
+     "text": "Two parts invest in work.",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 159,
+     "text": "And the fourth should be kept",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 160,
+     "text": "for times of trouble.”",
+     "section": "12. Good-Hearted Friends"
+    },
+    {
+     "n": 161,
+     "text": "“And how, householder’s son, does a noble disciple cover the six directions?",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 162,
+     "text": "These six directions should be recognized:",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 163,
+     "text": "parents as the east, tutors as the south, partner and children as the west, friends and colleagues as the north, bondservants and workers as beneath, and ascetics and brahmins as above.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 164,
+     "text": "A child should serve their parents as the eastern quarter in five ways, thinking: ‘I will support those who supported me. I’ll do my duty for them. I’ll maintain the family lineage. I’ll take care of the inheritance.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 165,
+     "text": "When they have passed away, I’ll make an offering on their behalf.’",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 166,
+     "text": "Parents served by the children in these five ways show sympathy to them in five ways. They keep them from doing bad. They support them in doing good. They train them in a profession.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 167,
+     "text": "They connect them with a suitable partner.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 168,
+     "text": "They transfer the inheritance in due time.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 169,
+     "text": "Parents served by their children in these five ways show sympathy to them in these five ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 170,
+     "text": "And that’s how the eastern quarter is covered, kept safe and free of peril.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 171,
+     "text": "A pupil should serve their tutor as the southern quarter in five ways: by rising for them, by serving them, by listening well, by looking after them, and by carefully learning their profession.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 172,
+     "text": "Tutors served by their pupils in these five ways show sympathy to them in five ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 173,
+     "text": "They make sure they’re well educated and well drilled in memorization.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 174,
+     "text": "They clearly explain all the knowledge of the profession.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 175,
+     "text": "They introduce them to their friends and colleagues.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 176,
+     "text": "They provide protection in every region.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 177,
+     "text": "Tutors served by their pupils in these five ways show sympathy to them in these five ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 178,
+     "text": "And that’s how the southern quarter is covered, kept safe and free of peril.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 179,
+     "text": "A husband should serve his wife as the western quarter in five ways:",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 180,
+     "text": "by treating her with honor, by not looking down on her, by not being unfaithful, by relinquishing authority to her, and by presenting her with adornments.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 181,
+     "text": "A wife served by her husband in these five ways shows sympathy to him in five ways. She’s well-organized in her work. She manages the domestic help. She’s not unfaithful. She preserves his earnings.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 182,
+     "text": "She’s deft and tireless in all her duties.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 183,
+     "text": "A wife served by her husband in these five ways shows sympathy to him in these five ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 184,
+     "text": "And that’s how the western quarter is covered, kept safe and free of peril.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 185,
+     "text": "A gentleman should serve his friends and colleagues as the northern quarter in five ways: giving, kindly words, taking care, equality, and not using tricky words.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 186,
+     "text": "Friends and colleagues served by a gentleman in these five ways show sympathy to him in five ways. They guard him when they’re negligent.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 187,
+     "text": "They guard his property when they’re negligent. They keep him safe in times of danger.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 188,
+     "text": "They don’t abandon him in times of trouble. They honor his descendants.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 189,
+     "text": "Friends and colleagues served by a gentleman in these five ways show sympathy to him in these five ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 190,
+     "text": "And that’s how the northern quarter is covered, kept safe and free of peril.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 191,
+     "text": "A master should serve their bondservants and workers as the lower quarter in five ways:",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 192,
+     "text": "by organizing work according to ability, by paying food and wages, by nursing them when sick, by sharing special treats, and by giving time off work.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 193,
+     "text": "Bondservants and workers served by a master in these five ways show sympathy to him in five ways. They get up first, and go to bed last. They don’t steal. They do their work well. And they promote a good reputation.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 194,
+     "text": "Bondservants and workers served by a master in these five ways show sympathy to him in these five ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 195,
+     "text": "And that’s how the lower quarter is covered, kept safe and free of peril.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 196,
+     "text": "A gentleman should serve ascetics and brahmins as the upper quarter in five ways: by loving deeds of body, speech, and mind, by not turning them away at the gate, and by providing them with material needs.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 197,
+     "text": "Ascetics and brahmins served by a gentleman in these five ways show sympathy to him in six ways. They keep him from doing bad. They support him in doing good. They think of him with kindly thoughts.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 198,
+     "text": "They teach him what he does not know. They clarify what he’s already learned. They explain the path to heaven.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 199,
+     "text": "Ascetics and brahmins served by a gentleman in these five ways show sympathy to him in these six ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 200,
+     "text": "And that’s how the upper quarter is covered, kept safe and free of peril.”",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 201,
+     "text": "That is what the Buddha said. Then the Holy One, the Teacher, went on to say:",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 202,
+     "text": "“Parents are the east,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 203,
+     "text": "tutors the south,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 204,
+     "text": "wives and child the west,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 205,
+     "text": "friends and colleagues the north,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 206,
+     "text": "servants and workers below,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 207,
+     "text": "and ascetics and brahmins above.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 208,
+     "text": "By honoring these quarters",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 209,
+     "text": "a householder does enough for their family.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 210,
+     "text": "The astute and the virtuous,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 211,
+     "text": "the gentle and the articulate,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 212,
+     "text": "the placid in manner and the amenable:",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 213,
+     "text": "they’re the kind who win glory.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 214,
+     "text": "The diligent, not lazy,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 215,
+     "text": "those not disturbed by troubles,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 216,
+     "text": "those consistent in conduct, the intelligent:",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 217,
+     "text": "they’re the kind who win glory.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 218,
+     "text": "The inclusive, the makers of friends,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 219,
+     "text": "the bountiful, those rid of stinginess,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 220,
+     "text": "those who lead, train, and persuade:",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 221,
+     "text": "they’re the kind who win glory.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 222,
+     "text": "Giving and kindly words,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 223,
+     "text": "taking care here,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 224,
+     "text": "and treating equally in worldly conditions,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 225,
+     "text": "as they deserve in each case;",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 226,
+     "text": "these ways of being inclusive in the world",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 227,
+     "text": "are like a moving chariot’s linchpin.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 228,
+     "text": "If there were no such ways of being inclusive,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 229,
+     "text": "neither mother nor father",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 230,
+     "text": "would be respected and honored",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 231,
+     "text": "for what they’ve done for their children.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 232,
+     "text": "But since these ways of being inclusive do exist,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 233,
+     "text": "the astute do regard them well,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 234,
+     "text": "so they achieve greatness",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 235,
+     "text": "and are praised.”",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 236,
+     "text": "When this was said, Sigālaka the householder’s son said to the Buddha, “Excellent, sir! Excellent!",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 237,
+     "text": "As if he were righting the overturned, or revealing the hidden, or pointing out the path to the lost, or lighting a lamp in the dark so people with clear eyes can see what’s there,",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 238,
+     "text": "the Buddha has made the teaching clear in many ways.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 239,
+     "text": "I go for refuge to the Buddha, to the teaching, and to the mendicant Saṅgha.",
+     "section": "13. Covering the Six Directions"
+    },
+    {
+     "n": 240,
+     "text": "From this day forth, may the Buddha remember me as a lay follower who has gone for refuge for life.”",
+     "section": "13. Covering the Six Directions"
+    }
+   ]
+  }
+ ]
+}

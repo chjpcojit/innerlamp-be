@@ -1,0 +1,86 @@
+{
+ "id": "chu-tieu-tai-cat-tuong",
+ "tradition": "MAHAYANA",
+ "kind": "DHARANI",
+ "collection": "Thập Chú",
+ "reference": "",
+ "originalTitle": "Kinh Xí Thạnh Quang Đại Oai Đức Tiêu Tai Cát Tường Đà La Ni",
+ "summary": "Một trong Thập Chú, được dẫn từ Kinh Xí Thạnh Quang Đại Oai Đức Tiêu Tai Cát Tường Đà La Ni. Phần nghĩa trong nguồn hướng đến ánh lửa rực rỡ nơi Đỉnh tướng của Như Lai, cầu phá tan các chướng ngại trong ngoài, dứt trừ tai nạn và được an vui tốt lành. Thường được tụng trong thời khóa Thập Chú với ý nguyện tiêu trừ tai ách.",
+ "titles": {
+  "vi": "Tiêu Tai Cát Tường Thần Chú",
+  "zh": "消災吉祥神咒",
+  "en": "Disaster-Eliminating Auspicious Mantra"
+ },
+ "deities": [],
+ "dailyChant": true,
+ "purposes": [
+  "TRI_CHU",
+  "CAU_AN"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "không ghi (bản Việt âm phổ thông)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Âm Hán\" của nguồn (phiên âm Hán-Việt). Ngắt dòng theo câu của nguồn; câu dài ngắt tại dấu phẩy. Giữ nguyên dấu gạch nối/viết hoa của nguồn. Đối chiếu Thiện Thành: \"mẫu đà nẩm. Á bát ra để\" / \"mẫu đà nẫm, a bát ra để\" (chỉ khác dấu/viết hoa).",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nẳng mồ tam mãn đa, mẫu đà nẩm."
+    },
+    {
+     "n": 2,
+     "text": "Á bát ra để, hạ đa xá ta nẳng nẩm."
+    },
+    {
+     "n": 3,
+     "text": "Đát điệt tha."
+    },
+    {
+     "n": 4,
+     "text": "Án, khê khê, khê hế, khê hế, hồng hồng, nhập phạ ra, nhập phạ ra, bát ra nhập phạ ra,"
+    },
+    {
+     "n": 5,
+     "text": "bát ra nhập phạ ra, để sắc sá, để sắc sá, sắc trí rị, sắc trí rị, ta phấn tra, ta phấn tra,"
+    },
+    {
+     "n": 6,
+     "text": "phiến để ca thất rị duệ, ta phạ ha."
+    }
+   ]
+  },
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "variant": "meaning",
+   "translator": "không ghi (nguồn do Minh Chính tổng hợp)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Nghĩa\" của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Hỡi ánh lửa rực rỡ của Như Lai Vô Kiến Đỉnh Tướng đã thiêu cháy mọi năng chấp,"
+    },
+    {
+     "n": 2,
+     "text": "sở chấp hãy tỏa sáng rực rỡ khiến cho con được an trú trong sự gia trì này nhằm phá tan sự trì độn chậm chạp của Nội Chướng và Ngoại Chướng."
+    },
+    {
+     "n": 3,
+     "text": "Đồng thời khiến cho con dứt trừ được mọi tai nạn, thành tựu sự an vui tốt lành."
+    }
+   ]
+  }
+ ]
+}

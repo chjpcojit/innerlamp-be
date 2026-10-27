@@ -1,0 +1,4032 @@
+{
+ "id": "vo-luong-nghia",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Pháp Hoa",
+ "reference": "Taishō T0276",
+ "summary": "Kinh Đại thừa được xem là phần mở đầu cho Kinh Pháp Hoa, bản chữ Hán Taishō T0276. Kinh kể Đức Phật ở núi Kỳ Xà Quật cùng đại chúng, tán thán đức hạnh các Bồ tát và giảng về pháp môn vô lượng nghĩa vốn sinh từ một pháp duy nhất. Cuối kinh, các Bồ tát nguyện thọ trì, lưu truyền kinh này sau khi Phật diệt độ.",
+ "titles": {
+  "vi": "Kinh Vô Lượng Nghĩa",
+  "zh": "無量義經",
+  "en": "Sutra of Innumerable Meanings"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "bodhisattva_manjushri",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "buddha_maitreya",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_bhaisajyaraja",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_mahasthamaprapta",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 100,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "không ghi tên dịch giả từng kinh (bộ Việt tạng do HT Thích Tịnh Hạnh tổ chức phiên dịch, Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản)",
+   "sourceName": "Linh Sơn Pháp Bảo Đại Tạng Kinh (Việt tạng) - Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản - Tập 36 (Bộ Hoa Nghiêm 1), Số 276 Kinh Vô Lượng Nghĩa, tr. 33-50 (Hán dịch: Đàm-ma-già-đà-da-xá, đời Diêu Tần)",
+   "sourceUrl": "https://www.daitangkinh.org/images/pdf/flip-dtk/T036%20uni-hoanghiem1.pdf",
+   "license": "UNKNOWN",
+   "licenseNote": "các tập PDF trên daitangkinh.org không có tuyên bố bản quyền/giấy phép; lời nói đầu chỉ nói đây là bộ Việt tạng do Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản",
+   "note": "Trích từ PDF bằng pdfminer; đã nối dòng ngắt trang, bỏ tiêu đề/số trang. Giữ nguyên chính tả nguồn (vd \"chúng hộ\" có lẽ là \"chúng hội\").",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe như vầy:",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 2,
+     "text": "Một thuở nọ ở núi Kỳ-xà-quật nơi thành Vương xá, Đức Phật cùng với chúng đại Tỳ-kheo một vạn hai ngàn vị, tám vạn Đại Bồ-tát và các vị Tỳ-kheo, Tỳ-kheo-ni,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 3,
+     "text": "Ưu-bà-tắc, Ưu-bà-di, Trời, Rồng, Dạ-xoa, Càn-thát-bà, A-tu-la, Ca-lầu-la, Khẩn-na-la, Ma-hầu-la-già, đại Chuyển luân vương, tiểu Chuyển luân vương,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 4,
+     "text": "Kim luân, Ngân luân, cùng các vị Luân vương khác, các Quốc vương, Vương tử, Đại thần, Học sĩ, Trưởng giả cùng với quyến thuộc đông đến trăm ngàn vạn ức đều đi đến chỗ Phật,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 5,
+     "text": "đảnh lễ dưới chân, đi quanh trăm ngàn vòng, đốt hương rải hoa và dâng các món cúng dường Đức Phật, rồi ngồi qua một bên.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 6,
+     "text": "Các vị Bồ-tát ấy là: Văn-thù-sư-lợi pháp vương tử, Đại Oai Đức Tạng Pháp vương tử, Vô Ưu Tạng Pháp vương tử, Đại Biện Tạng Pháp vương tử, Bồ-tát Di-lặc, Bồ tác Đạo Thủ, Bồ-tát Dược Vương,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 7,
+     "text": "Bồ-tát Dược Thượng, Bồ-tát Hoa Tràng, Bồ-tát Hoa Quang, Bồ-tát Đà-la-ni Tự Tại Vương, Bồ-tát Quan Thế Âm, Bồ-tát Đại Thế Chí, Bồ-tát Thường Tinh Tấn,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 8,
+     "text": "Bồ-tát Bảo Ấn Thủ, Bồ-tát Bảo Tích, Bồ-tát Bảo Trượng, Bồ-tát Việt Tam Giới, Bồ-tát Tỳ-ma-bạt-la, Bồ-tát Hương Tượng, Bồ-tát Đại Hương Tượng, Bồ-tát Sư Tử Hống Vương,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 9,
+     "text": "Bồ-tát Sư Tử Du Hý Thế, Bồ-tát Sư Tử Phấn Tấn, Bồ-tát Sư Tử Tinh Tấn Bồ-tát Dũng Nhuệ Lực, Bồ-tát Sư Tử Oai Mãnh Phục, Bồ-tát Trang Nghiêm, Bồ-tát Đại Trang Nghiêm…",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 10,
+     "text": "Tám vạn Đại Bồ-tát này đều là Pháp thân Đại sĩ đã thành tựu giới, định, tuệ, giải thoát, giải thoát tri kiến, tâm tịch tĩnh, thường trụ Tam-muội,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 11,
+     "text": "điềm nhiên an lạc, không sợ hãi, không ham muốn, các vọng tưởng điên đảo không thể xen vào, vắng lặng trong sạch, chí nguyện như hư không.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 12,
+     "text": "Các vị Bồ-tát ấy thường giữ chí bất động trong trăm ngàn ức kiếp, vô lượng pháp môn thường hiện rõ, trí tuệ cao siêu,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 13,
+     "text": "thông suốt các pháp, phân biệt rõ ràng tánh tướng chân thật, có, không, dài, ngắn điều tỏ rõ phân minh.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 14,
+     "text": "Các vị Bồ-tát ấy lại biết được ý muốn của các căn bằng Đà-la-ni biện luận thông suốt tùy thuận căn cơ của chúng sinh để Chuyển pháp luân của chư Phật.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 15,
+     "text": "Trước tiên, vẩy nước Chánh pháp để dập tắt dục trần, mở cửa Niết-bàn, quạt gió Giải thoát, xua tan phiền não nóng bức làm cho thế gian được mát mẻ.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 16,
+     "text": "Tiếp đến ban cho giáo pháp mười hai Nhân duyên thâm sâu để rưới lửa vô minh, già, bệnh, chết, dập tắt khổ não đang cháy rực như ánh mặt trời, tuôn mưa Đại thừa vô thượng thấm nhầm chúng sinh đã có căn lành,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 17,
+     "text": "gieo hạt giống thiện khắp ruộng công đức làm cho tất cả phát sinh mầm Bồ-đề, lấy trí tuệ làm ngày tháng,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 18,
+     "text": "lấy phương tiện làm thời tiết, trợ giúp cho sự nghiệp Đại thừa tăng trưởng, giúp chúng sinh mau thành Vô thượng Chánh đẳng Chánh giác.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 19,
+     "text": "Các vị Bồ-tát ấy thường trụ an lạc ở chân như vi diệu, dùng vô lượng đại Bi cứu độ chúng sinh đau khổ, là Thiện tri thức,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 20,
+     "text": "là ruộng phước lớn là vị Thầy tự đến của chúng sinh là chốn an ổn vui vẻ, là nơi cứu độ, bảo hộ, là chỗ nương tựa vĩ đại của chúng sinh khắp nơi đều vì chúng sinh để làm vị Đạo sư cao cả.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 21,
+     "text": "Làm mắt, tai, mũi, lưỡi cho những người mù, câm, ngọng, điếc.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 22,
+     "text": "Chúng sinh nào các căn bị hư thiếu đều làm cho được đầy đủ, làm chánh niệm cho kẻ điên cuồng, hoảng loạn, làm vị đại thuyền trưởng trong các vị thuyền trưởng đưa chúng sinh vượt dòng sinh tử đến bờ Niết-bàn,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 23,
+     "text": "làm vị lương y giỏi trong các vị lương y phân biệt bệnh tình, hiểu rõ dược tánh, tùy theo bệnh để cho thuốc khiến chúng sinh đều vui vẻ sử dụng, là Bậc Đại Điều Ngự Sư trong các bậc Điều ngự, không hành động buông lung.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 24,
+     "text": "Như người điều phục voi, ngựa giỏi điều phục loại voi, ngựa khó điều phục.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 25,
+     "text": "Như sư tử hùng mạnh có uy thu phục các loài thú, không thể bị thua.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 26,
+     "text": "Bồ-tát dạo chơi trong các pháp Ba-la-mật, kiên cố bất động đối với quả vị Như Lai, an trụ trong nguyện lực làm nghiêm tịnh cõi Phật không bao lâu sẽ thành tựu Vô thượng Chánh đẳng Chánh giác.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 27,
+     "text": "Các vị Đại Bồ-tát ấy đều có công đức không thể nghĩ làm như vậy.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 28,
+     "text": "Các vị Tỳ-kheo ấy là: Đại tri Xá-lợi-phất, Thần thông Mục-kiền-liên, Tuệ mạng Tu-bồ-đề, Ma-ha Ca-chiên-diên, Phú-lâu-na Di-đa-la-ni Tử, A-nhã Kiều-trần-như, Thiên nhãn A-na-luật,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 29,
+     "text": "Trì luật Ưu-ba-ly, Thị giả A-nan, Phật tử La-vân, A-nan-đà, Ly-bà-đa, Kiếp-tân-na, Bạt-câu-la, Châu-đà, Sà-dà-đà, Đầu-đà Ca-diếp, Na-đề Ca-diếp…",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 30,
+     "text": "Một vạn hai ngàn vị Tỳ-kheo ấy đều là bậc A-la-hán, chân chánh giải thoát, hết các kết sử lậu hoặc, không còn bị phiền não trói buộc.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 31,
+     "text": "Bấy giờ, Đại Bồ-tát Đại Trang Nghiêm, quan sát chúng hội, đều đạt định ý rồi, liền cùng tám vạn Đại Bồ-tát trong chúng hộ đứng dậy, đi đến chỗ Phật, đảnh lễ dưới chân đi quanh trăm ngàn vòng,",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 32,
+     "text": "đốt hương, rải hoa trời, dâng y trời, tràng anh lạc trời, ngọc vô giá cõi trời từ hư không xoay tròn rồi rơi xuống như mây, tụ lại khắp bốn phương để dâng cúng Đức Phật.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 33,
+     "text": "Các món thức ăn cõi trời, bình bát cõi trời, trăm vị thơm ngon cõi trời đều đựng đầy, ai thấy sắc, ngửi hương tự nhiên no đủ.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 34,
+     "text": "Khắp nơi đều có cờ trời, phướn trời, lọng trời, nhạc cụ vi diệu cõi trời hòa tấu, âm nhạc trời vui nhộn Đức Phật.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 35,
+     "text": "Mọi người đều quỳ gối chắp tay một lòng đồng thanh nói kệ tán thán Đức Phật:",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 36,
+     "text": "–Lành thay, Bậc Đại Thánh Đại Ngộ không nhiễm, không dơ, không đắm trước!",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 37,
+     "text": "Đấng Điều Ngự trời, người, muôn loài",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 38,
+     "text": "Gió đạo đức thơm tỏa khắp nơi",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 39,
+     "text": "Trí sáng rỡ, tâm trong vắng lặng",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 40,
+     "text": "Ý hết vọng, tâm thức tịch tĩnh",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 41,
+     "text": "Tư tưởng, niệm mộng đều dứt hẳn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 42,
+     "text": "Các đại, ấm, giới, nhập không còn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 43,
+     "text": "Cũng chẳng không, chẳng có thân này",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 44,
+     "text": "Chẳng nhân duyên, chẳng phải tự, tha",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 45,
+     "text": "Chẳng vuông, tròn cũng chẳng dài, ngắn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 46,
+     "text": "Chẳng sinh, diệt cũng chẳng ẩn hiện",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 47,
+     "text": "Chẳng tạo tác cũng chẳng sinh khởi",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 48,
+     "text": "Chẳng ngồi, nằm cũng chẳng đứng, đi",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 49,
+     "text": "Chẳng yên, tịnh cũng chẳng động, chuyển",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 50,
+     "text": "Chẳng tiến, lùi cũng chẳng an, nguy",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 51,
+     "text": "Chẳng phải, trái cũng chẳng được mất",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 52,
+     "text": "Chẳng đó, đây cũng chẳng tới, lui",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 53,
+     "text": "Chẳng đỏ, xanh, vàng, trắng, tía, hồng",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 54,
+     "text": "Cũng chẳng phải bao màu sắc khác",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 55,
+     "text": "Giới, Định, Tuệ cùng với Giải thoát",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 56,
+     "text": "Sáu Thông với các phẩm Trợ đạo",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 57,
+     "text": "Bốn Vô úy, mười Lực, Từ bi",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 58,
+     "text": "Các nghiệp thiện đều được phát sinh",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 59,
+     "text": "Hiện thân trượng sáu vàng rực rỡ",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 60,
+     "text": "Trang nghiêm, đẹp đẽ, chiếu sáng ngời",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 61,
+     "text": "Bạch hào như trăng, đỉnh mặt trời",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 62,
+     "text": "Tóc xoáy biếc xanh, đầu nhục kế",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 63,
+     "text": "Mắt trong chiếu sáng, nhìn trên dưới",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 64,
+     "text": "Mi xanh, mày biếc, miệng má vuông",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 65,
+     "text": "Môi lưỡi đỏ, đẹp như hoa thắm",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 66,
+     "text": "Bốn mươi răng trắng tựa ngọc kha.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 67,
+     "text": "Trán rộng, mũi thẳng, mặt tròn đầy",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 68,
+     "text": "Ngực nổi chữ vạn, ức sư tử",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 69,
+     "text": "Chân tay mềm mại đủ ngàn xoáy",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 70,
+     "text": "Tay có màng lưới nắm trong ngoài",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 71,
+     "text": "Cánh tay các ngón dài, thon, thẳng",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 72,
+     "text": "Da mịn, lông xoáy về bên phải",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 73,
+     "text": "Gối, gót không hiện, mã âm tàng",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 74,
+     "text": "Gân nhỏ, xương hiền, đùi như nai",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 75,
+     "text": "Trong ngoài đều sạch không vết dơ",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 76,
+     "text": "Như nước trong không nhiễm chút bụi",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 77,
+     "text": "Ba mươi hai tướng tốt như vậy.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 78,
+     "text": "Tám mươi vẻ đẹp ưa ngắm nhìn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 79,
+     "text": "Mà thật không tướng không sắc tướng",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 80,
+     "text": "Tất cả các căn mắt đối sắc.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 81,
+     "text": "Tướng của vô tướng có thân tướng",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 82,
+     "text": "Thân tướng chúng sinh cũng như vậy",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 83,
+     "text": "Làm cho muôn loài hoan hỷ lạy",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 84,
+     "text": "Biểu hiện hết tấm lòng thành kính",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 85,
+     "text": "Do đó trừ tự cao, ngã mạn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 86,
+     "text": "Thành tựu sắc thân đẹp đẽ ấy",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 87,
+     "text": "Đệ tử chúng con hơn tám vạn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 88,
+     "text": "Cùng nhau cúi đầu, cung kính lễ",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 89,
+     "text": "Diệt sạch tư tưởng, tâm, ý, thức",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 90,
+     "text": "Vô Trước Thánh điều ngự ngựa, voi",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 91,
+     "text": "Quy y Pháp, sắc thân, giới, định",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 92,
+     "text": "Tuệ, giải thoát, giải thoát tri kiến",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 93,
+     "text": "Cúi đầu quy y tướng vi diệu",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 94,
+     "text": "Cúi đầu quy y khó nghĩ bàn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 95,
+     "text": "Tám loại Phạm âm, vang như sấm",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 96,
+     "text": "Vi diệu, thanh tịnh vang rất xa",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 97,
+     "text": "Bốn Đế, sáu Độ, mười hai Duyên",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 98,
+     "text": "Vận chuyển thuận theo tâm chúng sinh",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 99,
+     "text": "Người nghe đều được khai tâm, ý",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 100,
+     "text": "Dứt hết sinh tử các kết sử",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 101,
+     "text": "Người nghe được quả Tu-đà-hoàn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 102,
+     "text": "Tư-đà, A-na, A-la-hán",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 103,
+     "text": "Vô lậu, vô vi hoặc Duyên giác",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 104,
+     "text": "Vô sinh, vô diệt, quả Bồ-đề",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 105,
+     "text": "Hoặc được vô lượng Đà-la-ni",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 106,
+     "text": "Biện luận thông suốt, không ngăn ngại",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 107,
+     "text": "Diễn nói kệ vi diệu thâm sâu",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 108,
+     "text": "Du hý tắm gội ao pháp trong",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 109,
+     "text": "Hoặc hiện thần thông bay trên không",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 110,
+     "text": "Thân tự tại phát ra nước, lửa",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 111,
+     "text": "Tất cả tướng pháp luôn như vậy",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 112,
+     "text": "Thanh tịnh, vô biên khó nghĩ bàn",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 113,
+     "text": "Chúng con cùng xin đảnh lễ Phật",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 114,
+     "text": "Quy y Pháp luân chuyển đúng lúc",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 115,
+     "text": "Cúi đầu đảnh lễ tiếng Phạm âm",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 116,
+     "text": "Đảnh lễ Bậc thực hành các Độ",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 117,
+     "text": "Thế Tôn vô lượng kiếp xa xưa",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 118,
+     "text": "Cần khổ siêng tu bao đức hạnh",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 119,
+     "text": "Vì chúng con, Trời, Người, Rồng, Thần",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 120,
+     "text": "Và tất cả các chúng sinh khác",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 121,
+     "text": "Mà xả bỏ các vật khó xả",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 122,
+     "text": "Của báu, vợ, con và thành, nước",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 123,
+     "text": "Không còn tiếc giữ pháp trong ngoài",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 124,
+     "text": "Đầu, mắt, tủy, não đều cho người",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 125,
+     "text": "Phụng trì giới cấm của chư Phật",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 126,
+     "text": "Dù phải mất mạng không hủy bỏ",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 127,
+     "text": "Nếu người dùng dao, gậy làm hại",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 128,
+     "text": "Lời ác, mắng chửi cũng không giận",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 129,
+     "text": "Nhiều kiếp bỏ thân không nhàm chán",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 130,
+     "text": "Ngày đêm thường nhiếp tâm tại định",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 131,
+     "text": "Tất cả đạo pháp đều học thông",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 132,
+     "text": "Trí tuệ, hiểu rõ tâm chúng sinh",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 133,
+     "text": "Cho nên được năng lực tự tại",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 134,
+     "text": "Pháp vương tự tại trong các pháp",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 135,
+     "text": "Chúng con cúi đầu xin kính lễ",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 136,
+     "text": "Quy y Bậc làm việc khó làm.",
+     "section": "Phẩm 1: Đức Hạnh"
+    },
+    {
+     "n": 137,
+     "text": "Bấy giờ, Đại Bồ-tát Đại Trang Nghiêm cùng tám vạn Đại Bồ-tát nói kệ tán thán Đức Phật xong, cùng nhau bạch Phật:",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 138,
+     "text": "–Bạch Thế Tôn! Tám vạn Bồ-tát lúc này đối với giáo pháp của Như Lai có việc muốn hỏi, không biết Thế Tôn có cho phép không?",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 139,
+     "text": "Đức Phật bảo Đại Bồ-tát Đại Trang Nghiêm và tám vạn Đại Bồ-tát:",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 140,
+     "text": "–Lành thay, lành thay! Này thiện nam, nên biết đúng lúc, tùy theo ý các ông hỏi, Như Lai không bao lâu sẽ nhập Niết-bàn.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 141,
+     "text": "Sau khi Niết-bàn làm cho tất cả chúng sinh đều không còn nghi ngờ. Vậy ai muốn hỏi điều gì thì nói ra.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 142,
+     "text": "Đại Bồ-tát Đại Trang Nghiêm và tám vạn Đại Bồ-tát đồng thanh bạch Phật:",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 143,
+     "text": "–Bạch Thế Tôn! Đại Bồ-tát muốn mau thành Vô thượng Chánh đẳng Chánh giác phải tu những pháp môn nào?",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 144,
+     "text": "Những pháp môn nào có thể làm cho Đại Bồ-tát mau chứng Vô thượng Bồ-đề.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 145,
+     "text": "–Bạch Thế Tôn! Pháp môn ấy tên gọi là gì?",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 146,
+     "text": "Nghĩa lý ra sao? Bồ-tát phải tu hành như thế nào?",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 147,
+     "text": "Đức Phật dạy:",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 148,
+     "text": "–Này thiện nam! Pháp môn ấy tên là Vô lượng nghĩa.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 149,
+     "text": "Bồ-tát nào muốn tu học Vô lượng nghĩa thì phải quan sát các pháp xưa nay tánh tướng không tịch, không lớn, không nhỏ,",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 150,
+     "text": "không sinh, không diệt, không trụ, không động, không tiến, không lùi, giống như hư không, không có hai pháp.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 151,
+     "text": "Nhưng chúng sinh mê chấp vào pháp hư vọng, chấp đây, chấp kia, chấp được, chấp mất, phát sinh niệm ác nên bị luân hồi trong sáu đường, chịu vô lượng khổ, trải qua muôn vàn ức kiếp không ra khỏi được.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 152,
+     "text": "Các Đại Bồ-tát quan sát như vậy xong, đem lòng thương xót, khởi tâm đại Bi cứu giúp họ.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 153,
+     "text": "Các Đại Bồ-tát đã thâm nhập các pháp, thấu hiểu pháp tướng như vậy nên pháp sinh như vậy, pháp tướng như vậy nên pháp trụ, dị, diệt như vậy.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 154,
+     "text": "Pháp tướng như vậy nên sinh ra ác pháp. Pháp tướng như vậy nên sinh ra thiện pháp.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 155,
+     "text": "Pháp trụ, dị, diệt cũng như vậy. Bồ-tát quan sát như thế biết rõ đầu đuôi của bốn tướng.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 156,
+     "text": "Kế đến lại quán sát các pháp niệm niệm không dừng, sinh diệt liên tục; quán ngay khi ấy không có sinh, trụ, dị, diệt, quán như vậy rồi biết được các căn, tánh dục của chúng sinh.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 157,
+     "text": "Vì tánh dục vô lượng nên thuyết pháp cũng vô lượng.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 158,
+     "text": "Vì thuyết pháp vô lượng nên nghĩa cũng vô lượng.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 159,
+     "text": "Vô lượng nghĩa đều sinh ra từ một pháp. Một pháp ấy là vô tướng.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 160,
+     "text": "Vô tướng như vậy là vô tướng không tướng.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 161,
+     "text": "Không tướng cũng vô tướng gọi là thật tướng.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 162,
+     "text": "Đại Bồ-tát an trụ vào tướng chân thật xong, phát khởi Từ bi chân thật, sáng suốt không sai, đối với chúng sinh khổ não nào có thể diệt khổ não, thì thuyết pháp cho họ đều được an lạc.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 163,
+     "text": "Này thiện nam, Đại Bồ-tát nào tu hành pháp môn Vô lượng nghĩa này thì mau thành Vô thượng Chánh đẳng Chánh giác.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 164,
+     "text": "Này thiện nam! Kinh Đại Thừa Vô Lượng Nghĩa thậm thâm vô thượng, nghĩa lý đúng đắn, tôn quý hơn hết.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 165,
+     "text": "Chư Phật ba đời cùng nhau giữ gìn, không bị chúng ma, ngoại đạo xen vào, không bị tất cả tà kiến sinh tử hủy hoại.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 166,
+     "text": "Cho nên, này thiện nam! Đại Bồ-tát nào muốn thành Vô thượng Bồ-đề phải nên tu hành kinh Vô Lượng Nghĩa thậm thâm vô thượng này.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 167,
+     "text": "Khi ấy Đại Bồ-tát Đại Trang Nghiêm bạch Phật:",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 168,
+     "text": "–Bạch Thế Tôn! Thế Tôn thuyết pháp không thể nghĩ bàn, căn tánh chúng sinh không thể nghĩ bàn, pháp môn giải thoát cũng không thể nghĩ bàn.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 169,
+     "text": "Đối với giáo pháp Đức Phật đã thuyết giảng chúng con không còn nghi ngờ.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 170,
+     "text": "Nhưng vì các chúng sinh mê muội, chúng con lại xin hỏi Thế Tôn!",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 171,
+     "text": "Bạch Thế Tôn! Từ khi thành đạo đến nay đã hơn bốn mươi năm, Như Lai thường thuyết giảng về nghĩa lý bốn tướng của các pháp cho chúng sinh.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 172,
+     "text": "Đó là khổ, không, vô thường, vô ngã không lớn, không nhỏ, không sinh, không diệt, nhất tướng, tất cả vô tướng, pháp tánh, pháp tướng xưa nay không tịch, không đến, không đi, không ẩn, không hiện.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 173,
+     "text": "Người nào nghe pháp này thì sẽ được các pháp Noãn, Đảnh, Nhẫn, Thế đệ nhất, Tu-đà-hoàn, Tư-đà-hàm, A-na-hàm, A-la-hán, Bích-chi-phật, tâm Bồ-đề, quả vị thứ nhất, thứ hai, thứ ba, cho đến quả vị thứ mười.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 174,
+     "text": "Ý nghĩa đã nói trước đây so với bây giờ có gì khác nhau mà nói kinh Đại Thừa Vô Lượng Nghĩa thì thậm thâm vô thượng, nếu Bồ-tát tu hành chắc chắn mau chứng Vô thượng Bồ-đề, việc ấy thế nào.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 175,
+     "text": "Cúi xin Thế Tôn thương xót tất cả, vì chúng sinh mà phân biệt rõ ràng làm cho hiện tại và tương lai người nào được nghe pháp này thì không còn nghi ngờ.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 176,
+     "text": "Đức Thế Tôn bảo Đại Bồ-tát Đại Trang Nghiêm:",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 177,
+     "text": "–Lành thay, lành thay! Đại thiện nam mới có thể hỏi Như Lai về ý nghĩa Đại thừa vô thượng thậm thâm vi diệu này.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 178,
+     "text": "Nên biết ông có khả năng làm nhiều điều lợi ích, làm an ổn trời, người, cứu khổ chúng sinh, có đại Từ bi chân thật, tin chắc không sai.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 179,
+     "text": "Vì nhân duyên này chắc chắn thành Vô thượng Bồ-đề và cũng làm cho chúng sinh đời này, đời sau mau thành Phật.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 180,
+     "text": "Này thiện nam! Từ khi đến đạo tràng trải qua sáu năm, ta ngồi tư duy dưới gốc cây Bồ-đề nên được thành đạo Vô thượng Chánh đẳng Chánh giác.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 181,
+     "text": "Ta dùng Phật nhãn quan sát các pháp mà chưa thể nói.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 182,
+     "text": "Vì sao? Vì các chúng sinh tánh dục khác nhau, vì tánh dục khác nhau nên nói pháp khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 183,
+     "text": "Nói pháp khác nhau nhờ bằng năng lực phương tiện, nên hơn bốn mươi năm, ta chưa từng nói lên sự thật.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 184,
+     "text": "Do đó chúng sinh đắc đạo khác nhau, không được sớm thành Vô thượng Bồ-đề.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 185,
+     "text": "Này thiện nam! Pháp như nước có thể rửa sạch dơ bẩn, dù nước giếng, nước ao, nước sông, nước ngòi, nước khe, nước suối, nước biển đều rửa sạch những gì dơ bẩn.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 186,
+     "text": "Nước pháp có thể tẩy trừ phiền não cấu uế của chúng sinh.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 187,
+     "text": "Này thiện nam! Tánh nước là một nhưng nước sông, nước ngòi, nước giếng, nước khe, nước suối hay nước biển đều khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 188,
+     "text": "Tánh pháp cũng vậy tẩy trừ mọi trần lao phiền não…",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 189,
+     "text": "Ba pháp, bốn quả hai đạo không phải một ư?",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 190,
+     "text": "Này thiện nam! Nước tuy dùng để rửa mà nước giếng không phải nước ao.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 191,
+     "text": "Nước ao không phải nước sông ngòi, nước khe, suối không phải nước biển.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 192,
+     "text": "Đối với các pháp tự tại Như Lai đại hùng thuyết giảng ở thế gian cũng như vậy.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 193,
+     "text": "Lời dạy ban đầu, giữa, sau đều tẩy trừ phiền não cho chúng sinh mà lời dạy ban đầu không phải lời dạy giữa.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 194,
+     "text": "Lời dạy giữa không phải lời dạy sau. Giáo pháp được giảng thuyết ban đầu, giữa, sau lời văn tuy một mà nghĩa lý khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 195,
+     "text": "Này thiện nam! Lúc rời cội Bồ-đề đến vườn Lộc uyển tại thành Ba-la-nại, ta chuyển pháp luân bốn Đế cho năm anh em A-nhã Câu-lân và cũng giảng nói các pháp xưa nay vắng lặng, thay đổi không dừng, niệm niệm sinh diệt.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 196,
+     "text": "Thời gian sau đó, ở đây và các nơi khác ta cũng giảng nói mười hai Nhân duyên, sáu pháp Ba-la-mật, cũng dạy các pháp xưa nay vắng lặng, thay đổi không dừng niệm niệm sinh diệt cho chúng Tỳ-kheo và Bồ-tát nghe.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 197,
+     "text": "Nay đây ta cũng giảng thuyết kinh Đại Thừa Vô Lượng Nghĩa và cũng nói các pháp xưa nay vắng lặng, thay đổi không dừng, niệm niệm sinh diệt.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 198,
+     "text": "Này thiện nam! Vì thế lời dạy ban đầu, giữa và sau văn tự là một mà nghĩa lý sai khác.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 199,
+     "text": "Vì nghĩa lý khác nhau nên chúng sinh hiểu khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 200,
+     "text": "Vì hiểu khác nhau nên đắc pháp, đắc đạo, đắc quả khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 201,
+     "text": "Này thiện nam! Ban đầu vì người cầu quả Thanh văn, ta nói pháp bốn Đế, nên tám ức chư Thiên đi đến nghe pháp đều phát tâm Bồ-đề.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 202,
+     "text": "Sau đó, khắp mọi nơi vì người cầu quả Bích-chi-phật, ta nói pháp mười hai Nhân duyên nên vô lượng chúng sinh đều phát tâm Bồ-đề, hoặc an trụ quả Thanh văn.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 203,
+     "text": "Kế đến ta tuyên thuyết mười hai bộ kinh Phương Đẳng như: Đại Bát-nhã, Hoa Nghiêm, Hải Vân...",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 204,
+     "text": "Nói về quá khứ tu hành của Bồ-tát nên trăm ngàn Tỳ-kheo, vạn ức trời, người, vô lượng chúng sinh đắc quả Tu-đà-hoàn, Tư-đà-hàm, A-na-hàm, A-la-hán, an trụ vào pháp nhân duyên của chư Phật.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 205,
+     "text": "Này thiện nam! Vì nghĩa như thế nên biết thuyết pháp giống nhau mà nghĩa lý khác nhau, vì nghĩa khác nhau nên chúng sinh hiểu khác nhau, vì nghĩa khác nhau nên đắc pháp, đắc đạo, đắc quả khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 206,
+     "text": "Vì thế, này thiện nam! Từ khi đắc đạo, ban đầu thuyết pháp cho đến ngày nay, giảng nói kinh Đại Thừa Vô Lượng Nghĩa, ta cũng thường nói vô thường, khổ, không, vô ngã không phải chân, không phải giả,",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 207,
+     "text": "không lớn, không nhỏ, xưa nay vốn không sinh cũng không diệt, nhất tướng, vô tướng, pháp tướng, pháp tánh, không đến, không đi mà bốn tướng của chúng sinh vẫn thường biến chuyển.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 208,
+     "text": "Này thiện nam! Vì nghĩ như vậy nên chư Phật không nói hai lời, chỉ dùng một âm thanh mà ứng ra nhiều tiếng khác nhau, chỉ dùng một thân mà hiện ra trăm ngàn vạn ức na-do-tha vô lượng, vô số hằng hà sa thân.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 209,
+     "text": "Trong mỗi mỗi thân lại hiện ra bao nhiêu trăm ngàn vạn ức na-do-tha, a-tăng-kỳ hằng hà sa hình dạng khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 210,
+     "text": "Trong mỗi hình dạng lại hiện ra bao nhiêu trăm ngàn vạn ức na-do-tha, a-tăng-kỳ hằng hà sa hình dạng khác nhau.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 211,
+     "text": "Này thiện nam! Đó là cảnh giới thậm thâm không thể nghĩ bàn của chư Phật, chẳng phải chỗ hàng Nhị thừa có thể biết được chỉ có Phật với Phật mới thấu hiểu rốt ráo.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 212,
+     "text": "Này thiện nam! Vì thế, ta nói kinh Đại Thừa Vô Lượng Nghĩa vi diệu thậm thâm vô thượng này văn lý chân chánh tối tôn cao thượng.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 213,
+     "text": "Chư Phật ba đời đều giữ gìn, không bị tà ma ngoại đạo xen vào, không bị tà kiến sinh tử làm hư hoại, Đại Bồ-tát muốn mau chúng đắc Vô thượng Bồ-đề thì nên tu học kinh Đại Thừa Vô Lượng Nghĩa thậm thâm vô thượng này.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 214,
+     "text": "Đức Phật dạy xong, tam thiên đại thiên thế giới chấn động sáu cách.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 215,
+     "text": "Ở trên không trung tự nhiên mưa xuống các loại hoa trời, hoa sen xanh, hoa sen đỏ, hoa sen vàng, hoa sen trắng, các loại hương trời,",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 216,
+     "text": "y trời, anh lạc trời, bảo châu vô giá ở trên không trung xoay tròn rồi rơi xuống cúng dường Đức Phật và Đại chúng Bồ-tát, Thanh văn.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 217,
+     "text": "Các món ăn cõi trời, bình bát cõi trời trăm vị thơm ngon cõi trời an trí phướn trời, cờ trời, lọng trời và nhiều nhạc cụ vi diệu ở khắp nơi, hòa tấu nhạc trời tán thán, cúng dường Đức Phật chấn động sáu cách.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 218,
+     "text": "Ở phương Đông, thế giới chư Phật như số cát sông Hằng cũng mưa hoa trời, hương trời, y trời, anh lạc trời, bảo châu vô giá cõi trời, món ăn cõi trời, trăm vị thơm ngon cõi trời, cờ trời,",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 219,
+     "text": "phướn trời, lọng trời, trăm thứ nhạc cụ cõi trời hòa tấu nhạc trời tán thán chư Phật và chúng Thanh văn, Bồ-tát ở cõi ấy, phương Nam, tây, Bắc, bốn góc, trên, dưới cũng như vậy.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 220,
+     "text": "Bấy giờ, trong đại chúng có ba vạn hai ngàn Đại Bồ-tát được Tam-muội Vô lượng nghĩa.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 221,
+     "text": "Hai vạn bốn ngàn Đại Bồ-tát được Vô lượng, vô số môn Đà-la-ni có thể chuyển vận xe pháp không thoái chuyển của chư Phật ba đời.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 222,
+     "text": "Các vị Tỳ-kheo, Tỳ-kheo-ni, Ưu-bà-tắc, Ưu-bà-di, Trời, Rồng, Dạ-xoa, Càn-thát-bà, A-tu-la, Ca-lầu-la, Khẩn-na-la, Ma-hầu-la-già, các vị Chuyển luân vương, Đại Chuyển luân vương, Tiểu Chuyển luân vương,",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 223,
+     "text": "Ngân luân, Thiết luân và các vị Luân vương khác, quốc vương, vương tử, đại thần, nhân dân, học sĩ, trưởng giả cùng trăm ngàn quyến thuộc, sau khi nghe Như Lai thuyết kinh này có người chứng được pháp Noãn, Đảnh,",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 224,
+     "text": "Nhẫn, Thế đệ nhất hoặc được quả Tu-đà-hoàn, Tư-đà-hàm, A-na-hàm, A-la-hán, Bích-chi-phật hoặc được Vô sinh pháp nhẫn của Bồ-tát, hoặc được một Đà-la-ni, hai Đà-la-ni, ba Đà-la-ni, bốn Đà-la-ni, cho đến mười Đà-la-ni,",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 225,
+     "text": "lại được trăm ngàn vạn ức Đà-la-ni hoặc vô lượng, vô số hằng hà sa, a-tăng-kỳ Đà-la-ni đều tùy thuận Chuyển pháp luân bất thoái chuyển, vô lượng chúng sinh phát tâm Vô thượng Chánh đẳng Chánh giác.",
+     "section": "Phẩm 2: Thuyết Pháp"
+    },
+    {
+     "n": 226,
+     "text": "Bấy giờ, Đại Bồ-tát Đại Trang Nghiêm bạch Phật:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 227,
+     "text": "–Bạch Thế Tôn! Thế Tôn nói kinh Đại Thừa Vô Lượng Nghĩa vô thượng thậm thâm, vi diệu, chân thật, cao siêu, mầu nhiệm, tối thượng.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 228,
+     "text": "Vì sao? Vì ngay trong chúng này các Đại Bồ-tát và bốn bộ chúng cùng Trời, Rồng, Quỷ, Thần, Quốc vương, đại thần, nhân dân và tất cả chúng sinh được nghe kinh này đều phát tâm Bồ-đề, được môn Đà-la-ni, ba pháp, bốn quả.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 229,
+     "text": "Nên biết kinh này nghĩa lý chân chánh tối tôn vô thượng chư Phật trong ba đời đều giữ gìn, không bị chúng ma, ngoại đạo xen vào, không bị tà kiến sinh tử hủy hoại.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 230,
+     "text": "Vì sao? Vì người nghe kinh này có thể thọ trì các pháp.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 231,
+     "text": "Chúng sinh nào nghe kinh này thì được lợi ích lớn.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 232,
+     "text": "Vì sao? Nếu người đó có thể tu hành thì mau chứng Vô thượng Bồ-đề.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 233,
+     "text": "Chúng sinh nào không được nghe kinh này thì họ mất lợi lớn, trải qua vô lượng, vô biên a-tăng-kỳ kiếp chẳng thể nghĩ bàn không bao giờ được thành Vô thượng Bồ-đề.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 234,
+     "text": "Vì sao? Vì người ấy không biết đi vào đường lớn Vô thượng Bồ-đề, lại đi vào con đường nhỏ, hiểm trở, nhiều tai nạn.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 235,
+     "text": "Bạch Thế Tôn! Kinh điển này không thể nghĩ bàn.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 236,
+     "text": "Kính xin Thế Tôn rủ lòng thương xót, diễn nói những việc thậm thâm không thể nghĩ bàn của kinh này cho đại chúng nghe.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 237,
+     "text": "Bạch Thế Tôn! Kinh này từ đâu đến? Đi về đâu?",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 238,
+     "text": "Dừng lại ở chỗ nào? Mà có vô lượng công đức không thể nghĩ bàn như vậy, làm cho chúng sinh mau thành Vô thượng Bồ-đề?",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 239,
+     "text": "Bấy giờ, Đức Phật bảo Đại Bồ-tát Đại Trang Nghiêm:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 240,
+     "text": "–Lành thay, lành thay! Này thiện nam, đúng thế, như lời ông nói, ta nói kinh này rất nhiệm mầu, sâu xa, cao siêu chân thật.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 241,
+     "text": "Vì sao? Vì muốn cho chúng sinh mau thành Vô thượng Bồ-đề.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 242,
+     "text": "Vì nghe một lần có thể thọ trì tất cả pháp nên lợi ích rất lớn cho tất cả chúng sinh, là đi trên con đường thẳng lớn không còn bị trở ngại.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 243,
+     "text": "Này thiện nam! Ông hỏi kinh này từ đâu đến?",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 244,
+     "text": "Đi về đâu? Và dừng lại chỗ nào? Vậy ông hãy lắng nghe.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 245,
+     "text": "Này thiện nam! Kinh này từ nhà chư Phật đến, đi đến chỗ tất cả chúng sinh phát Bồ-đề tâm và ở nơi ở của các Bồ-tát.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 246,
+     "text": "Này thiện nam! Kinh này đến như thế, đi như thế và ở như thế.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 247,
+     "text": "Vì vậy kinh này có vô lượng công đức không thể nghĩ bàn, làm cho chúng sinh mau chứng Vô thượng Bồ-đề.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 248,
+     "text": "Này thiện nam! Ông có muốn nghe nói kinh này lại có mười năng lực công đức không thể nghĩ bàn không?",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 249,
+     "text": "Đại Bồ-tát Đại Trang Nghiêm bạch Phật:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 250,
+     "text": "–Bạch Thế Tôn, con rất muốn nghe!",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 251,
+     "text": "Đức Phật dạy:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 252,
+     "text": "–Này thiện nam! Thứ nhất là kinh này khiến cho người chưa phát tâm Bồ-đề thì phát tâm Bồ-đề, không có tâm Từ thì khởi tâm Từ, người ưa giết hại thì khởi tâm đại Bi, người ganh ghét thì khởi tâm Tùy hỷ,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 253,
+     "text": "người tham ái chấp trước thì khởi tâm Hỷ xả, người bỏn xẻn, tham lam thì khởi tâm Bố thí, người kiêu mạn thì khởi tâm Trì giới, người sân giận nhiều thì khởi tâm Nhẫn nhục, người lười biếng thì khởi tâm Tinh tấn,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 254,
+     "text": "người tán loạn thì khởi tâm Thiền định, người ngu si thì khởi tâm Trí tuệ, người chưa độ người thì khởi tâm độ người, người làm mười điều ác thì phát tâm làm mười điều lành,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 255,
+     "text": "người ưa tu pháp hữu vi thì mong cầu vô vi, người tâm bị thoái lui thì làm cho không còn thoái lui, người làm việc hữu lậu thì khởi tâm vô lậu, người nhiều phiền não thì khởi tâm trừ diệt.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 256,
+     "text": "Này thiện nam! Đó là năng lực công đức không thể nghĩ bàn thứ nhất của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 257,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ hai của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 258,
+     "text": "Chúng sinh nào được nghe kinh này dù chỉ một lần, một bài kệ cho đến một câu thì có thể hiểu rõ trăm ngàn vạn ức nghĩa, đến vô lượng, vô biên kiếp cũng không diễn nói hết những pháp đã thọ trì.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 259,
+     "text": "Vì sao? Vì pháp ấy là “Vô lượng nghĩa”.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 260,
+     "text": "Này thiện nam! Kinh này ví như một hạt giống sinh ra trăm ngàn vạn hạt giống.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 261,
+     "text": "Trong trăm ngàn vạn hạt giống, mỗi mỗi hạt lại sinh ra trăm ngàn vạn hạt giống nữa.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 262,
+     "text": "Cứ như thế dần dần nảy sinh vô lượng hạt giống.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 263,
+     "text": "Kinh này cũng vậy, từ một pháp sinh ra trăm ngàn nghĩa.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 264,
+     "text": "Trong trăm ngàn nghĩa, mỗi mỗi nghĩa lại sinh ra trăm ngàn vạn ức nghĩa.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 265,
+     "text": "Cứ như thế dần dần phát sinh ra vô lượng, vô biên nghĩa. Vì vậy, kinh này tên là Vô Lượng Nghĩa.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 266,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ hai của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 267,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ ba của kinh này: Chúng sinh nào được nghe kinh này dù chỉ đọc một lần, một bài kệ hoặc chỉ một câu thì thông đạt trăm ngàn vạn ức nghĩa.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 268,
+     "text": "Tuy có phiền não cũng như không, ra vào chỗ sinh tử không có sợ hãi, đối với chúng sinh thì hết lòng thương xót, đối với các pháp thì sáng suốt, mạnh mẽ như tráng sĩ thường mang vác những thứ nặng nề.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 269,
+     "text": "Cũng vậy, người trì kinh này thường gánh vác trọng trách của đạo Vô thượng Bồ-đề, đưa chúng sinh ra khỏi đường sinh tử, tuy chưa độ mình mà đã độ người.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 270,
+     "text": "Ví như người thuyền trưởng bị bệnh nặng, bốn đại không an ổn, dừng ở bờ này, nhưng có thuyền bè kiên cố, thường sắm đủ vật dụng để cung cấp cho mọi người đi sang bờ kia.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 271,
+     "text": "Cũng vậy, người trì kinh này tuy thân còn vướng nghiệp hữu lậu nơi năm đường, bị một trăm tám ngàn bệnh nặng trói buộc, dừng ở bờ vô minh, lão, tử nhưng có kinh Đại Thừa Vô Lượng Nghĩa để cứu độ chúng sinh.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 272,
+     "text": "Chúng sinh nào có thể đi theo lời dạy mà tu hành thì vượt bờ sinh tử.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 273,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ ba của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 274,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ tư của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 275,
+     "text": "Chúng sinh nào được nghe kinh này, dù chỉ đọc một lần, một bài kệ hoặc một câu thì được ý tưởng mạnh mẽ, tuy chưa độ mình mà có thể độ người, được làm quyến thuộc của Bồ-tát.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 276,
+     "text": "Chư Phật, Như Lai thường hướng về người ấy để thuyết pháp.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 277,
+     "text": "Người ấy nghe rồi có thể thọ trì, tùy thuận, chuyên vì người khác, tùy nghi nói pháp.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 278,
+     "text": "Này thiện nam! Người ấy giống như vương tử mới được phu nhân nhà vua sinh ra, dù chỉ một ngày, hai ngày cho đến bảy ngày, hoặc một tháng, hai tháng cho đến bảy tháng, hoặc một năm, hai năm cho đến bảy năm,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 279,
+     "text": "tuy chưa có khả năng cai trị đất nước nhưng đã được thần dân sùng kính, được làm bạn với các Đại vương tử khác, được vua và phu nhân thương yêu hết mực, thường cùng dạy bảo. Vì sao? Vì còn bé nhỏ.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 280,
+     "text": "Này thiện nam! Người trì kinh này cũng vậy, chư Phật là vua, kinh này là phu nhân, cùng nhau hòa hợp sinh ra con là Bồ-tát.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 281,
+     "text": "Bồ-tát nào được nghe kinh này dù chỉ đọc một bài kệ hoặc một câu, hoặc một lần, hai lần, mười lần cho đến trăm ngàn vạn ức hằng hà sa vô lượng, vô số lần, tuy chưa thể nhập vào lý chân như cao tột,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 282,
+     "text": "chưa vận chuyển pháp luân như tiếng sấm Phạm âm làm chấn động tam thiên đại thiên thế giới nhưng đã được bốn chúng và tám bộ kính ngưỡng tôn sùng,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 283,
+     "text": "được làm quyến thuộc của các Đại Bồ-tát, thâm nhập vào pháp bí mật của chư Phật.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 284,
+     "text": "Người ấy giảng pháp không sai trái, lỗi lầm, thường được chư Phật hộ niệm, che chở bằng lòng từ ái vì mới học đạo.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 285,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ tư của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 286,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ năm của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 287,
+     "text": "Khi Phật còn tại thế, hay sau khi Phật diệt độ, thiện nam, tín nữ nào thọ trì, đọc tụng, biên chép kinh Đại Thừa Vô Lượng Nghĩa thậm thâm vô thượng này, thì người ấy tuy còn bị các phiền não trói buộc,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 288,
+     "text": "chưa xa lìa việc làm của phàm phu nhưng có thể thị hiện đạo Bồ-đề, kéo dài một ngày làm một trăm kiếp, một trăm kiếp có thể rút ngắn lại thành một ngày, làm cho chúng sinh kính phục tin theo.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 289,
+     "text": "Này thiện nam! Người ấy cũng giống như rồng con mới sinh ra được bảy ngày có thể nổi mây nhưng không tuôn mưa được.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 290,
+     "text": "Này thiện nam, đây là năng lực công đức không thể nghĩ bàn thứ năm của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 291,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ sáu của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 292,
+     "text": "Khi Phật còn tại thế hoặc sau khi Phật diệt độ, thiện nam, tín nữ nào thọ trì, đọc tụng kinh này thì người ấy tuy có đủ phiền não mà vẫn giảng pháp làm cho chúng sinh không còn phiền não sinh tử, đoạn tất cả khổ.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 293,
+     "text": "Chúng sinh nghe rồi đắc pháp, đắc đạo, đắc quả giống như chư Phật Như Lai.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 294,
+     "text": "Ví như vương tử, tuy còn thơ ấu nhưng lúc nhà vua đi tuần du hay bị bệnh nên ủy thác việc nước cho vương tử.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 295,
+     "text": "Khi ấy vương tử y theo sắc lệnh của nhà vua, truyền lệnh cho các quần thần, bá quan văn võ đem pháp luật chân chánh truyền dạy cho nhân dân,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 296,
+     "text": "cả nước đều được yên vui giống như lúc nhà vua cai trị đất nước cũng vậy, dù Phật còn tại thế hay sau khi Phật diệt độ,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 297,
+     "text": "thiện nam, tín nữ nào trì kinh này, tuy chưa trụ vào Sơ địa bất động nhưng vâng theo lời Phật dạy đem giáo pháp của Ngài giảng thuyết cho chúng sinh,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 298,
+     "text": "họ nghe xong đều nhất tâm tu hành, đoạn trừ phiền não, đắc pháp, đắc đạo, đắc quả.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 299,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ sáu của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 300,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ bảy của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 301,
+     "text": "Khi Phật còn tại thế hoặc sau khi Phật diệt độ, thiện nam, tín nữ nào nghe kinh này mà vui mừng tin theo, thọ trì, đọc tụng,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 302,
+     "text": "biên chép, giải nói như pháp tu hành, phát tâm Bồ-đề, sinh các căn lành khởi tâm đại Bi muốn cứu độ tất cả chúng sinh khổ não,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 303,
+     "text": "tuy chưa tu hành sáu pháp Ba-la-mật nhưng sáu pháp Ba-la-mật tự nhiên hiển hiện, ngay ở thân này được Vô sinh pháp nhẫn, sinh tử phiền não tức thời bị hoại diệt, được lên ngôi Thất địa và quả vị Đại Bồ-tát.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 304,
+     "text": "Thí như dũng sĩ dẹp giặc cho nhà vua. Khi thắng trận trở về vua rất vui mừng liền ban thưởng một nửa đất nước.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 305,
+     "text": "Cũng vậy, thiện nam, tín nữ trì kinh này là bậc dũng mãnh nhất, Pháp bảo sáu Độ không cầu mà tự có, oán địch sinh tử tự nhiên bại hoại, chứng Vô sinh pháp nhẫn, được phong thưởng nửa cõi Phật bảo, sống an vui.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 306,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ bảy của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 307,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ tám của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 308,
+     "text": "Khi Phật còn tại thế hoặc sau khi Phật diệt độ, thiện nam, tín nữ nào được nghe kinh này mà kính tin xem như thân Phật, ưa thích kinh này, thọ trì, đọc tụng,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 309,
+     "text": "biên chép, như pháp tu hành, kiên trì giữ giới, nhẫn nhục và hành Bố thí độ, phát tâm Từ bi rộng lớn đem kinh Đại Thừa Vô Lượng Nghĩa Vô thượng giảng thuyết cho người.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 310,
+     "text": "Người nào trước đây không tin tội phước thì đem kinh này chỉ dạy và dùng vô số phương tiện khuyến hóa cho họ tin theo.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 311,
+     "text": "Nhờ oai lực của kinh này làm cho người ấy được tỏ rõ mà quay về chánh đạo, đã phát tín tâm, dũng mãnh tinh tấn đều nhờ oai lực được nghe kinh này mà đắc đạo, đắc quả.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 312,
+     "text": "Vì thế, thiện nam, tín nữ ấy ngay nơi thân này được Vô sinh pháp nhẫn mà tiến lên địa vị trên,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 313,
+     "text": "được làm quyến thuộc của các Bồ-tát nên được thành tựu chúng sinh, làm thanh tịnh cõi Phật, không bao lâu sẽ thành Vô thượng Bồ-đề.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 314,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ tám của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 315,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ chín của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 316,
+     "text": "Khi Phật còn tại thế hoặc sau khi Phật diệt độ, thiện nam, tín nữ nào được nghe kinh này hết sức vui mừng như được điều chưa từng có, rồi thọ trì, đọc tụng, biên chép, cúng dường,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 317,
+     "text": "giảng giải phân biệt kinh này cho người khác nghe thì những nghiệp chướng nặng xưa kia còn sót lại liền tiêu tan,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 318,
+     "text": "thân tâm thanh tịnh, biện luận thông suốt lần lượt trang nghiêm các Ba-la-mật, được các môn Tam-muội, được Tam-muội Thủ-lăng-nghiêm.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 319,
+     "text": "Nhập vào môn Tổng trì, được năng lực tinh tấn vượt lên ngôi thượng địa, phân thân khắp mười phương, cứu vớt chúng sinh đang bị đau khổ, trong hai mươi lăm cõi đều được giải thoát. Vì vậy, kinh này có năng lực như thế.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 320,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ chín của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 321,
+     "text": "Này thiện nam! Năng lực công đức không thể nghĩ bàn thứ mười của kinh này:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 322,
+     "text": "Khi Phật còn tại thế hoặc sau khi Phật diệt độ, thiện nam, tín nữ nào được nghe kinh này mà phát tâm hoan hỷ chưa từng có,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 323,
+     "text": "tự mình thọ trì, đọc tụng, biên chép, cúng dường, y theo giáo pháp mà tu hành và khuyến khích người tại gia,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 324,
+     "text": "xuất gia thọ trì, đọc tụng, biên chép, cúng dường giảng thuyết như pháp tu hành khiến cho người khác nhờ năng lực kinh này mà tu hành đắc đạo, đắc quả đều do tâm Từ bi giáo hóa của thiện nam, tín nữ phát sinh.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 325,
+     "text": "Cho nên, thiện nam, tín nữ ấy ngay thân này được Vô thượng Đà-la-ni ở địa vị phàm phu tự nhiên ngay lúc ban đầu đã phát ra vô số tăng-kỳ đại nguyện rộng lớn,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 326,
+     "text": "có khả năng cứu độ tất cả chúng sinh, thành tựu đại Bi, có thể cứu khổ, huân tập căn lành,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 327,
+     "text": "lợi ích tất cả chúng sinh, rưới nước chánh pháp thấm nhuần đất khô, đem thuốc pháp ban cho chúng sinh được an lạc,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 328,
+     "text": "dần dần vượt lên ngôi Pháp vân địa, ân đức thấm nhuần khắp cả, Từ bi không phân biệt, dẫn dắt chúng sinh khổ não đi vào kiến đạo.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 329,
+     "text": "Vì vậy, không bao lâu người ấy được thành Vô thượng Chánh đẳng Chánh giác.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 330,
+     "text": "Này thiện nam! Đây là năng lực công đức không thể nghĩ bàn thứ mười của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 331,
+     "text": "Này thiện nam! Như vậy kinh Đại Thừa Vô Lượng Nghĩa vô thượng này có năng lực đại oai thần, tôn quý cao thượng làm cho tất cả phàm phu đều chứng quả Thánh, mãi mãi xa lìa sinh tử, được an vui tự tại.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 332,
+     "text": "Vì vậy, kinh này gọi là Vô Lượng Nghĩa. Kinh này làm cho tất cả chúng sinh ở địa vị phàm phu khởi mầm đạo Bồ-tát, làm cho công đức lớn lên tươi tốt.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 333,
+     "text": "Vì vậy, kinh này gọi là năng lực công đức không thể nghĩ bàn.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 334,
+     "text": "Bấy giờ, Đại Bồ-tát Đại Trang Nghiêm cùng tám vạn Đại Bồ-tát đồng thanh bạch Phật:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 335,
+     "text": "–Bạch Thế Tôn!",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 336,
+     "text": "Thế Tôn đã nói kinh Đại Thừa Vô Lượng Nghĩa vi diệu thậm thâm vô thượng, nghĩa lý chân chánh, tôn quý cao tột được chư Phật ba đời giữ gìn, không bị tà ma ngoại đạo xen vào, không bị tà kiến sinh tử hủy hoại.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 337,
+     "text": "Vì thế, kinh này có mười năng lực công đức không thể nghĩ bàn như vậy, làm cho tất cả chúng sinh được lợi ích lớn,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 338,
+     "text": "làm cho các Đại Bồ-tát đều được Tam-muội Vô lượng nghĩa hoặc được trăm ngàn Đà-la-ni, hoặc được các địa, các nhẫn của Bồ-tát, hoặc được Duyên giác, chứng bốn đạo quả của A-la-hán.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 339,
+     "text": "Xin Thế Tôn rủ lòng Từ bi thương xót thuyết pháp ấy cho chúng con, làm cho chúng con được pháp lợi lớn đặc biệt chưa từng có.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 340,
+     "text": "Lòng từ mẫn của Thế Tôn chúng con khó báo đáp được.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 341,
+     "text": "Bấy giờ tam thiên đại thiên thế giới chấn động sáu cách.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 342,
+     "text": "Ở trên không trung lại mưa xuống các loại hoa, hoa sen xanh, hoa sen đỏ, hoa sen vàng, hoa sen trắng và vô số hương trời, y trời,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 343,
+     "text": "anh lạc trời, bảo châu vô giá cõi trời từ trên hư không xoay tròn, rơi xuống để cúng dường chư Phật, Bồ-tát và đại chúng Thanh văn.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 344,
+     "text": "Các món ăn cõi trời, bình bát cõi trời, trăm vị thơm ngon ở cõi trời, nếu ai thấy sắc, ngửi hương đều no đủ.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 345,
+     "text": "Khắp nơi an trí cờ trời, phướn trời, lọng trời, nhạc cụ vi diệu tấu nhạc cõi trời tán thán Đức Phật.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 346,
+     "text": "Ở phương Đông, hằng hà sa số thế giới chư Phật cũng chấn động sáu cách, cũng mưa các loại hoa trời, hương trời, y trời, anh lạc trời,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 347,
+     "text": "bảo châu vô giá cõi trời, các món ăn cõi trời, bình bát cõi trời, trăm vị thơm ngon ở cõi trời, nếu ai thấy sắc, ngửi hương đều no đủ.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 348,
+     "text": "Cờ trời, phướn trời, lọng trời, nhạc cụ cõi trời tấu nhạc trời để tán thán, cúng dường Đức Phật và đại chúng Bồ-tát, Thanh văn.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 349,
+     "text": "Phương Nam, tây, Bắc, bốn góc, trên, dưới cũng như vậy.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 350,
+     "text": "Bấy giờ, Đức Phật bảo Đại Bồ-tát Đại Trang Nghiêm và tám vạn Đại Bồ-tát:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 351,
+     "text": "–Đối với kinh này, các ông nên hết lòng cung kính, như pháp tu hành, giáo hóa rộng rãi khắp nơi, ngày đêm ân cần, tinh tấn giữ gìn kinh này, làm cho chúng sinh đều được pháp lợi.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 352,
+     "text": "Các ông thật là bậc đại Từ bi, dùng nguyện lực thần thông giữ gìn kinh này, chớ để gián đoạn.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 353,
+     "text": "Vào đời sau phải lưu hành rộng khắp cõi Nam Diêm-phù-đề làm cho chúng sinh được thấy, nghe, đọc, tụng, biên chép, cúng dường.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 354,
+     "text": "Nhờ các việc ấy, mà khiến các ông mau thành Vô thượng Chánh đẳng Chánh giác.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 355,
+     "text": "Khi ấy, Đại Bồ-tát Trang Nghiêm cùng tám vạn Đại Bồ-tát, đứng dậy đi đến chỗ Phật, đảnh lễ dưới chân, đi quanh trăm ngàn vòng, rồi quỳ trước Đức Phật đồng thanh thưa:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 356,
+     "text": "–Bạch Thế Tôn! Chúng con hết sức vui mừng được Thế Tôn rủ lòng thương xót giảng nói kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 357,
+     "text": "Chúng con xin cung kính vâng theo lời Phật dạy.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 358,
+     "text": "Sau khi Như Lai diệt độ, chúng con sẽ lưu truyền kinh này rộng rãi khắp nơi để cho chúng sinh thọ trì, đọc, tụng, biên chép, cúng dường.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 359,
+     "text": "Cúi xin Thế Tôn chớ có lo buồn. Bằng nguyện lực, chúng con sẽ làm cho chúng sinh đều được thấy, nghe, đọc, tụng, biên chép, cúng dường để được oai thần lực của kinh này.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 360,
+     "text": "Đức Phật khen:",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 361,
+     "text": "–Lành thay, lành thay! Này thiện nam! Các ông thật là Phật tử, lòng đại Từ bi của các ông thường cứu giúp người gặp nguy hiểm và nhổ sạch mọi khổ đau,",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 362,
+     "text": "là ruộng phước tốt của chúng sinh, là người dẫn đường tài giỏi, là chỗ nương tựa, là đại thí chủ thường đem pháp lợi ban bố cho tất cả chúng sinh.",
+     "section": "Phẩm 3: Mười Công Đức"
+    },
+    {
+     "n": 363,
+     "text": "Bấy giờ, đại chúng đều hoan hỷ, thọ trì, đảnh lễ Phật rồi lui ra.",
+     "section": "Phẩm 3: Mười Công Đức"
+    }
+   ]
+  },
+  {
+   "key": "zh-translation",
+   "lang": "zh",
+   "variant": "translation",
+   "translator": "曇摩伽陀耶舍 (Đàm-ma-già-đà-da-xá)",
+   "sourceName": "Wikisource 中文 - 無量義經 - Taishō T0276 (không gồm bài tựa của Lưu Cầu)",
+   "sourceUrl": "https://zh.wikisource.org/wiki/%E7%84%A1%E9%87%8F%E7%BE%A9%E7%B6%93",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: tác giả mất trên 100 năm, tác phẩm xuất bản trước 1931",
+   "lines": [
+    {
+     "n": 1,
+     "text": "如是我聞。一時佛在王舍城耆闍崛山中。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 2,
+     "text": "與大比丘眾萬二千人俱。菩薩摩訶薩八萬人。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 3,
+     "text": "天龍夜叉乾闥婆阿修羅迦樓羅緊那羅摩睺羅伽諸比丘比丘尼優婆塞優婆夷俱。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 4,
+     "text": "大轉輪王小轉輪王。金輪銀輪諸轉輪王。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 5,
+     "text": "國王王子國臣國民。國士國女國大長者。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 6,
+     "text": "各與眷屬百千萬數而自圍遶。來詣佛所頭面禮足遶百千匝。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 7,
+     "text": "燒香散華種種供養。供養佛已退一面坐。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 8,
+     "text": "其菩薩名曰文殊師利法王子。大威德藏法王子。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 9,
+     "text": "無憂藏法王子。大辯藏法王子。彌勒菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 10,
+     "text": "導首菩薩。藥王菩薩。藥上菩薩花幢菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 11,
+     "text": "花光幢菩薩。陀羅尼自在王菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 12,
+     "text": "觀世音菩薩。大勢至菩薩。常精進菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 13,
+     "text": "寶印手菩薩。寶積菩薩。寶杖菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 14,
+     "text": "越三界菩薩。毘摩跋羅菩薩。香象菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 15,
+     "text": "大香象菩薩。師子吼王菩薩。師子遊戲世菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 16,
+     "text": "師子奮迅菩薩。師子精進菩薩。勇銳力菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 17,
+     "text": "師子威猛伏菩薩。莊嚴菩薩。大莊嚴菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 18,
+     "text": "如是等菩薩摩訶薩八萬人俱。是諸菩薩。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 19,
+     "text": "莫不皆是法身大士。戒定慧解脫解脫知見之所成就。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 20,
+     "text": "其心禪寂常在三昧。恬安惔怕無為無欲。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 21,
+     "text": "顛倒亂想不復得入。靜寂清澄志玄虛漠。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 22,
+     "text": "守之不動億百千劫。無量法門悉現在前。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 23,
+     "text": "得大智慧通達諸法。曉了分別性相真實。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 24,
+     "text": "有無長短明現顯白又能善知諸根性欲。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 25,
+     "text": "以陀羅尼無礙辯才。請佛轉法輪。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 26,
+     "text": "隨順能轉。微渧先墮以淹欲塵。開涅槃門扇解脫風。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 27,
+     "text": "除世熱惱致法清涼。次降甚深十二因緣。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 28,
+     "text": "用灑無明老病死等。猛盛熾然苦聚日光。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 29,
+     "text": "爾乃洪注無上大乘。潤漬眾生諸有善根。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 30,
+     "text": "布善種子遍功德田。普令一切發菩提萌。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 31,
+     "text": "智慧日月方便時節。扶疏增長大乘事業。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 32,
+     "text": "令眾疾成阿耨多羅三藐三菩提。常住快樂微妙真實。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 33,
+     "text": "無量大悲救苦眾生。是諸眾生真善知識。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 34,
+     "text": "是諸眾生大良福田。是諸眾生不請之師。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 35,
+     "text": "是諸眾生安隱樂處。救處護處大依止處。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 36,
+     "text": "處處為眾作大導師能為生盲而作眼目。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 37,
+     "text": "聾劓啞者作耳鼻舌。諸根毀缺能令具足。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 38,
+     "text": "顛狂荒亂作大正念。船師大船師運載群生渡生死河。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 39,
+     "text": "置涅槃岸。醫王大醫王。分別病相曉了藥性。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 40,
+     "text": "隨病授藥令眾樂服。調御大調御。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 41,
+     "text": "無諸放逸行。猶如象馬師。能調無不調。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 42,
+     "text": "師子勇猛威伏眾獸。難可沮壞。遊戲菩薩諸波羅蜜。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 43,
+     "text": "於如來地堅固不動。安住願力廣淨佛國。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 44,
+     "text": "不久得成阿耨多羅三藐三菩提。是諸菩薩摩訶薩。皆有如是不思議功德",
+     "section": "德行品第一"
+    },
+    {
+     "n": 45,
+     "text": "其比丘。名曰大智舍利弗。神通目揵連。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 46,
+     "text": "慧命須菩提。摩訶迦旃延。彌多羅尼子。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 47,
+     "text": "富樓那。阿若憍陳如等。天眼阿那律。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 48,
+     "text": "持律憂波離。侍者阿難。佛子羅云。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 49,
+     "text": "憂波難陀。離婆多。劫賓那。薄拘羅。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 50,
+     "text": "阿周陀。莎伽陀。頭陀大迦葉。憂樓頻螺迦葉。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 51,
+     "text": "伽耶迦葉。那提迦葉。如是等比丘萬二千人。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 52,
+     "text": "皆阿羅漢盡諸結漏無復縛著。真正解脫。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 53,
+     "text": "爾時大莊嚴菩薩摩訶薩遍觀眾坐各定意已。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 54,
+     "text": "與眾中八萬菩薩摩訶薩俱。從坐而起來詣佛所。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 55,
+     "text": "頭面禮足遶百千匝。燒散天華天香天衣天瓔珞天無價寶。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 56,
+     "text": "從于空中旋轉來下。四面雲集而獻於佛。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 57,
+     "text": "天廚天缽器。天百味充滿盈溢。見色聞香自然飽足。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 58,
+     "text": "天幢天幡天幰蓋天妙樂具。處處安置作天伎樂。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 59,
+     "text": "娛樂於佛。即前胡跪合掌。一心俱共同聲。說偈讚言：",
+     "section": "德行品第一"
+    },
+    {
+     "n": 60,
+     "text": "「大哉大悟大聖主，無垢無染無所著，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 61,
+     "text": "天人象馬調御師，道風德香熏一切。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 62,
+     "text": "智恬情怕慮凝靜，意滅識亡心亦寂，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 63,
+     "text": "永斷夢妄思想念，無復諸大陰界入。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 64,
+     "text": "其身非有亦非無，非因非緣非自他，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 65,
+     "text": "非方非圓非短長，非出非沒非生滅，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 66,
+     "text": "非造非起非為作，非坐非臥非行住，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 67,
+     "text": "非動非轉非閑靜，非進非退非安危，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 68,
+     "text": "非是非非非得失，非彼非此非去來，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 69,
+     "text": "非青非黃非赤白，非紅非紫種種色。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 70,
+     "text": "戒定慧解知見生，三明六通道品發，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 71,
+     "text": "慈悲十力無畏起，眾生善業因緣出。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 72,
+     "text": "示為丈六紫金暉，方整照曜甚明徹，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 73,
+     "text": "毫相月旋項日光，旋髮紺青頂肉髻，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 74,
+     "text": "淨眼明照上下眴，眉睫紺舒方口頰，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 75,
+     "text": "脣舌赤好若丹菓，白齒四十猶珂雪，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 76,
+     "text": "額廣鼻脩面門開，胸表卍字師子臆，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 77,
+     "text": "手足柔軟具千輻，腋掌合縵內外握，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 78,
+     "text": "臂脩肘長指直纖，皮膚細軟毛右旋，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 79,
+     "text": "踝膝不現陰馬藏，細筋鎖骨鹿膊腸，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 80,
+     "text": "表裏映徹淨無垢，淨水莫染不受塵。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 81,
+     "text": "如是等相三十二，八十種好似可見，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 82,
+     "text": "而實無相非相色，一切有相眼對絕，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 83,
+     "text": "無相之相有相身，眾生身相相亦然。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 84,
+     "text": "能令眾生歡喜禮，虔心表敬誠慇懃，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 85,
+     "text": "因是自高我慢除，成就如是妙色軀。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 86,
+     "text": "我等八萬之等眾，俱共稽首咸歸命，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 87,
+     "text": "善滅思想心意識，象馬調御無著聖。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 88,
+     "text": "稽首歸依法色身，戒定慧解知見聚。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 89,
+     "text": "稽首歸依妙幢相。稽首歸依難思議。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 90,
+     "text": "梵音雷震嚮八種，微妙清淨甚深遠，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 91,
+     "text": "四諦六度十二緣，隨順眾生心業轉，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 92,
+     "text": "有聞莫不心意開，無量生死眾結斷。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 93,
+     "text": "有聞或得須陀洹，斯陀阿那阿羅漢，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 94,
+     "text": "無漏無為緣覺處，無生無滅菩薩地。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 95,
+     "text": "或得無量陀羅尼，無礙樂說大辯才，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 96,
+     "text": "演說甚深微妙偈，遊戲澡浴法清池。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 97,
+     "text": "或躍飛騰現神足，出沒水火身自由，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 98,
+     "text": "如是法輪相如是，清淨無邊難思議。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 99,
+     "text": "我等咸復共稽首，歸依法輪轉以時。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 100,
+     "text": "稽首歸依梵音聲。稽首歸依緣諦度。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 101,
+     "text": "世尊往昔無量劫，懃苦修習眾德行，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 102,
+     "text": "為我人天龍神王，普及一切諸眾生。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 103,
+     "text": "能捨一切諸難捨，財寶妻子及國城，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 104,
+     "text": "於法內外無所悋，頭目髓腦悉施人；",
+     "section": "德行品第一"
+    },
+    {
+     "n": 105,
+     "text": "奉持諸佛清淨戒，乃至失命不毀傷，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 106,
+     "text": "若人刀杖來加害，惡口罵辱終不瞋；",
+     "section": "德行品第一"
+    },
+    {
+     "n": 107,
+     "text": "歷劫挫身不倦惰，晝夜攝心常在禪；",
+     "section": "德行品第一"
+    },
+    {
+     "n": 108,
+     "text": "遍學一切眾道法，智慧深入眾生根。",
+     "section": "德行品第一"
+    },
+    {
+     "n": 109,
+     "text": "是故今得自在力，於法自在為法王，",
+     "section": "德行品第一"
+    },
+    {
+     "n": 110,
+     "text": "我等咸共俱稽首，歸依能懃諸難懃。」",
+     "section": "德行品第一"
+    },
+    {
+     "n": 111,
+     "text": "爾時大莊嚴菩薩摩訶薩與八萬菩薩摩訶薩。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 112,
+     "text": "說是偈讚佛已俱白佛言。世尊。我等八萬菩薩之眾。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 113,
+     "text": "今者欲於如來法中有所諮問。不審世尊。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 114,
+     "text": "垂愍聽不。佛告大莊嚴菩薩及八萬菩薩言。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 115,
+     "text": "善哉善哉善男子。善知是時。恣汝所問。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 116,
+     "text": "如來不久當般涅槃。涅槃之後普令一切無復餘疑。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 117,
+     "text": "欲何所問便可說也。於是大莊嚴菩薩與八萬菩薩。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 118,
+     "text": "即共同聲白佛言。世尊。菩薩摩訶薩欲得疾成阿耨多羅三藐三菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 119,
+     "text": "應當修行何等法門。何等法門。能令菩薩摩訶薩疾成阿耨多羅三藐三菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 120,
+     "text": "佛告大莊嚴菩薩及八萬菩薩言。善男子。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 121,
+     "text": "有一法門。能令菩薩疾得阿耨多羅三藐三菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 122,
+     "text": "若有菩薩學是法門者。則能疾得阿耨多羅三藐三菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 123,
+     "text": "世尊。是法門者。號字何等其義云何。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 124,
+     "text": "菩薩云何修行。佛言。善男子。是一法門。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 125,
+     "text": "名為無量義。菩薩欲得修學無量義者。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 126,
+     "text": "應當觀察一切諸法。自本來今性相空寂。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 127,
+     "text": "無大無小無生無滅。非住非動不進不退。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 128,
+     "text": "猶如虛空無有二法。而諸眾生虛妄橫計。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 129,
+     "text": "是此是彼是得是失。起不善念造眾惡業。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 130,
+     "text": "輪迴六趣備諸苦毒。無量億劫不能自出。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 131,
+     "text": "菩薩摩訶薩如是諦觀。生憐愍心發大慈悲將欲救拔。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 132,
+     "text": "又復深入一切諸法。法相如是生如是法。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 133,
+     "text": "法相如是住如是法。法相如是異如是法。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 134,
+     "text": "法相如是滅如是法。法相如是能生惡法。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 135,
+     "text": "法相如是能生善法。住異滅者亦復如是。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 136,
+     "text": "菩薩如是觀察四相始末。悉遍知已。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 137,
+     "text": "次復諦觀一切諸法。念念不住新新生滅。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 138,
+     "text": "復觀即時生住異滅。如是觀已。而入眾生諸根性欲。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 139,
+     "text": "性欲無量故。說法無量。說法無量義亦無量。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 140,
+     "text": "無量義者。從一法生。其一法者。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 141,
+     "text": "即無相也。如是無相。無相不相。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 142,
+     "text": "不相無相。名為實相。菩薩摩訶薩安住如是真實相已。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 143,
+     "text": "所發慈悲明諦不虛。於眾生所真能拔苦。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 144,
+     "text": "苦既拔已。復為說法。令諸眾生受於快樂。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 145,
+     "text": "善男子。菩薩若能如是修一法門無量義者。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 146,
+     "text": "必得疾成阿耨多羅三藐三菩提。善男子。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 147,
+     "text": "如是甚深無上大乘無量義經。文理真正尊無過上。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 148,
+     "text": "三世諸佛所共守護。無有眾魔群道得入。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 149,
+     "text": "不為一切邪見生死之所壞敗。是故善男子。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 150,
+     "text": "菩薩摩訶薩若欲疾成無上菩提。應當修學如是甚深無上大乘無量義經。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 151,
+     "text": "爾時大莊嚴菩薩復白佛言。世尊。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 152,
+     "text": "世尊說法不可思議。眾生根性亦不可思議。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 153,
+     "text": "法門解脫亦不可思議。我等於佛所說諸法。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 154,
+     "text": "無復疑惑。而諸眾生生迷惑心故重諮問。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 155,
+     "text": "世尊。自從如來得道已來四十餘年。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 156,
+     "text": "常為眾生演說諸法四相之義。苦義空義無常無我。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 157,
+     "text": "無大無小無生無滅。一切無相。法性法相本來空寂不來不去不出不沒。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 158,
+     "text": "若有聞者。或得煖法頂法世第一法須陀洹果斯陀含果阿那含果阿羅漢果辟支佛道。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 159,
+     "text": "發菩提心登第一地第二第三至第十地。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 160,
+     "text": "往日所說諸法之義。與今所說有何等異。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 161,
+     "text": "而言甚深無上大乘無量義經。菩薩修行必得疾成無上菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 162,
+     "text": "是事云何。唯願世尊。慈愍一切。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 163,
+     "text": "廣為眾生而分別之。普令現在及未來世有聞法者無餘疑網。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 164,
+     "text": "於是佛告大莊嚴菩薩。善哉善哉大善男子。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 165,
+     "text": "能問如來如是甚深無上大乘微妙之義。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 166,
+     "text": "當知汝能多所利益。安樂人天拔苦眾生。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 167,
+     "text": "真大慈悲信實不虛。以是因緣必得疾成無上菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 168,
+     "text": "亦令一切今世來世諸有眾生得成無上菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 169,
+     "text": "善男子。自我道場菩提樹下端坐六年。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 170,
+     "text": "得成阿耨多羅三藐三菩提。以佛眼觀一切諸法不可宣說。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 171,
+     "text": "所以者何。以諸眾生性欲不同。性欲不同種種說法。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 172,
+     "text": "種種說法以方便力。四十餘年未曾顯實。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 173,
+     "text": "是故眾生得道差別。不得疾成無上菩提。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 174,
+     "text": "善男子。法譬如水能洗垢穢若井若池若江若河溪渠大海。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 175,
+     "text": "皆悉能洗諸有垢穢。其法水者亦復如是。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 176,
+     "text": "能洗眾生諸煩惱垢。善男子。水性是一。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 177,
+     "text": "江河井池溪渠大海。各各別異。其法性者亦復如是。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 178,
+     "text": "洗除塵勞等無差別。三法四果二道不一。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 179,
+     "text": "善男子。水雖俱洗。而井非池。池非江河。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 180,
+     "text": "溪渠非海。而如來世雄於法自在。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 181,
+     "text": "所說諸法亦復如是。初中後說。皆能洗除眾生煩惱。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 182,
+     "text": "而初非中。而中非後。初中後說。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 183,
+     "text": "文辭雖一而義各異。善男子。我起樹王詣波羅奈鹿野園中。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 184,
+     "text": "為阿若拘鄰等五人轉四諦法輪時。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 185,
+     "text": "亦說諸法本來空寂代謝不住念念生滅。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 186,
+     "text": "中間於此及以處處為諸比丘并眾菩薩。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 187,
+     "text": "辯演宣說十二因緣六波羅蜜。亦說諸法本來空寂代謝不住念念生滅。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 188,
+     "text": "今復於此演說大乘無量義經。亦說諸法本來空寂代謝不住念念生滅。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 189,
+     "text": "善男子。是故初說中說今說。文辭是一而義差異。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 190,
+     "text": "義異故。眾生解異。解異故。得法得果得道亦異。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 191,
+     "text": "善男子。初說四諦。為求聲聞人。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 192,
+     "text": "而八億諸天來下聽法。發菩提心。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 193,
+     "text": "中於處處演說甚深十二因緣。為求辟支佛人。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 194,
+     "text": "而無量眾生發菩提心。或住聲聞。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 195,
+     "text": "次說方等十二部經摩訶般若華嚴海雲。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 196,
+     "text": "演說菩薩歷劫修行。而百千比丘萬億人天無量得須陀洹得斯陀含得阿那含得阿羅漢。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 197,
+     "text": "住辟支佛因緣法中。善男子。以是義故。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 198,
+     "text": "故知說同而義別異。義異故。眾生解異。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 199,
+     "text": "解異故。得法得果得道亦異。是故善男子。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 200,
+     "text": "自我得道初起說法至于今日。演說大乘無量義經。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 201,
+     "text": "未曾不說苦空無常無我。非真非假非大非小本來不然。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 202,
+     "text": "今亦不滅一切無相。法相法性不來不去。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 203,
+     "text": "而眾生四相所遷。善男子。以是義故。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 204,
+     "text": "諸佛無有二言。能以一音普應眾聲。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 205,
+     "text": "能以一身。示百千萬億那由他無量無數恒河沙身。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 206,
+     "text": "一一身中。又示若干百千萬億那由他阿僧祇恒河沙種種類形。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 207,
+     "text": "一一形中。又示若干百千萬億那由他阿僧祇恒河沙形。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 208,
+     "text": "善男子。是則諸佛不可思議甚深境界。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 209,
+     "text": "非二乘所知。亦非十住菩薩所及。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 210,
+     "text": "唯佛與佛乃能究了。善男子。是故我說微妙甚深無上大乘無量義經。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 211,
+     "text": "文理真正尊無過上。三世諸佛所共守護。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 212,
+     "text": "無有眾魔外道得入。不為一切邪見生死之所壞敗。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 213,
+     "text": "菩薩摩訶薩若欲疾成無上菩提。應當修學如是甚深無上大乘無量義經。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 214,
+     "text": "佛說是已。於是三千大千世界六種震動。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 215,
+     "text": "自然空中雨種種花。天憂缽羅華缽曇摩華拘物頭華分陀利華。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 216,
+     "text": "又雨無數種種天香天衣天瓔珞天無價寶。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 217,
+     "text": "於上空中旋轉來下。供養於佛及諸菩薩聲聞大眾。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 218,
+     "text": "天廚天缽器。天百味充滿盈溢。天幢天幡天幰蓋天妙樂具處處安置。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 219,
+     "text": "作天伎樂歌歎於佛。又復六種震動。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 220,
+     "text": "東方恒河沙等諸佛世界。亦雨天華天香天衣天瓔珞天無價寶。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 221,
+     "text": "天廚天缽器天百味。天幢天幡天幰蓋天妙樂具作天伎樂。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 222,
+     "text": "歌歎彼佛及彼菩薩聲聞大眾。南西北方四維上下亦復如是。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 223,
+     "text": "於是眾中三萬二千菩薩摩訶薩得無量義三昧。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 224,
+     "text": "三萬四千菩薩摩訶薩得無數無量陀羅尼門。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 225,
+     "text": "能轉一切三世諸佛不退轉法輪。其諸比丘比丘尼優婆塞優婆夷。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 226,
+     "text": "天龍夜叉乾闥婆阿修羅迦樓羅緊那羅摩睺羅伽。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 227,
+     "text": "大轉輪王小轉輪王銀輪鐵輪諸轉輪王。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 228,
+     "text": "國王王子國臣國民。國士國女國大長者。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 229,
+     "text": "及諸眷屬百千眾俱。聞佛如來說是經時。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 230,
+     "text": "或得煖法頂法世間第一法須陀洹果。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 231,
+     "text": "斯陀含果阿那含果阿羅漢果辟支佛果。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 232,
+     "text": "又得菩薩無生法忍。又得一陀羅尼又得二陀羅尼。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 233,
+     "text": "又得三陀羅尼。又得四陀羅尼五六七八九十陀羅尼。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 234,
+     "text": "又得百千萬億陀羅尼。又得無量無數恒河沙阿僧祇陀羅尼。",
+     "section": "說法品第二"
+    },
+    {
+     "n": 235,
+     "text": "皆能隨順轉不退轉法輪。無量眾生發阿耨多羅三藐三菩提心",
+     "section": "說法品第二"
+    },
+    {
+     "n": 236,
+     "text": "爾時大莊嚴菩薩摩訶薩復白佛言。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 237,
+     "text": "世尊。世尊說是微妙甚深無上大乘無量義經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 238,
+     "text": "真實甚深甚深甚深。所以者何。於此眾中。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 239,
+     "text": "諸菩薩摩訶薩及諸四眾。天龍鬼神國王臣民諸有眾生。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 240,
+     "text": "聞是甚深無上大乘無量義經。無不獲得陀羅尼門。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 241,
+     "text": "三法四果菩提之心。當知此經。文理真正尊無過上。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 242,
+     "text": "三世諸佛之所守護。無有眾魔群道得入。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 243,
+     "text": "不為一切邪見生死之所壞敗。所以者何。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 244,
+     "text": "一聞能持一切法故。若有眾生得聞是經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 245,
+     "text": "則為大利。所以者何。若能修行。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 246,
+     "text": "必得疾成阿耨多羅三藐三菩提。其有眾生不得聞者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 247,
+     "text": "當知是等為失大利。過無量無邊不可思議阿僧祇劫。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 248,
+     "text": "終不得成阿耨多羅三藐三菩提。所以者何。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 249,
+     "text": "不知菩提大道直故行於險徑多留難故。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 250,
+     "text": "世尊。是經典者不可思議。唯願世尊。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 251,
+     "text": "廣為大眾慈哀敷演是經甚深不思議事。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 252,
+     "text": "世尊。是經典者。從何所來。去何所至。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 253,
+     "text": "住何所住。乃有如是無量功德不思議力。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 254,
+     "text": "令眾疾成阿耨多羅三藐三菩提。爾時世尊告大莊嚴菩薩摩訶薩言。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 255,
+     "text": "善哉善哉善男子。如是如是如汝所言。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 256,
+     "text": "善男子。我說是經甚深甚深真實甚深。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 257,
+     "text": "所以者何。令眾疾成阿耨多羅三藐三菩提故。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 258,
+     "text": "一聞能持一切法故。於諸眾生大利益故。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 259,
+     "text": "行大直道無留難故。善男子。汝問是經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 260,
+     "text": "從何所來去至何所住何所住者。當善諦聽。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 261,
+     "text": "善男子。是經本從諸佛宮宅中來。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 262,
+     "text": "去至一切眾生發菩提心。住諸菩薩所行之處。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 263,
+     "text": "善男子。是經。如是來如是去如是住。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 264,
+     "text": "是故此經。能有如是無量功德不思議力。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 265,
+     "text": "令眾疾成阿耨多羅三藐三菩提。善男子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 266,
+     "text": "汝寧欲聞是經復有十不思議功德力不。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 267,
+     "text": "大莊嚴言。願樂欲聞。佛言。善男子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 268,
+     "text": "第一是經。能令菩薩未發心者發菩提心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 269,
+     "text": "無慈仁者起於慈心。好殺戮者起大悲心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 270,
+     "text": "生嫉妒者起隨喜心。有愛著者起能捨心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 271,
+     "text": "諸慳貪者起布施心。多憍慢者起持戒心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 272,
+     "text": "瞋恚盛者起忍辱心。生懈怠者起精進心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 273,
+     "text": "諸散亂者起禪定心。於愚癡者起智慧心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 274,
+     "text": "未能度彼者起度彼心。行十惡者起十善心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 275,
+     "text": "樂有為者志無為心。有退心者作不退心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 276,
+     "text": "為有漏者起無漏心。多煩惱者起除滅心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 277,
+     "text": "善男子。是名是經第一功德不思議力。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 278,
+     "text": "善男子。第二是經不可思議功德力者若有眾生得是經者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 279,
+     "text": "若一轉若一偈。乃至一句。則能通達百千億義。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 280,
+     "text": "無量數劫不能演說所受持法。所以者何。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 281,
+     "text": "以其是法義無量故。善男子。是經譬如從一種子生百千萬。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 282,
+     "text": "百千萬中。一一復生百千萬數。如是展轉乃至無量。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 283,
+     "text": "是經典者亦復如是。從於一法生百千義。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 284,
+     "text": "百千義中。一一復生百千萬數。如是展轉。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 285,
+     "text": "乃至無量無邊之義。是故此經。名無量義。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 286,
+     "text": "善男子。是名是經第二功德不思議力善男子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 287,
+     "text": "第三是經不可思議功德力者。若有眾生得聞是經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 288,
+     "text": "若一轉若一偈乃至一句。通達百千萬億義已。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 289,
+     "text": "雖有煩惱如無煩惱。出生入死無怖畏想。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 290,
+     "text": "於諸眾生生憐愍心。於一切法得勇健想。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 291,
+     "text": "如壯力士能擔能持諸有重者。是持經人亦復如是。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 292,
+     "text": "能荷無上菩提重寶。擔負眾生出生死道。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 293,
+     "text": "未能自度已能度彼。猶如船師身嬰重病。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 294,
+     "text": "四體不御安止此岸。有好堅牢船舟。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 295,
+     "text": "常辦諸度彼者之具。給與而去。是持經者亦復如是。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 296,
+     "text": "雖嬰五道諸有之身百八重病常恒相纏。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 297,
+     "text": "安止無明老死此岸。而有堅牢此大乘經無量義辦。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 298,
+     "text": "能度眾生。能如說行者得度生死。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 299,
+     "text": "善男子。是名是經第三功德不思議力",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 300,
+     "text": "善男子。第四是經不可思議功德力者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 301,
+     "text": "若有眾生得聞是經。若一轉若一偈乃至一句。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 302,
+     "text": "得勇健想。雖未自度而能度他。與諸菩薩以為眷屬。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 303,
+     "text": "諸佛如來。常向是人而演說法。是人聞已。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 304,
+     "text": "悉能受持隨順不逆。轉復為人隨宜廣說。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 305,
+     "text": "善男子。是人譬如國王夫人新生王子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 306,
+     "text": "若一日若二日若至七日。若一月若二月若至七月。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 307,
+     "text": "若一歲若二歲若至七歲。雖復不能領理國事。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 308,
+     "text": "己為臣民之所宗敬。諸大王子以為伴侶。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 309,
+     "text": "王及夫人。愛心偏重常與共語。所以者何。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 310,
+     "text": "以稚小故。善男子。是持經者亦復如是。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 311,
+     "text": "諸佛國王是經夫人。和合共生是菩薩子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 312,
+     "text": "若是菩薩得聞是經。若一句若一偈。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 313,
+     "text": "若一轉若二轉。若十若百若千若萬。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 314,
+     "text": "若億萬億若恒河沙。無量無數轉。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 315,
+     "text": "雖復不能體真理極。雖復不能震動三千大千國土雷震梵音轉大法輪。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 316,
+     "text": "己為一切四眾八部之所宗仰。諸大菩薩以為眷屬。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 317,
+     "text": "深入諸佛祕密之法。所可演說無違無失。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 318,
+     "text": "常為諸佛之所護念。慈愛偏覆。以新學故。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 319,
+     "text": "善男子。是名是經第四功德不思議力善男子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 320,
+     "text": "第五是經不可思議功德力者。若善男子善女人。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 321,
+     "text": "若佛在世若滅度後。其有受持讀誦書寫如是甚深無上大乘無量義經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 322,
+     "text": "是人雖復具縛煩惱未能遠離諸凡夫事。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 323,
+     "text": "而能示現大菩提道。延於一日以為百劫。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 324,
+     "text": "百劫亦能促為一日。令彼眾生歡喜信伏。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 325,
+     "text": "善男子。是善男子善女人。譬如龍子始生七日。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 326,
+     "text": "即能興雲亦能降雨。善男子。是名是經第五功德不思議力",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 327,
+     "text": "善男子。第六是經不可思議功德力者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 328,
+     "text": "若善男子善女人。若佛在世若滅度後。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 329,
+     "text": "受持讀誦是經典者。雖具煩惱而為眾生說法。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 330,
+     "text": "令得遠離煩惱生死斷一切苦。眾生聞已修行得法得果得道。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 331,
+     "text": "與佛如來等無差別。譬如王子。雖復稚小。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 332,
+     "text": "若王遊巡及以疾病。委是王子領理國事。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 333,
+     "text": "王子是時依大王命如法教令。群寮百官宣流正化。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 334,
+     "text": "國土人民各隨其安。如大王治等無有異。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 335,
+     "text": "持經善男子善女人亦復如是。若佛在世若滅度後。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 336,
+     "text": "是善男子。雖未得住初不動地。依佛如是用說教法而敷演之。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 337,
+     "text": "眾生聞已一心修行。斷除煩惱得法得果乃至得道。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 338,
+     "text": "善男子。是名是經第六功德不思議力善男子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 339,
+     "text": "第七是經不可思議功德力者。若善男子善女人。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 340,
+     "text": "於佛在世若滅度後得聞是經。歡喜信樂生希有心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 341,
+     "text": "受持讀誦書寫解說。如法修行發菩提心。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 342,
+     "text": "起諸善根興大悲意。欲度一切苦惱眾生。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 343,
+     "text": "雖未修行六波羅蜜。六波羅蜜自然在前。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 344,
+     "text": "即於是身得無生忍。生死煩惱一時斷壞。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 345,
+     "text": "即昇第七地與大菩薩位。譬如健人為王除怨。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 346,
+     "text": "怨既滅已王大歡喜。賞賜半國之封皆悉與之。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 347,
+     "text": "持經男子女人亦復如是。於諸行人最為勇健。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 348,
+     "text": "六度法寶不求自至。生死怨敵自然散壞證無生忍。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 349,
+     "text": "半佛國寶封賞安樂。善男子。是名是經第七功德不思議力",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 350,
+     "text": "善男子。第八是經不可思議功德力者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 351,
+     "text": "若善男子善女人。於佛在世若滅度後。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 352,
+     "text": "有人能得是經典者。敬信如視佛身令等無異。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 353,
+     "text": "愛樂是經受持讀誦書寫頂戴如法奉行。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 354,
+     "text": "堅固戒忍兼行檀度。深發慈悲。以此無上大乘無量義經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 355,
+     "text": "廣為人說。若人先來都不信有罪福者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 356,
+     "text": "以是經示之。設種種方便強化令信。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 357,
+     "text": "以經威力故。發其人心欻然得迴。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 358,
+     "text": "信心既發。勇猛精進故。能得是經威德勢力得道得果。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 359,
+     "text": "是故善男子善女人。即於是身得無生法忍得至上地。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 360,
+     "text": "與諸菩薩以為眷屬。速能成就眾生淨佛國土。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 361,
+     "text": "不久得成無上菩提。善男子。是名是經第八功德不思議力",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 362,
+     "text": "善男子。第九是經不可思議功德力者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 363,
+     "text": "若善男子善女人。若佛在世及滅度後。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 364,
+     "text": "有得是經歡喜踊躍得未曾有。受持讀誦書寫供養。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 365,
+     "text": "廣為眾人分別解說是經義者。即得宿業餘罪重障一時滅盡。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 366,
+     "text": "便得清淨逮得大辯。次第莊嚴諸波羅蜜。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 367,
+     "text": "獲諸三昧首楞嚴三昧。入大總持門。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 368,
+     "text": "得懃精進力。速越上地。善能分身散體遍十方國。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 369,
+     "text": "拔濟一切二十五有極苦眾生悉令解脫。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 370,
+     "text": "是故是經有如此力。善男子。是名是經第九功德不思議力",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 371,
+     "text": "善男子。第十是經不可思議功德力者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 372,
+     "text": "若善男子善女人。若佛在世及滅度後。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 373,
+     "text": "若得是經發大歡喜生希有心。即自受持讀誦書寫供養如說修行。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 374,
+     "text": "復能廣勸在家出家人。受持讀誦書寫供養解說如法修行。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 375,
+     "text": "既令餘人修行是經力故得道得果。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 376,
+     "text": "皆由是善男子善女人慈心懃化力故。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 377,
+     "text": "是善男子善女人。即於是身便逮無量諸陀羅尼門。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 378,
+     "text": "於凡夫地自然初時能發無數阿僧祇弘誓大願。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 379,
+     "text": "深能發救一切眾生成就大悲廣能救苦。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 380,
+     "text": "厚集善根饒益一切。而演法澤洪潤枯涸。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 381,
+     "text": "以眾法藥練諸眾生安樂一切。漸見超登住法雲地。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 382,
+     "text": "恩澤普潤慈被無外。攝苦眾生令入道跡。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 383,
+     "text": "是故此人不久得成阿耨多羅三藐三菩提。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 384,
+     "text": "善男子。是名是經第十功德不思議力",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 385,
+     "text": "善男子。如是無上大乘無量義經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 386,
+     "text": "極有大威神之力。尊無過上。能令諸凡夫皆成聖果。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 387,
+     "text": "永離生死而得自在。是故此經名無量義也。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 388,
+     "text": "能令一切眾生於凡夫地生起諸菩薩無量道芽。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 389,
+     "text": "令功德樹蔚茂扶疏增長。是故此經號十不可思議功德力也",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 390,
+     "text": "於是大莊嚴菩薩摩訶薩及八萬菩薩摩訶薩同聲白佛言。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 391,
+     "text": "世尊。佛所說甚深微妙無上大乘無量義經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 392,
+     "text": "文理真正尊無過上。三世諸佛所共守護。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 393,
+     "text": "無有眾魔群道得入。不為一切邪見生死之所壞敗。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 394,
+     "text": "是故此經乃有如是十種功德不思議力。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 395,
+     "text": "大饒益無量一切眾生。令一切諸菩薩摩訶薩各得無量義三昧。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 396,
+     "text": "或得百千陀羅尼門。或令得菩薩諸地諸忍。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 397,
+     "text": "或得緣覺羅漢四道果證。世尊慈愍。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 398,
+     "text": "快為我等說如是法。令我大獲法利。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 399,
+     "text": "甚為奇特。未曾有也。世尊慈恩實難可報。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 400,
+     "text": "爾時三千大千世界六種震動。於上空中復雨種種華。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 401,
+     "text": "天憂缽羅華。缽曇摩華。拘物頭華。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 402,
+     "text": "分陀利華。又雨無數種種天香天衣天瓔珞天無價寶。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 403,
+     "text": "於上空中旋轉來下。供養於佛及諸菩薩聲聞大眾。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 404,
+     "text": "天廚天缽器。天百味充滿盈溢。見色聞香自然飽足。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 405,
+     "text": "天幢天幡天幰蓋。天妙樂具處處安置。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 406,
+     "text": "作天伎樂歌歎於佛。又復六種震動東方恒河沙等諸佛世界。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 407,
+     "text": "亦雨天華天香天衣天瓔珞天無價寶。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 408,
+     "text": "天廚天缽器天百味。見色聞香自然飽足。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 409,
+     "text": "天幢天幡天幰蓋天妙樂具。作天伎樂歌歎彼佛及諸菩薩聲聞大眾。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 410,
+     "text": "南西北方四維上下亦復如是。爾時佛告大莊嚴菩薩摩訶薩及八萬菩薩摩訶薩言。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 411,
+     "text": "汝等當於此經應深起敬心如法修行。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 412,
+     "text": "廣化一切懃心流布。常當慇懃晝夜守護。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 413,
+     "text": "普令眾生各獲法利。汝等真是大慈大悲。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 414,
+     "text": "以立神通願力守護是經勿使疑滯。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 415,
+     "text": "於當來世必令廣行閻浮提。令一切眾生使得見聞讀誦書寫供養。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 416,
+     "text": "以是之故。亦令汝等速得阿耨多羅三藐三菩提。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 417,
+     "text": "是時大莊嚴菩薩摩訶薩。與八萬菩薩摩訶薩。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 418,
+     "text": "即從坐起來詣佛所。頭面禮足遶百千匝。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 419,
+     "text": "即前胡跪俱共同聲白佛言。世尊。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 420,
+     "text": "我等快蒙世尊慈愍。為我等說是甚深微妙無上大乘無量義經。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 421,
+     "text": "敬受佛敕。於如來滅後。當廣令流布是經典者。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 422,
+     "text": "普令一切受持讀誦書寫供養。唯願世尊。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 423,
+     "text": "勿垂憂慮。我等當以願力。普令一切眾生使得見聞讀誦書寫供養。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 424,
+     "text": "得是經法威神之力。爾時佛讚言。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 425,
+     "text": "善哉善哉。諸善男子。汝等今者真是佛子。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 426,
+     "text": "大慈大悲深能拔苦救厄者矣。一切眾生之良福田。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 427,
+     "text": "廣為一切作大良導。一切眾生大依止處。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 428,
+     "text": "一切眾生之大施主。常以法利廣施一切。",
+     "section": "十功德品第三"
+    },
+    {
+     "n": 429,
+     "text": "爾時大會皆大歡喜。為佛作禮。受持而去",
+     "section": "十功德品第三"
+    }
+   ]
+  }
+ ]
+}

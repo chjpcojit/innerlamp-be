@@ -1,0 +1,1033 @@
+{
+ "id": "sam-khe-thu",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Sám hối",
+ "reference": "",
+ "summary": "Bài sám hối theo Tịnh độ, mở đầu bằng câu Khể thủ Tây phương an lạc quốc, hướng về Phật A Di Đà. Người tụng phát nguyện vãng sinh, chuyên niệm danh hiệu Phật, thành tâm sám hối nghiệp nặng, phước mỏng, chướng sâu, tuệ cạn. Cuối bài hồi hướng công đức cho bốn ân, ba cõi và pháp giới chúng sinh cùng viên thành chủng trí.",
+ "titles": {
+  "vi": "Sám Khể Thủ",
+  "zh": "稽首懺",
+  "en": "Repentance verses (Khể Thủ, Pure Land)"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "SAM_HOI"
+ ],
+ "durationMinutes": 8,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "không ghi",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - Nghi Lễ: Sám Khể Thủ - nguyên văn Hán-Việt",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/Nghile/39samkhethu.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Biên tập nội dung: Tỳ Kheo Thích Nguyên Tạng\", Tu Viện Quảng Đức",
+   "note": "Giữ ngắt dòng theo nguồn. Chuyển chữ Đ/đ kiểu cũ sang Đ/đ chuẩn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Khể thủ Tây phương an lạc quốc,"
+    },
+    {
+     "n": 2,
+     "text": "Tiếp dẫn chúng sinh đại đạo sư,"
+    },
+    {
+     "n": 3,
+     "text": "Ngã kim phát nguyện nguyện vãng sanh"
+    },
+    {
+     "n": 4,
+     "text": "Duy nguyện từ bi ai nhiếp thọ."
+    },
+    {
+     "n": 5,
+     "text": "Đệ tử chúng đẳng,"
+    },
+    {
+     "n": 6,
+     "text": "Phổ vị tứ ân tam hữu,"
+    },
+    {
+     "n": 7,
+     "text": "Pháp giới chúng sinh,"
+    },
+    {
+     "n": 8,
+     "text": "Cầu ư chư Phật,"
+    },
+    {
+     "n": 9,
+     "text": "Nhứt thừa vô thượng,"
+    },
+    {
+     "n": 10,
+     "text": "Bồ-đề đạo cố,"
+    },
+    {
+     "n": 11,
+     "text": "Chuyên tâm trì niệm,"
+    },
+    {
+     "n": 12,
+     "text": "A Di Đà Phật,"
+    },
+    {
+     "n": 13,
+     "text": "Vạn đức hồng danh,"
+    },
+    {
+     "n": 14,
+     "text": "Cầu sanh Tịnh độ."
+    },
+    {
+     "n": 15,
+     "text": "Hựu dĩ nghiệp trọng phước khinh,"
+    },
+    {
+     "n": 16,
+     "text": "Chướng thâm huệ thiển,"
+    },
+    {
+     "n": 17,
+     "text": "Nhiễm tâm dị xí,"
+    },
+    {
+     "n": 18,
+     "text": "Tịnh đức nan thành,"
+    },
+    {
+     "n": 19,
+     "text": "Kim ư Phật tiền,"
+    },
+    {
+     "n": 20,
+     "text": "Kiều cần ngũ thể,"
+    },
+    {
+     "n": 21,
+     "text": "Phi lịch nhứt tâm,"
+    },
+    {
+     "n": 22,
+     "text": "Đầu thành sám hối."
+    },
+    {
+     "n": 23,
+     "text": "Ngã cập chúng sinh,"
+    },
+    {
+     "n": 24,
+     "text": "Khoáng kiếp chí kim,"
+    },
+    {
+     "n": 25,
+     "text": "Mê bổn tịnh tâm,"
+    },
+    {
+     "n": 26,
+     "text": "Túng tham sân si,"
+    },
+    {
+     "n": 27,
+     "text": "Nhiễm uế tam nghiệp,"
+    },
+    {
+     "n": 28,
+     "text": "Vô lượng vô biên,"
+    },
+    {
+     "n": 29,
+     "text": "Sở tác tội cấu,"
+    },
+    {
+     "n": 30,
+     "text": "Vô lượng vô biên,"
+    },
+    {
+     "n": 31,
+     "text": "Sở kết oan nghiệp,"
+    },
+    {
+     "n": 32,
+     "text": "Nguyện tất tiêu diệt."
+    },
+    {
+     "n": 33,
+     "text": "Tùng ư kim nhựt,"
+    },
+    {
+     "n": 34,
+     "text": "Lập thâm thệ nguyện,"
+    },
+    {
+     "n": 35,
+     "text": "Viễn ly ác pháp,"
+    },
+    {
+     "n": 36,
+     "text": "Thệ bất cánh tạo,"
+    },
+    {
+     "n": 37,
+     "text": "Cần tu Thánh đạo,"
+    },
+    {
+     "n": 38,
+     "text": "Thệ bất thoái đọa,"
+    },
+    {
+     "n": 39,
+     "text": "Thệ thành Chánh giác,\""
+    },
+    {
+     "n": 40,
+     "text": "Thệ độ chúng sinh;"
+    },
+    {
+     "n": 41,
+     "text": "A Di Đà Phật,"
+    },
+    {
+     "n": 42,
+     "text": "Dĩ từ bi nguyện lực,"
+    },
+    {
+     "n": 43,
+     "text": "Đương chứng tri ngã,"
+    },
+    {
+     "n": 44,
+     "text": "Đương ai mẫn ngã,"
+    },
+    {
+     "n": 45,
+     "text": "Đương gia bị ngã."
+    },
+    {
+     "n": 46,
+     "text": "Nguyện thiền quán chi trung,"
+    },
+    {
+     "n": 47,
+     "text": "Mộng mị chi tế,"
+    },
+    {
+     "n": 48,
+     "text": "Đắc kiến A Di Đà Phật,"
+    },
+    {
+     "n": 49,
+     "text": "Kim sắc chi thân,"
+    },
+    {
+     "n": 50,
+     "text": "Đắc lịch A Di Đà Phật,"
+    },
+    {
+     "n": 51,
+     "text": "Bảo nghiêm chi độ,"
+    },
+    {
+     "n": 52,
+     "text": "Đắc mông A Di Đà Phật,"
+    },
+    {
+     "n": 53,
+     "text": "Cam lồ quán đảnh,"
+    },
+    {
+     "n": 54,
+     "text": "Quang minh chiếu thân,"
+    },
+    {
+     "n": 55,
+     "text": "Thủ ma ngã đầu,"
+    },
+    {
+     "n": 56,
+     "text": "Y phú ngã thể,"
+    },
+    {
+     "n": 57,
+     "text": "Sử ngã túc chướng tự trừ,"
+    },
+    {
+     "n": 58,
+     "text": "Thiện căn tăng trưởng,"
+    },
+    {
+     "n": 59,
+     "text": "Tật không phiền não,"
+    },
+    {
+     "n": 60,
+     "text": "Đốn phá vô minh,"
+    },
+    {
+     "n": 61,
+     "text": "Viên giác diệu tâm,"
+    },
+    {
+     "n": 62,
+     "text": "Quách nhiên khai ngộ,"
+    },
+    {
+     "n": 63,
+     "text": "Tịch quang chân cảnh,"
+    },
+    {
+     "n": 64,
+     "text": "Thường đắc hiện tiền."
+    },
+    {
+     "n": 65,
+     "text": "Chí ư lâm dục mạng chung,"
+    },
+    {
+     "n": 66,
+     "text": "Dự tri thời chí,"
+    },
+    {
+     "n": 67,
+     "text": "Thân vô nhứt thiết,"
+    },
+    {
+     "n": 68,
+     "text": "Bệnh khổ ách nạn"
+    },
+    {
+     "n": 69,
+     "text": "Tâm vô nhứt thiết,"
+    },
+    {
+     "n": 70,
+     "text": "Tham luyến mê hoặc,"
+    },
+    {
+     "n": 71,
+     "text": "Chư căn duyệt dự,"
+    },
+    {
+     "n": 72,
+     "text": "Chánh niệm phân minh,"
+    },
+    {
+     "n": 73,
+     "text": "Xả báo an tường,"
+    },
+    {
+     "n": 74,
+     "text": "Như nhập thiền định."
+    },
+    {
+     "n": 75,
+     "text": "A Di Đà Phật"
+    },
+    {
+     "n": 76,
+     "text": "Dữ Quán Âm - Thế Chí,"
+    },
+    {
+     "n": 77,
+     "text": "Chư Thánh Hiền chúng,"
+    },
+    {
+     "n": 78,
+     "text": "Phóng quang tiếp dẫn,"
+    },
+    {
+     "n": 79,
+     "text": "Thùy thủ đề huề,"
+    },
+    {
+     "n": 80,
+     "text": "Lầu các tràng phan,"
+    },
+    {
+     "n": 81,
+     "text": "Dị hương thiên nhạc,"
+    },
+    {
+     "n": 82,
+     "text": "Tây phương thánh cảnh,"
+    },
+    {
+     "n": 83,
+     "text": "Chiêu thị mục tiền,"
+    },
+    {
+     "n": 84,
+     "text": "Linh chư chúng sinh"
+    },
+    {
+     "n": 85,
+     "text": "Kiến giả văn giả,"
+    },
+    {
+     "n": 86,
+     "text": "Hoan hỉ cảm thán,"
+    },
+    {
+     "n": 87,
+     "text": "Phát Bồ-đề tâm."
+    },
+    {
+     "n": 88,
+     "text": "Ngã ư nhĩ thời,"
+    },
+    {
+     "n": 89,
+     "text": "Thừa kim cương đài,"
+    },
+    {
+     "n": 90,
+     "text": "Tùy tùng Phật hậu,"
+    },
+    {
+     "n": 91,
+     "text": "Như đàn chỉ khoảnh,"
+    },
+    {
+     "n": 92,
+     "text": "Sanh cực lạc quốc,"
+    },
+    {
+     "n": 93,
+     "text": "Thất bảo trì nội"
+    },
+    {
+     "n": 94,
+     "text": "Thắng liên hoa trung,"
+    },
+    {
+     "n": 95,
+     "text": "Hoa khai kiến Phật,"
+    },
+    {
+     "n": 96,
+     "text": "Kiến chư Bồ-tát,"
+    },
+    {
+     "n": 97,
+     "text": "Văn diệu pháp âm,"
+    },
+    {
+     "n": 98,
+     "text": "Hoạch vô sanh nhẫn:"
+    },
+    {
+     "n": 99,
+     "text": "Ư tu du gian,"
+    },
+    {
+     "n": 100,
+     "text": "Thừa sự chư Phật,"
+    },
+    {
+     "n": 101,
+     "text": "Thân mông thọ ký,"
+    },
+    {
+     "n": 102,
+     "text": "Đắc thọ ký dĩ,"
+    },
+    {
+     "n": 103,
+     "text": "Tam thân tứ trí,"
+    },
+    {
+     "n": 104,
+     "text": "Ngũ nhãn lục thông,"
+    },
+    {
+     "n": 105,
+     "text": "Vô lượng bách thiên,"
+    },
+    {
+     "n": 106,
+     "text": "Đà la ni môn,"
+    },
+    {
+     "n": 107,
+     "text": "Nhứt thiết công đức,"
+    },
+    {
+     "n": 108,
+     "text": "Giai tất thành tựu."
+    },
+    {
+     "n": 109,
+     "text": "Nhiên hậu bất vi an dưỡng,"
+    },
+    {
+     "n": 110,
+     "text": "Hồi nhập Ta bà,"
+    },
+    {
+     "n": 111,
+     "text": "Phân thân vô số,"
+    },
+    {
+     "n": 112,
+     "text": "Biến thập phương sát,"
+    },
+    {
+     "n": 113,
+     "text": "Dĩ bất khả tư nghị,"
+    },
+    {
+     "n": 114,
+     "text": "Tự tại thần lực,"
+    },
+    {
+     "n": 115,
+     "text": "Chủng chủng phương tiện,"
+    },
+    {
+     "n": 116,
+     "text": "Độ thoát chúng sinh,"
+    },
+    {
+     "n": 117,
+     "text": "Hàm linh ly nhiễm,"
+    },
+    {
+     "n": 118,
+     "text": "Hoàn đắc tịnh tâm,"
+    },
+    {
+     "n": 119,
+     "text": "Đồng sanh Tây phương,"
+    },
+    {
+     "n": 120,
+     "text": "Nhập bất thoái địa."
+    },
+    {
+     "n": 121,
+     "text": "Như thị đại nguyện:"
+    },
+    {
+     "n": 122,
+     "text": "Thế giới vô tận,"
+    },
+    {
+     "n": 123,
+     "text": "Chúng sinh vô tận,"
+    },
+    {
+     "n": 124,
+     "text": "Nghiệp cận phiền não,"
+    },
+    {
+     "n": 125,
+     "text": "Nhứt thiết vô tận,"
+    },
+    {
+     "n": 126,
+     "text": "Ngã nguyện vô tận."
+    },
+    {
+     "n": 127,
+     "text": "Nguyện kim lễ Phật,"
+    },
+    {
+     "n": 128,
+     "text": "Phát nguyện tu trì,"
+    },
+    {
+     "n": 129,
+     "text": "Công đức hồi thí hữu tình,"
+    },
+    {
+     "n": 130,
+     "text": "Tứ ân tổng báo,"
+    },
+    {
+     "n": 131,
+     "text": "Tam hữu tề tư,"
+    },
+    {
+     "n": 132,
+     "text": "Pháp giới chúng sinh,"
+    },
+    {
+     "n": 133,
+     "text": "Đồng viên chủng trí."
+    },
+    {
+     "n": 134,
+     "text": "*"
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "không ghi (trang không nêu dịch giả)",
+   "sourceName": "Tu Viện Quảng Đức - Sám Khể Thủ - mục \"Dịch nghĩa\"",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/Nghile/39samkhethu.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Biên tập nội dung: Tỳ Kheo Thích Nguyên Tạng\", Tu Viện Quảng Đức",
+   "note": "Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Sám Khể Thủ"
+    },
+    {
+     "n": 2,
+     "text": "Cúi đầu lạy đức Pháp vương,"
+    },
+    {
+     "n": 3,
+     "text": "Độ sanh về cõi Tây phương an nhàn,"
+    },
+    {
+     "n": 4,
+     "text": "Tôi nguyền cho được bước sang,"
+    },
+    {
+     "n": 5,
+     "text": "Cúi xin thương xót rước mang tôi về."
+    },
+    {
+     "n": 6,
+     "text": "Nay đệ tử thành tâm phát nguyện"
+    },
+    {
+     "n": 7,
+     "text": "Vì bốn ơn ba cõi hữu tình,"
+    },
+    {
+     "n": 8,
+     "text": "Khắp trong pháp giới chúng sanh,"
+    },
+    {
+     "n": 9,
+     "text": "Cầu trên chư Phật ơn lành ban ra."
+    },
+    {
+     "n": 10,
+     "text": "Nhứt thừa đại, thật là vô thượng,"
+    },
+    {
+     "n": 11,
+     "text": "Đạo Bồ đề, vô lượng chơn truyền,"
+    },
+    {
+     "n": 12,
+     "text": "Hồng danh vạn đức kết duyên,"
+    },
+    {
+     "n": 13,
+     "text": "Di Đà chuyên niệm, Tây thiên nguyện về."
+    },
+    {
+     "n": 14,
+     "text": "Bởi nghiệp trọng, thêm bề phước kém,"
+    },
+    {
+     "n": 15,
+     "text": "Chướng đã sâu, huệ thiển vơi vơi,"
+    },
+    {
+     "n": 16,
+     "text": "Lại thêm lòng nhiễm dễ bồi,"
+    },
+    {
+     "n": 17,
+     "text": "Mà còn đức tịnh khó thời đạt nên."
+    },
+    {
+     "n": 18,
+     "text": "Nay tôi ở hiện tiền các Phật,"
+    },
+    {
+     "n": 19,
+     "text": "Gieo vóc nằêm sát đất chí thành,"
+    },
+    {
+     "n": 20,
+     "text": "Tỏ bày một tấm chơn tình,"
+    },
+    {
+     "n": 21,
+     "text": "Thiệt lòng sám hối tội mình những bao."
+    },
+    {
+     "n": 22,
+     "text": "Ta cùng với những nào các loại,"
+    },
+    {
+     "n": 23,
+     "text": "Trải qua bao nhiêu kiếp mãi đến nay,"
+    },
+    {
+     "n": 24,
+     "text": "Bổn tâm tịnh đã mê say,"
+    },
+    {
+     "n": 25,
+     "text": "Buông lòng tham ố, sân, si đủ điều."
+    },
+    {
+     "n": 26,
+     "text": "Ba nghiệp nhiễm, biết bao dơ uế,"
+    },
+    {
+     "n": 27,
+     "text": "Gây tội tình, nào kể cho xong."
+    },
+    {
+     "n": 28,
+     "text": "Nghiệp oan kết đã vô cùng"
+    },
+    {
+     "n": 29,
+     "text": "Ngày nay cầu nguyện hai đường sạch trong."
+    },
+    {
+     "n": 30,
+     "text": "Từ nay đến hết, lòng khẩn thiết,"
+    },
+    {
+     "n": 31,
+     "text": "Gắng xa lìa việc ác chẳng sanh,"
+    },
+    {
+     "n": 32,
+     "text": "Cần tu thánh đạo cho thành,"
+    },
+    {
+     "n": 33,
+     "text": "Dứt đường thối chuyển, quyết tình tiến lên."
+    },
+    {
+     "n": 34,
+     "text": "Bực chánh giác, nguyện nên đạo cả,"
+    },
+    {
+     "n": 35,
+     "text": "Chốn mê đồ, độ cả chúng sanh,"
+    },
+    {
+     "n": 36,
+     "text": "A Di Đà Phật chứng minh,"
+    },
+    {
+     "n": 37,
+     "text": "Dùng Từ bi lực, thương tình hộ cho."
+    },
+    {
+     "n": 38,
+     "text": "Cầu khi ngủ, tưởng mơ thấp thoáng,"
+    },
+    {
+     "n": 39,
+     "text": "Hay khi trong thiền quán lặng an,"
+    },
+    {
+     "n": 40,
+     "text": "Thấy Di Đà Phật rõ ràng,"
+    },
+    {
+     "n": 41,
+     "text": "Hiện ra đức tướng sắc vàng quang minh."
+    },
+    {
+     "n": 42,
+     "text": "Đặng vào chốn nước thành đẹp đẽ,"
+    },
+    {
+     "n": 43,
+     "text": "Toàn thất trân đầy vẻ trang nghiêm,"
+    },
+    {
+     "n": 44,
+     "text": "Nhờ ơn đức Phật oai thiêng,"
+    },
+    {
+     "n": 45,
+     "text": "Nước cam lồ rưới lên trên đảnh nầy."
+    },
+    {
+     "n": 46,
+     "text": "Hào quang sáng phủ vây thân thể,"
+    },
+    {
+     "n": 47,
+     "text": "Cánh tay vàng Phật để đầu tôi,"
+    },
+    {
+     "n": 48,
+     "text": "Lấy y Phật đắp luôn hồi,"
+    },
+    {
+     "n": 49,
+     "text": "Khiến cho chướng cũ dứt rồi còn chi."
+    },
+    {
+     "n": 50,
+     "text": "Thiện căn lớn, lại lìa phiền não,"
+    },
+    {
+     "n": 51,
+     "text": "Gốc vô minh, mở tháo khỏi lòng,"
+    },
+    {
+     "n": 52,
+     "text": "Tánh mầu viên giác khai thông,"
+    },
+    {
+     "n": 53,
+     "text": "Tịch quang chơn cảnh được trông thấy liền."
+    },
+    {
+     "n": 54,
+     "text": "Lúc lâm chung gần viên thân báo,"
+    },
+    {
+     "n": 55,
+     "text": "Biết ngày giờ sắp đáo nhơn duyên,"
+    },
+    {
+     "n": 56,
+     "text": "Thân không ách nạn khổ phiền,"
+    },
+    {
+     "n": 57,
+     "text": "Lòng không một chút mê huyền thích ham."
+    },
+    {
+     "n": 58,
+     "text": "Các căn đã hân hoan viên mãn,"
+    },
+    {
+     "n": 59,
+     "text": "Lại rõ ràng niệm quán chánh chơn,"
+    },
+    {
+     "n": 60,
+     "text": "Nhẹ nhàng bỏ khúc báo thân,"
+    },
+    {
+     "n": 61,
+     "text": "Như vào thiền định vui mừng thảnh thơi."
+    },
+    {
+     "n": 62,
+     "text": "Vô Lượng Thọ, một ngôi pháp chủ,"
+    },
+    {
+     "n": 63,
+     "text": "Quan Âm cùng Thế Chí hầu kề,"
+    },
+    {
+     "n": 64,
+     "text": "Thánh Hiền đông đủ ê hề,"
+    },
+    {
+     "n": 65,
+     "text": "Phóng quang dìu dắt đề huề tiếp tay."
+    },
+    {
+     "n": 66,
+     "text": "Trong lầu các phất bay phan phướn,"
+    },
+    {
+     "n": 67,
+     "text": "Hương đượm nồng nhạc xướng thanh tao,"
+    },
+    {
+     "n": 68,
+     "text": "Tây phương thánh cảnh đẹp sao !"
+    },
+    {
+     "n": 69,
+     "text": "Hiện ra trước mặt, xiết bao vui mừng."
+    },
+    {
+     "n": 70,
+     "text": "Khiến hết thảy muôn trùng sinh chúng,"
+    },
+    {
+     "n": 71,
+     "text": "Đều được nghe, thấy đúng không sai,"
+    },
+    {
+     "n": 72,
+     "text": "Vui mừng cảm kích khen hoài,"
+    },
+    {
+     "n": 73,
+     "text": "Bồ đề tâm địa kịp thời phát ra."
+    },
+    {
+     "n": 74,
+     "text": "Trong lúc ấy còn ta vui vẻ,"
+    },
+    {
+     "n": 75,
+     "text": "Cỡi kim đài, hầu kế Phật gia,"
+    },
+    {
+     "n": 76,
+     "text": "Móng tay vừa khảy búng ra,"
+    },
+    {
+     "n": 77,
+     "text": "Đã về Cực lạc, đến nhà Tây phương."
+    },
+    {
+     "n": 78,
+     "text": "Ao thất bảo chín từng sen nở,"
+    },
+    {
+     "n": 79,
+     "text": "Liền hóa sanh ngồi ở phẩm trên,"
+    },
+    {
+     "n": 80,
+     "text": "Hoa nở thấy Phật hiện tiền,"
+    },
+    {
+     "n": 81,
+     "text": "Các ngài Bồ Tát luân phiên chào mừng."
+    },
+    {
+     "n": 82,
+     "text": "Nghe Phật thuyết vô cùng pháp diệu,"
+    },
+    {
+     "n": 83,
+     "text": "Nhẫn vô sanh, liễu chứng tức thời,"
+    },
+    {
+     "n": 84,
+     "text": "Chỉ trong một khoảnh khắc thôi,"
+    },
+    {
+     "n": 85,
+     "text": "Vâng thờ chư Phật cầu Ngài dạy cho."
+    },
+    {
+     "n": 86,
+     "text": "Được thọ ký còn lo chi nữa,"
+    },
+    {
+     "n": 87,
+     "text": "Bốn trí về cùng thửa ba thân,"
+    },
+    {
+     "n": 88,
+     "text": "Hiện bày ngũ nhãn, lục thông,"
+    },
+    {
+     "n": 89,
+     "text": "Tổng trì vô lượng trăm ngàn pháp môn."
+    },
+    {
+     "n": 90,
+     "text": "Nào xiết kể các công đức tánh,"
+    },
+    {
+     "n": 91,
+     "text": "Đều chung qui muôn hạnh tựu thành,"
+    },
+    {
+     "n": 92,
+     "text": "Rồi sau trở lại nguyện mình,"
+    },
+    {
+     "n": 93,
+     "text": "Tánh nương an dưỡng, thân hoành trần ai."
+    },
+    {
+     "n": 94,
+     "text": "Trong thế giới khắp mười phương cõi,"
+    },
+    {
+     "n": 95,
+     "text": "Phân thân này qua lại vô cùng,"
+    },
+    {
+     "n": 96,
+     "text": "Lực thần tự tại không lường,"
+    },
+    {
+     "n": 97,
+     "text": "Phương nầy chước nọ mở đường độ sanh."
+    },
+    {
+     "n": 98,
+     "text": "Khiến lìa hết các tình nhiễm trước,"
+    },
+    {
+     "n": 99,
+     "text": "Bổn tâm mau lại được tịnh thanh,"
+    },
+    {
+     "n": 100,
+     "text": "Tây phương cõi Phật đồng sanh,"
+    },
+    {
+     "n": 101,
+     "text": "Vào nơi bất thối, đến thành biến tri."
+    },
+    {
+     "n": 102,
+     "text": "Lời đại nguyện, gắng ghi như vậy,"
+    },
+    {
+     "n": 103,
+     "text": "Chúng sanh và thế giới đó đây,"
+    },
+    {
+     "n": 104,
+     "text": "Nghiệp duyên phiền não đông thay,"
+    },
+    {
+     "n": 105,
+     "text": "Thảy còn mãi mãi, nguyện nầy không phai."
+    },
+    {
+     "n": 106,
+     "text": "Nay lễ Phật, nguyện nầy chí quyết,"
+    },
+    {
+     "n": 107,
+     "text": "Rán tu trì nhứt thiết đức công,"
+    },
+    {
+     "n": 108,
+     "text": "Bốn ân, ba cõi trả xong,"
+    },
+    {
+     "n": 109,
+     "text": "Đáp đến ơn nghĩa khắp trong hữu tình,"
+    },
+    {
+     "n": 110,
+     "text": "Như Lai chủng trí viên thành."
+    },
+    {
+     "n": 111,
+     "text": "http://www.quangduc.com/kinhdien/117ttsamvan2-1.html"
+    }
+   ]
+  }
+ ]
+}

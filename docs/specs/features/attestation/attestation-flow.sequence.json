@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Attestation — Luồng xác minh Android & iOS",
+    "output": "docs/specs/features/attestation/attestation-flow.html",
+    "quality_profile": "showcase",
+    "column_fit": "spread",
+    "viewBox": [1360, 700],
+    "views": [
+      { "id": "challenge", "label": "Cấp challenge", "focus": ["android", "api", "db"], "note": "Nonce cho pha attestation (verify/attest), dùng chung android + ios." },
+      { "id": "android", "label": "Android · Play Integrity", "focus": ["android", "api", "db", "google"], "note": "Server decode token trên Google bằng service account." },
+      { "id": "ios", "label": "iOS · App Attest", "focus": ["ios", "api", "db"], "note": "Attest (đăng ký khoá) + assertion gắn header qua middleware, server verify local." }
+    ]
+  },
+  "participants": [
+    { "id": "android", "type": "frontend", "label": "Android App" },
+    { "id": "ios", "type": "frontend", "label": "iOS App" },
+    { "id": "api", "type": "backend", "label": "Attestation API" },
+    { "id": "db", "type": "database", "label": "Postgres" },
+    { "id": "google", "type": "cloud", "label": "Play Integrity" }
+  ],
+  "segments": [
+    { "from": 128, "to": 250, "label": "Cấp challenge — attestation" },
+    { "from": 258, "to": 380, "label": "Android — Play Integrity" },
+    { "from": 388, "to": 480, "label": "iOS — attest (đăng ký khoá)" },
+    { "from": 488, "to": 640, "label": "iOS — assertion (mỗi request)" }
+  ],
+  "messages": [
+    { "from": "android", "to": "api", "y": 160, "label": "POST /v1/attestation/challenge", "note": "platform: android | ios — cho verify/attest", "variant": "emphasis" },
+    { "from": "api", "to": "db", "y": 190, "label": "SaveChallenge", "note": "purpose=attest · nonce ≥ 16B + TTL", "variant": "default" },
+    { "from": "api", "to": "android", "y": 220, "label": "200 {challenge, expires_in_seconds}", "variant": "return" },
+
+    { "from": "android", "to": "api", "y": 260, "label": "POST /v1/attestation/verify", "note": "token (client đã gọi requestIntegrityToken SDK)", "variant": "emphasis" },
+    { "from": "api", "to": "google", "y": 290, "label": "decodeIntegrityToken", "note": "server-to-server · service account", "variant": "security" },
+    { "from": "google", "to": "api", "y": 320, "label": "verdicts", "note": "package · nonce · recognition", "variant": "return" },
+    { "from": "api", "to": "android", "y": 350, "label": "200 {attested, signals}", "note": "tra + đóng challenge (MarkChallengeUsed)", "variant": "return" },
+
+    { "from": "ios", "to": "api", "y": 390, "label": "POST /v1/attestation/verify", "note": "key_id + attestation (client đã generateKey + attestKey)", "variant": "emphasis" },
+    { "from": "api", "to": "db", "y": 420, "label": "SaveKey", "note": "verify local: x5c · nonce · RP ID · counter=0", "variant": "default" },
+    { "from": "api", "to": "ios", "y": 450, "label": "200 {attested, environment}", "variant": "return" },
+
+    { "from": "ios", "to": "api", "y": 490, "label": "POST /v1/assertion/challenge", "note": "platform: ios — ký từng request (purpose=assert)", "variant": "emphasis" },
+    { "from": "api", "to": "ios", "y": 520, "label": "200 {challenge, expires_in_seconds}", "variant": "return" },
+    { "from": "ios", "to": "api", "y": 550, "label": "[REQUEST thật] + header assertion", "note": "generateAssertion(keyId, SHA256(clientData))", "variant": "emphasis" },
+    { "from": "api", "to": "db", "y": 580, "label": "UpdateKeyCounter", "note": "middleware verify: chữ ký · counter>stored · binding", "variant": "default" },
+    { "from": "api", "to": "ios", "y": 610, "label": "[response endpoint]", "note": "pass-through (next handler)", "variant": "return" }
+  ],
+  "activations": [
+    { "participant": "android", "from": 154, "to": 356, "type": "frontend" },
+    { "participant": "ios", "from": 384, "to": 458, "type": "frontend" },
+    { "participant": "ios", "from": 484, "to": 616, "type": "frontend" },
+    { "participant": "api", "from": 154, "to": 228, "type": "backend" },
+    { "participant": "api", "from": 254, "to": 358, "type": "backend" },
+    { "participant": "api", "from": 384, "to": 458, "type": "backend" },
+    { "participant": "api", "from": 484, "to": 616, "type": "backend" },
+    { "participant": "db", "from": 184, "to": 198, "type": "database" },
+    { "participant": "db", "from": 414, "to": 428, "type": "database" },
+    { "participant": "db", "from": 574, "to": 588, "type": "database" },
+    { "participant": "google", "from": 284, "to": 326, "type": "cloud" }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "2 loại challenge",
+      "items": [
+        "attestation/challenge → verify/attest (purpose=attest)",
+        "assertion/challenge → ký từng request (purpose=assert)",
+        "Cả hai đều POST, nonce dùng-một-lần có TTL"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Verify vs middleware",
+      "items": [
+        "verify → trả verdict (200, kể cả attested:false)",
+        "assertion → middleware RequireAttestation bọc request, pass / 401"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Server gọi ai",
+      "items": [
+        "Postgres — lưu/tra challenge & key",
+        "Android: gọi Google decodeIntegrityToken",
+        "iOS: KHÔNG gọi Apple — verify local"
+      ]
+    }
+  ]
+}

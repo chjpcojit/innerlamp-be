@@ -1,0 +1,169 @@
+{
+ "id": "phat-nguyen-pho-hien",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Phát nguyện",
+ "reference": "",
+ "summary": "Bài phát nguyện trong nghi thức nhật tụng, nêu mười hạnh nguyện lớn của Bồ tát Phổ Hiền: lễ kính chư Phật, xưng tán Như Lai, rộng tu cúng dường, sám hối nghiệp chướng, tùy hỷ công đức, thỉnh chuyển pháp luân, thỉnh Phật trụ thế, thường theo Phật học, hằng thuận chúng sinh và hồi hướng khắp cả. Phần cuối hồi hướng phước lành cho chúng sinh, nguyện cùng về cõi Cực Lạc.",
+ "titles": {
+  "vi": "Phát nguyện (mười hạnh nguyện Phổ Hiền)",
+  "zh": "發願",
+  "en": "Vow (ten great vows of Samantabhadra)"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_samantabhadra",
+   "role": "SUBJECT"
+  },
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "PHAT_NGUYEN"
+ ],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "HT. Thích Trí Quang (dịch âm, theo Thiền môn nhật tụng Huế)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch âm",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu1.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Đệ tử chúng đẳng tùy thuận tu tập Phổ hiền bồ tát thập chủng đại nguyện: nhất giả lễ kính chư Phật, nhị giả xưng tán Như lai, tam giả quảng tu cúng dường,"
+    },
+    {
+     "n": 2,
+     "text": "tứ giả sám hối nghiệp chướng, ngũ giả tùy hỷ công đức, lục giả thỉnh chuyển pháp luân, thất giả thỉnh Phật trú thế, bát giả thường tùy Phật học, cửu giả hằng thuận chúng sinh,"
+    },
+    {
+     "n": 3,
+     "text": "thập giả phổ giai hồi hướng."
+    },
+    {
+     "n": 4,
+     "text": "Như thử Phổ hiền thù thắng hạnh, vô biên thắng phước giai hồi hướng, phổ nguyện trầm nịch chư chúng sinh, tốc vãng Bổn tôn Cực lạc quốc."
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "HT. Thích Trí Quang (dịch nghĩa)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch nghĩa",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu3.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn. Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Đệ tử chúng con"
+    },
+    {
+     "n": 2,
+     "text": "nguyện tu tập theo"
+    },
+    {
+     "n": 3,
+     "text": "mười hạnh nguyện vương"
+    },
+    {
+     "n": 4,
+     "text": "của đức Phổ hiền:"
+    },
+    {
+     "n": 5,
+     "text": "một là lễ kính Phật đà,"
+    },
+    {
+     "n": 6,
+     "text": "hai là tán dương Như lai,"
+    },
+    {
+     "n": 7,
+     "text": "ba là hiến cúng rộng lớn,"
+    },
+    {
+     "n": 8,
+     "text": "bốn là sám hối nghiệp chướng,"
+    },
+    {
+     "n": 9,
+     "text": "năm là tùy hỷ công đức,"
+    },
+    {
+     "n": 10,
+     "text": "sáu là xin chuyển pháp luân,"
+    },
+    {
+     "n": 11,
+     "text": "bảy là xin Phật ở đời,"
+    },
+    {
+     "n": 12,
+     "text": "tám là thường học theo Phật,"
+    },
+    {
+     "n": 13,
+     "text": "chín là hằng thuận chúng sinh,"
+    },
+    {
+     "n": 14,
+     "text": "mười là hồi hướng khắp cả."
+    },
+    {
+     "n": 15,
+     "text": "Hạnh nguyện Phổ hiền này"
+    },
+    {
+     "n": 16,
+     "text": "là hạnh nguyện tối thượng,"
+    },
+    {
+     "n": 17,
+     "text": "phước đức cũng tối thượng"
+    },
+    {
+     "n": 18,
+     "text": "và vô lượng vô biên;"
+    },
+    {
+     "n": 19,
+     "text": "con xin hồi hướng cả,"
+    },
+    {
+     "n": 20,
+     "text": "nguyện cầu cho chúng sinh"
+    },
+    {
+     "n": 21,
+     "text": "đang còn bị chìm đắm"
+    },
+    {
+     "n": 22,
+     "text": "mau chóng sinh Cực lạc"
+    },
+    {
+     "n": 23,
+     "text": "quốc độ đức bổn tôn"
+    },
+    {
+     "n": 24,
+     "text": "A di đà như lai."
+    }
+   ]
+  }
+ ]
+}

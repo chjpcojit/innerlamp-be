@@ -1,0 +1,3147 @@
+{
+ "id": "pho-hien-hanh-nguyen",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Hoa Nghiêm",
+ "reference": "Taishō T0293",
+ "referenceNote": "Hoa Nghiêm 40 quyển, quyển 40: Phẩm Nhập Bất Tư Nghì Giải Thoát Cảnh Giới Phổ Hiền Hạnh Nguyện",
+ "summary": "Phẩm cuối của Kinh Hoa Nghiêm (quyển 40, Taishō 293), ghi lời Bồ Tát Phổ Hiền nói về mười đại nguyện. Mười nguyện gồm lễ kính chư Phật, khen ngợi Như Lai, cúng dường rộng lớn, sám hối nghiệp chướng, tùy hỷ công đức, thỉnh Phật chuyển pháp luân, thỉnh Phật ở lại đời, thường học theo Phật, tùy thuận chúng sinh và hồi hướng khắp cả. Phẩm này được dùng như một đường lối tu hạnh Bồ Tát.",
+ "titles": {
+  "vi": "Kinh Phổ Hiền Hạnh Nguyện (Mười Đại Nguyện của Bồ-tát Phổ Hiền)",
+  "zh": "大方廣佛華嚴經入不思議解脫境界普賢行願品",
+  "sa": "Bhadracarī-praṇidhāna",
+  "en": "The Practices and Vows of Samantabhadra (Ten Great Vows)"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_samantabhadra",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "PHAT_NGUYEN",
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 80,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "không ghi tên dịch giả từng kinh (bộ Việt tạng do HT Thích Tịnh Hạnh tổ chức phiên dịch, Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản)",
+   "sourceName": "Linh Sơn Pháp Bảo Đại Tạng Kinh (Việt tạng) - Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản - Tập 41 (Bộ Hoa Nghiêm 6), Số 293 Kinh Đại Phương Quảng Phật Hoa Nghiêm, quyển 40 (Phần 40), tr. 281-295 (Hán dịch: Bát-nhã, đời Đường)",
+   "sourceUrl": "https://www.daitangkinh.org/images/pdf/flip-dtk/T041%20uni-hoanghiem6.pdf",
+   "license": "UNKNOWN",
+   "licenseNote": "các tập PDF trên daitangkinh.org không có tuyên bố bản quyền/giấy phép; lời nói đầu chỉ nói đây là bộ Việt tạng do Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản",
+   "note": "Chỉ gồm quyển 40 (phần Mười Đại Nguyện và bài kệ), không gồm 39 quyển trước. Trích từ PDF bằng pdfminer; đã nối dòng ngắt trang, bỏ tiêu đề/số trang. Giữ nguyên chính tả nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Đại Bồ-tát Phổ Hiền sau khi xưng tán công đức thù thắng của Như Lai rồi, lúc bấy giờ mới bảo các Bồ-tát và Thiện Tài:"
+    },
+    {
+     "n": 2,
+     "text": "–Này thiện nam! Công đức của Như Lai, giả sử các Đức Phật ở mười phương, trải qua số kiếp nhiều như cực vi trần trong không thể nói, không thể nói cõi Phật nối tiếp nhau diễn thuyết, cũng không hết được."
+    },
+    {
+     "n": 3,
+     "text": "Nếu ai muốn thành tựu pháp môn công đức này, phải tu mười hạnh nguyện rộng lớn. Những gì là mười?"
+    },
+    {
+     "n": 4,
+     "text": "1. Lễ kính các Đức Phật."
+    },
+    {
+     "n": 5,
+     "text": "2. Khen ngợi các Đức Như Lai."
+    },
+    {
+     "n": 6,
+     "text": "3. Sắm sửa nhiều đồ vật cúng dường."
+    },
+    {
+     "n": 7,
+     "text": "4. Sám hối các nghiệp chướng"
+    },
+    {
+     "n": 8,
+     "text": "5. Tùy hỷ các công đức."
+    },
+    {
+     "n": 9,
+     "text": "6. Thỉnh Phật chuyển pháp luân."
+    },
+    {
+     "n": 10,
+     "text": "7. Thỉnh Phật ở lại đời."
+    },
+    {
+     "n": 11,
+     "text": "8. Thường học tập theo Phật."
+    },
+    {
+     "n": 12,
+     "text": "9. Luôn luôn tùy thuận chúng sinh."
+    },
+    {
+     "n": 13,
+     "text": "10. Hồi hướng khắp tất cả."
+    },
+    {
+     "n": 14,
+     "text": "Thiện Tài thưa:"
+    },
+    {
+     "n": 15,
+     "text": "–Bạch Thánh giả! Lễ kính như thế nào cho đến hồi hướng như thế nào?"
+    },
+    {
+     "n": 16,
+     "text": "Bồ-tát Phổ Hiền bảo Thiện Tài:"
+    },
+    {
+     "n": 17,
+     "text": "–Này thiện nam! Nói lễ kính các Đức Phật là như vầy:"
+    },
+    {
+     "n": 18,
+     "text": "–Bao nhiêu các Đức Phật Thế Tôn, nhiều như số vi trần trong tất cả cõi Phật, ở mười phương ba đời, khắp pháp giới, hư không giới,"
+    },
+    {
+     "n": 19,
+     "text": "tôi đều nương vào năng lực hạnh nguyện của Phổ Hiền, phát khởi tâm tin hiểu sâu xa, như trước mắt, là đem thân, ngữ, ý ba nghiệp thanh tịnh thường tu hạnh lễ kính."
+    },
+    {
+     "n": 20,
+     "text": "Nơi mỗi Đức Phật, đều hóa hiện thân nhiều như số cực vi trần trong vô lượng vô lượng cõi Phật."
+    },
+    {
+     "n": 21,
+     "text": "Mỗi thân đều lễ khắp các Đức Phật, nhiều như số cực vi trần trong trong vô lượng vô lượng cõi Phật."
+    },
+    {
+     "n": 22,
+     "text": "Cõi hư không hết, thì sự lễ kính của tôi mới hết."
+    },
+    {
+     "n": 23,
+     "text": "Nhưng cõi hư không chẳng cùng tận nên sự lễ kính của tôi cũng không cùng tận."
+    },
+    {
+     "n": 24,
+     "text": "Như vậy cho đến cõi chúng sinh hết, nghiệp chúng sinh hết, phiền não chúng sinh hết, sự lễ kính của tôi mới hết."
+    },
+    {
+     "n": 25,
+     "text": "Nhưng cõi chúng sinh cho đến phiền não chẳng cùng tận nên sự lễ kính của tôi cũng không cùng tận, trong từng niệm từng niệm luôn luôn như vậy không gián đoạn ba nghiệp: thân, ngữ, ý không hề chán mỏi mỏi."
+    },
+    {
+     "n": 26,
+     "text": "Này thiện nam! Nói khen ngợi Đức Như Lai là như vầy."
+    },
+    {
+     "n": 27,
+     "text": "Có bao nhiêu vi trần trong tất cả các cõi nước ở mười phương ba đời khắp pháp giới, hư không giới, mà trong mỗi vi trần đều có các Đức Phật nhiều như số cực vi trần trong tất cả thế giới."
+    },
+    {
+     "n": 28,
+     "text": "Nơi mỗi Đức Phật, đều có các Bồ-tát vây quanh nhóm họp."
+    },
+    {
+     "n": 29,
+     "text": "Tôi phải dùng sức hiểu biết thông suốt sâu xa, những tri kiến hiện tiền; dùng thiệt căn vi diệu vượt qua cả Biện Tài Thiên nữ."
+    },
+    {
+     "n": 30,
+     "text": "Mỗi căn lưỡi phát xuất vô tận biển âm thanh;"
+    },
+    {
+     "n": 31,
+     "text": "mỗi âm thanh phát xuất tất cả biển ngôn từ, xưng tụng khen ngợi tất cả biển công đức của Như Lai, cho đến tận đời vị lai liên tục không dứt, biến khắp pháp giới không thiếu chỗ nào."
+    },
+    {
+     "n": 32,
+     "text": "Như vậy, cõi hư không hết, cõi chúng sinh hết, nghiệp chúng sinh hết, phiền não chúng sinh hết; thì việc khen ngợi công đức Phật của tôi mới hết."
+    },
+    {
+     "n": 33,
+     "text": "Nhưng cõi hư không cho đến phiền não chẳng cùng tận nên sự của tôi cũng không cùng tận; trong từng niệm từng niệm liên tục không gán đoạn như vậy mà ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 34,
+     "text": "Này thiện nam! Sắm sửa nhiều thứ cúng dường là vầy:"
+    },
+    {
+     "n": 35,
+     "text": "Trong số cực vi trần của tất cả cõi Phật, ở mười phương ba đời, khắp pháp giới, hư không giới; mỗi mỗi chư Phật đều có ở khắp cực vi trần số tất cả thế giới."
+    },
+    {
+     "n": 36,
+     "text": "Nơi mỗi Đức Phật, đều có các Bồ-tát vây quanh nhóm họp."
+    },
+    {
+     "n": 37,
+     "text": "Tôi dùng sức hạnh nguyện của ngài Phổ Hiền, nên khởi tâm tin hiểu sâu xa những thấy biết trước mắt; rồi sắm sửa đủ các thứ cúng dường thượng diệu mà cúng dường, như là:"
+    },
+    {
+     "n": 38,
+     "text": "mây hoa, mây tràng hoa, mây âm nhạc cõi trời, mây tàng lọng cõi trời, mây y phục cõi trời, các thứ hương trời: Hương xoa, hương đốt, hương bột."
+    },
+    {
+     "n": 39,
+     "text": "Các thứ mây trên đây, mỗi mỗi đều như núi Tu-di."
+    },
+    {
+     "n": 40,
+     "text": "Lại thắp các thứ đèn: Đèn-tô-lạc, đèn dầu, các thứ đèn dầu thơm, mỗi tim đèn như núi Tu-di, dầu trong đèn như nước biển cả; thường đem các thứ cúng dường như trên để cúng dường."
+    },
+    {
+     "n": 41,
+     "text": "Thiện nam! Trong các thứ cúng dường, cúng dường pháp là hơn hết."
+    },
+    {
+     "n": 42,
+     "text": "Cúng dường pháp là: Tu hành đúng theo lời Phật dạy, để cúng dường, làm lợi ích cho chúng sinh để cúng dường, thâu nhận chúng sinh để cúng dường;"
+    },
+    {
+     "n": 43,
+     "text": "chịu khổ cho chúng sinh để cúng dường, siêng năng tu học căn lành để cúng dường, không bỏ hạnh Bồ-tát để cúng dường, chẳng rời tâm Bồ-đề để cúng dường."
+    },
+    {
+     "n": 44,
+     "text": "Thiện nam! Như vô lượng công đức của việc cúng dường trước kia đem sánh với một niệm công đức của pháp cúng dường thì công đức ấy không bằng một phần trăm,"
+    },
+    {
+     "n": 45,
+     "text": "không bằng một phần ngàn, không một phần trăm ngàn câu-chi na-do-tha, một phần ca-la, một phần toán, một phần số, một phần ví dụ, một phần ưu-ba-di-sa-đà."
+    },
+    {
+     "n": 46,
+     "text": "Vì sao? Vì các Đức Như Lai tôn trọng chánh pháp."
+    },
+    {
+     "n": 47,
+     "text": "Vì theo đúng như lời Phật dạy mà tu hành thì sẽ thành Phật."
+    },
+    {
+     "n": 48,
+     "text": "Bồ-tát nào thực hành pháp cúng dường là thành tựu sự cúng dường Phật."
+    },
+    {
+     "n": 49,
+     "text": "Tu hành như vậy mới thật là cúng dường. Nên pháp cúng dường là sự cúng dường rộng, là sự cúng dường lớn hơn tất cả."
+    },
+    {
+     "n": 50,
+     "text": "Cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận; sự cúng dường của tôi mới cùng tận;"
+    },
+    {
+     "n": 51,
+     "text": "nhưng cõi hư không cho đến phiền não không cùng tận nên sự cúng dường của tôi cũng không cùng tận, trong từng niệm từng niệm liên tục không gián đoạn mà thân, khẩu, ý nghiệp không hề chán mỏi."
+    },
+    {
+     "n": 52,
+     "text": "Này thiện nam! Nói sám hối nghiệp chướng là như vầy: Bồ-tát tự nghĩ: “Tôi từ vô thỉ kiếp về quá khứ; do tham, sân, si làm cho thân, miệng, ý tạo ra vô lượng, vô biên nghiệp ác."
+    },
+    {
+     "n": 53,
+     "text": "Nếu các nghiệp ác này mà có hình tướng, thì khắp cõi hư không cũng không thể chứa đựng hết được."
+    },
+    {
+     "n": 54,
+     "text": "Nay tôi đem cả ba nghiệp trong sạch ra trước các Đức Như Lai và chúng Bồ-tát khắp cực vi trần cõi nước trong pháp giới, thành tâm sám hối, về sau không tái phạm nữa, thường an trụ giới trong sạch đầy đủ công đức."
+    },
+    {
+     "n": 55,
+     "text": "Như vậy cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận;"
+    },
+    {
+     "n": 56,
+     "text": "thì sự sám hối của tôi mới cùng tận, nhưng hư không giới cho đến chúng sinh, phiền não chẳng cùng tận,"
+    },
+    {
+     "n": 57,
+     "text": "nên sự sám hối của tôi đây cũng không cùng tận, trong từng niệm từng niệm liên tục không gián đoạn mà ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 58,
+     "text": "Này thiện nam! Nói tùy hỷ công đức là thế này:"
+    },
+    {
+     "n": 59,
+     "text": "–Bao nhiêu Đức Phật như số vi trần, trong tất cả cõi Phật khắp hư không pháp giới, mười phương ba đời;"
+    },
+    {
+     "n": 60,
+     "text": "từ khi mới phát tâm vì muốn chứng Nhất thiết trí nên siêng tu các việc phước, không tiếc thân mạng, trải qua vô số kiếp như số cực vi trần trong vô lượng vô lượng cõi Phật."
+    },
+    {
+     "n": 61,
+     "text": "Trong mỗi kiếp, đều thí xả đầu, mắt, tay, chân nhiều như số cực vi trần trong vô lượng vô lượng cõi Phật;"
+    },
+    {
+     "n": 62,
+     "text": "làm tất cả những hạnh khó làm như vậy, đầy đủ các môn Ba-la-mật, chứng nhập các trí địa của Bồ-tát, thành tựu quả Vô thượng Bồ-đề của chư Phật cho đến nhập Niết-bàn, phân chia xá-lợi."
+    },
+    {
+     "n": 63,
+     "text": "Bao nhiêu căn lành ấy, tôi đều tùy hỷ. Cho đến sáu nẻo, bốn loài trong tất cả mười phương, có bao nhiêu công đức, dù nhỏ như bụi trần tôi cũng đều tùy hỷ."
+    },
+    {
+     "n": 64,
+     "text": "Mười phương ba đời tất cả các vị Thanh văn, Bích-chi-phật, Hữu học và Vô học có bao nhiêu công đức, tôi cũng đều tùy hỷ."
+    },
+    {
+     "n": 65,
+     "text": "Các công đức rộng lớn của chư Bồ-tát, do tu vô lượng hạnh khổ khó làm, để quyết chí cầu quả vị Vô thượng Chánh đẳng Bồ-đề, tôi đều tùy hỷ."
+    },
+    {
+     "n": 66,
+     "text": "Như vậy cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận,"
+    },
+    {
+     "n": 67,
+     "text": "sự tùy hỷ này của tôi không có cùng tận, trong từng niệm từng niệm liên tục không gián đoạn , ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 68,
+     "text": "Này thiện nam! Nói thỉnh Phật chuyển pháp luân là vầy:"
+    },
+    {
+     "n": 69,
+     "text": "–Trong số cực vi khắp hư không pháp giới mười phương ba đời tất cả cõi Phật, mỗi cực vi đều có các cõi Phật rộng lớn, nhiều như số cực vi trong vô lượng vô lượng cõi Phật."
+    },
+    {
+     "n": 70,
+     "text": "Mà ở mỗi cõi, trong một niệm, đều có tất cả chư Phật thành Đẳng chánh giác đông như số cực vi trần trong vô lượng vô lượng cõi Phật, tất cả đều có chúng Bồ-tát nhóm họp vây quanh."
+    },
+    {
+     "n": 71,
+     "text": "Tôi đều đem ba nghiệp thân, khẩu, ý cùng những phương tiện, ân cần thỉnh tất cả chư Phật, nói pháp nhiệm mầu."
+    },
+    {
+     "n": 72,
+     "text": "Như vậy cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận,"
+    },
+    {
+     "n": 73,
+     "text": "sự thỉnh Phật chuyển pháp luân chân chánh của tôi không cùng tận, trong từng niệm từng niệm liên tục không gián đoạn, ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 74,
+     "text": "Này thiện nam! Nói thỉnh Phật ở lại đời là như vầy:"
+    },
+    {
+     "n": 75,
+     "text": "–Các Đức Như Lai nhiều như số cực vi trong tất cả cõi Phật, khắp hư không pháp giới mười phương ba đời,"
+    },
+    {
+     "n": 76,
+     "text": "cùng các Bồ-tát, Thanh văn, Duyên giác, Hữu học, Vô học cho đến tất cả các bậc Thiện tri thức, sắp muốn nhập Niết-bàn;"
+    },
+    {
+     "n": 77,
+     "text": "tôi đều cung thỉnh, xin đừng nhập Niết-bàn, xin ở lại đời trong vô số kiếp như cực vi trần tất cả cõi Phật, để cho tất cả chúng sinh được lợi lạc."
+    },
+    {
+     "n": 78,
+     "text": "Như vậy, cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận,"
+    },
+    {
+     "n": 79,
+     "text": "sự khuyên mời của tôi đây vẫn không cùng tận, trong từng niệm từng niệm liên tục không gián đoạn, ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 80,
+     "text": "Này thiện nam! Nói thường học tập theo Phật là như vầy:"
+    },
+    {
+     "n": 81,
+     "text": "–Như Đấng Tỳ-lô-giá-na Phật ở cõi Ta-bà đây, từ khi mới phát tâm, tinh tấn không thoái lui,"
+    },
+    {
+     "n": 82,
+     "text": "đem vô lượng vô lượng thân mạng ra mà bố thí như lột da làm giấy, chẻ xương làm viết, chích máu làm mực để biên chép Kinh điển chất cao như núi Tu-di;"
+    },
+    {
+     "n": 83,
+     "text": "vì tôn trọng chánh pháp, nên không tiếc thân mạng, huống là ngôi vua, thành ấp, cung điện, vườn rừng và thực hành bao nhiêu hạnh khó làm khác,"
+    },
+    {
+     "n": 84,
+     "text": "cho đến khi ngồi dưới gốc cây mà thành quả Đại Bồ-đề, thị hiện các thứ thần thông, khởi các sự biến hóa,"
+    },
+    {
+     "n": 85,
+     "text": "hiện các thân Phật ở trong những chúng hội như trong chúng hội đạo tràng của các vị Đại Bồ-tát, hoặc ở trong đạo tràng của chúng hội Thanh văn, Duyên giác,"
+    },
+    {
+     "n": 86,
+     "text": "hoặc ở trong đạo tràng của Chuyển luân vương, các vị tiểu vương cùng quyến thuộc, hoặc ở trong đạo tràng của chúng hội cư sĩ, Trưởng giả, Bà-la-môn cùng Sát-đế-lợi;"
+    },
+    {
+     "n": 87,
+     "text": "cho đến hoặc ở trong đạo tràng của chúng hội Thiên, Long, Dạ-xoa, Càn-thát-bà, A-tu-la, Khẩn-na-la, Ma-hầu-la-già, nhân, phi nhân."
+    },
+    {
+     "n": 88,
+     "text": "Ở trong các chúng hội như vậy, âm thanh tròn đầy mãn như tiếng sấm sét lớn rồi tùy theo căn tánh mong muốn của mỗi hạng, mà giáo hóa cho chúng sinh, đều được thành thục; cho đến thị hiện nhập Niết-bàn."
+    },
+    {
+     "n": 89,
+     "text": "Tất cả hạnh đức như thế, tôi đều học tập theo."
+    },
+    {
+     "n": 90,
+     "text": "Như Đức Thế Tôn Tỳ-lô-giá-na hiện nay, hoặc như các Đức Phật Như Lai như số vi trần trong tất cả cõi Phật khắp hư không giới mười phương ba đời đều cũng như thế ấy, trong mỗi niệm tôi đều học tập theo."
+    },
+    {
+     "n": 91,
+     "text": "Như vậy, cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận,"
+    },
+    {
+     "n": 92,
+     "text": "sự theo học của tôi đây vẫn không cùng tận, trong từng niệm từng niệm liên tục không gián đoạn, ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 93,
+     "text": "Này thiện nam! Nói hằng tùy thuận chúng sinh là như vầy: Có bao nhiêu chúng sinh sai khác, trong tất cả cõi ở mười phương pháp giới, hư không giới, chính là những loài noãn sinh, thai sinh, thấp sinh, hóa sinh;"
+    },
+    {
+     "n": 94,
+     "text": "hoặc các loài nương nơi đất, nước, gió, lửa mà sống; cũng có giống nương nơi hư không cùng cây cỏ mà sống."
+    },
+    {
+     "n": 95,
+     "text": "Tất cả chúng sinh ấy, với những sự sống khác nhau, sắc thân khác nhau, hình trạng khác nhau, tướng mạo khác nhau, tuổi thọ khác nhau,"
+    },
+    {
+     "n": 96,
+     "text": "tộc loại khác nhau, danh hiệu khác nhau, tâm tánh khác nhau, tri kiến khác nhau, ham muốn khác nhau, ý hành khác nhau, oai nghi khác nhau,"
+    },
+    {
+     "n": 97,
+     "text": "y phục khác nhau, ăn uống khác nhau, ở trong các thôn xóm, thành ấp, doanh trại cung điện khác nhau cho đến tất cả Thiên, Long,"
+    },
+    {
+     "n": 98,
+     "text": "Dạ-xoa, Càn-thát-bà, A-tu-la, Khẩn-na-la, Ma-hầu-la-già, nhân, phi nhân, loài không chân, loài hai chân, bốn chân, nhiều chân;"
+    },
+    {
+     "n": 99,
+     "text": "loài có hình sắc, loài không hình sắc; loài có tâm tưởng, loài không có tâm tưởng; loài chẳng phải có tưởng, chẳng phải không tưởng."
+    },
+    {
+     "n": 100,
+     "text": "Các loài như vậy, tôi đều thuận theo tất cả mà thực hành đủ các sự vâng thờ cúng dường như kính cha mẹ, như thờ bậc thầy cùng A-la-hán, cho đến Đức Như Lai đều không khác."
+    },
+    {
+     "n": 101,
+     "text": "Trong các loài ấy; nếu là kẻ có bệnh thì tôi vì họ mà làm lương y."
+    },
+    {
+     "n": 102,
+     "text": "Nếu ai bị lạc đường, thì tôi vì họ mà chỉ cho con đường chân chánh."
+    },
+    {
+     "n": 103,
+     "text": "Nơi đêm tối, tôi vì họ mà làm ánh sáng. Đối với người nghèo thiếu, tôi làm cho họ được kho báu."
+    },
+    {
+     "n": 104,
+     "text": "Bồ-tát làm lợi ích chúng sinh bình đẳng như vậy."
+    },
+    {
+     "n": 105,
+     "text": "Vì sao? Vì Bồ-tát nếu có thể tùy thuận chúng sinh, thì chính là tùy thuận cúng dường các Đức Phật; còn tôn trọng và thừa sự chúng sinh thì chính là tôn trọng và thừa sự các Đức Phật."
+    },
+    {
+     "n": 106,
+     "text": "Nếu làm cho chúng sinh vui mừng là làm cho tất cả Như Lai vui mừng."
+    },
+    {
+     "n": 107,
+     "text": "Vì sao thế? Vì các Đức Như Lai dùng tâm đại Bi làm hình thể."
+    },
+    {
+     "n": 108,
+     "text": "Chúng sinh là nhân để sinh tâm đại Bi, tâm đại Bi là nhân để phát tâm Bồ-đề, tâm Bồ-đề là nhân để thành bậc Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 109,
+     "text": "Ví như giữa chốn sa mạc hoang vu, cây chúa to lớn, nếu rễ hút được nước thì cành lá, hoa quả đều được sum suê tươi tốt."
+    },
+    {
+     "n": 110,
+     "text": "Cây Bồ-đề ở chốn sa mạc sinh tử rộng lớn cũng lại như vậy."
+    },
+    {
+     "n": 111,
+     "text": "Tất cả chúng sinh là gốc rễ, Bồ-tát là hoa, Phật là quả."
+    },
+    {
+     "n": 112,
+     "text": "Dùng nước đại Bi đượm nhuần gốc rễ chúng sinh, thì có thể trổ hoa Bồ-tát trí tuệ và kết thành quả Phật."
+    },
+    {
+     "n": 113,
+     "text": "Vì sao thế? Bởi các Bồ-tát dùng nước đại Bi làm lợi ích cho chúng sinh thì có thể thành tựu quả Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 114,
+     "text": "Cho nên quả Bồ-đề thuộc về chúng sinh, vì nếu không chúng sinh, tất cả Bồ-tát chắc chắn không thể thành đạo Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 115,
+     "text": "Này thiện nam! Đối với nghĩa ấy, ông nên hiểu như vậy."
+    },
+    {
+     "n": 116,
+     "text": "Bởi đối với chúng sinh mà dùng tâm bình đẳng thì có thể sinh tâm đại Bi đầy đủ hoàn toàn."
+    },
+    {
+     "n": 117,
+     "text": "Dùng tâm đại Bi mà tùy thuận chúng sinh thì có thể thành tựu pháp cúng dường Như Lai."
+    },
+    {
+     "n": 118,
+     "text": "Bồ-tát tùy thuận chúng sinh là như thế ấy."
+    },
+    {
+     "n": 119,
+     "text": "Cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận,"
+    },
+    {
+     "n": 120,
+     "text": "sự tùy thuận chúng sinh của tôi đây vẫn không cùng tận, trong từng niệm từng niệm liên tục không gián đoạn, ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 121,
+     "text": "Này thiện nam! Nói hồi hướng khắp tất cả là như vầy:"
+    },
+    {
+     "n": 122,
+     "text": "–Từ sự lễ kính ban đầu cho đến tùy thuận, có bao nhiêu công đức, tôi đều đem hồi hướng cho tất cả chúng sinh, khắp trong tận hư không giới, pháp giới."
+    },
+    {
+     "n": 123,
+     "text": "Nguyện cho tất cả chúng sinh thường được an lạc, không có các bệnh khổ, muốn thực hành pháp ác đều không thành,"
+    },
+    {
+     "n": 124,
+     "text": "còn tu nghiệp lành thì đều mau thành tựu, đóng chặt cửa của tất cả cõi ác, mở bày đường chánh nhân, Thiên, Niết-bàn."
+    },
+    {
+     "n": 125,
+     "text": "Nếu các chúng sinh, do vì trước kia tích tập các nghiệp ác, nên chịu lấy tất cả quả rất khổ, tôi đều chịu thay cho, để chúng sinh được giải thoát, rốt ráo thành tựu quả Vô thượng Bồ-đề."
+    },
+    {
+     "n": 126,
+     "text": "Bồ-tát tu hạnh hồi hướng là như vậy. Cõi hư không cùng tận, cõi chúng sinh cùng tận, nghiệp chúng sinh cùng tận, phiền não chúng sinh cùng tận,"
+    },
+    {
+     "n": 127,
+     "text": "sự hồi hướng của tôi đây vẫn không cùng tận, trong từng niệm từng niệm liên tục không gián đoạn, ba nghiệp thân, khẩu, ý không hề chán mỏi."
+    },
+    {
+     "n": 128,
+     "text": "Này thiện nam! Ấy là mười điều nguyện rộng lớn đầy đủ viên mãn của Đại Bồ-tát."
+    },
+    {
+     "n": 129,
+     "text": "Nếu các vị Bồ-tát đối với mười điều nguyện rộng lớn này là tùy thuận tu hành, thì có thể giáo hóa thuần thục tất cả chúng sinh,"
+    },
+    {
+     "n": 130,
+     "text": "thì có thể tùy thuận đạo Vô thượng Chánh đẳng Chánh giác, thì có thể thành tựu đầy đủ các biển hạnh nguyện của ngài Phổ Hiền."
+    },
+    {
+     "n": 131,
+     "text": "Này thiện nam! Do đó, đối với nghĩa trên đây ông phải hiểu như vậy."
+    },
+    {
+     "n": 132,
+     "text": "Nếu có thiện nam, thiện nữ nào, dùng bảy món báu thượng diệu và những sự an lạc tối thắng của trời, người, nhiều đến nỗi dẫy đầy vô lượng, vô biên thế giới như số cực vi trần vô lượng vô lượng cõi Phật khắp mười phương,"
+    },
+    {
+     "n": 133,
+     "text": "đem bố thí cho tất cả chúng sinh trong bao nhiêu thế giới, cúng dường cho các Đức Phật và Bồ-tát trong bao nhiêu thế giới, trải qua vô số kiếp như số cực vi trong bao nhiêu cõi Phật liên tục không dứt;"
+    },
+    {
+     "n": 134,
+     "text": "cúng dường, bố thí như vậy được bao nhiêu công đức, đem sánh với công đức của người chỉ một lần nghe mười điều nguyện lớn này,"
+    },
+    {
+     "n": 135,
+     "text": "thì công đức trước không bằng một phần trăm, một phần ngàn, cho đến cũng không bằng một phần ưu-ba-ni-sa-đà!"
+    },
+    {
+     "n": 136,
+     "text": "Hoặc có người, dùng tâm tin sâu xa ở nơi mười đại nguyện này, mà thọ trì, đọc tụng cho đến biên chép một bài kệ bốn câu, thì có thể dứt trừ được năm nghiệp vô gián;"
+    },
+    {
+     "n": 137,
+     "text": "tất cả thân bệnh, tâm bệnh, khổ não trong thế gian cho đến các ác nghiệp nhiều như số cực vi trong cõi Phật đều được tiêu trừ, tất cả các quân ma,"
+    },
+    {
+     "n": 138,
+     "text": "quỷ Dạ-xoa, La-sát, hoặc quỷ Cưu-bàn-trà, Tỳ-xá-xà, Bộ-đa các quỷ thần hung ác, uống máu, ăn thịt, đều phải lánh xa, hoặc là phát tâm gần gũi theo hộ trì."
+    },
+    {
+     "n": 139,
+     "text": "Vì thế, người nào trì tụng nguyện này thì đi trong thế gian không bị chướng ngại, cũng giống như mặt trăng giữa không trung ra khỏi mây mù;"
+    },
+    {
+     "n": 140,
+     "text": "được các Đức Phật khen ngợi, tất cả trời người đều lễ kính, tất cả chúng sinh đều cúng dường."
+    },
+    {
+     "n": 141,
+     "text": "Người này sẽ được thân người với đầy đủ những công đức của Phổ Hiền, chẳng bao lâu sẽ như Bồ-tát Phổ Hiền, mau được thành tựu sắc thân vi diệu, đủ ba mươi hai tướng đại trượng phu."
+    },
+    {
+     "n": 142,
+     "text": "Nếu sinh ở cõi người hay cõi trời, thường ở dòng dõi cao quý, đều có thể hủy hoại tất cả đường ác, xa lìa tất cả bạn dữ, có thể chế phục tất cả ngoại đạo, giải thoát tất cả phiền não, giống như vua sư tử dẹp tan bầy thú."
+    },
+    {
+     "n": 143,
+     "text": "Người ấy lãnh thọ sự cúng dường của tất cả chúng sinh."
+    },
+    {
+     "n": 144,
+     "text": "Lại nữa, người ấy trong phút cuối đời lúc lâm chung, tất cả căn của thân người thảy đều hư hoại, tất cả thân thuộc đều phải xa lìa, tất cả oai lực đều lụi tàn,"
+    },
+    {
+     "n": 145,
+     "text": "cho đến các quan phụ tướng đại thần, với cung thành trong ngoài, voi ngựa, xe cộ, trân bảo, kho báu tất cả đều không đem một món nào theo được;"
+    },
+    {
+     "n": 146,
+     "text": "chỉ có mười nguyện vương này là chẳng rời người mà thôi!"
+    },
+    {
+     "n": 147,
+     "text": "Trong tất cả mọi nơi, nó thường ở trước dẫn đường, chỉ một khoảnh khắc là sinh về cõi cực lạc."
+    },
+    {
+     "n": 148,
+     "text": "Đến cõi cực lạc rồi, người này liền thấy Đức Phật A-di-đà cùng các ngài Bồ-tát Văn-thù-sư-lợi, Bồ-tát Phổ Hiền,"
+    },
+    {
+     "n": 149,
+     "text": "Bồ-tát Quán Tự Tại, Bồ-tát Di-lặc các vị Bồ-tát này sắc tướng đoan nghiêm, công đức đầy đủ và cùng vây quanh Đức Phật."
+    },
+    {
+     "n": 150,
+     "text": "Bấy giờ, người ấy tự thấy mình từ hoa sen sinh ra, được Đức Phật thọ ký."
+    },
+    {
+     "n": 151,
+     "text": "Sau khi được thọ ký rồi, trải qua vô số trăm ngàn muôn ức na-do-tha kiếp, khắp cả mười phương vô lượng vô lượng thế giới, người ấy dùng sức trí tuệ, tùy theo tâm của chúng sinh mà làm lợi ích,"
+    },
+    {
+     "n": 152,
+     "text": "chẳng bao lâu sẽ được ngồi ở đạo tràng Bồ-đề, nhiếp phục quân ma, thành bậc Đẳng chánh giác, giảng nói pháp mầu vi diệu, có thể làm cho chúng sinh trong những cõi Phật nhiều như số cực vi trần, đều phát tâm Bồ-đề;"
+    },
+    {
+     "n": 153,
+     "text": "tùy theo căn tánh của chúng sinh mà dạy dỗ cho thành thục, cho đến tận kiếp vị lai cũng đều làm lợi ích cho tất cả chúng sinh."
+    },
+    {
+     "n": 154,
+     "text": "Này thiện nam! Các chúng sinh kia nếu nghe, hoặc tin nơi nguyện vương rộng lớn này rồi thọ trì đọc tụng và giảng nói cho người nghe, thì công đức ấy chỉ có Đức Phật Thế Tôn biết, ngoài ra không ai hiểu thấu."
+    },
+    {
+     "n": 155,
+     "text": "Vì thế, các người được nghe mười điều nguyện này, thì chớ sinh tâm nghi hoặc, cần phải lãnh thọ, thọ rồi nên đọc, đọc rồi có thể tụng thuộc, tụng thuộc rồi nên giữ gìn luôn, cho đến biên chép, giảng dạy cho người."
+    },
+    {
+     "n": 156,
+     "text": "Những người như vậy, trong một niệm, tất cả hạnh nguyện đều được thành tựu, được phước vô lượng, vô biên;"
+    },
+    {
+     "n": 157,
+     "text": "có thể ở trong biển khổ phiền não mà cứu vớt chúng sinh, làm cho chúng sinh đều được giải thoát, được vãng sinh về thế giới Cực lạc của Đức Phật A-di-đà."
+    },
+    {
+     "n": 158,
+     "text": "Lúc bấy giờ, Đại Bồ-tát Phổ Hiền, muốn nói lại nghĩa trên, ngài quán sát khắp mười phương, rồi nói kệ rằng:"
+    },
+    {
+     "n": 159,
+     "text": "Tất cả chư Phật trong ba đời"
+    },
+    {
+     "n": 160,
+     "text": "Có thế giới khắp mười phương"
+    },
+    {
+     "n": 161,
+     "text": "Tôi đem thân, ngữ, ý trong sạch"
+    },
+    {
+     "n": 162,
+     "text": "Lạy khắp chư Phật không hề sót"
+    },
+    {
+     "n": 163,
+     "text": "Bằng oai lực, hạnh nguyện Phổ hiền"
+    },
+    {
+     "n": 164,
+     "text": "Phân thân hiện khắp trước Như Lai"
+    },
+    {
+     "n": 165,
+     "text": "Một thân lại hiện vô số thân"
+    },
+    {
+     "n": 166,
+     "text": "Một thân lạy khắp vô số Phật"
+    },
+    {
+     "n": 167,
+     "text": "Vô số Phật trong một hạt bụi"
+    },
+    {
+     "n": 168,
+     "text": "Đều an tọa giữa chúng Bồ-tát"
+    },
+    {
+     "n": 169,
+     "text": "Vô tận pháp giới cũng như vậy"
+    },
+    {
+     "n": 170,
+     "text": "Tin sâu chư Phật rất đầy đủ"
+    },
+    {
+     "n": 171,
+     "text": "Nên dùng tất cả biển âm thanh"
+    },
+    {
+     "n": 172,
+     "text": "Phát sinh vô tận lời nói hay"
+    },
+    {
+     "n": 173,
+     "text": "Cho đến tận cùng kiếp vị lai"
+    },
+    {
+     "n": 174,
+     "text": "Khen công đức sâu dày của Phật"
+    },
+    {
+     "n": 175,
+     "text": "Sắm vật hảo hạng: Nào tràng hoa"
+    },
+    {
+     "n": 176,
+     "text": "Âm nhạc, hương, hoa, cùng tán, lọng"
+    },
+    {
+     "n": 177,
+     "text": "Các thứ trang nghiêm đẹp như vậy"
+    },
+    {
+     "n": 178,
+     "text": "Tôi đem cúng dường chư Như Lai"
+    },
+    {
+     "n": 179,
+     "text": "Y phục đẹp nhất, hương thơm nhất"
+    },
+    {
+     "n": 180,
+     "text": "Hương bột, hương xông cùng đèn đuốc"
+    },
+    {
+     "n": 181,
+     "text": "Mỗi món nhiều như núi Tu-di"
+    },
+    {
+     "n": 182,
+     "text": "Tôi đem cúng dường các Đức Phật"
+    },
+    {
+     "n": 183,
+     "text": "Tôi đem tâm thắng giải rộng lớn"
+    },
+    {
+     "n": 184,
+     "text": "Tin sâu tất cả Phật ba đời"
+    },
+    {
+     "n": 185,
+     "text": "Dùng sức hạnh nguyện của Phổ Hiền"
+    },
+    {
+     "n": 186,
+     "text": "Cúng dường khắp các Đức Như Lai."
+    },
+    {
+     "n": 187,
+     "text": "Xưa tôi đã tạo nhiều nghiệp ác"
+    },
+    {
+     "n": 188,
+     "text": "Đều do ba độc: Tham, sân, si"
+    },
+    {
+     "n": 189,
+     "text": "Theo thân, khẩu, ý phát sinh ra"
+    },
+    {
+     "n": 190,
+     "text": "Nay tôi thảy đều xin sám hối"
+    },
+    {
+     "n": 191,
+     "text": "Tất cả chúng sinh trong mười phương"
+    },
+    {
+     "n": 192,
+     "text": "Hữu học, Vô học và Nhị thừa"
+    },
+    {
+     "n": 193,
+     "text": "Tất cả Như Lai và Bồ-tát"
+    },
+    {
+     "n": 194,
+     "text": "Có bao nhiêu công đức đều tùy hỷ"
+    },
+    {
+     "n": 195,
+     "text": "Các đấng soi đời khắp mười phương"
+    },
+    {
+     "n": 196,
+     "text": "Vừa mới chứng nên đạo Chánh giác"
+    },
+    {
+     "n": 197,
+     "text": "Tôi nay khuyến thỉnh đều tất cả"
+    },
+    {
+     "n": 198,
+     "text": "Chuyển xe chánh pháp diệu vô thượng"
+    },
+    {
+     "n": 199,
+     "text": "Chư Phật nếu muốn nhập Niết-bàn"
+    },
+    {
+     "n": 200,
+     "text": "Tôi xin thành tâm mà mời thỉnh"
+    },
+    {
+     "n": 201,
+     "text": "Cúi mong ở lại lâu trong đời"
+    },
+    {
+     "n": 202,
+     "text": "Cho chúng sinh được nhờ lợi lạc"
+    },
+    {
+     "n": 203,
+     "text": "Bao nhiêu phước đức lễ cúng dường"
+    },
+    {
+     "n": 204,
+     "text": "Thỉnh Phật, trụ thế chuyển xe pháp"
+    },
+    {
+     "n": 205,
+     "text": "Tùy hỷ, sám hối, các căn lành"
+    },
+    {
+     "n": 206,
+     "text": "Hồi hướng chúng sinh cùng Phật đạo"
+    },
+    {
+     "n": 207,
+     "text": "Tôi nay theo học với Như Lai"
+    },
+    {
+     "n": 208,
+     "text": "Tu tập đầy đủ hạnh Phổ hiền"
+    },
+    {
+     "n": 209,
+     "text": "Cúng dường chư Phật trong quá khứ"
+    },
+    {
+     "n": 210,
+     "text": "Cùng với mười phương hiện tại Phật"
+    },
+    {
+     "n": 211,
+     "text": "Và vị lai, những Thiên Nhân Sư"
+    },
+    {
+     "n": 212,
+     "text": "Hết thảy ý muốn đều viên mãn"
+    },
+    {
+     "n": 213,
+     "text": "Nguyện theo học khắp ba đời Phật"
+    },
+    {
+     "n": 214,
+     "text": "Mau chứng nên quả đại Bồ-đề"
+    },
+    {
+     "n": 215,
+     "text": "Tất cả cõi trong khắp mười phương"
+    },
+    {
+     "n": 216,
+     "text": "Rộng lớn, thanh tịnh, trang nghiêm đẹp"
+    },
+    {
+     "n": 217,
+     "text": "Chúng hội vây quanh các Như Lai"
+    },
+    {
+     "n": 218,
+     "text": "Đều ngồi dưới gốc cây Bồ-đề"
+    },
+    {
+     "n": 219,
+     "text": "Bao nhiêu chúng sinh trong mười phương"
+    },
+    {
+     "n": 220,
+     "text": "Nguyện lìa lo khổ, thường an lạc"
+    },
+    {
+     "n": 221,
+     "text": "Để đạt được chánh pháp sâu xa"
+    },
+    {
+     "n": 222,
+     "text": "Diệt sạch phiền não không bỏ xót"
+    },
+    {
+     "n": 223,
+     "text": "Khi tôi vì Bồ-đề mà tu"
+    },
+    {
+     "n": 224,
+     "text": "Ở trong các loài, biết đời trước"
+    },
+    {
+     "n": 225,
+     "text": "Thường được xuất gia, tu tịnh giới"
+    },
+    {
+     "n": 226,
+     "text": "Không nhơ không lỗi cũng không hư"
+    },
+    {
+     "n": 227,
+     "text": "Trời, Rồng, Dạ-xoa, quỷ Bàn trà"
+    },
+    {
+     "n": 228,
+     "text": "Cho đến loài người cùng phi nhân"
+    },
+    {
+     "n": 229,
+     "text": "Bao nhiêu ngôn ngữ của chúng sinh"
+    },
+    {
+     "n": 230,
+     "text": "Đều dùng các âm để nói pháp"
+    },
+    {
+     "n": 231,
+     "text": "Siêng tu Ba-la-mật trong sạch"
+    },
+    {
+     "n": 232,
+     "text": "Tâm Bồ-đề luôn giữ không mất"
+    },
+    {
+     "n": 233,
+     "text": "Dứt trừ chướng nhơ không để thừa"
+    },
+    {
+     "n": 234,
+     "text": "Thành tựu tất cả các diệu hạnh"
+    },
+    {
+     "n": 235,
+     "text": "Đối với các hoặc, nghiệp, cảnh ma"
+    },
+    {
+     "n": 236,
+     "text": "Trong cõi thế gian, được giải thoát"
+    },
+    {
+     "n": 237,
+     "text": "Cũng như hoa sen không dính nước"
+    },
+    {
+     "n": 238,
+     "text": "Mặt trời, mặt trăng chẳng trụ không"
+    },
+    {
+     "n": 239,
+     "text": "Dứt hết tất cả khổ ác đạo"
+    },
+    {
+     "n": 240,
+     "text": "Ban bố an vui cho chúng sinh"
+    },
+    {
+     "n": 241,
+     "text": "Như thế trải qua vô số kiếp"
+    },
+    {
+     "n": 242,
+     "text": "Lợi ích mười phương không cùng tận"
+    },
+    {
+     "n": 243,
+     "text": "Tôi thường tùy thuận các chúng sinh"
+    },
+    {
+     "n": 244,
+     "text": "Cho đến tận các kiếp vị lai"
+    },
+    {
+     "n": 245,
+     "text": "Thường tu hạnh lớn của Phổ Hiền"
+    },
+    {
+     "n": 246,
+     "text": "Viên mãn quả Vô thượng Bồ-đề"
+    },
+    {
+     "n": 247,
+     "text": "Những người cùng tôi đồng một hạnh"
+    },
+    {
+     "n": 248,
+     "text": "Ở khắp mọi nơi đồng nhóm họp"
+    },
+    {
+     "n": 249,
+     "text": "Nghiệp thân, khẩu, ý đều đồng nhau"
+    },
+    {
+     "n": 250,
+     "text": "Cùng nhau tu học các hạnh nguyện"
+    },
+    {
+     "n": 251,
+     "text": "Thiện tri thức cho tôi lợi ích"
+    },
+    {
+     "n": 252,
+     "text": "Chỉ bày cho tôi, hạnh Phổ hiền"
+    },
+    {
+     "n": 253,
+     "text": "Nguyện cùng tôi, thường chung hội họp"
+    },
+    {
+     "n": 254,
+     "text": "Đối với tôi tâm luôn hoan hỷ"
+    },
+    {
+     "n": 255,
+     "text": "Nguyện thường diện kiến các Như Lai"
+    },
+    {
+     "n": 256,
+     "text": "Và hàng Phật tử vây quanh Phật"
+    },
+    {
+     "n": 257,
+     "text": "Tôi đều sửa sang cúng dường họ"
+    },
+    {
+     "n": 258,
+     "text": "Đến kiếp vị lai không nhàm mỏi"
+    },
+    {
+     "n": 259,
+     "text": "Nguyện giữ gìn pháp mầu Như Lai"
+    },
+    {
+     "n": 260,
+     "text": "Rõ bày tất cả hạnh Bồ-đề"
+    },
+    {
+     "n": 261,
+     "text": "Rốt ráo thanh tịnh đạo Phổ hiền"
+    },
+    {
+     "n": 262,
+     "text": "Đến kiếp vị lai vẫn tu tập"
+    },
+    {
+     "n": 263,
+     "text": "Tôi ở trong tất cả các cõi"
+    },
+    {
+     "n": 264,
+     "text": "Tu phước vô tận, trí vô tận"
+    },
+    {
+     "n": 265,
+     "text": "Định, tuệ, phương tiện và giải thoát"
+    },
+    {
+     "n": 266,
+     "text": "Đạt được vô tận kho công đức"
+    },
+    {
+     "n": 267,
+     "text": "Trong một trần có trần số cõi"
+    },
+    {
+     "n": 268,
+     "text": "Mỗi mỗi cõi có nan tư Phật"
+    },
+    {
+     "n": 269,
+     "text": "Mỗi mỗi Phật ở trong chúng hội."
+    },
+    {
+     "n": 270,
+     "text": "Tôi thấy thường giảng hạnh Bồ-đề"
+    },
+    {
+     "n": 271,
+     "text": "Cùng khắp mười phương các cõi nước"
+    },
+    {
+     "n": 272,
+     "text": "Mỗi đầu lông đủ có ba đời"
+    },
+    {
+     "n": 273,
+     "text": "Phật và cõi nước nhiều vô lượng"
+    },
+    {
+     "n": 274,
+     "text": "Tôi tu hành khắp vô số kiếp"
+    },
+    {
+     "n": 275,
+     "text": "Tiếng của Như Lai thường thanh tịnh"
+    },
+    {
+     "n": 276,
+     "text": "Một lời đủ cả biển âm thanh"
+    },
+    {
+     "n": 277,
+     "text": "Thuận tâm yêu thích tiếng chúng sinh"
+    },
+    {
+     "n": 278,
+     "text": "Biện tài của Phật đều ban khắp"
+    },
+    {
+     "n": 279,
+     "text": "Tất cả Như Lai trong ba đời"
+    },
+    {
+     "n": 280,
+     "text": "Dùng những ngữ ngôn vô tận kia"
+    },
+    {
+     "n": 281,
+     "text": "Luôn chuyển lý thú xe pháp diệu"
+    },
+    {
+     "n": 282,
+     "text": "Nhờ trí sâu tôi đều lãnh thọ"
+    },
+    {
+     "n": 283,
+     "text": "Tôi hay thâm nhập đời vị lai"
+    },
+    {
+     "n": 284,
+     "text": "Các kiếp đều thâu làm một niệm"
+    },
+    {
+     "n": 285,
+     "text": "Tất cả những kiếp trong ba đời"
+    },
+    {
+     "n": 286,
+     "text": "Chỉ khoảng một niệm tôi đều nhập"
+    },
+    {
+     "n": 287,
+     "text": "Trong một niệm tôi thấy ba đời"
+    },
+    {
+     "n": 288,
+     "text": "Tất cả các Đấng Nhân Sư Tử"
+    },
+    {
+     "n": 289,
+     "text": "Cũng thường vào trong cảnh giới Phật"
+    },
+    {
+     "n": 290,
+     "text": "Như huyễn, giải thoát và oai lực"
+    },
+    {
+     "n": 291,
+     "text": "Trong số cực vi đầu sợi lông"
+    },
+    {
+     "n": 292,
+     "text": "Xuất hiện cõi trang nghiêm ba đời"
+    },
+    {
+     "n": 293,
+     "text": "Các cõi mười phương những đầu lông"
+    },
+    {
+     "n": 294,
+     "text": "Tôi đều thâm nhập để nghiêm tịnh"
+    },
+    {
+     "n": 295,
+     "text": "Vị lai, các Đấng Chiếu Thế Đăng"
+    },
+    {
+     "n": 296,
+     "text": "Thành đạo chuyển pháp độ chúng sinh"
+    },
+    {
+     "n": 297,
+     "text": "Phật sự viên mãn hiện Niết-bàn"
+    },
+    {
+     "n": 298,
+     "text": "Tôi đều đến đó để thân cận"
+    },
+    {
+     "n": 299,
+     "text": "Sức thần thông mau chóng biến khắp"
+    },
+    {
+     "n": 300,
+     "text": "Sức Phổ môn nhập khắp Đại thừa"
+    },
+    {
+     "n": 301,
+     "text": "Sức trí hạnh khắp tu công đức"
+    },
+    {
+     "n": 302,
+     "text": "Sức oai thần che khắp đại Bi"
+    },
+    {
+     "n": 303,
+     "text": "Sức phước trang nghiêm đều thanh tịnh"
+    },
+    {
+     "n": 304,
+     "text": "Sức trí tuệ không nương không đắm"
+    },
+    {
+     "n": 305,
+     "text": "Sức định, tuệ, phương tiện, oai thần"
+    },
+    {
+     "n": 306,
+     "text": "Sức thường chứa đạo Bồ-đề"
+    },
+    {
+     "n": 307,
+     "text": "Sức thanh tịnh thảy đều thiện nghiệp"
+    },
+    {
+     "n": 308,
+     "text": "Sức xô dẹp tất cả phiền não"
+    },
+    {
+     "n": 309,
+     "text": "Sức nhiếp phục tất cả loài ma"
+    },
+    {
+     "n": 310,
+     "text": "Sức viên mãn các hạnh Phổ hiền"
+    },
+    {
+     "n": 311,
+     "text": "Thường hay nghiêm tịnh các cõi nước"
+    },
+    {
+     "n": 312,
+     "text": "Giải thoát tất cả biển chúng sinh"
+    },
+    {
+     "n": 313,
+     "text": "Phân biệt rành rẽ các biển pháp"
+    },
+    {
+     "n": 314,
+     "text": "Có thể thâm nhập biển trí tuệ"
+    },
+    {
+     "n": 315,
+     "text": "Các biển công hạnh đều thanh tịnh"
+    },
+    {
+     "n": 316,
+     "text": "Viên mãn tất cả biển các nguyện"
+    },
+    {
+     "n": 317,
+     "text": "Gần gũi cúng dường các Đức Phật"
+    },
+    {
+     "n": 318,
+     "text": "Tu hành vô lượng kiếp không mệt"
+    },
+    {
+     "n": 319,
+     "text": "Tất cả Như Lai trong ba đời"
+    },
+    {
+     "n": 320,
+     "text": "Những hạnh nguyện Bồ-đề tối thắng"
+    },
+    {
+     "n": 321,
+     "text": "Tôi đều cúng dường tu tập đủ"
+    },
+    {
+     "n": 322,
+     "text": "Dùng hạnh Phổ hiền ngộ Bồ-đề"
+    },
+    {
+     "n": 323,
+     "text": "Tất cả Như Lai có trưởng tử"
+    },
+    {
+     "n": 324,
+     "text": "Danh hiệu ngài là Đức Phổ Hiền"
+    },
+    {
+     "n": 325,
+     "text": "Tôi nay hồi hướng các căn lành"
+    },
+    {
+     "n": 326,
+     "text": "Nguyện các trí hạnh đều như đó"
+    },
+    {
+     "n": 327,
+     "text": "Nguyện thân, khẩu, ý hằng thanh tịnh"
+    },
+    {
+     "n": 328,
+     "text": "Các công hạnh cõi nước cũng như vậy."
+    },
+    {
+     "n": 329,
+     "text": "Trí tuệ ấy gọi rằng Phổ Hiền"
+    },
+    {
+     "n": 330,
+     "text": "Tôi nguyện cùng ngài đều đồng đẳng"
+    },
+    {
+     "n": 331,
+     "text": "Tôi biến khắp hạnh Phổ hiền tịnh"
+    },
+    {
+     "n": 332,
+     "text": "Các hạnh nguyện lớn của Văn-thù"
+    },
+    {
+     "n": 333,
+     "text": "Đầy sự nghiệp kia không thừa sót"
+    },
+    {
+     "n": 334,
+     "text": "Đến kiếp vị lai thường không mỏi"
+    },
+    {
+     "n": 335,
+     "text": "Tôi tu các hạnh đều vô lượng"
+    },
+    {
+     "n": 336,
+     "text": "Được các công đức cũng không lường"
+    },
+    {
+     "n": 337,
+     "text": "An trụ trong những hạnh vô lượng"
+    },
+    {
+     "n": 338,
+     "text": "Thấu suốt tất cả sức thần thông"
+    },
+    {
+     "n": 339,
+     "text": "Sức trí mạnh mẽ của Văn-thù"
+    },
+    {
+     "n": 340,
+     "text": "Tuệ hạnh Phổ hiền cũng như vậy"
+    },
+    {
+     "n": 341,
+     "text": "Tôi nay hồi hướng các căn lành"
+    },
+    {
+     "n": 342,
+     "text": "Thường theo các ngài mà tu học"
+    },
+    {
+     "n": 343,
+     "text": "Chư Phật ba đời luôn khen ngợi"
+    },
+    {
+     "n": 344,
+     "text": "Các hạnh nguyện tối thắng như vậy"
+    },
+    {
+     "n": 345,
+     "text": "Tôi nay hồi hướng các căn lành"
+    },
+    {
+     "n": 346,
+     "text": "Để được hạnh Phổ hiền thù thắng"
+    },
+    {
+     "n": 347,
+     "text": "Nguyện trong lúc tôi sắp qua đời"
+    },
+    {
+     "n": 348,
+     "text": "Không còn tất cả các chướng ngại"
+    },
+    {
+     "n": 349,
+     "text": "Được gặp Đức Phật A-di-đà"
+    },
+    {
+     "n": 350,
+     "text": "Liền được vãng sinh cõi Cực lạc"
+    },
+    {
+     "n": 351,
+     "text": "Tôi đã vãng sinh cõi kia rồi"
+    },
+    {
+     "n": 352,
+     "text": "Hiện tiền thành tựu hạnh nguyện này"
+    },
+    {
+     "n": 353,
+     "text": "Tất cả tròn đủ không thừa thiếu"
+    },
+    {
+     "n": 354,
+     "text": "Lợi lạc tất cả các chúng sinh"
+    },
+    {
+     "n": 355,
+     "text": "Chúng hội Di-đà đều thanh tịnh"
+    },
+    {
+     "n": 356,
+     "text": "Tôi từ hoa sen nở sinh ra"
+    },
+    {
+     "n": 357,
+     "text": "Được thấy Đức Phật Vô Lượng Quang"
+    },
+    {
+     "n": 358,
+     "text": "Thọ ký cho tôi đạo Bồ-đề"
+    },
+    {
+     "n": 359,
+     "text": "Nhờ Đức Phật kia thọ ký rồi"
+    },
+    {
+     "n": 360,
+     "text": "Tôi hóa vô số vạn ức thân"
+    },
+    {
+     "n": 361,
+     "text": "Trí tuệ rộng lớn khắp mười phương"
+    },
+    {
+     "n": 362,
+     "text": "Lợi lạc tất cả cõi chúng sinh"
+    },
+    {
+     "n": 363,
+     "text": "Cho đến hư không thế giới tận"
+    },
+    {
+     "n": 364,
+     "text": "Chúng sinh, nghiệp và phiền não tận"
+    },
+    {
+     "n": 365,
+     "text": "Nhưng các pháp ấy không cùng tận"
+    },
+    {
+     "n": 366,
+     "text": "Nên hạnh Nguyện cho tôi hằng vô tận"
+    },
+    {
+     "n": 367,
+     "text": "Vô biên cõi nước ở mười phương"
+    },
+    {
+     "n": 368,
+     "text": "Trang nghiêm các báu cúng dường Phật"
+    },
+    {
+     "n": 369,
+     "text": "Tối thắng an lạc thí nhân thiên"
+    },
+    {
+     "n": 370,
+     "text": "Trải kiếp vi trần luôn cúng thí."
+    },
+    {
+     "n": 371,
+     "text": "Nếu có người với nguyện vương này"
+    },
+    {
+     "n": 372,
+     "text": "Một lần nghe liền sinh tín kính"
+    },
+    {
+     "n": 373,
+     "text": "Mong cầu khát ngưỡng quả Bồ-đề"
+    },
+    {
+     "n": 374,
+     "text": "Công đức được nhiều hơn tài thí"
+    },
+    {
+     "n": 375,
+     "text": "Nhờ đấy thường xa các bạn ác"
+    },
+    {
+     "n": 376,
+     "text": "Thoát khỏi tất cả ba đường dữ"
+    },
+    {
+     "n": 377,
+     "text": "Mau thấy Đức Phật Vô Lượng Quang"
+    },
+    {
+     "n": 378,
+     "text": "Đầy đủ nguyện Phổ hiền tối thắng"
+    },
+    {
+     "n": 379,
+     "text": "Người này tuổi thọ được dài lâu"
+    },
+    {
+     "n": 380,
+     "text": "Sinh trong kiếp người tôn quý"
+    },
+    {
+     "n": 381,
+     "text": "Người này không lâu sẽ thành tựu"
+    },
+    {
+     "n": 382,
+     "text": "Công hạnh như Bồ-tát Phổ Hiền"
+    },
+    {
+     "n": 383,
+     "text": "Ngày trước vì không sức trí tuệ"
+    },
+    {
+     "n": 384,
+     "text": "Tạo ra năm nghiệp ác vô gián"
+    },
+    {
+     "n": 385,
+     "text": "Chuyên tụng nguyện lớn của Phổ Hiền"
+    },
+    {
+     "n": 386,
+     "text": "Tất cả tội ác tiêu diệt mau"
+    },
+    {
+     "n": 387,
+     "text": "Dòng họ chủng loài cùng dung sắc"
+    },
+    {
+     "n": 388,
+     "text": "Đều đầy đủ tướng tốt trí tuệ"
+    },
+    {
+     "n": 389,
+     "text": "Các ma, ngoại đạo không phá được"
+    },
+    {
+     "n": 390,
+     "text": "Ưng chịu cúng dường cho ba cõi"
+    },
+    {
+     "n": 391,
+     "text": "Tất mau đến cội Bồ-đề vương"
+    },
+    {
+     "n": 392,
+     "text": "Ngồi đó mà an hàng phục chúng ma"
+    },
+    {
+     "n": 393,
+     "text": "Thành Đẳng Chánh Giác chuyển xe pháp"
+    },
+    {
+     "n": 394,
+     "text": "Lợi lạc tất cả các chúng sinh"
+    },
+    {
+     "n": 395,
+     "text": "Nếu người với nguyện Phổ hiền này"
+    },
+    {
+     "n": 396,
+     "text": "Đọc, tụng, thọ trì và giảng nói"
+    },
+    {
+     "n": 397,
+     "text": "Quả báo chỉ Phật mới biết được"
+    },
+    {
+     "n": 398,
+     "text": "Quyết định sẽ được đạo Bồ-đề"
+    },
+    {
+     "n": 399,
+     "text": "Nếu người tụng nguyện Phổ hiền này"
+    },
+    {
+     "n": 400,
+     "text": "Tôi nói chút ít phần căn lành"
+    },
+    {
+     "n": 401,
+     "text": "Một niệm tất cả đều tròn đầy"
+    },
+    {
+     "n": 402,
+     "text": "Nguyện thành tựu thanh tịnh chúng sinh"
+    },
+    {
+     "n": 403,
+     "text": "Hạnh Phổ Hiền thù thắng của tôi"
+    },
+    {
+     "n": 404,
+     "text": "Phước lớn vô biên đều hồi hướng"
+    },
+    {
+     "n": 405,
+     "text": "Nguyện các chúng sinh đang chìm đắm"
+    },
+    {
+     "n": 406,
+     "text": "Mau sinh cõi Phật Vô Lượng Quang."
+    },
+    {
+     "n": 407,
+     "text": "Lúc ở trước Đức Như Lai, Đại Bồ-tát Phổ Hiền nói bài kệ hạnh nguyện thanh tịnh này rồi, Đồng tử Thiện Tài vui mừng vô cùng, các Bồ-tát cũng đều hoan hỷ, Đức Như Lai khen ngợi:"
+    },
+    {
+     "n": 408,
+     "text": "–Lành thay! Lành thay!"
+    },
+    {
+     "n": 409,
+     "text": "Lúc Đức Thế Tôn cùng hàng Thánh chúng Đại Bồ-tát, diễn nói pháp môn quả thắng cảnh giới giải thoát chẳng thể nghĩ bàn như vậy,"
+    },
+    {
+     "n": 410,
+     "text": "Đại Bồ-tát Văn-thù-sư-lợi làm bậc dẫn đầu trong các vị Đại Bồ-tát và có sáu ngàn thầy Tỳ-kheo đã được thành thục:"
+    },
+    {
+     "n": 411,
+     "text": "Đức Di-lặc Bồ-tát làm bậc dẫn đầu trong các vị Đại Bồ-tát ở hiền kiếp."
+    },
+    {
+     "n": 412,
+     "text": "Đức Bồ-tát Vô Cấu Phổ Hiền đứng đầu các vị Bồ-tát Nhất sinh bổ xứ trụ quán đỉnh vị, cùng với các vị Đại Bồ-tát đông như số vi trần trong các thế giới ở mười phương đều đến nhóm họp."
+    },
+    {
+     "n": 413,
+     "text": "Trong hàng đại Thanh văn thì có ngài Đại trí Xá-lợi-phất, ngài Mục-kiền-liên làm thượng thủ cùng các bậc chúa tể của hàng trời, người và đầy đủ các chúng:"
+    },
+    {
+     "n": 414,
+     "text": "Thiên, Long, Dạ-xoa, Càn-thát-bà, A-tu-la, Ca-lâu-la, Khẩn-na-la, Ma-hầu-la-già, nhân, phi nhân… tất cả đại chúng nghe Phật thuyết pháp đều rất vui mừng, đồng tín thọ phụng hành."
+    }
+   ]
+  },
+  {
+   "key": "zh-translation",
+   "lang": "zh",
+   "variant": "translation",
+   "translator": "般若 (Bát-nhã)",
+   "sourceName": "Wikisource 中文 - 大方廣佛華嚴經普賢菩薩行願品/卷四十 - Taishō T0293 (bỏ phần ghi chú dịch trường cuối trang)",
+   "sourceUrl": "https://zh.wikisource.org/wiki/大方廣佛華嚴經普賢菩薩行願品/卷四十",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi trên trang mục lục 大方廣佛華嚴經: tác giả mất trên 100 năm, xuất bản trước 1931; trang con /卷四十 không có thẻ riêng",
+   "lines": [
+    {
+     "n": 1,
+     "text": "爾時普賢菩薩摩訶薩。稱嘆如來勝功德已。"
+    },
+    {
+     "n": 2,
+     "text": "告諸菩薩及善財言。善男子。如來功德。"
+    },
+    {
+     "n": 3,
+     "text": "假使十方一切諸佛經不可說不可說佛剎極微塵數劫。"
+    },
+    {
+     "n": 4,
+     "text": "相續演說不可窮盡。若欲成就此功德門。"
+    },
+    {
+     "n": 5,
+     "text": "應修十種廣大行願。何等爲十。一者禮敬諸佛。"
+    },
+    {
+     "n": 6,
+     "text": "二者稱讚如來。三者廣修供養。四者懺悔業障。"
+    },
+    {
+     "n": 7,
+     "text": "五者隨喜功德。六者請轉法輪。七者請佛住世。"
+    },
+    {
+     "n": 8,
+     "text": "八者常隨佛學。九者恆順眾生。十者普皆回向。"
+    },
+    {
+     "n": 9,
+     "text": "善財白言。大聖。云何禮敬乃至回向。"
+    },
+    {
+     "n": 10,
+     "text": "普賢菩薩。告善財言。善男子。言禮敬諸佛者。"
+    },
+    {
+     "n": 11,
+     "text": "所有盡法界。虛空界。十方三世一切佛剎極微塵數諸佛世尊。"
+    },
+    {
+     "n": 12,
+     "text": "我以普賢行願力故。起深信解。如對目前。"
+    },
+    {
+     "n": 13,
+     "text": "悉以清淨身語意業。常修禮敬。一一佛所。"
+    },
+    {
+     "n": 14,
+     "text": "皆現不可說不可說佛剎極微塵數身。"
+    },
+    {
+     "n": 15,
+     "text": "一一身遍禮不可說不可說佛剎極微塵數佛。"
+    },
+    {
+     "n": 16,
+     "text": "虛空界盡。我禮乃盡。而虛空界不可盡故。"
+    },
+    {
+     "n": 17,
+     "text": "我此禮敬無有窮盡。如是乃至眾生界盡。"
+    },
+    {
+     "n": 18,
+     "text": "眾生業盡。眾生煩惱盡。我禮乃盡。"
+    },
+    {
+     "n": 19,
+     "text": "而眾生界。乃至煩惱無有盡故。我此禮敬無有窮盡。"
+    },
+    {
+     "n": 20,
+     "text": "唸唸相續。無有間斷。身語意業無有疲厭複次善男子。"
+    },
+    {
+     "n": 21,
+     "text": "言稱讚如來者。所有盡法界。虛空界。"
+    },
+    {
+     "n": 22,
+     "text": "十方三世一切剎土。所有極微。一一塵中。"
+    },
+    {
+     "n": 23,
+     "text": "皆有一切世界極微塵數佛。一一佛所。"
+    },
+    {
+     "n": 24,
+     "text": "皆有菩薩海會圍繞。我當悉以甚深勝解。"
+    },
+    {
+     "n": 25,
+     "text": "現前知見。各以出過辯才天女微妙舌根。"
+    },
+    {
+     "n": 26,
+     "text": "一一舌根。出無盡音聲海。一一音聲。"
+    },
+    {
+     "n": 27,
+     "text": "出一切言辭海。稱揚讚歎一切如來諸功德海。"
+    },
+    {
+     "n": 28,
+     "text": "窮未來際。相續不斷。盡於法界。"
+    },
+    {
+     "n": 29,
+     "text": "無不周遍。如是虛空界盡。眾生界盡。"
+    },
+    {
+     "n": 30,
+     "text": "眾生業盡。眾生煩惱盡。我贊乃盡。"
+    },
+    {
+     "n": 31,
+     "text": "而虛空界乃至煩惱。無有盡故。我此讚歎無有窮盡。"
+    },
+    {
+     "n": 32,
+     "text": "唸唸相續。無有間斷。身語意業無有疲厭複次善男子。"
+    },
+    {
+     "n": 33,
+     "text": "言廣修供養者。所有盡法界。虛空界。"
+    },
+    {
+     "n": 34,
+     "text": "十方三世一切佛剎極微塵中。一一各有一切世界極微塵數佛。"
+    },
+    {
+     "n": 35,
+     "text": "一一佛所。種種菩薩海會圍繞。我以普賢行願力故。"
+    },
+    {
+     "n": 36,
+     "text": "起深信解。現前知見。悉以上妙諸供養具。"
+    },
+    {
+     "n": 37,
+     "text": "而爲供養。所謂華云鬘云。天音樂云。"
+    },
+    {
+     "n": 38,
+     "text": "天傘蓋云。天衣服云。天種種香涂香燒香末香。"
+    },
+    {
+     "n": 39,
+     "text": "如是等云。一一量如須彌山王。然種種燈。"
+    },
+    {
+     "n": 40,
+     "text": "酥燈油燈諸香油燈。一一燈炷。如須彌山。"
+    },
+    {
+     "n": 41,
+     "text": "一一燈油。如大海水。以如是等諸供養具。"
+    },
+    {
+     "n": 42,
+     "text": "常爲供養。善男子。諸供養中。法供養最。"
+    },
+    {
+     "n": 43,
+     "text": "所謂如說修行供養。利益眾生供養。"
+    },
+    {
+     "n": 44,
+     "text": "攝受眾生供養。代眾生苦供養。勤修善根供養。"
+    },
+    {
+     "n": 45,
+     "text": "不捨菩薩業供養。不離菩提心供養。"
+    },
+    {
+     "n": 46,
+     "text": "善男子。如前供養無量功德。比法供養。"
+    },
+    {
+     "n": 47,
+     "text": "一念功德。百分不及一。千分不及一。"
+    },
+    {
+     "n": 48,
+     "text": "百千俱胝那由他分。迦羅分。算分。"
+    },
+    {
+     "n": 49,
+     "text": "數分。諭分。優婆尼沙陀分。亦不及一。"
+    },
+    {
+     "n": 50,
+     "text": "何以故。以諸如來尊重法故。以如說修行出生諸佛故。"
+    },
+    {
+     "n": 51,
+     "text": "若諸菩薩。行法供養。則得成就供養如來。"
+    },
+    {
+     "n": 52,
+     "text": "如是修行。是真供養故。此廣大最勝供養。"
+    },
+    {
+     "n": 53,
+     "text": "虛空界盡。眾生界盡。眾生業盡。"
+    },
+    {
+     "n": 54,
+     "text": "眾生煩惱盡。我供乃盡。而虛空界。"
+    },
+    {
+     "n": 55,
+     "text": "乃至煩惱。不可盡故。我此供養。"
+    },
+    {
+     "n": 56,
+     "text": "亦無有盡。唸唸相續無有間斷。身語意業無有疲厭。"
+    },
+    {
+     "n": 57,
+     "text": "複次善男子。言懺除業障者。菩薩自念。"
+    },
+    {
+     "n": 58,
+     "text": "我於過去無始劫中。由貪嗔痴。發身口意。"
+    },
+    {
+     "n": 59,
+     "text": "作諸惡業。無量無邊。若此惡業。"
+    },
+    {
+     "n": 60,
+     "text": "有體相者。盡虛空界不能容受。我今悉以清淨三業。"
+    },
+    {
+     "n": 61,
+     "text": "遍於法界極微塵剎一切諸佛菩薩眾前。"
+    },
+    {
+     "n": 62,
+     "text": "誠心懺悔。後不復造。恆住淨戒。"
+    },
+    {
+     "n": 63,
+     "text": "一切功德。如是虛空界盡。眾生界盡。"
+    },
+    {
+     "n": 64,
+     "text": "眾生業盡。眾生煩惱盡。我懺乃盡。"
+    },
+    {
+     "n": 65,
+     "text": "而虛空界。乃至眾生煩惱。不可盡故。"
+    },
+    {
+     "n": 66,
+     "text": "我此懺悔無有窮盡。唸唸相續無有間斷。身語意業無有疲厭。"
+    },
+    {
+     "n": 67,
+     "text": "複次善男子。言隨喜功德者。所有盡法界。"
+    },
+    {
+     "n": 68,
+     "text": "虛空界。十方三世一切佛剎極微塵數諸佛如來。"
+    },
+    {
+     "n": 69,
+     "text": "從初發心。爲一切智。勤修福聚。"
+    },
+    {
+     "n": 70,
+     "text": "不惜身命。經不可說不可說佛剎極微塵數劫。"
+    },
+    {
+     "n": 71,
+     "text": "一一劫中。舍不可說不可說佛剎極微塵數頭目手足。"
+    },
+    {
+     "n": 72,
+     "text": "如是一切難行苦行。圓滿種種波羅蜜門。"
+    },
+    {
+     "n": 73,
+     "text": "證入種種菩薩智地。成就諸佛無上菩提。"
+    },
+    {
+     "n": 74,
+     "text": "及般涅槃。分佈舍利。所有善根。"
+    },
+    {
+     "n": 75,
+     "text": "我皆隨喜。及彼十方一切世界。六趣四生。"
+    },
+    {
+     "n": 76,
+     "text": "一切種類。所有功德。乃至一塵。"
+    },
+    {
+     "n": 77,
+     "text": "我皆隨喜。十方三世一切聲聞。及辟支佛。"
+    },
+    {
+     "n": 78,
+     "text": "有學無學。所有功德。我皆隨喜。"
+    },
+    {
+     "n": 79,
+     "text": "一切菩薩所修無量難行苦行。志求無上正等菩提。"
+    },
+    {
+     "n": 80,
+     "text": "廣大功德。我皆隨喜。如是虛空界盡。"
+    },
+    {
+     "n": 81,
+     "text": "眾生界盡。眾生業盡。眾生煩惱盡。"
+    },
+    {
+     "n": 82,
+     "text": "我此隨喜。無有窮盡。唸唸相續無有間斷。身語意業無有疲厭。"
+    },
+    {
+     "n": 83,
+     "text": "複次善男子。言請轉法輪者。所有盡法界。"
+    },
+    {
+     "n": 84,
+     "text": "虛空界。十方三世一切佛剎極微塵中。"
+    },
+    {
+     "n": 85,
+     "text": "一一各有不可說不可說佛剎極微塵數廣大佛剎。"
+    },
+    {
+     "n": 86,
+     "text": "一一剎中。唸唸有不可說不可說。"
+    },
+    {
+     "n": 87,
+     "text": "佛剎極微塵數一切諸佛成等正覺。"
+    },
+    {
+     "n": 88,
+     "text": "一切菩薩海會圍繞。而我悉以身口意業。"
+    },
+    {
+     "n": 89,
+     "text": "種種方便。慇勤勸請。轉妙法輪。"
+    },
+    {
+     "n": 90,
+     "text": "如是虛空界盡。眾生界盡。眾生業盡。"
+    },
+    {
+     "n": 91,
+     "text": "眾生煩惱盡。我常勸請一切諸佛。"
+    },
+    {
+     "n": 92,
+     "text": "轉正法輪。無有窮盡。唸唸相續無有間斷。身語意業無有疲厭。"
+    },
+    {
+     "n": 93,
+     "text": "複次善男子。言請佛住世者。所有盡法界。"
+    },
+    {
+     "n": 94,
+     "text": "虛空界。十方三世一切佛剎極微塵數諸佛如來。"
+    },
+    {
+     "n": 95,
+     "text": "將欲示現般涅槃者。及諸菩薩。聲聞緣覺。"
+    },
+    {
+     "n": 96,
+     "text": "有學無學。乃至一切諸善知識。我悉勸請。"
+    },
+    {
+     "n": 97,
+     "text": "莫入涅槃。經於一切佛剎極微塵數劫。"
+    },
+    {
+     "n": 98,
+     "text": "爲欲利樂一切眾生。如是虛空界盡。"
+    },
+    {
+     "n": 99,
+     "text": "眾生界盡。眾生業盡。眾生煩惱盡。"
+    },
+    {
+     "n": 100,
+     "text": "我此勸請無有窮盡。唸唸相續無有間斷。"
+    },
+    {
+     "n": 101,
+     "text": "身語意業無有疲厭複次善男子。言常隨佛學者。"
+    },
+    {
+     "n": 102,
+     "text": "如此娑婆世界。毗盧遮那如來。從初發心。"
+    },
+    {
+     "n": 103,
+     "text": "精進不退。以不可說不可說身命而爲佈施。"
+    },
+    {
+     "n": 104,
+     "text": "剝皮爲紙。折骨爲筆。刺血爲墨。"
+    },
+    {
+     "n": 105,
+     "text": "書寫經典。積如須彌。爲重法故。"
+    },
+    {
+     "n": 106,
+     "text": "不惜身命。何況王位。城邑聚落。"
+    },
+    {
+     "n": 107,
+     "text": "宮殿園林。一切所有。及余種種難行苦行。"
+    },
+    {
+     "n": 108,
+     "text": "乃至樹下成大菩提。示種種神通起種種變化。"
+    },
+    {
+     "n": 109,
+     "text": "現種種佛身。處種種眾會。或處一切諸大菩薩眾會道場。"
+    },
+    {
+     "n": 110,
+     "text": "或處聲聞及辟支佛眾會道場。或處轉輪聖王小王眷屬眾會道場。"
+    },
+    {
+     "n": 111,
+     "text": "或處剎利及婆羅門長者居士眾會道場。"
+    },
+    {
+     "n": 112,
+     "text": "乃至或處天龍八部人非人等眾會道場。"
+    },
+    {
+     "n": 113,
+     "text": "處於如是種種眾會。以圓滿音。如大雷震。"
+    },
+    {
+     "n": 114,
+     "text": "隨其樂欲成熟眾生。乃至示現入於涅槃。"
+    },
+    {
+     "n": 115,
+     "text": "如是一切我皆隨學。如今世尊毗盧遮那。"
+    },
+    {
+     "n": 116,
+     "text": "如是盡法界。虛空界。十方三世一切佛剎所有塵中。"
+    },
+    {
+     "n": 117,
+     "text": "一切如來皆亦如是。於唸唸中。我皆隨學。"
+    },
+    {
+     "n": 118,
+     "text": "如是虛空界盡眾生界盡。眾生業盡。"
+    },
+    {
+     "n": 119,
+     "text": "眾生煩惱盡。我此隨學無有窮盡。"
+    },
+    {
+     "n": 120,
+     "text": "唸唸相續無有間斷身語意業無有疲厭複次善男子。"
+    },
+    {
+     "n": 121,
+     "text": "言恆順眾生者。謂盡法界。虛空界。"
+    },
+    {
+     "n": 122,
+     "text": "十方剎海。所有眾生種種差別。所謂卵生。"
+    },
+    {
+     "n": 123,
+     "text": "胎生。濕生。化生。或有依於地水火風而生住者。"
+    },
+    {
+     "n": 124,
+     "text": "或有依空及諸卉木而生住者。種種生類。"
+    },
+    {
+     "n": 125,
+     "text": "種種色身。種種形狀。種種相貌。"
+    },
+    {
+     "n": 126,
+     "text": "種種壽量。種種族類。種種名號。"
+    },
+    {
+     "n": 127,
+     "text": "種種心性。種種知見。種種欲樂。"
+    },
+    {
+     "n": 128,
+     "text": "種種意行。種種威儀。種種衣服。"
+    },
+    {
+     "n": 129,
+     "text": "種種飲食。處於種種村營聚落城邑宮殿。"
+    },
+    {
+     "n": 130,
+     "text": "乃至一切天龍八部人非人等。無足二足。"
+    },
+    {
+     "n": 131,
+     "text": "四足多足。有色無色。有想無想。"
+    },
+    {
+     "n": 132,
+     "text": "非有想。非無想。如是等類。我皆於彼。"
+    },
+    {
+     "n": 133,
+     "text": "隨順而轉。種種承事。種種供養。"
+    },
+    {
+     "n": 134,
+     "text": "如敬父母。如奉師長。及阿羅漢。"
+    },
+    {
+     "n": 135,
+     "text": "乃至如來。等無有異。於諸病苦。"
+    },
+    {
+     "n": 136,
+     "text": "爲作良醫。於失道者。示其正路。"
+    },
+    {
+     "n": 137,
+     "text": "於闇夜中。爲作光明。於貧窮者。"
+    },
+    {
+     "n": 138,
+     "text": "令得伏藏。菩薩如是平等饒益一切眾生。"
+    },
+    {
+     "n": 139,
+     "text": "何以故。菩薩若能隨順眾生。則爲隨順供養諸佛。"
+    },
+    {
+     "n": 140,
+     "text": "若於眾生。尊重承事。則爲尊重承事如來。"
+    },
+    {
+     "n": 141,
+     "text": "若令眾生生歡喜者。則令一切如來歡喜。"
+    },
+    {
+     "n": 142,
+     "text": "何以故。諸佛如來。以大悲心而爲體故。"
+    },
+    {
+     "n": 143,
+     "text": "因於眾生。而起大悲。因於大悲。"
+    },
+    {
+     "n": 144,
+     "text": "生菩提心。因菩提心。成等正覺。"
+    },
+    {
+     "n": 145,
+     "text": "譬如曠野沙磧之中。有大樹王。若根得水。"
+    },
+    {
+     "n": 146,
+     "text": "枝葉華果悉皆繁茂。生死曠野菩提樹王。"
+    },
+    {
+     "n": 147,
+     "text": "亦復如是。一切眾生而爲樹根。諸佛菩薩而爲華果。"
+    },
+    {
+     "n": 148,
+     "text": "以大悲水。饒益眾生。則能成就諸佛菩薩智慧華果。"
+    },
+    {
+     "n": 149,
+     "text": "何以故。若諸菩薩。以大悲水。饒益眾生。"
+    },
+    {
+     "n": 150,
+     "text": "則能成就阿耨多羅三藐三菩提故。"
+    },
+    {
+     "n": 151,
+     "text": "是故菩提。屬於眾生。若無眾生。"
+    },
+    {
+     "n": 152,
+     "text": "一切菩薩。終不能成無上正覺。善男子。"
+    },
+    {
+     "n": 153,
+     "text": "汝於此義。應如是解。以於眾生心平等故。"
+    },
+    {
+     "n": 154,
+     "text": "則能成就圓滿大悲。以大悲心。隨眾生故。"
+    },
+    {
+     "n": 155,
+     "text": "則能成就供養如來。菩薩如是隨順眾生。"
+    },
+    {
+     "n": 156,
+     "text": "虛空界盡。眾生界盡。眾生業盡。"
+    },
+    {
+     "n": 157,
+     "text": "眾生煩惱盡。我此隨順無有窮盡。"
+    },
+    {
+     "n": 158,
+     "text": "唸唸相續無有間斷。身語意業無有疲厭。"
+    },
+    {
+     "n": 159,
+     "text": "複次善男子。言普皆回向者。從初禮拜。"
+    },
+    {
+     "n": 160,
+     "text": "乃至隨順。所有功德。皆悉回向。"
+    },
+    {
+     "n": 161,
+     "text": "盡法界。虛空界一切眾生。願令眾生常得安樂。"
+    },
+    {
+     "n": 162,
+     "text": "無諸病苦。欲行惡法皆悉不成。所修善業。"
+    },
+    {
+     "n": 163,
+     "text": "皆速成就。關閉一切諸惡趣門。開示人天涅槃正路。"
+    },
+    {
+     "n": 164,
+     "text": "若諸眾生。因其積集諸惡業故。所感一切極重苦果。"
+    },
+    {
+     "n": 165,
+     "text": "我皆代受。令彼眾生悉得解脫。究竟成就無上菩提。"
+    },
+    {
+     "n": 166,
+     "text": "菩薩如是所修回向。虛空界盡。眾生界盡。"
+    },
+    {
+     "n": 167,
+     "text": "眾生業盡。眾生煩惱盡。我此回向無有窮盡。"
+    },
+    {
+     "n": 168,
+     "text": "唸唸相續無有間斷。身語意業無有疲厭。"
+    },
+    {
+     "n": 169,
+     "text": "善男子。是爲菩薩摩訶薩十種大願具足圓滿。"
+    },
+    {
+     "n": 170,
+     "text": "若諸菩薩。於此大願。隨順趣入。"
+    },
+    {
+     "n": 171,
+     "text": "則能成熟一切眾生。則能隨順阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 172,
+     "text": "則能成滿普賢菩薩諸行願海。是故善男子。"
+    },
+    {
+     "n": 173,
+     "text": "汝於此義。應如是知。若有善男子善女人。"
+    },
+    {
+     "n": 174,
+     "text": "以滿十方無量無邊不可說不可說佛剎極微塵數一切世界。"
+    },
+    {
+     "n": 175,
+     "text": "上妙七寶及諸人天最勝安樂。佈施爾所一切世界所有眾生。"
+    },
+    {
+     "n": 176,
+     "text": "供養爾所一切世界諸佛菩薩。經爾所佛剎極微塵數劫。"
+    },
+    {
+     "n": 177,
+     "text": "相續不斷。所得功德。若復有人。"
+    },
+    {
+     "n": 178,
+     "text": "聞此願王。一經於耳。所有功德。"
+    },
+    {
+     "n": 179,
+     "text": "比前功德。百分不及一。千分不及一。"
+    },
+    {
+     "n": 180,
+     "text": "乃至優波尼沙陀分。亦不及一。或復有人。"
+    },
+    {
+     "n": 181,
+     "text": "以深信心。於此大願。受持讀誦。"
+    },
+    {
+     "n": 182,
+     "text": "乃至書寫一四句偈。速能除滅五無間業。"
+    },
+    {
+     "n": 183,
+     "text": "所有世間身心等病。種種苦惱。乃至佛剎極微塵數一切惡業。"
+    },
+    {
+     "n": 184,
+     "text": "皆得銷除。一切魔軍。夜叉羅剎。"
+    },
+    {
+     "n": 185,
+     "text": "若鳩槃荼若毗舍阇。若部多等。飲血啖肉諸惡鬼神。"
+    },
+    {
+     "n": 186,
+     "text": "皆悉遠離。或時發心。親近守護。"
+    },
+    {
+     "n": 187,
+     "text": "是故若人誦此願者。行於世間。無有障礙。"
+    },
+    {
+     "n": 188,
+     "text": "如空中月出於云翳。諸佛菩薩之所稱讚。"
+    },
+    {
+     "n": 189,
+     "text": "一切人天皆應禮敬。一切眾生悉應供養。"
+    },
+    {
+     "n": 190,
+     "text": "此善男子。善得人身。圓滿普賢所有功德。"
+    },
+    {
+     "n": 191,
+     "text": "不久當如普賢菩薩速得成就微妙色身。"
+    },
+    {
+     "n": 192,
+     "text": "具三十二大丈夫相。若生人天。所在之處。"
+    },
+    {
+     "n": 193,
+     "text": "常居勝族。悉能破壞一切惡趣。悉能遠離一切惡友。"
+    },
+    {
+     "n": 194,
+     "text": "悉能制伏一切外道。悉能解脫一切煩惱。"
+    },
+    {
+     "n": 195,
+     "text": "如師子王摧伏群獸。堪受一切眾生供養。"
+    },
+    {
+     "n": 196,
+     "text": "又復是人。臨命終時。最後剎那。"
+    },
+    {
+     "n": 197,
+     "text": "一切諸根悉皆散壞。一切親屬悉皆舍離。"
+    },
+    {
+     "n": 198,
+     "text": "一切威勢悉皆退失。輔相大臣。宮城內外象馬車乘。"
+    },
+    {
+     "n": 199,
+     "text": "珍寶伏藏。如是一切無復相隨。唯此願王不相舍離。"
+    },
+    {
+     "n": 200,
+     "text": "於一切時。引導其前。一剎那中。"
+    },
+    {
+     "n": 201,
+     "text": "即得往生極樂世界。到已即見阿彌陀佛。"
+    },
+    {
+     "n": 202,
+     "text": "文殊師利菩薩。普賢菩薩。觀自在菩薩。"
+    },
+    {
+     "n": 203,
+     "text": "彌勒菩薩等。此諸菩薩色相端嚴。"
+    },
+    {
+     "n": 204,
+     "text": "功德具足。所共圍繞。其人自見。"
+    },
+    {
+     "n": 205,
+     "text": "生蓮華中。蒙佛授記。得授記已。"
+    },
+    {
+     "n": 206,
+     "text": "經於無數百千萬億那由他劫。普於十方不可說不可說世界。"
+    },
+    {
+     "n": 207,
+     "text": "以智慧力。隨眾生心。而爲利益。"
+    },
+    {
+     "n": 208,
+     "text": "不久當坐菩提道場。降伏魔軍。成等正覺。"
+    },
+    {
+     "n": 209,
+     "text": "轉妙法輪。能令佛剎極微塵數世界眾生。"
+    },
+    {
+     "n": 210,
+     "text": "發菩提心。隨其根性。教化成熟。"
+    },
+    {
+     "n": 211,
+     "text": "乃至盡於未來劫海。廣能利益一切眾生。"
+    },
+    {
+     "n": 212,
+     "text": "善男子。彼諸眾生。若聞若信此大願王。"
+    },
+    {
+     "n": 213,
+     "text": "受持讀誦。廣爲人說。所有功德。"
+    },
+    {
+     "n": 214,
+     "text": "除佛世尊余無知者。是故汝等。聞此願王。"
+    },
+    {
+     "n": 215,
+     "text": "莫生疑念。應當諦受。受已能讀。"
+    },
+    {
+     "n": 216,
+     "text": "讀已能誦。誦已能持。乃至書寫。"
+    },
+    {
+     "n": 217,
+     "text": "廣爲人說。是諸人等。於一念中。"
+    },
+    {
+     "n": 218,
+     "text": "所有行願。皆得成就。所獲福聚無量無邊。"
+    },
+    {
+     "n": 219,
+     "text": "能於煩惱大苦海中。拔濟眾生。令其出離。"
+    },
+    {
+     "n": 220,
+     "text": "皆得往生阿彌陀佛極樂世界。爾時普賢菩薩摩訶薩。"
+    },
+    {
+     "n": 221,
+     "text": "欲重宣此義。普觀十方。而說偈言。"
+    },
+    {
+     "n": 222,
+     "text": "所有十方世界中 三世一切人師子"
+    },
+    {
+     "n": 223,
+     "text": "我以清淨身語意 一切遍禮盡無餘"
+    },
+    {
+     "n": 224,
+     "text": "普賢行願威神力 普現一切如來前"
+    },
+    {
+     "n": 225,
+     "text": "一身復現剎塵身 一一遍禮剎塵佛"
+    },
+    {
+     "n": 226,
+     "text": "於一塵中塵數佛 各處菩薩眾會中"
+    },
+    {
+     "n": 227,
+     "text": "無盡法界塵亦然 深信諸佛皆充滿"
+    },
+    {
+     "n": 228,
+     "text": "各以一切音聲海 普出無盡妙言辭"
+    },
+    {
+     "n": 229,
+     "text": "盡於未來一切劫 贊佛甚深功德海"
+    },
+    {
+     "n": 230,
+     "text": "以諸最勝妙華鬘 妓樂涂香及傘蓋"
+    },
+    {
+     "n": 231,
+     "text": "如是最勝莊嚴具 我以供養諸如來"
+    },
+    {
+     "n": 232,
+     "text": "最勝衣服最勝香 末香燒香與燈燭"
+    },
+    {
+     "n": 233,
+     "text": "一一皆如妙高聚 我悉供養諸如來"
+    },
+    {
+     "n": 234,
+     "text": "我以廣大勝解心 深信一切三世佛"
+    },
+    {
+     "n": 235,
+     "text": "悉以普賢行願力 普遍供養諸如來"
+    },
+    {
+     "n": 236,
+     "text": "我昔所造諸惡業 皆由無始貪恚痴"
+    },
+    {
+     "n": 237,
+     "text": "從身語意之所生 一切我今皆懺悔"
+    },
+    {
+     "n": 238,
+     "text": "十方一切諸眾生 二乘有學及無學"
+    },
+    {
+     "n": 239,
+     "text": "一切如來與菩薩 所有功德皆隨喜"
+    },
+    {
+     "n": 240,
+     "text": "十方所有世間燈 最初成就菩提者"
+    },
+    {
+     "n": 241,
+     "text": "我今一切皆勸請 轉於無上妙法輪"
+    },
+    {
+     "n": 242,
+     "text": "諸佛若欲示涅槃 我悉至誠而勸請"
+    },
+    {
+     "n": 243,
+     "text": "唯願久住剎塵劫 利樂一切諸眾生"
+    },
+    {
+     "n": 244,
+     "text": "所有禮讚供養福 請佛住世轉法輪"
+    },
+    {
+     "n": 245,
+     "text": "隨喜懺悔諸善根 回向眾生及佛道"
+    },
+    {
+     "n": 246,
+     "text": "我隨一切如來學 修習普賢圓滿行"
+    },
+    {
+     "n": 247,
+     "text": "供養過去諸如來 及與現在十方佛"
+    },
+    {
+     "n": 248,
+     "text": "未來一切天人師 一切意樂皆圓滿"
+    },
+    {
+     "n": 249,
+     "text": "我願普隨三世學 速得成就大菩提"
+    },
+    {
+     "n": 250,
+     "text": "所有十方一切剎 廣大清淨妙莊嚴"
+    },
+    {
+     "n": 251,
+     "text": "眾會圍繞諸如來 悉在菩提樹王下"
+    },
+    {
+     "n": 252,
+     "text": "十方所有諸眾生 願離憂患常安樂"
+    },
+    {
+     "n": 253,
+     "text": "獲得甚深正法利 滅除煩惱盡無餘"
+    },
+    {
+     "n": 254,
+     "text": "我爲菩提修行時 一切趣中成宿命"
+    },
+    {
+     "n": 255,
+     "text": "常得出家修淨戒 無垢無破無穿漏"
+    },
+    {
+     "n": 256,
+     "text": "天龍夜叉鳩槃荼 乃至人與非人等"
+    },
+    {
+     "n": 257,
+     "text": "所有一切眾生語 悉以諸音而說法"
+    },
+    {
+     "n": 258,
+     "text": "勤修清淨波羅蜜 恆不忘失菩提心"
+    },
+    {
+     "n": 259,
+     "text": "滅除障垢無有餘 一切妙行皆成就"
+    },
+    {
+     "n": 260,
+     "text": "於諸惑業及魔境 世間道中得解脫"
+    },
+    {
+     "n": 261,
+     "text": "猶如蓮華不著水 亦如日月不住空"
+    },
+    {
+     "n": 262,
+     "text": "悉除一切惡道苦 等與一切群生樂"
+    },
+    {
+     "n": 263,
+     "text": "如是經於剎塵劫 十方利益恆無盡"
+    },
+    {
+     "n": 264,
+     "text": "我常隨順諸眾生 盡於未來一切劫"
+    },
+    {
+     "n": 265,
+     "text": "恆修普賢廣大行 圓滿無上大菩提"
+    },
+    {
+     "n": 266,
+     "text": "所有與我同行者 於一切處同集會"
+    },
+    {
+     "n": 267,
+     "text": "身口意業皆同等 一切行願同修學"
+    },
+    {
+     "n": 268,
+     "text": "所有益我善知識 爲我顯示普賢行"
+    },
+    {
+     "n": 269,
+     "text": "常願與我同集會 於我常生歡喜心"
+    },
+    {
+     "n": 270,
+     "text": "願常面見諸如來 及諸佛子眾圍繞"
+    },
+    {
+     "n": 271,
+     "text": "於彼皆興廣大供 盡未來劫無疲厭"
+    },
+    {
+     "n": 272,
+     "text": "願持諸佛微妙法 光顯一切菩提行"
+    },
+    {
+     "n": 273,
+     "text": "究竟清淨普賢道 盡未來劫常修習"
+    },
+    {
+     "n": 274,
+     "text": "我於一切諸有中 所修福智恆無盡"
+    },
+    {
+     "n": 275,
+     "text": "定慧方便及解脫 獲諸無盡功德藏"
+    },
+    {
+     "n": 276,
+     "text": "一塵中有塵數剎 一一剎有難思佛"
+    },
+    {
+     "n": 277,
+     "text": "一一佛處眾會中 我見恆演菩提行"
+    },
+    {
+     "n": 278,
+     "text": "普盡十方諸剎海 一一毛端三世海"
+    },
+    {
+     "n": 279,
+     "text": "佛海及與國土海 我遍修行經劫海"
+    },
+    {
+     "n": 280,
+     "text": "一切如來語清淨 一言具眾音聲海"
+    },
+    {
+     "n": 281,
+     "text": "隨諸眾生意樂音 一一流佛辯才海"
+    },
+    {
+     "n": 282,
+     "text": "三世一切諸如來 於彼無盡語言海"
+    },
+    {
+     "n": 283,
+     "text": "恆轉理趣妙法輪 我深智力普能入"
+    },
+    {
+     "n": 284,
+     "text": "我能深入於未來 盡一切劫爲一念"
+    },
+    {
+     "n": 285,
+     "text": "三世所有一切劫 爲一念際我皆入"
+    },
+    {
+     "n": 286,
+     "text": "我於一念見三世 所有一切人師子"
+    },
+    {
+     "n": 287,
+     "text": "亦常入佛境界中 如幻解脫及威力"
+    },
+    {
+     "n": 288,
+     "text": "於一毛端極微中 出現三世莊嚴剎"
+    },
+    {
+     "n": 289,
+     "text": "十方塵剎諸毛端 我皆深入而嚴淨"
+    },
+    {
+     "n": 290,
+     "text": "所有未來照世燈 成道轉法悟群有"
+    },
+    {
+     "n": 291,
+     "text": "究竟佛事示涅槃 我皆往詣而親近"
+    },
+    {
+     "n": 292,
+     "text": "速疾周遍神通力 普門遍入大乘力"
+    },
+    {
+     "n": 293,
+     "text": "智行普修功德力 威神普覆大慈力"
+    },
+    {
+     "n": 294,
+     "text": "遍淨莊嚴勝福力 無著無依智慧力"
+    },
+    {
+     "n": 295,
+     "text": "定慧方便諸威力 普能積集菩提力"
+    },
+    {
+     "n": 296,
+     "text": "清淨一切善業力 摧滅一切煩惱力"
+    },
+    {
+     "n": 297,
+     "text": "降伏一切諸魔力 圓滿普賢諸行力"
+    },
+    {
+     "n": 298,
+     "text": "普能嚴淨諸剎海 解脫一切眾生海"
+    },
+    {
+     "n": 299,
+     "text": "善能分別諸法海 能甚深入智慧海"
+    },
+    {
+     "n": 300,
+     "text": "普能清淨諸行海 圓滿一切諸願海"
+    },
+    {
+     "n": 301,
+     "text": "親近供養諸佛海 修行無倦經劫海"
+    },
+    {
+     "n": 302,
+     "text": "三世一切諸如來 最勝菩提諸行願"
+    },
+    {
+     "n": 303,
+     "text": "我皆供養圓滿修 以普賢行悟菩提"
+    },
+    {
+     "n": 304,
+     "text": "一切如來有長子 彼名號曰普賢尊"
+    },
+    {
+     "n": 305,
+     "text": "我今回向諸善根 願諸智行悉同彼"
+    },
+    {
+     "n": 306,
+     "text": "願身口意恆清淨 諸行剎土亦復然"
+    },
+    {
+     "n": 307,
+     "text": "如是智慧號普賢 願我與彼皆同等"
+    },
+    {
+     "n": 308,
+     "text": "我爲遍淨普賢行 文殊師利諸大願"
+    },
+    {
+     "n": 309,
+     "text": "滿彼事業盡無餘 未來際劫恆無倦"
+    },
+    {
+     "n": 310,
+     "text": "我所修行無有量 獲得無量諸功德"
+    },
+    {
+     "n": 311,
+     "text": "安住無量諸行中 了達一切神通力"
+    },
+    {
+     "n": 312,
+     "text": "文殊師利勇猛智 普賢慧行亦復然"
+    },
+    {
+     "n": 313,
+     "text": "我今回向諸善根 隨彼一切常修學"
+    },
+    {
+     "n": 314,
+     "text": "三世諸佛所稱嘆 如是最勝諸大願"
+    },
+    {
+     "n": 315,
+     "text": "我今回向諸善根 爲得普賢殊勝行"
+    },
+    {
+     "n": 316,
+     "text": "願我臨欲命終時 盡除一切諸障礙"
+    },
+    {
+     "n": 317,
+     "text": "面見彼佛阿彌陀 即得往生安樂剎"
+    },
+    {
+     "n": 318,
+     "text": "我既往生彼國已 現前成就此大願"
+    },
+    {
+     "n": 319,
+     "text": "一切圓滿盡無餘 利樂一切眾生界"
+    },
+    {
+     "n": 320,
+     "text": "彼佛眾會咸清淨 我時於勝蓮華生"
+    },
+    {
+     "n": 321,
+     "text": "親睹如來無量光 現前授我菩提記"
+    },
+    {
+     "n": 322,
+     "text": "蒙彼如來授記已 化身無數百俱胝"
+    },
+    {
+     "n": 323,
+     "text": "智力廣大遍十方 普利一切眾生界"
+    },
+    {
+     "n": 324,
+     "text": "乃至虛空世界盡 眾生及業煩惱盡"
+    },
+    {
+     "n": 325,
+     "text": "如是一切無盡時 我願究竟恆無盡"
+    },
+    {
+     "n": 326,
+     "text": "十方所有無邊剎 莊嚴眾寶供如來"
+    },
+    {
+     "n": 327,
+     "text": "最勝安樂施天人 經一切剎微塵劫"
+    },
+    {
+     "n": 328,
+     "text": "若人於此勝願王 一經於耳能生信"
+    },
+    {
+     "n": 329,
+     "text": "求勝菩提心渴仰 獲勝功德過於彼"
+    },
+    {
+     "n": 330,
+     "text": "即常遠離惡知識 永離一切諸惡道"
+    },
+    {
+     "n": 331,
+     "text": "速見如來無量光 具此普賢最勝願"
+    },
+    {
+     "n": 332,
+     "text": "此人善得勝壽命 此人善來人中生"
+    },
+    {
+     "n": 333,
+     "text": "此人不久當成就 如彼普賢菩薩行"
+    },
+    {
+     "n": 334,
+     "text": "往昔由無智慧力 所造極惡五無間"
+    },
+    {
+     "n": 335,
+     "text": "誦此普賢大願王 一念速疾皆銷滅"
+    },
+    {
+     "n": 336,
+     "text": "族姓種類及容色 相好智慧咸圓滿"
+    },
+    {
+     "n": 337,
+     "text": "諸魔外道不能摧 堪爲三界所應供"
+    },
+    {
+     "n": 338,
+     "text": "速詣菩提大樹王 坐已降伏諸魔眾"
+    },
+    {
+     "n": 339,
+     "text": "成等正覺轉法輪 普利一切諸含識"
+    },
+    {
+     "n": 340,
+     "text": "若人於此普賢願 讀誦受持及演說"
+    },
+    {
+     "n": 341,
+     "text": "果報唯佛能證知 決定獲勝菩提道"
+    },
+    {
+     "n": 342,
+     "text": "若人誦此普賢願 我說少分之善根"
+    },
+    {
+     "n": 343,
+     "text": "一念一切悉皆圓 成就眾生清淨願"
+    },
+    {
+     "n": 344,
+     "text": "我此普賢殊勝行 無邊勝福皆回向"
+    },
+    {
+     "n": 345,
+     "text": "普願沉溺諸眾生 速往無量光佛剎"
+    },
+    {
+     "n": 346,
+     "text": "爾時普賢菩薩摩訶薩。於如來前。"
+    },
+    {
+     "n": 347,
+     "text": "說此普賢廣大願王清淨偈已。善財童子。"
+    },
+    {
+     "n": 348,
+     "text": "踴躍無量。一切菩薩皆大歡喜。如來贊言。"
+    },
+    {
+     "n": 349,
+     "text": "善哉善哉。爾時世尊。與諸聖者菩薩摩訶薩。"
+    },
+    {
+     "n": 350,
+     "text": "演說如是不可思議解脫境界勝法門時。"
+    },
+    {
+     "n": 351,
+     "text": "文殊師利菩薩而爲上首。諸大菩薩。"
+    },
+    {
+     "n": 352,
+     "text": "及所成熟。六千比丘。彌勒菩薩而爲上首。"
+    },
+    {
+     "n": 353,
+     "text": "賢劫一切諸大菩薩。無垢普賢菩薩而爲上首。"
+    },
+    {
+     "n": 354,
+     "text": "一生補處住灌頂位諸大菩薩。及余十方種種世界。"
+    },
+    {
+     "n": 355,
+     "text": "普來集會。一切剎海極微塵數諸菩薩摩訶薩眾。"
+    },
+    {
+     "n": 356,
+     "text": "大智舍利弗。摩訶目犍連等。而爲上首。"
+    },
+    {
+     "n": 357,
+     "text": "諸大聲聞。並諸人天一切世主。天龍夜叉乾闥婆阿修羅迦樓羅緊那羅摩睺羅伽人非人等一切大眾。"
+    },
+    {
+     "n": 358,
+     "text": "聞佛所說。皆大歡喜。信受奉行。"
+    }
+   ]
+  }
+ ]
+}

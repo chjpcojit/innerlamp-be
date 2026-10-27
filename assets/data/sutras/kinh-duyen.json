@@ -1,0 +1,521 @@
+{
+ "id": "kinh-duyen",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tương Ưng Bộ",
+ "reference": "SN 12.20",
+ "summary": "Bài kinh trong Tương Ưng Bộ, tại Sāvatthi, Đức Phật giảng về lý duyên khởi và các pháp duyên sanh, theo chuỗi từ sanh duyên già chết ngược lên vô minh, và nói đây là pháp tánh có sẵn dù Như Lai xuất hiện hay không. Vị Thánh đệ tử thấy rõ như thật điều này thì không còn nghi ngờ về quá khứ, tương lai và hiện tại.",
+ "titles": {
+  "vi": "Kinh Duyên",
+  "pli": "Paccayasutta",
+  "en": "Conditions"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 10,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/sn12.20/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh đã được Hòa thượng Thích Minh Châu dịch sang Việt ngữ và Thiền viện Vạn Hạnh phát hành trong đầu thập niên 1980. Sau đó, trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được tái bản năm 1993 và có số thứ tự từ 12 đến 16.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Trú ở Sāvatthi."
+    },
+    {
+     "n": 2,
+     "text": "—Này các Tỷ-kheo, Ta sẽ giảng cho các Ông lý duyên khởi và các pháp duyên sanh."
+    },
+    {
+     "n": 3,
+     "text": "Hãy lắng nghe và khéo suy nghiệm, Ta sẽ giảng."
+    },
+    {
+     "n": 4,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 5,
+     "text": "Các vị Tỷ-kheo ấy vâng đáp Thế Tôn."
+    },
+    {
+     "n": 6,
+     "text": "Thế Tôn nói như sau:"
+    },
+    {
+     "n": 7,
+     "text": "—Và này các Tỷ-kheo, thế nào là lý duyên khởi?"
+    },
+    {
+     "n": 8,
+     "text": "Do duyên sanh, này các Tỷ-kheo, già, chết khởi lên."
+    },
+    {
+     "n": 9,
+     "text": "Dầu các Như Lai có xuất hiện hay không xuất hiện, an trú là giới tánh ấy, pháp trú tánh ấy, pháp quyết định tánh ấy, y duyên tánh ấy."
+    },
+    {
+     "n": 10,
+     "text": "Như Lai hoàn toàn chứng ngộ, hoàn toàn chứng đạt định lý ấy."
+    },
+    {
+     "n": 11,
+     "text": "Sau khi hoàn toàn chứng ngộ, hoàn toàn chứng đạt, Như Lai tuyên bố, tuyên thuyết, tường thuyết, khai hiển, khai thị, phân biệt, minh hiển, minh thị."
+    },
+    {
+     "n": 12,
+     "text": "Do duyên sanh, này các Tỷ-kheo, nên có già, chết."
+    },
+    {
+     "n": 13,
+     "text": "Do duyên hữu, này các Tỷ-kheo, nên có sanh."
+    },
+    {
+     "n": 14,
+     "text": "Do duyên thủ, này các Tỷ-kheo, nên có hữu."
+    },
+    {
+     "n": 15,
+     "text": "Do duyên ái, này các Tỷ-kheo, nên có thủ."
+    },
+    {
+     "n": 16,
+     "text": "Do duyên thọ, này các Tỷ-kheo, nên có ái."
+    },
+    {
+     "n": 17,
+     "text": "Do duyên xúc, này các Tỷ-kheo, nên có thọ."
+    },
+    {
+     "n": 18,
+     "text": "Do duyên sáu xứ, này các Tỷ-kheo, nên có xúc."
+    },
+    {
+     "n": 19,
+     "text": "Do duyên danh sắc, này các Tỷ-kheo, nên có sáu xứ."
+    },
+    {
+     "n": 20,
+     "text": "Do duyên thức, này các Tỷ-kheo, nên có danh sắc."
+    },
+    {
+     "n": 21,
+     "text": "Do duyên các hành, này các Tỷ-kheo, nên có thức."
+    },
+    {
+     "n": 22,
+     "text": "Do duyên vô minh, này các Tỷ-kheo, nên có hành."
+    },
+    {
+     "n": 23,
+     "text": "Dầu cho Như Lai có xuất hiện hay không xuất hiện, an trú là giới tánh ấy, pháp trú tánh ấy, pháp quyết định tánh ấy, y duyên tánh ấy."
+    },
+    {
+     "n": 24,
+     "text": "Như Lai hoàn toàn chứng ngộ, hoàn toàn chứng đạt tánh ấy."
+    },
+    {
+     "n": 25,
+     "text": "Sau khi hoàn toàn chứng ngộ, hoàn toàn chứng đạt, Như Lai tuyên bố, tuyên thuyết, tường thuyết, khai hiển, khai thị, phân biệt, minh hiển, minh thị."
+    },
+    {
+     "n": 26,
+     "text": "Do duyên vô minh, này các Tỷ-kheo, có các hành."
+    },
+    {
+     "n": 27,
+     "text": "Như vậy, này các Tỷ-kheo, ở đây là như tánh, bất hư vọng tánh, bất dị như tánh, y duyên tánh ấy."
+    },
+    {
+     "n": 28,
+     "text": "Này các Tỷ-kheo, đây gọi là lý duyên khởi."
+    },
+    {
+     "n": 29,
+     "text": "Và này các Tỷ-kheo, thế nào là duyên sanh pháp?"
+    },
+    {
+     "n": 30,
+     "text": "Già, chết, này các Tỷ-kheo, là vô thường, hữu vi, duyên sanh, biến hoại tánh, biến diệt tánh, ly tham tánh, đoạn diệt tánh."
+    },
+    {
+     "n": 31,
+     "text": "Sanh, này các Tỷ-kheo, là vô thường, hữu vi, duyên sanh, biến hoại tánh, biến diệt tánh, ly tham tánh, đoạn diệt tánh."
+    },
+    {
+     "n": 32,
+     "text": "Hữu, này các Tỷ-kheo, là vô thường, hữu vi, duyên sanh, biến hoại tánh, biến diệt tánh, ly tham tánh, đoạn diệt tánh."
+    },
+    {
+     "n": 33,
+     "text": "—16) Thủ, này các Tỷ-kheo … ái, này các Tỷ-kheo … Thọ, này các Tỷ-kheo … Xúc, này các Tỷ-kheo … Sáu xứ, này các Tỷ-kheo … Danh sắc, này các Tỷ-kheo … Thức, này các Tỷ-kheo … Các hành, này các Tỷ-kheo …"
+    },
+    {
+     "n": 34,
+     "text": "Vô minh, này các Tỷ-kheo, là vô thường hữu vi, duyên sanh, biến hoại tánh, biến diệt tánh, ly tham tánh, đoạn diệt tánh."
+    },
+    {
+     "n": 35,
+     "text": "Những pháp này, này các Tỷ-kheo, được gọi là duyên sanh pháp."
+    },
+    {
+     "n": 36,
+     "text": "Do vì, này các Tỷ-kheo, vị Thánh đệ tử khéo thấy như chơn với chánh trí tuệ lý duyên khởi này và các pháp duyên sanh này, nên chắc chắn vị ấy không chạy theo quá khứ (với những câu hỏi): “Ta có mặt trong quá khứ?"
+    },
+    {
+     "n": 37,
+     "text": "Ta không có mặt không quá khứ? Ta là gì trong quá khứ? Ta có mặt như thế nào trong quá khứ?"
+    },
+    {
+     "n": 38,
+     "text": "Hay trước ta đã là gì, và nay trong quá khứ ta là gì?”"
+    },
+    {
+     "n": 39,
+     "text": "Hay không chạy theo tương lai (với những câu hỏi): “Ta có mặt trong tương lai? Ta không có mặt trong tương lai? Ta sẽ làm gì trong tương lai? Ta có mặt như thế nào trong tương lai?"
+    },
+    {
+     "n": 40,
+     "text": "Hay trước ta là gì, và nay trong tương lai ta sẽ là gì?”"
+    },
+    {
+     "n": 41,
+     "text": "Hay nay các vị ấy sẽ khởi lên những nghi ngờ về tự mình trong hiện tại như sau: “Ta hiện có mặt? Ta hiện không có mặt? Ta hiện là gì? Ta hiện có mặt như thế nào?” Sự kiện như vậy không xảy ra."
+    },
+    {
+     "n": 42,
+     "text": "Vì sao? Vì rằng vị Thánh đệ tử, này các Tỷ-kheo, đã khéo thấy như chơn với chánh trí tuệ, định lý duyên khởi này với các pháp duyên sanh này."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn12.20/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Sāvatthiyaṁ viharati."
+    },
+    {
+     "n": 2,
+     "text": "“Paṭiccasamuppādañca vo, bhikkhave, desessāmi paṭiccasamuppanne ca dhamme."
+    },
+    {
+     "n": 3,
+     "text": "Taṁ suṇātha, sādhukaṁ manasi karotha, bhāsissāmī”ti."
+    },
+    {
+     "n": 4,
+     "text": "“Evaṁ, bhante”ti kho te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 5,
+     "text": "“Katamo ca, bhikkhave, paṭiccasamuppādo? Jātipaccayā, bhikkhave, jarāmaraṇaṁ."
+    },
+    {
+     "n": 6,
+     "text": "Uppādā vā tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā."
+    },
+    {
+     "n": 7,
+     "text": "Taṁ tathāgato abhisambujjhati abhisameti."
+    },
+    {
+     "n": 8,
+     "text": "Abhisambujjhitvā abhisametvā ācikkhati deseti paññāpeti paṭṭhapeti vivarati vibhajati uttānīkaroti."
+    },
+    {
+     "n": 9,
+     "text": "‘Passathā’ti cāha: ‘jātipaccayā, bhikkhave, jarāmaraṇaṁ’."
+    },
+    {
+     "n": 10,
+     "text": "Bhavapaccayā, bhikkhave, jāti …pe… upādānapaccayā, bhikkhave, bhavo … taṇhāpaccayā, bhikkhave, upādānaṁ …"
+    },
+    {
+     "n": 11,
+     "text": "vedanāpaccayā, bhikkhave, taṇhā … phassapaccayā, bhikkhave, vedanā … saḷāyatanapaccayā, bhikkhave, phasso … nāmarūpapaccayā, bhikkhave, saḷāyatanaṁ …"
+    },
+    {
+     "n": 12,
+     "text": "viññāṇapaccayā, bhikkhave, nāmarūpaṁ …"
+    },
+    {
+     "n": 13,
+     "text": "saṅkhārapaccayā, bhikkhave, viññāṇaṁ … avijjāpaccayā, bhikkhave, saṅkhārā uppādā vā tathāgatānaṁ anuppādā vā tathāgatānaṁ, ṭhitāva sā dhātu dhammaṭṭhitatā dhammaniyāmatā idappaccayatā."
+    },
+    {
+     "n": 14,
+     "text": "Taṁ tathāgato abhisambujjhati abhisameti."
+    },
+    {
+     "n": 15,
+     "text": "Abhisambujjhitvā abhisametvā ācikkhati deseti paññāpeti paṭṭhapeti vivarati vibhajati uttānīkaroti."
+    },
+    {
+     "n": 16,
+     "text": "‘Passathā’ti cāha: ‘avijjāpaccayā, bhikkhave, saṅkhārā’."
+    },
+    {
+     "n": 17,
+     "text": "Iti kho, bhikkhave, yā tatra tathatā avitathatā anaññathatā idappaccayatā— ayaṁ vuccati, bhikkhave, paṭiccasamuppādo."
+    },
+    {
+     "n": 18,
+     "text": "Katame ca, bhikkhave, paṭiccasamuppannā dhammā?"
+    },
+    {
+     "n": 19,
+     "text": "Jarāmaraṇaṁ, bhikkhave, aniccaṁ saṅkhataṁ paṭiccasamuppannaṁ khayadhammaṁ vayadhammaṁ virāgadhammaṁ nirodhadhammaṁ."
+    },
+    {
+     "n": 20,
+     "text": "Jāti, bhikkhave, aniccā saṅkhatā paṭiccasamuppannā khayadhammā vayadhammā virāgadhammā nirodhadhammā."
+    },
+    {
+     "n": 21,
+     "text": "Bhavo, bhikkhave, anicco saṅkhato paṭiccasamuppanno khayadhammo vayadhammo virāgadhammo nirodhadhammo."
+    },
+    {
+     "n": 22,
+     "text": "Upādānaṁ bhikkhave …pe… taṇhā, bhikkhave …"
+    },
+    {
+     "n": 23,
+     "text": "vedanā, bhikkhave … phasso, bhikkhave … saḷāyatanaṁ, bhikkhave … nāmarūpaṁ, bhikkhave …"
+    },
+    {
+     "n": 24,
+     "text": "viññāṇaṁ, bhikkhave …"
+    },
+    {
+     "n": 25,
+     "text": "saṅkhārā, bhikkhave … avijjā, bhikkhave, aniccā saṅkhatā paṭiccasamuppannā khayadhammā vayadhammā virāgadhammā nirodhadhammā."
+    },
+    {
+     "n": 26,
+     "text": "Ime vuccanti, bhikkhave, paṭiccasamuppannā dhammā."
+    },
+    {
+     "n": 27,
+     "text": "Yato kho, bhikkhave, ariyasāvakassa ‘ayañca paṭiccasamuppādo, ime ca paṭiccasamuppannā dhammā’ yathābhūtaṁ sammappaññāya sudiṭṭhā honti, so vata pubbantaṁ vā paṭidhāvissati:"
+    },
+    {
+     "n": 28,
+     "text": "‘ahosiṁ nu kho ahaṁ atītamaddhānaṁ, nanu kho ahosiṁ atītamaddhānaṁ, kiṁ nu kho ahosiṁ atītamaddhānaṁ, kathaṁ nu kho ahosiṁ atītamaddhānaṁ, kiṁ hutvā kiṁ ahosiṁ nu kho ahaṁ atītamaddhānan’ti; aparantaṁ vā upadhāvissati:"
+    },
+    {
+     "n": 29,
+     "text": "‘bhavissāmi nu kho ahaṁ anāgatamaddhānaṁ, nanu kho bhavissāmi anāgatamaddhānaṁ, kiṁ nu kho bhavissāmi anāgatamaddhānaṁ, kathaṁ nu kho bhavissāmi anāgatamaddhānaṁ, kiṁ hutvā kiṁ bhavissāmi nu kho ahaṁ anāgatamaddhānan’ti;"
+    },
+    {
+     "n": 30,
+     "text": "etarahi vā paccuppannaṁ addhānaṁ ajjhattaṁ kathaṅkathī bhavissati: ‘ahaṁ nu khosmi, no nu khosmi, kiṁ nu khosmi, kathaṁ nu khosmi, ayaṁ nu kho satto kuto āgato, so kuhiṁ gamissatī’ti— netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 31,
+     "text": "Taṁ kissa hetu? Tathā hi, bhikkhave, ariyasāvakassa ayañca paṭiccasamuppādo ime ca paṭiccasamuppannā dhammā yathābhūtaṁ sammappaññāya sudiṭṭhā”ti."
+    },
+    {
+     "n": 32,
+     "text": "Dasamaṁ."
+    },
+    {
+     "n": 33,
+     "text": "Tassuddānaṁ"
+    },
+    {
+     "n": 34,
+     "text": "Āhāraṁ phagguno ceva,"
+    },
+    {
+     "n": 35,
+     "text": "Dve ca samaṇabrāhmaṇā;"
+    },
+    {
+     "n": 36,
+     "text": "Kaccānagotta dhammakathikaṁ,"
+    },
+    {
+     "n": 37,
+     "text": "Acelaṁ timbarukena ca;"
+    },
+    {
+     "n": 38,
+     "text": "Bālapaṇḍitato ceva,"
+    },
+    {
+     "n": 39,
+     "text": "Dasamo paccayena cāti."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn12.20/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "At Sāvatthī."
+    },
+    {
+     "n": 2,
+     "text": "“Mendicants, I will teach you dependent origination and dependently originated phenomena."
+    },
+    {
+     "n": 3,
+     "text": "Listen and apply your mind well, I will speak.”"
+    },
+    {
+     "n": 4,
+     "text": "“Yes, sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 5,
+     "text": "“And what is dependent origination? Rebirth is a requirement for old age and death."
+    },
+    {
+     "n": 6,
+     "text": "Whether Realized Ones arise or not, this law of nature persists, this regularity of natural principles, this surety of natural principles, specific conditionality."
+    },
+    {
+     "n": 7,
+     "text": "A Realized One awakens to this and comprehends it, then he explains, teaches, asserts, establishes, clarifies, analyzes, and discloses it."
+    },
+    {
+     "n": 8,
+     "text": "‘Look,’ he says, ‘Rebirth is a requirement for old age and death.’"
+    },
+    {
+     "n": 9,
+     "text": "Continued existence is a requirement for rebirth …"
+    },
+    {
+     "n": 10,
+     "text": "Grasping is a requirement for continued existence … Craving is a requirement for grasping …"
+    },
+    {
+     "n": 11,
+     "text": "Feeling is a requirement for craving … Contact is a requirement for feeling …"
+    },
+    {
+     "n": 12,
+     "text": "The six sense fields are requirements for contact …"
+    },
+    {
+     "n": 13,
+     "text": "Name and form are requirements for the six sense fields …"
+    },
+    {
+     "n": 14,
+     "text": "Consciousness is a requirement for name and form …"
+    },
+    {
+     "n": 15,
+     "text": "Choices are a requirement for consciousness … Ignorance is a requirement for choices."
+    },
+    {
+     "n": 16,
+     "text": "Whether Realized Ones arise or not, this law of nature persists, this regularity of natural principles, this surety of natural principles, specific conditionality."
+    },
+    {
+     "n": 17,
+     "text": "A Realized One awakens to this and comprehends it, then he explains, teaches, asserts, establishes, clarifies, analyzes, and discloses it."
+    },
+    {
+     "n": 18,
+     "text": "‘Look,’ he says, ‘Ignorance is a requirement for choices.’"
+    },
+    {
+     "n": 19,
+     "text": "So the fact that this is real, not unreal, not otherwise; the specific conditionality of it: this is called dependent origination."
+    },
+    {
+     "n": 20,
+     "text": "And what are the dependently originated phenomena?"
+    },
+    {
+     "n": 21,
+     "text": "Old age and death are impermanent, conditioned, dependently originated, liable to end, vanish, fade away, and cease. Rebirth … Continued existence … Grasping … Craving …"
+    },
+    {
+     "n": 22,
+     "text": "Feeling … Contact … The six sense fields … Name and form …"
+    },
+    {
+     "n": 23,
+     "text": "Consciousness …"
+    },
+    {
+     "n": 24,
+     "text": "Choices … Ignorance is impermanent, conditioned, dependently originated, liable to end, vanish, fade away, and cease."
+    },
+    {
+     "n": 25,
+     "text": "These are called the dependently originated phenomena."
+    },
+    {
+     "n": 26,
+     "text": "When a noble disciple has clearly seen with right wisdom this dependent origination and these dependently originated phenomena as they are, it will be quite impossible for them to turn back to the first beginning,"
+    },
+    {
+     "n": 27,
+     "text": "thinking: ‘Did I exist in the past? Did I not exist in the past? What was I in the past? How was I in the past?"
+    },
+    {
+     "n": 28,
+     "text": "After being what, what did I become in the past?’"
+    },
+    {
+     "n": 29,
+     "text": "Or to turn forward to the final end, thinking: ‘Will I exist in the future? Will I not exist in the future? What will I be in the future? How will I be in the future?"
+    },
+    {
+     "n": 30,
+     "text": "After being what, what will I become in the future?’"
+    },
+    {
+     "n": 31,
+     "text": "Or to be undecided about the present, thinking: ‘Am I? Am I not? What am I? How am I?"
+    },
+    {
+     "n": 32,
+     "text": "This sentient being—where did it come from? And where will it go?’ Why is that?"
+    },
+    {
+     "n": 33,
+     "text": "Because that noble disciple has clearly seen with right wisdom this dependent origination and these dependently originated phenomena as they are.”"
+    }
+   ]
+  }
+ ]
+}

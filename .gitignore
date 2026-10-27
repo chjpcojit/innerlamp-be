@@ -60,29 +60,26 @@ go.sum
 
 # Sensitive file
 *.pem
-*.json
+# JSON is tracked by default (seed catalogues, test vectors, tooling). Only credential-shaped JSON and
+# local working files stay out of git.
+*-adminsdk-*.json
+*credentials*.json
+*service-account*.json
+*service_account*.json
+*client_secret*.json
+*secret*.json
+*.key.json
 *.yaml
 # API contract: committed, not a secret (docs/tech-debt/sutra/TD-001)
 !docs/specs/api/openapi.yaml
 !web/docs/public/openapi.yaml
-# Administrative units dataset: public reference data, not a secret; cmd/seedadminunits loads it
-# (docs/specs/features/administrative-units). Rebuilt by scripts/build_administrative_units.py.
-!assets/data/administrative-units.json
-# Seed catalogues: public content, the source of truth for the content load (docs/product/deity Appendix B,
-# docs/product/calendar Appendix B). cmd/seedcalendarevents and cmd/seeddeities load them.
-!assets/data/calendar-events.json
-!assets/data/phat_botat.json
-# Article content: public reading list, not a secret; embedded by assets/embed.go and loaded by
-# cmd/seedarticles (docs/product/article FR-ART-009).
-!assets/data/buddhist_articles.json
-# Gallery photo list (titles, places, author/licence credits): public content, loaded by cmd/seedgallery
-# (docs/product/gallery FR-GAL-010). The photo files themselves stay out of git.
-!assets/data/buddhist_gallery.json
-# Product test vectors: shared, not secrets; every platform runs them (docs/product/README.md).
-!docs/product/*/rules/*.json
-# Reviewed ward decisions for temple addresses (docs/specs/features/temple, tasks Phase 10): a record, not a secret.
-!docs/specs/features/temple/address-decisions.json
-*-adminsdk-*.json
+# Local working files: intermediate outputs of the data scripts and agent tool state, not source.
+assets/data/temple-address-proposal.json
+assets/data/temple.removed-no-image.json
+assets/images/temples/missing.json
+scripts/__*.json
+.claude/handoff.json
+.claude/launch.json
 *.sh
 *.p8
 *.txt
@@ -94,7 +91,7 @@ vendor
 
 # Claude Code hook runtime state (not config — regenerated on every hook run)
 # Keep .claude/settings.json, hooks/, skills/, locked_files.txt tracked:
-# they are matched by the *.json / *.sh / *.txt rules above but stay tracked
+# they are matched by the *.sh / *.txt rules above but stay tracked
 # because git only ignores untracked files.
 .claude/hook_log.jsonl
 .claude/*_retry_count

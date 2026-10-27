@@ -1,0 +1,80 @@
+{
+ "id": "chu-duoc-su-quan-dinh",
+ "tradition": "MAHAYANA",
+ "kind": "DHARANI",
+ "collection": "Thập Chú",
+ "reference": "",
+ "originalTitle": "Kinh Dược Sư",
+ "summary": "Chân ngôn thuộc Thập chú, liên quan đến Phật Dược Sư (Bhaiṣajyaguru), vị Phật được tôn kính trong Phật giáo Đại thừa. Văn bản gồm phần quy kính Thế Tôn Dược Sư Lưu Ly Quang, rồi câu chú Đát điệt tha, Án bệ sát thệ... bằng âm Hán Việt. Chú thường được trì tụng trong nghi thức công phu của chùa.",
+ "titles": {
+  "vi": "Dược Sư Quán Đảnh Chân Ngôn",
+  "zh": "藥師灌頂真言",
+  "en": "Medicine Buddha Consecration Mantra",
+  "sa": "Bhaiṣajyaguru Mantra"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_bhaisajyaguru",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "TRI_CHU",
+  "CAU_AN"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "không ghi (bản Việt âm phổ thông)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Âm Hán\" của nguồn (phiên âm Hán-Việt). Ngắt dòng theo câu của nguồn; câu dài ngắt tại dấu phẩy. Giữ nguyên dấu gạch nối/viết hoa của nguồn. Đối chiếu Thiện Thành: \"lụ rô thích\" / \"lụ lô thích\"; \"bát lặt bà, hắt ra xà dã\" / \"bát lặc bà hát ra xà dã\"; \"a ra hắt đế\" / \"a ra hát đế\".",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nam-mô bạt dà phạt đế, bệ sát xả, lụ rô thích lưu ly, bát lặt bà, hắt ra xà dã,"
+    },
+    {
+     "n": 2,
+     "text": "đát tha yết đa da, a ra hắt đế, tam miệu tam bột đà da."
+    },
+    {
+     "n": 3,
+     "text": "Đát điệt tha."
+    },
+    {
+     "n": 4,
+     "text": "Án, bệ sát thệ, bệ sát thệ, bệ sát xã, tam một yết đế tá ha."
+    }
+   ]
+  },
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "variant": "meaning",
+   "translator": "không ghi (nguồn do Minh Chính tổng hợp)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Nghĩa\" của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Quy mạng Đức Thế Tôn Dược sư lưu ly quang vương Như Lai Ứng Cúng Chính Đẳng Chính Giác – Chân ngôn nói rằng: Xin Ngài hãy ban cho con thuốc diệt trừ bệnh Quả Báo, bệnh Nghiệp Ác, bệnh Kiến Tư,"
+    },
+    {
+     "n": 2,
+     "text": "bệnh Trần Sa, bệnh Vô Minh để cho con mau chóng phát sinh được đạo quả Vô Thượng Bồ Đề."
+    }
+   ]
+  }
+ ]
+}

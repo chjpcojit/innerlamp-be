@@ -1,0 +1,625 @@
+{
+ "id": "three-principal-aspects-of-the-path",
+ "tradition": "VAJRAYANA",
+ "kind": "VERSE",
+ "collection": "Mật tông / Lamrim",
+ "reference": "",
+ "author": "Je Tsongkhapa Lobzang Drakpa",
+ "summary": "Bài luận kệ ngắn của Je Tsongkhapa, gửi cho Tsakho Önpo Ngawang Drakpa, tóm lược tinh yếu giáo pháp chư Phật gồm ba điểm cốt yếu: tâm xuất ly, bồ đề tâm và chánh kiến về tánh Không. Mỗi phần trình bày vì sao cần và cách phát triển ba điều này. Bài kết bằng lời khuyên ẩn cư, tinh tấn để sớm đạt mục đích tối hậu bền vững.",
+ "titles": {
+  "vi": "Ba Điểm Cốt Yếu Của Đạo",
+  "bo": "ལམ་གྱི་གཙོ་བོ་རྣམ་གསུམ།",
+  "en": "Three Principal Aspects of the Path"
+ },
+ "deities": [],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Adam Pearcey, 2006 (revised 2012)",
+   "sourceName": "Lotsawa House - Three Principal Aspects of the Path",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/tsongkhapa/three-principal-aspects",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Stanza numbers moved into the section field.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Homage to the precious noble masters!"
+    },
+    {
+     "n": 2,
+     "text": "The very essence of all the buddhas’ teachings,",
+     "section": "Verse 1"
+    },
+    {
+     "n": 3,
+     "text": "The path that is praised by the noble bodhisattvas,",
+     "section": "Verse 1"
+    },
+    {
+     "n": 4,
+     "text": "And the entrance for all fortunate ones desiring liberation—",
+     "section": "Verse 1"
+    },
+    {
+     "n": 5,
+     "text": "To the best of my ability, I shall now set forth.",
+     "section": "Verse 1"
+    },
+    {
+     "n": 6,
+     "text": "You who are unattached to saṃsāra’s pleasures,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 7,
+     "text": "And strive to make full use of the freedoms and advantages,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 8,
+     "text": "You who follow the path delighting all the buddhas—",
+     "section": "Verse 2"
+    },
+    {
+     "n": 9,
+     "text": "Fortunate ones, listen well, with a clear and open mind.",
+     "section": "Verse 2"
+    },
+    {
+     "n": 10,
+     "text": "Whilst lacking pure renunciation there is no way to pacify",
+     "section": "Verse 3"
+    },
+    {
+     "n": 11,
+     "text": "The continual thirst for pleasure in the ocean of saṃsāra,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 12,
+     "text": "And since all living beings are bound by their craving for existence,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 13,
+     "text": "You must begin by finding the determination to be free.",
+     "section": "Verse 3"
+    },
+    {
+     "n": 14,
+     "text": "The freedoms and advantages are rare, and there’s no time to waste—",
+     "section": "Verse 4"
+    },
+    {
+     "n": 15,
+     "text": "Reflect on this again and yet again, and dispel attachment to this life.",
+     "section": "Verse 4"
+    },
+    {
+     "n": 16,
+     "text": "To dispel attachment to your future lives, contemplate repeatedly",
+     "section": "Verse 4"
+    },
+    {
+     "n": 17,
+     "text": "The unfailing effects of karma and the sufferings of saṃsāra.",
+     "section": "Verse 4"
+    },
+    {
+     "n": 18,
+     "text": "When, through growing accustomed to thinking in this way,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 19,
+     "text": "Hope for the pleasures of saṃsāra no longer arises even for an instant,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 20,
+     "text": "And throughout both day and night you long for liberation,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 21,
+     "text": "Then, at that time, true renunciation has been born.",
+     "section": "Verse 5"
+    },
+    {
+     "n": 22,
+     "text": "Yet if this renunciation is not embraced",
+     "section": "Verse 6"
+    },
+    {
+     "n": 23,
+     "text": "By the pure motivation of bodhicitta,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 24,
+     "text": "It will not become a cause for the perfect bliss of unsurpassed awakening,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 25,
+     "text": "So the wise should generate supreme bodhicitta.",
+     "section": "Verse 6"
+    },
+    {
+     "n": 26,
+     "text": "Beings are swept along by the powerful current of the four rivers,[1]",
+     "section": "Verse 7"
+    },
+    {
+     "n": 27,
+     "text": "Tightly bound by the chains of their karma, so difficult to undo,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 28,
+     "text": "Ensnared within the iron trap of their self-grasping,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 29,
+     "text": "And enshrouded in the thick darkness of ignorance.",
+     "section": "Verse 7"
+    },
+    {
+     "n": 30,
+     "text": "Again and yet again, they are reborn in limitless saṃsāra,",
+     "section": "Verse 8"
+    },
+    {
+     "n": 31,
+     "text": "And constantly tormented by the three forms of suffering.[2]",
+     "section": "Verse 8"
+    },
+    {
+     "n": 32,
+     "text": "This is the current condition of all your mothers from previous lives.",
+     "section": "Verse 8"
+    },
+    {
+     "n": 33,
+     "text": "Contemplate their plight and generate supreme bodhichitta.",
+     "section": "Verse 8"
+    },
+    {
+     "n": 34,
+     "text": "If you lack the wisdom that realizes the nature of things,",
+     "section": "Verse 9"
+    },
+    {
+     "n": 35,
+     "text": "Although you might grow accustomed to renunciation and bodhicitta,",
+     "section": "Verse 9"
+    },
+    {
+     "n": 36,
+     "text": "You will be incapable of cutting through conditioned existence at its root.",
+     "section": "Verse 9"
+    },
+    {
+     "n": 37,
+     "text": "Exert yourself, therefore, in the methods for realizing interdependence.",
+     "section": "Verse 9"
+    },
+    {
+     "n": 38,
+     "text": "The one who sees that cause and effect operate infallibly",
+     "section": "Verse 10"
+    },
+    {
+     "n": 39,
+     "text": "For all the phenomena of saṃsāra and nirvāṇa,",
+     "section": "Verse 10"
+    },
+    {
+     "n": 40,
+     "text": "And for whom any objects of conceptual focus have subsided,",
+     "section": "Verse 10"
+    },
+    {
+     "n": 41,
+     "text": "Has set out upon the path delighting all the buddhas.",
+     "section": "Verse 10"
+    },
+    {
+     "n": 42,
+     "text": "The knowledge that appearances arise unfailingly in dependence,",
+     "section": "Verse 11"
+    },
+    {
+     "n": 43,
+     "text": "And the knowledge that they are empty and beyond all assertions—",
+     "section": "Verse 11"
+    },
+    {
+     "n": 44,
+     "text": "As long as these two appear to you as separate,",
+     "section": "Verse 11"
+    },
+    {
+     "n": 45,
+     "text": "There can be no realization of the Buddha’s wisdom.",
+     "section": "Verse 11"
+    },
+    {
+     "n": 46,
+     "text": "Yet when they arise at once, not each in turn but both together,",
+     "section": "Verse 12"
+    },
+    {
+     "n": 47,
+     "text": "Then through merely seeing unfailing dependent origination",
+     "section": "Verse 12"
+    },
+    {
+     "n": 48,
+     "text": "Certainty is born, and all modes of misapprehension fall apart—",
+     "section": "Verse 12"
+    },
+    {
+     "n": 49,
+     "text": "That is when discernment of the view has reached perfection.",
+     "section": "Verse 12"
+    },
+    {
+     "n": 50,
+     "text": "When you know that appearances dispel the extreme of existence,",
+     "section": "Verse 13"
+    },
+    {
+     "n": 51,
+     "text": "While the extreme of nothingness is eliminated by emptiness,[3]",
+     "section": "Verse 13"
+    },
+    {
+     "n": 52,
+     "text": "And you also come to know how emptiness arises as cause and effect,",
+     "section": "Verse 13"
+    },
+    {
+     "n": 53,
+     "text": "Then you will be immune to any view entailing clinging to extremes.",
+     "section": "Verse 13"
+    },
+    {
+     "n": 54,
+     "text": "When, in this way, you have correctly understood",
+     "section": "Verse 14"
+    },
+    {
+     "n": 55,
+     "text": "The key points of the three principal aspects of the path,",
+     "section": "Verse 14"
+    },
+    {
+     "n": 56,
+     "text": "Withdraw to solitude, dear son, strengthen your diligence,",
+     "section": "Verse 14"
+    },
+    {
+     "n": 57,
+     "text": "And swiftly accomplish the ultimate and lasting aim.",
+     "section": "Verse 14"
+    },
+    {
+     "n": 58,
+     "text": "This advice was given by the bhikṣu of extensive learning, Lobzang Drakpé Pal, to Tsakho Önpo Ngawang Drakpa."
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Classical Tibetan (pre-modern author)",
+   "sourceName": "Lotsawa House - Three Principal Aspects of the Path",
+   "sourceUrl": "https://www.lotsawahouse.org/bo/tibetan-masters/tsongkhapa/three-principal-aspects",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "རྗེ་བཙུན་བླ་མ་རྣམས་ལ་ཕྱག་འཚལ་ལོ།"
+    },
+    {
+     "n": 2,
+     "text": "རྒྱལ་བའི་གསུང་རབ་ཀུན་གྱི་སྙིང་པོའི་དོན། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 3,
+     "text": "རྒྱལ་སྲས་དམ་པ་རྣམས་ཀྱིས་བསྔགས་པའི་ལམ། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 4,
+     "text": "སྐལ་ལྡན་ཐར་འདོད་རྣམས་ཀྱི་འཇུག་ངོགས་དེ། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 5,
+     "text": "ཇི་ལྟར་ནུས་བཞིན་བདག་གིས་བཤད་པར་བྱ། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 6,
+     "text": "གང་དག་སྲིད་པའི་བདེ་ལ་མ་ཆགས་ཤིང༌། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 7,
+     "text": "དལ་འབྱོར་དོན་ཡོད་བྱ་ཕྱིར་བརྩོན་པ་ཡིས། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 8,
+     "text": "རྒྱལ་བ་དགྱེས་པའི་ལམ་ལ་ཡིད་རྟོན་པའི། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 9,
+     "text": "སྐལ་ལྡན་དེ་དག་དང་བའི་ཡིད་ཀྱིས་ཉོན། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 10,
+     "text": "རྣམ་དག་ངེས་འབྱུང་མེད་པར་སྲིད་མཚོ་ཡི། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 11,
+     "text": "བདེ་འབྲས་དོན་གཉེར་ཞི་བའི་ཐབས་མེད་ལ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 12,
+     "text": "སྲིད་ལ་བརྐམ་པ་ཡིས་ཀྱང་ལུས་ཅན་རྣམས། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 13,
+     "text": "ཀུན་ནས་འཆིང་ཕྱིར་ཐོག་མར་ངེས་འབྱུང་བཙལ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 14,
+     "text": "དལ་འབྱོར་རྙེད་དཀའ་ཚེ་ལ་ལོང་མེད་པ། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 15,
+     "text": "ཡིད་ལ་གོམས་པས་ཚེ་འདིའི་སྣང་ཤས་ལྡོག །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 16,
+     "text": "ལས་འབྲས་མི་བསླུ་འཁོར་བའི་སྡུག་བསྔལ་རྣམས། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 17,
+     "text": "ཡང་ཡང་བསམ་པས་ཕྱི་མའི་སྣང་ཤས་ལྡོག །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 18,
+     "text": "དེ་ལྟར་གོམས་པས་འཁོར་བའི་ཕུན་ཚོགས་ལ། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 19,
+     "text": "ཡིད་སྨོན་སྐད་ཅིག་ཙམ་ཡང་མི་སྐྱེ་ཞིང༌། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 20,
+     "text": "ཉིན་མཚན་ཀུན་ཏུ་ཐར་པ་དོན་གཉེར་བློ། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 21,
+     "text": "བྱུང་ན་དེ་ཚེ་ངེས་འབྱུང་སྐྱེས་པ་ལགས། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 22,
+     "text": "ངེས་འབྱུང་དེ་ཡང་རྣམ་དག་སེམས་བསྐྱེད་ཀྱིས། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 23,
+     "text": "ཟིན་པ་མེད་ན་བླ་མེད་བྱང་ཆུབ་ཀྱི། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 24,
+     "text": "ཕུན་ཚོགས་བདེ་བའི་རྒྱུ་རུ་མི་འགྱུར་བས། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 25,
+     "text": "བློ་ལྡན་རྣམས་ཀྱིས་བྱང་ཆུབ་སེམས་མཆོག་བསྐྱེད། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 26,
+     "text": "ཤུགས་དྲག་ཆུ་བོ་བཞི་ཡི་རྒྱུན་གྱིས་ཁྱེར། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 27,
+     "text": "བཟློག་དཀའ་ལས་ཀྱི་འཆིང་བ་དམ་པོས་བསྡམས། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 28,
+     "text": "བདག་འཛིན་ལྕགས་ཀྱི་དྲ་བའི་སྦུབས་སུ་ཚུད། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 29,
+     "text": "མ་རིག་མུན་པའི་སྨག་ཆེན་ཀུན་ནས་འཐིབས། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 30,
+     "text": "མུ་མེད་སྲིད་པར་སྐྱེ་ཞིང་སྐྱེ་བ་རུ། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 31,
+     "text": "སྡུག་བསྔལ་གསུམ་གྱིས་རྒྱུན་ཆད་མེད་པར་མནར། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 32,
+     "text": "གནས་སྐབས་འདི་འདྲར་གྱུར་པའི་མ་རྣམས་ཀྱི། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 33,
+     "text": "ངང་ཚུལ་བསམས་ནས་སེམས་མཆོག་བསྐྱེད་པར་མཛོད། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 34,
+     "text": "གནས་ལུགས་རྟོགས་པའི་ཤེས་རབ་མི་ལྡན་ན། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 35,
+     "text": "ངེས་འབྱུང་བྱང་ཆུབ་སེམས་ལ་གོམས་བྱས་ཀྱང༌། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 36,
+     "text": "སྲིད་པའི་རྩ་བ་བཅད་པར་མི་ནུས་པས། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 37,
+     "text": "དེ་ཕྱིར་རྟེན་འབྲེལ་རྟོགས་པའི་ཐབས་ལ་འབད། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 38,
+     "text": "གང་ཞིག་འཁོར་འདས་ཆོས་རྣམས་ཐམས་ཅད་ཀྱི། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 39,
+     "text": "རྒྱུ་འབྲས་ནམ་ཡང་བསླུ་བ་མེད་མཐོང་ཞིང༌། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 40,
+     "text": "དམིགས་པའི་གཏད་སོ་གང་ཡིན་ཀུན་ཞིག་པ། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 41,
+     "text": "དེ་ནི་སངས་རྒྱས་དགྱེས་པའི་ལམ་ལ་ཞུགས། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 42,
+     "text": "སྣང་བ་རྟེན་འབྲེལ་བསླུ་བ་མེད་པ་དང༌། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 43,
+     "text": "སྟོང་པ་ཁས་ལེན་བྲལ་བའི་གོ་བ་གཉིས། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 44,
+     "text": "ཇི་སྲིད་སོ་སོར་སྣང་བ་དེ་སྲིད་དུ། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 45,
+     "text": "ད་དུང་ཐུབ་པའི་དགོངས་པ་རྟོགས་པ་མེད། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 46,
+     "text": "ནམ་ཞིག་རེས་འཇོག་མེད་པར་ཅིག་ཅར་དུ། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 47,
+     "text": "རྟེན་འབྲེལ་མི་བསླུར་མཐོང་བ་ཙམ་ཉིད་ནས། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 48,
+     "text": "ངེས་ཤེས་ཡུལ་གྱི་འཛིན་སྟངས་ཀུན་ཞིག་ན། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 49,
+     "text": "དེ་ཚེ་ལྟ་བའི་དཔྱད་པ་རྫོགས་པ་ལགས། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 50,
+     "text": "གཞན་ཡང་སྣང་བས་ཡོད་མཐའ་སེལ་བ་དང༌། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 51,
+     "text": "སྟོང་པས་མེད་མཐའ་སེལ་ཞིང་སྟོང་པ་ཉིད། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 52,
+     "text": "རྒྱུ་དང་འབྲས་བུར་འཆར་བའི་ཚུལ་ཤེས་ན། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 53,
+     "text": "མཐར་འཛིན་ལྟ་བས་འཕྲོག་པར་མི་འགྱུར་རོ། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 54,
+     "text": "དེ་ལྟར་ལམ་གྱི་གཙོ་བོ་རྣམ་གསུམ་གྱི། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 55,
+     "text": "གནད་རྣམས་རང་གིས་ཇི་བཞིན་རྟོགས་པའི་ཚེ། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 56,
+     "text": "དབེན་པ་བསྟེན་ཏེ་བརྩོན་འགྲུས་སྟོབས་བསྐྱེད་ནས། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 57,
+     "text": "གཏན་གྱི་འདུན་མ་མྱུར་དུ་སྒྲུབས་ཤིག་བུ། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 58,
+     "text": "ཞེས་པ་འདི་ནི་མང་དུ་ཐོས་པའི་དགེ་སློང་བློ་བཟང་གྲགས་པའི་དཔལ་གྱིས་ཚ་ཁོ་དབོན་པོ་ངག་དབང་གྲགས་པ་ལ་གདམས་པའོ།། །།"
+    }
+   ]
+  }
+ ]
+}

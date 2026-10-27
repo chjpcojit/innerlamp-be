@@ -1,0 +1,2459 @@
+{
+ "id": "chung-dao-ca",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Thiền",
+ "reference": "Taishō T2014",
+ "originalTitle": "Chứng Đạo Ca",
+ "author": "Vĩnh Gia Huyền Giác",
+ "summary": "Bài ca Thiền do Thiền sư Vĩnh Gia Huyền Giác sáng tác (Taishō T2014), diễn đạt cảnh giới chứng ngộ và yếu chỉ Thiền tông. Thơ nói vô minh vốn là Phật tánh, thân huyễn hóa chính là Pháp thân, năm ấm như mây nổi, đồng thời nhắc người học đừng bám chấp vào lời nói hay kiến giải hẹp. Bài khuyên tu tập chân thật để đạt đốn ngộ.",
+ "titles": {
+  "vi": "Chứng Đạo Ca (Khúc Ca Chứng Đạo)",
+  "zh": "證道歌",
+  "sa": "",
+  "en": "Yung Chia's Song of Enlightenment"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_dipankara",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "THIEN_DINH"
+ ],
+ "durationMinutes": 25,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Phiên âm Hán-Việt (theo ấn bản Trúc Thiên dịch, phần Ba: Chứng Đạo Ca phiên âm)",
+   "sourceName": "Chùa Điều Ngự (dieungu.org) - Chứng Đạo Ca, Huyền Giác Thiền Sư, Trúc Thiên dịch",
+   "sourceUrl": "https://www.dieungu.org/a19973/chung-dao-ca",
+   "license": "UNKNOWN",
+   "licenseNote": "no license statement; page footer \"Copyright © 2026 dieungu.org All rights reserved\"; text is Trúc Thiên's translation, rights status not stated",
+   "note": "Trang chứa nội dung lặp hai lần; chỉ lấy một bản. Giữ nguyên dấu câu nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Quân bất kiến:"
+    },
+    {
+     "n": 2,
+     "text": "Tuyệt học vô vi nhàn đạo nhân"
+    },
+    {
+     "n": 3,
+     "text": "Bất trừ vọng tưởng bất cầu chân?"
+    },
+    {
+     "n": 4,
+     "text": "Vô minh thực tánh tức Phật tánh"
+    },
+    {
+     "n": 5,
+     "text": "Ảo hóa không thân tức Pháp thân."
+    },
+    {
+     "n": 6,
+     "text": "Pháp thân giác liễu vô nhất vật"
+    },
+    {
+     "n": 7,
+     "text": "Bổn nguyên tự tánh thiên chân Phật."
+    },
+    {
+     "n": 8,
+     "text": "Ngũ ấm phù vân không khứ lai."
+    },
+    {
+     "n": 9,
+     "text": "Tam độc thủy bào hư xuất một."
+    },
+    {
+     "n": 10,
+     "text": "Chứng thực tướng, vô nhân pháp,"
+    },
+    {
+     "n": 11,
+     "text": "Sát na diệt khước a tì nghiệp."
+    },
+    {
+     "n": 12,
+     "text": "Nhược tương vọng ngữ cuống chúng sanh,"
+    },
+    {
+     "n": 13,
+     "text": "Tự chiêu bạt thiệt trần sa kiếp."
+    },
+    {
+     "n": 14,
+     "text": "Đốn giác liễu Như Lai thiền,"
+    },
+    {
+     "n": 15,
+     "text": "Lục độ vạn hạnh thể trung viên."
+    },
+    {
+     "n": 16,
+     "text": "Mộng lý minh minh hữu lục thú,"
+    },
+    {
+     "n": 17,
+     "text": "Giác hậu không không vô đại thiên."
+    },
+    {
+     "n": 18,
+     "text": "Vô tội phước, vô tổn ích,"
+    },
+    {
+     "n": 19,
+     "text": "Tịch diệt tánh trung mạc vấn mịch."
+    },
+    {
+     "n": 20,
+     "text": "Tỉ lai trần kính vị tằng ma,"
+    },
+    {
+     "n": 21,
+     "text": "Kim nhật phân minh tu phẫu tích."
+    },
+    {
+     "n": 22,
+     "text": "Thùy vô niệm? Thùy vô sanh?"
+    },
+    {
+     "n": 23,
+     "text": "Nhược thực vô sanh vô bất sanh."
+    },
+    {
+     "n": 24,
+     "text": "Hoán thủ cơ quan mộc nhân vấn:"
+    },
+    {
+     "n": 25,
+     "text": "Cầu Phật thi công tảo vãn thành?"
+    },
+    {
+     "n": 26,
+     "text": "Phóng tứ đại, mạc bả tróc,"
+    },
+    {
+     "n": 27,
+     "text": "Tịch diệt tánh trung tùy ẩm trác."
+    },
+    {
+     "n": 28,
+     "text": "Chư hành vô thường nhất thiết không,"
+    },
+    {
+     "n": 29,
+     "text": "Tức thị Như Lai đại viên giác."
+    },
+    {
+     "n": 30,
+     "text": "Quyết định thuyết, biểu chân tăng,"
+    },
+    {
+     "n": 31,
+     "text": "Hữu nhân bất khẳng nhiệm tình trưng:"
+    },
+    {
+     "n": 32,
+     "text": "Trực tiệt căn nguyên Phật sở ấn,"
+    },
+    {
+     "n": 33,
+     "text": "Trích diệt tầm chi ngã bất năng!"
+    },
+    {
+     "n": 34,
+     "text": "Ma ni châu, nhân bất thức,"
+    },
+    {
+     "n": 35,
+     "text": "Như Lai tạng lý thân thâu đắc:"
+    },
+    {
+     "n": 36,
+     "text": "Lục ban thần dụng không bất không,"
+    },
+    {
+     "n": 37,
+     "text": "Nhất lỏa viên quang sắc phi sắc."
+    },
+    {
+     "n": 38,
+     "text": "Tịnh ngũ nhãn, đắc ngũ lực,"
+    },
+    {
+     "n": 39,
+     "text": "Duy chứng nãi tri nan khả trắc."
+    },
+    {
+     "n": 40,
+     "text": "Kính lý khán hình kiết bất nan,"
+    },
+    {
+     "n": 41,
+     "text": "Thủy trung tróc nguyệt tranh niên đắc."
+    },
+    {
+     "n": 42,
+     "text": "Thường độc hành, thường độc bộ,"
+    },
+    {
+     "n": 43,
+     "text": "Đạt giả đồng du niết bàn lộ."
+    },
+    {
+     "n": 44,
+     "text": "Điệu cổ thần thanh phong tự cao,"
+    },
+    {
+     "n": 45,
+     "text": "Mao tụy cốt cương nhân bất cố."
+    },
+    {
+     "n": 46,
+     "text": "Cùng Thích tử, khẩu xưng bần,"
+    },
+    {
+     "n": 47,
+     "text": "Thực thị thân bần đạo bất bần."
+    },
+    {
+     "n": 48,
+     "text": "Bần tắc thân thường phi lũ hạt,"
+    },
+    {
+     "n": 49,
+     "text": "Đạo tắc tâm tàng vô giá trân."
+    },
+    {
+     "n": 50,
+     "text": "Vô giá trân, dụng vô tận,"
+    },
+    {
+     "n": 51,
+     "text": "Lợi vật ứng cơ chung bất tận."
+    },
+    {
+     "n": 52,
+     "text": "Tam thân, tứ trí thể trung viên,"
+    },
+    {
+     "n": 53,
+     "text": "Bát giải, lục thông tâm địa ấn."
+    },
+    {
+     "n": 54,
+     "text": "Thượng sĩ nhất quyết nhất thiết liễu,"
+    },
+    {
+     "n": 55,
+     "text": "Trung hạ đa văn đa bất tín."
+    },
+    {
+     "n": 56,
+     "text": "Đản tự hoài trung giải cấu y,"
+    },
+    {
+     "n": 57,
+     "text": "Thùy năng hướng ngoại khoa tinh tiến?"
+    },
+    {
+     "n": 58,
+     "text": "Tòng tha báng, nhiệm tha phi,"
+    },
+    {
+     "n": 59,
+     "text": "Bả hỏa thiêu thiên đồ tự bì."
+    },
+    {
+     "n": 60,
+     "text": "Ngã văn kháp tự ẩm cam lộ,"
+    },
+    {
+     "n": 61,
+     "text": "Tiêu dung đốn nhập bất tư nghì."
+    },
+    {
+     "n": 62,
+     "text": "Quán ác ngôn, thị công đức,"
+    },
+    {
+     "n": 63,
+     "text": "Thử tắc thành ngô thiện tri thức."
+    },
+    {
+     "n": 64,
+     "text": "Bất nhân sán báng khởi oan thân,"
+    },
+    {
+     "n": 65,
+     "text": "Hà biểu vô sanh từ nhẫn lực?"
+    },
+    {
+     "n": 66,
+     "text": "Tông diệc thông, thuyết diệc thông,"
+    },
+    {
+     "n": 67,
+     "text": "Định huệ viên minh bất trệ không."
+    },
+    {
+     "n": 68,
+     "text": "Phi đản ngã kim độc đạt liễu,"
+    },
+    {
+     "n": 69,
+     "text": "Hằng sa chư Phật thể giai đồng."
+    },
+    {
+     "n": 70,
+     "text": "Sư tử hống, vô úy thuyết,"
+    },
+    {
+     "n": 71,
+     "text": "Bách thủ văn chi giai não liệt."
+    },
+    {
+     "n": 72,
+     "text": "Hương tượng bôn ba thất khước uy,"
+    },
+    {
+     "n": 73,
+     "text": "Thiên long tịch thính sanh hân duyệt."
+    },
+    {
+     "n": 74,
+     "text": "Du giang hải, thiệp sơn xuyên,"
+    },
+    {
+     "n": 75,
+     "text": "Tầm sư phóng đạo vi tham thiền."
+    },
+    {
+     "n": 76,
+     "text": "Tự tòng nhận đắc Tào Khê lộ,"
+    },
+    {
+     "n": 77,
+     "text": "Liễu tri sanh tử bất tương can."
+    },
+    {
+     "n": 78,
+     "text": "Hành diệc thiền, tọa diệc thiền,"
+    },
+    {
+     "n": 79,
+     "text": "Ngữ mặc động tịnh thể an nhiên."
+    },
+    {
+     "n": 80,
+     "text": "Túng ngộ phong đao thường thản thản,"
+    },
+    {
+     "n": 81,
+     "text": "Giả nhiêu độc dược giã nhàn nhàn."
+    },
+    {
+     "n": 82,
+     "text": "Ngã Sư đắc kiến Nhiên Đăng Phật,"
+    },
+    {
+     "n": 83,
+     "text": "Đa kiếp tằng vi nhẫn nhục tiên."
+    },
+    {
+     "n": 84,
+     "text": "Kỷ hồi sanh? Kỷ hồi tử?"
+    },
+    {
+     "n": 85,
+     "text": "Sanh tử du du vô định chỉ!"
+    },
+    {
+     "n": 86,
+     "text": "Tự tòng đốn ngộ liễu vô sanh,"
+    },
+    {
+     "n": 87,
+     "text": "Ư chi vinh nhục hà ưu hỉ?"
+    },
+    {
+     "n": 88,
+     "text": "Nhập thâm sơn, trú lan nhã,"
+    },
+    {
+     "n": 89,
+     "text": "Sầm ngâm u thúy trường tùng hạ,"
+    },
+    {
+     "n": 90,
+     "text": "Ưu du tĩnh tọa dã tăng gia,"
+    },
+    {
+     "n": 91,
+     "text": "Quých tịch an cư thực tiêu sái!"
+    },
+    {
+     "n": 92,
+     "text": "Giác tức liễu, bất thi công,"
+    },
+    {
+     "n": 93,
+     "text": "Nhất thiêt hữu vi pháp bất đồng."
+    },
+    {
+     "n": 94,
+     "text": "Trụ tướng bố thí sanh thiên phước,"
+    },
+    {
+     "n": 95,
+     "text": "Do như ngưỡng tiễn xạ hư không."
+    },
+    {
+     "n": 96,
+     "text": "Thế lực tận, tiễn hoàn trụy,"
+    },
+    {
+     "n": 97,
+     "text": "Chiêu đắc lai sanh bất như ý."
+    },
+    {
+     "n": 98,
+     "text": "Tranh tự vô vi thực tướng môn,"
+    },
+    {
+     "n": 99,
+     "text": "Nhất siêu trực nhập Như Lai địa."
+    },
+    {
+     "n": 100,
+     "text": "Đản đắc bổn, mạc sầu mạt,"
+    },
+    {
+     "n": 101,
+     "text": "Như tịnh lưu ly hàm bửu nguyệt."
+    },
+    {
+     "n": 102,
+     "text": "Ký năng giải thử như ý châu,"
+    },
+    {
+     "n": 103,
+     "text": "Tự lợi lợi tha chung bất kiệt."
+    },
+    {
+     "n": 104,
+     "text": "Giang nguyệt chiếu, tùng phong xuy,"
+    },
+    {
+     "n": 105,
+     "text": "Vĩnh dạ thanh tiêu – hà sở vi?"
+    },
+    {
+     "n": 106,
+     "text": "Phật tánh giới châu tâm địa ấn,"
+    },
+    {
+     "n": 107,
+     "text": "Vụ lộ vân hà thể thượng y."
+    },
+    {
+     "n": 108,
+     "text": "Hàng long bát, giải hổ tích,"
+    },
+    {
+     "n": 109,
+     "text": "Lưỡng cổ kim hoàn minh lịch lịch."
+    },
+    {
+     "n": 110,
+     "text": "Bất thị tiêu hình hư sự trì,"
+    },
+    {
+     "n": 111,
+     "text": "Như Lai bửu trượng thân tung tích."
+    },
+    {
+     "n": 112,
+     "text": "Bất cầu chân, bất đoạn vọng,"
+    },
+    {
+     "n": 113,
+     "text": "Liễu tri nhị pháp không vô tướng."
+    },
+    {
+     "n": 114,
+     "text": "Vô tướng vô không vô bất không,"
+    },
+    {
+     "n": 115,
+     "text": "Tức thị Như Lai chân thực tướng."
+    },
+    {
+     "n": 116,
+     "text": "Tâm kính minh giám vô ngại,"
+    },
+    {
+     "n": 117,
+     "text": "Quách nhiên oánh triệt châu sa giới."
+    },
+    {
+     "n": 118,
+     "text": "Vạn tượng sâm la ảnh hiện trung,"
+    },
+    {
+     "n": 119,
+     "text": "Nhất lỏa viên quang phi nội ngoại."
+    },
+    {
+     "n": 120,
+     "text": "Hoát đạt không, bát nhân quả,"
+    },
+    {
+     "n": 121,
+     "text": "Mãng mãng đãng đãng chiêu ương họa."
+    },
+    {
+     "n": 122,
+     "text": "Khí hữu trước không bệnh diệc nhiên,"
+    },
+    {
+     "n": 123,
+     "text": "Hoàn như tỵ nịch nhi đầu hỏa."
+    },
+    {
+     "n": 124,
+     "text": "Xả vọng tâm, thủ chân lý,"
+    },
+    {
+     "n": 125,
+     "text": "Thủ xả chi tâm, thành xảo nguỵ."
+    },
+    {
+     "n": 126,
+     "text": "Học nhân bất liễu dụng tu hành,"
+    },
+    {
+     "n": 127,
+     "text": "Chân thành nhận tặc tương vi tử."
+    },
+    {
+     "n": 128,
+     "text": "Tổn pháp tài, diệt công đức,"
+    },
+    {
+     "n": 129,
+     "text": "Mạc bất do tư tâm ý thức."
+    },
+    {
+     "n": 130,
+     "text": "Thị dĩ thiền môn liễu khước tâm,"
+    },
+    {
+     "n": 131,
+     "text": "Đốn nhập vô sanh tri kiến lực."
+    },
+    {
+     "n": 132,
+     "text": "Đại trượng phu bỉnh huệ kiếm,"
+    },
+    {
+     "n": 133,
+     "text": "Bát nhã phong hề kim cương diệm."
+    },
+    {
+     "n": 134,
+     "text": "Phi đản năng thôi ngoại đạo tâm,"
+    },
+    {
+     "n": 135,
+     "text": "Tảo tằng lạc khước thiên ma đảm."
+    },
+    {
+     "n": 136,
+     "text": "Chấn pháp lôi, kích pháp cổ,"
+    },
+    {
+     "n": 137,
+     "text": "Bố từ vân hề sái cam lộ."
+    },
+    {
+     "n": 138,
+     "text": "Long tượng xúc đạp nhuận vô biên,"
+    },
+    {
+     "n": 139,
+     "text": "Tam thừa ngũ tánh giai tỉnh ngộ."
+    },
+    {
+     "n": 140,
+     "text": "Tuyết sơn phì nhị cánh vô tạp,"
+    },
+    {
+     "n": 141,
+     "text": "Thuần xuất đề hồ ngã thường nạp."
+    },
+    {
+     "n": 142,
+     "text": "Nhất tánh viên thông nhất thiết tánh,"
+    },
+    {
+     "n": 143,
+     "text": "Nhất pháp biến hàm nhất thiết pháp,"
+    },
+    {
+     "n": 144,
+     "text": "Nhất nguyệt phổ hiện nhất thiết thủy,"
+    },
+    {
+     "n": 145,
+     "text": "Nhất thiết thủy nguyệt nhất nguyệt nhiếp,"
+    },
+    {
+     "n": 146,
+     "text": "Chư Phật pháp thân thập ngã tánh,"
+    },
+    {
+     "n": 147,
+     "text": "Ngã tánh đồng cộng Như Lai hiệp."
+    },
+    {
+     "n": 148,
+     "text": "Nhất địa cụ túc nhất thiết địa,"
+    },
+    {
+     "n": 149,
+     "text": "Phi sắc phi tâm phi hạnh nghiệp."
+    },
+    {
+     "n": 150,
+     "text": "Đàn chỉ viên thành bát vạn môn,"
+    },
+    {
+     "n": 151,
+     "text": "Sát na diệt khước tam kỳ kiếp,"
+    },
+    {
+     "n": 152,
+     "text": "Nhất thiết số cú phi số cú,"
+    },
+    {
+     "n": 153,
+     "text": "Dữ ngô linh giác hà giao thiệp?"
+    },
+    {
+     "n": 154,
+     "text": "Bất khả hủy, bất khả tán,"
+    },
+    {
+     "n": 155,
+     "text": "Thể nhược hư không vô nhai ngạn."
+    },
+    {
+     "n": 156,
+     "text": "Bất ly đương xứng thường trạm nhiên,"
+    },
+    {
+     "n": 157,
+     "text": "Mịch tức tri quân bất khả kiến."
+    },
+    {
+     "n": 158,
+     "text": "Thủ bất đắc, xả bất đắc,"
+    },
+    {
+     "n": 159,
+     "text": "Bất khả đắc trung chỉ ma đắc."
+    },
+    {
+     "n": 160,
+     "text": "Mặc thời thuyết, thuyết thời mặc,"
+    },
+    {
+     "n": 161,
+     "text": "Đại thí môn khai vô ủng tắc."
+    },
+    {
+     "n": 162,
+     "text": "Hữu nhân vấn ngã giải hà tông,"
+    },
+    {
+     "n": 163,
+     "text": "Báo đạo Ma Ha Bát Nhã lực."
+    },
+    {
+     "n": 164,
+     "text": "Hoặc thị hoặc phi nhân bất thức,"
+    },
+    {
+     "n": 165,
+     "text": "Nghịch hành thuận hành thiên mạc trắc."
+    },
+    {
+     "n": 166,
+     "text": "Ngô tảo tằng kinh đa kiếp tu,"
+    },
+    {
+     "n": 167,
+     "text": "Bất thị đẳng nhàn tương cuống hoặc."
+    },
+    {
+     "n": 168,
+     "text": "Kiến pháp tràng, lập tông chỉ,"
+    },
+    {
+     "n": 169,
+     "text": "Minh minh Phật sắc Tào Khê thị."
+    },
+    {
+     "n": 170,
+     "text": "Đệ nhất Ca Diếp thủ truyền đăng,"
+    },
+    {
+     "n": 171,
+     "text": "Nhị thập bát đại Tây Thiên ký."
+    },
+    {
+     "n": 172,
+     "text": "Pháp đông lưu, nhập thử thổ,"
+    },
+    {
+     "n": 173,
+     "text": "Bồ Đề Đạt Ma vi sơ tổ."
+    },
+    {
+     "n": 174,
+     "text": "Lục đại truyền y thiên hạ văn,"
+    },
+    {
+     "n": 175,
+     "text": "Hậu nhân đắc đạo hà cùng số."
+    },
+    {
+     "n": 176,
+     "text": "Chân bất lập, vọng bổn không,"
+    },
+    {
+     "n": 177,
+     "text": "Hữu vô câu khiển bất không không."
+    },
+    {
+     "n": 178,
+     "text": "Nhị thập không môn nguyên bất trước,"
+    },
+    {
+     "n": 179,
+     "text": "Nhất tánh Như Lai thể tự đồng."
+    },
+    {
+     "n": 180,
+     "text": "Tâm thị căn, pháp thị trần,"
+    },
+    {
+     "n": 181,
+     "text": "Lưỡng chủng do như kính thượng ngân."
+    },
+    {
+     "n": 182,
+     "text": "Ngân cấu tận trừ quang thỉ hiện,"
+    },
+    {
+     "n": 183,
+     "text": "Tâm pháp song vong tánh tức chân."
+    },
+    {
+     "n": 184,
+     "text": "Ta mạt pháp! Ác thời thế!"
+    },
+    {
+     "n": 185,
+     "text": "Chúng sanh phước bạc nan điều chế."
+    },
+    {
+     "n": 186,
+     "text": "Khứ thành viễn hề tà kiến thâm,"
+    },
+    {
+     "n": 187,
+     "text": "Ma cường pháp nhược đa oan hại,"
+    },
+    {
+     "n": 188,
+     "text": "Văn thuyết Như Lai đốn giáo môn,"
+    },
+    {
+     "n": 189,
+     "text": "Hận bất diệt trừ như ngõa toái."
+    },
+    {
+     "n": 190,
+     "text": "Tác tại tâm, ương tại thân,"
+    },
+    {
+     "n": 191,
+     "text": "Bất tu oan tố cánh vưu nhân."
+    },
+    {
+     "n": 192,
+     "text": "Dục đắc bất chiêu vô gián nghiệp,"
+    },
+    {
+     "n": 193,
+     "text": "Mạc báng Như Lai chánh pháp luân."
+    },
+    {
+     "n": 194,
+     "text": "Chiên đàn lâm vô tạp thụ,"
+    },
+    {
+     "n": 195,
+     "text": "Uất mật sâm trầm sư tử trú."
+    },
+    {
+     "n": 196,
+     "text": "Cảnh tịnh lâm nhàn độc tự du,"
+    },
+    {
+     "n": 197,
+     "text": "Tẩu thú phi cầm giai viễn khứ."
+    },
+    {
+     "n": 198,
+     "text": "Sư tử nhi, chúng tùy hậu,"
+    },
+    {
+     "n": 199,
+     "text": "Tam tuế tiện năng đại hao hống."
+    },
+    {
+     "n": 200,
+     "text": "Nhược thị dã can trục Pháp Vương,"
+    },
+    {
+     "n": 201,
+     "text": "Bách niên yêu quái hư khai khẩu!"
+    },
+    {
+     "n": 202,
+     "text": "Viên đốn giáo vật nhân tình,"
+    },
+    {
+     "n": 203,
+     "text": "Hữu nghi bất quyết trực tu tranh."
+    },
+    {
+     "n": 204,
+     "text": "Bất thị sơn tăng sinh nhân ngã,"
+    },
+    {
+     "n": 205,
+     "text": "Tu hành khủng lạc đoạn thường khanh."
+    },
+    {
+     "n": 206,
+     "text": "Phi bất phi, thị bất thị,"
+    },
+    {
+     "n": 207,
+     "text": "Sai chi hào ly thất thiên lý."
+    },
+    {
+     "n": 208,
+     "text": "Thị tắc Long Nữ đốn thành Phật,"
+    },
+    {
+     "n": 209,
+     "text": "Phi tắc Thiện Tinh sanh hãm trụy."
+    },
+    {
+     "n": 210,
+     "text": "Ngô tảo niên lai tích học vấn,"
+    },
+    {
+     "n": 211,
+     "text": "Diệc tằng thảo sớ tầm kinh luận,"
+    },
+    {
+     "n": 212,
+     "text": "Phân biệt danh tướng bất tri hưu,"
+    },
+    {
+     "n": 213,
+     "text": "Nhập hải toán sa đồ tự khốn,"
+    },
+    {
+     "n": 214,
+     "text": "Khước bị Như Lai khổ ha trách,"
+    },
+    {
+     "n": 215,
+     "text": "Sổ tha trân bửu hữu hà ích?"
+    },
+    {
+     "n": 216,
+     "text": "Tòng lai tắng đắng giác hư hành,"
+    },
+    {
+     "n": 217,
+     "text": "Đa niên uổng tác phong trần khách!"
+    },
+    {
+     "n": 218,
+     "text": "Chủng tánh tà, thác tri giải,"
+    },
+    {
+     "n": 219,
+     "text": "Bất đạt Như Lai viên đốn chế."
+    },
+    {
+     "n": 220,
+     "text": "Nhị thừa tinh tiến vật đạo tâm,"
+    },
+    {
+     "n": 221,
+     "text": "Ngoại đạo thông minh vô trí huệ."
+    },
+    {
+     "n": 222,
+     "text": "Diệc ngu si, diệc tiểu ngãi,"
+    },
+    {
+     "n": 223,
+     "text": "Không quyền chỉ thượng sanh thực giải,"
+    },
+    {
+     "n": 224,
+     "text": "Chấp chỉ vi nguyệt uổng thi công,"
+    },
+    {
+     "n": 225,
+     "text": "Căn cảnh pháp trung hư niết quái!"
+    },
+    {
+     "n": 226,
+     "text": "Bất kiến nhất pháp tức Như Lai,"
+    },
+    {
+     "n": 227,
+     "text": "Phương đắc danh vi Quán Tự Tại."
+    },
+    {
+     "n": 228,
+     "text": "Liễu tức nghiệp chướng bổn lai không,"
+    },
+    {
+     "n": 229,
+     "text": "Vị liễu ưng tu hoàn túc trái."
+    },
+    {
+     "n": 230,
+     "text": "Cơ phùng ngọc thiện bất năng xan,"
+    },
+    {
+     "n": 231,
+     "text": "Bệnh ngộ Y Vương chẩm đắc sái?"
+    },
+    {
+     "n": 232,
+     "text": "Tại dục hành thiền tri kiến lực,"
+    },
+    {
+     "n": 233,
+     "text": "Hỏa trung sanh liên chung bất hoại."
+    },
+    {
+     "n": 234,
+     "text": "Dõng Thi phạm trọng ngộ vô sanh,"
+    },
+    {
+     "n": 235,
+     "text": "Tảo thời thành Phật ư kim tại."
+    },
+    {
+     "n": 236,
+     "text": "Sư tử hống vô úy thuyết,"
+    },
+    {
+     "n": 237,
+     "text": "Thâm ta mông đổng ngoan bì đát,"
+    },
+    {
+     "n": 238,
+     "text": "Chỉ tri phạm trọng chướng bồ đề,"
+    },
+    {
+     "n": 239,
+     "text": "Bất kiến Như Lai khai bí quyết."
+    },
+    {
+     "n": 240,
+     "text": "Hữu nhị Tỳ khưu phạm dâm sát,"
+    },
+    {
+     "n": 241,
+     "text": "Ba Ly huỳnh quang tăng tội kết."
+    },
+    {
+     "n": 242,
+     "text": "Duy Ma đại sĩ đốn trừ nghi"
+    },
+    {
+     "n": 243,
+     "text": "Do như hách nhật tiêu sương tuyết."
+    },
+    {
+     "n": 244,
+     "text": "Bất tư nghị giải thoát lực,"
+    },
+    {
+     "n": 245,
+     "text": "Diệu dụng hằng sa dã vô cực."
+    },
+    {
+     "n": 246,
+     "text": "Tứ sự cúng dường cảm từ lao,"
+    },
+    {
+     "n": 247,
+     "text": "Vạn lượng hoàng kim diệc tiêu đắc."
+    },
+    {
+     "n": 248,
+     "text": "Phấn cốt toái thân vị túc thù,"
+    },
+    {
+     "n": 249,
+     "text": "Nhất cú liễu nhiên siêu bách ức."
+    },
+    {
+     "n": 250,
+     "text": "Pháp trung vương tối cao thắng,"
+    },
+    {
+     "n": 251,
+     "text": "Hằng sa Như Lai đồng cộng chứng."
+    },
+    {
+     "n": 252,
+     "text": "Ngã kim giải thử như ý châu,"
+    },
+    {
+     "n": 253,
+     "text": "Tín thọ chi giả giai tương ứng."
+    },
+    {
+     "n": 254,
+     "text": "Liễu liễu kiến vô nhất vật,"
+    },
+    {
+     "n": 255,
+     "text": "Diệc vô nhân, diệc vô Phật."
+    },
+    {
+     "n": 256,
+     "text": "Đại thiên sa giới hải trung âu,"
+    },
+    {
+     "n": 257,
+     "text": "Nhất thiết Thánh Hiền như điện phất."
+    },
+    {
+     "n": 258,
+     "text": "Giả sử thiết luân đỉnh thượng triền,"
+    },
+    {
+     "n": 259,
+     "text": "Định huệ viên minh chung bất thất."
+    },
+    {
+     "n": 260,
+     "text": "Nhật khả lãnh, nguyệt khả nhiệt,"
+    },
+    {
+     "n": 261,
+     "text": "Chúng ma bất năng hoại chân thuyết."
+    },
+    {
+     "n": 262,
+     "text": "Tượng giá tranh vanh mạn tiến đồ,"
+    },
+    {
+     "n": 263,
+     "text": "Thùy kiến đường lang năng cự triệt?"
+    },
+    {
+     "n": 264,
+     "text": "Đại tượng bất du ư thố kính,"
+    },
+    {
+     "n": 265,
+     "text": "Đại ngộ bất câu ư tiểu tiết."
+    },
+    {
+     "n": 266,
+     "text": "Mạc tương quản kiến báng thương thương,"
+    },
+    {
+     "n": 267,
+     "text": "Vị liễu, ngô kim vị quân quyết."
+    }
+   ]
+  },
+  {
+   "key": "vi-poem",
+   "lang": "vi",
+   "variant": "poem",
+   "translator": "Trúc Thiên (phiên dịch thể thơ, \"Khúc Ca Chứng Đạo\")",
+   "sourceName": "Chùa Điều Ngự (dieungu.org) - Chứng Đạo Ca, Huyền Giác Thiền Sư, Trúc Thiên dịch",
+   "sourceUrl": "https://www.dieungu.org/a19973/chung-dao-ca",
+   "license": "UNKNOWN",
+   "licenseNote": "no license statement; page footer \"Copyright © 2026 dieungu.org All rights reserved\"; text is Trúc Thiên's translation, rights status not stated",
+   "note": "section = 19 \"chân trời Thiền\" do dịch giả chia; bỏ tiêu đề khỏi lines.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Anh thấy chăng:",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 2,
+     "text": "Dứt học, vô vi, ấy đạo nhân,",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 3,
+     "text": "Không trừ vọng tưởng chẳng cầu chân?",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 4,
+     "text": "Tánh thực vô minh tức Phật tánh.",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 5,
+     "text": "Thân không ảo hóa tức Pháp thân.",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 6,
+     "text": "Pháp thân giác rồi không một vật,",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 7,
+     "text": "Vốn nguồn tự tánh thiên chân Phật.",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 8,
+     "text": "Năm ấm: ảo hư mây lại qua.",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 9,
+     "text": "Ba độc: huyễn hoặc bọt còn mất.",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 10,
+     "text": "Chứng thực tướng, không nhân pháp,",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 11,
+     "text": "Sát na rũ sạch a tì nghiệp.",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 12,
+     "text": "Bằng đem lời vọng dối chúng sanh,",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 13,
+     "text": "Tội rút lưỡi nguyện mang cùng kiếp.",
+     "section": "I. NHƯ LAI VÔ THƯỢNG THIỀN"
+    },
+    {
+     "n": 14,
+     "text": "Thoắt giác rồi Như Lai thiền,",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 15,
+     "text": "Sáu độ muôn hạnh thể tròn nguyên.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 16,
+     "text": "Trong mộng lao xao bày sáu nẻo,",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 17,
+     "text": "Tỉnh ra bằn bặt chẳng ba nghìn.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 18,
+     "text": "Không tội phước, không thêm bớt.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 19,
+     "text": "Tánh mình vắng lặng đừng hỏi bắt.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 20,
+     "text": "Bấy lâu gương bụi chửa từng lau,",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 21,
+     "text": "Này lúc rõ phân cần dứt khoát.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 22,
+     "text": "Ai không niệm? Ai không sanh?",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 23,
+     "text": "Ví thực không sanh không chẳng sanh.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 24,
+     "text": "Gọi người gỗ hỏi nguồn cơn ấy:",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 25,
+     "text": "Cầu Phật ra công mấy thuở thành.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 26,
+     "text": "Buông bốn đại, đừng nắm bắt,",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 27,
+     "text": "Tánh mình vắng lặng tùy ẩm trác.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 28,
+     "text": "Muôn vật vô thường thảy thảy không,",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 29,
+     "text": "Đấy chính Như Lai thật viên giác.",
+     "section": "II. CẢNH GIỚI TỰ CHỨNG"
+    },
+    {
+     "n": 30,
+     "text": "Dám nói quyết, rõ chân tăng,",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 31,
+     "text": "Ví còn thắc mắc xin thưa rằng:",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 32,
+     "text": "Thẳng tận đầu nguồn phăng dấu Phật,",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 33,
+     "text": "Chọn lá tìm cành ta chẳng đương!",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 34,
+     "text": "Ngọc ma ni người có biết",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 35,
+     "text": "Như Lai kho ấy thâu trọn hết:",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 36,
+     "text": "Sáu ban thần dụng không chẳng không,",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 37,
+     "text": "Một điểm viên quang sắc chẳng sắc.",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 38,
+     "text": "Tịnh năm mắt, được năm lực,",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 39,
+     "text": "Có chứng mới hay không lượng được.",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 40,
+     "text": "Trong gương ngắm ảnh dễ thấy hình,",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 41,
+     "text": "Đáy nước mò trăng khôn nắm nguyệt.",
+     "section": "III. ĐẠI Ý CHÍ"
+    },
+    {
+     "n": 42,
+     "text": "Thường một mình, thường tản bộ,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 43,
+     "text": "Đạt giả lại qua Niết Bàn lộ.",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 44,
+     "text": "Điệu xưa thần nhẹ dáng thanh thanh,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 45,
+     "text": "Thân cứng xương gầy ai chiếu cố.",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 46,
+     "text": "Hèn con Phật, miệng xưng nghèo,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 47,
+     "text": "Rõ thực thân nghèo đạo chẳng nghèo.",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 48,
+     "text": "Nghèo ắt thân thường manh áo chắp,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 49,
+     "text": "Đạo ắt tâm hằng châu báu đeo.",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 50,
+     "text": "Châu báu đeo dùng chẳng hết,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 51,
+     "text": "Tùy duyên rải khắp thèm keo kiết.",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 52,
+     "text": "Ba thân, bốn trí thể tròn nguyên,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 53,
+     "text": "Tám giải, sáu thông tâm ấn hiệp.",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 54,
+     "text": "Bậc cao một quyết là xong hẳn,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 55,
+     "text": "Kẻ thấp càng nghe lại lắm ngờ.",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 56,
+     "text": "Hãy vứt trong lòng manh áo bẩn,",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 57,
+     "text": "Sá gì tinh tiến hướng ngoài khoe?",
+     "section": "IV. CON ĐƯỜNG NIẾT BÀN"
+    },
+    {
+     "n": 58,
+     "text": "Mặc ai biếm, mặc ai gièm,",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 59,
+     "text": "Châm lửa đốt trời nhọc xác thêm.",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 60,
+     "text": "Ta nghe như uống cam lồ vậy,",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 61,
+     "text": "Tan hết vào trong chẳng nghĩ bàn.",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 62,
+     "text": "Xét lời ác, ấy công đức,",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 63,
+     "text": "Đó mới chính là thầy ta thực.",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 64,
+     "text": "Chớ vì báng bổ nổi oan, thân,",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 65,
+     "text": "Sao tỏ vô sanh, nêu nhẫn lực?",
+     "section": "V. CHUYỂN PHẨM CHƯỚNG ĐẠO THÀNH PHẨM TRỢ ĐẠO"
+    },
+    {
+     "n": 66,
+     "text": "Tông cũng thông, thuyết cũng thông,",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 67,
+     "text": "Định huệ sáng tròn chẳng trệ không.",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 68,
+     "text": "Nào phải mình ta riêng đạt đấy,",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 69,
+     "text": "Hằng sa chư Phật thể chung đồng.",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 70,
+     "text": "Sư tử hống thuyết vô úy,",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 71,
+     "text": "Trăm thú nghe qua xé óc tủy.",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 72,
+     "text": "Hương tượng chạy dài hết liệt uy,",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 73,
+     "text": "Thiên long lặng ngóng lòng hoan hỷ.",
+     "section": "VI. TÔNG THÔNG THUYẾT THÔNG"
+    },
+    {
+     "n": 74,
+     "text": "Chơi biển cả, dạo rừng thiêng,",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 75,
+     "text": "Tìm thầy hỏi lấy đạo tham thiền.",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 76,
+     "text": "Từ ngày rõ nẻo Tào Khê ấy,",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 77,
+     "text": "Mới hay sống chết chẳng tương can.",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 78,
+     "text": "Đi cũng thiền, ngồi cũng thiền,",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 79,
+     "text": "Nói im động tịnh thảy an nhiên.",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 80,
+     "text": "Phỏng gặp gươm đao thường nhẹ hững,",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 81,
+     "text": "Ví nhằm thuốc độc vẫn bồng tênh.",
+     "section": "VII. TÂM ẤN TÀO KHÊ"
+    },
+    {
+     "n": 82,
+     "text": "Thầy ta được thấy Nhiên Đăng Phật,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 83,
+     "text": "Bao kiếp từng làm tiên nhẫn nhục.",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 84,
+     "text": "Mấy hồi tử? Mấy hồi sanh?",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 85,
+     "text": "Sanh tử mơ màng không định dứt.",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 86,
+     "text": "Tự thời ngoắt ngộ pháp vô sanh,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 87,
+     "text": "Cơn vinh nhục mừng lo gì tá?",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 88,
+     "text": "Vào rừng sâu, ở lan nhã,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 89,
+     "text": "Núi dựng, tùng già ôm bóng cả.",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 90,
+     "text": "Thong dong ngồi tịnh mái chùa tranh,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 91,
+     "text": "Cảnh lặng lòng yên thanh thoát lạ!",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 92,
+     "text": "Biết là xong tất, chẳng cần công,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 93,
+     "text": "Thảy thảy hữu vi pháp chẳng đồng.",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 94,
+     "text": "Của cho trụ tướng phước trời hưởng,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 95,
+     "text": "Ví như tên nhắm bắn hư không.",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 96,
+     "text": "Đà bắn hết, mũi tên rơi,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 97,
+     "text": "Kiếp sau hận cũ lại bời bời.",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 98,
+     "text": "Sao bằng tự cửa vô vi ấy,",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 99,
+     "text": "Một nhẩy vào liền đất Như Lai.",
+     "section": "VIII. TỰ GIÁC"
+    },
+    {
+     "n": 100,
+     "text": "Cốt ở gốc, lo chi cành,",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 101,
+     "text": "Như ngọc lưu ly ngậm ánh trăng.",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 102,
+     "text": "Đã hay thấu được châu như ý,",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 103,
+     "text": "Lợi ta lợi người không biết mấy.",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 104,
+     "text": "Trăng sông tỏ, gió tùng lay,",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 105,
+     "text": "Đêm trường thanh vắng - để chi đây?",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 106,
+     "text": "Ngọc giới hạnh, tâm in, tánh tỏ,",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 107,
+     "text": "Trên mình mây ráng khoác làm y.",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 108,
+     "text": "Bát thâu rồng, gậy giải cọp,",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 109,
+     "text": "Hai dãy khoen vàng khua lảnh lót.",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 110,
+     "text": "Phải đâu hư sự giữ làm gì,",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 111,
+     "text": "Gậy báu Như Lai dấu tự ghi.",
+     "section": "IX. GIÁC THA"
+    },
+    {
+     "n": 112,
+     "text": "Không cầu chân, chẳng dứt vọng,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 113,
+     "text": "Mới hay chân vọng không chẳng tướng.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 114,
+     "text": "Chẳng tướng, chẳng không, không chẳng không,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 115,
+     "text": "Ấy mới Như Lai chân thực tướng.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 116,
+     "text": "Gương tâm sáng, soi chẳng ngại,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 117,
+     "text": "Suốt thông chiếu khắp hằng sa giới.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 118,
+     "text": "Muôn tượng um tùm ảnh hiện trong,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 119,
+     "text": "Một điểm viên quang không nội ngoại.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 120,
+     "text": "Đắm ngoan không, phá nhân quả,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 121,
+     "text": "Bừa bãi, rối ren, càng thêm họa.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 122,
+     "text": "Bỏ có, níu không, bệnh vẫn nguyên,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 123,
+     "text": "Khác nào trốn nước sa vào lửa.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 124,
+     "text": "Buông vọng tâm, giữ chân lý,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 125,
+     "text": "Buông giữ tâm, hoàn tâm xảo nguỵ.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 126,
+     "text": "Đạo nhân chẳng rõ dốc lòng tu,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 127,
+     "text": "Chân thành nhận giặc làm con quý.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 128,
+     "text": "Tốn pháp tài, dứt công đức,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 129,
+     "text": "Chỉ vì điên đảo theo vọng thức.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 130,
+     "text": "Cho nên thiền pháp dạy thông tâm,",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 131,
+     "text": "Thoắt chứng vô sanh, sáng trí Phật.",
+     "section": "X. ĐẤT NHƯ LAI"
+    },
+    {
+     "n": 132,
+     "text": "Đại trượng phu cầm kiếm huệ,",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 133,
+     "text": "Ánh bát nhã hề kim cương lóe.",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 134,
+     "text": "Đã hay ngoại đạo bạt tâm mê,",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 135,
+     "text": "Lại khiến thiên ma lùi khiếp vía.",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 136,
+     "text": "Nổi pháp lôi, đánh pháp cổ,",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 137,
+     "text": "Bủa mây từ hề rưới cam lộ.",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 138,
+     "text": "Voi rồng giẫm bước nhuận ân sâu,",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 139,
+     "text": "Năm tánh ba thừa đều tỉnh ngộ.",
+     "section": "XI. HÀNH NHƯ LAI SỰ"
+    },
+    {
+     "n": 140,
+     "text": "Cỏ phì nhị đơm ròng đỉnh Tuyết,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 141,
+     "text": "Vị đề hồ ta từng nếm biết.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 142,
+     "text": "Một tánh viên thông muôn tánh hệt,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 143,
+     "text": "Một pháp bao gồm muôn pháp hết,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 144,
+     "text": "Một trăng hiện khắp tất cả nước,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 145,
+     "text": "Tất cả trăng nước một trăng nhiếp,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 146,
+     "text": "Chư pháp thân Phật vào tánh ta,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 147,
+     "text": "Tánh ta cùng với Như Lai hiệp.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 148,
+     "text": "Một địa gồm đủ tất cả địa,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 149,
+     "text": "Chẳng sắc chẳng tâm chẳng hạnh nghiệp.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 150,
+     "text": "Búng tay, tám vạn pháp môn thành,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 151,
+     "text": "Nháy mắt, rũ xong ba kỳ kiếp.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 152,
+     "text": "Tất cả văn tự chẳng văn tự,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 153,
+     "text": "Cùng linh giác ấy nào can dự?",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 154,
+     "text": "Không thể chê, không thể khen,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 155,
+     "text": "Như hư không ấy vốn vô biên.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 156,
+     "text": "Tìm kiếm đã hay không thấy được,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 157,
+     "text": "Mà luôn trước mắt vẫn thường nhiên.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 158,
+     "text": "Lấy chẳng được, bỏ chẳng được,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 159,
+     "text": "Trong cái chẳng được là cái được.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 160,
+     "text": "Im thời nói, nói thời im,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 161,
+     "text": "Cửa đại thí mở thông thông suốt.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 162,
+     "text": "Có người hỏi ta giải tông nào,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 163,
+     "text": "Xin thưa: Ma Ha Bát Nhã lực.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 164,
+     "text": "Làm ngược làm xuôi trời biết đâu,",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 165,
+     "text": "Rằng phải rằng trái ai rõ được.",
+     "section": "XII. VÔ TRỤ NIẾT BÀN"
+    },
+    {
+     "n": 166,
+     "text": "Ta sớm từng qua bao kiếp tu,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 167,
+     "text": "Nào dám sai ngoa lời dối mị.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 168,
+     "text": "Dựng pháp tràng, lập tông chỉ,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 169,
+     "text": "Rỡ ràng tâm Phật ứng Tào Khê.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 170,
+     "text": "Thoạt tiên Ca Diếp đèn tâm truyền,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 171,
+     "text": "Hăm tám đời tổ sư Tây Thiên.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 172,
+     "text": "Pháp sang Đông, vào Trung Thổ,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 173,
+     "text": "Bồ Đề Đạt Ma là Sơ Tổ.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 174,
+     "text": "Sáu đời y bát thiên hạ nghe,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 175,
+     "text": "Người sau được đạo nhiều vô số.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 176,
+     "text": "Chân chẳng lập, vọng vốn không,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 177,
+     "text": "Hữu vô dứt trọn chẳng không không.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 178,
+     "text": "Hai chục cửa không nguyên chẳng chấp,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 179,
+     "text": "Một tánh Như Lai vốn thể đồng.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 180,
+     "text": "Tâm là căn, pháp là trần,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 181,
+     "text": "Thảy đều ngấn bụi ám gương trong.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 182,
+     "text": "Bao giờ ngấn hết gương trong lại,",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 183,
+     "text": "Tâm pháp cùng quên tánh rõ chân.",
+     "section": "XIII/ TRUYỀN TÂM PHÁP YẾU"
+    },
+    {
+     "n": 184,
+     "text": "Ôi mạt pháp! Ác thời thế!",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 185,
+     "text": "Chúng sanh phước mỏng khôn cầm chế.",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 186,
+     "text": "Hiền thánh xa rồi, tà vạy sâu,",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 187,
+     "text": "Ma mạnh pháp yếu nhiều ác tệ.",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 188,
+     "text": "Nghe nói Như Lai phép đốn tu,",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 189,
+     "text": "Hận chẳng nghiền tan như ngói bể.",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 190,
+     "text": "Tại tâm làm, tại thân chịu,",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 191,
+     "text": "Đừng có kêu oan, chớ trách người.",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 192,
+     "text": "Muốn khỏi nghiệp vương muôn kiếp lụy,",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 193,
+     "text": "Vành xe chánh pháp chớ chê cười.",
+     "section": "XIV/ MA CHƯỚNG THỜI MẠT PHÁP"
+    },
+    {
+     "n": 194,
+     "text": "Rừng chiên đàn không tạp thụ,",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 195,
+     "text": "Sâu kín um tùm sư tử trú.",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 196,
+     "text": "Cảng vắng rừng im một mình chơi,",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 197,
+     "text": "Cao chạy xa bay chim cùng thú.",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 198,
+     "text": "Sư tử con, chúng theo mẹ,",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 199,
+     "text": "Tuổi mới lên ba đà hống khỏe.",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 200,
+     "text": "Chó rừng dầu bén gót Pháp Vương,",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 201,
+     "text": "Trăm năm yêu quái há mồm suông!",
+     "section": "XV/ KHÍ TƯỢNG PHẬT THỪA"
+    },
+    {
+     "n": 202,
+     "text": "Pháp Viên Đốn vượt tình thường,",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 203,
+     "text": "Mọi niềm ngờ vực quyết không vương.",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 204,
+     "text": "Sãi tôi đâu sính bàn nhân ngã,",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 205,
+     "text": "Sợ lạc đường tu hố đoạn thường.",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 206,
+     "text": "Thị chẳng thị, phi chẳng phi,",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 207,
+     "text": "Sai lạc đường tơ ngàn dặm đi.",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 208,
+     "text": "Thị: đấy Long Nữ thoắt thành Phật,",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 209,
+     "text": "Phi: đấy Thiện Tinh rơi địa ngục.",
+     "section": "XVI/ PHÁP VIÊN ĐỐN"
+    },
+    {
+     "n": 210,
+     "text": "Ta sớm bao năm chuyên học vấn,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 211,
+     "text": "Từng viết sớ sao tìm kinh luận,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 212,
+     "text": "Phân biệt danh tướng mãi không thôi,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 213,
+     "text": "Vào biển đếm cát tự chuốc hận,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 214,
+     "text": "Quả đáng bị Như Lai quở trách,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 215,
+     "text": "Châu báu của người có gì ích?",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 216,
+     "text": "Lâu nay đắng đót rõ công suông,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 217,
+     "text": "Uổng bấy làm thân phong trần khách!",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 218,
+     "text": "Tánh tà vạy, giải lạc lầm,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 219,
+     "text": "Chẳng được pháp Như Lai đốn chế.",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 220,
+     "text": "Hai thừa tinh tiến thiếu đạo tâm.",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 221,
+     "text": "Ngoại đạo thông minh, không trí huệ,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 222,
+     "text": "Như trẻ dại, như ngu si,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 223,
+     "text": "Thấy nắm tay không quyền tưởng thiệt,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 224,
+     "text": "Chấp lấy ngón tay làm mặt nguyệt,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 225,
+     "text": "Bóng ma căn cảnh uổng công ghì!",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 226,
+     "text": "Chẳng thấy một pháp tức Như Lai,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 227,
+     "text": "Nên cũng kêu là Quán Tự Tại.",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 228,
+     "text": "Tỏ rồi, nghiệp chướng hóa thành không,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 229,
+     "text": "Chưa tỏ, nợ xưa đành trang trải.",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 230,
+     "text": "Đói gặp tiệc vua không thể ăn,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 231,
+     "text": "Bệnh tránh Y Vương sao mạnh được?",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 232,
+     "text": "Thiền trong biển dục rõ kiến lực,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 233,
+     "text": "Sen trong lửa đỏ muôn đời rực.",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 234,
+     "text": "Dõng Thi phạm giới chứng vô sanh,",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 235,
+     "text": "Sớm vẫn viên thành trong cõi tục.",
+     "section": "XVII/ CHỨNG TÍCH CÁ NHÂN"
+    },
+    {
+     "n": 236,
+     "text": "Sư tử hống thuyết vô úy,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 237,
+     "text": "Thương thay ai vẫn mê mờ rối,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 238,
+     "text": "Mảng e tội chướng lấp bồ đề,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 239,
+     "text": "Chẳng được Như Lai mở kho bí!",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 240,
+     "text": "Có hai tì khưu phạm dâm sát,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 241,
+     "text": "Đóm huỳnh Ba ly thêm buộc siết,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 242,
+     "text": "Bồ tát Duy Ma chốc giải ngờ,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 243,
+     "text": "Như vừng dương hực tiêu sương tuyết.",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 244,
+     "text": "Bàn nghĩ chi sức giải thoát,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 245,
+     "text": "Diệu dụng hằng sa như số cát,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 246,
+     "text": "Bốn sự cúng dường dẫu nhọc bao,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 247,
+     "text": "Muôn lượng vàng ròng dầu tiêu hết.",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 248,
+     "text": "Thịt tan xương nát chữa đền xong,",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 249,
+     "text": "Một câu thấu suốt siêu ngàn ức.",
+     "section": "XVIII/ DUY MA SƯ TỬ HỐNG"
+    },
+    {
+     "n": 250,
+     "text": "Đấng Pháp Vương, bậc Tối Thắng,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 251,
+     "text": "Hằng sa Như Lai cùng chung chứng.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 252,
+     "text": "Ta nay giải vậy như ý châu,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 253,
+     "text": "Người người tin nhận đều tương ứng.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 254,
+     "text": "Suốt suốt thấy không một vật,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 255,
+     "text": "Cũng không người, cũng không Phật.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 256,
+     "text": "Thế giới ba ngàn bọt nước xao,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 257,
+     "text": "Mỗi mỗi thánh hiền như điện phất.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 258,
+     "text": "Ví phỏng thiết luân trên đầu chuyển,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 259,
+     "text": "Định huệ sáng tròn luôn chẳng biến.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 260,
+     "text": "Nguyệt dầu thành lửa, nhật thành băng,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 261,
+     "text": "Ma nào phá được chân thuyết hiện.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 262,
+     "text": "Xe voi dốc ngược vững đường lên,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 263,
+     "text": "Sức mấy bọ trời ngăn bước tiến?",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 264,
+     "text": "Voi lớn đâu thèm đi dấu thỏ,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 265,
+     "text": "Ngộ lớn sá gì chút tiết nhỏ.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 266,
+     "text": "Đừng dòm trong ống biến trời xanh,",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    },
+    {
+     "n": 267,
+     "text": "Chưa tỏ, vì anh ta mở rõ.",
+     "section": "XIX/ PHÁP VƯƠNG VƯƠNG PHÁP"
+    }
+   ]
+  }
+ ]
+}

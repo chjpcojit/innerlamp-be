@@ -1,0 +1,3651 @@
+{
+ "id": "phap-bao-dan",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Thiền",
+ "reference": "",
+ "originalTitle": "Nam Tông Đốn Giáo Tối Thượng Thừa Ma Ha Bát Nhã Ba La Mật Kinh",
+ "referenceNote": "Pháp Bảo Đàn kinh, bản Đôn Hoàng",
+ "summary": "Ngữ lục của Lục Tổ Huệ Năng thuộc Thiền Nam tông, ghi lại bài giảng về Bát nhã Ba la mật và Vô tướng giới tại chùa Đại Phạm, Thiều Châu, theo lời thỉnh của thứ sử Vi Cứ. Ngài kể thân thế, việc ngộ khi nghe kinh Kim Cang và gặp Ngũ Tổ Hoằng Nhẫn. Nội dung nhấn mạnh Phật tánh sẵn có và con đường đốn ngộ, kiến tánh.",
+ "titles": {
+  "vi": "Kinh Pháp Bảo Đàn (Lục Tổ Huệ Năng)",
+  "zh": "六祖壇經",
+  "sa": "",
+  "en": "Platform Sutra of the Sixth Patriarch"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_mahasthamaprapta",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "buddha_maitreya",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "THIEN_DINH"
+ ],
+ "durationMinutes": 210,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Hòa thượng Thích Mãn Giác (dịch Việt từ bản Đôn Hoàng; NXB Tôn Giáo, Hà Nội, 2003)",
+   "sourceName": "BuddhaSasana (budsas.org) - Kinh Pháp Bảo Đàn, Đôn Hoàng bản (nguồn ghi: chuyenphapluan.com)",
+   "sourceUrl": "https://www.budsas.org/uni/u-huenang/pbd.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement on page; footer \"Source: https://www.chuyenphapluan.com\"",
+   "note": "Bỏ lời đầu sách của dịch giả; bỏ số thứ tự đoạn (1-57) ở đầu đoạn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Đại sư Huệ Năng lên tòa cao trong giảng đường chùa Đại Phạm giảng giáo lý Bát nhã Ba la mật và truyền Vô tướng giới."
+    },
+    {
+     "n": 2,
+     "text": "Lúc ấy dưới tòa có trên mười ngàn Tăng, Ni, đạo, tục."
+    },
+    {
+     "n": 3,
+     "text": "Thiều Châu thứ sử Vi Cứ cùng hơn ba mươi vị quan liêu và trên ba mươi nho sĩ đều thỉnh Đại sư giảng giáo lý Bát nhã Ba la mật."
+    },
+    {
+     "n": 4,
+     "text": "Thứ sử còn bảo môn nhân tăng Pháp Hải ghi chép lại ngõ hầu lưu truyền cho đời sau để cho những người học đạo noi theo tông chỉ này mà truyền thọ cho nhau, coi những lời dạy này là nơi nương tựa."
+    },
+    {
+     "n": 5,
+     "text": "Đại sư Huệ Năng nói: \"Các thiện tri thức, hãy tịnh tâm mình mà tập trung vào giáo lý Bát nhã Ba la mật\"."
+    },
+    {
+     "n": 6,
+     "text": "Rồi Đại sư im lặng, tự tịnh tâm thần mình."
+    },
+    {
+     "n": 7,
+     "text": "Hồi lâu sau mới nói tiếp: \"Các thiện tri thức, xin im lặng lắng nghe."
+    },
+    {
+     "n": 8,
+     "text": "Cha hiền của Huệ Năng vốn là một quan viên ở Phạm Dương, sau đó người bị giáng chức và phạt làm thường dân ở Tân Châu, Lĩnh Nam."
+    },
+    {
+     "n": 9,
+     "text": "Lúc Huệ Năng còn nhỏ, cha mất sớm, mẹ già và con thơ dọn về Nam Hải."
+    },
+    {
+     "n": 10,
+     "text": "Gian khổ nghèo nàn đến mức phải đi bán củi ngoài chợ."
+    },
+    {
+     "n": 11,
+     "text": "Hốt nhiên có một người khách mua củi, bảo Huệ Năng gánh theo về ngôi khách điếm dành cho các quan viên kia."
+    },
+    {
+     "n": 12,
+     "text": "Sau khi khách lấy củi đi rồi, Huệ Năng được tiền, đang bước ra cửa thì bỗng gặp một vị khách khác đang tụng kinh Kim Cang."
+    },
+    {
+     "n": 13,
+     "text": "Huệ Năng vừa nghe thấy, tâm đã bừng sáng giác ngộ."
+    },
+    {
+     "n": 14,
+     "text": "Huệ Năng tôi bèn hỏi người khách: \"Ngài từ đâu tới mà trì tụng kinh này vậy?\"."
+    },
+    {
+     "n": 15,
+     "text": "Khách cười đáp: \"Tôi đã bái kiến Ngũ Tổ Hoằng Nhẫn Hòa thượng ở Đông Phùng Mộ Sơn, Hoàng Mai huyện, Kỳ Châu."
+    },
+    {
+     "n": 16,
+     "text": "Hiện giờ ở đó môn nhân của ngài có hơn một ngàn người."
+    },
+    {
+     "n": 17,
+     "text": "Lúc còn ở đó, tôi từng nghe ngài khuyên các đồ đệ, Tăng cũng như tục, rằng chỉ cần trì một quyển kinh Kim Cang là thế nào cũng được kiến tánh thành Phật rốt ráo\"."
+    },
+    {
+     "n": 18,
+     "text": "Huệ Năng tôi nghe nói thế, biết rằng mình có duyên từ kiếp trước, bèn từ giã mẫu thân, đến ngay Phùng Mộ Sơn ở huyện Hoàng Mai, để bái lạy Ngũ Tổ Hoằng Nhẫn Hòa thượng."
+    },
+    {
+     "n": 19,
+     "text": "Hoằng Nhẫn Hòa thượng hỏi Huệ Năng: \"Chú là người phương nào mà đến núi này bái lạy ta?"
+    },
+    {
+     "n": 20,
+     "text": "Nay chú đến đây với mục đích cầu cái gì vậy?\"."
+    },
+    {
+     "n": 21,
+     "text": "Huệ Năng đáp: \"Đệ tử là người Lĩnh Nam, vốn chỉ là một tên thường dân ở Tân Châu."
+    },
+    {
+     "n": 22,
+     "text": "Nay lặn lội từ phương xa đến bái lạy Hòa thượng, không để cầu vật gì khác, mà chỉ cầu Phật pháp thôi\"."
+    },
+    {
+     "n": 23,
+     "text": "Đại sư bèn quở Huệ Năng rằng: \"Chú là dân Lĩnh Nam, vốn là đồ mọi rợ, làm thế nào mà thành Phật cho được?\"."
+    },
+    {
+     "n": 24,
+     "text": "Huệ Năng nói: \"Con người tuy có Nam Bắc, Phật tánh lại chẳng có Bắc Nam."
+    },
+    {
+     "n": 25,
+     "text": "Tuy thân mọi rợ này không giống với thân Hòa thượng, Phật tánh trong chúng ta có gì là sai biệt?\"."
+    },
+    {
+     "n": 26,
+     "text": "Đại sư đang định bàn luận thêm, song chợt nhìn thấy chung quanh có người, ngài bèn thôi không nói nữa mà chỉ khiến tôi đi theo chúng để làm việc."
+    },
+    {
+     "n": 27,
+     "text": "Lúc ấy có một hành giả dẫn Huệ Năng vào phòng giã gạo và Huệ Năng tôi đạp máy giã gạo ở đó suốt tám tháng trời."
+    },
+    {
+     "n": 28,
+     "text": "Một hôm, bỗng nhiên Ngũ Tổ cho gọi tất cả các môn nhân lên."
+    },
+    {
+     "n": 29,
+     "text": "Sau khi họ đã tụ tập đầy đủ, Ngũ Tổ nói:"
+    },
+    {
+     "n": 30,
+     "text": "\"Để tôi nói cho các ông nghe, đối với người đời thì sanh tử là việc lớn, song môn nhân các ông suốt ngày cúng dường, chỉ cầu phước điền mà chẳng cầu việc xuất ly khỏi biển khổ sanh tử."
+    },
+    {
+     "n": 31,
+     "text": "Nếu tự tánh của các ông mà mê mờ thì phước cũng chẳng làm sao mà cứu các ông được."
+    },
+    {
+     "n": 32,
+     "text": "Các ông mau quay về phòng tự nhìn vào chính mình, người nào có trí tuệ chắc chắn sẽ nắm bắt được cái bổn tánh của trí Bát nhã, rồi mỗi người làm một bài kệ trình lên cho tôi xem."
+    },
+    {
+     "n": 33,
+     "text": "Tôi sẽ đọc kệ của các ông, nếu như có người nào giác ngộ được đại ý của Phật pháp, tôi sẽ trao lại y pháp cho người ấy và tuyên dương làm vị Tổ thứ sáu. Các ông mau lên cho\"."
+    },
+    {
+     "n": 34,
+     "text": "Sau khi được phân phó, các môn nhân ai nấy quay về phòng mình, rồi bàn bạc với nhau rằng: \"Chúng mình chẳng cần tịnh tâm cố gắng làm kệ trình lên cho Hòa thượng để làm gì."
+    },
+    {
+     "n": 35,
+     "text": "Thượng tọa Thần Tú là giáo thọ sư. Sau khi ngài đắc pháp rồi, chúng mình có thể nương cậy vào ngài, xin đừng ai làm kệ làm gì\"."
+    },
+    {
+     "n": 36,
+     "text": "Ai nấy cũng đều hết có ý muốn cố gắng làm kệ."
+    },
+    {
+     "n": 37,
+     "text": "Lúc ấy, trước phòng của Đại sư có một hàng hiên ba gian."
+    },
+    {
+     "n": 38,
+     "text": "Trên tường dưới hành lang được dành ra để dự định cho vẽ hình về những mẩu chuyện và giáo lý của kinh Lăng Già, cũng như việc Ngũ Tổ Đại sư truyền thọ y pháp để lưu lại cho đời sau ghi nhớ."
+    },
+    {
+     "n": 39,
+     "text": "Họa sư Lư Trân đã xem xét vách tường và chuẩn bị hôm sau ra tay."
+    },
+    {
+     "n": 40,
+     "text": "Thượng tọa Thần Tú tư duy: \"Mọi người không ai trình tâm kệ cả, bởi vì mình là giáo thọ sư của họ."
+    },
+    {
+     "n": 41,
+     "text": "Nếu như mình không trình tâm kệ, làm sao mà Ngũ Tổ có thể thẩm định được kếin giải trong tâm minh thâm thiển ra sao."
+    },
+    {
+     "n": 42,
+     "text": "Nếu minh trình tâm kệ lên Ngũ Tổ với ý định cầu làm Tổ, thì là việc không tốt, bởi vì như thế thì mình cũng chẳng khác gì bọn phàm phu toan tranh đoạt thánh vị."
+    },
+    {
+     "n": 43,
+     "text": "Song nếu mình không trình kệ, mình sẽ chẳng bao giờ đắc pháp được\"."
+    },
+    {
+     "n": 44,
+     "text": "Thượng tọa Thần Tú tư duy hồi lâu, trong lòng lấy làm khó xử vô cùng."
+    },
+    {
+     "n": 45,
+     "text": "Đến nửa đêm, không để ai thấy, ngài bèn ra viết tâm kệ lên vách tường ở chính giữa khu hành lang phía Nam, mong cầu đắc pháp."
+    },
+    {
+     "n": 46,
+     "text": "\"Nếu như ngày mai Ngũ Tổ trông thấy kệ mà hài lòng, thì mình sẽ bước ra mà nhận là của mình."
+    },
+    {
+     "n": 47,
+     "text": "Còn nếu như ngài bảo là chưa đắc thì kể như túc nghiệp của mình còn nặng, không đủ tư cách để đắc pháp."
+    },
+    {
+     "n": 48,
+     "text": "Thánh ý khó dò, lòng mình lập tức sẽ không còn hoài mong gì nữa\"."
+    },
+    {
+     "n": 49,
+     "text": "Thế rồi nửa đêm, Tú Thượng tọa thắp đuốc viết kệ lên vách tường ở chính giữa khu hành lang phía Nam, không để ai hay biết. Kệ rằng:"
+    },
+    {
+     "n": 50,
+     "text": "\"Thân là cây bồ đề"
+    },
+    {
+     "n": 51,
+     "text": "Tâm như đài gương sáng"
+    },
+    {
+     "n": 52,
+     "text": "Luôn siêng năng lau chùi"
+    },
+    {
+     "n": 53,
+     "text": "Đừng để cho bụi bám\"."
+    },
+    {
+     "n": 54,
+     "text": "Sau khi viết xong bài kệ, Thượng tọa Thần Tú quay về phòng nằm, không hề có ai trông thấy."
+    },
+    {
+     "n": 55,
+     "text": "Sáng hôm sau, Ngũ Tổ gọi Lư họa sư đến để vẽ hình về kinh Lăng Già dưới hàng hiên phía Nam, Ngũ Tổ bỗng trông thấy bài kệ, sau khi đọc xong, bèn nói với Lư họa sư:"
+    },
+    {
+     "n": 56,
+     "text": "\"Hoằng Nhẫn tôi xin tặng ông ba ngàn tiền để đền công lao lặn lội từ xa đến, song tôi quyết định không họa hình nữa."
+    },
+    {
+     "n": 57,
+     "text": "Kinh Kim Cang nói, tất cả những gì có hình tướng đều là hư vọng."
+    },
+    {
+     "n": 58,
+     "text": "Sao bằng để bài kệ này, khiến những kẻ còn mê mờ đọc."
+    },
+    {
+     "n": 59,
+     "text": "Nếu họ theo đó tu hành thì sẽ không bị đọa vào ba con đường ác."
+    },
+    {
+     "n": 60,
+     "text": "Tất cả những người theo đó mà tu hành, đều sẽ được ích lợi lớn\"."
+    },
+    {
+     "n": 61,
+     "text": "Đại sư bèn gọi tất cả các môn nhân đến, thắp hương trước bài kệ."
+    },
+    {
+     "n": 62,
+     "text": "Mọi người vào xem, đều sinh lòng cung kính."
+    },
+    {
+     "n": 63,
+     "text": "Ngũ Tổ nói: \"Các ông ai cũng nên đọc bài kệ này (thì mới có thể kiến tánh được)."
+    },
+    {
+     "n": 64,
+     "text": "Y theo đó mà tu hành thì sẽ không đọa lạc\"."
+    },
+    {
+     "n": 65,
+     "text": "Môn nhân đều đọc, ai cũng sinh lòng cung kính, kêu lên: \"Lành thay!\"."
+    },
+    {
+     "n": 66,
+     "text": "Ngũ Tổ bèn gọi Tú Thượng tọa vào phòng của ngài, hỏi rằng: \"Có phải ông làm bài kệ này không?"
+    },
+    {
+     "n": 67,
+     "text": "Nếu như ông làm, ông đáng đắc pháp của ta\"."
+    },
+    {
+     "n": 68,
+     "text": "Tú Thượng tọa nói: \"Đắc tội với Hòa thượng, quả thực bài kệ là do Thần Tú đây làm."
+    },
+    {
+     "n": 69,
+     "text": "Con không dám cầu làm Tổ, chỉ xin Hòa thượng từ bi, xem coi đệ tử có chút trí tuệ nào để lãnh hội đại ý \"của Phật pháp\" hay không?\"."
+    },
+    {
+     "n": 70,
+     "text": "Ngũ Tổ nói: \"Ông làm bài kệ này, thấy ngay rằng kiến giải chưa đến chỗ rốt ráo."
+    },
+    {
+     "n": 71,
+     "text": "Ông chỉ mới đến trước cửa, chưa vào được bên trong."
+    },
+    {
+     "n": 72,
+     "text": "Phàm phu theo bài kệ này mà tu hành, chắc chắn sẽ không đọa lạc."
+    },
+    {
+     "n": 73,
+     "text": "Chứ bằng vào kiến giải như thế này mà cầu Vô thượng Bồ đề thì chưa có thể được."
+    },
+    {
+     "n": 74,
+     "text": "Ông tạm về phòng tư duy thêm một hai bữa nữa, rồi làm một bài kệ khác trình lên cho tôi."
+    },
+    {
+     "n": 75,
+     "text": "Nếu như ông vào được trong cửa, thấy được bổn tánh, tôi sẽ trao y pháp cho ông\"."
+    },
+    {
+     "n": 76,
+     "text": "Tú Thượng tọa về phòng, song đến mấy hôm sau vẫn không làm được bài kệ nào khác."
+    },
+    {
+     "n": 77,
+     "text": "Có một đồng tử đi qua phòng giã gạo vừa tụng bài kệ kia."
+    },
+    {
+     "n": 78,
+     "text": "Huệ Năng tôi vừa nghe thấy, đã biết ngay rằng người viết bài kệ ấy chưa thấu được đại ý của Phật pháp."
+    },
+    {
+     "n": 79,
+     "text": "Huệ Năng bèn hỏi đồng tử: \"Bài kệ mà vừa rồi chú tụng là dạy gì vậy?\"."
+    },
+    {
+     "n": 80,
+     "text": "Đồng tử đáp: \"Huynh không biết à? Đại sư nói sanh tử là việc lớn, ngài muốn truyền y pháp cho nên mới dạy môn nhân mỗi người làm một bài kệ trình lên cho ngài xem,"
+    },
+    {
+     "n": 81,
+     "text": "người nào ngộ được đại ý của Phật pháp sẽ được trao truyền y pháp và tuyên dương làm Tổ thứ sáu."
+    },
+    {
+     "n": 82,
+     "text": "Có một Thượng tọa tên Thần Tú, viết một bài kệ vô tướng dưới hàng hiên phía Nam, Ngũ Tổ dạy tất cả các môn nhân tụng, người nào thấu triệt được bài kệ này sẽ thấy được tự tánh mình,"
+    },
+    {
+     "n": 83,
+     "text": "người nào y theo đó tu hành sẽ đạt được giải thoát\"."
+    },
+    {
+     "n": 84,
+     "text": "Huệ Năng đáp: \"Tôi ở đây đạp máy giã gạo đã hơn tám tháng trời, chưa bao giờ có dịp ra trước sảnh đường."
+    },
+    {
+     "n": 85,
+     "text": "Xin chú dẫn Huệ Năng đây ra hàng hiên phía Nam để tôi được bái lạy trước bài kệ ấy."
+    },
+    {
+     "n": 86,
+     "text": "Tôi cũng nguyện được trì tụng, mong kết duyên lành trong kiếp sau, ngõ hầu được vãng sanh nơi đất Phật\"."
+    },
+    {
+     "n": 87,
+     "text": "Đồng tử bèn dắt Huệ Năng ra dưới hàng hiên phía Nam."
+    },
+    {
+     "n": 88,
+     "text": "Huệ Năng bèn đảnh lễ bài kệ ấy. Bởi vì không biết chữ, cho nên tôi nhờ một người đọc hộ."
+    },
+    {
+     "n": 89,
+     "text": "Vừa nghe xong, Huệ Năng tôi đã thấu triệt đại ý của bài kệ."
+    },
+    {
+     "n": 90,
+     "text": "Rồi lại nhờ một người biết viết, viết hộ lên vách tường phía Tây, để tôi có cơ hội trình bổn tâm mình."
+    },
+    {
+     "n": 91,
+     "text": "Nếu như không biết bổn tâm, có học pháp cũng vô ích, biết tâm thấy tánh mới giác ngộ được đại ý của Phật pháp. Bài kệ của Huệ Năng tôi như sau:"
+    },
+    {
+     "n": 92,
+     "text": "Bồ đề vốn không cây"
+    },
+    {
+     "n": 93,
+     "text": "Gương sáng cũng không đài"
+    },
+    {
+     "n": 94,
+     "text": "Phật tánh thường thanh tịnh"
+    },
+    {
+     "n": 95,
+     "text": "Chỗ nào để nhuốm bụi?"
+    },
+    {
+     "n": 96,
+     "text": "Lại một bài kệ nữa rằng:"
+    },
+    {
+     "n": 97,
+     "text": "Tâm là cây bồ đề"
+    },
+    {
+     "n": 98,
+     "text": "Thân là đài gương sáng"
+    },
+    {
+     "n": 99,
+     "text": "Gương sáng vốn thanh tịnh"
+    },
+    {
+     "n": 100,
+     "text": "Chỗ nào để nhuốm bụi?"
+    },
+    {
+     "n": 101,
+     "text": "Các đồ chúng trong viện thấy Huệ Năng tôi làm bài kệ ấy đều lấy làm kinh ngạc, trong khi đó tôi lại trở về phòng giã gạo."
+    },
+    {
+     "n": 102,
+     "text": "Ngũ Tổ hốt nhiên thấy Huệ Năng tôi khéo thấu hiểu đại ý của Phật pháp, song sợ chúng nhân biết, ngài bèn nói với họ rằng: \"Bài kệ này cũng vẫn chưa rốt ráo\"."
+    },
+    {
+     "n": 103,
+     "text": "Đến nửa đêm, Ngũ Tổ gọi Huệ Năng vào phòng của ngài và giảng kinh Kim Cang."
+    },
+    {
+     "n": 104,
+     "text": "Vừa nghe qua một lần, tôi đã lập tức giác ngộ và đêm ấy tôi thọ pháp mà không hề có ai hay biết."
+    },
+    {
+     "n": 105,
+     "text": "Ngũ Tổ bèn truyền thọ pháp môn đốn ngộ và y chó tôi."
+    },
+    {
+     "n": 106,
+     "text": "Ngài nói: \"Bây giờ ông là Tổ đời thứ sáu, y này là bằng cớ, phải được truyền từ đời này qua đời khác, pháp này phải truyền từ tâm qua tâm, và mọi người phải tự mình giác ngộ lấy\"."
+    },
+    {
+     "n": 107,
+     "text": "Ngũ Tổ nói: \"Huệ Năng, kể từ xưa việc truyền pháp đã như dây tơ."
+    },
+    {
+     "n": 108,
+     "text": "Nếu ông lưu lại ở đây, chắc chắn sẽ có người ám hại ông. Ông nên đi mau thôi\"."
+    },
+    {
+     "n": 109,
+     "text": "Sau khi đắc pháp rồi, nửa đêm Huệ Năng tôi bèn cấp tốc ra đi."
+    },
+    {
+     "n": 110,
+     "text": "Ngũ Tổ đích thân tiễn Huệ năng tới đến mãi tận trạm Cửu Giang."
+    },
+    {
+     "n": 111,
+     "text": "Tôi giác ngộ lập tức. Ngũ Tổ lại dặn dò: \"Ông phải nỗ lực, đem pháp về phương Nam, trong vòng ba năm không được hoằng pháp, nếu không e sẽ có pháp nạn."
+    },
+    {
+     "n": 112,
+     "text": "Sau đó rồi ông hãy hoằng hóa, khéo dẫn dắt kẻ mê mờ."
+    },
+    {
+     "n": 113,
+     "text": "Nếu như ông khai mở được tâm họ thì họ cũng không khác gì ông\"."
+    },
+    {
+     "n": 114,
+     "text": "Sau khi tạ từ xong, tôi bèn đi về phương Nam."
+    },
+    {
+     "n": 115,
+     "text": "Trong vòng hai tháng, tôi đến Đại Dữu Lãnh, không ngờ rằng sau lưng có hơn hai trăm người theo đuổi, toan ám hại Huệ Năng tôi để đoạt y pháp."
+    },
+    {
+     "n": 116,
+     "text": "Đi được nửa đường lên núi, hầu như tất cả bọn họ đều quay về, chỉ trừ có một ông Tăng họ Trần tên Huệ Minh."
+    },
+    {
+     "n": 117,
+     "text": "Ông ta trước đây vốn là tam phẩm tướng quân, tánh tình hành vi thô lỗ và hung ác."
+    },
+    {
+     "n": 118,
+     "text": "Lúc lên đến đỉnh núi, ông ta bắt kịp tôi và toan xâm phạm tôi."
+    },
+    {
+     "n": 119,
+     "text": "Huệ Năng tôi bèn trao pháp y lại cho ông ta, song ông ta lại không dám nhận, mà lại nói: \"Tôi từ xa lặn lội đến cầu pháp chứ không muốn y này\"."
+    },
+    {
+     "n": 120,
+     "text": "Thế là trên đỉnh núi ấy, Huệ Năng tôi truyền pháp cho Huệ Minh."
+    },
+    {
+     "n": 121,
+     "text": "Huệ Minh nghe pháp, lập tức tâm được khai mở."
+    },
+    {
+     "n": 122,
+     "text": "Huệ Năng tôi bèn khiến ông ta đi về phương Bắc mà khai hóa thiên hạ."
+    },
+    {
+     "n": 123,
+     "text": "Huệ Năng tôi đến nương náu nơi này kể như là có cái nhân từ nhiều kiếp trước với chư vị quan liêu, tăng, tục."
+    },
+    {
+     "n": 124,
+     "text": "Giáo lý mà tôi giảng dạy là do các thánh nhân đời trước truyền lại, không phải do Huệ Năng tôi tự biết."
+    },
+    {
+     "n": 125,
+     "text": "Chư vị nếu muốn nghe giáo lý của các thánh nhân đời trước, mỗi người phải thanh tịnh tâm mình."
+    },
+    {
+     "n": 126,
+     "text": "Sau khi nghe xong, phải nguyện tự trừ bỏ sự mê mờ của mình, như thế chư vị cũng sẽ chẳng khác gì với các thánh nhân thuở trước\". Sau đây là giáo pháp."
+    },
+    {
+     "n": 127,
+     "text": "Đại sư Huệ Năng gọi: \"Này các thiện tri thức, thế nhân ai nấy đều vốn sở hữu Bồ đề và trí Bát nhã, chỉ bởi vì tâm bị mê mờ mà họ không thể tự giác ngộ lấy được,"
+    },
+    {
+     "n": 128,
+     "text": "cho nên mới cần phải cầu bậc Đại thiện tri thức để chỉ đạo cho họ pháp kiến tánh."
+    },
+    {
+     "n": 129,
+     "text": "Các thiện tri thức, gặp được giác ngộ tức là thành tựu được Phật trí."
+    },
+    {
+     "n": 130,
+     "text": "Này các thiện tri thức, pháp môn này của tôi, lấy định tuệ làm căn bản."
+    },
+    {
+     "n": 131,
+     "text": "Dù bất cứ trong mọi hoàn cảnh nào thì, tuyệt đối không nên bao giờ được mê mờ nói rằng định và tuệ là khác biệt."
+    },
+    {
+     "n": 132,
+     "text": "Định tuệ là một thể chứ không phải là hai."
+    },
+    {
+     "n": 133,
+     "text": "Định chính là thể của tuệ, tuệ chính là dụng của định."
+    },
+    {
+     "n": 134,
+     "text": "Lúc có tuệ thì định hiện hữu trong tuệ, lúc có định thì tuệ hiện hữu trong định."
+    },
+    {
+     "n": 135,
+     "text": "Các thiện tri thức, như thế có nghĩa là định và tuệ bình đẳng."
+    },
+    {
+     "n": 136,
+     "text": "Các người học đạo cần phải lưu ý, đừng bao giờ nói rằng định có trước rồi mới phát sinh ra tuệ, hoặc tuệ có trước rồi mới phát sinh ra định, hoặc định tuệ khác nhau."
+    },
+    {
+     "n": 137,
+     "text": "Chấp thứ kiến giải này hàm ngụ pháp có hai tướng, miệng nói thiện, tâm không thiện, định tuệ sẽ không bình đẳng."
+    },
+    {
+     "n": 138,
+     "text": "Nếu tâm và khẩu đều thiện, nội ngoại là một, định và tuệ lập tức bình đẳng."
+    },
+    {
+     "n": 139,
+     "text": "Pháp tu tự ngộ không cốt ở chỗ tranh biện ngoài miệng."
+    },
+    {
+     "n": 140,
+     "text": "Nếu lo tranh biện rằng định tuệ cái nào trước cái nào sau, lập tức chư vị trở thành những kẻ mê mờ, rốt cuộc khó mà phán đoán thắng phụ, lại đâm ra chấp trước vào Pháp và Ngã, không giải thoát khỏi bốn tướng sanh, lão,"
+    },
+    {
+     "n": 141,
+     "text": "bệnh, tử được."
+    },
+    {
+     "n": 142,
+     "text": "\"Nhất hạnh tam muội\" tức là cái chơn tâm thường hằng trong tất cả mọi thời cũng như mọi hành vi đi, đứng, nằm, ngồi."
+    },
+    {
+     "n": 143,
+     "text": "Kinh Tịnh Danh nói: \"Chơn tâm là đạo tràng, chơn tâm là Tịnh độ\"."
+    },
+    {
+     "n": 144,
+     "text": "Đừng bao giờ trong tâm xảo trá mà ngoài miệng lại nói về cái ngay chính của pháp."
+    },
+    {
+     "n": 145,
+     "text": "Miệng nói nhất hạnh tam muội mà không thực hành chơn tâm, kẻ ấy chẳng phải là đệ tử của Phật."
+    },
+    {
+     "n": 146,
+     "text": "Chỉ cần thực hành chơn tâm, không chấp trước bất cứ pháp nào, đó gọi là nhất hạnh tam muội."
+    },
+    {
+     "n": 147,
+     "text": "Người mê nệ vào các tướng của pháp, chấp trước nhất hạnh tam muội, cho rằng chơn tâm có nghĩa là ngồi bất động, trừ vọng tưởng không để cho bất cứ gì khởi lên trong tâm, cho đó tức là nhất hạnh tam muội."
+    },
+    {
+     "n": 148,
+     "text": "Nếu như thế thì pháp này cũng giống hệt như vô tình, đó là nguyên nhân chính chướng ngại sự đạt đạo."
+    },
+    {
+     "n": 149,
+     "text": "Đạo phải là một cái gì thông suốt lưu chuyển, làm sao có thể trệ ngại được."
+    },
+    {
+     "n": 150,
+     "text": "Nếu tâm không đình trệ nơi pháp, đạo lập tức thông suốt lưu chuyển; nếu tâm đình trệ nơi pháp, thì đó gọi là tự trói buộc."
+    },
+    {
+     "n": 151,
+     "text": "Nếu ngồi bất động là đúng, Duy Ma Cật đã chẳng có lý do để quở Xá Lợi Phất mãi ngồi bất động trong rừng."
+    },
+    {
+     "n": 152,
+     "text": "Này các thiện tri thức, có nhiều người dạy người khác ngồi yên mà quán tâm quán tịnh, không động đậy không khởi \"tâm\", và họ dồn nỗ lực vào việc đó."
+    },
+    {
+     "n": 153,
+     "text": "Kẻ mê mờ không giác ngộ, bèn chấp vào đó mà thành điên đảo, hạng người như thế có đến hàng trăm."
+    },
+    {
+     "n": 154,
+     "text": "Những ai dạy người khác pháp tu như thế, thực là sai lầm vô cùng."
+    },
+    {
+     "n": 155,
+     "text": "Này các thiện tri thức, do đâu mà được định tuệ bình đẳng, như thể ngọn đèn và ánh sáng mà đèn tỏa ra."
+    },
+    {
+     "n": 156,
+     "text": "Có đèn thì có ánh sáng. Không có đèn thì không có ánh sáng."
+    },
+    {
+     "n": 157,
+     "text": "Đèn là thể của ánh sáng, ánh sáng là dụng của đèn."
+    },
+    {
+     "n": 158,
+     "text": "Tên tuy có hai, thể đâu có phải là hai. Pháp định tuệ này cũng y như thế."
+    },
+    {
+     "n": 159,
+     "text": "Này các thiện tri thức, pháp vốn không có đốn tiệm, song người có thông minh và chậm lụt."
+    },
+    {
+     "n": 160,
+     "text": "Với kẻ mê thì nên khuyến tu tiệm pháp, người ngộ mới nên tu đốn pháp."
+    },
+    {
+     "n": 161,
+     "text": "Biết được bổn tâm tức là thấy bổn tánh. Khi ngộ lập tức sẽ nhận ra được rằng hai pháp đốn tiệm này vốn không sai biệt, nếu không ngộ thì sẽ mãi mãi trôi lăn trong luân hồi."
+    },
+    {
+     "n": 162,
+     "text": "Này các thiện tri thức, pháp môn này của tôi, từ xưa đến nay, (đốn tiệm gì) cũng đều lấy vô niệm làm tông, vô tướng làm thể, vô trụ làm bổn."
+    },
+    {
+     "n": 163,
+     "text": "Vô tướng có nghĩa là ở trong tướng mà vẫn ly tướng."
+    },
+    {
+     "n": 164,
+     "text": "Vô niệm có nghĩa là ở trong niệm mà không niệm. Vô trụ tức là bổn tánh của con người."
+    },
+    {
+     "n": 165,
+     "text": "Niệm niệm không dừng, tiền niệm, kim niệm và hậu niệm, niệm niệm tương tục, không có đứt đoạn."
+    },
+    {
+     "n": 166,
+     "text": "Nếu như có một niệm dứt đoạn, Pháp thân lập tức ly Sắc thân, trong sự tương tục của các niệm, không có sự đình trệ nơi bất cứ pháp nào cả."
+    },
+    {
+     "n": 167,
+     "text": "Nếu một niệm đình trệ, lập tức các niệm liên tục đều đình trệ, đó gọi là hệ phược."
+    },
+    {
+     "n": 168,
+     "text": "Nếu như trong các niệm liên tục không đình trệ vào bất cứ pháp nào, đó là không bị hệ phược."
+    },
+    {
+     "n": 169,
+     "text": "Đó gọi là lấy vô trụ làm bổn. Này các thiện tri thức, bên ngoài lìa tất cả các tướng là vô tướng."
+    },
+    {
+     "n": 170,
+     "text": "Chỉ cần lìa được các tướng, tánh thể tự nhiên thanh tịnh, cho nên mới lấy vô tướng làm thể."
+    },
+    {
+     "n": 171,
+     "text": "Không nhiễm nơi bất cứ cảnh nào, gọi là vô niệm."
+    },
+    {
+     "n": 172,
+     "text": "Lìa cảnh ngay chính nơi niệm của mình, thì niệm sẽ lập tức không sinh nơi pháp."
+    },
+    {
+     "n": 173,
+     "text": "Nếu như mình không suy tư về các sự vật và trừ khử được tất cả các niệm, lúc một niệm vừa dứt đoạn thì lập tức mình sẽ thọ sinh nơi chốn khác."
+    },
+    {
+     "n": 174,
+     "text": "Các người học đạo phải thận trọng, chớ nên dựa vào ngoại pháp hay tự ý của mình."
+    },
+    {
+     "n": 175,
+     "text": "Tự mình lầm lẫn còn không đến nỗi nào, chứ còn khuyên người khác lầm lẫn thì tệ hại biết bao."
+    },
+    {
+     "n": 176,
+     "text": "Kẻ mê đã không tự thấy được là mình mê lại còn bài báng kinh pháp."
+    },
+    {
+     "n": 177,
+     "text": "Do đó mới lập vô niệm làm tông. Bởi vì mê mờ mà con người khởi niệm nơi cảnh, rồi thì tà kiến lại do nơi niệm mà khởi."
+    },
+    {
+     "n": 178,
+     "text": "Tất cả các trần lao vọng niệm do nơi đó mà sinh."
+    },
+    {
+     "n": 179,
+     "text": "Do đó giáo môn này mới lập vô niệm làm tông."
+    },
+    {
+     "n": 180,
+     "text": "Này các thế nhân, hãy xa lìa các kiến chấp và đừng sinh khởi vọng niệm."
+    },
+    {
+     "n": 181,
+     "text": "Nếu như không có niệm, vô niệm cũng chẳng thể thành lập được."
+    },
+    {
+     "n": 182,
+     "text": "\"Vô\" là \"vô\" cái gì? \"Niệm\" là \"niệm\" vật gì?"
+    },
+    {
+     "n": 183,
+     "text": "\"Vô\" là lìa xa nhị tướng khởi trần lao. \"Niệm\" là niệm chơn như bổn tánh."
+    },
+    {
+     "n": 184,
+     "text": "Chơn như là thể của niệm, niệm là dụng của chơn như."
+    },
+    {
+     "n": 185,
+     "text": "Nếu khởi niệm từ tự tánh, thì tuy có kiến, văn, giác, tri, cũng vẫn chẳng hề bị vạn cảnh nhiễm mà vẫn luôn luôn tự tại."
+    },
+    {
+     "n": 186,
+     "text": "Kinh Duy Ma Cật nói: \"Bên ngoài tuy khéo phân biệt các pháp tướng, bên trong vẫn bất động nơi Đệ nhất nghĩa đế\"."
+    },
+    {
+     "n": 187,
+     "text": "Này các thiện tri thức, trong pháp môn này, tọa thiền vốn không chấp trước tâm, không chấp trước tịnh, mà cũng chẳng nói đến bất động."
+    },
+    {
+     "n": 188,
+     "text": "Nếu có người bảo là quán tâm, thì tâm vốn là vọng, và bởi vì vọng cũng giống như huyễn, đâu có đối tượng để mà quán."
+    },
+    {
+     "n": 189,
+     "text": "Nếu nói là quán tịnh, thì bổn tánh con người vốn tịnh, chỉ bởi vì vọng niệm che phủ chơn như."
+    },
+    {
+     "n": 190,
+     "text": "Chỉ cần lìa vọng niệm, bổn tánh tự nhiên thanh tịnh."
+    },
+    {
+     "n": 191,
+     "text": "Không thấy được rằng tự tánh vốn thanh tịnh, tâm khởi ý niệm quán tịnh, là đâm ra khiến vọng niệm về tịnh sanh."
+    },
+    {
+     "n": 192,
+     "text": "Vọng vốn không nơi chốn, cho nên phải biết rằng những gì mình quán thấy chỉ là hư vọng mà thôi."
+    },
+    {
+     "n": 193,
+     "text": "Tịnh vốn vô hình tướng, song có người lại vẫn giả lập tịnh tướng, rồi gọi đó là công phu \"tu tập Thiền\"."
+    },
+    {
+     "n": 194,
+     "text": "Những người mang kiến chấp này tự che mờ bổn tánh mình, rồi rốt cuộc lại bị trói buộc bởi cái vọng niệm về tịnh."
+    },
+    {
+     "n": 195,
+     "text": "Người tu pháp bất động, không thấy lỗi lầm của người khác, đó là cái bất động của tự tánh."
+    },
+    {
+     "n": 196,
+     "text": "Kẻ mê tuy tự thân hắn bất động, song thoắt mở miệng là chỉ nói đến thị phi của người khác, do đó đi ngược lại đạo."
+    },
+    {
+     "n": 197,
+     "text": "Quán tâm quán tịnh, chính là cái nguyên do che chướng đạo."
+    },
+    {
+     "n": 198,
+     "text": "Này các ông, đã hiểu như vậy rồi, thì trong pháp môn này, gọi là \"tọa thiền\" có nghĩa là gì?"
+    },
+    {
+     "n": 199,
+     "text": "Trong pháp môn này, \"tọa\" có nghĩa là khắp nơi vô ngại, bên ngoài không khởi niệm nơi bất cứ cảnh giới nào; \"thiền\" có nghĩa là \"bên trong\" thấy được bổn tánh và không bị loạn động."
+    },
+    {
+     "n": 200,
+     "text": "Gọi là \"Thiền định\" có nghĩa là gì? Bên ngoài xa lìa các tướng gọi là \"thiền\", bên trong không loạn gọi là \"định\"."
+    },
+    {
+     "n": 201,
+     "text": "Bên ngoài nếu như tuy có tướng, song bên trong bổn tính vẫn không loạn, thì đó là cái tự tịnh tự định bổn nguyên."
+    },
+    {
+     "n": 202,
+     "text": "Chính sự liên hệ với ngoại cảnh gây nên loạn tâm."
+    },
+    {
+     "n": 203,
+     "text": "Do đó bên ngoài xa lìa các tướng tức là \"thiền\", bên trong không loạn tức là \"định\"."
+    },
+    {
+     "n": 204,
+     "text": "Ngoại thiền nội định, cho nên gọi là Thiền định."
+    },
+    {
+     "n": 205,
+     "text": "Kinh Duy Ma Cật nói: \"Lập tức, hoát nhiên, đạt lại được bổn tâm\"."
+    },
+    {
+     "n": 206,
+     "text": "Bồ Tát Giới nói: \"Tự tánh vốn bổn nguyên thanh tịnh\"."
+    },
+    {
+     "n": 207,
+     "text": "Này các thiện tri thức, hãy tự thấy rằng tự tánh mình vốn thanh tịnh, tự tu tập tự thành tựu."
+    },
+    {
+     "n": 208,
+     "text": "Tự tánh của mình chính là Pháp thân, sự tu hành của mình chính là sự tu hành để thành Phật."
+    },
+    {
+     "n": 209,
+     "text": "Tự thành tựu chính là sự tự thành Phật đạo cho chính mình."
+    },
+    {
+     "n": 210,
+     "text": "Này các thiện tri thức, phải nên bằng tự thể của mình mà thọ vô tướng giới này, và đồng thời niệm những lời Huệ Năng tôi sắp nói."
+    },
+    {
+     "n": 211,
+     "text": "Như thế sẽ giúp cho các thiện tri thức thấy được tam thân Phật trong chính mình."
+    },
+    {
+     "n": 212,
+     "text": "\"Tôi xin quy y thanh tịnh Pháp thân Phật trong sắc thân của chính mình; tôi xin quy y trăm, ngàn, ức Hóa thân Phật trong sắc thân của chính mình;"
+    },
+    {
+     "n": 213,
+     "text": "tôi xin quy y viên mãn Báo thân Phật của tương lai trong chính sắc thân mình\" (tụng những lời trên ba lần)."
+    },
+    {
+     "n": 214,
+     "text": "Sắc thân chính là nhà của mình, nên không thể nói quay về."
+    },
+    {
+     "n": 215,
+     "text": "Tam thân mà tôi vừa đề cập đến ở ngay trong tự tánh của chư vị."
+    },
+    {
+     "n": 216,
+     "text": "Người đời ai cũng sở hữu (tam thân ấy), chỉ vì mê mờ mà không nhìn thấy, cho nên mới hướng ra ngoài mà tìm tam thân của Như Lai, không thấy được rằng tam thân Phật hiện hữu ngay trong sắc thân của chính mình."
+    },
+    {
+     "n": 217,
+     "text": "Này các thiện tri thức, lắng nghe! Tôi sẽ chỉ cho chư vị thấy rằng trong chính sắc thân mình có hiện hữu tam thân Phật của tự tánh mình."
+    },
+    {
+     "n": 218,
+     "text": "Tam thân của Phật này phát sinh từ tánh của chư vị."
+    },
+    {
+     "n": 219,
+     "text": "Thanh tịnh Pháp thân Phật là gì? Này các thiện tri thức, thế nhân bổn tính vốn tự thanh tịnh, vạn pháp vốn hiện hữu trong tự tánh họ."
+    },
+    {
+     "n": 220,
+     "text": "Nếu người ta tư lương về tất cả việc ác ắt sẽ thực hành việc ác."
+    },
+    {
+     "n": 221,
+     "text": "Nếu người ta tư lương về tất cả các việc thiện, ắt sẽ tu các thiện hạnh."
+    },
+    {
+     "n": 222,
+     "text": "Do đó, chúng ta biết rằng tất cả các pháp đều hiện hữu trong tự tánh, mà tự tánh lại thường thanh tịnh."
+    },
+    {
+     "n": 223,
+     "text": "Cũng như mặt trời và mặt trăng thường sáng rỡ song nếu bị mây che phủ, thì dù ở trên sáng rỡ, ở dưới lại tối ám, cho nên không trông thấy rõ được mặt trời, mặt trăng, tinh tú."
+    },
+    {
+     "n": 224,
+     "text": "Song nếu hốt nhiên gặp được ngọn gió trí tuệ thổi đến cuốn hết mây mù, sâm la vạn tượng lập tức hiển hiện."
+    },
+    {
+     "n": 225,
+     "text": "Bản tánh thanh tịnh của con người cũng như bầu trời quang tịnh, tuệ cũng như mặt trời, trí giống như mặt trăng."
+    },
+    {
+     "n": 226,
+     "text": "Mặc dù trí tuệ thường sáng rỡ, song nếu mình chấp trước ngoại cảnh, vọng niệm và mây nổi lập tức che phủ, tự tánh không thể chiếu sáng được nữa."
+    },
+    {
+     "n": 227,
+     "text": "Cho nên nếu gặp được bậc thiện tri thức thổi tan hết mê vọng, trong ngoài lập tức trong sáng thấu suốt, vạn pháp đều xuất hiện trong tự tánh mình, bởi vì tất cả các pháp đều hiện hữu trong tự tánh."
+    },
+    {
+     "n": 228,
+     "text": "Đây gọi là thanh tịnh Pháp thân Phật, tự quy y có nghĩa là trừ hết các hành vi bất thiện, đó gọi là quy y."
+    },
+    {
+     "n": 229,
+     "text": "Trăm ngàn ức Hóa thân Phật có nghĩa là gì?"
+    },
+    {
+     "n": 230,
+     "text": "Khi không tư lương, thì tự tánh không tịch, tư lương ắt tự mình biến hóa."
+    },
+    {
+     "n": 231,
+     "text": "Tư lương ác pháp thì hóa ra địa ngục, tư lương thiện pháp thì hóa ra thiên đường."
+    },
+    {
+     "n": 232,
+     "text": "Tư lương việc độc hại thì biến thành súc sinh, tư lương từ bi thì biến thành Bồ tát."
+    },
+    {
+     "n": 233,
+     "text": "Tư lương về trí tuệ thì hóa sinh trên thượng giới, tư lương ngu si thì sẽ hóa sinh nơi hạ giới."
+    },
+    {
+     "n": 234,
+     "text": "Tự tánh biến hóa nhiều vô cùng, song kẻ mê mờ không ý thức và thấy được như thế."
+    },
+    {
+     "n": 235,
+     "text": "Các niệm liên tục khởi ác, thường hành ác đạo, song chỉ cần một niệm thiện hồi chuyển, trí tuệ lập tức sanh."
+    },
+    {
+     "n": 236,
+     "text": "Đây gọi là tự tánh Hóa thân Phật. Viên mãn Báo thân Phật là gì?"
+    },
+    {
+     "n": 237,
+     "text": "Cũng như một ngọn đèn có thể trừ được một ngàn năm bóng tối, thì một ánh sáng của tuệ cũng có thể diệt được một vạn năm ngu si."
+    },
+    {
+     "n": 238,
+     "text": "Đừng nghĩ về dĩ vãng, hãy thường nghĩ đến tương lai, nếu các niệm trong tương lai của mình luôn luôn thiện, mình có thể được gọi là Báo thân Phật."
+    },
+    {
+     "n": 239,
+     "text": "Một niệm ác có thể gây ra sự hủy diệt hàng ngàn năm thiện, một niệm thiện có thể đền bù cho hàng ngàn năm ác hại."
+    },
+    {
+     "n": 240,
+     "text": "Từ vô thủy cho đến nay, nếu các niệm tương lai luôn luôn thiện, thì đó gọi là Báo thân Phật."
+    },
+    {
+     "n": 241,
+     "text": "Tư lương từ quan điểm Pháp thân Phật thì đây chính là Hóa thân Phật."
+    },
+    {
+     "n": 242,
+     "text": "Nếu các niệm liên tục đều thiện, thì đó chính là Báo thân Phật."
+    },
+    {
+     "n": 243,
+     "text": "Tự ngộ tự tu gọi là quy y vậy. Da thịt là sắc thân, sắc thân là nhà. Chẳng nói quy y."
+    },
+    {
+     "n": 244,
+     "text": "Chỉ cần giác ngộ được tam thân, ắt hiểu được đại ý của Phật pháp."
+    },
+    {
+     "n": 245,
+     "text": "Giờ đây các thiện tri thức đã quy y tam thân rồi, tôi xin cùng chư vị phát bốn đại nguyện."
+    },
+    {
+     "n": 246,
+     "text": "Xin các thiện tri thức tụng theo Huệ Năng: \"Chúng sanh vô biên thệ nguyện độ, Phiền não vô biên thệ nguyện đoạn, Pháp môn vô biên thệ nguyện học, Vô thượng Phật đạo thệ nguyện thành\" (tụng ba lần)."
+    },
+    {
+     "n": 247,
+     "text": "Này các thiện tri thức, \"Chúng sanh vô biên thệ nguyện độ\" không có nghĩa là Huệ Năng độ các thiện tri thức, mà có nghĩa là (trong tâm) các chúng sanh, mọi người nơi tự tánh mình phải độ chính mình."
+    },
+    {
+     "n": 248,
+     "text": "\"Tự độ mình nơi tự tánh mình\" có nghĩa là gì?"
+    },
+    {
+     "n": 249,
+     "text": "Dù rằng trong sắc thân của mình có đủ cả tà kiến, phiền não, ngu si, mê vọng, song ai cũng vốn sở hữu bổn giác tánh, và với chánh kiến mình có thể được giải thoát."
+    },
+    {
+     "n": 250,
+     "text": "Nếu ngộ được chánh kiến, trí Bát nhã sẽ trừ hết ngu si mê vọng, lúc ấy chúng sanh mỗi người sẽ tự độ chính mình."
+    },
+    {
+     "n": 251,
+     "text": "Nếu tà kiến đến, bằng chánh kiến mình sẽ được độ; nếu mê đến, bằng trí mình sẽ được độ; nếu ác đến, bằng thiện mình sẽ được độ; nếu phiền não đến, bằng Bồ đề mình sẽ được độ. Độ bằng cách này, gọi là chơn độ."
+    },
+    {
+     "n": 252,
+     "text": "\"Phiền não vô biên thệ nguyện đoạn\" nghĩa là trừ hư vọng bằng tự tâm mình."
+    },
+    {
+     "n": 253,
+     "text": "\"Pháp môn vô biên thệ nguyện học\" có nghĩa là học vô thượng chánh pháp."
+    },
+    {
+     "n": 254,
+     "text": "\"Vô thượng Phật đạo thệ nguyện thành\" là luôn luôn hành động khiêm tốn, cung kính đối với tất cả, xa lìa mê chấp, giác tri Bát nhã."
+    },
+    {
+     "n": 255,
+     "text": "Khi trừ hết mê vọng rồi, tức là tự ngộ thành Phật đạo và thực hành thệ nguyện lực."
+    },
+    {
+     "n": 256,
+     "text": "Nay sau khi đã phát xong bốn đại nguyện rồi, tôi xin truyền pháp vô tướng sám hối cho các thiện tri thức để diệt tội chướng ba đời\"."
+    },
+    {
+     "n": 257,
+     "text": "Đại sư nói: \"Này các thiện tri thức, nếu nơi niệm trước, niệm sau và niệm hiện tại, các niệm liên tục không bị ngu si nhiễm, và nếu như lập tức diệt trừ bằng tự tánh mình những hành vi ác trước kia thì đó tức là sám hối."
+    },
+    {
+     "n": 258,
+     "text": "Nếu nơi niệm trước, niệm sau và niệm hiện tại, các niệm liên tục không bị ngu si nhiễm, diệt trừ mãi mãi được hết các tâm niệm kiêu ngạo trước đây, thì đó gọi là tự tánh sám hối."
+    },
+    {
+     "n": 259,
+     "text": "Nếu nơi niệm trước, niệm sau, niệm hiện tại, các niệm liên tục không bị tị nạnh nhiễm, trừ được hết tâm tị nạnh bằng tự tánh mình thì đó chính là sám hối (tụng ba lần)."
+    },
+    {
+     "n": 260,
+     "text": "Này các thiện tri thức, sám hối có nghĩa là gì?"
+    },
+    {
+     "n": 261,
+     "text": "\"Sám\" có nghĩa là cả đời không làm ác, \"hối\" có nghĩa là biết các ác nghiệp dĩ vãng và luôn luôn không quên điều ấy."
+    },
+    {
+     "n": 262,
+     "text": "Nói miệng \"sám hối\" trước mặt chư Phật cũng vô ích mà thôi."
+    },
+    {
+     "n": 263,
+     "text": "Trong pháp môn của tôi, mãi mãi không bao giờ làm ác đó mới gọi là sám hối."
+    },
+    {
+     "n": 264,
+     "text": "Nay sau khi đã sám hối hết rồi, tôi xin truyền thọ các thiện tri thức vô tướng Tam quy y giới\"."
+    },
+    {
+     "n": 265,
+     "text": "Đại sư nói: \"Này các thiện tri thức, quy y Đấng Giác ngộ, Lưỡng túc tôn; quy y sự thật (Pháp) cao thượng giải thoát con người khỏi tham dục; quy y Tăng tịnh, tôn quý nhất trong chúng sanh."
+    },
+    {
+     "n": 266,
+     "text": "Từ rày trở đi, chư vị phải coi Phật là Thầy và không được quy y tà mê ngoại đạo."
+    },
+    {
+     "n": 267,
+     "text": "Xin thắp sáng bằng lòng từ bi Tam bảo của tự tánh chư vị."
+    },
+    {
+     "n": 268,
+     "text": "Này các thiện tri thức, Huệ Năng tôi xin khuyên chư vị hãy quy y Tam bảo nơi tự tánh của mình."
+    },
+    {
+     "n": 269,
+     "text": "Phật là giác ngộ, Pháp là chơn lý, Tăng là thanh tịnh."
+    },
+    {
+     "n": 270,
+     "text": "Tự tâm quy y giác, tà mê không sanh, thiểu dục tri túc, xa lìa tài sắc, cho nên Phật mới được gọi là Lưỡng túc tôn."
+    },
+    {
+     "n": 271,
+     "text": "Tự tâm quy y chơn lý (Pháp), bởi vìi các niệm liên tục không sanh khởi tà tâm, cho nên không có ái trước, bởi vì không có ái trước, Pháp mới được gọi là giáo lý tôn quý nhất giải thoát người ta khỏi tham dục."
+    },
+    {
+     "n": 272,
+     "text": "Tự tâm quy y tịnh Tăng, thì tuy rằng tất cả trần lao vọng niệm có trong tự tánh mình, tự tánh vẫn chẳng hề bị nhiễm trước, cho nên Tăng mới được gọi là tôn quý nhất trong chúng sanh."
+    },
+    {
+     "n": 273,
+     "text": "Phàm phu không hiểu và hết ngày này qua ngày khác thọ Tam quy y giới."
+    },
+    {
+     "n": 274,
+     "text": "Nếu bảo là quy y Phật, thì Phật ở đâu? Nếu như không thấy Phật, thì đâu có đối tượng để quy y."
+    },
+    {
+     "n": 275,
+     "text": "Nếu đã không có đối tượng quy y, thì những gì người ấy nói đều là hư vọng."
+    },
+    {
+     "n": 276,
+     "text": "Này các thiện tri thức, mỗi người phải tự quan sát, đừng có dụng ý một cách sai lầm."
+    },
+    {
+     "n": 277,
+     "text": "Trong kinh chỉ dạy quy y Phật nơi chính mình chứ không nói quy y Phật nào khác."
+    },
+    {
+     "n": 278,
+     "text": "Nếu không quy y tự tánh, thì đâu có chỗ nào để quy y."
+    },
+    {
+     "n": 279,
+     "text": "Nay chư vị đều đã thành tâm quy Tam bảo, tôi xin giảng pháp Bát nhã Ba la mật cho chư vị."
+    },
+    {
+     "n": 280,
+     "text": "Này các thiện tri thức, chư vị chỉ tụng niệm mà không hiểu, cho nên Huệ Năng xin giải thích, mọi người hãy lắng nghe!"
+    },
+    {
+     "n": 281,
+     "text": "Bát nhã Ba la mật là chữ Phạn Ấn Độ, tiếng Trung Hoa có nghĩa là trí tuệ đưa người ta qua bờ bên kia."
+    },
+    {
+     "n": 282,
+     "text": "Pháp này cần phải tu hành, không chỉ niệm ở nơi miệng."
+    },
+    {
+     "n": 283,
+     "text": "Nếu chỉ niệm suông mà không tu hành, thì nó chỉ như huyễn như hóa mà thôi."
+    },
+    {
+     "n": 284,
+     "text": "Pháp thân của người tu hành bình đẳng với Phật."
+    },
+    {
+     "n": 285,
+     "text": "\"Ma ha\" là gì? \"Ma ha\" có nghĩa là lớn. Tâm lượng quảng đại, giống như hư không."
+    },
+    {
+     "n": 286,
+     "text": "Đừng ngồi với tâm trống không, vì như thế sẽ rơi vào vô ký không."
+    },
+    {
+     "n": 287,
+     "text": "Hư không có thể hàm chứa nhật nguyệt tinh tú, đại địa sơn hà, tất cả cây cỏ, người ác người thiện, ác pháp thiện pháp, thiên đường địa ngục, tất cả đều ở trong hư không cả."
+    },
+    {
+     "n": 288,
+     "text": "Tánh không của con người cũng y như thế."
+    },
+    {
+     "n": 289,
+     "text": "Tự tánh có thể hàm chứa được vạn pháp - đó là lớn (đại)."
+    },
+    {
+     "n": 290,
+     "text": "Vạn pháp đều là tự tánh. Vạn pháp đều là tự tánh."
+    },
+    {
+     "n": 291,
+     "text": "Tuy rằng chúng ta thấy tất cả người và những chúng sanh không phải là người, ác và thiện, ác pháp và thiện pháp, chúng ta không được xả bỏ mà cũng không được chấp trước, mà chỉ nên quan sát tất cả như hư không."
+    },
+    {
+     "n": 292,
+     "text": "Đó gọi là \"đại\" (lớn). Đây là phép tu Ma ha."
+    },
+    {
+     "n": 293,
+     "text": "Kẻ mê chỉ niệm ngoài miệng, người trí tu tập trong tâm."
+    },
+    {
+     "n": 294,
+     "text": "Lại có những kẻ mê, trống không tâm mình không suy nghĩ, rồi gọi đó là \"đại\"."
+    },
+    {
+     "n": 295,
+     "text": "Như thế cũng không đúng. Tâm lượng vốn quảng đại, song nếu thiếu thực hành nó lại trở thành nhỏ."
+    },
+    {
+     "n": 296,
+     "text": "Đừng có nói suông không ngoài miệng mà không chịu tu hành."
+    },
+    {
+     "n": 297,
+     "text": "Những người như vậy không phải là đệ tử của tôi."
+    },
+    {
+     "n": 298,
+     "text": "\"Bát nhã\" là gì? \"Bát nhã\" là trí tuệ. Khi mà trong mọi thời, niệm niệm liên tục không ngu độn, luôn luôn tu hành trí tuệ, đó gọi là Bát nhã hành."
+    },
+    {
+     "n": 299,
+     "text": "Một niệm ngu là Bát nhã đứt đoạn, một niệm trí là Bát nhã phát sanh. (Trong tâm luôn có vô minh)."
+    },
+    {
+     "n": 300,
+     "text": "Thiên hạ thường tự nói: \"Tôi tu Bát nhã\" song Bát nhã vốn vô hình tướng, đó chính là tánh của trí tuệ."
+    },
+    {
+     "n": 301,
+     "text": "\"Ba la mật\" là gì? Đó là phiên âm của chữ Phạn Ấn Độ, có nghĩa là đến bờ bên kia."
+    },
+    {
+     "n": 302,
+     "text": "Nếu chư vị hiểu nghĩa này lập tức xa lìa sanh diệt, nếu chấp trước vào cảnh, sanh diệt lập tức khởi."
+    },
+    {
+     "n": 303,
+     "text": "Thí dụ sóng khởi trên nước - đó là những gì xảy ra ở bờ bên này."
+    },
+    {
+     "n": 304,
+     "text": "Xa lìa cảnh và đoạn sanh diệt, giống như xuôi theo dòng nước lớn."
+    },
+    {
+     "n": 305,
+     "text": "Do đó mới gọi là đến bờ bên kia, hay \"Ba la mật\"."
+    },
+    {
+     "n": 306,
+     "text": "Kẻ mê niệm ngoài miệng, người trí tu hành trong tâm."
+    },
+    {
+     "n": 307,
+     "text": "Nếu lúc chư vị niệm có vọng tưởng sanh khởi trong tâm, ngay cái vọng tưởng ấy cũng không phải là thật có."
+    },
+    {
+     "n": 308,
+     "text": "Nếu như chư vị tu hành từng niệm niệm liên tục, đó mới gọi là chơn hữu."
+    },
+    {
+     "n": 309,
+     "text": "Ai ngộ được pháp này, tức là ngộ pháp Bát nhã, tu Bát nhã hành."
+    },
+    {
+     "n": 310,
+     "text": "Không tu là phàm phu, chỉ cần một niệm tu hành thôi, Pháp thân của mình bình đẳng với Phật."
+    },
+    {
+     "n": 311,
+     "text": "Thiện tri thức, chính phiền não là Bồ đề."
+    },
+    {
+     "n": 312,
+     "text": "Khi tâm tưởng quá khứ bị mê thì đó là phàm phu, khi niệm tưởng tương lai được giác ngộ, đó là Phật."
+    },
+    {
+     "n": 313,
+     "text": "Này các thiện tri thức, Ma ha Bát nhã Ba la mật đa là tối tôn, tối thượng, đệ nhất, không trụ, không đi, không đến."
+    },
+    {
+     "n": 314,
+     "text": "Chư Phật ba đời đều từ đó mà ra. Bằng đại trí tuệ, chúng ta đến được bờ bên kia và đủ phá vỡ được phiền não và trần lao của ngũ ấm."
+    },
+    {
+     "n": 315,
+     "text": "Bởi vì Bát nhã Ba la mật đa là tối tôn, tối thượng, đệ nhất, nếu như chư vị tán thán pháp tối thượng thừa này và tu hành theo đó, nhất định sẽ thành Phật."
+    },
+    {
+     "n": 316,
+     "text": "Không đi, không trụ, không lai vãng, với sự bình đẳng giữa định và tuệ, không nhiễm bởi bất cứ pháp nào, chư Phật ba đời phát xuất từ đó và biến tam độc thành giới, định, tuệ."
+    },
+    {
+     "n": 317,
+     "text": "Này các thiện tri thức, pháp môn này của tôi phát xuất từ tám vạn bốn ngàn trí tuệ."
+    },
+    {
+     "n": 318,
+     "text": "Tại sao vậy? Bởi vì thế gian này có tám vạn bốn ngàn trần lao, nếu không trần lao thì Bát nhã vẫn luôn luôn thường trụ, không hề lìa khỏi tự tánh."
+    },
+    {
+     "n": 319,
+     "text": "Nếu chư vị ngộ được pháp này, chư vị sẽ không có niệm, không ký ức, không chấp trước."
+    },
+    {
+     "n": 320,
+     "text": "Không cần phải trừ khử vọng tưởng bởi vì vọng tưởng chính chúng có bổn tánh của chơn như."
+    },
+    {
+     "n": 321,
+     "text": "Dùng trí tuệ quán chiếu tất cả các pháp, và không thủ không xả, tức là kiến tánh thành Phật."
+    },
+    {
+     "n": 322,
+     "text": "Này các thiện tri thức, nếu chư vị muốn nhập pháp giới thậm thâm, nhập Bát nhã tam muội, cần phải tu hành Bát nhã Ba la mật."
+    },
+    {
+     "n": 323,
+     "text": "Chỉ cần trì một quyển kinh Kim Cang Bát Nhã Ba La Mật, ắt sẽ được kiến tánh và nhập Bát nhã tam muội."
+    },
+    {
+     "n": 324,
+     "text": "Phải biết rằng công đức của người ấy là vô lượng."
+    },
+    {
+     "n": 325,
+     "text": "Trong kinh đã tán thán rõ ràng, tôi không cần phải giải thích cặn kẽ thêm nữa."
+    },
+    {
+     "n": 326,
+     "text": "Đây là pháp môn tối thượng thừa, vì người có căn cơ cao và trí tuệ lớn mà nói."
+    },
+    {
+     "n": 327,
+     "text": "Những kẻ có căn cơ thấp và ít trí tuệ, nếu như nghe pháp môn này, tâm khó mà sanh tin."
+    },
+    {
+     "n": 328,
+     "text": "Tại sao vậy? Ví dụ như rồng lớn làm cơn mưa lớn trên cõi Diêm Phù Đề này, các thành, ấp, thôn, xóm đương nhiên sẽ bị cuốn sạch cả, tựa như lá cỏ nổi trôi."
+    },
+    {
+     "n": 329,
+     "text": "Song nếu cơn mưa kia rơi xuống biển lớn, nước biển vẫn sẽ bất tăng bất giảm."
+    },
+    {
+     "n": 330,
+     "text": "Nếu như một người tu pháp môn Đại thừa mà nghe giảng kinh Kim Cang, tâm liền khai mở và giác ngộ."
+    },
+    {
+     "n": 331,
+     "text": "Cho nên chúng ta biết rằng bổn tánh đã tự có trí Bát nhã, và bằng cách tự dùng trí tuệ mà quán chiếu, chẳng cần dựa vào văn tự."
+    },
+    {
+     "n": 332,
+     "text": "Cũng y như cơn mưa kia không phải tự trời mà có, mà vốn do Long Vương đích thân dẫn nước từ trong sông biển, khiến cho tất cả chúng sanh, tất cả cây cỏ, tất cả hữu tình và vô tình đều được thấm nhuần."
+    },
+    {
+     "n": 333,
+     "text": "Các dòng nước lại đều cùng chảy vào biển, biển nạp tất cả các thứ nước, hợp lại thành một thể."
+    },
+    {
+     "n": 334,
+     "text": "Trí Bát nhã của bổn tánh chúng sanh cũng y như thế."
+    },
+    {
+     "n": 335,
+     "text": "Những kẻ có căn cơ thấp khi nghe giảng giáo lý đốn ngộ này, cũng giống như những loại cây cỏ gốc cạn trên mặt đất này, nếu như bị một cơn mưa lớn đổ xuống, đương nhiên sẽ bị ngã đổ, không sanh trưởng được nữa."
+    },
+    {
+     "n": 336,
+     "text": "Những kẻ có căn cơ thấp cũng y như thế. Họ cũng là những \"người\" vốn sở hữu trí Bát nhã chẳng có khác gì với bậc đại trí, song vì sao mà họ dù có nghe pháp mà cũng vẫn chẳng giác ngộ?"
+    },
+    {
+     "n": 337,
+     "text": "Chính bởi vì tà kiến ngăn chặn nặng nề và phiền não bắt rễ sâu xa."
+    },
+    {
+     "n": 338,
+     "text": "Cũng giống như mây lớn che phủ mặt trời, nếu không có gió thổi cho mây tan, mặt trời không thể nào hiển hiện được."
+    },
+    {
+     "n": 339,
+     "text": "Trí Bát nhã vốn chẳng có lớn nhỏ, chỉ bởi vì tất cả chúng sanh, tự có tâm mê mờ, đi tu tập tìm kiếm Phật ở bên ngoài, cho nên chưa ngộ được tự tánh mình."
+    },
+    {
+     "n": 340,
+     "text": "Song ngay cả những kẻ với căn cơ thấp, nếu như được nghe giáo lý đốn ngộ, không còn tin nơi pháp ngoại tu nữa, mà chỉ nơi tự tâm mình thường khởi chánh kiến,"
+    },
+    {
+     "n": 341,
+     "text": "thì mặc dù họ là những chúng sanh đầy những phiền não trần lao, họ vẫn lập tức giác ngộ như thường."
+    },
+    {
+     "n": 342,
+     "text": "Cũng giống như biển lớn bao gồm các dòng nước, hợp tất cả nước lớn nước nhỏ thành một thể."
+    },
+    {
+     "n": 343,
+     "text": "Đây gọi là kiến tánh. Người hiểu như vậy không đình trệ bất cứ ở bên ngoài hay bên trong, đi lại tự do, trừ được tâm chấp trước, thông đạt vô ngại."
+    },
+    {
+     "n": 344,
+     "text": "Nếu trong tâm mình tu được pháp môn này thì bổn tánh mình sẽ chẳng có gì khác biệt với kinh Bát Nhã Ba La Mật."
+    },
+    {
+     "n": 345,
+     "text": "Tất cả kinh sách và văn tự, thuộc Tiểu thừa Đại thừa, mười hai bộ kinh, đều vì con người mà thiết lập."
+    },
+    {
+     "n": 346,
+     "text": "Nhân vì trí tuệ trong tự tánh của con người mà mới có thể kiến lập được."
+    },
+    {
+     "n": 347,
+     "text": "Nếu như chúng ta là những người không sẵn sở hữu trí Bát nhã nơi mình, tất cả vạn pháp vốn không thể hiện hữu."
+    },
+    {
+     "n": 348,
+     "text": "Cho nên phải nên biết rằng vạn pháp vốn từ con người mà phát sinh, tất cả kinh sách đều vì con người mà nói."
+    },
+    {
+     "n": 349,
+     "text": "Bởi vì trong loài người có kẻ ngu, người trí."
+    },
+    {
+     "n": 350,
+     "text": "Kẻ ngu là tiểu nhân, người trí là đại nhân."
+    },
+    {
+     "n": 351,
+     "text": "Nếu kẻ mê hỏi người trí, người trí sẽ vì kẻ ngu mà thuyết pháp, khiến kẻ ngu giác ngộ và thấu hiểu một cách sâu xa."
+    },
+    {
+     "n": 352,
+     "text": "Nếu như kẻ mê giác ngộ và khai mở tâm mình thì hắn cũng chẳng khác gì với người đại trí."
+    },
+    {
+     "n": 353,
+     "text": "Cho nên chúng ta biết rằng, nếu không ngộ, thì Phật cũng là chúng sanh."
+    },
+    {
+     "n": 354,
+     "text": "Còn nếu như chỉ giác ngộ trong một niệm thôi thì chúng sanh cũng là Phật."
+    },
+    {
+     "n": 355,
+     "text": "Cho nên chúng ta mới biết rằng tất cả vạn pháp đều ở cả trong chính tâm mình, thì cớ sao lại chẳng làm cho chơn như bổn tánh đốn hiện nơi tự tâm mình?"
+    },
+    {
+     "n": 356,
+     "text": "Kinh Bồ Tát Giới nói: \"Tự tánh của chúng ta vốn thanh tịnh\", thức tâm kiến tánh, lập tức tự thành tựu Phật đạo."
+    },
+    {
+     "n": 357,
+     "text": "\"Lập tức, hoát nhiên, đạt lại được bổn tâm\"."
+    },
+    {
+     "n": 358,
+     "text": "Này các thiện tri thức, lúc tôi ở nơi Hòa thượng Hoằng Nhẫn, chỉ nghe giảng kinh Kim Cang một lần, lập tức thấy được chơn như bổn tánh."
+    },
+    {
+     "n": 359,
+     "text": "Cho nên tôi mới đem giáo pháp này, lưu hành cho đời sau, khiến cho những người học đạo đốn ngộ được Bồ đề."
+    },
+    {
+     "n": 360,
+     "text": "Mỗi người phải tự quán tâm và đốn ngộ bản tánh mình."
+    },
+    {
+     "n": 361,
+     "text": "Những người không tự ngộ được, cần phải tìm một vị Đại thiện tri thức để dạy cho mình pháp kiến tánh."
+    },
+    {
+     "n": 362,
+     "text": "Thế nào là một vị Đại thiện tri thức? Đó là người hiểu được rằng Tối thượng thừa pháp là con đường chánh."
+    },
+    {
+     "n": 363,
+     "text": "Đó chính là một vị Đại thiện tri thức. Đó là đại nhân duyên, gọi là hóa đạo khiến chúng ta thấy được Phật."
+    },
+    {
+     "n": 364,
+     "text": "Tất cả các thiện pháp đều nhân bậc Đại thiện tri thức mà phát khởi."
+    },
+    {
+     "n": 365,
+     "text": "Cho nên mặc dù nói rằng chư Phật ba đời và mười hai bộ kinh vốn hiện hữu trong tự tánh con người, song nếu không tự giác ngộ được nơi tự tánh thì cần phải nhờ bậc thiện tri thức chỉ bày cho pháp kiến tánh."
+    },
+    {
+     "n": 366,
+     "text": "Nếu như tự ngộ được, không cần phải cậy vào thiện tri thức bên ngoài nữa."
+    },
+    {
+     "n": 367,
+     "text": "Nếu như vọng cầu giải thoát bằng cách nương cậy vào thiện tri thức bên ngoài, điều ấy không thể có được."
+    },
+    {
+     "n": 368,
+     "text": "Biết được bậc thiện tri thức trong tự tâm mình, lập tức đạt được giải thoát."
+    },
+    {
+     "n": 369,
+     "text": "Nếu tự tâm mình tà mê, vọng niệm điên đảo, thì dù có bậc thiện tri thức bên ngoài đi nữa cũng chẳng thể nào cứu mình được."
+    },
+    {
+     "n": 370,
+     "text": "Nếu như không tự ngộ được, cần phải lấy trí tuệ Bát nhã ra quán chiếu, thì trong một sát na các vọng niệm đều bị tiêu diệt ngay."
+    },
+    {
+     "n": 371,
+     "text": "Nếu như nhận ra được rằng mình chính là thiện tri thức của mình, một khi giác ngộ là lập tức biết Phật."
+    },
+    {
+     "n": 372,
+     "text": "Nếu nơi tự tánh tâm dùng trí tuệ quán chiếu, trong ngoài đều sáng sủa thông suốt, lập tức mình hiểu bổn tâm của mình."
+    },
+    {
+     "n": 373,
+     "text": "Nếu biết bổn tâm, thì đó chính là giải thoát."
+    },
+    {
+     "n": 374,
+     "text": "Đã được giải thoát, thì đó chính là Bát nhã tam muội."
+    },
+    {
+     "n": 375,
+     "text": "Giác ngộ được Bát nhã tam muội, chính là vô niệm."
+    },
+    {
+     "n": 376,
+     "text": "Vô niệm là gì? Pháp vô niệm có nghĩa là mặc dù mình thấy tất cả các pháp, song mình không chấp trước vào bất cứ pháp nào, lưu hành khắp mọi nơi, mà không chấp trước vào bất cứ một nơi chốn nào, thường thanh tịnh tự tánh,"
+    },
+    {
+     "n": 377,
+     "text": "khiến sáu tên giặc theo sáu cửa mà ra. Mặc dù ở trong lục trần, song không xa lìa mà cũng không bị tạp nhiễm, đi lại tự do."
+    },
+    {
+     "n": 378,
+     "text": "Đó chính là Bát nhã tam muội, tự tại giải thoát, gọi là vô niệm hành."
+    },
+    {
+     "n": 379,
+     "text": "Nếu không nghĩ đến gì cả, luôn luôn tuyệt niệm, như thế có nghĩa là bị trói buộc trong pháp, đó gọi là biên kiến."
+    },
+    {
+     "n": 380,
+     "text": "Một khi ngộ được vô niệm pháp, thì vạn pháp đều thông suốt."
+    },
+    {
+     "n": 381,
+     "text": "Ngộ vô niệm pháp tức là thấy cảnh giới của chư Phật."
+    },
+    {
+     "n": 382,
+     "text": "Ngộ được pháp môn đốn vô niệm, tức là đạt đến cảnh vị Phật."
+    },
+    {
+     "n": 383,
+     "text": "Này các thiện tri thức, người đời sau nếu ngộ được pháp của tôi sẽ thấy được rằng Pháp thân của tôi sẽ chẳng cách xa chư vị."
+    },
+    {
+     "n": 384,
+     "text": "Này các thiện tri thức, hãy đem pháp môn đốn giáo này, cùng nhau quán sát và tu hành, phát nguyện thọ trì."
+    },
+    {
+     "n": 385,
+     "text": "Đó chính là phụng sự Phật, cho nên những ai suốt đời thọ trì mà không thối chuyển, thì sẽ được nhập thánh vị."
+    },
+    {
+     "n": 386,
+     "text": "Nay tôi muốn truyền thọ pháp môn này, song từ xưa đến nay, pháp này chỉ được trao truyền trong im lặng, và chỉ khi nào mà đại nguyện đã được phát, Bồ đề không thối chuyển, mới nên trao truyền."
+    },
+    {
+     "n": 387,
+     "text": "Nếu gặp người không đồng kiến giải với mình, lại không có chí nguyện, tuyệt đối không nên vọng động tuyên thuyết trao truyền."
+    },
+    {
+     "n": 388,
+     "text": "Nếu chư vị làm thế chỉ tổ có hại cho họ, rốt cuộc chẳng có ích lợi gì cả."
+    },
+    {
+     "n": 389,
+     "text": "Nếu gặp phải những người không hiểu, khinh mạn pháp môn này, thì trong trăm kiếp, vạn kiếp, ngàn đời chủng tánh Phật sẽ bị đứt đoạn."
+    },
+    {
+     "n": 390,
+     "text": "Đại sư nói: \"Này các thiện tri thức, nghe tôi nói bài tụng vô tướng đây, để cho những ai còn mê mờ trừ diệt được các tội chướng."
+    },
+    {
+     "n": 391,
+     "text": "Đây cũng gọi là bài \"Diệt tội tụng\". Tụng rằng:"
+    },
+    {
+     "n": 392,
+     "text": "Kẻ ngu tu phước không tu đạo"
+    },
+    {
+     "n": 393,
+     "text": "Bảo rằng tu phước chính là \"đạo\""
+    },
+    {
+     "n": 394,
+     "text": "Bố thí cúng dường phước vô biên"
+    },
+    {
+     "n": 395,
+     "text": "Trong tâm tam nghiệp vẫn tạo tác"
+    },
+    {
+     "n": 396,
+     "text": "Nếu mong tu phước để diệt tội"
+    },
+    {
+     "n": 397,
+     "text": "Đời sau được phước, tội vẫn còn"
+    },
+    {
+     "n": 398,
+     "text": "Trừ được nguồn tội trong tâm mình"
+    },
+    {
+     "n": 399,
+     "text": "Là chơn sám hối nơi tự tánh"
+    },
+    {
+     "n": 400,
+     "text": "Nếu ngộ Đại thừa chơn sám hối"
+    },
+    {
+     "n": 401,
+     "text": "Trừ tà, hành chánh, tạo vô tội"
+    },
+    {
+     "n": 402,
+     "text": "Nếu người học đạo biết tự quán"
+    },
+    {
+     "n": 403,
+     "text": "Lập tức ngang hàng với người ngộ"
+    },
+    {
+     "n": 404,
+     "text": "Tôi xin trao truyền pháp đốn này"
+    },
+    {
+     "n": 405,
+     "text": "Người học cùng tôi đồng một thể"
+    },
+    {
+     "n": 406,
+     "text": "Muốn tìm bổn thân trong tương lai"
+    },
+    {
+     "n": 407,
+     "text": "Phải rửa nguồn tam độc trong tâm"
+    },
+    {
+     "n": 408,
+     "text": "Nỗ lực tu đạo đừng buông lung"
+    },
+    {
+     "n": 409,
+     "text": "Hốt nhiên qua một đời vô ích"
+    },
+    {
+     "n": 410,
+     "text": "Nếu gặp pháp Đại thừa đốn giáo"
+    },
+    {
+     "n": 411,
+     "text": "Chơn thành chắp tay chí tâm cầu."
+    },
+    {
+     "n": 412,
+     "text": "Đại sư nói pháp xong, vị Sứ quân cùng các quan liêu, Tăng chúng, đạo và tục tán thán vô tận, khen ngợi rằng đó là giáo pháp mà họ chưa từng nghe bao giờ."
+    },
+    {
+     "n": 413,
+     "text": "Vị Sứ quân đảnh lễ rồi nói: \"Hòa thượng thuyết pháp quả thực bất khả tư nghị, đệ tử có ít điều còn hoài nghi, muốn hỏi Hòa thượng, cúi xin Hòa thượng rủ lòng đại từ đại bi, giải thích cho đệ tử\"."
+    },
+    {
+     "n": 414,
+     "text": "Đại sư nói: \"Có điều nghi ngờ thì cứ hỏi, không cần phải úp mở làm gì\"."
+    },
+    {
+     "n": 415,
+     "text": "Sứ quân hỏi: \"Giáo pháp của Đại sư, phải chăng là tông chỉ của Đệ nhất Tổ Ấn Độ Bồ Đề Đạt Ma?\"."
+    },
+    {
+     "n": 416,
+     "text": "Đại sư nói: \"Phải\"."
+    },
+    {
+     "n": 417,
+     "text": "Sứ quân nói:: \"Đệ tử nghe nói lúc Đạt Ma Đại sư khai hóa Lương Võ đế, Võ đế hỏi Đạt Ma: \"Trẫm cả đời xây chùa, bố thí, cúng dường, có công đức hay không\"."
+    },
+    {
+     "n": 418,
+     "text": "Ngài Đạt Ma trả lời: \"Chẳng có công đức gì cả\"."
+    },
+    {
+     "n": 419,
+     "text": "Võ đế không vui, bèn đuổi Đạt Ma ra khỏi bờ cõi."
+    },
+    {
+     "n": 420,
+     "text": "Đệ tử chưa hiểu chuyện này, xin Hòa thượng giải thích cho\"."
+    },
+    {
+     "n": 421,
+     "text": "Lục Tổ nói: \"Quả thực chẳng có công đức gì cả."
+    },
+    {
+     "n": 422,
+     "text": "Sứ quân đừng nghi ngờ lời Đạt Ma Đại sư."
+    },
+    {
+     "n": 423,
+     "text": "Võ đế chấp trước tà kiến, không hiểu chánh pháp\"."
+    },
+    {
+     "n": 424,
+     "text": "Sứ quân hỏi: \"Tại sao lại không có công đức gì cả?\"."
+    },
+    {
+     "n": 425,
+     "text": "Hòa thượng nói: \"Xây chùa, bố thí, cúng dường chỉ là tu phước, không thể lấy phước làm công đức được."
+    },
+    {
+     "n": 426,
+     "text": "Công đức ở tại Pháp thân, không phải ở phước điền."
+    },
+    {
+     "n": 427,
+     "text": "Tự trong pháp tánh đã có công đức. Kiến tánh là công, bình đẳng là đức."
+    },
+    {
+     "n": 428,
+     "text": "Bên trong thấy Phật tánh, bên ngoài tu hành cung kính."
+    },
+    {
+     "n": 429,
+     "text": "Nếu như khinh tất cả mọi người, không cắt đứt được sự chấp ngã, thì tự mình không thể có công đức được."
+    },
+    {
+     "n": 430,
+     "text": "Nếu như tự tánh mình hư vọng, Pháp thân không còn có đức nữa."
+    },
+    {
+     "n": 431,
+     "text": "Nếu trong niệm niệm liên tục có tu hành phước đức và bình đẳng chơn tâm, thì công đức sẽ không nhỏ và hành vi luôn luôn cung kính."
+    },
+    {
+     "n": 432,
+     "text": "Tự tu thân là công, tự tu tâm là đức. Công đức là do tự tâm mà ra, phước và công đức là khác nhau."
+    },
+    {
+     "n": 433,
+     "text": "Võ đế không hiểu chánh lý, chứ không phải là Tổ Đạt Ma Đại sư lầm lẫn đâu\"."
+    },
+    {
+     "n": 434,
+     "text": "Sứ quân đảnh lễ rồi lại nói: \"Đệ tử thấy Tăng chúng, đạo, tục, thường niệm A Di Đà Phật và nguyện vãng sanh Tây phương."
+    },
+    {
+     "n": 435,
+     "text": "Xin Hòa thượng giải thích rõ cho đệ tử xem người ta có thực sự vãng sanh ở đó được không, ngõ hầu để dẹp tan mối nghi của đệ tử\"."
+    },
+    {
+     "n": 436,
+     "text": "Đại sư nói: \"Sứ quân lắng nghe, Huệ Năng tôi sẽ giải thích cho ông."
+    },
+    {
+     "n": 437,
+     "text": "Thế Tôn lúc ở Xá Vệ quốc, thuyết giảng về Tây phương để dẫn hóa chúng sanh."
+    },
+    {
+     "n": 438,
+     "text": "Kinh văn nói rõ ràng rằng: \"Tây phương cách đây không xa."
+    },
+    {
+     "n": 439,
+     "text": "Chỉ vì muốn dạy những người có căn cơ thấp mới nói là xa, còn nói gần là để dạy người có trí tuệ cao."
+    },
+    {
+     "n": 440,
+     "text": "Tuy con người có hai loại, pháp chẳng hề có bất \"đồng\"."
+    },
+    {
+     "n": 441,
+     "text": "Giữa mê và ngộ có sự dị biệt, cũng như kiến giải có mau có chậm."
+    },
+    {
+     "n": 442,
+     "text": "Kẻ mê niệm Phật hy vọng vãng sanh Tây phương, người ngộ chỉ thanh tịnh tâm mình."
+    },
+    {
+     "n": 443,
+     "text": "Cho nên Phật nói: \"Tùy tâm mình tịnh, là Phật độ tịnh\"."
+    },
+    {
+     "n": 444,
+     "text": "Sứ quân, người ở phương Đông nếu chỉ cần tịnh tâm là lập tức hết tội chướng, người ở Tây phương Tịnh độ tâm mà không tịnh là lập tức có lỗi lầm."
+    },
+    {
+     "n": 445,
+     "text": "Kẻ mê nguyện vãng sanh Đông phương hay Tây phương, còn người ngộ thì ở bất cứ đâu cũng là một cả."
+    },
+    {
+     "n": 446,
+     "text": "Chỉ cần tâm không có bất tịnh, là Tây phương chẳng cách xa đây."
+    },
+    {
+     "n": 447,
+     "text": "Còn như tâm mà khởi bất tịnh, thì dù có niệm Phật để cầu vãng sanh cũng khó mà đạt được."
+    },
+    {
+     "n": 448,
+     "text": "Trừ được mười điều ác tức là đi được mười vạn sặm, không có tám điều tà tức là đã vượt qua được tám ngàn dặm."
+    },
+    {
+     "n": 449,
+     "text": "Song nếu tu hành chơn tâm, mình sẽ đến Tây phương trong nháy mắt."
+    },
+    {
+     "n": 450,
+     "text": "Sứ quân, chỉ nên lo tu thập thiện, cần gì phải nguyện vãng sanh."
+    },
+    {
+     "n": 451,
+     "text": "Nếu như ông không đoạn cái tâm làm mười điều ác, Phật nào đến đón ông đây?"
+    },
+    {
+     "n": 452,
+     "text": "Nếu giác ngộ được giáo pháp đốn ngộ vô sanh, chỉ trong sát na là ông thấy Tây phương."
+    },
+    {
+     "n": 453,
+     "text": "Nếu như không ngộ giáo lý đốn ngộ của Đại thừa, con đường niệm Phật để mong vãng sanh quá xa vời, làm sao mà đạt đến được?\"."
+    },
+    {
+     "n": 454,
+     "text": "Lục Tổ nói: \"Để Huệ Năng tôi trong một sát na dời Tây phương đến ngay trước mắt cho Sứ quân thấy, Sứ quân có muốn thấy chăng?\"."
+    },
+    {
+     "n": 455,
+     "text": "Sứ quân cúi lạy nói: \"Nếu như đệ tử có thể thấy Tây phương ở đây, còn cần gì phải vãng sanh nữa."
+    },
+    {
+     "n": 456,
+     "text": "Xin Hòa thượng từ bi làm cho Tây phương hiển hiện trước mắt đệ tử thì tốt lắm thay\"."
+    },
+    {
+     "n": 457,
+     "text": "Đại sư nói: \"Có thể thấy Tây phương ngay từ con đường đi này, không có gì đáng ngờ cả. Bây giờ chúng ta giải tán thôi\"."
+    },
+    {
+     "n": 458,
+     "text": "Đại chúng đều ngạc nhiên, không ai hiểu chuyện gì cả."
+    },
+    {
+     "n": 459,
+     "text": "Đại sư nói: \"Đại chúng, xin hãy cẩn thận lắng nghe."
+    },
+    {
+     "n": 460,
+     "text": "Sắc thân của người đời là một thành phố."
+    },
+    {
+     "n": 461,
+     "text": "Mắt, mũi, tai, lưỡi là cửa thành. Bên ngoài có năm cửa, bên trong có cửa của ý thức."
+    },
+    {
+     "n": 462,
+     "text": "Tâm tức là đất, tánh tức là vua. Tánh còn thì vua còn, tánh đi thì vua không còn."
+    },
+    {
+     "n": 463,
+     "text": "Tánh còn thì thân tâm còn, tánh đi thì thân tâm hoại."
+    },
+    {
+     "n": 464,
+     "text": "Phật là do tự tánh mà ra, chớ nên hướng ra ngoài thân mà cầu."
+    },
+    {
+     "n": 465,
+     "text": "Mê mờ tự tánh thì Phật là chúng sanh, giác ngộ tự tánh thì chúng sanh tức là Phật."
+    },
+    {
+     "n": 466,
+     "text": "Từ bi là Quán Thế Âm, hỷ xả là Đại Thế Chí, năng tịnh là Thích Ca, bình đẳng chơn thực là Di Lặc, nhân ngã chấp là núi Tu Di, tà tâm là biển lớn, phiền não là sóng, tâm độc là rồng dữ, trần lao là cá rùa,"
+    },
+    {
+     "n": 467,
+     "text": "hư vọng là thần quỷ, tam độc là địa ngục, ngu si là súc sanh, thập thiện là thiên đường."
+    },
+    {
+     "n": 468,
+     "text": "Nếu không chấp nhân ngã, núi Tu Di tự lở; trừ tà tâm, nước biển lập tức cạn; không có phiền não, sóng tự nhiên hết; trừ độc hại, cá rồng sẽ hết."
+    },
+    {
+     "n": 469,
+     "text": "Hãy để giác tánh Như Lai trên tâm địa của mình, phóng ánh sáng trí tuệ lớn, chiếu sáng sáu cửa, và bằng ánh sáng thanh tịnh ấy chiếu phá sáu cõi trời của Dục giới."
+    },
+    {
+     "n": 470,
+     "text": "Nếu bên trong tự tánh chiếu sáng, tam độc sẽ bị trừ và địa ngục sẽ lập tức tiêu diệt."
+    },
+    {
+     "n": 471,
+     "text": "Nếu trong ngoài gì đều trong sáng thấu suốt thì đây cũng chẳng khác gì Tây phương."
+    },
+    {
+     "n": 472,
+     "text": "Nếu như không tu hành pháp môn này, làm thế nào có thể đến bên ấy được?\"."
+    },
+    {
+     "n": 473,
+     "text": "Những người lắng nghe dưới tòa, tán thán đến tận trời cao, và tất cả những người mê mờ cũng hiểu rõ ràng."
+    },
+    {
+     "n": 474,
+     "text": "Sứ quân cúi lạy, tán thán: \"Lành thay, lành thay!"
+    },
+    {
+     "n": 475,
+     "text": "Nguyện rằng tất cả chúng sanh trong pháp giới nghe thấy đều lập tức giác ngộ\"."
+    },
+    {
+     "n": 476,
+     "text": "Đại sư nói: \"Này các thiện tri thức, nếu như muốn tu hành, tại gia cũng được, không cần phải ở chùa."
+    },
+    {
+     "n": 477,
+     "text": "Nếu như ở chùa mà không tu, thì có khác chi những người ở Tây phương mà tâm địa độc ác."
+    },
+    {
+     "n": 478,
+     "text": "Còn ở tại gia mà tu hành, thì cũng như người ở Đông phương mà tu thiện pháp."
+    },
+    {
+     "n": 479,
+     "text": "Chỉ cần ở tại gia mà tu thanh tịnh thì đó tức là Tây phương\"."
+    },
+    {
+     "n": 480,
+     "text": "Sứ quân hỏi: \"Bạch Hòa thượng, tại gia phải tu như thế nào, cúi xin Hòa thượng chỉ dạy\"."
+    },
+    {
+     "n": 481,
+     "text": "Đại sư nói: \"Này các thiện tri thức, để Huệ Năng tôi làm một bài Vô tướng tụng cho chư vị, Tăng cũng như tục."
+    },
+    {
+     "n": 482,
+     "text": "Nếu như chư vị đều trì tụng rồi theo đó mà tu hành, thì các vị lúc nào cũng như ở cùng một chỗ với Huệ Năng. Tụng rằng:"
+    },
+    {
+     "n": 483,
+     "text": "\"Thuyết thông và tâm thông"
+    },
+    {
+     "n": 484,
+     "text": "Như mặt trời trên không"
+    },
+    {
+     "n": 485,
+     "text": "Chỉ truyền pháp đốn giáo"
+    },
+    {
+     "n": 486,
+     "text": "Xuất thế phá tà tông"
+    },
+    {
+     "n": 487,
+     "text": "Giáo vốn không đốn tiệm"
+    },
+    {
+     "n": 488,
+     "text": "Mê ngộ, có nhanh chậm"
+    },
+    {
+     "n": 489,
+     "text": "Học pháp đốn giáo này"
+    },
+    {
+     "n": 490,
+     "text": "Kẻ ngu không hiểu nổi"
+    },
+    {
+     "n": 491,
+     "text": "Cách giảng tuy vạn loại"
+    },
+    {
+     "n": 492,
+     "text": "Hợp lý lại quy nhất"
+    },
+    {
+     "n": 493,
+     "text": "Trong nhà phiền não tối,"
+    },
+    {
+     "n": 494,
+     "text": "Mặt trời tuệ thường mọc"
+    },
+    {
+     "n": 495,
+     "text": "Tà đến vì phiền não"
+    },
+    {
+     "n": 496,
+     "text": "Chánh đến phiền não trừ"
+    },
+    {
+     "n": 497,
+     "text": "Tà chánh đều không dụng"
+    },
+    {
+     "n": 498,
+     "text": "Thanh tịnh đến Niết bàn"
+    },
+    {
+     "n": 499,
+     "text": "Bồ đề vốn thanh tịnh"
+    },
+    {
+     "n": 500,
+     "text": "Khởi tâm tức là vọng"
+    },
+    {
+     "n": 501,
+     "text": "Tịnh tánh ở trong vọng"
+    },
+    {
+     "n": 502,
+     "text": "Chánh trí trừ tam chướng"
+    },
+    {
+     "n": 503,
+     "text": "Thế gian nếu tu đạo"
+    },
+    {
+     "n": 504,
+     "text": "Không gì ngăn ngại được"
+    },
+    {
+     "n": 505,
+     "text": "Nếu thường tỏ lỗi mình"
+    },
+    {
+     "n": 506,
+     "text": "Tức tương đương với đạo"
+    },
+    {
+     "n": 507,
+     "text": "Chúng sanh sở hữu đạo"
+    },
+    {
+     "n": 508,
+     "text": "Lìa đạo mà tìm đạo"
+    },
+    {
+     "n": 509,
+     "text": "Rốt cuộc tâm ảo não"
+    },
+    {
+     "n": 510,
+     "text": "Nếu muốn tìm kiếm đạo"
+    },
+    {
+     "n": 511,
+     "text": "Chánh hành tức là đạo"
+    },
+    {
+     "n": 512,
+     "text": "Nếu không có chánh tâm"
+    },
+    {
+     "n": 513,
+     "text": "Tối ám không thấy đạo"
+    },
+    {
+     "n": 514,
+     "text": "Người thật tâm tu đạo"
+    },
+    {
+     "n": 515,
+     "text": "Không thấy lỗi người đời"
+    },
+    {
+     "n": 516,
+     "text": "Nếu thấy thế gian sai"
+    },
+    {
+     "n": 517,
+     "text": "Chính mình sai và tà"
+    },
+    {
+     "n": 518,
+     "text": "Người sai mình có lỗi"
+    },
+    {
+     "n": 519,
+     "text": "Mình sai mình có lỗi"
+    },
+    {
+     "n": 520,
+     "text": "Chỉ cần khử tâm sai"
+    },
+    {
+     "n": 521,
+     "text": "Đập nát tan phiền não"
+    },
+    {
+     "n": 522,
+     "text": "Nếu muốn hóa người ngu"
+    },
+    {
+     "n": 523,
+     "text": "Cần phải có phương tiện"
+    },
+    {
+     "n": 524,
+     "text": "Đừng để họ nghi tâm"
+    },
+    {
+     "n": 525,
+     "text": "Thì Bồ đề mới hiện"
+    },
+    {
+     "n": 526,
+     "text": "Pháp vốn ở thế gian"
+    },
+    {
+     "n": 527,
+     "text": "Đồng thời xuất thế gian"
+    },
+    {
+     "n": 528,
+     "text": "Chớ nên lìa thế gian"
+    },
+    {
+     "n": 529,
+     "text": "Cầu xuất thế bên ngoài"
+    },
+    {
+     "n": 530,
+     "text": "Tà kiến là thế gian"
+    },
+    {
+     "n": 531,
+     "text": "Chánh kiến xuất thế gian"
+    },
+    {
+     "n": 532,
+     "text": "Đả phá tà lẫn chánh"
+    },
+    {
+     "n": 533,
+     "text": "Bồ đề tánh hiện rõ"
+    },
+    {
+     "n": 534,
+     "text": "Đây chính là đốn giáo"
+    },
+    {
+     "n": 535,
+     "text": "Cũng gọi là Đại thừa"
+    },
+    {
+     "n": 536,
+     "text": "Mê mờ từ muôn kiếp"
+    },
+    {
+     "n": 537,
+     "text": "Giác ngộ chỉ sát na\"."
+    },
+    {
+     "n": 538,
+     "text": "Đại sư nói: \"Này các thiện tri thức, nếu như chư vị trì tụng bài kệ này và y theo đó tu hành, thì dù cho chư vị có cách xa Huệ Năng đến ngàn dặm, chư vị vẫn luôn luôn ở cạnh tôi."
+    },
+    {
+     "n": 539,
+     "text": "Nếu như chư vị không tu giáo lý này, thì dù chúng ta có đối diện cũng vẫn cứ cách xa nhau ngàn dặm."
+    },
+    {
+     "n": 540,
+     "text": "Mỗi người phải tự tu, pháp không đợi chư vị đâu."
+    },
+    {
+     "n": 541,
+     "text": "Chúng ta tạm thời phân tán, Huệ Năng tôi xin quay về núi Tào Khê."
+    },
+    {
+     "n": 542,
+     "text": "Nếu có ai có điều nghi lớn, xin cứ đến núi đó tìm, tôi sẽ phá nghi cũng như chỉ ra thế giới của Phật cho chư vị\"."
+    },
+    {
+     "n": 543,
+     "text": "Tất cả các quan liêu, Tăng, tục dưới tòa đều bái lạy Hòa thượng, không ai không tán thán: \"Lành thay đại ngộ!"
+    },
+    {
+     "n": 544,
+     "text": "Đây là những điều chưa từng nghe thấy bao giờ."
+    },
+    {
+     "n": 545,
+     "text": "Lĩnh Nam lại được phước mà có Phật sanh nơi ấy, thật không ai ngờ nổi!\". Rồi cùng giải tán."
+    },
+    {
+     "n": 546,
+     "text": "Đại sư về Tào Khê và giáo hóa thiên hạ ở hai miền Thiều Châu và Quàng Châu suốt hơn bốn mươi năm."
+    },
+    {
+     "n": 547,
+     "text": "Nếu nói về số môn nhân của ngài thì cả Tăng lẫn tục, phải nói trên mấy ngàn người."
+    },
+    {
+     "n": 548,
+     "text": "Nếu nói về tông chỉ, thì chuyên truyền thọ bộ Đàn kinh này, coi là căn bản nương tựa."
+    },
+    {
+     "n": 549,
+     "text": "Nếu chưa đắc được Đàn kinh, chưa thể kể là được bẩm thụ."
+    },
+    {
+     "n": 550,
+     "text": "Cần phải biết nơi chốn, ngày tháng và tên tuổi của người được truyền thọ để kèm theo kinh lúc truyền thọ."
+    },
+    {
+     "n": 551,
+     "text": "Ai chưa được Đàn kinh và truyền thừa, thì chưa phải đệ tử của Nam Tông."
+    },
+    {
+     "n": 552,
+     "text": "Kẻ chưa được truyền thừa, thì tuy thuyết giảng pháp đốn ngộ, song vẫn chưa hiểu giáo lý căn bản, cuối cùng khó mà tránh khỏi tranh cãi."
+    },
+    {
+     "n": 553,
+     "text": "Những người đã đắc pháp rồi chỉ nên chuyên cần tu tập."
+    },
+    {
+     "n": 554,
+     "text": "Tranh cãi biểu lộ cái tâm lo được thua, thì trái ngược với đạo."
+    },
+    {
+     "n": 555,
+     "text": "Người đời ai cũng nói \"Nam Năng, Bắc Tú\", song chưa hiểu nguyên do chính của câu chuyện."
+    },
+    {
+     "n": 556,
+     "text": "Thiền sư Thần Tú tu hành với tư cách là trú trì chùa Ngọc Tuyền ở Đường Dương huyện, Kinh Nam phủ."
+    },
+    {
+     "n": 557,
+     "text": "Đại sư Huệ Năng trú tại núi Tào Khê ở ba mươi lăm dặm về phía Đông thành Thiều Châu."
+    },
+    {
+     "n": 558,
+     "text": "Pháp là một tông, người có Nam Bắc, do đó nơi lập nên Nam tông, Bắc tông."
+    },
+    {
+     "n": 559,
+     "text": "\"Đốn\" và \"Tiệm\" có nghĩa là gì? Pháp vốn là một, song thấy có nhanh chậm."
+    },
+    {
+     "n": 560,
+     "text": "Thấy chậm là tiệm, thấy nhanh là đốn. Pháp vốn không có đốn tiệm, song người có thông minh chậm lụt, cho nên mới có tên \"đốn\" và \"tiệm\"."
+    },
+    {
+     "n": 561,
+     "text": "Thiền sư Thần Tú thường nghe người ta nói về giáo lý đốn ngộ và pháp trực chỉ của Huệ Năng."
+    },
+    {
+     "n": 562,
+     "text": "Thiền sư Thần Tú bèn gọi người Tăng đệ tử là Chí Thành, rồi nói: \"Ông vốn thông minh biết nhiều."
+    },
+    {
+     "n": 563,
+     "text": "Ông đi đến núi Tào Khê giùm tôi, đến nơi của Huệ Năng, bái lạy thầy ta rồi lắng nghe."
+    },
+    {
+     "n": 564,
+     "text": "Đừng nói là tôi sai ông đến. Lắng nghe những giáo lý cốt yếu của thầy ta, ghi nhớ lấy rồi trở về đây nói lại cho tôi nghe, để tôi xem kiến giải của Huệ Năng so với tôi ai mau ai chậm."
+    },
+    {
+     "n": 565,
+     "text": "Ông nhất định về cho sớm, đừng để tôi giận!\"."
+    },
+    {
+     "n": 566,
+     "text": "Chí Thành vui vẻ thi hành sứ mệnh kia, trong vòng nửa tháng đến được Tào Khê, gặp Hòa thượng Huệ Năng, bái lạy rồi lắng nghe, không nói mình từ đâu đến cả."
+    },
+    {
+     "n": 567,
+     "text": "Chí Thành nghe pháp và lập tức giác ngộ, khế hợp với bổn tâm, bèn đứng dậy vái lạy, nói rằng: \"Bạch Hòa thượng, đệ tử từ chùa Ngọc Tuyền tới."
+    },
+    {
+     "n": 568,
+     "text": "Lúc còn học với thầy Thần Tú chẳng đạt được khế ngộ, nay nghe Hòa thượng thuyết giảng, bèn giác ngộ được bổn tâm."
+    },
+    {
+     "n": 569,
+     "text": "Cúi xin Hòa thượng từ bi chỉ dạy cho đệ tử.\"."
+    },
+    {
+     "n": 570,
+     "text": "Đại sư Huệ Năng nói: \"Ông từ phương ấy tới, đương nhiên là gian tế\"."
+    },
+    {
+     "n": 571,
+     "text": "Chí Thành bạch: \"Không phải\"."
+    },
+    {
+     "n": 572,
+     "text": "Đại sư nói: \"Tại sao không phải?\"."
+    },
+    {
+     "n": 573,
+     "text": "Chí Thành đáp: \"Lúc Hòa thượng chưa giảng pháp thì đệ tử là thế, sau khi Hòa thượng giảng pháp rồi, đệ tử không còn là thế nữa\"."
+    },
+    {
+     "n": 574,
+     "text": "Lục Tổ nói: \"Phiền não tức là Bồ đề, cũng như thế mà thôi\"."
+    },
+    {
+     "n": 575,
+     "text": "Đại sư nói với Chí Thành: \"Tôi nghe Thiền sư của các ông dạy người ta chỉ truyền giới, định và tuệ."
+    },
+    {
+     "n": 576,
+     "text": "Giới, định và tuệ mà Hòa thượng của ông dạy người ta là thế nào? Ông thử nói cho tôi nghe xem\"."
+    },
+    {
+     "n": 577,
+     "text": "Chí Thành nói: \"Hòa thượng Thần Tú dạy về giới, định và tuệ như sau: Không làm các điều ác gọi là giới, làm tất cả những điều thiện gọi là tuệ, tự tịnh ý mình gọi là định."
+    },
+    {
+     "n": 578,
+     "text": "Đây chính là giới, định và tuệ mà Hòa thượng Thần Tú giảng dạy, không hiểu kiến giải của Hòa thượng như thế nào?\"."
+    },
+    {
+     "n": 579,
+     "text": "Hòa thượng Huệ Năng đáp: \"Lối giải thích ấy quả thật là bất khả tư nghị, song kiến giải của Huệ Năng lại khác\"."
+    },
+    {
+     "n": 580,
+     "text": "Chí Thành hỏi: \"Khác như thế nào?\"."
+    },
+    {
+     "n": 581,
+     "text": "Huệ Năng đáp: \"Cách thấy có nhanh có chậm\"."
+    },
+    {
+     "n": 582,
+     "text": "Chí Thành yêu cầu Hòa thượng giảng về kiến giải của ngài về giới, định và tuệ."
+    },
+    {
+     "n": 583,
+     "text": "Đại sư nói: \"Ông nghe tôi nói đây, rồi ông sẽ hiểu chỗ thấy của tôi."
+    },
+    {
+     "n": 584,
+     "text": "Tâm địa không có nghi hoặc là giới của tự tánh, tâm địa không có động loạn là định của tự tánh, tâm địa không có si là tuệ của tự tánh\"."
+    },
+    {
+     "n": 585,
+     "text": "Đại sư Huệ Năng lại nói: \"Giới, định và tuệ của ông là để khuyến những người có căn cơ thấp, giới, định và tuệ của tôi là để khuyến những người có căn cơ cao."
+    },
+    {
+     "n": 586,
+     "text": "Bởi vì giác ngộ tự tánh chính là cốt yếu của giáo lý của tôi, thực ra tôi cũng chẳng buồn lập giới, định và tuệ\"."
+    },
+    {
+     "n": 587,
+     "text": "Chí Thành nói: \"Xin Đại sư giải thích cho đệ tử biết \"bất lập\" có nghĩa là gì?\"."
+    },
+    {
+     "n": 588,
+     "text": "Đại sư nói: \"Tự tánh không sai, không loạn, không si."
+    },
+    {
+     "n": 589,
+     "text": "Trong từng niệm để trí Bát nhã quán chiếu, luôn luôn xa lìa pháp tướng, thì có gì để lập?"
+    },
+    {
+     "n": 590,
+     "text": "Tự ngộ tự tánh mình đốn ngộ, đốn tu, chẳng có gì là tiệm thứ, cho nên chẳng bất lập bất cứ gì cả\"."
+    },
+    {
+     "n": 591,
+     "text": "Chí Thành đảnh lễ, rồi không rời núi Tào Khê nữa, trở thành môn nhân và không bao giờ rời xa Đại sư nữa."
+    },
+    {
+     "n": 592,
+     "text": "Lại có một Tăng nhân tên là Pháp Đạt, đã tụng kinh Pháp Hoa suốt bảy năm, song tâm vẫn mê mờ không biết Chánh pháp ở đâu."
+    },
+    {
+     "n": 593,
+     "text": "Đến núi Tào Khê, bái lạy rồi hỏi: \"Đệ tử có vài điều nghi hoặc về kinh, Đại sư có trí tuệ quảng đại, xin giải quyết các nghi hoặc cho đệ tử\"."
+    },
+    {
+     "n": 594,
+     "text": "Đại sư nói: \"Này Pháp Đạt, nói về pháp thì ông rất là đạt, nhưng tâm ông thì không đạt."
+    },
+    {
+     "n": 595,
+     "text": "Đối với kinh, ông chẳng có điều nghi hoặc gì cả, chỉ vì chính tâm ông tự nghi mà thôi."
+    },
+    {
+     "n": 596,
+     "text": "Tâm ông tà mà ông đòi cầu Chánh pháp. Tâm mình chánh định, tức là trì kinh."
+    },
+    {
+     "n": 597,
+     "text": "Tôi suốt cả đời chẳng bao giờ biết chữ. Ông đem kinh Pháp Hoa đến đây, đọc cho tôi nghe một lần, tôi nghe là hiểu ngay\"."
+    },
+    {
+     "n": 598,
+     "text": "Pháp Đạt đem kinh đến, đọc cho Đại sư nghe một lần."
+    },
+    {
+     "n": 599,
+     "text": "Sau khi nghe xong, Lục Tổ đã hiểu ý chỉ của Phật, bèn giảng kinh Pháp Hoa cho Pháp Đạt."
+    },
+    {
+     "n": 600,
+     "text": "Lục Tổ nói: \"Này Pháp Đạt, kinh Pháp Hoa, không có nói gì thừa cả."
+    },
+    {
+     "n": 601,
+     "text": "Cả bảy quyển chỉ nói thí dụ về nhân duyên."
+    },
+    {
+     "n": 602,
+     "text": "Như Lai rộng nói ba thừa, chỉ vì người đời căn cơ cạn cợt."
+    },
+    {
+     "n": 603,
+     "text": "Kinh văn nói rõ ràng, chỉ có một Phật thừa, không có thừa nào khác\"."
+    },
+    {
+     "n": 604,
+     "text": "Đại sư lại nói: \"Này Pháp Đạt, ông hãy lắng nghe về một Phật thừa này, chớ nên cầu Phật thừa thứ hai nào khác mà làm mê mờ bổn tánh mình đi."
+    },
+    {
+     "n": 605,
+     "text": "Trong kinh chỗ nào dạy Phật thừa? Để tôi nói cho ông nghe."
+    },
+    {
+     "n": 606,
+     "text": "Kinh nói: \"Chư Phật Thế Tôn đều vì một đại sự nhân duyên mà xuất hiện trên thế gian\"."
+    },
+    {
+     "n": 607,
+     "text": "Mười sáu chữ trên là Chánh pháp. Pháp này phải hiểu như thế nào?"
+    },
+    {
+     "n": 608,
+     "text": "Ông nghe tôi nói đây. Tâm con người vốn không liên hệ gì với tư tưởng, vốn uyên nguyên không tịch."
+    },
+    {
+     "n": 609,
+     "text": "Cắt đứt các tà kiến, tức là cái một đại sự nhân duyên kia."
+    },
+    {
+     "n": 610,
+     "text": "Trong ngoài không mê tức là xa lìa hai biên kiến."
+    },
+    {
+     "n": 611,
+     "text": "Nếu bên ngoài mà mê tức là bị chấp trước vào tướng, bên trong mà mê tức là bị chấp vào không."
+    },
+    {
+     "n": 612,
+     "text": "Nếu ở trong tướng mà lìa tướng, ở trong không mà lìa không, đó là trong ngoài không mê."
+    },
+    {
+     "n": 613,
+     "text": "Nếu như giác ngộ được pháp này thì trong một niệm tâm lập tức khai mở và ông sẽ xuất hiện trên thế gian."
+    },
+    {
+     "n": 614,
+     "text": "Tâm khai mở vật gì? Khai Phật tri kiến, và Phật có nghĩa là giác ngộ."
+    },
+    {
+     "n": 615,
+     "text": "Giáo lý này phân ra làm bốn cửa: khai giác tri kiến, thị giác tri kiến, ngộ giác tri kiến, nhập giác tri kiến."
+    },
+    {
+     "n": 616,
+     "text": "Đây gọi là khai thị ngộ nhập. Từ một chỗ vào tức là giác tri kiến, và bằng vào đó, ông sẽ thấy được bổn tánh của mình và siêu việt thế gian\"."
+    },
+    {
+     "n": 617,
+     "text": "Đại sư lại nói: \"Này Pháp Đạt, tôi thường nguyện rằng tất cả người đời thường tự khai Phật tri kiến trên tâm địa mình."
+    },
+    {
+     "n": 618,
+     "text": "Đừng nên khai chúng sanh tri kiến, bởi vì người đời tâm tà, ngu mê làm ác, cho nên họ mới khai chúng sanh tri kiến."
+    },
+    {
+     "n": 619,
+     "text": "Nếu như người đời tâm chánh, khởi trí tuệ quán chiếu thì sẽ tự khai mở Phật tri kiến cho mình."
+    },
+    {
+     "n": 620,
+     "text": "Đừng nên khai mở chúng sanh tri kiến. Khai Phật tri kiến có nghĩa là xuất thế gian\"."
+    },
+    {
+     "n": 621,
+     "text": "Đại sư lại nói: \"Này Pháp Đạt, đây là Nhất thừa pháp của kinh Pháp Hoa, sau đó lại phân chia ra làm ba, nguyên do là để dẫn độ người mê."
+    },
+    {
+     "n": 622,
+     "text": "Ông chỉ nên dựa vào một Phật thừa mà thôi\"."
+    },
+    {
+     "n": 623,
+     "text": "Đại sư lại nói: \"Này Pháp Đạt, nếu ông tu hành nơi tâm thì ông chuyển Pháp Hoa, nếu không như thế thì Pháp Hoa chuyển ông."
+    },
+    {
+     "n": 624,
+     "text": "Nếu tâm ông chính thì ông chuyển Pháp Hoa, nếu tâm ông tà thì Pháp Hoa chuyển ông."
+    },
+    {
+     "n": 625,
+     "text": "Nếu khai Phật tri kiến thì ông chuyển Pháp Hoa, nếu khai chúng sanh tri kiến thì ông bị Pháp Hoa chuyển\"."
+    },
+    {
+     "n": 626,
+     "text": "Đại sư lại nói: \"Nếu ông nỗ lực theo pháp tu hành, đó tức là chuyển kinh\"."
+    },
+    {
+     "n": 627,
+     "text": "Pháp Đạt vừa nghe lập tức đại ngộ, cảm động bật khóc, nói: \"Bạch Hòa thượng, đệ tử quả thực chưa từng chuyển Pháp Hoa, suốt bảy năm nay toàn bị Pháp Hoa chuyển."
+    },
+    {
+     "n": 628,
+     "text": "Từ rày trở đi, đệ tử sẽ chuyển Pháp Hoa, và luôn luôn không ngớt tu hành Phật hạnh\"."
+    },
+    {
+     "n": 629,
+     "text": "Đại sư nói: \"Phật hạnh chính là Phật\"."
+    },
+    {
+     "n": 630,
+     "text": "Lúc ấy, những người lắng nghe, không ai không giác ngộ."
+    },
+    {
+     "n": 631,
+     "text": "Có một ông Tăng tên là Trí Thường, đến núi Tào Khê bái lạy Hòa thượng Huệ Năng, rồi hỏi về ý nghĩa của pháp Tứ thừa."
+    },
+    {
+     "n": 632,
+     "text": "Trí Thường hỏi Hòa thượng: \"Phật nói Tam thừa, rồi lại nói Tối thượng thừa, đệ tử không hiểu, xin Hòa thượng chỉ dạy\"."
+    },
+    {
+     "n": 633,
+     "text": "Đại sư Huệ Năng nói: \"Ông hãy nhìn vào thân tâm mình, đừng chấp trước vào pháp tướng bên ngoài."
+    },
+    {
+     "n": 634,
+     "text": "Vốn không có Tứ thừa pháp, bởi vì tâm người có bốn bậc, cho nên pháp mới có Tứ thừa."
+    },
+    {
+     "n": 635,
+     "text": "Thấy, nghe, đọc, tụng là Tiểu thừa. Ngộ pháp hiểu nghĩa là Trung thừa."
+    },
+    {
+     "n": 636,
+     "text": "Y pháp tu hành là Đại thừa. Thông suốt hết vạn pháp, có đủ cả vạn hạnh, không xa lìa tất cả mà chỉ xa lìa pháp tướng, tác vô sở đắc, đó là Tối thượng thừa."
+    },
+    {
+     "n": 637,
+     "text": "\"Thừa\" có nghĩa là tu hành, không cốt tranh biện ở miệng."
+    },
+    {
+     "n": 638,
+     "text": "Ông cần phải tự tu, đừng hỏi tôi làm gì\"."
+    },
+    {
+     "n": 639,
+     "text": "Lại có một ông Tăng, tên là Thần Hội, là người hạt Nam Dương, đến núi Tào Khê, bái lạy và hỏi: \"Hòa thượng lúc ngồi thiền, thấy hay là không thấy?\"."
+    },
+    {
+     "n": 640,
+     "text": "Hòa thượng đứng dậy đánh Thần Hội ba cái, rồi hỏi: \"Này Thần Hội, lúc tôi đánh ông, ông đau hay không?\"."
+    },
+    {
+     "n": 641,
+     "text": "Thần Hội trả lời: \"Vừa đau vừa không đau\"."
+    },
+    {
+     "n": 642,
+     "text": "Lục Tổ nói: \"Tôi cũng vừa thấy vừa không thấy\"."
+    },
+    {
+     "n": 643,
+     "text": "Thần Hội lại hỏi: \"Bạch Đại sư, tại sao lại vừa thấy vừa không thấy?\"."
+    },
+    {
+     "n": 644,
+     "text": "Đại sư nói: \"Tôi thấy, nghĩa là thường thấy lỗi lầm của mình, cho nên bảo là thấy; còn không thấy, nghĩa là không thấy lỗi lầm của thiên hạ."
+    },
+    {
+     "n": 645,
+     "text": "Cho nên tôi vừa thấy vừa không thấy. Còn ông tại sao vừa đau vừa không đau?\"."
+    },
+    {
+     "n": 646,
+     "text": "Thần Hội trả lời: \"Nếu không đau, thì đệ tử đâm ra giống cây, đá vô tình."
+    },
+    {
+     "n": 647,
+     "text": "Nếu đau, đệ tử tức đồng với phàm phu, khởi lòng oán hận\"."
+    },
+    {
+     "n": 648,
+     "text": "Đại sư nói: \"Này Thần Hội, cái thấy với không thấy vừa rồi là hai biên kiến, đau với không đau là sanh diệt."
+    },
+    {
+     "n": 649,
+     "text": "Ông ngay cả tự tánh còn chưa thấy, đòi dám đến đây bỡn người\"."
+    },
+    {
+     "n": 650,
+     "text": "Thần Hội bái lạy, không nói gì nữa."
+    },
+    {
+     "n": 651,
+     "text": "Đại sư nói: \"Ông tâm mê không trống thấy, phải hỏi bậc thiện tri thức chỉ đường cho, phải ngộ tâm và tự thấy, cũng như y pháp tu hành."
+    },
+    {
+     "n": 652,
+     "text": "Ông tự mê mà không thấy tự tâm, lại đến hỏi Huệ Năng có thấy hay không."
+    },
+    {
+     "n": 653,
+     "text": "Cho dù tôi có tự thấy, tôi cũng không thể mê giùm ông được."
+    },
+    {
+     "n": 654,
+     "text": "Cũng như ông có tự thấy, ông cũng chẳng thể mê thay cho tôi được."
+    },
+    {
+     "n": 655,
+     "text": "Tại sao ông không tự tu đi cái đã rồi hãy hỏi tôi thấy hay không\"."
+    },
+    {
+     "n": 656,
+     "text": "Thần Hội lễ lạy rồi trở thành môn nhân, không rời núi Tào Khê và luôn luôn ở cạnh Đại sư."
+    },
+    {
+     "n": 657,
+     "text": "Đại sư gọi các môn nhân Pháp Hải, Chí Thành, Pháp Đạt, Trí Thường, Chí Thông, Chí Triệt, Chí Đạo, Pháp Trân, Pháp Như, Thần Hội và nói: \"Các ông, mười đệ tử của tôi, đến đây."
+    },
+    {
+     "n": 658,
+     "text": "Các ông không giống như những người khác."
+    },
+    {
+     "n": 659,
+     "text": "Sau khi tôi diệt độ rồi, các ông mỗi người sẽ lãnh đạo một phương."
+    },
+    {
+     "n": 660,
+     "text": "Tôi sẽ giảng pháp cho các ông, để đừng mất bổnt ông."
+    },
+    {
+     "n": 661,
+     "text": "Tôi sẽ dạy cho các ông tam khoa Pháp môn và ba mươi sáu đôi động dụng, hiện và chìm đều xa lìa hai bêin kiến."
+    },
+    {
+     "n": 662,
+     "text": "Khi giảng về tất cả các pháp đừng bao giờ lìa khỏi tánh tướng."
+    },
+    {
+     "n": 663,
+     "text": "Nếu có người hỏi pháp, lời nói ra đều phải tương xứng và luôn luôn phải đối chiếu các pháp."
+    },
+    {
+     "n": 664,
+     "text": "Bởi vì các pháp hỗ tương làm nhân cho nhau, nếu như thị nguyên rốt cuộc bị trừ khử hết, chúng không còn có nơi nào để hiện hữu."
+    },
+    {
+     "n": 665,
+     "text": "Tam khoa pháp môn là ấm, giới, nhập. Ấm là ngũ ấm, giới là thập bát giới, nhập là thập nhị nhập."
+    },
+    {
+     "n": 666,
+     "text": "Ngũ ấm là gì? Là sắc ấm, thọ ấm, tưởng ấm, hành ấm và thức ấm."
+    },
+    {
+     "n": 667,
+     "text": "Thập bát giới là gì? Là lục trần, lục môn và lục thức."
+    },
+    {
+     "n": 668,
+     "text": "Thập nhị nhập là gì? Là lục trần bên ngoài và lục môn bên trong."
+    },
+    {
+     "n": 669,
+     "text": "Lục trần là gì? Là sắc, thanh, hương, vị, xúc và pháp."
+    },
+    {
+     "n": 670,
+     "text": "Lục môn là gì? Là nhãn, nhĩ, tỷ, thiệt, thân và ý."
+    },
+    {
+     "n": 671,
+     "text": "Pháp tánh sanh khởi lục thức - nhãn thức, nhĩ thức, tỷ thức, thiệt thức, thân thức và ý thức, cùng với lục môn và lục trần."
+    },
+    {
+     "n": 672,
+     "text": "Tự tánh hàm vạn pháp, gọi là hàm tàng thức."
+    },
+    {
+     "n": 673,
+     "text": "Tư lương thì thức chuyển, sanh lục thức, lục trần được thấy xuất ra từ lục môn."
+    },
+    {
+     "n": 674,
+     "text": "Ba sáu là mười tám. Do tự tánh mình tà, mười tám tà sanh khởi."
+    },
+    {
+     "n": 675,
+     "text": "Nếu tự tánh mình chánh, mười tám chánh pháp sẽ sanh khởi."
+    },
+    {
+     "n": 676,
+     "text": "Nếu hàm ác dụng thì là chúng sanh, thiện dụng là Phật."
+    },
+    {
+     "n": 677,
+     "text": "Dụng phát sanh từ đâu? Từ sự tương đối với tự tánh."
+    },
+    {
+     "n": 678,
+     "text": "Có năm đối pháp thuộc ngoại cảnh vô tình."
+    },
+    {
+     "n": 679,
+     "text": "Trời đối với đất, mặt trời đối với mặt trăng, bóng tối đối với ánh sáng, âm đối với dương, lửa đối với nước."
+    },
+    {
+     "n": 680,
+     "text": "Có mười hai đối pháp trong ngôn ngữ và pháp tướng:"
+    },
+    {
+     "n": 681,
+     "text": "Hữu vi và vô vi đối với hữu sắc và vô sắc, hữu tướng đối với vô tướng, hữu lậu đối với vô lậu, sắc đối với không, động đối với tĩnh, trong đối với đục, phàm đối với thánh, Tăng đối với tục, già đối với trẻ,"
+    },
+    {
+     "n": 682,
+     "text": "lớn đối với nhỏ, dài đối với ngắn, cao đối với thấp."
+    },
+    {
+     "n": 683,
+     "text": "Trong dụng khởi từ tự tánh có mười chín đối pháp:"
+    },
+    {
+     "n": 684,
+     "text": "Tà đối với chánh, si đối với tuệ, ngu đối với trí, loạn đối với định, giới đối với sai, thẳng đối với cong, thực đối với hư, dốc đối với bằng, phiền não đối với Bồ đề, từ đối với hại, vui đối với giận, xả đối với tiếc,"
+    },
+    {
+     "n": 685,
+     "text": "tiến đối với thoái, sanh đối với diệt, thường đối với vô thường, Pháp thân đối với Sắc thân, Hóa thân đối với Báo thân, thể đối với dụng, tánh đối với tướng, hữu tình đối với vô tình."
+    },
+    {
+     "n": 686,
+     "text": "Ngôn ngữ và pháp tướng có mười hai đối pháp."
+    },
+    {
+     "n": 687,
+     "text": "Ngoại cảnh có năm đối pháp. Trong dụng do tự tánh sanh khởi có mười chín đối pháp, tất cả hợp lại thành ba mươi sáu đối pháp."
+    },
+    {
+     "n": 688,
+     "text": "Ba mươi sáu đối pháp này có thể áp dụng để thông tất cả các kinh, xuất thập gì cũng xa lìa được hai biên kiến cả."
+    },
+    {
+     "n": 689,
+     "text": "Tự tánh khởi dụng như thế nào? Khi nói với người khác về ba mươi sáu đối pháp này, bên ngoài tuy ở trong tướng mà vẫn xa lìa tướng; bên trong tuy ở trong không mà vẫn không chấp trước không."
+    },
+    {
+     "n": 690,
+     "text": "Nếu chấp trước vào không tức là làm tăng trưởng vô minh; nếu chấp trước vào tướng tức là làm tăng trưởng tà kiến, bài báng pháp và nói bừa rằng không cần đến văn tự."
+    },
+    {
+     "n": 691,
+     "text": "Nếu nói rằng không cần văn tự thì con người hẳn không được nói năng nữa, bởi vì lời nói tức là văn tự."
+    },
+    {
+     "n": 692,
+     "text": "Song nói về không bằng tự tánh mình, thì đó là ngôn ngữ chánh đáng..."
+    },
+    {
+     "n": 693,
+     "text": "Bổn tánh không là không, vì mình tự mê tự hoặc, cho nên mới nói trừ bỏ ngôn ngữ."
+    },
+    {
+     "n": 694,
+     "text": "Bóng tối tự nó không phải là bóng tối, vì có ánh sáng cho nên có bóng tối, bóng tối không tự nó là bóng tối bởi vì ánh sáng biến thành bóng tối, và bóng tối làm hiển hiện ánh sáng."
+    },
+    {
+     "n": 695,
+     "text": "Ánh sáng và bóng tối là sanh nhân của nhau, ba mươi sáu đối pháp cũng giống vậy\"."
+    },
+    {
+     "n": 696,
+     "text": "Đại sư nói: \"Này thập đệ tử, sau này các ông truyền pháp, hỗ tương giảng dạy một quyển Đàn kinh này, thì bổn tông sẽ không bị mất đi."
+    },
+    {
+     "n": 697,
+     "text": "Ai chưa được truyền thọ Đàn kinh, tức là chưa đắc tông chỉ của tôi."
+    },
+    {
+     "n": 698,
+     "text": "Nay các ông đã đắc rồi phải lưu hành cho các đời sau."
+    },
+    {
+     "n": 699,
+     "text": "Người nào hiểu được Đàn kinh thì cũng như được tôi đích thân truyền thọ\"."
+    },
+    {
+     "n": 700,
+     "text": "Mười môn nhân này sau khi được truyền thọ, chép lại Đàn kinh, lưu truyền cho hậu thế."
+    },
+    {
+     "n": 701,
+     "text": "Bất cứ ai đắc được bộ Đàn kinh cũng đều kiến tánh."
+    },
+    {
+     "n": 702,
+     "text": "Đại sư nhập diệt ngày mồng ba tháng Tám năm Tiên Thiên thứ hai (tức ngày hai mươi tháng Tám năm 713)."
+    },
+    {
+     "n": 703,
+     "text": "Ngày mồng tám tháng Bảy, Đại sư gọi các môn nhân đến để cáo biệt."
+    },
+    {
+     "n": 704,
+     "text": "Trong năm Tiên Thiên thứ nhất, Đại sư đã cho xây tháp ở chùa Báo Ân tại Tân Châu, và vào tháng Bảy năm Tiên Thiên thứ hai, Đại sư cáo biệt."
+    },
+    {
+     "n": 705,
+     "text": "Đại sư nói: \"Các ông đến gần đây, tôi dự định rời thế gian vào vào tháng Tám."
+    },
+    {
+     "n": 706,
+     "text": "Các ông còn có điều nghi gì, mau hỏi, tôi sẽ phá nghi cho các ông."
+    },
+    {
+     "n": 707,
+     "text": "Tôi phải chấm dứt sự mê mờ cho các ông. Tôi phải chấm dứt sự mê mờ của các ông để các ông được an lạc."
+    },
+    {
+     "n": 708,
+     "text": "Sau khi tôi đi rồi, đâu có ai để dạy các ông nữa\"."
+    },
+    {
+     "n": 709,
+     "text": "Pháp Hải và chúng Tăng nghe xong, cảm động bật khóc."
+    },
+    {
+     "n": 710,
+     "text": "Chỉ có Thần Hội vẫn bất động mà cũng không khóc lóc."
+    },
+    {
+     "n": 711,
+     "text": "Lục Tổ nói: \"Này Thần Hội, ông tuy còn trẻ mà đã đạt được giác ngộ không để cho thiện, bất thiện, khen hay chê làm động."
+    },
+    {
+     "n": 712,
+     "text": "Còn những người khác không đắc, mấy năm nay ở trên núi này, các ông tu cái gì vậy?"
+    },
+    {
+     "n": 713,
+     "text": "Nay các ông khóc lóc, song có ai lo là tôi không biết nơi mình sẽ đi chăng?"
+    },
+    {
+     "n": 714,
+     "text": "Nếu như tôi không biết tôi sẽ đi về đâu, hẳn tôi đã không chia tay với các ông."
+    },
+    {
+     "n": 715,
+     "text": "Nếu như các ông biết, các ông đã không khóc lóc."
+    },
+    {
+     "n": 716,
+     "text": "Pháp tánh vốn không có sanh diệt khứ lai."
+    },
+    {
+     "n": 717,
+     "text": "Các ông hãy ngồi xuống cả đi, để tôi nói cho các ông một bài kệ, gọi là \"Chân-giả, Động-tĩnh kệ\"."
+    },
+    {
+     "n": 718,
+     "text": "Các ông phải trì tụng. Hiểu được ý bài kệ này, các ông sẽ giống y như tôi."
+    },
+    {
+     "n": 719,
+     "text": "Y theo kệ mà tu hành, các ông sẽ không mất tông chỉ\"."
+    },
+    {
+     "n": 720,
+     "text": "Tăng chúng lễ lạy yêu cầu Đại sư để lại kệ, nguyện sẽ cung kính thọ trì. Kệ rằng:"
+    },
+    {
+     "n": 721,
+     "text": "\"Tất cả không là chơn"
+    },
+    {
+     "n": 722,
+     "text": "Đừng mong thấy là chơn"
+    },
+    {
+     "n": 723,
+     "text": "Nếu như thấy là chơn"
+    },
+    {
+     "n": 724,
+     "text": "Đều là kiến, không chơn"
+    },
+    {
+     "n": 725,
+     "text": "Nếu tự đắc được chơn"
+    },
+    {
+     "n": 726,
+     "text": "Lìa giả, tức chơn tâm"
+    },
+    {
+     "n": 727,
+     "text": "Tự tâm không lìa giả"
+    },
+    {
+     "n": 728,
+     "text": "Không chơn, đâu là chơn"
+    },
+    {
+     "n": 729,
+     "text": "Hữu tình ắt biết động"
+    },
+    {
+     "n": 730,
+     "text": "Vô tình không biết động"
+    },
+    {
+     "n": 731,
+     "text": "Nếu tu hạnh bất động"
+    },
+    {
+     "n": 732,
+     "text": "Bất động giống vô tình"
+    },
+    {
+     "n": 733,
+     "text": "Nếu ngộ chơn bất động:"
+    },
+    {
+     "n": 734,
+     "text": "Là bất động trên động"
+    },
+    {
+     "n": 735,
+     "text": "Bất động là không động"
+    },
+    {
+     "n": 736,
+     "text": "Vô tình vô Phật chủng"
+    },
+    {
+     "n": 737,
+     "text": "Khéo phân biệt cạc tướng"
+    },
+    {
+     "n": 738,
+     "text": "Đệ nhất nghĩa bất động"
+    },
+    {
+     "n": 739,
+     "text": "Nếu ngộ được điểm này"
+    },
+    {
+     "n": 740,
+     "text": "Đó là chơn như dụng"
+    },
+    {
+     "n": 741,
+     "text": "Nhắc các người học đạo"
+    },
+    {
+     "n": 742,
+     "text": "Phải nỗ lực dụng tâm"
+    },
+    {
+     "n": 743,
+     "text": "Đừng nơi Đại thừa pháp"
+    },
+    {
+     "n": 744,
+     "text": "Chấp trước sanh tử trí"
+    },
+    {
+     "n": 745,
+     "text": "Tương lai gặp người hợp"
+    },
+    {
+     "n": 746,
+     "text": "Phải cùng luận lời Phật"
+    },
+    {
+     "n": 747,
+     "text": "Nếu thật người không hợp"
+    },
+    {
+     "n": 748,
+     "text": "Chắp tay khuyên làm thiện"
+    },
+    {
+     "n": 749,
+     "text": "Giáo này vốn không tranh"
+    },
+    {
+     "n": 750,
+     "text": "Tranh tức mất ý đạo"
+    },
+    {
+     "n": 751,
+     "text": "Chấp mê tranh pháp môn"
+    },
+    {
+     "n": 752,
+     "text": "Tự tánh nhập sanh tử\"."
+    },
+    {
+     "n": 753,
+     "text": "Chúng Tăng nghe xong, hiểu ý chỉ của Đại sư, lại càng không dám tranh cãi, tự biết phải theo pháp tu hành."
+    },
+    {
+     "n": 754,
+     "text": "Tất cả đồng lễ lạy, biết rằng Đại sư không ở mãi trên đời này được."
+    },
+    {
+     "n": 755,
+     "text": "Thượng tọa Pháp Hải bước tới trước nói: \"Bạch Đại sư, sau khi Đại sư khứ thế rồi, y pháp phải trao lại cho ai đây?\"."
+    },
+    {
+     "n": 756,
+     "text": "Đại sư nói: \"Pháp đã trao rồi, ông không nên hỏi nữa."
+    },
+    {
+     "n": 757,
+     "text": "Hơn hai mươi năm sau khi tôi nhập diệt, tà pháp nhiễu loạn, làm mê hoặc tông chỉ của ta."
+    },
+    {
+     "n": 758,
+     "text": "Lúc đó sẽ có người xuất hiện, không tiếc thân mạng, quy định lại thị phi trong Phật giáo, kiến lập tông chỉ, đó chính là Chánh pháp của ta."
+    },
+    {
+     "n": 759,
+     "text": "Y không cần phải truyền nữa. Nếu như ông không tin, tôi sẽ tụng những bài kệ của năm vị tiên Tổ lúc truyền y phó pháp cho ông nghe."
+    },
+    {
+     "n": 760,
+     "text": "Nếu dựa theo ý bài tụng của Đệ nhất Tổ Bồ Đề Đạt Ma, thì không cần phải truyền y."
+    },
+    {
+     "n": 761,
+     "text": "Nghe tôi tụng cho các ông đây. Tụng rằng:"
+    },
+    {
+     "n": 762,
+     "text": "Bài tụng của Đệ nhất Tổ Hòa thượng Bồ Đề Đạt Ma:"
+    },
+    {
+     "n": 763,
+     "text": "\"Ta vốn đến Trung Quốc"
+    },
+    {
+     "n": 764,
+     "text": "Truyền giáo cứu mê tình"
+    },
+    {
+     "n": 765,
+     "text": "Một hoa khai năm cành"
+    },
+    {
+     "n": 766,
+     "text": "Kết quả tự nhiên thành\""
+    },
+    {
+     "n": 767,
+     "text": "Bài tụng của Đệ nhị Tổ Hòa thượng Huệ Khả:"
+    },
+    {
+     "n": 768,
+     "text": "\"Bổn lai vốn có đất"
+    },
+    {
+     "n": 769,
+     "text": "Từ đất giống hoa sinh"
+    },
+    {
+     "n": 770,
+     "text": "Nếu bổn lai không đất"
+    },
+    {
+     "n": 771,
+     "text": "Hoa do đâu mà sinh?\""
+    },
+    {
+     "n": 772,
+     "text": "Bài tụng của Đệ tam Tổ Hòa thượng Tăng Xán:"
+    },
+    {
+     "n": 773,
+     "text": "\"Giống hoa tuy do đất"
+    },
+    {
+     "n": 774,
+     "text": "Trên đất giống hoa sinh"
+    },
+    {
+     "n": 775,
+     "text": "Nếu hoa không sinh tánh"
+    },
+    {
+     "n": 776,
+     "text": "Nơi đất cũng chẳng sinh\""
+    },
+    {
+     "n": 777,
+     "text": "Bài tụng của Đệ tứ Tổ Hòa thượng Đạo Tín:"
+    },
+    {
+     "n": 778,
+     "text": "\"Giống hoa có sinh tánh"
+    },
+    {
+     "n": 779,
+     "text": "Do đất giống hoa sinh"
+    },
+    {
+     "n": 780,
+     "text": "Tiên duyên không hòa hợp"
+    },
+    {
+     "n": 781,
+     "text": "Tất cả đều chẳng sinh\""
+    },
+    {
+     "n": 782,
+     "text": "Bài tụng của Đệ ngũ Tổ Hòa thượng Hoằng Nhẫn:"
+    },
+    {
+     "n": 783,
+     "text": "\"Hữu tình đến gieo giống"
+    },
+    {
+     "n": 784,
+     "text": "Hoa vô tình tức sinh"
+    },
+    {
+     "n": 785,
+     "text": "Vô tình lại vô chủng"
+    },
+    {
+     "n": 786,
+     "text": "Tâm địa cũng không sinh\""
+    },
+    {
+     "n": 787,
+     "text": "Bài tụng của Đệ lục Tổ Hòa thượng Huệ Năng:"
+    },
+    {
+     "n": 788,
+     "text": "\"Tâm địa hàm tánh chủng"
+    },
+    {
+     "n": 789,
+     "text": "Pháp vũ khiến hoa sinh"
+    },
+    {
+     "n": 790,
+     "text": "Tự ngộ hoa tánh chủng"
+    },
+    {
+     "n": 791,
+     "text": "Quả Bồ đề tự thành\"."
+    },
+    {
+     "n": 792,
+     "text": "Đại sư Huệ Năng nói: \"Các ông hãy nghe hai bài tụng tôi đã làm, dựa theo ý bài tụng của Hòa thượng Bồ Đề Đạt Ma."
+    },
+    {
+     "n": 793,
+     "text": "Các ông những người còn mê mờ nếu y theo bài tụng này mà tu hành, chắc chắn sẽ kiến tánh."
+    },
+    {
+     "n": 794,
+     "text": "Bài tụng thứ nhất:"
+    },
+    {
+     "n": 795,
+     "text": "\"Tâm địa tà hoa này"
+    },
+    {
+     "n": 796,
+     "text": "Năm cánh mọc từ cành"
+    },
+    {
+     "n": 797,
+     "text": "Cùng tạo nghiệp vô minh"
+    },
+    {
+     "n": 798,
+     "text": "Kiến bị gió nghiệp thổi\""
+    },
+    {
+     "n": 799,
+     "text": "Bài tụng thứ hai:"
+    },
+    {
+     "n": 800,
+     "text": "\"Tâm địa chánh hoa này"
+    },
+    {
+     "n": 801,
+     "text": "Năm cánh mọc từ cành"
+    },
+    {
+     "n": 802,
+     "text": "Cùng tu Bát nhã huệ"
+    },
+    {
+     "n": 803,
+     "text": "Tương lai Phật Bồ đề\"."
+    },
+    {
+     "n": 804,
+     "text": "Sau khi Lục Tổ nói kệ xong, giải tán các môn nhân."
+    },
+    {
+     "n": 805,
+     "text": "Họ ra ngoài suy tư, biết rằng Đại sư không còn trụ thế bao lâu nữa."
+    },
+    {
+     "n": 806,
+     "text": "Sau đến ngày mồng ba tháng Tám, sau khi thọ trai xong, Lục Tổ Đại sư nói: \"Các ông ai ngồi vào chỗ nấy đi, bây giờ tôi xin từ biệt với các ông đây\"."
+    },
+    {
+     "n": 807,
+     "text": "Pháp Hải hỏi: \"Từ xưa đến nay, pháp môn đốn giáo này truyền thọ đã được bao nhiêu đời rồi?\"."
+    },
+    {
+     "n": 808,
+     "text": "Lục Tổ nói: \"Thoạt tiên được truyền thọ từ Thất Phật, Thích Ca Mâu Ni Phật là thứ bảy, Đại Ca Diếp là thứ tám, A Nan là thứ chín, Mạt Điền Địa là thứ mười, Thương Na Hòa Tu là thứ mười một, Ưu Ba Cú Đa là thứ mười hai,"
+    },
+    {
+     "n": 809,
+     "text": "Đề Đa Ca là thứ mười ba, Phật Đà Nan Đề là thứ mười bốn, Phật Đà Mật Đa là thứ mười lăm, Hiếp Tỳ Khưu là thứ mười sáu, Phú Na Xa là thứ mười bảy, Mã Minh là thứ mười tám, Tỳ La Trưởng Giả là thứ mười chín,"
+    },
+    {
+     "n": 810,
+     "text": "Long Thọ là thứ hai mươi, Ca Na Đề Bà là thứ hai mươi mốt, La Hầu La là thứ hai mươi hai, Tăng Già Na Đề là thứ hai mươi ba, Tăng Già Na Xá là thứ hai mươi bốn, Cưu Ma La Đà là thứ hai mươi lăm,"
+    },
+    {
+     "n": 811,
+     "text": "Xa Da Đa là thứ hai mươi sáu, Bà Tu Bàn Đa là thứ hai mươi bảy, Ma Nô La là thứ hai mươi tám, Hạc Lặc Na là thứ hai mươi chín, Sư Tử Tỳ Khưu là thứ ba mươi, Xá Na Bà Tư là thứ ba mươi mốt, Ưu Bà Quật là thứ ba mươi hai,"
+    },
+    {
+     "n": 812,
+     "text": "Tăng Già La là thứ ba mươi ba, Tu Bà Mật Đa là thứ ba mươi bốn, con thứ ba của Nam Thiên Trúc quốc vương Bồ Đề Đạt Ma là thứ ba mươi lăm, Trung Quốc Tăng Huệ Khả là thứ ba mươi sáu, Tăng Xán là thứ ba mươi bảy,"
+    },
+    {
+     "n": 813,
+     "text": "Đạo Tín là thứ ba mươi tám, Hoằng Nhẫn là thứ ba mươi chín, hiện giờ Huệ Năng tôi là người thọ pháp thứ bốn mươi\"."
+    },
+    {
+     "n": 814,
+     "text": "Đại sư lại nói: \"Từ rày trở đi truyền thọ cho nhau, cần có chỗ nương tựa, đừng để làm mất tông chỉ\"."
+    },
+    {
+     "n": 815,
+     "text": "Pháp Hải lại bạch: \"Nay Đại sư đi, để lại pháp gì, những người đời sau phải làm thế nào để thấy Phật?\"."
+    },
+    {
+     "n": 816,
+     "text": "Lục Tổ nói: \"Các ông nghe đây, những người mê của đời sau, chỉ cần hiểu chúng sanh là có thể thành Phật."
+    },
+    {
+     "n": 817,
+     "text": "Nếu không biết chúng sanh, thì dù có tìm Phật trong vạn kiếp cũng chẳng thể nào thấy được."
+    },
+    {
+     "n": 818,
+     "text": "Nay tôi sẽ dạy cho các ông biết chúng sanh trong tâm mình và thấy Phật tánh trong tâm minh."
+    },
+    {
+     "n": 819,
+     "text": "Tôi cũng sẽ lưu lại một bài tụng gọi là \"Kiến chơn Phật giải thoát\"."
+    },
+    {
+     "n": 820,
+     "text": "Nếu mê mờ thì sẽ không thấy Phật, nếu ngộ thì sẽ thấy."
+    },
+    {
+     "n": 821,
+     "text": "Này Pháp Hải, hãy lắng nghe, và nhớ lưu truyền lại pháp này từ đời này qua đời khác để mãi mãi không bị đứt đoạn\"."
+    },
+    {
+     "n": 822,
+     "text": "Lục Tổ lại nói: \"Các ông lắng nghe đây, tôi sẽ giảng cho các ông."
+    },
+    {
+     "n": 823,
+     "text": "Những người đời sau nếu muốn thấy Phật, chỉ cần phải biết rằng Phật tâm có trong chúng sanh, là có thể biết Phật."
+    },
+    {
+     "n": 824,
+     "text": "Phật tâm do chúng sanh mà có, ngoài chúng sanh ra không có Phật tâm\"."
+    },
+    {
+     "n": 825,
+     "text": "\"Mê, Phật là chúng sanh"
+    },
+    {
+     "n": 826,
+     "text": "Ngộ, chúng sanh là Phật"
+    },
+    {
+     "n": 827,
+     "text": "Ngu, Phật là chúng sanh"
+    },
+    {
+     "n": 828,
+     "text": "Trí, chúng sanh là Phật"
+    },
+    {
+     "n": 829,
+     "text": "Tâm trệch, Phật chúng sanh"
+    },
+    {
+     "n": 830,
+     "text": "Bình đẳng, chúng sanh Phật"
+    },
+    {
+     "n": 831,
+     "text": "Một đời tâm mà trệch"
+    },
+    {
+     "n": 832,
+     "text": "Phật lấp trong chúng sanh"
+    },
+    {
+     "n": 833,
+     "text": "Một niệm ngộ bình đẳng"
+    },
+    {
+     "n": 834,
+     "text": "Thì chúng sanh là Phật"
+    },
+    {
+     "n": 835,
+     "text": "Tâm mình tự có Phật"
+    },
+    {
+     "n": 836,
+     "text": "Tự Phật là chơn Phật"
+    },
+    {
+     "n": 837,
+     "text": "Nếu mình không Phật tâm"
+    },
+    {
+     "n": 838,
+     "text": "Biết cầu Phật ở đâu?\"."
+    },
+    {
+     "n": 839,
+     "text": "Đại sư nói: \"Tôi xin cáo biệt các ông. Tôi để lại một bài tụng, gọi là bài tụng \"Tự tánh chơn Phật giải thoát\"."
+    },
+    {
+     "n": 840,
+     "text": "Những kẻ mê mờ đời sau, nếu hiểu được ý chỉ của bài tụng này, lập tức sẽ thấy được chơn Phật của tự tâm tự tánh mình."
+    },
+    {
+     "n": 841,
+     "text": "Tôi để lại bài tụng này để cáo biệt các ông. Tụng rằng:"
+    },
+    {
+     "n": 842,
+     "text": "\"Chơn như tự tánh là chơn Phật"
+    },
+    {
+     "n": 843,
+     "text": "Tà kiến tam độc là chơn ma"
+    },
+    {
+     "n": 844,
+     "text": "Người vướng tà kiến, ma trong nhà"
+    },
+    {
+     "n": 845,
+     "text": "Người có chánh kiến, Phật đến thăm"
+    },
+    {
+     "n": 846,
+     "text": "Tà kiến trong tánh tam độc sanh"
+    },
+    {
+     "n": 847,
+     "text": "Tức là ma vương đến ở nhà"
+    },
+    {
+     "n": 848,
+     "text": "Nếu chánh kiến trừ tam độc tâm"
+    },
+    {
+     "n": 849,
+     "text": "Ma biến thành Phật thật không giả"
+    },
+    {
+     "n": 850,
+     "text": "Hóa thân, Báo thân và Pháp thân"
+    },
+    {
+     "n": 851,
+     "text": "Ba thân vốn gốc là một thân"
+    },
+    {
+     "n": 852,
+     "text": "Nếu tự tìm thấy trong tánh mình"
+    },
+    {
+     "n": 853,
+     "text": "Đó là nhân thành Phật Bồ đề"
+    },
+    {
+     "n": 854,
+     "text": "Tịnh tánh thường ở trong Hóa thân"
+    },
+    {
+     "n": 855,
+     "text": "Tánh khiến Hóa thân thành chánh đạo"
+    },
+    {
+     "n": 856,
+     "text": "Tương lai viên mãn thật vô cùng"
+    },
+    {
+     "n": 857,
+     "text": "Dâm tánh là nhân của thanh tịnh"
+    },
+    {
+     "n": 858,
+     "text": "Ngoài dâm nào có thanh tịnh tánh"
+    },
+    {
+     "n": 859,
+     "text": "Trong tánh nếu tự lìa ngũ dục"
+    },
+    {
+     "n": 860,
+     "text": "Sát na kiến tánh tức là chơn"
+    },
+    {
+     "n": 861,
+     "text": "Đời này nếu ngộ pháp đốn giáo"
+    },
+    {
+     "n": 862,
+     "text": "Ngộ tức trước mắt thấy Thế Tôn"
+    },
+    {
+     "n": 863,
+     "text": "Nếu muốn tu hành và kiến Phật"
+    },
+    {
+     "n": 864,
+     "text": "Biết phải tìm chơn ở chỗ não"
+    },
+    {
+     "n": 865,
+     "text": "Nếu biết trong mình đã có chơn"
+    },
+    {
+     "n": 866,
+     "text": "Có chơn tức là nhân thành Phật"
+    },
+    {
+     "n": 867,
+     "text": "Không tự cầu chơn, tìm Phật ngoài"
+    },
+    {
+     "n": 868,
+     "text": "Tìm kiếm khác gì kẻ ngu si"
+    },
+    {
+     "n": 869,
+     "text": "Đốn giáo pháp môn từ Tây đến"
+    },
+    {
+     "n": 870,
+     "text": "Muốn độ người đời phải tự tu"
+    },
+    {
+     "n": 871,
+     "text": "Báo với các người đời học dạo"
+    },
+    {
+     "n": 872,
+     "text": "Không theo pháp này, sống như không\"."
+    },
+    {
+     "n": 873,
+     "text": "Sau khi nói xong bài kệ, Đại sư cáo biệt các môn nhân rằng: \"Các ông ở lại bình an, nay tôi xin từ biệt."
+    },
+    {
+     "n": 874,
+     "text": "Sau khi tôi đi rồi, đừng khóc lóc như thế nhân, đừng nhận điếu tang, tiền, lụa; cũng đừng bận áo tang."
+    },
+    {
+     "n": 875,
+     "text": "Nếu các ông làm thế tất không hợp với thánh pháp, cũng chẳng phải là đệ tử của tôi."
+    },
+    {
+     "n": 876,
+     "text": "Hãy vẫn cứ hành xử y như những ngày tôi còn bên các ông, cùng nhau tu tập tọa thiền."
+    },
+    {
+     "n": 877,
+     "text": "Chỉ cần vô động vô tĩnh, vô sanh vô diệt, vô khứ vô lai, vô thị vô phi, vô trụ vô vãng, thản nhiên tịch tĩnh, tức là đại đạo rồi."
+    },
+    {
+     "n": 878,
+     "text": "Sau khi tôi đi rồi, chỉ cần y pháp tu hành, không khác gì những ngày tôi còn bên cạnh các ông."
+    },
+    {
+     "n": 879,
+     "text": "Nếu như tôi còn tại thế mà các ông vẫn vi bội giáo pháp, thì tôi có trụ thế cũng vô ích mà thôi\"."
+    },
+    {
+     "n": 880,
+     "text": "Sau khi nói những lời này, đến nửa đêm, ngài lặng lẽ khứ thế. Đại sư hưởng thọ bảy mươi sáu tuổi."
+    },
+    {
+     "n": 881,
+     "text": "Vào hôm Đại sư nhập diệt, trong chùa có hương thơm lạ phảng phất, mấy ngày không tan."
+    },
+    {
+     "n": 882,
+     "text": "Núi lở đất động, rừng cây biến thành trắng, mặt trăng mặt trời không còn ánh sáng, gió mây mất cả màu sắc."
+    },
+    {
+     "n": 883,
+     "text": "Đại sư diệt độ vào ngày mồng ba tháng Tám, đến tháng Mười một, linh cữu của ngài được đón về núi Tào Khê để an táng."
+    },
+    {
+     "n": 884,
+     "text": "Từ nơi mộ ngài, bạch quang xuất hiện, chiếu thẳng lên trời, mãi đến hai hôm mới tán."
+    },
+    {
+     "n": 885,
+     "text": "Thiều Châu Thứ sử Vi Cứ lập, cho đến nay thiên hạ vẫn đến cúng dường."
+    },
+    {
+     "n": 886,
+     "text": "Đàn kinh này là do Thượng tọa Pháp Hải biên tập."
+    },
+    {
+     "n": 887,
+     "text": "Lúc mất, Thượng tọa giao lại cho người bạn đồng học là Đạo Xán."
+    },
+    {
+     "n": 888,
+     "text": "Lúc Đạo Xán qua đời lại giao cho người đệ tử là Ngộ Chơn."
+    },
+    {
+     "n": 889,
+     "text": "Ngộ Chơn hiện giờ đang truyền thọ giáo pháp này ở chùa Pháp Hưng, núi Tào Khê, thuộc Lĩnh Nam."
+    },
+    {
+     "n": 890,
+     "text": "Sau này người được giao phó giáo pháp này phải là bậc có trí huệ và căn cơ cao, phải có lòng tin Phật pháp, lập đại bi tâm trì kinh này."
+    },
+    {
+     "n": 891,
+     "text": "Phải coi đó là căn bản để truyền thừa thì pháp đến nay mới không bị đứt đoạn."
+    },
+    {
+     "n": 892,
+     "text": "Hòa thượng Pháp Hải vốn là người huyện Khúc Giang, Thiều Châu."
+    },
+    {
+     "n": 893,
+     "text": "Sau khi Đức Như Lai nhập Niết bàn, giáo pháp truyền về phương Đông, nếu truyền mãi không đình trệ tức là tâm chúng ta không đình trệ."
+    },
+    {
+     "n": 894,
+     "text": "Bậc chơn Bồ tát này thuyết giảng chơn tông, tu hành hợp với thực dụ."
+    },
+    {
+     "n": 895,
+     "text": "Đây là y chỉ để dạy các bậc đại trí. Pháp này chỉ được truyền thọ cho những người thệ nguyện cứu độ tất cả, tu hành không ngớt, gặp khó khăn không thối chí, gặp cảnh khổ biết kham nhẫn, do đó có phước đức sâu dày."
+    },
+    {
+     "n": 896,
+     "text": "Còn những kẻ căn tánh không kham nổi, tài lực không đủ, không nên cầu pháp này làm gì."
+    },
+    {
+     "n": 897,
+     "text": "Không được bừa bãi truyền thọ Đàn kinh này cho những người phạm giới luật, thiếu đạo đức."
+    },
+    {
+     "n": 898,
+     "text": "Xin thưa với các đồng đạo: Hãy cố gắng hiểu mật ý này."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,5700 @@
+{
+ "id": "kim-cang",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Bát Nhã",
+ "reference": "Taishō T0235",
+ "hanTranslator": "Cưu Ma La Thập",
+ "summary": "Kinh Bát Nhã thuộc hệ Đại thừa, bản Hán dịch của ngài Cưu-ma-la-thập. Kinh mở đầu tại vườn Kỳ Thọ Cấp Cô Độc, thành Xá-vệ, khi Trưởng lão Tu-bồ-đề hỏi Phật về cách trụ tâm và hàng phục tâm của người phát tâm Bồ-đề. Phật dạy tinh thần không chấp vào tướng, xem các pháp như mộng huyễn, bọt nước, sương, chớp. Kinh thường được trì tụng và nghiên cứu trong Phật giáo Đại thừa.",
+ "titles": {
+  "vi": "Kinh Kim Cang (Kim Cang Bát Nhã Ba La Mật)",
+  "zh": "金剛般若波羅蜜經",
+  "sa": "वज्रच्छेदिकाप्रज्ञापारमिता सूत्र (Vajracchedikā Prajñāpāramitā Sūtra)",
+  "en": "Diamond Sutra"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "buddha_dipankara",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 60,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "translator": "Đoàn Trung Còn - Nguyễn Minh Tiến (Việt dịch từ bản Hán của Cưu-ma-la-thập)",
+   "sourceName": "Phatgiao.org.vn (Cổng thông tin Phật giáo, Giáo hội Phật giáo Việt Nam) - Kinh Kim Cang (phần dịch nghĩa)",
+   "sourceUrl": "https://phatgiao.org.vn/kinh-kim-cang-bat-nha-ba-la-mat-tieng-viet-de-doc-de-hieu-d70395.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Trang ghi: \"Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!\" (không nêu giấy phép chuẩn như CC); bản quyền bản dịch gốc của dịch giả không được nêu",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe như thế này: Có một lúc đức Phật ở thành Xá-vệ, nơi vườn Kỳ Thọ Cấp Cô Độc, cùng các vị đại tỳ-kheo là một ngàn hai trăm năm mươi vị."
+    },
+    {
+     "n": 2,
+     "text": "Đến giờ thọ trai, đức Thế Tôn đắp y mang bát vào thành Xá-vệ khất thực."
+    },
+    {
+     "n": 3,
+     "text": "Vào trong thành, [chư tăng] theo thứ tự khất thực rồi trở về tinh xá."
+    },
+    {
+     "n": 4,
+     "text": "Thọ trai xong, thu dọn y bát, rửa chân tay, trải tòa ra ngồi."
+    },
+    {
+     "n": 5,
+     "text": "Lúc ấy Trưởng lão Tu-bồ-đề từ chỗ ngồi trong đại chúng đứng dậy, bày vai phải, quỳ gối phải, cung kính chắp tay bạch Phật rằng:"
+    },
+    {
+     "n": 6,
+     "text": "“Thế Tôn, thật ít có! Như Lai khéo hộ niệm các vị Bồ Tát, khéo dặn dò các vị Bồ Tát."
+    },
+    {
+     "n": 7,
+     "text": "“Thế Tôn! Nếu có những kẻ nam người nữ lòng lành phát tâm cầu đạo Vô Thượng Bồ-đề, nên trụ tâm như thế nào? Hàng phục tâm như thế nào?"
+    },
+    {
+     "n": 8,
+     "text": "Phật dạy: “Lành thay! Lành thay! Tu-bồ-đề, đúng như ông vừa nói."
+    },
+    {
+     "n": 9,
+     "text": "Như Lai khéo hộ niệm các vị Bồ Tát, khéo dặn dò các vị Bồ Tát."
+    },
+    {
+     "n": 10,
+     "text": "Nay hãy lắng nghe, ta sẽ vì các ông mà giảng thuyết."
+    },
+    {
+     "n": 11,
+     "text": "“Nếu có kẻ nam người nữ lòng lành phát tâm Bồ-đề, nên trụ tâm như thế này, nên hàng phục tâm như thế này.”"
+    },
+    {
+     "n": 12,
+     "text": "“Bạch Thế Tôn! Con nguyện được lắng nghe.”"
+    },
+    {
+     "n": 13,
+     "text": "Phật dạy Tu-bồ-đề: “Các vị Đại Bồ Tát nên hàng phục tâm [bằng cách nghĩ] như thế này:"
+    },
+    {
+     "n": 14,
+     "text": "‘Đối với tất cả các loài chúng sanh: hoặc sanh từ bào thai, hoặc sanh từ trứng, hoặc sanh nơi ẩm thấp, hoặc do biến hóa sanh ra, hoặc có sắc, hoặc không có sắc,"
+    },
+    {
+     "n": 15,
+     "text": "hoặc có tưởng, hoặc không tưởng, hoặc chẳng phải có tưởng chẳng phải không tưởng, ta đều độ cho nhập vào Vô dư Niết-bàn."
+    },
+    {
+     "n": 16,
+     "text": "Như vậy diệt độ vô số chúng sanh, nhưng thật không có chúng sanh nào được diệt độ.’"
+    },
+    {
+     "n": 17,
+     "text": "“Vì sao vậy? Tu-bồ-đề, nếu Bồ Tát có các tướng ngã, nhân, chúng sanh, thọ giả, thì chẳng phải là Bồ Tát."
+    },
+    {
+     "n": 18,
+     "text": "“Lại nữa, Tu-bồ-đề! Bồ Tát theo đúng pháp, nên lấy tâm không chỗ trụ mà làm việc bố thí."
+    },
+    {
+     "n": 19,
+     "text": "Nghĩa là chẳng nên trụ nơi hình sắc mà bố thí, chẳng nên trụ nơi âm thanh, hương thơm, mùi vị, cảm xúc, pháp tướng mà bố thí."
+    },
+    {
+     "n": 20,
+     "text": "“Tu-bồ-đề! Bồ Tát nên bố thí như vậy đó, không trụ nơi tướng."
+    },
+    {
+     "n": 21,
+     "text": "“Vì sao vậy? Nếu Bồ Tát bố thí với tâm không trụ tướng, phước đức ấy chẳng thể suy lường."
+    },
+    {
+     "n": 22,
+     "text": "“Tu-bồ-đề! Ý ông nghĩ sao? Hư không phương đông có thể suy lường được chăng?”"
+    },
+    {
+     "n": 23,
+     "text": "“Bạch Thế Tôn, chẳng thể được.”"
+    },
+    {
+     "n": 24,
+     "text": "“Tu-bồ-đề! Hư không các phương nam, tây, bắc, bốn phương phụ, phương trên, phương dưới có thể suy lường được chăng?”"
+    },
+    {
+     "n": 25,
+     "text": "“Bạch Thế Tôn, chẳng thể được.”"
+    },
+    {
+     "n": 26,
+     "text": "“Tu-bồ-đề! Bồ Tát bố thí với tâm không trụ tướng, phước đức cũng như vậy, chẳng thể suy lường."
+    },
+    {
+     "n": 27,
+     "text": "“Tu-bồ-đề! Bồ Tát chỉ nên trụ tâm theo như cách đã chỉ dạy."
+    },
+    {
+     "n": 28,
+     "text": "“Tu-bồ-đề! Ý ông nghĩ sao? Có thể dùng thân tướng mà thấy Như Lai chăng?”"
+    },
+    {
+     "n": 29,
+     "text": "“Bạch Thế Tôn, chẳng thể được. Chẳng thể dùng thân tướng mà thấy Như Lai."
+    },
+    {
+     "n": 30,
+     "text": "“Vì sao vậy? Như Lai dạy rằng thân tướng thật chẳng phải là thân tướng.”"
+    },
+    {
+     "n": 31,
+     "text": "Phật dạy Tu-bồ-đề: “Phàm những gì có hình tướng đều là hư vọng."
+    },
+    {
+     "n": 32,
+     "text": "Nếu thấy các tướng thật chẳng phải tướng tức là thấy Như Lai."
+    },
+    {
+     "n": 33,
+     "text": "Tu-bồ-đề bạch Phật: \"Bạch Thế Tôn! Liệu có chúng sanh nào nghe lời thuyết dạy này được sanh lòng tin chân thật chăng?\""
+    },
+    {
+     "n": 34,
+     "text": "Phật bảo Tu-bồ-đề: \"Chớ nên nói thế! Như Lai diệt độ rồi, năm trăm năm sau sẽ có những người tu phước giữ theo giới luật, đối với lời thuyết dạy này thường sanh lòng tin, nhận là chân thật."
+    },
+    {
+     "n": 35,
+     "text": "Nên biết những người này chẳng phải chỉ ở nơi một, hai, ba, bốn, năm... đức Phật gieo trồng căn lành,"
+    },
+    {
+     "n": 36,
+     "text": "mà thật đã ở nơi vô số ngàn vạn đức Phật gieo trồng căn lành. [Những người ấy] nghe lời thuyết dạy này, dù chỉ một niệm cũng sanh lòng tin trong sạch."
+    },
+    {
+     "n": 37,
+     "text": "\"Tu-bồ-đề! Như Lai tất sẽ thấy biết những chúng sanh ấy được vô lượng phước đức."
+    },
+    {
+     "n": 38,
+     "text": "Vì sao vậy? Những chúng sanh ấy không sanh khởi lại các tướng ngã, nhân, chúng sanh, thọ giả, không khởi pháp tướng, cũng không khởi phi pháp tướng."
+    },
+    {
+     "n": 39,
+     "text": "\"Vì sao vậy? Những chúng sanh ấy nếu tâm chấp giữ tướng, tức mắc vào ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 40,
+     "text": "Nếu giữ lấy pháp tướng tức mắc vào ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 41,
+     "text": "\"Vì sao vậy? Nếu giữ lấy phi pháp tướng, tức mắc vào ngã, nhân, chúng sanh, thọ giả.\""
+    },
+    {
+     "n": 42,
+     "text": "Vì thế, chẳng nên chấp giữ lấy pháp, cũng chẳng nên chấp giữ lấy phi pháp."
+    },
+    {
+     "n": 43,
+     "text": "\"Do nơi nghĩa này, Như Lai thường nói: Các vị tỳ-kheo nên biết, pháp Phật thuyết dạy như cái bè qua sông."
+    },
+    {
+     "n": 44,
+     "text": "Pháp còn nên xả bỏ, huống chi những gì chẳng phải pháp?"
+    },
+    {
+     "n": 45,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Như Lai có được pháp Vô thượng Chánh đẳng Chánh giác chăng? Như Lai có chỗ thuyết pháp chăng?\""
+    },
+    {
+     "n": 46,
+     "text": "Tu-bồ-đề thưa: \"Theo như chỗ con hiểu nghĩa Phật đã dạy, không có pháp xác định gọi là Vô thượng Chánh đẳng Chánh giác, cũng không có pháp xác định nào Như Lai có thể thuyết."
+    },
+    {
+     "n": 47,
+     "text": "\"Vì sao vậy? Chỗ thuyết pháp của Như Lai thảy đều chẳng thể chấp giữ lấy, chẳng thể nói ra, chẳng phải là pháp, cũng chẳng phải phi pháp."
+    },
+    {
+     "n": 48,
+     "text": "\"Vì sao vậy? Tất cả các bậc thánh hiền đều dùng pháp vô vi, nhưng có chỗ sai biệt nhau.\""
+    },
+    {
+     "n": 49,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Nếu có người dùng bảy món báu đầy trong cõi tam thiên đại thiên thế giới mà bố thí, được phước đức nhiều chăng?\""
+    },
+    {
+     "n": 50,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, rất nhiều."
+    },
+    {
+     "n": 51,
+     "text": "Vì sao vậy? Phước đức, thật chẳng phải là tánh phước đức, nên Như Lai nói là nhiều phước đức.\""
+    },
+    {
+     "n": 52,
+     "text": "\"Nếu lại có người thọ trì chỉ bốn câu kệ trong kinh này, vì người khác mà giảng nói, phước này hơn hẳn phước bố thí kia."
+    },
+    {
+     "n": 53,
+     "text": "\"Vì sao vậy? Hết thảy chư Phật và giáo pháp Vô thượng Chánh đẳng Chánh giác của các ngài đều từ nơi kinh này mà ra."
+    },
+    {
+     "n": 54,
+     "text": "\"Tu-bồ-đề! Vì vậy mà nói rằng: pháp Phật tức chẳng phải là pháp Phật."
+    },
+    {
+     "n": 55,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Vị Tu-đà-hoàn có được khởi niệm: Ta được quả Tu-đà-hoàn chăng?\""
+    },
+    {
+     "n": 56,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, chẳng thể được."
+    },
+    {
+     "n": 57,
+     "text": "Vì sao vậy? Tu-đà-hoàn gọi là nhập vào dòng, nhưng thật không có chỗ nhập."
+    },
+    {
+     "n": 58,
+     "text": "Chẳng nhập vào hình sắc, âm thanh, hương thơm, mùi vị, cảm xúc, pháp tướng, nên mới gọi là Tu-đà-hoàn.\""
+    },
+    {
+     "n": 59,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Vị Tư-đà-hàm có được khởi niệm: Ta được quả Tư-đà-hàm chăng?\""
+    },
+    {
+     "n": 60,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, chẳng được."
+    },
+    {
+     "n": 61,
+     "text": "Vì sao vậy? Tư-đà-hàm gọi là một lần trở lại, nhưng thật không có trở lại, nên mới gọi là Tư-đà-hàm.\""
+    },
+    {
+     "n": 62,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Vị A-na-hàm có được khởi niệm: Ta được quả A-na-hàm chăng?\""
+    },
+    {
+     "n": 63,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, chẳng được."
+    },
+    {
+     "n": 64,
+     "text": "Vì sao vậy? A-na-hàm gọi là không trở lại, nhưng thật chẳng phải là không trở lại, nên mới gọi là A-na-hàm.\""
+    },
+    {
+     "n": 65,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Vị A-la-hán có được khởi niệm: Ta được đạo A-la-hán chăng?"
+    },
+    {
+     "n": 66,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, chẳng được."
+    },
+    {
+     "n": 67,
+     "text": "Vì sao vậy? Thật không có pháp gọi là A-la-hán."
+    },
+    {
+     "n": 68,
+     "text": "Thế Tôn! Nếu vị A-la-hán khởi niệm rằng: Ta được đạo A-la-hán, tức là vướng mắc vào ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 69,
+     "text": "\"Thế Tôn! Phật dạy rằng con được phép Tam-muội Vô tránh, cao quý nhất trong loài người, là bậc A-la-hán cao quý nhất đã lìa bỏ tham dục."
+    },
+    {
+     "n": 70,
+     "text": "Con chẳng khởi niệm này: Ta là bậc A-la-hán lìa bỏ tham dục."
+    },
+    {
+     "n": 71,
+     "text": "\"Bạch Thế Tôn! Nếu con khởi niệm: Ta được đạo A-la-hán, Thế Tôn tất chẳng nói: Tu-bồ-đề ưa thích hạnh A-lan-na."
+    },
+    {
+     "n": 72,
+     "text": "Vì con đây thật không vướng mắc ở chỗ làm, nên mới nói rằng: Tu-bồ-đề ưa thích hạnh A-lan-na.\""
+    },
+    {
+     "n": 73,
+     "text": "Phật hỏi Tu-bồ-đề: \"Ý ông nghĩ sao? Như Lai trước kia ở nơi Phật Nhiên Đăng có chỗ được pháp chăng?\""
+    },
+    {
+     "n": 74,
+     "text": "\"Bạch Thế Tôn, chẳng có. Như Lai ở nơi Phật Nhiên Đăng thật không có chỗ được pháp.\""
+    },
+    {
+     "n": 75,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Bồ Tát có trang nghiêm cõi Phật chăng?\"\""
+    },
+    {
+     "n": 76,
+     "text": "Bạch Thế Tôn, chẳng có. Vì sao vậy? Việc trang nghiêm cõi Phật đó, thật chẳng phải trang nghiêm, gọi là trang nghiêm.\""
+    },
+    {
+     "n": 77,
+     "text": "\"Tu-bồ-đề! Vì vậy mà các vị đại Bồ Tát nên sanh tâm thanh tịnh như thế này: Chẳng nên trụ nơi hình sắc mà sanh tâm, chẳng nên trụ nơi âm thanh, hương thơm, mùi vị, cảm xúc, pháp tướng mà sanh tâm."
+    },
+    {
+     "n": 78,
+     "text": "Nên ở nơi không chỗ trụ mà sanh tâm."
+    },
+    {
+     "n": 79,
+     "text": "\"Tu-bồ-đề! Như người kia có thân hình như núi chúa Tu-di."
+    },
+    {
+     "n": 80,
+     "text": "Ý ông nghĩ sao? Thân ấy là lớn chăng?\""
+    },
+    {
+     "n": 81,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, rất lớn."
+    },
+    {
+     "n": 82,
+     "text": "Vì sao vậy? Phật thuyết chẳng phải thân, gọi là thân lớn.\""
+    },
+    {
+     "n": 83,
+     "text": "\"Tu-bồ-đề! Như trong sông Hằng có bao nhiêu là cát, mỗi hạt lại là một sông Hằng."
+    },
+    {
+     "n": 84,
+     "text": "Ý ông nghĩ sao? Số cát trong tất cả những sông Hằng ấy là nhiều chăng?\""
+    },
+    {
+     "n": 85,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, rất nhiều."
+    },
+    {
+     "n": 86,
+     "text": "Chỉ số sông Hằng như thế còn nhiều không kể xiết, huống chi là cát trong những con sông ấy!\""
+    },
+    {
+     "n": 87,
+     "text": "\"Tu-bồ-đề! Nay ta dùng lời chân thật bảo cho ông biết."
+    },
+    {
+     "n": 88,
+     "text": "Như có những kẻ nam người nữ lòng lành, dùng bảy món báu đầy trong cõi tam thiên đại thiên thế giới nhiều bằng số cát của những sông Hằng ấy mang ra bố thí, được phước nhiều chăng?\""
+    },
+    {
+     "n": 89,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, rất nhiều.\""
+    },
+    {
+     "n": 90,
+     "text": "Phật dạy Tu-bồ-đề: \"Nếu có những kẻ nam người nữ lòng lành, thọ trì dù chỉ bốn câu kệ trong kinh này, vì người khác giảng nói, phước đức này hơn cả phước đức bố thí kia."
+    },
+    {
+     "n": 91,
+     "text": "\"Lại nữa, Tu-bồ-đề! Theo như kinh này mà thuyết dạy, cho đến chỉ bốn câu kệ, nên biết là nơi ấy hết thảy thế gian, trời, người, a-tu-la đều nên cúng dường như tháp miếu Phật."
+    },
+    {
+     "n": 92,
+     "text": "Huống chi có người đem hết sức mà thọ trì, đọc tụng."
+    },
+    {
+     "n": 93,
+     "text": "Tu-bồ-đề! Nên biết là người này thành tựu được pháp cao quý bậc nhất ít có.\""
+    },
+    {
+     "n": 94,
+     "text": "Nếu kinh điển này ở tại nơi nào, tức như có Phật hoặc bậc đệ tử cao quý đáng tôn trọng ở đó.\""
+    },
+    {
+     "n": 95,
+     "text": "Lúc ấy Tu-bồ-đề bạch Phật rằng: \"Bạch Thế Tôn!"
+    },
+    {
+     "n": 96,
+     "text": "Kinh này gọi tên là gì? Chúng con phải vâng giữ như thế nào?\""
+    },
+    {
+     "n": 97,
+     "text": "Phật dạy Tu-bồ-đề: \"Kinh này gọi tên là Kim Cang Bát-nhã Ba-la-mật. Nên theo như tên kinh mà vâng giữ."
+    },
+    {
+     "n": 98,
+     "text": "Vì sao vậy? Tu-bồ-đề! Phật thuyết Bát-nhã Ba-la-mật tức chẳng phải Bát-nhã Ba-la-mật."
+    },
+    {
+     "n": 99,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Như Lai có chỗ thuyết pháp chăng?\""
+    },
+    {
+     "n": 100,
+     "text": "Tu-bồ-đề bạch Phật: \"Bạch Thế Tôn, Như Lai không có chỗ thuyết pháp.\""
+    },
+    {
+     "n": 101,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Số vi trần trong tam thiên đại thiên thế giới có nhiều chăng?\""
+    },
+    {
+     "n": 102,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, rất nhiều.\"\""
+    },
+    {
+     "n": 103,
+     "text": "Tu-bồ-đề! Những vi trần ấy, Như Lai thuyết chẳng phải vi trần, gọi là vi trần."
+    },
+    {
+     "n": 104,
+     "text": "Như Lai thuyết thế giới chẳng phải thế giới, gọi là thế giới."
+    },
+    {
+     "n": 105,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Có thể dùng ba mươi hai tướng để thấy Như Lai chăng?\""
+    },
+    {
+     "n": 106,
+     "text": "\"Bạch Thế Tôn, chẳng thể được. Chẳng thể dùng ba mươi hai tướng để thấy Như Lai."
+    },
+    {
+     "n": 107,
+     "text": "Vì sao vậy? Như Lai thuyết ba mươi hai tướng tức chẳng phải tướng, gọi là ba mươi hai tướng."
+    },
+    {
+     "n": 108,
+     "text": "\"Tu-bồ-đề! Nếu có những kẻ nam người nữ lòng lành, dùng thân mạng nhiều như số cát sông Hằng để bố thí."
+    },
+    {
+     "n": 109,
+     "text": "Lại có người thọ trì kinh này, cho đến chỉ bốn câu kệ, vì người khác giảng nói, phước ấy rất nhiều.\""
+    },
+    {
+     "n": 110,
+     "text": "Bấy giờ, Tu-bồ-đề nghe thuyết kinh này, hiểu sâu nghĩa thú, cảm động đến rơi lệ, bạch Phật rằng: \"Thật ít có thay, Thế Tôn!"
+    },
+    {
+     "n": 111,
+     "text": "Phật thuyết kinh điển này rất sâu xa, con từ trước đến nay dẫu được huệ nhãn nhưng chưa từng được nghe kinh như vậy."
+    },
+    {
+     "n": 112,
+     "text": "\"Bạch Thế Tôn! Nếu có người cũng được nghe kinh này, đem lòng tin tưởng trong sạch, liền khởi sanh tướng chân thật."
+    },
+    {
+     "n": 113,
+     "text": "Nên biết là người ấy thành tựu được công đức cao quý bậc nhất ít có."
+    },
+    {
+     "n": 114,
+     "text": "\"Bạch Thế Tôn! Tướng chân thật ấy tức là chẳng phải tướng, nên Như Lai gọi là tướng chân thật."
+    },
+    {
+     "n": 115,
+     "text": "\"Thế Tôn! Nay con được nghe kinh điển này, tin hiểu thọ trì chẳng lấy chi làm khó."
+    },
+    {
+     "n": 116,
+     "text": "Nhưng nếu năm trăm năm sau nữa, có chúng sanh nào được nghe kinh này, tin hiểu thọ trì, người ấy quả là bậc nhất ít có."
+    },
+    {
+     "n": 117,
+     "text": "Vì sao vậy? Người ấy không có các tướng ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 118,
+     "text": "\"Vì sao vậy? Tướng ngã chẳng phải là tướng; tướng nhân, chúng sanh, thọ giả cũng chẳng phải tướng."
+    },
+    {
+     "n": 119,
+     "text": "Vì sao vậy? Lìa hết thảy các tướng gọi là chư Phật.\""
+    },
+    {
+     "n": 120,
+     "text": "Phật bảo Tu-bồ-đề: \"Đúng vậy, đúng vậy! Nếu có người được nghe kinh này mà chẳng thấy kinh sợ hoảng hốt, nên biết người ấy rất là ít có."
+    },
+    {
+     "n": 121,
+     "text": "\"Vì sao vậy? Tu-bồ-đề! Như Lai dạy rằng bậc nhất Ba-la-mật, tức chẳng phải bậc nhất Ba-la-mật, gọi là bậc nhất Ba-la-mật."
+    },
+    {
+     "n": 122,
+     "text": "\"Tu-bồ-đề! Nhẫn nhục Ba-la-mật, Như Lai nói là chẳng phải nhẫn nhục Ba-la-mật."
+    },
+    {
+     "n": 123,
+     "text": "\"Vì sao vậy? Tu-bồ-đề! Như ta xưa kia bị vua Ca-lỵ cắt xẻo thân thể từng phần."
+    },
+    {
+     "n": 124,
+     "text": "Lúc bấy giờ, ta không có các tướng ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 125,
+     "text": "Vì sao vậy? Trong lúc ta bị cắt xẻo từng phần thân thể, nếu có các tướng ngã, nhân, chúng sanh, thọ giả, tất phải sanh lòng sân hận.\""
+    },
+    {
+     "n": 126,
+     "text": "\"Tu-bồ-đề! Lại nhớ đến quá khứ năm trăm đời trước, ta làm một vị tiên nhẫn nhục."
+    },
+    {
+     "n": 127,
+     "text": "Lúc ấy ta cũng không có các tướng ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 128,
+     "text": "\"Bởi vậy, Tu-bồ-đề, Bồ Tát nên lìa hết thảy các tướng mà phát tâm Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 129,
+     "text": "Chẳng nên trụ nơi hình sắc sanh tâm, chẳng nên trụ nơi âm thanh, hương thơm, mùi vị, cảm xúc, pháp tướng sanh tâm."
+    },
+    {
+     "n": 130,
+     "text": "Nên sanh tâm không có chỗ trụ. Nếu tâm có chỗ trụ tức là chẳng trụ."
+    },
+    {
+     "n": 131,
+     "text": "\"Vì thế, Phật dạy các vị Bồ Tát chẳng nên trụ tâm nơi hình sắc mà bố thí."
+    },
+    {
+     "n": 132,
+     "text": "Tu-bồ-đề! Bồ Tát vì lợi ích cho tất cả chúng sanh nên bố thí như vậy."
+    },
+    {
+     "n": 133,
+     "text": "\"Như Lai dạy rằng hết thảy các tướng tức chẳng phải tướng."
+    },
+    {
+     "n": 134,
+     "text": "Lại dạy rằng hết thảy chúng sanh tức chẳng phải chúng sanh."
+    },
+    {
+     "n": 135,
+     "text": "\"Tu-bồ-đề! Lời nói của đấng Như Lai là chân chánh, đúng thật, như nghĩa, không hư dối, không sai khác."
+    },
+    {
+     "n": 136,
+     "text": "\"Tu-bồ-đề! Như Lai có chỗ được pháp, pháp ấy không thật, không hư."
+    },
+    {
+     "n": 137,
+     "text": "\"Tu-bồ-đề! Nếu Bồ Tát trụ tâm nơi pháp làm việc bố thí, cũng như người vào chỗ tối, không thể nhìn thấy."
+    },
+    {
+     "n": 138,
+     "text": "\"Nếu Bồ Tát chẳng trụ tâm nơi pháp làm việc bố thí, như người có mắt, khi ánh sáng mặt trời chiếu soi thấy đủ các màu sắc."
+    },
+    {
+     "n": 139,
+     "text": "\"Tu-bồ-đề! Về sau nếu có những kẻ nam người nữ lòng lành, thường hay thọ trì đọc tụng kinh này, Như Lai dùng trí huệ Phật thấy biết những người này đều được thành tựu vô lượng vô biên công đức."
+    },
+    {
+     "n": 140,
+     "text": "\"Tu-bồ-đề! Nếu có những kẻ nam người nữ lòng lành, vừa lúc đầu ngày dùng thân mạng nhiều như cát sông Hằng mà bố thí,"
+    },
+    {
+     "n": 141,
+     "text": "đến giữa ngày lại dùng thân mạng nhiều như cát sông Hằng mà bố thí, đến cuối ngày cũng lại dùng thân mạng nhiều như cát sông Hằng mà bố thí."
+    },
+    {
+     "n": 142,
+     "text": "Cứ như vậy trong vô lượng trăm ngàn ức kiếp, dùng thân mạng mà bố thí."
+    },
+    {
+     "n": 143,
+     "text": "Nếu có người nghe kinh điển này, trong lòng tin theo chẳng nghịch, được phước nhiều hơn cả những người dùng thân mạng mà bố thí kia."
+    },
+    {
+     "n": 144,
+     "text": "Huống chi là sao chép, thọ trì, đọc tụng, vì người giảng giải!"
+    },
+    {
+     "n": 145,
+     "text": "\"Tu-bồ-đề! Nói tóm lại một lời quan trọng nhất: Kinh này có vô lượng vô biên công đức, chẳng thể suy lường."
+    },
+    {
+     "n": 146,
+     "text": "Như Lai vì người phát tâm Đại thừa mà thuyết dạy, vì người phát tâm Tối thượng thừa mà thuyết dạy."
+    },
+    {
+     "n": 147,
+     "text": "Nếu có người thường hay thọ trì, đọc tụng, rộng vì người khác mà thuyết giảng, Như Lai tất sẽ thấy biết những người này đều được thành tựu công đức vô lượng vô biên chẳng thể suy lường."
+    },
+    {
+     "n": 148,
+     "text": "Những người như vậy có thể đảm đương gánh vác đạo Vô thượng Chánh đẳng Chánh giác của Như Lai."
+    },
+    {
+     "n": 149,
+     "text": "\"Vì sao vậy? Tu-bồ-đề! Nếu kẻ ưa pháp nhỏ, vướng mắc vào những kiến giải: ngã, nhân, chúng sanh, thọ giả, tức chẳng thể thọ trì đọc tụng, vì người khác mà giảng giải kinh này."
+    },
+    {
+     "n": 150,
+     "text": "\"Tu-bồ-đề! Bất cứ nơi nào có kinh này, hết thảy thế gian, các hàng trời, người, a-tu-la đều nên cúng dường."
+    },
+    {
+     "n": 151,
+     "text": "Nên biết nơi ấy tức là tháp Phật, nên cung kính đi quanh lễ bái, dùng các thứ hương hoa rải lên nơi ấy."
+    },
+    {
+     "n": 152,
+     "text": "\"Lại nữa, Tu-bồ-đề! Những kẻ nam người nữ lòng lành, thọ trì đọc tụng kinh này, nếu bị người khác khinh chê, thì người trì kinh ấy dù cho đời trước đã tạo nghiệp ác lẽ ra phải đọa vào các đường dữ,"
+    },
+    {
+     "n": 153,
+     "text": "nay nhân bị người khinh chê, nghiệp ác đời trước liền tiêu diệt, được thành tựu quả Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 154,
+     "text": "\"Tu-bồ-đề! Ta nhớ thuở quá khứ vô lượng a-tăng-kỳ kiếp trước Phật Nhiên Đăng, ta đã được gặp tám trăm bốn ngàn vạn ức na-do-tha đức Phật, và đều cung kính phụng sự không chút lỗi lầm."
+    },
+    {
+     "n": 155,
+     "text": "Nếu có người đời mạt pháp sau này thường thọ trì tụng đọc kinh này, người ấy được công đức so với công đức cúng dường chư Phật của ta vượt hơn bội phần,"
+    },
+    {
+     "n": 156,
+     "text": "trăm phần ta chẳng theo kịp một, ngàn vạn ức phần, cho đến tính toán, thí dụ cũng chẳng thể theo kịp."
+    },
+    {
+     "n": 157,
+     "text": "\"Tu-bồ-đề! Những kẻ nam người nữ lòng lành vào đời mạt pháp thọ trì đọc tụng kinh này được nhiều công đức, nếu ta nói ra đầy đủ sẽ có người nghe qua sanh tâm cuồng loạn, nghi ngờ chẳng tin."
+    },
+    {
+     "n": 158,
+     "text": "\"Tu-bồ-đề! Nên biết rằng, nghĩa kinh này không thể nghĩ bàn, quả báo cũng không thể nghĩ bàn.\""
+    },
+    {
+     "n": 159,
+     "text": "Bấy giờ, ngài Tu-bồ-đề bạch Phật rằng: \"Bạch Thế Tôn!"
+    },
+    {
+     "n": 160,
+     "text": "Những kẻ nam người nữ lòng lành phát tâm Vô thượng Chánh đẳng Chánh giác, nên trụ tâm như thế nào? Hàng phục tâm như thế nào?"
+    },
+    {
+     "n": 161,
+     "text": "Phật dạy Tu-bồ-đề: \"Những kẻ nam người nữ lòng lành phát tâm Vô thượng Chánh đẳng Chánh giác, nên khởi tâm như thế này:"
+    },
+    {
+     "n": 162,
+     "text": "'Ta nên diệt độ hết thảy chúng sanh; diệt độ hết thảy chúng sanh, nhưng thật không có chúng sanh nào diệt độ.'"
+    },
+    {
+     "n": 163,
+     "text": "\"Vì sao vậy? Tu-bồ-đề! Nếu Bồ Tát có các tướng ngã, nhân, chúng sanh, thọ giả, tức không phải Bồ Tát."
+    },
+    {
+     "n": 164,
+     "text": "\"Vì sao vậy? Tu-bồ-đề! Thật không có pháp phát tâm Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 165,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Như Lai ở chỗ Phật Nhiên Đăng có được pháp Vô thượng Chánh đẳng Chánh giác chăng?\""
+    },
+    {
+     "n": 166,
+     "text": "\"Bạch Thế Tôn, chẳng có. Như con hiểu theo nghĩa Phật thuyết, Như Lai ở nơi Phật Nhiên Đăng trước kia không có được pháp Vô thượng Chánh đẳng Chánh giác.\""
+    },
+    {
+     "n": 167,
+     "text": "Phật nói: \"Đúng vậy, đúng vậy! Tu-bồ-đề, thật không có pháp Như Lai được Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 168,
+     "text": "\"Tu-bồ-đề! Nếu như có pháp Như Lai được Vô thượng Chánh đẳng Chánh giác, Phật Nhiên Đăng hẳn đã không thọ ký cho ta: Ông về sau sẽ thành Phật hiệu Thích-ca Mâu-ni."
+    },
+    {
+     "n": 169,
+     "text": "\"Vì thật không có pháp được Vô thượng Chánh đẳng Chánh giác, nên Phật Nhiên Đăng mới thọ ký cho ta rằng: Ông về sau sẽ thành Phật, hiệu là Thích-ca Mâu-ni."
+    },
+    {
+     "n": 170,
+     "text": "\"Vì sao vậy? Nói Như Lai đó, tức là nghĩa như của các pháp."
+    },
+    {
+     "n": 171,
+     "text": "\"Nếu có người nói: Như Lai được Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 172,
+     "text": "Tu-bồ-đề! Thật không có pháp Phật được Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 173,
+     "text": "\"Tu-bồ-đề! Như Lai có chỗ được Vô thượng Chánh đẳng Chánh giác. Trong chỗ ấy không thật, không hư."
+    },
+    {
+     "n": 174,
+     "text": "\"Vì thế, Như Lai dạy rằng: Hết thảy các pháp đều là Phật pháp."
+    },
+    {
+     "n": 175,
+     "text": "\"Tu-bồ-đề! Nói là hết thảy các pháp, tức chẳng phải pháp, vì thế gọi là hết thảy các pháp."
+    },
+    {
+     "n": 176,
+     "text": "\"Tu-bồ-đề! Ví như thân người dài lớn.\""
+    },
+    {
+     "n": 177,
+     "text": "Tu-bồ-đề nói: \"Bạch Thế Tôn, Như Lai nói rằng thân người dài lớn tức chẳng phải là thân lớn, gọi là thân lớn.\""
+    },
+    {
+     "n": 178,
+     "text": "\"Tu-bồ-đề! Bồ Tát cũng lại như vậy. Nếu nói rằng: Ta đang độ cho vô lượng chúng sanh, tức chẳng gọi là Bồ Tát."
+    },
+    {
+     "n": 179,
+     "text": "\"Vì sao vậy? Tu-bồ-đề! Thật không có pháp gọi là Bồ Tát."
+    },
+    {
+     "n": 180,
+     "text": "Vì thế Phật thuyết hết thảy các pháp đều không có các tướng ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 181,
+     "text": "\"Tu-bồ-đề! Nếu Bồ Tát nói rằng: 'Ta đang làm trang nghiêm cõi Phật', như vậy chẳng gọi là Bồ Tát."
+    },
+    {
+     "n": 182,
+     "text": "Vì sao vậy? Như Lai dạy rằng, trang nghiêm cõi Phật tức chẳng phải trang nghiêm, gọi là trang nghiêm."
+    },
+    {
+     "n": 183,
+     "text": "\"Tu-bồ-đề! Nếu Bồ Tát thông đạt pháp vô ngã, Như Lai gọi đó thật là Bồ Tát."
+    },
+    {
+     "n": 184,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Như Lai có nhục nhãn chăng?\""
+    },
+    {
+     "n": 185,
+     "text": "\"Bạch Thế Tôn, đúng vậy. Như Lai có nhục nhãn.\""
+    },
+    {
+     "n": 186,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Như Lai có thiên nhãn chăng?\"\""
+    },
+    {
+     "n": 187,
+     "text": "Bạch Thế Tôn, đúng vậy. Như Lai có thiên nhãn.\"\""
+    },
+    {
+     "n": 188,
+     "text": "Tu-bồ-đề! Ý ông nghĩ sao? Như Lai có huệ nhãn chăng?\"\""
+    },
+    {
+     "n": 189,
+     "text": "Bạch Thế Tôn, đúng vậy. Như Lai có huệ nhãn.\"\""
+    },
+    {
+     "n": 190,
+     "text": "Tu-bồ-đề! Ý ông nghĩ sao? Như Lai có pháp nhãn chăng?\"\""
+    },
+    {
+     "n": 191,
+     "text": "Bạch Thế Tôn, đúng vậy. Như Lai có pháp nhãn.\"\""
+    },
+    {
+     "n": 192,
+     "text": "Tu-bồ-đề! Ý ông nghĩ sao? Như Lai có Phật nhãn chăng?\"\""
+    },
+    {
+     "n": 193,
+     "text": "Bạch Thế Tôn, đúng vậy. Như Lai có Phật nhãn.\""
+    },
+    {
+     "n": 194,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Trong sông Hằng có cát, Phật nói đó là cát chăng?\"\""
+    },
+    {
+     "n": 195,
+     "text": "Bạch Thế Tôn, đúng vậy. Như Lai nói đó là cát.\"\""
+    },
+    {
+     "n": 196,
+     "text": "Tu-bồ-đề! Ý ông nghĩ sao? Như trong một con sông Hằng có bao nhiêu cát, lại có số sông Hằng cũng nhiều như số cát ấy, lại có số cõi Phật nhiều như số cát trong tất cả những con sông Hằng đó, như vậy là nhiều chăng?\""
+    },
+    {
+     "n": 197,
+     "text": "\"Bạch Thế Tôn, rất nhiều.\""
+    },
+    {
+     "n": 198,
+     "text": "Phật bảo Tu-bồ-đề: \"Hết thảy chúng sanh trong số cõi Phật nhiều như vậy, nếu khởi tâm suy nghĩ, Như Lai đều biết."
+    },
+    {
+     "n": 199,
+     "text": "Vì sao vậy? Như Lai dạy rằng, các tâm đều là không phải tâm, nên gọi là tâm."
+    },
+    {
+     "n": 200,
+     "text": "\"Vì sao như thế? Tu-bồ-đề! Tâm quá khứ chẳng thể nắm bắt."
+    },
+    {
+     "n": 201,
+     "text": "Tâm hiện tại chẳng thể nắm bắt. Tâm vị lai chẳng thể nắm bắt."
+    },
+    {
+     "n": 202,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Nếu có người dùng bảy món báu đầy trong cõi tam thiên đại thiên thế giới để bố thí."
+    },
+    {
+     "n": 203,
+     "text": "Do nhân duyên ấy, được phước nhiều chăng?\""
+    },
+    {
+     "n": 204,
+     "text": "\"Bạch Thế Tôn, quả đúng như vậy. Người ấy do nhân duyên bố thí, được phước rất nhiều.\""
+    },
+    {
+     "n": 205,
+     "text": "\"Tu-bồ-đề! Nếu phước đức có thật, Như Lai chẳng nói là được nhiều phước đức."
+    },
+    {
+     "n": 206,
+     "text": "Vì phước đức là không, nên Như Lai nói là được nhiều phước đức."
+    },
+    {
+     "n": 207,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Có thể lấy sắc thân đầy đủ thấy đó là Phật chăng?\""
+    },
+    {
+     "n": 208,
+     "text": "\"Bạch Thế Tôn, chẳng được. Chẳng nên lấy sắc thân đầy đủ thấy là Như Lai."
+    },
+    {
+     "n": 209,
+     "text": "Vì sao vậy? Như Lai dạy rằng, sắc thân đầy đủ tức chẳng phải sắc thân đầy đủ, gọi là sắc thân đầy đủ.\""
+    },
+    {
+     "n": 210,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Có thể dùng các tướng đầy đủ thấy là Như Lai chăng?\""
+    },
+    {
+     "n": 211,
+     "text": "\"Bạch Thế Tôn, chẳng được. Chẳng nên dùng các tướng đầy đủ thấy là Như Lai."
+    },
+    {
+     "n": 212,
+     "text": "Vì sao vậy? Như Lai dạy rằng, các tướng đầy đủ tức chẳng phải đầy đủ, gọi là các tướng đầy đủ.\""
+    },
+    {
+     "n": 213,
+     "text": "\"Tu-bồ-đề! Ông đừng cho rằng Như Lai có ý nghĩ này: 'Ta đang có chỗ thuyết pháp.' Chớ nghĩ như thế."
+    },
+    {
+     "n": 214,
+     "text": "Vì sao vậy? Nếu có người nói Như Lai có chỗ thuyết pháp, tức là hủy báng Phật, chẳng thể hiểu được chỗ ta thuyết dạy."
+    },
+    {
+     "n": 215,
+     "text": "\"Tu-bồ-đề! Người thuyết pháp, chẳng pháp nào có thể thuyết, gọi là thuyết pháp.\""
+    },
+    {
+     "n": 216,
+     "text": "Bấy giờ, ngài Huệ Mạng Tu-bồ-đề bạch Phật: \"Thế Tôn!"
+    },
+    {
+     "n": 217,
+     "text": "Liệu có chúng sanh nào ở đời vị lai nghe thuyết pháp này sanh lòng tin theo chăng?\""
+    },
+    {
+     "n": 218,
+     "text": "Phật dạy: \"Tu-bồ-đề! Đó chẳng phải là chúng sanh, chẳng phải không là chúng sanh."
+    },
+    {
+     "n": 219,
+     "text": "\"Vì sao vậy? Tu-bồ-đề! Chúng sanh đó Như Lai dạy rằng chẳng phải chúng sanh, gọi là chúng sanh.\""
+    },
+    {
+     "n": 220,
+     "text": "Tu-bồ-đề bạch Phật: \"Bạch Thế Tôn! Phật được pháp Vô thượng Chánh đẳng Chánh giác là không có chỗ được sao?\""
+    },
+    {
+     "n": 221,
+     "text": "Phật dạy: \"Đúng vậy, đúng vậy! Tu-bồ-đề!"
+    },
+    {
+     "n": 222,
+     "text": "Ta đối với quả Vô thượng Chánh đẳng Chánh giác, chẳng có lấy một phần nhỏ pháp có thể được, nên gọi là Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 223,
+     "text": "\"Lại nữa, Tu-bồ-đề! Pháp này bình đẳng không có cao thấp, gọi tên là Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 224,
+     "text": "Trừ bỏ các tướng ngã, nhân, chúng sanh, thọ giả mà tu hết thảy pháp lành, tức thành Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 225,
+     "text": "\"Tu-bồ-đề! Chỗ nói là pháp lành, Như Lai dạy rằng chẳng phải pháp lành, gọi là pháp lành."
+    },
+    {
+     "n": 226,
+     "text": "\"Tu-bồ-đề! Như trong tam thiên đại thiên thế giới có các núi chúa Tu-di, có người dùng bảy món báu tích tụ nhiều như các núi ấy mà bố thí."
+    },
+    {
+     "n": 227,
+     "text": "Lại có người lấy kinh Bát-nhã Ba-la-mật này, thậm chí chỉ bốn câu kệ, thọ trì, đọc tụng, vì người khác giảng nói."
+    },
+    {
+     "n": 228,
+     "text": "Phước đức của người bố thí, so với người trì kinh thật trăm phần chẳng bì được một, trăm ngàn vạn ức phần, cho đến tính toán, thí dụ cũng chẳng thể theo kịp được."
+    },
+    {
+     "n": 229,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Các ông đừng cho rằng Như Lai có ý nghĩ này: 'Ta đang độ chúng sanh."
+    },
+    {
+     "n": 230,
+     "text": "\"Tu-bồ-đề! Chớ nghĩ như thế. Vì sao vậy?"
+    },
+    {
+     "n": 231,
+     "text": "Thật không có chúng sanh nào được Như Lai độ."
+    },
+    {
+     "n": 232,
+     "text": "Nếu có chúng sanh được Như Lai độ, Như Lai tất có các tướng ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 233,
+     "text": "\"Tu-bồ-đề! Như Lai dạy rằng có ngã tức chẳng phải có ngã, nhưng phàm phu cho là có ngã."
+    },
+    {
+     "n": 234,
+     "text": "\"Tu-bồ-đề! Phàm phu, Như Lai dạy rằng chẳng phải phàm phu."
+    },
+    {
+     "n": 235,
+     "text": "\"Tu-bồ-đề! Ý ông nghĩ sao? Có thể lấy ba mươi hai tướng mà quán đó là Như Lai chăng?\""
+    },
+    {
+     "n": 236,
+     "text": "Tu-bồ-đề thưa: \"Đúng vậy, đúng vậy. Lấy ba mươi hai tướng mà quán, đó là Như Lai.\""
+    },
+    {
+     "n": 237,
+     "text": "Phật bảo Tu-bồ-đề: \"Nếu lấy ba mươi hai tướng mà quán đó là Như Lai, vậy Chuyển Luân Thánh Vương tức là Như Lai.\""
+    },
+    {
+     "n": 238,
+     "text": "Tu-bồ-đề bạch Phật: \"Bạch Thế Tôn! Theo như chỗ con hiểu nghĩa Phật thuyết dạy, chẳng nên lấy ba mươi hai tướng mà quán đó là Như Lai.\""
+    },
+    {
+     "n": 239,
+     "text": "Bấy giờ, đức Thế Tôn liền nói kệ rằng:"
+    },
+    {
+     "n": 240,
+     "text": "\"Nếu dùng sắc thấy Ta,Dùng âm thanh cầu Ta."
+    },
+    {
+     "n": 241,
+     "text": "Là người theo tà đạo,Chẳng thể thấy Như Lai.\""
+    },
+    {
+     "n": 242,
+     "text": "\"Tu-bồ-đề! Nếu ông khởi ý nghĩ rằng: Như Lai chẳng dùng các tướng đầy đủ mà được thành Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 243,
+     "text": "Tu-bồ-đề! Chớ nghĩ như thế. Chớ nghĩ rằng Như Lai chẳng dùng các tướng đầy đủ mà được thành Vô thượng Chánh đẳng Chánh giác."
+    },
+    {
+     "n": 244,
+     "text": "\"Tu-bồ-đề! Nếu ông khởi ý nghĩ rằng: 'Người phát tâm Vô thượng Chánh đẳng Chánh giác thuyết giảng tướng đoạn diệt của các pháp.'"
+    },
+    {
+     "n": 245,
+     "text": "Chớ nghĩ như thế. Vì sao vậy? Người phát tâm Vô thượng Chánh đẳng Chánh giác, đối với pháp chẳng thuyết tướng đoạn diệt."
+    },
+    {
+     "n": 246,
+     "text": "\"Tu-bồ-đề! Nếu Bồ Tát dùng bảy báu đầy trong những thế giới nhiều như cát sông Hằng mang ra bố thí."
+    },
+    {
+     "n": 247,
+     "text": "Lại có người hiểu biết hết thảy các pháp là vô ngã nên thành tựu được hạnh nhẫn nhục."
+    },
+    {
+     "n": 248,
+     "text": "Công đức của người này vượt hơn vị Bồ Tát làm việc bố thí.\""
+    },
+    {
+     "n": 249,
+     "text": "Vì sao vậy? Tu-bồ-đề! Là vì các vị Bồ Tát chẳng thọ nhận phước đức.\""
+    },
+    {
+     "n": 250,
+     "text": "Tu-bồ-đề bạch Phật: \"Bạch Thế Tôn! Thế nào là Bồ Tát chẳng thọ nhận phước đức?\""
+    },
+    {
+     "n": 251,
+     "text": "\"Tu-bồ-đề! Bồ Tát có làm việc phước đức đều chẳng nên tham trước, nên nói là chẳng thọ nhận phước đức."
+    },
+    {
+     "n": 252,
+     "text": "\"Tu-bồ-đề! Nếu có người nói: 'Như Lai có đến, hoặc có đi, hoặc có ngồi, hoặc có nằm.'"
+    },
+    {
+     "n": 253,
+     "text": "Người ấy thật chẳng hiểu nghĩa ta thuyết dạy."
+    },
+    {
+     "n": 254,
+     "text": "Vì sao vậy? Như Lai đó, chẳng từ đâu mà đến, cũng chẳng đi về đâu, nên gọi là Như Lai."
+    },
+    {
+     "n": 255,
+     "text": "\"Tu-bồ-đề! Nếu có những kẻ nam người nữ lòng lành, lấy cả cõi tam thiên đại thiên thế giới nghiền nát thành vi trần."
+    },
+    {
+     "n": 256,
+     "text": "Ý ông nghĩ sao? Số vi trần ấy là nhiều chăng?\""
+    },
+    {
+     "n": 257,
+     "text": "Tu-bồ-đề thưa: \"Bạch Thế Tôn, rất nhiều."
+    },
+    {
+     "n": 258,
+     "text": "Vì sao vậy? Nếu những vi trần này là thật có, Phật tất chẳng nói là vi trần."
+    },
+    {
+     "n": 259,
+     "text": "Vì sao như thế? Phật dạy rằng các vi trần, tức chẳng phải vi trần, gọi là vi trần."
+    },
+    {
+     "n": 260,
+     "text": "\"Thế Tôn! Chỗ Như Lai nói tam thiên đại thiên thế giới, tức chẳng phải thế giới, gọi là thế giới."
+    },
+    {
+     "n": 261,
+     "text": "\"Vì sao vậy? Nếu thế giới là có thật, tức là một tướng hòa hợp."
+    },
+    {
+     "n": 262,
+     "text": "Như Lai dạy rằng một tướng hòa hợp tức chẳng phải một tướng hòa hợp, gọi là một tướng hòa hợp.\""
+    },
+    {
+     "n": 263,
+     "text": "\"Tu-bồ-đề! Một tướng hòa hợp tức là chẳng thể nói ra."
+    },
+    {
+     "n": 264,
+     "text": "Chỉ vì kẻ phàm phu tham chấp nơi sự việc."
+    },
+    {
+     "n": 265,
+     "text": "\"Tu-bồ-đề! Nếu có người nói rằng Phật thuyết dạy những kiến giải ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 266,
+     "text": "Tu-bồ-đề! Ý ông nghĩ sao? Người ấy có hiểu được nghĩa ta thuyết dạy chăng?\""
+    },
+    {
+     "n": 267,
+     "text": "\"Bạch Thế Tôn, người ấy chẳng hiểu được nghĩa Như Lai thuyết dạy."
+    },
+    {
+     "n": 268,
+     "text": "Vì sao vậy? Thế Tôn dạy rằng những kiến giải ngã, nhân, chúng sanh, thọ giả, chẳng phải là những kiến giải ngã, nhân, chúng sanh, thọ giả, gọi là những kiến giải ngã, nhân, chúng sanh, thọ giả.\""
+    },
+    {
+     "n": 269,
+     "text": "\"Tu-bồ-đề! Người phát tâm Vô thượng Chánh đẳng Chánh giác, đối với hết thảy các pháp, nên thấy biết như thế này, tin hiểu như thế này, chẳng sanh khởi pháp tướng."
+    },
+    {
+     "n": 270,
+     "text": "\"Tu-bồ-đề! Chỗ nói là pháp tướng đó, Như Lai dạy rằng chẳng phải pháp tướng, gọi là pháp tướng."
+    },
+    {
+     "n": 271,
+     "text": "\"Tu-bồ-đề! Nếu có người dùng bảy món báu đầy khắp trong vô số a-tăng-kỳ thế giới mà bố thí."
+    },
+    {
+     "n": 272,
+     "text": "Lại có những kẻ nam người nữ lòng lành phát tâm Bồ-đề, giữ làm theo kinh này, thậm chí chỉ bốn câu kệ, thọ trì đọc tụng, vì người diễn thuyết, phước đức này hơn phước bố thí kia."
+    },
+    {
+     "n": 273,
+     "text": "\"Thế nào là vì người diễn thuyết? Chẳng chấp giữ nơi tướng, như như chẳng động. Vì sao vậy?"
+    },
+    {
+     "n": 274,
+     "text": "\"Hết thảy pháp hữu vi,"
+    },
+    {
+     "n": 275,
+     "text": "Như mộng ảo, bọt nước,"
+    },
+    {
+     "n": 276,
+     "text": "Như sương sa, điện chớp."
+    },
+    {
+     "n": 277,
+     "text": "Nên quán sát như vậy.\""
+    },
+    {
+     "n": 278,
+     "text": "Phật thuyết kinh này rồi, Trưởng lão Tu-bồ-đề cùng các vị tỳ-kheo, tỳ-kheo ni, ưu-bà-tắc, ưu-bà-di, hết thảy thế gian, trời, người, a-tu-la nghe Phật thuyết dạy đều hết sức hoan hỷ, tin nhận, vâng làm theo."
+    }
+   ],
+   "note": "Dịch nghĩa tiếng Việt",
+   "variant": "meaning"
+  },
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "translator": "Hán-Việt phiên âm bản Cưu-ma-la-thập (Đoàn Trung Còn - Nguyễn Minh Tiến)",
+   "sourceName": "Phatgiao.org.vn (Cổng thông tin Phật giáo, Giáo hội Phật giáo Việt Nam) - Kinh Kim Cang (phần dịch âm)",
+   "sourceUrl": "https://phatgiao.org.vn/kinh-kim-cang-bat-nha-ba-la-mat-tieng-viet-de-doc-de-hieu-d70395.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Trang ghi: \"Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!\" (không nêu giấy phép chuẩn như CC); bản quyền bản dịch gốc của dịch giả không được nêu",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như thị ngã văn. Nhất thời Phật tại Xá-vệ quốc, Kỳ Thọ Cấp Cô Độc viên, dữ đại tỳ-kheo chúng thiên nhị bá ngũ thập nhân câu."
+    },
+    {
+     "n": 2,
+     "text": "Nhĩ thời Thế Tôn thực thời, trước y trì bát nhập Xá-vệ đại thành khất thực."
+    },
+    {
+     "n": 3,
+     "text": "Ư kỳ thành trung thứ đệ khất dĩ, hoàn đáo bản xứ, phạn thực ngật, thâu y bát, tẩy túc dĩ, phu tòa nhi tọa."
+    },
+    {
+     "n": 4,
+     "text": "Thời Trưởng lão Tu-bồ-đề tại đại chúng trung tức tùng tòa khởi, thiên đản hữu kiên, hữu tất trước địa, hiệp chưởng cung kính nhi bạch Phật ngôn: “Hy hữu Thế Tôn!"
+    },
+    {
+     "n": 5,
+     "text": "Như Lai thiện hộ niệm chư Bồ Tát, thiện phó chúc chư Bồ Tát."
+    },
+    {
+     "n": 6,
+     "text": "“Thế Tôn! Thiện nam tử, thiện nữ nhân phát A-nậu-đa-la Tam-miệu Tam-bồ-đề tâm, ưng vân hà trụ, vân hà hàng phục kỳ tâm?”"
+    },
+    {
+     "n": 7,
+     "text": "Phật ngôn: “Thiện tai! Thiện tai! Tu-bồ-đề, như nhữ sở thuyết."
+    },
+    {
+     "n": 8,
+     "text": "Như Lai thiện hộ niệm chư Bồ Tát, thiện phó chúc chư Bồ Tát."
+    },
+    {
+     "n": 9,
+     "text": "Nhữ kim đế thính, đương vị nhữ thuyết. Thiện nam tử, thiện nữ nhân phát A-nậu-đa-la Tam-miệu Tam-bồ-đề tâm, ưng như thị trụ, như thị hàng phục kỳ tâm.”"
+    },
+    {
+     "n": 10,
+     "text": "“Duy nhiên Thế Tôn. Nguyện nhạo dục văn.”"
+    },
+    {
+     "n": 11,
+     "text": "Phật cáo Tu-bồ-đề: “Chư Bồ Tát ma-ha-tát ưng như thị hàng phục kỳ tâm:"
+    },
+    {
+     "n": 12,
+     "text": "Sở hữu nhất thiết chúng sanh chi loại, nhược noãn sanh, nhược thai sanh, nhược thấp sanh, nhược hóa sanh, nhược hữu sắc,"
+    },
+    {
+     "n": 13,
+     "text": "nhược vô sắc, nhược hữu tưởng, nhược vô tưởng, nhược phi hữu tưởng phi vô tưởng, ngã giai linh nhập Vô dư Niết-bàn nhi diệt độ chi."
+    },
+    {
+     "n": 14,
+     "text": "Như thị diệt độ vô lượng vô số vô biên chúng sanh, thật vô chúng sanh đắc diệt độ giả."
+    },
+    {
+     "n": 15,
+     "text": "“Hà dĩ cố? Tu-bồ-đề, nhược Bồ Tát hữu ngã tướng, nhân tướng, chúng sanh tướng, thọ giả tướng, tức phi Bồ Tát."
+    },
+    {
+     "n": 16,
+     "text": "“Phục thứ Tu-bồ-đề, Bồ Tát ư pháp ưng vô sở trụ hành ư bố thí."
+    },
+    {
+     "n": 17,
+     "text": "Sở vị, bất trụ sắc bố thí, bất trụ thanh, hương, vị, xúc, pháp bố thí."
+    },
+    {
+     "n": 18,
+     "text": "“Tu-bồ-đề, Bồ Tát ưng như thị bố thí, bất trụ ư tướng."
+    },
+    {
+     "n": 19,
+     "text": "“Hà dĩ cố? Nhược Bồ Tát bất trụ tướng bố thí, kỳ phước đức bất khả tư lương."
+    },
+    {
+     "n": 20,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Đông phương hư không khả tư lương phủ?”"
+    },
+    {
+     "n": 21,
+     "text": "“Phất dã, Thế Tôn.”"
+    },
+    {
+     "n": 22,
+     "text": "“Tu-bồ-đề, nam, tây, bắc phương, tứ duy, thượng, hạ hư không khả tư lương phủ?” “Phất dã, Thế Tôn.”"
+    },
+    {
+     "n": 23,
+     "text": "“Tu-bồ-đề! Bồ Tát vô trụ tướng bố thí phước đức, diệc phục như thị, bất khả tư lương."
+    },
+    {
+     "n": 24,
+     "text": "Tu-bồ-đề, Bồ Tát đản ưng như sở giáo trụ."
+    },
+    {
+     "n": 25,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Khả dĩ thân tướng kiến Như Lai phủ?”"
+    },
+    {
+     "n": 26,
+     "text": "“Phất dã, Thế Tôn. Bất khả dĩ thân tướng đắc kiến Như Lai."
+    },
+    {
+     "n": 27,
+     "text": "Hà dĩ cố? Như Lai sở thuyết thân tướng tức phi thân tướng.”"
+    },
+    {
+     "n": 28,
+     "text": "Phật cáo Tu-bồ-đề: “Phàm sở hữu tướng giai thị hư vọng."
+    },
+    {
+     "n": 29,
+     "text": "Nhược kiến chư tướng phi tướng tắc kiến Như Lai.”"
+    },
+    {
+     "n": 30,
+     "text": "Tu-bồ-đề bạch Phật ngôn: “Thế Tôn, phả hữu chúng sanh đắc văn như thị ngôn thuyết chương cú sanh thật tín phủ?”"
+    },
+    {
+     "n": 31,
+     "text": "Phật cáo Tu-bồ-đề: “Mạc tác thị thuyết. Như Lai diệt hậu, hậu ngũ bá tuế, hữu trì giới tu phước giả, ư thử chương cú năng sanh tín tâm, dĩ thử vi thật."
+    },
+    {
+     "n": 32,
+     "text": "Đương tri thị nhân bất ư nhất Phật, nhị Phật, tam tứ ngũ Phật nhi chủng thiện căn."
+    },
+    {
+     "n": 33,
+     "text": "Dĩ ư vô lượng thiên vạn Phật sở chủng chư thiện căn."
+    },
+    {
+     "n": 34,
+     "text": "Văn thị chương cú, nãi chí nhất niệm sanh tịnh tín giả."
+    },
+    {
+     "n": 35,
+     "text": "Tu-bồ-đề, Như Lai tất tri, tất kiến thị chư chúng sanh đắc như thị vô lượng phước đức."
+    },
+    {
+     "n": 36,
+     "text": "“Hà dĩ cố? Thị chư chúng sanh vô phục ngã tướng, nhân tướng, chúng sanh tướng, thọ giả tướng, vô pháp tướng diệc vô phi pháp tướng."
+    },
+    {
+     "n": 37,
+     "text": "“Hà dĩ cố? Thị chư chúng sanh nhược tâm thủ tướng tắc vi trước ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 38,
+     "text": "Hà dĩ cố? Nhược thủ pháp tướng, tức trước ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 39,
+     "text": "Nhược thủ phi pháp tướng, tức trước ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 40,
+     "text": "Thị cố bất ưng thủ pháp, bất ưng thủ phi pháp."
+    },
+    {
+     "n": 41,
+     "text": "“Dĩ thị nghĩa cố, Như Lai thường thuyết, nhữ đẳng tỳ-kheo tri ngã thuyết pháp như phiệt dụ giả, pháp thượng ưng xả, hà huống phi pháp?"
+    },
+    {
+     "n": 42,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Như Lai đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề da? Như Lai hữu sở thuyết pháp da?”"
+    },
+    {
+     "n": 43,
+     "text": "Tu-bồ-đề ngôn: “Như ngã giải Phật sở thuyết nghĩa, vô hữu định pháp danh A-nậu-đa-la Tam-miệu Tam-bồ-đề, diệc vô hữu định pháp Như Lai khả thuyết."
+    },
+    {
+     "n": 44,
+     "text": "Hà dĩ cố? Như Lai sở thuyết pháp giai bất khả thủ, bất khả thuyết, phi pháp, phi phi pháp."
+    },
+    {
+     "n": 45,
+     "text": "Sở dĩ giả hà? Nhất thiết hiền thánh giai dĩ vô vi pháp, nhi hữu sai biệt.”"
+    },
+    {
+     "n": 46,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Nhược nhân mãn tam thiên đại thiên thế giới thất bảo dĩ dụng bố thí."
+    },
+    {
+     "n": 47,
+     "text": "Thị nhân sở đắc phước đức ninh vi đa phủ?”"
+    },
+    {
+     "n": 48,
+     "text": "Tu-bồ-đề ngôn: “Thậm đa, Thế Tôn. Hà dĩ cố?"
+    },
+    {
+     "n": 49,
+     "text": "Thị phước đức tức phi phước đức tánh, thị cố Như Lai thuyết phước đức đa.”"
+    },
+    {
+     "n": 50,
+     "text": "“Nhược phục hữu nhân ư thị kinh trung thọ trì, nãi chí tứ cú kệ đẳng, vị tha nhân thuyết, kỳ phước thắng bỉ."
+    },
+    {
+     "n": 51,
+     "text": "“Hà dĩ cố? Tu-bồ-đề, nhất thiết chư Phật cập chư Phật A-nậu-đa-la Tam-miệu Tam-bồ-đề pháp giai tùng thử kinh xuất."
+    },
+    {
+     "n": 52,
+     "text": "“Tu-bồ-đề, sở vị Phật pháp giả tức phi Phật pháp."
+    },
+    {
+     "n": 53,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Tu-đà-hoàn năng tác thị niệm: Ngã đắc Tu-đà-hoàn quả phủ?”"
+    },
+    {
+     "n": 54,
+     "text": "Tu-bồ-đề ngôn: “Phất dã, Thế Tôn. Hà dĩ cố?"
+    },
+    {
+     "n": 55,
+     "text": "Tu-đà-hoàn danh vi nhập lưu, nhi vô sở nhập."
+    },
+    {
+     "n": 56,
+     "text": "Bất nhập sắc, thanh, hương, vị, xúc, pháp. Thị danh Tu-đà-hoàn.”"
+    },
+    {
+     "n": 57,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Tư-đà-hàm năng tác thị niệm: Ngã đắc Tư-đà-hàm quả phủ?”"
+    },
+    {
+     "n": 58,
+     "text": "Tu-bồ-đề ngôn: “Phất dã, Thế Tôn. Hà dĩ cố?"
+    },
+    {
+     "n": 59,
+     "text": "Tư-đà-hàm danh nhất vãng lai, nhi thật vô vãng lai. Thị danh Tư-đà-hàm.”"
+    },
+    {
+     "n": 60,
+     "text": "“Tu-bồ-đề, ư ý vân hà? A-na-hàm năng tác thị niệm: Ngã đắc A-na-hàm quả phủ?”"
+    },
+    {
+     "n": 61,
+     "text": "Tu-bồ-đề ngôn: “Phất dã, Thế Tôn. Hà dĩ cố?"
+    },
+    {
+     "n": 62,
+     "text": "A-na-hàm danh vi bất lai, nhi thật vô lai. Thị cố danh A-na-hàm.”"
+    },
+    {
+     "n": 63,
+     "text": "“Tu-bồ-đề, ư ý vân hà? A-la-hán năng tác thị niệm: Ngã đắc A-la-hán đạo phủ?”"
+    },
+    {
+     "n": 64,
+     "text": "Tu-bồ-đề ngôn: “Phất dã, Thế Tôn. Hà dĩ cố?"
+    },
+    {
+     "n": 65,
+     "text": "Thật vô hữu pháp danh A-la-hán. Thế Tôn, nhược A-la-hán tác thị niệm: Ngã đắc A-la-hán đạo."
+    },
+    {
+     "n": 66,
+     "text": "Tức vi trước ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 67,
+     "text": "“Thế Tôn, Phật thuyết ngã đắc Vô tránh Tam-muội, nhân trung tối vi đệ nhất, thị đệ nhất ly dục A-la-hán."
+    },
+    {
+     "n": 68,
+     "text": "Ngã bất tác thị niệm: Ngã thị ly dục A-la-hán."
+    },
+    {
+     "n": 69,
+     "text": "“Thế Tôn, ngã nhược tác thị niệm: Ngã đắc A-la-hán đạo, Thế Tôn tắc bất thuyết: Tu-bồ-đề thị nhạo A-lan-na hạnh giả."
+    },
+    {
+     "n": 70,
+     "text": "Dĩ Tu-bồ-đề thật vô sở hành, nhi danh Tu-bồ-đề thị nhạo A-lan-na hạnh.”"
+    },
+    {
+     "n": 71,
+     "text": "Phật cáo Tu-bồ-đề: “Ư ý vân hà? Như Lai tích tại Nhiên Đăng Phật sở, ư pháp hữu sở đắc phủ?”"
+    },
+    {
+     "n": 72,
+     "text": "“Thế Tôn, Như Lai tại Nhiên Đăng Phật sở, ư pháp thật vô sở đắc.”"
+    },
+    {
+     "n": 73,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Bồ Tát trang nghiêm Phật độ phủ?”"
+    },
+    {
+     "n": 74,
+     "text": "“Phất dã, Thế Tôn. Hà dĩ cố? Trang nghiêm Phật độ giả tức phi trang nghiêm, thị danh trang nghiêm.”"
+    },
+    {
+     "n": 75,
+     "text": "“Thị cố Tu-bồ-đề, chư Bồ Tát ma-ha-tát ưng như thị sanh thanh tịnh tâm: Bất ưng trụ sắc sanh tâm, bất ưng trụ thanh, hương, vị, xúc, pháp sanh tâm. Ưng vô sở trụ nhi sanh kỳ tâm.”"
+    },
+    {
+     "n": 76,
+     "text": "“Tu-bồ-đề, thí như hữu nhân, thân như Tu-di sơn vương. Ư ý vân hà, thị thân vi đại phủ?”"
+    },
+    {
+     "n": 77,
+     "text": "Tu-bồ-đề ngôn: “Thậm đại, Thế Tôn. Hà dĩ cố? Phật thuyết phi thân thị danh đại thân."
+    },
+    {
+     "n": 78,
+     "text": "“Tu-bồ-đề, như Hằng hà trung sở hữu sa số, như thị sa đẳng Hằng hà."
+    },
+    {
+     "n": 79,
+     "text": "Ư ý vân hà, thị chư Hằng hà sa đẳng ninh vi đa phủ?”"
+    },
+    {
+     "n": 80,
+     "text": "Tu-bồ-đề ngôn: “Thậm đa, Thế Tôn. Đản chư Hằng hà thượng đa vô số, hà huống kỳ sa.”"
+    },
+    {
+     "n": 81,
+     "text": "“Tu-bồ-đề! Ngã kim thật ngôn cáo nhữ. Nhược hữu thiện nam tử, thiện nữ nhân dĩ thất bảo mãn sở Hằng hà sa số tam thiên đại thiên thế giới, dĩ dụng bố thí đắc phước đa phủ?”"
+    },
+    {
+     "n": 82,
+     "text": "Tu-bồ-đề ngôn: “Thậm đa, Thế Tôn.”"
+    },
+    {
+     "n": 83,
+     "text": "Phật cáo Tu-bồ-đề: “Nhược thiện nam tử, thiện nữ nhân ư thử kinh trung nãi chí thọ trì tứ cú kệ đẳng, vị tha nhân thuyết, nhi thử phước đức thắng tiền phước đức."
+    },
+    {
+     "n": 84,
+     "text": "“Phục thứ Tu-bồ-đề, tùy thuyết thị kinh, nãi chí tứ cú kệ đẳng, đương tri thử xứ nhất thiết thế gian thiên, nhân, a-tu-la giai ưng cúng dường như Phật tháp miếu."
+    },
+    {
+     "n": 85,
+     "text": "Hà huống hữu nhân tận năng thọ trì độc tụng."
+    },
+    {
+     "n": 86,
+     "text": "“Tu-bồ-đề, đương tri thị nhân thành tựu tối thượng đệ nhất hy hữu chi pháp."
+    },
+    {
+     "n": 87,
+     "text": "Nhược thị kinh điển sở tại chi xứ, tắc vi hữu Phật nhược tôn trọng đệ tử.”"
+    },
+    {
+     "n": 88,
+     "text": "Nhĩ thời Tu-bồ-đề bạch Phật ngôn: “Thế Tôn!"
+    },
+    {
+     "n": 89,
+     "text": "Đương hà danh thử kinh? Ngã đẳng vân hà phụng trì?”"
+    },
+    {
+     "n": 90,
+     "text": "Phật cáo Tu-bồ-đề: “Thị kinh danh vi Kim cang Bát-nhã Ba-la-mật."
+    },
+    {
+     "n": 91,
+     "text": "Dĩ thị danh tự nhữ đương phụng trì. Sở dĩ giả hà?"
+    },
+    {
+     "n": 92,
+     "text": "Tu-bồ-đề, Phật thuyết Bát-nhã ba-la-mật tức phi Bát-nhã ba-la-mật."
+    },
+    {
+     "n": 93,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Như Lai hữu sở thuyết pháp phủ?”"
+    },
+    {
+     "n": 94,
+     "text": "Tu-bồ-đề bạch Phật ngôn: “Thế Tôn, Như Lai vô sở thuyết.”"
+    },
+    {
+     "n": 95,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Tam thiên đại thiên thế giới sở hữu vi trần thị vi đa phủ?”"
+    },
+    {
+     "n": 96,
+     "text": "Tu-bồ-đề ngôn: “Thậm đa, Thế Tôn.”"
+    },
+    {
+     "n": 97,
+     "text": "“Tu-bồ-đề, chư vi trần Như Lai thuyết phi vi trần, thị danh vi trần."
+    },
+    {
+     "n": 98,
+     "text": "Như Lai thuyết thế giới phi thế giới, thị danh thế giới."
+    },
+    {
+     "n": 99,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Khả dĩ tam thập nhị tướng kiến Như Lai phủ?”"
+    },
+    {
+     "n": 100,
+     "text": "“Phất dã, Thế Tôn. Bất khả dĩ tam thập nhị tướng đắc kiến Như Lai."
+    },
+    {
+     "n": 101,
+     "text": "Hà dĩ cố? Như Lai thuyết tam thập nhị tướng tức thị phi tướng, thị danh tam thập nhị tướng.”"
+    },
+    {
+     "n": 102,
+     "text": "“Tu-bồ-đề, nhược hữu thiện nam tử, thiện nữ nhân dĩ Hằng hà sa đẳng thân mạng bố thí."
+    },
+    {
+     "n": 103,
+     "text": "Nhược phục hữu nhân ư thử kinh trung nãi chí thọ trì tứ cú kệ đẳng, vị tha nhân thuyết, kỳ phước thậm đa.”"
+    },
+    {
+     "n": 104,
+     "text": "Nhĩ thời Tu-bồ-đề văn thuyết thị kinh, thâm giải nghĩa thú, thế lệ bi khấp nhi bạch Phật ngôn: “Hy hữu Thế Tôn, Phật thuyết như thị thậm thâm kinh điển."
+    },
+    {
+     "n": 105,
+     "text": "Ngã tùng tích lai sở đắc huệ nhãn, vị tằng đắc văn như thị chi kinh."
+    },
+    {
+     "n": 106,
+     "text": "“Thế Tôn, nhược phục hữu nhân đắc văn thị kinh, tín tâm thanh tịnh tắc sanh thật tướng."
+    },
+    {
+     "n": 107,
+     "text": "Đương tri thị nhân thành tựu đệ nhất hy hữu công đức."
+    },
+    {
+     "n": 108,
+     "text": "“Thế Tôn! Thị thật tướng giả tức thị phi tướng, thị cố Như Lai thuyết danh thật tướng."
+    },
+    {
+     "n": 109,
+     "text": "“Thế Tôn! Ngã kim đắc văn như thị kinh điển, tín giải thọ trì bất túc vi nan."
+    },
+    {
+     "n": 110,
+     "text": "Nhược đương lai thế hậu ngũ bá tuế, kỳ hữu chúng sanh đắc văn thị kinh tín giải thọ trì."
+    },
+    {
+     "n": 111,
+     "text": "Thị nhân tắc vi đệ nhất hy hữu. Hà dĩ cố?"
+    },
+    {
+     "n": 112,
+     "text": "Thử nhân vô ngã tướng, nhân tướng, chúng sanh tướng, thọ giả tướng."
+    },
+    {
+     "n": 113,
+     "text": "Sở dĩ giả hà? Ngã tướng tức thị phi tướng."
+    },
+    {
+     "n": 114,
+     "text": "Nhân tướng, chúng sanh tướng, thọ giả tướng tức thị phi tướng."
+    },
+    {
+     "n": 115,
+     "text": "Hà dĩ cố? Ly nhất thiết chư tướng tức danh chư Phật.”"
+    },
+    {
+     "n": 116,
+     "text": "Phật cáo Tu-bồ-đề: “Như thị, như thị. Nhược phục hữu nhân đắc văn thị kinh, bất kinh, bất bố, bất úy, đương tri thị nhân thậm vi hy hữu."
+    },
+    {
+     "n": 117,
+     "text": "“Hà dĩ cố? Tu-bồ-đề, Như Lai thuyết đệ nhất ba-la-mật phi đệ nhất ba-la-mật, thị danh đệ nhất ba-la-mật."
+    },
+    {
+     "n": 118,
+     "text": "“Tu-bồ-đề! Nhẫn nhục ba-la-mật Như Lai thuyết phi Nhẫn nhục ba-la-mật."
+    },
+    {
+     "n": 119,
+     "text": "Hà dĩ cố? Như ngã tích vị Ca-lỵ vương cát triệt thân thể."
+    },
+    {
+     "n": 120,
+     "text": "Ngã ư nhĩ thời vô ngã tướng, vô nhân tướng, vô chúng sanh tướng, vô thọ giả tướng."
+    },
+    {
+     "n": 121,
+     "text": "“Hà dĩ cố? Ngã ư vãng tích tiết tiết chi giải thời, nhược hữu ngã tướng, nhân tướng, chúng sanh tướng, thọ giả tướng, ưng sanh sân hận."
+    },
+    {
+     "n": 122,
+     "text": "“Tu-bồ-đề, hựu niệm quá khứ ư ngũ bá thế tác nhẫn nhục tiên nhân."
+    },
+    {
+     "n": 123,
+     "text": "Ư nhĩ sở thế vô ngã tướng, vô nhân tướng, vô chúng sanh tướng, vô thọ giả tướng."
+    },
+    {
+     "n": 124,
+     "text": "“Thị cố Tu-bồ-đề, Bồ Tát ưng ly nhất thiết tướng phát A-nậu-đa-la Tam-miệu Tam-bồ-đề tâm."
+    },
+    {
+     "n": 125,
+     "text": "“Bất ưng trụ sắc sanh tâm, bất ưng trụ thanh, hương, vị, xúc, pháp sanh tâm. Ưng sanh vô sở trụ tâm."
+    },
+    {
+     "n": 126,
+     "text": "“Nhược tâm hữu trụ tắc vi phi trụ."
+    },
+    {
+     "n": 127,
+     "text": "“Thị cố Phật thuyết Bồ Tát tâm bất ưng trụ sắc bố thí."
+    },
+    {
+     "n": 128,
+     "text": "“Tu-bồ-đề! Bồ Tát vị lợi ích nhất thiết chúng sanh, ưng như thị bố thí."
+    },
+    {
+     "n": 129,
+     "text": "“Như Lai thuyết nhất thiết chư tướng tức thị phi tướng, hựu thuyết nhất thiết chúng sanh tức phi chúng sanh."
+    },
+    {
+     "n": 130,
+     "text": "“Tu-bồ-đề! Như Lai thị chân ngữ giả, thật ngữ giả, như ngữ giả, bất cuống ngữ giả, bất dị ngữ giả."
+    },
+    {
+     "n": 131,
+     "text": "“Tu-bồ-đề! Như Lai sở đắc pháp. Thử pháp vô thật vô hư."
+    },
+    {
+     "n": 132,
+     "text": "“Tu-bồ-đề, nhược Bồ Tát tâm trụ ư pháp nhi hành bố thí, như nhân nhập ám, tắc vô sở kiến."
+    },
+    {
+     "n": 133,
+     "text": "“Nhược Bồ Tát tâm bất trụ pháp nhi hành bố thí, như nhân hữu mục, nhật quang minh chiếu kiến chủng chủng sắc."
+    },
+    {
+     "n": 134,
+     "text": "“Tu-bồ-đề, đương lai chi thế nhược hữu thiện nam tử, thiện nữ nhân năng ư thử kinh thọ trì độc tụng, tắc vi Như Lai dĩ Phật trí huệ tất tri thị nhân, tất kiến thị nhân, giai đắc thành tựu vô lượng vô biên công đức."
+    },
+    {
+     "n": 135,
+     "text": "“Tu-bồ-đề, nhược hữu thiện nam tử, thiện nữ nhân sơ nhật phần dĩ Hằng hà sa đẳng thân bố thí, trung nhật phần phục dĩ Hằng hà sa đẳng thân bố thí, hậu nhật phần diệc dĩ Hằng hà sa đẳng thân bố thí."
+    },
+    {
+     "n": 136,
+     "text": "Như thị vô lượng bá thiên vạn ức kiếp dĩ thân bố thí."
+    },
+    {
+     "n": 137,
+     "text": "“Nhược phục hữu nhân văn thử kinh điển tín tâm bất nghịch, kỳ phước thắng bỉ."
+    },
+    {
+     "n": 138,
+     "text": "Hà huống thơ tả, thọ trì, độc tụng, vị nhân giải thuyết."
+    },
+    {
+     "n": 139,
+     "text": "“Tu-bồ-đề, dĩ yếu ngôn chi, thị kinh hữu bất khả tư nghị, bất khả xưng lượng, vô biên công đức."
+    },
+    {
+     "n": 140,
+     "text": "“Như Lai vị phát Đại thừa giả thuyết, vị phát Tối thượng thừa giả thuyết."
+    },
+    {
+     "n": 141,
+     "text": "Nhược hữu nhân năng thọ trì độc tụng, quảng vị nhân thuyết, Như Lai tất tri thị nhân, tất kiến thị nhân giai đắc thành tựu bất khả lượng, bất khả xứng, vô hữu biên, bất khả tư nghị công đức."
+    },
+    {
+     "n": 142,
+     "text": "“Như thị nhân đẳng tắc vi hà đảm Như Lai A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 143,
+     "text": "“Hà dĩ cố? Tu-bồ-đề, nhược nhạo tiểu pháp giả, trước ngã kiến, nhân kiến, chúng sanh kiến, thọ giả kiến, tắc ư thử kinh bất năng thính thọ, độc tụng, vị nhân giải thuyết."
+    },
+    {
+     "n": 144,
+     "text": "“Tu-bồ-đề, tại tại xứ xứ nhược hữu thử kinh, nhất thiết thế gian thiên, nhân, a-tu-la sở ưng cúng dường."
+    },
+    {
+     "n": 145,
+     "text": "Đương tri thử xứ tắc vi thị tháp, giai ưng cung kính tác lễ vi nhiễu, dĩ chư hoa hương nhi tán kỳ xứ."
+    },
+    {
+     "n": 146,
+     "text": "“Phục thứ Tu-bồ-đề! Thiện nam tử, thiện nữ nhân thọ trì độc tụng thử kinh, nhược vi nhân khinh tiện."
+    },
+    {
+     "n": 147,
+     "text": "Thị nhân tiên thế tội nghiệp ưng đọa ác đạo, dĩ kim thế nhân khinh tiện cố, tiên thế tội nghiệp tắc vi tiêu diệt, đương đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 148,
+     "text": "“Tu-bồ-đề, ngã niệm quá khứ vô lượng a-tăng-kỳ kiếp, ư Nhiên Đăng Phật tiền đắc trị bát bá tứ thiên vạn ức na-do-tha chư Phật, tất giai cúng dường thừa sự vô không quá giả."
+    },
+    {
+     "n": 149,
+     "text": "Nhược phục hữu nhân ư hậu mạt thế, năng thọ trì độc tụng thử kinh, sở đắc công đức, ư ngã sở cúng dường chư Phật công đức, bá phần bất cập nhất, thiên vạn ức phần, nãi chí toán số thí dụ sở bất năng cập."
+    },
+    {
+     "n": 150,
+     "text": "“Tu-bồ-đề, nhược thiện nam tử, thiện nữ nhân ư hậu mạt thế hữu thọ trì độc tụng thử kinh sở đắc công đức, ngã nhược cụ thuyết giả, hoặc hữu nhân văn tâm tắc cuồng loạn hồ nghi bất tín."
+    },
+    {
+     "n": 151,
+     "text": "“Tu-bồ-đề, đương tri thị kinh nghĩa bất khả tư nghị, quả báo diệc bất khả tư nghị.”"
+    },
+    {
+     "n": 152,
+     "text": "Nhĩ thời Tu-bồ-đề bạch Phật ngôn: “Thế Tôn!"
+    },
+    {
+     "n": 153,
+     "text": "Thiện nam tử, thiện nữ nhân phát A-nậu-đa-la Tam-miệu Tam-bồ-đề tâm, vân hà ưng trụ? Vân hà hàng phục kỳ tâm?”"
+    },
+    {
+     "n": 154,
+     "text": "Phật cáo Tu-bồ-đề: “Thiện nam tử, thiện nữ nhân phát A-nậu-đa-la Tam-miệu Tam-bồ-đề giả, đương sanh như thị tâm: Ngã ưng diệt độ nhất thiết chúng sanh."
+    },
+    {
+     "n": 155,
+     "text": "Diệt độ nhất thiết chúng sanh dĩ, nhi vô hữu nhất chúng sanh thật diệt độ giả."
+    },
+    {
+     "n": 156,
+     "text": "“Hà dĩ cố? Tu-bồ-đề, nhược Bồ Tát hữu ngã tướng, nhân tướng, chúng sanh tướng, thọ giả tướng, tức phi Bồ Tát."
+    },
+    {
+     "n": 157,
+     "text": "“Sở dĩ giả hà? Tu-bồ-đề, thật vô hữu pháp phát A-nậu-đa-la Tam-miệu Tam-bồ-đề giả."
+    },
+    {
+     "n": 158,
+     "text": "“Tu-bồ-đề, ư ý vân hà? Như Lai ư Nhiên Đăng Phật sở hữu pháp đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề phủ?”"
+    },
+    {
+     "n": 159,
+     "text": "“Phất dã, Thế Tôn. Như ngã giải Phật sở thuyết nghĩa, Phật ư Nhiên Đăng Phật sở vô hữu pháp đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề.”"
+    },
+    {
+     "n": 160,
+     "text": "Phật ngôn: “Như thị, như thị. Tu-bồ-đề, thật vô hữu pháp Như Lai đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 161,
+     "text": "“Tu-bồ-đề, nhược hữu pháp Như Lai đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề giả, Nhiên Đăng Phật tắc bất dữ ngã thọ ký: Nhữ ư lai thế đương đắc tác Phật hiệu Thích-ca Mâu-ni."
+    },
+    {
+     "n": 162,
+     "text": "Dĩ thật vô hữu pháp đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề, thị cố Nhiên Đăng Phật dữ ngã thọ ký, tác thị ngôn: Nhữ ư lai thế đương đắc tác Phật hiệu Thích-ca Mâu-ni."
+    },
+    {
+     "n": 163,
+     "text": "“Hà dĩ cố? Như Lai giả tức chư pháp như nghĩa."
+    },
+    {
+     "n": 164,
+     "text": "“Nhược hữu nhân ngôn: Như Lai đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 165,
+     "text": "Tu-bồ-đề! Thật vô hữu pháp Phật đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 166,
+     "text": "“Tu-bồ-đề! Như Lai sở đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề, ư thị trung vô thật, vô hư."
+    },
+    {
+     "n": 167,
+     "text": "“Thị cố Như Lai thuyết nhất thiết pháp giai thị Phật pháp."
+    },
+    {
+     "n": 168,
+     "text": "“Tu-bồ-đề! Sở ngôn nhất thiết pháp giả, tức phi nhất thiết pháp, thị cố danh nhất thiết pháp."
+    },
+    {
+     "n": 169,
+     "text": "Tu-bồ-đề, thí như nhân thân trường đại.”"
+    },
+    {
+     "n": 170,
+     "text": "Tu-bồ-đề ngôn: “Thế Tôn, Như Lai thuyết nhân thân trường đại tức vi phi đại thân, thị danh đại thân.”"
+    },
+    {
+     "n": 171,
+     "text": "“Tu-bồ-đề! Bồ Tát diệc như thị. Nhược tác thị ngôn: Ngã đương diệt độ vô lượng chúng sanh tức bất danh Bồ Tát."
+    },
+    {
+     "n": 172,
+     "text": "Hà dĩ cố? Tu-bồ-đề! Thật vô hữu pháp danh vi Bồ Tát."
+    },
+    {
+     "n": 173,
+     "text": "Thị cố Phật thuyết nhất thiết pháp vô ngã, vô nhân, vô chúng sanh, vô thọ giả."
+    },
+    {
+     "n": 174,
+     "text": "“Tu-bồ-đề! Nhược Bồ Tát tác thị ngôn: “Ngã đương trang nghiêm Phật độ”, thị bất danh Bồ Tát."
+    },
+    {
+     "n": 175,
+     "text": "Hà dĩ cố? Như Lai thuyết trang nghiêm Phật độ giả, tức phi trang nghiêm thị danh trang nghiêm."
+    },
+    {
+     "n": 176,
+     "text": "“Tu-bồ-đề! Nhược Bồ Tát thông đạt vô ngã pháp giả, Như Lai thuyết danh chân thị Bồ Tát."
+    },
+    {
+     "n": 177,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Như Lai hữu nhục nhãn phủ?”"
+    },
+    {
+     "n": 178,
+     "text": "“Như thị, Thế Tôn. Như Lai hữu nhục nhãn.”"
+    },
+    {
+     "n": 179,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Như Lai hữu thiên nhãn phủ?”"
+    },
+    {
+     "n": 180,
+     "text": "“Như thị, Thế Tôn. Như Lai hữu thiên nhãn.”"
+    },
+    {
+     "n": 181,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Như Lai hữu huệ nhãn phủ?”"
+    },
+    {
+     "n": 182,
+     "text": "“Như thị, Thế Tôn. Như Lai hữu huệ nhãn.”"
+    },
+    {
+     "n": 183,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Như Lai hữu pháp nhãn phủ?”"
+    },
+    {
+     "n": 184,
+     "text": "“Như thị, Thế Tôn. Như Lai hữu pháp nhãn.”"
+    },
+    {
+     "n": 185,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Như Lai hữu Phật nhãn phủ?”"
+    },
+    {
+     "n": 186,
+     "text": "“Như thị, Thế Tôn. Như Lai hữu Phật nhãn.”"
+    },
+    {
+     "n": 187,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Hằng hà trung sở hữu sa, Phật thuyết thị sa phủ?”"
+    },
+    {
+     "n": 188,
+     "text": "“Như thị, Thế Tôn. Như Lai thuyết thị sa.”"
+    },
+    {
+     "n": 189,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Như nhất Hằng hà trung sở hữu sa, hữu như thị đẳng Hằng hà, thị chư Hằng hà sở hữu sa số Phật thế giới. Như thị ninh vi đa phủ?”"
+    },
+    {
+     "n": 190,
+     "text": "“Thậm đa, Thế Tôn.” Phật cáo Tu-bồ-đề: “Nhĩ sở quốc độ trung sở hữu chúng sanh nhược can chủng tâm Như Lai tất tri."
+    },
+    {
+     "n": 191,
+     "text": "Hà dĩ cố? Như Lai thuyết chư tâm giai vi phi tâm, thị danh vi tâm."
+    },
+    {
+     "n": 192,
+     "text": "Sở dĩ giã hà? Tu-bồ-đề! Quá khứ tâm bất khả đắc, hiện tại tâm bất khả đắc, vị lai tâm bất khả đắc."
+    },
+    {
+     "n": 193,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Nhược hữu nhân mãn tam thiên đại thiên thế giới thất bảo dĩ dụng bố thí, thị nhân dĩ thị nhân duyên đắc phước đa phủ?”"
+    },
+    {
+     "n": 194,
+     "text": "“Như thị, Thế Tôn. Thử nhân dĩ thị nhân duyên đắc phước thậm đa.”"
+    },
+    {
+     "n": 195,
+     "text": "“Tu-bồ-đề! Nhược phước đức hữu thật, Như Lai bất thuyết đắc phước đức đa."
+    },
+    {
+     "n": 196,
+     "text": "Dĩ phước đức vô cố, Như Lai thuyết đắc phước đức đa."
+    },
+    {
+     "n": 197,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Phật khả dĩ cụ túc sắc thân kiến phủ?”"
+    },
+    {
+     "n": 198,
+     "text": "“Phất dã, Thế Tôn. Như Lai bất ưng dĩ cụ túc sắc thân kiến."
+    },
+    {
+     "n": 199,
+     "text": "Hà dĩ cố? Như Lai thuyết cụ túc sắc thân tức phi cụ túc sắc thân, thị danh cụ túc sắc thân."
+    },
+    {
+     "n": 200,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Như Lai khả dĩ cụ túc chư tướng kiến phủ?”"
+    },
+    {
+     "n": 201,
+     "text": "“Phất dã, Thế Tôn. Như Lai bất ưng dĩ cụ túc chư tướng kiến."
+    },
+    {
+     "n": 202,
+     "text": "Hà dĩ cố? Như Lai thuyết chư tướng cụ túc tức phi cụ túc, thị danh chư tướng cụ túc.”"
+    },
+    {
+     "n": 203,
+     "text": "“Tu-bồ-đề! Nhữ vật vị Như Lai tác thị niệm: Ngã đương hữu sở thuyết pháp."
+    },
+    {
+     "n": 204,
+     "text": "Mạc tác thị niệm. Hà dĩ cố? Nhược nhân ngôn Như Lai hữu sở thuyết pháp tức vi báng Phật, bất năng giải ngã sở thuyết cố."
+    },
+    {
+     "n": 205,
+     "text": "“Tu-bồ-đề! Thuyết pháp giả vô pháp khả thuyết, thị danh thuyết pháp.”"
+    },
+    {
+     "n": 206,
+     "text": "Nhĩ thời Huệ Mạng Tu-bồ-đề bạch Phật ngôn: “Phả hữu chúng sanh ư vị lai thế văn thuyết thị pháp sanh tín tâm phủ?\""
+    },
+    {
+     "n": 207,
+     "text": "Phật ngôn: “Tu-bồ-đề! Bỉ phi chúng sanh phi bất chúng sanh."
+    },
+    {
+     "n": 208,
+     "text": "Hà dĩ cố? Tu-bồ-đề! Chúng sanh, chúng sanh giả, Như Lai thuyết phi chúng sanh thị danh chúng sanh.”"
+    },
+    {
+     "n": 209,
+     "text": "Tu-bồ-đề bạch Phật ngôn: “Phật đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề, vi vô sở đắc da?”"
+    },
+    {
+     "n": 210,
+     "text": "Phật ngôn: “Như thị, như thị. Tu-bồ-đề, ngã ư A-nậu-đa-la Tam-miệu Tam-bồ-đề nãi chí vô hữu thiểu pháp khả đắc, thị danh A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 211,
+     "text": "“Phục thứ Tu-bồ-đề! Thị pháp bình đẳng vô hữu cao hạ, thị danh A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 212,
+     "text": "Dĩ vô ngã, vô nhân, vô chúng sanh, vô thọ giả, tu nhất thiết thiện pháp tức đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 213,
+     "text": "Tu-bồ-đề! Sở ngôn thiện pháp giả, Như Lai thuyết phi thiện pháp thị danh thiện pháp."
+    },
+    {
+     "n": 214,
+     "text": "“Tu-bồ-đề! Nhược tam thiên đại thiên thế giới trung sở hữu chư Tu-di sơn vương, như thị đẳng thất bảo tụ, hữu nhân trì dụng bố thí."
+    },
+    {
+     "n": 215,
+     "text": "Nhược nhân dĩ thử Bát-nhã ba-la-mật kinh, nãi chí tứ cú kệ đẳng, thọ trì độc tụng vị tha nhân thuyết, ư tiền phước đức bá phần bất cập nhất, bá thiên vạn ức phần, nãi chí toán số thí dụ sở bất năng cập."
+    },
+    {
+     "n": 216,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Nhữ đẳng vật vị Như Lai tác thị niệm: Ngã đương độ chúng sanh. Tu-bồ-đề! Mạc tác thị niệm."
+    },
+    {
+     "n": 217,
+     "text": "“Hà dĩ cố? Thật vô hữu chúng sanh Như Lai độ giả."
+    },
+    {
+     "n": 218,
+     "text": "Nhược hữu chúng sanh Như Lai độ giả, Như Lai tắc hữu ngã, nhân, chúng sanh, thọ giả."
+    },
+    {
+     "n": 219,
+     "text": "“Tu-bồ-đề! Như Lai thuyết hữu ngã giả tức phi hữu ngã, nhi phàm phu chi nhân dĩ vi hữu ngã."
+    },
+    {
+     "n": 220,
+     "text": "“Tu-bồ-đề! Phàm phu giả, Như Lai thuyết tức phi phàm phu."
+    },
+    {
+     "n": 221,
+     "text": "“Tu-bồ-đề! Ư ý vân hà? Khả dĩ tam thập nhị tướng quan Như Lai phủ?”"
+    },
+    {
+     "n": 222,
+     "text": "Tu-bồ-đề ngôn: “Như thị, như thị. Dĩ tam thập nhị tướng quan Như Lai.”"
+    },
+    {
+     "n": 223,
+     "text": "Phật ngôn: “Tu-bồ-đề! Nhược dĩ tam thập nhị tướng quan Như Lai giả, Chuyển Luân Thánh vương tắc thị Như Lai.”"
+    },
+    {
+     "n": 224,
+     "text": "Tu-bồ-đề bạch Phật ngôn: “Thế Tôn, như ngã giải Phật sở thuyết nghĩa, bất ưng dĩ tam thập nhị tướng quan Như Lai.”"
+    },
+    {
+     "n": 225,
+     "text": "Nhĩ thời Thế Tôn nhi thuyết kệ ngôn:"
+    },
+    {
+     "n": 226,
+     "text": "“Nhược dĩ sắc kiến ngã,"
+    },
+    {
+     "n": 227,
+     "text": "Dĩ âm thanh cầu ngã."
+    },
+    {
+     "n": 228,
+     "text": "Thị nhân hành tà đạo,"
+    },
+    {
+     "n": 229,
+     "text": "Bất năng kiến Như Lai.”"
+    },
+    {
+     "n": 230,
+     "text": "“Tu-bồ-đề! Nhữ nhược tác thị niệm: Như Lai bất dĩ cụ túc tướng cố đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 231,
+     "text": "Tu-bồ-đề! Mạc tác thị niệm: Như Lai bất dĩ cụ túc tướng cố đắc A-nậu-đa-la Tam-miệu Tam-bồ-đề."
+    },
+    {
+     "n": 232,
+     "text": "“Tu-bồ-đề! Nhược tác thị niệm: Phát A-nậu-đa-la Tam-miệu Tam-bồ-đề giả thuyết chư pháp đoạn diệt tướng. Mạc tác thị niệm."
+    },
+    {
+     "n": 233,
+     "text": "“Hà dĩ cố? Phát A-nậu-đa-la Tam-miệu Tam-bồ-đề tâm giả, ư pháp bất thuyết đoạn diệt tướng."
+    },
+    {
+     "n": 234,
+     "text": "“Tu-bồ-đề! Nhược Bồ Tát dĩ mãn Hằng hà sa đẳng thế giới thất bảo bố thí."
+    },
+    {
+     "n": 235,
+     "text": "Nhược phục hữu nhân tri nhất thiết pháp vô ngã đắc thành ư nhẫn."
+    },
+    {
+     "n": 236,
+     "text": "Thử Bồ Tát thắng tiền Bồ Tát sở đắc công đức."
+    },
+    {
+     "n": 237,
+     "text": "Hà dĩ cố? Dĩ chư Bồ Tát bất thọ phước đức cố.”"
+    },
+    {
+     "n": 238,
+     "text": "“Tu-bồ-đề bạch Phật ngôn: “Thế Tôn! Vân hà Bồ Tát bất thọ phước đức?”"
+    },
+    {
+     "n": 239,
+     "text": "“Tu-bồ-đề! Bồ Tát sở tác phước đức bất ưng tham trước. Thị cố thuyết bất thọ phước đức."
+    },
+    {
+     "n": 240,
+     "text": "“Tu-bồ-đề! Nhược hữu nhân ngôn Như Lai nhược lai, nhược khứ, nhược tọa, nhược ngọa, thị nhân bất giải ngã sở thuyết nghĩa."
+    },
+    {
+     "n": 241,
+     "text": "Hà dĩ cố? Như Lai giả, vô sở tùng lai diệc vô sở khứ, cố danh Như Lai."
+    },
+    {
+     "n": 242,
+     "text": "“Tu-bồ-đề! Nhược thiện nam tử, thiện nữ nhân dĩ tam thiên đại thiên thế giới toái vi vi trần."
+    },
+    {
+     "n": 243,
+     "text": "Ư ý vân hà? Thị vi trần chúng ninh vi đa phủ?”"
+    },
+    {
+     "n": 244,
+     "text": "“Thậm đa, Thế Tôn. Hà dĩ cố? Nhược thị vi trần chúng thật hữu giả, Phật tắc bất thuyết thị vi trần chúng."
+    },
+    {
+     "n": 245,
+     "text": "“Sở dĩ giả hà? Phật thuyết vi trần chúng tức phi vi trần chúng, thị danh vi trần chúng."
+    },
+    {
+     "n": 246,
+     "text": "“Thế Tôn! Như Lai sở thuyết tam thiên đại thiên thế giới tức phi thế giới, thị danh thế giới."
+    },
+    {
+     "n": 247,
+     "text": "“Hà dĩ cố? Nhược thế giới thật hữu giả, tức thị nhất hiệp tướng."
+    },
+    {
+     "n": 248,
+     "text": "Như Lai thuyết nhất hiệp tướng tức phi nhất hiệp tướng, thị danh nhất hiệp tướng.”"
+    },
+    {
+     "n": 249,
+     "text": "“Tu-bồ-đề! Nhất hiệp tướng giả tức thị bất khả thuyết. Đản phàm phu chi nhân tham trước kỳ sự."
+    },
+    {
+     "n": 250,
+     "text": "“Tu-bồ-đề! Nhược nhân ngôn Phật thuyết ngã kiến, nhân kiến, chúng sanh kiến, thọ giả kiến."
+    },
+    {
+     "n": 251,
+     "text": "Tu-bồ-đề! Ư ý vân hà? Thị nhân giải ngã sở thuyết nghĩa phủ?”"
+    },
+    {
+     "n": 252,
+     "text": "“Thế Tôn! Thị nhân bất giải Như Lai sở thuyết nghĩa."
+    },
+    {
+     "n": 253,
+     "text": "“Hà dĩ cố? Thế Tôn thuyết ngã kiến, nhân kiến, chúng sanh kiến, thọ giả kiến tức phi ngã kiến, nhân kiến, chúng sanh kiến, thọ giả kiến, thị danh ngã kiến, nhân kiến, chúng sanh kiến, thọ giả kiến.”"
+    },
+    {
+     "n": 254,
+     "text": "“Tu-bồ-đề! Phát A-nậu-đa-la Tam-miệu Tam-bồ-đề tâm giả, ư nhất thiết pháp ưng như thị tri, như thị kiến, như thị tín giải, bất sanh pháp tướng."
+    },
+    {
+     "n": 255,
+     "text": "“Tu-bồ-đề! Sở ngôn pháp tướng giả, Như Lai thuyết tức phi pháp tướng, thị danh pháp tướng."
+    },
+    {
+     "n": 256,
+     "text": "“Tu-bồ-đề! Nhược hữu nhân dĩ mãn vô lượng a-tăng-kỳ thế giới thất bảo trì dụng bố thí."
+    },
+    {
+     "n": 257,
+     "text": "Nhược hữu thiện nam tử, thiện nữ nhân phát Bồ-đề tâm giả, trì ư thử kinh, nãi chí tứ cú kệ đẳng, thọ trì độc tụng, vị nhân diễn thuyết, kỳ phước thắng bỉ."
+    },
+    {
+     "n": 258,
+     "text": "“Vân hà vị nhân diễn thuyết? Bất thủ ư tướng, như như bất động. Hà dĩ cố?"
+    },
+    {
+     "n": 259,
+     "text": "Nhất thiết hữu vi pháp,"
+    },
+    {
+     "n": 260,
+     "text": "Như mộng ảo bào ảnh,"
+    },
+    {
+     "n": 261,
+     "text": "Như lộ diệc như điển."
+    },
+    {
+     "n": 262,
+     "text": "Ưng tác như thị quán.”"
+    },
+    {
+     "n": 263,
+     "text": "Phật thuyết thị kinh dĩ, Trưởng lão Tu-bồ-đề, cập chư tỳ-kheo, tỳ-kheo ni, ưu-bà-tắc, ưu-bà-di, nhất thiết thế gian, thiên, nhân, a-tu-la... văn Phật sở thuyết giai đại hoan hỷ, tín thọ phụng hành."
+    }
+   ],
+   "note": "Hán-Việt (dịch âm) để tụng",
+   "variant": "chant"
+  },
+  {
+   "key": "zh-translation",
+   "lang": "zh",
+   "translator": "鳩摩羅什 (Cưu-ma-la-thập)",
+   "sourceName": "Wikisource 中文 - 金剛般若波羅蜜經 (鳩摩羅什) - Taishō T0235 (bản江味農校定, kèm 62 chữ bản Ngụy)",
+   "sourceUrl": "https://zh.wikisource.org/wiki/%E9%87%91%E5%89%9B%E8%88%AC%E8%8B%A5%E6%B3%A2%E7%BE%85%E8%9C%9C%E7%B6%93_(%E9%B3%A9%E6%91%A9%E7%BE%85%E4%BB%80)",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: tác phẩm gốc xuất bản trước 1931, tác giả mất >100 năm",
+   "lines": [
+    {
+     "n": 1,
+     "text": "如是我聞。"
+    },
+    {
+     "n": 2,
+     "text": "一時，佛在舍衛國祇樹給孤獨園，與大比丘眾千二百五十人俱。"
+    },
+    {
+     "n": 3,
+     "text": "爾時，世尊食時，著衣持缽，入舍衛大城乞食。"
+    },
+    {
+     "n": 4,
+     "text": "於其城中，次第乞已，還至本處。"
+    },
+    {
+     "n": 5,
+     "text": "飯食訖，收衣缽，洗足已，敷座而坐。"
+    },
+    {
+     "n": 6,
+     "text": "時，長老須菩提，在大眾中，即從座起，偏袒右肩，右膝著地，合掌恭敬。而白佛言："
+    },
+    {
+     "n": 7,
+     "text": "「希有世尊！如來善護念諸菩薩，善付囑諸菩薩。"
+    },
+    {
+     "n": 8,
+     "text": "世尊！善男子、善女人，發阿耨多羅三藐三菩提心，應云何住？云何降伏其心？」"
+    },
+    {
+     "n": 9,
+     "text": "佛言：「善哉，善哉。須菩提！"
+    },
+    {
+     "n": 10,
+     "text": "如汝所說：如來善護念諸菩薩，善付囑諸菩薩。"
+    },
+    {
+     "n": 11,
+     "text": "汝今諦聽，當為汝說：善男子、善女人，發阿耨多羅三藐三菩提心，應如是住，如是降伏其心。」"
+    },
+    {
+     "n": 12,
+     "text": "「唯然，世尊！願樂欲聞。」"
+    },
+    {
+     "n": 13,
+     "text": "佛告須菩提：「諸菩薩摩訶薩，應如是降伏其心："
+    },
+    {
+     "n": 14,
+     "text": "所有一切眾生之類，若卵生、若胎生、若濕生、若化生；"
+    },
+    {
+     "n": 15,
+     "text": "若有色、若無色；若有想、若無想、若非有想非無想，"
+    },
+    {
+     "n": 16,
+     "text": "我皆令入無餘涅槃而滅度之。如是滅度無量無數無邊眾生，實無眾生得滅度者。"
+    },
+    {
+     "n": 17,
+     "text": "何以故？須菩提！若菩薩有我相、人相、眾生相、壽者相，即非菩薩。」"
+    },
+    {
+     "n": 18,
+     "text": "「復次，須菩提！"
+    },
+    {
+     "n": 19,
+     "text": "菩薩於法，應無所住，行於布施。"
+    },
+    {
+     "n": 20,
+     "text": "所謂不住色布施，不住聲、香、味、觸、法布施。"
+    },
+    {
+     "n": 21,
+     "text": "須菩提！菩薩應如是布施，不住於相。"
+    },
+    {
+     "n": 22,
+     "text": "何以故？若菩薩不住相布施。其福德不可思量。」"
+    },
+    {
+     "n": 23,
+     "text": "「須菩提！於意云何？東方虛空，可思量不？」"
+    },
+    {
+     "n": 24,
+     "text": "「不也，世尊！」"
+    },
+    {
+     "n": 25,
+     "text": "「須菩提！南、西、北方，四維上下虛空，可思量不？」"
+    },
+    {
+     "n": 26,
+     "text": "「不也，世尊！」"
+    },
+    {
+     "n": 27,
+     "text": "「須菩提！菩薩無住相布施，福德亦復如是不可思量。須菩提！菩薩但應如所教住。」"
+    },
+    {
+     "n": 28,
+     "text": "「須菩提。於意云何？可以身相見如來不？」"
+    },
+    {
+     "n": 29,
+     "text": "「不也，世尊，不可以身相得見如來。"
+    },
+    {
+     "n": 30,
+     "text": "何以故？如來所說身相，即非身相。」"
+    },
+    {
+     "n": 31,
+     "text": "佛告須菩提：「凡所有相，皆是虛妄。若見諸相非相，即見如來。」"
+    },
+    {
+     "n": 32,
+     "text": "須菩提白佛言：「世尊！頗有眾生，得聞如是言說章句，生實信不？」"
+    },
+    {
+     "n": 33,
+     "text": "佛告須菩提：「莫作是說。如來滅後，後五百歲，有持戒修福者，於此章句能生信心，"
+    },
+    {
+     "n": 34,
+     "text": "以此為實，當知是人不於一佛、二佛、三四五佛而種善根，已於無量千萬佛所種諸善根，"
+    },
+    {
+     "n": 35,
+     "text": "聞是章句，乃至一念生淨信者，須菩提！"
+    },
+    {
+     "n": 36,
+     "text": "如來悉知悉見，是諸眾生得如是無量福德。"
+    },
+    {
+     "n": 37,
+     "text": "何以故？是諸眾生無復我相、人相、眾生相、壽者相。」"
+    },
+    {
+     "n": 38,
+     "text": "「無法相，亦無非法相。"
+    },
+    {
+     "n": 39,
+     "text": "何以故？是諸眾生若心取相，則為著我、人、眾生、壽者。」"
+    },
+    {
+     "n": 40,
+     "text": "「若取法相，即著我、人、眾生、壽者。何以故？"
+    },
+    {
+     "n": 41,
+     "text": "若取非法相，即著我、人、眾生、壽者。"
+    },
+    {
+     "n": 42,
+     "text": "是故不應取法，不應取非法。以是義故，如來常說："
+    },
+    {
+     "n": 43,
+     "text": "汝等比丘，知我說法，如筏喻者，法尚應捨，何況非法。」"
+    },
+    {
+     "n": 44,
+     "text": "「須菩提！於意云何？如來得阿耨多羅三藐三菩提耶？如來有所說法耶？」"
+    },
+    {
+     "n": 45,
+     "text": "須菩提言：「如我解佛所說義，無有定法，名『阿耨多羅三藐三菩提』，"
+    },
+    {
+     "n": 46,
+     "text": "亦無有定法，如來可說。"
+    },
+    {
+     "n": 47,
+     "text": "何以故？如來所說法。皆不可取、不可說；非法，非非法。"
+    },
+    {
+     "n": 48,
+     "text": "所以者何？一切賢聖，皆以無為法而有差別。」"
+    },
+    {
+     "n": 49,
+     "text": "「須菩提！於意云何？若人滿三千大千世界七寶以用布施，是人所得福德，寧為多不？」"
+    },
+    {
+     "n": 50,
+     "text": "須菩提言：「甚多，世尊！何以故？"
+    },
+    {
+     "n": 51,
+     "text": "是福德即非福德性，是故如來說福德多。」"
+    },
+    {
+     "n": 52,
+     "text": "「若復有人，於此經中受持，乃至四句偈等，為他人說，其福勝彼。何以故？"
+    },
+    {
+     "n": 53,
+     "text": "須菩提！一切諸佛，及諸佛阿耨多羅三藐三菩提法，皆從此經出。"
+    },
+    {
+     "n": 54,
+     "text": "須菩提！所謂佛法者，即非佛法，是名佛法。」"
+    },
+    {
+     "n": 55,
+     "text": "「須菩提！於意云何？須陀洹能作是念：『我得須陀洹果』不？」"
+    },
+    {
+     "n": 56,
+     "text": "須菩提言：「不也，世尊！何以故？須陀洹名為入流，而無所入；"
+    },
+    {
+     "n": 57,
+     "text": "不入色、聲、香、味、觸、法，是名須陀洹。」"
+    },
+    {
+     "n": 58,
+     "text": "「須菩提！於意云何？斯陀含能作是念：『我得斯陀含果』不？」"
+    },
+    {
+     "n": 59,
+     "text": "須菩提言：「不也，世尊！何以故？"
+    },
+    {
+     "n": 60,
+     "text": "斯陀含名一往來，而實無往來，是名斯陀含。」"
+    },
+    {
+     "n": 61,
+     "text": "「須菩提！於意云何？阿那含能作是念：『我得阿那含果』不？」"
+    },
+    {
+     "n": 62,
+     "text": "須菩提言：「不也，世尊！何以故？"
+    },
+    {
+     "n": 63,
+     "text": "阿那含名為不來，而實無不來，是故名阿那含。」"
+    },
+    {
+     "n": 64,
+     "text": "「須菩提！於意云何？阿羅漢能作是念：『我得阿羅漢道』不？」"
+    },
+    {
+     "n": 65,
+     "text": "須菩提言：「不也，世尊！何以故？實無有法名阿羅漢。"
+    },
+    {
+     "n": 66,
+     "text": "世尊！若阿羅漢作是念：『我得阿羅漢道』即為著我、人、眾生、壽者。"
+    },
+    {
+     "n": 67,
+     "text": "世尊！佛說我得無諍三昧，人中最為第一，是第一離欲阿羅漢。"
+    },
+    {
+     "n": 68,
+     "text": "世尊！我不作是念：『我是離欲阿羅漢。』"
+    },
+    {
+     "n": 69,
+     "text": "世尊！我若作是念：『我得阿羅漢道。』"
+    },
+    {
+     "n": 70,
+     "text": "世尊則不說須菩提是樂阿蘭那行者。"
+    },
+    {
+     "n": 71,
+     "text": "以須菩提實無所行，而名須菩提，是樂阿蘭那行。」"
+    },
+    {
+     "n": 72,
+     "text": "佛告須菩提：「於意云何？如來昔在燃燈佛所，於法有所得不？」"
+    },
+    {
+     "n": 73,
+     "text": "「不也，世尊！如來在燃燈佛所，於法實無所得。」"
+    },
+    {
+     "n": 74,
+     "text": "「須菩提！於意云何？菩薩莊嚴佛土不？」"
+    },
+    {
+     "n": 75,
+     "text": "「不也，世尊！何以故？莊嚴佛土者，即非莊嚴，是名莊嚴。」"
+    },
+    {
+     "n": 76,
+     "text": "「是故，須菩提！諸菩薩摩訶薩，應如是生清淨心，"
+    },
+    {
+     "n": 77,
+     "text": "不應住色生心，不應住聲、香、味、觸、法生心，應無所住而生其心。」"
+    },
+    {
+     "n": 78,
+     "text": "「須菩提！譬如有人，身如須彌山王，於意云何？是身為大不？」"
+    },
+    {
+     "n": 79,
+     "text": "須菩提言：「甚大，世尊！何以故？佛說非身，是名大身。」"
+    },
+    {
+     "n": 80,
+     "text": "「須菩提！如恆河中所有沙數，如是沙等恆河，於意云何？是諸恆河沙，寧為多不？」"
+    },
+    {
+     "n": 81,
+     "text": "須菩提言：「甚多，世尊！但諸恆河，尚多無數，何況其沙。」"
+    },
+    {
+     "n": 82,
+     "text": "「須菩提！我今實言告汝：若有善男子、善女人，"
+    },
+    {
+     "n": 83,
+     "text": "以七寶滿爾所恆河沙數三千大千世界，以用布施，得福多不？」"
+    },
+    {
+     "n": 84,
+     "text": "須菩提言：「甚多，世尊！」"
+    },
+    {
+     "n": 85,
+     "text": "佛告須菩提：「若善男子、善女人，"
+    },
+    {
+     "n": 86,
+     "text": "於此經中，乃至受持四句偈等，為他人說，而此福德，勝前福德。」"
+    },
+    {
+     "n": 87,
+     "text": "「復次，須菩提！隨說是經，乃至四句偈等，"
+    },
+    {
+     "n": 88,
+     "text": "當知此處，一切世間，天、人、阿修羅，皆應供養，如佛塔廟。何況有人，盡能受持讀誦。"
+    },
+    {
+     "n": 89,
+     "text": "須菩提！當知是人成就最上第一希有之法，若是經典所在之處，即為有佛，若尊重弟子。」"
+    },
+    {
+     "n": 90,
+     "text": "爾時，須菩提白佛言：「世尊！當何名此經？我等云何奉持？」"
+    },
+    {
+     "n": 91,
+     "text": "佛告須菩提：「是經名為金剛般若波羅蜜，以是名字，汝當奉持。所以者何？"
+    },
+    {
+     "n": 92,
+     "text": "須菩提！佛說般若波羅蜜，即非般若波羅蜜。是名般若波羅蜜。"
+    },
+    {
+     "n": 93,
+     "text": "須菩提！於意云何？如來有所說法不？」"
+    },
+    {
+     "n": 94,
+     "text": "須菩提白佛言：「世尊！如來無所說。」"
+    },
+    {
+     "n": 95,
+     "text": "「須菩提！於意云何？三千大千世界所有微塵，是為多不？」"
+    },
+    {
+     "n": 96,
+     "text": "須菩提言：「甚多，世尊！」"
+    },
+    {
+     "n": 97,
+     "text": "「須菩提！諸微塵，如來說非微塵，是名微塵。"
+    },
+    {
+     "n": 98,
+     "text": "如來說：世界，非世界，是名世界。"
+    },
+    {
+     "n": 99,
+     "text": "須菩提！於意云何？可以三十二相見如來不？」"
+    },
+    {
+     "n": 100,
+     "text": "「不也，世尊！不可以三十二相得見如來。何以故？"
+    },
+    {
+     "n": 101,
+     "text": "如來說：三十二相，即是非相，是名三十二相。」"
+    },
+    {
+     "n": 102,
+     "text": "「須菩提！若有善男子、善女人，以恆河沙等身命布施；"
+    },
+    {
+     "n": 103,
+     "text": "若復有人，於此經中，乃至受持四句偈等，為他人說，其福甚多！」"
+    },
+    {
+     "n": 104,
+     "text": "爾時，須菩提聞說是經，深解義趣，涕淚悲泣，而白佛言："
+    },
+    {
+     "n": 105,
+     "text": "「希有世尊！佛說如是甚深經典，我從昔來所得慧眼，未曾得聞如是之經。"
+    },
+    {
+     "n": 106,
+     "text": "世尊！若復有人，得聞是經，信心清淨，則生實相，當知是人，成就第一希有功德。"
+    },
+    {
+     "n": 107,
+     "text": "世尊！是實相者，則是非相，是故如來說名實相。"
+    },
+    {
+     "n": 108,
+     "text": "世尊！我今得聞如是經典，信解受持，不足為難；"
+    },
+    {
+     "n": 109,
+     "text": "若當來世，後五百歲，其有眾生，得聞是經，信解受持，是人則為第一希有。"
+    },
+    {
+     "n": 110,
+     "text": "何以故？此人無我相、無人相、無眾生相、無壽者相。所以者何？"
+    },
+    {
+     "n": 111,
+     "text": "我相，即是非相；人相、眾生相、壽者相，即是非相。何以故？"
+    },
+    {
+     "n": 112,
+     "text": "離一切諸相，則名諸佛。」"
+    },
+    {
+     "n": 113,
+     "text": "佛告須菩提：「如是，如是！"
+    },
+    {
+     "n": 114,
+     "text": "若復有人，得聞是經，不驚、不怖、不畏，當知是人，甚為希有。何以故？"
+    },
+    {
+     "n": 115,
+     "text": "須菩提！如來說：第一波羅蜜，即非第一波羅蜜，是名第一波羅蜜。"
+    },
+    {
+     "n": 116,
+     "text": "須菩提！忍辱波羅蜜，如來說非忍辱波羅蜜。是名忍辱波羅密。"
+    },
+    {
+     "n": 117,
+     "text": "何以故？須菩提！如我昔為歌利王割截身體，我於爾時，無我相、無人相、無眾生相、無壽者相。"
+    },
+    {
+     "n": 118,
+     "text": "何以故？我於往昔，節節支解時，若有我相、人相、眾生相、壽者相，應生瞋恨。"
+    },
+    {
+     "n": 119,
+     "text": "須菩提！又念過去，於五百世，作忍辱仙人，於爾所世，無我相、無人相、無眾生相、無壽者相。"
+    },
+    {
+     "n": 120,
+     "text": "是故須菩提！菩薩應離一切相，發阿耨多羅三藐三菩提心。"
+    },
+    {
+     "n": 121,
+     "text": "不應住色生心，不應住聲、香、味、觸、法生心，應生無所住心。若心有住，則為非住。」"
+    },
+    {
+     "n": 122,
+     "text": "「是故佛說：菩薩心不應住色布施。"
+    },
+    {
+     "n": 123,
+     "text": "須菩提！菩薩為利益一切眾生故，應如是布施。"
+    },
+    {
+     "n": 124,
+     "text": "如來說：一切諸相，即是非相。又說：一切眾生，即非眾生。"
+    },
+    {
+     "n": 125,
+     "text": "須菩提！如來是真語者、實語者、如語者、不誑語者、不異語者。」"
+    },
+    {
+     "n": 126,
+     "text": "「須菩提！如來所得法，此法無實無虛。"
+    },
+    {
+     "n": 127,
+     "text": "須菩提！若菩薩心住於法而行布施，如人入闇，則無所見；"
+    },
+    {
+     "n": 128,
+     "text": "若菩薩心不住法而行布施，如人有目，日光明照，見種種色。」"
+    },
+    {
+     "n": 129,
+     "text": "「須菩提！當來之世，若有善男子、善女人，能於此經，受持讀誦，則為如來，以佛智慧，"
+    },
+    {
+     "n": 130,
+     "text": "悉知是人，悉見是人，皆得成就無量無邊功德。」"
+    },
+    {
+     "n": 131,
+     "text": "「須菩提！若有善男子、善女人，"
+    },
+    {
+     "n": 132,
+     "text": "初日分以恆河沙等身布施，"
+    },
+    {
+     "n": 133,
+     "text": "中日分復以恆河沙等身布施，"
+    },
+    {
+     "n": 134,
+     "text": "後日分亦以恆河沙等身布施，"
+    },
+    {
+     "n": 135,
+     "text": "如是無量百千萬億劫，以身布施；"
+    },
+    {
+     "n": 136,
+     "text": "若復有人，聞此經典，信心不逆，其福勝彼，何況書寫、受持、讀誦、為人解說。」"
+    },
+    {
+     "n": 137,
+     "text": "「須菩提！以要言之，是經有不可思議、不可稱量、無邊功德。"
+    },
+    {
+     "n": 138,
+     "text": "如來為發大乘者說，為發最上乘者說。"
+    },
+    {
+     "n": 139,
+     "text": "若有人能受持讀誦，廣為人說，如來悉知是人，悉見是人，"
+    },
+    {
+     "n": 140,
+     "text": "皆得成就不可量、不可稱、無有邊、不可思議功德。」"
+    },
+    {
+     "n": 141,
+     "text": "「如是人等，則為荷擔如來阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 142,
+     "text": "何以故？須菩提！若樂小法者，著我見、人見、眾生見、壽者見，"
+    },
+    {
+     "n": 143,
+     "text": "則於此經不能聽受、讀誦，為人解說。」"
+    },
+    {
+     "n": 144,
+     "text": "「須菩提！在在處處，若有此經，一切世間，天、人、阿修羅，所應供養；"
+    },
+    {
+     "n": 145,
+     "text": "當知此處，則為是塔，皆應恭敬，作禮圍遶，以諸華香而散其處。」"
+    },
+    {
+     "n": 146,
+     "text": "「復次，須菩提！善男子、善女人，受持讀誦此經，"
+    },
+    {
+     "n": 147,
+     "text": "若為人輕賤，是人先世罪業，應墮惡道，"
+    },
+    {
+     "n": 148,
+     "text": "以今世人輕賤故，先世罪業則為消滅，當得阿耨多羅三藐三菩提。」"
+    },
+    {
+     "n": 149,
+     "text": "「須菩提！我念過去無量阿僧祇劫，於燃燈佛前，"
+    },
+    {
+     "n": 150,
+     "text": "得值八百四千萬億那由他諸佛，悉皆供養承事，無空過者；"
+    },
+    {
+     "n": 151,
+     "text": "若復有人，於後末世，能受持讀誦此經，所得功德，"
+    },
+    {
+     "n": 152,
+     "text": "於我所供養諸佛功德，百分不及一，千萬億分、乃至算數譬喻所不能及。」"
+    },
+    {
+     "n": 153,
+     "text": "「須菩提！若善男子，善女人，於後末世，有受持讀誦此經，"
+    },
+    {
+     "n": 154,
+     "text": "所得功德，我若具說者，或有人聞，心則狂亂，狐疑不信。"
+    },
+    {
+     "n": 155,
+     "text": "須菩提！當知是經義不可思議，果報亦不可思議！」"
+    },
+    {
+     "n": 156,
+     "text": "爾時，須菩提白佛言：「世尊！善男子、善女人，"
+    },
+    {
+     "n": 157,
+     "text": "發阿耨多羅三藐三菩提心，云何應住？云何降伏其心？」"
+    },
+    {
+     "n": 158,
+     "text": "佛告須菩提：「善男子、善女人，發阿耨多羅三藐三菩提心者，"
+    },
+    {
+     "n": 159,
+     "text": "當生如是心：我應滅度一切眾生。"
+    },
+    {
+     "n": 160,
+     "text": "滅度一切眾生已，而無有一眾生實滅度者。何以故？"
+    },
+    {
+     "n": 161,
+     "text": "須菩提！若菩薩有我相、人相、眾生相、壽者相，則非菩薩。所以者何？"
+    },
+    {
+     "n": 162,
+     "text": "須菩提！實無有法，發阿耨多羅三藐三菩提心者。」"
+    },
+    {
+     "n": 163,
+     "text": "「須菩提！於意云何？如來於燃燈佛所，有法得阿耨多羅三藐三菩提不？」"
+    },
+    {
+     "n": 164,
+     "text": "「不也，世尊！如我解佛所說義，佛於燃燈佛所，無有法得阿耨多羅三藐三菩提。」"
+    },
+    {
+     "n": 165,
+     "text": "佛言：「如是，如是！須菩提！實無有法，如來得阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 166,
+     "text": "須菩提！若有法，如來得阿耨多羅三藐三菩提者，燃燈佛則不與我授記："
+    },
+    {
+     "n": 167,
+     "text": "『汝於來世，當得作佛，號釋迦牟尼。』"
+    },
+    {
+     "n": 168,
+     "text": "以實無有法得阿耨多羅三藐三菩提，"
+    },
+    {
+     "n": 169,
+     "text": "是故燃燈佛與我授記，作是言：『汝於來世，當得作佛，號釋迦牟尼。』"
+    },
+    {
+     "n": 170,
+     "text": "何以故？如來者，即諸法如義。」"
+    },
+    {
+     "n": 171,
+     "text": "「若有人言：如來得阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 172,
+     "text": "須菩提！實無有法，佛得阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 173,
+     "text": "須菩提！如來所得阿耨多羅三藐三菩提，於是中無實無虛。"
+    },
+    {
+     "n": 174,
+     "text": "是故如來說：一切法皆是佛法。"
+    },
+    {
+     "n": 175,
+     "text": "須菩提！所言一切法者，即非一切法，是故名一切法。」"
+    },
+    {
+     "n": 176,
+     "text": "「須菩提！譬如人身長大。」"
+    },
+    {
+     "n": 177,
+     "text": "須菩提言：「世尊！如來說：人身長大，則為非大身，是名大身。」"
+    },
+    {
+     "n": 178,
+     "text": "「須菩提！菩薩亦如是。若作是言："
+    },
+    {
+     "n": 179,
+     "text": "我當滅度無量眾生，則不名菩薩。何以故？"
+    },
+    {
+     "n": 180,
+     "text": "須菩提！實無有法名為菩薩。是故佛說一切法，無我、無人、無眾生、無壽者。」"
+    },
+    {
+     "n": 181,
+     "text": "「須菩提！若菩薩作是言：『我當莊嚴佛土』，是不名菩薩。何以故？"
+    },
+    {
+     "n": 182,
+     "text": "如來說：莊嚴佛土者，即非莊嚴，是名莊嚴。」"
+    },
+    {
+     "n": 183,
+     "text": "「須菩提！若菩薩通達無我、法者，如來說名真是菩薩。」"
+    },
+    {
+     "n": 184,
+     "text": "「須菩提！於意云何？如來有肉眼不？」"
+    },
+    {
+     "n": 185,
+     "text": "「如是，世尊！如來有肉眼。」"
+    },
+    {
+     "n": 186,
+     "text": "「須菩提！於意云何？如來有天眼不？」"
+    },
+    {
+     "n": 187,
+     "text": "「如是，世尊！如來有天眼。」"
+    },
+    {
+     "n": 188,
+     "text": "「須菩提！於意云何？如來有慧眼不？」"
+    },
+    {
+     "n": 189,
+     "text": "「如是，世尊！如來有慧眼。」"
+    },
+    {
+     "n": 190,
+     "text": "「須菩提！於意云何？如來有法眼不？」"
+    },
+    {
+     "n": 191,
+     "text": "「如是，世尊！如來有法眼。」"
+    },
+    {
+     "n": 192,
+     "text": "「須菩提！於意云何？如來有佛眼不？」"
+    },
+    {
+     "n": 193,
+     "text": "「如是，世尊！如來有佛眼。」"
+    },
+    {
+     "n": 194,
+     "text": "「須菩提！於意云何？如恆河中所有沙，佛說是沙不？」"
+    },
+    {
+     "n": 195,
+     "text": "「如是，世尊！如來說是沙。」"
+    },
+    {
+     "n": 196,
+     "text": "「須菩提！於意云何？如一恆河中所有沙，有如是沙等恆河，是諸恆河所有沙數，佛世界如是，寧為多不？」"
+    },
+    {
+     "n": 197,
+     "text": "「甚多，世尊。」"
+    },
+    {
+     "n": 198,
+     "text": "佛告須菩提：「爾所國土中，所有眾生，若干種心，如來悉知。何以故？"
+    },
+    {
+     "n": 199,
+     "text": "如來說：諸心皆為非心，是名為心。所以者何？"
+    },
+    {
+     "n": 200,
+     "text": "須菩提！過去心不可得，現在心不可得，未來心不可得。」"
+    },
+    {
+     "n": 201,
+     "text": "「須菩提！於意云何？若有人滿三千大千世界七寶，以用布施，是人以是因緣，得福多不？」"
+    },
+    {
+     "n": 202,
+     "text": "「如是，世尊！此人以是因緣，得福甚多。」"
+    },
+    {
+     "n": 203,
+     "text": "「須菩提！若福德有實，如來不說得福德多；"
+    },
+    {
+     "n": 204,
+     "text": "以福德無故，如來說得福德多。」"
+    },
+    {
+     "n": 205,
+     "text": "「須菩提！於意云何？佛可以具足色身見不？」"
+    },
+    {
+     "n": 206,
+     "text": "「不也，世尊！如來不應以具足色身見。何以故？"
+    },
+    {
+     "n": 207,
+     "text": "如來說：具足色身，即非具足色身，是名具足色身。」"
+    },
+    {
+     "n": 208,
+     "text": "「須菩提！於意云何？如來可以具足諸相見不？」"
+    },
+    {
+     "n": 209,
+     "text": "「不也，世尊！如來不應以具足諸相見。何以故？"
+    },
+    {
+     "n": 210,
+     "text": "如來說：諸相具足，即非具足。是名諸相具足。」"
+    },
+    {
+     "n": 211,
+     "text": "「須菩提！汝勿謂如來作是念：『我當有所說法。』莫作是念。何以故？"
+    },
+    {
+     "n": 212,
+     "text": "若人言：如來有所說法，即為謗佛，不能解我所說故。"
+    },
+    {
+     "n": 213,
+     "text": "須菩提！說法者，無法可說，是名說法。」"
+    },
+    {
+     "n": 214,
+     "text": "爾時，慧命須菩提白佛言：「世尊！"
+    },
+    {
+     "n": 215,
+     "text": "頗有眾生，於未來世，聞說是法，生信心不？」"
+    },
+    {
+     "n": 216,
+     "text": "佛言：「須菩提！彼非眾生，非不眾生。何以故？"
+    },
+    {
+     "n": 217,
+     "text": "須菩提！眾生眾生者，如來說非眾生，是名眾生。」"
+    },
+    {
+     "n": 218,
+     "text": "須菩提白佛言：「世尊！佛得阿耨多羅三藐三菩提。為無所得耶？」"
+    },
+    {
+     "n": 219,
+     "text": "佛言：「如是，如是。須菩提！我於阿耨多羅三藐三菩提乃至無有少法可得，"
+    },
+    {
+     "n": 220,
+     "text": "是名阿耨多羅三藐三菩提。」"
+    },
+    {
+     "n": 221,
+     "text": "「復次，須菩提！是法平等，無有高下，是名『阿耨多羅三藐三菩提』；"
+    },
+    {
+     "n": 222,
+     "text": "以無我、無人、無眾生、無壽者，修一切善法，則得阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 223,
+     "text": "須菩提！所言善法者，如來說即非善法，是名善法。」"
+    },
+    {
+     "n": 224,
+     "text": "「須菩提！若三千大千世界中，所有諸須彌山王，如是等七寶聚，有人持用布施；"
+    },
+    {
+     "n": 225,
+     "text": "若人以此《般若波羅蜜經》，乃至四句偈等，受持讀誦，為他人說，"
+    },
+    {
+     "n": 226,
+     "text": "於前福德百分不及一，百千萬億分、乃至算數譬喻所不能及。」"
+    },
+    {
+     "n": 227,
+     "text": "「須菩提！於意云何？汝等勿謂如來作是念："
+    },
+    {
+     "n": 228,
+     "text": "『我當度眾生。』須菩提！莫作是念。"
+    },
+    {
+     "n": 229,
+     "text": "何以故？實無有眾生如來度者。若有眾生如來度者，如來則有我、人、眾生、壽者。"
+    },
+    {
+     "n": 230,
+     "text": "須菩提！如來說：『有我者，則非有我，而凡夫之人以為有我。』"
+    },
+    {
+     "n": 231,
+     "text": "須菩提！凡夫者，如來說則非凡夫，是名凡夫。」"
+    },
+    {
+     "n": 232,
+     "text": "「須菩提！於意云何？可以三十二相觀如來不？」"
+    },
+    {
+     "n": 233,
+     "text": "須菩提言：「如是！如是！以三十二相觀如來。」"
+    },
+    {
+     "n": 234,
+     "text": "佛言：「須菩提！若以三十二相觀如來者，轉輪聖王則是如來。」"
+    },
+    {
+     "n": 235,
+     "text": "須菩提白佛言：「世尊！如我解佛所說義。不應以三十二相觀如來。」"
+    },
+    {
+     "n": 236,
+     "text": "爾時，世尊而說偈言："
+    },
+    {
+     "n": 237,
+     "text": "「若以色見我，以音聲求我，是人行邪道，不能見如來。」"
+    },
+    {
+     "n": 238,
+     "text": "「須菩提！汝若作是念：『如來不以具足相故，得阿耨多羅三藐三菩提。』"
+    },
+    {
+     "n": 239,
+     "text": "須菩提！莫作是念：『如來不以具足相故，得阿耨多羅三藐三菩提。』」"
+    },
+    {
+     "n": 240,
+     "text": "「須菩提！汝若作是念，發阿耨多羅三藐三菩提心者，說諸法斷滅。莫作是念！何以故？"
+    },
+    {
+     "n": 241,
+     "text": "發阿耨多羅三藐三菩提心者。於法不說斷滅相。」"
+    },
+    {
+     "n": 242,
+     "text": "「須菩提！若菩薩以滿恆河沙等世界七寶持用布施；"
+    },
+    {
+     "n": 243,
+     "text": "若復有人，知一切法無我，得成於忍，此菩薩勝前菩薩所得功德。何以故？"
+    },
+    {
+     "n": 244,
+     "text": "須菩提！以諸菩薩不受福德故。」"
+    },
+    {
+     "n": 245,
+     "text": "須菩提白佛言：「世尊！云何菩薩不受福德？」"
+    },
+    {
+     "n": 246,
+     "text": "「須菩提！菩薩所作福德，不應貪著。是故說不受福德。」"
+    },
+    {
+     "n": 247,
+     "text": "「須菩提！若有人言：如來若來若去，若坐若臥，是人不解我所說義。"
+    },
+    {
+     "n": 248,
+     "text": "何以故？如來者，無所從來，亦無所去，故名如來。」"
+    },
+    {
+     "n": 249,
+     "text": "「須菩提！若善男子、善女人，以三千大千世界碎為微塵，於意云何？是微塵眾寧為多不？」"
+    },
+    {
+     "n": 250,
+     "text": "須菩提言「甚多，世尊！何以故？"
+    },
+    {
+     "n": 251,
+     "text": "若是微塵眾實有者，佛則不說是微塵眾。所以者何？"
+    },
+    {
+     "n": 252,
+     "text": "佛說微塵眾，則非微塵眾，是名微塵眾。」"
+    },
+    {
+     "n": 253,
+     "text": "「世尊！如來所說三千大千世界，則非世界，是名世界。何以故？"
+    },
+    {
+     "n": 254,
+     "text": "若世界實有者，則是一合相。如來說一合相，則非一合相，是名一合相。」"
+    },
+    {
+     "n": 255,
+     "text": "「須菩提！一合相者，則是不可說；但凡夫之人貪著其事。」"
+    },
+    {
+     "n": 256,
+     "text": "「須菩提！若人言：佛說我見、人見、眾生見、壽者見。"
+    },
+    {
+     "n": 257,
+     "text": "須菩提！於意云何？是人解我所說義不？」"
+    },
+    {
+     "n": 258,
+     "text": "「不也，世尊！是人不解如來所說義。何以故？"
+    },
+    {
+     "n": 259,
+     "text": "世尊說我見、人見、眾生見、壽者見，即非我見、人見、眾生見、壽者見，"
+    },
+    {
+     "n": 260,
+     "text": "是名我見、人見、眾生見、壽者見。」"
+    },
+    {
+     "n": 261,
+     "text": "「須菩提！發阿耨多羅三藐三菩提心者，"
+    },
+    {
+     "n": 262,
+     "text": "於一切法，應如是知，如是見，如是信解，不生法相。"
+    },
+    {
+     "n": 263,
+     "text": "須菩提！所言法相者，如來說即非法相，是名法相。」"
+    },
+    {
+     "n": 264,
+     "text": "「須菩提！若有人以滿無量阿僧祇世界七寶，持用布施；若有善男子、善女人，"
+    },
+    {
+     "n": 265,
+     "text": "發菩提心者，持於此經，乃至四句偈等，受持讀誦，為人演說，其福勝彼。"
+    },
+    {
+     "n": 266,
+     "text": "云何為人演說，不取於相，如如不動。何以故？」"
+    },
+    {
+     "n": 267,
+     "text": "「一切有為法，如夢幻泡影，如露亦如電，應作如是觀。」"
+    },
+    {
+     "n": 268,
+     "text": "佛說是經已，長老須菩提及諸比丘、比丘尼、優婆塞、優婆夷、"
+    },
+    {
+     "n": 269,
+     "text": "一切世間天、人、阿修羅，聞佛所說，皆大歡喜，信受奉行。"
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "sa-translation",
+   "lang": "sa",
+   "translator": "không rõ (văn bản Sanskrit Devanagari)",
+   "sourceName": "Wikisource tiếng Phạn - वज्रच्छेदिकत्रिशतिकाप्रज्ञापारमितासूत्रम्",
+   "sourceUrl": "https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%9C%E0%A5%8D%E0%A4%B0%E0%A4%9A%E0%A5%8D%E0%A4%9B%E0%A5%87%E0%A4%A6%E0%A4%BF%E0%A4%95%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%B6%E0%A4%A4%E0%A4%BF%E0%A4%95%E0%A4%BE%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%9C%E0%A5%8D%E0%A4%9E%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BE%E0%A4%B8%E0%A5%82%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%AE%E0%A5%8D",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: xuất bản trước 1923, tác giả mất >100 năm",
+   "lines": [
+    {
+     "n": 1,
+     "text": "वज्रच्छेदिका नाम त्रिशतिका प्रज्ञापारमिता।"
+    },
+    {
+     "n": 2,
+     "text": "॥ नमो भगवत्या आर्यप्रज्ञापारमितायै॥"
+    },
+    {
+     "n": 3,
+     "text": "एवं मया श्रुतम्। एकस्मिन् समये भगवान् श्रावस्त्यां विहरति स्म जेतवनेऽनाथपिण्डदस्यारामे महता भिक्षुसंघेन सार्थं त्रयोदशभिर्भिक्षुशतैः संबहुलैश्च बोधिसत्त्वैर्महासत्त्वैः।"
+    },
+    {
+     "n": 4,
+     "text": "अथ खलु भगवान् पूर्वाह्णकालसमये निवास्य पात्रचीवरमादाय श्रावस्तीं महानगरीं पिण्डाय प्राविक्षत्।"
+    },
+    {
+     "n": 5,
+     "text": "अथ खलु भगवान् श्रावस्तीं महानगरीं पिण्डाय चरित्वा कृतभक्तकृत्यः पश्चाद्भक्तपिण्डपातप्रतिक्रान्तः पात्रचीवरं"
+    },
+    {
+     "n": 6,
+     "text": "प्रतिशाम्य पादौ प्रक्षाल्य न्यषीदत्प्रज्ञप्त एवासने पर्यङ्कमाभुज्य ऋजुं कायं प्रणिधाय प्रतिमुखीं स्मृतिमुपस्थाप्य।"
+    },
+    {
+     "n": 7,
+     "text": "अथ खलु संबहुला भिक्षवो येन भगवांस्तेनोपसंक्रामन्।"
+    },
+    {
+     "n": 8,
+     "text": "उपसंक्रम्य भगवतः पादौ शिरोभिरभिवन्द्य भगवन्तं त्रिष्प्रदक्षिणीकृत्य एकान्ते न्यषीदन्॥ १॥"
+    },
+    {
+     "n": 9,
+     "text": "तेन खलु पुनः समयेनायुष्मान् सुभुतिस्तस्यामेव पर्षदि संनिपतितोऽभूत्संनिषण्णः।"
+    },
+    {
+     "n": 10,
+     "text": "अथ खल्वायुष्मान् सुभूतिरुत्थायासनादेकांसमुत्तरासङ्गं कृत्वा दक्षिणं जानुमण्डलं पृथिव्यां प्रतिष्ठाप्य येन भगवांस्तेनाञ्जलिं प्रणम्य भगवन्तमेतदवोचत्-"
+    },
+    {
+     "n": 11,
+     "text": "आश्चर्यं भगवन्, परमाश्चर्यं सुगत, यावदेव तथागतेनार्हता सम्यक्संबुद्धेन बोधिसत्त्वा महासत्त्वा अनुपरिगृहीताः परमेणानुग्रहेण।"
+    },
+    {
+     "n": 12,
+     "text": "आश्चर्यं भगवन् यावदेव तथागतेनार्हता सम्यक्संबुद्धेन बोधिसत्त्वा महासत्त्वाः परीन्दिताः परमया परीन्दनया।"
+    },
+    {
+     "n": 13,
+     "text": "तत्कथं भगवन् बोधिसत्त्वयानसंप्रस्थितेन कुलपुत्रेण वा कुलदुहित्रा वा स्थातव्यं कथं प्रतिपत्तव्यं कथं चित्तं प्रग्रहीतव्यम् ?"
+    },
+    {
+     "n": 14,
+     "text": "एवमुक्ते भगवानायुष्मन्तं सुभूतिमेतदवोचत्- साधु साधु सुभूते, एवमेतत्सुभूते, एवमेतद्यथा वदसि।"
+    },
+    {
+     "n": 15,
+     "text": "अनुपरिगृहीतास्तथागतेन बोधिसत्त्वा महासत्त्वाः परमेणानुग्रहेण।"
+    },
+    {
+     "n": 16,
+     "text": "परीन्दितास्तथागतेन बोधिसत्त्वा महासत्त्वाः परमया परीन्दनया।"
+    },
+    {
+     "n": 17,
+     "text": "तेन हि सुभूते शृणु, साधु च सुष्ठु च मनसि कुरु, भाषिष्येऽहं ते-यथा बोधिसत्त्वयानसंप्रस्थितेन स्थातव्यं यथा प्रतिपत्तव्यं यथा चित्तं प्रग्रहीतव्यम्।"
+    },
+    {
+     "n": 18,
+     "text": "एवं भगवन् इत्यायुष्यान् सुभूतिर्भगवतः प्रत्यश्रौषीत्॥ २॥"
+    },
+    {
+     "n": 19,
+     "text": "भगवानस्यैतदवोचत्-इह सुभूते बोधिसत्त्वयानसंप्रस्थितेनैव चित्तमुत्पादयितव्यम्-"
+    },
+    {
+     "n": 20,
+     "text": "यावन्तः सुभूते सत्त्वाः सत्त्वधातौ सत्त्वसंग्रहेण संगृहीता अण्डजा वा जरायुजा वा संस्वेदजा वा औपपादुका वा रूपिणो वा अरूपिणो वा संज्ञिनो वा असंज्ञिनो वा नैवसंज्ञिनो नासंज्ञिनो वा,"
+    },
+    {
+     "n": 21,
+     "text": "यावान् कश्चित्सत्त्वधातुः प्रज्ञप्यमानः प्रज्ञप्यते, ते च मया सर्वेऽनुपधिशेषे निर्वाणधातौ परिनिर्वापयितव्याः।"
+    },
+    {
+     "n": 22,
+     "text": "एवमपरिमाणानपि सत्त्वान् परिनिर्वाप्य न कश्चित्सत्त्वः परिनिर्वापितो भवति।"
+    },
+    {
+     "n": 23,
+     "text": "तत्कस्य हेतोः ? सचेत्सुभूते बोधिसत्त्वस्य सत्त्वसंज्ञा प्रवर्तेत, न स बोधिसत्त्व इति वक्तव्यः।"
+    },
+    {
+     "n": 24,
+     "text": "तत्कस्य हेतोः ? न स सुभूते बोधिसत्त्वो वक्तव्यो यस्य सत्त्वसंज्ञा प्रवर्तेत, जीवसंज्ञा वा पुद्गलसंज्ञा व प्रवर्तेत॥ ३॥"
+    },
+    {
+     "n": 25,
+     "text": "अपि तु खलु पुनः सुभुते न बोधिसत्त्वेन वस्तुप्रतिष्ठितेन दानं दातव्यम्, न क्वचित्प्रतिष्ठितेन दानं दातव्यम्।"
+    },
+    {
+     "n": 26,
+     "text": "न रूपप्रतिष्ठितेन दानं दातव्यम्। न शब्दगन्धरसस्प्रष्टव्यधर्मेषु प्रतिष्ठितेन दानं दातव्यम्।"
+    },
+    {
+     "n": 27,
+     "text": "एवं हि सूभूते बोधिसत्त्वेन महासत्त्वेन दानं दातव्यं यथा न निमित्तसंज्ञायामपि प्रतितिष्ठेत्।"
+    },
+    {
+     "n": 28,
+     "text": "तत्कस्य हेतोः ? यः सुभूते बोधिसत्त्वोऽप्रतिष्ठितो दानं ददाति, तस्य सुभूते पुण्यस्कन्धस्य न सुकरं प्रमाणामुद्ग्रहीतुम्।"
+    },
+    {
+     "n": 29,
+     "text": "तत्किं मन्यसे सुभूते सुकरं पूर्वस्यां दिशि आकाशस्य प्रमाणमुद्ग्रहीतुम् ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 30,
+     "text": "भगवानाह- एवं दक्षिणपश्चिमोत्तरासु अध ऊर्ध्वं दिग्विदिक्षु समन्ताद्दशसु दिक्षु सुकरमाकाशस्य प्रमाणमुद्ग्रहीतुम् ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 31,
+     "text": "भगवानाह-एवमेव सुभूते यो बोधिसत्त्वोऽप्रतिष्ठितो दानं ददाति, तस्य सुभूते पुण्यस्कन्धस्य न सुकरं प्रमाणमुद्ग्रहीतुम्।"
+    },
+    {
+     "n": 32,
+     "text": "एवं हि सुभूते बोधिसत्त्वयानसंप्रस्थितेन दानं दातव्यं यथा न निमित्तसंज्ञायामपि प्रतितिष्ठेत्॥ ४॥"
+    },
+    {
+     "n": 33,
+     "text": "तत्किं मन्यसे सुभूते लक्षणसंपदा तथागतो द्रष्टव्यः ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 34,
+     "text": "न लक्षणसंपदा तथागतो द्रष्टव्यः। तत्कस्य हेतोः ? या सा भगवन् लक्षणसंपत्तथागतेन भाषिता सैवालक्षणसंपत्।"
+    },
+    {
+     "n": 35,
+     "text": "एवमुक्ते भगवानायुष्मन्तं सुभूतिमेतदवोचत् यावत्सुभूते लक्षणसंपत् तावन्मृषा, यावदलक्षणसंपत् तावन्न मृषेति हि लक्षणालक्षणतस्तथागतो द्रष्टव्यः॥ ५॥"
+    },
+    {
+     "n": 36,
+     "text": "एवमुक्ते आयुष्मान् सुभूतिर्भगवन्तमेतदवोचत्- अस्ति भगवन्।"
+    },
+    {
+     "n": 37,
+     "text": "केचित्सत्त्वा भविष्यन्त्यनागतेऽध्वनि पश्चिमे काले पश्चिमे समये पश्चिमायां पञ्चशत्यां सद्धर्मविप्रलोपकाले वर्तमाने, ये इमेष्वेवंरूपेषु सूत्रान्तपदेषु भाष्यमाणेषु भूतसंज्ञामुत्पादयिष्यन्ति।"
+    },
+    {
+     "n": 38,
+     "text": "अपि तु खलु पुनः सुभूते भविष्यन्त्यनागतेऽध्वनि बोधिसत्त्वा महासत्त्वाः पश्चिमे काले पश्चिमे समये पश्चिमायां पञ्चशत्यां सद्धर्मविप्रलोपे वर्तमाने गुणवन्तः शीलवन्तः प्रज्ञावन्तश्च भविष्यन्ति,"
+    },
+    {
+     "n": 39,
+     "text": "ये इमेष्वेवंरूपेषु सूत्रान्तपदेषु भाष्यमाणेषु भूतसंज्ञामुत्पादयिष्यन्ति।"
+    },
+    {
+     "n": 40,
+     "text": "न खलु पुनस्ते सुभूते बोधिसत्त्वा महासत्त्वा एकबुद्धपर्युपासिता भविष्यन्ति, नैकबुद्धावरोपितकुशलमूला भविष्यन्ति।"
+    },
+    {
+     "n": 41,
+     "text": "अपि तु खलु पुनः सुभूते अनेकबुद्धशतसहस्रपर्युपासिता अनेकबुद्धशतसहस्रावरोपितकुशलमूलास्ते बोधिसत्त्वा महासत्त्वा भविष्यन्ति,"
+    },
+    {
+     "n": 42,
+     "text": "ये इमेष्वेवंरूपेषु सूत्रान्तपदेषु भाष्यमाणेषु एकचित्तप्रसादमपि प्रतिलप्स्यन्ते।"
+    },
+    {
+     "n": 43,
+     "text": "ज्ञातास्ते सुभूते तथागतेन बुद्धज्ञानेन, दृष्टास्ते सुभूते तथागतेन बुद्धचक्षुषा, बुद्धास्ते सुभूते तथागतेन।"
+    },
+    {
+     "n": 44,
+     "text": "सर्वे ते सुभूते अप्रमेयमसंख्येयं पुण्यस्कन्धं प्रसविष्यन्ति प्रतिग्रहीष्यन्ति।"
+    },
+    {
+     "n": 45,
+     "text": "तत्कस्य हेतोः ? न हि सुभूते तेषां बोधिसत्त्वानां महासत्त्वानामात्मसंज्ञा प्रवर्तते, न सत्त्वसंज्ञा, न जीवसंज्ञा, न पुद्गलसंज्ञा प्रवर्तते।"
+    },
+    {
+     "n": 46,
+     "text": "नापि तेषां सुभूते बोधिसत्त्वानां महासत्त्वानां धर्मसंज्ञा प्रवर्तते।"
+    },
+    {
+     "n": 47,
+     "text": "एवं नाधर्मसंज्ञा। नापि तेषां सुभूते संज्ञा नासंज्ञा प्रवर्तते।"
+    },
+    {
+     "n": 48,
+     "text": "तत्कस्य हेतोः ? सचेत्सुभूते तेषां बोधिसत्त्वानां महासत्त्वानां धर्मसंज्ञा प्रवर्तेत, स एव तेषामात्मग्राहो भवेत्, सत्त्वग्राहो जीवग्राहः पुद्गलग्राहो भवेत्।"
+    },
+    {
+     "n": 49,
+     "text": "सचेदधर्मसंज्ञा प्रवर्तेत, स एव तेषामात्मग्राहो भवेत्, सत्त्वग्राहो जीवग्राहः पुद्गलग्राह इति।"
+    },
+    {
+     "n": 50,
+     "text": "तत्कस्य हेतोः ? न खलु पुनः सुभूते बोधिसत्त्वेन महासत्त्वेन धर्म उद्ग्रहीतव्यो नाधर्मः।"
+    },
+    {
+     "n": 51,
+     "text": "तस्मादियं तथागतेन संधाय वाग्भाषिता-कोलोपमं धर्मपर्यायमाजानद्भिधर्मा एव प्रहातव्याः प्रागेवाधर्मा इति॥ ६॥"
+    },
+    {
+     "n": 52,
+     "text": "पुनरपरं भगवानायुष्मन्तं सुभूतिमेतदवोचत्-"
+    },
+    {
+     "n": 53,
+     "text": "तत्किं मन्यसे सुभूते, अस्ति स कश्चिद्धर्मो यस्तथागतेनानुत्तरा सम्यक्संबोधिरित्यभिसंबुद्धः, कश्चिद्वा धर्मस्तथागतेन देशितः ? एवमुक्ते आयुष्मान् सुभूतिर्भगवन्तमेतदवोचत्-"
+    },
+    {
+     "n": 54,
+     "text": "यथाहं भगवन् भगवतो भाषितस्यार्थमाजानामि, नास्ति स कश्चिद्धर्मो यस्तथागतेन अनुत्तरा सम्यक्संबोधिरित्यभिसंबुद्धः, नास्ति धर्मो यस्तथागतेन देशितः।"
+    },
+    {
+     "n": 55,
+     "text": "तत्कस्य हेतोः ? योऽसौ तथागतेन धर्मोऽभिसंबुद्धो देशितो वा, अग्राह्यः सोऽनभिलप्यः।"
+    },
+    {
+     "n": 56,
+     "text": "न स धर्मो नाधर्मः। तत्कस्य हेतोः ? असंस्कृतप्रभाविता ह्यार्यपुद्गलाः॥ ७॥"
+    },
+    {
+     "n": 57,
+     "text": "भगवानाह- तत्किं मन्यसे सुभूते यः कश्चित्कुलपुत्रो वा कुलदुहिता वा इमं त्रिसाहस्रमहासाहस्रं लोकधातुं सप्तरत्नपरिपूर्णं कृत्वा तथागतेभ्योऽर्हद्भयः सम्यक्संबुद्धेभ्यो दानं दद्यात्,"
+    },
+    {
+     "n": 58,
+     "text": "अपि नु स कुलपुत्रो वा कुलदुहिता वा ततोनिदानं बहु पुण्यस्कन्धं प्रसुनुयात्।"
+    },
+    {
+     "n": 59,
+     "text": "सुभूतिराह-बहु भगवन्, बहु सुगत स कुलपुत्रो वा कुलदुहिता वा ततोनिदानं पुण्यस्कन्धं प्रसुनुयात्।"
+    },
+    {
+     "n": 60,
+     "text": "तत्कस्य हेतोः ? योऽसौ भगवन् पुण्यस्कन्धस्तथागतेन भाषितः, अस्कन्धः स तथागतेन भाषितः।"
+    },
+    {
+     "n": 61,
+     "text": "तस्मात्तथागतो भाषते- पुण्यस्कन्धः पुण्यस्कन्ध इति।"
+    },
+    {
+     "n": 62,
+     "text": "भगवानाह-यश्च खलु पुनः सुभूते कुलपुत्रो वा कुलदुहिता व इमं त्रिसाहस्रमहासाहस्रं लोकधातुं सप्तरत्नपरिपूर्णं कृत्वा तथागतेभ्योऽर्हद्भ्यः सम्यक्संबुद्धेभ्यो दानं दद्यात्,"
+    },
+    {
+     "n": 63,
+     "text": "यश्च इतो धर्मपर्यायादन्तशश्चतुष्पादिकामपि गाथामुद्गृह्य परेभ्यो विस्तरेण देशयेत् संप्रकाशयेत्, अयमेव ततोनिदानं बहुतरं पुण्यस्कन्धं प्रसुनुयादप्रमेयसंख्येयम्।"
+    },
+    {
+     "n": 64,
+     "text": "तत्कस्य हेतोः ? अतोनिर्जाता हि सुभूते तथागतानामर्हतां सम्यक्संबुद्धानामनुत्तरा सम्यक्संबोधिः, अतोनिर्जाताश्च बुद्धा भगवन्तः।"
+    },
+    {
+     "n": 65,
+     "text": "तत्कस्य हेतोः ? बुद्धधर्मा बुद्धधर्मा इति सुभूते अबुद्धधर्माश्चैव ते तथागतेन भाषिताः। तेनोच्यन्ते बुद्धधर्मा इति॥ ८॥"
+    },
+    {
+     "n": 66,
+     "text": "तत्किं मन्यसे सुभूते अपि नु स्रोतआपन्नस्यैवं भवति-मया स्रोतआपत्तिफलं प्राप्तमिति? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 67,
+     "text": "न स्रोतआपन्नस्यैवं भवति-मया स्रोतआपत्तिफलं प्राप्तमिति।"
+    },
+    {
+     "n": 68,
+     "text": "तत्कस्य हेतोः ? न हि स भगवन् कंचिद्धर्ममापन्नः, तेनोच्यते स्रोतआपन्न इति।"
+    },
+    {
+     "n": 69,
+     "text": "न रूपमापन्नो न शब्दान् न गन्धान् न रसान् न स्प्रष्टव्यान् धर्मानापन्नः।"
+    },
+    {
+     "n": 70,
+     "text": "तेनोच्यते स्रोतआपन्न इति। सचेद्भगवन् स्रोतआपन्नस्यैवं भवेत्- मया स्रोतआपत्तिफलं प्राप्तमिति, स एव तस्यात्मग्राहो भवेत्, सत्त्वग्राहो जीवग्राहः पुद्गलग्राहो भवेदिति॥"
+    },
+    {
+     "n": 71,
+     "text": "भगवानाह- तकिं मन्यसे सुभूते अपि नु सकृदागामिन एवं भवति-मया सकृदागामिफलं प्राप्तमिति ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 72,
+     "text": "स सकृदागामिन एवं भवति-मया सकृदागामिफलं प्राप्तमिति।"
+    },
+    {
+     "n": 73,
+     "text": "तत्कस्य हेतोः ? न हि स कश्चिद्धर्मो यः सकृदागामित्वमापन्नः। तेनोच्यते सकृदागामीति॥"
+    },
+    {
+     "n": 74,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते अपि नु अनागामिन एवं भवति-मयानागामिफलं प्राप्तमिति ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 75,
+     "text": "न अनागामिन एवं भवति-मया अनागामिफलं प्राप्तमिति।"
+    },
+    {
+     "n": 76,
+     "text": "तत्कस्य हेतोः ? न हि स भगवन् कश्चिद्धर्मो योऽनागामित्वमापन्नः। तेनोच्यते अनागामीति॥"
+    },
+    {
+     "n": 77,
+     "text": "भगवानाह- तत्किं मन्यसे सुभूते अपि नु अर्हत एवं भवति-मया अर्हत्त्वं प्राप्तमिति ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 78,
+     "text": "नार्हत एवं भवति-मया अर्हत्त्वं प्राप्तमिति।"
+    },
+    {
+     "n": 79,
+     "text": "तत्कस्य हेतोः ? न हि स भगवन् कश्चिद्धर्मो योऽर्हन्नाम।"
+    },
+    {
+     "n": 80,
+     "text": "तेनोच्यते-अर्हन्निति। सचेद्भगवन् अर्हत एवं भवेत्-मया अर्हत्त्वं प्राप्तमिति, स एव तस्यात्मग्राहो भवेत्, सत्त्वग्राहो जीवग्राहः पुद्गलग्राहो भवेत्।"
+    },
+    {
+     "n": 81,
+     "text": "तत्कस्य हेतोः ? अहमस्मि भगवंस्तथागतेनार्हता सम्यक्संबुद्धेन अरणाविहारिणामग्र्यो निर्दिष्टः।"
+    },
+    {
+     "n": 82,
+     "text": "अहमस्मि भगवन् अर्हन् वीतरागः। न च मे भगवन्नेवं भवति- अर्हन्नस्म्यहं वीतराग इति।"
+    },
+    {
+     "n": 83,
+     "text": "सचेन्मम भगवन्नेवं भवेत्-मया अर्हत्त्वं प्राप्तमिति, न मां तथागतो व्याकरिष्यदरणाविहारिणामग्र्यः सुभूतिः कुलपुत्रो न क्वचिद्विहरति, तेनोच्यते अरणाविहारी अरणाविहारीति॥ ९॥"
+    },
+    {
+     "n": 84,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते-अस्ति स कश्चिद्धर्मो यस्तथागतेन दीपंकरस्य तथागतस्यार्हत-सम्यक्संबुद्धस्यान्तिकादुद्गृहीतः? सुभूतिराह- नो हीदं भगवन्।"
+    },
+    {
+     "n": 85,
+     "text": "नास्ति स कश्चिद्धर्मो यस्तथागतेन दीपंकरस्य तथागतस्यार्हतः सम्यक्संबुद्धस्यान्तिकादुद्गृहीतः॥"
+    },
+    {
+     "n": 86,
+     "text": "भगवानाह-यः कश्चित्सुभूते बोधिसत्त्व एवं वदेत्-अहं क्षेत्रव्यूहान् निष्पादयिष्यामीति, स वितथं वदेत्।"
+    },
+    {
+     "n": 87,
+     "text": "तत्कस्य हेतोः ? क्षेत्रव्यूहाः क्षेत्रव्यूहा इति सुभूते अव्यूहास्ते तथागतेन भाषिताः।"
+    },
+    {
+     "n": 88,
+     "text": "तेनोच्यन्ते क्षेत्रव्यूहा इति। तस्मात्तर्हि सुभूते बोधिसत्त्वेन महासत्त्वेन एवमप्रतिष्ठितं चित्तमुत्पादयितव्यं यन्न क्वचित्प्रतिष्ठितं चित्तमुत्पादयितव्यम्।"
+    },
+    {
+     "n": 89,
+     "text": "न रूपप्रतिष्ठितं चित्तमुत्पादयितव्यं न शब्दगन्धरसस्प्रष्टव्यधर्मप्रतिष्ठितं चित्तमुत्पादयितव्यम्।"
+    },
+    {
+     "n": 90,
+     "text": "तद्यथापि नाम सुभूते पुरुषो भवेदुपेतकायो महाकायो यत्तस्यैवं रूप आत्मभावः स्यात् तद्यथापि नाम सुमेरुः पर्वतराजः।"
+    },
+    {
+     "n": 91,
+     "text": "तत्किं मन्यसे सुभूते अपि नु महान् स आत्मभावो भवेत् ? सुभूतिराह-महान् स भगवान्, महान् सुगत स आत्मभावो भवेत्।"
+    },
+    {
+     "n": 92,
+     "text": "तत्कस्य हेतोः ? आत्मभाव आत्मभाव इति भगवन् न भावः स तथागतेन भाषितः।"
+    },
+    {
+     "n": 93,
+     "text": "तेनोच्यत आत्मभाव इति। न हि भगवन् स भावो नाभावः। तेनोच्यते आत्मभाव इति॥ १०॥"
+    },
+    {
+     "n": 94,
+     "text": "भगवानाह- तत्किं मन्यसे सुभूते-यावत्यो गङ्गायां महानद्यां वालुकास्तावत्य एव गङ्गानद्यो भवेयुः ? तासु या वालुकाः, अपि नु ता बह्वयो भवेयुः ? सुभूतिराह-"
+    },
+    {
+     "n": 95,
+     "text": "ता एव तावद्भगवन् बह्वयो गङ्गानद्यो भवेयुः, प्रागेव यास्तासु गङ्गानदीषु वालुकाः।"
+    },
+    {
+     "n": 96,
+     "text": "भगवानाह- आरोचयामि ते सुभूते, प्रतिवेदयामि ते।"
+    },
+    {
+     "n": 97,
+     "text": "यावत्यस्तासु गङ्गानदीषु वालुका भवेयुस्तावतो लोकधातून् कश्चिदेव स्त्री वा पुरुषो वा सप्तरत्नपरिपुर्णं कृत्वा तथागतेभ्योऽर्हद्भयः सम्यक्संबुद्धेभ्यो दानं दद्यात्, तत् किं मन्यसे सुभूते-"
+    },
+    {
+     "n": 98,
+     "text": "अपि नु सा स्त्री वा पुरुषो वा ततोनिदानं बहु पुण्यस्कन्धं प्रसुनुयात् ? सुभूतिराह-बहु भगवन्, बहु सुगत स्त्री वा पुरुषो वा ततोनिदानं पुण्यस्कन्धं प्रसुनुयादप्रमेयमसंख्येयम्।"
+    },
+    {
+     "n": 99,
+     "text": "भगवानाह- यश्च खलु पुनः सुभूते स्त्री वा पुरुषो वा तावतो लोकधातून् सप्तरत्नपरिपूर्णं कृत्वा तथागतेभ्योऽर्हद्भयः सम्यक्संबुद्धेभ्यो दानं दद्यात्,"
+    },
+    {
+     "n": 100,
+     "text": "यश्च कुलपुत्रो वा कुलदुहिता वा इतो धर्मपर्यायादन्तशश्चतुष्पादिकामपि गाथामुद्गृह्य परेभ्यो देशयेत् संप्रकाशयेत्, अयमेव ततोनिदानं बहुतरं पुण्यस्कन्धं प्रसुनुयादप्रमेयमसंख्येयम्॥ ११॥"
+    },
+    {
+     "n": 101,
+     "text": "अपि तु खलु पुनः सुभुते यस्मिन् पृथिवीप्रदेशे इतो धर्मपर्यायादन्तशश्चतुष्पादिकामपि गाथामुद्गृह्य भाष्येत वा संप्रकाश्येत वा, स पृथिवीप्रदेशश्चैत्यभूतो भवेत् सदेवमानुषासुरस्य लोकस्य,"
+    },
+    {
+     "n": 102,
+     "text": "कः पुनर्वादो ये इमं धर्मपर्यायं सकलसमाप्तं धारयिष्यन्ति वाचयिष्यन्ति पर्यवाप्स्यन्ति, परेभ्यश्च विस्तरेण संप्रकाशयिष्यन्ति।"
+    },
+    {
+     "n": 103,
+     "text": "परमेण ते सुभूते आश्चर्येण समन्वागता भविष्यन्ति।"
+    },
+    {
+     "n": 104,
+     "text": "तस्मिंश्च सुभूते पृथिवीप्रदेशे शास्ता विहरत्यन्यतरान्यतरो वा विज्ञगुरुस्थानीयः॥ १२॥"
+    },
+    {
+     "n": 105,
+     "text": "एवमुक्ते आयुष्मान् सुभूतिर्भगवन्तमेतदवोचत्-को नाम अयं भगवन् धर्मपर्यायः, कथं चैनं धारयामि ? एवमुक्ते भगवानायुष्मन्तं सुभूतिमेतदवोचत्- प्रज्ञापारमिता नामायं सुभूते धर्मपर्यायः।"
+    },
+    {
+     "n": 106,
+     "text": "एवं चैनं धारय। तत्कस्य हेतोः ? यैव सुभूते प्रज्ञापारमिता तथागतेन भाषिता, सैव अपारमिता तथागतेन भाषिता। तेनोच्यते प्रज्ञापारमितेति॥"
+    },
+    {
+     "n": 107,
+     "text": "तत्किं मन्यसे सुभूते-अपि नु अस्ति स कश्चिद्धर्मो यस्तथागतेन भाषितः ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 108,
+     "text": "नास्ति स कश्चिद्धर्मो यस्तथागतेन भाषितः॥"
+    },
+    {
+     "n": 109,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते-यावत् त्रिसाहस्रमहासाहस्रे लोकधातौ पृथिवीरजः कच्चित्, तद्बहु भवेत् ? सुभूतिराह-बहु भगवन्, बहु सुगत पृथिवीरजो भवेत्।"
+    },
+    {
+     "n": 110,
+     "text": "तत्कस्य हेतोः ? यत्तद्भगवन् पृथिवीरजस्तथागतेन भाषितम्, अरजस्तद्भगवंस्तथागतेन भाषितम्।"
+    },
+    {
+     "n": 111,
+     "text": "तेनोच्यते पृथिवीरज इति। योऽप्यसौ लोकधातुस्तथागतेन भाषितः, अधातुः स तथागतेन भाषितः। तेनोच्यते लोकधातुरिति॥"
+    },
+    {
+     "n": 112,
+     "text": "भगवानाह- तत्किं मन्यसे सुभूते द्वात्रिंशन्महापुरुषलक्षणैस्तथागतोऽर्हन् सम्यक्संबुद्धो द्रष्टव्यः ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 113,
+     "text": "द्वात्रिंशन्महापुरुषलक्षणैस्तथागतोऽर्हन् सम्यक्संबुद्धो द्रष्टव्यः।"
+    },
+    {
+     "n": 114,
+     "text": "तत्कस्य हेतोः ? यानि हि तानि भगवन् द्वात्रिंशन्महापुरुषलक्षणानि तथागतेन भाषितानि, अलक्षणानि तानि भगवंस्तथागतेन भाषितानि।"
+    },
+    {
+     "n": 115,
+     "text": "तेनोच्यन्ते द्वात्रिंशन्महापुरुषलक्षणानीति॥"
+    },
+    {
+     "n": 116,
+     "text": "भगवानाह-यश्च खलु पुनः सुभूते स्त्री वा पुरुषो वा दिने दिने गङ्गानदीवालुकासमानात्मभावान् परित्यजेत्, एवं परित्यजन् गङ्गानदीवालुकासमान् कल्पांस्तानात्मभावान् परित्यजेत्,"
+    },
+    {
+     "n": 117,
+     "text": "यश्च इतो धर्मपर्यायदन्तशश्चतुष्पादिकामपि गाथामुद्गृह्यपरेभ्यो देशयेत् संप्रकाशयेत्, अयमेव ततोनिदानं बहुतरं पुण्यस्कन्धं प्रसुनुयादप्रमेयमसंख्येयम्॥ १३॥"
+    },
+    {
+     "n": 118,
+     "text": "अथ खल्वायुष्मान् सुभूतिर्धर्मवेगेनाश्रूणि प्रामुञ्चत्।"
+    },
+    {
+     "n": 119,
+     "text": "सोऽश्रूणि प्रमृज्य भगवन्तमेतदवोचत्-"
+    },
+    {
+     "n": 120,
+     "text": "आश्चर्यं भगवन्, परमाश्चर्यं सुगत, यावदयं धर्मपर्यायस्तथागतेन भाषितोऽग्रयानसंप्रस्थितानां सत्त्वानामर्थाय, श्रेष्ठयानसंप्रस्थितानामर्थाय, यतो मे भगवन् ज्ञानमुत्पन्नम्।"
+    },
+    {
+     "n": 121,
+     "text": "न मया भगवन् जात्वेवंरूपो धर्मपर्यायः श्रुतपूर्वः।"
+    },
+    {
+     "n": 122,
+     "text": "परमेण ते भगवन् आश्चर्येण समन्वागता बोधिसत्त्वा भविष्यन्ति, ये इह सूत्रे भाष्यमाणे श्रुत्वा भूतसंज्ञामुत्पादयिष्यन्ति।"
+    },
+    {
+     "n": 123,
+     "text": "तत्कस्य हेतोः ? या चैषा भगवन् भूतसंज्ञा, सैव अभूतसंज्ञा।"
+    },
+    {
+     "n": 124,
+     "text": "तस्मात्तथागतो भाषतेभूतसंज्ञा भूतसंज्ञेति॥"
+    },
+    {
+     "n": 125,
+     "text": "न मम भगवन् आश्चर्यं यदहमिमं धर्मपर्यायं भाष्यमाणमवकल्पयामि अधिमुच्ये।"
+    },
+    {
+     "n": 126,
+     "text": "येऽपि ते भगवन् सत्त्वा भविष्यन्त्यनागतेऽध्वनि पश्चिमे काले पश्चिमे समये पश्चिमायां पञ्चशत्यां सद्धर्मविप्रलोपे वर्तमाने,"
+    },
+    {
+     "n": 127,
+     "text": "ये इमं भगवन् धर्मपर्यायमुद्ग्रहीष्यन्ति धारयिष्यन्ति वाचयिष्यन्ति पर्यवाप्स्यन्ति, परेभ्यश्च विस्तरेण संप्रकाशयिष्यन्ति, ते परमाश्चर्येण समन्वागता भविष्यन्ति।"
+    },
+    {
+     "n": 128,
+     "text": "अपि तु खलु पुनर्भगवन् न तेषामात्मसंज्ञा प्रवर्तिष्यते, न सत्त्वसंज्ञा न जीवसंज्ञा न पुद्गलसंज्ञा प्रवर्तिष्यते, नापि तेषां काचित्संज्ञा नासंज्ञा प्रवर्तते।"
+    },
+    {
+     "n": 129,
+     "text": "तत्कस्य हेतोः ? या सा भगवन् आत्मसंज्ञा, सैवासंज्ञा।"
+    },
+    {
+     "n": 130,
+     "text": "या सत्त्वसंज्ञा जीवसंज्ञा पुद्गलसंज्ञा, सैवासंज्ञा।"
+    },
+    {
+     "n": 131,
+     "text": "तत्कस्य हेतोः ? सर्वसंज्ञापगता हि बुद्ध भगवन्तः॥"
+    },
+    {
+     "n": 132,
+     "text": "एवमुक्ते भगवानायुष्मन्तं सुभूतिमेतदवोचत्-एवमेतत् सुभूते, एवमेतत्।"
+    },
+    {
+     "n": 133,
+     "text": "परमाश्चर्यसमन्वागतास्ते सत्त्वा भविष्यन्ति, ये इह सुभूते सूत्रे भाष्यमाणे नोत्रसिष्यन्ति न संत्रसिष्यन्ति न संत्रासमापत्स्यन्ते।"
+    },
+    {
+     "n": 134,
+     "text": "तत्कस्य हेतोः ? परमपारमितेयं सुभूते तथागतेन भाषिता यदुतापारमिता।"
+    },
+    {
+     "n": 135,
+     "text": "यां च सुभूते तथागतः परमपारमितां भाषते, तामपरिमाणा अपि बुद्धा भगवन्तो भाषन्ते। तेनोच्यन्ते परमपारमितेति॥"
+    },
+    {
+     "n": 136,
+     "text": "अपि तु खलु पुनः सुभुते या तथागतस्य क्षान्तिपारमिता, सैव अपारमिता।"
+    },
+    {
+     "n": 137,
+     "text": "तत्कस्य हेतोः ? यदा मे सुभूते कलिराजा अङ्गप्रत्यङ्गमांसान्यच्छैत्सीत्, नासीन्मे तस्मिन् समये आत्मसंज्ञा वा सत्त्वसंज्ञा वा जीवसंज्ञा वा पुद्गलसंज्ञा वा, नापि मे काचित्संज्ञा वा असंज्ञा वा बभूव।"
+    },
+    {
+     "n": 138,
+     "text": "तत्कस्य हेतोः ? सचेन्मे सुभूते तस्मिन् समये आत्मसंज्ञा अभविष्यत्, व्यापादसंज्ञापि मे तस्मिन् समयेऽभविष्यत्।"
+    },
+    {
+     "n": 139,
+     "text": "सचेत्सत्त्वसंज्ञा जीवसंज्ञा पुद्गलसंज्ञाभविष्यत्, व्यापादसंज्ञापि मे तस्मिन् समयेऽभविष्यत्।"
+    },
+    {
+     "n": 140,
+     "text": "तत्कस्य हेतोः ? अभिजानाम्यहं सुभूते अतीतेऽध्वनि पञ्च जातिशतानि यदहं क्षान्तिवादी ऋषिरभूवम्।"
+    },
+    {
+     "n": 141,
+     "text": "तत्रापि मे नात्मसंज्ञा बभूव, न सत्त्वसंज्ञा, न जीवसंज्ञा, न पुद्गलसंज्ञा बभूव।"
+    },
+    {
+     "n": 142,
+     "text": "तस्मात्तर्हि सुभूते बोधिसत्त्वेन महासत्त्वेन सर्वसंज्ञा विवर्जयित्वा अनुत्तरायां सम्यक्संबोधौ चित्तमुत्पादयितव्यम्।"
+    },
+    {
+     "n": 143,
+     "text": "न रूपप्रतिष्ठितं चित्तमुत्पादयितव्यम्, न शब्दगन्धरसस्प्रष्टव्यधर्मप्रतिष्ठितं चित्तमुत्पादयितव्यम्,"
+    },
+    {
+     "n": 144,
+     "text": "न धर्मप्रतिष्ठितं चित्तमुत्पादयितव्यम्, नाधर्मप्रतिष्ठितं चित्तमुत्पादयितव्यम्, न क्वचित्प्रतिष्ठितं चित्तमुत्पादयितव्यम्।"
+    },
+    {
+     "n": 145,
+     "text": "तत्कस्य हेतोः ? यत्प्रतिष्ठितं तदेवाप्रतिष्ठितम्।"
+    },
+    {
+     "n": 146,
+     "text": "तस्मादेव तथागतो भाषते-अप्रतिष्ठितेन बोधिसत्त्वेन दानं दातव्यम्।"
+    },
+    {
+     "n": 147,
+     "text": "न रूपशब्दगन्धरसस्पर्शधर्मप्रतिष्ठितेन दानं दातव्यम्॥"
+    },
+    {
+     "n": 148,
+     "text": "अपि तु खलु पुनः सुभूते बोधिसत्त्वेन एवंरूपो दानपरित्यागः कर्तव्यः सर्वसत्त्वानामर्थाय।"
+    },
+    {
+     "n": 149,
+     "text": "तत्कस्य हेतोः ? या चैषा सुभूते सत्त्वसंज्ञा, सैव असंज्ञा।"
+    },
+    {
+     "n": 150,
+     "text": "य एवं ते सर्वसत्त्वास्तथागतेन भाषितास्त एव असत्त्वाः।"
+    },
+    {
+     "n": 151,
+     "text": "तत्कस्य हेतोः ? भूतवादी सुभूते तथागतः, सत्यवादी तथावादी अनन्यथावादी तथागतः, न वितथवादी तथागतः॥"
+    },
+    {
+     "n": 152,
+     "text": "अपि तु खलु पुनः सुभूते यस्तथागतेन धर्मोऽभिसंबुद्धो देशितो निध्यातः, न तत्र सत्यं न मृषा।"
+    },
+    {
+     "n": 153,
+     "text": "तद्यथापि नाम सुभूते पुरुषोऽन्धकारप्रविष्टो न किंचिदपि पश्येत्, एवं वस्तुपतितो बोधिसत्त्वो द्रष्टव्यो यो वस्तुपतितो दानं परित्यजति।"
+    },
+    {
+     "n": 154,
+     "text": "तद्यथापि नाम सुभूते चक्षुष्मान् पुरुषः प्रभातायां रात्रौ सूर्येऽभ्युद्गते नानविधानि रूपाणि पश्येत्, एवमवस्तुपतितो बोधिसत्त्वो द्रष्टव्यो योऽवस्तुपतितो दानं परित्यजति॥"
+    },
+    {
+     "n": 155,
+     "text": "अपि तु खलु पुनः सुभूते ये कुलपुत्रा वा कुलदुहितरो वा इमं धर्मपर्यायमुद्ग्रहीष्यन्ति धारयिष्यन्ति वाचयिष्यन्ति पर्यवाप्स्यन्ति,"
+    },
+    {
+     "n": 156,
+     "text": "परेभ्यश्च विस्तरेण संप्रकाशयिष्यन्ति, ज्ञातास्ते सुभूते तथागतेन बुद्धज्ञानेन, दृष्टास्ते सुभूते तथागतेन बुद्धचक्षुषा, बुद्धास्ते तथागतेन।"
+    },
+    {
+     "n": 157,
+     "text": "सर्वे ते सुभूते सत्त्वा अप्रमेयमसंख्येयं पुण्यस्कन्धं प्रसविष्यन्ति प्रतिग्रहीष्यन्ति॥ १४॥"
+    },
+    {
+     "n": 158,
+     "text": "यश्च खलु पुनः सुभूते स्त्री वा पुरुषो वा पुर्वाह्णकालसमये गङ्गानदीवालुकासमानात्मभावान् परित्यजेत्,"
+    },
+    {
+     "n": 159,
+     "text": "एवं मध्याह्नकालसमये गङ्गानदीवालुकासमानात्मभावान् परित्यजेत्, सायाह्नकालसमये गङ्गानदीवालुकासमानात्मभावान् परित्यजेत्,"
+    },
+    {
+     "n": 160,
+     "text": "अनेन पर्यायेण बहूनि कल्पकोटिनियुतशतसहस्राण्यात्मभावान् परित्यजेत्, यश्चेमं धर्मपर्यायं श्रुत्वा न प्रतिक्षिपेत्,"
+    },
+    {
+     "n": 161,
+     "text": "अयमेव ततोनिदानं बहुतरं पुण्यस्कन्धं प्रसुनुयादप्रमेयमसंख्येयम्, कः पुनर्वादो यो लिखित्वा उद्गृह्णीयाद्धारयेद्वाचयेत्पर्यवाप्नुयात्, परेभ्यश्च विस्तरेण संप्रकाशयेत्॥"
+    },
+    {
+     "n": 162,
+     "text": "अपि तु खलु पुनः सुभूते अचिन्त्योऽतुल्योऽयं धर्मपर्यायः।"
+    },
+    {
+     "n": 163,
+     "text": "अयं च सुभूते धर्मपर्यायस्तथागतेन भाषितोऽग्रयानसंप्रस्थितानां सत्त्वानामर्थाय, श्रेष्ठयानसंप्रस्थितानां सत्त्वानामर्थाय।"
+    },
+    {
+     "n": 164,
+     "text": "ये इमं धर्मपर्यायमुद्ग्रहीष्यन्ति धारयिष्यन्ति वाचयिष्यन्ति पर्यवाप्स्यन्ति, परेभ्यश्च विस्तरेण संप्रकाशयिष्यन्ति,"
+    },
+    {
+     "n": 165,
+     "text": "ज्ञातास्ते सुभूते तथागतेन बुद्धज्ञानेन, दृष्टास्ते सुभूते तथागतेन बुद्धचक्षुषा, बुद्धास्ते तथागतेन।"
+    },
+    {
+     "n": 166,
+     "text": "सर्वे ते सुभूते सत्त्वा अप्रमेयेण पुण्यस्कन्धेनां समन्वागता भविष्यन्ति।"
+    },
+    {
+     "n": 167,
+     "text": "अचिन्त्येनातुल्येनामाप्येनापरिमाणेन पुण्यस्कन्धेन समन्वागता भविष्यन्ति।"
+    },
+    {
+     "n": 168,
+     "text": "सर्वे ते सुभूते सत्त्वाः समांशेन बोधिं धारयिष्यन्ति वचयिष्यन्ति पर्यवाप्स्यन्ति।"
+    },
+    {
+     "n": 169,
+     "text": "तत्कस्य हेतोः ? न हि शक्यं सुभूते अयं धर्मपर्यायो हीनाधिमुक्तिकैः सत्त्वैः श्रोतुम्, नात्मदृष्टिकैर्न सत्त्वदृष्टिकैर्न जीवदृष्टिकैर्न पुद्गलदृष्टिकैः।"
+    },
+    {
+     "n": 170,
+     "text": "नाबोधिसत्त्वप्रतिज्ञै सत्त्वैः शक्यमयं धर्मपर्यायः श्रोतुं वा उद्ग्रहीतुं वा धारयितुं वा वाचयितुं वा पर्यवाप्तुं वा। नेदं स्थानं विद्यते॥"
+    },
+    {
+     "n": 171,
+     "text": "अपि तु खलु पुनः सुभूते यत्र पृथिवीप्रदेशे इदं सूत्रं प्रकशयिष्यते, पूजनीयः स पृथिवीप्रदेशो भविष्यति सदेवमानुषासुरस्य लोकस्य।"
+    },
+    {
+     "n": 172,
+     "text": "वन्दनीयः प्रदक्षिणीयश्च स पृथिवीप्रदेशो भविष्यति, चैत्यभूतः स पृथिवीप्रदेशो भविष्यति॥ १५॥"
+    },
+    {
+     "n": 173,
+     "text": "अपि तु ये ते सुभूते कुलपुत्रा वा कुलदुहितरो वा इमानेवंरूपान् सूत्रान्तानुद्ग्रहीष्यन्ति धारयिष्यन्ति वाचयिष्यन्ति पर्यवाप्स्यन्ति,"
+    },
+    {
+     "n": 174,
+     "text": "योनिशश्च मनसिकरिष्यन्ति, परेभ्यश्च विस्तरेण संप्रकाशयिष्यन्ति, ते परिभूता भविष्यन्ति, सुपरिभूताश्च भविष्यन्ति।"
+    },
+    {
+     "n": 175,
+     "text": "तत्कस्य हेतोः ? यानि च तेषां सुभूते सत्त्वानां पौर्वजन्मिकान्यशुभानि कर्माणि कृतान्यपायसंवर्तनीयानि,"
+    },
+    {
+     "n": 176,
+     "text": "दृष्ट एव धर्मे परिभूततया तानि पौर्वजन्मिकान्यशुभानि कर्माणि क्षपयिष्यन्ति, बुद्धबोधिं चानुप्राप्स्यन्ति॥"
+    },
+    {
+     "n": 177,
+     "text": "अभिजानाम्यहं सुभूते अतीतेऽध्वन्यसंख्येयैः कल्पैरसंख्येयतरैर्दीपंकरस्य तथागतस्यार्हतः सम्यक्संबुद्धस्य परेण परतरेण चतुरशीतिबुद्धकोटिनियुतशतसहस्राण्यभूवन् ये मयारागिताः, आराग्य न विरागिताः।"
+    },
+    {
+     "n": 178,
+     "text": "यच्च मया सुभूते ते बुद्धा भगवन्त आरागिताः, आराग्य न विरागिताः,"
+    },
+    {
+     "n": 179,
+     "text": "यच्च पश्चिमे काले पश्चिमे समये पश्चिमायां पञ्चशत्यां सद्धर्मविप्रलोपकाले वर्तमाने इमानेवंरूपान् सूत्रान्तानुद्ग्रहीष्यन्ति धारयिष्यन्ति वाचयिष्यन्ति पर्यवाप्स्यन्ति,"
+    },
+    {
+     "n": 180,
+     "text": "परेभ्यश्च विस्तरेण संप्रकाशयिष्यन्ति, अस्य खलु पुनः सुभूते पुण्यस्कन्धस्यान्तिकादसौ पौर्वकः पुण्यस्कन्धः शततमीमपि कलां नोपैति,"
+    },
+    {
+     "n": 181,
+     "text": "सहस्रतमीमपि शतसहस्रतमीमपि कोटिममिपि कोटिशततमीमपि कोटिशतसहस्रतमीमपि कोटिनियुतशतसहस्रतमीमपि।"
+    },
+    {
+     "n": 182,
+     "text": "संख्यामपि कलामपि गणनामपि उपमामपि उपनिषदमपि यावदौपम्यमपि न क्षमते॥"
+    },
+    {
+     "n": 183,
+     "text": "सचेत्पुनः सुभूते तेषां कुलपुत्राणां कुलदुहितॄणां वा अहं पुण्यस्कन्धं भाषेयम्,"
+    },
+    {
+     "n": 184,
+     "text": "यावत्ते कुलपुत्रा वा कुलदुहितरो वा तस्मिन् समये पुण्यस्कन्धं प्रसविष्यन्ति, प्रतिग्रहीष्यन्ति, उन्मादं सत्त्वा अनुप्राप्नुयुश्चित्तविक्षेपं वा गच्छेयुः।"
+    },
+    {
+     "n": 185,
+     "text": "अपि तु खलु पुनः सुभूते अचिन्त्योऽतुल्योऽयं धर्मपर्यायस्तथागतेन भाषितः।"
+    },
+    {
+     "n": 186,
+     "text": "अस्य अचिन्त्य एव विपाकः प्रतिकाङ्क्षितव्यः॥ १६॥"
+    },
+    {
+     "n": 187,
+     "text": "अथ खल्वायुष्मान् सुभूतिर्भगवन्तमेतदवोचत्-कथं भगवन् बोधिसत्त्वयानसंप्रस्थितेन स्थातव्यम्, कथं प्रतिपत्तव्यम्, कथं चित्तं प्रग्रहीतव्यम् ? भगवानाह-"
+    },
+    {
+     "n": 188,
+     "text": "इह सुभूते बोधिसत्त्वयानसंप्रस्थितेन एवं चित्तमुत्पादयितव्यम्-सर्वे सत्त्वा मया अनुपधिशेषे निर्वाणधातौ परिनिर्वापयितव्याः।"
+    },
+    {
+     "n": 189,
+     "text": "एवं स सत्त्वान् परिनिर्वाप्य न कश्चित्सत्त्वः परिनिर्वापितो भवति।"
+    },
+    {
+     "n": 190,
+     "text": "तत्कस्य हेतोः ? सचेत्सुभूते बोधिसत्त्वस्य सत्त्वसंज्ञा प्रवर्तेत, न स बोधिसत्त्व इति वक्तव्यः।"
+    },
+    {
+     "n": 191,
+     "text": "जीवसंज्ञा वा यावत्पुद्गलसंज्ञा वा प्रवर्तेत, न स बोधिसत्त्व इति वक्तव्यः।"
+    },
+    {
+     "n": 192,
+     "text": "तत्कस्य हेतोः ? नास्ति सुभूते स कश्चिद्धर्मो यो बोधिसत्त्वयानसंप्रस्थितो नाम॥"
+    },
+    {
+     "n": 193,
+     "text": "तत्किं मन्यसे सुभूते अस्ति स कश्चिद्धर्मो यस्तथागतेन दीपंकरस्य तथागतस्यान्तिकादनुत्तरां सम्यक्संबोधिमभिसंबुद्धः ? एवमुक्ते आयुष्मान् सुभूतिर्भगवन्तमेतदवोचत्-"
+    },
+    {
+     "n": 194,
+     "text": "यथाहं भगवतो भाषितस्यार्थमाजानामि, नास्ति स भगवन् कश्चिद्धर्मो यस्तथागतेन दीपंकरस्य तथागतस्यार्हतः सम्यक्संबुद्धस्यान्तिकादनुत्तरां सम्यक्संबोधिमभिसंबुद्धः।"
+    },
+    {
+     "n": 195,
+     "text": "एवमुक्ते भगवानायुष्मन्तं सुभूतिमेतदवोचत्-एवमेतत्सुभूते, एवमेतत्।"
+    },
+    {
+     "n": 196,
+     "text": "नास्ति सुभूते स कश्चिद्धर्मो यस्तथागतेन दीपंकरस्य तथागतस्यार्हतः सम्यक्संबुद्धस्यान्तिकादनुत्तरां सम्यक्संबोधिमभिसंबुद्धः।"
+    },
+    {
+     "n": 197,
+     "text": "सचेत्पुनः सुभूते कश्चिद्धर्मस्तथागतेनाभिसंबुद्धोऽभविष्यत्, न मां दीपंकरस्तथागतो व्याकरिष्यत्-भविष्यसि त्वं माणव अनागतेऽध्वनि शाक्यमुनिर्नाम तथागतोऽर्हन् सम्यक्संबुद्ध इति।"
+    },
+    {
+     "n": 198,
+     "text": "यस्मात्तर्हि सुभूते तथागतेनार्हता सम्यक्संबुद्धेन नास्ति स कश्चिद्धर्मो योऽनुत्तरां सम्यक्संबोधिमभिसंबुद्धः, तस्मादहं दीपंकरेण तथागतेन व्याकृत-"
+    },
+    {
+     "n": 199,
+     "text": "भविष्यसि त्वं माणव अनागतेऽध्वनि शाक्यमुनिर्नाम तथागतोऽर्हन् सम्यक्संबुद्ध।"
+    },
+    {
+     "n": 200,
+     "text": "तत्कस्य हेतोः ? तथागत इति सुभूते भूततथताया एतदधिवचनम्।"
+    },
+    {
+     "n": 201,
+     "text": "तथागत इति सुभूते अनुत्पादधर्मताया एतदधिवचनम्।"
+    },
+    {
+     "n": 202,
+     "text": "तथागत इति सुभूते धर्मोच्छेदस्यैतदधिवचनम्।"
+    },
+    {
+     "n": 203,
+     "text": "तथागत इति सुभूते अत्यन्तानुत्पन्नस्यैतदधिवचनम्।"
+    },
+    {
+     "n": 204,
+     "text": "तत्कस्य हेतोः ? एष सुभूते अनुत्पादो यः परमार्थः।"
+    },
+    {
+     "n": 205,
+     "text": "यः कश्चित्सुभूते एवं वदेत्-तथागतेनार्हता सम्यक्संबुद्धेन अनुत्तरा सम्यक्संबोधिरभिसंबुद्धेति, स वितथं वदेत्।"
+    },
+    {
+     "n": 206,
+     "text": "अभ्याचक्षीत मां स सुभूते असतोद्गृहीतेन। तत्कस्य हेतोः- ? नास्ति सुभूते स कश्चिद्धर्मो यस्तथागतेन अनुत्तरां सम्यक्संबोधिमभिसंबुद्धः।"
+    },
+    {
+     "n": 207,
+     "text": "यश्च सुभूते तथागतेन धर्मोऽभिसंबुद्धो देशितो वा तत्र न सत्यं न मृषा।"
+    },
+    {
+     "n": 208,
+     "text": "तस्मात्तथागतो भाषते-सर्वधर्मा बुद्धधर्मा इति।"
+    },
+    {
+     "n": 209,
+     "text": "तत्कस्य हेतोः ? सर्वधर्मा इति सुभूते अधर्मास्तथागतेन भाषिताः।"
+    },
+    {
+     "n": 210,
+     "text": "तस्मादुच्यन्ते सर्वधर्मा बुद्धधर्मा इति॥"
+    },
+    {
+     "n": 211,
+     "text": "तद्यथापि नाम सुभूते पुरुषो भवेदुपेतकायो महाकायः ? आयुष्मान् सुभूतिराह- योऽसौ भगवंस्तथागतेन पुरुषो भाषित उपेतकायो महाकाय इति, अकायः स भगवंस्तथागतेन भाषितः। तेनोच्यते उपेतकायो महाकाय इति॥"
+    },
+    {
+     "n": 212,
+     "text": "भगवानाह -एवमेतत्सुभूते। यो बोधिसत्त्व एवं वदेत्-अहं सत्त्वान् परिनिर्वापयिष्यामिति, न स बोधिसत्त्व इति वक्तव्यः।"
+    },
+    {
+     "n": 213,
+     "text": "तत्कस्य हेतोः ? अस्ति सुभूते स कश्चिद्धर्मो यो बोधिसत्त्वो नाम ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 214,
+     "text": "नास्ति स कश्चिद्धर्मो यो बोधिसत्त्वो नाम।"
+    },
+    {
+     "n": 215,
+     "text": "भगवानाह- सत्त्वाः सत्त्वा इति सुभूते असत्त्वास्ते तथागतेन भाषिताः, तेनोच्यन्ते सत्त्वा इति।"
+    },
+    {
+     "n": 216,
+     "text": "तस्मात्तथागतो भाषते-निरात्मानः सर्वधर्मा निर्जीवा निष्पोषा निष्पुद्गलाः सर्वधर्मा इति॥"
+    },
+    {
+     "n": 217,
+     "text": "यः सुभूते बोधिसत्त्व एवं वदेत्- अहं क्षेत्रव्यूहान्निष्पादयिष्यामीति, स वितथं वदेत्।"
+    },
+    {
+     "n": 218,
+     "text": "तत्कस्य हेतोः ? क्षेत्रव्यूहाः क्षेत्रव्यूहा इति सुभूते अव्यूहास्ते तथागतेन भाषिताः। तेनोच्यन्ते क्षेत्रव्यूहा इति॥"
+    },
+    {
+     "n": 219,
+     "text": "यः सुभूते बोधिसत्त्वो निरात्मानो धर्मा निरात्मानो धर्मा इत्यधिमुच्यते, तथागतेनार्हता सम्यक्संबुद्धेन बोधिसत्त्वो महासत्त्व इत्याख्यातः॥ १७॥"
+    },
+    {
+     "n": 220,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते-संविद्यते तथागतस्य मांसचक्षुः ? सुभूतिराह- एवमेतद्भगवन्, संविद्यते तथागतस्य मांसचक्षुः।"
+    },
+    {
+     "n": 221,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते संविद्यते तथागतस्य दिव्यं चक्षुः ? सुभूतिराह-एवमेतद्भगवन्, संविद्यते तथागतस्य दिव्यं चक्षुः।"
+    },
+    {
+     "n": 222,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते संविद्यते तथागतस्य प्रज्ञाचक्षुः ? सुभूतिराह-एवमेतद्भगवन्, संविद्यते तथागतस्य प्रज्ञाचक्षुः।"
+    },
+    {
+     "n": 223,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते संविद्यते तथागतस्य धर्मचक्षुः ? सुभूतिराह-एवमेतद्भगवन्, संविद्यते तथागतस्य धर्मचक्षुः।"
+    },
+    {
+     "n": 224,
+     "text": "भगवानाह- तत्किं मन्यसे सुभूते संविद्यते तथागतस्य बुद्धचक्षुः ? सुभूतिराह-एवमेतद्भगवन्, संविद्यते तथागत बुद्धचक्षुः।"
+    },
+    {
+     "n": 225,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते यावन्त्यो गङ्गायां महानद्यां वालुकाः, अपि नु ता वालुकास्तथागतेन भाषिताः ? सुभूतिराह-एवमेतद्भगवन्, एवमेतत् सुगत।"
+    },
+    {
+     "n": 226,
+     "text": "भाषितास्तथागतेन वालुकाः।"
+    },
+    {
+     "n": 227,
+     "text": "भगवानाह-तत्किं मन्यसे सुभूते यावत्यो गङ्गायां महानद्यां वालुकाः, तावत्य एव गङ्गानद्यो भवेयुः, तासु वा वालुकाः, तावन्तश्च लोकधातवो भवेयुः, कच्चिद्बहवस्ते लोकधातवो भवेयुः ? सुभूतिराह-"
+    },
+    {
+     "n": 228,
+     "text": "एवमेतद्भगवन्, एवमेतत् सुगत। बहवस्ते लोकधातवो भवेयुः।"
+    },
+    {
+     "n": 229,
+     "text": "भगवानाह-यावन्तः सुभूते तेषु लोकधातुषु सत्त्वाः, तेषामहं नानाभावां चित्तधारां प्रजानामि।"
+    },
+    {
+     "n": 230,
+     "text": "तत्कस्य हेतोः ? चित्तधारा चित्तधारेति सुभूते अधारैषा तथागतेन भाषिता, तेनोच्यते चित्तधारेति।"
+    },
+    {
+     "n": 231,
+     "text": "तत्कस्य हेतोः ? अतीतं सुभूते चित्तं नोपलभ्यते।"
+    },
+    {
+     "n": 232,
+     "text": "अनागतं चित्तं नोपलभ्यते। प्रत्युत्पन्नं चित्तं नोपलभ्यते॥ १८॥"
+    },
+    {
+     "n": 233,
+     "text": "तत्किं मन्यसे सुभूते यः कश्चित्कुलपुत्रो वा कुलदुहिता वा इमं त्रिसाहस्रमहासाहस्रं लोकधातुं सप्तरत्नपरिपूर्णं कृत्वा तथागतेभ्योऽर्हद्भयः सम्यक्संबुद्धेभ्यो दानं दद्यात्,"
+    },
+    {
+     "n": 234,
+     "text": "अपि नु स कुलपुत्रो वा कुलदुहिता वा ततोनिदानं बहु पुण्यस्कन्धं प्रसुनुयात् ? सुभूतिराह-"
+    },
+    {
+     "n": 235,
+     "text": "बहु भगवन्, बहु सुगत। भगवानाह-एवमेतत्सुभूते, एवमेतत्।"
+    },
+    {
+     "n": 236,
+     "text": "बहु स कुलपुत्रो वा कुलदुहिता वा ततोनिदानं पुण्यस्कन्धं प्रसुनुयादप्रमेयमसंख्येयम्।"
+    },
+    {
+     "n": 237,
+     "text": "तत्कस्य हेतोः ? पुण्यस्कन्धः पुण्यस्कन्ध इति सुभूते अस्कन्धः स तथागतेन भाषितः।"
+    },
+    {
+     "n": 238,
+     "text": "तेनोच्यते पुण्यस्कन्ध इति। सचेत् पुनः सुभूते पुण्यस्कन्धोऽभविष्यत्, न तथागतोऽभाषिष्यत् पुण्यस्कन्धः पुण्यस्कन्ध इति॥ १९॥"
+    },
+    {
+     "n": 239,
+     "text": "तत्किं मन्यसे सुभूते रूपकायपरिनिष्पत्त्या तथागतो द्रष्टव्यः ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 240,
+     "text": "न रूपकायपरिनिष्पत्त्या तथागतो द्रष्टव्यः।"
+    },
+    {
+     "n": 241,
+     "text": "तत्कस्य हेतोः ? रूपकायपरिनिष्पत्ती रूपकायपरिनिष्पत्तिरिति भगवन् अपरिनिष्पत्तिरेषा तथागतेन भाषिता। तेनोच्यते रूपकायपरिनिष्पत्तिरिति॥"
+    },
+    {
+     "n": 242,
+     "text": "भगवानाह- तत्किं मन्यसे सुभूते लक्षणसंपदा तथागतो द्रष्टव्यः ? सुभूतिराह-नो हीदं भगवान्।"
+    },
+    {
+     "n": 243,
+     "text": "न लक्षणसंपदा तथागतो द्रष्टव्यः। तत्कस्य हेतोः ? यैषा भगवन् लक्षणसंपत्तथागतेन भाषिता, अलक्षणसंपदेषा तथागतेन भाषिता। तेनोच्यते लक्षणसंपदिति॥ २०॥"
+    },
+    {
+     "n": 244,
+     "text": "भगवानाह- तत्किं मन्यसे सुभूते अपि नु तथागतस्यैवं भवति-मया धर्मो देशित इति ? सुभूतिराह-नो हीदं भगवन् तथागतस्यैवं भवति-मया धर्मो देशित इति।"
+    },
+    {
+     "n": 245,
+     "text": "भगवानाह-यः सुभूते एवं वदेत्- तथागतेन धर्मो देशित इति, स वितथं वदेत्।"
+    },
+    {
+     "n": 246,
+     "text": "अभ्याचक्षीत मां स सुभूते असतोद्गृहीतेन। तत्कस्य हेतोः ? धर्मदेशना धर्मदेशनेति सुभूते नास्ति स कश्चिद्धर्मो यो धर्मदेशना नामोपलभ्यते॥"
+    },
+    {
+     "n": 247,
+     "text": "एवमुक्ते आयुष्मान् सुभूतिर्भगवन्तमेतदवोचत्-"
+    },
+    {
+     "n": 248,
+     "text": "अस्ति भगवन् केचित्सत्त्वा भविष्यन्त्यनागतेऽध्वनि पश्चिमे काले पश्चिमे समये पश्चिमायां पञ्चशत्यां सद्धर्मविप्रलोपे वर्तमाने, य इमानेवंरूपान् धर्मान् श्रुत्वा अभिश्रद्धास्यन्ति।"
+    },
+    {
+     "n": 249,
+     "text": "भगवानाह- न ते सुभूते सत्त्वा नासत्त्वाः।"
+    },
+    {
+     "n": 250,
+     "text": "तत्कस्य हेतोः ? सत्त्वाः सत्त्वा इति सुभूते सर्वे ते सुभूते असत्त्वास्तथागतेन भाषिताः। तेनोच्यन्ते सत्त्वा इति॥ २१॥"
+    },
+    {
+     "n": 251,
+     "text": "तत्किं मन्यसे सुभूते-अपि नु अस्ति स कश्चिद्धर्मः, यस्तथागतेनानुत्तरां सम्यक्संबोधिमभिसंबुद्धः ? आयुष्मान् सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 252,
+     "text": "नास्ति स भगवन् कश्चिद्धर्मो यस्तथागतेनानुत्तरां सम्यक्संबोधिमभिसंबुद्धः।"
+    },
+    {
+     "n": 253,
+     "text": "भगवानाह-एवमेतत्सुभूते, एवमेतत्। अणुरपि तत्र धर्मो न संविद्यते नोपलभ्यते।"
+    },
+    {
+     "n": 254,
+     "text": "तेनोच्यते अनुत्तरा सम्यक्संबोधिरिति॥ २२॥"
+    },
+    {
+     "n": 255,
+     "text": "अपि तु खलु पुनः सुभूते समः स धर्मो न तत्र कश्चिद्विषमः।"
+    },
+    {
+     "n": 256,
+     "text": "तेनोच्यते अनुत्तरा सम्यक्संबोधिरिति। निरात्मत्वेन निःसत्त्वत्वेन निर्जीवत्वेन निष्पुद्गलत्वेन समा सा अनुत्तरा सम्यक्संबोधिः सर्वैः कुशलैर्धर्मैरभिसंबुध्यते।"
+    },
+    {
+     "n": 257,
+     "text": "तत्कस्य हेतोः ? कुशला धर्माः कुशला धर्मा इति सुभूते अधर्माश्चैव ते तथागतेन भाषिताः। तेनोच्यन्ते कुशला धर्मा इति॥ २३॥"
+    },
+    {
+     "n": 258,
+     "text": "यश्च खलु पुनः सुभुते स्त्री वा पुरुषो वा यावन्तस्त्रिसाहस्रमहासाहस्रे लोकधातौ सुमेरवः पर्वतराजानः, तावतो राशीन् सप्तानां रत्नानामभिसंहृत्य तथागतेभ्योऽर्हद्भयः सम्यक्संबुद्धेभ्यो दानं दद्यात्,"
+    },
+    {
+     "n": 259,
+     "text": "यश्च कुलपुत्रो वा कुलदुहिता वा इतः प्रज्ञापारमिताया धर्मपर्यायादन्तशश्चतुष्पादिकामपि गाथामुद्गृह्य परेभ्यो देशयेत्,"
+    },
+    {
+     "n": 260,
+     "text": "अस्य सुभूते पुण्यस्कन्धस्य असौ पौर्वकः पुण्यस्कन्धः शततमीमपि कलां नोपैति, यावदुपनिषदमपि न क्षमते॥ २४॥"
+    },
+    {
+     "n": 261,
+     "text": "तत्किं मन्यसे सुभूते-अपि नु तथागतस्यैवं भवति-मया सत्त्वाः परिमोचिता इति? न खलु पुनः सुभूते एवं द्रष्टव्यम्।"
+    },
+    {
+     "n": 262,
+     "text": "तत्कस्य हेतोः ? नास्ति सुभूते कश्चित्सत्त्वो यस्तथागतेन परिमोचितः।"
+    },
+    {
+     "n": 263,
+     "text": "यदि पुनः सुभूते कश्चित्सत्त्वोऽभविष्यद्यस्तथागतेन परिमोचितः स्यात्, स एव तथागतस्यात्मग्राहोऽभविष्यत्, सत्त्वग्राहो जीवग्राहः पुद्गलग्राहोऽभविष्यत्।"
+    },
+    {
+     "n": 264,
+     "text": "आत्मग्राह इति सुभूते अग्राह एष तथागतेन भाषितः।"
+    },
+    {
+     "n": 265,
+     "text": "स च बालपृथग्जनैरुद्गृहीतः। बालपृथग्जना इति सुभूते अजना एव ते तथागतेन भाषिताः। तेनोच्यन्ते बालपृथग्जना इति॥ २५॥"
+    },
+    {
+     "n": 266,
+     "text": "तत्किं मन्यसे सुभूते-लक्षणसंपदा तथागतो द्रष्टव्यः ? सुभूतिराह-नो हीदं भगवन्।"
+    },
+    {
+     "n": 267,
+     "text": "यथाहं भगवतो भाषितस्यार्थमाजानामि, न लक्षणसंपदा तथागतो द्रष्टव्यः।"
+    },
+    {
+     "n": 268,
+     "text": "भगवानाह-साधु साधु सुभूते, एवमेतत्सुभूते, एवमेतद्यथा वदसि।"
+    },
+    {
+     "n": 269,
+     "text": "न लक्षणसंपदा तथागतो द्रष्टव्यः। तत्कस्य हेतोः ? सचेत्पुनः सुभूते लक्षणसंपदा तथागतो द्रष्टव्योऽभविष्यत्, राजापि चक्रवर्ती तथागतोऽभविष्यत्।"
+    },
+    {
+     "n": 270,
+     "text": "तस्मान्न लक्षणसंपदा तथागतो द्रष्टव्यः। आयुष्मान् सुभुतिर्भगवन्तमेतदवोचत्-यथाहं भगवतो भाषितस्यार्थमाजानामि, न लक्षणसंपदा तथागतो द्रष्टव्यः॥"
+    },
+    {
+     "n": 271,
+     "text": "अथ खलु भगवांस्तस्यां वेलायामिमे गाथे अभाषत-"
+    },
+    {
+     "n": 272,
+     "text": "ये मां रूपेण चाद्राक्षुर्ये मां घोषेण चान्वगुः।"
+    },
+    {
+     "n": 273,
+     "text": "मिथ्याप्रहाणप्रसृता न मां द्रक्ष्यन्ति ते जनाः॥ १॥"
+    },
+    {
+     "n": 274,
+     "text": "धर्मतो बुद्धो द्रष्टव्यो धर्मकाया हि नायकाः।"
+    },
+    {
+     "n": 275,
+     "text": "धर्मता च न विज्ञेया न सा शक्या विजानितुम्॥ २॥ २६॥"
+    },
+    {
+     "n": 276,
+     "text": "तत्किं मन्यसे सुभूते लक्षणसंपदा तथागतेन अनुत्तरा सम्यक्संबोधिरभिसंबुद्धा ? न खलु पुनस्ते सुभूते एवं द्रष्टव्यम्।"
+    },
+    {
+     "n": 277,
+     "text": "तत्कस्य हेतोः ? न हि सुभूते लक्षणसंपदा तथागतेन अनुत्तरा सम्यक्संबोधिरभिसंबुद्धा स्यात्।"
+    },
+    {
+     "n": 278,
+     "text": "न खलु पुनस्ते सुभूते कश्चिदेवं वदेत्-बोधिसत्त्वयानसंप्रस्थितैः कस्यचिद्धर्मस्य विनाशः प्रज्ञप्तः उच्छेदो वेति।"
+    },
+    {
+     "n": 279,
+     "text": "न खलु पुनस्ते सुभूते एवं द्रष्टव्यम्। तत्कस्य हेतोः ? न बोधिसत्त्वयानसंप्रस्थितैः कस्यचिद्धर्मस्य विनाशः प्रज्ञप्तो नोच्छेदः॥ २७॥"
+    },
+    {
+     "n": 280,
+     "text": "यश्च खलु पुनः सुभूते कुलपुत्रो वा कुलदुहिता वा गङ्गानदीवालुकासमाँल्लोकधातून् सप्तरत्नपरिपूर्णं कृत्वा तथागतेभ्योऽर्हद्भयः सम्यक्संबुद्धेभ्यो दानं दद्यात्,"
+    },
+    {
+     "n": 281,
+     "text": "यश्च बोधिसत्त्वो निरात्मकेष्वनुत्पत्तिकेषु धर्मेषु क्षान्तिं प्रतिलभते, अयमेव ततोनिदानं बहुतरं पुण्यस्कन्धं प्रसवेदप्रमेयमसंख्येयम्।"
+    },
+    {
+     "n": 282,
+     "text": "न खलु पुनः सुभूते बोधिसत्त्वेन महासत्त्वेन पुण्यस्कन्धः परिग्रहीतव्यः।"
+    },
+    {
+     "n": 283,
+     "text": "आयुष्मान् सुभूतिराह- ननु भगवन् बोधिसत्त्वेन पुण्यस्कन्धः परिग्रहीतव्यः ? भगवानाह-परिग्रहीतव्यः सुभूते नो ग्रहीतव्यः। तेनोच्यते परिग्रहीतव्य इति॥ २८॥"
+    },
+    {
+     "n": 284,
+     "text": "अपि तु खलु पुनः सुभूते यः कश्चिदेवं वदेत्-तथागतो गच्छति वा आगच्छति वा तिष्ठति वा निषीदति वा, शय्यां वा कल्पयति, न मे सुभूते (स) भाषितस्यार्थमाजानाति।"
+    },
+    {
+     "n": 285,
+     "text": "तत्कस्य हेतोः ? तथागत इति सुभूते उच्यते न क्वचिद्गतो न कुतश्चिदागतः।"
+    },
+    {
+     "n": 286,
+     "text": "तेनोच्यते तथागतोऽर्हन् सम्यक्संबुद्ध इति॥ २९॥"
+    },
+    {
+     "n": 287,
+     "text": "यश्च खलु पुनः सुभूते कुलपुत्रो वा कुलदुहिता वा यावन्ति त्रिसाहस्रमहासाहस्रे लोकधातौ पृथिवीरजांसि,"
+    },
+    {
+     "n": 288,
+     "text": "तावतां लोकधातूनामेवंरूपं मषिं कुर्यात् यावदेवमसंख्येयेन वीर्येण तद्यथापि नाम परमाणुसंचयः, तत्किं मन्यसे सुभूते-"
+    },
+    {
+     "n": 289,
+     "text": "अपि नु बहुः स परमाणुसंचयो भवेत् ? सुभूतिराह-एवमेतद्भगवन्, एवमेतत्सुगत।"
+    },
+    {
+     "n": 290,
+     "text": "बहुः स परमाणुसंचयो भवेत्। तत्कस्य हेतोः ? सचेद्भगवन् बहुः परमाणुसंचयोऽभविष्यत्, न भगवानवक्ष्यत्-परमाणुसंचय इति।"
+    },
+    {
+     "n": 291,
+     "text": "तत्कस्य हेतोः ? योऽसौ भगवन् परमाणुसंचयस्तथागतेन भाषितः, असंचयः स तथागतेन भाषितः।"
+    },
+    {
+     "n": 292,
+     "text": "तेनोच्यते परमाणुसंचय इति। यश्च तथागतेन भाषितस्त्रिसाहस्रमहासाहस्रो लोकधातुरिति, अधातुः स तथागतेन भाषितः।"
+    },
+    {
+     "n": 293,
+     "text": "तेनोच्यते त्रिसाहस्रमहासाहस्रो लोकधातुरिति।"
+    },
+    {
+     "n": 294,
+     "text": "तत्कस्य हेतोः ? सचेद्भगवन् लोकधातुरभविष्यत्, स एव पिण्डग्राहोऽभविष्यत्।"
+    },
+    {
+     "n": 295,
+     "text": "यश्चैव पिण्डग्राहस्तथागतेन भाषितः, अग्राहः स तथागतेन भाषितः।"
+    },
+    {
+     "n": 296,
+     "text": "तेनोच्यते पिण्डग्राह इति। भगवानाह- पिण्डग्राहश्चैव सुभूते अव्यवहारोऽनभिलाप्यः।"
+    },
+    {
+     "n": 297,
+     "text": "न स धर्मो नाधर्मः। स च बालपृथग्जनैरुद्गृहीतः॥ ३०॥"
+    },
+    {
+     "n": 298,
+     "text": "तत्कस्य हेतोः ? यो हि कश्चित्सुभूते एवं वदेत्-आत्मदृष्टिस्तथागतेन भाषिता, सत्त्वदृष्टिर्जीवदृष्टिः पुद्गलदृष्टिस्तथागतेन भाषिता, अपि नु स सुभूते सम्यग्वदमानो वदेत् ? सुभूतिराह-"
+    },
+    {
+     "n": 299,
+     "text": "नो हीदं भगवन्, नो हीदं सुगत, न सम्यग्वदमानो वदेत्।"
+    },
+    {
+     "n": 300,
+     "text": "तत्कस्य हेतोः ? या सा भगवन् आत्मदृष्टिस्तथागतेन भाषिता, अदृष्टिः सा तथागतेन भाषिता। तेनोच्यते आत्मदृष्टिरिति॥"
+    },
+    {
+     "n": 301,
+     "text": "भगवानाह-एवं हि सुभूते बोधिसत्त्वयानसंप्रस्थितेन सर्वधर्मा ज्ञातव्या द्रष्टव्या अधिमोक्तव्याः।"
+    },
+    {
+     "n": 302,
+     "text": "तथाच ज्ञातव्या द्रष्टव्या अधिमोक्तव्याः, यथा न धर्मसंज्ञायामपि प्रत्युपतिष्ठेन्नाधर्मसंज्ञायाम्।"
+    },
+    {
+     "n": 303,
+     "text": "तत्कस्य हेतोः ? धर्मसंज्ञा धर्मसंज्ञेति सुभूते असंज्ञैषा तथागतेन भाषिता। तेनोच्यते धर्मसंज्ञेति॥ ३१॥"
+    },
+    {
+     "n": 304,
+     "text": "यश्च खलु पुनः सुभूते बोधिसत्त्वो महासत्त्वोऽप्रमेयानसंख्येयांल्लोकधातून् सप्तरत्नपरिपूर्णं कृत्वा तथागतेभ्योऽर्हद्भयः सम्यक्संबुद्धेभ्यो दानं दद्यात्,"
+    },
+    {
+     "n": 305,
+     "text": "यश्च कुलपुत्रो वा कुलदुहिता वा इतः प्रज्ञापारमिताया धर्मपर्यायादन्तशश्चतुष्पादिकामपि गाथामुद्गृह्य धारयेद्देशयेद्वाचयेत् पर्यवाप्नुयात्,"
+    },
+    {
+     "n": 306,
+     "text": "परेभ्यश्च विस्तरेण संप्रकाशयेत्, अयमेव ततोनिदानं बहुतरं पुण्यस्कन्धं प्रसुनुयादप्रमेयमसंख्येयम्। कथं च संप्रकाशयेत् ? तद्यथाकाशे-"
+    },
+    {
+     "n": 307,
+     "text": "तारका तिमिरं दीपो मायावश्याय बुद्बुदम्।"
+    },
+    {
+     "n": 308,
+     "text": "स्वप्नं च विद्युदभ्रं च एवं द्रष्टव्य संस्कृतम्॥"
+    },
+    {
+     "n": 309,
+     "text": "तथा प्रकाशयेत्, तेनोच्यते संप्रकाशयेदिति॥"
+    },
+    {
+     "n": 310,
+     "text": "इदमवोचद्भगवान् आत्तमनाः। स्थविरसुभूतिस्ते च भिक्षुभिक्षुण्युपासकोपासिकास्ते च बोधिसत्त्वाः सदेवमानुषासुरगन्धर्वश्च लोको भगवतो भाषितमभ्यनन्दन्निति॥ ३२॥"
+    },
+    {
+     "n": 311,
+     "text": "॥ आर्यवज्रच्छेदिका भगवती प्रज्ञापारमिता समाप्ता॥"
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "translator": "Wikisource (dịch từ bản Hán của Cưu-ma-la-thập)",
+   "sourceName": "Wikisource - Translation:Vajracchedikā Prajñāpāramitā Sūtra",
+   "sourceUrl": "https://en.wikisource.org/wiki/Translation:Vajracchedik%C4%81_Prajñ%C4%81p%C4%81ramit%C4%81_S%C5%ABtra",
+   "license": "CC0-1.0",
+   "licenseNote": "Universal Public Domain Dedication (Wikisource ghi cho bản dịch); bản gốc public domain",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Thus have I heard. At one time the Buddha was in Śrāvastī, residing in the Jeta Grove, in Anāthapiṇḍada’s park, along with a great saṃgha [gathering] of bhikṣus [monks], twelve hundred and fifty in all."
+    },
+    {
+     "n": 2,
+     "text": "At mealtime, the Bhagavān ['holy one', the Buddha] put on his robe, picked up his bowl, and made his way into the great city of Śrāvastī to beg for food within the city walls."
+    },
+    {
+     "n": 3,
+     "text": "After he had finished begging sequentially from door to door, he returned and ate his meal."
+    },
+    {
+     "n": 4,
+     "text": "Then he put away his robe and bowl, washed his feet, arranged his seat, and sat down."
+    },
+    {
+     "n": 5,
+     "text": "From the midst of the great multitude, Elder Subhūti then arose from his seat, bared his right shoulder, and knelt with his right knee to the ground."
+    },
+    {
+     "n": 6,
+     "text": "With his hands joined together in respect, he addressed the Buddha, saying, “How extraordinary, Bhagavān, is the manner in which the Tathāgata ['thus-gone',"
+    },
+    {
+     "n": 7,
+     "text": "the Buddha] is skillfully mindful of the bodhisattvas ['sages'], and skillfully instructs and cares for the bodhisattvas!"
+    },
+    {
+     "n": 8,
+     "text": "Bhagavān, when good men and good women wish to develop the mind of Anuttarā Samyaksaṃbodhi, how should their minds dwell?"
+    },
+    {
+     "n": 9,
+     "text": "How should they pacify their minds?”"
+    },
+    {
+     "n": 10,
+     "text": "The Buddha replied, “Excellent, excellent, Subhūti, for it is just as you have said: the Tathāgata is skillfully mindful of the bodhisattvas, and skillfully instructs and cares for the bodhisattvas."
+    },
+    {
+     "n": 11,
+     "text": "Now listen carefully, because your question will be answered."
+    },
+    {
+     "n": 12,
+     "text": "Good men and good women who wish to develop the mind of Anuttarā Samyaksaṃbodhi should dwell thusly, and should pacify their minds thusly.”"
+    },
+    {
+     "n": 13,
+     "text": "“Just so, Bhagavān. We are joyfully wishing to hear it.”"
+    },
+    {
+     "n": 14,
+     "text": "The Buddha told Subhūti, “Bodhisattva-mahāsattvas [Great and holy sages] should pacify their minds thusly:"
+    },
+    {
+     "n": 15,
+     "text": "‘All different types of sentient beings, whether born from eggs, born from wombs, born from moisture, or born from transformation;"
+    },
+    {
+     "n": 16,
+     "text": "having form or no form; having thought, no thought, or neither thought nor no thought — I will cause them all to become liberated and enter Remainderless Nirvāṇa.’"
+    },
+    {
+     "n": 17,
+     "text": "Thusly sentient beings are liberated without measure, without number, and to no end; however, truly no sentient beings obtain liberation."
+    },
+    {
+     "n": 18,
+     "text": "Why? Subhūti, if a bodhisattva has a notion of a self, a notion of a person, a notion of a being, or a notion of a life, he is not a bodhisattva."
+    },
+    {
+     "n": 19,
+     "text": "“Moreover, Subhūti, bodhisattvas should not abide in dharmas [rules] when practicing giving."
+    },
+    {
+     "n": 20,
+     "text": "This is called ‘giving without abiding in form.’"
+    },
+    {
+     "n": 21,
+     "text": "This giving does not abide in sounds, scents, tastes, sensations, or dharmas."
+    },
+    {
+     "n": 22,
+     "text": "Subhūti, bodhisattvas should practice giving thusly, not abiding in characteristics."
+    },
+    {
+     "n": 23,
+     "text": "Why? If bodhisattvas do not abide in characteristics in their practice of giving, then the merits [greatness] of this are inconceivable in measure."
+    },
+    {
+     "n": 24,
+     "text": "Subhūti, what do you think? Is the space to the east conceivable in measure?”"
+    },
+    {
+     "n": 25,
+     "text": "“Certainly not, Bhagavān.” “Subhūti, what do you think?"
+    },
+    {
+     "n": 26,
+     "text": "Is the space to the south, west, north, the four intermediary directions, or the zenith or nadir, conceivable in measure?”"
+    },
+    {
+     "n": 27,
+     "text": "“Certainly not, Bhagavān.” “Subhūti, for bodhisattvas who do not abide when practicing giving, the merits are also such as this: inconceivable in measure."
+    },
+    {
+     "n": 28,
+     "text": "Subhūti, bodhisattvas should only dwell in what is taught thusly."
+    },
+    {
+     "n": 29,
+     "text": "“Subhūti, what do you think? Can the Tathāgata be perceived by means of bodily marks?”"
+    },
+    {
+     "n": 30,
+     "text": "“Certainly not, Bhagavān. The Tathāgata cannot be perceived by means of the bodily marks."
+    },
+    {
+     "n": 31,
+     "text": "Why? The bodily marks that the Tathāgata speaks of are not bodily marks.”"
+    },
+    {
+     "n": 32,
+     "text": "The Buddha told Subhūti, “Everything that has marks is deceptive and false."
+    },
+    {
+     "n": 33,
+     "text": "If all marks are not seen as marks, then this is perceiving the Tathāgata.”"
+    },
+    {
+     "n": 34,
+     "text": "Subhūti addressed the Buddha, saying, “Bhagavān, will there be sentient beings who are able to hear these words thusly, giving rise to true belief?”"
+    },
+    {
+     "n": 35,
+     "text": "The Buddha told to Subhūti, “Do not speak that way."
+    },
+    {
+     "n": 36,
+     "text": "After the extinction of the Tathāgata, in the next five hundred years, there will be those who maintain the precepts and cultivate merit, who will be able to hear these words and give rise to a mind of belief."
+    },
+    {
+     "n": 37,
+     "text": "Such beings have not just planted good roots with one buddha, or with two buddhas, or with three, four, or five buddhas."
+    },
+    {
+     "n": 38,
+     "text": "They have already planted good roots with measureless millions of buddhas, to be able to hear these words and give rise to even a single thought of clean, clear belief."
+    },
+    {
+     "n": 39,
+     "text": "Subhūti, the Tathāgata in each case knows this, and in each case perceives this, and these sentient beings thus attain immeasurable merit."
+    },
+    {
+     "n": 40,
+     "text": "Why? This is because these beings are holding no further notions of a self, notions of a person, notions of a being, or notions of a life."
+    },
+    {
+     "n": 41,
+     "text": "They are holding no notions of dharmas [i.e. not blindly following laid rules] and no notions of non-dharmas."
+    },
+    {
+     "n": 42,
+     "text": "Why? If the minds of sentient beings grasp after appearances, then this is attachment to a self, a person, a being, and a life."
+    },
+    {
+     "n": 43,
+     "text": "If they grasp after notions of dharmas, that is certainly attachment to a self, a person, a being, and a life."
+    },
+    {
+     "n": 44,
+     "text": "Why? When one grasps at non-dharmas, then that is immediate attachment to a self, a person, a being, and a life."
+    },
+    {
+     "n": 45,
+     "text": "Therefore, you should neither grasp at dharmas, nor should you grasp at non-dharmas."
+    },
+    {
+     "n": 46,
+     "text": "Regarding this principle, the Tathāgata frequently says, ‘You bhikṣus should know that the dharma I speak is like a raft."
+    },
+    {
+     "n": 47,
+     "text": "Even dharmas should be relinquished, so how much more so the non-dharmas?’"
+    },
+    {
+     "n": 48,
+     "text": "“Subhūti, what do you think? Has the Tathāgata obtained Anuttarā Samyaksaṃbodhi?"
+    },
+    {
+     "n": 49,
+     "text": "Is there any dharma the Tathāgata has spoken?”"
+    },
+    {
+     "n": 50,
+     "text": "Subhūti replied, “Thus do I explain the true meaning of the Buddha’s teachings: there is no fixed dharma of Anuttarā Samyaksaṃbodhi, nor is there a fixed dharma the Tathāgata can speak."
+    },
+    {
+     "n": 51,
+     "text": "Why? The Tathāgata’s exposition of the Dharma [teaching] can never be grasped or spoken, being neither dharma nor non-dharma [being neither a fixed rule nor licence]."
+    },
+    {
+     "n": 52,
+     "text": "What is it, then? All the noble ones are distinguished by the unconditioned Dharma.”"
+    },
+    {
+     "n": 53,
+     "text": "“Subhūti, what do you think? If someone filled the three thousand great thousand-worlds with the Seven Precious Jewels in the practice of giving, would such a person obtain many merits?”"
+    },
+    {
+     "n": 54,
+     "text": "Subhūti replied, “Very many, Bhagavān! Why?"
+    },
+    {
+     "n": 55,
+     "text": "Such merits do not have the nature of merits, and for this reason the Tathāgata speaks of many merits.”"
+    },
+    {
+     "n": 56,
+     "text": "“If a person accepts and maintains even as little as a four-line gāthā from within this sūtra, speaking it to others, then his or her merits will be even greater."
+    },
+    {
+     "n": 57,
+     "text": "Why? Subhūti, this is because all buddhas, as well as the dharmas of the Anuttarā Samyaksaṃbodhi of the buddhas, emerge from this sūtra."
+    },
+    {
+     "n": 58,
+     "text": "Subhūti, what is called the Buddha Dharma is not a buddha dharma."
+    },
+    {
+     "n": 59,
+     "text": "“Subhūti, what do you think? Does a srotaāpanna have the thought, ‘I have obtained the fruit of a srotaāpanna?’”"
+    },
+    {
+     "n": 60,
+     "text": "Subhūti replied, “No, Bhagavān. Why? ‘Srotaāpanna’ refers to one who has entered the stream, yet there is nothing entered into."
+    },
+    {
+     "n": 61,
+     "text": "There is no entry into forms, sounds, scents, tastes, sensations, or dharmas."
+    },
+    {
+     "n": 62,
+     "text": "Thus is one called a srotaāpanna.” “Subhūti, what do you think?"
+    },
+    {
+     "n": 63,
+     "text": "Does a sakṛdāgāmin have the thought, ‘I have obtained the fruit of a sakṛdāgāmin?’”"
+    },
+    {
+     "n": 64,
+     "text": "Subhūti replied, “No, Bhagavān. Why? ‘Sakṛdāgāmin’ refers to one who will return once more, yet there is nothing which leaves or returns."
+    },
+    {
+     "n": 65,
+     "text": "Thus is one called a sakṛdāgāmin.” “Subhūti, what do you think?"
+    },
+    {
+     "n": 66,
+     "text": "Does an anāgāmin have the thought, ‘I have obtained the fruit of an anāgāmin?’”"
+    },
+    {
+     "n": 67,
+     "text": "Subhūti replied, “No, Bhagavān. Why? ‘Anāgāmin’ refers to one who will not return, yet there is nothing non-returning. Thus is one called an anāgāmin.”"
+    },
+    {
+     "n": 68,
+     "text": "“Subhūti, what do you think? Does an arhat have the thought, ‘I have obtained the fruit of an arhat?’”"
+    },
+    {
+     "n": 69,
+     "text": "Subhūti replied, “No, Bhagavān. Why? There is truly no dharma which may be called an arhat."
+    },
+    {
+     "n": 70,
+     "text": "Bhagavān, if an arhat has the thought, ‘I have attained the Arhat Path,’ then this is a person attached to a self, a person, a being, and a life."
+    },
+    {
+     "n": 71,
+     "text": "Bhagavān, the Buddha says that among arhats, I am the foremost in my practice of the Samādhi of Non-contention, and am the foremost free of desire."
+    },
+    {
+     "n": 72,
+     "text": "However, Bhagavān, I do not have the thought, ‘I am an arhat free of desire.’"
+    },
+    {
+     "n": 73,
+     "text": "If I were thinking this way, then the Bhagavān would not speak of ‘Subhūti, the one who dwells in peace.’"
+    },
+    {
+     "n": 74,
+     "text": "It is because there is truly nothing dwelled in, that he speaks of ‘Subhūti, the one who dwells in peace.’”"
+    },
+    {
+     "n": 75,
+     "text": "The Buddha addressed Subhūti, saying, “What do you think?"
+    },
+    {
+     "n": 76,
+     "text": "In the past when the Tathāgata was with Dīpaṃkara Buddha, was there any dharma obtained?”"
+    },
+    {
+     "n": 77,
+     "text": "“No, Bhagavān. When the Tathāgata was with Dīpaṃkara Buddha there was truly no dharma obtained.”"
+    },
+    {
+     "n": 78,
+     "text": "“Subhūti, what do you think? Do bodhisattvas adorn buddha-lands?”"
+    },
+    {
+     "n": 79,
+     "text": "“No, Bhagavān. Why? The adornments of buddha-lands are not adornments, and are thus called adornments.”"
+    },
+    {
+     "n": 80,
+     "text": "“Therefore, Subhūti, bodhisattva-mahāsattvas should thusly give rise to a clear and pure mind — a mind not associated with abiding in form;"
+    },
+    {
+     "n": 81,
+     "text": "a mind not associated with abiding in sounds, scents, tastes, sensations, or dharmas; a mind not abiding in life."
+    },
+    {
+     "n": 82,
+     "text": "Subhūti, suppose a person had a body like Mount Sumeru, King of Mountains."
+    },
+    {
+     "n": 83,
+     "text": "Would this body be great?” Subhūti replied, “It would be extremely great, Bhagavān."
+    },
+    {
+     "n": 84,
+     "text": "Why? The Buddha teaches that no body is the Great Body.”"
+    },
+    {
+     "n": 85,
+     "text": "“Subhūti, suppose each sand grain in the Ganges River, contained its own Ganges River."
+    },
+    {
+     "n": 86,
+     "text": "What do you think, would there be many grains of sand of the Ganges River?”"
+    },
+    {
+     "n": 87,
+     "text": "Subhūti said, “There would be extremely many, Bhagavān."
+    },
+    {
+     "n": 88,
+     "text": "The number of Ganges Rivers alone would be countless, let alone their grains of sand.”"
+    },
+    {
+     "n": 89,
+     "text": "“Subhūti, I will now tell you a truth."
+    },
+    {
+     "n": 90,
+     "text": "If a good man or good woman filled such a number of three thousand great thousand-worlds with the Seven Precious Jewels in the practice of giving, would he or she obtain many merits?”"
+    },
+    {
+     "n": 91,
+     "text": "Subhūti said, “Extremely many, Bhagavān.”"
+    },
+    {
+     "n": 92,
+     "text": "The Buddha told Subhūti, “Just so, if good men and good women accept and maintain even a four-line gāthā from within this sūtra, speaking it to others, then the merits of this surpass the former merits."
+    },
+    {
+     "n": 93,
+     "text": "“Moreover, Subhūti, if one speaks even a four-line gāthā from within this sūtra, you should understand that this place is like the shrine of a buddha."
+    },
+    {
+     "n": 94,
+     "text": "In every world, the devas [nobles or holy people], humans, and asuras [outcasts or base people] should provide offerings to it."
+    },
+    {
+     "n": 95,
+     "text": "How much more so for those capable of accepting and maintaining the entire sūtra?"
+    },
+    {
+     "n": 96,
+     "text": "Subhūti, you should know that this is a person with the highest and most exceptional Dharma."
+    },
+    {
+     "n": 97,
+     "text": "Wherever this sūtra dwells is the Buddha or an honored disciple.”"
+    },
+    {
+     "n": 98,
+     "text": "Subhūti asked the Buddha, “Bhagavān, by what name should we revere and maintain this sūtra?”"
+    },
+    {
+     "n": 99,
+     "text": "The Buddha told Subhūti, “This sūtra is called the Vajracchedikā Prajñāpāramitā, and by this name you should revere and maintain it."
+    },
+    {
+     "n": 100,
+     "text": "Why is it called this? Subhūti, this Prajñāpāramitā spoken by the Buddha is not a perfection of prajñā."
+    },
+    {
+     "n": 101,
+     "text": "Subhūti, what do you think? Has the Tathāgata actually spoken any dharma?”"
+    },
+    {
+     "n": 102,
+     "text": "Subhūti replied, “Bhagavān, the Tathāgata has not spoken.”"
+    },
+    {
+     "n": 103,
+     "text": "“Subhūti, what do you think? Are there very many atoms contained in three thousand great thousand-worlds?”"
+    },
+    {
+     "n": 104,
+     "text": "Subhūti replied, “There are extremely many, Bhagavān.”"
+    },
+    {
+     "n": 105,
+     "text": "“Subhūti, the atoms spoken of by the Tathāgata are not atoms, and are thus called atoms."
+    },
+    {
+     "n": 106,
+     "text": "The worlds spoken of by the Tathāgata are not worlds, and are thus called worlds."
+    },
+    {
+     "n": 107,
+     "text": "Subhūti, what do you think? Can the Tathāgata be seen by means of the Thirty-two Marks?”"
+    },
+    {
+     "n": 108,
+     "text": "“No, Bhagavān, the Tathāgata cannot be seen by means of the Thirty-two Marks."
+    },
+    {
+     "n": 109,
+     "text": "Why? The Thirty-two Marks that the Tathāgata speaks of are not marks, and are thus called the Thirty-two Marks.”"
+    },
+    {
+     "n": 110,
+     "text": "“Subhūti, suppose there were a good man or good woman who, in the practice of giving, gave his or her body away as many times as there are sand grains in the Ganges River."
+    },
+    {
+     "n": 111,
+     "text": "If there are people who accept and maintain even a four-line gāthā from within this sūtra, then the merits of this are far greater.”"
+    },
+    {
+     "n": 112,
+     "text": "At that time, Subhūti, hearing this sūtra being spoken, had a profound understanding of its essential meaning, and burst into tears."
+    },
+    {
+     "n": 113,
+     "text": "He then addressed the Buddha, saying, “How exceptional, Bhagavān, is the Buddha who thus speaks this profound sūtra!"
+    },
+    {
+     "n": 114,
+     "text": "Since attaining the Eye of Prajñā, I have never heard such a sūtra!"
+    },
+    {
+     "n": 115,
+     "text": "Bhagavān, if there are again people who are able to hear this sūtra thusly, with a mind of clean and clear belief, giving rise to the true appearance, then this is a person with the most extraordinary merits."
+    },
+    {
+     "n": 116,
+     "text": "Bhagavān, the true appearance is not an appearance, and for this reason the Tathāgata speaks of a true appearance."
+    },
+    {
+     "n": 117,
+     "text": "“Bhagavān, being able to hear this sūtra thusly, I do not find it difficult to believe, understand, accept, and maintain it."
+    },
+    {
+     "n": 118,
+     "text": "However, in the next era, five hundred years from now, if there are sentient beings who are able to hear this sūtra and believe, understand, accept, and maintain it, then they will be most extraordinary."
+    },
+    {
+     "n": 119,
+     "text": "Why? This is because such a person has no notions of a self, notions of a person, notions of a being, or notions of a life."
+    },
+    {
+     "n": 120,
+     "text": "Why? The appearance of a self is not a true appearance; appearances of a person, a being, and a life, are also not true appearances; those who have departed from all appearances are called buddhas.”"
+    },
+    {
+     "n": 121,
+     "text": "The Buddha told Subhūti, “Thusly, thusly!"
+    },
+    {
+     "n": 122,
+     "text": "If there are again people who are able to hear this sūtra, and are not startled, terrified, or fearful, know that the existence of such a person is extremely rare."
+    },
+    {
+     "n": 123,
+     "text": "Why? Subhūti, this foremost pāramitā that the Tathāgata speaks of is not a foremost pāramitā, and is thus called the foremost pāramitā."
+    },
+    {
+     "n": 124,
+     "text": "“Subhūti, the Pāramitā of Forbearance that the Tathāgata speaks of is not a pāramitā of forbearance."
+    },
+    {
+     "n": 125,
+     "text": "Why? Subhūti, this is like in the past when my body was cut apart by the Kalirāja: there were no notions of a self, notions of a person, notions of a being, or notions of a life."
+    },
+    {
+     "n": 126,
+     "text": "In the past, when I was being hacked limb from limb, if there were notions of a self, notions of a person, notions of a being, or notions of a life, then I would have responded with hatred and anger."
+    },
+    {
+     "n": 127,
+     "text": "Remember also that I was the Ṛṣi ['Sage'] of Forbearance for five hundred lifetimes in the past."
+    },
+    {
+     "n": 128,
+     "text": "Over so many lifetimes there were no notions of a self, notions of a person, notions of a being, or notions of a life."
+    },
+    {
+     "n": 129,
+     "text": "“Therefore, Subhūti, bodhisattvas should depart from all appearances in order to develop the mind of Anuttarā Samyaksaṃbodhi."
+    },
+    {
+     "n": 130,
+     "text": "They should give rise to a mind which does not dwell in form; they should give rise to a mind which does not dwell in sounds, scents, tastes, sensations, or dharmas; they should give rise to a mind which does not dwell."
+    },
+    {
+     "n": 131,
+     "text": "If anything dwells in the mind, one should not dwell in it, and for this reason the Buddha says that the minds of bodhisattvas should not dwell in form when practicing giving."
+    },
+    {
+     "n": 132,
+     "text": "Subhūti, bodhisattvas should give thusly because it benefits all sentient beings."
+    },
+    {
+     "n": 133,
+     "text": "The Tathāgata teaches that all characteristics are not characteristics, and all sentient beings are not sentient beings."
+    },
+    {
+     "n": 134,
+     "text": "Subhūti, the Tathāgata is one who speaks what is true, one who speaks what is real, one who speaks what is thus, and is not a deceiver or one who speaks to the contrary."
+    },
+    {
+     "n": 135,
+     "text": "“Subhūti, the Dharma [teachings] attained by the Tathāgata is neither substantial nor void."
+    },
+    {
+     "n": 136,
+     "text": "Subhūti, if the mind of a bodhisattva dwells in dharmas [rules] when practicing giving, then this is like a person in darkness who is unable to see anything."
+    },
+    {
+     "n": 137,
+     "text": "However, if the mind of a bodhisattva does not dwell in dharmas when practicing giving, then this is like a person who is able to see, for whom sunlight clearly illuminates the perception of various forms."
+    },
+    {
+     "n": 138,
+     "text": "Subhūti, in the next era, if there are good men or good women capable of accepting, maintaining, studying, and reciting this sūtra,"
+    },
+    {
+     "n": 139,
+     "text": "then the Tathāgata by means of his buddha-wisdom [enlightenment] is always aware of them and always sees them."
+    },
+    {
+     "n": 140,
+     "text": "These people all obtain immeasurable, limitless merit."
+    },
+    {
+     "n": 141,
+     "text": "“Subhūti, suppose there were a good man or a good woman who, in the morning, gave his or her body away as many times as there are grains of sand in the Ganges River."
+    },
+    {
+     "n": 142,
+     "text": "In the middle of the day, this person would also give his or her body away as many times as there are grains of sand in the Ganges River."
+    },
+    {
+     "n": 143,
+     "text": "Then in the evening, this person would also give his or her body away as many times as there are grains of sand in the Ganges River."
+    },
+    {
+     "n": 144,
+     "text": "Suppose this giving continued for incalculable billions of eons."
+    },
+    {
+     "n": 145,
+     "text": "If there are people again who hear this sūtra with a mind of belief, without doubt, then the merits of these people surpass the former merits."
+    },
+    {
+     "n": 146,
+     "text": "How much more so for those who write, accept, maintain, study, recite, and explain it?"
+    },
+    {
+     "n": 147,
+     "text": "“Subhūti, to summarize, this sūtra has inconceivable, immeasurable, limitless merit."
+    },
+    {
+     "n": 148,
+     "text": "The Tathāgata speaks it to send forth those in the Great Vehicle, to send forth those in the Supreme Vehicle."
+    },
+    {
+     "n": 149,
+     "text": "If there are people able to accept, maintain, study, recite, and explain this sūtra to others, then the Tathāgata is always aware of them and always sees them."
+    },
+    {
+     "n": 150,
+     "text": "Thusly, these people are carrying the Anuttarā Samyaksaṃbodhi of the Tathāgata."
+    },
+    {
+     "n": 151,
+     "text": "Why? Subhūti, those who are happy with lesser teachings are attached to views of a self, views of a person, views of a being, and views of a life."
+    },
+    {
+     "n": 152,
+     "text": "They cannot hear, accept, maintain, study, recite, and explain it to others."
+    },
+    {
+     "n": 153,
+     "text": "Subhūti, in every place where this sūtra exists, the devas, humans, and asuras from every world should provide offerings."
+    },
+    {
+     "n": 154,
+     "text": "This place is a shrine to which everyone should respectfully make obeisance and circumambulate, adorning its resting place with flowers and incense."
+    },
+    {
+     "n": 155,
+     "text": "“Moreover, Subhūti, suppose good men and good women accept, maintain, study, and recite this sūtra."
+    },
+    {
+     "n": 156,
+     "text": "If they are treated badly due to karma from a previous life that would make them fall onto evil paths,"
+    },
+    {
+     "n": 157,
+     "text": "then from this treatment by others their karma from previous lives will be eliminated in this lifetime, and they will attain Anuttarā Samyaksaṃbodhi."
+    },
+    {
+     "n": 158,
+     "text": "Subhūti, I remember in the past, innumerable, incalculable eons before Dīpaṃkara Buddha, being able to meet 84,000 countless myriads of buddhas, and providing offerings to honor them all without exception."
+    },
+    {
+     "n": 159,
+     "text": "Suppose someone in the next era is able to accept, maintain, study, and recite this sūtra."
+    },
+    {
+     "n": 160,
+     "text": "The merits of my offerings to all those buddhas are, in comparison to the merits of this person, not even one hundredth as good."
+    },
+    {
+     "n": 161,
+     "text": "They are so vastly inferior that a comparison cannot be made."
+    },
+    {
+     "n": 162,
+     "text": "Subhūti, if there are good men and good women in the next era who accept, maintain, study, and recite this sūtra,"
+    },
+    {
+     "n": 163,
+     "text": "and I were to fully explain all the merits attained, the minds of those listening could go mad with confusion, full of doubt and disbelief."
+    },
+    {
+     "n": 164,
+     "text": "Subhūti, understand that just as the meaning of this sūtra is inconceivable, its rewards of karma [good deeds] are also inconceivable.”"
+    },
+    {
+     "n": 165,
+     "text": "At that time, Subhūti addressed the Buddha, saying, “Bhagavān, when good men and good women develop the mind of Anuttarā Samyaksaṃbodhi, how should their minds dwell?"
+    },
+    {
+     "n": 166,
+     "text": "How should they pacify their minds?” The Buddha told Subhūti, “Good men and good women develop Anuttarā Samyaksaṃbodhi by giving rise to a mind thusly: ‘I will liberate all sentient beings."
+    },
+    {
+     "n": 167,
+     "text": "Yet when all sentient beings have been liberated, then truly not even a single sentient being has been liberated.’"
+    },
+    {
+     "n": 168,
+     "text": "Why? Subhūti, a bodhisattva who has a notion of a self, a notion of a person, a notion of a being, or a notion of a life, is not a bodhisattva."
+    },
+    {
+     "n": 169,
+     "text": "Why is this so? Subhūti, there is actually no dharma of one who develops Anuttarā Samyaksaṃbodhi."
+    },
+    {
+     "n": 170,
+     "text": "“What do you think? When the Tathāgata was with Dīpaṃkara Buddha, was there any dharma of the attainment of Anuttarā Samyaksaṃbodhi?”"
+    },
+    {
+     "n": 171,
+     "text": "“No, Bhagavān, and thus do I explain the actual meaning of the Buddha’s teachings: when the Buddha was with Dīpaṃkara Buddha, there was truly no dharma of the attainment of Anuttarā Samyaksaṃbodhi.”"
+    },
+    {
+     "n": 172,
+     "text": "The Buddha said, “Thusly, thusly, Subhūti!"
+    },
+    {
+     "n": 173,
+     "text": "There was no dharma of the Tathāgata’s attainment of Anuttarā Samyaksaṃbodhi."
+    },
+    {
+     "n": 174,
+     "text": "Subhūti, if there were a dharma of the Tathāgata’s attainment of Anuttarā Samyaksaṃbodhi, then Dīpaṃkara Buddha would not have given me the prediction, ‘In the next era you will become a buddha named Śākyamuni.’"
+    },
+    {
+     "n": 175,
+     "text": "It is because there was no dharma of the attainment of Anuttarā Samyaksaṃbodhi, that Dīpaṃkara Buddha gave me this prediction by saying, ‘In the next era you will become a buddha named Śākyamuni.’"
+    },
+    {
+     "n": 176,
+     "text": "Why? ‘Tathāgata’ denotes the suchness of dharmas."
+    },
+    {
+     "n": 177,
+     "text": "Subhūti, if someone says, ‘The Tathāgata has attained Anuttarā Samyaksaṃbodhi,’ there is no dharma of a buddha’s attainment of Anuttarā Samyaksaṃbodhi."
+    },
+    {
+     "n": 178,
+     "text": "“Subhūti, the true attainment by the Tathāgata of Anuttarā Samyaksaṃbodhi is neither substantial nor void, and for this reason the Tathāgata says, ‘All dharmas are the Buddha Dharma.’"
+    },
+    {
+     "n": 179,
+     "text": "Subhūti, all dharmas spoken of are actually not all dharmas, and are thus called all dharmas."
+    },
+    {
+     "n": 180,
+     "text": "Subhūti, this is like the body of a person that is tall and great.”"
+    },
+    {
+     "n": 181,
+     "text": "Subhūti said, “Bhagavān, the body of a person that the Tathāgata speaks of, tall and great, is not a great body, and is thus called the Great Body.”"
+    },
+    {
+     "n": 182,
+     "text": "“Subhūti, for bodhisattvas it is also such as this."
+    },
+    {
+     "n": 183,
+     "text": "If someone says ‘I will liberate and cross over innumerable sentient beings,’ then this is not one to be called a bodhisattva."
+    },
+    {
+     "n": 184,
+     "text": "Why? Subhūti, truly there is no dharma of a bodhisattva, and for this reason the Buddha says, ‘All dharmas are not a self, a person, a being, or a life.’"
+    },
+    {
+     "n": 185,
+     "text": "Subhūti, if a bodhisattva says, ‘I am adorning buddha-lands,’ then this is not one to be called a bodhisattva."
+    },
+    {
+     "n": 186,
+     "text": "Why? The adornments of buddha-lands spoken of by the Tathāgata are not adornments, and are thus called adornments."
+    },
+    {
+     "n": 187,
+     "text": "Subhūti, if a bodhisattva has penetrating realization that dharmas are without self, then the Tathāgata says, ‘This is a true bodhisattva.’"
+    },
+    {
+     "n": 188,
+     "text": "“Subhūti, what do you think? Does the Tathāgata have the Physical Eye?”"
+    },
+    {
+     "n": 189,
+     "text": "“Thusly, Bhagavān, the Tathāgata has the Physical Eye.”"
+    },
+    {
+     "n": 190,
+     "text": "“Subhūti, what do you think? Does the Tathāgata have the Divine Eye?”"
+    },
+    {
+     "n": 191,
+     "text": "“Thusly, Bhagavān, the Tathāgata has the Divine Eye.”"
+    },
+    {
+     "n": 192,
+     "text": "“Subhūti, what do you think? Does the Tathāgata have the Prajñā Eye?”"
+    },
+    {
+     "n": 193,
+     "text": "“Thusly, Bhagavān, the Tathāgata has the Prajñā Eye.”"
+    },
+    {
+     "n": 194,
+     "text": "“Subhūti, what do you think? Does the Tathāgata have the Dharma Eye?”"
+    },
+    {
+     "n": 195,
+     "text": "“Thusly, Bhagavān, the Tathāgata has the Dharma Eye.”"
+    },
+    {
+     "n": 196,
+     "text": "“Subhūti, what do you think? Does the Tathāgata have the Buddha Eye?”"
+    },
+    {
+     "n": 197,
+     "text": "“Thusly, Bhagavān, the Tathāgata has the Buddha Eye.”"
+    },
+    {
+     "n": 198,
+     "text": "Subhūti, what do you think? Regarding the sand grains of the Ganges River, does the Buddha speak of these grains of sand?”"
+    },
+    {
+     "n": 199,
+     "text": "“Thusly, Bhagavān, the Tathāgata speaks of these grains of sand.”"
+    },
+    {
+     "n": 200,
+     "text": "“If there were as many Ganges Rivers as there are sand grains in the Ganges River, and there were such buddha world realms as there were sand grains in all those Ganges Rivers, would their number be very many?”"
+    },
+    {
+     "n": 201,
+     "text": "“It would be extremely many, Bhagavān.” The Buddha told Subhūti, “Such a number of lands possess a multitude of sentient beings, and their minds are fully known by the Tathāgata."
+    },
+    {
+     "n": 202,
+     "text": "Why? The minds that the Tathāgata speaks of are not minds, and are thus called minds."
+    },
+    {
+     "n": 203,
+     "text": "Why is this so? Subhūti, past mind cannot be grasped, present mind cannot be grasped, and future mind cannot be grasped."
+    },
+    {
+     "n": 204,
+     "text": "“Subhūti, what do you think?"
+    },
+    {
+     "n": 205,
+     "text": "If someone filled three thousand great thousand-worlds with the Seven Precious Jewels, and gave them away in the practice of giving, would this person obtain many merits from such causes and conditions?”"
+    },
+    {
+     "n": 206,
+     "text": "“Thusly, Bhagavān, from such causes and conditions, the merits of this person would be extremely many.”"
+    },
+    {
+     "n": 207,
+     "text": "“Subhūti, if such merits truly existed, then the Tathāgata would not say that many merits that are obtained."
+    },
+    {
+     "n": 208,
+     "text": "It is from the merits that are unconditioned, that the Tathāgata speaks of obtaining many merits."
+    },
+    {
+     "n": 209,
+     "text": "“Subhūti, what do you think? Can the Tathāgata be seen by means of the perfected body of form?”"
+    },
+    {
+     "n": 210,
+     "text": "“No, Bhagavān, the Tathāgata cannot be seen by means of the perfected body of form."
+    },
+    {
+     "n": 211,
+     "text": "Why? The perfected body of form that the Tathāgata speaks of is itself not a perfected body of form, and is thus called the perfected body of form.”"
+    },
+    {
+     "n": 212,
+     "text": "“Subhūti, what do you think? Can the Tathāgata be seen by the perfection of all marks?”"
+    },
+    {
+     "n": 213,
+     "text": "“No, Bhagavān, the Tathāgata cannot be seen by the perfection of all marks."
+    },
+    {
+     "n": 214,
+     "text": "Why? The perfection of marks that the Tathāgata speaks of is itself not a perfection, and is thus called the perfection of marks.”"
+    },
+    {
+     "n": 215,
+     "text": "“Subhūti, do not say that it occurs to the Tathāgata, ‘I have a spoken Dharma.’"
+    },
+    {
+     "n": 216,
+     "text": "Do not compose this thought. Why? If someone says ‘The Tathāgata has a spoken Dharma,’ then this is like slandering the Buddha, because my teachings have not been understood."
+    },
+    {
+     "n": 217,
+     "text": "Subhūti, one who speaks the Dharma is unable to speak any dharma, and it is thus called speaking the Dharma.”"
+    },
+    {
+     "n": 218,
+     "text": "At that time, Living Wisdom Subhūti addressed the Buddha, saying, “Bhagavān, will there be sentient beings in the next era who will hear this spoken dharma and give rise to a mind of belief?”"
+    },
+    {
+     "n": 219,
+     "text": "The Buddha replied, “Subhūti, there will be neither sentient beings nor will there not be sentient beings."
+    },
+    {
+     "n": 220,
+     "text": "Why? Subhūti, the sentient beings that the Tathāgata speaks of are not sentient beings, and are thus called sentient beings.”"
+    },
+    {
+     "n": 221,
+     "text": "Subhūti asked the Buddha, “Bhagavān, is the Buddha’s attainment of Anuttarā Samyaksaṃbodhi actually without attainment?”"
+    },
+    {
+     "n": 222,
+     "text": "“Thusly, thusly, Subhūti. With regard to my Anuttarā Samyaksaṃbodhi, there is not even the slightest dharma of Anuttarā Samyaksaṃbodhi which may be grasped."
+    },
+    {
+     "n": 223,
+     "text": "“Moreover, Subhūti, the equality of dharmas that has nothing that is better or worse, is called Anuttarā Samyaksaṃbodhi,"
+    },
+    {
+     "n": 224,
+     "text": "and by means of no self, no person, no being, and no life, all pure dharmas are cultivated and Anuttarā Samyaksaṃbodhi is attained."
+    },
+    {
+     "n": 225,
+     "text": "Subhūti, these pure dharmas that the Tathāgata speaks of are not pure dharmas, and are thus called pure dharmas."
+    },
+    {
+     "n": 226,
+     "text": "“Subhūti, suppose three thousand great thousand-worlds all contained Sumeru, King of Mountains, and there were mountains such as this of the Seven Precious Jewels, given away by someone in the practice of giving."
+    },
+    {
+     "n": 227,
+     "text": "If a person has only a four-line gāthā from this Prajñāpāramitā sūtra, and accepts, maintains, studies, recites, and speaks it for others, then the merits of the other person are not even one hundredth as good."
+    },
+    {
+     "n": 228,
+     "text": "They are so vastly inferior that the two are incomparable."
+    },
+    {
+     "n": 229,
+     "text": "“Subhūti, what do you think? You should not say that it occurs to the Tathāgata, ‘I will cross over sentient beings.’"
+    },
+    {
+     "n": 230,
+     "text": "Subhūti, do not compose this thought. Why?"
+    },
+    {
+     "n": 231,
+     "text": "Truly there are no sentient beings crossed over by the Tathāgata."
+    },
+    {
+     "n": 232,
+     "text": "If there were sentient beings crossed over by the Tathāgata, then there would be a self, a person, a being, and a life."
+    },
+    {
+     "n": 233,
+     "text": "The existence of a self that the Tathāgata speaks of is not the existence of a self, but ordinary people believe it is a self."
+    },
+    {
+     "n": 234,
+     "text": "Subhūti, an ordinary person that the Tathāgata speaks of is not an ordinary person."
+    },
+    {
+     "n": 235,
+     "text": "“Subhūti, what do you think? Can the Tathāgata be observed by means of the Thirty-two Marks?”"
+    },
+    {
+     "n": 236,
+     "text": "Subhūti replied, “Thusly, thusly, with the Thirty-two Marks the Tathāgata is to be observed.”"
+    },
+    {
+     "n": 237,
+     "text": "The Buddha said, “Subhūti, if the Tathāgata could be observed by means of the Thirty-two Marks, then a cakravartin king would be a tathāgata.”"
+    },
+    {
+     "n": 238,
+     "text": "Subhūti addressed the Buddha, saying, “Bhagavān, thus do I explain the meaning of what the Buddha has said."
+    },
+    {
+     "n": 239,
+     "text": "One should not observe the Tathāgata by means of the Thirty-two Marks.”"
+    },
+    {
+     "n": 240,
+     "text": "At that time, the Bhagavān spoke a gāthā, saying:"
+    },
+    {
+     "n": 241,
+     "text": "If one perceives me in forms,"
+    },
+    {
+     "n": 242,
+     "text": "If one listens for me in sounds,"
+    },
+    {
+     "n": 243,
+     "text": "This person practices a deviant path"
+    },
+    {
+     "n": 244,
+     "text": "And cannot see the Tathāgata."
+    },
+    {
+     "n": 245,
+     "text": "“Subhūti, suppose you think, ‘The Tathāgata has not, from the perfection of characteristics, attained Anuttarā Samyaksaṃbodhi.’"
+    },
+    {
+     "n": 246,
+     "text": "Subhūti, do not compose the thought, ‘The Tathāgata has not, from the perfection of characteristics, attained Anuttarā Samyaksaṃbodhi.’"
+    },
+    {
+     "n": 247,
+     "text": "Subhūti, composing this thought, the one who is developing the mind of Anuttarā Samyaksaṃbodhi is then speaking of the severence and annihilation of dharmas."
+    },
+    {
+     "n": 248,
+     "text": "Do not compose this thought. Why? One who is developing the mind of Anuttarā Samyaksaṃbodhi does not speak of a characteristic of the severence and annihilation of dharmas."
+    },
+    {
+     "n": 249,
+     "text": "“Subhūti, suppose a bodhisattva, in the practice of giving, filled as many world realms with the Seven Precious Jewels, as there are grains of sand in the Ganges River."
+    },
+    {
+     "n": 250,
+     "text": "If there is a person with the awareness that all dharmas are without self, and accomplishes their complete endurance,"
+    },
+    {
+     "n": 251,
+     "text": "then this is superior, and the merits attained by this bodhisattva surpass those of the previous bodhisattva."
+    },
+    {
+     "n": 252,
+     "text": "Subhūti, the reason for this is that bodhisattvas do not receive merit.”"
+    },
+    {
+     "n": 253,
+     "text": "Subhūti addressed the Buddha, saying, “Bhagavān, why do you say that bodhisattvas do not receive merit?”"
+    },
+    {
+     "n": 254,
+     "text": "“Subhūti, for bodhisattvas to make merit, they should not greedily wish to acquire it, and therefore it is said that there is no merit received."
+    },
+    {
+     "n": 255,
+     "text": "“Subhūti, if someone says that the Tathāgata comes, goes, sits, or lies down, then this person does not understand the meaning of my teachings."
+    },
+    {
+     "n": 256,
+     "text": "Why? The Tathāgata is one who neither comes nor goes anywhere, and for this reason is called the Tathāgata."
+    },
+    {
+     "n": 257,
+     "text": "“Subhūti, if a good man or good woman disintegrated three thousand great thousand-worlds into atoms, would these atoms be very many in number?”"
+    },
+    {
+     "n": 258,
+     "text": "“They would be extremely many, Bhagavān."
+    },
+    {
+     "n": 259,
+     "text": "Why? If this multitude of atoms truly existed, then the Buddha would not speak of a multitude of atoms."
+    },
+    {
+     "n": 260,
+     "text": "Yet the Buddha does speak of a multitude of atoms, and therefore the multitude of atoms spoken of by the Buddha is not a multitude of atoms, and is thus called a multitude of atoms."
+    },
+    {
+     "n": 261,
+     "text": "Bhagavān, the three thousand great thousand-worlds that the Tathāgata speaks of are not worlds, and are thus called worlds."
+    },
+    {
+     "n": 262,
+     "text": "Why? The existence of these worlds is like a single unified appearance."
+    },
+    {
+     "n": 263,
+     "text": "Why? The unified appearance that the Tathāgata speaks of is not a unified appearance, and is thus called the unified appearance.”"
+    },
+    {
+     "n": 264,
+     "text": "“Subhūti, one who is of the unified characteristic is unable to speak it, and yet ordinary people greedily wish to acquire it."
+    },
+    {
+     "n": 265,
+     "text": "“Subhūti, suppose a person says, ‘The Buddha teaches views of a self, a person, a being, and a life.’"
+    },
+    {
+     "n": 266,
+     "text": "Subhūti, what do you think? Does this person understand the meaning of my teachings?”"
+    },
+    {
+     "n": 267,
+     "text": "“No, Bhagavān, this person does not understand the meaning of the Tathāgata’s teachings."
+    },
+    {
+     "n": 268,
+     "text": "Why? The views of a self, a person, a being, and a life, that the Bhagavān speaks of, are not views of a self, a person, a being, or a life, and are thus called the views of a self, a person, a being, and a life.”"
+    },
+    {
+     "n": 269,
+     "text": "“Subhūti, regarding all dharmas, one who is developing the mind of Anuttarā Samyaksaṃbodhi should thusly know, thusly see, and thusly believe, not giving rise to notions of dharmas."
+    },
+    {
+     "n": 270,
+     "text": "Subhūti, the true characteristic of dharmas is not a characteristic of dharmas, and is thus called the characteristic of dharmas."
+    },
+    {
+     "n": 271,
+     "text": "“Subhūti, suppose someone filled immeasurable, innumerable worlds with the Seven Precious Jewels, and then gave these away in the practice of giving."
+    },
+    {
+     "n": 272,
+     "text": "If a good man or good woman develops the mind of a bodhisattva and maintains this sūtra, even with as little as a four-line gāthā,"
+    },
+    {
+     "n": 273,
+     "text": "and accepts, maintains, studies, recites, and explains it to others, then the merits of this surpass the others."
+    },
+    {
+     "n": 274,
+     "text": "How should one explain it? Without grasping at characteristics, in unmoving suchness. For what reason?"
+    },
+    {
+     "n": 275,
+     "text": "All conditioned dharmas"
+    },
+    {
+     "n": 276,
+     "text": "Are like dreams, illusions, bubbles, or shadows;"
+    },
+    {
+     "n": 277,
+     "text": "Like drops of dew, or like flashes of lightning;"
+    },
+    {
+     "n": 278,
+     "text": "Thusly should they be contemplated."
+    },
+    {
+     "n": 279,
+     "text": "After the Buddha had spoken this sūtra, then Elder Subhūti along with all the bhikṣus, bhikṣuṇīs [nuns], upāsakas, upāsikās, and the devas, humans, and asuras from every world, heard what the Buddha had said."
+    },
+    {
+     "n": 280,
+     "text": "With great bliss, they believed, accepted, and reverently practiced in accordance."
+    }
+   ],
+   "note": "Giữ chú thích trong ngoặc vuông của dịch giả",
+   "variant": "translation"
+  }
+ ]
+}

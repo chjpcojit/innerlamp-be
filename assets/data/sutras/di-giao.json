@@ -1,0 +1,599 @@
+{
+ "id": "di-giao",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Kinh nhập môn",
+ "reference": "Taishō T0389",
+ "originalTitle": "Phật Thùy Bát Niết Bàn Lược Thuyết Giáo Giới Kinh",
+ "hanTranslator": "Cưu Ma La Thập",
+ "summary": "Kinh Đại thừa, bản Hán dịch của ngài Cưu-ma-la-thập, ghi những lời dạy cuối cùng của Đức Phật Thích Ca trước khi nhập Niết Bàn giữa rừng Sa-la. Ngài dặn các Tỷ-kheo lấy tịnh giới làm thầy, sống đời thanh tịnh, tiết chế ăn uống, giữ tâm nhiếp niệm và tinh tấn cầu giải thoát. Kinh thường được xem là bài học nhập môn về giới luật và nếp sống người tu.",
+ "titles": {
+  "vi": "Kinh Di Giáo (Kinh Giáo Huấn Vắn Tắt của Phật Lúc Sắp Niết Bàn)",
+  "zh": "佛垂般涅槃略說教誡經",
+  "sa": "",
+  "en": "Sutra of the Buddha's Bequeathed Teaching"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 40,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Phụ lục \"Phần Dịch Nghĩa\" trong tài liệu của Thích Viên Giác, ghi là bản dịch của Hòa thượng Thích Trí Quang (trang budsas mô tả phụ lục là bản dịch mới của Thích Nữ Trí Nguyệt - mâu thuẫn, chưa xác minh)",
+   "sourceName": "Niemphat.vn - Kinh Di Giáo Lược Giải, Thích Viên Giác (file .doc), phần Phụ Lục",
+   "sourceUrl": "https://www.niemphat.vn/downloads/giang-kinh/kinh-di-giao/kinh-di-giao-luoc-giai-tt-thich-vien-giac-dich.doc",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement in document",
+   "note": "Chỉ lấy phần Phụ Lục (Phần Dịch Nghĩa); bỏ phần lược giải. Giữ nguyên chính tả nguồn (vd. \"Tỷ kheo\", \"cấc\", \"kêu ngạo\").",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Đức Phật Thích Ca Mâu Ni, chuyển đẩy bánh xe chánh pháp lần đầu tiên hoá độ tôn giả Kiều Trần Như, thuyết pháp lần cuối cùng hoá độ tôn giả Tu Bạt Đà La."
+    },
+    {
+     "n": 2,
+     "text": "Những người có thể hoá độ, Ngài đã hoá độ tất cả."
+    },
+    {
+     "n": 3,
+     "text": "Hôm nay, trong rừng Sa la, giữa cây song thọ, Ngài sắp Niết Bàn."
+    },
+    {
+     "n": 4,
+     "text": "Bấy giờ là lúc giữa đêm, hoàn toàn yên lặng, không một tiếng động, Ngài đã vì các đệ tử mà nói tóm tắt những điều cốt yếu của chánh pháp."
+    },
+    {
+     "n": 5,
+     "text": "Các thầy Tỷ kheo, sau khi Như Lai diệt độ, các thầy phải trân trọng tôn kính tịnh giới, như mù tối mà được mắt sáng, nghèo nàn mà được vàng ngọc."
+    },
+    {
+     "n": 6,
+     "text": "Phải biết tịnh giới là đức thầy cao cả của các thầy."
+    },
+    {
+     "n": 7,
+     "text": "Nếu Như Lai ở đời thì cũng không khác gì tịnh giới vậy."
+    },
+    {
+     "n": 8,
+     "text": "Giữ tịnh giới thì các thầy không được buôn, bán, đổi chác, sắm sửa đất nhà, nuôi người, tôi tớ và súc vật, lo việc gieo trồng, kinh doanh tài bảo."
+    },
+    {
+     "n": 9,
+     "text": "Tất cả việc này, hãy tránh như tránh hố lửa."
+    },
+    {
+     "n": 10,
+     "text": "Kể cả việc chặt phá cỏ cây và đào cuốc đất đai."
+    },
+    {
+     "n": 11,
+     "text": "Những việc chế thuốc thang, coi bói tướng, coi thiên văn, đoán thời tiết, tính lịch số, đều không thích hợp với các thầy."
+    },
+    {
+     "n": 12,
+     "text": "Các thầy hãy tiết chế cơ thể, ăn đúng thì giờ, sống bằng cách sống trong sạch, không được tham dự thế sự, lãnh sứ mạng liên lạc."
+    },
+    {
+     "n": 13,
+     "text": "Chú thuật, thuốc tiên, giao hảo huyền quí, và thân thiết với họ, rồi hèn hạ, ngạo mạn, tất cả đều không được làm."
+    },
+    {
+     "n": 14,
+     "text": "Phaỉ tự đoan tâm, chánh niệm cầu độ. Không được che dấu lầm lỗi, tỏ ra kỳ dị để mê hoặc quần chúng."
+    },
+    {
+     "n": 15,
+     "text": "Đối với bốn sự hiến cúng thì phải biết tự lượng và biết vừa đủ."
+    },
+    {
+     "n": 16,
+     "text": "Hễ được hiến cúng thì không nên tích trữ."
+    },
+    {
+     "n": 17,
+     "text": "Đó là Như Lai nói tóm tắt về sự giữ giới."
+    },
+    {
+     "n": 18,
+     "text": "Giới thì chánh thuận với căn bản của sự giải thoát, nên Như Lai mệnh danh Ba la đề mộc xoa."
+    },
+    {
+     "n": 19,
+     "text": "Nhờ giới mà phát sinh thiền định, và trí tuệ có năng lực huỷ diệt thống khổ."
+    },
+    {
+     "n": 20,
+     "text": "Thế nên, các thầy Tỷ kheo, hãy giữ tịnh giới, đừng cho vi phạm, thiếu sót."
+    },
+    {
+     "n": 21,
+     "text": "Ai giữ tịnh giới thì người đó có thiện pháp."
+    },
+    {
+     "n": 22,
+     "text": "Không có tịnh giới thì mọi thứ công đức không thể phát sanh."
+    },
+    {
+     "n": 23,
+     "text": "Do đó mà biết tịnh giới là chỗ yên ổn nhất, làm nơi trú ẩn cho mọi thứ công đức."
+    },
+    {
+     "n": 24,
+     "text": "Các thầy Tỷ kheo, đã ở trong tịnh giới thì phải chế ngự năm thứ giác quan, không cho phóng túng vào năm thứ dục lạc.Như kẻ chăn trâu, cầm gậy mà coi giữ, không cho phóng túng, phạm vào lúa má của người."
+    },
+    {
+     "n": 25,
+     "text": "Phóng túng năm thứ giác quan, thì không những chỉ có năm thứ dục lạc, mà có thể sẽ không còn giới hạn nào nữa, không thể cấm chế."
+    },
+    {
+     "n": 26,
+     "text": "Như con ngựa hung hãn mà không được chế ngự bằng giây cương, thì sẽ mang người lao xuống hầm hố."
+    },
+    {
+     "n": 27,
+     "text": "Giặc cướp làm hại, khổ chỉ một đời, còn giặc giác quan họa đến nhiều kiếp tai hại rất nặng, các thầy không thể không cẩn thận."
+    },
+    {
+     "n": 28,
+     "text": "Thế nên người có trí thì chế ngự mà không theo, giữ như giữ giặc, không cho phóng túng."
+    },
+    {
+     "n": 29,
+     "text": "Giả sử phóng túng năm thứ giác quan, thì cũng không bao lâu ta sẽ thấy chúng tàn diệt tất cả."
+    },
+    {
+     "n": 30,
+     "text": "Các thầy Tỷ kheo, năm thứ giác quan do tâm chủ động, vì vậy mà các thầy lại phải thận trọng chế ngự tâm mình."
+    },
+    {
+     "n": 31,
+     "text": "Tâm còn đáng sợ hơn cả rắn độc, thú dữ, giặc thù, lửa dữ bùng cháy lan tràn cũng chưa đủ để ví dụ cho tâm."
+    },
+    {
+     "n": 32,
+     "text": "Như một kẻ tay bưng bát mật mà chuyển động chạy nhảy, chỉ thấy bát mật chứ không thấy hố sâu, như thế không khác gì voi điên mà không có móc sắt, vượn khỉ mà được cây rừng, thì sẽ hung hăng nhảy vọt, khó mà ngăn cản ;"
+    },
+    {
+     "n": 33,
+     "text": "các thầy phải cấp tốc tỏa chiết, đừng cho phóng túng."
+    },
+    {
+     "n": 34,
+     "text": "Phóng túng tâm ra thì làm tan nát việc thiện của người."
+    },
+    {
+     "n": 35,
+     "text": "Chế ngự tâm lại một chỗ thì không việc gì không thành."
+    },
+    {
+     "n": 36,
+     "text": "Thế nên,các thầy Tỷ kheo, hãy nỗ lực tinh tiến mà chiết phục tâm mình."
+    },
+    {
+     "n": 37,
+     "text": "Các thầy Tỷ kheo, thọ dụng đồ ăn thức uống, hãy coi như việc uống thuốc, ngon không ham dở không bỏ, vừa đủ duy trì cơ thể cho khởi đói khát."
+    },
+    {
+     "n": 38,
+     "text": "Như ong lấy hoa, chỉ lấy mùi vị mà không tổn thương hương sắc, người xuất gia cũng vậy."
+    },
+    {
+     "n": 39,
+     "text": "Thọ dụng cúng phẩm của người vừa khỏi đói khát thì thôi, không được ham cầu cho nhiều, phá vỡ thiện niệm của họ."
+    },
+    {
+     "n": 40,
+     "text": "Hãy bắt chước kẻ khôn ngoan, biết lượng sức lực con trâu của mình chịu đựng nhiều ít, không dùng quá sức đến nỗi kiệt lực."
+    },
+    {
+     "n": 41,
+     "text": "Các thầy Tỷ kheo, ban ngày thì nỗ lực thực tập thiện pháp, không để thì giờ lướt mất, đầu đêm cuối đêm cũng đừng phế bỏ, giữa đêm lại phải tụng niệm để tự tiêu trừ điều ác, sinh trưởng điều thiện."
+    },
+    {
+     "n": 42,
+     "text": "Đừng vì lý do ngủ nghỉ mà để đời mình trôi đi, không được một chút ích lợi."
+    },
+    {
+     "n": 43,
+     "text": "Hãy nhớ ngọn lửa vô thường đốt cháy thế gian, để sớm cầu tự độ, đừng ham ngủ nghỉ."
+    },
+    {
+     "n": 44,
+     "text": "Giặc phiền não thường rình giết ta, dữ hơn kẻ thù, tại sao ta có thể ngủ nghỉ mà không tự cảnh giác?"
+    },
+    {
+     "n": 45,
+     "text": "Phiền não ngủ trong tâm, cũng như rắn hổ mang màu đen nằm ngủ trong nhà, các thầy phải dùng móc sắt giữ giới mà cấp tốc móc kéo nó ra."
+    },
+    {
+     "n": 46,
+     "text": "Rắn ngủ ra rồi mới nên yên tâm ngủ nghỉ."
+    },
+    {
+     "n": 47,
+     "text": "Không ra mà ngủ thì thật là kẻ không biết hổ thẹn."
+    },
+    {
+     "n": 48,
+     "text": "Sự hổ thẹn là phục sức đẹp nhất trong mọi thứ phục sức."
+    },
+    {
+     "n": 49,
+     "text": "Như cái móc sắt, sự hổ thẹn có năng lực chế ngự mọi thứ phi pháp của con người."
+    },
+    {
+     "n": 50,
+     "text": "Thế nên các thầy Tỷ kheo, hãy luôn luôn biết hổ thẹn, sỉ nhục, đừng bao giờ, dầu chỉ tạm thời mà thôi, được phép quên mất đức tinh ấy."
+    },
+    {
+     "n": 51,
+     "text": "Mất hổ thẹn là mất công đức. Có hổ thẹn là có thiện pháp, không hổ thẹn thì không khác gì câm thú."
+    },
+    {
+     "n": 52,
+     "text": "Các thầy Tỷ kheo, nếu ai cắt xả thân thể các thầy ra từng đốt, các thầy cũng phải tự kiềm chế tâm mình, đừng cho giận dữ."
+    },
+    {
+     "n": 53,
+     "text": "Lại phải giữ lấy miệng lưỡi, đừng để phát ra lời tiếng không tốt."
+    },
+    {
+     "n": 54,
+     "text": "Tâm giận dữ nổi lên là tự hại đạo nghiệp, hư mất công đức."
+    },
+    {
+     "n": 55,
+     "text": "Đức tính của Nhẫn, giữ giới và khổ hạnh không thể sánh bằng."
+    },
+    {
+     "n": 56,
+     "text": "Thực hành đức Nhẫn mới được mệnh danh là bậc thượng nhân có sức mạnh."
+    },
+    {
+     "n": 57,
+     "text": "Kẻ nào không thể tiếp nhận cái độc nhục mạ một cách hoan hỷ như uống nước cam lộ, kẻ ấy không thể được ca tụng là người nhập đạo có trí."
+    },
+    {
+     "n": 58,
+     "text": "Tại sao, vì giận dữ thì phá hủy hết thảy thiện pháp và danh tiếng đáng quí, hiện tại vị lai không ai muốn nhìn."
+    },
+    {
+     "n": 59,
+     "text": "Sự giận dữ hơn cả ngọn lửa ác liệt, vì thế mà các thầy phải đề phòng một cách thường trực, đừng cho xâm nhập tâm trí."
+    },
+    {
+     "n": 60,
+     "text": "Giặc cướp công đức không chi hơn giận dữ."
+    },
+    {
+     "n": 61,
+     "text": "Thế gian hưởng thụ dục lạc, không phải là kẻ hành đạo, không có phương pháp để khống chế, thế nên giận dữ thì còn thể tha thứ được."
+    },
+    {
+     "n": 62,
+     "text": "Còn người xuất gia hành đạo là kẻ loại bỏ dục vọng, vậy mà giận dữ thì thật là bất đáng ; không khác gì giữa bầu trời mây trong mà sấm sét loé lửa là điều không thích hợp."
+    },
+    {
+     "n": 63,
+     "text": "Các thầy Tỷ kheo, hãy tự xoa đầu mình, đã bỏ sự trang sức và đồ tốt đẹp, mình mặt áo hoại sắc, tay cầm đồ thích ứng, khất thực để sống ; tự thấy như vậy mà kêu ngạo còn nổi lên, thì phải cấp tốc tỏa chiết."
+    },
+    {
+     "n": 64,
+     "text": "Tăng thêm kêu ngạo là điều mà thế nhân còn không nên có, huống chi người xuất gia nhập đạo là kẻ vì giải thoát, tự giáng mình xuống mà đi khất thực?"
+    },
+    {
+     "n": 65,
+     "text": "Các thầy Tỷ kheo, tâm lý dua nịnh quanh co trái ngược đạo pháp, thế nên các thầy phải chất trực tâm mình."
+    },
+    {
+     "n": 66,
+     "text": "Phải ý thức dua nịnh quanh co chỉ để dối trá, mà người nhập đạo thì không thể như vậy."
+    },
+    {
+     "n": 67,
+     "text": "Vì thề các thầy cần phải ngay thẳng tâm mình, lấy đức tính chất trực làm căn bản."
+    },
+    {
+     "n": 68,
+     "text": "Các thầy Tỷ kheo, phải biết kẻ ham muốn nhiều, thì vì nhiều sự cầu lợi nên khổ não cũng nhiều."
+    },
+    {
+     "n": 69,
+     "text": "Còn ít ham muốn thì không cầu hồ, không dục vọng, nên không có cái hoạ đó."
+    },
+    {
+     "n": 70,
+     "text": "Chỉ có như thế mà thôi, sự ít ham muốn cũng đã thực tập, huống chi sự ấy còn đem lại đủ các công đức."
+    },
+    {
+     "n": 71,
+     "text": "Người ít ham muốn thì không dua nịnh quanh co để cầu được lòng người, cũng không bị các giác quan lôi kéo."
+    },
+    {
+     "n": 72,
+     "text": "Thực hành đức tính ít ham muốn thì lòng bình thản, không lo sợ, gặp cảnh ngộ nào cũng thừa thãi, không bao giờ có cảm giác thiếu thốn."
+    },
+    {
+     "n": 73,
+     "text": "Có ít ham muốn là có Niết Bàn. Đó là hạnh ít ham muốn."
+    },
+    {
+     "n": 74,
+     "text": "Các thầy Tỷ kheo, muốn giải thoát khổ não thì các thầy hãy cứu xét sự biết vừa đủ."
+    },
+    {
+     "n": 75,
+     "text": "Chính sự biết vừa đủ, là giàu sang, vui thú và yên ổn."
+    },
+    {
+     "n": 76,
+     "text": "Biết vừa đủ thì nằm trên đất cũng thấy vui thích, không biết vừa đủ thì ở thiên đàng cũng vẫn bất mãn."
+    },
+    {
+     "n": 77,
+     "text": "Không biết vừa đủ thì giàu mà nghèo, biết vừa đủ thì nghèo mà giàu."
+    },
+    {
+     "n": 78,
+     "text": "Không biết vừa đủ thì luôn luôn bị năm thứ dục lạc lôi kéo, làm cho người biết vừa đủ phải xót thương. Đó là hạnh biết vừa đủ."
+    },
+    {
+     "n": 79,
+     "text": "Các thầy Tỷ kheo, muốn cầu yên tĩnh, vô vi và an lạc, thì các thầy hãy thoát ly mọi sự ồn ào và bối rối, ở đơn độc và ở một cách thư thái."
+    },
+    {
+     "n": 80,
+     "text": "Người ở yên tĩnh thì chúa trời Đế thích và chư thiên đều tôn kính."
+    },
+    {
+     "n": 81,
+     "text": "Vì thế mà các thầy hãy thoát ly đồ chúng của mình, và đồ chúng của người, ở đơn độc, thư thái và thanh vắng, dùng \"tư duy tu\" mà cắt đứt gốc rễ đau khổ."
+    },
+    {
+     "n": 82,
+     "text": "Nếu thích đồ chúng thì sẽ bị đồ chúng quấy phá, như cây đại thọ mà cả bầy chim chóc tập hợp lại thì vẫn bị cái hoạ khô gãy."
+    },
+    {
+     "n": 83,
+     "text": "Thế gian ràng buộc mà chìm ngập thống khổ, thì cũng không khác gì voi già mà sa xuống bùn lầy, hết mong thoát khỏi. Đó là hạnh siêu thoát."
+    },
+    {
+     "n": 84,
+     "text": "Các thầy Tỷ kheo, nỗ lực tinh tiến thì không có việc gì khó khăn."
+    },
+    {
+     "n": 85,
+     "text": "Thế nên cấc thầy phải thực hành sự nỗ lực tinh tiến."
+    },
+    {
+     "n": 86,
+     "text": "Nước nhỏ mà chảy mãi thì có thể xuyên thủng cả đá."
+    },
+    {
+     "n": 87,
+     "text": "Nếu người hành đạo mà hay biếng nhác phế bỏ, thì cũng như kéo lửa chưa nóng mà đã ngừng, dầu thiết tha có lửa, lửa cũng khó mà có được. Đó là hạnh tinh tiến."
+    },
+    {
+     "n": 88,
+     "text": "Các thầy Tỷ kheo, cầu thiện tri thức, cầu thiện hộ trì và cầu thiện hỗ trợ, đều không bằng không quên chánh niệm."
+    },
+    {
+     "n": 89,
+     "text": "Không quên chánh niệm thì giặc phiền não hết cách xâm nhập tâm trí."
+    },
+    {
+     "n": 90,
+     "text": "Thế nên các thầy hãy luôn luôn tập trung chánh niệm lại nơi tâm trí."
+    },
+    {
+     "n": 91,
+     "text": "Mất chánh niệm thì mất công đức. Nếu chánh niệm có sức lực vững mạnh thì dầu phải vào trong đám giặc ngũ dục, cũng không bị chúng sát hại, tựa như tướng sĩ lâm trận mà mặt áo giáp lát đồng, thì không còn sợ hải gì nữa."
+    },
+    {
+     "n": 92,
+     "text": "Đó là hạnh không quên chánh niệm."
+    },
+    {
+     "n": 93,
+     "text": "Các thầy Tỷ kheo, tập trung tâm lại thì tâm sẽ ở trong thiền định."
+    },
+    {
+     "n": 94,
+     "text": "Tâm ở trong thiền định thì có thể thấu triệt trạng thái chuyển biến của vũ trụ."
+    },
+    {
+     "n": 95,
+     "text": "Vì thế mà các thầy phải luôn luôn tinh tiến, nỗ lực thực tập thiền định."
+    },
+    {
+     "n": 96,
+     "text": "Thiền định được thì tâm hết tán loạn. Tiếc nước thì phải đắp đê sửa bờ cho khéo, hành giả cũng vậy, hãy vì nước trí tuệ mà thực tập thiền định để giữ cho nó khỏi chảy mất. Đó là hạnh thiền định."
+    },
+    {
+     "n": 97,
+     "text": "Các thầy Tỷ kheo, có trí tuệ thì hết đam mê, luôn luôn tự thức tỉnh và tự dò xét, không để lầm lỗi có thể có được, như thế là trong chánh pháp của Như Lai, người ấy có khả năng thực hiện giải thoát."
+    },
+    {
+     "n": 98,
+     "text": "Không như thế thì đã không phải xuất gia, lại không phải thế tục, không còn biết còn gọi là gì."
+    },
+    {
+     "n": 99,
+     "text": "Trí tuệ chân thật là chiếc thuyền chắc nhất vượt biển sinh lão bệnh tử, là ngọn đèn sáng nhất đối với ám vô minh, là thần dược cho mọi kẻ bệnh tật, là búa sắc chặt cây phiền não."
+    },
+    {
+     "n": 100,
+     "text": "Vì thế mà các thầy hãy dùng cái tuệ văn tư tu chứng để tự tăng tiến ích lợi."
+    },
+    {
+     "n": 101,
+     "text": "Có trí tuệ soi chiếu, thì dẫu mắt thịt, cũng vẫn là kẻ thấy rõ nhất. Đó là hạnh trí tuệ."
+    },
+    {
+     "n": 102,
+     "text": "Các thầy Tỷ kheo, nếu hý luận đủ thứ thì tâm rối loạn."
+    },
+    {
+     "n": 103,
+     "text": "Như vậy, tuy đã xuất gia mà chưa được siêu thoát."
+    },
+    {
+     "n": 104,
+     "text": "Thế nên, các thầy Tỷ kheo, hãy từ bỏ tức khắc sự hý luận rối loạn tâm trí."
+    },
+    {
+     "n": 105,
+     "text": "Các thầy muốn thực hiện cái vui tịch diệt, thì chỉ có cách cấp tốc diệt trừ cái hoạ hý luận. Đó là hạnh không hý luận."
+    },
+    {
+     "n": 106,
+     "text": "Các thầy Tỷ kheo, đối với mọi thứ công đức, các thầy hãy thường xuyên nhất tâm tu tập, tránh sự phóng dật như tránh giặc thù."
+    },
+    {
+     "n": 107,
+     "text": "Thể hiện lòng đại bi, Như Lai đã nói chánh pháp ích lợi một cách cứu cánh."
+    },
+    {
+     "n": 108,
+     "text": "Các thầy chỉ còn nỗ lực mà thực hành. Hoặc trong rừng núi, hoặc cạnh đầm vắng, hoặc dưới đại thọ, các thầy hãy ở một cách thư thái, trong tịnh thất nhỏ, nhớ và chiêm nghiệm chánh pháp đã tiếp nhận, đừng để quên mất."
+    },
+    {
+     "n": 109,
+     "text": "Hãy tự cố gắng một cách thường trực, tinh tiến mà tu tập, đừng để đời mình sẽ chết đi một cách vô ích, và sau này sẽ phải lo sợ hối hận."
+    },
+    {
+     "n": 110,
+     "text": "Như Lai như vị lương y, biết bệnh mà chỉ thuốc, còn uống hay không, không phải lỗi của lương y."
+    },
+    {
+     "n": 111,
+     "text": "Lại như người dẫn đường rất tốt, chỉ dẫn đường tốt cho người, nhưng nghe rồi mà không đi, thì không phải lỗi của người dẫn đường."
+    },
+    {
+     "n": 112,
+     "text": "Các thầy Tỷ kheo, đối với bốn chân lý, các thầy còn hoài nghi chỗ nào thì có thể chất vấn tức khắc, không được giữ sự hoài nghi mà không cầu giải đáp."
+    },
+    {
+     "n": 113,
+     "text": "Thế tôn nói lên ba lần như vậy, nhưng không ai chất vấn."
+    },
+    {
+     "n": 114,
+     "text": "Vì lẻ chư Tăng không có ai còn hoài nghi gì nữa."
+    },
+    {
+     "n": 115,
+     "text": "Bấy giờ đức tôn giả A Nâu Lâu Đà quán sát tâm trí chư Tăng, rồi thưa với Ngài, bạch đức Thế Tôn, mặt trăng có thể làm cho nó nóng lên, mặt trời có thể làm cho lạnh đi,"
+    },
+    {
+     "n": 116,
+     "text": "nhưng bốn chân lý mà đức Thế Tôn đã dạy thì không thể cho khác đi được."
+    },
+    {
+     "n": 117,
+     "text": "Ngài dạy khổ thì thật là khổ, không thể làm cho vui lên ; tập là nguyên nhân của khổ, thì không còn có nguyên nhân nào khác nữa ; diệt là khổ diệt vì nguyên nhân đã diệt, mà nguyên nhân diệt thì kết quả cũng diệt ;"
+    },
+    {
+     "n": 118,
+     "text": "đạo là phương pháp diệt khổ nên thật là đạo, không có đạo nào khác hơn."
+    },
+    {
+     "n": 119,
+     "text": "Bạch đức Thế tôn, đối với bốn chân lý, các vị Tỷ kheo đây đã quyết định, không còn hoài nghi gì nữa."
+    },
+    {
+     "n": 120,
+     "text": "Chư Tăng lúc ấy, những người tu học chưa hoàn tất, thì thấy Phật diệt độ hãy còn bi cảm."
+    },
+    {
+     "n": 121,
+     "text": "Những người mới vào chánh pháp, nghe Phật liền được hoá độ, như trong đêm tối mà mà điện chớp sáng là thấy ngay đường đi."
+    },
+    {
+     "n": 122,
+     "text": "Còn những người tu tập đã hoàn tất, đã vượt qua biển khổ, thì chỉ nghĩ rằng, Thế Tôn diệt độ sao mà mau chóng như vậy."
+    },
+    {
+     "n": 123,
+     "text": "Do đó tôn giả A Nâu Lâu Đà tuy đã bạch Phật, rằng chư Tăng ai cũng thấu triệt bốn chân lý, nhưng đức Thế Tôn muốn làm cho tất cả đều được kiên định, nên vẫn đem tâm đại bi mà huấn dụ thêm nữa."
+    },
+    {
+     "n": 124,
+     "text": "Các thầy Tỷ kheo, không nên buồn rầu. Nếu Như Lai ở đời lâu đến một đại kiếp đi nữa, thì sự kết hợp nào rồi cũng phải tan rã."
+    },
+    {
+     "n": 125,
+     "text": "Kết hợp mà không tan rã là điều không thể có được."
+    },
+    {
+     "n": 126,
+     "text": "Chánh pháp tự lợi lợi tha đã có đầy đủ.Như Lai sống cho lâu cũng không còn ích lợi gì nữa."
+    },
+    {
+     "n": 127,
+     "text": "Ai có khả năng tiếp nhận hoá độ, thì ở trên chư thiên hay ở trong nhân loại, Như Lai đã hoá độ tất cả."
+    },
+    {
+     "n": 128,
+     "text": "Ai chưa thể tiếp nhận hoá độ, thì Như Lai cũng đã tạo yếu tố hoá độ cho họ."
+    },
+    {
+     "n": 129,
+     "text": "Từ nay về sau, đệ tử của Như Lai hãy triển chuyển thực hành."
+    },
+    {
+     "n": 130,
+     "text": "Như thế là pháp thân của Như Lai thường trú bất diệt."
+    },
+    {
+     "n": 131,
+     "text": "Thế nên, các thầy Tỷ kheo, phải ý thức toàn bộ cuộc đời là chuyển biến vô thường, có kết hợp thì có tan rã, đừng lo buồn gì cả."
+    },
+    {
+     "n": 132,
+     "text": "Ngược lại, cuộc đời như thế thì các thầy phải nỗ lực tinh tiến để sớm cầu tự độ, đem ánh sáng trí tuệ diệt trừ hắc ám vô minh."
+    },
+    {
+     "n": 133,
+     "text": "Vũ trụ quả thật mong manh, không một thứ chi bền bỉ."
+    },
+    {
+     "n": 134,
+     "text": "Như Lai được diệt độ thì cũng như trừ được cơn bệnh khủng khiếp."
+    },
+    {
+     "n": 135,
+     "text": "Đây là vật tội ác và đáng bỏ, giả hiệu là thân thể mà lại chìm ngập trong biển cả già bệnh sống chết, như thế người có trí tuệ ai lại không hoan hỷ khi trừ bỏ được thân này như trừ bỏ kẻ thù?"
+    },
+    {
+     "n": 136,
+     "text": "Các thầy Tỷ kheo, hãy thường nhất tâm, nỗ lực cần cầu tuệ giác giải thoát."
+    },
+    {
+     "n": 137,
+     "text": "Toàn thể vũ trụ, dầu pháp biến động hay pháp bất động, đều là trạng thái bất an và tan rã."
+    },
+    {
+     "n": 138,
+     "text": "Thôi, các thầy hãy yên lặng, không nên nói nữa."
+    },
+    {
+     "n": 139,
+     "text": "Thì giờ sắp hết, Như Lai muốn diệt độ. Trên đây là những lời giáo huấn tối hậu của Như Lai."
+    }
+   ]
+  }
+ ]
+}

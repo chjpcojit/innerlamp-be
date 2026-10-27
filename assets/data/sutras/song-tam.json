@@ -1,0 +1,1233 @@
+{
+ "id": "song-tam",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 19",
+ "summary": "Kinh trong Trung Bộ (MN 19), Thế Tôn kể lại cho các Tỷ-kheo thời còn là Bồ-tát: Ngài chia các tư duy thành hai phần, tầm thiện (ly dục, vô sân, vô hại) và tầm bất thiện (dục, sân, hại). Ngài dạy cách nhận ra tầm bất thiện, soi xét tác hại và đoạn trừ, rồi khuyên thiền định, không phóng dật.",
+ "titles": {
+  "vi": "Kinh Song tầm",
+  "pli": "Dvedhāvitakkasutta",
+  "en": "Two Kinds of Thought"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 35,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn19/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe như vầy:"
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn ở Sāvatthi (Xá-vệ), tại Jetavana (Kỳ-đà Lâm), vườn ông Anāthapiṇḍika (Cấp Cô Độc)."
+    },
+    {
+     "n": 3,
+     "text": "Tại đây, Thế Tôn gọi các Tỷ-kheo: “Chư Tỷ-kheo”.:” Thưa vâng”, các Tỷ-kheo ấy vâng đáp Thế Tôn. Thế Tôn thuyết giảng như sau"
+    },
+    {
+     "n": 4,
+     "text": "—Chư Tỷ-kheo, trước khi Ta giác ngộ, khi chưa thành Chánh Giác và còn là Bồ-tát, Ta suy nghĩ như sau: “Ta sống suy tư và chia hai suy tầm”."
+    },
+    {
+     "n": 5,
+     "text": "Chư Tỷ-kheo, phàm có dục tầm nào, sân tầm nào, hại tầm nào, Ta phân thành phần thứ nhất; phàm có ly dục tầm nào, vô sân tầm nào, vô hại tầm nào, Ta phân thành phần thứ hai."
+    },
+    {
+     "n": 6,
+     "text": "Chư Tỷ-kheo, rồi Ta sống không phóng dật, nhiệt tâm, tinh cần."
+    },
+    {
+     "n": 7,
+     "text": "Khi dục tầm khởi lên, Ta tuệ tri: “Dục tầm này khởi lên nơi Ta, và dục tầm này đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai, diệt trí tuệ, dự phần vào phiền não, không đưa đến Niết-bàn”."
+    },
+    {
+     "n": 8,
+     "text": "Chư Tỷ-kheo, khi Ta suy tư: “Dục tầm này đưa đến tự hại”, dục tầm được biến mất, Chư Tỷ-kheo, khi Ta suy tư: “Dục tầm đưa đến hại người”, dục tầm được biến mất."
+    },
+    {
+     "n": 9,
+     "text": "Chư Tỷ-kheo, khi Ta suy tư: “Dục tầm đưa đến hại cả hai”, dục tầm được biến mất."
+    },
+    {
+     "n": 10,
+     "text": "Chư Tỷ-kheo, khi Ta suy tư: “Dục tầm diệt trí tuệ, dự phần vào phiền não, không đưa đến Niết-bàn”, dục tầm được biến mất."
+    },
+    {
+     "n": 11,
+     "text": "Chư Tỷ-kheo, như vậy Ta tiếp tục trừ bỏ, xả ly và đoạn tận dục tầm."
+    },
+    {
+     "n": 12,
+     "text": "Chư Tỷ-kheo, trong khi Ta sống không phóng dật, nhiệt tâm, tinh cần, sân tầm khởi lên … (như trên) … hại tầm khởi lên."
+    },
+    {
+     "n": 13,
+     "text": "Ta tuệ tri: “Hại tầm này khởi lên nơi Ta, và hại tầm này đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai, diệt trí tuệ, dự phần vào phiền não, không đưa đến Niết-bàn”."
+    },
+    {
+     "n": 14,
+     "text": "Chư Tỷ-kheo, khi Ta suy tư: “Hại tầm này đưa đến tự hại” …"
+    },
+    {
+     "n": 15,
+     "text": "“Hại tầm diệt trí tuệ, dự phần vào phiền não, không đưa đến Niết-bàn”, hại tầm biến mất."
+    },
+    {
+     "n": 16,
+     "text": "Chư Tỷ-kheo, như vậy Ta tiếp tục trừ bỏ, xả ly và đoạn tận hại tầm."
+    },
+    {
+     "n": 17,
+     "text": "Chư Tỷ-kheo, Tỷ-kheo suy tư, quán sát nhiều vấn đề gì, thời tâm sanh khuynh hướng đối với vấn đề ấy."
+    },
+    {
+     "n": 18,
+     "text": "Chư Tỷ-kheo, nếu Tỷ-kheo suy tư, quán sát nhiều về dục tầm, vị ấy từ bỏ ly dục tầm."
+    },
+    {
+     "n": 19,
+     "text": "Khi tâm đã nặng về dục tầm, thời tâm vị ấy có khuynh hướng về dục tầm."
+    },
+    {
+     "n": 20,
+     "text": "Chư Tỷ-kheo, nếu Tỷ-kheo suy tư quán sát nhiều về sân tầm …"
+    },
+    {
+     "n": 21,
+     "text": "(như trên) … về hại tầm, vị ấy từ bỏ vô hại tầm."
+    },
+    {
+     "n": 22,
+     "text": "Khi tâm đã đặt nặng về hại tầm thời tâm vị ấy có khuynh hướng về hại tầm."
+    },
+    {
+     "n": 23,
+     "text": "Chư Tỷ-kheo, ví như vào cuối tháng mùa mưa, về mùa thu, khi lúa đã trổ hạt, một người mục đồng chăn giữ bò, cầm roi đánh các con bò bên này, đánh bên kia, chế ngự chúng, ngăn chận chúng. Vì sao vậy?"
+    },
+    {
+     "n": 24,
+     "text": "Chư Tỷ-kheo, vì người mục đồng thấy do nhân duyên này, đưa đến sự chết, sự tù tội, sự đánh đập hay sự trách móc."
+    },
+    {
+     "n": 25,
+     "text": "Chư Tỷ-kheo, cũng vậy, Ta đã thấy sự nguy hại, sự hạ liệt, sự uế nhiễm của các pháp bất thiện, và thấy sự viễn ly, sự lợi ích, sự thanh tịnh của các thiện pháp."
+    },
+    {
+     "n": 26,
+     "text": "Chư Tỷ-kheo, trong khi Ta sống không phóng dật, nhiệt tâm, tinh cần như vậy, khi ly dục tầm khởi lên, Ta tuệ tri như vầy:"
+    },
+    {
+     "n": 27,
+     "text": "“Ly dục tầm này khởi lên nơi Ta và ly dục tầm này không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai, tăng trưởng trí tuệ, không dự phần vào phiền não, đưa đến Niết-bàn”."
+    },
+    {
+     "n": 28,
+     "text": "Chư Tỷ-kheo, nếu ban đêm Ta suy tư, quán sát (về ly dục tầm) không phải từ nhân duyên ấy Ta thấy sợ hãi."
+    },
+    {
+     "n": 29,
+     "text": "Chư Tỷ-kheo, nếu ban ngày Ta suy tư, quán sát (về ly dục tầm), không phải từ nhân duyên ấy Ta thấy sợ hãi."
+    },
+    {
+     "n": 30,
+     "text": "Chư Tỷ-kheo, nếu ban đêm, ban ngày, Ta suy tư, quán sát (về ly dục tầm), không phải từ nhân duyên ấy Ta thấy sợ hãi."
+    },
+    {
+     "n": 31,
+     "text": "Và Ta suy tư, quán sát quá lâu, thân Ta có thể mệt mỏi; khi thân mệt mỏi thì tâm bị dao động; khi tâm bị dao động thì tâm rất khó được định tĩnh."
+    },
+    {
+     "n": 32,
+     "text": "Chư Tỷ-kheo, rồi tự nội thân Ta trấn an tâm, trấn tịnh tâm, khiến được nhất tâm, khiến thành định tĩnh. Vì sao vậy? Vì để tâm Ta khỏi dao động."
+    },
+    {
+     "n": 33,
+     "text": "Chư Tỷ-kheo, trong khi Ta sống không phóng dật, nhiệt tâm, tinh cần như vậy, khi vô sân tầm khởi lên … (như trên) … vô hại tầm khởi lên."
+    },
+    {
+     "n": 34,
+     "text": "Ta tuệ tri như vậy: “Vô hại tầm này khởi lên nơi Ta và vô hại tầm này không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai, tăng trưởng trí tuệ, không dự phần vào phiền não, đưa đến Niết-bàn”."
+    },
+    {
+     "n": 35,
+     "text": "Chư Tỷ-kheo, nếu ban đêm … không phải từ nhân duyên ấy, mà Ta thấy sợ hãi."
+    },
+    {
+     "n": 36,
+     "text": "Và nếu Ta suy tư, quán sát quá lâu, thân Ta có thể mệt mỏi; khi thân mệt mỏi thì tâm bị dao động, khi tâm bị dao động, tâm rất khó được định tĩnh."
+    },
+    {
+     "n": 37,
+     "text": "Chư Tỷ-kheo, rồi tự nội thân Ta trấn an tâm, trấn tịnh tâm, khiến được nhất tâm, khiến thành định tĩnh. Vì sao vậy? Vì để tâm Ta khỏi dao động."
+    },
+    {
+     "n": 38,
+     "text": "Chư Tỷ-kheo, nếu vị Tỷ-kheo suy tư, quán sát nhiều về vấn đề gì thời tâm sanh khuynh hướng đối với vấn đề ấy."
+    },
+    {
+     "n": 39,
+     "text": "Chư Tỷ-kheo, nếu Tỷ-kheo suy tư, quán sát nhiều về ly dục tầm, vị ấy từ bỏ dục tầm."
+    },
+    {
+     "n": 40,
+     "text": "Khi tâm đã đặt nặng về ly dục tầm, tâm vị ấy có khuynh hướng về ly dục tầm."
+    },
+    {
+     "n": 41,
+     "text": "Chư Tỷ-kheo, nếu Tỷ-kheo suy tư, quán sát nhiều về vô sân tầm …"
+    },
+    {
+     "n": 42,
+     "text": "(như trên) … nếu Tỷ-kheo suy tư, quán sát nhiều về bất hại tầm, vị ấy từ bỏ hại tầm."
+    },
+    {
+     "n": 43,
+     "text": "Khi tâm đã đặt nặng về bất hại tầm, thời tâm vị ấy có khuynh hướng về bất hại tầm."
+    },
+    {
+     "n": 44,
+     "text": "Chư Tỷ-kheo, ví như vào cuối tháng hè, khi tất cả lúa gạo đã cất vào kho thóc, một người mục đồng chăn giữ các con bò."
+    },
+    {
+     "n": 45,
+     "text": "Khi người mục đồng ở dưới gốc cây hay ở ngoài trời, người ấy có thể nghĩ đến có việc cần phải làm, và người ấy nghĩ: “Đây là những con bò”."
+    },
+    {
+     "n": 46,
+     "text": "Chư Tỷ-kheo, cũng vậy ở đây, có việc cần phải làm, và Ta nghĩ: “Đây là những pháp”."
+    },
+    {
+     "n": 47,
+     "text": "Chư Tỷ-kheo, Ta phát tâm dõng mãnh, tinh tấn, không có tiêu cực, niệm không tán loạn được an trú, thân được khinh an, không có cuồng nhiệt, tâm được định tĩnh nhất tâm."
+    },
+    {
+     "n": 48,
+     "text": "Chư Tỷ-kheo, Ta ly dục, ly ác, bất thiện pháp, chứng và trú Thiền thứ nhất, một trạng thái hỷ lạc do ly dục sanh, có tầm, có tứ."
+    },
+    {
+     "n": 49,
+     "text": "Diệt tầm và tứ, Ta chứng và trú Thiền thứ hai, một trạng thái hỷ lạc do định sanh, không tầm không tứ, nội tĩnh nhất tâm."
+    },
+    {
+     "n": 50,
+     "text": "Ly hỷ trú xả, chánh niệm tỉnh giác, thân cảm sự lạc thọ mà các bậc Thánh gọi là xả niệm lạc trú, Ta chứng và an trú Thiền thứ ba."
+    },
+    {
+     "n": 51,
+     "text": "Xả lạc xả khổ, diệt hỷ ưu đã cảm thọ trước, Ta chứng và trú Thiền thứ tư, không khổ, không lạc, xả niệm thanh tịnh."
+    },
+    {
+     "n": 52,
+     "text": "Với tâm định tĩnh, thuần tịnh, không cấu nhiễm, không phiền não, nhu nhuyến, dễ sử dụng, vững chắc, bình thản như vậy, Ta dẫn tâm, hướng tâm đến túc mạng trí."
+    },
+    {
+     "n": 53,
+     "text": "Ta nhớ đến các đời sống quá khứ, như một đời, hai đời, ba đời, bốn đời, năm đời, mười đời, hai mươi đời, ba mươi đời, bốn mươi đời, năm mươi đời, một trăm đời, hai trăm đời, một ngàn đời, một trăm ngàn đời,"
+    },
+    {
+     "n": 54,
+     "text": "nhiều hoại kiếp, nhiều thành kiếp, nhiều hoại và thành kiếp."
+    },
+    {
+     "n": 55,
+     "text": "Ta nhớ rằng: “Tại chỗ kia, Ta có tên như thế này, dòng họ như thế này, giai cấp như thế này, các món ăn như thế này, thọ khổ lạc như thế này, tuổi thọ đến mức như thế này."
+    },
+    {
+     "n": 56,
+     "text": "Sau khi chết tại chỗ kia, Ta được sanh ra tại chỗ này."
+    },
+    {
+     "n": 57,
+     "text": "Tại chỗ này, Ta có tên như thế này, dòng họ như thế này, giai cấp như thế này, các món ăn như thế này, thọ khổ lạc như thế này, tuổi thọ đến mức như thế này."
+    },
+    {
+     "n": 58,
+     "text": "Sau khi chết tại chỗ này, Ta được sanh ra ở đây”."
+    },
+    {
+     "n": 59,
+     "text": "Như vậy Ta nhớ đến nhiều đời sống quá khứ cùng với các nét đại cương và các chi tiết."
+    },
+    {
+     "n": 60,
+     "text": "Chư Tỷ-kheo, trong đêm canh đầu Ta chứng được minh thứ nhất, vô minh diệt, minh sanh; bóng tối diệt, ánh sáng sanh, trong khi Ta sống không phóng dật, nhiệt tâm, tinh cần."
+    },
+    {
+     "n": 61,
+     "text": "Với tâm định tĩnh, thuần tịnh, không cấu nhiễm, không phiền não, nhu nhuyến, dễ sử dụng, vững chắc, bình thản như vậy, Ta dẫn tâm, hướng tâm đến sanh tử trí về chúng sanh."
+    },
+    {
+     "n": 62,
+     "text": "Ta với thiên nhãn thuần tịnh siêu nhân, thấy sự sống và sự chết của chúng sanh."
+    },
+    {
+     "n": 63,
+     "text": "Ta tuệ tri rằng, chúng sanh người hạ liệt, kẻ cao sang, người đẹp đẽ, kẻ thô xấu, người may mắn, kẻ bất hạnh, đều do hạnh nghiệp của họ."
+    },
+    {
+     "n": 64,
+     "text": "Những chúng sanh làm những ác hạnh về thân, ác hạnh về lời nói, ác hạnh về ý, phỉ báng các bậc Thánh, theo tà kiến, tạo các nghiệp theo tà kiến."
+    },
+    {
+     "n": 65,
+     "text": "Những người này, sau khi thân hoại mạng chung, phải sanh vào cõi dữ, ác thú, đọa xứ, địa ngục."
+    },
+    {
+     "n": 66,
+     "text": "Còn những chúng sanh nào thành tựu những thiện hạnh về thân, thành tựu những thiện hạnh về lời nói, thành tựu những thiện hạnh về ý, không phỉ báng các bậc Thánh, theo chánh kiến, tạo các nghiệp theo chánh kiến,"
+    },
+    {
+     "n": 67,
+     "text": "những người này, sau khi thân hoại mạng chung, được sanh lên các thiện thú, cõi Trời, trên đời này."
+    },
+    {
+     "n": 68,
+     "text": "Như vậy với thiên nhãn thuần tịnh siêu nhân, Ta thấy sự sống chết của chúng sanh."
+    },
+    {
+     "n": 69,
+     "text": "Ta tuệ tri rằng, chúng sanh, người hạ liệt, kẻ cao sang, người đẹp đẽ, kẻ thô xấu, người may mắn, kẻ bất hạnh, đều do hạnh nghiệp của họ."
+    },
+    {
+     "n": 70,
+     "text": "Chư Tỷ-kheo, trong đêm canh giữa, Ta chứng được minh thứ hai, vô minh diệt, minh sanh; bóng tối diệt, ánh sáng sanh, trong khi Ta sống không phóng dật, nhiệt tâm, tinh cần."
+    },
+    {
+     "n": 71,
+     "text": "Với tâm định tĩnh, thuần tịnh, không cấu nhiễm, không phiền não, nhu nhuyến, dễ sử dụng, vững chắc, bình thản như vậy, Ta dẫn tâm, hướng tâm đến lậu tận trí."
+    },
+    {
+     "n": 72,
+     "text": "Ta thắng tri như thật: “Đây là khổ”, thắng tri như thật: “Đây là nguyên nhân của khổ”, thắng tri như thật: “Đây là khổ diệt”, thắng tri như thật: “Đây là con đường đưa đến khổ diệt”, thắng tri như thật:"
+    },
+    {
+     "n": 73,
+     "text": "“Đây là những lậu hoặc”, thắng tri như thật: “Đây là nguyên nhân các lậu hoặc”, thắng tri như thật: “Đây là các lậu hoặc diệt”, thắng tri như thật: “Đây là con đường đưa đến các lậu hoặc diệt”."
+    },
+    {
+     "n": 74,
+     "text": "Nhờ biết như vậy, nhờ thấy như vậy, tâm của Ta thoát khỏi dục lậu, thoát khỏi hữu lậu, thoát khỏi vô minh lậu."
+    },
+    {
+     "n": 75,
+     "text": "Đối với tự thân đã giải thoát như vậy, khởi lên trí hiểu biết: Ta đã giải thoát."
+    },
+    {
+     "n": 76,
+     "text": "Ta đã thắng tri: “Sanh đã tận, phạm hạnh đã thành, việc cần làm đã làm, không còn trở lui trạng thái này nữa”."
+    },
+    {
+     "n": 77,
+     "text": "Chư Tỷ-kheo, trong đêm canh ba, Ta chứng được minh thứ ba, vô minh diệt, minh sanh; bóng tối diệt, ánh sáng sanh, trong khi Ta sống không phóng dật nhiệt tâm tinh cần."
+    },
+    {
+     "n": 78,
+     "text": "Chư Tỷ-kheo, giống như trong khu rừng rậm rạp có một hồ nước lớn thâm sâu, và một đoàn nai lớn sống gần một bên."
+    },
+    {
+     "n": 79,
+     "text": "Có một người đến, không muốn chúng được lợi ích, không muốn chúng được hạnh phúc, không muốn chúng được an ổn khỏi các ách nạn."
+    },
+    {
+     "n": 80,
+     "text": "Nếu có con đường nào được yên ổn, được an toàn, đưa đến hoan hỷ, người ấy sẽ chận đóng con đường này lại, sẽ mở con đường nguy hiểm, sẽ đặt con mồi đực, sẽ đặt con mồi cái."
+    },
+    {
+     "n": 81,
+     "text": "Chư Tỷ-kheo, như vậy, sau một thời gian đoàn nai lớn ấy gặp ách nạn và hao mòn dần."
+    },
+    {
+     "n": 82,
+     "text": "Chư Tỷ-kheo, có một người đến, muốn đoàn nai ấy được lợi ích, muốn chúng được hạnh phúc, muốn chúng được an ổn khỏi các ách nạn."
+    },
+    {
+     "n": 83,
+     "text": "Nếu có con đường nào được yên ổn, được an toàn, người ấy sẽ mở con đường này, sẽ đóng con đường nguy hiểm lại, sẽ đem con mồi đực đi, sẽ hủy bỏ con mồi cái."
+    },
+    {
+     "n": 84,
+     "text": "Chư Tỷ-kheo, như vậy đoàn nai lớn ấy sau một thời gian sẽ được tăng trưởng, hưng thịnh, thành mãn."
+    },
+    {
+     "n": 85,
+     "text": "Chư Tỷ-kheo, Ta nói ví dụ ấy để giải thích ý nghĩa như sau: Chư Tỷ-kheo, hồ nước lớn, thâm sâu chỉ cho các dục."
+    },
+    {
+     "n": 86,
+     "text": "Chư Tỷ-kheo, đoàn nai lớn chỉ cho các loài hữu tình."
+    },
+    {
+     "n": 87,
+     "text": "Chư Tỷ-kheo, con người không muốn chúng được lợi ích, không muốn chúng được hạnh phúc, không muốn chúng được an ổn khỏi các ách nạn chỉ cho ác ma."
+    },
+    {
+     "n": 88,
+     "text": "Chư Tỷ-kheo, con đường nguy hiểm chỉ cho con đường tà đạo có tám ngành, tức là tà tri kiến, tà tư duy, tà ngữ, tà nghiệp, tà mạng, tà tinh tấn, tà niệm, tà định."
+    },
+    {
+     "n": 89,
+     "text": "Chư Tỷ-kheo, con mồi đực chỉ cho hỷ và tham."
+    },
+    {
+     "n": 90,
+     "text": "Chư Tỷ-kheo, con mồi cái chỉ cho vô minh."
+    },
+    {
+     "n": 91,
+     "text": "Chư Tỷ-kheo, còn người muốn chúng được lợi ích, muốn chúng được hạnh phúc, muốn chúng được an ổn khỏi các ách nạn chỉ cho Như Lai, bậc A-la-hán, Chánh Đẳng Giác."
+    },
+    {
+     "n": 92,
+     "text": "Con đường yên ổn, an toàn, đưa đến hoan hỷ chỉ cho con đường Thánh đạo Tám ngành, tức là Chánh tri kiến, Chánh tư duy, Chánh ngữ, Chánh nghiệp, Chánh mạng, Chánh tinh tấn, Chánh niệm, Chánh định."
+    },
+    {
+     "n": 93,
+     "text": "Chư Tỷ-kheo, như vậy Ta mở con đường yên ổn, an toàn, đưa đến hoan hỷ, Ta đóng con đường nguy hiểm, Ta mang đi con mồi đực, Ta hủy bỏ con mồi cái."
+    },
+    {
+     "n": 94,
+     "text": "Chư Tỷ-kheo, những gì vị Đạo Sư cần phải làm cho các đệ tử vì lòng thương tưởng họ, những điều ấy Ta đã làm, vì lòng thương tưởng các Người."
+    },
+    {
+     "n": 95,
+     "text": "Chư Tỷ-kheo, đây là các gốc cây, đây là các chỗ trống."
+    },
+    {
+     "n": 96,
+     "text": "Hãy Thiền định, chớ có phóng dật, chớ có hối tiếc về sau. Đó là lời giáo huấn của Ta."
+    },
+    {
+     "n": 97,
+     "text": "Thế Tôn thuyết giảng như vậy. Các Tỷ-kheo ấy hoan hỷ, tín thọ lời dạy của Thế Tôn."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn19/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Tatra kho bhagavā bhikkhū āmantesi: “bhikkhavo”ti."
+    },
+    {
+     "n": 3,
+     "text": "“Bhadante”ti te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“Pubbeva me, bhikkhave, sambodhā anabhisambuddhassa bodhisattasseva sato etadahosi: ‘yannūnāhaṁ dvidhā katvā dvidhā katvā vitakke vihareyyan’ti."
+    },
+    {
+     "n": 5,
+     "text": "So kho ahaṁ, bhikkhave, yo cāyaṁ kāmavitakko yo ca byāpādavitakko yo ca vihiṁsāvitakko— imaṁ ekaṁ bhāgamakāsiṁ; yo cāyaṁ nekkhammavitakko yo ca abyāpādavitakko yo ca avihiṁsāvitakko— imaṁ dutiyaṁ bhāgamakāsiṁ."
+    },
+    {
+     "n": 6,
+     "text": "Tassa mayhaṁ, bhikkhave, evaṁ appamattassa ātāpino pahitattassa viharato uppajjati kāmavitakko."
+    },
+    {
+     "n": 7,
+     "text": "So evaṁ pajānāmi: ‘uppanno kho me ayaṁ kāmavitakko."
+    },
+    {
+     "n": 8,
+     "text": "So ca kho attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati, paññānirodhiko vighātapakkhiko anibbānasaṁvattaniko’."
+    },
+    {
+     "n": 9,
+     "text": "‘Attabyābādhāya saṁvattatī’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati; ‘parabyābādhāya saṁvattatī’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati;"
+    },
+    {
+     "n": 10,
+     "text": "‘ubhayabyābādhāya saṁvattatī’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati; ‘paññānirodhiko vighātapakkhiko anibbānasaṁvattaniko’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati."
+    },
+    {
+     "n": 11,
+     "text": "So kho ahaṁ, bhikkhave, uppannuppannaṁ kāmavitakkaṁ pajahameva vinodameva byantameva naṁ akāsiṁ."
+    },
+    {
+     "n": 12,
+     "text": "Tassa mayhaṁ, bhikkhave, evaṁ appamattassa ātāpino pahitattassa viharato uppajjati byāpādavitakko …pe… uppajjati vihiṁsāvitakko."
+    },
+    {
+     "n": 13,
+     "text": "So evaṁ pajānāmi: ‘uppanno kho me ayaṁ vihiṁsāvitakko."
+    },
+    {
+     "n": 14,
+     "text": "So ca kho attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati, paññānirodhiko vighātapakkhiko anibbānasaṁvattaniko’."
+    },
+    {
+     "n": 15,
+     "text": "‘Attabyābādhāya saṁvattatī’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati; ‘parabyābādhāya saṁvattatī’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati;"
+    },
+    {
+     "n": 16,
+     "text": "‘ubhayabyābādhāya saṁvattatī’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati; ‘paññānirodhiko vighātapakkhiko anibbānasaṁvattaniko’tipi me, bhikkhave, paṭisañcikkhato abbhatthaṁ gacchati."
+    },
+    {
+     "n": 17,
+     "text": "So kho ahaṁ, bhikkhave, uppannuppannaṁ vihiṁsāvitakkaṁ pajahameva vinodameva byantameva naṁ akāsiṁ."
+    },
+    {
+     "n": 18,
+     "text": "Yaññadeva, bhikkhave, bhikkhu bahulamanuvitakketi anuvicāreti, tathā tathā nati hoti cetaso."
+    },
+    {
+     "n": 19,
+     "text": "Kāmavitakkañce, bhikkhave, bhikkhu bahulamanuvitakketi anuvicāreti, pahāsi nekkhammavitakkaṁ, kāmavitakkaṁ bahulamakāsi, tassa taṁ kāmavitakkāya cittaṁ namati."
+    },
+    {
+     "n": 20,
+     "text": "Byāpādavitakkañce, bhikkhave …pe… vihiṁsāvitakkañce, bhikkhave, bhikkhu bahulamanuvitakketi anuvicāreti, pahāsi avihiṁsāvitakkaṁ, vihiṁsāvitakkaṁ bahulamakāsi, tassa taṁ vihiṁsāvitakkāya cittaṁ namati."
+    },
+    {
+     "n": 21,
+     "text": "Seyyathāpi, bhikkhave, vassānaṁ pacchime māse saradasamaye kiṭṭhasambādhe gopālako gāvo rakkheyya."
+    },
+    {
+     "n": 22,
+     "text": "So tā gāvo tato tato daṇḍena ākoṭeyya paṭikoṭeyya sannirundheyya sannivāreyya. Taṁ kissa hetu?"
+    },
+    {
+     "n": 23,
+     "text": "Passati hi so, bhikkhave, gopālako tatonidānaṁ vadhaṁ vā bandhanaṁ vā jāniṁ vā garahaṁ vā."
+    },
+    {
+     "n": 24,
+     "text": "Evameva kho ahaṁ, bhikkhave, addasaṁ akusalānaṁ dhammānaṁ ādīnavaṁ okāraṁ saṅkilesaṁ, kusalānaṁ dhammānaṁ nekkhamme ānisaṁsaṁ vodānapakkhaṁ."
+    },
+    {
+     "n": 25,
+     "text": "Tassa mayhaṁ, bhikkhave, evaṁ appamattassa ātāpino pahitattassa viharato uppajjati nekkhammavitakko."
+    },
+    {
+     "n": 26,
+     "text": "So evaṁ pajānāmi: ‘uppanno kho me ayaṁ nekkhammavitakko."
+    },
+    {
+     "n": 27,
+     "text": "So ca kho nevattabyābādhāya saṁvattati, na parabyābādhāya saṁvattati, na ubhayabyābādhāya saṁvattati, paññāvuddhiko avighātapakkhiko nibbānasaṁvattaniko’."
+    },
+    {
+     "n": 28,
+     "text": "Rattiñcepi naṁ, bhikkhave, anuvitakkeyyaṁ anuvicāreyyaṁ, neva tatonidānaṁ bhayaṁ samanupassāmi."
+    },
+    {
+     "n": 29,
+     "text": "Divasañcepi naṁ, bhikkhave, anuvitakkeyyaṁ anuvicāreyyaṁ, neva tatonidānaṁ bhayaṁ samanupassāmi."
+    },
+    {
+     "n": 30,
+     "text": "Rattindivañcepi naṁ, bhikkhave, anuvitakkeyyaṁ anuvicāreyyaṁ, neva tatonidānaṁ bhayaṁ samanupassāmi."
+    },
+    {
+     "n": 31,
+     "text": "Api ca kho me aticiraṁ anuvitakkayato anuvicārayato kāyo kilameyya."
+    },
+    {
+     "n": 32,
+     "text": "Kāye kilante cittaṁ ūhaññeyya. Ūhate citte ārā cittaṁ samādhimhāti."
+    },
+    {
+     "n": 33,
+     "text": "So kho ahaṁ, bhikkhave, ajjhattameva cittaṁ saṇṭhapemi sannisādemi ekodiṁ karomi samādahāmi. Taṁ kissa hetu? ‘Mā me cittaṁ ūhaññī’ti."
+    },
+    {
+     "n": 34,
+     "text": "Tassa mayhaṁ, bhikkhave, evaṁ appamattassa ātāpino pahitattassa viharato uppajjati abyāpādavitakko …pe… uppajjati avihiṁsāvitakko."
+    },
+    {
+     "n": 35,
+     "text": "So evaṁ pajānāmi: ‘uppanno kho me ayaṁ avihiṁsāvitakko."
+    },
+    {
+     "n": 36,
+     "text": "So ca kho nevattabyābādhāya saṁvattati, na parabyābādhāya saṁvattati, na ubhayabyābādhāya saṁvattati, paññāvuddhiko avighātapakkhiko nibbānasaṁvattaniko’."
+    },
+    {
+     "n": 37,
+     "text": "Rattiñcepi naṁ, bhikkhave, anuvitakkeyyaṁ anuvicāreyyaṁ, neva tatonidānaṁ bhayaṁ samanupassāmi."
+    },
+    {
+     "n": 38,
+     "text": "Divasañcepi naṁ, bhikkhave, anuvitakkeyyaṁ anuvicāreyyaṁ, neva tatonidānaṁ bhayaṁ samanupassāmi."
+    },
+    {
+     "n": 39,
+     "text": "Rattindivañcepi naṁ, bhikkhave, anuvitakkeyyaṁ anuvicāreyyaṁ, neva tatonidānaṁ bhayaṁ samanupassāmi."
+    },
+    {
+     "n": 40,
+     "text": "Api ca kho me aticiraṁ anuvitakkayato anuvicārayato kāyo kilameyya."
+    },
+    {
+     "n": 41,
+     "text": "Kāye kilante cittaṁ ūhaññeyya. Ūhate citte ārā cittaṁ samādhimhāti."
+    },
+    {
+     "n": 42,
+     "text": "So kho ahaṁ, bhikkhave, ajjhattameva cittaṁ saṇṭhapemi, sannisādemi, ekodiṁ karomi samādahāmi. Taṁ kissa hetu? ‘Mā me cittaṁ ūhaññī’ti."
+    },
+    {
+     "n": 43,
+     "text": "Yaññadeva, bhikkhave, bhikkhu bahulamanuvitakketi anuvicāreti, tathā tathā nati hoti cetaso."
+    },
+    {
+     "n": 44,
+     "text": "Nekkhammavitakkañce, bhikkhave, bhikkhu bahulamanuvitakketi anuvicāreti, pahāsi kāmavitakkaṁ, nekkhammavitakkaṁ bahulamakāsi, tassaṁ taṁ nekkhammavitakkāya cittaṁ namati."
+    },
+    {
+     "n": 45,
+     "text": "Abyāpādavitakkañce, bhikkhave …pe… avihiṁsāvitakkañce, bhikkhave, bhikkhu bahulamanuvitakketi anuvicāreti, pahāsi vihiṁsāvitakkaṁ, avihiṁsāvitakkaṁ bahulamakāsi, tassa taṁ avihiṁsāvitakkāya cittaṁ namati."
+    },
+    {
+     "n": 46,
+     "text": "Seyyathāpi, bhikkhave, gimhānaṁ pacchime māse sabbasassesu gāmantasambhatesu gopālako gāvo rakkheyya, tassa rukkhamūlagatassa vā abbhokāsagatassa vā satikaraṇīyameva hoti: ‘etā gāvo’ti."
+    },
+    {
+     "n": 47,
+     "text": "Evamevaṁ kho, bhikkhave, satikaraṇīyameva ahosi: ‘ete dhammā’ti."
+    },
+    {
+     "n": 48,
+     "text": "Āraddhaṁ kho pana me, bhikkhave, vīriyaṁ ahosi asallīnaṁ, upaṭṭhitā sati asammuṭṭhā, passaddho kāyo asāraddho, samāhitaṁ cittaṁ ekaggaṁ."
+    },
+    {
+     "n": 49,
+     "text": "So kho ahaṁ, bhikkhave, vivicceva kāmehi vivicca akusalehi dhammehi savitakkaṁ savicāraṁ vivekajaṁ pītisukhaṁ paṭhamaṁ jhānaṁ upasampajja vihāsiṁ."
+    },
+    {
+     "n": 50,
+     "text": "Vitakkavicārānaṁ vūpasamā ajjhattaṁ sampasādanaṁ cetaso ekodibhāvaṁ avitakkaṁ avicāraṁ samādhijaṁ pītisukhaṁ dutiyaṁ jhānaṁ upasampajja vihāsiṁ."
+    },
+    {
+     "n": 51,
+     "text": "Pītiyā ca virāgā upekkhako ca vihāsiṁ sato ca sampajāno, sukhañca kāyena paṭisaṁvedesiṁ, yaṁ taṁ ariyā ācikkhanti ‘upekkhako satimā sukhavihārī’ti, tatiyaṁ jhānaṁ upasampajja vihāsiṁ."
+    },
+    {
+     "n": 52,
+     "text": "Sukhassa ca pahānā dukkhassa ca pahānā pubbeva somanassadomanassānaṁ atthaṅgamā adukkhamasukhaṁ upekkhāsatipārisuddhiṁ catutthaṁ jhānaṁ upasampajja vihāsiṁ."
+    },
+    {
+     "n": 53,
+     "text": "So evaṁ samāhite citte parisuddhe pariyodāte anaṅgaṇe vigatūpakkilese mudubhūte kammaniye ṭhite āneñjappatte pubbenivāsānussatiñāṇāya cittaṁ abhininnāmesiṁ."
+    },
+    {
+     "n": 54,
+     "text": "So anekavihitaṁ pubbenivāsaṁ anussarāmi."
+    },
+    {
+     "n": 55,
+     "text": "Seyyathidaṁ—ekampi jātiṁ …pe… iti sākāraṁ sauddesaṁ anekavihitaṁ pubbenivāsaṁ anussarāmi."
+    },
+    {
+     "n": 56,
+     "text": "Ayaṁ kho me, bhikkhave, rattiyā paṭhame yāme paṭhamā vijjā adhigatā; avijjā vihatā vijjā uppannā; tamo vihato āloko uppanno; yathā taṁ appamattassa ātāpino pahitattassa viharato."
+    },
+    {
+     "n": 57,
+     "text": "So evaṁ samāhite citte parisuddhe pariyodāte anaṅgaṇe vigatūpakkilese mudubhūte kammaniye ṭhite āneñjappatte sattānaṁ cutūpapātañāṇāya cittaṁ abhininnāmesiṁ."
+    },
+    {
+     "n": 58,
+     "text": "So dibbena cakkhunā visuddhena atikkantamānusakena satte passāmi cavamāne upapajjamāne …pe… ime vata bhonto sattā kāyaduccaritena samannāgatā …pe… iti dibbena cakkhunā visuddhena atikkantamānusakena satte passāmi"
+    },
+    {
+     "n": 59,
+     "text": "cavamāne upapajjamāne hīne paṇīte suvaṇṇe dubbaṇṇe sugate duggate, yathākammūpage satte pajānāmi."
+    },
+    {
+     "n": 60,
+     "text": "Ayaṁ kho me, bhikkhave, rattiyā majjhime yāme dutiyā vijjā adhigatā; avijjā vihatā vijjā uppannā; tamo vihato āloko uppanno; yathā taṁ appamattassa ātāpino pahitattassa viharato."
+    },
+    {
+     "n": 61,
+     "text": "So evaṁ samāhite citte parisuddhe pariyodāte anaṅgaṇe vigatūpakkilese mudubhūte kammaniye ṭhite āneñjappatte āsavānaṁ khayañāṇāya cittaṁ abhininnāmesiṁ."
+    },
+    {
+     "n": 62,
+     "text": "So ‘idaṁ dukkhan’ti yathābhūtaṁ abbhaññāsiṁ, ‘ayaṁ dukkhasamudayo’ti yathābhūtaṁ abbhaññāsiṁ, ‘ayaṁ dukkhanirodho’ti yathābhūtaṁ abbhaññāsiṁ, ‘ayaṁ dukkhanirodhagāminī paṭipadā’ti yathābhūtaṁ abbhaññāsiṁ."
+    },
+    {
+     "n": 63,
+     "text": "‘Ime āsavā’ti yathābhūtaṁ abbhaññāsiṁ, ‘ayaṁ āsavasamudayo’ti yathābhūtaṁ abbhaññāsiṁ, ‘ayaṁ āsavanirodho’ti yathābhūtaṁ abbhaññāsiṁ, ‘ayaṁ āsavanirodhagāminī paṭipadā’ti yathābhūtaṁ abbhaññāsiṁ."
+    },
+    {
+     "n": 64,
+     "text": "Tassa me evaṁ jānato evaṁ passato kāmāsavāpi cittaṁ vimuccittha, bhavāsavāpi cittaṁ vimuccittha, avijjāsavāpi cittaṁ vimuccittha, vimuttasmiṁ vimuttamiti ñāṇaṁ ahosi:"
+    },
+    {
+     "n": 65,
+     "text": "‘khīṇā jāti, vusitaṁ brahmacariyaṁ, kataṁ karaṇīyaṁ, nāparaṁ itthattāyā’ti abbhaññāsiṁ."
+    },
+    {
+     "n": 66,
+     "text": "Ayaṁ kho me, bhikkhave, rattiyā pacchime yāme tatiyā vijjā adhigatā; avijjā vihatā vijjā uppannā; tamo vihato āloko uppanno; yathā taṁ appamattassa ātāpino pahitattassa viharato."
+    },
+    {
+     "n": 67,
+     "text": "Seyyathāpi, bhikkhave, araññe pavane mahantaṁ ninnaṁ pallalaṁ."
+    },
+    {
+     "n": 68,
+     "text": "Tamenaṁ mahāmigasaṅgho upanissāya vihareyya."
+    },
+    {
+     "n": 69,
+     "text": "Tassa kocideva puriso uppajjeyya anatthakāmo ahitakāmo ayogakkhemakāmo."
+    },
+    {
+     "n": 70,
+     "text": "So yvāssa maggo khemo sovatthiko pītigamanīyo taṁ maggaṁ pidaheyya, vivareyya kummaggaṁ, odaheyya okacaraṁ, ṭhapeyya okacārikaṁ."
+    },
+    {
+     "n": 71,
+     "text": "Evañhi so, bhikkhave, mahāmigasaṅgho aparena samayena anayabyasanaṁ āpajjeyya."
+    },
+    {
+     "n": 72,
+     "text": "Tasseva kho pana, bhikkhave, mahato migasaṅghassa kocideva puriso uppajjeyya atthakāmo hitakāmo yogakkhemakāmo."
+    },
+    {
+     "n": 73,
+     "text": "So yvāssa maggo khemo sovatthiko pītigamanīyo taṁ maggaṁ vivareyya, pidaheyya kummaggaṁ, ūhaneyya okacaraṁ, nāseyya okacārikaṁ."
+    },
+    {
+     "n": 74,
+     "text": "Evañhi so, bhikkhave, mahāmigasaṅgho aparena samayena vuddhiṁ virūḷhiṁ vepullaṁ āpajjeyya."
+    },
+    {
+     "n": 75,
+     "text": "Upamā kho me ayaṁ, bhikkhave, katā atthassa viññāpanāya."
+    },
+    {
+     "n": 76,
+     "text": "Ayaṁ cevettha attho— mahantaṁ ninnaṁ pallalanti kho, bhikkhave, kāmānametaṁ adhivacanaṁ."
+    },
+    {
+     "n": 77,
+     "text": "Mahāmigasaṅghoti kho, bhikkhave, sattānametaṁ adhivacanaṁ."
+    },
+    {
+     "n": 78,
+     "text": "Puriso anatthakāmo ahitakāmo ayogakkhemakāmoti kho, bhikkhave, mārassetaṁ pāpimato adhivacanaṁ."
+    },
+    {
+     "n": 79,
+     "text": "Kummaggoti kho, bhikkhave, aṭṭhaṅgikassetaṁ micchāmaggassa adhivacanaṁ, seyyathidaṁ— micchādiṭṭhiyā micchāsaṅkappassa micchāvācāya micchākammantassa micchāājīvassa micchāvāyāmassa micchāsatiyā micchāsamādhissa."
+    },
+    {
+     "n": 80,
+     "text": "Okacaroti kho, bhikkhave, nandīrāgassetaṁ adhivacanaṁ."
+    },
+    {
+     "n": 81,
+     "text": "Okacārikāti kho, bhikkhave, avijjāyetaṁ adhivacanaṁ."
+    },
+    {
+     "n": 82,
+     "text": "Puriso atthakāmo hitakāmo yogakkhemakāmoti kho, bhikkhave, tathāgatassetaṁ adhivacanaṁ arahato sammāsambuddhassa."
+    },
+    {
+     "n": 83,
+     "text": "Khemo maggo sovatthiko pītigamanīyoti kho, bhikkhave, ariyassetaṁ aṭṭhaṅgikassa maggassa adhivacanaṁ,"
+    },
+    {
+     "n": 84,
+     "text": "seyyathidaṁ— sammādiṭṭhiyā sammāsaṅkappassa sammāvācāya sammākammantassa sammāājīvassa sammāvāyāmassa sammāsatiyā sammāsamādhissa."
+    },
+    {
+     "n": 85,
+     "text": "Iti kho, bhikkhave, vivaṭo mayā khemo maggo sovatthiko pītigamanīyo, pihito kummaggo, ūhato okacaro, nāsitā okacārikā."
+    },
+    {
+     "n": 86,
+     "text": "Yaṁ, bhikkhave, satthārā karaṇīyaṁ sāvakānaṁ hitesinā anukampakena anukampaṁ upādāya, kataṁ vo taṁ mayā."
+    },
+    {
+     "n": 87,
+     "text": "Etāni, bhikkhave, rukkhamūlāni, etāni suññāgārāni; jhāyatha, bhikkhave, mā pamādattha; mā pacchā vippaṭisārino ahuvattha. Ayaṁ vo amhākaṁ anusāsanī”ti."
+    },
+    {
+     "n": 88,
+     "text": "Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṁ abhinandunti."
+    },
+    {
+     "n": 89,
+     "text": "Dvedhāvitakkasuttaṁ niṭṭhitaṁ navamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn19/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "There the Buddha addressed the mendicants, “Mendicants!”"
+    },
+    {
+     "n": 3,
+     "text": "“Venerable sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 4,
+     "text": "“Mendicants, before my awakening—when I was still unawakened but intent on awakening—I thought: ‘Why don’t I meditate by continually dividing my thoughts into two classes?’"
+    },
+    {
+     "n": 5,
+     "text": "So I assigned sensual, malicious, and cruel thoughts to one class."
+    },
+    {
+     "n": 6,
+     "text": "And I assigned thoughts of renunciation, good will, and harmlessness to the second class."
+    },
+    {
+     "n": 7,
+     "text": "Then, as I meditated—diligent, keen, and resolute—a sensual thought arose."
+    },
+    {
+     "n": 8,
+     "text": "I understood: ‘This sensual thought has arisen in me."
+    },
+    {
+     "n": 9,
+     "text": "It leads to hurting myself, hurting others, and hurting both."
+    },
+    {
+     "n": 10,
+     "text": "It blocks wisdom, it’s on the side of distress, and it doesn’t lead to extinguishment.’"
+    },
+    {
+     "n": 11,
+     "text": "When I reflected that it leads to hurting myself, it went away."
+    },
+    {
+     "n": 12,
+     "text": "When I reflected that it leads to hurting others, it went away."
+    },
+    {
+     "n": 13,
+     "text": "When I reflected that it leads to hurting both, it went away."
+    },
+    {
+     "n": 14,
+     "text": "When I reflected that it blocks wisdom, it’s on the side of distress, and it doesn’t lead to extinguishment, it went away."
+    },
+    {
+     "n": 15,
+     "text": "So I gave up, dispelled, and eliminated any sensual thoughts that arose."
+    },
+    {
+     "n": 16,
+     "text": "Then, as I meditated—diligent, keen, and resolute—a malicious thought arose … a cruel thought arose."
+    },
+    {
+     "n": 17,
+     "text": "I understood: ‘This cruel thought has arisen in me."
+    },
+    {
+     "n": 18,
+     "text": "It leads to hurting myself, hurting others, and hurting both."
+    },
+    {
+     "n": 19,
+     "text": "It blocks wisdom, it’s on the side of distress, and it doesn’t lead to extinguishment.’"
+    },
+    {
+     "n": 20,
+     "text": "When I reflected that it leads to hurting myself … hurting others … hurting both, it went away."
+    },
+    {
+     "n": 21,
+     "text": "When I reflected that it blocks wisdom, it’s on the side of distress, and it doesn’t lead to extinguishment, it went away."
+    },
+    {
+     "n": 22,
+     "text": "So I gave up, dispelled, and eliminated any cruel thoughts that arose."
+    },
+    {
+     "n": 23,
+     "text": "Whatever a mendicant frequently thinks about and considers becomes their heart’s inclination."
+    },
+    {
+     "n": 24,
+     "text": "If they often think about and consider sensual thoughts, they’ve given up the thought of renunciation to cultivate sensual thought."
+    },
+    {
+     "n": 25,
+     "text": "Their mind inclines to sensual thoughts."
+    },
+    {
+     "n": 26,
+     "text": "If they often think about and consider malicious thoughts … their mind inclines to malicious thoughts."
+    },
+    {
+     "n": 27,
+     "text": "If they often think about and consider cruel thoughts … their mind inclines to cruel thoughts."
+    },
+    {
+     "n": 28,
+     "text": "Suppose it’s the last month of the rainy season, in autumn, when the crops grow closely together, and a cowherd must take care of the cattle."
+    },
+    {
+     "n": 29,
+     "text": "He’d tap and poke them with his staff on this side and that to keep them in check. Why is that?"
+    },
+    {
+     "n": 30,
+     "text": "For he sees that if they wander into the crops he could be executed, imprisoned, fined, or condemned."
+    },
+    {
+     "n": 31,
+     "text": "In the same way, I saw that unskillful qualities have the drawbacks of sordidness and corruption, and that skillful qualities have the benefit and cleansing power of renunciation."
+    },
+    {
+     "n": 32,
+     "text": "Then, as I meditated—diligent, keen, and resolute—a thought of renunciation arose."
+    },
+    {
+     "n": 33,
+     "text": "I understood: ‘This thought of renunciation has arisen in me."
+    },
+    {
+     "n": 34,
+     "text": "It doesn’t lead to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 35,
+     "text": "It nourishes wisdom, it’s on the side of freedom from distress, and it leads to extinguishment.’"
+    },
+    {
+     "n": 36,
+     "text": "If I were to keep on thinking and considering this all night … all day … all night and day, I see no danger that would come from that."
+    },
+    {
+     "n": 37,
+     "text": "Still, thinking and considering for too long would tire my body."
+    },
+    {
+     "n": 38,
+     "text": "And when the body is tired, the mind is stressed."
+    },
+    {
+     "n": 39,
+     "text": "And when the mind is stressed, it’s far from immersion."
+    },
+    {
+     "n": 40,
+     "text": "So I stilled, settled, unified, and immersed my mind internally. Why is that? So that my mind would not be stressed."
+    },
+    {
+     "n": 41,
+     "text": "Then, as I meditated—diligent, keen, and resolute—a thought of good will arose … a thought of harmlessness arose."
+    },
+    {
+     "n": 42,
+     "text": "I understood: ‘This thought of harmlessness has arisen in me."
+    },
+    {
+     "n": 43,
+     "text": "It doesn’t lead to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 44,
+     "text": "It nourishes wisdom, it’s on the side of freedom from distress, and it leads to extinguishment.’"
+    },
+    {
+     "n": 45,
+     "text": "If I were to keep on thinking and considering this all night … all day … all night and day, I see no danger that would come from that."
+    },
+    {
+     "n": 46,
+     "text": "Still, thinking and considering for too long would tire my body."
+    },
+    {
+     "n": 47,
+     "text": "And when the body is tired, the mind is stressed."
+    },
+    {
+     "n": 48,
+     "text": "And when the mind is stressed, it’s far from immersion."
+    },
+    {
+     "n": 49,
+     "text": "So I stilled, settled, unified, and immersed my mind internally. Why is that? So that my mind would not be stressed."
+    },
+    {
+     "n": 50,
+     "text": "Whatever a mendicant frequently thinks about and considers becomes their heart’s inclination."
+    },
+    {
+     "n": 51,
+     "text": "If they often think about and consider thoughts of renunciation, they’ve given up sensual thought to cultivate the thought of renunciation."
+    },
+    {
+     "n": 52,
+     "text": "Their mind inclines to thoughts of renunciation."
+    },
+    {
+     "n": 53,
+     "text": "If they often think about and consider thoughts of good will … their mind inclines to thoughts of good will."
+    },
+    {
+     "n": 54,
+     "text": "If they often think about and consider thoughts of harmlessness … their mind inclines to thoughts of harmlessness."
+    },
+    {
+     "n": 55,
+     "text": "Suppose it’s the last month of summer, when all the crops have been gathered within a village, and a cowherd must take care of the cattle."
+    },
+    {
+     "n": 56,
+     "text": "While at the root of a tree or in the open he need only be mindful that the cattle are there."
+    },
+    {
+     "n": 57,
+     "text": "In the same way I needed only to be mindful that those things were there."
+    },
+    {
+     "n": 58,
+     "text": "My energy was roused up and unflagging, my mindfulness was established and lucid, my body was tranquil and undisturbed, and my mind was immersed and unified in samādhi."
+    },
+    {
+     "n": 59,
+     "text": "Quite secluded from sensual pleasures, secluded from unskillful qualities, I entered and remained in the first absorption, which has the rapture and bliss born of seclusion,"
+    },
+    {
+     "n": 60,
+     "text": "while placing the mind and keeping it connected."
+    },
+    {
+     "n": 61,
+     "text": "As the placing of the mind and keeping it connected were stilled, I entered and remained in the second absorption, which has the rapture and bliss born of immersion, with internal clarity and mind at one,"
+    },
+    {
+     "n": 62,
+     "text": "without placing the mind and keeping it connected."
+    },
+    {
+     "n": 63,
+     "text": "And with the fading away of rapture, I entered and remained in the third absorption, where I meditated with equanimity, mindful and aware, experiencing for themselves the bliss of which the noble ones declare,"
+    },
+    {
+     "n": 64,
+     "text": "‘Equanimous and mindful, one meditates in bliss.’"
+    },
+    {
+     "n": 65,
+     "text": "With the giving up of pleasure and pain, and the disappearance of former happiness and sadness, I entered and remained in the fourth absorption, without pleasure or pain, with pure equanimity and mindfulness."
+    },
+    {
+     "n": 66,
+     "text": "When my mind had immersed in samādhi like this—purified, bright, flawless, rid of corruptions, pliable, workable, steady, and imperturbable—I extended it toward recollection of past lives."
+    },
+    {
+     "n": 67,
+     "text": "I recollected many kinds of past lives, with features and details."
+    },
+    {
+     "n": 68,
+     "text": "This was the first knowledge, which I achieved in the first watch of the night."
+    },
+    {
+     "n": 69,
+     "text": "Ignorance was banished and knowledge arose; darkness was banished and light arose, as happens for a meditator who is diligent, keen, and resolute."
+    },
+    {
+     "n": 70,
+     "text": "When my mind had become immersed in samādhi like this, I extended it toward knowledge of the death and rebirth of sentient beings."
+    },
+    {
+     "n": 71,
+     "text": "With clairvoyance that is purified and superhuman, I saw sentient beings passing away and being reborn—inferior and superior, beautiful and ugly, in a good place or a bad place."
+    },
+    {
+     "n": 72,
+     "text": "I understood how sentient beings pass on according to their deeds."
+    },
+    {
+     "n": 73,
+     "text": "This was the second knowledge, which I achieved in the middle watch of the night."
+    },
+    {
+     "n": 74,
+     "text": "Ignorance was banished and knowledge arose; darkness was banished and light arose, as happens for a meditator who is diligent, keen, and resolute."
+    },
+    {
+     "n": 75,
+     "text": "When my mind had become immersed in samādhi like this, I extended it toward knowledge of the ending of defilements."
+    },
+    {
+     "n": 76,
+     "text": "I truly understood: ‘This is suffering’ … ‘This is the origin of suffering’ … ‘This is the cessation of suffering’ …"
+    },
+    {
+     "n": 77,
+     "text": "‘This is the practice that leads to the cessation of suffering.’"
+    },
+    {
+     "n": 78,
+     "text": "I truly understood: ‘These are defilements’ … ‘This is the origin of defilements’ …"
+    },
+    {
+     "n": 79,
+     "text": "‘This is the cessation of defilements’ …"
+    },
+    {
+     "n": 80,
+     "text": "‘This is the practice that leads to the cessation of defilements.’"
+    },
+    {
+     "n": 81,
+     "text": "Knowing and seeing like this, my mind was freed from the defilements of sensuality, desire to be reborn, and ignorance."
+    },
+    {
+     "n": 82,
+     "text": "I understood: ‘Rebirth is ended; the spiritual journey has been completed; what had to be done has been done; there is nothing further for this place.’"
+    },
+    {
+     "n": 83,
+     "text": "This was the third knowledge, which I achieved in the last watch of the night."
+    },
+    {
+     "n": 84,
+     "text": "Ignorance was banished and knowledge arose; darkness was banished and light arose, as happens for a meditator who is diligent, keen, and resolute."
+    },
+    {
+     "n": 85,
+     "text": "Suppose that in a forested wilderness there was an expanse of low-lying marshes, and a large herd of deer lived nearby."
+    },
+    {
+     "n": 86,
+     "text": "Then along comes a person who wants to harm, injure, and threaten them."
+    },
+    {
+     "n": 87,
+     "text": "They close off the safe, secure path that leads to happiness, and open the wrong path."
+    },
+    {
+     "n": 88,
+     "text": "There they plant domesticated male and female deer as decoys so that, in due course, that herd of deer would fall to ruin and disaster."
+    },
+    {
+     "n": 89,
+     "text": "Then along comes a person who wants to help keep the herd of deer safe."
+    },
+    {
+     "n": 90,
+     "text": "They open up the safe, secure path that leads to happiness, and close off the wrong path."
+    },
+    {
+     "n": 91,
+     "text": "They get rid of the decoys so that, in due course, that herd of deer would grow, increase, and mature."
+    },
+    {
+     "n": 92,
+     "text": "I’ve made up this simile to make a point. And this is what it means."
+    },
+    {
+     "n": 93,
+     "text": "‘An expanse of low-lying marshes’ is a term for sensual pleasures."
+    },
+    {
+     "n": 94,
+     "text": "‘A large herd of deer’ is a term for sentient beings."
+    },
+    {
+     "n": 95,
+     "text": "‘A person who wants to harm, injure, and threaten them’ is a term for Māra the Wicked."
+    },
+    {
+     "n": 96,
+     "text": "‘The wrong path’ is a term for the wrong eightfold path, that is, wrong view, wrong purpose, wrong speech, wrong action, wrong livelihood, wrong effort, wrong mindfulness, and wrong immersion."
+    },
+    {
+     "n": 97,
+     "text": "‘A domesticated male deer’ is a term for greed and relishing."
+    },
+    {
+     "n": 98,
+     "text": "‘A domesticated female deer’ is a term for ignorance."
+    },
+    {
+     "n": 99,
+     "text": "‘A person who wants to help keep the herd of deer safe’ is a term for the Realized One, the perfected one, the fully awakened Buddha."
+    },
+    {
+     "n": 100,
+     "text": "‘The safe, secure path that leads to happiness’ is a term for the noble eightfold path, that is:"
+    },
+    {
+     "n": 101,
+     "text": "right view, right purpose, right speech, right action, right livelihood, right effort, right mindfulness, and right immersion."
+    },
+    {
+     "n": 102,
+     "text": "So, mendicants, I have opened up the safe, secure path to happiness and closed off the wrong path."
+    },
+    {
+     "n": 103,
+     "text": "And I have got rid of the male and female decoys."
+    },
+    {
+     "n": 104,
+     "text": "Out of sympathy, I’ve done what a teacher should do who wants what’s best for their disciples."
+    },
+    {
+     "n": 105,
+     "text": "Here are these roots of trees, and here are these empty huts. Practice absorption, mendicants! Don’t be negligent! Don’t regret it later! This is my instruction to you.”"
+    },
+    {
+     "n": 106,
+     "text": "That is what the Buddha said. Satisfied, the mendicants approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

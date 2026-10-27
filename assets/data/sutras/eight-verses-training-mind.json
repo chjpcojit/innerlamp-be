@@ -1,0 +1,373 @@
+{
+ "id": "eight-verses-training-mind",
+ "tradition": "VAJRAYANA",
+ "kind": "VERSE",
+ "collection": "Mật tông / Lojong",
+ "reference": "",
+ "author": "Geshe Langri Thangpa (1054-1123)",
+ "summary": "Tám câu kệ của Geshe Langri Thangpa (1054-1123), thuộc truyền thống Lojong, tức luyện tâm. Bài nhắc đến việc quý trọng mọi chúng sinh hơn viên ngọc như ý, xem mình thấp nhất, quan sát tâm khi phiền não khởi lên, và kiên nhẫn với người làm hại mình. Kết bài là nguyện không bị tám mối bận tâm thế gian làm nhiễm, nhận ra vạn pháp như huyễn để thoát ràng buộc.",
+ "titles": {
+  "vi": "Tám Câu Chuyển Hóa Tâm",
+  "bo": "བློ་སྦྱོང་ཚིག་བརྒྱད་མ།",
+  "en": "Eight Verses of Training the Mind"
+ },
+ "deities": [],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 8,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Rigpa Translations, revised 2012",
+   "sourceName": "Lotsawa House - Eight Verses of Training the Mind",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/geshe-langri-thangpa/eight-verses-training-mind",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Stanza numbers moved into the section field.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "By thinking of all sentient beings",
+     "section": "Verse 1"
+    },
+    {
+     "n": 2,
+     "text": "As more precious than a wish-fulfilling jewel",
+     "section": "Verse 1"
+    },
+    {
+     "n": 3,
+     "text": "For accomplishing the highest aim,",
+     "section": "Verse 1"
+    },
+    {
+     "n": 4,
+     "text": "I will always hold them dear.",
+     "section": "Verse 1"
+    },
+    {
+     "n": 5,
+     "text": "Whenever I’m in the company of others,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 6,
+     "text": "I will regard myself as the lowest among all,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 7,
+     "text": "And from the depths of my heart",
+     "section": "Verse 2"
+    },
+    {
+     "n": 8,
+     "text": "Cherish others as supreme.",
+     "section": "Verse 2"
+    },
+    {
+     "n": 9,
+     "text": "In my every action, I will watch my mind,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 10,
+     "text": "And the moment destructive emotions arise,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 11,
+     "text": "I will confront them strongly and avert them,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 12,
+     "text": "Since they will hurt both me and others.",
+     "section": "Verse 3"
+    },
+    {
+     "n": 13,
+     "text": "Whenever I see ill-natured beings,",
+     "section": "Verse 4"
+    },
+    {
+     "n": 14,
+     "text": "Or those overwhelmed by heavy misdeeds or suffering,",
+     "section": "Verse 4"
+    },
+    {
+     "n": 15,
+     "text": "I will cherish them as something rare,",
+     "section": "Verse 4"
+    },
+    {
+     "n": 16,
+     "text": "As though I’d found a priceless treasure.",
+     "section": "Verse 4"
+    },
+    {
+     "n": 17,
+     "text": "Whenever someone out of envy",
+     "section": "Verse 5"
+    },
+    {
+     "n": 18,
+     "text": "Does me wrong by attacking or belittling me,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 19,
+     "text": "I will take defeat upon myself,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 20,
+     "text": "And give the victory to others.",
+     "section": "Verse 5"
+    },
+    {
+     "n": 21,
+     "text": "Even when someone I have helped,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 22,
+     "text": "Or in whom I have placed great hopes",
+     "section": "Verse 6"
+    },
+    {
+     "n": 23,
+     "text": "Mistreats me very unjustly,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 24,
+     "text": "I will view that person as a true spiritual teacher.",
+     "section": "Verse 6"
+    },
+    {
+     "n": 25,
+     "text": "In brief, directly or indirectly,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 26,
+     "text": "I will offer help and happiness to all my mothers,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 27,
+     "text": "And secretly take upon myself",
+     "section": "Verse 7"
+    },
+    {
+     "n": 28,
+     "text": "All their hurt and suffering.",
+     "section": "Verse 7"
+    },
+    {
+     "n": 29,
+     "text": "I will learn to keep all these practices",
+     "section": "Verse 8"
+    },
+    {
+     "n": 30,
+     "text": "Untainted by thoughts of the eight worldly concerns.",
+     "section": "Verse 8"
+    },
+    {
+     "n": 31,
+     "text": "May I recognize all things as like illusions,",
+     "section": "Verse 8"
+    },
+    {
+     "n": 32,
+     "text": "And, without attachment, gain freedom from bondage.",
+     "section": "Verse 8"
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Classical Tibetan (pre-modern author)",
+   "sourceName": "Lotsawa House - Eight Verses of Training the Mind",
+   "sourceUrl": "https://www.lotsawahouse.org/bo/tibetan-masters/geshe-langri-thangpa/eight-verses-training-mind",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "བདག་ནི་སེམས་ཅན་ཐམས་ཅད་ལ། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 2,
+     "text": "ཡིད་བཞིན་ནོར་བུ་ལས་ལྷག་པའི། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 3,
+     "text": "དོན་མཆོག་སྒྲུབ་པའི་བསམ་པ་ཡིས། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 4,
+     "text": "རྟག་ཏུ་གཅེས་པར་འཛིན་པར་ཤོག །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 5,
+     "text": "གང་དུ་སུ་དང་འགྲོགས་པའི་ཚེ། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 6,
+     "text": "བདག་ཉིད་ཀུན་ལས་དམན་བལྟ་ཞིང༌། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 7,
+     "text": "གཞན་ལ་བསམ་པ་ཐག་པ་ཡིས། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 8,
+     "text": "མཆོག་ཏུ་གཅེས་པར་འཛིན་པར་ཤོག །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 9,
+     "text": "སྤྱོད་ལམ་ཀུན་ཏུ་རང་རྒྱུད་ལ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 10,
+     "text": "རྟོག་ཅིང་ཉོན་མོངས་སྐྱེས་མ་ཐག །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 11,
+     "text": "བདག་གཞན་མ་རུངས་བྱེད་པས་ན། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 12,
+     "text": "བཙན་ཐབས་གདོང་ནས་བཟློག་པར་ཤོག །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 13,
+     "text": "རང་བཞིན་ངན་པའི་སེམས་ཅན་རྣམས། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 14,
+     "text": "སྡིག་སྡུག་དྲག་པོས་ནོན་མཐོང་ཚེ། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 15,
+     "text": "རིན་ཆེན་གཏེར་དང་འཕྲད་པ་བཞིན། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 16,
+     "text": "རྙེད་པར་དཀའ་བས་གཅེས་འཛིན་ཤོག །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 17,
+     "text": "བདག་ལ་གཞན་གྱིས་ཕྲག་དོག་གིས། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 18,
+     "text": "གཤེ་བསྐུར་ལ་སོགས་མི་རིགས་པའི། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 19,
+     "text": "གྱོང་ཁ་རང་གིས་ལེན་པ་དང༌། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 20,
+     "text": "རྒྱལ་ཁ་གཞན་ལ་འབུལ་བར་ཤོག །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 21,
+     "text": "གང་ལ་བདག་གིས་ཕན་བཏགས་པའི། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 22,
+     "text": "རེ་བ་ཆེ་བ་གང་ཞིག་གིས། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 23,
+     "text": "ཤིན་ཏུ་མི་རིགས་གནོད་བྱེད་ནའང༌། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 24,
+     "text": "བཤེས་གཉེན་དམ་པར་བལྟ་བར་ཤོག །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 25,
+     "text": "མདོར་ན་དངོས་སམ་བརྒྱུད་པ་ཡིས། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 26,
+     "text": "ཕན་བདེ་མ་རྣམས་ཀུན་ལ་འབུལ། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 27,
+     "text": "མ་ཡི་གནོད་དང་སྡུག་བསྔལ་ཀུན། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 28,
+     "text": "གསང་བས་བདག་ལ་ལེན་པར་ཤོག །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 29,
+     "text": "དེ་དག་ཀུན་ཀྱང་ཆོས་བརྒྱད་ཀྱི། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 30,
+     "text": "རྟོག་པའི་དྲི་མས་མ་སྦགས་ཤིང༌། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 31,
+     "text": "ཆོས་ཀུན་སྒྱུ་མར་ཤེས་པའི་བློས། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 32,
+     "text": "ཞེན་མེད་འཆིང་བ་ལས་གྲོལ་ཤོག །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 33,
+     "text": "ཅེས་པ་འདི་ནི་དགེ་བཤེས་གླང་ཐང་པ་རྡོ་རྗེ་སེངྒེའི་གསུང་ངོ༌།། །།"
+    }
+   ]
+  }
+ ]
+}

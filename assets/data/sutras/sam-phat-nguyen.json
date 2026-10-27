@@ -1,0 +1,357 @@
+{
+ "id": "sam-phat-nguyen",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Sám hối",
+ "reference": "",
+ "summary": "Bài sám và phát nguyện cầu sinh Tịnh độ, tương truyền của Từ Vân sám chủ. Người tụng nhất tâm quy mạng Phật A Di Đà, nhắc lại đại nguyện của Ngài đối với chúng sinh chí tâm niệm Phật. Bài cầu tội chướng tiêu trừ, lúc lâm chung được Phật tiếp dẫn sinh Cực Lạc, hoa nở thấy Phật, rồi quay lại độ chúng sinh cho tròn nguyện Bồ đề.",
+ "titles": {
+  "vi": "Sám Phát Nguyện",
+  "zh": "發願文 (慈雲懺主)",
+  "en": "Repentance and vow (Great Master Ciyun)"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "SAM_HOI"
+ ],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Đại sư Từ Vân (tác giả); phiên âm Hán-Việt, không ghi người dịch âm",
+   "sourceName": "Tu Viện Quảng Đức - Nghi Lễ: Sám Phát Nguyện - \"Nguyên Văn\"",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/Nghile/40samphatnguyet.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Biên tập nội dung: Tỳ Kheo Thích Nguyên Tạng\", Tu Viện Quảng Đức",
+   "note": "Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nhất tâm quy mạng,"
+    },
+    {
+     "n": 2,
+     "text": "Cực lạc Thế giới"
+    },
+    {
+     "n": 3,
+     "text": "A Di Đà Phật."
+    },
+    {
+     "n": 4,
+     "text": "Nguyện dĩ tịnh quang chiếu ngã"
+    },
+    {
+     "n": 5,
+     "text": "Từ thệ nhiếp ngã"
+    },
+    {
+     "n": 6,
+     "text": "Ngã kim chánh niệm"
+    },
+    {
+     "n": 7,
+     "text": "Xưng Như Lai danh"
+    },
+    {
+     "n": 8,
+     "text": "Vị Bồ đề đạo"
+    },
+    {
+     "n": 9,
+     "text": "Cầu sanh Tịnh độ"
+    },
+    {
+     "n": 10,
+     "text": "Phật tích bổn thệ:"
+    },
+    {
+     "n": 11,
+     "text": "\"Nhược hữu chúng sanh,"
+    },
+    {
+     "n": 12,
+     "text": "Dục sanh ngã quốc,"
+    },
+    {
+     "n": 13,
+     "text": "Chí tâm tín nhạo,"
+    },
+    {
+     "n": 14,
+     "text": "Nãi chí thập niệm,"
+    },
+    {
+     "n": 15,
+     "text": "Nhược bất sanh giả,"
+    },
+    {
+     "n": 16,
+     "text": "Bất thủ Chánh giác\"."
+    },
+    {
+     "n": 17,
+     "text": "Dĩ thử niệm Phật nhân duyên"
+    },
+    {
+     "n": 18,
+     "text": "Đắc Nhập Như Lai"
+    },
+    {
+     "n": 19,
+     "text": "Đại thệ hải trung"
+    },
+    {
+     "n": 20,
+     "text": "Thừa Phật từ lực"
+    },
+    {
+     "n": 21,
+     "text": "Chúng tội tiêu diệt."
+    },
+    {
+     "n": 22,
+     "text": "Thiện căn tăng trưởng"
+    },
+    {
+     "n": 23,
+     "text": "Nhược lâm dục mạng chung"
+    },
+    {
+     "n": 24,
+     "text": "Dự tri thời chí"
+    },
+    {
+     "n": 25,
+     "text": "Thân vô bệnh khổ"
+    },
+    {
+     "n": 26,
+     "text": "Tâm bất tham luyến"
+    },
+    {
+     "n": 27,
+     "text": "Ý Bất điên đảo"
+    },
+    {
+     "n": 28,
+     "text": "Như nhập thiền định"
+    },
+    {
+     "n": 29,
+     "text": "Phật cập Thánh chúng"
+    },
+    {
+     "n": 30,
+     "text": "Thủ chấp kim đài"
+    },
+    {
+     "n": 31,
+     "text": "Lai nghinh tiếp ngã"
+    },
+    {
+     "n": 32,
+     "text": "Ư nhất niệm khoảnh"
+    },
+    {
+     "n": 33,
+     "text": "Sanh Cực lạc quốc."
+    },
+    {
+     "n": 34,
+     "text": "Hoa khai kiến Phật"
+    },
+    {
+     "n": 35,
+     "text": "Tức văn Phật thừa"
+    },
+    {
+     "n": 36,
+     "text": "Đốn khai Phật huệ"
+    },
+    {
+     "n": 37,
+     "text": "Quảng độ chúng sanh"
+    },
+    {
+     "n": 38,
+     "text": "Mãn Bồ đề nguyện."
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "không ghi (trang không nêu dịch giả)",
+   "sourceName": "Tu Viện Quảng Đức - Sám Phát Nguyện - mục \"Dịch nghĩa\"",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/Nghile/40samphatnguyet.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Biên tập nội dung: Tỳ Kheo Thích Nguyên Tạng\", Tu Viện Quảng Đức",
+   "note": "Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Một lòng quy kính"
+    },
+    {
+     "n": 2,
+     "text": "Phật A-di-đà"
+    },
+    {
+     "n": 3,
+     "text": "Thế giới Cực lạc"
+    },
+    {
+     "n": 4,
+     "text": "Nguyện lấy tịnh quang chiếu con"
+    },
+    {
+     "n": 5,
+     "text": "Từ thệ nhiếp con"
+    },
+    {
+     "n": 6,
+     "text": "Con nay chánh niệm"
+    },
+    {
+     "n": 7,
+     "text": "Xưng hiệu Như-lai"
+    },
+    {
+     "n": 8,
+     "text": "Vì đạo Bồ-đề"
+    },
+    {
+     "n": 9,
+     "text": "Cầu sanh Tịnh độ"
+    },
+    {
+     "n": 10,
+     "text": "Phật xưa có thệ:"
+    },
+    {
+     "n": 11,
+     "text": "“Nếu có chúng sanh"
+    },
+    {
+     "n": 12,
+     "text": "Muốn sanh nước ta"
+    },
+    {
+     "n": 13,
+     "text": "Hết lòng tín niệm,"
+    },
+    {
+     "n": 14,
+     "text": "Dù chỉ mười niệm,"
+    },
+    {
+     "n": 15,
+     "text": "Mà chẳng đặng sanh,"
+    },
+    {
+     "n": 16,
+     "text": "Thề chẳng làm Phật”."
+    },
+    {
+     "n": 17,
+     "text": "Nhờ nhân duyên niệm Phật này,"
+    },
+    {
+     "n": 18,
+     "text": "Được vào trong biển đại thệ,"
+    },
+    {
+     "n": 19,
+     "text": "Của Đức Như-lai."
+    },
+    {
+     "n": 20,
+     "text": "Nhờ từ lực Phật,"
+    },
+    {
+     "n": 21,
+     "text": "Các tội tiêu diệt,"
+    },
+    {
+     "n": 22,
+     "text": "Căn lành tăng trưởng,"
+    },
+    {
+     "n": 23,
+     "text": "Khi thân mạng gần chung,"
+    },
+    {
+     "n": 24,
+     "text": "Biết trước giờ chết,"
+    },
+    {
+     "n": 25,
+     "text": "Thân không bệnh khổ,"
+    },
+    {
+     "n": 26,
+     "text": "Tâm không tham luyến,"
+    },
+    {
+     "n": 27,
+     "text": "Ý không điên đảo,"
+    },
+    {
+     "n": 28,
+     "text": "Như vào thiền định,"
+    },
+    {
+     "n": 29,
+     "text": "Phật và Thánh chúng,"
+    },
+    {
+     "n": 30,
+     "text": "Tay nâng kim đài,"
+    },
+    {
+     "n": 31,
+     "text": "Đến nghinh tiếp con,"
+    },
+    {
+     "n": 32,
+     "text": "Trong khoảng một niệm,"
+    },
+    {
+     "n": 33,
+     "text": "Sanh về Cực lạc,"
+    },
+    {
+     "n": 34,
+     "text": "Sen nở thấy Phật,"
+    },
+    {
+     "n": 35,
+     "text": "Liền nghe Phật thừa,"
+    },
+    {
+     "n": 36,
+     "text": "Bừng tỏ Phật huệ,"
+    },
+    {
+     "n": 37,
+     "text": "Lui về độ sanh,"
+    },
+    {
+     "n": 38,
+     "text": "Tròn nguyện Bồ-đề."
+    }
+   ]
+  }
+ ]
+}

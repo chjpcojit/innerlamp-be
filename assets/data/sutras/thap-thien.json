@@ -1,0 +1,829 @@
+{
+ "id": "thap-thien",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Giới hạnh",
+ "reference": "Taishō T0600",
+ "originalTitle": "Phật Thuyết Thập Thiện Nghiệp Đạo Kinh",
+ "hanTranslator": "Thật Xoa Nan Đà",
+ "referenceNote": "Đời Đường",
+ "summary": "Kinh Đại thừa, bản Hán dịch của ngài Thật-xoa-nan-đà, ghi lời Đức Phật dạy Long vương Sa-kiệt-la tại Long cung. Phật giảng rằng mọi hình sắc và loài chúng sinh khác nhau đều do tâm tạo nghiệp qua thân, khẩu, ý, rồi dạy mười nghiệp thiện (thập thiện nghiệp đạo) làm nền tảng cho đời sống an lành và cho việc tu học Phật pháp. Kinh thuộc nhóm kinh về giới hạnh, đạo đức.",
+ "titles": {
+  "vi": "Kinh Thập Thiện Nghiệp Đạo",
+  "zh": "佛說十善業道經",
+  "sa": "Daśakuśalakarmapatha Sūtra",
+  "en": "Sutra on the Ten Wholesome Courses of Action"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 30,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Hòa thượng Thích Trí Thủ (Việt dịch)",
+   "sourceName": "Trang Nhà Quảng Đức (tuvienquangduc.com.au) - Kinh Thập Thiện Nghiệp Đạo, Thích Trí Thủ dịch",
+   "sourceUrl": "https://tuvienquangduc.com.au/kinhdien/kinhthapthien.html",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement on page; page footer: Webmaster quangduc@quangduc.com, \"Trình bày: Phổ Trí\", cập nhật 01-03-2006",
+   "note": "Chỉ lấy phần chữ đậm (phần Kinh) theo chú thích của trang; bỏ lời bàn của Thái Hư Đại Sư, giải thích đề kinh và các tiết mục phụ. Section lấy từ tiêu đề Đoạn/Chương của trang. Giữ nguyên chính tả nguồn (vd. \"Tỷ-kheo\", \"nầy\").",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe như vầy, một thời Phật ở tại Long-cung Sa-kiệt-La, cùng tám ngàn chúng Đại-Tỷ-kheo, ba vạn hai ngàn các vị Bồ-tát Ma-ha-tát đông đủ.",
+     "section": "Đoạn I: Tự phần"
+    },
+    {
+     "n": 2,
+     "text": "Bấy giờ Đức Thế-Tôn bảo Long-vương rằng: \"Tất cả chúng sanh vì tâm tưởng khác nhau nên tạo nghiệp khác nhau, do vậy có sự xoay vần trong các thú.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 3,
+     "text": "\"Nầy Long-vương! Nhà ngươi có thấy ở trong hội nầy và các loài ở trong đại-hải hình-sắc, chủng-loại mỗi mỗi không đồng nhau không?",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 4,
+     "text": "Tất cả đều do tâm tạo thiện hay ác của thân-nghiệp, khẩu-nghiệp và ý-nghiệp mà gây nên cả\".",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 5,
+     "text": "\"Tâm ấy không có hình sắc, không thể thấy được, chỉ là do các Pháp nhóm họp như huyễn không thật, rốt-ráo không có chủ-tể, không có ngã và ngã-sở\".",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 6,
+     "text": "Tuy đều theo nghiệp, hiện ra không đồng; mà thật trong ấy, không có người tác-giả, nên tất cả các pháp, tự tánh như huyễn, đều là bất khả tư nghị.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 7,
+     "text": "Kẻ trí-giả biết thế rồi, nên tu thiện-nghiệp; nhờ vậy sanh ra uẩn, xứ, giới v.v...",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 8,
+     "text": "đều được đoan chánh, trông thấy không nhàm chán.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 9,
+     "text": "\"Nầy Long-vương! Ngươi xem thân của Phật do trăm ngàn ức phước-đức mà sanh ra, các tướng trang-nghiêm, quang-minh chói rạng, phủ tất cả đại-chúng, dù vô-lượng ức các vị Tự-tại Phạm -Vương đều không thể hiển-hiện được.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 10,
+     "text": "Những ai chiêm-ngưỡng thân của Như Lai, không ai là chẳng chóa mắt.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 11,
+     "text": "\"Ngươi lại xem đây, các vị Đại-Bồ-Tát diệu sắc trang nghiêm, tất cả đều do tu tập phước-đức thiện nghiệp mà sinh ra.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 12,
+     "text": "\"Lại nữa, các hàng Thiên-Long Bát-Bộ thấy có oai thế lớn lao, cũng nhơn phước-đức của thiện nghiệp mà sanh\".",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 13,
+     "text": "\"Này đây, các chúng-sinh ở trong đại-hải, hình sắc thô xấu, hoặc lớn hoặc nhỏ đều do hết thảy tưởng niệm của tự tâm gây ra bởi thân, ngữ, ý các nghiệp bất thiện, vậy nên tùy theo chỗ gây nghiệp mà tự thọ báo\".",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 14,
+     "text": "Ngươi nay thường nên tu-học như vậy, cũng khiến chúng sanh rõ thấu nhân quả tu-tập thiện-nghiệp.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 15,
+     "text": "Ngươi nên ở đây, chánh kiến bất động, chớ đọa trong tà kiến đoạn thường, đối với các phước-điền, hoan hỷ kính nhường.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 16,
+     "text": "Vậy nên các ngươi cũng được nhơn thiên tôn kính cúng dường.",
+     "section": "Chương I: Nghiệp-quả thế-gian và xuất-thế gian"
+    },
+    {
+     "n": 17,
+     "text": "\"Long-vương nên biết, Bồ-tát có một phép, dứt tất cả các khổ của đường dữ, pháp ấy là gì?",
+     "section": "Chương II: Thập thiện nghiệp đạo"
+    },
+    {
+     "n": 18,
+     "text": "Nghĩa là ngày đêm thường nhớ, suy nghĩ quán sát pháp lành, làm cho các pháp lành, mỗi niệm mỗi tăng trưởng; không cho một hào ly bất thiện xen lẫn vào;",
+     "section": "Chương II: Thập thiện nghiệp đạo"
+    },
+    {
+     "n": 19,
+     "text": "tức là hay khiến cho các pháp hằng dứt, thiện-pháp viên-mãn, thường được thân cận các đức Phật, Bồ-tát và các thánh-chúng.",
+     "section": "Chương II: Thập thiện nghiệp đạo"
+    },
+    {
+     "n": 20,
+     "text": "\"Thiện-pháp là gì? nghĩa là thân của nhơn thiên, đạo Bồ-Đề của Thanh-văn, đạo Bồ-Đề của Độc-giác và Vô-thượng Bồ-Đề đều y-pháp ấy làm căn-bản và thành tựu. Cho nên gọi là thiện-pháp\".",
+     "section": "Chương II: Thập thiện nghiệp đạo"
+    },
+    {
+     "n": 21,
+     "text": "Thiện-pháp đây tức là mười nghiệp đạo thiện.",
+     "section": "Chương II: Thập thiện nghiệp đạo"
+    },
+    {
+     "n": 22,
+     "text": "Những gì là mười? Nghĩa là xa lìa sát-sanh, trộm cắp, tà-hạnh, vọng-ngôn, lưỡng thiệt, ác khẩu, ỷ-ngữ, tham-dục, sân-nhuế và tà-kiến.",
+     "section": "Chương II: Thập thiện nghiệp đạo"
+    },
+    {
+     "n": 23,
+     "text": "Long-vương! nếu xa lìa sát-sanh thời được thành tựu mười pháp không còn bức não. Những gì là mười?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 24,
+     "text": "Đối với các chúng sanh cùng khắp bố-thí đức vô-úy;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 25,
+     "text": "Thường khởi lòng đại từ đối với chúng sanh.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 26,
+     "text": "Dứt sạch tất cả các tập khí (thói quen) giận hờn;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 27,
+     "text": "Thân thường không bệnh.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 28,
+     "text": "Sống mạnh lâu dài.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 29,
+     "text": "Thường được phi-nhơn (quỷ thần) ủng hộ,",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 30,
+     "text": "Thường không ác mộng, thức ngủ an vui.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 31,
+     "text": "Diệt trừ oan kiếp, oán thù tự giải.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 32,
+     "text": "Không sợ sa đường dữ.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 33,
+     "text": "Khi chết sanh lên trời.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 34,
+     "text": "Ấy là mười công đức.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 35,
+     "text": "Nếu hồi-hướng đạo Vô-thượng Chánh-đẳng Chánh-giác, sau khi thành Phật, được quả Phật thì tùy tâm tự tại sống lâu.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 36,
+     "text": "Lại nữa Long-Vương! Nếu xa lìa trộm cắp thời được mười pháp bảo tín. Mười pháp ấy là gì?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 37,
+     "text": "Giàu có của cải; vua, giặc, nước, lửa và con hư không phá diệt;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 38,
+     "text": "Nhiều người thương mến;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 39,
+     "text": "Người không dối gạt;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 40,
+     "text": "Mười phương khen ngợi;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 41,
+     "text": "Không lo tổn hại;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 42,
+     "text": "Tiếng tốt đồn khắp;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 43,
+     "text": "Ở giữa đại chúng không sợ hãi;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 44,
+     "text": "Của cải, tánh mạng, hình sắc, sức lực, an vui, biện tài đầy đủ không thiếu;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 45,
+     "text": "Thường sẵn lòng bố thí;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 46,
+     "text": "Mạng chết sanh lên trời.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 47,
+     "text": "Nếu hồi hướng về đạo Vô-Thượng Chánh-đẳng Chánh-giác, sau thành Phật, được chứng trí Thanh-tịnh Đại-Bồ-Đề.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 48,
+     "text": "Lại nữa Long-vương! Nếu xa lìa Tà-hạnh, thời được bốn pháp, kẻ trí ngợi khen. Những gì là bốn?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 49,
+     "text": "Pháp căn điều thuận;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 50,
+     "text": "Xa lìa rộn ràng;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 51,
+     "text": "Được đời khen ngợi;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 52,
+     "text": "Vợ không ai xâm phạm.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 53,
+     "text": "Ấy là bốn công đức về chánh-hạnh. Nếu hồi hướng đạo Vô-thượng Chánh-đẳng Chánh-giác, sau thành Phật, được trượng-phu ẩn-mật-tàng tướng.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 54,
+     "text": "Lại nữa Long-vương! Nếu xa lìa vọng-ngữ thời được tám pháp trời khen ngợi. Những gì là tám?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 55,
+     "text": "Miệng thường thanh-tịnh, thơm mùi hoa ưu-bát;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 56,
+     "text": "Được người tín phục;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 57,
+     "text": "Mở lời thành chứng, nhơn thiên kính mến;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 58,
+     "text": "Thường đem lời êm dịu, an ủi chúng sanh;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 59,
+     "text": "Được ý vui thù thắng, ba nghiệp thanh tịnh;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 60,
+     "text": "Nói không sai lầm, lòng thường hoan hỷ;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 61,
+     "text": "Mở lời tôn-trọng, nhơn thiên phụng hành;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 62,
+     "text": "Trí-huệ thù thắng không ai chế phục.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 63,
+     "text": "Ấy là tám món công đức về hạnh không vọng-ngữ.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 64,
+     "text": "Nếu hồi hướng về đạo Vô-thượng Bồ-Đề, sau thành Phật được chơn-thiệt-ngữ của Như-Lai.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 65,
+     "text": "Lại nữa Long-vương! Nếu xa lìa nghiệp hai lưỡi, thời được năm pháp không thể phá hoại. Những gì là năm?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 66,
+     "text": "Được thân bất hoại, không ai hại được;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 67,
+     "text": "Được bà con bất hoại, không ai phá hại;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 68,
+     "text": "Được lòng tin bất hoại, thuận theo bổn nghiệp;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 69,
+     "text": "Được pháp hạnh bất hoại, chỗ tu kiên cố;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 70,
+     "text": "Được thiện-tri-thức bất hoại; không dối lừa nhau.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 71,
+     "text": "Năm công đức này nếu hồi hướng về đạo Vô-thượng Chánh-đẳng, Chánh-giác, sau thành Phật, được quyến thuộc chơn-chánh, các tà ma ngoại đạo không thể phá hoại.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 72,
+     "text": "Lại nữa Long-Vương! Nếu xa lìa ác-khẩu thời được thành tựu tám món tịnh-nghiệp. Những gì là tám?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 73,
+     "text": "Lời nói không trái pháp độ;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 74,
+     "text": "Lời nói có lợi ích;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 75,
+     "text": "Lời nói quyết lý;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 76,
+     "text": "Lời nói đẹp đẽ;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 77,
+     "text": "Lời nói thừa lãnh được;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 78,
+     "text": "Lời nói được tin dùng;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 79,
+     "text": "Lời nói không thể chê;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 80,
+     "text": "Lời nói được ưa thích;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 81,
+     "text": "Nếu hồi hướng đạo Vô-thượng Chánh-đẳng Chánh-giác, sau thành Phật, đầy đủ phạm-âm-thanh tướng của Như-Lai.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 82,
+     "text": "Lại nữa Long-Vương! Nếu xa lìa ỷ-ngữ, thì thành tựu ba món quyết-định. Những gì là ba?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 83,
+     "text": "Được người trí yêu mến;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 84,
+     "text": "Dùng trí như-thật đáp các người hỏi;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 85,
+     "text": "Ở nhơn thiên oai đức tối-thắng, không hư vọng.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 86,
+     "text": "Nếu hồi hướng Vô-thượng Chánh-đẳng, Chánh-giác, sau thành Phật, được Như-Lai thọ ký, chẳng có luống dối.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 87,
+     "text": "Lại nữa Long-Vương! Nếu xa lìa tham-dục thời được thành tựu năm món tự tại. Những gì là năm?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 88,
+     "text": "Ba nghiệp tự tại, các căn cụ túc;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 89,
+     "text": "Của cải tự-tại, oán-tặc, không cướp lại;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 90,
+     "text": "Phước đức tự tại, toại lòng yêu muốn, vật dụng đầy đủ;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 91,
+     "text": "Vương-vị tự tại, đồ vật quý lạ, đều được phụng hiến;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 92,
+     "text": "Những vật được, thù thắng xấp trăm lòng mong cầu; vì ngày xưa không bỏn sẻn ganh ghét.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 93,
+     "text": "Nếu hồi hướng Vô-thượng Bồ-Đề sau thành Phật, tam-giới đặc biệt tôn-trọng thảy đều kỉnh nhường.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 94,
+     "text": "Lại nữa Long-Vương! Nếu xa lìa sân-hận, thời được tám món tâm-pháp hỷ-duyệt. Những gì là tám?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 95,
+     "text": "Không có lòng tổn não;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 96,
+     "text": "Không còn sân hận;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 97,
+     "text": "Không có lòng gây kiện;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 98,
+     "text": "Lòng nhu-hòa, ngay thật;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 99,
+     "text": "Được từ tâm của bậc thánh giả;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 100,
+     "text": "Sẵn lòng làm lợi-ích an-lạc cho chúng sanh;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 101,
+     "text": "Thân tướng đẹp đẽ, chúng đều tôn-kính;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 102,
+     "text": "Do sự hòa-nhẫn; mau sanh về cõi phạm-thiên.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 103,
+     "text": "Nếu hồi hướng đạo Vô-thượng Bồ-Đề, sau thành Phật, được tâm vô ngại của Phật, người trông không chán.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 104,
+     "text": "Lại nữa Long-Vương! Nếu xa lìa tà-kiến thời được thành-tựu mười pháp công đức. Những gì là mười?",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 105,
+     "text": "Được ý vui chơn-thiện, bầu bạn chơn-thiện;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 106,
+     "text": "Thâm tín nhơn-quả; thà bỏ thân-mạng trọn chẳng làm ác.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 107,
+     "text": "Chỉ quy-y Phật, không quy y các thiên-thần;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 108,
+     "text": "Trực tâm chánh-kiến, xa hẳn tất cả ngờ vực cát hung;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 109,
+     "text": "Thường sanh nhân-thiên, không sa vào đường dữ;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 110,
+     "text": "Vô-lượng phước huệ, lần lữa thêm nhiều;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 111,
+     "text": "Xa hẳn đường tà, tu hành thánh-đạo;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 112,
+     "text": "Chẳng sanh khởi thân-kiến, bỏ các ác nghiệp;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 113,
+     "text": "Kiến giải vô ngại;",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 114,
+     "text": "Chẳng bị các tai-nạn.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 115,
+     "text": "Ấy là mười điều; nếu đem hồi-hướng về quả Vô-thượng Bồ-Đề, sau thành Phật, mau chóng ngộ được tất cả Phật-pháp, thành tựu thần-thông tự-tại.",
+     "section": "Chương III: Công đức của mười nghiệp lành"
+    },
+    {
+     "n": 116,
+     "text": "A. Bố-thí độ",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 117,
+     "text": "Bấy giờ, đức Thế-Tôn lại bảo Long-Vương rằng:",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 118,
+     "text": "Nếu có Bồ-tát y thiện-nghiệp ấy, trong khi tu đạo, lìa nghiệp giết hại mà hành bố-thí, thường giàu của báu, không ai xâm đoạt, trường-thọ không yểu, chẳng bị tất cả oan tặc làm hại.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 119,
+     "text": "Lìa nghiệp chẳng cho mà lấy, thiệt hành bố-thí, thường giàu của báu, không ai xâm đoạt, không ai sánh kịp, đều hay nhóm họp kho báu Phật-pháp.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 120,
+     "text": "Lìa lỗi tà-hành mà làm bố thí, thường giàu của báu, không ai chiếm đoạt; trong nhà trinh thuận, mẹ và vợ con, không ai đem lòng dục mà xâm phạm.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 121,
+     "text": "Lìa lời nói dối mà làm bố-thí, thường giàu của báu, không ai chiếm đoạt, không khởi các hủy báng, thâu giữ Chánh pháp, như lời thệ nguyện, chỗ làm thỏa mãn.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 122,
+     "text": "Lìa lời nói chia rẽ (hai lưỡi) mà làm bố thí, thường giàu của báu, không ai xâm đoạt, quyến thuộc hòa thuận đồng vui một chí, thường không trái chống.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 123,
+     "text": "Lìa lời nói thô dữ mà làm bố thí, thường giàu của báu không ai xâm chiếm, tất cả chúng hội, hoan hỷ quy-y, nói ra đều được tín thọ, không ai trái nghịch.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 124,
+     "text": "Lìa lời nói vô nghĩa (ỷ ngữ) mà làm bố thí, thường giàu của báu, không ai xâm chiếm, nói chẳng uổng lời, người đều kính chịu, hay dùng phương tiện, khéo dứt các ngờ vực.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 125,
+     "text": "Lìa lòng tham cầu mà làm bố thí, thường giàu của báu, không ai xâm đoạt, có được vật gì đều đem ban cấp, tín giải kiên cố, đủ oai lực lớn.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 126,
+     "text": "Bỏ lòng giận hờn mà làm bố-thí, thường giàu của báu, không ai chiếm đoạt.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 127,
+     "text": "Mau tự thành tựu, tâm trí vô ngại, các căn tốt đẹp, người thấy kính ưa.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 128,
+     "text": "Xa lìa lòng tà đạo mà làm bố thí, thường giàu của báu, không ai chiếm đoạt, thường sanh vào nhà kính tín Chánh-pháp, thấy Phật, nghe pháp, cúng dường Chúng Tăng, thường chẳng quên mất lòng Đại Bồ-Đề.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 129,
+     "text": "Ấy là bậc đại-sĩ trong khi tu Bồ-Tát đạo, làm 10 nghiệp lành, dùng bố-thí trang nghiêm mà được lợi lớn.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 130,
+     "text": "B. Lược nói về 5 độ",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 131,
+     "text": "Như vậy Long-vương; Tóm lại mà nói: từ 10 thiện đạo dùng trì giới trang nghiêm hay sanh tất cả nghĩa lợi của Phật-pháp, đầy đủ nguyện lớn.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 132,
+     "text": "Dùng nhẫn-nhục trang nghiêm, được viên-âm của Phật, đủ các tướng tốt.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 133,
+     "text": "Dùng tinh-tấn trang nghiêm hay phá ma oán, vào Pháp-tạng của Phật.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 134,
+     "text": "Dùng thiền-định trang nghiêm hay sanh niệm huệ, tàm quý, khinh an.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 135,
+     "text": "Dùng trí huệ, trang nghiêm hay dứt tất cả phân biệt vọng kiến.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 136,
+     "text": "A. Tứ vô lượng tâm.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 137,
+     "text": "Lòng từ trang nghiêm, đối với chúng sanh; không khởi não hại.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 138,
+     "text": "Lòng bi trang nghiêm, thương các chúng sanh, thường không chán bỏ.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 139,
+     "text": "Lòng hỷ trang-nghiêm thấy người tu thiện, lòng không ganh ghét.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 140,
+     "text": "Lòng xả trang nghiêm, đối cảnh thuận nghịch, lòng không thương giận.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 141,
+     "text": "B. Bốn nhiếp pháp",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 142,
+     "text": "Bốn nhiếp pháp trang nghiêm thường siêng nhiếp hóa tất cả chúng sanh.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 143,
+     "text": "C. Ba mươi bảy phẩm trợ đạo bồ-đề",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 144,
+     "text": "Niệm xứ trang nghiêm khéo tu tập bốn quán niệm xứ.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 145,
+     "text": "Chánh cần trang-nghiêm hay dứt trừ tất cả các pháp bất thiện, thành tất cả pháp thiện.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 146,
+     "text": "Thần túc trang nghiêm thường khiến thân tâm nhẹ nhàng vui vẻ.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 147,
+     "text": "Năm căn trang nghiêm, thâm tín kiên cố, siêng năng không biếng nhác, thường không mê vọng, vắng lặng điều hòa, dứt các phiền não.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 148,
+     "text": "Năm lực trang nghiêm, các oán đều diệt, không gì phá hoại.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 149,
+     "text": "Giác-chi trang nghiêm, thường khéo giác ngộ tất cả các pháp.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 150,
+     "text": "Chánh-đạo trang nghiêm được trí huệ chánh, thường hiện ở trước.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 151,
+     "text": "Chỉ trang nghiêm, dứt sạch tất cả kiết sử.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 152,
+     "text": "Quán trang-nghiêm, như thật biết tự tánh các pháp.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 153,
+     "text": "Phương tiện trang nghiêm, chóng được thành tựu, đầy vui vô biên.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 154,
+     "text": "Long-Vương nên biết, 10 nghiệp thiện nầy, hay làm cho thập lực, tứ vô úy, 18 pháp bất cọng, tất cả Phật pháp, đều được viên mãn; vậy nay các người phải siêng tu học.",
+     "section": "Chương IV: Thắng hạnh của 10 nghiệp lành"
+    },
+    {
+     "n": 155,
+     "text": "Long-Vương! Ví như tất cả thành ấp, xóm, làng đều y đại-địa mà được an trú, tất cả trăm hoa, cây cỏ bụi rừng cũng nương đại địa ấy mà được sanh-trưởng;",
+     "section": "Chương V: Kết luận sự thù thắng của 10 nghiệp lành"
+    },
+    {
+     "n": 156,
+     "text": "thập-thiện nghiệp-đạo cũng thế, tất cả nhơn thiên y vào đó mà an lập, tất cả Thanh-văn, Độc-giác Bồ-đề, các hạnh Bồ-Tát, tất cả Phật-pháp đều y vào đại địa thập-thiện nầy mà được thành tựu.",
+     "section": "Chương V: Kết luận sự thù thắng của 10 nghiệp lành"
+    },
+    {
+     "n": 157,
+     "text": "Phật dạy kinh nầy rồi, Sa-Kiệt-La Long-Vương và toàn thể Đại-chúng, tất cả thế gian, Thiên, Nhơn, A-tu-la thảy đều hoan hỷ tín, thọ, phụng hành.",
+     "section": "Đoạn III: Lưu thông"
+    }
+   ]
+  }
+ ]
+}

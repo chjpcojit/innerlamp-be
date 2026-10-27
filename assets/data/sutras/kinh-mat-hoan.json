@@ -1,0 +1,1445 @@
+{
+ "id": "kinh-mat-hoan",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 18",
+ "summary": "Bài kinh trong Trung Bộ (MN 18), mở đầu bằng cuộc gặp giữa Thế Tôn và Dandapani dòng Thích-ca ở Kapilavatthu, khi Ngài nêu quan điểm của mình về việc không tranh luận với đời. Sau đó Ngài nói lại thật vắn tắt cho các Tỷ-kheo, và Tôn giả Ānanda ghi nhận tên pháp môn là \"bánh mật\".",
+ "titles": {
+  "vi": "Kinh Mật hoàn",
+  "pli": "Madhupiṇḍikasutta",
+  "en": "The Honey-Cake"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 40,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn18/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe như vầy:"
+    },
+    {
+     "n": 2,
+     "text": "Một thời, Thế Tôn sống giữa các vị dòng họ Sakka (Thích-ca), tại Kapilavatthu (Ca-tỳ-la-vệ), ở vườn Nigrodharama."
+    },
+    {
+     "n": 3,
+     "text": "Rồi Thế Tôn vào buổi sáng, đắp y, cầm y bát vào thành Kapilavatthu để khất thực."
+    },
+    {
+     "n": 4,
+     "text": "Sau khi khất thực ở Kapilavatthu, khi ăn xong, trên đường khất thực trở về, Thế Tôn đi đến Đại Lâm để nghỉ trưa."
+    },
+    {
+     "n": 5,
+     "text": "Sau khi vào rừng Đại Lâm, Ngài ngồi nghỉ trưa dưới gốc cây beluvalatthika."
+    },
+    {
+     "n": 6,
+     "text": "Có vị Gậy cầm tay (Dandapani) Sakka (Thích-ca), kéo bộ khắp nơi, ngao du thiên hạ, đến tại rừng Đại Lâm, đi sâu vào ngôi rừng, đến tại Beluvalatthika chỗ Thế Tôn ở,"
+    },
+    {
+     "n": 7,
+     "text": "khi đến xong nói lên những lời hỏi thăm xã giao thân hữu, rồi đứng một bên, dựa trên cây gậy, đứng một bên."
+    },
+    {
+     "n": 8,
+     "text": "Gậy cầm tay Sakka nói với Thế Tôn: “Sa-môn có quan điểm thế nào, giảng thuyết những gì?”"
+    },
+    {
+     "n": 9,
+     "text": ":: “Này Hiền giả, theo lời dạy của Ta, trong thế giới với chư Thiên, Māra và Phạm thiên, với các chúng Sa-môn, Bà-la-môn, chư Thiên và loài Người, không có tranh luận một ai ở đời;"
+    },
+    {
+     "n": 10,
+     "text": "các tưởng sẽ không ám ảnh vị Bà-la-môn sống không bị dục triền phược, không có nghi ngờ do dự, với mọi hối quá đoạn diệt, không có tham ái đối với hữu và phi hữu."
+    },
+    {
+     "n": 11,
+     "text": "Này Hiền giả, như vậy là quan điểm của Ta, như vậy là lời Ta giảng dạy”."
+    },
+    {
+     "n": 12,
+     "text": "Khi nghe nói vậy, Gậy cầm tay Sakka lắc đầu, liếm lưỡi, với trán nổi lên ba đường nhăn, chống gậy rồi đi."
+    },
+    {
+     "n": 13,
+     "text": "Rồi Thế Tôn vào buổi chiều từ Thiền tịnh độc cư đứng dậy, đi đến vườn Nigrodha, khi đến xong, ngồi trên chỗ đã soạn sẵn. Sau khi ngồi, Thế Tôn gọi các Tỷ-kheo"
+    },
+    {
+     "n": 14,
+     "text": "—Chư Tỷ-kheo, ở đây, Ta vào buổi sáng, đắp y, cầm y bát vào thành Kapilavatthu để khất thực."
+    },
+    {
+     "n": 15,
+     "text": "Sau khi khất thực ở Kapilavatthu, ăn xong, trên đường khất thực trở về, Ta đi đến Đại Lâm để nghỉ trưa."
+    },
+    {
+     "n": 16,
+     "text": "Sau khi vào rừng Đại Lâm, Ta ngồi nghỉ trưa dưới gốc cây beluvalatthika."
+    },
+    {
+     "n": 17,
+     "text": "Có vị Gậy cầm tay Sakka kéo bộ khắp nơi, ngao du thiên hạ, đến tại rừng Đại Lâm, đi sâu vào ngôi rừng, đến tại Beluvalatthika chỗ Ta ở, khi đến xong, nói lên những lời hỏi thăm xã giao thân hữu, rồi đứng một bên,"
+    },
+    {
+     "n": 18,
+     "text": "dựa trên cây gậy. Đứng một bên, Gậy cầm tay Sakka nói với Ta như sau: “Sa-môn có quan điểm thế nào, giảng thuyết những gì?”"
+    },
+    {
+     "n": 19,
+     "text": "Chư Tỷ-kheo, được nói vậy, Ta trả lời Gậy cầm tay Sakka:"
+    },
+    {
+     "n": 20,
+     "text": "“Này Hiền giả, theo lời Ta dạy trong thế giới với chư Thiên, Māra, và Phạm thiên, với các chúng Sa-môn, Bà-la-môn, chư Thiên và loài Người, không có tranh luận một ai ở đời."
+    },
+    {
+     "n": 21,
+     "text": "Các tưởng sẽ không ám ảnh vị Bà-la-môn sống không bị dục triền phược, không có nghi ngờ do dự, với mọi hối quá đoạn diệt, không có tham ái đối với hữu và phi hữu."
+    },
+    {
+     "n": 22,
+     "text": "Này Hiền giả, như vậy là quan điểm của Ta, như vậy là lời Ta giảng dạy”."
+    },
+    {
+     "n": 23,
+     "text": "Khi nghe nói vậy, Gậy cầm tay Sakka lắc đầu, liếm lưỡi, với trán nổi lên ba đường nhăn, chống gậy rồi đi."
+    },
+    {
+     "n": 24,
+     "text": "Khi nghe nói vậy, một Tỷ-kheo bạch Thế Tôn"
+    },
+    {
+     "n": 25,
+     "text": "—Nhưng bạch Thế Tôn, lời dạy ấy là gì mà Thế Tôn, trong thế giới với chư Thiên, Māra và Phạm thiên, với các chúng Sa-môn, Bà-la-môn, chư Thiên và loài Người, không có tranh luận một ai ở đời?"
+    },
+    {
+     "n": 26,
+     "text": "Các tưởng sẽ không ám ảnh Thế Tôn, vị đã sống không bị dục triền phược, không có nghi ngờ do dự, với mọi hối quá đoạn diệt, không có tham ái đối với hữu và phi hữu?"
+    },
+    {
+     "n": 27,
+     "text": "—Này Tỷ-kheo, do bất cứ nhân duyên gì, một số hý luận vọng tưởng ám ảnh một người."
+    },
+    {
+     "n": 28,
+     "text": "Nếu ở đây không có gì đáng tùy hỷ, đáng đón mừng, đáng chấp thủ, thời như vậy là sự đoạn tận tham tùy miên, sự đoạn tận sân tùy miên, sự đoạn tận kiến tùy miên, sự đoạn tận nghi tùy miên, sự đoạn tận mạn tùy miên,"
+    },
+    {
+     "n": 29,
+     "text": "sự đoạn tận hữu tham tùy miên, sự đoạn tận vô minh tùy miên, sự đoạn tận chấp trượng, chấp kiếm, đấu tranh, tránh tranh, luận tranh, kháng tranh, ly gián ngữ, vọng ngữ."
+    },
+    {
+     "n": 30,
+     "text": "Chính ở đây, những ác, bất thiện pháp này đều được tiêu diệt, không còn dư tàn."
+    },
+    {
+     "n": 31,
+     "text": "Thế Tôn thuyết giảng như vậy. Sau khi nói vậy, Thiện Thệ từ chỗ ngồi đứng dậy bước vào tịnh xá."
+    },
+    {
+     "n": 32,
+     "text": "Sau khi Thế Tôn đi chẳng bao lâu, các Tỷ-kheo ấy suy nghĩ: “Chư Hiền, Thế Tôn sau khi nói lên lời dạy tóm tắt này cho chúng ta, không giải thích rộng rãi ý nghĩa, từ chỗ ngồi đứng dậy và đã đi vào tịnh xá:"
+    },
+    {
+     "n": 33,
+     "text": "“Này Tỷ-kheo, do bất cứ nhân duyên gì … không còn dư tàn”."
+    },
+    {
+     "n": 34,
+     "text": "Nay ai có thể giải thích rộng rãi ý nghĩa lời giảng được Thế Tôn nói lên một cách vắn tắt, và không giải thích rõ ràng ý nghĩa”."
+    },
+    {
+     "n": 35,
+     "text": "Rồi những Tỷ-kheo ấy suy nghĩ: “Nay có Tôn giả Mahākaccāna (Đại Ca-chiên-diên) là vị được Thế Tôn tán dương và được các vị đồng phạm hạnh có trí kính trọng."
+    },
+    {
+     "n": 36,
+     "text": "Tôn giả Mahākaccāna có thể giải thích rộng rãi ý nghĩa lời giảng dạy này được Thế Tôn nói lên một cách vắn tắt, và không giải thích rõ ràng ý nghĩa."
+    },
+    {
+     "n": 37,
+     "text": "Vậy chúng ta hãy đi đến chỗ Tôn giả Mahākaccāna ở, sau khi đến, sẽ hỏi Tôn giả Mahākaccāna ý nghĩa này”."
+    },
+    {
+     "n": 38,
+     "text": "Rồi những Tỷ-kheo ấy đến chỗ Tôn giả Mahākaccāna ở, sau khi đến, nói lên những lời chúc tụng, hỏi thăm xã giao với Tôn giả Mahākaccāna rồi ngồi xuống một bên."
+    },
+    {
+     "n": 39,
+     "text": "Sau khi ngồi xuống một bên, những Tỷ-kheo ấy thưa với Tôn giả Mahākaccāna"
+    },
+    {
+     "n": 40,
+     "text": ": “Này Hiền giả, Thế Tôn sau khi nói lên lời dạy tóm tắt này và không giải thích rõ ràng ý nghĩa, từ chỗ ngồi đứng dậy và đã đi vào tịnh xá: “Này Tỷ-kheo, do bất cứ nhân duyên gì … không còn dư tàn”."
+    },
+    {
+     "n": 41,
+     "text": "Này Hiền giả Mahākaccāna, khi Thế Tôn đi chưa bao lâu, chúng tôi suy nghĩ: “Chư Hiền, Thế Tôn sau khi nói lên lời dạy vắn tắt này cho chúng ta … đã đi vào tịnh xá:” Do bất cứ nhân duyên gì … không còn dư tàn”."
+    },
+    {
+     "n": 42,
+     "text": "Ai có thể giải thích rộng rãi ý nghĩa lời giảng dạy mà Thế Tôn nói lên một cách vắn tắt … không giải thích rõ ràng ý nghĩa?”"
+    },
+    {
+     "n": 43,
+     "text": "Này Hiền giả Mahākaccāna, rồi chúng tôi suy nghĩ:"
+    },
+    {
+     "n": 44,
+     "text": "“Nay Tôn giả Mahākaccāna được Thế Tôn tán thán và được các vị đồng phạm hạnh có trí kính trọng,"
+    },
+    {
+     "n": 45,
+     "text": "Tôn giả Mahākaccāna có thể giải thích rộng rãi ý nghĩa lời giảng dạy được Thế Tôn nói lên một cách vắn tắt và không giải thích rõ ràng ý nghĩa."
+    },
+    {
+     "n": 46,
+     "text": "Vậy chúng ta hãy đi đến chỗ Tôn giả Mahākaccāna ở, sau khi đến, chúng ta hỏi Tôn giả Mahākaccāna ý nghĩa này. Tôn giả Mahākaccāna sẽ giải thích cho”."
+    },
+    {
+     "n": 47,
+     "text": "—Chư Hiền, cũng như một người ưa thích lõi cây, tìm tòi lõi cây, đi khắp mọi nơi tìm lõi cây, đến một cây to lớn, đứng thẳng và có lõi cây."
+    },
+    {
+     "n": 48,
+     "text": "Người này bỏ qua rễ, bỏ qua thân cây, nghĩ rằng phải tìm lõi cây ở nơi cành lá."
+    },
+    {
+     "n": 49,
+     "text": "Cũng vậy là hành động của chư Tôn giả, đứng trước mặt Thế Tôn, quý vị bỏ qua Thế Tôn, nghĩ rằng phải hỏi tôi về ý nghĩa này."
+    },
+    {
+     "n": 50,
+     "text": "Chư Hiền, Thế Tôn biết những gì cần phải biết, thấy những gì cần phải thấy, Ngài đã trở thành vị có mắt, trở thành vị có trí, trở thành Chánh pháp, trở thành Brahmā, vị thuyết giả, vị diễn giả, vị đem lại mục tiêu,"
+    },
+    {
+     "n": 51,
+     "text": "vị trao cho bất tử, vị Pháp Chủ, Như Lai."
+    },
+    {
+     "n": 52,
+     "text": "Quý vị phải tùy thời hỏi Thế Tôn ý nghĩa này."
+    },
+    {
+     "n": 53,
+     "text": "Những gì Thế Tôn giải thích cho quý vị, quý vị hãy như vậy thọ trì."
+    },
+    {
+     "n": 54,
+     "text": "—Hiền giả Mahākaccāna, chắc chắn Thế Tôn biết những gì cần phải biết, thấy những gì cần phải thấy, Ngài đã trở thành vị có mắt, trở thành vị có trí, trở thành Chánh pháp, trở thành Brahmā, vị thuyết giả, vị diễn giả,"
+    },
+    {
+     "n": 55,
+     "text": "vị đem lại mục tiêu, vị trao cho bất tử, vị Pháp Chủ, Như Lai."
+    },
+    {
+     "n": 56,
+     "text": "Chúng tôi phải tùy thời hỏi Thế Tôn ý nghĩa này."
+    },
+    {
+     "n": 57,
+     "text": "Những gì Thế Tôn giải thích cho chúng tôi, chúng tôi sẽ như vậy thọ trì."
+    },
+    {
+     "n": 58,
+     "text": "Nhưng Tôn giả Mahākaccāna được Thế Tôn tán thán, được các vị đồng phạm hạnh có trí kính trọng."
+    },
+    {
+     "n": 59,
+     "text": "Tôn giả Mahākaccāna có thể giải thích rộng rãi ý nghĩa lời giảng dạy được Thế Tôn nói lên một cách vắn tắt và không giải thích rõ ràng ý nghĩa."
+    },
+    {
+     "n": 60,
+     "text": "Mong Tôn giả Mahākaccāna hãy giải thích không có sự gì bất kính."
+    },
+    {
+     "n": 61,
+     "text": "—Vậy chư Hiền hãy nghe và khéo tác ý, tôi sẽ giảng."
+    },
+    {
+     "n": 62,
+     "text": "—Thưa vâng, Hiền giả."
+    },
+    {
+     "n": 63,
+     "text": "Các Tỷ-kheo ấy vâng đáp Tôn giả Mahākaccāna. Tôn giả Mahākaccāna giảng như sau"
+    },
+    {
+     "n": 64,
+     "text": "—Chư Hiền, Thế Tôn nói lên một cách vắn tắt lời dạy này … và đã đi vào tịnh xá: “Này Tỷ-kheo bất cứ vì nhân duyên gì … không còn dư tàn”."
+    },
+    {
+     "n": 65,
+     "text": "Chư Hiền, với lời dạy được Thế Tôn nói lên một cách vắn tắt, và không giải thích rõ ràng ý nghĩa."
+    },
+    {
+     "n": 66,
+     "text": "Tôi hiểu ý nghĩa một cách đầy đủ như sau:"
+    },
+    {
+     "n": 67,
+     "text": "Chư Hiền, do nhơn con mắt và các sắc pháp, nhãn thức khởi lên. Sự gặp gỡ của ba pháp này là xúc. Do duyên xúc nên có cảm thọ."
+    },
+    {
+     "n": 68,
+     "text": "Những gì có cảm thọ thời có tưởng, những gì có tưởng thời có suy tầm, những gì có suy tầm thì có hý luận."
+    },
+    {
+     "n": 69,
+     "text": "Do hý luận ấy làm nhơn, một số hý luận vọng tưởng ám ảnh một người, đối với các sắc pháp do con mắt nhận thức, quá khứ, tương lai và hiện tại."
+    },
+    {
+     "n": 70,
+     "text": "Chư Hiền, do nhơn lỗ tai và các tiếng, nhĩ thức khởi lên, do nhơn lỗ mũi và các hương, tỷ thức khởi lên, do nhơn lưỡi và các vị, thiệt thức khởi lên, do nhơn thân và xúc, thân thức khởi lên;"
+    },
+    {
+     "n": 71,
+     "text": "do nhơn ý và các pháp, ý thức khởi lên. Sự gặp gỡ của ba pháp này là xúc. Do duyên xúc nên có các cảm thọ. Những gì có cảm thọ thời có tưởng. Những gì có tưởng thời có suy tầm. Những gì có suy tầm thời có hý luận."
+    },
+    {
+     "n": 72,
+     "text": "Do hý luận ấy làm nhơn, một số hý luận vọng tưởng ám ảnh một người, đối với các pháp do ý thức nhận thức, quá khứ, tương lai và hiện tại."
+    },
+    {
+     "n": 73,
+     "text": "Chư Hiền, sự kiện này xảy ra: khi nào có mắt, khi nào có sắc pháp, khi nào có nhãn thức, thời sự thi thiết của xúc được hiển lộ."
+    },
+    {
+     "n": 74,
+     "text": "Sự kiện này xảy ra: khi nào có sự thi thiết của xúc thời sự thi thiết của thọ được hiển lộ."
+    },
+    {
+     "n": 75,
+     "text": "Sự kiện này xảy ra: khi nào có thi thiết của thọ thời sự thi thiết của tưởng được hiển lộ."
+    },
+    {
+     "n": 76,
+     "text": "Sự kiện này xảy ra: khi nào có sự thi thiết của tưởng, thời sự thi thiết của suy tầm được hiển lộ."
+    },
+    {
+     "n": 77,
+     "text": "Sự kiện này xảy ra: khi nào có sự thi thiết của suy tầm thời sự thi thiết của sự ám ảnh một số hý luận vọng tưởng được hiển lộ."
+    },
+    {
+     "n": 78,
+     "text": "Sự kiện này xảy ra: khi nào có tai, khi nào có các tiếng, khi nào có nhĩ thức …"
+    },
+    {
+     "n": 79,
+     "text": "Sự kiện này xảy ra: khi nào có lỗ mũi, khi nào có các hương, khi nào có tỷ thức …"
+    },
+    {
+     "n": 80,
+     "text": "Sự kiện này xảy ra, khi nào có lưỡi, khi nào có các vị, khi nào có thiệt thức …"
+    },
+    {
+     "n": 81,
+     "text": "Sự kiện này xảy ra: khi nào có thân, khi nào có các xúc, khi nào có thân thức …"
+    },
+    {
+     "n": 82,
+     "text": "Sự kiện này xảy ra: khi nào có ý, khi nào có các pháp, khi nào có ý thức thời sự thi thiết của xúc được hiển lộ."
+    },
+    {
+     "n": 83,
+     "text": "Chư Hiền, sự kiện này không xảy ra: khi nào không có mắt, khi nào không có các sắc, khi nào không có nhãn thức, sự thi thiết của xúc được hiển lộ."
+    },
+    {
+     "n": 84,
+     "text": "Sự kiện này không xảy ra: khi nào không có sự thi thiết của xúc, sự thi thiết của thọ được hiển lộ."
+    },
+    {
+     "n": 85,
+     "text": "Sự kiện này không xảy ra: khi nào không có sự thi thiết của thọ, sự thi thiết của tưởng được hiển lộ."
+    },
+    {
+     "n": 86,
+     "text": "Sự kiện này không xảy ra: khi nào không có sự thi thiết của tưởng, sự thi thiết của suy tầm được hiển lộ."
+    },
+    {
+     "n": 87,
+     "text": "Sự kiện này không xảy ra: khi nào không có sự thi thiết của suy tầm, thời sự thi thiết của sự ám ảnh một số hý luận vọng tưởng được hiển lộ."
+    },
+    {
+     "n": 88,
+     "text": "Chư Hiền, sự kiện này không xảy ra:"
+    },
+    {
+     "n": 89,
+     "text": "khi nào không có tai, khi nào không có các tiếng … khi nào không có mũi, khi nào không có các hương … khi nào không có lưỡi, khi nào không có các vị … khi nào không có thân, khi nào không có các xúc …"
+    },
+    {
+     "n": 90,
+     "text": "Sự kiện này không xảy ra: khi nào không có ý, khi nào không có các pháp, khi nào không có ý thức, sự thi thiết của xúc được hiển lộ …"
+    },
+    {
+     "n": 91,
+     "text": "Chư Hiền, Thế Tôn, sau khi nói lên lời dạy một cách vắn tắt … đã đi vào tịnh xá: “Này Tỷ-kheo, do bất cứ nhân duyên gì … không dư tàn”."
+    },
+    {
+     "n": 92,
+     "text": "Chư Hiền, đối với lời dạy Thế Tôn nói lên một cách vắn tắt này, và nghĩa lý không được giải thích một cách rộng rãi, tôi đã hiểu ý nghĩa một cách rộng rãi như vậy."
+    },
+    {
+     "n": 93,
+     "text": "Nếu quý vị muốn, hãy đi đến chỗ Thế Tôn ở, sau khi đến, hãy hỏi ý nghĩa này."
+    },
+    {
+     "n": 94,
+     "text": "Thế Tôn giải đáp như thế nào, hãy như vậy thọ trì."
+    },
+    {
+     "n": 95,
+     "text": "Rồi những Tỷ-kheo ấy, hoan hỷ, tùy hỷ lời Tôn giả Mahākaccāna nói, từ chỗ ngồi đứng dậy, đi đến chỗ Thế Tôn ở, sau khi đến đảnh lễ Ngài và ngồi xuống một bên."
+    },
+    {
+     "n": 96,
+     "text": "Sau khi ngồi xuống một bên, các Tỷ-kheo ấy bạch Thế Tôn"
+    },
+    {
+     "n": 97,
+     "text": "—Bạch Thế Tôn, Thế Tôn nói lên lời dạy này một cách vắn tắt cho chúng con … đã vào tịnh xá."
+    },
+    {
+     "n": 98,
+     "text": "“Này Tỷ-kheo, do bất cứ nhân duyên gì … không còn dư tàn”."
+    },
+    {
+     "n": 99,
+     "text": "Khi Thế Tôn đi chẳng bao lâu, chúng con suy nghĩ như sau: “Chư Hiền, Thế Tôn sau khi nói cho chúng ta lời dạy tóm tắt này, không giải thích ý nghĩa một cách rộng rãi, từ chỗ ngồi đứng dậy và đã đi vào tịnh xá:"
+    },
+    {
+     "n": 100,
+     "text": "“Này Tỷ-kheo, do bất cứ nhân duyên gì, một số hý luận vọng tưởng ám ảnh một người, nếu ở đây không có gì đáng tùy hỷ, đáng đón mừng, đáng chấp thủ, thời như vậy là sự đoạn tận tham tùy miên, sự đoạn tận sân tùy miên,"
+    },
+    {
+     "n": 101,
+     "text": "sự đoạn tận kiến tùy miên, sự đoạn tận nghi tùy miên, sự đoạn tận mạn tùy miên, sự đoạn tận hữu tham tùy miên, sự đoạn tận vô minh tùy miên, sự đoạn tận chấp trượng, chấp kiếm, đấu tranh, tránh tranh, luận tranh,"
+    },
+    {
+     "n": 102,
+     "text": "kháng tranh, ly gián ngữ, vọng ngữ. Chính ở đây, những ác, bất thiện pháp này đều được tiêu diệt, không còn dư tàn”."
+    },
+    {
+     "n": 103,
+     "text": "Nay ai có thể giải thích rộng rãi ý nghĩa lời giảng dạy này được Thế Tôn nói lên một cách vắn tắt và không giải thích rõ ràng ý nghĩa?”"
+    },
+    {
+     "n": 104,
+     "text": "Bạch Thế Tôn, và chúng con suy nghĩ: “Nay có Tôn giả Mahākaccāna là vị được Thế Tôn tán dương và được các vị đồng phạm hạnh có trí kính trọng."
+    },
+    {
+     "n": 105,
+     "text": "Tôn giả Mahākaccāna có thể giải thích rộng rãi ý nghĩa lời giảng dạy này được Thế Tôn nói lên một cách vắn tắt và không giải thích rõ ràng ý nghĩa."
+    },
+    {
+     "n": 106,
+     "text": "Vậy chúng ta hãy đi đến chỗ Tôn giả Mahākaccāna ở, sau khi đến sẽ hỏi Tôn giả Mahākaccāna ý nghĩa này”."
+    },
+    {
+     "n": 107,
+     "text": "Bạch Thế Tôn, rồi chúng con đi đến chỗ Tôn giả Mahākaccāna ở, sau khi đến, chúng con hỏi Tôn giả Mahākaccāna ý nghĩa này."
+    },
+    {
+     "n": 108,
+     "text": "Bạch Thế Tôn, Tôn giả Mahākaccāna đã giải thích ý nghĩa ấy cho chúng con với những phương pháp này, với những văn cú này, với những văn tự này."
+    },
+    {
+     "n": 109,
+     "text": "—Chư Tỷ-kheo, Tôn giả Mahākaccāna là bậc Hiền trí."
+    },
+    {
+     "n": 110,
+     "text": "Chư Tỷ-kheo, Tôn giả Mahākaccāna là bậc Đại tuệ."
+    },
+    {
+     "n": 111,
+     "text": "Chư Tỷ-kheo, nếu các Người hỏi Ta ý nghĩa này, Ta cũng trả lời như Mahākaccāna đã trả lời."
+    },
+    {
+     "n": 112,
+     "text": "Như vậy là chính nghĩa lời dạy ấy, hãy như vậy thọ trì."
+    },
+    {
+     "n": 113,
+     "text": "Khi nghe nói vậy, Tôn giả Ānanda bạch Thế Tôn"
+    },
+    {
+     "n": 114,
+     "text": "—Bạch Thế Tôn, như một người bị đói lả và mệt mỏi, tìm được một bánh mật, cứ mỗi miếng vị ấy được nếm, cứ mỗi miếng vị ấy được thưởng thức vị ngọt thuần nhất."
+    },
+    {
+     "n": 115,
+     "text": "Bạch Thế Tôn, cũng vậy, Tỷ-kheo có tri thức biệt tài, cứ mỗi phần suy tư đến ý nghĩa pháp môn này với trí tuệ, cứ mỗi phần vị ấy được thưởng thức sự hoan hỷ, được thưởng thức sự thoải mái tâm trí."
+    },
+    {
+     "n": 116,
+     "text": "Bạch Thế Tôn, pháp môn này tên gọi là gì?"
+    },
+    {
+     "n": 117,
+     "text": "—Do vậy, này Ānanda, pháp môn này được gọi là pháp môn bánh mật (Mật hoàn). Hãy như vậy thọ trì!"
+    },
+    {
+     "n": 118,
+     "text": "Thế Tôn thuyết giảng như vậy. Tôn giả Ānanda hoan hỷ, tín thọ lời dạy của Thế Tôn."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn18/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sakkesu viharati kapilavatthusmiṁ nigrodhārāme."
+    },
+    {
+     "n": 2,
+     "text": "Atha kho bhagavā pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya kapilavatthuṁ piṇḍāya pāvisi."
+    },
+    {
+     "n": 3,
+     "text": "Kapilavatthusmiṁ piṇḍāya caritvā pacchābhattaṁ piṇḍapātapaṭikkanto yena mahāvanaṁ tenupasaṅkami divāvihārāya."
+    },
+    {
+     "n": 4,
+     "text": "Mahāvanaṁ ajjhogāhetvā beluvalaṭṭhikāya mūle divāvihāraṁ nisīdi."
+    },
+    {
+     "n": 5,
+     "text": "Daṇḍapāṇipi kho sakko jaṅghāvihāraṁ anucaṅkamamāno anuvicaramāno yena mahāvanaṁ tenupasaṅkami."
+    },
+    {
+     "n": 6,
+     "text": "Mahāvanaṁ ajjhogāhetvā yena beluvalaṭṭhikā yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavatā saddhiṁ sammodi."
+    },
+    {
+     "n": 7,
+     "text": "Sammodanīyaṁ kathaṁ sāraṇīyaṁ vītisāretvā daṇḍamolubbha ekamantaṁ aṭṭhāsi."
+    },
+    {
+     "n": 8,
+     "text": "Ekamantaṁ ṭhito kho daṇḍapāṇi sakko bhagavantaṁ etadavoca: “kiṁvādī samaṇo kimakkhāyī”ti?"
+    },
+    {
+     "n": 9,
+     "text": "“Yathāvādī kho, āvuso, sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya na kenaci loke viggayha tiṭṭhati,"
+    },
+    {
+     "n": 10,
+     "text": "yathā ca pana kāmehi visaṁyuttaṁ viharantaṁ taṁ brāhmaṇaṁ akathaṅkathiṁ chinnakukkuccaṁ bhavābhave vītataṇhaṁ saññā nānusenti— evaṁvādī kho ahaṁ, āvuso, evamakkhāyī”ti."
+    },
+    {
+     "n": 11,
+     "text": "Evaṁ vutte, daṇḍapāṇi sakko sīsaṁ okampetvā, jivhaṁ nillāḷetvā, tivisākhaṁ nalāṭikaṁ nalāṭe vuṭṭhāpetvā daṇḍamolubbha pakkāmi."
+    },
+    {
+     "n": 12,
+     "text": "Atha kho bhagavā sāyanhasamayaṁ paṭisallānā vuṭṭhito yena nigrodhārāmo tenupasaṅkami; upasaṅkamitvā paññatte āsane nisīdi."
+    },
+    {
+     "n": 13,
+     "text": "Nisajja kho bhagavā bhikkhū āmantesi: “idhāhaṁ, bhikkhave, pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya kapilavatthuṁ piṇḍāya pāvisiṁ."
+    },
+    {
+     "n": 14,
+     "text": "Kapilavatthusmiṁ piṇḍāya caritvā pacchābhattaṁ piṇḍapātapaṭikkanto yena mahāvanaṁ tenupasaṅkamiṁ divāvihārāya."
+    },
+    {
+     "n": 15,
+     "text": "Mahāvanaṁ ajjhogāhetvā beluvalaṭṭhikāya mūle divāvihāraṁ nisīdiṁ."
+    },
+    {
+     "n": 16,
+     "text": "Daṇḍapāṇipi kho, bhikkhave, sakko jaṅghāvihāraṁ anucaṅkamamāno anuvicaramāno yena mahāvanaṁ tenupasaṅkami."
+    },
+    {
+     "n": 17,
+     "text": "Mahāvanaṁ ajjhogāhetvā yena beluvalaṭṭhikā yenāhaṁ tenupasaṅkami; upasaṅkamitvā mayā saddhiṁ sammodi."
+    },
+    {
+     "n": 18,
+     "text": "Sammodanīyaṁ kathaṁ sāraṇīyaṁ vītisāretvā daṇḍamolubbha ekamantaṁ aṭṭhāsi."
+    },
+    {
+     "n": 19,
+     "text": "Ekamantaṁ ṭhito kho, bhikkhave, daṇḍapāṇi sakko maṁ etadavoca: ‘kiṁvādī samaṇo kimakkhāyī’ti?"
+    },
+    {
+     "n": 20,
+     "text": "Evaṁ vutte, ahaṁ, bhikkhave, daṇḍapāṇiṁ sakkaṁ etadavocaṁ:"
+    },
+    {
+     "n": 21,
+     "text": "‘yathāvādī kho, āvuso, sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya na kenaci loke viggayha tiṭṭhati,"
+    },
+    {
+     "n": 22,
+     "text": "yathā ca pana kāmehi visaṁyuttaṁ viharantaṁ taṁ brāhmaṇaṁ akathaṅkathiṁ chinnakukkuccaṁ bhavābhave vītataṇhaṁ saññā nānusenti— evaṁvādī kho ahaṁ, āvuso, evamakkhāyī’ti."
+    },
+    {
+     "n": 23,
+     "text": "Evaṁ vutte, bhikkhave, daṇḍapāṇi sakko sīsaṁ okampetvā, jivhaṁ nillāḷetvā, tivisākhaṁ nalāṭikaṁ nalāṭe vuṭṭhāpetvā daṇḍamolubbha pakkāmī”ti."
+    },
+    {
+     "n": 24,
+     "text": "Evaṁ vutte, aññataro bhikkhu bhagavantaṁ etadavoca: “kiṁvādī pana, bhante, bhagavā sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya na kenaci loke viggayha tiṭṭhati?"
+    },
+    {
+     "n": 25,
+     "text": "Kathañca pana, bhante, bhagavantaṁ kāmehi visaṁyuttaṁ viharantaṁ taṁ brāhmaṇaṁ akathaṅkathiṁ chinnakukkuccaṁ bhavābhave vītataṇhaṁ saññā nānusentī”ti?"
+    },
+    {
+     "n": 26,
+     "text": "“Yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti."
+    },
+    {
+     "n": 27,
+     "text": "Ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ."
+    },
+    {
+     "n": 28,
+     "text": "Esevanto rāgānusayānaṁ, esevanto paṭighānusayānaṁ, esevanto diṭṭhānusayānaṁ, esevanto vicikicchānusayānaṁ, esevanto mānānusayānaṁ, esevanto bhavarāgānusayānaṁ, esevanto avijjānusayānaṁ,"
+    },
+    {
+     "n": 29,
+     "text": "esevanto daṇḍādānasatthādānakalahaviggahavivādatuvaṁtuvaṁpesuññamusāvādānaṁ."
+    },
+    {
+     "n": 30,
+     "text": "Etthete pāpakā akusalā dhammā aparisesā nirujjhantī”ti."
+    },
+    {
+     "n": 31,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato uṭṭhāyāsanā vihāraṁ pāvisi."
+    },
+    {
+     "n": 32,
+     "text": "Atha kho tesaṁ bhikkhūnaṁ acirapakkantassa bhagavato etadahosi: “idaṁ kho no, āvuso, bhagavā saṅkhittena uddesaṁ uddisitvā, vitthārena atthaṁ avibhajitvā, uṭṭhāyāsanā vihāraṁ paviṭṭho:"
+    },
+    {
+     "n": 33,
+     "text": "‘yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti."
+    },
+    {
+     "n": 34,
+     "text": "Ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ."
+    },
+    {
+     "n": 35,
+     "text": "Esevanto rāgānusayānaṁ …pe… etthete pāpakā akusalā dhammā aparisesā nirujjhantī’ti."
+    },
+    {
+     "n": 36,
+     "text": "Ko nu kho imassa bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa vitthārena atthaṁ vibhajeyyā”ti?"
+    },
+    {
+     "n": 37,
+     "text": "Atha kho tesaṁ bhikkhūnaṁ etadahosi: “ayaṁ kho āyasmā mahākaccāno satthu ceva saṁvaṇṇito sambhāvito ca viññūnaṁ sabrahmacārīnaṁ."
+    },
+    {
+     "n": 38,
+     "text": "Pahoti cāyasmā mahākaccāno imassa bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa vitthārena atthaṁ vibhajituṁ."
+    },
+    {
+     "n": 39,
+     "text": "Yannūna mayaṁ yenāyasmā mahākaccāno tenupasaṅkameyyāma; upasaṅkamitvā āyasmantaṁ mahākaccānaṁ etamatthaṁ paṭipuccheyyāmā”ti."
+    },
+    {
+     "n": 40,
+     "text": "Atha kho te bhikkhū yenāyasmā mahākaccāno tenupasaṅkamiṁsu; upasaṅkamitvā āyasmatā mahākaccānena saddhiṁ sammodiṁsu."
+    },
+    {
+     "n": 41,
+     "text": "Sammodanīyaṁ kathaṁ sāraṇīyaṁ vītisāretvā ekamantaṁ nisīdiṁsu."
+    },
+    {
+     "n": 42,
+     "text": "Ekamantaṁ nisinnā kho te bhikkhū āyasmantaṁ mahākaccānaṁ etadavocuṁ: “idaṁ kho no, āvuso kaccāna, bhagavā saṅkhittena uddesaṁ uddisitvā vitthārena atthaṁ avibhajitvā uṭṭhāyāsanā vihāraṁ paviṭṭho:"
+    },
+    {
+     "n": 43,
+     "text": "‘yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti."
+    },
+    {
+     "n": 44,
+     "text": "Ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ."
+    },
+    {
+     "n": 45,
+     "text": "Esevanto rāgānusayānaṁ …pe… etthete pāpakā akusalā dhammā aparisesā nirujjhantī’ti."
+    },
+    {
+     "n": 46,
+     "text": "Tesaṁ no, āvuso kaccāna, amhākaṁ acirapakkantassa bhagavato etadahosi: ‘idaṁ kho no, āvuso, bhagavā saṅkhittena uddesaṁ uddisitvā vitthārena atthaṁ avibhajitvā uṭṭhāyāsanā vihāraṁ paviṭṭho:"
+    },
+    {
+     "n": 47,
+     "text": "“yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti."
+    },
+    {
+     "n": 48,
+     "text": "Ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ."
+    },
+    {
+     "n": 49,
+     "text": "Esevanto rāgānusayānaṁ …pe… etthete pāpakā akusalā dhammā aparisesā nirujjhantī”’ti."
+    },
+    {
+     "n": 50,
+     "text": "Ko nu kho imassa bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa vitthārena atthaṁ vibhajeyyāti?"
+    },
+    {
+     "n": 51,
+     "text": "Tesaṁ no, āvuso kaccāna, amhākaṁ etadahosi:"
+    },
+    {
+     "n": 52,
+     "text": "‘ayaṁ kho āyasmā mahākaccāno satthu ceva saṁvaṇṇito sambhāvito ca viññūnaṁ sabrahmacārīnaṁ,"
+    },
+    {
+     "n": 53,
+     "text": "pahoti cāyasmā mahākaccāno imassa bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa vitthārena atthaṁ vibhajituṁ."
+    },
+    {
+     "n": 54,
+     "text": "Yannūna mayaṁ yenāyasmā mahākaccāno tenupasaṅkameyyāma; upasaṅkamitvā āyasmantaṁ mahākaccānaṁ etamatthaṁ paṭipuccheyyāmā’ti. Vibhajatāyasmā mahākaccāno”ti."
+    },
+    {
+     "n": 55,
+     "text": "“Seyyathāpi, āvuso, puriso sāratthiko sāragavesī sārapariyesanaṁ caramāno mahato rukkhassa tiṭṭhato sāravato atikkammeva mūlaṁ, atikkamma khandhaṁ, sākhāpalāse sāraṁ pariyesitabbaṁ maññeyya;"
+    },
+    {
+     "n": 56,
+     "text": "evaṁsampadamidaṁ āyasmantānaṁ satthari sammukhībhūte, taṁ bhagavantaṁ atisitvā, amhe etamatthaṁ paṭipucchitabbaṁ maññatha."
+    },
+    {
+     "n": 57,
+     "text": "So hāvuso, bhagavā jānaṁ jānāti, passaṁ passati, cakkhubhūto ñāṇabhūto dhammabhūto brahmabhūto, vattā pavattā, atthassa ninnetā, amatassa dātā, dhammassāmī tathāgato."
+    },
+    {
+     "n": 58,
+     "text": "So ceva panetassa kālo ahosi, yaṁ bhagavantaṁyeva etamatthaṁ paṭipuccheyyātha."
+    },
+    {
+     "n": 59,
+     "text": "Yathā vo bhagavā byākareyya tathā naṁ dhāreyyāthā”ti."
+    },
+    {
+     "n": 60,
+     "text": "“Addhāvuso kaccāna, bhagavā jānaṁ jānāti, passaṁ passati, cakkhubhūto ñāṇabhūto dhammabhūto brahmabhūto, vattā pavattā, atthassa ninnetā, amatassa dātā, dhammassāmī tathāgato."
+    },
+    {
+     "n": 61,
+     "text": "So ceva panetassa kālo ahosi, yaṁ bhagavantaṁyeva etamatthaṁ paṭipuccheyyāma."
+    },
+    {
+     "n": 62,
+     "text": "Yathā no bhagavā byākareyya tathā naṁ dhāreyyāma."
+    },
+    {
+     "n": 63,
+     "text": "Api cāyasmā mahākaccāno satthu ceva saṁvaṇṇito sambhāvito ca viññūnaṁ sabrahmacārīnaṁ,"
+    },
+    {
+     "n": 64,
+     "text": "pahoti cāyasmā mahākaccāno imassa bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa vitthārena atthaṁ vibhajituṁ."
+    },
+    {
+     "n": 65,
+     "text": "Vibhajatāyasmā mahākaccāno agaruṁ katvā”ti."
+    },
+    {
+     "n": 66,
+     "text": "“Tena hāvuso, suṇātha, sādhukaṁ manasikarotha, bhāsissāmī”ti."
+    },
+    {
+     "n": 67,
+     "text": "“Evamāvuso”ti kho te bhikkhū āyasmato mahākaccānassa paccassosuṁ. Āyasmā mahākaccāno etadavoca:"
+    },
+    {
+     "n": 68,
+     "text": "“Yaṁ kho no, āvuso, bhagavā saṅkhittena uddesaṁ uddisitvā vitthārena atthaṁ avibhajitvā uṭṭhāyāsanā vihāraṁ paviṭṭho: ‘yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti."
+    },
+    {
+     "n": 69,
+     "text": "Ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ, esevanto rāgānusayānaṁ …pe… etthete pāpakā akusalā dhammā aparisesā nirujjhantī’ti, imassa kho ahaṁ, āvuso,"
+    },
+    {
+     "n": 70,
+     "text": "bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa evaṁ vitthārena atthaṁ ājānāmi—"
+    },
+    {
+     "n": 71,
+     "text": "Cakkhuñcāvuso, paṭicca rūpe ca uppajjati cakkhuviññāṇaṁ, tiṇṇaṁ saṅgati phasso, phassapaccayā vedanā, yaṁ vedeti taṁ sañjānāti, yaṁ sañjānāti taṁ vitakketi, yaṁ vitakketi taṁ papañceti,"
+    },
+    {
+     "n": 72,
+     "text": "yaṁ papañceti tatonidānaṁ purisaṁ papañcasaññāsaṅkhā samudācaranti atītānāgatapaccuppannesu cakkhuviññeyyesu rūpesu."
+    },
+    {
+     "n": 73,
+     "text": "Sotañcāvuso, paṭicca sadde ca uppajjati sotaviññāṇaṁ …pe…"
+    },
+    {
+     "n": 74,
+     "text": "ghānañcāvuso, paṭicca gandhe ca uppajjati ghānaviññāṇaṁ …pe…"
+    },
+    {
+     "n": 75,
+     "text": "jivhañcāvuso, paṭicca rase ca uppajjati jivhāviññāṇaṁ …pe…"
+    },
+    {
+     "n": 76,
+     "text": "kāyañcāvuso, paṭicca phoṭṭhabbe ca uppajjati kāyaviññāṇaṁ …pe…"
+    },
+    {
+     "n": 77,
+     "text": "manañcāvuso, paṭicca dhamme ca uppajjati manoviññāṇaṁ, tiṇṇaṁ saṅgati phasso, phassapaccayā vedanā, yaṁ vedeti taṁ sañjānāti, yaṁ sañjānāti taṁ vitakketi, yaṁ vitakketi taṁ papañceti,"
+    },
+    {
+     "n": 78,
+     "text": "yaṁ papañceti tatonidānaṁ purisaṁ papañcasaññāsaṅkhā samudācaranti atītānāgatapaccuppannesu manoviññeyyesu dhammesu."
+    },
+    {
+     "n": 79,
+     "text": "So vatāvuso, cakkhusmiṁ sati rūpe sati cakkhuviññāṇe sati phassapaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 80,
+     "text": "Phassapaññattiyā sati vedanāpaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 81,
+     "text": "Vedanāpaññattiyā sati saññāpaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 82,
+     "text": "Saññāpaññattiyā sati vitakkapaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 83,
+     "text": "Vitakkapaññattiyā sati papañcasaññāsaṅkhāsamudācaraṇapaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 84,
+     "text": "So vatāvuso,"
+    },
+    {
+     "n": 85,
+     "text": "sotasmiṁ sati sadde sati …pe… ghānasmiṁ sati gandhe sati …pe… jivhāya sati rase sati …pe… kāyasmiṁ sati phoṭṭhabbe sati …pe… manasmiṁ sati dhamme sati manoviññāṇe sati phassapaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 86,
+     "text": "Phassapaññattiyā sati vedanāpaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 87,
+     "text": "Vedanāpaññattiyā sati saññāpaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 88,
+     "text": "Saññāpaññattiyā sati vitakkapaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 89,
+     "text": "Vitakkapaññattiyā sati papañcasaññāsaṅkhāsamudācaraṇapaññattiṁ paññāpessatīti—ṭhānametaṁ vijjati."
+    },
+    {
+     "n": 90,
+     "text": "So vatāvuso, cakkhusmiṁ asati rūpe asati cakkhuviññāṇe asati phassapaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 91,
+     "text": "Phassapaññattiyā asati vedanāpaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 92,
+     "text": "Vedanāpaññattiyā asati saññāpaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 93,
+     "text": "Saññāpaññattiyā asati vitakkapaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 94,
+     "text": "Vitakkapaññattiyā asati papañcasaññāsaṅkhāsamudācaraṇapaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 95,
+     "text": "So vatāvuso,"
+    },
+    {
+     "n": 96,
+     "text": "sotasmiṁ asati sadde asati …pe… ghānasmiṁ asati gandhe asati …pe… jivhāya asati rase asati …pe… kāyasmiṁ asati phoṭṭhabbe asati …pe… manasmiṁ asati dhamme asati manoviññāṇe asati phassapaññattiṁ paññāpessatīti—netaṁ"
+    },
+    {
+     "n": 97,
+     "text": "ṭhānaṁ vijjati. Phassapaññattiyā asati vedanāpaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 98,
+     "text": "Vedanāpaññattiyā asati saññāpaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 99,
+     "text": "Saññāpaññattiyā asati vitakkapaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 100,
+     "text": "Vitakkapaññattiyā asati papañcasaññāsaṅkhāsamudācaraṇapaññattiṁ paññāpessatīti—netaṁ ṭhānaṁ vijjati."
+    },
+    {
+     "n": 101,
+     "text": "Yaṁ kho no, āvuso, bhagavā saṅkhittena uddesaṁ uddisitvā vitthārena atthaṁ avibhajitvā uṭṭhāyāsanā vihāraṁ paviṭṭho:"
+    },
+    {
+     "n": 102,
+     "text": "‘yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ esevanto rāgānusayānaṁ …pe… etthete pāpakā akusalā dhammā aparisesā nirujjhantī’ti,"
+    },
+    {
+     "n": 103,
+     "text": "imassa kho ahaṁ, āvuso,"
+    },
+    {
+     "n": 104,
+     "text": "bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa evaṁ vitthārena atthaṁ ājānāmi. Ākaṅkhamānā ca pana tumhe āyasmanto bhagavantaṁyeva upasaṅkamitvā etamatthaṁ paṭipuccheyyātha."
+    },
+    {
+     "n": 105,
+     "text": "Yathā vo bhagavā byākaroti tathā naṁ dhāreyyāthā”ti."
+    },
+    {
+     "n": 106,
+     "text": "Atha kho te bhikkhū āyasmato mahākaccānassa bhāsitaṁ abhinanditvā anumoditvā uṭṭhāyāsanā yena bhagavā tenupasaṅkamiṁsu; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdiṁsu."
+    },
+    {
+     "n": 107,
+     "text": "Ekamantaṁ nisinnā kho te bhikkhū bhagavantaṁ etadavocuṁ: “yaṁ kho no, bhante, bhagavā saṅkhittena uddesaṁ uddisitvā vitthārena atthaṁ avibhajitvā uṭṭhāyāsanā vihāraṁ paviṭṭho:"
+    },
+    {
+     "n": 108,
+     "text": "‘yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti."
+    },
+    {
+     "n": 109,
+     "text": "Ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ."
+    },
+    {
+     "n": 110,
+     "text": "Esevanto rāgānusayānaṁ …pe… etthete pāpakā akusalā dhammā aparisesā nirujjhantī’ti."
+    },
+    {
+     "n": 111,
+     "text": "Tesaṁ no, bhante, amhākaṁ acirapakkantassa bhagavato etadahosi: ‘idaṁ kho no, āvuso, bhagavā saṅkhittena uddesaṁ uddisitvā vitthārena atthaṁ avibhajitvā uṭṭhāyāsanā vihāraṁ paviṭṭho:"
+    },
+    {
+     "n": 112,
+     "text": "“yatonidānaṁ, bhikkhu, purisaṁ papañcasaññāsaṅkhā samudācaranti."
+    },
+    {
+     "n": 113,
+     "text": "Ettha ce natthi abhinanditabbaṁ abhivaditabbaṁ ajjhositabbaṁ."
+    },
+    {
+     "n": 114,
+     "text": "Esevanto rāgānusayānaṁ, esevanto paṭighānusayānaṁ, esevanto diṭṭhānusayānaṁ, esevanto vicikicchānusayānaṁ, esevanto mānānusayānaṁ, esevanto bhavarāgānusayānaṁ, esevanto avijjānusayānaṁ,"
+    },
+    {
+     "n": 115,
+     "text": "esevanto daṇḍādānasatthādānakalahaviggahavivādatuvaṁtuvaṁpesuññamusāvādānaṁ."
+    },
+    {
+     "n": 116,
+     "text": "Etthete pāpakā akusalā dhammā aparisesā nirujjhantī”ti."
+    },
+    {
+     "n": 117,
+     "text": "Ko nu kho imassa bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa vitthārena atthaṁ vibhajeyyā’ti? Tesaṁ no, bhante, amhākaṁ etadahosi:"
+    },
+    {
+     "n": 118,
+     "text": "‘ayaṁ kho āyasmā mahākaccāno satthu ceva saṁvaṇṇito sambhāvito ca viññūnaṁ sabrahmacārīnaṁ,"
+    },
+    {
+     "n": 119,
+     "text": "pahoti cāyasmā mahākaccāno imassa bhagavatā saṅkhittena uddesassa uddiṭṭhassa vitthārena atthaṁ avibhattassa vitthārena atthaṁ vibhajituṁ, yannūna mayaṁ yenāyasmā mahākaccāno tenupasaṅkameyyāma;"
+    },
+    {
+     "n": 120,
+     "text": "upasaṅkamitvā āyasmantaṁ mahākaccānaṁ etamatthaṁ paṭipuccheyyāmā’ti."
+    },
+    {
+     "n": 121,
+     "text": "Atha kho mayaṁ, bhante, yenāyasmā mahākaccāno tenupasaṅkamimha; upasaṅkamitvā āyasmantaṁ mahākaccānaṁ etamatthaṁ paṭipucchimha."
+    },
+    {
+     "n": 122,
+     "text": "Tesaṁ no, bhante, āyasmatā mahākaccānena imehi ākārehi imehi padehi imehi byañjanehi attho vibhatto”ti."
+    },
+    {
+     "n": 123,
+     "text": "“Paṇḍito, bhikkhave, mahākaccāno; mahāpañño, bhikkhave, mahākaccāno."
+    },
+    {
+     "n": 124,
+     "text": "Mañcepi tumhe, bhikkhave, etamatthaṁ paṭipuccheyyātha, ahampi taṁ evamevaṁ byākareyyaṁ yathā taṁ mahākaccānena byākataṁ. Eso cevetassa attho. Evañca naṁ dhārethā”ti."
+    },
+    {
+     "n": 125,
+     "text": "Evaṁ vutte, āyasmā ānando bhagavantaṁ etadavoca: “seyyathāpi, bhante, puriso jighacchādubbalyapareto madhupiṇḍikaṁ adhigaccheyya, so yato yato sāyeyya, labhetheva sādurasaṁ asecanakaṁ."
+    },
+    {
+     "n": 126,
+     "text": "Evameva kho, bhante, cetaso bhikkhu dabbajātiko, yato yato imassa dhammapariyāyassa paññāya atthaṁ upaparikkheyya, labhetheva attamanataṁ, labhetheva cetaso pasādaṁ."
+    },
+    {
+     "n": 127,
+     "text": "Ko nāmo ayaṁ, bhante, dhammapariyāyo”ti?"
+    },
+    {
+     "n": 128,
+     "text": "“Tasmātiha tvaṁ, ānanda, imaṁ dhammapariyāyaṁ madhupiṇḍikapariyāyotveva naṁ dhārehī”ti."
+    },
+    {
+     "n": 129,
+     "text": "Idamavoca bhagavā. Attamano āyasmā ānando bhagavato bhāsitaṁ abhinandīti."
+    },
+    {
+     "n": 130,
+     "text": "Madhupiṇḍikasuttaṁ niṭṭhitaṁ aṭṭhamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn18/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying in the land of the Sakyans, near Kapilavatthu in the Banyan Tree Monastery."
+    },
+    {
+     "n": 2,
+     "text": "Then the Buddha robed up in the morning and, taking his bowl and robe, entered Kapilavatthu for alms. He wandered for alms in Kapilavatthu."
+    },
+    {
+     "n": 3,
+     "text": "After the meal, on his return from almsround, he went to the Great Wood for the day’s meditation, plunged deep into it, and sat at the root of a young wood-apple tree to meditate."
+    },
+    {
+     "n": 4,
+     "text": "Daṇḍapāṇi the Sakyan, while going for a walk, plunged deep into the Great Wood."
+    },
+    {
+     "n": 5,
+     "text": "He approached the Buddha and exchanged greetings with him."
+    },
+    {
+     "n": 6,
+     "text": "When the greetings and polite conversation were over, he stood to one side leaning on his staff, and said to the Buddha, “What is the ascetic’s doctrine? What does he assert?”"
+    },
+    {
+     "n": 7,
+     "text": "“Respectable sir, my doctrine is such that one does not argue with anyone in this world with its gods, Māras, and divinities, this population with its ascetics and brahmins, its gods and humans."
+    },
+    {
+     "n": 8,
+     "text": "And it is such that perceptions do not underlie the brahmin who lives detached from sensual pleasures, without indecision, stripped of worry, and rid of craving for rebirth in this or that state."
+    },
+    {
+     "n": 9,
+     "text": "That is my doctrine, and that is what I assert.”"
+    },
+    {
+     "n": 10,
+     "text": "When he had spoken, Daṇḍapāṇi shook his head, waggled his tongue, raised his eyebrows until his brow puckered in three furrows, and left leaning on his staff."
+    },
+    {
+     "n": 11,
+     "text": "Then in the late afternoon, the Buddha came out of retreat and went to the Banyan Tree Monastery, sat down on the seat spread out, and told the mendicants what had happened."
+    },
+    {
+     "n": 12,
+     "text": "When he had spoken, one of the mendicants said to him, “But sir, asserting what doctrine does the Buddha not argue with anyone in this world with its gods, Māras, and divinities,"
+    },
+    {
+     "n": 13,
+     "text": "this population with its ascetics and brahmins, its gods and humans?"
+    },
+    {
+     "n": 14,
+     "text": "And how is it that perceptions do not underlie the Buddha, the brahmin who lives detached from sensual pleasures, without indecision, stripped of worry, and rid of craving for rebirth in this or that state?”"
+    },
+    {
+     "n": 15,
+     "text": "“Mendicant, judgments driven by proliferating perceptions beset a person."
+    },
+    {
+     "n": 16,
+     "text": "If they don’t find anything worth approving, welcoming, or getting attached to in the source from which these arise, just this is the end of the underlying tendencies to desire, aversion, views, doubt, conceit,"
+    },
+    {
+     "n": 17,
+     "text": "the desire for continued existence, and ignorance."
+    },
+    {
+     "n": 18,
+     "text": "This is the end of taking up the rod and the sword, the end of quarrels, arguments, and disputes, of accusations, backbiting, and lies."
+    },
+    {
+     "n": 19,
+     "text": "This is where these bad, unskillful qualities cease without remainder.”"
+    },
+    {
+     "n": 20,
+     "text": "That is what the Buddha said. When he had spoken, the Holy One rose from his seat and entered his dwelling."
+    },
+    {
+     "n": 21,
+     "text": "Soon after the Buddha left, those mendicants considered, “The Buddha gave this brief summary recital, then entered his dwelling without explaining the meaning in detail."
+    },
+    {
+     "n": 22,
+     "text": "Who can explain in detail the meaning of this brief summary recital given by the Buddha?”"
+    },
+    {
+     "n": 23,
+     "text": "Then those mendicants thought, “This Venerable Mahākaccāna is praised by the Buddha and esteemed by his sensible spiritual companions."
+    },
+    {
+     "n": 24,
+     "text": "He is capable of explaining in detail the meaning of this brief summary recital given by the Buddha."
+    },
+    {
+     "n": 25,
+     "text": "Let’s go to him, and ask him about this matter.”"
+    },
+    {
+     "n": 26,
+     "text": "Then those mendicants went to Mahākaccāna, and exchanged greetings with him."
+    },
+    {
+     "n": 27,
+     "text": "When the greetings and polite conversation were over, they sat down to one side."
+    },
+    {
+     "n": 28,
+     "text": "They told him what had happened, and said: “May Venerable Mahākaccāna please explain this.”"
+    },
+    {
+     "n": 29,
+     "text": "“Reverends, suppose there was a person in need of heartwood."
+    },
+    {
+     "n": 30,
+     "text": "And while wandering in search of heartwood he’d come across a large tree standing with heartwood."
+    },
+    {
+     "n": 31,
+     "text": "But he’d pass over the roots and trunk, imagining that the heartwood should be sought in the branches and leaves."
+    },
+    {
+     "n": 32,
+     "text": "Such is the consequence for the venerables."
+    },
+    {
+     "n": 33,
+     "text": "Though you were face to face with the Buddha, you bypassed him, imagining that you should ask me about this matter."
+    },
+    {
+     "n": 34,
+     "text": "For he is the Buddha, the one who knows and sees."
+    },
+    {
+     "n": 35,
+     "text": "He is vision, he is knowledge, he is the manifestation of principle, he is the manifestation of divinity."
+    },
+    {
+     "n": 36,
+     "text": "He is the preacher, the proclaimer, the elucidator of meaning, the bestower of freedom from death, the lord of truth, the Realized One."
+    },
+    {
+     "n": 37,
+     "text": "That was the time to approach the Buddha and ask about this matter."
+    },
+    {
+     "n": 38,
+     "text": "You should have remembered it in line with the Buddha’s answer.”"
+    },
+    {
+     "n": 39,
+     "text": "“Certainly he is the Buddha, the one who knows and sees."
+    },
+    {
+     "n": 40,
+     "text": "He is vision, he is knowledge, he is the manifestation of principle, he is the manifestation of divinity."
+    },
+    {
+     "n": 41,
+     "text": "He is the preacher, the proclaimer, the elucidator of meaning, the bestower of freedom from death, the lord of truth, the Realized One."
+    },
+    {
+     "n": 42,
+     "text": "That was the time to approach the Buddha and ask about this matter."
+    },
+    {
+     "n": 43,
+     "text": "We should have remembered it in line with the Buddha’s answer."
+    },
+    {
+     "n": 44,
+     "text": "Still, Mahākaccāna is praised by the Buddha and esteemed by his sensible spiritual companions."
+    },
+    {
+     "n": 45,
+     "text": "You are capable of explaining in detail the meaning of this brief summary recital given by the Buddha."
+    },
+    {
+     "n": 46,
+     "text": "Please explain this, if it’s no trouble.”"
+    },
+    {
+     "n": 47,
+     "text": "“Well then, reverends, listen and apply your mind well, I will speak.”"
+    },
+    {
+     "n": 48,
+     "text": "“Yes, reverend,” they replied. Venerable Mahākaccāna said this:"
+    },
+    {
+     "n": 49,
+     "text": "“Reverends, the Buddha gave this brief summary recital, then entered his dwelling without explaining the meaning in detail: ‘Judgments driven by proliferating perceptions beset a person."
+    },
+    {
+     "n": 50,
+     "text": "If they don’t find anything worth approving, welcoming, or getting attached to in the source from which these arise, just this is the end of the underlying tendencies to desire, repulsion, views, doubt, conceit,"
+    },
+    {
+     "n": 51,
+     "text": "the desire to be reborn, and ignorance. This is the end of taking up the rod and the sword, the end of quarrels, arguments, and disputes, of accusations, backbiting, and lies."
+    },
+    {
+     "n": 52,
+     "text": "This is where these bad, unskillful qualities cease without remainder.’"
+    },
+    {
+     "n": 53,
+     "text": "This is how I understand the detailed meaning of this summary recital."
+    },
+    {
+     "n": 54,
+     "text": "Eye consciousness arises dependent on the eye and sights. The meeting of the three is contact. Contact is a requirement for feeling. What you feel, you perceive. What you perceive, you think about."
+    },
+    {
+     "n": 55,
+     "text": "What you think about, you proliferate. What you proliferate is the source from which judgments driven by proliferating perceptions beset a person."
+    },
+    {
+     "n": 56,
+     "text": "This occurs with respect to sights known by the eye in the past, future, and present."
+    },
+    {
+     "n": 57,
+     "text": "Ear consciousness arises dependent on the ear and sounds. …"
+    },
+    {
+     "n": 58,
+     "text": "Nose consciousness arises dependent on the nose and smells. …"
+    },
+    {
+     "n": 59,
+     "text": "Tongue consciousness arises dependent on the tongue and tastes. …"
+    },
+    {
+     "n": 60,
+     "text": "Body consciousness arises dependent on the body and touches. …"
+    },
+    {
+     "n": 61,
+     "text": "Mind consciousness arises dependent on the mind and ideas. The meeting of the three is contact. Contact is a requirement for feeling. What you feel, you perceive. What you perceive, you think about."
+    },
+    {
+     "n": 62,
+     "text": "What you think about, you proliferate. What you proliferate is the source from which judgments driven by proliferating perceptions beset a person."
+    },
+    {
+     "n": 63,
+     "text": "This occurs with respect to ideas known by the mind in the past, future, and present."
+    },
+    {
+     "n": 64,
+     "text": "Where there is the eye, sights, and eye consciousness, it will be possible to discover evidence of contact."
+    },
+    {
+     "n": 65,
+     "text": "Where there is evidence of contact, it will be possible to discover evidence of feeling."
+    },
+    {
+     "n": 66,
+     "text": "Where there is evidence of feeling, it will be possible to discover evidence of perception."
+    },
+    {
+     "n": 67,
+     "text": "Where there is evidence of perception, it will be possible to discover evidence of thought."
+    },
+    {
+     "n": 68,
+     "text": "Where there is evidence of thought, it will be possible to discover evidence of being beset by judgments driven by proliferating perceptions."
+    },
+    {
+     "n": 69,
+     "text": "Where there is the ear … nose … tongue … body … mind, ideas, and mind consciousness, it will be possible to discover evidence of contact."
+    },
+    {
+     "n": 70,
+     "text": "Where there is evidence of contact, it will be possible to discover evidence of feeling."
+    },
+    {
+     "n": 71,
+     "text": "Where there is evidence of feeling, it will be possible to discover evidence of perception."
+    },
+    {
+     "n": 72,
+     "text": "Where there is evidence of perception, it will be possible to discover evidence of thinking."
+    },
+    {
+     "n": 73,
+     "text": "Where there is evidence of thinking, it will be possible to discover evidence of being beset by judgments driven by proliferating perceptions."
+    },
+    {
+     "n": 74,
+     "text": "Where there is no eye, no sights, and no eye consciousness, it will not be possible to discover evidence of contact."
+    },
+    {
+     "n": 75,
+     "text": "Where there is no evidence of contact, it will not be possible to discover evidence of feeling."
+    },
+    {
+     "n": 76,
+     "text": "Where there is no evidence of feeling, it will not be possible to discover evidence of perception."
+    },
+    {
+     "n": 77,
+     "text": "Where there is no evidence of perception, it will not be possible to discover evidence of thinking."
+    },
+    {
+     "n": 78,
+     "text": "Where there is no evidence of thinking, it will not be possible to discover evidence of being beset by judgments driven by proliferating perceptions."
+    },
+    {
+     "n": 79,
+     "text": "Where there is no ear … no nose … no tongue … no body … no mind, no ideas, and no mind consciousness, it will not be possible to discover evidence of contact."
+    },
+    {
+     "n": 80,
+     "text": "Where there is no evidence of contact, it will not be possible to discover evidence of feeling."
+    },
+    {
+     "n": 81,
+     "text": "Where there is no evidence of feeling, it will not be possible to discover evidence of perception."
+    },
+    {
+     "n": 82,
+     "text": "Where there is no evidence of perception, it will not be possible to discover evidence of thinking."
+    },
+    {
+     "n": 83,
+     "text": "Where there is no evidence of thinking, it will not be possible to discover evidence of being beset by judgments driven by proliferating perceptions."
+    },
+    {
+     "n": 84,
+     "text": "This is how I understand the detailed meaning of that brief summary recital given by the Buddha."
+    },
+    {
+     "n": 85,
+     "text": "If you wish, you may go to the Buddha and ask him about this."
+    },
+    {
+     "n": 86,
+     "text": "You should remember it in line with the Buddha’s answer.”"
+    },
+    {
+     "n": 87,
+     "text": "Then those mendicants, approving and agreeing with what Mahākaccāna said, rose from their seats and went to the Buddha, bowed, sat down to one side, and told him what had happened, adding:"
+    },
+    {
+     "n": 88,
+     "text": "“Mahākaccāna clearly explained the meaning to us in this manner, with these words and phrases.”"
+    },
+    {
+     "n": 89,
+     "text": "“Mahākaccāna is astute, mendicants, he has great wisdom."
+    },
+    {
+     "n": 90,
+     "text": "If you came to me and asked this question, I would answer it in exactly the same way as Mahākaccāna."
+    },
+    {
+     "n": 91,
+     "text": "That is what it means, and that’s how you should remember it.”"
+    },
+    {
+     "n": 92,
+     "text": "When he said this, Venerable Ānanda said to the Buddha, “Sir, suppose a person who was weak with hunger was to obtain a honey-cake."
+    },
+    {
+     "n": 93,
+     "text": "Wherever they taste it, they would enjoy a sweet, delectable flavor."
+    },
+    {
+     "n": 94,
+     "text": "In the same way, wherever a sincere, proficient mendicant might examine with wisdom the meaning of this exposition of the teaching they would only gain joy and clarity."
+    },
+    {
+     "n": 95,
+     "text": "Sir, what is the name of this exposition of the teaching?”"
+    },
+    {
+     "n": 96,
+     "text": "“Well then, Ānanda, you may remember this exposition of the teaching as ‘The Honey-Cake Discourse’.”"
+    },
+    {
+     "n": 97,
+     "text": "That is what the Buddha said. Satisfied, Venerable Ānanda approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,786 @@
+{
+ "id": "phap-cu-hien-tri",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 76-89",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 76-89), nói về người trí và cách sống của họ. Phẩm khuyên thân cận người hiền trí biết chỉ lỗi như chỉ chỗ chôn vàng, tránh bạn ác, và mô tả bậc trí như tảng đá không bị gió lay, tâm trong sáng như hồ nước, không dao động trước khen chê, vui khổ.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Hiền Trí",
+  "pli": "Paṇḍitavagga",
+  "en": "The Astute"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp76-89/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nếu thấy bậc hiền trí,"
+    },
+    {
+     "n": 2,
+     "text": "Chỉ lỗi và khiển trách,"
+    },
+    {
+     "n": 3,
+     "text": "Như chỉ chỗ chôn vàng"
+    },
+    {
+     "n": 4,
+     "text": "Hãy thân cận người trí!"
+    },
+    {
+     "n": 5,
+     "text": "Thân cận người như vậy,"
+    },
+    {
+     "n": 6,
+     "text": "Chỉ tốt hơn, không xấu."
+    },
+    {
+     "n": 7,
+     "text": "Những người hay khuyên dạy,"
+    },
+    {
+     "n": 8,
+     "text": "Ngăn người khác làm ác,"
+    },
+    {
+     "n": 9,
+     "text": "Được người hiền kính yêu,"
+    },
+    {
+     "n": 10,
+     "text": "Bị người ác không thích."
+    },
+    {
+     "n": 11,
+     "text": "Chớ thân với bạn ác,"
+    },
+    {
+     "n": 12,
+     "text": "Chớ thân kẻ tiểu nhân."
+    },
+    {
+     "n": 13,
+     "text": "Hãy thân người bạn lành,"
+    },
+    {
+     "n": 14,
+     "text": "Hãy thân bậc thượng nhân."
+    },
+    {
+     "n": 15,
+     "text": "Pháp hỷ đem an lạc,"
+    },
+    {
+     "n": 16,
+     "text": "Với tâm tư thuần tịnh;"
+    },
+    {
+     "n": 17,
+     "text": "Người trí thường hoan hỷ,"
+    },
+    {
+     "n": 18,
+     "text": "Với pháp bậc Thánh thuyết."
+    },
+    {
+     "n": 19,
+     "text": "Người trị thủy dẫn nước,"
+    },
+    {
+     "n": 20,
+     "text": "Kẻ làm tên nắn tên,"
+    },
+    {
+     "n": 21,
+     "text": "Người thợ mộc uốn gỗ,"
+    },
+    {
+     "n": 22,
+     "text": "Bậc trí nhiếp tự thân."
+    },
+    {
+     "n": 23,
+     "text": "Như đá tảng kiên cố,"
+    },
+    {
+     "n": 24,
+     "text": "Không gió nào giao động,"
+    },
+    {
+     "n": 25,
+     "text": "Cũng vậy, giữa khen chê,"
+    },
+    {
+     "n": 26,
+     "text": "Người trí không giao động."
+    },
+    {
+     "n": 27,
+     "text": "Như hồ nước sâu thẳm,"
+    },
+    {
+     "n": 28,
+     "text": "Trong sáng, không khuấy đục,"
+    },
+    {
+     "n": 29,
+     "text": "Cũng vậy, nghe chánh pháp,"
+    },
+    {
+     "n": 30,
+     "text": "Người trí hưởng tịnh lạc."
+    },
+    {
+     "n": 31,
+     "text": "Người hiền bỏ tất cả,"
+    },
+    {
+     "n": 32,
+     "text": "Người lành không bàn dục,"
+    },
+    {
+     "n": 33,
+     "text": "Dầu cảm thọ lạc khổ,"
+    },
+    {
+     "n": 34,
+     "text": "Bậc trí không vui buồn."
+    },
+    {
+     "n": 35,
+     "text": "Không vì mình, vì người. Không cầu được con cái,"
+    },
+    {
+     "n": 36,
+     "text": "Không tài sản quốc độ, Không cầu mình thành tựu,"
+    },
+    {
+     "n": 37,
+     "text": "Với việc làm phi pháp."
+    },
+    {
+     "n": 38,
+     "text": "Vị ấy thật trì giới, Có trí tuệ, đúng pháp."
+    },
+    {
+     "n": 39,
+     "text": "Ít người giữa nhân loại,"
+    },
+    {
+     "n": 40,
+     "text": "Đến được bờ bên kia"
+    },
+    {
+     "n": 41,
+     "text": "Còn số người còn lại,"
+    },
+    {
+     "n": 42,
+     "text": "Xuôi ngược chạy bờ này."
+    },
+    {
+     "n": 43,
+     "text": "Những ai hành trì pháp,"
+    },
+    {
+     "n": 44,
+     "text": "Theo chánh pháp khéo dạy,"
+    },
+    {
+     "n": 45,
+     "text": "Sẽ đến bờ bên kia,"
+    },
+    {
+     "n": 46,
+     "text": "Vượt ma lực khó thoát."
+    },
+    {
+     "n": 47,
+     "text": "Kẻ trí bỏ pháp đen,"
+    },
+    {
+     "n": 48,
+     "text": "Tu tập theo pháp trắng."
+    },
+    {
+     "n": 49,
+     "text": "Bỏ nhà, sống không nhà,"
+    },
+    {
+     "n": 50,
+     "text": "Sống viễn ly khổ lạc."
+    },
+    {
+     "n": 51,
+     "text": "Hãy cầu vui Niết-bàn,"
+    },
+    {
+     "n": 52,
+     "text": "Bỏ dục, không sở hữu,"
+    },
+    {
+     "n": 53,
+     "text": "Kẻ trí tự rửa sạch,"
+    },
+    {
+     "n": 54,
+     "text": "Cấu uế từ nội tâm."
+    },
+    {
+     "n": 55,
+     "text": "Những ai với chánh tâm,"
+    },
+    {
+     "n": 56,
+     "text": "Khéo tu tập giác chi,"
+    },
+    {
+     "n": 57,
+     "text": "Từ bỏ mọi ái nhiễm,"
+    },
+    {
+     "n": 58,
+     "text": "Hoan hỷ không chấp thủ."
+    },
+    {
+     "n": 59,
+     "text": "Không lậu hoặc, sáng chói,"
+    },
+    {
+     "n": 60,
+     "text": "Sống tịch tịnh ở đời."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp76-89/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nidhīnaṁva pavattāraṁ,"
+    },
+    {
+     "n": 2,
+     "text": "yaṁ passe vajjadassinaṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Niggayhavādiṁ medhāviṁ,"
+    },
+    {
+     "n": 4,
+     "text": "tādisaṁ paṇḍitaṁ bhaje;"
+    },
+    {
+     "n": 5,
+     "text": "Tādisaṁ bhajamānassa,"
+    },
+    {
+     "n": 6,
+     "text": "seyyo hoti na pāpiyo."
+    },
+    {
+     "n": 7,
+     "text": "Ovadeyyānusāseyya,"
+    },
+    {
+     "n": 8,
+     "text": "asabbhā ca nivāraye;"
+    },
+    {
+     "n": 9,
+     "text": "Satañhi so piyo hoti,"
+    },
+    {
+     "n": 10,
+     "text": "asataṁ hoti appiyo."
+    },
+    {
+     "n": 11,
+     "text": "Na bhaje pāpake mitte,"
+    },
+    {
+     "n": 12,
+     "text": "na bhaje purisādhame;"
+    },
+    {
+     "n": 13,
+     "text": "Bhajetha mitte kalyāṇe,"
+    },
+    {
+     "n": 14,
+     "text": "bhajetha purisuttame."
+    },
+    {
+     "n": 15,
+     "text": "Dhammapīti sukhaṁ seti,"
+    },
+    {
+     "n": 16,
+     "text": "vippasannena cetasā;"
+    },
+    {
+     "n": 17,
+     "text": "Ariyappavedite dhamme,"
+    },
+    {
+     "n": 18,
+     "text": "sadā ramati paṇḍito."
+    },
+    {
+     "n": 19,
+     "text": "Udakañhi nayanti nettikā,"
+    },
+    {
+     "n": 20,
+     "text": "Usukārā namayanti tejanaṁ;"
+    },
+    {
+     "n": 21,
+     "text": "Dāruṁ namayanti tacchakā,"
+    },
+    {
+     "n": 22,
+     "text": "Attānaṁ damayanti paṇḍitā."
+    },
+    {
+     "n": 23,
+     "text": "Selo yathā ekaghano,"
+    },
+    {
+     "n": 24,
+     "text": "vātena na samīrati;"
+    },
+    {
+     "n": 25,
+     "text": "Evaṁ nindāpasaṁsāsu,"
+    },
+    {
+     "n": 26,
+     "text": "na samiñjanti paṇḍitā."
+    },
+    {
+     "n": 27,
+     "text": "Yathāpi rahado gambhīro,"
+    },
+    {
+     "n": 28,
+     "text": "vippasanno anāvilo;"
+    },
+    {
+     "n": 29,
+     "text": "Evaṁ dhammāni sutvāna,"
+    },
+    {
+     "n": 30,
+     "text": "vippasīdanti paṇḍitā."
+    },
+    {
+     "n": 31,
+     "text": "Sabbattha ve sappurisā cajanti,"
+    },
+    {
+     "n": 32,
+     "text": "Na kāmakāmā lapayanti santo;"
+    },
+    {
+     "n": 33,
+     "text": "Sukhena phuṭṭhā atha vā dukhena,"
+    },
+    {
+     "n": 34,
+     "text": "Na uccāvacaṁ paṇḍitā dassayanti."
+    },
+    {
+     "n": 35,
+     "text": "Na attahetu na parassa hetu,"
+    },
+    {
+     "n": 36,
+     "text": "Na puttamicche na dhanaṁ na raṭṭhaṁ;"
+    },
+    {
+     "n": 37,
+     "text": "Na iccheyya adhammena samiddhimattano,"
+    },
+    {
+     "n": 38,
+     "text": "Sa sīlavā paññavā dhammiko siyā."
+    },
+    {
+     "n": 39,
+     "text": "Appakā te manussesu,"
+    },
+    {
+     "n": 40,
+     "text": "ye janā pāragāmino;"
+    },
+    {
+     "n": 41,
+     "text": "Athāyaṁ itarā pajā,"
+    },
+    {
+     "n": 42,
+     "text": "tīramevānudhāvati."
+    },
+    {
+     "n": 43,
+     "text": "Ye ca kho sammadakkhāte,"
+    },
+    {
+     "n": 44,
+     "text": "dhamme dhammānuvattino;"
+    },
+    {
+     "n": 45,
+     "text": "Te janā pāramessanti,"
+    },
+    {
+     "n": 46,
+     "text": "maccudheyyaṁ suduttaraṁ."
+    },
+    {
+     "n": 47,
+     "text": "Kaṇhaṁ dhammaṁ vippahāya,"
+    },
+    {
+     "n": 48,
+     "text": "Sukkaṁ bhāvetha paṇḍito;"
+    },
+    {
+     "n": 49,
+     "text": "Okā anokamāgamma,"
+    },
+    {
+     "n": 50,
+     "text": "Viveke yattha dūramaṁ."
+    },
+    {
+     "n": 51,
+     "text": "Tatrābhiratimiccheyya,"
+    },
+    {
+     "n": 52,
+     "text": "hitvā kāme akiñcano;"
+    },
+    {
+     "n": 53,
+     "text": "Pariyodapeyya attānaṁ,"
+    },
+    {
+     "n": 54,
+     "text": "cittaklesehi paṇḍito."
+    },
+    {
+     "n": 55,
+     "text": "Yesaṁ sambodhiyaṅgesu,"
+    },
+    {
+     "n": 56,
+     "text": "sammā cittaṁ subhāvitaṁ;"
+    },
+    {
+     "n": 57,
+     "text": "Ādānapaṭinissagge,"
+    },
+    {
+     "n": 58,
+     "text": "anupādāya ye ratā;"
+    },
+    {
+     "n": 59,
+     "text": "Khīṇāsavā jutimanto,"
+    },
+    {
+     "n": 60,
+     "text": "te loke parinibbutā."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp76-89/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Regard one who sees your faults"
+    },
+    {
+     "n": 2,
+     "text": "as a guide to a hidden treasure."
+    },
+    {
+     "n": 3,
+     "text": "Stay close to one so intelligent and astute"
+    },
+    {
+     "n": 4,
+     "text": "who curbs you when you need it."
+    },
+    {
+     "n": 5,
+     "text": "Sticking close to such an impartial person,"
+    },
+    {
+     "n": 6,
+     "text": "things get better, not worse."
+    },
+    {
+     "n": 7,
+     "text": "Advise and instruct;"
+    },
+    {
+     "n": 8,
+     "text": "curb wickedness:"
+    },
+    {
+     "n": 9,
+     "text": "for you shall be loved by the good,"
+    },
+    {
+     "n": 10,
+     "text": "and disliked by the bad."
+    },
+    {
+     "n": 11,
+     "text": "Don’t mix with bad friends,"
+    },
+    {
+     "n": 12,
+     "text": "nor with the worst of men."
+    },
+    {
+     "n": 13,
+     "text": "Mix with spiritual friends,"
+    },
+    {
+     "n": 14,
+     "text": "and with the best of men."
+    },
+    {
+     "n": 15,
+     "text": "Through joy in the teaching you sleep at ease,"
+    },
+    {
+     "n": 16,
+     "text": "with clear and confident heart."
+    },
+    {
+     "n": 17,
+     "text": "An astute person always delights in the teaching"
+    },
+    {
+     "n": 18,
+     "text": "proclaimed by the Noble One."
+    },
+    {
+     "n": 19,
+     "text": "While irrigators guide water,"
+    },
+    {
+     "n": 20,
+     "text": "fletchers bend arrows straight,"
+    },
+    {
+     "n": 21,
+     "text": "and carpenters bend timber straight,"
+    },
+    {
+     "n": 22,
+     "text": "the astute tame themselves."
+    },
+    {
+     "n": 23,
+     "text": "As the wind cannot stir"
+    },
+    {
+     "n": 24,
+     "text": "a solid mass of rock,"
+    },
+    {
+     "n": 25,
+     "text": "so too blame and praise"
+    },
+    {
+     "n": 26,
+     "text": "do not affect the wise."
+    },
+    {
+     "n": 27,
+     "text": "Like a deep lake,"
+    },
+    {
+     "n": 28,
+     "text": "clear and unclouded,"
+    },
+    {
+     "n": 29,
+     "text": "so clear are the astute"
+    },
+    {
+     "n": 30,
+     "text": "when they hear the teachings."
+    },
+    {
+     "n": 31,
+     "text": "True persons give up everything,"
+    },
+    {
+     "n": 32,
+     "text": "they don’t cajole for the things they desire."
+    },
+    {
+     "n": 33,
+     "text": "Though touched by sadness or happiness,"
+    },
+    {
+     "n": 34,
+     "text": "the astute appear neither depressed nor elated."
+    },
+    {
+     "n": 35,
+     "text": "Never wish for success by unjust means,"
+    },
+    {
+     "n": 36,
+     "text": "for your own sake or that of another,"
+    },
+    {
+     "n": 37,
+     "text": "desiring children, wealth, or nation;"
+    },
+    {
+     "n": 38,
+     "text": "rather, be virtuous, wise, and just."
+    },
+    {
+     "n": 39,
+     "text": "Few are those among humans"
+    },
+    {
+     "n": 40,
+     "text": "who cross to the far shore."
+    },
+    {
+     "n": 41,
+     "text": "The rest just run around"
+    },
+    {
+     "n": 42,
+     "text": "on the near shore."
+    },
+    {
+     "n": 43,
+     "text": "When the teaching is well explained,"
+    },
+    {
+     "n": 44,
+     "text": "the people who practice accordingly"
+    },
+    {
+     "n": 45,
+     "text": "will cross over"
+    },
+    {
+     "n": 46,
+     "text": "Death’s dominion so hard to pass."
+    },
+    {
+     "n": 47,
+     "text": "Rid of dark qualities,"
+    },
+    {
+     "n": 48,
+     "text": "an astute person would develop the bright."
+    },
+    {
+     "n": 49,
+     "text": "Having left home for homelessness"
+    },
+    {
+     "n": 50,
+     "text": "in seclusion, where joy is hard,"
+    },
+    {
+     "n": 51,
+     "text": "they’d long for satisfaction there."
+    },
+    {
+     "n": 52,
+     "text": "Forsaking sensual pleasures, owning nothing,"
+    },
+    {
+     "n": 53,
+     "text": "an astute person would cleanse themselves"
+    },
+    {
+     "n": 54,
+     "text": "of mental corruptions."
+    },
+    {
+     "n": 55,
+     "text": "And those whose minds are rightly developed"
+    },
+    {
+     "n": 56,
+     "text": "in the awakening factors;"
+    },
+    {
+     "n": 57,
+     "text": "who, letting go of attachments,"
+    },
+    {
+     "n": 58,
+     "text": "delight in not grasping:"
+    },
+    {
+     "n": 59,
+     "text": "with defilements ended, brilliant,"
+    },
+    {
+     "n": 60,
+     "text": "they are quenched in this world."
+    }
+   ]
+  }
+ ]
+}

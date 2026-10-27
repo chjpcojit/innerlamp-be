@@ -1,0 +1,71 @@
+{
+ "id": "chu-that-phat-diet-toi",
+ "tradition": "MAHAYANA",
+ "kind": "DHARANI",
+ "collection": "Thập Chú",
+ "reference": "",
+ "originalTitle": "Đại phương đẳng đà la ni kinh",
+ "summary": "Một trong Thập Chú, thần chú gắn với bảy đức Phật quá khứ, được dẫn từ Đại phương đẳng đà la ni kinh. Theo phần nghĩa của nguồn, chú nói về việc chuyển hóa những điều thấp kém thành ánh sáng, đi theo con đường rộng lớn để ngăn tai họa và làm đầy đủ phước trí. Thường được tụng trong thời khóa Thập Chú với ý hướng sám hối, thanh lọc nghiệp chướng.",
+ "titles": {
+  "vi": "Thất Phật Diệt Tội Chân Ngôn",
+  "zh": "七佛滅罪真言",
+  "en": "Seven Buddhas Sin-Eradicating Mantra"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_seven_past",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "TRI_CHU",
+  "SAM_HOI"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "không ghi (bản Việt âm phổ thông)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Âm Hán\" của nguồn (phiên âm Hán-Việt). Ngắt dòng theo câu của nguồn; câu dài ngắt tại dấu phẩy. Giữ nguyên dấu gạch nối/viết hoa của nguồn. Đối chiếu Thiện Thành: trùng khớp.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ly bà ly bà đế, cầu ha cầu ha đế, đà ra ni đế, ni ha ra đế, tỳ lê nể đế, ma ha dà đế,"
+    },
+    {
+     "n": 2,
+     "text": "chơn lăng càng đế, ta bà ha."
+    }
+   ]
+  },
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "variant": "meaning",
+   "translator": "không ghi (nguồn do Minh Chính tổng hợp)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Nghĩa\" của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Mọi đường lối và tính chất của sự thấp hèn đều tuân theo sự hấp thụ điều cao quý và tính chất cao quý mà vận chuyển thành ánh sáng rực rỡ vinh quang."
+    },
+    {
+     "n": 2,
+     "text": "Đây là con đường rộng lớn hay chận đứng mọi tai họa để viên mãn phước trí."
+    }
+   ]
+  }
+ ]
+}

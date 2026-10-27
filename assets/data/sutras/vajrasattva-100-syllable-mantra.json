@@ -1,0 +1,243 @@
+{
+ "id": "vajrasattva-100-syllable-mantra",
+ "tradition": "VAJRAYANA",
+ "kind": "DHARANI",
+ "collection": "Mật tông / Kim Cang Tát Đỏa",
+ "reference": "'Jam dbyangs chos kyi blo gros gsung 'bum vol. 6: 306-308",
+ "summary": "Thần chú dài một trăm âm tiết của Bồ Tát Kim Cang Tát Đỏa trong Mật tông, bằng tiếng Phạn. Lời chú nguyện giữ vững thệ nguyện (samaya) với Kim Cang Tát Đỏa, cầu Ngài ở gần, giữ cho hành giả kiên định, hoan hỷ và thành tựu. Thường được trì tụng trong pháp tu thanh lọc ác nghiệp và chướng ngại ở truyền thống Kim Cang thừa.",
+ "titles": {
+  "vi": "Kim Cang Tát Đỏa Bách Tự Minh",
+  "bo": "རྡོ་རྗེ་སེམས་དཔའི་ཡི་གེ་བརྒྱ་པ།",
+  "sa": "Vajrasattva śatākṣara mantra",
+  "en": "The Hundred-Syllable Mantra of Vajrasattva"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_vajrasattva",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "TRI_CHU"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "sa-chant",
+   "lang": "sa",
+   "variant": "chant",
+   "translator": "Adam Pearcey (Sanskrit transliteration on page)",
+   "sourceName": "Lotsawa House - Brief Vajrasattva Visualisation and Mantra Recitation by Jamyang Khyentse Chokyi Lodro",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/jamyang-khyentse-chokyi-lodro/vajrasattva-visualization-recitation",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Traditional mantra; transliteration and phrase segmentation as given on the source page (phrases split at the page spacing / word boundaries only, no words changed).",
+   "lines": [
+    {
+     "n": 1,
+     "text": "oṃ vajrasattva samayam anupālaya"
+    },
+    {
+     "n": 2,
+     "text": "vajrasattva-tvenopa-tiṣṭha"
+    },
+    {
+     "n": 3,
+     "text": "dṛḍho me bhava"
+    },
+    {
+     "n": 4,
+     "text": "sutoṣyo me bhava"
+    },
+    {
+     "n": 5,
+     "text": "supoṣyo me bhava"
+    },
+    {
+     "n": 6,
+     "text": "anurakto me bhava"
+    },
+    {
+     "n": 7,
+     "text": "sarva-siddhiṃ me prayaccha"
+    },
+    {
+     "n": 8,
+     "text": "sarva-karma śuca me"
+    },
+    {
+     "n": 9,
+     "text": "cittaṃ śreyaṅ-kuru hūṃ"
+    },
+    {
+     "n": 10,
+     "text": "ha ha ha ha hoḥ bhagavān"
+    },
+    {
+     "n": 11,
+     "text": "sarva-tathāgata-vajra"
+    },
+    {
+     "n": 12,
+     "text": "mā me muñca"
+    },
+    {
+     "n": 13,
+     "text": "vajrī-bhava"
+    },
+    {
+     "n": 14,
+     "text": "mahā-samaya-sattva āḥ hūṃ phaṭ"
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Jamyang Khyentse Chokyi Lodro (Tibetan text)",
+   "sourceName": "Lotsawa House - Brief Vajrasattva Visualisation and Mantra Recitation by Jamyang Khyentse Chokyi Lodro",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/jamyang-khyentse-chokyi-lodro/vajrasattva-visualization-recitation",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Traditional mantra; transliteration and phrase segmentation as given on the source page (phrases split at the page spacing / word boundaries only, no words changed). Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ཨོཾ་བཛྲ་སཏྭ་ས་མ་ཡ།"
+    },
+    {
+     "n": 2,
+     "text": "མ་ནུ་པཱ་ལ་ཡ།"
+    },
+    {
+     "n": 3,
+     "text": "བཛྲ་སཏྭ་ཏྭེ་ནོ་པ་ཏིཥྛ།"
+    },
+    {
+     "n": 4,
+     "text": "དྲྀ་ཌྷོ་མེ་བྷ་ཝ།"
+    },
+    {
+     "n": 5,
+     "text": "སུ་ཏོཥྱོ་མེ་བྷ་ཝ།"
+    },
+    {
+     "n": 6,
+     "text": "སུ་པོཥྱོ་མེ་བྷ་ཝ།"
+    },
+    {
+     "n": 7,
+     "text": "ཨ་ནུ་རཀྟོ་མེ་བྷ་ཝ།"
+    },
+    {
+     "n": 8,
+     "text": "སརྦ་སིདྡྷི་མྨེ་པྲ་ཡཙྪ།"
+    },
+    {
+     "n": 9,
+     "text": "སརྦ་ཀརྨ་སུ་ཙ་མེ།"
+    },
+    {
+     "n": 10,
+     "text": "ཙིཏྟཾ་ཤྲེ་ཡཿཀུ་རུ་ཧཱུྃ།"
+    },
+    {
+     "n": 11,
+     "text": "ཧ་ཧ་ཧ་ཧ་ཧོཿབྷ་ག་ཝཱན།"
+    },
+    {
+     "n": 12,
+     "text": "སརྦ་ཏ་ཐཱ་ག་ཏ།"
+    },
+    {
+     "n": 13,
+     "text": "བཛྲ་མཱ་མེ་མུཉྩ།"
+    },
+    {
+     "n": 14,
+     "text": "བཛྲཱ་བྷ་ཝ།"
+    },
+    {
+     "n": 15,
+     "text": "མ་ཧཱ་ས་མ་ཡ་སཏྭ་ཨཱཿ ཧཱུྃ་ཕཊ།"
+    }
+   ]
+  },
+  {
+   "key": "bo-chant",
+   "lang": "bo",
+   "variant": "chant",
+   "translator": "Lotsawa House",
+   "sourceName": "Lotsawa House - Brief Vajrasattva Visualisation and Mantra Recitation by Jamyang Khyentse Chokyi Lodro",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/jamyang-khyentse-chokyi-lodro/vajrasattva-visualization-recitation",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Latin-script phonetic rendering of the Tibetan pronunciation, as given on the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "om benza sato samaya"
+    },
+    {
+     "n": 2,
+     "text": "manu palaya"
+    },
+    {
+     "n": 3,
+     "text": "benza sato té nopa tishta"
+    },
+    {
+     "n": 4,
+     "text": "dridho mé bhava"
+    },
+    {
+     "n": 5,
+     "text": "sutokhayo mé bhava"
+    },
+    {
+     "n": 6,
+     "text": "supokhayo mé bhava"
+    },
+    {
+     "n": 7,
+     "text": "anurakto mé bhava"
+    },
+    {
+     "n": 8,
+     "text": "sarva siddhi mé prayatsa"
+    },
+    {
+     "n": 9,
+     "text": "sarva karma sutsa mé"
+    },
+    {
+     "n": 10,
+     "text": "tsittam shré yah kuru hung"
+    },
+    {
+     "n": 11,
+     "text": "ha ha ha ha ho bhagavan"
+    },
+    {
+     "n": 12,
+     "text": "sarva tathagata"
+    },
+    {
+     "n": 13,
+     "text": "benza ma mé muntsa"
+    },
+    {
+     "n": 14,
+     "text": "badzra bhava"
+    },
+    {
+     "n": 15,
+     "text": "maha samayasato ah hung pé"
+    }
+   ]
+  }
+ ]
+}
