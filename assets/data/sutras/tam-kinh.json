@@ -1,0 +1,741 @@
+{
+ "id": "tam-kinh",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Bát Nhã",
+ "reference": "Taishō T0251",
+ "hanTranslator": "Huyền Trang",
+ "summary": "Bản kinh Bát Nhã ngắn gọn của Đại thừa, dịch âm Hán Việt theo bản của ngài Huyền Trang. Kinh trình bày việc Bồ Tát Quán Tự Tại quán chiếu năm uẩn đều không, với các ý như sắc tức là không, không tức là sắc, các pháp không sinh không diệt, và nương Bát Nhã Ba La Mật Đa mà tâm không còn chướng ngại. Kinh kết bằng câu chú Bát Nhã và được tụng phổ biến trong các khóa lễ.",
+ "titles": {
+  "vi": "Bát Nhã Ba La Mật Đa Tâm Kinh",
+  "zh": "般若波羅蜜多心經",
+  "sa": "प्रज्ञापारमिताहृदयसूत्रम् (Prajñāpāramitāhṛdaya Sūtra)",
+  "en": "Heart Sutra"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "translator": "không ghi (bản tụng Hán Việt phổ biến, phiên âm bản Hán của Huyền Trang)",
+   "sourceName": "BuddhaSasana (budsas.org) - Bình Anson - Bản tụng Hán Việt",
+   "sourceUrl": "https://www.budsas.org/uni/u-kinh-bt-ngan/bntk.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "trang không có tuyên bố bản quyền/giấy phép",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Quán Tự Tại Bồ Tát hành thâm Bát nhã Ba la mật đa thời, chiếu kiến ngũ uẩn giai không, độ nhứt thiết khổ ách."
+    },
+    {
+     "n": 2,
+     "text": "Xá Lợi Tử, sắc bất dị không, không bất dị sắc, sắc tức thị không, không tức thị sắc, thọ tưởng hành thức diệc phục như thị."
+    },
+    {
+     "n": 3,
+     "text": "Xá Lợi Tử, thị chư pháp không tướng, bất sanh bất diệt, bất cấu bất tịnh, bất tăng bất giảm."
+    },
+    {
+     "n": 4,
+     "text": "Thị cố không trung vô sắc, vô thọ tưởng hành thức."
+    },
+    {
+     "n": 5,
+     "text": "Vô nhãn nhĩ tỷ thiệt thân ý, vô sắc thanh hương vị xúc pháp, vô nhãn giới nãi chí vô ý thức giới."
+    },
+    {
+     "n": 6,
+     "text": "Vô vô minh, diệc vô vô minh tận, nãi chí vô lão tử, diệc vô lão tử tận."
+    },
+    {
+     "n": 7,
+     "text": "Vô khổ, tập, diệt, đạo."
+    },
+    {
+     "n": 8,
+     "text": "Vô trí diệc vô đắc, dĩ vô sở đắc cố."
+    },
+    {
+     "n": 9,
+     "text": "Bồ đề tát đõa y Bát nhã Ba la mật đa cố, tâm vô quái ngại, vô quái ngại cố, vô hữu khủng bố, viễn ly điên đảo mộng tưởng, cứu cánh Niết bàn."
+    },
+    {
+     "n": 10,
+     "text": "Tam thế chư Phật, y Bát nhã Ba la mật đa cố, đắc A nậu đa la Tam miệu Tam bồ đề."
+    },
+    {
+     "n": 11,
+     "text": "Cố tri Bát nhã Ba la mật đa, thị đại thần chú, thị đại minh chú, thị vô thượng chú, thị vô đẳng đẳng chú, năng trừ nhất thiết khổ, chân thật bất hư."
+    },
+    {
+     "n": 12,
+     "text": "Cố thuyết Bát nhã Ba la mật đa chú, tức thuyết chú viết:"
+    },
+    {
+     "n": 13,
+     "text": "Yết đế yết đế, ba la yết đế, ba la tăng yết đế, bồ đề tát bà ha."
+    }
+   ],
+   "note": "Hán-Việt (dịch âm) để tụng",
+   "variant": "chant"
+  },
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "translator": "không ghi (Bình Anson sưu tầm)",
+   "sourceName": "BuddhaSasana (budsas.org) - Bình Anson - Bản dịch nghĩa",
+   "sourceUrl": "https://www.budsas.org/uni/u-kinh-bt-ngan/bntk.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "trang không có tuyên bố bản quyền/giấy phép",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ngài Bồ Tát Quán Tự Tại khi thực hành thâm sâu về trí tuệ Bát Nhã Ba la mật, thì soi thấy năm uẩn đều là không, do đó vượt qua mọi khổ đau ách nạn."
+    },
+    {
+     "n": 2,
+     "text": "Nầy Xá Lợi Tử, sắc chẳng khác gì không, không chẳng khác gì sắc, sắc chính là không, không chính là sắc, thọ tưởng hành thức cũng đều như thế."
+    },
+    {
+     "n": 3,
+     "text": "Nầy Xá Lợi Tử, tướng không của các pháp ấy chẳng sinh chẳng diệt, chẳng nhơ chẳng sạch, chẳng thêm chẳng bớt."
+    },
+    {
+     "n": 4,
+     "text": "Cho nên trong cái không đó, nó không có sắc, không thọ tưởng hành thức."
+    },
+    {
+     "n": 5,
+     "text": "Không có mắt, tai, mũi, lưỡi, thân ý. Không có sắc, thanh, hương vị, xúc pháp."
+    },
+    {
+     "n": 6,
+     "text": "Không có nhãn giới cho đến không có ý thức giới."
+    },
+    {
+     "n": 7,
+     "text": "Không có vô minh,mà cũng không có hết vô minh."
+    },
+    {
+     "n": 8,
+     "text": "Không có già chết, mà cũng không có hết già chết."
+    },
+    {
+     "n": 9,
+     "text": "Không có khổ, tập, diệt, đạo."
+    },
+    {
+     "n": 10,
+     "text": "Không có trí cũng không có đắc, vì không có sở đắc."
+    },
+    {
+     "n": 11,
+     "text": "Khi vị Bồ Tát nương tựa vào trí tuệ Bát Nhã nầy thì tâm không còn chướng ngại, vì tâm không chướng ngại nên không còn sợ hãi, xa lìa được cái điên đảo mộng tưởng, đạt cứu cánh Niết Bàn."
+    },
+    {
+     "n": 12,
+     "text": "Các vị Phật ba đời vì nương theo trí tuệ Bát Nhã nầy mà đắc quả vô thượng, chánh đẳng chánh giác."
+    },
+    {
+     "n": 13,
+     "text": "Cho nên phải biết rằng Bát nhã Ba la mật đa là đại thần chú, là đại minh chú, là chú vô thượng, là chú cao cấp nhất, luôn trừ các khổ não, chân thật không hư dối."
+    },
+    {
+     "n": 14,
+     "text": "Cho nên khi nói đến Bát nhã Ba la mật đa, tức là phải nói câu chú:"
+    },
+    {
+     "n": 15,
+     "text": "Yết đế yết đế, ba la yết đế, ba la tăng yết đế, bồ đề tát bà ha."
+    },
+    {
+     "n": 16,
+     "text": "(Qua rồi qua rồi, qua bên kia rồi, tất cả qua bên kia rồi, giác ngộ rồi đó!)"
+    }
+   ],
+   "note": "Dịch nghĩa tiếng Việt",
+   "variant": "meaning"
+  },
+  {
+   "key": "vi-poem",
+   "lang": "vi",
+   "translator": "Thích Nhất Hạnh (bản phổ thơ)",
+   "sourceName": "BuddhaSasana (budsas.org) - Bình Anson - Bản phổ thơ Thích Nhất Hạnh",
+   "sourceUrl": "https://www.budsas.org/uni/u-kinh-bt-ngan/bntk.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "trang không có tuyên bố bản quyền/giấy phép",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Bồ Tát Quán Tự Tại"
+    },
+    {
+     "n": 2,
+     "text": "Khi quán chiếu thâm sâu"
+    },
+    {
+     "n": 3,
+     "text": "Bát Nhã Ba La Mật"
+    },
+    {
+     "n": 4,
+     "text": "(tức Diệu Pháp Trí Độ)"
+    },
+    {
+     "n": 5,
+     "text": "Bổng soi thấy năm uẩn"
+    },
+    {
+     "n": 6,
+     "text": "Đều không có tự tánh"
+    },
+    {
+     "n": 7,
+     "text": "Thực chứng điều ấy xong"
+    },
+    {
+     "n": 8,
+     "text": "Ngài vượt thoát tất cả"
+    },
+    {
+     "n": 9,
+     "text": "Mọi khổ đau ách nạn."
+    },
+    {
+     "n": 10,
+     "text": "Nghe đây Xá Lợi Tử:"
+    },
+    {
+     "n": 11,
+     "text": "Sắc chẳng khác gì không"
+    },
+    {
+     "n": 12,
+     "text": "Không chẳng khác gì sắc"
+    },
+    {
+     "n": 13,
+     "text": "Sắc chính thực là không"
+    },
+    {
+     "n": 14,
+     "text": "Không chính thực là sắc"
+    },
+    {
+     "n": 15,
+     "text": "Còn lại bốn uẩn kia"
+    },
+    {
+     "n": 16,
+     "text": "Cũng đều như vậy cả."
+    },
+    {
+     "n": 17,
+     "text": "Xá Lợi Tử nghe đây:"
+    },
+    {
+     "n": 18,
+     "text": "Thể mọi pháp đều không"
+    },
+    {
+     "n": 19,
+     "text": "Không sanh cũng không diệt"
+    },
+    {
+     "n": 20,
+     "text": "Không nhơ cũng không sạch"
+    },
+    {
+     "n": 21,
+     "text": "Không thêm cũng không bớt"
+    },
+    {
+     "n": 22,
+     "text": "Cho nên trong tánh không"
+    },
+    {
+     "n": 23,
+     "text": "Không có sắc, thọ, tưởng"
+    },
+    {
+     "n": 24,
+     "text": "Cũng không có hành thức"
+    },
+    {
+     "n": 25,
+     "text": "Không có nhãn, nhĩ, tỷ"
+    },
+    {
+     "n": 26,
+     "text": "Thiệt, thân, ý (sáu căn)"
+    },
+    {
+     "n": 27,
+     "text": "Không có sắc, thanh, hương"
+    },
+    {
+     "n": 28,
+     "text": "Vị, xúc, pháp (sáu trần)"
+    },
+    {
+     "n": 29,
+     "text": "Không có mười tám giới"
+    },
+    {
+     "n": 30,
+     "text": "Từ nhãn đến ý thức"
+    },
+    {
+     "n": 31,
+     "text": "Không hề có vô minh"
+    },
+    {
+     "n": 32,
+     "text": "Không có hết vô minh"
+    },
+    {
+     "n": 33,
+     "text": "Cho đến không lão tử"
+    },
+    {
+     "n": 34,
+     "text": "Cũng không hết lão tử"
+    },
+    {
+     "n": 35,
+     "text": "Không khổ, tập, diệt, đạo"
+    },
+    {
+     "n": 36,
+     "text": "Không trí cũng không đắc"
+    },
+    {
+     "n": 37,
+     "text": "Vì không có sở đắc"
+    },
+    {
+     "n": 38,
+     "text": "Khi một vị Bồ Tát"
+    },
+    {
+     "n": 39,
+     "text": "Nương Diệu Pháp Trí Độ"
+    },
+    {
+     "n": 40,
+     "text": "(Bát Nhã Ba La Mật)"
+    },
+    {
+     "n": 41,
+     "text": "Thì tâm không chướng ngại"
+    },
+    {
+     "n": 42,
+     "text": "Vì tâm không chướng ngại"
+    },
+    {
+     "n": 43,
+     "text": "Nên không có sợ hãi"
+    },
+    {
+     "n": 44,
+     "text": "Xa lià mọi vọng tưởng"
+    },
+    {
+     "n": 45,
+     "text": "Xa lìa mọi điên đảo"
+    },
+    {
+     "n": 46,
+     "text": "Đạt Niết Bàn tuyệt đối"
+    },
+    {
+     "n": 47,
+     "text": "Chư Bụt trong ba đời"
+    },
+    {
+     "n": 48,
+     "text": "Y Diệu Pháp Trí Độ"
+    },
+    {
+     "n": 49,
+     "text": "Bát Nhã Ba La Mật"
+    },
+    {
+     "n": 50,
+     "text": "Nên đắc vô thượng giác"
+    },
+    {
+     "n": 51,
+     "text": "Vậy nên phải biết rằng"
+    },
+    {
+     "n": 52,
+     "text": "Bát Nhã Ba La Mật"
+    },
+    {
+     "n": 53,
+     "text": "Là linh chú đại thần"
+    },
+    {
+     "n": 54,
+     "text": "Là linh chú đại minh"
+    },
+    {
+     "n": 55,
+     "text": "Là linh chú vô thượng"
+    },
+    {
+     "n": 56,
+     "text": "Là linh chú tuyệt đỉnh"
+    },
+    {
+     "n": 57,
+     "text": "Là chân lý bất vọng"
+    },
+    {
+     "n": 58,
+     "text": "Có năng lực tiêu trừ"
+    },
+    {
+     "n": 59,
+     "text": "Tất cả mọi khổ nạn"
+    },
+    {
+     "n": 60,
+     "text": "Cho nên tôi muốn thuyết"
+    },
+    {
+     "n": 61,
+     "text": "Câu thần chú Trí Độ"
+    },
+    {
+     "n": 62,
+     "text": "Bát Nhã Ba La Mật"
+    },
+    {
+     "n": 63,
+     "text": "Nói xong đức Bồ Tát"
+    },
+    {
+     "n": 64,
+     "text": "Liền đọc thần chú rằng:"
+    },
+    {
+     "n": 65,
+     "text": "Yết đế, Yết đế"
+    },
+    {
+     "n": 66,
+     "text": "Ba la Yết đế"
+    },
+    {
+     "n": 67,
+     "text": "Ba la Tăng yết đế"
+    },
+    {
+     "n": 68,
+     "text": "Bồ đề tát bà ha"
+    }
+   ],
+   "note": "Thơ tự do; mỗi dòng thơ một entry",
+   "variant": "poem"
+  },
+  {
+   "key": "vi-meaning-2",
+   "lang": "vi",
+   "translator": "Trần Trọng Kim (dịch từ bản Hán của Huyền Trang)",
+   "sourceName": "Wikisource tiếng Việt - Bát-nhã ba-la-mật-đa tâm kinh (dịch nghĩa)",
+   "sourceUrl": "https://vi.wikisource.org/wiki/B%C3%A1t-nh%C3%A3_ba-la-m%E1%BA%ADt-%C4%91a_t%C3%A2m_kinh",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: bản dịch thuộc phạm vi công cộng tại Việt Nam do hết thời hạn bảo hộ; bản gốc public domain",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Quan Tự-tại Bồ-tát, khi thi-hành phép Bát-nhã Ba-la-mật-đa (Trí-tuệ độ) thấy rõ ngũ-uẩn đều không, đem tế-độ hết thảy những khổ ách."
+    },
+    {
+     "n": 2,
+     "text": "Hỡi Xá-lị-tự, sắc chẳng khác không, không chẳng khác sắc; sắc là không, không là sắc."
+    },
+    {
+     "n": 3,
+     "text": "Thụ, tưởng, hành, thức cũng thế cả. Hỡi Xá-lị-tử, ấy là cái không-tướng của chư pháp: không sinh không diệt, không cáu-bẩn, không trong-sạch, không thêm không bớt."
+    },
+    {
+     "n": 4,
+     "text": "Bởi vậy trong « không » không có sắc, không có thụ, tưởng, hành, thức; không có mắt, tai, mũi, lưỡi, thân, ý; không có sắc, thanh, hương, vị, xúc, pháp; không có nhỡn-giới đến cả không có ý-thức-giới;"
+    },
+    {
+     "n": 5,
+     "text": "không có vô-minh mà cũng không có cái hết vô-minh, đến cả không có lão-tử mà cũng không có cái hết lão-tử; không có Khổ, Tập, Diệt, Đạo; không có trí mà cũng không có cái gì là đắc."
+    },
+    {
+     "n": 6,
+     "text": "Vì không có cái sở-đắc, Bồ-đề tát-đóa (Bồ-tát) theo Bát-nhã Ba-la-mật-đa, lòng không vướng-víu chướng-ngại,"
+    },
+    {
+     "n": 7,
+     "text": "vì không vướng-víu chướng-ngại, cho nên không sợ-hãi, xa-lìa những điều điên-đảo mộng-tưởng, cứu-cánh là niết-bàn."
+    },
+    {
+     "n": 8,
+     "text": "Chư Phật trong tam thế theo Bát-nhã Ba-la-mật-đa mà được vô-thượng chính-đẳng chính-giác."
+    },
+    {
+     "n": 9,
+     "text": "Cho nên biết rằng Bát-nhã Ba-la-mật-đa là đại thần chú, là đại minh chú, là vô thượng chú, là vô đẳng đẳng chú, có thể trừ được hết thảy cái khổ, chân-thực không lầm."
+    },
+    {
+     "n": 10,
+     "text": "Cho nên nói Bát-nhã Ba-la-mật-đa chú, thì nói chú rằng: Yết-đế, yết-đế, ba-la-yết-đế, ba-la-tăng yết-đế, Bồ-đề tát-bà-ha"
+    }
+   ],
+   "note": "Chính tả cũ (1930s)",
+   "variant": "meaning"
+  },
+  {
+   "key": "zh-translation",
+   "lang": "zh",
+   "translator": "玄奘 (Huyền Trang)",
+   "sourceName": "Wikisource 中文 - 般若波羅蜜多心經 (玄奘) - Taishō T0251",
+   "sourceUrl": "https://zh.wikisource.org/wiki/%E8%88%AC%E8%8B%A5%E6%B3%A2%E7%BE%85%E8%9C%9C%E5%A4%9A%E5%BF%83%E7%B6%93_(%E7%8E%84%E5%A5%98)",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: tác giả mất >100 năm, xuất bản trước 1931",
+   "lines": [
+    {
+     "n": 1,
+     "text": "觀自在菩薩，行深般若波羅蜜多時，照見五蘊皆空，度一切苦厄。"
+    },
+    {
+     "n": 2,
+     "text": "「舍利子！色不異空，空不異色，色即是空，空即是色；受、想、行、識，亦復如是。"
+    },
+    {
+     "n": 3,
+     "text": "「舍利子！是諸法空相，不生不滅，不垢不淨，不增不減。"
+    },
+    {
+     "n": 4,
+     "text": "是故，空中無色，無受、想、行、識；"
+    },
+    {
+     "n": 5,
+     "text": "無眼、耳、鼻、舌、身、意；無色、聲、香、味、觸、法；"
+    },
+    {
+     "n": 6,
+     "text": "無眼界，乃至無意識界；無無明，亦無無明盡，乃至無老死，亦無老死盡；"
+    },
+    {
+     "n": 7,
+     "text": "無苦、集、滅、道；無智，亦無得，以無所得故。"
+    },
+    {
+     "n": 8,
+     "text": "「菩提薩埵，依般若波羅蜜多故，心無罣礙；"
+    },
+    {
+     "n": 9,
+     "text": "無罣礙故，無有恐怖，遠離顛倒夢想，究竟涅槃。"
+    },
+    {
+     "n": 10,
+     "text": "三世諸佛，依般若波羅蜜多故，得阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 11,
+     "text": "「故知般若波羅蜜多，是大神咒，是大明咒，是無上咒，是無等等咒，能除一切苦，真實不虛。」"
+    },
+    {
+     "n": 12,
+     "text": "故說般若波羅蜜多咒，即說咒曰："
+    },
+    {
+     "n": 13,
+     "text": "「揭諦 揭諦 波羅揭諦 波羅僧揭諦 菩提薩婆訶」"
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "sa-translation",
+   "lang": "sa",
+   "translator": "không rõ (văn bản Sanskrit, bản ngắn - saṃkṣiptamātṛkā)",
+   "sourceName": "Wikisource tiếng Phạn - प्रज्ञापारमिताहृदय (bản ngắn, Devanagari)",
+   "sourceUrl": "https://sa.wikisource.org/wiki/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%9C%E0%A5%8D%E0%A4%9E%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BE%E0%A4%B9%E0%A5%83%E0%A4%A6%E0%A4%AF",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: xuất bản trước 1923, tác giả mất >100 năm",
+   "lines": [
+    {
+     "n": 1,
+     "text": "आर्यावलोकितेश्वरो बोधिसत्त्वो गंभीरायां प्रज्ञापारमितायां चर्यां चरमाणो व्यवलोकयति स्म ।"
+    },
+    {
+     "n": 2,
+     "text": "पंचस्कन्धाः । तांश्च स्वभावशून्यान्पश्यति स्म ।"
+    },
+    {
+     "n": 3,
+     "text": "इह शारिपुत्र रूपं शून्यता शून्यतैव रूपं रूपान्न पृथक्शून्यता"
+    },
+    {
+     "n": 4,
+     "text": "शून्यताया न पृथग्रूपं यद्रूपं सा शून्यता या शून्यता तद्रूपं ।"
+    },
+    {
+     "n": 5,
+     "text": "एवमेव वेदनासंज्ञासंस्कारविज्ञानानि ।"
+    },
+    {
+     "n": 6,
+     "text": "इह शारिपुत्र सर्वधर्माः शून्यतालक्षणा अनुत्पन्ना अनिरुद्धा अमला न विमला नोना न परिपूर्णाः ।"
+    },
+    {
+     "n": 7,
+     "text": "तस्माच्छारिपुत्र शून्यतायां न रूपं न वेदना न संज्ञा न संस्कारा न विज्ञानानि ।"
+    },
+    {
+     "n": 8,
+     "text": "न चक्षुःश्रोत्रघ्राणजिह्वाकायमनांसी ।"
+    },
+    {
+     "n": 9,
+     "text": "न रूपशब्दगंधरसस्प्रष्टव्यधर्माः ।"
+    },
+    {
+     "n": 10,
+     "text": "न चक्षुर्धातुर्यावन्न मनोविज्ञानधातुः ।"
+    },
+    {
+     "n": 11,
+     "text": "न विद्या नाविद्या न विद्याक्षयो नाविद्याक्षयो यावन्न जरामरणं न जरामरणक्षयो न दुःखसमुदयनिरोधमार्गा न ज्ञानं न प्राप्तिः ॥"
+    },
+    {
+     "n": 12,
+     "text": "तस्मादप्राप्तित्वाद्बोधिसत्त्वाणां प्रज्ञापारमितामाश्रित्य विहरत्यचित्तावरणः ।"
+    },
+    {
+     "n": 13,
+     "text": "चित्तावरणनास्तित्वादत्रस्तो विपार्यासातिक्रान्तो निष्ठनिर्वाणः ॥"
+    },
+    {
+     "n": 14,
+     "text": "त्र्यध्वव्यवस्थिताः सर्वबुद्धाः प्रज्ञापारमितामाश्रित्यानुत्तरां सम्यक्सम्बोधिमभिसंबुद्धाः ॥"
+    },
+    {
+     "n": 15,
+     "text": "तस्माज्ज्ञातव्यं प्रज्ञापारमिता महामन्त्रो महाविद्यामन्त्रो ऽनुत्तरमन्त्रो ऽसमसममन्त्रः सर्वदुःखप्रशमनः ।"
+    },
+    {
+     "n": 16,
+     "text": "सत्यममिथ्यत्वात् । प्रज्ञपारमितायामुक्तो मन्त्रः ।"
+    },
+    {
+     "n": 17,
+     "text": "तद्यथा गते गते पारगते पारसंगते बोधि स्वाहा ॥"
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "translator": "Wikisource (ẩn danh)",
+   "sourceName": "Wikisource - Translation:Shorter Heart Sutra",
+   "sourceUrl": "https://en.wikisource.org/wiki/Translation:Shorter_Heart_Sutra",
+   "license": "UNKNOWN",
+   "licenseNote": "trang không có thẻ/tuyên bố giấy phép cho bản dịch",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Avalokiteshvara, the Bodhisattva of Compassion, was deep through the Perfection of Wisdom, saw clearly that the five aggregates of human existence are empty, and so released himself from suffering."
+    },
+    {
+     "n": 2,
+     "text": "\"Sariputra! Form is nothing more than emptiness, emptiness is nothing more than Form."
+    },
+    {
+     "n": 3,
+     "text": "Form is exactly emptiness, and emptiness is exactly Form."
+    },
+    {
+     "n": 4,
+     "text": "The other four aggregates of human existence -- feeling, thought, will, and consciousness -- are also nothing more than emptiness.\""
+    },
+    {
+     "n": 5,
+     "text": "\"Sariputra! All things are empty: Nothing is born, nothing dies, nothing is pure, nothing is stained, nothing increases and nothing decreases."
+    },
+    {
+     "n": 6,
+     "text": "So, in emptiness, there is no form, no feeling, no thought, no will, no consciousness."
+    },
+    {
+     "n": 7,
+     "text": "There are no eyes, no ears, no nose, no tongue, no body, no mind."
+    },
+    {
+     "n": 8,
+     "text": "There is no seeing, no hearing, no smelling, no tasting, no touching, no imagining."
+    },
+    {
+     "n": 9,
+     "text": "No plane of sight, no plane of thought. There is no ignorance, and no end to ignorance."
+    },
+    {
+     "n": 10,
+     "text": "There is no old age and death, and no end to old age and death."
+    },
+    {
+     "n": 11,
+     "text": "There is no suffering, no cause of suffering, no end to suffering, no path to suffering."
+    },
+    {
+     "n": 12,
+     "text": "There is no attainment of wisdom, and no wisdom to attain.\""
+    },
+    {
+     "n": 13,
+     "text": "The Bodhisattvas rely on the Perfection of Wisdom, their hearts without delusions; they have no reason for delusion, no fear within, abandoning their confused thoughts, finally experiencing Nirvana."
+    },
+    {
+     "n": 14,
+     "text": "The Buddhas, past, present, and future, rely on the Perfection of Wisdom, and live in full enlightenment."
+    },
+    {
+     "n": 15,
+     "text": "The Perfection of Wisdom is the greatest mantra."
+    },
+    {
+     "n": 16,
+     "text": "It is the wisest mantra, the highest mantra, the mantra of the rest."
+    },
+    {
+     "n": 17,
+     "text": "Remove all suffering. This is truth that cannot be falsity."
+    },
+    {
+     "n": 18,
+     "text": "The reason of the Perfection of Wisdom Mantra, The Mantra is thus:"
+    },
+    {
+     "n": 19,
+     "text": "gaté gaté pāragaté pārasaṃgaté bodhi svāhā"
+    }
+   ],
+   "variant": "translation"
+  }
+ ]
+}

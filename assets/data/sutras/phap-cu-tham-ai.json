@@ -1,0 +1,1362 @@
+{
+ "id": "phap-cu-tham-ai",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 334-359",
+ "summary": "Phẩm kệ trong Kinh Pháp Cú (Tiểu Bộ, Dhp 334–359) bàn về tham ái. Kệ ví ái dục lan nhanh như dây leo, khiến người phóng dật nhảy từ đời này sang đời khác, và nhắc rằng sầu khổ tăng theo ái nhưng sẽ rơi khỏi người đã hàng phục được ái. Phẩm khuyên nhổ tận gốc ái dục và nhắc rằng bố thí cho người ly dục thì được quả lớn.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Tham Ái",
+  "pli": "Taṇhāvagga",
+  "en": "Craving"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 8,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp334-359/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Người sống đời phóng dật,"
+    },
+    {
+     "n": 2,
+     "text": "Ái tăng như dây leo."
+    },
+    {
+     "n": 3,
+     "text": "Nhảy đời này đời khác,"
+    },
+    {
+     "n": 4,
+     "text": "Như vượn tham quả rừng."
+    },
+    {
+     "n": 5,
+     "text": "Ai sống trong đời này,"
+    },
+    {
+     "n": 6,
+     "text": "Bị ái dục buộc ràng"
+    },
+    {
+     "n": 7,
+     "text": "Sầu khổ sẽ tăng trưởng,"
+    },
+    {
+     "n": 8,
+     "text": "Như cỏ bi gặp mưa."
+    },
+    {
+     "n": 9,
+     "text": "Ai sống trong đời này"
+    },
+    {
+     "n": 10,
+     "text": "Ái dục được hàng phục"
+    },
+    {
+     "n": 11,
+     "text": "Sầu rơi khỏi người ấy"
+    },
+    {
+     "n": 12,
+     "text": "Như giọt nước lá sen."
+    },
+    {
+     "n": 13,
+     "text": "Đây điều lành Ta dạy,"
+    },
+    {
+     "n": 14,
+     "text": "Các người tụ họp đây,"
+    },
+    {
+     "n": 15,
+     "text": "Hãy nhổ tận gốc ái"
+    },
+    {
+     "n": 16,
+     "text": "Như nhổ gốc cỏ bi."
+    },
+    {
+     "n": 17,
+     "text": "Chớ để ma phá hoại,"
+    },
+    {
+     "n": 18,
+     "text": "Như dòng nước cỏ lau."
+    },
+    {
+     "n": 19,
+     "text": "Như cây bị chặt đốn,"
+    },
+    {
+     "n": 20,
+     "text": "Gốc chưa hại vẫn bền"
+    },
+    {
+     "n": 21,
+     "text": "Ái tùy miên chưa nhổ,"
+    },
+    {
+     "n": 22,
+     "text": "Khổ này vẫn sanh hoài."
+    },
+    {
+     "n": 23,
+     "text": "Ba mươi sáu dòng ái,"
+    },
+    {
+     "n": 24,
+     "text": "Trôi người đến khả ái."
+    },
+    {
+     "n": 25,
+     "text": "Các tư tưởng tham ái."
+    },
+    {
+     "n": 26,
+     "text": "Cuốn trôi người tà kiến."
+    },
+    {
+     "n": 27,
+     "text": "Dòng ái dục chảy khắp,"
+    },
+    {
+     "n": 28,
+     "text": "Như giây leo mọc tràn,"
+    },
+    {
+     "n": 29,
+     "text": "Thấy giây leo vừa sanh,"
+    },
+    {
+     "n": 30,
+     "text": "Với tuệ, hãy đoạn gốc."
+    },
+    {
+     "n": 31,
+     "text": "Người đời nhớ ái dục,"
+    },
+    {
+     "n": 32,
+     "text": "Ưa thích các hỷ lạc."
+    },
+    {
+     "n": 33,
+     "text": "Tuy mong cầu an lạc,"
+    },
+    {
+     "n": 34,
+     "text": "Chúng vẫn phải sanh già."
+    },
+    {
+     "n": 35,
+     "text": "Người bị ái buộc ràng,"
+    },
+    {
+     "n": 36,
+     "text": "Vùng vẫy và hoảng sợ, Như thỏ bị sa lưới."
+    },
+    {
+     "n": 37,
+     "text": "Chúng sanh ái trói buộc,"
+    },
+    {
+     "n": 38,
+     "text": "Chịu khổ đau dài dài."
+    },
+    {
+     "n": 39,
+     "text": "Người bị ái buộc ràng,"
+    },
+    {
+     "n": 40,
+     "text": "Vùng vẫy và hoảng sợ, Như thỏ bị sa lưới."
+    },
+    {
+     "n": 41,
+     "text": "Do vậy vị tỷ kheo, Mong cầu mình ly tham"
+    },
+    {
+     "n": 42,
+     "text": "Nên nhiếp phục ái dục."
+    },
+    {
+     "n": 43,
+     "text": "Lìa rừng lại hướng rừng"
+    },
+    {
+     "n": 44,
+     "text": "Thoát rừng chạy theo rừng."
+    },
+    {
+     "n": 45,
+     "text": "Nên xem người như vậy,"
+    },
+    {
+     "n": 46,
+     "text": "Được thoát khỏi buộc ràng. Lại chạy theo ràng buộc."
+    },
+    {
+     "n": 47,
+     "text": "Sắt, cây, gai trói buộc"
+    },
+    {
+     "n": 48,
+     "text": "Người trí xem chưa bền."
+    },
+    {
+     "n": 49,
+     "text": "Tham châu báu, trang sức"
+    },
+    {
+     "n": 50,
+     "text": "Tham vọng vợ và con."
+    },
+    {
+     "n": 51,
+     "text": "Người có trí nói rằng: Trói buộc này thật bền."
+    },
+    {
+     "n": 52,
+     "text": "Trì kéo xuống, lún xuống, Nhưng thật sự khó thoát."
+    },
+    {
+     "n": 53,
+     "text": "Người trí cắt trừ nó,"
+    },
+    {
+     "n": 54,
+     "text": "Bỏ dục lạc, không màng."
+    },
+    {
+     "n": 55,
+     "text": "Người đắm say ái dục Tự lao mình xuống dòng"
+    },
+    {
+     "n": 56,
+     "text": "Như nhện sa lưới dệt."
+    },
+    {
+     "n": 57,
+     "text": "Người trí cắt trừ nó,"
+    },
+    {
+     "n": 58,
+     "text": "Bỏ mọi khổ, không màng."
+    },
+    {
+     "n": 59,
+     "text": "Bỏ quá, hiện, vị lai,"
+    },
+    {
+     "n": 60,
+     "text": "Đến bờ kia cuộc đời,"
+    },
+    {
+     "n": 61,
+     "text": "Ý giải thoát tất cả,"
+    },
+    {
+     "n": 62,
+     "text": "Chớ vướng tại sanh già."
+    },
+    {
+     "n": 63,
+     "text": "Người tà ý nhiếp phục,"
+    },
+    {
+     "n": 64,
+     "text": "Tham sắc bén nhìn tịnh,"
+    },
+    {
+     "n": 65,
+     "text": "Người ấy ái tăng trưởng,"
+    },
+    {
+     "n": 66,
+     "text": "Làm giây trói mình chặt."
+    },
+    {
+     "n": 67,
+     "text": "Ai vui, an tịnh ý,"
+    },
+    {
+     "n": 68,
+     "text": "Quán bất tịnh, thường niệm,"
+    },
+    {
+     "n": 69,
+     "text": "Người ấy sẽ diệt ái,"
+    },
+    {
+     "n": 70,
+     "text": "Cắt đứt Ma trói buộc."
+    },
+    {
+     "n": 71,
+     "text": "Ai tới đích không sợ,"
+    },
+    {
+     "n": 72,
+     "text": "Ly ái, không nhiễm ô"
+    },
+    {
+     "n": 73,
+     "text": "Nhổ mũi tên sanh tử,"
+    },
+    {
+     "n": 74,
+     "text": "Thân này thân cuối cùng."
+    },
+    {
+     "n": 75,
+     "text": "Ái lìa, không chấp thủ"
+    },
+    {
+     "n": 76,
+     "text": "Cú pháp khéo biện tài"
+    },
+    {
+     "n": 77,
+     "text": "Thấu suốt từ vô ngại,"
+    },
+    {
+     "n": 78,
+     "text": "Hiểu thứ lớp trước sau."
+    },
+    {
+     "n": 79,
+     "text": "Thân này thân cuối cùng"
+    },
+    {
+     "n": 80,
+     "text": "Vị như vậy được gọi, Bậc Đại trí, đại nhân."
+    },
+    {
+     "n": 81,
+     "text": "Ta hàng phục tất cả, Ta rõ biết tất cả,"
+    },
+    {
+     "n": 82,
+     "text": "Không bị nhiễm pháp nào."
+    },
+    {
+     "n": 83,
+     "text": "Ta từ bỏ tất cả Ái diệt, tự giải thoát."
+    },
+    {
+     "n": 84,
+     "text": "Đã tự mình thắng trí, Ta gọi ai thầy ta?"
+    },
+    {
+     "n": 85,
+     "text": "Pháp thí, thắng mọi thí!"
+    },
+    {
+     "n": 86,
+     "text": "Pháp vị, thắng mọi vị!"
+    },
+    {
+     "n": 87,
+     "text": "Pháp hỷ, thắng mọi hỷ!"
+    },
+    {
+     "n": 88,
+     "text": "Ái diệt, thắng mọi khổ!"
+    },
+    {
+     "n": 89,
+     "text": "Tài sản hại người ngu."
+    },
+    {
+     "n": 90,
+     "text": "Không người tìm bờ kia"
+    },
+    {
+     "n": 91,
+     "text": "Kẻ ngu vì tham giàu,"
+    },
+    {
+     "n": 92,
+     "text": "Hại mình và hại người."
+    },
+    {
+     "n": 93,
+     "text": "Cỏ làm hại ruộng vườn,"
+    },
+    {
+     "n": 94,
+     "text": "Tham làm hại người đời."
+    },
+    {
+     "n": 95,
+     "text": "Bố thí người ly tham,"
+    },
+    {
+     "n": 96,
+     "text": "Do vậy được quả lớn."
+    },
+    {
+     "n": 97,
+     "text": "Cỏ làm hại ruộng vườn,"
+    },
+    {
+     "n": 98,
+     "text": "Sân làm hại người đời."
+    },
+    {
+     "n": 99,
+     "text": "Bố thí người ly sân,"
+    },
+    {
+     "n": 100,
+     "text": "Do vậy được quả lớn."
+    },
+    {
+     "n": 101,
+     "text": "Cỏ làm hại ruộng vườn,"
+    },
+    {
+     "n": 102,
+     "text": "Si làm hại người đời,"
+    },
+    {
+     "n": 103,
+     "text": "Bố thí người ly si,"
+    },
+    {
+     "n": 104,
+     "text": "Do vậy được quả lớn."
+    },
+    {
+     "n": 105,
+     "text": "Cỏ làm hại ruộng vườn,"
+    },
+    {
+     "n": 106,
+     "text": "Dục làm hại người đời."
+    },
+    {
+     "n": 107,
+     "text": "Bố thí người ly dục,"
+    },
+    {
+     "n": 108,
+     "text": "Do vậy được quả lớn."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp334-359/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Manujassa pamattacārino,"
+    },
+    {
+     "n": 2,
+     "text": "Taṇhā vaḍḍhati māluvā viya;"
+    },
+    {
+     "n": 3,
+     "text": "So plavatī hurā huraṁ,"
+    },
+    {
+     "n": 4,
+     "text": "Phalamicchaṁva vanasmi vānaro."
+    },
+    {
+     "n": 5,
+     "text": "Yaṁ esā sahate jammī,"
+    },
+    {
+     "n": 6,
+     "text": "taṇhā loke visattikā;"
+    },
+    {
+     "n": 7,
+     "text": "Sokā tassa pavaḍḍhanti,"
+    },
+    {
+     "n": 8,
+     "text": "abhivaṭṭhaṁva bīraṇaṁ."
+    },
+    {
+     "n": 9,
+     "text": "Yo cetaṁ sahate jammiṁ,"
+    },
+    {
+     "n": 10,
+     "text": "taṇhaṁ loke duraccayaṁ;"
+    },
+    {
+     "n": 11,
+     "text": "Sokā tamhā papatanti,"
+    },
+    {
+     "n": 12,
+     "text": "udabinduva pokkharā."
+    },
+    {
+     "n": 13,
+     "text": "Taṁ vo vadāmi bhaddaṁ vo,"
+    },
+    {
+     "n": 14,
+     "text": "yāvantettha samāgatā;"
+    },
+    {
+     "n": 15,
+     "text": "Taṇhāya mūlaṁ khaṇatha,"
+    },
+    {
+     "n": 16,
+     "text": "usīratthova bīraṇaṁ;"
+    },
+    {
+     "n": 17,
+     "text": "Mā vo naḷaṁva sotova,"
+    },
+    {
+     "n": 18,
+     "text": "māro bhañji punappunaṁ."
+    },
+    {
+     "n": 19,
+     "text": "Yathāpi mūle anupaddave daḷhe,"
+    },
+    {
+     "n": 20,
+     "text": "Chinnopi rukkho punareva rūhati;"
+    },
+    {
+     "n": 21,
+     "text": "Evampi taṇhānusaye anūhate,"
+    },
+    {
+     "n": 22,
+     "text": "Nibbattatī dukkhamidaṁ punappunaṁ."
+    },
+    {
+     "n": 23,
+     "text": "Yassa chattiṁsati sotā,"
+    },
+    {
+     "n": 24,
+     "text": "manāpasavanā bhusā;"
+    },
+    {
+     "n": 25,
+     "text": "Mahāvahanti duddiṭṭhiṁ,"
+    },
+    {
+     "n": 26,
+     "text": "saṅkappā rāganissitā."
+    },
+    {
+     "n": 27,
+     "text": "Savanti sabbadhi sotā,"
+    },
+    {
+     "n": 28,
+     "text": "latā uppajja tiṭṭhati;"
+    },
+    {
+     "n": 29,
+     "text": "Tañca disvā lataṁ jātaṁ,"
+    },
+    {
+     "n": 30,
+     "text": "mūlaṁ paññāya chindatha."
+    },
+    {
+     "n": 31,
+     "text": "Saritāni sinehitāni ca,"
+    },
+    {
+     "n": 32,
+     "text": "Somanassāni bhavanti jantuno;"
+    },
+    {
+     "n": 33,
+     "text": "Te sātasitā sukhesino,"
+    },
+    {
+     "n": 34,
+     "text": "Te ve jātijarūpagā narā."
+    },
+    {
+     "n": 35,
+     "text": "Tasiṇāya purakkhatā pajā,"
+    },
+    {
+     "n": 36,
+     "text": "Parisappanti sasova bandhito;"
+    },
+    {
+     "n": 37,
+     "text": "Saṁyojanasaṅgasattakā,"
+    },
+    {
+     "n": 38,
+     "text": "Dukkhamupenti punappunaṁ cirāya."
+    },
+    {
+     "n": 39,
+     "text": "Tasiṇāya purakkhatā pajā,"
+    },
+    {
+     "n": 40,
+     "text": "Parisappanti sasova bandhito;"
+    },
+    {
+     "n": 41,
+     "text": "Tasmā tasiṇaṁ vinodaye,"
+    },
+    {
+     "n": 42,
+     "text": "Ākaṅkhanta virāgamattano."
+    },
+    {
+     "n": 43,
+     "text": "Yo nibbanatho vanādhimutto,"
+    },
+    {
+     "n": 44,
+     "text": "Vanamutto vanameva dhāvati;"
+    },
+    {
+     "n": 45,
+     "text": "Taṁ puggalametha passatha,"
+    },
+    {
+     "n": 46,
+     "text": "Mutto bandhanameva dhāvati."
+    },
+    {
+     "n": 47,
+     "text": "Na taṁ daḷhaṁ bandhanamāhu dhīrā,"
+    },
+    {
+     "n": 48,
+     "text": "Yadāyasaṁ dārujapabbajañca;"
+    },
+    {
+     "n": 49,
+     "text": "Sārattarattā maṇikuṇḍalesu,"
+    },
+    {
+     "n": 50,
+     "text": "Puttesu dāresu ca yā apekkhā."
+    },
+    {
+     "n": 51,
+     "text": "Etaṁ daḷhaṁ bandhanamāhu dhīrā,"
+    },
+    {
+     "n": 52,
+     "text": "Ohārinaṁ sithilaṁ duppamuñcaṁ;"
+    },
+    {
+     "n": 53,
+     "text": "Etampi chetvāna paribbajanti,"
+    },
+    {
+     "n": 54,
+     "text": "Anapekkhino kāmasukhaṁ pahāya."
+    },
+    {
+     "n": 55,
+     "text": "Ye rāgarattānupatanti sotaṁ,"
+    },
+    {
+     "n": 56,
+     "text": "Sayaṅkataṁ makkaṭakova jālaṁ;"
+    },
+    {
+     "n": 57,
+     "text": "Etampi chetvāna vajanti dhīrā,"
+    },
+    {
+     "n": 58,
+     "text": "Anapekkhino sabbadukkhaṁ pahāya."
+    },
+    {
+     "n": 59,
+     "text": "Muñca pure muñca pacchato,"
+    },
+    {
+     "n": 60,
+     "text": "Majjhe muñca bhavassa pāragū;"
+    },
+    {
+     "n": 61,
+     "text": "Sabbattha vimuttamānaso,"
+    },
+    {
+     "n": 62,
+     "text": "Na punaṁ jātijaraṁ upehisi."
+    },
+    {
+     "n": 63,
+     "text": "Vitakkamathitassa jantuno,"
+    },
+    {
+     "n": 64,
+     "text": "Tibbarāgassa subhānupassino;"
+    },
+    {
+     "n": 65,
+     "text": "Bhiyyo taṇhā pavaḍḍhati,"
+    },
+    {
+     "n": 66,
+     "text": "Esa kho daḷhaṁ karoti bandhanaṁ."
+    },
+    {
+     "n": 67,
+     "text": "Vitakkūpasame ca yo rato,"
+    },
+    {
+     "n": 68,
+     "text": "Asubhaṁ bhāvayate sadā sato;"
+    },
+    {
+     "n": 69,
+     "text": "Esa kho byanti kāhiti,"
+    },
+    {
+     "n": 70,
+     "text": "Esa checchati mārabandhanaṁ."
+    },
+    {
+     "n": 71,
+     "text": "Niṭṭhaṅgato asantāsī,"
+    },
+    {
+     "n": 72,
+     "text": "vītataṇho anaṅgaṇo;"
+    },
+    {
+     "n": 73,
+     "text": "Acchindi bhavasallāni,"
+    },
+    {
+     "n": 74,
+     "text": "antimoyaṁ samussayo."
+    },
+    {
+     "n": 75,
+     "text": "Vītataṇho anādāno,"
+    },
+    {
+     "n": 76,
+     "text": "Niruttipadakovido;"
+    },
+    {
+     "n": 77,
+     "text": "Akkharānaṁ sannipātaṁ,"
+    },
+    {
+     "n": 78,
+     "text": "Jaññā pubbāparāni ca;"
+    },
+    {
+     "n": 79,
+     "text": "Sa ve “antimasārīro,"
+    },
+    {
+     "n": 80,
+     "text": "Mahāpañño mahāpuriso”ti vuccati."
+    },
+    {
+     "n": 81,
+     "text": "Sabbābhibhū sabbavidūhamasmi,"
+    },
+    {
+     "n": 82,
+     "text": "Sabbesu dhammesu anūpalitto;"
+    },
+    {
+     "n": 83,
+     "text": "Sabbañjaho taṇhakkhaye vimutto,"
+    },
+    {
+     "n": 84,
+     "text": "Sayaṁ abhiññāya kamuddiseyyaṁ."
+    },
+    {
+     "n": 85,
+     "text": "Sabbadānaṁ dhammadānaṁ jināti,"
+    },
+    {
+     "n": 86,
+     "text": "Sabbarasaṁ dhammaraso jināti;"
+    },
+    {
+     "n": 87,
+     "text": "Sabbaratiṁ dhammarati jināti,"
+    },
+    {
+     "n": 88,
+     "text": "Taṇhakkhayo sabbadukkhaṁ jināti."
+    },
+    {
+     "n": 89,
+     "text": "Hananti bhogā dummedhaṁ,"
+    },
+    {
+     "n": 90,
+     "text": "no ca pāragavesino;"
+    },
+    {
+     "n": 91,
+     "text": "Bhogataṇhāya dummedho,"
+    },
+    {
+     "n": 92,
+     "text": "hanti aññeva attanaṁ."
+    },
+    {
+     "n": 93,
+     "text": "Tiṇadosāni khettāni,"
+    },
+    {
+     "n": 94,
+     "text": "rāgadosā ayaṁ pajā;"
+    },
+    {
+     "n": 95,
+     "text": "Tasmā hi vītarāgesu,"
+    },
+    {
+     "n": 96,
+     "text": "dinnaṁ hoti mahapphalaṁ."
+    },
+    {
+     "n": 97,
+     "text": "Tiṇadosāni khettāni,"
+    },
+    {
+     "n": 98,
+     "text": "dosadosā ayaṁ pajā;"
+    },
+    {
+     "n": 99,
+     "text": "Tasmā hi vītadosesu,"
+    },
+    {
+     "n": 100,
+     "text": "dinnaṁ hoti mahapphalaṁ."
+    },
+    {
+     "n": 101,
+     "text": "Tiṇadosāni khettāni,"
+    },
+    {
+     "n": 102,
+     "text": "mohadosā ayaṁ pajā;"
+    },
+    {
+     "n": 103,
+     "text": "Tasmā hi vītamohesu,"
+    },
+    {
+     "n": 104,
+     "text": "dinnaṁ hoti mahapphalaṁ."
+    },
+    {
+     "n": 105,
+     "text": "Tiṇadosāni khettāni,"
+    },
+    {
+     "n": 106,
+     "text": "icchādosā ayaṁ pajā;"
+    },
+    {
+     "n": 107,
+     "text": "Tasmā hi vigaticchesu,"
+    },
+    {
+     "n": 108,
+     "text": "dinnaṁ hoti mahapphalaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp334-359/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "When a man lives heedlessly,"
+    },
+    {
+     "n": 2,
+     "text": "craving grows in them like a camel’s foot creeper."
+    },
+    {
+     "n": 3,
+     "text": "They jump from one thing to the next, like a langur"
+    },
+    {
+     "n": 4,
+     "text": "greedy for fruit in a forest grove."
+    },
+    {
+     "n": 5,
+     "text": "Whoever is beaten by this wretched craving,"
+    },
+    {
+     "n": 6,
+     "text": "this attachment to the world,"
+    },
+    {
+     "n": 7,
+     "text": "their sorrow grows,"
+    },
+    {
+     "n": 8,
+     "text": "like grass in the rain."
+    },
+    {
+     "n": 9,
+     "text": "But whoever prevails over this wretched craving,"
+    },
+    {
+     "n": 10,
+     "text": "so hard to get over in the world,"
+    },
+    {
+     "n": 11,
+     "text": "their sorrows fall from them,"
+    },
+    {
+     "n": 12,
+     "text": "like a drop from a lotus-leaf."
+    },
+    {
+     "n": 13,
+     "text": "I say this to you, good people,"
+    },
+    {
+     "n": 14,
+     "text": "all those who have gathered here:"
+    },
+    {
+     "n": 15,
+     "text": "dig up the root of craving,"
+    },
+    {
+     "n": 16,
+     "text": "as you’d dig up grass in search of roots."
+    },
+    {
+     "n": 17,
+     "text": "Don’t let Māra break you again and again,"
+    },
+    {
+     "n": 18,
+     "text": "like a stream breaking a reed."
+    },
+    {
+     "n": 19,
+     "text": "A tree grows back even when cut down,"
+    },
+    {
+     "n": 20,
+     "text": "so long as its roots are strong and undamaged;"
+    },
+    {
+     "n": 21,
+     "text": "suffering springs up again and again,"
+    },
+    {
+     "n": 22,
+     "text": "so long as the tendency to craving is not pulled out."
+    },
+    {
+     "n": 23,
+     "text": "A person of low views"
+    },
+    {
+     "n": 24,
+     "text": "in whom the thirty-six streams"
+    },
+    {
+     "n": 25,
+     "text": "that flow to pleasure are mighty,"
+    },
+    {
+     "n": 26,
+     "text": "is swept away by lustful thoughts."
+    },
+    {
+     "n": 27,
+     "text": "The streams flow everywhere;"
+    },
+    {
+     "n": 28,
+     "text": "a weed springs up and remains."
+    },
+    {
+     "n": 29,
+     "text": "Seeing this weed that has been born,"
+    },
+    {
+     "n": 30,
+     "text": "cut the root with wisdom."
+    },
+    {
+     "n": 31,
+     "text": "A personage’s joys"
+    },
+    {
+     "n": 32,
+     "text": "flow from senses and cravings."
+    },
+    {
+     "n": 33,
+     "text": "Seekers of happiness, bent on pleasure,"
+    },
+    {
+     "n": 34,
+     "text": "continue to be reborn and grow old."
+    },
+    {
+     "n": 35,
+     "text": "People governed by thirst,"
+    },
+    {
+     "n": 36,
+     "text": "crawl about like a trapped rabbit."
+    },
+    {
+     "n": 37,
+     "text": "Bound and fettered, for a long time"
+    },
+    {
+     "n": 38,
+     "text": "they return to pain time and again."
+    },
+    {
+     "n": 39,
+     "text": "People governed by thirst,"
+    },
+    {
+     "n": 40,
+     "text": "crawl about like a trapped rabbit."
+    },
+    {
+     "n": 41,
+     "text": "That’s why one who longs for dispassion"
+    },
+    {
+     "n": 42,
+     "text": "should dispel thirst."
+    },
+    {
+     "n": 43,
+     "text": "Unsnarled, they set out for the jungle,"
+    },
+    {
+     "n": 44,
+     "text": "then they run right back to the jungle they left behind."
+    },
+    {
+     "n": 45,
+     "text": "Just look at this individual!"
+    },
+    {
+     "n": 46,
+     "text": "Freed, they run to bondage."
+    },
+    {
+     "n": 47,
+     "text": "The attentive say that shackle is not strong"
+    },
+    {
+     "n": 48,
+     "text": "that’s made of iron, wood, or knots."
+    },
+    {
+     "n": 49,
+     "text": "But obsession with jeweled earrings,"
+    },
+    {
+     "n": 50,
+     "text": "concern for your partners and children:"
+    },
+    {
+     "n": 51,
+     "text": "this, say the attentive, is a strong shackle"
+    },
+    {
+     "n": 52,
+     "text": "dragging the indulgent down, hard to escape."
+    },
+    {
+     "n": 53,
+     "text": "Having cut this one too they go forth,"
+    },
+    {
+     "n": 54,
+     "text": "unconcerned, having given up sensual pleasures."
+    },
+    {
+     "n": 55,
+     "text": "Besotted by lust they fall into the stream,"
+    },
+    {
+     "n": 56,
+     "text": "like a spider caught in the web she wove."
+    },
+    {
+     "n": 57,
+     "text": "The attentive proceed, having cut this one too,"
+    },
+    {
+     "n": 58,
+     "text": "unconcerned, having given up all suffering."
+    },
+    {
+     "n": 59,
+     "text": "Let go of the past, let go of the future,"
+    },
+    {
+     "n": 60,
+     "text": "let go of the present, having gone beyond rebirth."
+    },
+    {
+     "n": 61,
+     "text": "With your heart freed in every respect,"
+    },
+    {
+     "n": 62,
+     "text": "you’ll not come again to rebirth and old age."
+    },
+    {
+     "n": 63,
+     "text": "For a personage churned by thoughts,"
+    },
+    {
+     "n": 64,
+     "text": "very lustful, focusing on beauty,"
+    },
+    {
+     "n": 65,
+     "text": "their craving grows and grows,"
+    },
+    {
+     "n": 66,
+     "text": "tying them with a stout bond."
+    },
+    {
+     "n": 67,
+     "text": "But one who loves to calm their thoughts,"
+    },
+    {
+     "n": 68,
+     "text": "developing perception of ugliness, ever mindful,"
+    },
+    {
+     "n": 69,
+     "text": "will surely eliminate that craving,"
+    },
+    {
+     "n": 70,
+     "text": "cutting off the bonds of Māra."
+    },
+    {
+     "n": 71,
+     "text": "One who is confident, unafraid,"
+    },
+    {
+     "n": 72,
+     "text": "rid of craving, free of blemish,"
+    },
+    {
+     "n": 73,
+     "text": "having struck down the arrows flying to future lives,"
+    },
+    {
+     "n": 74,
+     "text": "this bag of bones is their last."
+    },
+    {
+     "n": 75,
+     "text": "Rid of craving, free of grasping,"
+    },
+    {
+     "n": 76,
+     "text": "expert in the definition of terms,"
+    },
+    {
+     "n": 77,
+     "text": "knowing the correct"
+    },
+    {
+     "n": 78,
+     "text": "structure and sequence of syllables,"
+    },
+    {
+     "n": 79,
+     "text": "they are said to be one who bears their final body,"
+    },
+    {
+     "n": 80,
+     "text": "one of great wisdom, a great person."
+    },
+    {
+     "n": 81,
+     "text": "I am the vanquisher of all, the knower of all,"
+    },
+    {
+     "n": 82,
+     "text": "unsullied in the midst of all things."
+    },
+    {
+     "n": 83,
+     "text": "I’ve given up all, freed in the ending of craving."
+    },
+    {
+     "n": 84,
+     "text": "Since I know for myself, whose follower should I be?"
+    },
+    {
+     "n": 85,
+     "text": "The gift of the teaching surmounts all other gifts;"
+    },
+    {
+     "n": 86,
+     "text": "the taste of the teaching surmounts all other tastes;"
+    },
+    {
+     "n": 87,
+     "text": "the joy of the teaching surmounts all other joys;"
+    },
+    {
+     "n": 88,
+     "text": "the ending of craving surmounts all suffering."
+    },
+    {
+     "n": 89,
+     "text": "Riches ruin a simpleton,"
+    },
+    {
+     "n": 90,
+     "text": "but not a seeker of the far shore."
+    },
+    {
+     "n": 91,
+     "text": "From craving for wealth, a simpleton"
+    },
+    {
+     "n": 92,
+     "text": "ruins themselves and others."
+    },
+    {
+     "n": 93,
+     "text": "Weeds are the bane of crops,"
+    },
+    {
+     "n": 94,
+     "text": "but greed is these folk’s bane."
+    },
+    {
+     "n": 95,
+     "text": "That’s why a gift to one rid of greed"
+    },
+    {
+     "n": 96,
+     "text": "is so very fruitful."
+    },
+    {
+     "n": 97,
+     "text": "Weeds are the bane of crops,"
+    },
+    {
+     "n": 98,
+     "text": "but hate is these folk’s bane."
+    },
+    {
+     "n": 99,
+     "text": "That’s why a gift to one rid of hate"
+    },
+    {
+     "n": 100,
+     "text": "is so very fruitful."
+    },
+    {
+     "n": 101,
+     "text": "Weeds are the bane of crops,"
+    },
+    {
+     "n": 102,
+     "text": "but delusion is these folk’s bane."
+    },
+    {
+     "n": 103,
+     "text": "That’s why a gift to one rid of delusion"
+    },
+    {
+     "n": 104,
+     "text": "is so very fruitful."
+    },
+    {
+     "n": 105,
+     "text": "Weeds are the bane of crops,"
+    },
+    {
+     "n": 106,
+     "text": "but desire is these folk’s bane."
+    },
+    {
+     "n": 107,
+     "text": "That’s why a gift to one rid of desire"
+    },
+    {
+     "n": 108,
+     "text": "is so very fruitful."
+    }
+   ]
+  }
+ ]
+}

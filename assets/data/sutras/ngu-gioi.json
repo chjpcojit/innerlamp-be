@@ -1,0 +1,215 @@
+{
+ "id": "ngu-gioi",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nghi thức / Năm giới",
+ "reference": "",
+ "summary": "Bản Năm Giới theo lối diễn đạt hiện đại của Thiền sư Thích Nhất Hạnh (Làng Mai), gọi là Năm giới quý báu hay Năm Rèn luyện chánh niệm. Mỗi giới mở đầu bằng việc nhận ra khổ đau do một hành vi gây ra rồi phát nguyện thực tập: bảo vệ sự sống, chia sẻ không lấy của không cho, giữ gìn tình thương và trách nhiệm, nói lời ái ngữ, tiêu thụ có ý thức.",
+ "titles": {
+  "vi": "Năm Giới (Năm giới quý báu - Thích Nhất Hạnh)",
+  "zh": "五戒",
+  "en": "The Five Mindfulness Trainings (Plum Village)"
+ },
+ "deities": [],
+ "dailyChant": true,
+ "purposes": [
+  "QUY_Y_THO_GIOI"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thiền sư Thích Nhất Hạnh (Làng Mai)",
+   "sourceName": "Làng Mai (langmai.org) - \"Tụng Giới thiếu nhi và 5 Giới\", mục \"Nghi thức Tụng Năm giới\"",
+   "sourceUrl": "https://langmai.org/phat-duong/tung-gioi/tung-gioi-thieu-nhi-va-nam-gioi/",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang",
+   "note": "Đây là bản Năm Giới của Làng Mai (Thích Nhất Hạnh, Đại thừa/Tiếp Hiện), diễn đạt khác với bản truyền thống \"không sát sanh, không trộm cắp, không tà dâm, không nói dối, không uống rượu\". section = tên từng giới. Chỉ lấy 5 điều giới; bỏ lời dẫn, câu hỏi \"Trong hai tuần qua...\", chỉ dẫn chuông/thở. Giữ nguyên lỗi dính chữ của nguồn nếu có (vd \"tâm tưởnghay\"). Nguồn nằm trong nghi thức tụng giới nên dùng ở dạng tụng đọc, không phải thọ giới.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ý thức được những khổ đau do sự giết hại gây ra, con nguyện thực tập nuôi dưỡng tuệ giác Tương tức và lòng Từ bi, để có thể bảo vệ sự sống của mọi người, của mọi loài và môi trường sống.",
+     "section": "Giới thứ nhất: Tôn trọng sự sống"
+    },
+    {
+     "n": 2,
+     "text": "Con nguyện không giết hại, không để kẻ khác giết hại và không tán thành bất cứ một hành động giết hại nào trên thế giới, dù là trong tâm tưởnghay trong cách sống hằng ngày của con.",
+     "section": "Giới thứ nhất: Tôn trọng sự sống"
+    },
+    {
+     "n": 3,
+     "text": "Thấy được rằng tất cả những bạo động do sợ hãi, hận thù, tham vọng và cuồng tín gây ra đều bắt nguồn từ cách tư duy lưỡng nguyên và kỳ thị; con nguyện học hỏi thái độ cởi mở,",
+     "section": "Giới thứ nhất: Tôn trọng sự sống"
+    },
+    {
+     "n": 4,
+     "text": "không kỳ thị, không cố chấp vào bất cứ một quan điểm, một chủ thuyết hay một ý thức hệ nào để có thể chuyển hóa hạt giống cuồng tín,",
+     "section": "Giới thứ nhất: Tôn trọng sự sống"
+    },
+    {
+     "n": 5,
+     "text": "giáo điều và thiếu bao dung trong con và trên thế giới.",
+     "section": "Giới thứ nhất: Tôn trọng sự sống"
+    },
+    {
+     "n": 6,
+     "text": "Ý thức được những khổ đau do lường gạt, trộm cướp, áp bức và bất công xã hội gây ra, con nguyện thực tập chia sẻ thì giờ, năng lực và tài vật của con với những kẻ thiếu thốn,",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 7,
+     "text": "trên cả ba phương diện tư duy, nói năng và hành động trong đời sống hằng ngày.",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 8,
+     "text": "Con nguyện không lấy làm tư hữu bất cứ một của cải nào không phải do tự mình tạo ra.",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 9,
+     "text": "Con nguyện thực tập nhìn sâu để thấy được hạnh phúc và khổ đau của người kia có liên hệ mật thiết đến hạnh phúc và khổ đau của chính con.",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 10,
+     "text": "Con biết hạnh phúc chân thực không thể nào có được nếu không có hiểu biết và thương yêu, trong khi đó đi tìm hạnh phúc bằng cách chạy theo quyền lực, danh vọng,",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 11,
+     "text": "giàu sang và sắc dục có thể đem lại nhiều hệ lụy và tuyệt vọng.",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 12,
+     "text": "Con ý thức được hạnh phúc chân thực phát sinh từ cách nhìn của con mà không phải từ bên ngoài đem tới.",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 13,
+     "text": "Thực tập tri túc giúp con sống hạnh phúc được ngay trong giây phút hiện tại để nhận diện những điều kiện hạnh phúc mà con đã có.",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 14,
+     "text": "Con nguyện thực tập theo Chánh mạng để có thể làm giảm thiểu khổ đau của mọi người và để chuyển ngược lại quá trình hâm nóng địa cầu.",
+     "section": "Giới thứ hai: Hạnh phúc chân thực"
+    },
+    {
+     "n": 15,
+     "text": "Ý thức được những khổ đau do thói tà dâm gây ra, con nguyện thực tập theo tinh thần trách nhiệm để giúp bảo hộ tiết hạnh và sự an toàn của mọi người, mọi gia đình và xã hội.",
+     "section": "Giới thứ ba: Tình thương đích thực"
+    },
+    {
+     "n": 16,
+     "text": "Con biết tình dục và tình yêu là hai cái khác nhau. Những liên hệ tình dục do sự thèm khát gây nên luôn mang tới những hệ lụy, đổ vỡ cho con và cho kẻ khác.",
+     "section": "Giới thứ ba: Tình thương đích thực"
+    },
+    {
+     "n": 17,
+     "text": "Con nguyện không ăn nằm với bất cứ ai nếu không có tình yêu đích thực và những cam kết chính thức lâu dài.",
+     "section": "Giới thứ ba: Tình thương đích thực"
+    },
+    {
+     "n": 18,
+     "text": "Con sẽ làm mọi cách để bảo vệ trẻ em, không cho nạn tà dâm tiếp tục gây nên sự đổ vỡ của các gia đình và của đời sống đôi lứa.",
+     "section": "Giới thứ ba: Tình thương đích thực"
+    },
+    {
+     "n": 19,
+     "text": "Con nguyện học hỏi những phương pháp thích ứng để chăm sóc năng lượng tình dục trong con, để thấy được sự thực thân tâm nhất như và nguyện nuôi lớn các đức Từ, Bi, Hỷ và Xả,",
+     "section": "Giới thứ ba: Tình thương đích thực"
+    },
+    {
+     "n": 20,
+     "text": "tức là những yếu tố căn bản của một tình yêu thương đích thực, làm tăng trưởng hạnh phúc của con và của người khác.",
+     "section": "Giới thứ ba: Tình thương đích thực"
+    },
+    {
+     "n": 21,
+     "text": "Con biết thực tập Tứ vô lượng tâm, con sẽ được tiếp tục đẹp đẽ và hạnh phúc trong tương lai.",
+     "section": "Giới thứ ba: Tình thương đích thực"
+    },
+    {
+     "n": 22,
+     "text": "Ý thức được những khổ đau do lời nói thiếu chánh niệm và thiếu khả năng lắng nghe gây ra, con nguyện học hạnh Ái ngữ và lắng nghe để có thể hiến tặng niềm vui cho người và làm vơi bớt nỗi khổ đau của người.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 23,
+     "text": "Con nguyện tìm cách đem lại an bình và hòa giải giữa mọi người, giữa các quốc gia, chủng tộc và tôn giáo.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 24,
+     "text": "Biết rằng lời nói có thể đem lại hạnh phúc hay khổ đau cho người, con nguyện học nói những lời có khả năng gây thêm niềm tự tin, an vui và hy vọng, những lời chân thực có giá trị xây dựng hiểu biết và hòa giải.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 25,
+     "text": "Con nguyện không nói gì khi cơn giận tức đang có mặt trong con.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 26,
+     "text": "Con nguyện tập thở và đi trong chánh niệm để nhìn sâu vào gốc rễ của cơn giận ấy, để nhận diện những tri giác sai lầm trong con và tìm cách hiểu được những khổ đau trong con và trong người mà con đang giận.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 27,
+     "text": "Con nguyện học nói sự thực và lắng nghe sâu để có thể giúp người kia thay đổi và vượt thoát những khó khăn đang gặp phải.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 28,
+     "text": "Con nguyện không loan truyền những tin mà con không biết chắc là có thật, không nói những điều có thể tạo nên sự bất hòa trong gia đình và trong đoàn thể.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 29,
+     "text": "Con nguyện thực tập Chánh tinh tấn để nuôi dưỡng khả năng hiểu biết, thương yêu, hạnh phúc và không kỳ thị nơi con, để làm yếu dần những hạt giống bạo động, hận thù và sợ hãi mà con đang có trong chiều sâu tâm thức.",
+     "section": "Giới thứ tư: Ái ngữ và lắng nghe"
+    },
+    {
+     "n": 30,
+     "text": "Ý thức được những khổ đau do sự tiêu thụ thiếu chánh niệm gây nên, con nguyện học hỏi cách chuyển hóa thân tâm, nuôi dưỡng sức khỏe cơ thể và tâm hồn bằng cách thực tập chánh niệm trong việc ăn uống và tiêu thụ.",
+     "section": "Giới thứ năm: Nuôi dưỡng và trị liệu"
+    },
+    {
+     "n": 31,
+     "text": "Con nguyện nhìn sâu vào bốn loại thực phẩm là đoàn thực, xúc thực, tư niệm thực và thức thực để tránh tiêu thụ những thực phẩm độc hại.",
+     "section": "Giới thứ năm: Nuôi dưỡng và trị liệu"
+    },
+    {
+     "n": 32,
+     "text": "Con nguyện không uống rượu, không sử dụng các chất ma túy, không ăn uống hoặc tiêu thụ bất cứ một sản phầm nào có độc tố, trong đó có mạng lưới toàn cầu, ca nhạc, phim ảnh,",
+     "section": "Giới thứ năm: Nuôi dưỡng và trị liệu"
+    },
+    {
+     "n": 33,
+     "text": "truyền thanh, truyền hình, sách báo, bài bạc và chuyện trò. Con nguyện thực tập thường xuyên trở về với giây phút hiện tại để tiếp xúc với những gì tươi mát,",
+     "section": "Giới thứ năm: Nuôi dưỡng và trị liệu"
+    },
+    {
+     "n": 34,
+     "text": "có khả năng nuôi dưỡng và trị liệu trong con và xung quanh con mà không để cho tiếc nuối và ưu sầu kéo con trở về quá khứ; không để lo lắng và sợ hãi kéo con đi về tương lai.",
+     "section": "Giới thứ năm: Nuôi dưỡng và trị liệu"
+    },
+    {
+     "n": 35,
+     "text": "Con nguyện không tiêu thụ chỉ để khỏa lấp sự khổ đau, cô đơn và lo lắng trong con.",
+     "section": "Giới thứ năm: Nuôi dưỡng và trị liệu"
+    },
+    {
+     "n": 36,
+     "text": "Con nguyện nhìn sâu vào tự tính tương quan, tương duyên của vạn vật để học tiêu thụ như thế nào mà duy trì được an vui trong thân tâm con, trong xã hội và trong môi trường sống.",
+     "section": "Giới thứ năm: Nuôi dưỡng và trị liệu"
+    }
+   ]
+  }
+ ]
+}

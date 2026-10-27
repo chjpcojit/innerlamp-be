@@ -1,0 +1,941 @@
+{
+ "id": "tin-tam-minh",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Thiền",
+ "reference": "Taishō T2010",
+ "originalTitle": "Tín Tâm Minh",
+ "author": "Tăng Xán",
+ "referenceNote": "CBETA T48n2010",
+ "summary": "Bài minh bằng thơ bốn chữ do Thiền sư Tăng Xán, Tổ thứ ba của Thiền tông, soạn (Taishō T2010). Bài mở bằng câu Chí đạo không khó, chỉ ngại chọn lựa, khuyên bỏ thương ghét và tâm phân biệt thuận nghịch, buông chấp có không, về với tâm bất nhị. Cuối bài nói tín tâm và bất nhị không khác nhau.",
+ "titles": {
+  "vi": "Tín Tâm Minh (Bài Văn Tín Tâm)",
+  "zh": "信心銘",
+  "sa": "",
+  "en": "Faith in Mind (Xinxin Ming)"
+ },
+ "deities": [],
+ "dailyChant": false,
+ "purposes": [
+  "THIEN_DINH"
+ ],
+ "durationMinutes": 8,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Phiên âm Hán-Việt do Thánh Tri Phỏng thực hiện",
+   "note": "Mỗi dòng là một cặp câu 4 chữ (như bản Hán). Bỏ số thứ tự câu 1-73.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Chí Đạo vô nan, duy hiềm giản trạch"
+    },
+    {
+     "n": 2,
+     "text": "Đản mạc tăng ái, động nhiên minh bạch"
+    },
+    {
+     "n": 3,
+     "text": "Hào ly hữu sai, thiên địa huyền cách"
+    },
+    {
+     "n": 4,
+     "text": "Dục đắc hiện tiền mạc tồn thuận nghịch"
+    },
+    {
+     "n": 5,
+     "text": "Vi thuận tương tranh thị vi tâm bệnh"
+    },
+    {
+     "n": 6,
+     "text": "Bất thức huyền chỉ đồ lao niệm tĩnh"
+    },
+    {
+     "n": 7,
+     "text": "Viên đồng thái hư vô khiếm vô dư"
+    },
+    {
+     "n": 8,
+     "text": "Lương do thủ xả, sở dĩ bất như"
+    },
+    {
+     "n": 9,
+     "text": "Mạc trục huyễn duyên, vật trụ không nhẫn"
+    },
+    {
+     "n": 10,
+     "text": "Nhất chủng bình hoài, dẫn nhiên tự tận"
+    },
+    {
+     "n": 11,
+     "text": "Chỉ động quy chỉ, chỉ cánh di động"
+    },
+    {
+     "n": 12,
+     "text": "Duy trệ lương biên, ninh tri nhất chủng"
+    },
+    {
+     "n": 13,
+     "text": "Nhất chủng bất thông, lưỡng xứ thất công"
+    },
+    {
+     "n": 14,
+     "text": "Khiển hữu một hữu, tùng không bối không"
+    },
+    {
+     "n": 15,
+     "text": "Đa ngôn đa lự, chuyển bất tương ưng"
+    },
+    {
+     "n": 16,
+     "text": "Tuyệt ngôn tuyệt lự, vô xứ bất thông"
+    },
+    {
+     "n": 17,
+     "text": "Quy căn đắc chỉ, tùy chiếu thất tông"
+    },
+    {
+     "n": 18,
+     "text": "Tu du phản chiếu, thắng khước tiền không"
+    },
+    {
+     "n": 19,
+     "text": "Tiền không chuyển biến, giai do vọng kiến"
+    },
+    {
+     "n": 20,
+     "text": "Bất dụng cầu chơn, duy tu tức kiến"
+    },
+    {
+     "n": 21,
+     "text": "Nhị kiến bất tụ, thận mạc truy tầm"
+    },
+    {
+     "n": 22,
+     "text": "Tài hữu thị phi, phân nhiên thất tâm"
+    },
+    {
+     "n": 23,
+     "text": "Nhị do nhất hữu, nhất diệc mạc thủ"
+    },
+    {
+     "n": 24,
+     "text": "Nhất tâm bất sanh, vạn pháp vô cữu"
+    },
+    {
+     "n": 25,
+     "text": "Vô cữu vô pháp, bất sanh bất tâm"
+    },
+    {
+     "n": 26,
+     "text": "Năng tùy cảnh diệt, cảnh trục năng trầm"
+    },
+    {
+     "n": 27,
+     "text": "Cảnh do năng cảnh, năng do cảnh năng"
+    },
+    {
+     "n": 28,
+     "text": "Dục tri lưỡng đoạn, nguyên thị nhất không"
+    },
+    {
+     "n": 29,
+     "text": "Nhất không đồng lưỡng, tề hàm vạn tượng"
+    },
+    {
+     "n": 30,
+     "text": "Bất kiến tinh thô, ninh hữu thiên đảng"
+    },
+    {
+     "n": 31,
+     "text": "Đại đạo thể khoan, vô dị vô nan"
+    },
+    {
+     "n": 32,
+     "text": "Tiểu kiến hồ nghi chuyển cấp chuyển trì"
+    },
+    {
+     "n": 33,
+     "text": "Chấp chi thất độ, tất nhập tà lộ"
+    },
+    {
+     "n": 34,
+     "text": "Phóng chi tự nhiên, thể vô khứ trụ"
+    },
+    {
+     "n": 35,
+     "text": "Nhậm tánh hợp Đạo, tiêu dao tuyệt não"
+    },
+    {
+     "n": 36,
+     "text": "Hệ niệm quai chơn, hôn trầm bất hảo"
+    },
+    {
+     "n": 37,
+     "text": "Bất hảo lao thần, hà dụng sơ thân"
+    },
+    {
+     "n": 38,
+     "text": "Dục thủ nhất thừa, vật ố lục trần"
+    },
+    {
+     "n": 39,
+     "text": "Lục trần bất ác, hoàn đồng chánh giác"
+    },
+    {
+     "n": 40,
+     "text": "Trí giả vô vi, ngu nhân tự phược"
+    },
+    {
+     "n": 41,
+     "text": "Pháp vô dị pháp, vọng tự ái trước"
+    },
+    {
+     "n": 42,
+     "text": "Tương tâm dụng tâm, khởi phi đại thác"
+    },
+    {
+     "n": 43,
+     "text": "Mê sanh tịch loạn, ngộ vô hảo ác"
+    },
+    {
+     "n": 44,
+     "text": "Nhất thiết nhị biên, lương do châm trước"
+    },
+    {
+     "n": 45,
+     "text": "Mộng huyễn hư hoa, hà lao bả tróc"
+    },
+    {
+     "n": 46,
+     "text": "Đắc thất thị phi, nhất thời phóng khước"
+    },
+    {
+     "n": 47,
+     "text": "Nhãn nhược bất miên, chư mộng tự trừ"
+    },
+    {
+     "n": 48,
+     "text": "Tâm nhược bất dị, vạn pháp nhất như"
+    },
+    {
+     "n": 49,
+     "text": "Nhất như thể huyền, ngột nhĩ vong duyên"
+    },
+    {
+     "n": 50,
+     "text": "Vạn pháp tề quán, quy phục tự nhiên"
+    },
+    {
+     "n": 51,
+     "text": "Mẫn kỳ sở dĩ, bất khả phương tỷ"
+    },
+    {
+     "n": 52,
+     "text": "Chỉ động vô động, động chỉ vô chỉ"
+    },
+    {
+     "n": 53,
+     "text": "Lưỡng ký bất thành, nhất hà hữu nhĩ"
+    },
+    {
+     "n": 54,
+     "text": "Cứu cánh cùng cực, bất tồn quỹ tắc"
+    },
+    {
+     "n": 55,
+     "text": "Khế tâm bình đẳng, sở tác câu tức"
+    },
+    {
+     "n": 56,
+     "text": "Hồ nghi tận tịnh, chánh tín điều trực"
+    },
+    {
+     "n": 57,
+     "text": "Nhất thiết bất lưu, vô khả ký ức"
+    },
+    {
+     "n": 58,
+     "text": "Hư minh tự chiếu, bất lao tâm lực"
+    },
+    {
+     "n": 59,
+     "text": "Phi tư lượng xứ, thức tình nan trắc"
+    },
+    {
+     "n": 60,
+     "text": "Chơn như pháp giới, vô tha vô tự"
+    },
+    {
+     "n": 61,
+     "text": "Yếu cấp tương ưng, duy ngôn bất nhị"
+    },
+    {
+     "n": 62,
+     "text": "Bất nhị giai đồng, vô bất bao dung"
+    },
+    {
+     "n": 63,
+     "text": "Thập phương trí giả, giai nhập thử tông"
+    },
+    {
+     "n": 64,
+     "text": "Tông phi xúc diên, nhất niệm vạn niên (vạn niên nhất niệm)"
+    },
+    {
+     "n": 65,
+     "text": "Vô tại bất tại, thập phương mục tiền"
+    },
+    {
+     "n": 66,
+     "text": "Cực tiểu đồng loại, vong tuyệt cảnh giới"
+    },
+    {
+     "n": 67,
+     "text": "Cực đại đồng tiểu, bất kiến biên biểu"
+    },
+    {
+     "n": 68,
+     "text": "Hữu tức thị vô, vô tức thị hữu"
+    },
+    {
+     "n": 69,
+     "text": "Nhược bất như thị, Tâm bất tu thủ"
+    },
+    {
+     "n": 70,
+     "text": "Nhất tức nhất thiết, nhất thiết tức nhất"
+    },
+    {
+     "n": 71,
+     "text": "Đản năng như thị, hà lự bất tất"
+    },
+    {
+     "n": 72,
+     "text": "Tín tâm bất nhị, bất nhị tín tâm"
+    },
+    {
+     "n": 73,
+     "text": "Ngôn ngữ đạo đoạn, phi khứ lai kim"
+    }
+   ],
+   "sourceName": "Chùa Điều Ngự (dieungu.org) - Bài Văn Tín Tâm (PDF), Thánh Tri Phỏng Việt dịch lời nghĩa, 2016",
+   "sourceUrl": "https://dieungu.org/images/file/wTrJD6oX1AgQALtR/bai-van-tin-tam.pdf",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement in PDF; Chinese text from CBETA T48n2010 is classical public-domain text"
+  },
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "variant": "meaning",
+   "translator": "Thánh Tri Phỏng (Việt dịch lời nghĩa; dựa Tín Tâm Minh Tịch Nghĩa Giải của Trung Phong Minh Bổn, HT Thích Duy Lực dịch)",
+   "note": "Bỏ số thứ tự câu 1-73. Bản dịch nghĩa (không dịch sát từng chữ theo lời người dịch).",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Đạo cùng tột thì không có gì khó, chỉ sợ còn tình thức phân biệt mà thôi"
+    },
+    {
+     "n": 2,
+     "text": "Nếu đừng có tâm yêu ghét, thì Tâm này tự nhiên thông suốt minh bạch"
+    },
+    {
+     "n": 3,
+     "text": "Hễ còn mảy may tình thức phân biệt, thì cũng như đất trời xa cách nhau vậy"
+    },
+    {
+     "n": 4,
+     "text": "Nếu muốn Tánh Giác hiện tiền, thì chớ còn tâm thuận nghịch"
+    },
+    {
+     "n": 5,
+     "text": "Nếu chấp hai bên thuận nghịch, thì đó là tâm bệnh"
+    },
+    {
+     "n": 6,
+     "text": "Nếu chẳng biết cái Tâm Yếu Sâu Xa, thì uổng công tịnh niệm"
+    },
+    {
+     "n": 7,
+     "text": "Tâm này tròn đầy như hư không, không thiếu không dư"
+    },
+    {
+     "n": 8,
+     "text": "Do còn có thủ xã, nên không được NHƯ NHƯ"
+    },
+    {
+     "n": 9,
+     "text": "Đừng chạy theo cái Có, cũng chớ trụ cái Không"
+    },
+    {
+     "n": 10,
+     "text": "Trọn một Tâm bình đẳng, thì mọi tình chấp Có Không đều tự dứt sạch"
+    },
+    {
+     "n": 11,
+     "text": "Ngưng động về tịnh, thì tịnh càng thêm động"
+    },
+    {
+     "n": 12,
+     "text": "Cứ chấp hai bên động tịnh, thì đâu biết rằng chúng vốn là một thứ"
+    },
+    {
+     "n": 13,
+     "text": "Nếu một thứ chẳng thông, thì chạy theo hai đầu là uổng công phí sức"
+    },
+    {
+     "n": 14,
+     "text": "Muốn trừ cái Có lại bị kẹt nơi Có, còn chạy theo Không thì trái với Không"
+    },
+    {
+     "n": 15,
+     "text": "Nói nhiều lo nhiều, loanh quanh mãi thì càng chẳng tương ưng với Đạo"
+    },
+    {
+     "n": 16,
+     "text": "Nếu dứt hết nói năng bặt hết lo nghĩ, thì chỗ nào chẳng thông?"
+    },
+    {
+     "n": 17,
+     "text": "Trở về cội gốc thì được Ý Chỉ, đuổi theo chiếu soi lại mất bản Tông"
+    },
+    {
+     "n": 18,
+     "text": "Nếu soi chiếu ngược lại, thì hơn hẳng cảnh Không trước mặt"
+    },
+    {
+     "n": 19,
+     "text": "Thấy cảnh không trước mặt theo duyên đổi thay, đều là do vọng thấy"
+    },
+    {
+     "n": 20,
+     "text": "Chẳng cần cầu chơn, chỉ cần dứt hết sở kiến hai đầu thì toàn thể tức chơn"
+    },
+    {
+     "n": 21,
+     "text": "Chẳng trụ chơn chẳng trụ vọng, cẩn thận chớ đuổi theo tìm"
+    },
+    {
+     "n": 22,
+     "text": "Vừa có phải quấy lăng xăng, thì lạc mất bản Tâm"
+    },
+    {
+     "n": 23,
+     "text": "Hai do một mà có, một cũng đừng nên giữ"
+    },
+    {
+     "n": 24,
+     "text": "Nếu một tâm chẳng sanh, thì muôn pháp không có lỗi"
+    },
+    {
+     "n": 25,
+     "text": "Không có lỗi thì không có pháp, pháp chẳng sanh thì tâm ấy tự tịch"
+    },
+    {
+     "n": 26,
+     "text": "Tâm năng niệm theo cảnh sở niệm mà diệt, cảnh cũng theo tâm mà mất"
+    },
+    {
+     "n": 27,
+     "text": "Cảnh do tâm năng niệm mà thành cảnh, tâm do cảnh sở niệm mà thành tâm"
+    },
+    {
+     "n": 28,
+     "text": "Nên biết hai bên tâm cảnh, vốn là một cái Không"
+    },
+    {
+     "n": 29,
+     "text": "Một cái Không này đồng với hai tâm cảnh kia, đều bao hàm vạn tượng"
+    },
+    {
+     "n": 30,
+     "text": "Nếu không còn thấy có đẹp xấu, thì đâu có thiên lệch bên nào?"
+    },
+    {
+     "n": 31,
+     "text": "Bản thể của Đạo lớn rộng khắp, nên chẳng có sự khó dễ tương đối"
+    },
+    {
+     "n": 32,
+     "text": "Người mê thấy biết nhỏ hẹp nên sinh tâm nghi ngờ, muốn gấp thì lại càng trễ"
+    },
+    {
+     "n": 33,
+     "text": "Hễ chấp thì lạc phương hướng, tâm sẽ rời vào đường tà"
+    },
+    {
+     "n": 34,
+     "text": "Tâm chấp đã buông thì tự nhiên vắng lặng, bởi bản thể vốn không có đi ở."
+    },
+    {
+     "n": 35,
+     "text": "Thuận theo Tánh hợp với Đạo, thì an nhàn tự tại không còn phiền não"
+    },
+    {
+     "n": 36,
+     "text": "Buộc niệm thì trái chơn, hôn trầm thì chẳng tốt"
+    },
+    {
+     "n": 37,
+     "text": "Nếu không tốt xấu thì chẳng nhọc tinh thần, nên đâu cần trừ bỏ hai bên"
+    },
+    {
+     "n": 38,
+     "text": "Muốn hướng tới Đạo Nhất Thừa, thì chớ có chán ghét lục trần"
+    },
+    {
+     "n": 39,
+     "text": "Lục trần chẳng ghét, thì cùng về với Chánh Giác"
+    },
+    {
+     "n": 40,
+     "text": "Người trí thì vô vi tự tại, kẻ ngu do chấp trước nên tự trói buộc mình"
+    },
+    {
+     "n": 41,
+     "text": "Các pháp vốn không đồng dị, do tự vọng sanh ái chấp mà thành ra khác biệt"
+    },
+    {
+     "n": 42,
+     "text": "Do vậy đem tâm dụng tâm, há chẳng phải là lầm lớn đó sao?"
+    },
+    {
+     "n": 43,
+     "text": "Mê thì sanh tâm chấp trước nơi động tịnh, còn Ngộ thì chẳng có tốt xấu"
+    },
+    {
+     "n": 44,
+     "text": "Tất cả hai bên đối đãi, đều do tự vọng sanh những suy lường nghĩ tưởng"
+    },
+    {
+     "n": 45,
+     "text": "Việc mộng huyễn như hoa đốm trên không, thì đâu cần lao nhọc nắm bắt"
+    },
+    {
+     "n": 46,
+     "text": "Được mất phải trái, phải cùng một lúc buông bỏ hết"
+    },
+    {
+     "n": 47,
+     "text": "Ví như mắt nếu không ngủ, thì mộng tự dứt"
+    },
+    {
+     "n": 48,
+     "text": "Tâm nếu chẳng cho là có khác, thì muôn pháp đều Nhất Như"
+    },
+    {
+     "n": 49,
+     "text": "Cái Nhất Như này thể tánh huyền diệu, cùng tột thì chẳng có các duyên"
+    },
+    {
+     "n": 50,
+     "text": "Vạn pháp cùng quán, thì tất cả trở về tự nhiên"
+    },
+    {
+     "n": 51,
+     "text": "Nó bặt hết mọi lý giải, chẳng thể thí dụ được."
+    },
+    {
+     "n": 52,
+     "text": "Ngưng động chẳng cho là tịnh, động ngưng cũng chẳng cho là ngưng"
+    },
+    {
+     "n": 53,
+     "text": "Hai đã chẳng thành, thì một làm sao có?"
+    },
+    {
+     "n": 54,
+     "text": "Chỗ cứu cánh cùng tột, thì chẳng còn tuân theo một khuông phép nào cả"
+    },
+    {
+     "n": 55,
+     "text": "Khế hợp với bản Tâm thì tất cả bình đẳng, năng tác sở tác đều dứt sạch"
+    },
+    {
+     "n": 56,
+     "text": "Mọi cái nghi nơi Tâm đều sạch hết, thì lòng chánh tín được vững ngay"
+    },
+    {
+     "n": 57,
+     "text": "Tất cả chẳng lưu giữ nơi tâm, thì không thể ghi nhớ"
+    },
+    {
+     "n": 58,
+     "text": "Tâm rỗng rang tự chiếu soi, thì chẳng nhọc tâm lực"
+    },
+    {
+     "n": 59,
+     "text": "Chỗ lìa suy nghĩ, thì thức tình khó mà suy lường được"
+    },
+    {
+     "n": 60,
+     "text": "Trong Chơn Như Pháp Giới, chẳng lập mình chẳng lập người"
+    },
+    {
+     "n": 61,
+     "text": "Nếu muốn mau tương ưng, chỉ nói Bất Nhị"
+    },
+    {
+     "n": 62,
+     "text": "Chỗ bất nhị đều đồng, thì không có cái gì mà nó không bao dung"
+    },
+    {
+     "n": 63,
+     "text": "Người trí trong mười phương, đều vào Tông này"
+    },
+    {
+     "n": 64,
+     "text": "Tông không có dài ngắn, vì một niệm là muôn năm (muôn năm là một niệm)"
+    },
+    {
+     "n": 65,
+     "text": "Không có chỗ nào mà không hiện, mười phương ở ngay trước mắt"
+    },
+    {
+     "n": 66,
+     "text": "Bởi cái cực nhỏ đồng với cái cực lớn, nên quên hết mọi cảnh giới"
+    },
+    {
+     "n": 67,
+     "text": "Vì cái cực lớn đồng với cái cực nhỏ, nên chẳng thấy có bờ mé"
+    },
+    {
+     "n": 68,
+     "text": "Có tức là không, không tức là có"
+    },
+    {
+     "n": 69,
+     "text": "Nếu chẳng như thế, ắt không nên giữ"
+    },
+    {
+     "n": 70,
+     "text": "Một là tất cả, tất cả là một"
+    },
+    {
+     "n": 71,
+     "text": "Nếu được như thế, lo gì chẳng xong?"
+    },
+    {
+     "n": 72,
+     "text": "Tin tự Tâm là bất nhị, tin bất nhị là tự Tâm"
+    },
+    {
+     "n": 73,
+     "text": "Đường ngôn ngữ dứt, chẳng phải là quá khứ, hiện tại, vị lai"
+    }
+   ],
+   "sourceName": "Chùa Điều Ngự (dieungu.org) - Bài Văn Tín Tâm (PDF), Thánh Tri Phỏng Việt dịch lời nghĩa, 2016",
+   "sourceUrl": "https://dieungu.org/images/file/wTrJD6oX1AgQALtR/bai-van-tin-tam.pdf",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement in PDF; Chinese text from CBETA T48n2010 is classical public-domain text"
+  },
+  {
+   "key": "zh-translation",
+   "lang": "zh",
+   "variant": "translation",
+   "translator": "Tăng Xán (nguyên tác Hán văn, đời Tùy); bản chép trong PDF theo CBETA",
+   "note": "Nguyên văn Hán, dịch giả PDF đã đổi 1 chữ so với bản Taishō (xem phần chú trong PDF); bỏ chú thích xen \"(躩 khước)\" ở câu 18; bỏ số thứ tự.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "至道無難, 唯嫌揀擇"
+    },
+    {
+     "n": 2,
+     "text": "但莫憎愛, 洞然明白"
+    },
+    {
+     "n": 3,
+     "text": "毫釐有差, 天地懸隔"
+    },
+    {
+     "n": 4,
+     "text": "欲得現前, 莫存順逆"
+    },
+    {
+     "n": 5,
+     "text": "違順相爭, 是為心病"
+    },
+    {
+     "n": 6,
+     "text": "不識玄旨, 徒勞念靜"
+    },
+    {
+     "n": 7,
+     "text": "圓同太虛, 無欠無餘"
+    },
+    {
+     "n": 8,
+     "text": "良由取捨, 所以不如"
+    },
+    {
+     "n": 9,
+     "text": "莫逐有緣, 勿住空忍"
+    },
+    {
+     "n": 10,
+     "text": "一種平懷, 泯然自盡"
+    },
+    {
+     "n": 11,
+     "text": "止動歸止, 止更彌動"
+    },
+    {
+     "n": 12,
+     "text": "唯滯兩邊, 寧知一種"
+    },
+    {
+     "n": 13,
+     "text": "一種不通, 兩處失功"
+    },
+    {
+     "n": 14,
+     "text": "遣有沒有, 從空背空"
+    },
+    {
+     "n": 15,
+     "text": "多言多慮, 轉不相應"
+    },
+    {
+     "n": 16,
+     "text": "絕言絕慮, 無處不通"
+    },
+    {
+     "n": 17,
+     "text": "歸根得旨, 隨照失宗"
+    },
+    {
+     "n": 18,
+     "text": "須臾返照, 勝却前空"
+    },
+    {
+     "n": 19,
+     "text": "前空轉變, 皆由妄見"
+    },
+    {
+     "n": 20,
+     "text": "不用求真, 唯須息見"
+    },
+    {
+     "n": 21,
+     "text": "二見不住, 慎勿追尋"
+    },
+    {
+     "n": 22,
+     "text": "纔有是非, 紛然失心"
+    },
+    {
+     "n": 23,
+     "text": "二由一有, 一亦莫守"
+    },
+    {
+     "n": 24,
+     "text": "一心不生, 萬法無咎"
+    },
+    {
+     "n": 25,
+     "text": "無咎無法, 不生不心"
+    },
+    {
+     "n": 26,
+     "text": "能隨境滅, 境逐能沉1"
+    },
+    {
+     "n": 27,
+     "text": "境由能境, 能由境能"
+    },
+    {
+     "n": 28,
+     "text": "欲知兩段, 元是一空"
+    },
+    {
+     "n": 29,
+     "text": "一空同兩, 齊含萬像"
+    },
+    {
+     "n": 30,
+     "text": "不見精粗2, 寧有偏黨"
+    },
+    {
+     "n": 31,
+     "text": "大道體寬, 無易無難"
+    },
+    {
+     "n": 32,
+     "text": "小見狐疑, 轉急轉遲"
+    },
+    {
+     "n": 33,
+     "text": "執之失度, 心入邪路"
+    },
+    {
+     "n": 34,
+     "text": "放之自然, 體無去住"
+    },
+    {
+     "n": 35,
+     "text": "任性合道, 逍遙絕惱"
+    },
+    {
+     "n": 36,
+     "text": "繫念乖真, 昏沉3不好"
+    },
+    {
+     "n": 37,
+     "text": "不好勞神, 何用疏4 親"
+    },
+    {
+     "n": 38,
+     "text": "欲趣一乘, 勿惡六塵"
+    },
+    {
+     "n": 39,
+     "text": "六塵不惡, 還同正覺"
+    },
+    {
+     "n": 40,
+     "text": "智者無為, 愚人自縛"
+    },
+    {
+     "n": 41,
+     "text": "法無異法, 妄自愛著"
+    },
+    {
+     "n": 42,
+     "text": "將心用心, 豈非大錯"
+    },
+    {
+     "n": 43,
+     "text": "迷生寂亂, 悟無好惡"
+    },
+    {
+     "n": 44,
+     "text": "一切二邊 妄自斟酌"
+    },
+    {
+     "n": 45,
+     "text": "夢幻空華, 何勞把捉"
+    },
+    {
+     "n": 46,
+     "text": "得失是非, 一時放卻5"
+    },
+    {
+     "n": 47,
+     "text": "眼若不眠, 諸夢自除"
+    },
+    {
+     "n": 48,
+     "text": "心若不異, 萬法一如"
+    },
+    {
+     "n": 49,
+     "text": "一如體玄, 兀爾忘緣"
+    },
+    {
+     "n": 50,
+     "text": "萬法齊觀 歸復自然"
+    },
+    {
+     "n": 51,
+     "text": "泯其所以, 不可方比"
+    },
+    {
+     "n": 52,
+     "text": "止動無動, 動止無止"
+    },
+    {
+     "n": 53,
+     "text": "兩既不成, 一何有爾"
+    },
+    {
+     "n": 54,
+     "text": "究竟窮極, 不存軌則"
+    },
+    {
+     "n": 55,
+     "text": "契6心平等, 所作俱息"
+    },
+    {
+     "n": 56,
+     "text": "狐疑盡淨, 正信調直"
+    },
+    {
+     "n": 57,
+     "text": "一切不留, 無可記憶"
+    },
+    {
+     "n": 58,
+     "text": "虛明自照7, 不勞心力"
+    },
+    {
+     "n": 59,
+     "text": "非思量處, 識情難測"
+    },
+    {
+     "n": 60,
+     "text": "真如法界, 無他無自"
+    },
+    {
+     "n": 61,
+     "text": "要急相應, 唯言不二"
+    },
+    {
+     "n": 62,
+     "text": "不二皆同, 無不包容"
+    },
+    {
+     "n": 63,
+     "text": "十方智者, 皆入此宗"
+    },
+    {
+     "n": 64,
+     "text": "宗非促延, 一念萬年 (萬年一念)"
+    },
+    {
+     "n": 65,
+     "text": "無在不在, 十方目前"
+    },
+    {
+     "n": 66,
+     "text": "極小同大, 妄絕境界"
+    },
+    {
+     "n": 67,
+     "text": "極大同小, 不見邊表"
+    },
+    {
+     "n": 68,
+     "text": "有即是無, 無即是有"
+    },
+    {
+     "n": 69,
+     "text": "若不如是, 必不須守"
+    },
+    {
+     "n": 70,
+     "text": "一即一切, 一切即一"
+    },
+    {
+     "n": 71,
+     "text": "但能如是, 何慮不畢"
+    },
+    {
+     "n": 72,
+     "text": "信心不二, 不二信心"
+    },
+    {
+     "n": 73,
+     "text": "言語道斷, 非去來今"
+    }
+   ],
+   "sourceName": "Chùa Điều Ngự (dieungu.org) - Bài Văn Tín Tâm (PDF), Thánh Tri Phỏng Việt dịch lời nghĩa, 2016",
+   "sourceUrl": "https://dieungu.org/images/file/wTrJD6oX1AgQALtR/bai-van-tin-tam.pdf",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement in PDF; Chinese text from CBETA T48n2010 is classical public-domain text"
+  }
+ ]
+}

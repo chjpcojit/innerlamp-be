@@ -1,0 +1,2394 @@
+{
+ "id": "phap-cu-ba-la-mon",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 383-423",
+ "summary": "Phẩm cuối của Kinh Pháp Cú (Tiểu Bộ, kệ 383-423), định nghĩa thế nào là vị Bà-la-môn đích thực, không theo dòng dõi mà theo phẩm hạnh. Các bài kệ mô tả người đã đoạn trừ trói buộc, dứt ác, giữ tịnh hạnh, không chấp thủ và đạt giải thoát, tương ứng hình ảnh bậc thánh trong giáo lý Phật giáo.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Bà-la-môn",
+  "pli": "Brāhmaṇavagga",
+  "en": "Brahmins"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp383-423/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Hỡi này Bà-la-môn, Hãy tinh tấn đoạn lòng,"
+    },
+    {
+     "n": 2,
+     "text": "Từ bỏ các dục lạc,"
+    },
+    {
+     "n": 3,
+     "text": "Biết được hành đoạn diệt,"
+    },
+    {
+     "n": 4,
+     "text": "Ngươi là bậc vô vi."
+    },
+    {
+     "n": 5,
+     "text": "Nhờ thường trú hai pháp"
+    },
+    {
+     "n": 6,
+     "text": "Đến được bờ bên kia."
+    },
+    {
+     "n": 7,
+     "text": "Bà-la-môn có trí,"
+    },
+    {
+     "n": 8,
+     "text": "Mọi kiết sử dứt sạch."
+    },
+    {
+     "n": 9,
+     "text": "Không bờ này, bờ kia"
+    },
+    {
+     "n": 10,
+     "text": "Cả hai bờ không có,"
+    },
+    {
+     "n": 11,
+     "text": "Lìa khổ, không trói buộc"
+    },
+    {
+     "n": 12,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 13,
+     "text": "Tu thiền, trú ly trần"
+    },
+    {
+     "n": 14,
+     "text": "Phận sự xong, vô lậu,"
+    },
+    {
+     "n": 15,
+     "text": "Đạt được đích tối thượng,"
+    },
+    {
+     "n": 16,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 17,
+     "text": "Mặt trời sáng ban ngày,"
+    },
+    {
+     "n": 18,
+     "text": "Mặt trăng sáng ban đêm."
+    },
+    {
+     "n": 19,
+     "text": "Khí giới sáng Sát-lỵ,"
+    },
+    {
+     "n": 20,
+     "text": "Thiền định sáng Phạm chí."
+    },
+    {
+     "n": 21,
+     "text": "Còn hào quang đức Phật,"
+    },
+    {
+     "n": 22,
+     "text": "Chói sáng cả ngày đêm."
+    },
+    {
+     "n": 23,
+     "text": "Dứt ác gọi Phạm chí,"
+    },
+    {
+     "n": 24,
+     "text": "Tịnh hạnh gọi Sa-môn,"
+    },
+    {
+     "n": 25,
+     "text": "Tự mình xuất cấu uế,"
+    },
+    {
+     "n": 26,
+     "text": "Nên gọi bậc xuất gia."
+    },
+    {
+     "n": 27,
+     "text": "Chớ có đập Phạm chí!"
+    },
+    {
+     "n": 28,
+     "text": "Phạm chí chớ đập lại!"
+    },
+    {
+     "n": 29,
+     "text": "Xấu thay đập Phạm chí"
+    },
+    {
+     "n": 30,
+     "text": "Đập trả lại xấu hơn!"
+    },
+    {
+     "n": 31,
+     "text": "Đối vị Bà-la-môn, Đây không lợi ích nhỏ."
+    },
+    {
+     "n": 32,
+     "text": "Khi ý không ái luyến,"
+    },
+    {
+     "n": 33,
+     "text": "Tâm hại được chận đứng,"
+    },
+    {
+     "n": 34,
+     "text": "Chỉ khi ấy khổ diệt,"
+    },
+    {
+     "n": 35,
+     "text": "Với người thân miệng ý,"
+    },
+    {
+     "n": 36,
+     "text": "Không làm các ác hạnh"
+    },
+    {
+     "n": 37,
+     "text": "Ba nghiệp được phòng hộ,"
+    },
+    {
+     "n": 38,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 39,
+     "text": "Từ ai, biết chánh pháp"
+    },
+    {
+     "n": 40,
+     "text": "Bậc Chánh Giác thuyết giảng,"
+    },
+    {
+     "n": 41,
+     "text": "Hãy kính lễ vị ấy,"
+    },
+    {
+     "n": 42,
+     "text": "Như phạm chí thờ lửa."
+    },
+    {
+     "n": 43,
+     "text": "Được gọi Bà-la-môn, Không vì đầu bện tóc,"
+    },
+    {
+     "n": 44,
+     "text": "Không chủng tộc, thọ sanh,"
+    },
+    {
+     "n": 45,
+     "text": "Ai thật chân, chánh, tịnh,"
+    },
+    {
+     "n": 46,
+     "text": "Mới gọi Bà-la-môn."
+    },
+    {
+     "n": 47,
+     "text": "Kẻ ngu, có ích gì"
+    },
+    {
+     "n": 48,
+     "text": "Bện tóc với da dê,"
+    },
+    {
+     "n": 49,
+     "text": "Nội tâm toàn phiền não,"
+    },
+    {
+     "n": 50,
+     "text": "Ngoài mặt đánh bóng suông."
+    },
+    {
+     "n": 51,
+     "text": "Người mặc áo đống rác,"
+    },
+    {
+     "n": 52,
+     "text": "Gầy ốm, lộ mạch gân,"
+    },
+    {
+     "n": 53,
+     "text": "Độc thân thiền trong rừng."
+    },
+    {
+     "n": 54,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 55,
+     "text": "Ta không gọi Phạm chí,"
+    },
+    {
+     "n": 56,
+     "text": "Vì chỗ sanh, mẹ sanh."
+    },
+    {
+     "n": 57,
+     "text": "Chỉ được gọi tên suông"
+    },
+    {
+     "n": 58,
+     "text": "Nếu tâm còn phiền não."
+    },
+    {
+     "n": 59,
+     "text": "Không phiền não, chấp trước"
+    },
+    {
+     "n": 60,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 61,
+     "text": "Đoạn hết các kiết sử,"
+    },
+    {
+     "n": 62,
+     "text": "Không còn gì lo sợ"
+    },
+    {
+     "n": 63,
+     "text": "Không đắm trước buộc ràng"
+    },
+    {
+     "n": 64,
+     "text": "Ta gọi Bà-la-môn"
+    },
+    {
+     "n": 65,
+     "text": "Bỏ đai da, bỏ cương"
+    },
+    {
+     "n": 66,
+     "text": "Bỏ dây, đồ sở thuộc,"
+    },
+    {
+     "n": 67,
+     "text": "Bỏ then chốt, sáng suốt,"
+    },
+    {
+     "n": 68,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 69,
+     "text": "Không ác ý, nhẫn chịu,"
+    },
+    {
+     "n": 70,
+     "text": "Phỉ báng, đánh, phạt hình,"
+    },
+    {
+     "n": 71,
+     "text": "Lấy nhẫn làm quân lực,"
+    },
+    {
+     "n": 72,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 73,
+     "text": "Không hận, hết bổn phận,"
+    },
+    {
+     "n": 74,
+     "text": "Trì giới, không tham ái,"
+    },
+    {
+     "n": 75,
+     "text": "Nhiếp phục, thân cuối cùng,"
+    },
+    {
+     "n": 76,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 77,
+     "text": "Như nước trên lá sen,"
+    },
+    {
+     "n": 78,
+     "text": "Như hột cải đầu kim,"
+    },
+    {
+     "n": 79,
+     "text": "Người không nhiễm ái dục,"
+    },
+    {
+     "n": 80,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 81,
+     "text": "Ai tự trên đời này,"
+    },
+    {
+     "n": 82,
+     "text": "Giác khổ, diệt trừ khổ,"
+    },
+    {
+     "n": 83,
+     "text": "Bỏ gánh nặng, giải thoát,"
+    },
+    {
+     "n": 84,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 85,
+     "text": "Người trí tuệ sâu xa,"
+    },
+    {
+     "n": 86,
+     "text": "Khéo biết đạo, phi đạo"
+    },
+    {
+     "n": 87,
+     "text": "Chứng đạt đích vô thượng,"
+    },
+    {
+     "n": 88,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 89,
+     "text": "Không liên hệ cả hai,"
+    },
+    {
+     "n": 90,
+     "text": "Xuất gia và thế tục,"
+    },
+    {
+     "n": 91,
+     "text": "Sống độc thân, ít dục,"
+    },
+    {
+     "n": 92,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 93,
+     "text": "Bỏ trượng, đối chúng sanh,"
+    },
+    {
+     "n": 94,
+     "text": "Yếu kém hay kiên cường,"
+    },
+    {
+     "n": 95,
+     "text": "Không giết, không bảo giết,"
+    },
+    {
+     "n": 96,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 97,
+     "text": "Thân thiện giữa thù địch"
+    },
+    {
+     "n": 98,
+     "text": "Ôn hòa giữa hung hăng."
+    },
+    {
+     "n": 99,
+     "text": "Không nhiễm, giữa nhiễm trước,"
+    },
+    {
+     "n": 100,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 101,
+     "text": "Người bỏ rơi tham sân,"
+    },
+    {
+     "n": 102,
+     "text": "Không mạn không ganh tị,"
+    },
+    {
+     "n": 103,
+     "text": "Như hột cải đầu kim,"
+    },
+    {
+     "n": 104,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 105,
+     "text": "Nói lên lời ôn hòa,"
+    },
+    {
+     "n": 106,
+     "text": "Lợi ích và chân thật,"
+    },
+    {
+     "n": 107,
+     "text": "Không mất lòng một ai,"
+    },
+    {
+     "n": 108,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 109,
+     "text": "Ở đời, vật dài, ngắn,"
+    },
+    {
+     "n": 110,
+     "text": "Nhỏ, lớn, đẹp hay xấu"
+    },
+    {
+     "n": 111,
+     "text": "Phàm không cho không lấy,"
+    },
+    {
+     "n": 112,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 113,
+     "text": "Người không có hy cầu,"
+    },
+    {
+     "n": 114,
+     "text": "Đời này và đời sau,"
+    },
+    {
+     "n": 115,
+     "text": "Không hy cầu, giải thoát,"
+    },
+    {
+     "n": 116,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 117,
+     "text": "Người không còn tham ái,"
+    },
+    {
+     "n": 118,
+     "text": "Có trí, không nghi hoặc,"
+    },
+    {
+     "n": 119,
+     "text": "Thể nhập vào bất tử,"
+    },
+    {
+     "n": 120,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 121,
+     "text": "Người sống ở đời này"
+    },
+    {
+     "n": 122,
+     "text": "Không nhiễm cả thiện ác,"
+    },
+    {
+     "n": 123,
+     "text": "Không sầu, sạch không bụi"
+    },
+    {
+     "n": 124,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 125,
+     "text": "Như trăng, sạch không uế"
+    },
+    {
+     "n": 126,
+     "text": "Sáng trong và tịnh lặng,"
+    },
+    {
+     "n": 127,
+     "text": "Hữu ái, được đoạn tận,"
+    },
+    {
+     "n": 128,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 129,
+     "text": "Vượt đường nguy hiểm này,"
+    },
+    {
+     "n": 130,
+     "text": "Nhiếp phục luân hồi, si,"
+    },
+    {
+     "n": 131,
+     "text": "Đến bờ kia thiền định"
+    },
+    {
+     "n": 132,
+     "text": "Không dục ái, không nghi,"
+    },
+    {
+     "n": 133,
+     "text": "Không chấp trước, tịch tịnh,"
+    },
+    {
+     "n": 134,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 135,
+     "text": "Ai ở đời, đoạn dục,"
+    },
+    {
+     "n": 136,
+     "text": "Bỏ nhà, sống xuất gia,"
+    },
+    {
+     "n": 137,
+     "text": "Dục hữu được đoạn tận,"
+    },
+    {
+     "n": 138,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 139,
+     "text": "Ai ở đời đoạn ái"
+    },
+    {
+     "n": 140,
+     "text": "Bỏ nhà, sống xuất gia,"
+    },
+    {
+     "n": 141,
+     "text": "Ái hữu được đoạn tận,"
+    },
+    {
+     "n": 142,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 143,
+     "text": "(dị bản)"
+    },
+    {
+     "n": 144,
+     "text": "(dị bản)"
+    },
+    {
+     "n": 145,
+     "text": "(dị bản)"
+    },
+    {
+     "n": 146,
+     "text": "(dị bản)"
+    },
+    {
+     "n": 147,
+     "text": "Bỏ trói buộc loài người,"
+    },
+    {
+     "n": 148,
+     "text": "Vượt trói buộc cõi trời."
+    },
+    {
+     "n": 149,
+     "text": "Giải thoát mọi buộc ràng,"
+    },
+    {
+     "n": 150,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 151,
+     "text": "Bỏ điều ưa, điều ghét,"
+    },
+    {
+     "n": 152,
+     "text": "Mát lạnh, diệt sanh y"
+    },
+    {
+     "n": 153,
+     "text": "Bậc anh hùng chiến thắng, Nhiếp phục mọi thế giới,"
+    },
+    {
+     "n": 154,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 155,
+     "text": "Ai hiểu rõ hoàn toàn"
+    },
+    {
+     "n": 156,
+     "text": "Sanh tử các chúng sanh,"
+    },
+    {
+     "n": 157,
+     "text": "Không nhiễm, khéo vượt qua, Sáng suốt chân giác ngộ,"
+    },
+    {
+     "n": 158,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 159,
+     "text": "Với ai, loài trời, người Cùng với Càn-thát-bà,"
+    },
+    {
+     "n": 160,
+     "text": "Không biết chỗ thọ sanh"
+    },
+    {
+     "n": 161,
+     "text": "Lậu tận bậc La-hán."
+    },
+    {
+     "n": 162,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 163,
+     "text": "Ai quá, hiện, vị lai"
+    },
+    {
+     "n": 164,
+     "text": "Không một sở hữu gì,"
+    },
+    {
+     "n": 165,
+     "text": "Không sở hữu không nắm,"
+    },
+    {
+     "n": 166,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 167,
+     "text": "Bậc trâu chúa, thù thắng Bậc anh hùng, đại sĩ,"
+    },
+    {
+     "n": 168,
+     "text": "Bậc chiến thắng, không nhiễm,"
+    },
+    {
+     "n": 169,
+     "text": "Bậc tẩy sạch, giác ngộ,"
+    },
+    {
+     "n": 170,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 171,
+     "text": "Ai biết được đời trước,"
+    },
+    {
+     "n": 172,
+     "text": "Thấy thiên giới, đọa xứ,"
+    },
+    {
+     "n": 173,
+     "text": "Đạt được sanh diệt tận"
+    },
+    {
+     "n": 174,
+     "text": "Thắng trí, tự viên thành Bậc mâu-ni đạo sĩ."
+    },
+    {
+     "n": 175,
+     "text": "Viên mãn mọi thành tựu"
+    },
+    {
+     "n": 176,
+     "text": "Ta gọi Bà-la-môn."
+    },
+    {
+     "n": 177,
+     "text": "Hết kinh Pháp Cú"
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp383-423/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Chinda sotaṁ parakkamma,"
+    },
+    {
+     "n": 2,
+     "text": "kāme panuda brāhmaṇa;"
+    },
+    {
+     "n": 3,
+     "text": "Saṅkhārānaṁ khayaṁ ñatvā,"
+    },
+    {
+     "n": 4,
+     "text": "akataññūsi brāhmaṇa."
+    },
+    {
+     "n": 5,
+     "text": "Yadā dvayesu dhammesu,"
+    },
+    {
+     "n": 6,
+     "text": "pāragū hoti brāhmaṇo;"
+    },
+    {
+     "n": 7,
+     "text": "Athassa sabbe saṁyogā,"
+    },
+    {
+     "n": 8,
+     "text": "atthaṁ gacchanti jānato."
+    },
+    {
+     "n": 9,
+     "text": "Yassa pāraṁ apāraṁ vā,"
+    },
+    {
+     "n": 10,
+     "text": "pārāpāraṁ na vijjati;"
+    },
+    {
+     "n": 11,
+     "text": "Vītaddaraṁ visaṁyuttaṁ,"
+    },
+    {
+     "n": 12,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 13,
+     "text": "Jhāyiṁ virajamāsīnaṁ,"
+    },
+    {
+     "n": 14,
+     "text": "katakiccamanāsavaṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Uttamatthamanuppattaṁ,"
+    },
+    {
+     "n": 16,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 17,
+     "text": "Divā tapati ādicco,"
+    },
+    {
+     "n": 18,
+     "text": "rattimābhāti candimā;"
+    },
+    {
+     "n": 19,
+     "text": "Sannaddho khattiyo tapati,"
+    },
+    {
+     "n": 20,
+     "text": "jhāyī tapati brāhmaṇo;"
+    },
+    {
+     "n": 21,
+     "text": "Atha sabbamahorattiṁ,"
+    },
+    {
+     "n": 22,
+     "text": "buddho tapati tejasā."
+    },
+    {
+     "n": 23,
+     "text": "Bāhitapāpoti brāhmaṇo,"
+    },
+    {
+     "n": 24,
+     "text": "Samacariyā samaṇoti vuccati;"
+    },
+    {
+     "n": 25,
+     "text": "Pabbājayamattano malaṁ,"
+    },
+    {
+     "n": 26,
+     "text": "Tasmā “pabbajito”ti vuccati."
+    },
+    {
+     "n": 27,
+     "text": "Na brāhmaṇassa pahareyya,"
+    },
+    {
+     "n": 28,
+     "text": "nāssa muñcetha brāhmaṇo;"
+    },
+    {
+     "n": 29,
+     "text": "Dhī brāhmaṇassa hantāraṁ,"
+    },
+    {
+     "n": 30,
+     "text": "tato dhī yassa muñcati."
+    },
+    {
+     "n": 31,
+     "text": "Na brāhmaṇassetadakiñci seyyo,"
+    },
+    {
+     "n": 32,
+     "text": "Yadā nisedho manaso piyehi;"
+    },
+    {
+     "n": 33,
+     "text": "Yato yato hiṁsamano nivattati,"
+    },
+    {
+     "n": 34,
+     "text": "Tato tato sammatimeva dukkhaṁ."
+    },
+    {
+     "n": 35,
+     "text": "Yassa kāyena vācāya,"
+    },
+    {
+     "n": 36,
+     "text": "manasā natthi dukkaṭaṁ;"
+    },
+    {
+     "n": 37,
+     "text": "Saṁvutaṁ tīhi ṭhānehi,"
+    },
+    {
+     "n": 38,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 39,
+     "text": "Yamhā dhammaṁ vijāneyya,"
+    },
+    {
+     "n": 40,
+     "text": "sammāsambuddhadesitaṁ;"
+    },
+    {
+     "n": 41,
+     "text": "Sakkaccaṁ taṁ namasseyya,"
+    },
+    {
+     "n": 42,
+     "text": "aggihuttaṁva brāhmaṇo."
+    },
+    {
+     "n": 43,
+     "text": "Na jaṭāhi na gottena,"
+    },
+    {
+     "n": 44,
+     "text": "na jaccā hoti brāhmaṇo;"
+    },
+    {
+     "n": 45,
+     "text": "Yamhi saccañca dhammo ca,"
+    },
+    {
+     "n": 46,
+     "text": "so sucī so ca brāhmaṇo."
+    },
+    {
+     "n": 47,
+     "text": "Kiṁ te jaṭāhi dummedha,"
+    },
+    {
+     "n": 48,
+     "text": "kiṁ te ajinasāṭiyā;"
+    },
+    {
+     "n": 49,
+     "text": "Abbhantaraṁ te gahanaṁ,"
+    },
+    {
+     "n": 50,
+     "text": "bāhiraṁ parimajjasi."
+    },
+    {
+     "n": 51,
+     "text": "Paṁsukūladharaṁ jantuṁ,"
+    },
+    {
+     "n": 52,
+     "text": "kisaṁ dhamanisanthataṁ;"
+    },
+    {
+     "n": 53,
+     "text": "Ekaṁ vanasmiṁ jhāyantaṁ,"
+    },
+    {
+     "n": 54,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 55,
+     "text": "Na cāhaṁ brāhmaṇaṁ brūmi,"
+    },
+    {
+     "n": 56,
+     "text": "yonijaṁ mattisambhavaṁ;"
+    },
+    {
+     "n": 57,
+     "text": "Bhovādi nāma so hoti,"
+    },
+    {
+     "n": 58,
+     "text": "sace hoti sakiñcano;"
+    },
+    {
+     "n": 59,
+     "text": "Akiñcanaṁ anādānaṁ,"
+    },
+    {
+     "n": 60,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 61,
+     "text": "Sabbasaṁyojanaṁ chetvā,"
+    },
+    {
+     "n": 62,
+     "text": "yo ve na paritassati;"
+    },
+    {
+     "n": 63,
+     "text": "Saṅgātigaṁ visaṁyuttaṁ,"
+    },
+    {
+     "n": 64,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 65,
+     "text": "Chetvā naddhiṁ varattañca,"
+    },
+    {
+     "n": 66,
+     "text": "sandānaṁ sahanukkamaṁ;"
+    },
+    {
+     "n": 67,
+     "text": "Ukkhittapalighaṁ buddhaṁ,"
+    },
+    {
+     "n": 68,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 69,
+     "text": "Akkosaṁ vadhabandhañca,"
+    },
+    {
+     "n": 70,
+     "text": "aduṭṭho yo titikkhati;"
+    },
+    {
+     "n": 71,
+     "text": "Khantībalaṁ balānīkaṁ,"
+    },
+    {
+     "n": 72,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 73,
+     "text": "Akkodhanaṁ vatavantaṁ,"
+    },
+    {
+     "n": 74,
+     "text": "sīlavantaṁ anussadaṁ;"
+    },
+    {
+     "n": 75,
+     "text": "Dantaṁ antimasārīraṁ,"
+    },
+    {
+     "n": 76,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 77,
+     "text": "Vāri pokkharapatteva,"
+    },
+    {
+     "n": 78,
+     "text": "āraggeriva sāsapo;"
+    },
+    {
+     "n": 79,
+     "text": "Yo na limpati kāmesu,"
+    },
+    {
+     "n": 80,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 81,
+     "text": "Yo dukkhassa pajānāti,"
+    },
+    {
+     "n": 82,
+     "text": "idheva khayamattano;"
+    },
+    {
+     "n": 83,
+     "text": "Pannabhāraṁ visaṁyuttaṁ,"
+    },
+    {
+     "n": 84,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 85,
+     "text": "Gambhīrapaññaṁ medhāviṁ,"
+    },
+    {
+     "n": 86,
+     "text": "maggāmaggassa kovidaṁ;"
+    },
+    {
+     "n": 87,
+     "text": "Uttamatthamanuppattaṁ,"
+    },
+    {
+     "n": 88,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 89,
+     "text": "Asaṁsaṭṭhaṁ gahaṭṭhehi,"
+    },
+    {
+     "n": 90,
+     "text": "anāgārehi cūbhayaṁ;"
+    },
+    {
+     "n": 91,
+     "text": "Anokasārimappicchaṁ,"
+    },
+    {
+     "n": 92,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 93,
+     "text": "Nidhāya daṇḍaṁ bhūtesu,"
+    },
+    {
+     "n": 94,
+     "text": "tasesu thāvaresu ca;"
+    },
+    {
+     "n": 95,
+     "text": "Yo na hanti na ghāteti,"
+    },
+    {
+     "n": 96,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 97,
+     "text": "Aviruddhaṁ viruddhesu,"
+    },
+    {
+     "n": 98,
+     "text": "attadaṇḍesu nibbutaṁ;"
+    },
+    {
+     "n": 99,
+     "text": "Sādānesu anādānaṁ,"
+    },
+    {
+     "n": 100,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 101,
+     "text": "Yassa rāgo ca doso ca,"
+    },
+    {
+     "n": 102,
+     "text": "māno makkho ca pātito;"
+    },
+    {
+     "n": 103,
+     "text": "Sāsaporiva āraggā,"
+    },
+    {
+     "n": 104,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 105,
+     "text": "Akakkasaṁ viññāpaniṁ,"
+    },
+    {
+     "n": 106,
+     "text": "giraṁ saccamudīraye;"
+    },
+    {
+     "n": 107,
+     "text": "Yāya nābhisaje kañci,"
+    },
+    {
+     "n": 108,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 109,
+     "text": "Yodha dīghaṁ va rassaṁ vā,"
+    },
+    {
+     "n": 110,
+     "text": "aṇuṁ thūlaṁ subhāsubhaṁ;"
+    },
+    {
+     "n": 111,
+     "text": "Loke adinnaṁ nādiyati,"
+    },
+    {
+     "n": 112,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 113,
+     "text": "Āsā yassa na vijjanti,"
+    },
+    {
+     "n": 114,
+     "text": "asmiṁ loke paramhi ca;"
+    },
+    {
+     "n": 115,
+     "text": "Nirāsāsaṁ visaṁyuttaṁ,"
+    },
+    {
+     "n": 116,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 117,
+     "text": "Yassālayā na vijjanti,"
+    },
+    {
+     "n": 118,
+     "text": "aññāya akathaṅkathī;"
+    },
+    {
+     "n": 119,
+     "text": "Amatogadhamanuppattaṁ,"
+    },
+    {
+     "n": 120,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 121,
+     "text": "Yodha puññañca pāpañca,"
+    },
+    {
+     "n": 122,
+     "text": "ubho saṅgamupaccagā;"
+    },
+    {
+     "n": 123,
+     "text": "Asokaṁ virajaṁ suddhaṁ,"
+    },
+    {
+     "n": 124,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 125,
+     "text": "Candaṁva vimalaṁ suddhaṁ,"
+    },
+    {
+     "n": 126,
+     "text": "vippasannamanāvilaṁ;"
+    },
+    {
+     "n": 127,
+     "text": "Nandībhavaparikkhīṇaṁ,"
+    },
+    {
+     "n": 128,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 129,
+     "text": "Yomaṁ palipathaṁ duggaṁ,"
+    },
+    {
+     "n": 130,
+     "text": "saṁsāraṁ mohamaccagā;"
+    },
+    {
+     "n": 131,
+     "text": "Tiṇṇo pāraṅgato jhāyī,"
+    },
+    {
+     "n": 132,
+     "text": "anejo akathaṅkathī;"
+    },
+    {
+     "n": 133,
+     "text": "Anupādāya nibbuto,"
+    },
+    {
+     "n": 134,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 135,
+     "text": "Yodha kāme pahantvāna,"
+    },
+    {
+     "n": 136,
+     "text": "anāgāro paribbaje;"
+    },
+    {
+     "n": 137,
+     "text": "Kāmabhavaparikkhīṇaṁ,"
+    },
+    {
+     "n": 138,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 139,
+     "text": "Yodha taṇhaṁ pahantvāna,"
+    },
+    {
+     "n": 140,
+     "text": "anāgāro paribbaje;"
+    },
+    {
+     "n": 141,
+     "text": "Taṇhābhavaparikkhīṇaṁ,"
+    },
+    {
+     "n": 142,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 143,
+     "text": "Yodha taṇhaṁ pahantvāna,"
+    },
+    {
+     "n": 144,
+     "text": "anāgāro paribbaje;"
+    },
+    {
+     "n": 145,
+     "text": "Taṇhābhavaparikkhīṇaṁ,"
+    },
+    {
+     "n": 146,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 147,
+     "text": "Hitvā mānusakaṁ yogaṁ,"
+    },
+    {
+     "n": 148,
+     "text": "dibbaṁ yogaṁ upaccagā;"
+    },
+    {
+     "n": 149,
+     "text": "Sabbayogavisaṁyuttaṁ,"
+    },
+    {
+     "n": 150,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 151,
+     "text": "Hitvā ratiñca aratiñca,"
+    },
+    {
+     "n": 152,
+     "text": "sītibhūtaṁ nirūpadhiṁ;"
+    },
+    {
+     "n": 153,
+     "text": "Sabbalokābhibhuṁ vīraṁ,"
+    },
+    {
+     "n": 154,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 155,
+     "text": "Cutiṁ yo vedi sattānaṁ,"
+    },
+    {
+     "n": 156,
+     "text": "upapattiñca sabbaso;"
+    },
+    {
+     "n": 157,
+     "text": "Asattaṁ sugataṁ buddhaṁ,"
+    },
+    {
+     "n": 158,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 159,
+     "text": "Yassa gatiṁ na jānanti,"
+    },
+    {
+     "n": 160,
+     "text": "devā gandhabbamānusā;"
+    },
+    {
+     "n": 161,
+     "text": "Khīṇāsavaṁ arahantaṁ,"
+    },
+    {
+     "n": 162,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 163,
+     "text": "Yassa pure ca pacchā ca,"
+    },
+    {
+     "n": 164,
+     "text": "majjhe ca natthi kiñcanaṁ;"
+    },
+    {
+     "n": 165,
+     "text": "Akiñcanaṁ anādānaṁ,"
+    },
+    {
+     "n": 166,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 167,
+     "text": "Usabhaṁ pavaraṁ vīraṁ,"
+    },
+    {
+     "n": 168,
+     "text": "mahesiṁ vijitāvinaṁ;"
+    },
+    {
+     "n": 169,
+     "text": "Anejaṁ nhātakaṁ buddhaṁ,"
+    },
+    {
+     "n": 170,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 171,
+     "text": "Pubbenivāsaṁ yo vedi,"
+    },
+    {
+     "n": 172,
+     "text": "saggāpāyañca passati;"
+    },
+    {
+     "n": 173,
+     "text": "Atho jātikkhayaṁ patto,"
+    },
+    {
+     "n": 174,
+     "text": "abhiññāvosito muni;"
+    },
+    {
+     "n": 175,
+     "text": "Sabbavositavosānaṁ,"
+    },
+    {
+     "n": 176,
+     "text": "tamahaṁ brūmi brāhmaṇaṁ."
+    },
+    {
+     "n": 177,
+     "text": "Ettāvatā sabbapaṭhame yamakavagge cuddasa vatthūni, appamādavagge nava, cittavagge nava, pupphavagge dvādasa, bālavagge pannarasa, paṇḍitavagge ekādasa, arahantavagge dasa, sahassavagge cuddasa, pāpavagge dvādasa,"
+    },
+    {
+     "n": 178,
+     "text": "daṇḍavagge ekādasa, jarāvagge nava, attavagge dasa, lokavagge ekādasa, buddhavagge nava, sukhavagge aṭṭha, piyavagge nava, kodhavagge aṭṭha, malavagge dvādasa, dhammaṭṭhavagge dasa, maggavagge dvādasa,"
+    },
+    {
+     "n": 179,
+     "text": "pakiṇṇakavagge nava, nirayavagge nava, nāgavagge aṭṭha, taṇhāvagge dvādasa, bhikkhuvagge dvādasa, brāhmaṇavagge cattālīsāti pañcādhikāni tīṇi vatthusatāni."
+    },
+    {
+     "n": 180,
+     "text": "Satevīsacatussatā,"
+    },
+    {
+     "n": 181,
+     "text": "catusaccavibhāvinā;"
+    },
+    {
+     "n": 182,
+     "text": "Satattayañca vatthūnaṁ,"
+    },
+    {
+     "n": 183,
+     "text": "pañcādhikaṁ samuṭṭhitāti."
+    },
+    {
+     "n": 184,
+     "text": "Dhammapade vaggānamuddānaṁ"
+    },
+    {
+     "n": 185,
+     "text": "Yamakappamādo cittaṁ,"
+    },
+    {
+     "n": 186,
+     "text": "pupphaṁ bālena paṇḍito;"
+    },
+    {
+     "n": 187,
+     "text": "Arahanto sahassañca,"
+    },
+    {
+     "n": 188,
+     "text": "pāpaṁ daṇḍena te dasa."
+    },
+    {
+     "n": 189,
+     "text": "Jarā attā ca loko ca,"
+    },
+    {
+     "n": 190,
+     "text": "buddho sukhaṁ piyena ca;"
+    },
+    {
+     "n": 191,
+     "text": "Kodho malañca dhammaṭṭho,"
+    },
+    {
+     "n": 192,
+     "text": "maggavaggena vīsati."
+    },
+    {
+     "n": 193,
+     "text": "Pakiṇṇaṁ nirayo nāgo,"
+    },
+    {
+     "n": 194,
+     "text": "taṇhā bhikkhu ca brāhmaṇo;"
+    },
+    {
+     "n": 195,
+     "text": "Ete chabbīsati vaggā,"
+    },
+    {
+     "n": 196,
+     "text": "desitādiccabandhunā."
+    },
+    {
+     "n": 197,
+     "text": "Gāthānamuddānaṁ"
+    },
+    {
+     "n": 198,
+     "text": "Yamake vīsati gāthā,"
+    },
+    {
+     "n": 199,
+     "text": "appamādamhi dvādasa;"
+    },
+    {
+     "n": 200,
+     "text": "Ekādasa cittavagge,"
+    },
+    {
+     "n": 201,
+     "text": "pupphavaggamhi soḷasa."
+    },
+    {
+     "n": 202,
+     "text": "Bāle ca soḷasa gāthā,"
+    },
+    {
+     "n": 203,
+     "text": "paṇḍitamhi catuddasa;"
+    },
+    {
+     "n": 204,
+     "text": "Arahante dasa gāthā,"
+    },
+    {
+     "n": 205,
+     "text": "sahasse honti soḷasa."
+    },
+    {
+     "n": 206,
+     "text": "Terasa pāpavaggamhi,"
+    },
+    {
+     "n": 207,
+     "text": "daṇḍamhi dasa satta ca;"
+    },
+    {
+     "n": 208,
+     "text": "Ekādasa jarā vagge,"
+    },
+    {
+     "n": 209,
+     "text": "attavaggamhi tā dasa."
+    },
+    {
+     "n": 210,
+     "text": "Dvādasa lokavaggamhi,"
+    },
+    {
+     "n": 211,
+     "text": "buddhavaggamhi ṭhārasa;"
+    },
+    {
+     "n": 212,
+     "text": "Sukhe ca piyavagge ca,"
+    },
+    {
+     "n": 213,
+     "text": "gāthāyo honti dvādasa."
+    },
+    {
+     "n": 214,
+     "text": "Cuddasa kodhavaggamhi,"
+    },
+    {
+     "n": 215,
+     "text": "malavaggekavīsati;"
+    },
+    {
+     "n": 216,
+     "text": "Sattarasa ca dhammaṭṭhe,"
+    },
+    {
+     "n": 217,
+     "text": "maggavagge sattarasa."
+    },
+    {
+     "n": 218,
+     "text": "Pakiṇṇe soḷasa gāthā,"
+    },
+    {
+     "n": 219,
+     "text": "niraye nāge ca cuddasa;"
+    },
+    {
+     "n": 220,
+     "text": "Chabbīsa taṇhāvaggamhi,"
+    },
+    {
+     "n": 221,
+     "text": "tevīsa bhikkhuvaggikā."
+    },
+    {
+     "n": 222,
+     "text": "Ekatālīsagāthāyo,"
+    },
+    {
+     "n": 223,
+     "text": "brāhmaṇe vaggamuttame;"
+    },
+    {
+     "n": 224,
+     "text": "Gāthāsatāni cattāri,"
+    },
+    {
+     "n": 225,
+     "text": "tevīsa ca punāpare;"
+    },
+    {
+     "n": 226,
+     "text": "Dhammapade nipātamhi,"
+    },
+    {
+     "n": 227,
+     "text": "desitādiccabandhunāti."
+    },
+    {
+     "n": 228,
+     "text": "Dhammapadapāḷi samattā."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp383-423/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Cut the stream, striving!"
+    },
+    {
+     "n": 2,
+     "text": "Cast aside sensual pleasures, brahmin."
+    },
+    {
+     "n": 3,
+     "text": "Knowing the ending of conditions,"
+    },
+    {
+     "n": 4,
+     "text": "know the uncreated, brahmin."
+    },
+    {
+     "n": 5,
+     "text": "When a brahmin has gone beyond"
+    },
+    {
+     "n": 6,
+     "text": "dualistic phenomena,"
+    },
+    {
+     "n": 7,
+     "text": "then they consciously"
+    },
+    {
+     "n": 8,
+     "text": "make an end of all fetters."
+    },
+    {
+     "n": 9,
+     "text": "One for whom there is no crossing over"
+    },
+    {
+     "n": 10,
+     "text": "or crossing back, or crossing over and back;"
+    },
+    {
+     "n": 11,
+     "text": "stress-free, detached,"
+    },
+    {
+     "n": 12,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 13,
+     "text": "Absorbed, rid of hopes,"
+    },
+    {
+     "n": 14,
+     "text": "their task completed, without defilements,"
+    },
+    {
+     "n": 15,
+     "text": "arrived at the highest goal:"
+    },
+    {
+     "n": 16,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 17,
+     "text": "The sun blazes by day,"
+    },
+    {
+     "n": 18,
+     "text": "the moon radiates at night,"
+    },
+    {
+     "n": 19,
+     "text": "the aristocrat shines in armor,"
+    },
+    {
+     "n": 20,
+     "text": "and the brahmin shines in absorption."
+    },
+    {
+     "n": 21,
+     "text": "But all day and all night,"
+    },
+    {
+     "n": 22,
+     "text": "the Buddha blazes with glory."
+    },
+    {
+     "n": 23,
+     "text": "A brahmin’s so-called since they’ve banished evil,"
+    },
+    {
+     "n": 24,
+     "text": "an ascetic’s so-called since they live a serene life."
+    },
+    {
+     "n": 25,
+     "text": "One who has renounced all stains"
+    },
+    {
+     "n": 26,
+     "text": "is said to be a “renunciant”."
+    },
+    {
+     "n": 27,
+     "text": "One should never strike a brahmin,"
+    },
+    {
+     "n": 28,
+     "text": "nor should a brahmin retaliate."
+    },
+    {
+     "n": 29,
+     "text": "Woe to the one who hurts a brahmin,"
+    },
+    {
+     "n": 30,
+     "text": "and woe for the one who retaliates."
+    },
+    {
+     "n": 31,
+     "text": "Nothing is better for a brahmin"
+    },
+    {
+     "n": 32,
+     "text": "than to hold their mind back from attachment."
+    },
+    {
+     "n": 33,
+     "text": "From wherever a cruel wish recoils,"
+    },
+    {
+     "n": 34,
+     "text": "right there suffering subsides."
+    },
+    {
+     "n": 35,
+     "text": "Who does nothing wrong"
+    },
+    {
+     "n": 36,
+     "text": "by body, speech or mind,"
+    },
+    {
+     "n": 37,
+     "text": "restrained in these three respects,"
+    },
+    {
+     "n": 38,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 39,
+     "text": "You should graciously honor"
+    },
+    {
+     "n": 40,
+     "text": "the one from whom you learn the Dhamma"
+    },
+    {
+     "n": 41,
+     "text": "taught by the awakened Buddha,"
+    },
+    {
+     "n": 42,
+     "text": "as a brahmin honors the sacred flame."
+    },
+    {
+     "n": 43,
+     "text": "Not by matted hair or family,"
+    },
+    {
+     "n": 44,
+     "text": "or birth is one a brahmin."
+    },
+    {
+     "n": 45,
+     "text": "Those who are truthful and principled:"
+    },
+    {
+     "n": 46,
+     "text": "they are pure, they are brahmins."
+    },
+    {
+     "n": 47,
+     "text": "Why the matted hair, you simpleton,"
+    },
+    {
+     "n": 48,
+     "text": "and why the skin of deer?"
+    },
+    {
+     "n": 49,
+     "text": "The tangle is inside you,"
+    },
+    {
+     "n": 50,
+     "text": "yet you polish up your outsides."
+    },
+    {
+     "n": 51,
+     "text": "A personage who wears robes of rags,"
+    },
+    {
+     "n": 52,
+     "text": "lean, their limbs showing veins,"
+    },
+    {
+     "n": 53,
+     "text": "meditating alone in the forest,"
+    },
+    {
+     "n": 54,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 55,
+     "text": "I don’t call someone a brahmin"
+    },
+    {
+     "n": 56,
+     "text": "after the mother’s womb they’re born from."
+    },
+    {
+     "n": 57,
+     "text": "If they still have attachments,"
+    },
+    {
+     "n": 58,
+     "text": "they’re just someone who says “worthy”."
+    },
+    {
+     "n": 59,
+     "text": "Having nothing, taking nothing:"
+    },
+    {
+     "n": 60,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 61,
+     "text": "Having cut off all fetters"
+    },
+    {
+     "n": 62,
+     "text": "they have no anxiety."
+    },
+    {
+     "n": 63,
+     "text": "They’ve slipped their chains and are detached:"
+    },
+    {
+     "n": 64,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 65,
+     "text": "They’ve cut the strap and harness,"
+    },
+    {
+     "n": 66,
+     "text": "the halter and bridle too,"
+    },
+    {
+     "n": 67,
+     "text": "with cross-bar lifted, they’re awakened:"
+    },
+    {
+     "n": 68,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 69,
+     "text": "Abuse, killing, caging:"
+    },
+    {
+     "n": 70,
+     "text": "they endure these without anger."
+    },
+    {
+     "n": 71,
+     "text": "Patience is their powerful army:"
+    },
+    {
+     "n": 72,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 73,
+     "text": "Not irritable or pretentious,"
+    },
+    {
+     "n": 74,
+     "text": "dutiful in precepts and observances,"
+    },
+    {
+     "n": 75,
+     "text": "tamed, bearing their final body:"
+    },
+    {
+     "n": 76,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 77,
+     "text": "Like water from a lotus leaf,"
+    },
+    {
+     "n": 78,
+     "text": "like a mustard seed off the point of a pin,"
+    },
+    {
+     "n": 79,
+     "text": "sensual pleasures slip off them:"
+    },
+    {
+     "n": 80,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 81,
+     "text": "They understand for themselves"
+    },
+    {
+     "n": 82,
+     "text": "the end of suffering in this life;"
+    },
+    {
+     "n": 83,
+     "text": "with burden put down, detached:"
+    },
+    {
+     "n": 84,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 85,
+     "text": "Deep in wisdom, intelligent,"
+    },
+    {
+     "n": 86,
+     "text": "expert in the path and what is not the path;"
+    },
+    {
+     "n": 87,
+     "text": "arrived at the highest goal:"
+    },
+    {
+     "n": 88,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 89,
+     "text": "Mixing with neither"
+    },
+    {
+     "n": 90,
+     "text": "householders nor the homeless;"
+    },
+    {
+     "n": 91,
+     "text": "a migrant with no bastion, few in wishes:"
+    },
+    {
+     "n": 92,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 93,
+     "text": "They’ve laid aside violence"
+    },
+    {
+     "n": 94,
+     "text": "against creatures firm and frail;"
+    },
+    {
+     "n": 95,
+     "text": "not killing or making others kill:"
+    },
+    {
+     "n": 96,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 97,
+     "text": "Not fighting among those who fight,"
+    },
+    {
+     "n": 98,
+     "text": "quenched among those who have taken up arms,"
+    },
+    {
+     "n": 99,
+     "text": "not grasping among those who grasp:"
+    },
+    {
+     "n": 100,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 101,
+     "text": "They’ve discarded greed and hate,"
+    },
+    {
+     "n": 102,
+     "text": "along with conceit and contempt,"
+    },
+    {
+     "n": 103,
+     "text": "like a mustard seed off the point of a pin:"
+    },
+    {
+     "n": 104,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 105,
+     "text": "The words they utter"
+    },
+    {
+     "n": 106,
+     "text": "are polished, informative, and true,"
+    },
+    {
+     "n": 107,
+     "text": "and don’t offend anyone:"
+    },
+    {
+     "n": 108,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 109,
+     "text": "They don’t steal anything in the world,"
+    },
+    {
+     "n": 110,
+     "text": "long or short,"
+    },
+    {
+     "n": 111,
+     "text": "tiny or huge, beautiful or ugly:"
+    },
+    {
+     "n": 112,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 113,
+     "text": "They have no hope"
+    },
+    {
+     "n": 114,
+     "text": "in this world or the next;"
+    },
+    {
+     "n": 115,
+     "text": "with no need for hope, detached:"
+    },
+    {
+     "n": 116,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 117,
+     "text": "They have no clinging,"
+    },
+    {
+     "n": 118,
+     "text": "knowledge has freed them of indecision,"
+    },
+    {
+     "n": 119,
+     "text": "they’ve arrived at the objective, freedom from death:"
+    },
+    {
+     "n": 120,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 121,
+     "text": "They’ve escaped the chain"
+    },
+    {
+     "n": 122,
+     "text": "of both good and bad deeds;"
+    },
+    {
+     "n": 123,
+     "text": "sorrowless, stainless, pure:"
+    },
+    {
+     "n": 124,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 125,
+     "text": "Pure as the spotless moon,"
+    },
+    {
+     "n": 126,
+     "text": "clear and unclouded,"
+    },
+    {
+     "n": 127,
+     "text": "they’ve ended relish for rebirth:"
+    },
+    {
+     "n": 128,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 129,
+     "text": "They’ve got past this grueling swamp"
+    },
+    {
+     "n": 130,
+     "text": "of delusion, transmigration."
+    },
+    {
+     "n": 131,
+     "text": "Meditating in stillness, free of indecision,"
+    },
+    {
+     "n": 132,
+     "text": "they have crossed over to the far shore."
+    },
+    {
+     "n": 133,
+     "text": "They’re quenched by not grasping:"
+    },
+    {
+     "n": 134,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 135,
+     "text": "They’ve given up sensual pleasures,"
+    },
+    {
+     "n": 136,
+     "text": "and have gone forth from lay life;"
+    },
+    {
+     "n": 137,
+     "text": "they’ve ended rebirth in the sensual realm:"
+    },
+    {
+     "n": 138,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 139,
+     "text": "They’ve given up craving,"
+    },
+    {
+     "n": 140,
+     "text": "and have gone forth from lay life;"
+    },
+    {
+     "n": 141,
+     "text": "they’ve ended craving to be reborn:"
+    },
+    {
+     "n": 142,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 143,
+     "text": "They’ve given up craving,"
+    },
+    {
+     "n": 144,
+     "text": "and have gone forth from lay life;"
+    },
+    {
+     "n": 145,
+     "text": "they’ve ended craving to be reborn:"
+    },
+    {
+     "n": 146,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 147,
+     "text": "They’ve thrown off the human yoke,"
+    },
+    {
+     "n": 148,
+     "text": "and slipped out of the heavenly yoke;"
+    },
+    {
+     "n": 149,
+     "text": "unyoked from all yokes:"
+    },
+    {
+     "n": 150,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 151,
+     "text": "Giving up desire and discontent,"
+    },
+    {
+     "n": 152,
+     "text": "they’re cooled and free of attachments;"
+    },
+    {
+     "n": 153,
+     "text": "a hero, master of the whole world:"
+    },
+    {
+     "n": 154,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 155,
+     "text": "They know the passing away"
+    },
+    {
+     "n": 156,
+     "text": "and rebirth of all beings;"
+    },
+    {
+     "n": 157,
+     "text": "unattached, holy, awakened:"
+    },
+    {
+     "n": 158,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 159,
+     "text": "Gods, centaurs, and humans"
+    },
+    {
+     "n": 160,
+     "text": "don’t know their destiny;"
+    },
+    {
+     "n": 161,
+     "text": "the perfected ones with defilements ended:"
+    },
+    {
+     "n": 162,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 163,
+     "text": "They have nothing before or after,"
+    },
+    {
+     "n": 164,
+     "text": "or even in between."
+    },
+    {
+     "n": 165,
+     "text": "Having nothing, taking nothing:"
+    },
+    {
+     "n": 166,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 167,
+     "text": "Captain of the herd, excellent hero,"
+    },
+    {
+     "n": 168,
+     "text": "great seer and victor;"
+    },
+    {
+     "n": 169,
+     "text": "unstirred, washed, awakened:"
+    },
+    {
+     "n": 170,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 171,
+     "text": "One who knows their past lives,"
+    },
+    {
+     "n": 172,
+     "text": "sees heaven and places of loss,"
+    },
+    {
+     "n": 173,
+     "text": "and has attained the end of rebirth;"
+    },
+    {
+     "n": 174,
+     "text": "a sage of perfect insight"
+    },
+    {
+     "n": 175,
+     "text": "at the summit of spiritual perfection:"
+    },
+    {
+     "n": 176,
+     "text": "that’s who I declare a brahmin."
+    },
+    {
+     "n": 177,
+     "text": "The Sayings of the Dhamma are complete."
+    }
+   ]
+  }
+ ]
+}

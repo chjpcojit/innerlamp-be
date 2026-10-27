@@ -1,0 +1,3937 @@
+{
+ "id": "samantabhadra-aspiration-prayer",
+ "tradition": "VAJRAYANA",
+ "kind": "VERSE",
+ "collection": "Mật tông / Nguyện văn",
+ "reference": "",
+ "referenceNote": "From the Gaṇḍavyūha chapter of the Avataṃsaka Sūtra",
+ "summary": "Nguyện văn thuộc phẩm Nhập Pháp Giới (Gandavyuha) của kinh Hoa Nghiêm, còn gọi là Hạnh Nguyện Phổ Hiền. Bài mở đầu bằng lễ kính chư Phật mười phương ba đời, rồi lần lượt nguyện cúng dường, sám hối, tùy hỷ, thỉnh Phật trụ thế, thỉnh chuyển pháp luân và hồi hướng. Phần sau là các lời nguyện hành thiện lâu dài vì chúng sinh. Kết bằng hồi hướng công đức để mọi ước nguyện được thành tựu.",
+ "titles": {
+  "vi": "Nguyện Văn Phổ Hiền (Hạnh Nguyện Phổ Hiền)",
+  "bo": "འཕགས་པ་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་གྱི་རྒྱལ་པོ།",
+  "sa": "Ārya-Bhadracaryā-Praṇidhāna-Rāja",
+  "en": "The King of Aspiration Prayers: Samantabhadra’s Aspiration to Good Actions"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_samantabhadra",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "PHAT_NGUYEN"
+ ],
+ "durationMinutes": 65,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Rigpa Translations, 1996",
+   "sourceName": "Lotsawa House - The King of Aspiration Prayers: Samantabhadra’s Aspiration to Good Actions",
+   "sourceUrl": "https://www.lotsawahouse.org/words-of-the-buddha/samantabhadra-aspiration-good-actions",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Homage to Mañjuśrī, the youthful!",
+     "section": "The Translators’ Homage"
+    },
+    {
+     "n": 2,
+     "text": "To all the buddhas, the lions of the human race,",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 3,
+     "text": "In all directions of the universe, through past and present and future:",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 4,
+     "text": "To every single one of you, I bow in homage;",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 5,
+     "text": "Devotion fills my body, speech and mind.",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 6,
+     "text": "Through the power of this prayer, aspiring to Good Action,",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 7,
+     "text": "All the victorious ones appear, vivid here before my mind",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 8,
+     "text": "And I multiply my body as many times as atoms in the universe,",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 9,
+     "text": "Each one bowing in prostration to all the buddhas.",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 10,
+     "text": "In every atom preside as many buddhas as there are atoms,",
+     "section": "2. Offering"
+    },
+    {
+     "n": 11,
+     "text": "And around them, all their bodhisattva heirs:",
+     "section": "2. Offering"
+    },
+    {
+     "n": 12,
+     "text": "And so I imagine them filling",
+     "section": "2. Offering"
+    },
+    {
+     "n": 13,
+     "text": "Completely the entire space of reality.",
+     "section": "2. Offering"
+    },
+    {
+     "n": 14,
+     "text": "Saluting them with an endless ocean of praise,",
+     "section": "2. Offering"
+    },
+    {
+     "n": 15,
+     "text": "With the sounds of an ocean of different melodies",
+     "section": "2. Offering"
+    },
+    {
+     "n": 16,
+     "text": "I sing of the buddhas’ noble qualities,",
+     "section": "2. Offering"
+    },
+    {
+     "n": 17,
+     "text": "And praise all those who have gone to perfect bliss.",
+     "section": "2. Offering"
+    },
+    {
+     "n": 18,
+     "text": "To every buddha, I make offerings:",
+     "section": "2. Offering"
+    },
+    {
+     "n": 19,
+     "text": "Of the loveliest flowers, of beautiful garlands,",
+     "section": "2. Offering"
+    },
+    {
+     "n": 20,
+     "text": "Of music and perfumed ointments, the best of parasols,",
+     "section": "2. Offering"
+    },
+    {
+     "n": 21,
+     "text": "The brightest lamps and finest incense.",
+     "section": "2. Offering"
+    },
+    {
+     "n": 22,
+     "text": "To every buddha, I make offerings:",
+     "section": "2. Offering"
+    },
+    {
+     "n": 23,
+     "text": "Exquisite garments and the most fragrant scents,",
+     "section": "2. Offering"
+    },
+    {
+     "n": 24,
+     "text": "Powdered incense, heaped as high as Mount Meru,",
+     "section": "2. Offering"
+    },
+    {
+     "n": 25,
+     "text": "Arranged in perfect symmetry.",
+     "section": "2. Offering"
+    },
+    {
+     "n": 26,
+     "text": "Then the vast and unsurpassable offerings—",
+     "section": "2. Offering"
+    },
+    {
+     "n": 27,
+     "text": "Inspired by my devotion to all the buddhas, and",
+     "section": "2. Offering"
+    },
+    {
+     "n": 28,
+     "text": "Moved by the power of my faith in Good Actions—",
+     "section": "2. Offering"
+    },
+    {
+     "n": 29,
+     "text": "I prostrate and offer to all you victorious ones.",
+     "section": "2. Offering"
+    },
+    {
+     "n": 30,
+     "text": "Whatever negative acts I have committed,",
+     "section": "3. Confession"
+    },
+    {
+     "n": 31,
+     "text": "While driven by desire, hatred and ignorance,",
+     "section": "3. Confession"
+    },
+    {
+     "n": 32,
+     "text": "With my body, my speech and also with my mind,",
+     "section": "3. Confession"
+    },
+    {
+     "n": 33,
+     "text": "Before you, I confess and purify each and every one.",
+     "section": "3. Confession"
+    },
+    {
+     "n": 34,
+     "text": "With a heart full of delight, I rejoice at all the merits",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 35,
+     "text": "Of buddhas and bodhisattvas,",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 36,
+     "text": "Pratyekabuddhas, those in training and the arhats beyond training,",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 37,
+     "text": "And every living being, throughout the entire universe.",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 38,
+     "text": "You who are like beacons of light shining through the worlds,",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 39,
+     "text": "Who passed through the stages of enlightenment, to attain buddhahood, freedom from all attachment,",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 40,
+     "text": "I exhort you: all of you protectors,",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 41,
+     "text": "Turn the unsurpassable wheel of Dharma.",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 42,
+     "text": "Joining my palms together, I pray",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 43,
+     "text": "To you who intend to pass into nirvāṇa,",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 44,
+     "text": "Remain, for aeons as many as the atoms in this world,",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 45,
+     "text": "And bring well-being and happiness to all living beings.",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 46,
+     "text": "What little virtue I have gathered through my homage,",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 47,
+     "text": "Through offering, confession, and rejoicing,",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 48,
+     "text": "Through exhortation and prayer—all of it",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 49,
+     "text": "I dedicate to the enlightenment of all beings!",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 50,
+     "text": "Let offerings be made to buddhas of the past,",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 51,
+     "text": "And all who now dwell throughout the ten directions of this universe!",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 52,
+     "text": "Let all who are yet to come swiftly fulfil their wishes",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 53,
+     "text": "And attain the stages of enlightenment and buddhahood!",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 54,
+     "text": "Let as many worlds as there are in all the ten directions",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 55,
+     "text": "Transform into realms that are vast and utterly pure,",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 56,
+     "text": "Filled with buddhas who have sat before the mighty bodhi tree,",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 57,
+     "text": "Around them all their bodhisattva sons and daughters!",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 58,
+     "text": "Let as many sentient beings as there are in all the ten directions",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 59,
+     "text": "Live always and forever in happiness and health!",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 60,
+     "text": "Let all beings meet the Dharma",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 61,
+     "text": "That befits them best! And so may all they hope for be fulfilled!",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 62,
+     "text": "As I practise the training for enlightenment,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 63,
+     "text": "May I recall all my previous births,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 64,
+     "text": "And in my successive lives, through death and through rebirth,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 65,
+     "text": "May I always renounce the worldly life!",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 66,
+     "text": "Training in the footsteps of all the victorious buddhas,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 67,
+     "text": "May I bring Good Actions to perfection,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 68,
+     "text": "And my moral conduct be taintless and pure,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 69,
+     "text": "Never lapsing, and always free from fault!",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 70,
+     "text": "In the language of the gods, nāgas, and yakṣas,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 71,
+     "text": "In the language of demons and of humans too,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 72,
+     "text": "In however many kinds of speech there may be—",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 73,
+     "text": "I shall proclaim the Dharma in the language of all!",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 74,
+     "text": "Taming my mind, and striving in the pāramitās,",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 75,
+     "text": "I will never forget the bodhicitta;",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 76,
+     "text": "May all my harmful actions and the obscurations they cause",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 77,
+     "text": "Be completely purified, every single one!",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 78,
+     "text": "May I be freed from karma, harmful emotions, and the work of negativity,",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 79,
+     "text": "And act for all beings in the world,",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 80,
+     "text": "Just like the lotus flower to which mud and water cannot cling,",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 81,
+     "text": "Or sun and moon that course unhindered through the sky.",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 82,
+     "text": "Throughout the reach and range of the entire universe",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 83,
+     "text": "I shall pacify completely the suffering of all the lower realms,",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 84,
+     "text": "I shall lead all beings to happiness,",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 85,
+     "text": "And work for the ultimate benefit of each and every one!",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 86,
+     "text": "I shall bring enlightened action to perfection,",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 87,
+     "text": "Serve beings so as to suit their needs,",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 88,
+     "text": "Teach them to accomplish Good Actions,",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 89,
+     "text": "And continue this, throughout all the aeons to come!",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 90,
+     "text": "May I always meet and be accompanied by",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 91,
+     "text": "Those whose actions accord with mine;",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 92,
+     "text": "And in body, speech and mind as well,",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 93,
+     "text": "May our actions and aspirations always be one!",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 94,
+     "text": "May I always meet spiritual friends",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 95,
+     "text": "Who long to be of true help to me,",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 96,
+     "text": "And who teach me the Good Actions;",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 97,
+     "text": "Never will I disappoint them!",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 98,
+     "text": "May I always behold the buddhas, here before my eyes,",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 99,
+     "text": "And around them all their bodhisattva sons and daughters.",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 100,
+     "text": "Without ever tiring, throughout all the aeons to come,",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 101,
+     "text": "May the offerings I make them be endless and vast!",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 102,
+     "text": "May I maintain the sacred teachings of the buddhas,",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 103,
+     "text": "And cause enlightened action to appear;",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 104,
+     "text": "May I train to perfection in Good Actions,",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 105,
+     "text": "And practise these in every age to come!",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 106,
+     "text": "As I wander through all states of samsaric existence,",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 107,
+     "text": "May I gather inexhaustible merit and wisdom,",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 108,
+     "text": "And so become an inexhaustible treasury of noble qualities—",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 109,
+     "text": "Of skill and discernment, samādhi and liberation!",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 110,
+     "text": "In a single atom may I see as many pure realms as atoms in the universe:",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 111,
+     "text": "And in each realm, buddhas beyond all imagining,",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 112,
+     "text": "Encircled by all their bodhisattva heirs.",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 113,
+     "text": "Along with them, may I perform the actions of enlightenment!",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 114,
+     "text": "And so, in each direction, everywhere,",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 115,
+     "text": "Even on the tip of a hair, may I see an ocean of buddhas—",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 116,
+     "text": "All to come in past, present and future—in an ocean of pure realms,",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 117,
+     "text": "And throughout an ocean of aeons, may I enter into enlightened action in each and every one!",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 118,
+     "text": "Each single word of a buddha’s speech, that voice with its ocean of qualities,",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 119,
+     "text": "Bears all the purity of the speech of all the buddhas,",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 120,
+     "text": "Sounds that harmonize with the minds of all living beings:",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 121,
+     "text": "May I always be engaged with the speech of the buddhas!",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 122,
+     "text": "With all the power of my mind, may I hear and realize",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 123,
+     "text": "The inexhaustible melody of the teachings spoken by",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 124,
+     "text": "All the buddhas of past, present and future,",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 125,
+     "text": "As they turn the wheels of Dharma!",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 126,
+     "text": "Just as the wisdom of the buddhas penetrates all future aeons,",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 127,
+     "text": "So may I too know them, instantly,",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 128,
+     "text": "And in each fraction of an instant may I know",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 129,
+     "text": "All that will ever be, in past, present and future!",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 130,
+     "text": "In an instant, may I behold all those who are the lions of the human race—",
+     "section": "e) Seeing All the Buddhas in One Instant"
+    },
+    {
+     "n": 131,
+     "text": "The buddhas of past, present and future!",
+     "section": "e) Seeing All the Buddhas in One Instant"
+    },
+    {
+     "n": 132,
+     "text": "May I always be engaged in the buddhas’ way of life and action,",
+     "section": "f) Entering the Sphere of Activity of the Buddhas"
+    },
+    {
+     "n": 133,
+     "text": "Through the power of liberation, where all is realized as like an illusion!",
+     "section": "f) Entering the Sphere of Activity of the Buddhas"
+    },
+    {
+     "n": 134,
+     "text": "On a single atom, may I actually bring about",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 135,
+     "text": "The entire array of pure realms of past, of present and future;",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 136,
+     "text": "And then enter into those pure buddha realms",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 137,
+     "text": "In each atom, and in each and every direction.",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 138,
+     "text": "When those who illuminate the world, still to come,",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 139,
+     "text": "Gradually attain buddhahood, turn the Wheel of Dharma,",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 140,
+     "text": "And demonstrate the final, profound peace of nirvāṇa:",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 141,
+     "text": "May I be always in their presence!",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 142,
+     "text": "Through the power of swift miracles,",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 143,
+     "text": "The power of the vehicle, like a doorway,",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 144,
+     "text": "The power of conduct that possesses all virtuous qualities,",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 145,
+     "text": "The power of loving kindness, all-pervasive,",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 146,
+     "text": "The power of merit that is totally virtuous,",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 147,
+     "text": "The power of wisdom free from attachment, and",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 148,
+     "text": "The powers of knowledge, skilful means and samādhi,",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 149,
+     "text": "May I perfectly accomplish the power of enlightenment!",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 150,
+     "text": "May I purify the power of karma;",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 151,
+     "text": "Destroy the power of harmful emotions;",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 152,
+     "text": "Render negativity utterly powerless;",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 153,
+     "text": "And perfect the power of Good Actions!",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 154,
+     "text": "I shall purify oceans of realms;",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 155,
+     "text": "Liberate oceans of sentient beings;",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 156,
+     "text": "Understand oceans of Dharma;",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 157,
+     "text": "Realize oceans of wisdom;",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 158,
+     "text": "Perfect oceans of actions;",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 159,
+     "text": "Fulfil oceans of aspirations;",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 160,
+     "text": "Serve oceans of buddhas!",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 161,
+     "text": "And perform these, without ever growing weary, through oceans of aeons!",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 162,
+     "text": "All the buddhas throughout the whole of time,",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 163,
+     "text": "Attained enlightenment through Good Actions, and",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 164,
+     "text": "Their prayers and aspirations for enlightened action:",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 165,
+     "text": "May I fulfil them all completely!",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 166,
+     "text": "The eldest of the sons of all the buddhas",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 167,
+     "text": "Is called Samantabhadra: ‘All-good’—",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 168,
+     "text": "So that I may act with a skill like his,",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 169,
+     "text": "I dedicate fully all these merits!",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 170,
+     "text": "To purify my body, my speech and my mind as well,",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 171,
+     "text": "To purify my actions, and all realms,",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 172,
+     "text": "May I be the equal of Samantabhadra",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 173,
+     "text": "In his skill in good dedication!",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 174,
+     "text": "In order to perform the full virtue of Good Actions,",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 175,
+     "text": "I shall act according to Mañjuśrī's prayers of aspiration,",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 176,
+     "text": "And without ever growing weary, in all the aeons to come,",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 177,
+     "text": "I shall perfectly fulfil every one of his aims!",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 178,
+     "text": "Let my bodhisattva acts be beyond measure!",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 179,
+     "text": "Let my enlightened qualities be measureless too!",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 180,
+     "text": "Keeping to this immeasurable activity,",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 181,
+     "text": "May I accomplish all the miraculous powers of enlightenment!",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 182,
+     "text": "Sentient beings are as limitless",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 183,
+     "text": "As the boundless expanse of space;",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 184,
+     "text": "So shall my prayers of aspiration for them",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 185,
+     "text": "Be as limitless as their karma and harmful emotions!",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 186,
+     "text": "Whoever hears this king of dedication prayers,",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 187,
+     "text": "And yearns for supreme enlightenment,",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 188,
+     "text": "Who even once arouses faith,",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 189,
+     "text": "Will gain true merit greater still",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 190,
+     "text": "Than by offering the victorious buddhas",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 191,
+     "text": "Infinite pure realms in every directions, all ornamented with jewels,",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 192,
+     "text": "Or offering them all the highest joys of gods and humans",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 193,
+     "text": "For as many aeons as there are atoms in those realms.",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 194,
+     "text": "Whoever truly makes this Aspiration to Good Actions,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 195,
+     "text": "Will never again be born in lower realms;",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 196,
+     "text": "They will be free from harmful companions, and",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 197,
+     "text": "Soon behold the Buddha of Boundless Light.",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 198,
+     "text": "They will acquire all kind of benefits, and live in happiness;",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 199,
+     "text": "Even in this present life all will go well,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 200,
+     "text": "And before long,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 201,
+     "text": "They will become just like Samantabhadra.",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 202,
+     "text": "All negative acts—even the five of immediate retribution—",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 203,
+     "text": "Whatever they have committed in the grip of ignorance,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 204,
+     "text": "Will soon be completely purified,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 205,
+     "text": "If they recite this Aspiration to Good Actions.",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 206,
+     "text": "They will possess perfect wisdom, beauty, and excellent signs,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 207,
+     "text": "Be born in a good family, and with a radiant appearance.",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 208,
+     "text": "Demons and heretics will never harm them,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 209,
+     "text": "And all three worlds will honour them with offerings.",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 210,
+     "text": "They will quickly go beneath the bodhi-tree,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 211,
+     "text": "And there, they will sit, to benefit all sentient beings, then",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 212,
+     "text": "Awaken into enlightenment, turn the wheel of Dharma,",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 213,
+     "text": "And tame Māra with all his hordes.",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 214,
+     "text": "The full result of keeping, teaching, or reading",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 215,
+     "text": "This Prayer of Aspiration to Good Actions",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 216,
+     "text": "Is known to the buddhas alone:",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 217,
+     "text": "Have no doubt: supreme enlightenment will be yours!",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 218,
+     "text": "Just as the bodhisattva Mañjuśrī attained omniscience,",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 219,
+     "text": "And Samantabhadra too",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 220,
+     "text": "All these merits now I dedicate",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 221,
+     "text": "To train and follow in their footsteps.",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 222,
+     "text": "As all the victorious buddhas of past, present and future",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 223,
+     "text": "Praise dedication as supreme,",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 224,
+     "text": "So now I dedicate all these roots of virtue",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 225,
+     "text": "For all beings to perfect Good Actions.",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 226,
+     "text": "When it is time for me to die,",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 227,
+     "text": "Let all that obscures me fade away, so",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 228,
+     "text": "I look on Amitābha, there in person,",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 229,
+     "text": "And go at once to his pure land of Sukhāvatī.",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 230,
+     "text": "In that pure land, may I actualize every single one",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 231,
+     "text": "Of all these aspirations!",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 232,
+     "text": "May I fulfil them, each and every one,",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 233,
+     "text": "And bring help to beings for as long as the universe remains!",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 234,
+     "text": "Born there in a beautiful lotus flower,",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 235,
+     "text": "In that excellent and joyous buddha realm,",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 236,
+     "text": "May the Buddha Amitābha himself",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 237,
+     "text": "Grant me the prophecy foretelling my enlightenment!",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 238,
+     "text": "Having received the prophecy there,",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 239,
+     "text": "With my billions of emanations,",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 240,
+     "text": "Sent out through the power of my mind,",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 241,
+     "text": "May I bring enormous benefit to sentient beings, in all the ten directions!",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 242,
+     "text": "Through whatever small virtues I have gained",
+     "section": "Conclusion"
+    },
+    {
+     "n": 243,
+     "text": "By reciting this “Aspiration to Good Actions”,",
+     "section": "Conclusion"
+    },
+    {
+     "n": 244,
+     "text": "May the virtuous wishes of all beings’ prayers and aspirations",
+     "section": "Conclusion"
+    },
+    {
+     "n": 245,
+     "text": "All be instantly accomplished!",
+     "section": "Conclusion"
+    },
+    {
+     "n": 246,
+     "text": "Through the true and boundless merit",
+     "section": "Conclusion"
+    },
+    {
+     "n": 247,
+     "text": "Attained by dedicating this “Aspiration to Good Actions”,",
+     "section": "Conclusion"
+    },
+    {
+     "n": 248,
+     "text": "May all those now drowning in the ocean of suffering,",
+     "section": "Conclusion"
+    },
+    {
+     "n": 249,
+     "text": "Reach the supreme realm of Amitābha!",
+     "section": "Conclusion"
+    },
+    {
+     "n": 250,
+     "text": "May this King of Aspirations bring about",
+     "section": "Conclusion"
+    },
+    {
+     "n": 251,
+     "text": "The supreme aim and benefit of all infinite sentient beings;",
+     "section": "Conclusion"
+    },
+    {
+     "n": 252,
+     "text": "May they perfect what is described in this holy prayer, uttered by Samantabhadra!",
+     "section": "Conclusion"
+    },
+    {
+     "n": 253,
+     "text": "May the lower realms be entirely emptied!",
+     "section": "Conclusion"
+    },
+    {
+     "n": 254,
+     "text": "By the blessings of the buddhas who have attained the three kāyas,",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 255,
+     "text": "And the unchanging truth of reality",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 256,
+     "text": "As well as the unwavering aspirations of the Saṅgha,",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 257,
+     "text": "May all the aspirations and dedication prayers be fulfilled!",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 258,
+     "text": "tadyathā pañcendriyāvabodhanīye svāhā",
+     "section": "Words of Truth to Accomplish Aspirations"
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Classical Tibetan (pre-modern author)",
+   "sourceName": "Lotsawa House - The King of Aspiration Prayers: Samantabhadra’s Aspiration to Good Actions",
+   "sourceUrl": "https://www.lotsawahouse.org/words-of-the-buddha/samantabhadra-aspiration-good-actions",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "འཇམ་དཔལ་གཞོན་ནུར་གྱུར་པ་ལ་ཕྱག་འཚལ་ལོ། །",
+     "section": "The Translators’ Homage"
+    },
+    {
+     "n": 2,
+     "text": "ཇི་སྙེད་སུ་དག་ཕྱོགས་བཅུའི་འཇིག་རྟེན་ན། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 3,
+     "text": "དུས་གསུམ་གཤེགས་པ་མི་ཡི་སེང་གེ་ཀུན། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 4,
+     "text": "བདག་གིས་མ་ལུས་དེ་དག་ཐམས་ཅད་ལ། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 5,
+     "text": "ལུས་དང་ངག་ཡིད་དང་བས་ཕྱག་བགྱིའོ། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 6,
+     "text": "བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་སྟོབས་དག་གིས། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 7,
+     "text": "རྒྱལ་བ་ཐམས་ཅད་ཡིད་ཀྱིས་མངོན་སུམ་དུ། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 8,
+     "text": "ཞིང་གི་རྡུལ་སྙེད་ལུས་རབ་བཏུད་པ་ཡིས། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 9,
+     "text": "རྒྱལ་བ་ཀུན་ལ་རབ་ཏུ་ཕྱག་འཚལ་ལོ། །",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 10,
+     "text": "རྡུལ་གཅིག་སྟེང་ན་རྡུལ་སྙེད་སངས་རྒྱས་རྣམས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 11,
+     "text": "སངས་རྒྱས་སྲས་ཀྱི་དབུས་ན་བཞུགས་པ་དག །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 12,
+     "text": "དེ་ལྟར་ཆོས་ཀྱི་དབྱིངས་རྣམས་མ་ལུས་པ། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 13,
+     "text": "ཐམས་ཅད་རྒྱལ་བ་དག་གིས་གང་བར་མོས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 14,
+     "text": "དེ་དག་བསྔགས་པ་མི་ཟད་རྒྱ་མཚོ་རྣམས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 15,
+     "text": "དབྱངས་ཀྱི་ཡན་ལག་རྒྱ་མཚོའི་སྒྲ་ཀུན་གྱིས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 16,
+     "text": "རྒྱལ་བ་ཀུན་གྱི་ཡོན་ཏན་རབ་བརྗོད་ཅིང་། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 17,
+     "text": "བདེ་བར་གཤེགས་པ་ཐམས་ཅད་བདག་གིས་བསྟོད། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 18,
+     "text": "མེ་ཏོག་དམ་པ་ཕྲེང་བ་དམ་པ་དང་། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 19,
+     "text": "སིལ་སྙན་རྣམས་དང་བྱུག་པ་གདུགས་མཆོག་དང་། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 20,
+     "text": "མར་མེ་མཆོག་དང་བདུག་སྤོས་དམ་པ་ཡིས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 21,
+     "text": "རྒྱལ་བ་དེ་དག་ལ་ནི་མཆོད་པར་བགྱི། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 22,
+     "text": "ན་བཟའ་དམ་པ་རྣམས་དང་དྲི་མཆོག་དང་། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 23,
+     "text": "ཕྱེ་མ་ཕུར་མ་རི་རབ་མཉམ་པ་དང་། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 24,
+     "text": "བཀོད་པ་ཁྱད་པར་འཕགས་པའི་མཆོག་ཀུན་གྱིས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 25,
+     "text": "རྒྱལ་བ་དེ་དག་ལ་ནི་མཆོད་པར་བགྱི། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 26,
+     "text": "མཆོད་པ་གང་རྣམས་བླ་མེད་རྒྱ་ཆེ་བ། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 27,
+     "text": "དེ་དག་རྒྱལ་བ་ཐམས་ཅད་ལ་ཡང་མོས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 28,
+     "text": "བཟང་པོ་སྤྱོད་ལ་དད་པའི་སྟོབས་དག་གིས། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 29,
+     "text": "རྒྱལ་བ་ཀུན་ལ་ཕྱག་འཚལ་མཆོད་པར་བགྱི། །",
+     "section": "2. Offering"
+    },
+    {
+     "n": 30,
+     "text": "འདོད་ཆགས་ཞེ་སྡང་གཏི་མུག་དབང་གིས་ནི། །",
+     "section": "3. Confession"
+    },
+    {
+     "n": 31,
+     "text": "ལུས་དང་ངག་དང་དེ་བཞིན་ཡིད་ཀྱིས་ཀྱང་། །",
+     "section": "3. Confession"
+    },
+    {
+     "n": 32,
+     "text": "སྡིག་པ་བདག་གིས་བགྱིས་པ་ཅི་མཆིས་པ། །",
+     "section": "3. Confession"
+    },
+    {
+     "n": 33,
+     "text": "དེ་དག་ཐམས་ཅད་བདག་གིས་སོ་སོར་བཤགས། །",
+     "section": "3. Confession"
+    },
+    {
+     "n": 34,
+     "text": "ཕྱོགས་བཅུའི་རྒྱལ་བ་ཀུན་དང་སངས་རྒྱས་སྲས། །",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 35,
+     "text": "རང་རྒྱལ་རྣམས་དང་སློབ་དང་མི་སློབ་དང་། །",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 36,
+     "text": "འགྲོ་བ་ཀུན་གྱི་བསོད་ནམས་གང་ལ་ཡང་། །",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 37,
+     "text": "དེ་དག་ཀུན་གྱི་རྗེས་སུ་བདག་ཡི་རང་། །",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 38,
+     "text": "གང་རྣམས་ཕྱོགས་བཅུའི་འཇིག་རྟེན་སྒྲོན་མ་རྣམས། །",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 39,
+     "text": "བྱང་ཆུབ་རིམ་པར་སངས་རྒྱས་མ་ཆགས་བརྙེས། །",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 40,
+     "text": "མགོན་པོ་དེ་དག་བདག་གིས་ཐམས་ཅད་ལ། །",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 41,
+     "text": "འཁོར་ལོ་བླ་ན་མེད་པར་བསྐོར་བར་བསྐུལ། །",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 42,
+     "text": "མྱ་ངན་འདའ་སྟོན་གང་བཞེད་དེ་དག་ལ། །",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 43,
+     "text": "འགྲོ་བ་ཀུན་ལ་ཕན་ཞིང་བདེ་བའི་ཕྱིར། །",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 44,
+     "text": "བསྐལ་པ་ཞིང་གི་རྡུལ་སྙེད་བཞུགས་པར་ཡང་། །",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 45,
+     "text": "བདག་གིས་ཐལ་མོ་རབ་སྦྱར་གསོལ་བར་བགྱི། །",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 46,
+     "text": "ཕྱག་འཚལ་བ་དང་མཆོད་ཅིང་བཤགས་པ་དང་། །",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 47,
+     "text": "རྗེས་སུ་ཡི་རང་བསྐུལ་ཞིང་གསོལ་བ་ཡི། །",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 48,
+     "text": "དགེ་བ་ཅུང་ཟད་བདག་གིས་ཅི་བསགས་པ། །",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 49,
+     "text": "ཐམས་ཅད་བདག་གིས་བྱང་ཆུབ་ཕྱིར་བསྔོའོ། །",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 50,
+     "text": "འདས་པའི་སངས་རྒྱས་རྣམས་དང་ཕྱོགས་བཅུ་ཡི། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 51,
+     "text": "འཇིག་རྟེན་དག་ན་གང་བཞུགས་མཆོད་པར་གྱུར། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 52,
+     "text": "གང་ཡང་མ་བྱོན་དེ་དག་རབ་མྱུར་བར། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 53,
+     "text": "བསམ་རྫོགས་བྱང་ཆུབ་རིམ་པར་སངས་རྒྱས་སྤྱོན། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 54,
+     "text": "ཕྱོགས་བཅུ་ག་ལའི་ཞིང་རྣམས་ཇི་སྙེད་པ། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 55,
+     "text": "དེ་དག་རྒྱ་ཆེར་ཡོངས་སུ་དག་པར་གྱུར། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 56,
+     "text": "བྱང་ཆུབ་ཤིང་དབང་དྲུང་གཤེགས་རྒྱལ་བ་དང་། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 57,
+     "text": "སངས་རྒྱས་སྲས་ཀྱིས་རབ་ཏུ་གང་བར་ཤོག །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 58,
+     "text": "ཕྱོགས་བཅུའི་སེམས་ཅན་གང་རྣམས་ཇི་སྙེད་པ། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 59,
+     "text": "དེ་དག་རྟག་ཏུ་ནད་མེད་བདེ་བར་གྱུར། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 60,
+     "text": "འགྲོ་བ་ཀུན་གྱི་ཆོས་ཀྱི་དོན་རྣམས་ནི། །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 61,
+     "text": "མཐུན་པར་གྱུར་ཅིང་རེ་བའང་འགྲུབ་པར་ཤོག །",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 62,
+     "text": "བྱང་ཆུབ་སྤྱོད་པ་དག་ནི་བདག་སྤྱོད་ཅིང་། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 63,
+     "text": "འགྲོ་བ་ཀུན་ཏུ་སྐྱེ་བ་དྲན་པར་གྱུར། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 64,
+     "text": "ཚེ་རབས་ཀུན་ཏུ་འཆི་འཕོ་སྐྱེ་བ་ན། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 65,
+     "text": "རྟག་ཏུ་བདག་ནི་རབ་ཏུ་འབྱུང་བར་ཤོག །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 66,
+     "text": "རྒྱལ་བ་ཀུན་གྱི་རྗེས་སུ་སློབ་གྱུར་ཏེ། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 67,
+     "text": "བཟང་པོ་སྤྱོད་པ་ཡོངས་སུ་རྫོགས་བྱེད་ཅིང་། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 68,
+     "text": "ཚུལ་ཁྲིམས་སྤྱོད་པ་དྲི་མེད་ཡོངས་དག་པ། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 69,
+     "text": "རྟག་ཏུ་མ་ཉམས་སྐྱོན་མེད་སྤྱོད་པར་ཤོག །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 70,
+     "text": "ལྷ་ཡི་སྐད་དང་ཀླུ་དང་གནོད་སྦྱིན་སྐད། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 71,
+     "text": "གྲུལ་བུམ་དག་དང་མི་ཡི་སྐད་རྣམས་དང་། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 72,
+     "text": "འགྲོ་བ་ཀུན་གྱི་སྒྲ་རྣམས་ཇི་ཙམ་པར། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 73,
+     "text": "ཐམས་ཅད་སྐད་དུ་བདག་གིས་ཆོས་བསྟན་ཏོ། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 74,
+     "text": "དེས་ཤིང་ཕ་རོལ་ཕྱིན་ལ་རབ་བརྩོན་ཏེ། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 75,
+     "text": "བྱང་ཆུབ་སེམས་ནི་ནམ་ཡང་བརྗེད་མ་གྱུར། །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 76,
+     "text": "སྡིག་པ་གང་རྣམས་སྒྲིབ་པར་གྱུར་པ་དག །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 77,
+     "text": "དེ་དག་མ་ལུས་ཡོངས་སུ་བྱང་བར་ཤོག །",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 78,
+     "text": "ལས་དང་ཉོན་མོངས་བདུད་ཀྱི་ལས་རྣམས་ལས། །",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 79,
+     "text": "གྲོལ་ཞིང་འཇིག་རྟེན་འགྲོ་བ་རྣམས་སུ་ཡང་། །",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 80,
+     "text": "ཇི་ལྟར་པདྨོ་ཆུས་མི་ཆགས་པ་བཞིན། །",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 81,
+     "text": "ཉི་ཟླ་ནམ་མཁར་ཐོགས་པ་མེད་ལྟར་སྤྱད། །",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 82,
+     "text": "ཞིང་གི་ཁྱོན་དང་ཕྱོགས་རྣམས་ཅི་ཙམ་པར། །",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 83,
+     "text": "ངན་སོང་སྡུག་བསྔལ་རབ་ཏུ་ཞི་བར་བྱེད། །",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 84,
+     "text": "བདེ་བ་དག་ལ་འགྲོ་བ་ཀུན་འགོད་ཅིང་། །",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 85,
+     "text": "འགྲོ་བ་ཐམས་ཅད་ལ་ནི་ཕན་པར་སྤྱད། །",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 86,
+     "text": "བྱང་ཆུབ་སྤྱོད་པ་ཡོངས་སུ་རྫོགས་བྱེད་ཅིང་། །",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 87,
+     "text": "སེམས་ཅན་དག་གི་སྤྱོད་དང་མཐུན་པར་འཇུག །",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 88,
+     "text": "བཟང་པོ་སྤྱོད་པ་དག་ནི་རབ་སྟོན་ཅིང་། །",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 89,
+     "text": "མ་འོངས་བསྐལ་པ་ཀུན་ཏུ་སྤྱོད་པར་གྱུར། །",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 90,
+     "text": "བདག་གི་སྤྱོད་དང་མཚུངས་པར་གང་སྤྱོད་པ། །",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 91,
+     "text": "དེ་དག་དང་ནི་རྟག་ཏུ་འགྲོགས་པར་ཤོག །",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 92,
+     "text": "ལུས་དང་ངག་རྣམས་དང་ནི་སེམས་ཀྱིས་ཀྱང་། །",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 93,
+     "text": "སྤྱོད་པ་དག་དང་སྨོན་ལམ་གཅིག་ཏུ་སྤྱད། །",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 94,
+     "text": "བདག་ལ་ཕན་པར་འདོད་པའི་གྲོགས་པོ་དག །",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 95,
+     "text": "བཟང་པོ་སྤྱོད་པ་རབ་ཏུ་སྟོན་པ་རྣམས། །",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 96,
+     "text": "དེ་དག་དང་ཡང་རྟག་ཏུ་ཕྲད་པར་ཤོག །",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 97,
+     "text": "དེ་དག་བདག་གིས་ནམ་ཡང་ཡིད་མི་དབྱུང་། །",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 98,
+     "text": "སངས་རྒྱས་སྲས་ཀྱིས་བསྐོར་བའི་མགོན་པོ་རྣམས། །",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 99,
+     "text": "མངོན་སུམ་རྟག་ཏུ་བདག་གིས་རྒྱལ་བ་བལྟ། །",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 100,
+     "text": "མ་འོངས་བསྐལ་པ་ཀུན་ཏུ་མི་སྐྱོ་བར། །",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 101,
+     "text": "དེ་དག་ལ་ཡང་མཆོད་པ་རྒྱ་ཆེར་བགྱི། །",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 102,
+     "text": "རྒྱལ་བ་རྣམས་ཀྱི་དམ་པའི་ཆོས་འཛིན་ཅིང་། །",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 103,
+     "text": "བྱང་ཆུབ་སྤྱོད་པ་ཀུན་ཏུ་སྣང་བར་བྱེད། །",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 104,
+     "text": "བཟང་པོ་སྤྱོད་པ་རྣམ་པར་སྦྱོང་བ་ཡང་། །",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 105,
+     "text": "མ་འོངས་བསྐལ་པ་ཀུན་ཏུ་སྤྱད་པར་བགྱི། །",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 106,
+     "text": "སྲིད་པ་ཐམས་ཅད་དུ་ཡང་འཁོར་བ་ན། །",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 107,
+     "text": "བསོད་ནམས་ཡེ་ཤེས་དག་ནི་མི་ཟད་བརྙེས། །",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 108,
+     "text": "ཐབས་དང་ཤེས་རབ་ཏིང་འཛིན་རྣམ་ཐར་དང་། །",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 109,
+     "text": "ཡོན་ཏན་ཀུན་གྱི་མི་ཟད་མཛོད་དུ་གྱུར། །",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 110,
+     "text": "རྡུལ་གཅིག་སྟེང་ན་རྡུལ་སྙེད་ཞིང་རྣམས་ཏེ། །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 111,
+     "text": "ཞིང་དེར་བསམ་གྱིས་མི་ཁྱབ་སངས་རྒྱས་རྣམས། །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 112,
+     "text": "སངས་རྒྱས་སྲས་ཀྱི་དབུས་ན་བཞུགས་པ་ལ། །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 113,
+     "text": "བྱང་ཆུབ་སྤྱད་པ་སྤྱོད་ཅིང་བལྟ་བར་བགྱི། །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 114,
+     "text": "དེ་ལྟར་མ་ལུས་ཐམས་ཅད་ཕྱོགས་སུ་ཡང་། །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 115,
+     "text": "སྐྲ་ཙམ་ཁྱོན་ལ་དུས་གསུམ་ཚད་སྙེད་ཀྱི། །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 116,
+     "text": "སངས་རྒྱས་རྒྱ་མཚོ་ཞིང་རྣམས་རྒྱ་མཚོ་དང་། །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 117,
+     "text": "བསྐལ་པ་རྒྱ་མཚོ་སྤྱོད་ཅིང་རབ་ཏུ་འཇུག །",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 118,
+     "text": "གསུང་གཅིག་ཡན་ལག་རྒྱ་མཚོའི་སྒྲ་སྐད་ཀྱིས། །",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 119,
+     "text": "རྒྱལ་བ་ཀུན་དབྱངས་ཡན་ལག་རྣམ་དག་པ། །",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 120,
+     "text": "འགྲོ་བ་ཀུན་གྱི་བསམ་པ་ཇི་བཞིན་དབྱངས། །",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 121,
+     "text": "སངས་རྒྱས་གསུང་ལ་རྟག་ཏུ་འཇུག་པར་བགྱི། །",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 122,
+     "text": "དུས་གསུམ་གཤེགས་པའི་རྒྱལ་བ་ཐམས་ཅད་དག །",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 123,
+     "text": "འཁོར་ལོའི་ཚུལ་རྣམས་རབ་ཏུ་བསྐོར་བ་ཡི། །",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 124,
+     "text": "དེ་དག་གི་ཡང་གསུང་དབྱངས་མི་ཟད་ལ། །",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 125,
+     "text": "བློ་ཡི་སྟོབས་ཀྱིས་བདག་ཀྱང་རབ་ཏུ་འཇུག །",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 126,
+     "text": "མ་འོངས་བསྐལ་པ་ཐམས་ཅད་འཇུག་པར་ཡང་། །",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 127,
+     "text": "སྐད་ཅིག་གཅིག་གིས་བདག་ཀྱང་འཇུག་པར་བགྱི། །",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 128,
+     "text": "གང་ཡང་བསྐལ་པ་དུས་གསུམ་ཚད་དེ་དག །",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 129,
+     "text": "སྐད་ཅིག་ཆ་ཤས་ཀྱིས་ནི་ཞུགས་པར་སྤྱད། །",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 130,
+     "text": "དུས་གསུམ་གཤེགས་པ་མི་ཡི་སེང་གེ་གང་། །",
+     "section": "e) Seeing All the Buddhas in One Instant"
+    },
+    {
+     "n": 131,
+     "text": "དེ་དག་སྐད་ཅིག་གཅིག་ལ་བདག་གིས་བལྟ། །",
+     "section": "e) Seeing All the Buddhas in One Instant"
+    },
+    {
+     "n": 132,
+     "text": "རྟག་ཏུ་དེ་དག་གི་ནི་སྤྱོད་ཡུལ་ལ། །",
+     "section": "f) Entering the Sphere of Activity of the Buddhas"
+    },
+    {
+     "n": 133,
+     "text": "སྒྱུ་མར་གྱུར་པའི་རྣམ་ཐར་སྟོབས་ཀྱིས་འཇུག །",
+     "section": "f) Entering the Sphere of Activity of the Buddhas"
+    },
+    {
+     "n": 134,
+     "text": "གང་ཡང་དུས་གསུམ་དག་གི་ཞིང་བཀོད་པ། །",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 135,
+     "text": "དེ་དག་རྡུལ་གཅིག་སྟེང་དུ་མངོན་པར་བསྒྲུབ། །",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 136,
+     "text": "དེ་ལྟར་མ་ལུས་ཕྱོགས་རྣམས་ཐམས་ཅད་དུ། །",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 137,
+     "text": "རྒྱལ་བ་དག་གི་ཞིང་རྣམས་བཀོད་ལ་འཇུག །",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 138,
+     "text": "གང་ཡང་མ་བྱོན་འཇིག་རྟེན་སྒྲོན་མ་རྣམས། །",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 139,
+     "text": "དེ་དག་རིམ་པར་འཚང་རྒྱ་འཁོར་ལོ་བསྐོར། །",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 140,
+     "text": "མྱ་ངན་འདས་པ་རབ་ཏུ་ཞི་མཐའ་སྟོན། །",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 141,
+     "text": "མགོན་པོ་ཀུན་གྱི་དྲུང་དུ་བདག་མཆི་འོ། །",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 142,
+     "text": "ཀུན་ཏུ་མྱུར་བའི་རྫུ་འཕྲུལ་སྟོབས་རྣམས་དང་། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 143,
+     "text": "ཀུན་ནས་སྒོ་ཡི་ཐེག་པའི་སྟོབས་དག་དང་། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 144,
+     "text": "ཀུན་ཏུ་ཡོན་ཏན་སྤྱོད་པའི་སྟོབས་རྣམས་དང་། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 145,
+     "text": "ཀུན་ཏུ་ཁྱབ་པ་བྱམས་པ་དག་གི་སྟོབས། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 146,
+     "text": "ཀུན་ནས་དགེ་བའི་བསོད་ནམས་སྟོབས་དག་དང་། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 147,
+     "text": "ཆགས་པ་མེད་པར་གྱུར་པའི་ཡེ་ཤེས་སྟོབས། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 148,
+     "text": "ཤེས་རབ་ཐབས་དང་ཏིང་འཛིན་སྟོབས་དག་གིས། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 149,
+     "text": "བྱང་ཆུབ་སྟོབས་རྣམས་ཡང་དག་སྒྲུབ་པར་བྱེད། །",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 150,
+     "text": "ལས་ཀྱི་སྟོབས་རྣམས་ཡོངས་སུ་དག་བྱེད་ཅིང་། །",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 151,
+     "text": "ཉོན་མོངས་སྟོབས་རྣམས་ཀུན་ཏུ་འཇོམས་པར་བྱེད། །",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 152,
+     "text": "བདུད་ཀྱི་སྟོབས་རྣམས་སྟོབས་མེད་རབ་བྱེད་ཅིང་། །",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 153,
+     "text": "བཟང་པོ་སྤྱོད་པའི་སྟོབས་ནི་རྫོགས་པར་བགྱི། །",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 154,
+     "text": "ཞིང་རྣམས་རྒྱ་མཚོ་རྣམ་པར་དག་བྱེད་ཅིང་། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 155,
+     "text": "སེམས་ཅན་རྒྱ་མཚོ་དག་ནི་རྣམ་པར་སྒྲོལ། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 156,
+     "text": "ཆོས་རྣམས་རྒྱ་མཚོ་རབ་ཏུ་མཐོང་བྱེད་ཅིང་། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 157,
+     "text": "ཡེ་ཤེས་རྒྱ་མཚོ་རབ་ཏུ་རྟོགས་པར་བྱེད། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 158,
+     "text": "སྤྱོད་པ་རྒྱ་མཚོ་རྣམ་པར་དག་བྱེད་ཅིང་། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 159,
+     "text": "སྨོན་ལམ་རྒྱ་མཚོ་ཡོངས་སུ་རྫོགས་པར་བྱེད། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 160,
+     "text": "སངས་རྒྱས་རྒྱ་མཚོ་རབ་ཏུ་མཆོད་བྱེད་ཅིང་། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 161,
+     "text": "བསྐལ་པ་རྒྱ་མཚོ་མི་སྐྱོ་སྤྱད་པར་བགྱི། །",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 162,
+     "text": "གང་ཡང་དུས་གསུམ་གཤེགས་པའི་རྒྱལ་བ་ཡི། །",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 163,
+     "text": "བྱང་ཆུབ་སྤྱོད་པའི་སྨོན་ལམ་བྱེ་བྲག་རྣམས། །",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 164,
+     "text": "བཟང་པོ་སྤྱོད་པས་བྱང་ཆུབ་སངས་རྒྱས་ནས། །",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 165,
+     "text": "དེ་ཀུན་བདག་གིས་མ་ལུས་རྫོགས་པར་བགྱི། །",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 166,
+     "text": "རྒྱལ་བ་ཀུན་གྱི་སྲས་ཀྱི་ཐུ་བོ་པ། །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 167,
+     "text": "གང་གི་མིང་ནི་ཀུན་ཏུ་བཟང་ཞེས་བྱ། །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 168,
+     "text": "མཁས་པ་དེ་དང་མཚུངས་པར་སྤྱད་པའི་ཕྱིར། །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 169,
+     "text": "དགེ་བ་འདི་དག་ཐམས་ཅད་རབ་ཏུ་བསྔོ། །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 170,
+     "text": "ལུས་དང་ངག་དང་ཡིད་ཀྱང་རྣམ་དག་ཅིང་། །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 171,
+     "text": "སྤྱོད་པ་རྣམ་དག་ཞིང་རྣམས་ཡོངས་དག་པ། །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 172,
+     "text": "བསྔོ་བ་བཟང་པོ་མཁས་པ་ཅི་འདྲ་བ། །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 173,
+     "text": "དེ་འདྲར་བདག་ཀྱང་དེ་དང་མཚུངས་པར་ཤོག །",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 174,
+     "text": "ཀུན་ནས་དགེ་བ་བཟང་པོ་སྤྱད་པའི་ཕྱིར། །",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 175,
+     "text": "འཇམ་དཔལ་གྱི་ནི་སྨོན་ལམ་སྤྱད་པར་བགྱི། །",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 176,
+     "text": "མ་འོངས་བསྐལ་པ་ཀུན་ཏུ་མི་སྐྱོ་བར། །",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 177,
+     "text": "དེ་ཡི་བྱ་བ་མ་ལུས་རྫོགས་པར་བགྱི། །",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 178,
+     "text": "སྤྱོད་པ་དག་ནི་ཚད་ཡོད་མ་གྱུར་ཅིག །",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 179,
+     "text": "ཡོན་ཏན་རྣམས་ཀྱང་ཚད་བཟུང་མེད་པར་ཤོག །",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 180,
+     "text": "སྤྱོད་པ་ཚད་མེད་པ་ལ་གནས་ནས་ཀྱང་། །",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 181,
+     "text": "དེ་དག་འཕྲུལ་པ་ཐམས་ཅད་འཚལ་བར་བགྱི། །",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 182,
+     "text": "ནམ་མཁའི་མཐར་ཐུག་གྱུར་པ་ཇི་ཙམ་པར། །",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 183,
+     "text": "སེམས་ཅན་མ་ལུས་མཐའ་ཡང་དེ་བཞིན་ཏེ། །",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 184,
+     "text": "ཇི་ཙམ་ལས་དང་ཉོན་མོངས་མཐར་གྱུར་པ། །",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 185,
+     "text": "བདག་གི་སྨོན་ལམ་མཐའ་ཡང་དེ་ཙམ་མོ། །",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 186,
+     "text": "གང་ཡང་ཕྱོགས་བཅུའི་ཞིང་རྣམས་མཐའ་ཡས་པ། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 187,
+     "text": "རིན་ཆེན་བརྒྱན་ཏེ་རྒྱལ་བ་རྣམས་ལ་ཕུལ། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 188,
+     "text": "ལྷ་དང་མི་ཡི་བདེ་བའི་མཆོག་རྣམས་ཀྱང་། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 189,
+     "text": "ཞིང་གི་རྡུལ་སྙེད་བསྐལ་པར་ཕུལ་བ་བས། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 190,
+     "text": "གང་གིས་བསྔོ་བའི་རྒྱལ་པོ་འདི་ཐོས་ནས། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 191,
+     "text": "བྱང་ཆུབ་མཆོག་གི་རྗེས་སུ་རབ་མོས་ཤིང་། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 192,
+     "text": "ལན་གཅིག་ཙམ་ཡང་དད་པ་བསྐྱེད་པ་ན། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 193,
+     "text": "བསོད་ནམས་དམ་པའི་མཆོག་ཏུ་འདི་འགྱུར་རོ། །",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 194,
+     "text": "གང་གིས་བཟང་སྤྱོད་སྨོན་ལམ་འདི་བཏབ་པས། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 195,
+     "text": "དེས་ནི་ངན་སོང་ཐམས་ཅད་སྤོང་བར་འགྱུར། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 196,
+     "text": "དེས་ནི་གྲོགས་པོ་ངན་པ་སྤངས་བ་ཡིན། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 197,
+     "text": "སྣང་བ་མཐའ་ཡས་དེ་ཡང་དེས་མྱུར་མཐོང་། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 198,
+     "text": "དེ་དག་རྙེད་པ་རབ་རྙེད་བདེ་བར་འཚོ། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 199,
+     "text": "མི་ཚེ་འདིར་ཡང་དེ་དག་ལེགས་པར་འོང་། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 200,
+     "text": "ཀུན་ཏུ་བཟང་པོ་དེ་ཡང་ཅི་འདྲ་བར། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 201,
+     "text": "དེ་དག་རིང་པོར་མི་ཐོགས་དེ་བཞིན་འགྱུར། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 202,
+     "text": "མཚམས་མེད་ལྔ་པོ་དག་གི་སྡིག་པ་རྣམས། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 203,
+     "text": "གང་གིས་མི་ཤེས་དབང་གིས་བྱས་པ་དག །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 204,
+     "text": "དེ་ཡིས་བཟང་པོ་སྤྱོད་པ་འདི་བརྗོད་ན། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 205,
+     "text": "མྱུར་དུ་མ་ལུས་ཡོངས་སུ་བྱང་བར་འགྱུར། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 206,
+     "text": "ཡེ་ཤེས་དང་ནི་གཟུགས་དང་མཚན་རྣམས་དང་། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 207,
+     "text": "རིགས་དང་ཁ་དོག་རྣམས་དང་ལྡན་པར་འགྱུར། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 208,
+     "text": "བདུད་དང་མུ་སྟེགས་མང་པོས་དེ་མི་ཐུབ། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 209,
+     "text": "འཇིག་རྟེན་གསུམ་པོ་ཀུན་ནའང་མཆོད་པར་འགྱུར། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 210,
+     "text": "བྱང་ཆུབ་ཤིང་དབང་དྲུང་དུ་དེ་མྱུར་འགྲོ། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 211,
+     "text": "སོང་ནས་སེམས་ཅན་ཕན་ཕྱིར་དེར་འདུག་སྟེ། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 212,
+     "text": "བྱང་ཆུབ་སངས་རྒྱས་འཁོར་ལོ་རབ་ཏུ་བསྐོར། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 213,
+     "text": "བདུད་རྣམས་སྡེ་དང་བཅས་པ་ཐམས་ཅད་བཏུལ། །",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 214,
+     "text": "གང་ཡང་བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་འདི། །",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 215,
+     "text": "འཆང་བ་དང་ནི་སྟོན་ཏམ་ཀློག་ན་ཡང་། །",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 216,
+     "text": "དེ་ཡི་རྣམ་པར་སྨིན་པའང་སངས་རྒྱས་མཁྱེན། །",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 217,
+     "text": "བྱང་ཆུབ་མཆོག་ལ་སོམ་ཉི་མ་བྱེད་ཅིག །",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 218,
+     "text": "འཇམ་དཔལ་དཔའ་བོས་ཇི་ལྟར་མཁྱེན་པ་དང་། །",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 219,
+     "text": "ཀུན་ཏུ་བཟང་པོ་དེ་ཡང་དེ་བཞིན་ཏེ། །",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 220,
+     "text": "དེ་དག་ཀུན་གྱི་རྗེས་སུ་བདག་སློབ་ཕྱིར། །",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 221,
+     "text": "དགེ་བ་འདི་དག་ཐམས་ཅད་རབ་ཏུ་བསྔོ། །",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 222,
+     "text": "དུས་གསུམ་གཤེགས་པའི་རྒྱལ་བ་ཐམས་ཅད་ཀྱིས། །",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 223,
+     "text": "བསྔོ་བ་གང་ལ་མཆོག་ཏུ་བསྔགས་པ་དེས། །",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 224,
+     "text": "བདག་གི་དགེ་བའི་རྩ་བ་འདི་ཀུན་ཀྱང་། །",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 225,
+     "text": "བཟང་པོ་སྤྱོད་ཕྱིར་རབ་ཏུ་བསྔོ་བར་བགྱི། །",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 226,
+     "text": "བདག་ནི་འཆི་བའི་དུས་བྱེད་གྱུར་པ་ན། །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 227,
+     "text": "སྒྲིབ་པ་ཐམས་ཅད་དག་ནི་ཕྱིར་བསལ་ཏེ། །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 228,
+     "text": "མངོན་སུམ་སྣང་བ་མཐའ་ཡས་དེ་མཐོང་ནས། །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 229,
+     "text": "བདེ་བ་ཅན་གྱི་ཞིང་དེར་རབ་ཏུ་འགྲོ། །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 230,
+     "text": "དེར་སོང་ནས་ནི་སྨོན་ལམ་འདི་དག་ཀྱང་། །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 231,
+     "text": "ཐམས་ཅད་མ་ལུས་མངོན་དུ་འགྱུར་བར་ཤོག །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 232,
+     "text": "དེ་དག་མ་ལུས་བདག་གིས་ཡོངས་སུ་བཀང་། །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 233,
+     "text": "འཇིག་རྟེན་ཇི་སྲིད་སེམས་ཅན་ཕན་པར་བགྱི། །",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 234,
+     "text": "རྒྱལ་བའི་དཀྱིལ་འཁོར་བཟང་ཞིང་དགའ་བ་དེར། །",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 235,
+     "text": "པདྨོ་དམ་པ་ཤིན་ཏུ་མཛེས་ལས་སྐྱེས། །",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 236,
+     "text": "སྣང་བ་མཐའ་ཡས་རྒྱལ་བས་མངོན་སུམ་དུ། །",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 237,
+     "text": "ལུང་བསྟན་པ་ཡང་བདག་གིས་དེར་ཐོབ་ཤོག །",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 238,
+     "text": "དེར་ནི་བདག་གིས་ལུང་བསྟན་རབ་ཐོབ་ནས། །",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 239,
+     "text": "སྤྲུལ་པ་མང་པོ་བྱེ་བ་ཕྲག་བརྒྱ་ཡིས། །",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 240,
+     "text": "བློ་ཡི་སྟོབས་ཀྱིས་ཕྱོགས་བཅུ་རྣམས་སུ་ཡང་། །",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 241,
+     "text": "སེམས་ཅན་རྣམས་ལ་ཕན་པ་མང་པོ་བགྱི། །",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 242,
+     "text": "བཟང་པོ་སྤྱོད་པའི་སྨོན་ལམ་བཏབ་པ་ཡི། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 243,
+     "text": "དགེ་བ་ཅུང་ཟད་བདག་གིས་ཅི་བསགས་པ། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 244,
+     "text": "དེས་ནི་འགྲོ་བའི་སྨོན་ལམ་དགེ་བ་རྣམས། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 245,
+     "text": "སྐད་ཅིག་གཅིག་གིས་ཐམས་ཅད་འབྱོར་བར་ཤོག །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 246,
+     "text": "གང་ཡང་བཟང་པོ་སྤྱོད་པ་འདི་བསྔོས་པས། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 247,
+     "text": "བསོད་ནམས་མཐའ་ཡས་དམ་པ་གང་ཐོབ་དེས། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 248,
+     "text": "འགྲོ་བ་སྡུག་བསྔལ་ཆུ་བོར་བྱིང་བ་རྣམས། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 249,
+     "text": "འོད་དཔག་མེད་པའི་གནས་རབ་འཐོབ་པར་ཤོག །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 250,
+     "text": "སྨོན་ལམ་རྒྱལ་པོ་འདི་དག་མཆོག་གི་གཙོ། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 251,
+     "text": "མཐའ་ཡས་འགྲོ་བ་ཀུན་ལ་ཕན་བྱེད་ཅིང་། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 252,
+     "text": "ཀུན་ཏུ་བཟང་པོས་བརྒྱན་པའི་གཞུང་གྲུབ་སྟེ། །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 253,
+     "text": "ངན་སོང་གནས་རྣམས་མ་ལུས་སྟོངས་པར་ཤོག །",
+     "section": "Conclusion"
+    },
+    {
+     "n": 254,
+     "text": "སངས་རྒྱས་སྐུ་གསུམ་བརྙེས་པའི་བྱིན་རླབས་དང་། །",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 255,
+     "text": "ཆོས་ཉིད་མི་འགྱུར་བདེན་པའི་བྱིན་རླབས་དང་། །",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 256,
+     "text": "དགེ་འདུན་མི་ཕྱེད་འདུན་པའི་བྱིན་རླབས་ཀྱིས། །",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 257,
+     "text": "ཇི་ལྟར་བསྔོས་བཞིན་སྨོན་ལམ་འགྲུབ་པར་ཤོག །",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 258,
+     "text": "ཏདྱ་ཐཱ། པཉྩནྡྲི་ཡ་ཨ་ཝ་བོ་དྷ་ན་ཡེ་སྭཱ་ཧཱ། །",
+     "section": "Words of Truth to Accomplish Aspirations"
+    }
+   ]
+  },
+  {
+   "key": "bo-chant",
+   "lang": "bo",
+   "variant": "chant",
+   "translator": "Lotsawa House",
+   "sourceName": "Lotsawa House - The King of Aspiration Prayers: Samantabhadra’s Aspiration to Good Actions",
+   "sourceUrl": "https://www.lotsawahouse.org/words-of-the-buddha/samantabhadra-aspiration-good-actions",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Latin-script phonetic rendering of the Tibetan pronunciation, as given on the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "jampal zhönnur gyurpa la chaktsal lo",
+     "section": "The Translators’ Homage"
+    },
+    {
+     "n": 2,
+     "text": "jinyé su dak chok chü jikten na",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 3,
+     "text": "dü sum shekpa mi yi sengé kün",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 4,
+     "text": "dak gi malü dedak tamché la",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 5,
+     "text": "lü dang ngak yi dangwé chak gyi o",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 6,
+     "text": "zangpo chöpé mönlam tob dak gi",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 7,
+     "text": "gyalwa tamché yi kyi ngönsum du",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 8,
+     "text": "zhing gi dul nyé lü rab tüpa yi",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 9,
+     "text": "gyalwa kün la rabtu chaktsal lo",
+     "section": "1. Prostration"
+    },
+    {
+     "n": 10,
+     "text": "dul chik teng na dul nyé sangye nam",
+     "section": "2. Offering"
+    },
+    {
+     "n": 11,
+     "text": "sangye sé kyi ü na zhukpa dak",
+     "section": "2. Offering"
+    },
+    {
+     "n": 12,
+     "text": "detar chö kyi ying nam malüpa",
+     "section": "2. Offering"
+    },
+    {
+     "n": 13,
+     "text": "tamché gyalwa dak gi gangwar mö",
+     "section": "2. Offering"
+    },
+    {
+     "n": 14,
+     "text": "dedak ngakpa mizé gyatso nam",
+     "section": "2. Offering"
+    },
+    {
+     "n": 15,
+     "text": "yang kyi yenlak gyatsö dra kün gyi",
+     "section": "2. Offering"
+    },
+    {
+     "n": 16,
+     "text": "gyalwa kün gyi yönten rab jö ching",
+     "section": "2. Offering"
+    },
+    {
+     "n": 17,
+     "text": "dewar shekpa tamché dak gi tö",
+     "section": "2. Offering"
+    },
+    {
+     "n": 18,
+     "text": "metok dampa trengwa dampa dang",
+     "section": "2. Offering"
+    },
+    {
+     "n": 19,
+     "text": "silnyen nam dang jukpa duk chok dang",
+     "section": "2. Offering"
+    },
+    {
+     "n": 20,
+     "text": "marmé chok dang dukpö dampa yi",
+     "section": "2. Offering"
+    },
+    {
+     "n": 21,
+     "text": "gyalwa dedak la ni chöpar gyi",
+     "section": "2. Offering"
+    },
+    {
+     "n": 22,
+     "text": "naza dampa nam dang dri chok dang",
+     "section": "2. Offering"
+    },
+    {
+     "n": 23,
+     "text": "chema purma rirab nyampa dang",
+     "section": "2. Offering"
+    },
+    {
+     "n": 24,
+     "text": "köpa khyepar pakpé chok kün gyi",
+     "section": "2. Offering"
+    },
+    {
+     "n": 25,
+     "text": "gyalwa dedak la ni chöpar gyi",
+     "section": "2. Offering"
+    },
+    {
+     "n": 26,
+     "text": "chöpa gang nam lamé gya chewa",
+     "section": "2. Offering"
+    },
+    {
+     "n": 27,
+     "text": "dedak gyalwa tamché la yang mö",
+     "section": "2. Offering"
+    },
+    {
+     "n": 28,
+     "text": "zangpo chö la depé tob dak gi",
+     "section": "2. Offering"
+    },
+    {
+     "n": 29,
+     "text": "gyalwa kün la chaktsal chöpar gyi",
+     "section": "2. Offering"
+    },
+    {
+     "n": 30,
+     "text": "döchak zhedang timuk wang gi ni",
+     "section": "3. Confession"
+    },
+    {
+     "n": 31,
+     "text": "lü dang ngak dang dezhin yi kyi kyang",
+     "section": "3. Confession"
+    },
+    {
+     "n": 32,
+     "text": "dikpa dak gi gyipa chi chipa",
+     "section": "3. Confession"
+    },
+    {
+     "n": 33,
+     "text": "dedak tamché dak gi sosor shak",
+     "section": "3. Confession"
+    },
+    {
+     "n": 34,
+     "text": "chok chü gyalwa kün dang sangye sé",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 35,
+     "text": "ranggyal nam dang lob dang mi lob dang",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 36,
+     "text": "drowa kün gyi sönam gangla yang",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 37,
+     "text": "dedak kün gyi jesu dak yi rang",
+     "section": "4. Rejoicing"
+    },
+    {
+     "n": 38,
+     "text": "gang nam chok chü jikten drönma nam",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 39,
+     "text": "changchub rimpar sangye machak nyé",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 40,
+     "text": "gönpo dedak dak gi tamché la",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 41,
+     "text": "khorlo lanamepar korwar kul",
+     "section": "5. Imploring the Buddhas to Turn the Wheel of Dharma"
+    },
+    {
+     "n": 42,
+     "text": "nya ngen da tön gang zhé dedak la",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 43,
+     "text": "drowa kün la pen zhing dewé chir",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 44,
+     "text": "kalpa zhing gi dul nyé zhukpar yang",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 45,
+     "text": "dak gi talmo rab jar solwar gyi",
+     "section": "6. Requesting the Buddhas Not to Enter Nirvāṇa"
+    },
+    {
+     "n": 46,
+     "text": "chaktsalwa dang chö ching shakpa dang",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 47,
+     "text": "jesu yi rang kul zhing solwa yi",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 48,
+     "text": "gewa chungzé dak gi chi sakpa",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 49,
+     "text": "tamché dak gi changchub chir ngo o",
+     "section": "7. Dedication"
+    },
+    {
+     "n": 50,
+     "text": "depé sangye nam dang chok chu yi",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 51,
+     "text": "jikten dak na gang zhuk chöpar gyur",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 52,
+     "text": "gangyang majön dedak rab nyurwar",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 53,
+     "text": "sam dzok changchub rimpar sangye chön",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 54,
+     "text": "chok chu galé zhing nam jinyepa",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 55,
+     "text": "dedak gyacher yongsu dakpar gyur",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 56,
+     "text": "changchub shingwang drung shek gyalwa dang",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 57,
+     "text": "sangye sé kyi rabtu gangwar shok",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 58,
+     "text": "chok chü semchen gang nam jinyé pa",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 59,
+     "text": "dedak taktu nemé dewar gyur",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 60,
+     "text": "drowa kün gyi chö kyi dön nam ni",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 61,
+     "text": "tünpar gyur ching rewa ang drubpar shok",
+     "section": "1. Aspiration for Purity of Attitude"
+    },
+    {
+     "n": 62,
+     "text": "changchub chöpa dak ni dak chö ching",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 63,
+     "text": "drowa küntu kyewa drenpar gyur",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 64,
+     "text": "tserab küntu chipo kyewa na",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 65,
+     "text": "taktu dak ni rabtu jungwar shok",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 66,
+     "text": "gyalwa kün gyi jesu lob gyur té",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 67,
+     "text": "zangpo chöpa yongsu dzok jé ching",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 68,
+     "text": "tsultrim chöpa drimé yong dakpa",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 69,
+     "text": "taktu manyam kyönmé chöpar shok",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 70,
+     "text": "lha yi ké dang lu dang nöjin ké",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 71,
+     "text": "drulbum dak dang mi yi ké nam dang",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 72,
+     "text": "drowa kün gyi dra nam ji tsampar",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 73,
+     "text": "tamché ké du dak gi chö ten to",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 74,
+     "text": "dé shing parol chin la rab tsön té",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 75,
+     "text": "changchub sem ni namyang jé magyur",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 76,
+     "text": "dikpa gang nam dribpar gyurpa dak",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 77,
+     "text": "dedak malü yongsu jangwar shok",
+     "section": "2. Aspiration Never to Forget the Bodhicitta"
+    },
+    {
+     "n": 78,
+     "text": "lé dang nyönmong dü kyi lé nam lé",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 79,
+     "text": "drol zhing jikten drowa nam su yang",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 80,
+     "text": "jitar pemo chü michakpa zhin",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 81,
+     "text": "nyida namkhar tokpamé tar ché",
+     "section": "3. Aspiration to Be Free from Defilements"
+    },
+    {
+     "n": 82,
+     "text": "zhing gi khyön dang chok nam chi tsampar",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 83,
+     "text": "ngensong dukngal rabtu zhiwar jé",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 84,
+     "text": "dewa dak la drowa kün gö ching",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 85,
+     "text": "drowa tamché la ni penpar ché",
+     "section": "4. Aspiration to Lead Beings to Happiness"
+    },
+    {
+     "n": 86,
+     "text": "changchub chöpa yongsu dzokjé ching",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 87,
+     "text": "semchen dak gi chö dang tünpar juk",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 88,
+     "text": "zangpo chöpa dak ni rab tön ching",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 89,
+     "text": "ma ong kalpa küntu chöpar gyur",
+     "section": "5. Aspiration to Wear the Armour of Dedication"
+    },
+    {
+     "n": 90,
+     "text": "dak gi chö dang tsungpar gang chöpa",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 91,
+     "text": "dedak dang ni taktu drokpar shok",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 92,
+     "text": "lü dang ngak nam dang ni sem kyi kyang",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 93,
+     "text": "chöpa dak dang mönlam chik tu ché",
+     "section": "6. Aspiration to Accompany Other Bodhisattvas"
+    },
+    {
+     "n": 94,
+     "text": "dak la penpar döpé drokpo dak",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 95,
+     "text": "zangpo chöpa rabtu tönpa nam",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 96,
+     "text": "dedak dang yang taktu trepar shok",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 97,
+     "text": "dedak dak gi namyang yi miyung",
+     "section": "7. Aspiration to Have Virtuous Teachers and to Please Them"
+    },
+    {
+     "n": 98,
+     "text": "sangye sé kyi korwé gönpo nam",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 99,
+     "text": "ngönsum taktu dak gi gyalwa ta",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 100,
+     "text": "ma ong kalpa küntu mikyowar",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 101,
+     "text": "dedak la yang chöpa gyacher gyi",
+     "section": "8. Aspiration to See the Buddhas and Serve Them in Person"
+    },
+    {
+     "n": 102,
+     "text": "gyalwa nam kyi dampé chö dzin ching",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 103,
+     "text": "changchub chöpa küntu nangwar jé",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 104,
+     "text": "zangpo chöpa nampar jongwa yang",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 105,
+     "text": "ma ong kalpa küntu chepar gyi",
+     "section": "9. Aspiration to Keep the Dharma Thriving"
+    },
+    {
+     "n": 106,
+     "text": "sipa tamché du yang khorwa na",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 107,
+     "text": "sönam yeshe dak ni mizé nyé",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 108,
+     "text": "tab dang sherab tingdzin namtar dang",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 109,
+     "text": "yönten kün gyi mizé dzö du gyur",
+     "section": "10. Aspiration to Acquire Inexhaustible Treasure"
+    },
+    {
+     "n": 110,
+     "text": "dul chik teng na dul nyé zhing nam té",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 111,
+     "text": "zhing der sam gyi mikhyab sangye nam",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 112,
+     "text": "sangye sé kyi ü na zhukpa la",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 113,
+     "text": "changchub chepa chö ching tawar gyi",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 114,
+     "text": "detar malü tamché chok su yang",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 115,
+     "text": "tra tsam khyön la dü sum tsé nyé kyi",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 116,
+     "text": "sangye gyatso zhing nam gyatso dang",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 117,
+     "text": "kalpa gyatso chö ching rabtu juk",
+     "section": "a) Seeing the Buddhas and Their Pure Realms"
+    },
+    {
+     "n": 118,
+     "text": "sung chik yenlak gyatsö draké kyi",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 119,
+     "text": "gyalwa kün yang yenlak namdakpa",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 120,
+     "text": "drowa kün gyi sampa jizhin yang",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 121,
+     "text": "sangye sung la taktu jukpar gyi",
+     "section": "b) Listening to the Speech of the Buddhas"
+    },
+    {
+     "n": 122,
+     "text": "dü sum shekpé gyalwa tamché dak",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 123,
+     "text": "khorlö tsul nam rabtu korwa yi",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 124,
+     "text": "dedak gi yang sung yang mizé la",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 125,
+     "text": "lo yi tob kyi dak kyang rabtu juk",
+     "section": "c) Hearing the Turning of the Wheels of Dharma"
+    },
+    {
+     "n": 126,
+     "text": "ma ong kalpa tamché jukpar yang",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 127,
+     "text": "kechik chik gi dak kyang jukpar gyi",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 128,
+     "text": "gangyang kalpa dü sum tsé dedak",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 129,
+     "text": "kechik chashé kyi ni zhukpar ché",
+     "section": "d) Entering into All the Aeons"
+    },
+    {
+     "n": 130,
+     "text": "dü sum shekpa mi yi sengé gang",
+     "section": "e) Seeing All the Buddhas in One Instant"
+    },
+    {
+     "n": 131,
+     "text": "dedak kechik chik la dak gi ta",
+     "section": "e) Seeing All the Buddhas in One Instant"
+    },
+    {
+     "n": 132,
+     "text": "taktu dedak gi ni chöyul la",
+     "section": "f) Entering the Sphere of Activity of the Buddhas"
+    },
+    {
+     "n": 133,
+     "text": "gyumar gyurpé namtar tob kyi juk",
+     "section": "f) Entering the Sphere of Activity of the Buddhas"
+    },
+    {
+     "n": 134,
+     "text": "gangyang dü sum dak gi zhing köpa",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 135,
+     "text": "dedak dul chik tengdu ngönpar drub",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 136,
+     "text": "detar malü chok nam tamché du",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 137,
+     "text": "gyalwa dak gi zhing nam kö la juk",
+     "section": "g) Accomplishing and Entering the Pure Lands"
+    },
+    {
+     "n": 138,
+     "text": "gangyang majön jikten drönma nam",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 139,
+     "text": "dedak rimpar tsang gya khorlo kor",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 140,
+     "text": "nya ngen depa rabtu zhi ta tön",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 141,
+     "text": "gönpo kün gyi drung du dak chi o",
+     "section": "h) Entering into the Presence of the Buddhas"
+    },
+    {
+     "n": 142,
+     "text": "küntu nyurwé dzutrul tob nam dang",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 143,
+     "text": "künné go yi tekpé tob dak dang",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 144,
+     "text": "küntu yönten chöpé tob nam dang",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 145,
+     "text": "küntu khyabpa jampa dak gi tob",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 146,
+     "text": "künné gewé sönam tob dak dang",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 147,
+     "text": "chakpa mepar gyurpé yeshe tob",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 148,
+     "text": "sherab tab dang tingdzin tob dak gi",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 149,
+     "text": "changchub tob nam yangdak drubpar jé",
+     "section": "12. Aspiration to the Power of Enlightenment through Nine Powers"
+    },
+    {
+     "n": 150,
+     "text": "lé kyi tob nam yongsu dakjé ching",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 151,
+     "text": "nyönmong tob nam küntu jompar jé",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 152,
+     "text": "dü kyi tob nam tobmé rabjé ching",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 153,
+     "text": "zangpo chöpé tob ni dzokpar gyi",
+     "section": "13. Aspiration to the Antidotes that Pacify the Obscurations"
+    },
+    {
+     "n": 154,
+     "text": "zhing nam gyatso nampar dakjé ching",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 155,
+     "text": "semchen gyatso dak ni nampar drol",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 156,
+     "text": "chö nam gyatso rabtu tongjé ching",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 157,
+     "text": "yeshe gyatso rabtu tokpar jé",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 158,
+     "text": "chöpa gyatso nampar dakjé ching",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 159,
+     "text": "mönlam gyatso yongsu dzokpar jé",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 160,
+     "text": "sangye gyatso rabtu chöjé ching",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 161,
+     "text": "kalpa gyatso mikyo chepar gyi",
+     "section": "14. Aspiration to Enlightened Activities"
+    },
+    {
+     "n": 162,
+     "text": "gangyang dü sum shekpé gyalwa yi",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 163,
+     "text": "changchub chöpé mönlam jedrak nam",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 164,
+     "text": "zangpo chöpé changchub sangye né",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 165,
+     "text": "dé kün dak gi malü dzokpar gyi",
+     "section": "a) To Emulate the Buddhas"
+    },
+    {
+     "n": 166,
+     "text": "gyalwa kün gyi sé kyi tuwopa",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 167,
+     "text": "gang gi ming ni kuntuzang zheja",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 168,
+     "text": "khepa dé dang tsungpar chepé chir",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 169,
+     "text": "gewa didak tamché rabtu ngo",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 170,
+     "text": "lü dang ngak dang yi kyang namdak ching",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 171,
+     "text": "chöpa namdak zhing nam yong dakpa",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 172,
+     "text": "ngowa zangpo khepa chindrawa",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 173,
+     "text": "dendrar dak kyang dé dang tsungpar shok",
+     "section": "b) To Emulate the Bodhisattvas: Samantabhadra"
+    },
+    {
+     "n": 174,
+     "text": "künné gewa zangpo chepé chir",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 175,
+     "text": "jampal gyi ni mönlam chepar gyi",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 176,
+     "text": "ma ong kalpa küntu mikyowar",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 177,
+     "text": "dé yi jawa malü dzokpar gyi",
+     "section": "c) Mañjuśrī"
+    },
+    {
+     "n": 178,
+     "text": "chöpa dak ni tsé yö magyur chik",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 179,
+     "text": "yönten nam kyang tsé zung mepar shok",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 180,
+     "text": "chöpa tsemepa la né né kyang",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 181,
+     "text": "dedak trulpa tamché tsalwar gyi",
+     "section": "16. Concluding Aspiration"
+    },
+    {
+     "n": 182,
+     "text": "namkhé tartuk gyurpa ji tsampar",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 183,
+     "text": "semchen malü ta yang dezhin té",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 184,
+     "text": "ji tsam lé dang nyönmong tar gyurpa",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 185,
+     "text": "dak gi mönlam ta yang detsam mo",
+     "section": "Extent of the Aspiration"
+    },
+    {
+     "n": 186,
+     "text": "gangyang chok chü zhing nam tayepa",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 187,
+     "text": "rinchen gyen té gyalwa nam la pul",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 188,
+     "text": "lha dang mi yi dewé chok nam kyang",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 189,
+     "text": "zhing gi dul nyé kalpar pulwa bé",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 190,
+     "text": "gang gi ngowé gyalpo di tö né",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 191,
+     "text": "changchub chok gi jesu rab mö shing",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 192,
+     "text": "len chik tsam yang depa kyepa na",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 193,
+     "text": "sönam dampé chok tu di gyur ro",
+     "section": "1. The Benefits of Making Aspirations in General"
+    },
+    {
+     "n": 194,
+     "text": "gang gi zangchö mönlam di tabpé",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 195,
+     "text": "dé ni ngensong tamché pongwar gyur",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 196,
+     "text": "dé ni drokpo ngenpa pangwa yin",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 197,
+     "text": "nangwa tayé deyang dé nyur tong",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 198,
+     "text": "dedak nyepa rab nyé dewar tso",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 199,
+     "text": "mitsé dir yang dedak lekpar ong",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 200,
+     "text": "kuntuzangpo deyang chindrawar",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 201,
+     "text": "dedak ringpor mitok dezhin gyur",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 202,
+     "text": "tsammé ngapo dak gi dikpa nam",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 203,
+     "text": "gang gi mishe wang gi jepa dak",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 204,
+     "text": "dé yi zangpo chöpa di jö na",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 205,
+     "text": "nyurdu malü yongsu jangwar gyur",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 206,
+     "text": "yeshe dang ni zuk dang tsen nam dang",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 207,
+     "text": "rik dang khadok nam dang denpar gyur",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 208,
+     "text": "dü dang mutek mangpö dé mitub",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 209,
+     "text": "jikten sumpo kün na ang chöpar gyur",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 210,
+     "text": "changchub shingwang drung du dé nyur dro",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 211,
+     "text": "song né semchen pen chir der duk té",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 212,
+     "text": "changchub sangye khorlo rabtu kor",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 213,
+     "text": "dü nam dé dang chepa tamché tul",
+     "section": "2. The Thirteen Benefits in Detail"
+    },
+    {
+     "n": 214,
+     "text": "gangyang zangpo chöpé mönlam di",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 215,
+     "text": "changwa dang ni tön tam lok na yang",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 216,
+     "text": "dé yi nampar minpa ang sangye khyen",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 217,
+     "text": "changchub chok la somnyi majé chik",
+     "section": "3. The Benefits in Brief"
+    },
+    {
+     "n": 218,
+     "text": "jampal pawö jitar khyenpa dang",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 219,
+     "text": "kuntuzangpo deyang dezhin té",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 220,
+     "text": "dedak kün gyi jesu dak lob chir",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 221,
+     "text": "gewa didak tamché rabtu ngo",
+     "section": "1. Dedication that Follows the Bodhisattvas"
+    },
+    {
+     "n": 222,
+     "text": "dü sum shekpé gyalwa tamché kyi",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 223,
+     "text": "ngowa gangla chok tu ngakpa dé",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 224,
+     "text": "dak gi gewé tsawa di kün kyang",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 225,
+     "text": "zangpo chö chir rabtu ngowar gyi",
+     "section": "2. Dedication that Follows the Buddhas"
+    },
+    {
+     "n": 226,
+     "text": "dak ni chiwé dü jé gyurpa na",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 227,
+     "text": "dribpa tamché dak ni chir sal té",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 228,
+     "text": "ngönsum nangwa tayé dé tong né",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 229,
+     "text": "dewachen gyi zhing der rabtu dro",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 230,
+     "text": "der song né ni mönlam didak kyang",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 231,
+     "text": "tamché malü ngön du gyurwar shok",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 232,
+     "text": "dedak malü dak gi yongsu kang",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 233,
+     "text": "jikten jisi semchen penpar gyi",
+     "section": "3. Dedication Towards Actualizing the Result"
+    },
+    {
+     "n": 234,
+     "text": "gyalwé kyilkhor zang zhing gawa der",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 235,
+     "text": "pemo dampa shintu dzé lé kyé",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 236,
+     "text": "nangwa tayé gyalwé ngönsum du",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 237,
+     "text": "lungtenpa yang dak gi der tob shok",
+     "section": "4. Dedication Towards Receiving a Prophecy from the Buddhas"
+    },
+    {
+     "n": 238,
+     "text": "der ni dak gi lungten rab tob né",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 239,
+     "text": "trulpa mangpo jewa trak gya yi",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 240,
+     "text": "lo yi tob kyi chok chu nam su yang",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 241,
+     "text": "semchen nam la penpa mangpo gyi",
+     "section": "5. Dedication Towards Serving Others"
+    },
+    {
+     "n": 242,
+     "text": "zangpo chöpé mönlam tabpa yi",
+     "section": "Conclusion"
+    },
+    {
+     "n": 243,
+     "text": "gewa chungzé dak gi chi sakpa",
+     "section": "Conclusion"
+    },
+    {
+     "n": 244,
+     "text": "dé ni drowé mönlam gewa nam",
+     "section": "Conclusion"
+    },
+    {
+     "n": 245,
+     "text": "kechik chik gi tamché jorwar shok",
+     "section": "Conclusion"
+    },
+    {
+     "n": 246,
+     "text": "gangyang zangpo chöpa di ngöpé",
+     "section": "Conclusion"
+    },
+    {
+     "n": 247,
+     "text": "sönam tayé dampa gang tob dé",
+     "section": "Conclusion"
+    },
+    {
+     "n": 248,
+     "text": "drowa dukngal chuwor jingwa nam",
+     "section": "Conclusion"
+    },
+    {
+     "n": 249,
+     "text": "öpakmepé né rab tobpar shok",
+     "section": "Conclusion"
+    },
+    {
+     "n": 250,
+     "text": "mönlam gyalpo didak chok gi tso",
+     "section": "Conclusion"
+    },
+    {
+     "n": 251,
+     "text": "tayé drowa kün la pen jé ching",
+     "section": "Conclusion"
+    },
+    {
+     "n": 252,
+     "text": "kuntuzangpö gyenpé zhung drub té",
+     "section": "Conclusion"
+    },
+    {
+     "n": 253,
+     "text": "ngensong né nam malü tongpar shok",
+     "section": "Conclusion"
+    },
+    {
+     "n": 254,
+     "text": "sangye ku sum nyepé jinlab dang",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 255,
+     "text": "chönyi mingyur denpé jinlab dang",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 256,
+     "text": "gendün miché dünpé jinlab kyi",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 257,
+     "text": "jitar ngö zhin mönlam drubpar shok",
+     "section": "Words of Truth to Accomplish Aspirations"
+    },
+    {
+     "n": 258,
+     "text": "teyatha pentsa indriya awabodhanaye soha",
+     "section": "Words of Truth to Accomplish Aspirations"
+    }
+   ]
+  }
+ ]
+}

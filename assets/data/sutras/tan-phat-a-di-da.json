@@ -1,0 +1,74 @@
+{
+ "id": "tan-phat-a-di-da",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Tán Phật",
+ "reference": "",
+ "summary": "Bài kệ tán thán Phật A Di Đà trong phần nhật tụng, tả thân sắc vàng, tướng tốt và hào quang trang nghiêm, trong hào quang hiện vô số Phật và Bồ tát. Bài nhắc đến bốn mươi tám đại nguyện độ chúng sinh và chín phẩm sen vàng nơi Cực Lạc, kết bằng danh hiệu Nam mô A Di Đà Phật. Thường dùng trong nghi lễ theo Tịnh độ.",
+ "titles": {
+  "vi": "Tán Phật A Di Đà (Phật A Di Đà thân kim sắc)",
+  "zh": "阿彌陀佛身金色",
+  "en": "Praise of Amitabha Buddha (Golden-bodied Amitabha)"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Tổng hợp (không ghi dịch giả)",
+   "sourceName": "Phatgiao.org.vn - \"Nghi thức niệm Phật hằng ngày\" (Tổng hợp) - mục \"3. Tán Phật\"",
+   "sourceUrl": "https://phatgiao.org.vn/nghi-thuc-niem-phat-hang-ngay-d37046.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Phật A Di Đà thân kim sắc"
+    },
+    {
+     "n": 2,
+     "text": "Tướng tốt quang minh tự trang nghiêm"
+    },
+    {
+     "n": 3,
+     "text": "Năm Tu Di uyển chuyển bạch hào"
+    },
+    {
+     "n": 4,
+     "text": "Bốn biển lớn trong ngần mắt biếc"
+    },
+    {
+     "n": 5,
+     "text": "Trong hào quang hóa vô số Phật"
+    },
+    {
+     "n": 6,
+     "text": "Vô số Bồ Tát hiện ở trong"
+    },
+    {
+     "n": 7,
+     "text": "Bốn mươi tám nguyện độ chúng sanh"
+    },
+    {
+     "n": 8,
+     "text": "Chín phẩm sen vàng lên giải thoát."
+    },
+    {
+     "n": 9,
+     "text": "Nam-mô Tây phương Cực lạc thế giới đại từ đại bi A Di Đà Phật."
+    }
+   ]
+  }
+ ]
+}

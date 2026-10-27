@@ -1,0 +1,5440 @@
+{
+ "id": "vien-giac",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Viên Giác",
+ "reference": "Taishō T0842",
+ "summary": "Kinh Đại thừa trình bày về tánh giác ngộ viên mãn sẵn có và cách tu tập để thấy rõ nó. Kinh mở ra khi Đức Thế Tôn nhập định cùng mười ngàn Đại sĩ; lần lượt các Bồ Tát đứng đầu là Văn Thù Sư Lợi và nhiều vị khác thưa hỏi, Đức Phật giải đáp về căn bản tu hành, vô minh, huyễn hóa, phương tiện quán chiếu. Kết kinh, đại chúng hoan hỷ tín thọ và phụng hành.",
+ "titles": {
+  "vi": "Kinh Viên Giác (Đại Phương Quảng Viên Giác Tu-đa-la Liễu Nghĩa)",
+  "zh": "大方廣圓覺修多羅了義經",
+  "en": "Sutra of Perfect Enlightenment"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "bodhisattva_manjushri",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "bodhisattva_samantabhadra",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "buddha_maitreya",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 210,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "không ghi tên dịch giả từng kinh (bộ Việt tạng do HT Thích Tịnh Hạnh tổ chức phiên dịch, Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản)",
+   "sourceName": "Linh Sơn Pháp Bảo Đại Tạng Kinh (Việt tạng) - Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản - Tập 69 (Bộ Kinh Tập 16), Số 842 Kinh Đại Phương Quảng Viên Giác Tu-đa-la Liễu Nghĩa, tr. 621-658 (Hán dịch: Phật-đà-đa-la, đời Đường)",
+   "sourceUrl": "https://www.daitangkinh.org/images/pdf/flip-dtk/T069%20uni-kinhtap16.pdf",
+   "license": "UNKNOWN",
+   "licenseNote": "các tập PDF trên daitangkinh.org không có tuyên bố bản quyền/giấy phép; lời nói đầu chỉ nói đây là bộ Việt tạng do Hội Văn hóa Giáo dục Linh Sơn Đài Bắc xuất bản",
+   "note": "Trích từ PDF bằng pdfminer; đã nối dòng ngắt trang, bỏ tiêu đề/số trang; văn bản nguồn không chia phẩm nên không có section. Giữ nguyên chính tả nguồn (vd \"theo theo\", \"có một cách không thật\").",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe như vầy:"
+    },
+    {
+     "n": 2,
+     "text": "Một thời, Đức Thế Tôn nhập vào chánh định tên là Kho tàng ánh sáng vĩ đại của thần thông."
+    },
+    {
+     "n": 3,
+     "text": "Kho tàng ấy là chỗ ở giữ một cách sáng chói tôn nghiêm của các Đức Thế Tôn, là tánh tuệ giác vốn rất trong suốt, sạch sẽ của các loại chúng sinh."
+    },
+    {
+     "n": 4,
+     "text": "Đức Thế Tôn nhập vào chánh định ấy nên thân tướng và tâm trí đều vắng lặng, đồng nhất với bản thể phổ biến của vũ trụ, nghĩa là thích ứng với sự bất nhị."
+    },
+    {
+     "n": 5,
+     "text": "Chính sự bất nhị này biểu hiện thế giới trong sạch."
+    },
+    {
+     "n": 6,
+     "text": "Đức Thế Tôn ở nơi thế giới trong sạch này và cùng ở có mười ngàn vị Đại sĩ mà các bậc đứng đầu là Bồ-tát Văn-thù-sư-lợi, Bồ-tát Phổ Hiền, Bồ-tát Phổ Nhãn, Bồ-tát Kim Cang Tạng,"
+    },
+    {
+     "n": 7,
+     "text": "Bồ-tát Di-lặc, Bồ-tát Thanh Tịnh Tuệ, Bồ-tát Uy Đức Tự Tại, Bồ-tát Biện Âm, Bồ-tát Tịnh Chư Nghiệp Chướng, Bồ-tát Phổ Giác, Bồ-tát Viên Giác, Bồ-tát Hiện Thiện Thủ;"
+    },
+    {
+     "n": 8,
+     "text": "các vị này và các vị tùy thuộc, cùng nhập vào chánh định, nên cùng dự pháp hội bình đẳng của Đức Thế Tôn."
+    },
+    {
+     "n": 9,
+     "text": "Lúc ấy, Bồ-tát Văn-thù-sư-lợi ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 10,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Con xin Thế Tôn vì các vị đến dự pháp hội này mà nói về việc làm căn bản sơ khởi của Đức Thế Tôn là thế nào?"
+    },
+    {
+     "n": 11,
+     "text": "Lại nói về các vị Bồ-tát ở trong Đại thừa phát tâm như thế nào mới trong suốt, tách rời bệnh hoạn?"
+    },
+    {
+     "n": 12,
+     "text": "Và thời kỳ cuối cùng, những người cầu pháp Đại thừa phải như thế nào mới khỏi sa vào kiến thức sai lầm?"
+    },
+    {
+     "n": 13,
+     "text": "Tác bạch rồi, Bồ-tát Văn-thù gieo xuống sát đất tất cả năm bộ phận của thân thể, kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 14,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 15,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Văn-thù-sư-lợi:"
+    },
+    {
+     "n": 16,
+     "text": "–Lành thay! Thiện nam!"
+    },
+    {
+     "n": 17,
+     "text": "Ông có thể vì các vị Bồ-tát mà hỏi đến việc căn bản sơ khởi của Như Lai, lại vì những người cầu pháp Đại thừa trong thời kỳ cuối cùng mà hỏi làm cách nào để được sự trú ở chính xác, không sa vào kiến thức sai lầm."
+    },
+    {
+     "n": 18,
+     "text": "Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 19,
+     "text": "Bồ-tát Văn-thù-sư-lợi vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 20,
+     "text": "Đức Thế Tôn nói:"
+    },
+    {
+     "n": 21,
+     "text": "–Thiện nam! Đức Pháp Vương Vô Thượng có pháp Đại tổng trì tên là Viên giác, tuôn ra tất cả các pháp trong sáng là Chân như, Bồ-đề, Niết-bàn và Ba-la-mật, để dạy cho các vị Bồ-tát."
+    },
+    {
+     "n": 22,
+     "text": "Việc làm căn bản sơ khởi của chư vị Như Lai là y theo viên giác, y theo theo tuệ giác trong suốt và chiếu soi trọn vẹn ấy mà diệt trừ vô minh một cách vĩnh viễn, mới thành đạt tuệ giác Phật-đà."
+    },
+    {
+     "n": 23,
+     "text": "Này thiện nam! Vô minh là gì? Là những điên đảo có từ vô thỉ đến giờ của các loại chúng sinh, những điên đảo tựa như một kẻ ngộ nhận thì bốn phương hướng biến đổi vị trí tất cả."
+    },
+    {
+     "n": 24,
+     "text": "Do đó mà ngộ nhận sự tổ hợp của bốn đại chủng làm tự thân, ngộ nhận sự nhận thức về sáu đối cảnh làm tự tâm, khác nào mắt bệnh thì thấy không gian có hoa đốm, hay thấy mặt trăng có mặt trăng thứ hai chồng lên."
+    },
+    {
+     "n": 25,
+     "text": "Nhưng không gian thật không có hoa đốm, hoa đốm chỉ do người bệnh ngộ nhận:"
+    },
+    {
+     "n": 26,
+     "text": "vì sự ngộ nhận sự thực của không gian, lại còn ngộ nhận cả xuất xứ chính xác của hoa đốm và vì như vậy mà có sự sinh tử luân hồi, có một cách không thật, nên gọi là vô minh."
+    },
+    {
+     "n": 27,
+     "text": "Này thiện nam! Vô minh như vậy là không phải có thật, y như nhân vật trong mộng, mộng thì thấy là có mà tỉnh thì biết là không."
+    },
+    {
+     "n": 28,
+     "text": "Không đây là như hoa đốm mất đi trong không gian, thì không thể nói không có cái vị trí biến mất, vì lẽ không gian vốn không có cái vị trí sinh ra."
+    },
+    {
+     "n": 29,
+     "text": "Trong sự không sinh không mất như vậy, các loại chúng sinh thấy lầm có sinh có mất, nên gọi là sinh tử luân hồi;"
+    },
+    {
+     "n": 30,
+     "text": "còn việc làm căn bản sơ khởi của chư vị Như Lai là tu theo Viên giác: Biết là hoa đốm thì biết sinh tử luân hồi là không, thân tâm lãnh chịu sự sinh tử luân hồi ấy cũng là không."
+    },
+    {
+     "n": 31,
+     "text": "Không, không phải làm cho không đi mới không, mà là thực chất vốn không."
+    },
+    {
+     "n": 32,
+     "text": "Biết là hoa đốm, cái biết ấy cũng là không; cái biết cũng là không như vậy cũng chỉ là sắc thái hoa đốm;"
+    },
+    {
+     "n": 33,
+     "text": "và như thế thì cũng không thể nói rằng không biết gì cả: Có và không đều loại bỏ thì gọi là thích hợp với tuệ giác trong sáng."
+    },
+    {
+     "n": 34,
+     "text": "Tuệ giác trong sáng là vì bản thể vốn như không gian, vĩnh viễn bất động, nghĩa là Như Lai tạng không có sự sinh ra và sự mất đi,"
+    },
+    {
+     "n": 35,
+     "text": "không có cái thấy biết phản ảnh sự sinh ra và sự mất đi, mà là bản thể của vũ trụ vốn tuyệt đối, trọn vẹn và phổ biến."
+    },
+    {
+     "n": 36,
+     "text": "Như thế đó là việc làm căn bản sơ khởi của Như Lai."
+    },
+    {
+     "n": 37,
+     "text": "Bồ-tát y theo căn bản ấy, ở trong Đại thừa phát tâm trong suốt."
+    },
+    {
+     "n": 38,
+     "text": "Và những người thời kỳ cuối cùng y cứ căn bản ấy mà tu hành thì không sa vào kiến thức sai lầm."
+    },
+    {
+     "n": 39,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói những lời kệ sau đây:"
+    },
+    {
+     "n": 40,
+     "text": "Văn-thù nên biết,"
+    },
+    {
+     "n": 41,
+     "text": "Tất cả Như Lai"
+    },
+    {
+     "n": 42,
+     "text": "Căn bản sơ khởi"
+    },
+    {
+     "n": 43,
+     "text": "Vận dụng tuệ giác:"
+    },
+    {
+     "n": 44,
+     "text": "Biết rằng vô minh"
+    },
+    {
+     "n": 45,
+     "text": "Chỉ như hoa đốm"
+    },
+    {
+     "n": 46,
+     "text": "Nên hết luân hồi,"
+    },
+    {
+     "n": 47,
+     "text": "Khác nào cảnh mộng"
+    },
+    {
+     "n": 48,
+     "text": "Mộng mị thấy có"
+    },
+    {
+     "n": 49,
+     "text": "Thức tỉnh toàn không."
+    },
+    {
+     "n": 50,
+     "text": "Cái biết trên đây"
+    },
+    {
+     "n": 51,
+     "text": "Vốn cũng là không,"
+    },
+    {
+     "n": 52,
+     "text": "Bình đẳng, bất động,"
+    },
+    {
+     "n": 53,
+     "text": "Phổ biến mười phương:"
+    },
+    {
+     "n": 54,
+     "text": "Ấy là thành đạt"
+    },
+    {
+     "n": 55,
+     "text": "Tuệ giác Phật-đà."
+    },
+    {
+     "n": 56,
+     "text": "Huyễn ảo biến mất"
+    },
+    {
+     "n": 57,
+     "text": "Thì không vị trí,"
+    },
+    {
+     "n": 58,
+     "text": "Tuệ giác thành đạt"
+    },
+    {
+     "n": 59,
+     "text": "Cũng vốn là không,"
+    },
+    {
+     "n": 60,
+     "text": "Vì lẽ bản thể"
+    },
+    {
+     "n": 61,
+     "text": "Vốn là tròn đầy."
+    },
+    {
+     "n": 62,
+     "text": "Y cứ vào đây"
+    },
+    {
+     "n": 63,
+     "text": "Các vị Bồ-tát"
+    },
+    {
+     "n": 64,
+     "text": "Có thể phát ra"
+    },
+    {
+     "n": 65,
+     "text": "Tâm đại Bồ-đề;"
+    },
+    {
+     "n": 66,
+     "text": "Những người sau này"
+    },
+    {
+     "n": 67,
+     "text": "Theo đấy mà tu"
+    },
+    {
+     "n": 68,
+     "text": "Thì khỏi sa vào"
+    },
+    {
+     "n": 69,
+     "text": "Kiến thức sai lầm."
+    },
+    {
+     "n": 70,
+     "text": "Lúc ấy, Bồ-tát Phổ Hiền ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 71,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả!"
+    },
+    {
+     "n": 72,
+     "text": "Con xin Thế Tôn vì các vị Bồ-tát trong đại hội này, lại vì những người tu hành Đại thừa trong thời kỳ cuối cùng mà dạy cho họ biết, nghe nói viên giác trong sáng như vậy thì tu hành cách nào?"
+    },
+    {
+     "n": 73,
+     "text": "Nếu họ biết là huyễn ảo cả, thì thân thể và tâm trí cũng là huyễn ảo, làm sao đem huyễn ảo tu hành huyễn ảo?"
+    },
+    {
+     "n": 74,
+     "text": "Nếu thực chất huyễn ảo là hủy diệt tất cả, thì thân thể và tâm trí cũng là không, như vậy ai là người tu hành để nói sự tu hành cũng như huyễn ảo?"
+    },
+    {
+     "n": 75,
+     "text": "Nếu người tu hành cũng không, có nghĩa chúng sinh không tu hành, vĩnh viễn đắm mình trong cảnh huyễn ảo của thế giới sinh tử luân hồi, không hề thấu hiểu chân lý huyễn ảo, như vậy làm sao thoát được tư tưởng ngộ nhận?"
+    },
+    {
+     "n": 76,
+     "text": "Con lại thỉnh cầu Đức Thế Tôn dạy cho những người sau này biết tu hành chánh định Như huyễn bằng phương tiện gì và thứ tự nào để vĩnh viễn thoát bỏ huyễn ảo?"
+    },
+    {
+     "n": 77,
+     "text": "Tác bạch rồi, Bồ-tát Phổ Hiền năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 78,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 79,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Phổ Hiền:"
+    },
+    {
+     "n": 80,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các vị Bồ-tát và những người sau này mà hỏi Như Lai, rằng họ phải tu tập phương tiện và thứ tự của chánh định Như huyễn như thế nào để thoát bỏ huyễn ảo."
+    },
+    {
+     "n": 81,
+     "text": "Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 82,
+     "text": "Bồ-tát Phổ Hiền vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 83,
+     "text": "Đức Thế Tôn nói:"
+    },
+    {
+     "n": 84,
+     "text": "–Thiện nam! Hết thảy huyễn ảo của chúng sinh đều phát sinh nơi viên giác, nơi cái tâm vi diệu mà Như Lai chứng ngộ, tương tự hoa đốm có trong không gian."
+    },
+    {
+     "n": 85,
+     "text": "Nhưng hoa đốm huyễn ảo thì hủy diệt mà không gian thì không hủy diệt: Vô minh huyễn ảo thì hủy diệt vì thân tâm huyễn ảo, huyễn ảo hủy diệt mà viên giác bất động."
+    },
+    {
+     "n": 86,
+     "text": "Đối với huyễn ảo mà nói viên giác, thì viên giác ấy cũng là huyễn ảo; nói viên giác là có thì vẫn thuộc phạm trù huyễn ảo, nói viên giác là không thì cũng y như thế."
+    },
+    {
+     "n": 87,
+     "text": "Huyễn ảo hủy diệt mới là viên giác bất động."
+    },
+    {
+     "n": 88,
+     "text": "Thế nên hết thảy Bồ-tát và những người sau này, phải thoát bỏ cho được mọi sự huyễn ảo."
+    },
+    {
+     "n": 89,
+     "text": "Nhưng cố chấp vào ý thức thoát bỏ thì cái ý thức thoát bỏ này cũng phải thoát bỏ."
+    },
+    {
+     "n": 90,
+     "text": "Sự thoát bỏ cái ý thức thoát bỏ này cũng phải thoát bỏ."
+    },
+    {
+     "n": 91,
+     "text": "Và sự thoát bỏ cái sự thoát bỏ này cũng phải thoát bỏ."
+    },
+    {
+     "n": 92,
+     "text": "Không còn gì để thoát bỏ nữa thì mọi sự huyễn ảo hủy diệt."
+    },
+    {
+     "n": 93,
+     "text": "Ví như người kéo cây lấy lửa, hai cây cọ xát với nhau, lửa phát thì hai cây cháy cả, cháy đến khói cũng tản, tro cũng bay: Đem huyễn ảo diệt trừ huyễn ảo cũng tương tự như vậy."
+    },
+    {
+     "n": 94,
+     "text": "Và huyễn ảo mất hết mà không nhập vào cái loại kiến thức sai lầm chủ trương mọi sự đều mất hẳn."
+    },
+    {
+     "n": 95,
+     "text": "Này thiện nam! Biết là huyễn ảo thì thoát bỏ huyễn ảo, không làm phương tiện gì khác; huyễn ảo thoát bỏ thì viên giác trong sáng, không có thứ tự nào cả."
+    },
+    {
+     "n": 96,
+     "text": "Các Bồ-tát và những người sau này, y theo sự chỉ dẫn trên đây mà tu hành mới vĩnh viễn thoát bỏ huyễn ảo."
+    },
+    {
+     "n": 97,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 98,
+     "text": "Phổ Hiền nên biết,"
+    },
+    {
+     "n": 99,
+     "text": "Vô minh huyễn ảo"
+    },
+    {
+     "n": 100,
+     "text": "Là có ở nơi"
+    },
+    {
+     "n": 101,
+     "text": "Diệu tâm viên giác,"
+    },
+    {
+     "n": 102,
+     "text": "Tương tự hoa đốm"
+    },
+    {
+     "n": 103,
+     "text": "Có trong không gian,"
+    },
+    {
+     "n": 104,
+     "text": "Hoa đốm hủy diệt"
+    },
+    {
+     "n": 105,
+     "text": "Không gian bất động;"
+    },
+    {
+     "n": 106,
+     "text": "Huyễn ảo phát sinh"
+    },
+    {
+     "n": 107,
+     "text": "Ở nơi viên giác,"
+    },
+    {
+     "n": 108,
+     "text": "Huyễn ảo hủy diệt"
+    },
+    {
+     "n": 109,
+     "text": "Viên giác trọn vẹn,"
+    },
+    {
+     "n": 110,
+     "text": "Vì lẽ viên giác"
+    },
+    {
+     "n": 111,
+     "text": "Bản tánh bất động."
+    },
+    {
+     "n": 112,
+     "text": "Nên các Bồ-tát"
+    },
+    {
+     "n": 113,
+     "text": "Và người sau này"
+    },
+    {
+     "n": 114,
+     "text": "Thoát bỏ cho được"
+    },
+    {
+     "n": 115,
+     "text": "Mọi sự huyễn ảo."
+    },
+    {
+     "n": 116,
+     "text": "Huyễn ảo thoát bỏ"
+    },
+    {
+     "n": 117,
+     "text": "Là như một kẻ"
+    },
+    {
+     "n": 118,
+     "text": "Kéo cây ra lửa,"
+    },
+    {
+     "n": 119,
+     "text": "Lửa phát cây cháy"
+    },
+    {
+     "n": 120,
+     "text": "Cây cháy hết cả"
+    },
+    {
+     "n": 121,
+     "text": "Lửa cũng không còn."
+    },
+    {
+     "n": 122,
+     "text": "Viên giác thì không"
+    },
+    {
+     "n": 123,
+     "text": "Phương tiện gì cả,"
+    },
+    {
+     "n": 124,
+     "text": "Và cũng không cả"
+    },
+    {
+     "n": 125,
+     "text": "Cái sự thứ tự."
+    },
+    {
+     "n": 126,
+     "text": "Lúc ấy Bồ-tát Phổ Nhãn ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh Thế Tôn ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 127,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Con xin Thế Tôn vì các Bồ-tát trong đại hội này và vì những người trong thời kỳ cuối cùng, chỉ dạy phương tiện thứ tự mà Bồ-tát tu hành: Họ phải tư duy như thế nào?"
+    },
+    {
+     "n": 128,
+     "text": "Phải trú ở như thế nào? Và truyền đạt như thế nào cho người chưa biết?"
+    },
+    {
+     "n": 129,
+     "text": "Bạch Thế Tôn! Nếu họ không biết tư duy và trú ở chính xác theo phương tiện chính xác, thì nghe chánh định Như huyễn của Đức Thế Tôn dạy, họ sẽ mờ mịt, lầm lẫn, không thể nhập vào viên giác."
+    },
+    {
+     "n": 130,
+     "text": "Xin Đức Thế Tôn thương tưởng, vì chúng con và vì những người sau này mà chỉ dạy phương tiện ấy."
+    },
+    {
+     "n": 131,
+     "text": "Tác bạch rồi, Bồ-tát Phổ Nhãn năm vóc gieo sát đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 132,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 133,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Phổ Nhãn:"
+    },
+    {
+     "n": 134,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các Bồ-tát và những người sau này, hỏi Như Lai về phương tiện thứ tự của sự tu hành."
+    },
+    {
+     "n": 135,
+     "text": "Hỏi cách tư duy và cách trú ở của sự tu hành, hỏi cách truyền đạt những sự ấy. Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 136,
+     "text": "Bồ-tát Phổ Nhãn vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 137,
+     "text": "Đức Thế Tôn bảo:"
+    },
+    {
+     "n": 138,
+     "text": "–Thiện nam! Các Bồ-tát mới tu học và những người thời kỳ cuối cùng, muốn phát hiện viên giác mà Như Lai đã chứng ngộ thì phải có sự nhớ nghĩ chính xác,"
+    },
+    {
+     "n": 139,
+     "text": "nhớ nghĩ về sự thoát bỏ huyễn ảo, bằng cách trước hết phải y cứ pháp hạnh Xa-ma-tha, pháp hạnh tập trung tư duy của Như Lai;"
+    },
+    {
+     "n": 140,
+     "text": "phải nghiêm giữ giới luật, sắp đặt đồ đệ cho yên và thường ngồi trong phòng thất yên tĩnh, nhớ nghĩ luôn như thế này: Thân thể của ta đây chỉ là sự tổ hợp của bốn đại chủng."
+    },
+    {
+     "n": 141,
+     "text": "Những gì là cố thể thì thuộc về đất, những gì là dịch thể thì thuộc về nước, những gì là nhiệt lực thì thuộc về lửa, những gì là động lực thì thuộc về gió."
+    },
+    {
+     "n": 142,
+     "text": "Nhưng bốn đại chủng ấy tách rời với nhau, thì gọi thân là cái gì?"
+    },
+    {
+     "n": 143,
+     "text": "Suy nghĩ như vậy thì biết cái thân ấy cứu cánh không có cá thể, chỉ là một hình thái tổ hợp, thực chất là huyễn ảo."
+    },
+    {
+     "n": 144,
+     "text": "Do bốn đại chủng làm những yếu tố tương quan mà tổ hợp lại một cách không thật nên có ra sáu giác quan, có cũng một cách không thật."
+    },
+    {
+     "n": 145,
+     "text": "Rồi sáu giác quan ở trong và bốn đại chủng ở ngoài tổ hợp với nhau mà có một cách không thật những sự vin theo đối cảnh và tụ lại tựa như có ấn tượng: Như thế giả gọi là tâm thức."
+    },
+    {
+     "n": 146,
+     "text": "Tâm thức không thật như vậy nếu không có sáu đối cảnh thì không thể có được."
+    },
+    {
+     "n": 147,
+     "text": "Nhưng bốn đại chủng phân tán thì sáu đối cảnh cũng không thể có."
+    },
+    {
+     "n": 148,
+     "text": "Đại chủng và đối cảnh phân tán thì rốt cuộc cũng không có tâm thức có thể tìm thấy."
+    },
+    {
+     "n": 149,
+     "text": "Này thiện nam! Người ấy thấy thân thể như huyễn ảo hủy diệt thì tâm thức như huyễn ảo hủy diệt, tâm thức như huyễn ảo hủy diệt thì đối cảnh như huyễn ảo hủy diệt,"
+    },
+    {
+     "n": 150,
+     "text": "đối cảnh như huyễn ảo hủy diệt thì sự hủy diệt như huyễn ảo cũng hủy diệt,"
+    },
+    {
+     "n": 151,
+     "text": "sự hủy diệt như huyễn ảo cũng hủy diệt thì cái không phải huyễn ảo sẽ không hủy diệt, giống như lau gương, nhơ bẩn lau hết thì trong sáng hiện ra:"
+    },
+    {
+     "n": 152,
+     "text": "Phải biết thân tâm toàn là hình thái nhơ bẩn, hình thái nhơ bẩn diệt hẳn thì vũ trụ trong sáng."
+    },
+    {
+     "n": 153,
+     "text": "Này thiện nam! Như khối ngọc trong suốt phản ảnh đủ cả năm màu, mỗi màu hiện một phía, vậy mà kẻ ngu tối thì nói khối ngọc thật có năm màu."
+    },
+    {
+     "n": 154,
+     "text": "Tương tự như vậy, viên giác trong sáng ảnh hiện thân tâm thích ứng từng loại, vậy mà người ngu tối nói viên giác thật có các hình thái thân tâm."
+    },
+    {
+     "n": 155,
+     "text": "Do đó mà họ không thể thoát bỏ huyễn ảo nhơ bẩn và với họ, Như Lai nói thân tâm đều là huyễn ảo nhơ bẩn; đối lại, ai thoát bỏ huyễn ảo nhơ bẩn thì Như Lai gọi là Bồ-tát;"
+    },
+    {
+     "n": 156,
+     "text": "và huyễn ảo nhơ bẩn hết rồi thì sự đối lại cũng không còn, không còn nhơ bẩn, không còn người thoát bỏ nhơ bẩn, không còn người giả bày tên gọi."
+    },
+    {
+     "n": 157,
+     "text": "Này thiện nam! Các vị Bồ-tát và những người sau này, khi thực hiện được trạng thái huyễn ảo hủy diệt, thì bấy giờ thấy sự trong sáng vô biên, được biểu hiện bởi viên giác trong sáng vốn như không gian vô hạn."
+    },
+    {
+     "n": 158,
+     "text": "Viên giác trong sáng nên tâm thức trong sáng, tâm thức trong sáng nên sự thấy trong sáng, sự thấy trong sáng nên nhãn căn trong sáng, nhãn căn trong sáng nên nhãn thức trong sáng;"
+    },
+    {
+     "n": 159,
+     "text": "nhãn thức trong sáng nên sự nghe trong sáng, sự nghe trong sáng nên nhĩ căn trong sáng, nhĩ căn trong sáng nên nhĩ thức trong sáng;"
+    },
+    {
+     "n": 160,
+     "text": "nhĩ thức trong sáng nên sự hay và sự biết trong sáng, nghĩa là tỷ căn tỷ thức, thiệt căn thiệt thức, thân căn thân thức và ý căn ý thức đều trong sáng cả."
+    },
+    {
+     "n": 161,
+     "text": "Căn và thức trong sáng nên cảnh trong sáng: sắc, thanh, hương, vị, xúc pháp đều trong sáng cả."
+    },
+    {
+     "n": 162,
+     "text": "Sáu cảnh trong sáng nên bốn đại trong sáng: đất, nước, lửa, gió đều trong sáng cả."
+    },
+    {
+     "n": 163,
+     "text": "Bốn đại trong sáng nên mười hai xứ, mười tám giới và hai mươi lăm hữu, đều trong sáng cả."
+    },
+    {
+     "n": 164,
+     "text": "Các pháp trên trong sáng nên mười Lực, bốn Vô úy, bốn Trí vô ngại, mười tám pháp Bất cộng, ba mươi bảy Bồ-đề phần, cho đến tám mươi bốn ngàn môn Tổng trì đều trong sáng cả."
+    },
+    {
+     "n": 165,
+     "text": "Này thiện nam! Toàn bộ các pháp bản thể trong sáng nên một thân trong sáng, một thân trong sáng nên nhiều thân trong sáng, nhiều thân trong sáng nên cho đến mười phương chúng sinh toàn là viên giác trong sáng."
+    },
+    {
+     "n": 166,
+     "text": "Này thiện nam! Thân trong sáng nên thế giới trong sáng."
+    },
+    {
+     "n": 167,
+     "text": "Một thế giới trong sáng nên nhiều thế giới trong sáng, nhiều thế giới trong sáng nên cho đến cùng không gian mười phương và suốt thì gian ba đời toàn bộ đều trong sáng."
+    },
+    {
+     "n": 168,
+     "text": "Này thiện nam! Không gian bất động, nên viên giác bất động, bốn đại bất động nên viên giác bất động và y như vậy, cho đến tám mươi bốn ngàn môn Tổng trì đều bất động nên viên giác bất động."
+    },
+    {
+     "n": 169,
+     "text": "Này thiện nam! Viên giác trong sáng, bất động và phổ biến nên sáu căn phổ biến pháp giới, sáu căn phổ biến pháp giới nên sáu cảnh phổ biến pháp giới,"
+    },
+    {
+     "n": 170,
+     "text": "sáu cảnh phổ biến pháp giới nên bốn đại phổ biến pháp giới và y như vậy, cho đến tất cả môn Tổng trì đều phổ biến pháp giới."
+    },
+    {
+     "n": 171,
+     "text": "Này thiện nam! Viên giác phổ biến nên căn và cảnh không hủy hoại nhau không hỗn tạp nhau, căn và cảnh không hủy hoại nhau, không hỗn tạp nhau nên cho đến hết thảy môn Tổng trì đều không hủy hoại nhau không hỗn tạp nhau."
+    },
+    {
+     "n": 172,
+     "text": "Sự thể ví như hàng trăm hàng ngàn ngọn đèn chiếu sáng một phòng, ánh sáng ngọn đèn nào cũng phổ biến cả phòng mà không hủy hoại nhau không hỗn tạp nhau."
+    },
+    {
+     "n": 173,
+     "text": "Này thiện nam! Bồ-tát thành đạt viên giác như vậy, nên không buộc các pháp, không mở các pháp, không chán sinh tử, không ham Niết-bàn,"
+    },
+    {
+     "n": 174,
+     "text": "không kính giữ giới, không ghét phá giới, không trọng tu lâu, không khinh mới học, vì lẽ toàn thể đều là viên giác."
+    },
+    {
+     "n": 175,
+     "text": "Sự thể ví như mắt thấy cảnh vật, sự thấy ấy thấy toàn diện mà không ghét không ưa, vì lẽ thực chất của sự thấy không có hai ý thức ấy."
+    },
+    {
+     "n": 176,
+     "text": "Các Bồ-tát và người sau này, tu tập mà thành đạt viên giác như vậy, thì đối với chính viên giác ấy đã không tu tập và không thành đạt,"
+    },
+    {
+     "n": 177,
+     "text": "chiếu sáng một cách tròn đầy mà trong lặng, không có những khái niệm đối lập lẫn nhau."
+    },
+    {
+     "n": 178,
+     "text": "Chính trong cái trạng thái chiếu sáng này mà hằng sa thế giới y như hoa đốm nổi lên hay mất đi với bao nhiêu là hình thái,"
+    },
+    {
+     "n": 179,
+     "text": "thấy các pháp không dính líu không tách rời, không trói buộc không cởi mở, thấy chúng sinh vốn là Phật-đà, sinh tử với Niết-bàn đều như giấc mộng."
+    },
+    {
+     "n": 180,
+     "text": "Vì đều như giấc mộng nên đối với sinh tử và Niết-bàn thì thấy không nổi không tan, không đến không đi; đối với chân lý sở chứng thì thấy không được không mất, không lấy không bỏ;"
+    },
+    {
+     "n": 181,
+     "text": "đối với tuệ giác năng chứng thì thấy không làm không ngưng, không buông không dứt;"
+    },
+    {
+     "n": 182,
+     "text": "đối với sự chứng ngộ thì thấy không chủ thể chứng không đối tượng được chứng, cứu cánh không có sự chứng ngộ là vì toàn bộ các pháp đều bình đẳng và không hủy hoại nhau."
+    },
+    {
+     "n": 183,
+     "text": "Này thiện nam! Các Bồ-tát hãy tu hành theo phương tiện thứ tự như vậy: Hãy tư duy như vậy, hãy trú ở như vậy, hãy đem những sự ấy truyền đạt cho người cầu pháp, thì những người này cũng không mù mờ, rốt trí."
+    },
+    {
+     "n": 184,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 185,
+     "text": "Phổ Nhãn nên biết,"
+    },
+    {
+     "n": 186,
+     "text": "Thân tâm chúng sinh"
+    },
+    {
+     "n": 187,
+     "text": "Như huyễn ảo cả:"
+    },
+    {
+     "n": 188,
+     "text": "Thân thuộc bốn đại,"
+    },
+    {
+     "n": 189,
+     "text": "Tâm nhờ sáu cảnh;"
+    },
+    {
+     "n": 190,
+     "text": "Bốn đại rời nhau"
+    },
+    {
+     "n": 191,
+     "text": "Thì gọi cái gì?"
+    },
+    {
+     "n": 192,
+     "text": "Là sự tổ hợp."
+    },
+    {
+     "n": 193,
+     "text": "Tu dần như vậy"
+    },
+    {
+     "n": 194,
+     "text": "Tất cả trong sáng,"
+    },
+    {
+     "n": 195,
+     "text": "Bất động, phổ biến"
+    },
+    {
+     "n": 196,
+     "text": "Không làm không ngưng"
+    },
+    {
+     "n": 197,
+     "text": "Không buông không dứt"
+    },
+    {
+     "n": 198,
+     "text": "Không người chứng ngộ."
+    },
+    {
+     "n": 199,
+     "text": "Hết thảy thế giới"
+    },
+    {
+     "n": 200,
+     "text": "Chỉ như hoa đốm"
+    },
+    {
+     "n": 201,
+     "text": "Ở trong không gian,"
+    },
+    {
+     "n": 202,
+     "text": "Quá khứ, hiện tại"
+    },
+    {
+     "n": 203,
+     "text": "Cùng với vị lai"
+    },
+    {
+     "n": 204,
+     "text": "Bình đẳng tất cả,"
+    },
+    {
+     "n": 205,
+     "text": "Cứu cánh không đến"
+    },
+    {
+     "n": 206,
+     "text": "Mà cũng không đi."
+    },
+    {
+     "n": 207,
+     "text": "Bồ-tát mới tu"
+    },
+    {
+     "n": 208,
+     "text": "Và người sau này"
+    },
+    {
+     "n": 209,
+     "text": "Muốn được nhập vào"
+    },
+    {
+     "n": 210,
+     "text": "Tuệ giác Phật-đà"
+    },
+    {
+     "n": 211,
+     "text": "Thì phải nỗ lực"
+    },
+    {
+     "n": 212,
+     "text": "Tu tập như vậy."
+    },
+    {
+     "n": 213,
+     "text": "Lúc ấy, Bồ-tát Kim Cang Tạng ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 214,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Thế Tôn đã khéo vì các vị Bồ-tát mà tuyên dương đại Tổng trì Viên giác là căn bản sơ khởi của Thế Tôn, lại chỉ dạy phương tiện thứ tự để tu tập đại Tổng trì ấy."
+    },
+    {
+     "n": 215,
+     "text": "Thế Tôn đã khai phá chỗ mù mờ cho chúng sinh."
+    },
+    {
+     "n": 216,
+     "text": "Mọi người trong đại hội này nhờ vâng lãnh huấn dụ Từ bi của Thế Tôn mà màng huyễn ảo tiêu tan, mắt tuệ giác trong sáng."
+    },
+    {
+     "n": 217,
+     "text": "Bạch Thế Tôn! Nếu chúng sinh vốn là Phật-đà thì vì sao lại có vô minh?"
+    },
+    {
+     "n": 218,
+     "text": "Nếu vô minh là chúng sinh vốn có thì vì sao Đức Thế Tôn nói chúng sinh vốn là Phật-đà?"
+    },
+    {
+     "n": 219,
+     "text": "Nếu chúng sinh vốn là Phật-đà, sau đó mới nổi lên vô minh, như thế thì chư vị Thế Tôn lúc nào trở lại phát sinh phiền não?"
+    },
+    {
+     "n": 220,
+     "text": "Kính xin Đức Thế Tôn không xả bỏ lòng thương cao cả vốn không ngăn chận ai hết, vì các vị Bồ-tát mà khai mở cho họ được thấy kho tàng viên giác bí mật,"
+    },
+    {
+     "n": 221,
+     "text": "lại làm cho những người sau này được nghe kinh pháp viên giác liễu nghĩa, ai cũng hết hẳn mọi ngờ vực."
+    },
+    {
+     "n": 222,
+     "text": "Tác bạch rồi, Bồ-tát Kim Cang Tạng năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 223,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 224,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Kim Cang Tạng:"
+    },
+    {
+     "n": 225,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các vị Bồ-tát và những người sau này mà hỏi Như Lai về viên giác rất sâu xa và sự cứu cánh của viên giác ấy."
+    },
+    {
+     "n": 226,
+     "text": "Viên giác ấy là giáo huấn tối thượng và Đại thừa với diệu nghĩa trọn vẹn truyền đạt cho Bồ-tát,"
+    },
+    {
+     "n": 227,
+     "text": "có năng lực làm cho mười phương các vị Bồ-tát đang còn tu học và tất cả mọi người thời kỳ cuối cùng, được lòng tin cố định, hết hẳn nghi ngờ. Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 228,
+     "text": "Bồ-tát Kim Cang Tạng vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 229,
+     "text": "Đức Thế Tôn bảo:"
+    },
+    {
+     "n": 230,
+     "text": "–Thiện nam! Chúng sinh và thế giới của chúng sinh, mở đầu hay kết cuộc, phát sinh hay hủy diệt, lúc trước hay lúc sau, hiện hữu hay trống không, tụ lại hay tan ra, nổi lên hay ngưng lại,"
+    },
+    {
+     "n": 231,
+     "text": "những hình thái này nối tiếp với nhau ngay trong từng đơn vị thì gian chỉ như sự thoạt hiện hay thoạt biến của ý nghĩ, qua lại liền liền, lấy bỏ đủ cách, toàn là luân hồi."
+    },
+    {
+     "n": 232,
+     "text": "Chưa vượt luân hồi như vậy mà nói viên giác, thì tính cách viên giác ấy cũng là tính cách luân hồi, vậy mà mong thoát khỏi luân hồi thì thật vô lý."
+    },
+    {
+     "n": 233,
+     "text": "Sự thể ví như hoa mắt thì nước đứng mà thấy ra xao động, đờ mắt thì lửa quay mà thấy thành vòng tròn, mây bay mà thấy trăng chạy, đò lướt mà thấy bờ đi…;"
+    },
+    {
+     "n": 234,
+     "text": "những trạng thái xoay đảo của sự thấy như vậy nếu chưa đình chỉ mà muốn những thứ được thấy phải đứng lại trước, thì ý muốn đó còn không thể nào thực hiện được,"
+    },
+    {
+     "n": 235,
+     "text": "huống chi cái tâm trí luân hồi chưa được lắng trong, thì nhìn vào viên giác của Như Lai làm sao khỏi thấy xoay đảo."
+    },
+    {
+     "n": 236,
+     "text": "Đó là lý do lầm lẫn trong ba câu hỏi của ông."
+    },
+    {
+     "n": 237,
+     "text": "Này thiện nam! Ví như con mắt bị bệnh màng mắt, nên nhìn không gian thấy có hoa đốm."
+    },
+    {
+     "n": 238,
+     "text": "Khi bệnh màng mắt đã lành vĩnh viễn thì không nên hỏi màng mắt đã mất đó bao giờ lại nổi lên nữa, vì lẽ con mắt với màng mắt không phải đi đôi với nhau."
+    },
+    {
+     "n": 239,
+     "text": "Hơn nữa, hoa đốm đã mất đi trong không gian, thì khi ấy không nên hỏi lúc nào không gian lại nổi lên hoa đốm, vì lẽ không gian vốn không có hoa đốm, vì lẽ bản thể của không gian vốn không phải nổi lên hay mất đi."
+    },
+    {
+     "n": 240,
+     "text": "Mà sinh tử với Niết-bàn thì chỉ như sự nổi lên hay mất đi của hoa đốm, còn viên giác thì vốn không có hoa đốm và màng mắt."
+    },
+    {
+     "n": 241,
+     "text": "Phải biết không gian mà còn không phải có một cách tạm thời, cũng không phải không một cách tạm thời, huống chi viên giác mà Như Lai chứng ngộ là bản thể bình đẳng của các pháp trong đó có không gian."
+    },
+    {
+     "n": 242,
+     "text": "Này thiện nam! Như lọc quặng vàng thì vàng không phải do lọc mới là vàng, là vàng đã lọc thành vàng ròng thì không bao giờ trở lại làm quặng nữa, để lâu đến mấy vàng ròng đó cũng không hư hoại."
+    },
+    {
+     "n": 243,
+     "text": "Như vậy không thể nói vàng vốn không phải là vàng…"
+    },
+    {
+     "n": 244,
+     "text": "Viên giác mà Như Lai chứng ngộ cũng tương tự như vậy."
+    },
+    {
+     "n": 245,
+     "text": "Này thiện nam! Viên giác mà Như Lai chứng ngộ vốn không có Bồ-đề với Niết-bàn, vốn không có sự thành Phật-đà hay sự không thành Phật-đà, vốn không có sự luân hồi và sự không phải luân hồi."
+    },
+    {
+     "n": 246,
+     "text": "Thiện nam! Sự viên thành của các Thanh văn là tiêu diệt tất cả thân tâm ngôn ngữ, mà không bao giờ đạt đến viên giác của Như Lai đích thân chứng ngộ, huống chi tâm trí tư duy thì làm sao lường được viên giác ấy."
+    },
+    {
+     "n": 247,
+     "text": "Đem lửa đom đóm đốt núi Tu-di thì không bao giờ đốt được: Vận dụng tâm trí luân hồi phát sinh kiến thức luân hồi mà mong nhập vào biển cả vắng lặng vĩ đại của Như Lai thì không bao giờ vào được."
+    },
+    {
+     "n": 248,
+     "text": "Vì lý do ấy, Như Lai nói rằng tất cả Bồ-tát và những người sau này, việc phải làm trước hết là loại trừ gốc rễ luân hồi."
+    },
+    {
+     "n": 249,
+     "text": "Này thiện nam! Tư duy xuất từ tâm thức, tư duy ấy toàn là ảo tưởng vin theo sáu đối cảnh, không phải đích thực là tâm thể."
+    },
+    {
+     "n": 250,
+     "text": "Tư duy ấy đã như hoa đốm, vận dụng tư duy ấy mà mong đạt được viên giác của Như Lai chứng ngộ, thì không khác gì hoa đốm sinh trái đốm: Ảo tưởng sinh ảo tưởng, không thể đạt được viên giác."
+    },
+    {
+     "n": 251,
+     "text": "Thiện nam! Ảo tưởng có lắm kiến thức khéo léo, không thể là phương tiện của viên giác."
+    },
+    {
+     "n": 252,
+     "text": "Nên lối phân tích như ông không phải đặt đúng vấn đề."
+    },
+    {
+     "n": 253,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 254,
+     "text": "Kim Cang Tạng này,"
+    },
+    {
+     "n": 255,
+     "text": "Nên biết bản thể"
+    },
+    {
+     "n": 256,
+     "text": "Viên giác vắng lặng"
+    },
+    {
+     "n": 257,
+     "text": "Như Lai chứng ngộ"
+    },
+    {
+     "n": 258,
+     "text": "Vốn không mở đầu"
+    },
+    {
+     "n": 259,
+     "text": "Cũng không kết cuộc."
+    },
+    {
+     "n": 260,
+     "text": "Đem tâm luân hồi"
+    },
+    {
+     "n": 261,
+     "text": "Tư duy viên giác,"
+    },
+    {
+     "n": 262,
+     "text": "Ấy là luân hồi,"
+    },
+    {
+     "n": 263,
+     "text": "Chỉ đến luân hồi,"
+    },
+    {
+     "n": 264,
+     "text": "Không thấu biển cả"
+    },
+    {
+     "n": 265,
+     "text": "Vắng lặng của Phật."
+    },
+    {
+     "n": 266,
+     "text": "Như lọc quặng vàng,"
+    },
+    {
+     "n": 267,
+     "text": "Vàng không do lọc"
+    },
+    {
+     "n": 268,
+     "text": "Mới được là vàng;"
+    },
+    {
+     "n": 269,
+     "text": "Vàng vốn là vàng,"
+    },
+    {
+     "n": 270,
+     "text": "Nhưng phải do lọc"
+    },
+    {
+     "n": 271,
+     "text": "Mới thành vàng ròng;"
+    },
+    {
+     "n": 272,
+     "text": "Khi vàng lọc quặng"
+    },
+    {
+     "n": 273,
+     "text": "Đã thành vàng ròng,"
+    },
+    {
+     "n": 274,
+     "text": "Thì không bao giờ"
+    },
+    {
+     "n": 275,
+     "text": "Trở lại làm quặng."
+    },
+    {
+     "n": 276,
+     "text": "Sinh tử, Niết-bàn"
+    },
+    {
+     "n": 277,
+     "text": "Chúng sinh, Phật-đà"
+    },
+    {
+     "n": 278,
+     "text": "Đồng là hoa đốm"
+    },
+    {
+     "n": 279,
+     "text": "Ở trong không gian."
+    },
+    {
+     "n": 280,
+     "text": "Cái sự tư duy"
+    },
+    {
+     "n": 281,
+     "text": "Đã như huyễn ảo,"
+    },
+    {
+     "n": 282,
+     "text": "Huống chi còn đem"
+    },
+    {
+     "n": 283,
+     "text": "Sự tư duy ấy"
+    },
+    {
+     "n": 284,
+     "text": "Chất vấn những sự"
+    },
+    {
+     "n": 285,
+     "text": "Huyễn ảo khác nữa."
+    },
+    {
+     "n": 286,
+     "text": "Nếu tự hiểu được"
+    },
+    {
+     "n": 287,
+     "text": "Sự tư duy ấy,"
+    },
+    {
+     "n": 288,
+     "text": "Sau đó mới mong"
+    },
+    {
+     "n": 289,
+     "text": "Nhập được viên giác."
+    },
+    {
+     "n": 290,
+     "text": "Lúc ấy, Bồ-tát Di-lặc ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 291,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Thế Tôn đã khai mở một cách rộng rãi kho tàng bí mật cho các vị Bồ-tát, làm cho đại chúng này tỉnh ngộ sâu xa về luân hồi, phân biệt được sự lầm lẫn và sự chính xác."
+    },
+    {
+     "n": 292,
+     "text": "Thế Tôn đã ban cho những người thời kỳ cuối cùng con mắt tuệ giác không còn e sợ, làm cho họ phát sinh lòng tin cố định đối với Niết-bàn vĩ đại, không còn tùy theo sự luân hồi mà nổi lên kiến thức xoay đảo."
+    },
+    {
+     "n": 293,
+     "text": "Bạch Thế Tôn! Nếu các Bồ-tát và những người thời kỳ cuối cùng, muốn du hành trong biển cả vắng lặng vĩ đại của Đức Thế Tôn, thì họ phải hủy diệt như thế nào đối với căn bản của luân hồi?"
+    },
+    {
+     "n": 294,
+     "text": "Trong luân hồi có mấy đẳng cấp? Tu tập tuệ giác Phật-đà có mấy chủng tánh?"
+    },
+    {
+     "n": 295,
+     "text": "Khi quay lại, trở vào nơi bụi bặm mệt nhọc, thì phải vận dụng mấy phương tiện hóa độ để hóa độ chúng sinh?"
+    },
+    {
+     "n": 296,
+     "text": "Xin Thế Tôn đừng bỏ lòng thương cao cả cứu độ người đời mà làm cho những người tu tập, là các vị Bồ-tát và những người sau này,"
+    },
+    {
+     "n": 297,
+     "text": "được con mắt tuệ giác trong sáng, được đài gương tâm trí chiếu tỏ, tỉnh ngộ một cách tròn đầy về sự thấy biết Vô thượng của Thế Tôn."
+    },
+    {
+     "n": 298,
+     "text": "Tác bạch rồi, Bồ-tát Di-lặc năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 299,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 300,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Di-lặc:"
+    },
+    {
+     "n": 301,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các vị Bồ-tát và những người sau này, mà hỏi Như Lai về ý nghĩa sâu kín tinh tế, để làm cho các Bồ-tát rửa sạch con mắt tuệ giác,"
+    },
+    {
+     "n": 302,
+     "text": "lại làm cho những người sau này diệt hẳn luân hồi và tâm ngộ thực tướng bằng tuệ giác Không sinh."
+    },
+    {
+     "n": 303,
+     "text": "Ông hãy nghe kỹ, Như Lai sẽ nói cho. Bồ-tát Di-lặc vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 304,
+     "text": "Đức Thế Tôn bảo:"
+    },
+    {
+     "n": 305,
+     "text": "–Lành thay! Vô thỉ đến giờ, chúng sinh vì có mọi thứ ái dục nên có luân hồi."
+    },
+    {
+     "n": 306,
+     "text": "Mọi loài chúng sinh trong mọi thứ thế giới, sinh bằng trứng, sinh bằng thai, sinh bằng thấp khí, sinh bằng biến hóa, tất cả toàn do dâm dục làm động lực chính mà có tánh mạng."
+    },
+    {
+     "n": 307,
+     "text": "Do đó mà biết gốc rễ luân hồi là ái. Ái được dục hỗ trợ nên làm cho sinh tử liên tục: Dục do ái, mạng do dục; chúng sinh ái mạng nên quay lại ái dục, ái dục là nhân, ái mạng là quả."
+    },
+    {
+     "n": 308,
+     "text": "Vì đối với đối cảnh của dục mà nổi dậy sự chống đối hay sự thích ứng."
+    },
+    {
+     "n": 309,
+     "text": "Đối cảnh trái với ái thì chống đối bằng sự ghét bỏ, gây ra mọi thứ nghiệp ác, đó là lý do có địa ngục, có ngạ quỷ, có súc sinh."
+    },
+    {
+     "n": 310,
+     "text": "Biết dục đáng chán ghét, ái sự chán ghét ba đường đi của nghiệp ác, ghét bỏ nghiệp ác mà ưa thích nghiệp lành, nên có chư Thiên, có nhân loại."
+    },
+    {
+     "n": 311,
+     "text": "Lại biết mọi sự ái đều đáng ghét bỏ, ghét bỏ cái ái và ưa thích cái bỏ, nghĩa là vẫn trở lại thêm cho gốc ái,"
+    },
+    {
+     "n": 312,
+     "text": "nên có những thiện quả hơn lên và vẫn là nghiệp tạo ra, nên toàn là luân hồi, không thành đường đi của các Thánh giả."
+    },
+    {
+     "n": 313,
+     "text": "Vì vậy, chúng sinh muốn thoát khỏi sinh tử luân hồi thì trước hết phải hủy diệt dục và ái."
+    },
+    {
+     "n": 314,
+     "text": "Còn Bồ-tát sinh trong luân hồi thì không phải do ái mà là do Từ bi, muốn làm cho chúng sinh bỏ ái nên mượn dục để vào lại sinh tử luân hồi."
+    },
+    {
+     "n": 315,
+     "text": "Những người thời kỳ cuối cùng bỏ được dục, trừ được ái gồm cả sự ghét bỏ và sự ưa thích của nó, hủy diệt luân hồi vĩnh viễn,"
+    },
+    {
+     "n": 316,
+     "text": "bằng cách siêng cầu viên giác của Như Lai chứng ngộ, thì thế là đối với tâm thể trong sáng ấy họ được tỏ ngộ."
+    },
+    {
+     "n": 317,
+     "text": "Này thiện nam! Chúng sinh do ái dục phát triển vô minh mà hình thành năm chủng tánh khác nhau và do hai chướng ngại mà trình bày sâu cạn."
+    },
+    {
+     "n": 318,
+     "text": "Hai chướng ngại là gì?"
+    },
+    {
+     "n": 319,
+     "text": "1. Chướng ngại chân lý, chướng ngại cho sự thấy biết chính xác."
+    },
+    {
+     "n": 320,
+     "text": "2. Chướng ngại sự dụng, tiếp nối cho sự sinh tử luân hồi."
+    },
+    {
+     "n": 321,
+     "text": "Năm chủng tánh là gì? Nếu cả hai chướng ngại chưa được hủy diệt, thì gọi là những kẻ chưa thành Phật-đà."
+    },
+    {
+     "n": 322,
+     "text": "Nếu vĩnh viễn bỏ ái dục, hủy diệt chướng ngại sự dụng mà chưa hủy diệt chướng ngại chân lý, thì chỉ nhập vào Thanh văn, Duyên giác,"
+    },
+    {
+     "n": 323,
+     "text": "chưa nhập vào Bồ-tát. nếu muốn du nhập biển cả viên giác vĩ đại của Như Lai chứng ngộ nên trước đó lập chí nỗ lực hủy diệt hai chướng ngại,"
+    },
+    {
+     "n": 324,
+     "text": "hai chướng ngại đã hàng phục thì nhập vào Bồ-tát, còn lại hai chướng ngại đã hủy diệt vĩnh viễn thì nhập vào viên giác của Như Lai, tròn đầy đại Bồ-đề và đại Niết-bàn."
+    },
+    {
+     "n": 325,
+     "text": "Tất cả chúng sinh đều có khả năng chứng ngộ viên giác, nhưng gặp thầy bạn tốt và tu tập theo pháp hạnh căn bản sơ khởi của họ, nên sự tu tập ấy có liền liền và có dần dần,"
+    },
+    {
+     "n": 326,
+     "text": "nếu gặp Như Lai chỉ dẫn con đường tu tập chính xác về tuệ giác Vô thượng, thì bất kể trình độ cao thấp, toàn là thành tựu quả vị Phật-đà."
+    },
+    {
+     "n": 327,
+     "text": "Nếu người nào dẫu cũng đi tìm thầy bạn tốt, nhưng gặp phải kẻ kiến thức sai lầm, thì người ấy chưa được tỏ ngộ chính xác, như thế gọi là chủng tánh ngoại đạo và đó là lỗi của thầy bạn sai lầm, không phải của người ấy."
+    },
+    {
+     "n": 328,
+     "text": "Như thế đó gọi là năm chủng tánh khác nhau của chúng sinh."
+    },
+    {
+     "n": 329,
+     "text": "Này thiện nam! Bồ-tát chỉ lấy đại Bi làm phương tiện mà vào các thế giới luân hồi, khai phát cho những người chưa tỏ ngộ."
+    },
+    {
+     "n": 330,
+     "text": "Đến nỗi biểu hiện thân thể đủ mọi thứ hình tướng, biểu hiện cảnh ngộ đủ mọi sự thuận nghịch, biểu hiện đồng việc với họ mà giáo hóa cho họ trở thành Phật-đà."
+    },
+    {
+     "n": 331,
+     "text": "Tất cả sự biểu hiện này toàn là sức mạnh của đại nguyện xuất từ đại Bi."
+    },
+    {
+     "n": 332,
+     "text": "Những người thời kỳ cuối cùng, nếu nổi lên tâm chí tăng thượng đối với đại viên giác, thì phải phát đại nguyện trong sáng của Bồ-tát."
+    },
+    {
+     "n": 333,
+     "text": "Nên nói như vầy: Cầu nguyện cho con này đứng trong viên giác của Phật, tìm và gặp được thầy bạn tốt, không gặp phải ngoại đạo và Nhị thừa."
+    },
+    {
+     "n": 334,
+     "text": "Rồi y theo đại nguyện như vậy mà tu tập, thì dần dần hủy diệt hai chướng ngại."
+    },
+    {
+     "n": 335,
+     "text": "Hai chướng ngại hủy diệt hết cả thì đại nguyện tròn đầy, thế là bước lên chánh điện trong sáng của đại giải thoát, nhập vào thành trì tráng lệ của đại viên giác."
+    },
+    {
+     "n": 336,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 337,
+     "text": "Di-lặc nên biết!"
+    },
+    {
+     "n": 338,
+     "text": "Chúng sinh không được"
+    },
+    {
+     "n": 339,
+     "text": "Giải thoát vĩ đại"
+    },
+    {
+     "n": 340,
+     "text": "Là vì ái dục"
+    },
+    {
+     "n": 341,
+     "text": "Làm cho sa vào"
+    },
+    {
+     "n": 342,
+     "text": "Sinh tử luân hồi."
+    },
+    {
+     "n": 343,
+     "text": "Nếu diệt ái dục"
+    },
+    {
+     "n": 344,
+     "text": "Gồm cả ưa ghét"
+    },
+    {
+     "n": 345,
+     "text": "Của ái dục ấy"
+    },
+    {
+     "n": 346,
+     "text": "Là tham, sân, si,"
+    },
+    {
+     "n": 347,
+     "text": "Thì bất kể đến"
+    },
+    {
+     "n": 348,
+     "text": "Chủng tánh dị diệt,"
+    },
+    {
+     "n": 349,
+     "text": "Tất cả vẫn được"
+    },
+    {
+     "n": 350,
+     "text": "Tuệ giác Phật-đà."
+    },
+    {
+     "n": 351,
+     "text": "Muốn diệt vĩnh viễn"
+    },
+    {
+     "n": 352,
+     "text": "Hai loại chướng ngại,"
+    },
+    {
+     "n": 353,
+     "text": "Nên tìm và gặp"
+    },
+    {
+     "n": 354,
+     "text": "Vị thầy xứng đáng,"
+    },
+    {
+     "n": 355,
+     "text": "Thì sẽ có được"
+    },
+    {
+     "n": 356,
+     "text": "Tỏ ngộ chính xác,"
+    },
+    {
+     "n": 357,
+     "text": "Thuận với đại nguyện"
+    },
+    {
+     "n": 358,
+     "text": "Của các Bồ-tát,"
+    },
+    {
+     "n": 359,
+     "text": "Và rồi trú ở"
+    },
+    {
+     "n": 360,
+     "text": "Trong đại Niết-bàn."
+    },
+    {
+     "n": 361,
+     "text": "Bồ-tát vận dụng"
+    },
+    {
+     "n": 362,
+     "text": "Đại Bi đại nguyện,"
+    },
+    {
+     "n": 363,
+     "text": "Thị hiện nhập vào"
+    },
+    {
+     "n": 364,
+     "text": "Sinh tử luân hồi."
+    },
+    {
+     "n": 365,
+     "text": "Những người tu tập"
+    },
+    {
+     "n": 366,
+     "text": "Trong thời hiện tại,"
+    },
+    {
+     "n": 367,
+     "text": "Và người tu tập"
+    },
+    {
+     "n": 368,
+     "text": "Trong thời cuối cùng,"
+    },
+    {
+     "n": 369,
+     "text": "Nếu biết nỗ lực"
+    },
+    {
+     "n": 370,
+     "text": "Hủy diệt ái kiến,"
+    },
+    {
+     "n": 371,
+     "text": "Thế là quy về"
+    },
+    {
+     "n": 372,
+     "text": "Viên giác quảng đại."
+    },
+    {
+     "n": 373,
+     "text": "Lúc ấy, Bồ-tát Thanh Tịnh Tuệ ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 374,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Thế Tôn đã nói cho chúng con, một cách rộng rãi về những sự ngoài tầm tư duy thảo luận mà trước đây chúng con chưa được nghe thấy."
+    },
+    {
+     "n": 375,
+     "text": "Ngày nay chúng con nhờ sự huấn dụ khéo léo của Đức Thế Tôn mà thân thể và tâm trí đều thư thái, được đại ích lợi."
+    },
+    {
+     "n": 376,
+     "text": "Con thỉnh cầu Đức Thế Tôn chỉ dạy thêm nữa cho đại chúng này biết, đối với viên giác của Đấng Pháp Vương, các loại chúng sinh, các vị Bồ-tát và các Đức Thế Tôn, thực hiện khác nhau thế nào?"
+    },
+    {
+     "n": 377,
+     "text": "Sự chỉ dạy này của Đức Thế Tôn sẽ làm cho người thời kỳ cuối cùng, đối với viên giác, có thể tùy thuận, tỉnh, ngộ và tuần tự mà nhập vào."
+    },
+    {
+     "n": 378,
+     "text": "Tác bạch rồi, Bồ-tát Thanh Tịnh Tuệ năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 379,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 380,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Thanh Tịnh Tuệ:"
+    },
+    {
+     "n": 381,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các vị Bồ-tát và những người sau này, mà hỏi Như Lai về thứ tự sai biệt trong sự thực hiện viên giác. Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 382,
+     "text": "Bồ-tát Thanh Tịnh Tuệ vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 383,
+     "text": "Đức Thế Tôn bảo:"
+    },
+    {
+     "n": 384,
+     "text": "–Thiện nam! Bản thể viên giác không phải là các chủng tánh, nhưng chủng tánh nào cũng có viên giác, nên tùy các chủng tánh phát khởi mà có sai biệt, chứ thật ra không có thủ chứng gì hết."
+    },
+    {
+     "n": 385,
+     "text": "Vì lẽ trong viên giác, Bồ-tát và chúng sinh không phải có thật; Bồ-tát và chúng sinh toàn là huyễn ảo: Khi huyễn ảo hủy diệt thì không có ai là kẻ thủ chứng, tựa như con mắt đâu có tự thấy con mắt."
+    },
+    {
+     "n": 386,
+     "text": "Nên đặc tánh của viên giác là không sai biệt, một sự không sai biệt không phải do ai tạo ra."
+    },
+    {
+     "n": 387,
+     "text": "Nhưng chúng sinh mê mờ, điên đảo, chưa thể hoàn toàn hủy diệt huyễn ảo và trong giai đoạn chưa hủy diệt mà đang hủy diệt đó, công phu tự lộ ra sai biệt."
+    },
+    {
+     "n": 388,
+     "text": "Đến khi thích ứng được với viên giác dứt bặt của Như Lai thì không còn sự dứt bặt, không còn người dứt bặt."
+    },
+    {
+     "n": 389,
+     "text": "Này thiện nam! Vô thỉ đến giờ, chúng sinh ảo tưởng nơi tự ngã và đam mê tự ngã, không bao giờ tự biết tự ngã chỉ là trạng thái phát sinh và hủy diệt liên tiếp trong từng đơn vị ngắn nhất của thế gian,"
+    },
+    {
+     "n": 390,
+     "text": "do đó mà nổi lên mặt thì ghét bỏ mặt thì ưa thích, vướng mắc năm thứ dục lạc."
+    },
+    {
+     "n": 391,
+     "text": "Nếu gặp được thầy bạn tốt dạy cho biết bản thể viên giác trong sáng, phát giác thực chất của sự nổi lên và sự hủy diệt,"
+    },
+    {
+     "n": 392,
+     "text": "tức thì thấu hiểu đời sống này tự nó tạo ra tư tưởng mệt nhọc và ước mong hủy diệt tư tưởng mệt nhọc ấy bằng cái biết bản thể viên giác trong sáng."
+    },
+    {
+     "n": 393,
+     "text": "Nhưng cái biết này tự chướng ngại cho họ, nên họ không được tự tại đối với viên giác."
+    },
+    {
+     "n": 394,
+     "text": "Đó là sự thích ứng viên giác của phàm phu."
+    },
+    {
+     "n": 395,
+     "text": "Này thiện nam!"
+    },
+    {
+     "n": 396,
+     "text": "Các Bồ-tát thì biết cái biết trên là chướng ngại, dẫu hủy diệt chướng ngại của cái biết trên, nhưng còn đứng nơi cái biết của mình, nên cái biết biết sự chướng ngại này lại thành chướng ngại mà chưa được tự tại."
+    },
+    {
+     "n": 397,
+     "text": "Đó là sự thích ứng viên giác của các Bồ-tát bước chưa tới Thập địa."
+    },
+    {
+     "n": 398,
+     "text": "Này thiện nam!"
+    },
+    {
+     "n": 399,
+     "text": "Cái biết nào cũng là chướng ngại, nên các Bồ-tát thường biết mà không đứng lại nơi cái biết, thì cái biết và người biết cùng lúc vắng lặng, tựa như có người tự chặt đầu mình, đầu đứt rồi kẻ chặt dứt cũng không:"
+    },
+    {
+     "n": 400,
+     "text": "Đem cái biết biết sự chướng ngại mà tự diệt sự chướng ngại, sự chướng ngại diệt rồi, cái biết diệt chướng ngại cũng không."
+    },
+    {
+     "n": 401,
+     "text": "Biết kinh pháp cũng chỉ như ngón tay chỉ mặt trăng, hãy nhìn mặt trăng và biết ngón tay không bao giờ là mặt trăng; biết mọi ngôn ngữ của Như Lai chỉ dạy cho Bồ-tát toàn là như vậy."
+    },
+    {
+     "n": 402,
+     "text": "Đó là sự thích ứng viên giác của Bồ-tát bước đã tới mười địa."
+    },
+    {
+     "n": 403,
+     "text": "Này thiện nam! Biết một cách triệt để về mọi sự chướng ngại: Chánh niệm với vọng niệm toàn là giải thoát; hoàn thành với thoái thất toàn là Niết-bàn;"
+    },
+    {
+     "n": 404,
+     "text": "tuệ giác với u mê toàn là Bát-nhã; Bồ-tát thành đạt với ngoại đạo thành đạt toàn là Bồ-đề; chân như với vô minh toàn là bản thể;"
+    },
+    {
+     "n": 405,
+     "text": "giới, định, tuệ với dâm, nộ, si toàn là phạm hạnh; chúng sinh với quốc độ toàn là pháp tánh; địa ngục với Thiên cung toàn là Tịnh độ;"
+    },
+    {
+     "n": 406,
+     "text": "có chủng tánh với không chủng tánh toàn thành Phật-đà; tất cả phiền não cứu cánh là giải thoát; biển cả tuệ giác soi tỏ những khái niệm đối lập lẫn nhau toàn như không gian."
+    },
+    {
+     "n": 407,
+     "text": "Đó là sự thích ứng viên giác của Như Lai."
+    },
+    {
+     "n": 408,
+     "text": "Này thiện nam! Các Bồ-tát và những người thời kỳ cuối cùng, nếu có ai không lúc nào nổi lên vọng niệm, đối với vọng niệm cũng không trừ khử, sống trong vọng cảnh mà không phân biệt,"
+    },
+    {
+     "n": 409,
+     "text": "cũng không nói không phân biệt là thật, thì người này nghe pháp thoại viên giác này sẽ tin tưởng, lý giải, tiếp nhận, ghi nhớ, không kinh ngạc và như thế chính là thích ứng viên giác."
+    },
+    {
+     "n": 410,
+     "text": "Thiện nam! Ông nên biết người này đã hiến cúng trăm ngàn vạn ức hằng sa Phật-đà và Đại sĩ, gieo trồng gốc rễ công đức và Như Lai gọi người này là người thành tựu tuệ giác Biết tất cả chủng loại."
+    },
+    {
+     "n": 411,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 412,
+     "text": "Thanh Tịnh Tuệ này,"
+    },
+    {
+     "n": 413,
+     "text": "Nên biết bản thể"
+    },
+    {
+     "n": 414,
+     "text": "Tuệ giác viên mãn"
+    },
+    {
+     "n": 415,
+     "text": "Không có thủ chứng,"
+    },
+    {
+     "n": 416,
+     "text": "Không có Bồ-tát"
+    },
+    {
+     "n": 417,
+     "text": "Không có chúng sinh;"
+    },
+    {
+     "n": 418,
+     "text": "Vì đang chứng ngộ"
+    },
+    {
+     "n": 419,
+     "text": "Hay đã chứng ngộ,"
+    },
+    {
+     "n": 420,
+     "text": "Do đó mà có"
+    },
+    {
+     "n": 421,
+     "text": "Thứ tự khác nhau."
+    },
+    {
+     "n": 422,
+     "text": "Phàm phu thì bị"
+    },
+    {
+     "n": 423,
+     "text": "Cái biết chướng ngại;"
+    },
+    {
+     "n": 424,
+     "text": "Bồ-tát cấp thấp"
+    },
+    {
+     "n": 425,
+     "text": "Chưa rời cái biết;"
+    },
+    {
+     "n": 426,
+     "text": "Bồ-tát mười địa"
+    },
+    {
+     "n": 427,
+     "text": "Vĩnh viễn dứt bặt,"
+    },
+    {
+     "n": 428,
+     "text": "Không còn đứng lại"
+    },
+    {
+     "n": 429,
+     "text": "Mọi cái biết trên;"
+    },
+    {
+     "n": 430,
+     "text": "Như Lai đại giác"
+    },
+    {
+     "n": 431,
+     "text": "Mới trọn thích ứng."
+    },
+    {
+     "n": 432,
+     "text": "Những ai sau này"
+    },
+    {
+     "n": 433,
+     "text": "Tâm không vọng niệm,"
+    },
+    {
+     "n": 434,
+     "text": "Như Lai tuyên bố"
+    },
+    {
+     "n": 435,
+     "text": "Những người như vậy"
+    },
+    {
+     "n": 436,
+     "text": "Hiện tại đã là"
+    },
+    {
+     "n": 437,
+     "text": "Một vị Bồ-tát,"
+    },
+    {
+     "n": 438,
+     "text": "Quá khứ hiến cúng"
+    },
+    {
+     "n": 439,
+     "text": "Hằng sa Phật-đà,"
+    },
+    {
+     "n": 440,
+     "text": "Và có đủ cả"
+    },
+    {
+     "n": 441,
+     "text": "Mọi phẩm trên đây"
+    },
+    {
+     "n": 442,
+     "text": "Đều được gọi là"
+    },
+    {
+     "n": 443,
+     "text": "Thích ứng viên giác."
+    },
+    {
+     "n": 444,
+     "text": "Lúc ấy, Bồ-tát Uy Đức Tự Tại ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 445,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả!"
+    },
+    {
+     "n": 446,
+     "text": "Thế Tôn đã vì chúng con mà phân tách những sự thích ứng viên giác như vậy, làm cho các vị Bồ-tát tuệ giác sáng tỏ, nhờ tiếng nói tròn đầy của Thế Tôn mà không qua sự tu tập vẫn được ích lợi tốt đẹp."
+    },
+    {
+     "n": 447,
+     "text": "Bạch Thế Tôn! Ví như thành trì to lớn, phía ngoài có bốn cửa, ai cũng có thể tùy phương hướng mình muốn mà đi vào thành trì ấy, chứ không phải chỉ có một đường."
+    },
+    {
+     "n": 448,
+     "text": "Các Bồ-tát cũng vậy, trang hoàng quốc độ và hoàn thiện tuệ giác, hai sự đó không phải chỉ bằng phương tiện duy nhất."
+    },
+    {
+     "n": 449,
+     "text": "Do đó, con thỉnh cầu Thế Tôn dạy cho chúng con biết, có bao nhiêu phương tiện và người thực hành phương tiện ấy?"
+    },
+    {
+     "n": 450,
+     "text": "Dạy về điều này, Thế Tôn sẽ làm cho các Bồ-tát trong đại hội này và những người thời kỳ cuối cùng cầu pháp Đại thừa, mau chóng tỏ ngộ, du ngoạn trong biển cả vắng lặng mênh mông của Thế Tôn."
+    },
+    {
+     "n": 451,
+     "text": "Tác bạch rồi, Bồ-tát Uy Đức Tự Tại năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 452,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 453,
+     "text": "Bấy giờ, Đức Thế Tôn dạy Bồ-tát Uy Đức Tự Tại:"
+    },
+    {
+     "n": 454,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các Bồ-tát và những người sau này, mà hỏi Như Lai về các phương tiện như vậy."
+    },
+    {
+     "n": 455,
+     "text": "Ông hãy nghe kỹ, Như Lai sẽ nói cho. Bồ-tát Uy Đức Tự Tại vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 456,
+     "text": "Đức Thế Tôn nói:"
+    },
+    {
+     "n": 457,
+     "text": "–Thiện nam! Viên giác vô thượng, khắp cả mười phương, xuất sinh Như Lai và các pháp, nên bản thể vốn đồng đẳng."
+    },
+    {
+     "n": 458,
+     "text": "Bản thể ấy, đối với những người tu hành, thật là nhất trí; nhưng phương tiện thích ứng bản thể ấy thì có vô số và qui nạp lại, phân loại theo khuynh hướng của người tu hành thì có ba."
+    },
+    {
+     "n": 459,
+     "text": "Này thiện nam! Các Bồ-tát tỏ ngộ viên giác trong sáng, đem cái tuệ giác tỏ ngộ ấy nắm lấy sưu cực tĩnh làm chủ yếu, làm cho các vọng niệm lắng xuống, nên thấy rõ tâm thức là phiền động, tuệ giác cực tĩnh phát sinh."
+    },
+    {
+     "n": 460,
+     "text": "Bụi bặm thân tâm từ đây diệt hẳn, bên trong liền phát ra sự thư thái tĩnh lặng."
+    },
+    {
+     "n": 461,
+     "text": "Do tĩnh lặng như vậy mà tâm thể Như Lai mười phương quốc độ biểu hiện trong đó như hình ảnh trong đài gương."
+    },
+    {
+     "n": 462,
+     "text": "Phương tiện như vậy gọi là mặt cực tĩnh Xa-ma-tha."
+    },
+    {
+     "n": 463,
+     "text": "Này thiện nam!"
+    },
+    {
+     "n": 464,
+     "text": "Các Bồ-tát tỏ ngộ viên giác trong sáng, đem cái tuệ giác tỏ ngộ ấy biết tâm thức và căn cảnh toàn huyễn ảo, nên nổi lên huyễn ảo để diệt trừ huyễn ảo, biểu hiện mọi phương tiện huyễn ảo mà hóa độ cho chúng sinh huyễn ảo."
+    },
+    {
+     "n": 465,
+     "text": "Vì nổi lên huyễn ảo như vậy nên bên trong phát ra sự thư thái đại Bi."
+    },
+    {
+     "n": 466,
+     "text": "Các Bồ-tát đều từ đại Bi này mà khởi lên việc làm, tuần tự tiến tới."
+    },
+    {
+     "n": 467,
+     "text": "Biết sự quán sát huyễn ảo là không phải huyễn ảo, rồi biết sự quán sát không phải huyễn ảo đó cũng là huyễn ảo: như vậy là huyễn ảo vĩnh viễn thoát bỏ."
+    },
+    {
+     "n": 468,
+     "text": "Việc làm tinh tế như thế này của các Bồ-tát tựa như đất đai tăng trưởng lúa má."
+    },
+    {
+     "n": 469,
+     "text": "Phương tiện như vầy gọi là mặt cực động Tam-ma-bát-đề."
+    },
+    {
+     "n": 470,
+     "text": "Này thiện nam! Các Bồ-tát tỏ ngộ viên giác trong sáng, đem cái tuệ giác tỏ ngộ ấy, không nắm lấy biểu hiện và tĩnh lặng, mà biết thân tâm toàn là chướng ngại."
+    },
+    {
+     "n": 471,
+     "text": "Cái biết ấy không như cái biết của các giác quan, không dựa vào thân tâm chướng ngại, nên vĩnh viễn siêu việt sự bị chướng ngại và sự không chướng ngại, thụ hưởng được trạng thái này:"
+    },
+    {
+     "n": 472,
+     "text": "Thân tâm và thế giới của thân tâm tuy còn ở trong lĩnh vực bụi bặm, nhưng, như tiếng ở trong hồng chung đã được đánh lên,"
+    },
+    {
+     "n": 473,
+     "text": "kêu vang ra ngoài, phiền não với Niết-bàn không thể chận giữ người ấy và bên trong phát ra sự thư thái vắng lặng."
+    },
+    {
+     "n": 474,
+     "text": "Vắng lặng như vậy là cảnh giới thích ứng của tuệ giác tinh tế, thân tâm của mình hay của người đều không thấu được, tướng chúng sinh hay tướng thọ giả, những khái niệm ấy toàn là ảo tưởng."
+    },
+    {
+     "n": 475,
+     "text": "Phương tiện như vậy gọi là mặt cực thuần Thiền-na."
+    },
+    {
+     "n": 476,
+     "text": "Này thiện nam! Ba phương tiện trên đây toàn là sự thích ứng thân nhất đối với viên giác."
+    },
+    {
+     "n": 477,
+     "text": "Mười phương Như Lai do ba phương tiện ấy mà trở thành Phật-đà."
+    },
+    {
+     "n": 478,
+     "text": "Bao nhiêu phương tiện của mười phương Bồ-tát và tất cả sự đồng nhất hay sự dị biệt của bao nhiêu phương tiện ấy, toàn y cứ ba phương tiện như vầy."
+    },
+    {
+     "n": 479,
+     "text": "Ba phương tiện như vầy viên chứng được là được viên giác."
+    },
+    {
+     "n": 480,
+     "text": "Thiện nam! Giả sử có người tu tập tuệ giác thuần khiết, giáo hóa thành tựu trăm ngàn vạn ức La-hán và Duyên giác,"
+    },
+    {
+     "n": 481,
+     "text": "không bằng có ai nghe ba pháp môn vô ngại này của viên giác mà thích ứng tu tập, dầu chỉ trong một đơn vị ngắn nhất của thì gian."
+    },
+    {
+     "n": 482,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 483,
+     "text": "Uy Đức Tự Tại"
+    },
+    {
+     "n": 484,
+     "text": "Ông nên biết rằng"
+    },
+    {
+     "n": 485,
+     "text": "Viên giác Vô thượng"
+    },
+    {
+     "n": 486,
+     "text": "Bản thể đồng nhất,"
+    },
+    {
+     "n": 487,
+     "text": "Phương tiện thích ứng"
+    },
+    {
+     "n": 488,
+     "text": "Lại có vô lượng."
+    },
+    {
+     "n": 489,
+     "text": "Như Lai bao quát"
+    },
+    {
+     "n": 490,
+     "text": "Thành ra ba mặt:"
+    },
+    {
+     "n": 491,
+     "text": "Về mặt cực tĩnh"
+    },
+    {
+     "n": 492,
+     "text": "Như gương soi hình,"
+    },
+    {
+     "n": 493,
+     "text": "Về mặt cực động"
+    },
+    {
+     "n": 494,
+     "text": "Như đất lớn lúa,"
+    },
+    {
+     "n": 495,
+     "text": "Về mặt cực thuần"
+    },
+    {
+     "n": 496,
+     "text": "Như tiếng hồng chung."
+    },
+    {
+     "n": 497,
+     "text": "Cả ba pháp môn"
+    },
+    {
+     "n": 498,
+     "text": "Tinh tế như vầy"
+    },
+    {
+     "n": 499,
+     "text": "Toàn là phương tiện"
+    },
+    {
+     "n": 500,
+     "text": "Thích ứng viên giác."
+    },
+    {
+     "n": 501,
+     "text": "Mười phương Như Lai"
+    },
+    {
+     "n": 502,
+     "text": "Cùng các Đại sĩ"
+    },
+    {
+     "n": 503,
+     "text": "Nhờ phương tiện ấy"
+    },
+    {
+     "n": 504,
+     "text": "Thành Vô thượng giác"
+    },
+    {
+     "n": 505,
+     "text": "Ba phương tiện ấy"
+    },
+    {
+     "n": 506,
+     "text": "Nếu viên chứng được"
+    },
+    {
+     "n": 507,
+     "text": "Là được viên chứng"
+    },
+    {
+     "n": 508,
+     "text": "Niết-bàn cứu cánh."
+    },
+    {
+     "n": 509,
+     "text": "Lúc ấy, Bồ-tát Biện Âm ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 510,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Phương tiện mà Thế Tôn khai thị trên đây thật là hiếm có."
+    },
+    {
+     "n": 511,
+     "text": "Bạch Thế Tôn! Đối với phương tiện ấy, nghĩa là đối với cửa ngõ của viên giác, các Bồ-tát có mấy cách tu tập để nhập vào?"
+    },
+    {
+     "n": 512,
+     "text": "Con thỉnh cầu Thế Tôn khai thị cho đại chúng này và cho cả những người thời kỳ cuối cùng, làm cho ai cũng tỏ ngộ đích thực."
+    },
+    {
+     "n": 513,
+     "text": "Tác bạch rồi, Bồ-tát Biện Âm năm ấm gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 514,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 515,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Biện Âm:"
+    },
+    {
+     "n": 516,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các Bồ-tát và vì cả những người sau này, mà hỏi Như Lai cách thức tu tập ba phương tiện."
+    },
+    {
+     "n": 517,
+     "text": "Ông hãy nghe kỹ, Như Lai sẽ nói cho. Bồ-tát Biện Âm vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 518,
+     "text": "Đức Thế Tôn bảo:"
+    },
+    {
+     "n": 519,
+     "text": "–Thiện nam! Viên giác trong sáng mà chư Như Lai chứng ngộ vốn không có sự tu tập và người tu tập."
+    },
+    {
+     "n": 520,
+     "text": "Các Bồ-tát và người sau này, dựa vào năng lực huyễn ảo của tuệ giác tỏ ngộ nhưng chưa hoàn toàn tỏ ngộ mà tu tập, thì khi ấy có ra hai mươi lăm bánh xe thiền quán trong sáng."
+    },
+    {
+     "n": 521,
+     "text": "1. Nếu Bồ-tát chỉ nắm cực tĩnh, do sức mạnh cực tĩnh mà diệt hẳn phiền não một cách cứu cánh hoàn thiện, không rời khỏi chỗ của mình mà nhập Niết-bàn liền, đó là Bồ-tát tu riêng mặt cực tĩnh."
+    },
+    {
+     "n": 522,
+     "text": "2. Nếu Bồ-tát tu riêng chỉ quán như huyễn, do sức mạnh Phật-đà mà biểu hiện mọi thứ thân cảnh tùy theo nhu cầu của các thế giới chúng sinh,"
+    },
+    {
+     "n": 523,
+     "text": "làm đủ mọi thứ việc làm trong sáng tinh tế của Bồ-tát mà không mất cái nhớ cực thuần và cái biết cực tĩnh đối với các pháp Tổng trì, đó là Bồ-tát tu riêng mặt cực động."
+    },
+    {
+     "n": 524,
+     "text": "3. Nếu Bồ-tát chỉ diệt trừ mọi sự huyễn ảo, nghĩa là không nắm lấy sự biểu hiện mà chỉ triệt đoạn phiền não, phiền não triệt đoạn là chứng ngộ thật tướng, đó là Bồ-tát tu riêng mặt cực thuần."
+    },
+    {
+     "n": 525,
+     "text": "4. Nếu Bồ-tát trước nắm cực tĩnh, sau đem tuệ giác cực tĩnh chiếu soi huyễn ảo, thì trong sự chiếu soi này nổi lên việc làm Bồ-tát, đó là Bồ-tát trước tu cực tĩnh, sau tu cực động."
+    },
+    {
+     "n": 526,
+     "text": "5. Nếu Bồ-tát đem tuệ giác cực tĩnh chứng ngộ bản thể cực tĩnh, thì phiền não dứt liền, sinh tử thoát hẳn, đó là Bồ-tát trước tu cực tĩnh, sau tu cực thuần."
+    },
+    {
+     "n": 527,
+     "text": "6. Nếu Bồ-tát đem tuệ giác cực tĩnh, lại dùng sức mạnh huyễn ảo biểu hiện đủ cách mà hóa độ chúng sinh, rồi hủy diệt phiền não mà nhập vào Niết-bàn, đó là Bồ-tát trước tu cực tĩnh, giữa tu cực động, sau tu cực thuần."
+    },
+    {
+     "n": 528,
+     "text": "7. Nếu Bồ-tát dùng sức mạnh cực tĩnh mà hủy diệt phiền não, rồi nổi lên việc làm tinh tế và trong sáng của Bồ-tát mà hóa độ chúng sinh, đó là Bồ-tát trước tu cực tĩnh, giữa tu cực thuần, sau tu cực động."
+    },
+    {
+     "n": 529,
+     "text": "8. Nếu Bồ-tát dùng sức mạnh cực tĩnh, rồi hóa độ chúng sinh và xây dựng quốc độ mà hủy diệt phiền não, đó là Bồ-tát trước tu cực tĩnh, sau cùng lúc tu cực động và cực thuần."
+    },
+    {
+     "n": 530,
+     "text": "9. Nếu Bồ-tát đem sức mạnh cực tĩnh giúp cho sự nổi lên mọi cách biểu hiện, sau đó hủy diệt phiền não, đó là Bồ-tát cùng lúc tu cực tĩnh và cực động, sau tu cực thuần."
+    },
+    {
+     "n": 531,
+     "text": "10. Nếu Bồ-tát đem sức mạnh cực tĩnh giúp cho sự dứt bặt, sau đó nổi lên mọi cách biểu hiện, đó là Bồ-tát cùng lúc tu cực tĩnh và cực thuần, sau tu cực động."
+    },
+    {
+     "n": 532,
+     "text": "11. Nếu Bồ-tát đem sức mạnh biến ảo thích ứng đủ cả, sau đó nắm lấy sự cực tĩnh, đó là Bồ-tát trước tu cực động, sau tu cực tĩnh."
+    },
+    {
+     "n": 533,
+     "text": "12. Nếu Bồ-tát đem sức mạnh biến ảo biểu hiện đủ cả, sau đó nắm lấy sự dứt bặt, đó là Bồ-tát trước tu cực động, sau tu cực thuần."
+    },
+    {
+     "n": 534,
+     "text": "13. Nếu Bồ-tát đem sức mạnh biến ảo làm mọi việc Phật làm, rồi đứng trong sự tĩnh lặng mà hủy diệt phiền não, đó là Bồ-tát trước tu cực động, giữa tu cực tĩnh, sau tu cực thuần."
+    },
+    {
+     "n": 535,
+     "text": "14. Nếu Bồ-tát đem sức mạnh biến ảo mà hoạt động vô ngại, rồi hủy diệt phiền não và sống trong sự cực tĩnh, đó là Bồ-tát trước tu cực động, giữa tu cực thuần, sau tu cực tĩnh."
+    },
+    {
+     "n": 536,
+     "text": "15. Nếu Bồ-tát đem sức mạnh biến ảo mà hoạt động bằng mọi phương tiện, rồi thích ứng với sự cực tĩnh và sự dứt bặt, đó là Bồ-tát trước tu cực động, sau cùng lúc tu cực tĩnh và cực thuần."
+    },
+    {
+     "n": 537,
+     "text": "16. Nếu Bồ-tát đem sức mạnh biến ảo nổi lên đủ mọi tác dụng giúp cho sự cực tĩnh, sau đó hủy diệt phiền não, đó là Bồ-tát cùng lúc tu cực động và cực tĩnh, sau tu cực thuần."
+    },
+    {
+     "n": 538,
+     "text": "17. Nếu Bồ-tát đem sức mạnh biến ảo giúp cho sự dứt bặt, sau đó sống trong sự tĩnh tâm trong sáng và bất động, đó là Bồ-tát cùng lúc tu cực động và cực thuần, sau tu cực tĩnh."
+    },
+    {
+     "n": 539,
+     "text": "18. Nếu Bồ-tát đem sức mạnh dứt bặt mà phát cực tĩnh và sống trong sáng, đó là Bồ-tát trước tu cực thuần, sau tu cực tĩnh."
+    },
+    {
+     "n": 540,
+     "text": "19. Nếu Bồ-tát đem sức mạnh dứt bặt mà nổi lên hoạt động, sự hoạt động đối với cảnh ngộ nào cũng vẫn thích ứng cực thuần, đó là Bồ-tát trước tu cực thuần, sau tu cực động."
+    },
+    {
+     "n": 541,
+     "text": "20. Nếu Bồ-tát đem sức mạnh dứt bặt mà đặt mọi tánh cách biểu hiện vào trong sự tĩnh tâm, rồi nổi lên mọi sự biểu hiện, đó là Bồ-tát trước tu cực thuần, giữa tu cực tĩnh, sau tu cực động."
+    },
+    {
+     "n": 542,
+     "text": "21. Nếu Bồ-tát đem sức mạnh dứt bặt, từ bản thể bất động mà nổi lên hoạt động, hoạt động có đặc tánh trong sáng ấy lại quy về sự tĩnh tâm cả, đó là Bồ-tát trước tu cực thuần, giữa tu cực động, sau tu cực tĩnh."
+    },
+    {
+     "n": 543,
+     "text": "22. Nếu Bồ-tát đem sức mạnh dứt bặt làm cho mọi sự đều trong sạch, rồi đứng trong sự tĩnh tâm mà nổi lên mọi sự biểu hiện, đó là Bồ-tát trước tu cực thuần, sau cùng lúc tu cực tĩnh và cực động."
+    },
+    {
+     "n": 544,
+     "text": "23. Nếu Bồ-tát đem sức mạnh dứt bặt giúp cho sự cực tĩnh mà nổi lên mọi sự biểu hiện, đó là Bồ-tát cùng lúc tu cực thuần và cực tĩnh, sau tu cực động."
+    },
+    {
+     "n": 545,
+     "text": "24. Nếu Bồ-tát đem sức mạnh dứt bặt giúp cho sự biểu hiện, rồi từ đó phát sinh đối cảnh và tuệ giác trong sáng của sự cực tĩnh, đó là Bồ-tát cùng lúc tu cực thuần và cực động, sau tu cực tĩnh."
+    },
+    {
+     "n": 546,
+     "text": "25. Nếu Bồ-tát đem trí tuệ viên giác mà hóa hợp tất cả, tất cả đặc tánh và sự dụng không rời viên giác, đó là Bồ-tát tu cả ba phương tiện thích ứng trong sáng và viên giác."
+    },
+    {
+     "n": 547,
+     "text": "Này thiện nam! Hai mươi lăm bánh xe của Thiền quán mà tất cả Bồ-tát tu tập là như vậy."
+    },
+    {
+     "n": 548,
+     "text": "Nếu các vị Bồ-tát và những người sau này, muốn y cứ vào hai mươi lăm bánh xe ấy, thì trước phải giữ phạm hạnh, lắng tĩnh tư duy, khẩn thiết sám hối."
+    },
+    {
+     "n": 549,
+     "text": "Ba tuần bảy ngày làm như vậy, đem hai mươi lăm bánh xe này mỗi thứ ghi riêng, gấp lại, chí thành khẩn cầu tha thiết,"
+    },
+    {
+     "n": 550,
+     "text": "dùng tay mà lấy, mở ra thì biết bánh xe lấy được là tính cách tu tập liền liền hay tính cách tu tập dần dần."
+    },
+    {
+     "n": 551,
+     "text": "Làm như vậy mà len vào một thoáng ngờ vực là bất thành."
+    },
+    {
+     "n": 552,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 553,
+     "text": "Biện Âm nên biết,"
+    },
+    {
+     "n": 554,
+     "text": "Tuệ giác trong sáng"
+    },
+    {
+     "n": 555,
+     "text": "Của các Bồ-tát"
+    },
+    {
+     "n": 556,
+     "text": "Sinh từ thiền quán,"
+    },
+    {
+     "n": 557,
+     "text": "Thiền quán ba mặt"
+    },
+    {
+     "n": 558,
+     "text": "Cực tĩnh cực động"
+    },
+    {
+     "n": 559,
+     "text": "Cùng với cực thuần,"
+    },
+    {
+     "n": 560,
+     "text": "Tu tập liền liền"
+    },
+    {
+     "n": 561,
+     "text": "Hay là dần dần"
+    },
+    {
+     "n": 562,
+     "text": "Thành hăm lăm cách."
+    },
+    {
+     "n": 563,
+     "text": "Chư vị Như Lai"
+    },
+    {
+     "n": 564,
+     "text": "Trong mười phương hướng,"
+    },
+    {
+     "n": 565,
+     "text": "Những người tu hành"
+    },
+    {
+     "n": 566,
+     "text": "Thuộc ba thì gian,"
+    },
+    {
+     "n": 567,
+     "text": "Không ai không nhờ"
+    },
+    {
+     "n": 568,
+     "text": "Phương tiện như vầy"
+    },
+    {
+     "n": 569,
+     "text": "Mà được thành tựu"
+    },
+    {
+     "n": 570,
+     "text": "Tuệ giác Bồ-đề."
+    },
+    {
+     "n": 571,
+     "text": "Chỉ trừ những người"
+    },
+    {
+     "n": 572,
+     "text": "Tỉnh ngộ liền liền"
+    },
+    {
+     "n": 573,
+     "text": "Cùng với những kẻ"
+    },
+    {
+     "n": 574,
+     "text": "Không chịu Phật pháp,"
+    },
+    {
+     "n": 575,
+     "text": "Còn các Bồ-tát"
+    },
+    {
+     "n": 576,
+     "text": "Và người sau này"
+    },
+    {
+     "n": 577,
+     "text": "Thường xuyên nắm giữ"
+    },
+    {
+     "n": 578,
+     "text": "Phương tiện như vầy,"
+    },
+    {
+     "n": 579,
+     "text": "Thích ứng, nỗ lực,"
+    },
+    {
+     "n": 580,
+     "text": "Và tu tập theo,"
+    },
+    {
+     "n": 581,
+     "text": "Thì nhờ sức mạnh"
+    },
+    {
+     "n": 582,
+     "text": "Từ bi của Phật,"
+    },
+    {
+     "n": 583,
+     "text": "Sẽ không bao lâu"
+    },
+    {
+     "n": 584,
+     "text": "Chứng được Niết-bàn."
+    },
+    {
+     "n": 585,
+     "text": "Lúc ấy, Bồ-tát Tịnh Chư Nghiệp Chướng ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 586,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Thế Tôn đã nói cho chúng con một cách rộng rãi về những sự ngoài tầm tư duy và thảo luận, đó là nói về căn bản sơ khởi của Đức Thế Tôn và những gì liên hệ đến căn bản sơ khởi ấy."
+    },
+    {
+     "n": 587,
+     "text": "Thế Tôn đã làm cho chúng con được sự chưa từng có: thấy được mọi việc siêng khó của Đức Thế Tôn trong bao kiếp như cát sông Hằng, thấy rõ như mới xảy ra một thoáng trước đây."
+    },
+    {
+     "n": 588,
+     "text": "Do vậy mà chúng con vui mừng và được an ủi một cách sâu xa."
+    },
+    {
+     "n": 589,
+     "text": "Bạch Thế Tôn! Bản thể viên giác là trong sáng, vì sao lại có cái nhược điểm là làm cho chúng sinh mê loạn không thể nhập vào?"
+    },
+    {
+     "n": 590,
+     "text": "Con thỉnh cầu Đức Thế Tôn dạy cho tất cả chúng con biết được thực chất việc ấy."
+    },
+    {
+     "n": 591,
+     "text": "Xin Thế Tôn tạo con mắt tương lai cho chúng con và cho cả những người sau này."
+    },
+    {
+     "n": 592,
+     "text": "Tác bạch rồi, Bồ-tát Tịnh Chư Nghiệp Chướng năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 593,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 594,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Tịnh Chư Nghiệp Chướng:"
+    },
+    {
+     "n": 595,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các vị Bồ-tát và những người thời kỳ cuối cùng, mà hỏi Như Lai về yếu tố tu chứng như vậy. Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 596,
+     "text": "Bồ-tát Tịnh Chư Nghiệp Chướng vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 597,
+     "text": "Đức Thế Tôn nói:"
+    },
+    {
+     "n": 598,
+     "text": "–Thiện nam! Vô thỉ đến giờ, chúng sinh vì tưởng lầm nên cố chấp nơi tướng ngã, tướng nhân, tướng chúng sinh, tướng thọ giả, nhận bốn khái niệm điên đảo này làm cái ngã thật của mình."
+    },
+    {
+     "n": 599,
+     "text": "Do đó mà tự nhiên sinh ra hai sự ghét bỏ và ưa thích."
+    },
+    {
+     "n": 600,
+     "text": "Vậy là điên đảo thêm điên đảo. Hai lớp điên đảo này hợp lực tạo ra nghiệp và đường đi của nghiệp, nghĩa là có cái nghiệp điên đảo nên có cái thấy điên đảo là thấy luân hồi."
+    },
+    {
+     "n": 601,
+     "text": "Rồi chán bỏ luân hồi thì có cái thấy điên đảo khác là thấy Niết-bàn."
+    },
+    {
+     "n": 602,
+     "text": "Do vậy mà không thể nhập vào viên giác trong sáng."
+    },
+    {
+     "n": 603,
+     "text": "Chứ không phải viên giác kháng cự những người nhập vào."
+    },
+    {
+     "n": 604,
+     "text": "Vì có ai nhập vào thì cũng không phải do viên giác làm cho nhập vào."
+    },
+    {
+     "n": 605,
+     "text": "Thế nên dấy động nghĩ nhớ cùng với ngăn chận nghĩ nhớ đi đến sảng loạn, vì sao, vì có vô minh chủ động trong đó."
+    },
+    {
+     "n": 606,
+     "text": "Chúng sinh sinh ra là đã không có con mắt tuệ giác, thân thể và tâm trí toàn là vô minh: vô minh không chịu diệt trừ vô minh, cũng như có kẻ không chịu tự chặt thân mạng của mình."
+    },
+    {
+     "n": 607,
+     "text": "Do đó, phải hiểu thương yêu tự ngã ngã ghét, ưa ghét đó nuôi dưỡng vô minh, nên làm cho sự liên tục thì hợp với ngã ngã ưa, trái với ngã tìm cách chứng ngộ viên giác không thể thành tựu."
+    },
+    {
+     "n": 608,
+     "text": "Này thiện nam! Tướng ngã là tự biết về tự ngã."
+    },
+    {
+     "n": 609,
+     "text": "Ví dụ có kẻ cơ thể điều hòa thì như quên mình đi, nhưng chích đốt chút xíu là thấy có ngã liền."
+    },
+    {
+     "n": 610,
+     "text": "Vậy là chính tự biết mới hiện ra tự ngã."
+    },
+    {
+     "n": 611,
+     "text": "Thiện nam! Tự biết như vậy biết đến Niết-bàn đi nữa cũng là tướng ngã."
+    },
+    {
+     "n": 612,
+     "text": "Này thiện nam! Tướng nhân là tự hiểu về sự tự biết nói trên."
+    },
+    {
+     "n": 613,
+     "text": "Nhưng hiểu rằng tự biết mới có tự ngã, thì hiểu tự ngã ấy không đáng nhận; lại hiểu rằng tự ngã không đáng nhận, thì hiểu tự biết mới có tự ngã, sự tự biết ấy cũng không đáng nhận."
+    },
+    {
+     "n": 614,
+     "text": "Cái hiểu vượt hết những cái đã biết như vậy gọi là nhân tướng."
+    },
+    {
+     "n": 615,
+     "text": "Thiện nam! Cái hiểu ấy hiểu đến Niết-bàn của sự tự biết cũng là ngã tướng đi nữa, vẫn còn sự tự hiểu tinh tế để hiểu hết cái lý của sự tự biết, nên toàn là tướng nhân."
+    },
+    {
+     "n": 616,
+     "text": "Này thiện nam! Tướng chúng sinh là tự rõ cái mà sự tự biết và sự tự hiểu đều không thấu đến."
+    },
+    {
+     "n": 617,
+     "text": "Ví dụ có người nói tôi là chúng sinh, thì chúng sinh mà người này nói là không phải ngã không phải nhân:"
+    },
+    {
+     "n": 618,
+     "text": "tôi là chúng sinh thì chúng sinh ấy không phải tự ngã của tôi, tôi là chúng sinh thì chúng sinh ấy không phải tự ngã của ai."
+    },
+    {
+     "n": 619,
+     "text": "Thiện nam! Tự biết cái ta là ngã tướng, tự hiểu sự tự biết ấy là nhân tướng, tướng ngã và tướng nhân không thấu mà vẫn tự rõ sự không thấy ấy, là tướng chúng sinh."
+    },
+    {
+     "n": 620,
+     "text": "Như thế nào, tướng thọ giả là tuệ giác trong sáng của chúng sinh, giác ngộ sự tự rõ cái không thấu nói trên."
+    },
+    {
+     "n": 621,
+     "text": "Tuệ giác còn tánh biến động như vậy thì giác ngộ tất cả mà không tự giác ngộ, tuệ giác ấy là tướng thọ giả."
+    },
+    {
+     "n": 622,
+     "text": "Thiện nam! Tuệ giác ấy cũng là một thứ bị bụi bặm làm cho nhơ bẩn, vì còn giác ngộ và còn những cái được giác ngộ thì vẫn thuộc lĩnh vực bụi bặm, tuệ giác ấy cũng phải lọc cho sạch."
+    },
+    {
+     "n": 623,
+     "text": "Nên, y như đun sôi để làm rã cả khối nước đá, thì không thể còn để chút ít nước đá nào trong khối nước đá ấy để biết khối nước đá ấy rã hết;"
+    },
+    {
+     "n": 624,
+     "text": "nếu còn tự ngã để giác ngộ tự ngã tận diệt, thì cũng như còn để chút ít nước đá."
+    },
+    {
+     "n": 625,
+     "text": "Này thiện nam! Những người thời kỳ cuối cùng không thấu triệt bốn tướng, nên siêng khó tu tập mấy kiếp đi nữa, cũng chỉ là sự tạo tác chứ không thành sự chứng ngộ, vì thế mà gọi là thời kỳ cuối cùng của Phật pháp."
+    },
+    {
+     "n": 626,
+     "text": "Bởi lẽ họ nhận những sắc thái biến tướng của ngã làm Niết-bàn, họ cho sự tự biết tự hiểu những sắc thái ấy là tuệ giác, khác nào nhận giặc làm con, nên tài sản vàng ngọc không bao giờ tạo được."
+    },
+    {
+     "n": 627,
+     "text": "Yêu thích tự ngã mà yêu thích Niết-bàn, thì cho tạm dẹp yêu thích tự ngã đã là Niết-bàn;"
+    },
+    {
+     "n": 628,
+     "text": "ghét bỏ tự ngã nên ghét bỏ sinh tử, đâu biết đó cũng là một cách yêu thích tự ngã và sự yêu thích này thật là gốc gác sinh tử, nên ghét bỏ sinh tử như vậy không gọi là giải thoát."
+    },
+    {
+     "n": 629,
+     "text": "Còn yêu thích Niết-bàn tại sao cũng không gọi là giải thoát?"
+    },
+    {
+     "n": 630,
+     "text": "Thiện nam! Vì những người thời kỳ cuối cùng tu tập tuệ giác Bồ-đề mà cho cái biết chút ít của mình đã là trong sáng, thì thế là vẫn chưa loại hết gốc gác ngã tướng."
+    },
+    {
+     "n": 631,
+     "text": "Ai khen cái biết của họ thì họ mừng và thích hóa độ, ai chê cái biết của họ thì họ giận và muốn cự tuyệt."
+    },
+    {
+     "n": 632,
+     "text": "Như thế thì biết tướng ngã vẫn được giữ chặt, ẩn núp trong tạng thức và ngao du nơi các giác quan, chưa gián đoạn bao giờ."
+    },
+    {
+     "n": 633,
+     "text": "Những kẻ tu tập tuệ giác mà tướng ngã như vậy không trừ bỏ đi, thì không thể nhập vào viên giác trong sáng."
+    },
+    {
+     "n": 634,
+     "text": "Này thiện nam! Nếu biết tướng ngã là không thì không thấy ai là người chê ngã."
+    },
+    {
+     "n": 635,
+     "text": "Nếu thấy ngã thuyết pháp thì biết tướng ngã đang còn."
+    },
+    {
+     "n": 636,
+     "text": "Tướng nhân, tướng chúng sinh và tướng thọ giả cũng y như vậy."
+    },
+    {
+     "n": 637,
+     "text": "Thế nên, thiện nam! Những người thời kỳ cuối cùng thuyết về bệnh mà cho đó là pháp thì thật đáng thương và nỗ lực tinh tiến thì chỉ tăng thêm bệnh hoạn, không thể nhập vào viên giác trong sáng."
+    },
+    {
+     "n": 638,
+     "text": "Này thiện nam! Những người thời kỳ cuối cùng không thấu triệt bốn tướng, nên dẫu đem cái hiểu cái làm của Như Lai làm cái hiểu cái làm của mình mà không bao giờ thành tựu."
+    },
+    {
+     "n": 639,
+     "text": "Có kẻ chưa được tự cho đã được, chưa chứng tự cho đã chứng, thấy ai hơn lên thì lòng sinh ganh ghét, ấy là vì họ chưa loại trừ sự yêu thích tự ngã, nên không thể nhập vào viên giác trong sáng."
+    },
+    {
+     "n": 640,
+     "text": "Này thiện nam! Những người thời kỳ cuối cùng ước mong thành đạt tuệ giác, thì đừng cố cầu sự tỏ ngộ bằng cách chỉ tăng thêm đa văn để lớn thêm tướng ngã, mà phải siêng năng tinh tiến để loại trừ phiền não;"
+    },
+    {
+     "n": 641,
+     "text": "phải dũng mãnh lớn lao để được cái chưa được, mất cái chưa mất; tham lam, sân hận, yêu thích, ngạo mạn, dua nịnh, ganh ghét, những thứ này đối cảnh không sinh ra nữa, bỉ, thử ân oán dứt bặt tất cả."
+    },
+    {
+     "n": 642,
+     "text": "Như Lai nói những người như vậy sẽ tuần tự thành đạt tuệ giác và tìm gặp thầy bạn tốt thì không gặp phải những kẻ kiến thức sai lầm."
+    },
+    {
+     "n": 643,
+     "text": "Tìm gặp thầy bạn tốt thì đừng thiên kiến mà sinh ra ghét bỏ hay ưa thích, bởi vì như thế thì không thể nhập vào biển cả viên giác trong sáng."
+    },
+    {
+     "n": 644,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 645,
+     "text": "Tịnh Chư Nghiệp Chướng"
+    },
+    {
+     "n": 646,
+     "text": "Ông nên biết rằng"
+    },
+    {
+     "n": 647,
+     "text": "Chúng sinh giai do"
+    },
+    {
+     "n": 648,
+     "text": "Cố chấp tự ngã,"
+    },
+    {
+     "n": 649,
+     "text": "Vô thỉ đến giờ"
+    },
+    {
+     "n": 650,
+     "text": "Luân hồi vô lối."
+    },
+    {
+     "n": 651,
+     "text": "Thế nên chưa trừ"
+    },
+    {
+     "n": 652,
+     "text": "Bố tướng chấp ngã,"
+    },
+    {
+     "n": 653,
+     "text": "Thì không thành đạt"
+    },
+    {
+     "n": 654,
+     "text": "Tuệ giác viên giác."
+    },
+    {
+     "n": 655,
+     "text": "Tâm sinh ưa ghét"
+    },
+    {
+     "n": 656,
+     "text": "Lòng còn cong queo,"
+    },
+    {
+     "n": 657,
+     "text": "Nên có lắm kẻ"
+    },
+    {
+     "n": 658,
+     "text": "Đâm ra bối rối,"
+    },
+    {
+     "n": 659,
+     "text": "Không thể nhập vào"
+    },
+    {
+     "n": 660,
+     "text": "Thành trì viên giác."
+    },
+    {
+     "n": 661,
+     "text": "Muốn về cho thấu"
+    },
+    {
+     "n": 662,
+     "text": "Đất nước viên giác,"
+    },
+    {
+     "n": 663,
+     "text": "Thì phải trừ khử"
+    },
+    {
+     "n": 664,
+     "text": "Cả tham sân si,"
+    },
+    {
+     "n": 665,
+     "text": "Và ghét sinh tử"
+    },
+    {
+     "n": 666,
+     "text": "Hay ưa Niết-bàn,"
+    },
+    {
+     "n": 667,
+     "text": "Cả hai sự ấy"
+    },
+    {
+     "n": 668,
+     "text": "Không còn trong lòng,"
+    },
+    {
+     "n": 669,
+     "text": "Thì mới tuần tự"
+    },
+    {
+     "n": 670,
+     "text": "Thành đạt tuệ giác."
+    },
+    {
+     "n": 671,
+     "text": "Tự ngã tự thân"
+    },
+    {
+     "n": 672,
+     "text": "Vốn không có thật,"
+    },
+    {
+     "n": 673,
+     "text": "Thì ưa với ghét"
+    },
+    {
+     "n": 674,
+     "text": "Có ra từ đâu?"
+    },
+    {
+     "n": 675,
+     "text": "Những người như vầy"
+    },
+    {
+     "n": 676,
+     "text": "Tìm thầy bạn tốt"
+    },
+    {
+     "n": 677,
+     "text": "Thì không bao giờ"
+    },
+    {
+     "n": 678,
+     "text": "Gặp phải tà kiến,"
+    },
+    {
+     "n": 679,
+     "text": "Tìm mà thiên kiến"
+    },
+    {
+     "n": 680,
+     "text": "Không thành gì cả."
+    },
+    {
+     "n": 681,
+     "text": "Lúc ấy, Bồ-tát Phổ Giác ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 682,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Thế Tôn đã chỉ dạy một cách thích thú về bệnh hoạn của Thiền quán, làm cho đại chúng này được sự chưa từng có, tâm ý thư thái và ổn định lớn lao."
+    },
+    {
+     "n": 683,
+     "text": "Bạch Thế Tôn! Những người thời kỳ cuối cùng cách thời đại của Thế Tôn quá xa, Hiền thánh ẩn giấu, lý thuyết sai lầm bùng cháy thêm lên;"
+    },
+    {
+     "n": 684,
+     "text": "để làm cho những người mù mờ trong thời kỳ ấy khỏi sa vào lý thuyết sai lầm, con xin Thế Tôn dạy cho họ biết nên tìm người nào?"
+    },
+    {
+     "n": 685,
+     "text": "Nên cứ pháp nào? Nên làm việc gì? Nên trừ bệnh gì? Nên phát tâm nào?"
+    },
+    {
+     "n": 686,
+     "text": "Tác bạch rồi, Bồ-tát Phổ Giác năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 687,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 688,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Phổ Giác:"
+    },
+    {
+     "n": 689,
+     "text": "–Lành thay! Thiện nam! Ông có thể hỏi Như Lai về sự tu hành như vậy, khiến cho những người thời kỳ cuối cùng con mắt tuệ giác không còn e sợ, làm cho họ thành được tuệ giác của các vị Thánh giả."
+    },
+    {
+     "n": 690,
+     "text": "Ông hãy nghe kỹ, Như Lai sẽ nói cho. Bồ-tát Phổ Giác vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 691,
+     "text": "Đức Thế Tôn nói:"
+    },
+    {
+     "n": 692,
+     "text": "–Thiện nam! Người thời kỳ cuối cùng, khi sắp phát tâm vĩ đại và tìm thầy bạn tốt để tu hành, thì nên tìm người thấy biết chính xác:"
+    },
+    {
+     "n": 693,
+     "text": "lòng không sống theo khuôn khổ phàm phu, không vướng vào lĩnh vực Nhị thừa, biểu hiện bụi bặm mà tâm thường trong sáng, biểu hiện tội lỗi mà tán dương phạm hạnh, không làm cho người sống không giới luật."
+    },
+    {
+     "n": 694,
+     "text": "Tìm được người như vậy thì được tuệ giác Vô thượng."
+    },
+    {
+     "n": 695,
+     "text": "Người thời kỳ cuối cùng gặp người như vậy thì nên phụng sự đến tánh mạng cũng không tiếc."
+    },
+    {
+     "n": 696,
+     "text": "Người thầy bạn tốt này đi, đứng, nằm, ngồi luôn luôn trong sáng thì nên kính trọng, giả sử biểu hiện tội lỗi thì đừng khinh thường, huống chi chỉ quan tâm đến của cải thân thuộc."
+    },
+    {
+     "n": 697,
+     "text": "Thiện nam nào không có ý xấu đối với thầy bạn tốt thì có năng lực thành đạt trọn vẹn tuệ giác chính xác, bông hoa tâm trí phát sáng, chiếu soi tất cả."
+    },
+    {
+     "n": 698,
+     "text": "Này thiện nam! Hãy y cứ vào pháp của thầy bạn tốt, cái pháp phải tách rời bốn thứ bệnh."
+    },
+    {
+     "n": 699,
+     "text": "1. Bệnh làm, là nếu ai nói tôi chủ tâm làm mọi việc để cầu viên giác; nhưng viên giác không phải làm như thế mà được, nên nói như thế là bệnh đó."
+    },
+    {
+     "n": 700,
+     "text": "2. Bệnh buông, là nếu ai nói tôi không loại sinh tử không cầu Niết-bàn, đối với Niết-bàn và sinh tử tôi không có ý niệm phát động hay hủy diệt, tôi buông thả tất cả, mặc kệ các pháp để cầu viên giác;"
+    },
+    {
+     "n": 701,
+     "text": "nhưng viên giác không phải buông như thế mà có, nên nói như thế là bệnh đó."
+    },
+    {
+     "n": 702,
+     "text": "3. Bệnh ngưng, là nếu ai nói tôi ngừng mọi ý niệm, nắm lấy vắng lặng của toàn bộ các pháp để cầu viên giác; nhưng viên giác không phải ngừng như thế mà hợp, nên nói như thế là bệnh đó."
+    },
+    {
+     "n": 703,
+     "text": "4."
+    },
+    {
+     "n": 704,
+     "text": "Bệnh dứt, là nếu ai nói tôi dứt bỏ phiền não, không cả thân tâm, huống chi những thứ căn cảnh huyễn ảo, tôi dứt bặt hết thảy để cầu viên giác; nhưng viên giác không phải dứt như thế mà chứng, nên nói như thế là bệnh đó."
+    },
+    {
+     "n": 705,
+     "text": "Pháp của ai tách rời bốn bệnh như vậy thì biết pháp ấy trong sáng."
+    },
+    {
+     "n": 706,
+     "text": "Và xét như vậy là xét chính xác, xét khác đi là xét sai lầm."
+    },
+    {
+     "n": 707,
+     "text": "Này thiện nam! Những người thời kỳ cuối cùng muốn tu hành thì phải suốt đời phụng sự thầy bạn tốt có cái pháp tách rời cả bốn bệnh như vậy."
+    },
+    {
+     "n": 708,
+     "text": "Thầy bạn tốt muốn thân gần thì đừng khinh lờn, muốn rời xa thì đừng oán hận."
+    },
+    {
+     "n": 709,
+     "text": "Trước cảnh nghịch hay cảnh thuận lòng như không gian, với thân thể và tâm trí biết toàn không thật, coi tất cả chúng sinh đồng bản thể với mình."
+    },
+    {
+     "n": 710,
+     "text": "Làm như vậy mới mong nhập vào viên giác."
+    },
+    {
+     "n": 711,
+     "text": "Này thiện nam! Những người thời kỳ cuối cùng không thành đạt tuệ giác là vì chưa loại bỏ những hạt giống ghét ưa đối với bản thân cũng như đối với người khác, đã có từ vô thỉ."
+    },
+    {
+     "n": 712,
+     "text": "Ai nhìn kẻ thù như nhìn cha mẹ, lòng không bỉ, thử, thì trừ khử được mọi thứ bệnh hoạn trong sự tu hành."
+    },
+    {
+     "n": 713,
+     "text": "Những sự ghét ưa đối với các pháp cũng phải trừ khử như vậy."
+    },
+    {
+     "n": 714,
+     "text": "Này thiện nam! Những người thời kỳ cuối cùng muốn cầu viên giác thì phải phát tâm, bằng cách nói như vầy: Cùng tận không gian, bao nhiêu chúng sinh trong đó, con nguyện làm cho họ nhập được viên giác;"
+    },
+    {
+     "n": 715,
+     "text": "trong viên giác, con không chấp có người chứng ngộ, con nguyện loại trừ mọi sắc thái nơi tướng ngã, tướng nhân."
+    },
+    {
+     "n": 716,
+     "text": "Phát tâm như vậy thì không rơi vào kiến thức sai lầm."
+    },
+    {
+     "n": 717,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 718,
+     "text": "Phổ Giác nên biết,"
+    },
+    {
+     "n": 719,
+     "text": "Những người sau này"
+    },
+    {
+     "n": 720,
+     "text": "Cầu thầy bạn tốt"
+    },
+    {
+     "n": 721,
+     "text": "Phải cầu những người"
+    },
+    {
+     "n": 722,
+     "text": "Thấy biết chính xác"
+    },
+    {
+     "n": 723,
+     "text": "Tâm vượt Nhị thừa."
+    },
+    {
+     "n": 724,
+     "text": "Đối với pháp tu"
+    },
+    {
+     "n": 725,
+     "text": "Phải loại bốn bệnh"
+    },
+    {
+     "n": 726,
+     "text": "Bệnh làm bệnh ngưng"
+    },
+    {
+     "n": 727,
+     "text": "Bệnh buông bệnh dứt."
+    },
+    {
+     "n": 728,
+     "text": "Và thầy bạn tốt"
+    },
+    {
+     "n": 729,
+     "text": "Thân, mình đừng kiêu"
+    },
+    {
+     "n": 730,
+     "text": "Sơ, mình không hận,"
+    },
+    {
+     "n": 731,
+     "text": "Và nhìn mọi sự"
+    },
+    {
+     "n": 732,
+     "text": "Của thầy bạn tốt"
+    },
+    {
+     "n": 733,
+     "text": "Lòng thấy hiếm có;"
+    },
+    {
+     "n": 734,
+     "text": "Có thầy bạn tốt"
+    },
+    {
+     "n": 735,
+     "text": "Như Phật xuất hiện."
+    },
+    {
+     "n": 736,
+     "text": "Không phạm những gì"
+    },
+    {
+     "n": 737,
+     "text": "Trái với uy nghi,"
+    },
+    {
+     "n": 738,
+     "text": "Gốc rễ giới luật"
+    },
+    {
+     "n": 739,
+     "text": "Vĩnh viễn trong sáng."
+    },
+    {
+     "n": 740,
+     "text": "Nguyện độ chúng sinh"
+    },
+    {
+     "n": 741,
+     "text": "Nhập vào viên giác,"
+    },
+    {
+     "n": 742,
+     "text": "Không có ngã tướng"
+    },
+    {
+     "n": 743,
+     "text": "Nhân tướng cũng không,"
+    },
+    {
+     "n": 744,
+     "text": "Y cứ tuệ giác"
+    },
+    {
+     "n": 745,
+     "text": "Chính xác như vậy"
+    },
+    {
+     "n": 746,
+     "text": "Thì vượt qua được"
+    },
+    {
+     "n": 747,
+     "text": "Mọi thứ tà kiến:"
+    },
+    {
+     "n": 748,
+     "text": "Tuệ giác chính xác"
+    },
+    {
+     "n": 749,
+     "text": "Thì nhập Niết-bàn."
+    },
+    {
+     "n": 750,
+     "text": "Lúc ấy, Bồ-tát Viên Giác ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 751,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Thế Tôn đã dạy cho chúng con một cách rộng rãi về những phương tiện của viên giác trong sáng, làm cho những người thời kỳ cuối cùng được lợi ích tăng thêm một cách lớn lao."
+    },
+    {
+     "n": 752,
+     "text": "Bạch Thế Tôn! Hiện tại chúng con đã được tỏ ngộ, nhưng Ngài diệt độ rồi, thời kỳ cuối cùng, những người chưa được tỏ ngộ thì họ nên thiết lập đạo tràng an cư như thế nào để tu tập viên giác?"
+    },
+    {
+     "n": 753,
+     "text": "Cách đầu tiên tu ba mặt thiền quán trong sáng của viên giác là gì?"
+    },
+    {
+     "n": 754,
+     "text": "Con thỉnh cầu Thế Tôn, với lòng thương cao cả, chỉ dạy những điều ấy, ban cho đại chúng này và người sau này, sự ích lợi lớn lao."
+    },
+    {
+     "n": 755,
+     "text": "Tác bạch rồi, Bồ-tát Viên Giác năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 756,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 757,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Viên Giác:"
+    },
+    {
+     "n": 758,
+     "text": "–Lành thay! Thiện nam! Ông có thể hỏi Như Lai về phương tiện như vậy của viên giác, cống hiến ích lợi lớn lao cho bao chúng sinh. Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 759,
+     "text": "Bồ-tát Viên Giác vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 760,
+     "text": "Đức Thế Tôn nói:"
+    },
+    {
+     "n": 761,
+     "text": "–Thiện nam! Hoặc thời kỳ Như Lai đang còn ở đời, hoặc thời kỳ Như Lai đã diệt độ, hoặc thời kỳ cuối cùng của Phật pháp, tất cả mọi người ai có chủng tánh Đại thừa, tin và muốn tu viên giác vĩ đại của Như Lai chứng ngộ,"
+    },
+    {
+     "n": 762,
+     "text": "mà ở nơi tự viện, nếu có việc phải lo cho Tăng chúng và tín đồ, thì tùy khả năng của mình, hãy tư duy thiền quán theo những cách thức Như Lai đã chỉ ở trước."
+    },
+    {
+     "n": 763,
+     "text": "Nếu không có việc gì, thì thiết lập đạo tràng mà an cư, với ba kỳ hạn: kỳ hạn dài một trăm hai mươi ngày, kỳ hạn vừa một trăm ngày, kỳ hạn ngắn tám mươi ngày."
+    },
+    {
+     "n": 764,
+     "text": "Bằng cách nếu Như Lai đang ở đời thì hãy suy nghĩ chính xác đến Như Lai, nếu Như Lai đã diệt độ thì treo cờ, chưng hoa, thiết trí hình tượng của Như Lai,"
+    },
+    {
+     "n": 765,
+     "text": "chủ tâm nơi hình tượng ấy, mắt nhìn cho rõ rồi nhắm lại tưởng tượng hình tượng ấy, tâm trí nghĩ nhớ chính xác đến Như Lai, như thế thì cũng như ngày Như Lai còn ở đời."
+    },
+    {
+     "n": 766,
+     "text": "Trải qua ba tuần bảy ngày, kính lạy hồng danh Phật-đà mười phương, tha thiết sám hối, cảm được hiện tượng tốt thì tâm trí thư thái."
+    },
+    {
+     "n": 767,
+     "text": "Qua ba tuần bảy ngày này rồi, vẫn một mạch tập trung tư duy để tu tập những cách đầu tiên của ba thiền quán."
+    },
+    {
+     "n": 768,
+     "text": "Nếu kỳ hạn như trên mà gặp đầu hạ ba tháng an cư, thì phải làm theo sự an cư trong sáng của Bồ-tát, bằng cách trong tâm tách rời Thanh văn, không dựa đồng chúng."
+    },
+    {
+     "n": 769,
+     "text": "Đến ngày an cư thì đối trước hình tượng Như Lai mà tác bạch như vầy:"
+    },
+    {
+     "n": 770,
+     "text": "Nay con là Tỳ-kheo, hay Tỳ-kheo-ni, Ưu-bà-tắc, Ưu-bà-di, có tên như vậy, nguyện nương Bồ-tát thừa mà tu tịch diệt hạnh, để được đồng nhập thật tướng trong sáng."
+    },
+    {
+     "n": 771,
+     "text": "Vì bản thể Niết-bàn không tùy thuộc đâu cả, nên con nguyện lấy viên giác vĩ đại làm chốn tự viện, cả thân thể lẫn tâm trí đều an cư trong viên giác bình đẳng ấy."
+    },
+    {
+     "n": 772,
+     "text": "Con kính xin không nương tựa các Thanh văn, chỉ nương tựa chư Thế Tôn và Đại sĩ để an cư ba tháng và vì lý do to lớn là tu tập viên giác vô thượng như các vị Bồ-tát đang tu, nên con không tùy thuộc đồng chúng."
+    },
+    {
+     "n": 773,
+     "text": "Này thiện nam! Như thế đó là thiết lập đạo tràng mà an cư và mỗi năm hết một trong ba kỳ hạn rồi, đi lại tùy ý."
+    },
+    {
+     "n": 774,
+     "text": "Này thiện nam! Những người thời kỳ cuối cùng đi theo đường đi của Bồ-tát, bước vào một trong ba kỳ hạn an cư, thì hiện tượng nào không phải cái họ đã nghe, họ tuyệt đối không nên chấp nhận."
+    },
+    {
+     "n": 775,
+     "text": "Này thiện nam! Ai tu cực tĩnh Xa-ma-tha, trước hết nắm sự tĩnh lặng, bằng cách không nổi dậy mọi sự nghĩ nhớ, thì tĩnh cực là giác phát."
+    },
+    {
+     "n": 776,
+     "text": "Trạng thái tĩnh đầu tiên này phát triển từ một bản thân đến một thế giới, thì trạng thái giác cũng phát triển như vậy."
+    },
+    {
+     "n": 777,
+     "text": "Trạng thái giác cùng khắp một thế giới, thì trong thế giới ấy một chúng sinh nào nổi lên một ý niệm gì cũng biết được cả."
+    },
+    {
+     "n": 778,
+     "text": "Trạng thái tĩnh và giác cùng khắp trăm hay ngàn thế giới thì cũng y như vậy."
+    },
+    {
+     "n": 779,
+     "text": "Thế nhưng hiện tượng nào không phải cái họ đã nghe, họ tuyệt đối không nên chấp nhận."
+    },
+    {
+     "n": 780,
+     "text": "Này thiện nam! Ai tu cực động Tam-ma-bát-đề, trước hết tưởng nhớ mười phương Như Lai và Đại sĩ, y theo những môn Tổng trì của chư vị đã tuần tự tu tập về tinh tấn,"
+    },
+    {
+     "n": 781,
+     "text": "khổ hạnh và thiền quán, mà phát nguyện cao cả, thì tự huân tập thành cá tánh của mình…."
+    },
+    {
+     "n": 782,
+     "text": "Thế nhưng hiện tượng nào không phải cái họ đã nghe, họ tuyệt đối không nên chấp nhận."
+    },
+    {
+     "n": 783,
+     "text": "Thiện nam! Ai tu cực thuần Thiền-na, trước hết nắm lấy sự đếm kể, bằng cách trong tâm tự biết rõ số lượng của ý nghĩ phát sinh, tồn tại và diệt mất."
+    },
+    {
+     "n": 784,
+     "text": "Cứ như vậy, mọi cử động đi, đứng, nằm, ngồi đều biết rành rẽ số lượng của ý nghĩ, không một ý nghĩ nào không biết."
+    },
+    {
+     "n": 785,
+     "text": "Rồi tuần tự bước tới, cho đến lúc biết được cả một giọt mưa trong trăm ngàn thế giới mà y như nhìn thấy đồ dùng trước mắt."
+    },
+    {
+     "n": 786,
+     "text": "Thế nhưng hiện tượng nào không phải cái họ đã nghe, họ tuyệt đối không nên chấp nhận."
+    },
+    {
+     "n": 787,
+     "text": "Như thế đó là những cách đầu tiên của ba thiền quán."
+    },
+    {
+     "n": 788,
+     "text": "Ai tu khắp cả ba thiền quán ấy một cách siêng năng tinh tấn, thì đối với người ấy Như Lai xuất thế."
+    },
+    {
+     "n": 789,
+     "text": "Trong thời kỳ cuối cùng, những người trình độ chậm chạp, muốn cầu tuệ giác mà không thành đạt, ấy là vì nghiệp cũ gây ra chướng ngại."
+    },
+    {
+     "n": 790,
+     "text": "Họ phải siêng năng sám hối, phải luôn luôn hy vọng và trước đó phải đoạn tuyệt những sự ghét bỏ, yêu thích, ganh ghét, dua nịnh và luyện tập tâm lý thắng thượng."
+    },
+    {
+     "n": 791,
+     "text": "Rồi trong ba thiền quán, tùy khả năng mà tu lấy một."
+    },
+    {
+     "n": 792,
+     "text": "Một thiền quán ấy không thành thì tu thiền quán khác."
+    },
+    {
+     "n": 793,
+     "text": "Quyết ý không buông không bỏ, tuần tự mà cầu chứng ngộ."
+    },
+    {
+     "n": 794,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 795,
+     "text": "Viên Giác nên biết,"
+    },
+    {
+     "n": 796,
+     "text": "Chúng sinh muốn cầu"
+    },
+    {
+     "n": 797,
+     "text": "Tuệ giác Vô thượng,"
+    },
+    {
+     "n": 798,
+     "text": "Trước hết họ phải"
+    },
+    {
+     "n": 799,
+     "text": "Ấn định lấy một"
+    },
+    {
+     "n": 800,
+     "text": "Trong ba kỳ hạn."
+    },
+    {
+     "n": 801,
+     "text": "Rồi trong ba tuần"
+    },
+    {
+     "n": 802,
+     "text": "Đầu mỗi kỳ hạn,"
+    },
+    {
+     "n": 803,
+     "text": "Họ phải sám hối"
+    },
+    {
+     "n": 804,
+     "text": "Nghiệp chướng lâu đời;"
+    },
+    {
+     "n": 805,
+     "text": "Sau đó tư duy"
+    },
+    {
+     "n": 806,
+     "text": "Thiền quán chính xác"
+    },
+    {
+     "n": 807,
+     "text": "(Mà hiện tượng nào"
+    },
+    {
+     "n": 808,
+     "text": "Không phải đã nghe,"
+    },
+    {
+     "n": 809,
+     "text": "Thì họ tuyệt đối"
+    },
+    {
+     "n": 810,
+     "text": "Không nên chấp nhận):"
+    },
+    {
+     "n": 811,
+     "text": "Thiền quán cực tĩnh"
+    },
+    {
+     "n": 812,
+     "text": "Tĩnh lặng hết mức,"
+    },
+    {
+     "n": 813,
+     "text": "Thiền quán cực động"
+    },
+    {
+     "n": 814,
+     "text": "Tưởng nhớ chính xác,"
+    },
+    {
+     "n": 815,
+     "text": "Thiền quán cực thuần"
+    },
+    {
+     "n": 816,
+     "text": "Đếm kể rõ ràng."
+    },
+    {
+     "n": 817,
+     "text": "Đó, cách đầu tiên"
+    },
+    {
+     "n": 818,
+     "text": "Của ba thiền quán;"
+    },
+    {
+     "n": 819,
+     "text": "Siêng tu tập cả"
+    },
+    {
+     "n": 820,
+     "text": "Như Phật xuất hiện."
+    },
+    {
+     "n": 821,
+     "text": "Trình độ chậm chạp"
+    },
+    {
+     "n": 822,
+     "text": "Tu tập không thành,"
+    },
+    {
+     "n": 823,
+     "text": "Thì phải siêng khó"
+    },
+    {
+     "n": 824,
+     "text": "Sám hối tội chướng;"
+    },
+    {
+     "n": 825,
+     "text": "Tội chướng tan biến"
+    },
+    {
+     "n": 826,
+     "text": "Cảnh Phật hiện ra."
+    },
+    {
+     "n": 827,
+     "text": "Lúc ấy, Bồ-tát Hiền Thiện Thủ ở trong đại chúng, từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi quỳ thẳng, chắp tay tác bạch:"
+    },
+    {
+     "n": 828,
+     "text": "–Bạch Thế Tôn! Lòng thương cao cả! Thế Tôn đã khai thị một cách rộng rãi như trên, cho chúng con và những người thời kỳ cuối cùng, về những sự ngoài tầm tư duy và thảo luận."
+    },
+    {
+     "n": 829,
+     "text": "Bạch Thế Tôn! Kinh pháp Đại thừa này nên mệnh danh là gì?"
+    },
+    {
+     "n": 830,
+     "text": "Nên phụng trì cách nào? Ai tu tập thì được công đức gì?"
+    },
+    {
+     "n": 831,
+     "text": "Chúng con hộ trì cách nào cho những người phụng trì kinh này? Kinh này đi đến đâu?"
+    },
+    {
+     "n": 832,
+     "text": "Tác bạch rồi, Bồ-tát Hiền Thiện Thủ năm vóc gieo xuống đất kính lạy Đức Thế Tôn."
+    },
+    {
+     "n": 833,
+     "text": "Bồ-tát thỉnh cầu như vậy đến ba lần, mỗi lần thỉnh cầu xong lại làm lại từ đầu."
+    },
+    {
+     "n": 834,
+     "text": "Bấy giờ, Đức Thế Tôn bảo Bồ-tát Hiền Thiện Thủ:"
+    },
+    {
+     "n": 835,
+     "text": "–Lành thay! Thiện nam! Ông có thể vì các vị Bồ-tát và những người sau này mà hỏi Như Lai về danh hiệu, công đức và những gì liên hệ đến kinh pháp như thế này. Ông hãy nghe kỹ, Như Lai sẽ nói cho."
+    },
+    {
+     "n": 836,
+     "text": "Bồ-tát Hiền Thiện Thủ vâng lời, hoan hỷ, cùng cả đại chúng yên lặng lắng nghe."
+    },
+    {
+     "n": 837,
+     "text": "Đức Thế Tôn nói:"
+    },
+    {
+     "n": 838,
+     "text": "–Thiện nam! Kinh này được trăm ngàn vạn ức hằng sa Phật-đà tuyên thuyết, được Phật-đà quá khứ, hiện tại và vị lai hộ trì, được Bồ-tát mười phương quy y, vì là con mắt trong sáng của cả mười hai loại khế kinh."
+    },
+    {
+     "n": 839,
+     "text": "Kinh này gọi là kinh nói về Tổng Trì Viên Giác, thuộc loại cực kỳ cao rộng; cũng gọi là kinh Nói Về Nghĩa Lý Cứu Cánh Của Khế Kinh;"
+    },
+    {
+     "n": 840,
+     "text": "kinh Nói Về Chánh Định Chúa Tể Bí Mật; kinh Nói Về Cảnh Giới Quyết Định Của Như Lai; kinh Nói Về Đặc Tánh Và Sắc Thái Của Như Lai Tạng. Các ông hãy nhớ như vậy."
+    },
+    {
+     "n": 841,
+     "text": "Này thiện nam! Kinh này chỉ nói cảnh giới của Như Lai, chỉ Như Lai mới nói cùng tận."
+    },
+    {
+     "n": 842,
+     "text": "Các vị Bồ-tát và những người thời kỳ cuối cùng, y cứ kinh này mà tu hành thì tuần tự bước tới, đến tận địa vị Phật-đà."
+    },
+    {
+     "n": 843,
+     "text": "Này thiện nam! Kinh này là Đại thừa Đốn giáo, nên chúng sinh đốn cơ thì tỏ ngộ do kinh này."
+    },
+    {
+     "n": 844,
+     "text": "Nhưng kinh này cũng bao gồm các loại tiệm cơ."
+    },
+    {
+     "n": 845,
+     "text": "Bể cả thì đâu có kén sông bé, muỗi mòng hay Tu-la, loài nào uống nước biển cả cũng no đủ hết thảy."
+    },
+    {
+     "n": 846,
+     "text": "Này thiện nam! Giả sử có ai đem bảy thứ quý báu chất đầy cả đại thiên thế giới mà bố thí, cũng không bằng có người nghe danh hiệu hay một câu một nghĩa của kinh này."
+    },
+    {
+     "n": 847,
+     "text": "Lại giả sử có ai giáo hóa một trăm hằng sa chúng sinh được tuệ giác La-hán, cũng không bằng có người tuyên thuyết kinh này bằng cách phân tích nửa bài kệ."
+    },
+    {
+     "n": 848,
+     "text": "Này thiện nam! Ai nghe danh hiệu kinh này mà thôi, mà tin một cách không còn bị mê hoặc, thì ông phải biết người ấy không phải chỉ gieo trồng phước đức và tuệ giác nơi một vài Đức Phật,"
+    },
+    {
+     "n": 849,
+     "text": "mà đã gieo trồng những căn lành như vậy và đã nghe kinh này, nơi hằng sa Phật-đà."
+    },
+    {
+     "n": 850,
+     "text": "Thiện nam! Các ông nên hộ trì người ấy, đừng để ma vương và ngoại đạo quấy rối thân thể và tâm trí của họ, làm cho họ lùi bước, khuất phục."
+    },
+    {
+     "n": 851,
+     "text": "Đức Thế Tôn muốn lặp lại ý nghĩa đã nói, nên nói kệ sau đây:"
+    },
+    {
+     "n": 852,
+     "text": "Hiền Thiện Thủ này,"
+    },
+    {
+     "n": 853,
+     "text": "Ông nên nhận thức"
+    },
+    {
+     "n": 854,
+     "text": "Kinh này là do"
+    },
+    {
+     "n": 855,
+     "text": "Chư Phật tuyên thuyết,"
+    },
+    {
+     "n": 856,
+     "text": "Và do Như Lai"
+    },
+    {
+     "n": 857,
+     "text": "Cùng chư Như Lai"
+    },
+    {
+     "n": 858,
+     "text": "Trân trọng giữ gìn,"
+    },
+    {
+     "n": 859,
+     "text": "Vì là con mắt"
+    },
+    {
+     "n": 860,
+     "text": "Của mười hai loại"
+    },
+    {
+     "n": 861,
+     "text": "Khế kinh của Phật."
+    },
+    {
+     "n": 862,
+     "text": "Kinh này tên là"
+    },
+    {
+     "n": 863,
+     "text": "Tổng Trì Viên Giác,"
+    },
+    {
+     "n": 864,
+     "text": "Thuộc về thể loại"
+    },
+    {
+     "n": 865,
+     "text": "Pháp đại Phương quảng,"
+    },
+    {
+     "n": 866,
+     "text": "Nói về cảnh giới"
+    },
+    {
+     "n": 867,
+     "text": "Của chư Như Lai."
+    },
+    {
+     "n": 868,
+     "text": "Những ai tu hành"
+    },
+    {
+     "n": 869,
+     "text": "Y theo kinh này"
+    },
+    {
+     "n": 870,
+     "text": "Thì tăng tiến lên"
+    },
+    {
+     "n": 871,
+     "text": "Đến địa vị Phật,"
+    },
+    {
+     "n": 872,
+     "text": "Y như đại dương"
+    },
+    {
+     "n": 873,
+     "text": "Nạp hết sông ngòi,"
+    },
+    {
+     "n": 874,
+     "text": "Ai uống nước ấy"
+    },
+    {
+     "n": 875,
+     "text": "Cũng sung mãn cả."
+    },
+    {
+     "n": 876,
+     "text": "Giả sử bố thí"
+    },
+    {
+     "n": 877,
+     "text": "Bảy thứ quý báu"
+    },
+    {
+     "n": 878,
+     "text": "Nhiều bằng cái lượng"
+    },
+    {
+     "n": 879,
+     "text": "Đại thiên thế giới,"
+    },
+    {
+     "n": 880,
+     "text": "Cũng không bằng phước"
+    },
+    {
+     "n": 881,
+     "text": "Được nghe kinh này."
+    },
+    {
+     "n": 882,
+     "text": "Và nếu giáo hóa"
+    },
+    {
+     "n": 883,
+     "text": "Hằng sa chúng sinh"
+    },
+    {
+     "n": 884,
+     "text": "Đều thực hiện được"
+    },
+    {
+     "n": 885,
+     "text": "Tuệ giác La-hán,"
+    },
+    {
+     "n": 886,
+     "text": "Cũng không bằng phước"
+    },
+    {
+     "n": 887,
+     "text": "Nói nửa bài kệ."
+    },
+    {
+     "n": 888,
+     "text": "Trong thì vị lai"
+    },
+    {
+     "n": 889,
+     "text": "Các người hãy giữ"
+    },
+    {
+     "n": 890,
+     "text": "Cho người tuyên thuyết"
+    },
+    {
+     "n": 891,
+     "text": "Duy trì kinh này,"
+    },
+    {
+     "n": 892,
+     "text": "Đừng để cho họ"
+    },
+    {
+     "n": 893,
+     "text": "Phải bị thoái thất."
+    },
+    {
+     "n": 894,
+     "text": "Bấy giờ, trong đại hội có tám mươi ngàn Kim cang lực sĩ, đứng đầu do Kim cang lực sĩ Hỏa Thủ, Kim cang lực sĩ Tồi Toái, Kim cang lực sĩ Ni-lam-bà."
+    },
+    {
+     "n": 895,
+     "text": "Các Kim cang lực sĩ đứng đầu này, cùng thuộc hạ của họ, tức thì từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi tác bạch:"
+    },
+    {
+     "n": 896,
+     "text": "–Bạch Thế Tôn! Thời kỳ cuối cùng sau này, có ai phụng trì được kinh pháp Đại thừa quyết định như thế này, thì chúng con nguyện giữ người ấy như giữ con mắt của mình."
+    },
+    {
+     "n": 897,
+     "text": "Những chỗ người ấy thiết lập đạo tràng thì chúng con tự thống suất bộ hạ sớm tối giữ gìn, không để họ bị thoái chuyển."
+    },
+    {
+     "n": 898,
+     "text": "Chỗ họ cư trú thì không bao giờ bị tai nạn và mọi sự chướng ngại khác, những loại bệnh truyền nhiễm cũng tan biến, tài vật phong phú, sung túc, không bao giờ thiếu thốn gì cả."
+    },
+    {
+     "n": 899,
+     "text": "Cũng vào lúc Đại phạm Thiên vương và hai mươi tám vị Thiên vương khác;"
+    },
+    {
+     "n": 900,
+     "text": "chúa tể Tu-di sơn là Đế Thích Thiên vương, cùng bốn vị Thiên vương hộ vệ thế giới loài người, cũng tức thì từ chỗ ngồi đứng dậy,"
+    },
+    {
+     "n": 901,
+     "text": "đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi tác bạch:"
+    },
+    {
+     "n": 902,
+     "text": "–Bạch Thế Tôn! Chúng con cũng nguyện hộ trì cho những người phụng trì kinh này, làm cho họ luôn luôn yên ổn, không thoái chuyển tâm trí."
+    },
+    {
+     "n": 903,
+     "text": "Lại có Đại lực quỷ vương tên Cát-bàn-trà cùng với mười vạn Quỷ vương, cũng tức thì từ chỗ ngồi đứng dậy, đem đỉnh đầu của mình lạy ngang chân Đức Thế Tôn, theo chiều bên phải đi quanh ba vòng, rồi tác bạch:"
+    },
+    {
+     "n": 904,
+     "text": "–Bạch Thế Tôn! Chúng con nguyện hộ trì những người phụng trì kinh này, sớm tối hầu hạ gìn giữ, làm cho những người ấy không thoái chí, khuất phục."
+    },
+    {
+     "n": 905,
+     "text": "Những người ấy ở đâu thì trong chu vi một do-tuần của chỗ ấy, nếu có quỷ thần độc ác xâm phạm, chúng con sẽ làm cho họ nát như vi trần."
+    },
+    {
+     "n": 906,
+     "text": "Khi Đức Thế Tôn nói kinh này xong các Bồ-tát, tám bộ chúng Thiên, Long mà trong đó có Đế Thích Thiên vương và Đại phạm Thiên vương,"
+    },
+    {
+     "n": 907,
+     "text": "cùng tùy thuộc của họ, toàn thể đại hội nghe những điều tuyên thuyết của Đức Thế Tôn, ai cũng rất hoan hỷ, tín thọ và phụng hành."
+    }
+   ]
+  },
+  {
+   "key": "zh-translation",
+   "lang": "zh",
+   "variant": "translation",
+   "translator": "佛陀多羅 (Phật-đà-đa-la)",
+   "sourceName": "Wikisource 中文 - 大方廣圓覺修多羅了義經 - Taishō T0842",
+   "sourceUrl": "https://zh.wikisource.org/wiki/%E5%A4%A7%E6%96%B9%E5%BB%A3%E5%9C%93%E8%A6%BA%E4%BF%AE%E5%A4%9A%E7%BE%85%E4%BA%86%E7%BE%A9%E7%B6%93",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: tác giả mất trên 100 năm, tác phẩm xuất bản trước 1931",
+   "lines": [
+    {
+     "n": 1,
+     "text": "如是我聞，一時博伽梵，入於神通大光明藏，三昧正受，一切如來光嚴住持，是諸眾生，清淨覺地，身心寂滅，平等本際，圓滿十方，不二隨順，於不二境，現諸淨土。"
+    },
+    {
+     "n": 2,
+     "text": "與大菩薩摩訶薩十萬人俱，其名曰，文殊師利菩薩，普賢菩薩，普眼菩薩，金剛藏菩薩，彌勒菩薩，清淨慧菩薩，威德自在菩薩，"
+    },
+    {
+     "n": 3,
+     "text": "辯音菩薩，淨諸業障菩薩，普覺菩薩，圓覺菩薩，賢善首菩薩等而爲上首，與諸眷屬，皆入三昧，同住如來平等法會。"
+    },
+    {
+     "n": 4,
+     "text": "於是文殊師利菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手而白佛言："
+    },
+    {
+     "n": 5,
+     "text": "“大悲世尊，願爲此會諸來法眾，說於如來本起清淨，因地法行，及說菩薩於大乘中發清淨心，遠離諸病，能使未來末世眾生求大乘者，不墮邪見。"
+    },
+    {
+     "n": 6,
+     "text": "作是語已，五體投地，如是三請，終而復始。”"
+    },
+    {
+     "n": 7,
+     "text": "爾時世尊告文殊師利菩薩言：“善哉善哉，善男子，汝等乃能爲諸菩薩，諮詢如來因地法行，及爲末世求大乘者，得正住持，不墮邪見，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 8,
+     "text": "時文殊師利菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 9,
+     "text": "“善男子，無上法王，有大陀羅尼門，名爲圓覺，流出一切清淨真如，菩提涅槃及波羅密，教授菩薩，一切如來本起因地，皆依圓照清淨覺相，永斷無明，方成佛道。"
+    },
+    {
+     "n": 10,
+     "text": "云何無明？善男子，一切眾生從無始來，種種顛倒，猶如迷人，四方易處，妄認四大爲自身相，六塵緣影爲自心相，譬彼病目，見空中華及第二月。"
+    },
+    {
+     "n": 11,
+     "text": "善男子，空實無華，病者妄執，由妄執故，非唯惑此虛空自性，亦復迷彼實華生處，由此妄有輪轉生死，故名無明。"
+    },
+    {
+     "n": 12,
+     "text": "“善男子，此無明者，非實有體，如夢中人，夢時非無，及至於醒，了無所得。"
+    },
+    {
+     "n": 13,
+     "text": "如眾空華，滅於虛空，不可說言有定滅處，何以故，無生處故。"
+    },
+    {
+     "n": 14,
+     "text": "一切眾生於無生中，妄見生滅，是故說名輪轉生死。"
+    },
+    {
+     "n": 15,
+     "text": "“善男子，如來因地修圓覺者，知是空華，即無輪轉，亦無身心受彼生死，非作故無，本性無故，彼知覺者，猶如虛空，知虛空者，即空華相，亦不可說無知覺性，有無俱遣，是則名爲淨覺隨順。"
+    },
+    {
+     "n": 16,
+     "text": "何以故？虛空性故，常不動故，如來藏中無起滅故，無知見故，如法界性，究竟圓滿徧十方故，是則名爲因地法行。"
+    },
+    {
+     "n": 17,
+     "text": "菩薩因此於大乘中，發清淨心，末世眾生，依此修行，不墮邪見。”"
+    },
+    {
+     "n": 18,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 19,
+     "text": "文殊汝當知，一切諸如來。"
+    },
+    {
+     "n": 20,
+     "text": "從於本因地，皆以智慧覺。"
+    },
+    {
+     "n": 21,
+     "text": "了達於無明，知彼如空華，"
+    },
+    {
+     "n": 22,
+     "text": "即能免流轉。又如夢中人，"
+    },
+    {
+     "n": 23,
+     "text": "醒時不可得，覺者如虛空。"
+    },
+    {
+     "n": 24,
+     "text": "平等不動轉，覺徧十方界，"
+    },
+    {
+     "n": 25,
+     "text": "即得成佛道，眾幻滅無處。"
+    },
+    {
+     "n": 26,
+     "text": "成道亦無得，本性圓滿故。"
+    },
+    {
+     "n": 27,
+     "text": "菩薩於此中，能發菩提心。"
+    },
+    {
+     "n": 28,
+     "text": "末世諸眾生，修此免邪見。"
+    },
+    {
+     "n": 29,
+     "text": "於是普賢菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手而白佛言："
+    },
+    {
+     "n": 30,
+     "text": "“大悲世尊，願爲此會諸菩薩眾，及爲末世一切眾生，修大乘者，聞此圓覺清淨境界，云何修行？"
+    },
+    {
+     "n": 31,
+     "text": "世尊，若彼眾生知如幻者，身心亦幻，云何以幻還修於幻？"
+    },
+    {
+     "n": 32,
+     "text": "若諸幻性一切盡滅，則無有心，誰爲修行？"
+    },
+    {
+     "n": 33,
+     "text": "云何復說修行如幻？若諸眾生，本不修行，於生死中常居幻化，曾不了知如幻境界，令妄想心云何解脫？"
+    },
+    {
+     "n": 34,
+     "text": "願爲末世一切眾生，作何方便漸次修習，令諸眾生永離諸幻？”"
+    },
+    {
+     "n": 35,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 36,
+     "text": "爾時世尊告普賢菩薩言：“善哉善哉，善男子，汝等乃能爲諸菩薩及末世眾生，修習菩薩如幻三昧，方便漸次，令諸眾生得離諸幻，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 37,
+     "text": "時普賢菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 38,
+     "text": "“善男子，一切眾生，種種幻化，皆生如來圓覺妙心，猶如空華，從空而有，幻華雖滅，空性不壞，眾生幻心，還依幻滅，諸幻盡滅，覺心不動。"
+    },
+    {
+     "n": 39,
+     "text": "依幻說覺，亦名爲幻，若說有覺，猶未離幻，說無覺者，亦復如是，是故幻滅，名爲不動。"
+    },
+    {
+     "n": 40,
+     "text": "“善男子，一切菩薩，及末世眾生，應當遠離一切幻化虛妄境界。"
+    },
+    {
+     "n": 41,
+     "text": "由堅執持遠離心故，心如幻者，亦復遠離，遠離爲幻，亦復遠離，離遠爲幻，亦復遠離，得無所離，即除諸幻。"
+    },
+    {
+     "n": 42,
+     "text": "譬如鑽火，兩木相因，火出木盡，灰飛煙滅，以幻修幻，亦復如是，諸幻雖盡，不入斷滅。"
+    },
+    {
+     "n": 43,
+     "text": "知幻即離，不作方便；離幻即覺，亦無漸次。"
+    },
+    {
+     "n": 44,
+     "text": "一切菩薩及末世眾生，依此修行，如是乃能永離諸幻。“"
+    },
+    {
+     "n": 45,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 46,
+     "text": "普賢汝當知，一切諸眾生，"
+    },
+    {
+     "n": 47,
+     "text": "無始幻無明，皆從諸如來，"
+    },
+    {
+     "n": 48,
+     "text": "圓覺心建立，猶如虛空華，"
+    },
+    {
+     "n": 49,
+     "text": "依空而有相，空華若復滅，"
+    },
+    {
+     "n": 50,
+     "text": "虛空本不動，幻從諸覺生，"
+    },
+    {
+     "n": 51,
+     "text": "幻滅覺圓滿，覺心不動故。"
+    },
+    {
+     "n": 52,
+     "text": "若彼諸菩薩，及末世眾生，"
+    },
+    {
+     "n": 53,
+     "text": "常應遠離幻，諸幻悉皆離。"
+    },
+    {
+     "n": 54,
+     "text": "如木中生火，木盡火還滅。"
+    },
+    {
+     "n": 55,
+     "text": "覺則無漸次，方便亦如是。"
+    },
+    {
+     "n": 56,
+     "text": "於是普眼菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手而白佛言："
+    },
+    {
+     "n": 57,
+     "text": "“大悲世尊，願爲此會諸菩薩眾，及爲末世一切眾生，演說菩薩修行漸次。"
+    },
+    {
+     "n": 58,
+     "text": "云何思惟？云何住持？眾生未悟，作何方便普令開悟？"
+    },
+    {
+     "n": 59,
+     "text": "世尊，若彼眾生無正方便，及正思惟，聞佛如來說此三昧，心生迷悶，即於圓覺不能悟入。"
+    },
+    {
+     "n": 60,
+     "text": "願與慈悲，爲我等輩及末世眾生，假說方便。”"
+    },
+    {
+     "n": 61,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 62,
+     "text": "爾時世尊告普賢菩薩言：“善哉善哉，善男子，汝等乃能爲諸菩薩及末世眾生，問於如來修行漸次，思惟住持，乃至假說種種方便，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 63,
+     "text": "時普眼菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 64,
+     "text": "“善男子，彼新學菩薩，及末世眾生，欲求如來淨圓覺心，應當正念遠離諸幻，先依如來奢摩他行，堅持禁戒，安處徒眾，宴坐靜室，恒作是念："
+    },
+    {
+     "n": 65,
+     "text": "我今此身，四大和合，所謂髮毛爪齒，皮肉筋骨，髓腦垢色，皆歸於地；"
+    },
+    {
+     "n": 66,
+     "text": "唾涕膿血，津液涎沫，痰淚精氣，大小便利，皆歸於水；"
+    },
+    {
+     "n": 67,
+     "text": "暖氣歸火，動轉當風。四大各離，今者妄身，當在何處？"
+    },
+    {
+     "n": 68,
+     "text": "即知此身，畢竟無體，和合爲相，實同幻化，四緣假合，妄有六根，六根四大，中外合成，妄有緣氣，於中積聚，似有緣相，假名爲心。"
+    },
+    {
+     "n": 69,
+     "text": "善男子，此虛妄心，若無六塵，則不能有，四大分解，無塵可得，於中緣塵，各歸散滅，畢竟無有緣心可見。"
+    },
+    {
+     "n": 70,
+     "text": "“善男子，彼之眾生幻身滅故，幻心亦滅，幻心滅故，幻塵亦滅，幻塵滅故，幻滅亦滅，幻滅滅故，非幻不滅，譬如磨鏡，垢盡明現。"
+    },
+    {
+     "n": 71,
+     "text": "善男子，當知身心，皆爲幻垢，垢相永滅，十方清淨。"
+    },
+    {
+     "n": 72,
+     "text": "“善男子，譬如清淨摩尼寶珠，映於五色，隨方各現，諸愚癡者，見彼摩尼，實有五色。"
+    },
+    {
+     "n": 73,
+     "text": "“善男子，圓覺淨性，現於身心，隨類各應，彼愚癡者，說淨圓覺，實有如是身心自相，亦復如是，由此不能遠於幻化。"
+    },
+    {
+     "n": 74,
+     "text": "是故我說身心幻垢，對離幻垢，說名菩薩。垢盡對除，即無對垢及說名者。"
+    },
+    {
+     "n": 75,
+     "text": "“善男子，此菩薩及末世眾生，證得諸幻滅影像故，爾時便得無方清淨，無邊虛空覺所顯發，覺圓明故，顯心清淨，心清淨故，見塵清淨，見清淨故，"
+    },
+    {
+     "n": 76,
+     "text": "眼根清淨，根清淨故，眼識清淨，識清淨故，聞塵清淨，聞清淨故，耳根清淨，根清淨故，耳識清淨，識清淨故，覺塵清淨，如是乃至鼻舌身意，亦復如是。"
+    },
+    {
+     "n": 77,
+     "text": "“善男子，根清淨故，色塵清淨，色清淨故，聲塵清淨，香味觸法，亦復如是。"
+    },
+    {
+     "n": 78,
+     "text": "善男子，六塵清淨故，地大清淨，地清淨故，水大清淨，火大風大，亦復如是。"
+    },
+    {
+     "n": 79,
+     "text": "善男子，四大清淨故，十二處、十八界、二十五有清淨，彼清淨故，十力、四無所畏、四無礙智、佛十八不共法、三十七助道品清淨，如是乃至八萬四千陀羅尼門，一切清淨。"
+    },
+    {
+     "n": 80,
+     "text": "善男子，一切實相性清淨故，一身清淨，一身清淨故，多身清淨，多身清淨故，如是乃至十方眾生圓覺清淨。"
+    },
+    {
+     "n": 81,
+     "text": "善男子，一世界清淨故，多世界清淨，多世界清淨故，如是乃至盡於虛空，圓裹三世，一切平等清淨不動。"
+    },
+    {
+     "n": 82,
+     "text": "“善男子，虛空如是平等不動，當知覺性平等不動，四大不動故，當知覺性平等不動，如是乃至八萬四千陀羅尼門平等不動，當知覺性平等不動。"
+    },
+    {
+     "n": 83,
+     "text": "“善男子，覺性徧滿，清淨不動，圓無際故，當知六根徧滿法界，根徧滿故，當知六塵徧滿法界。"
+    },
+    {
+     "n": 84,
+     "text": "塵徧滿故，當知四大徧滿法界，如是乃至陀羅尼門徧滿法界。"
+    },
+    {
+     "n": 85,
+     "text": "“善男子，由彼妙覺性徧滿故，根性塵性無壞無雜，根塵無壞故，如是乃至陀羅尼門無壞無雜，如百千燈光照一室，其光徧滿無壞無雜。"
+    },
+    {
+     "n": 86,
+     "text": "“善男子，覺成就故，當知菩薩不與法縛，不求法脫，不厭生死，不愛涅槃。"
+    },
+    {
+     "n": 87,
+     "text": "不敬持戒，不憎毀禁，不重久習，不輕初學。"
+    },
+    {
+     "n": 88,
+     "text": "何以故？一切覺故。譬如眼光曉了前境，其光圓滿，得無憎愛。何以故？光體無二，無憎愛故。"
+    },
+    {
+     "n": 89,
+     "text": "“善男子，此菩薩及末世眾生，修習此心得成就者，於此無修亦無成就，圓覺普照，寂滅無二，"
+    },
+    {
+     "n": 90,
+     "text": "於中百千萬億阿僧祇不可說恒河沙諸佛世界，猶如空華，亂起亂滅，不即不離，無縛無脫，始知眾生本來成佛，生死涅槃，猶如昨夢。"
+    },
+    {
+     "n": 91,
+     "text": "“善男子，如昨夢故，當知生死及與涅槃，無起無滅，無來無去，其所證者，無得無失，無取無捨，其能證者，無作無止，無任無滅，於此證中，無能無所，畢竟無證，亦無證者，一切法性平等不壞。"
+    },
+    {
+     "n": 92,
+     "text": "“善男子，彼諸菩薩如是修行，如是漸次，如是思惟，如是住持，如是方便，如是開悟，求如是法，亦不迷悶。”"
+    },
+    {
+     "n": 93,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 94,
+     "text": "普眼汝當知，一切諸眾生。"
+    },
+    {
+     "n": 95,
+     "text": "身心皆如幻，身相屬四大，"
+    },
+    {
+     "n": 96,
+     "text": "心性歸六塵，四大體各離，"
+    },
+    {
+     "n": 97,
+     "text": "誰爲和合者？如是漸修行，"
+    },
+    {
+     "n": 98,
+     "text": "一切悉清淨，不動徧法界，"
+    },
+    {
+     "n": 99,
+     "text": "無作止任滅，亦無能證者。"
+    },
+    {
+     "n": 100,
+     "text": "一切佛世界，猶如虛空華，"
+    },
+    {
+     "n": 101,
+     "text": "三世悉平等，畢竟無來去，"
+    },
+    {
+     "n": 102,
+     "text": "初發心菩薩，及末世眾生，"
+    },
+    {
+     "n": 103,
+     "text": "欲求入佛道，應如是修習。"
+    },
+    {
+     "n": 104,
+     "text": "於是金剛藏菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手。"
+    },
+    {
+     "n": 105,
+     "text": "而白佛言：“大悲世尊，善爲一切諸菩薩眾，宣揚如來圓覺清淨大陀羅尼，因地法行漸次方便，與諸眾生，開發蒙昧，在會法眾，承佛慈誨，幻翳朗然，慧目清淨。"
+    },
+    {
+     "n": 106,
+     "text": "“世尊，若諸眾生本來成佛，何故復有一切無明？"
+    },
+    {
+     "n": 107,
+     "text": "若諸無明眾生本有，何因緣故，如來復說本來成佛？"
+    },
+    {
+     "n": 108,
+     "text": "十方眾生本成佛道，後起無明，一切如來，何時復生一切煩惱？"
+    },
+    {
+     "n": 109,
+     "text": "惟願不捨無遮大慈，爲諸菩薩開秘密藏，及爲末世一切眾生，得聞如是修多羅教，了義法門，永斷疑悔。”"
+    },
+    {
+     "n": 110,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 111,
+     "text": "爾時世尊告金剛菩薩言："
+    },
+    {
+     "n": 112,
+     "text": "“善哉善哉，善男子，汝等乃能爲諸菩薩及末世眾生，問於如來甚深秘密究竟方便，是諸菩薩最上教誨，了義大乘，能使十方修學菩薩，及諸末世一切眾生，得決定信，永斷疑悔，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 113,
+     "text": "時金剛藏菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 114,
+     "text": "“善男子，一切世界，始終生滅，前後有無，聚散起止，念念相續，循環往復，種種取捨，皆是輪迴，未出輪迴，而辨圓覺，彼圓覺性即同流轉，若免輪迴，無有是處。"
+    },
+    {
+     "n": 115,
+     "text": "譬如動目，能搖湛水，又如定眼，由回轉火，雲駛月運，舟行岸移，亦復如是。"
+    },
+    {
+     "n": 116,
+     "text": "善男子，諸旋未息，彼物先住，尚不可得，何況輪轉生死垢心，曾未清淨，觀佛圓覺而不旋復，是故汝等，便生三惑。"
+    },
+    {
+     "n": 117,
+     "text": "“善男子，譬如幻翳，妄見空華，幻翳若除，不可說言此翳已滅，何時更起一切諸翳。"
+    },
+    {
+     "n": 118,
+     "text": "何以故？翳華二法，非相待故，亦如空華滅於空時，不可說言，虛空何時更起空華。"
+    },
+    {
+     "n": 119,
+     "text": "何以故？空本無華，非起滅故。生死涅槃，同於起滅，妙覺圓照，離於華翳。"
+    },
+    {
+     "n": 120,
+     "text": "“善男子，當知虛空非是暫有，亦非暫無，況復如來圓覺隨順，而爲虛空平等本性。"
+    },
+    {
+     "n": 121,
+     "text": "“善男子，如銷金礦，金非銷有，既已成金，不重爲礦，經無窮時，金性不壞，不應說言，本非成就。如來圓覺，亦復如是。"
+    },
+    {
+     "n": 122,
+     "text": "“善男子，一切如來妙圓覺心，本無菩提及與涅槃，亦無成佛及不成佛，無妄輪迴及非輪迴。"
+    },
+    {
+     "n": 123,
+     "text": "“善男子，但諸聲聞所圓境界，身心語言皆悉斷滅，終不能至彼之親證所現涅槃，何況能以有思惟心，測度如來圓覺境界，如取螢火燒須彌山，終不能著。"
+    },
+    {
+     "n": 124,
+     "text": "以輪迴心生輪迴見，入於如來大寂滅海，終不能至。"
+    },
+    {
+     "n": 125,
+     "text": "是故我說，一切菩薩及末世眾生，先斷無始輪迴根本。"
+    },
+    {
+     "n": 126,
+     "text": "“善男子，有作思惟從有心起，皆是六塵妄想緣氣，非實心體，已如空華，用此思惟辨於佛境，猶如空華復結空果，輾轉妄相，無有是處。"
+    },
+    {
+     "n": 127,
+     "text": "善男子，虛妄浮心，多諸巧見，不能成就圓覺方便。如是分別，非爲正問。”"
+    },
+    {
+     "n": 128,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 129,
+     "text": "金剛藏當知，如來寂滅性，"
+    },
+    {
+     "n": 130,
+     "text": "未曾有始終。若以輪迴心，"
+    },
+    {
+     "n": 131,
+     "text": "思惟即旋復，但至輪迴際，"
+    },
+    {
+     "n": 132,
+     "text": "不能入佛海。譬如銷金礦，"
+    },
+    {
+     "n": 133,
+     "text": "金非銷故有，雖復本來金，"
+    },
+    {
+     "n": 134,
+     "text": "終以銷成就。一成真金體，"
+    },
+    {
+     "n": 135,
+     "text": "不復重爲礦。生死與涅槃，"
+    },
+    {
+     "n": 136,
+     "text": "凡夫及諸佛，同爲空華相。"
+    },
+    {
+     "n": 137,
+     "text": "思惟猶幻化，何況諸虛妄？"
+    },
+    {
+     "n": 138,
+     "text": "若能了此心，然後求圓覺。"
+    },
+    {
+     "n": 139,
+     "text": "於是彌勒菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言："
+    },
+    {
+     "n": 140,
+     "text": "“大悲世尊，廣爲菩薩開秘密藏，令諸大眾深悟輪迴，分別邪正，能施末世一切眾生無畏道眼，於大涅槃生決定信，無復重隨輪轉境界，起循環見。"
+    },
+    {
+     "n": 141,
+     "text": "“世尊，若諸菩薩及末世眾生，欲遊如來大寂滅海，云何當斷輪迴根本？"
+    },
+    {
+     "n": 142,
+     "text": "於諸輪迴有幾種性？修佛菩提，幾等差別？"
+    },
+    {
+     "n": 143,
+     "text": "回入塵勞，當設幾種教化方便，度諸眾生？"
+    },
+    {
+     "n": 144,
+     "text": "惟願不捨救世大悲，令諸修行一切菩薩，及末世眾生，慧目肅清照耀心鏡，圓悟如來無上知見。”"
+    },
+    {
+     "n": 145,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 146,
+     "text": "爾時世尊告彌勒菩薩言：“善哉善哉，善男子，汝等乃能爲諸菩薩及末世眾生，請問如來深奧秘密微妙之義，令諸菩薩潔清慧目，及令一切末世眾生，永斷輪迴，心悟實相，具無生忍。"
+    },
+    {
+     "n": 147,
+     "text": "汝今諦聽，當爲汝說。”時彌勒菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 148,
+     "text": "“善男子，一切眾生從無始際，由有種種恩愛貪欲，故有輪迴。"
+    },
+    {
+     "n": 149,
+     "text": "若諸世界一切種性，卵生、胎生、濕生、化生，皆因淫欲而正性命。"
+    },
+    {
+     "n": 150,
+     "text": "當知輪迴，愛爲根本。由有諸欲助發愛性，是故能令生死相續。"
+    },
+    {
+     "n": 151,
+     "text": "欲因愛生，命因欲有。眾生愛命，還依欲本。愛欲爲因，愛命爲果。"
+    },
+    {
+     "n": 152,
+     "text": "“由於欲境，起諸違順，境背愛心而生憎嫉，造種種業，是故復生地獄餓鬼。"
+    },
+    {
+     "n": 153,
+     "text": "知欲可厭，愛厭業道，捨惡樂善，復現天人。"
+    },
+    {
+     "n": 154,
+     "text": "又知諸愛可厭惡故，棄愛樂捨，還滋愛本，便現有爲增上善果。"
+    },
+    {
+     "n": 155,
+     "text": "皆輪迴故，不成聖道。是故眾生欲脫生死，免諸輪迴，先斷貪欲，及除愛渴。"
+    },
+    {
+     "n": 156,
+     "text": "“善男子，菩薩變化示現世間，非愛爲本，但以慈悲令彼捨愛，假諸貪欲而入生死，若諸末世一切眾生，能捨諸欲及除憎愛，永斷輪迴，勤求如來圓覺境界，於清淨心便得開悟。"
+    },
+    {
+     "n": 157,
+     "text": "“善男子，一切眾生由本貪欲，發揮無明，顯出五性差別不等，依二種障而現深淺。"
+    },
+    {
+     "n": 158,
+     "text": "云何二障？一者理障，礙正知見；二者事障，續諸生死。"
+    },
+    {
+     "n": 159,
+     "text": "“云何五性？善男子，若此二障未得斷滅，名未成佛，若諸眾生永捨貪欲，先除事障未斷理障，但能悟入聲聞緣覺，未能顯住菩薩境界。"
+    },
+    {
+     "n": 160,
+     "text": "“善男子，若諸末世一切眾生，欲泛如來大圓覺海，先當發願勤斷二障，二障已伏，即能悟入菩薩境界，若事理障已永斷滅，即入如來微妙圓覺，滿足菩提及大涅槃。"
+    },
+    {
+     "n": 161,
+     "text": "“善男子，一切眾生皆證圓覺，逢善知識，依彼所作因地法行，爾時修習，便有頓漸。"
+    },
+    {
+     "n": 162,
+     "text": "若遇如來無上菩提正修行路，根無大小，皆成佛果。"
+    },
+    {
+     "n": 163,
+     "text": "若諸眾生雖求善友，遇邪見者未得正悟，是則名爲外道種性。"
+    },
+    {
+     "n": 164,
+     "text": "邪師過謬，非眾生咎，是名眾生五性差別。"
+    },
+    {
+     "n": 165,
+     "text": "“善男子，菩薩唯以大悲方便，入諸世間，開發未悟，乃至示現種種形相，順逆境界，與其同事，化令成佛，皆依無始清淨願力，若諸末世一切眾生，於大圓覺起增上心，當發菩薩清淨大願，應作是言："
+    },
+    {
+     "n": 166,
+     "text": "願我今者住佛圓覺，求善知識，莫值外道，及與二乘，依願修行，漸斷諸障，障盡願滿，便登解脫清淨法殿，證大圓覺妙莊嚴域。"
+    },
+    {
+     "n": 167,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 168,
+     "text": "彌勒汝當知，一切諸眾生，"
+    },
+    {
+     "n": 169,
+     "text": "不得大解脫，皆由貪欲故，"
+    },
+    {
+     "n": 170,
+     "text": "墮落於生死。若能斷憎愛，"
+    },
+    {
+     "n": 171,
+     "text": "及與貪瞋癡，不因差別性，"
+    },
+    {
+     "n": 172,
+     "text": "皆得成佛道。二障永銷滅，"
+    },
+    {
+     "n": 173,
+     "text": "求師得正悟，隨順菩薩願，"
+    },
+    {
+     "n": 174,
+     "text": "依止大涅槃。十方諸菩薩，"
+    },
+    {
+     "n": 175,
+     "text": "皆以大悲願，示現入生死，"
+    },
+    {
+     "n": 176,
+     "text": "現在修行者，及末世眾生，"
+    },
+    {
+     "n": 177,
+     "text": "勤斷諸愛見，便歸大圓覺。"
+    },
+    {
+     "n": 178,
+     "text": "於是清淨慧菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言："
+    },
+    {
+     "n": 179,
+     "text": "“大悲世尊，爲我等輩，廣說如是不思議事，本所不見，本所不聞。"
+    },
+    {
+     "n": 180,
+     "text": "我等今者蒙佛善誘，身心泰然，得大饒益。"
+    },
+    {
+     "n": 181,
+     "text": "願爲諸來一切法眾，重宣法王圓滿覺性。"
+    },
+    {
+     "n": 182,
+     "text": "一切眾生及諸菩薩如來世尊，所證所得，云何差別？"
+    },
+    {
+     "n": 183,
+     "text": "令末世眾生聞此聖教，隨順開悟，漸次能入。”"
+    },
+    {
+     "n": 184,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 185,
+     "text": "爾時世尊告清淨慧菩薩言：“善哉善哉，善男子，汝等乃能爲末世眾生，請問如來漸次差別，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 186,
+     "text": "時清淨慧菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 187,
+     "text": "“善男子，圓覺自性，非性性有，循諸性起，無取無證，於實相中，實無菩薩及諸眾生。"
+    },
+    {
+     "n": 188,
+     "text": "何以故？菩薩眾生皆是幻化，幻化滅故，無取證者。"
+    },
+    {
+     "n": 189,
+     "text": "譬如眼根，不自見眼，性自平等，無平等者。"
+    },
+    {
+     "n": 190,
+     "text": "眾生迷倒，未能除滅一切幻化，於滅未滅，妄功用中，便顯差別。"
+    },
+    {
+     "n": 191,
+     "text": "若得如來寂滅隨順，實無寂滅及寂滅者。"
+    },
+    {
+     "n": 192,
+     "text": "“善男子，一切眾生從無始來，由妄想我，及愛我者，曾不自知念念生滅，故起憎愛耽著五欲。"
+    },
+    {
+     "n": 193,
+     "text": "若遇善友，教令開悟淨圓覺性，發明起滅，即知此生，性自勞慮。"
+    },
+    {
+     "n": 194,
+     "text": "若復有人勞慮永斷，得法界淨，即彼淨解爲自障礙，故於圓覺而不自在，此名凡夫隨順覺性。"
+    },
+    {
+     "n": 195,
+     "text": "“善男子，一切菩薩見解爲礙，雖斷解礙，猶住見覺，覺礙爲礙而不自在，此名菩薩未入地者隨順覺性。"
+    },
+    {
+     "n": 196,
+     "text": "“善男子，有照有覺，俱名障礙，是故菩薩常覺不住，照與照者，同時寂滅。"
+    },
+    {
+     "n": 197,
+     "text": "譬如有人自斷其首，首已斷故，無能斷者。"
+    },
+    {
+     "n": 198,
+     "text": "則以礙心自滅諸礙，礙已斷滅，無滅礙者。"
+    },
+    {
+     "n": 199,
+     "text": "修多羅教，如標月指，若復見月，了知所標畢竟非月，一切如來種種言說，開示菩薩，亦復如是，此名菩薩已入地者隨順覺性。"
+    },
+    {
+     "n": 200,
+     "text": "“善男子，一切障礙，即究竟覺；"
+    },
+    {
+     "n": 201,
+     "text": "得念失念，無非解脫；成法破法，皆名涅槃；"
+    },
+    {
+     "n": 202,
+     "text": "智慧愚癡，通爲般若；菩薩外道所成就法，同是菩提；"
+    },
+    {
+     "n": 203,
+     "text": "無明真如無異境界；諸戒定慧及淫怒癡，俱是梵行；"
+    },
+    {
+     "n": 204,
+     "text": "眾生國土，同一法性；地獄天宮，皆爲淨土；"
+    },
+    {
+     "n": 205,
+     "text": "有性無性，齊成佛道；一切煩惱，畢竟解脫。"
+    },
+    {
+     "n": 206,
+     "text": "法界海慧，照了諸相，猶如虛空，此名如來隨順覺性。"
+    },
+    {
+     "n": 207,
+     "text": "“善男子，但諸菩薩及末世眾生，居一切時不起妄念，於諸妄心亦不息滅，住妄想境不加了知，於無了知，不辨真實，彼諸眾生聞是法門，信解受持不生驚畏，是則名爲隨順覺性。"
+    },
+    {
+     "n": 208,
+     "text": "“善男子，汝等當知，如是眾生已曾供養百千萬億恒河沙諸佛，及大菩薩，植眾德本，佛說是人，名爲成就一切種智。”"
+    },
+    {
+     "n": 209,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 210,
+     "text": "清淨慧當知，圓滿菩提性，"
+    },
+    {
+     "n": 211,
+     "text": "無取亦無證，無菩薩眾生，"
+    },
+    {
+     "n": 212,
+     "text": "覺與未覺時，漸次有差別。"
+    },
+    {
+     "n": 213,
+     "text": "眾生爲解礙，菩薩未離覺，"
+    },
+    {
+     "n": 214,
+     "text": "入地永寂滅，不住一切相。"
+    },
+    {
+     "n": 215,
+     "text": "大覺悉圓滿，名爲徧隨順。"
+    },
+    {
+     "n": 216,
+     "text": "末世諸眾生，心不生虛妄。"
+    },
+    {
+     "n": 217,
+     "text": "佛說如是人，現世即菩薩。"
+    },
+    {
+     "n": 218,
+     "text": "供養恒沙佛，功德已圓滿。"
+    },
+    {
+     "n": 219,
+     "text": "雖有多方便，皆名隨順智。"
+    },
+    {
+     "n": 220,
+     "text": "於是威德自在菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言："
+    },
+    {
+     "n": 221,
+     "text": "“大悲世尊，廣爲我等分別如是隨順覺性，令諸菩薩覺心光明，承佛圓音，不因修習而得善利。"
+    },
+    {
+     "n": 222,
+     "text": "世尊，譬如大城，外有四門，隨方來者非止一路，一切菩薩莊嚴佛國及成菩提，非一方便，唯願世尊廣爲我等，宣說一切方便漸次，並修行人總有幾種，令此會菩薩，及末世眾生求大乘者，速得開悟，遊戲如來大寂滅海。”"
+    },
+    {
+     "n": 223,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 224,
+     "text": "爾時世尊告威德自在菩薩言：“善哉善哉，善男子，汝等乃能爲諸菩薩及末世眾生問於如來知是方便，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 225,
+     "text": "時威德自在菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 226,
+     "text": "“善男子，無上妙覺，徧諸十方，出生如來與一切法，同體平等，於諸修行實無有二，方便隨順其數無量，圓攝所歸，循性差別，當有三種。"
+    },
+    {
+     "n": 227,
+     "text": "“善男子，若諸菩薩悟淨圓覺，以淨覺心，取靜爲行，由澄諸念，覺識煩動，靜慧發生，身心客塵從此永滅，便能內發寂靜輕安，由寂靜故，十方世界諸如來心，於中顯現，如鏡中像，此方便者，名奢摩他。"
+    },
+    {
+     "n": 228,
+     "text": "“善男子，若諸菩薩悟淨圓覺，以淨覺心，知覺心性及與根塵，皆因幻化，即起諸幻以除幻者，變化諸幻而開幻眾，由起幻故，便能內發大悲輕安，"
+    },
+    {
+     "n": 229,
+     "text": "一切菩薩從此起行，漸次增進，彼觀幻者非同幻故，非同幻觀，皆是幻故，幻相永離是諸菩薩所圓妙行，如土長苗，此方便者，名三摩缽提。"
+    },
+    {
+     "n": 230,
+     "text": "“善男子，若諸菩薩悟淨圓覺，以淨覺心，不取幻化及諸靜相，了知身心皆爲罣礙，無知覺明，不依諸礙，永得超過礙無礙境，受用世界及與身心，"
+    },
+    {
+     "n": 231,
+     "text": "相在塵域，如器中鍠，聲出於外，煩惱涅槃不相留礙，便能內發寂滅輕安，妙覺隨順寂滅境界，自他身心所不能及，眾生壽命皆爲浮想，此方便者，名爲禪那。"
+    },
+    {
+     "n": 232,
+     "text": "“善男子，此三法門，皆是圓覺親近隨順，十方如來因此成佛，十方菩薩種種方便一切同異，皆依如是三種事業，若得圓證，即成圓覺。"
+    },
+    {
+     "n": 233,
+     "text": "善男子，假使有人修於聖道，教化成就百千萬億阿羅漢辟支佛果，不如有人聞此圓覺無礙法門，一剎那頃隨順修習。”"
+    },
+    {
+     "n": 234,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 235,
+     "text": "威德汝當知，無上大覺心，"
+    },
+    {
+     "n": 236,
+     "text": "本際無二相，隨順諸方便，"
+    },
+    {
+     "n": 237,
+     "text": "其數即無量，如來總開示，"
+    },
+    {
+     "n": 238,
+     "text": "便有三種類：寂靜奢摩他，"
+    },
+    {
+     "n": 239,
+     "text": "如鏡照諸像；如幻三摩提，"
+    },
+    {
+     "n": 240,
+     "text": "如苗漸增長；禪那唯寂滅。"
+    },
+    {
+     "n": 241,
+     "text": "如彼器中鍠。三種妙法門，"
+    },
+    {
+     "n": 242,
+     "text": "皆是覺隨順，十方諸如來，"
+    },
+    {
+     "n": 243,
+     "text": "及諸大菩薩，因此得成道。"
+    },
+    {
+     "n": 244,
+     "text": "三事圓證故，名究竟涅槃。"
+    },
+    {
+     "n": 245,
+     "text": "於是辯音菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言："
+    },
+    {
+     "n": 246,
+     "text": "“大悲世尊，如是法門，甚爲稀有。"
+    },
+    {
+     "n": 247,
+     "text": "世尊，此諸方便，一切菩薩於圓覺門，有幾修習？"
+    },
+    {
+     "n": 248,
+     "text": "願爲大眾及末世眾生，方便開示，令悟實相。”"
+    },
+    {
+     "n": 249,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 250,
+     "text": "爾時世尊告辨音菩薩言：“善哉善哉，善男子，汝等乃能爲諸大眾及末世眾生，問於如來如是修習，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 251,
+     "text": "時辯音菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 252,
+     "text": "“善男子，一切如來圓覺清淨，本無修習及修習者，一切菩薩及末世眾生，依於未覺幻力修習，爾時便有二十五種清淨定輪："
+    },
+    {
+     "n": 253,
+     "text": "“若諸菩薩唯取極靜，由靜力故，永斷煩惱，究竟成就，不起於座，便入涅槃，此菩薩者，名單修奢摩他。"
+    },
+    {
+     "n": 254,
+     "text": "“若諸菩薩唯觀如幻，以佛力故，變化世界，種種作用，備行菩薩，清淨妙行，於陀羅尼，不失寂念，及諸靜慧，此菩薩者，名單修三摩鉢提。"
+    },
+    {
+     "n": 255,
+     "text": "“若諸菩薩唯滅諸幻，不取作用，獨斷煩惱，煩惱斷盡，便證實相，此菩薩者，名單修禪那。"
+    },
+    {
+     "n": 256,
+     "text": "“若諸菩薩先取至靜，以靜慧心，照諸幻者，便於是中，起菩薩行，此菩薩者，名先修奢摩他，後修三摩鉢提。"
+    },
+    {
+     "n": 257,
+     "text": "“若諸菩薩以靜慧故，證至靜性，便斷煩惱，永出生死，此菩薩者，名先修奢摩他，後修禪那。"
+    },
+    {
+     "n": 258,
+     "text": "“若諸菩薩以寂靜慧，復現幻力，種種變化，度諸眾生，後斷煩惱，而入寂滅，此菩薩者，名先修奢摩他，中修三摩鉢提，後修禪那。"
+    },
+    {
+     "n": 259,
+     "text": "“若諸菩薩以至靜力，斷煩惱已，後起菩薩，清淨妙行，度諸眾生，此菩薩者，名先修奢摩他，中修禪那，後修三摩鉢提。"
+    },
+    {
+     "n": 260,
+     "text": "“若諸菩薩以至靜力，心斷煩惱，復度眾生，建立世界，此菩薩者，名先修奢摩他，齊修三摩鉢提、禪那。"
+    },
+    {
+     "n": 261,
+     "text": "“若諸菩薩以至靜力，資發變化，後斷煩惱，此菩薩者，名齊修奢摩他、三摩鉢提，後修禪那。"
+    },
+    {
+     "n": 262,
+     "text": "“若諸菩薩以至靜力，用資寂滅，後起作用，變化世界，此菩薩者，名齊修奢摩他、禪那，後修三摩鉢提。"
+    },
+    {
+     "n": 263,
+     "text": "“若諸菩薩以變化力，種種隨順，而取至靜，此菩薩者，名先修三摩鉢提，後修奢摩他。"
+    },
+    {
+     "n": 264,
+     "text": "“若諸菩薩以變化力，種種境界，而取寂滅，此菩薩者，名先修三摩鉢提，後修禪那。"
+    },
+    {
+     "n": 265,
+     "text": "“若諸菩薩以變化力，而作佛事，安住寂靜，而斷煩惱，此菩薩者，名先修三摩鉢提，中修奢摩他，後修禪那。"
+    },
+    {
+     "n": 266,
+     "text": "“若諸菩薩以變化力，無礙作用，斷煩惱故，安住至靜，此菩薩者，名先修三摩鉢提，中修禪那，後修奢摩他。"
+    },
+    {
+     "n": 267,
+     "text": "“若諸菩薩以變化力，方便作用，至靜寂滅，二俱隨順，此菩薩者，名先修三摩鉢提，齊修奢摩他、禪那。"
+    },
+    {
+     "n": 268,
+     "text": "“若諸菩薩以變化力，種種起用，資於至靜，後斷煩惱，此菩薩者，名齊修三摩鉢提、奢摩他，後修禪那。"
+    },
+    {
+     "n": 269,
+     "text": "“若諸菩薩以變化力，資於寂滅，後住清淨，無作靜慮，此菩薩者，名齊修三摩鉢提、禪那，後修奢摩他。"
+    },
+    {
+     "n": 270,
+     "text": "“若諸菩薩以寂滅力，而起至靜，住於清淨，此菩薩者，名先修禪那，後修奢摩他。"
+    },
+    {
+     "n": 271,
+     "text": "“若諸菩薩以寂滅力，而起作用，於一切境，寂用隨順，此菩薩者，名先修禪那，後修三摩鉢提。"
+    },
+    {
+     "n": 272,
+     "text": "“若諸菩薩以寂滅力，種種自性，安於靜慮，而起變化，此菩薩者，名先修禪那，中修奢摩他，後修三摩鉢提。"
+    },
+    {
+     "n": 273,
+     "text": "“若諸菩薩以寂滅力，無作自性，起於作用，清淨境界，歸於靜慮，此菩薩者，名先修禪那，中修三摩鉢提，後修奢摩他。"
+    },
+    {
+     "n": 274,
+     "text": "“若諸菩薩以寂滅力，種種清淨，而住靜慮，起於變化，此菩薩者，名先修禪那，齊修奢摩他、三摩鉢提。"
+    },
+    {
+     "n": 275,
+     "text": "“若諸菩薩以寂滅力，資於至靜，而起變化，此菩薩者，名齊修禪那、奢摩他，後修三摩鉢提。"
+    },
+    {
+     "n": 276,
+     "text": "“若諸菩薩以寂滅力，資於變化，而起至靜，清明境慧，此菩薩者，名齊修禪那、三摩鉢提，後修奢摩他。"
+    },
+    {
+     "n": 277,
+     "text": "“若諸菩薩以圓覺慧，圓合一切，於諸性相，無離覺性，此菩薩者，名爲圓修三種自性，清淨隨順。"
+    },
+    {
+     "n": 278,
+     "text": "“善男子，是名菩薩二十五輪，一切菩薩修行如是，若諸菩薩及末世眾生，依此輪者，當持梵行，寂靜思惟，求哀懺悔，經三七日，於二十五輪各安標記，至心求哀，隨手結取，依結開示，便知頓漸，一念疑悔，即不成就。”"
+    },
+    {
+     "n": 279,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 280,
+     "text": "辯音汝當知，一切諸菩薩，"
+    },
+    {
+     "n": 281,
+     "text": "無礙清淨慧，皆依禪定生。"
+    },
+    {
+     "n": 282,
+     "text": "所謂奢摩他，三摩提禪那。"
+    },
+    {
+     "n": 283,
+     "text": "三法漸次修，有二十五種。"
+    },
+    {
+     "n": 284,
+     "text": "十方諸如來，三世修行者，"
+    },
+    {
+     "n": 285,
+     "text": "無不因此法，而得成菩提。"
+    },
+    {
+     "n": 286,
+     "text": "唯除頓覺人，並法不隨順。"
+    },
+    {
+     "n": 287,
+     "text": "一切諸菩薩，及末世眾生，"
+    },
+    {
+     "n": 288,
+     "text": "常當持此輪，隨順勤修習。"
+    },
+    {
+     "n": 289,
+     "text": "依佛大悲力，不久證涅槃。"
+    },
+    {
+     "n": 290,
+     "text": "於是淨諸業障菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言："
+    },
+    {
+     "n": 291,
+     "text": "“大悲世尊，爲我等輩演說如是不思議事，一切如來因地行相，令諸大眾得未曾有，睹見調御，歷恒沙劫勤苦境界，一切功用，猶如一念，我等菩薩深自慶慰。"
+    },
+    {
+     "n": 292,
+     "text": "世尊，若此覺心本性清淨，因何染污，使諸眾生迷悶不入？"
+    },
+    {
+     "n": 293,
+     "text": "唯願如來廣爲我等，開悟法性，令此大眾及末世眾生，作將來眼。”"
+    },
+    {
+     "n": 294,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 295,
+     "text": "爾時世尊告淨諸業障菩薩言：“善哉善哉，善男子，汝等乃能爲諸大眾及末世眾生，諮問如來如是方便，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 296,
+     "text": "時淨諸業障菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 297,
+     "text": "“善男子，一切眾生從無始來，妄想執有我人眾生，及與壽命，認四顛倒爲實我體，由此便生憎愛二境，於虛妄體重執虛妄，二妄相依，生妄業道，"
+    },
+    {
+     "n": 298,
+     "text": "有妄業故，妄見流轉，厭流轉者，妄見涅槃，由此不能入清淨覺，非覺違拒諸能入者，有諸能入，非覺入故，是故動念及與息念，皆歸迷悶。"
+    },
+    {
+     "n": 299,
+     "text": "“何以故？由有無始本起無明，爲己主宰，一切眾生生無慧目，身心等性，皆是無明，譬如有人不自斷命，是故當知，有愛我者，我與隨順，非隨順者，便生憎怨，爲憎愛心養無明故，相續求道，皆不成就。"
+    },
+    {
+     "n": 300,
+     "text": "“善男子，云何我相？謂諸眾生心所證者。"
+    },
+    {
+     "n": 301,
+     "text": "善男子，譬如有人，百骸調適，忽忘我身，四肢弦緩，攝養乖方，微加鍼艾，即知有我，是故證取方現我體。"
+    },
+    {
+     "n": 302,
+     "text": "善男子，其心乃至證於如來，畢竟了知清淨涅槃皆是我相。"
+    },
+    {
+     "n": 303,
+     "text": "“善男子，云何人相？謂諸眾生心悟證者。"
+    },
+    {
+     "n": 304,
+     "text": "善男子，悟有我者，不復認我，所悟非我，悟亦如是，悟已超過一切證者，悉爲人相。"
+    },
+    {
+     "n": 305,
+     "text": "善男子，其心乃至圓悟涅槃俱是我者，心存少悟備殫證理，皆名人相。"
+    },
+    {
+     "n": 306,
+     "text": "“善男子，云何眾生相？謂諸眾生心自證悟所不及者。"
+    },
+    {
+     "n": 307,
+     "text": "善男子，譬如有人作如是言，我是眾生，則知彼人說眾生者，非我非彼，云何非我，我是眾生，則非是我，云何非彼，我是眾生，非彼我故。"
+    },
+    {
+     "n": 308,
+     "text": "善男子，但諸眾生了證了悟，皆爲我人，而我人相所不及者，存有所了，名眾生相。"
+    },
+    {
+     "n": 309,
+     "text": "“善男子，云何壽命相？謂諸眾生心照清淨覺所了者，一切業智所不自見，猶如命根。"
+    },
+    {
+     "n": 310,
+     "text": "善男子，若心照見一切覺者，皆爲塵垢，覺所覺者，不離塵故，如湯銷冰，無別有冰，知冰銷者，存我覺我，亦復如是。"
+    },
+    {
+     "n": 311,
+     "text": "“善男子，末世眾生不了四相，雖經多劫勤苦修道，但名有爲，終不能成一切聖果。是故名爲正法末世。"
+    },
+    {
+     "n": 312,
+     "text": "“何以故？認一切我爲涅槃故，有證有悟名成就故。"
+    },
+    {
+     "n": 313,
+     "text": "譬如有人認賊爲子，其家財寶終不成就。"
+    },
+    {
+     "n": 314,
+     "text": "有我愛者亦愛涅槃，伏我愛根爲涅槃相。"
+    },
+    {
+     "n": 315,
+     "text": "有憎我者，亦憎生死，不知愛者真生死故，別憎生死名不解脫。"
+    },
+    {
+     "n": 316,
+     "text": "云何當知法不解脫？善男子，彼末世眾生習菩提者，以己微證爲自清淨，猶未能盡我相根本。"
+    },
+    {
+     "n": 317,
+     "text": "若復有人讚嘆彼法，即生歡喜，便欲濟度，若復誹謗彼所得者，便生瞋恨，則知我相堅固執持，潛伏藏識遊戲諸根，曾不間斷。"
+    },
+    {
+     "n": 318,
+     "text": "善男子，彼修道者不除我相，是故不能入清淨覺。"
+    },
+    {
+     "n": 319,
+     "text": "“善男子，若知我空，無毀我者，有我說法，我未斷故，眾生壽命，亦復如是。"
+    },
+    {
+     "n": 320,
+     "text": "“善男子，末世眾生說病爲法，是故名爲可憐憫者，雖勤精進，增益諸病，是故不能入清淨覺。"
+    },
+    {
+     "n": 321,
+     "text": "末世眾生不了四相，以如來解及所行處，爲自修行，終不成就。"
+    },
+    {
+     "n": 322,
+     "text": "或有眾生未得謂得，未證謂證，見勝進者心生嫉妒，由彼眾生未斷我愛，是故不能入清淨覺。"
+    },
+    {
+     "n": 323,
+     "text": "“善男子，末世眾生希望成道，無令求悟，唯益多聞，增長我見，但當精勤降伏煩惱，起大勇猛，未得令得，未斷令斷，貪瞋愛慢，"
+    },
+    {
+     "n": 324,
+     "text": "諂曲嫉妒，對境不生，彼我恩愛，一切寂滅，佛說是入漸次成就，求善知識，不墮邪見，若於所求別生憎愛，則不能入清淨覺海。”"
+    },
+    {
+     "n": 325,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 326,
+     "text": "淨業汝當知，一切諸眾生，"
+    },
+    {
+     "n": 327,
+     "text": "皆由執我愛，無始妄流轉，"
+    },
+    {
+     "n": 328,
+     "text": "未除四種相，不得成菩提。"
+    },
+    {
+     "n": 329,
+     "text": "愛憎生於心，諂曲存諸念，"
+    },
+    {
+     "n": 330,
+     "text": "是故多迷悶，不能入覺城。"
+    },
+    {
+     "n": 331,
+     "text": "若能歸悟剎，先去貪瞋癡，"
+    },
+    {
+     "n": 332,
+     "text": "法愛不存心，漸次可成就。"
+    },
+    {
+     "n": 333,
+     "text": "我身本不有，憎愛何由生？"
+    },
+    {
+     "n": 334,
+     "text": "此人求善友，終不墮邪見。"
+    },
+    {
+     "n": 335,
+     "text": "所求別生心，究竟非成就。"
+    },
+    {
+     "n": 336,
+     "text": "於是普覺菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言："
+    },
+    {
+     "n": 337,
+     "text": "“大悲世尊，快說禪病，令諸大眾得未曾有，心意蕩然，獲大安穩。"
+    },
+    {
+     "n": 338,
+     "text": "世尊，末世眾生去佛漸遠，賢聖隱伏，邪法增熾，使諸眾生求何等人？"
+    },
+    {
+     "n": 339,
+     "text": "依何等法？行何等行？除去何病？"
+    },
+    {
+     "n": 340,
+     "text": "云何發心？令彼群盲不墮邪見。”"
+    },
+    {
+     "n": 341,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 342,
+     "text": "爾時世尊告普覺菩薩言：“善哉善哉，善男子，汝等乃能諮問如來如是修行，能施末世一切眾生，無畏道眼，令彼眾生得成聖道，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 343,
+     "text": "時普覺菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 344,
+     "text": "“善男子，末世眾生將發大心，求善知識欲修行者，當求一切正知見人，心不住相，不著聲聞緣覺境界，雖現塵勞，心恒清淨，示有諸過，讚嘆梵行，不令眾生入不律儀，求如是人，即得成就阿耨多羅三藐三菩提。"
+    },
+    {
+     "n": 345,
+     "text": "末世眾生見如是人，應當供養不惜身命，彼善知識四威儀中，常現清淨，乃至示現種種過患，心無驕慢，於彼善友不起惡念，即能究竟成就正覺，心華發明，照十方剎。"
+    },
+    {
+     "n": 346,
+     "text": "“善男子，彼善知識所證妙法，應離四病。"
+    },
+    {
+     "n": 347,
+     "text": "云何四病？一者作病，若復有人作如是言，我於本心作種種行，欲求圓覺，彼圓覺性非作得故，說名爲病；"
+    },
+    {
+     "n": 348,
+     "text": "二者任病，若復有人作如是言，我等今者不斷生死，不求涅槃，涅槃生死無起滅念，任彼一切隨諸法性，欲求圓覺，彼圓覺性非任有故，說名爲病；"
+    },
+    {
+     "n": 349,
+     "text": "三者止病，若復有人作如是言，我今自心永息諸念，得一切性寂然平等，欲求圓覺，彼圓覺性非止合故，說名爲病；"
+    },
+    {
+     "n": 350,
+     "text": "四者滅病，若復有人作如是言，我今永斷一切煩惱，身心畢竟空無所有，何況根塵虛妄境界？"
+    },
+    {
+     "n": 351,
+     "text": "一切永寂，欲求圓覺，彼圓覺性非寂相故，說名爲病。"
+    },
+    {
+     "n": 352,
+     "text": "“離此四病者，則知清淨。作是觀者，名爲正觀；若他觀者，名爲邪觀。"
+    },
+    {
+     "n": 353,
+     "text": "“善男子，末世眾生欲修行者，應當盡命供養善友，事善知識，彼善知識欲來親近，應斷驕慢；"
+    },
+    {
+     "n": 354,
+     "text": "若復遠離，應斷瞋恨，現逆順境，猶如虛空，了知身心畢竟平等，與諸眾生同體無異，如是修行，方入圓覺。"
+    },
+    {
+     "n": 355,
+     "text": "“善男子，末世眾生不得成道，由有無始自他憎愛，一切種子，故未解脫，若復有人觀彼怨家，如己父母，心無有二，即除諸病，於諸法中自他憎愛，亦復如是。"
+    },
+    {
+     "n": 356,
+     "text": "“善男子，末世眾生欲求圓覺，應當發心作如是言，盡於虛空一切眾生，我皆令入究竟圓覺，於圓覺中無取覺者，除彼我人一切諸相，如是發心，不墮邪見。“"
+    },
+    {
+     "n": 357,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 358,
+     "text": "普覺汝當知，末世諸眾生，"
+    },
+    {
+     "n": 359,
+     "text": "欲求善知識，應當求正見。"
+    },
+    {
+     "n": 360,
+     "text": "心遠二乘者，法中除四病，"
+    },
+    {
+     "n": 361,
+     "text": "謂作止任滅。親近無驕慢，"
+    },
+    {
+     "n": 362,
+     "text": "遠離無瞋恨，見種種境界。"
+    },
+    {
+     "n": 363,
+     "text": "心當生稀有，還如佛出世。"
+    },
+    {
+     "n": 364,
+     "text": "不犯非律儀，戒根永清淨。"
+    },
+    {
+     "n": 365,
+     "text": "度一切眾生，究竟入圓覺。"
+    },
+    {
+     "n": 366,
+     "text": "無彼我人相，當依正智慧，"
+    },
+    {
+     "n": 367,
+     "text": "便得超邪見，證覺般涅槃。"
+    },
+    {
+     "n": 368,
+     "text": "於是圓覺菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言："
+    },
+    {
+     "n": 369,
+     "text": "“大悲世尊，爲我等輩，廣說淨覺種種方便，令末世眾生有大增益。"
+    },
+    {
+     "n": 370,
+     "text": "世尊，我等今者已得開悟，若佛滅後，末世眾生未得悟者，云何安居，修此圓覺清淨境界？"
+    },
+    {
+     "n": 371,
+     "text": "此圓覺中三種淨觀，以何爲首？惟願大悲，爲諸大眾及末世眾生施大饒益。”"
+    },
+    {
+     "n": 372,
+     "text": "作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 373,
+     "text": "爾時世尊告圓覺菩薩言：“善哉善哉，善男子，汝等乃能問於如來如是方便，以大饒益施諸眾生，汝今諦聽，當爲汝說。”"
+    },
+    {
+     "n": 374,
+     "text": "時圓覺菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 375,
+     "text": "“善男子，一切眾生，若佛住世，若佛滅後，若法末時，有諸眾生具大乘性，信佛秘密大圓覺心，欲修行者，若在伽藍安處徒眾，"
+    },
+    {
+     "n": 376,
+     "text": "有緣事故隨分思察，如我已說，若復無有他事因緣，即建道場，當立期限，若立長期，百二十日，中期百日，下期八十日，安置淨居。"
+    },
+    {
+     "n": 377,
+     "text": "“若佛現在，當正思惟，若佛滅後，施設形像，心存目想，生正憶念，還同如來常住之日，懸諸幡華，經三七日，稽首十方諸佛名字，求哀懺悔，遇善境界，得心輕安，過三七日，一向攝念。"
+    },
+    {
+     "n": 378,
+     "text": "“若經夏首三月安居，當爲清淨菩薩止住，心離聲聞，不假徒眾。"
+    },
+    {
+     "n": 379,
+     "text": "至安居日，即於佛前作如是言：我比丘比丘尼，優婆塞優婆夷某甲，踞菩薩乘，修寂滅行，同入清淨實相住持，以大圓覺爲我伽藍，身心安居平等性智，"
+    },
+    {
+     "n": 380,
+     "text": "涅槃自性無繫屬故，今我敬請，不依聲聞，當與十方如來，及大菩薩，三月安居，爲修菩薩無上妙覺大因緣故，不繫徒眾。"
+    },
+    {
+     "n": 381,
+     "text": "善男子，此名菩薩示現安居，過三期日，隨往無礙。"
+    },
+    {
+     "n": 382,
+     "text": "“善男子，若彼末世修行眾生，求菩薩道入三期者，非彼所聞一切境界，終不可取。"
+    },
+    {
+     "n": 383,
+     "text": "“善男子，若諸眾生修奢摩他，先取至靜，不起思念，靜極便覺，如是初靜，從於一身至一世界，覺亦如是。"
+    },
+    {
+     "n": 384,
+     "text": "“善男子，若覺徧滿一世界者，一世界中有一眾生起一念者，皆悉能知，百千世界亦復如是，非彼所聞一切境界，終不可取。"
+    },
+    {
+     "n": 385,
+     "text": "“善男子，若諸眾生修三摩鉢提，先當憶想十方如來、十方世界一切菩薩，依種種門，漸次修行勤苦三昧，廣發大願，自薰成種，非彼所聞一切境界，終不可取。"
+    },
+    {
+     "n": 386,
+     "text": "“善男子，若諸眾生修於禪那，先取數門，心中了知生住滅念，分齊頭數，如是周徧四威儀中，分別念數無不了知，"
+    },
+    {
+     "n": 387,
+     "text": "漸次增進，乃至得知百千世界一滴之雨，猶如目睹所受用物，非彼所聞一切境界，終不可取，是名三觀初首方便。"
+    },
+    {
+     "n": 388,
+     "text": "“若諸眾生徧修三種，勤行精進，即名如來出現於世，若後末世鈍根眾生，心欲求道不得成就，由昔業障，當勤懺悔，"
+    },
+    {
+     "n": 389,
+     "text": "常起希望，先斷憎愛、嫉妒、諂曲、求勝上心，三種淨觀隨學一事，此觀不得，復習彼觀，心不放捨，漸次求證。”"
+    },
+    {
+     "n": 390,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 391,
+     "text": "圓覺汝當知，一切諸眾生，"
+    },
+    {
+     "n": 392,
+     "text": "欲求無上道，先當結三期。"
+    },
+    {
+     "n": 393,
+     "text": "懺悔無始業，經於三七日，"
+    },
+    {
+     "n": 394,
+     "text": "然後正思惟。非彼所聞境，"
+    },
+    {
+     "n": 395,
+     "text": "畢竟不可取，奢摩他至靜，"
+    },
+    {
+     "n": 396,
+     "text": "三摩正憶持，禪那明數門，"
+    },
+    {
+     "n": 397,
+     "text": "是名三淨觀。若能勤修習，"
+    },
+    {
+     "n": 398,
+     "text": "是名佛出世。鈍根未成者，"
+    },
+    {
+     "n": 399,
+     "text": "常當勤心懺，無始一切罪。"
+    },
+    {
+     "n": 400,
+     "text": "諸障若消滅，佛境便現前。"
+    },
+    {
+     "n": 401,
+     "text": "於是賢善首菩薩在大眾中，即從座起，頂禮佛足，右繞三匝，長跪叉手，而白佛言：”"
+    },
+    {
+     "n": 402,
+     "text": "大悲世尊，廣爲我等及末世眾生，開悟如是不思議事。"
+    },
+    {
+     "n": 403,
+     "text": "世尊，此大乘教，名字何等？云何奉持？"
+    },
+    {
+     "n": 404,
+     "text": "眾生修習得何功德？云何使我護持經人？"
+    },
+    {
+     "n": 405,
+     "text": "流布此教至於何地？”作是語已，五體投地，如是三請，終而復始。"
+    },
+    {
+     "n": 406,
+     "text": "爾時世尊告賢善首菩薩言：”善哉善哉，善男子，汝等乃能爲諸菩薩及末世眾生，問於如來如是經教，功德名字，汝今諦聽，當爲汝說。"
+    },
+    {
+     "n": 407,
+     "text": "時賢善首菩薩奉教歡喜，及諸大眾默然而聽。"
+    },
+    {
+     "n": 408,
+     "text": "“善男子，是經百千萬億恒河沙諸佛所說，三世如來之所守護，十方菩薩之所皈依，十二部經清淨眼目。"
+    },
+    {
+     "n": 409,
+     "text": "“是經名大《大方廣圓覺陀羅尼》，亦名《修多羅了義》，亦名《秘密王三昧》，亦名《如來決定境界》，亦名《如來藏自性差別》，汝當奉持。"
+    },
+    {
+     "n": 410,
+     "text": "“善男子，是經唯顯如來境界，唯佛如來能盡宣說，若諸菩薩及末世眾生，依此修行，漸次增進，至於佛地。"
+    },
+    {
+     "n": 411,
+     "text": "“善男子，是經名爲《頓教大乘》，頓機眾生從此開悟，亦攝漸修，一切群品。"
+    },
+    {
+     "n": 412,
+     "text": "譬如大海，不讓小流，乃至蚊蟲及阿修羅，飲其水者，皆得充滿。"
+    },
+    {
+     "n": 413,
+     "text": "“善男子，假使有人，純以七寶積滿三千大千世界以用布施，不如有人，聞此經名及一句義。"
+    },
+    {
+     "n": 414,
+     "text": "善男子，假使有人教百千恒河沙眾生得阿羅漢果，不如有人宣說此經分別半偈。"
+    },
+    {
+     "n": 415,
+     "text": "“善男子，若復有人聞此經名信心不惑，當知是人非於一佛二佛種諸福慧，如是乃至盡恒河沙一切佛所種諸善根聞此經教。"
+    },
+    {
+     "n": 416,
+     "text": "汝善男子！當護末世是修行者，無令惡魔及諸外道惱其身心令生退屈。"
+    },
+    {
+     "n": 417,
+     "text": "“善男子，假使有人，教百恒河沙眾生得阿羅漢果，不如有人，宣說此經分別半偈。"
+    },
+    {
+     "n": 418,
+     "text": "若復有人，聞此經名信心不惑，當知是人，非於一佛二佛種諸福慧，如是乃至盡恒河沙一切佛所種諸善根，聞此經教。"
+    },
+    {
+     "n": 419,
+     "text": "汝善男子，當護末世修行者，無令惡魔及諸外道惱其身心，令生退屈。"
+    },
+    {
+     "n": 420,
+     "text": "爾時世尊欲重宣此義，而說偈言："
+    },
+    {
+     "n": 421,
+     "text": "賢善首當知，是經諸佛說，"
+    },
+    {
+     "n": 422,
+     "text": "如來等護持，十二部眼目，"
+    },
+    {
+     "n": 423,
+     "text": "名爲大方廣，圓覺陀羅尼，"
+    },
+    {
+     "n": 424,
+     "text": "顯如來境界。以此修行者，"
+    },
+    {
+     "n": 425,
+     "text": "增進至佛地。如海納百川，"
+    },
+    {
+     "n": 426,
+     "text": "飲者皆充滿。假使施七寶，"
+    },
+    {
+     "n": 427,
+     "text": "積滿三千界，不如聞此經。"
+    },
+    {
+     "n": 428,
+     "text": "若化河沙眾，皆得阿羅漢，"
+    },
+    {
+     "n": 429,
+     "text": "不如聞半偈。汝等於來世，"
+    },
+    {
+     "n": 430,
+     "text": "護是宣持者，無令生退屈。"
+    },
+    {
+     "n": 431,
+     "text": "爾時會中，有火首金剛，摧碎金剛，尼藍婆金剛等八萬金剛，並其眷屬，即從座起，頂禮佛足，右繞三匝，而白佛言："
+    },
+    {
+     "n": 432,
+     "text": "“世尊，若後末世一切眾生，有能持此決定大乘，我當守護如護眼目，乃至道場所修行處，我等金剛自領徒眾，晨夕守護，令不退轉，其家乃至永無災障，疫病消滅，財寶豐足，常不乏少。“"
+    },
+    {
+     "n": 433,
+     "text": "爾時大梵王、二十八天王，並須彌山王、護國天王等，即從座起，頂禮佛足，右繞三匝，而白佛言："
+    },
+    {
+     "n": 434,
+     "text": "“世尊，我亦守護是持經者，常令安穩，心不退轉。”"
+    },
+    {
+     "n": 435,
+     "text": "爾時有大力鬼王，名吉槃荼，與十萬鬼王，即從座起，頂禮佛足，右繞三匝，而白佛言：”"
+    },
+    {
+     "n": 436,
+     "text": "世尊，我亦守護是持經人，朝夕侍衛，令不退屈，其人所居一由旬內，若有鬼神侵其境界，我當使其碎如微塵。”"
+    },
+    {
+     "n": 437,
+     "text": "佛說此經已，一切菩薩、天、龍、鬼神八部眷屬，及諸天王、梵王等一切大眾，聞佛所說，皆大歡喜，信受奉行。"
+    }
+   ]
+  }
+ ]
+}

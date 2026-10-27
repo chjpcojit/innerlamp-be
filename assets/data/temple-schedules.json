@@ -1,0 +1,314 @@
+{
+  "meta": {
+    "format": 1,
+    "source": "mock — dữ liệu minh hoạ do đội phát triển soạn, chưa phải thời khoá thật của chùa"
+  },
+  "items": [
+    {
+      "id": "tsch_north_001_cong_phu_sang",
+      "temple_id": "temple_north_001",
+      "name": "Công phu sáng",
+      "start_time": "04:00",
+      "end_time": "05:00",
+      "weekdays": [],
+      "description": "Tụng kinh, trì chú đầu ngày.",
+      "instructor": "Chư Tăng trong chùa",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": [
+        {
+          "position": 1,
+          "time": "04:00",
+          "text": "Thỉnh chuông, đại hồng chung"
+        },
+        {
+          "position": 2,
+          "time": "04:15",
+          "text": "Tụng kinh Lăng Nghiêm"
+        },
+        {
+          "position": 3,
+          "time": null,
+          "text": "Hồi hướng"
+        }
+      ]
+    },
+    {
+      "id": "tsch_north_001_tho_trai",
+      "temple_id": "temple_north_001",
+      "name": "Thọ trai",
+      "start_time": "11:00",
+      "end_time": "12:00",
+      "weekdays": [],
+      "description": "Dùng cơm chay chung của chùa.",
+      "instructor": "",
+      "location": "Trai đường",
+      "preparation": "Mang theo bát nếu có.",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_north_001_cong_phu_chieu",
+      "temple_id": "temple_north_001",
+      "name": "Công phu chiều",
+      "start_time": "16:00",
+      "end_time": "17:00",
+      "weekdays": [],
+      "description": "Tụng kinh Di Đà, sám hối.",
+      "instructor": "Chư Tăng trong chùa",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_central_001_cong_phu_sang",
+      "temple_id": "temple_central_001",
+      "name": "Công phu sáng",
+      "start_time": "04:00",
+      "end_time": "05:00",
+      "weekdays": [],
+      "description": "Tụng kinh, trì chú đầu ngày.",
+      "instructor": "Chư Tăng trong chùa",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": [
+        {
+          "position": 1,
+          "time": "04:00",
+          "text": "Thỉnh chuông, đại hồng chung"
+        },
+        {
+          "position": 2,
+          "time": "04:15",
+          "text": "Tụng kinh Lăng Nghiêm"
+        },
+        {
+          "position": 3,
+          "time": null,
+          "text": "Hồi hướng"
+        }
+      ]
+    },
+    {
+      "id": "tsch_central_001_tho_trai",
+      "temple_id": "temple_central_001",
+      "name": "Thọ trai",
+      "start_time": "11:00",
+      "end_time": "12:00",
+      "weekdays": [],
+      "description": "Dùng cơm chay chung của chùa.",
+      "instructor": "",
+      "location": "Trai đường",
+      "preparation": "Mang theo bát nếu có.",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_central_001_cong_phu_chieu",
+      "temple_id": "temple_central_001",
+      "name": "Công phu chiều",
+      "start_time": "16:00",
+      "end_time": "17:00",
+      "weekdays": [],
+      "description": "Tụng kinh Di Đà, sám hối.",
+      "instructor": "Chư Tăng trong chùa",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_south_002_cong_phu_sang",
+      "temple_id": "temple_south_002",
+      "name": "Công phu sáng",
+      "start_time": "04:00",
+      "end_time": "05:00",
+      "weekdays": [],
+      "description": "Tụng kinh, trì chú đầu ngày.",
+      "instructor": "Chư Tăng trong chùa",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": [
+        {
+          "position": 1,
+          "time": "04:00",
+          "text": "Thỉnh chuông, đại hồng chung"
+        },
+        {
+          "position": 2,
+          "time": "04:15",
+          "text": "Tụng kinh Lăng Nghiêm"
+        },
+        {
+          "position": 3,
+          "time": null,
+          "text": "Hồi hướng"
+        }
+      ]
+    },
+    {
+      "id": "tsch_south_002_tho_trai",
+      "temple_id": "temple_south_002",
+      "name": "Thọ trai",
+      "start_time": "11:00",
+      "end_time": "12:00",
+      "weekdays": [],
+      "description": "Dùng cơm chay chung của chùa.",
+      "instructor": "",
+      "location": "Trai đường",
+      "preparation": "Mang theo bát nếu có.",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_south_002_cong_phu_chieu",
+      "temple_id": "temple_south_002",
+      "name": "Công phu chiều",
+      "start_time": "16:00",
+      "end_time": "17:00",
+      "weekdays": [],
+      "description": "Tụng kinh Di Đà, sám hối.",
+      "instructor": "Chư Tăng trong chùa",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_north_001_duoc_su",
+      "temple_id": "temple_north_001",
+      "name": "Lễ Dược Sư",
+      "start_time": "08:00",
+      "end_time": "11:00",
+      "weekdays": [
+        0
+      ],
+      "description": "Lễ cầu an, tụng kinh Dược Sư; Phật tử tham dự.",
+      "instructor": "Thượng toạ trụ trì",
+      "location": "Chánh điện",
+      "preparation": "Mặc áo tràng, mang theo kinh sách.",
+      "sort_order": 2,
+      "steps": [
+        {
+          "position": 1,
+          "time": "08:00",
+          "text": "Niệm Phật, ổn định tâm"
+        },
+        {
+          "position": 2,
+          "time": "08:30",
+          "text": "Tụng kinh Dược Sư"
+        },
+        {
+          "position": 3,
+          "time": "10:00",
+          "text": "Pháp thoại"
+        },
+        {
+          "position": 4,
+          "time": null,
+          "text": "Hồi hướng"
+        }
+      ]
+    },
+    {
+      "id": "tsch_central_001_khoa_le_dem",
+      "temple_id": "temple_central_001",
+      "name": "Khoá lễ đêm",
+      "start_time": "23:00",
+      "end_time": "01:00",
+      "weekdays": [
+        6
+      ],
+      "description": "Khoá lễ qua nửa đêm cuối tuần.",
+      "instructor": "",
+      "location": "Chánh điện",
+      "preparation": "Ăn mặc kín đáo, giữ yên lặng.",
+      "sort_order": 3,
+      "steps": [
+        {
+          "position": 1,
+          "time": "23:00",
+          "text": "Niệm Phật"
+        },
+        {
+          "position": 2,
+          "time": "23:45",
+          "text": "Tụng kinh"
+        },
+        {
+          "position": 3,
+          "time": "00:15",
+          "text": "Hồi hướng, thiền"
+        }
+      ]
+    },
+    {
+      "id": "tsch_central_002_toa_thien",
+      "temple_id": "temple_central_002",
+      "name": "Toạ thiền",
+      "start_time": "19:00",
+      "end_time": "20:30",
+      "weekdays": [
+        1,
+        3,
+        5
+      ],
+      "description": "Thực tập toạ thiền, người mới được hướng dẫn.",
+      "instructor": "Sư cô phụ trách thiền đường",
+      "location": "Thiền đường",
+      "preparation": "Mang theo gối ngồi thiền nếu có.",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_central_002_cong_phu_sang",
+      "temple_id": "temple_central_002",
+      "name": "Công phu sáng",
+      "start_time": "04:30",
+      "end_time": null,
+      "weekdays": [],
+      "description": "",
+      "instructor": "",
+      "location": "",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_north_003_le_phat",
+      "temple_id": "temple_north_003",
+      "name": "Lễ Phật",
+      "start_time": "07:00",
+      "end_time": "09:00",
+      "weekdays": [
+        0,
+        6
+      ],
+      "description": "Lễ Phật cuối tuần.",
+      "instructor": "",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": []
+    },
+    {
+      "id": "tsch_north_002_tung_kinh",
+      "temple_id": "temple_north_002",
+      "name": "Tụng kinh buổi tối",
+      "start_time": "19:30",
+      "end_time": "20:30",
+      "weekdays": [],
+      "description": "Tụng kinh Pháp Hoa.",
+      "instructor": "Sư thầy trụ trì",
+      "location": "Chánh điện",
+      "preparation": "",
+      "sort_order": 1,
+      "steps": []
+    }
+  ]
+}

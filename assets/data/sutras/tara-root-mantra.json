@@ -1,0 +1,80 @@
+{
+ "id": "tara-root-mantra",
+ "tradition": "VAJRAYANA",
+ "kind": "DHARANI",
+ "collection": "Mật tông / Tara",
+ "reference": "BDRC W21807",
+ "referenceNote": "Opening mantra line of 'phags ma sgrol ma la rtsa sngags dang sbyar pa'i gsol 'debs",
+ "summary": "Căn bản chú của Độ Mẫu Tara trong Phật giáo Tây Tạng: Om Tare Tuttare Ture Svaha. Câu chú bằng tiếng Phạn này gắn với việc quy kính và cầu nguyện Tara, Thánh Mẫu tượng trưng cho lòng từ bi cứu độ. Câu chú cũng xuất hiện trong bài tán thán 21 Độ Mẫu. Văn bản ghi lại nguyên câu chú.",
+ "titles": {
+  "vi": "Chú Độ Mẫu Tara",
+  "bo": "སྒྲོལ་མའི་རྩ་སྔགས།",
+  "sa": "Tārā mūlamantra",
+  "en": "The Root Mantra of Tārā"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_tara_green",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "TRI_CHU"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "sa-chant",
+   "lang": "sa",
+   "variant": "chant",
+   "translator": "Lotsawa House (transliteration on page)",
+   "sourceName": "Lotsawa House - A Prayer to Noble Tara Combined with Her Root Mantra, by Jamyang Khyentse Wangpo",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/jamyang-khyentse-wangpo/tara-prayer-with-mantra",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Traditional mantra; transliteration and phrase segmentation as given on the source page (phrases split at the page spacing / word boundaries only, no words changed).",
+   "lines": [
+    {
+     "n": 1,
+     "text": "oṃ tāre tuttāre ture svāhā"
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Jamyang Khyentse Wangpo (Tibetan text)",
+   "sourceName": "Lotsawa House - A Prayer to Noble Tara Combined with Her Root Mantra, by Jamyang Khyentse Wangpo",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/jamyang-khyentse-wangpo/tara-prayer-with-mantra",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Traditional mantra; transliteration and phrase segmentation as given on the source page (phrases split at the page spacing / word boundaries only, no words changed). Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ཨོཾ་ཏཱ་རེ་ཏུཏྟཱ་རེ་ཏུ་རེ་སྭཱ་ཧཱ།"
+    }
+   ]
+  },
+  {
+   "key": "bo-chant",
+   "lang": "bo",
+   "variant": "chant",
+   "translator": "Lotsawa House",
+   "sourceName": "Lotsawa House - A Prayer to Noble Tara Combined with Her Root Mantra, by Jamyang Khyentse Wangpo",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/jamyang-khyentse-wangpo/tara-prayer-with-mantra",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Latin-script phonetic rendering of the Tibetan pronunciation, as given on the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "om taré tuttaré turé soha"
+    }
+   ]
+  }
+ ]
+}

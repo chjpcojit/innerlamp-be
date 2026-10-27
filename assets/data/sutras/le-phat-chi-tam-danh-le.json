@@ -1,0 +1,78 @@
+{
+ "id": "le-phat-chi-tam-danh-le",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Lễ Phật",
+ "reference": "",
+ "summary": "Bài văn lễ Phật theo nghi thức nhật tụng, mỗi đoạn mở đầu bằng cụm Chí tâm đảnh lễ. Người lễ kính lần lượt danh hiệu chư Phật mười phương ba đời, Pháp và Hiền Thánh Tăng; sau đó là Đức Thích Ca Mâu Ni, Đức Di Lặc, các vị Bồ Tát; và Đức A Di Đà, Bồ Tát Quán Thế Âm ở cõi Tây Phương Cực Lạc. Bài thường dùng khi đảnh lễ ở chùa hoặc trước bàn thờ Phật.",
+ "titles": {
+  "vi": "Chí tâm đảnh lễ (Lễ Tam Bảo, Phật, Bồ Tát)",
+  "zh": "頂禮",
+  "en": "Prostration homage to the Three Jewels and Buddhas and Bodhisattvas"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "buddha_maitreya",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_manjushri",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_samantabhadra",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_mahasthamaprapta",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_ksitigarbha",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Tổng hợp (không ghi dịch giả)",
+   "sourceName": "Phatgiao.org.vn - \"Nghi thức niệm Phật hằng ngày\" (Tổng hợp) - mục \"1. Đảnh lễ\"",
+   "sourceUrl": "https://phatgiao.org.vn/nghi-thuc-niem-phat-hang-ngay-d37046.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Bỏ chỉ dẫn \"(1 lạy)\"; bỏ dấu gạch đầu dòng.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Chí tâm đảnh lễ: Nam mô tận hư không biến pháp giới quá, hiện, vị lai thập phương chư Phật, Tôn Pháp Hiền Thánh Tăng thường trụ Tam Bảo."
+    },
+    {
+     "n": 2,
+     "text": "Chí tâm đảnh lễ: Nam mô Ta Bà Giáo Chủ Bổn Sư Thích Ca Mâu Ni Phật, Đương Lai Hạ Sanh Di Lặc Tôn Phật, Đại Trí Văn Thù Sư Lợi Bồ Tát, Đại Hạnh Phổ Hiền Bồ Tát, Hộ Pháp Chư Tôn Bồ Tát, Linh Sơn Hội Thượng Phật Bồ Tát."
+    },
+    {
+     "n": 3,
+     "text": "Chí tâm đảnh lễ: Nam mô Tây Phương Cực Lạc Thế Giới Đại Từ Đại Bi A Di Đà Phật, Đại Bi Quán Thế Âm Bồ Tát, Đại Thế Chí Bồ Tát, Đại Nguyện Địa Tạng Vương Bồ Tát, Thanh Tịnh Đại Hải Chúng Bồ Tát."
+    }
+   ]
+  }
+ ]
+}

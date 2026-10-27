@@ -1,0 +1,174 @@
+{
+ "id": "mani-reciter-of-kham-aspiration",
+ "tradition": "VAJRAYANA",
+ "kind": "VERSE",
+ "collection": "Mật tông / Nguyện văn",
+ "reference": "",
+ "author": "Gyalse Tokme Zangpo",
+ "summary": "Lời nguyện văn ngắn của Gyalse Tokme Zangpo, dành cho người trì tụng thần chú sáu chữ ở vùng Kham. Bài quy kính thầy và Tam Bảo, nguyện từ nay đến khi đạt tinh túy giác ngộ, dù sinh nơi nào cũng theo Đại Bi Tôn, hiến thân khẩu ý cho điều thiện. Với tâm từ bi, nguyện đưa các đệ tử của Ngài đến giác ngộ vô thượng và làm các hạnh của Ngài.",
+ "titles": {
+  "vi": "Nguyện Văn Cho Người Trì Tụng Lục Tự Của Kham",
+  "bo": "ཁམས་པ་མ་ཎི་བའི་དོན་དུ།",
+  "en": "For the Maṇi Reciter of Kham"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "PHAT_NGUYEN"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Adam Pearcey, 2022",
+   "sourceName": "Lotsawa House - Aspiration for the Mani Reciter of Kham, by Gyalse Tokme Zangpo",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/gyalse-thogme-zangpo/for-mani-reciter-of-kham",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Homage to the guru and Three Jewels!"
+    },
+    {
+     "n": 2,
+     "text": "From now until I reach the essence of awakening,"
+    },
+    {
+     "n": 3,
+     "text": "No matter where I may be reborn, in those places"
+    },
+    {
+     "n": 4,
+     "text": "May I always follow the Great Compassionate One"
+    },
+    {
+     "n": 5,
+     "text": "And dedicate my body, speech and mind to virtue."
+    },
+    {
+     "n": 6,
+     "text": "Inspired by loving kindness and great compassion,"
+    },
+    {
+     "n": 7,
+     "text": "In order to lead all Mahākāruṇika's followers"
+    },
+    {
+     "n": 8,
+     "text": "To supreme and unsurpassable awakening,"
+    },
+    {
+     "n": 9,
+     "text": "May I carry out the Great Compassionate One's activity."
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Classical Tibetan (pre-modern author)",
+   "sourceName": "Lotsawa House - Aspiration for the Mani Reciter of Kham, by Gyalse Tokme Zangpo",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/gyalse-thogme-zangpo/for-mani-reciter-of-kham",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "བླ་མ་དང་དཀོན་མཆོག་གསུམ་ལ་ཕྱག་འཚལ་ལོ། །"
+    },
+    {
+     "n": 2,
+     "text": "བདག་ནི་བྱང་ཆུབ་སྙིང་པོར་མཆིས་ཀྱི་བར། །"
+    },
+    {
+     "n": 3,
+     "text": "གང་དང་གང་དུ་སྐྱེས་པ་དེ་དང་དེར། །"
+    },
+    {
+     "n": 4,
+     "text": "རྟག་ཏུ་ཐུགས་རྗེ་ཆེན་པོས་རྗེས་འཛིན་ཅིང་། །"
+    },
+    {
+     "n": 5,
+     "text": "སྒོ་གསུམ་དགེ་བའི་ཆོས་ལ་སྤྱོད་པར་ཤོག །"
+    },
+    {
+     "n": 6,
+     "text": "བྱམས་དང་སྙིང་རྗེ་ཆེན་པོས་ཀུན་བསླངས་ནས། །"
+    },
+    {
+     "n": 7,
+     "text": "ཐུགས་རྗེ་ཆེན་པོའི་གདུལ་བྱར་གྱུར་པ་རྣམས། །"
+    },
+    {
+     "n": 8,
+     "text": "བླ་མེད་བྱང་ཆུབ་མཆོག་ལ་འགོད་པའི་ཕྱིར། །"
+    },
+    {
+     "n": 9,
+     "text": "ཐུགས་རྗེ་ཆེན་པོའི་ཕྲིན་ལས་བྱེད་པར་ཤོག །"
+    }
+   ]
+  },
+  {
+   "key": "bo-chant",
+   "lang": "bo",
+   "variant": "chant",
+   "translator": "Lotsawa House",
+   "sourceName": "Lotsawa House - Aspiration for the Mani Reciter of Kham, by Gyalse Tokme Zangpo",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/gyalse-thogme-zangpo/for-mani-reciter-of-kham",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Latin-script phonetic rendering of the Tibetan pronunciation, as given on the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "lama dang könchok sum la chaktsal lo"
+    },
+    {
+     "n": 2,
+     "text": "dak ni changchub nyingpor chi kyi bar"
+    },
+    {
+     "n": 3,
+     "text": "gang dang gangdu kyepa dé dang der"
+    },
+    {
+     "n": 4,
+     "text": "taktu tukjé chenpö jedzin ching"
+    },
+    {
+     "n": 5,
+     "text": "go sum gewé chö la chöpar shok"
+    },
+    {
+     "n": 6,
+     "text": "jam dang nyingjé chenpö kün lang né"
+    },
+    {
+     "n": 7,
+     "text": "tukjé chenpö duljar gyurpa nam"
+    },
+    {
+     "n": 8,
+     "text": "lamé changchub chok la göpé chir"
+    },
+    {
+     "n": 9,
+     "text": "tukjé chenpö trinlé jepar shok"
+    }
+   ]
+  }
+ ]
+}

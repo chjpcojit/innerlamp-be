@@ -1,0 +1,1149 @@
+{
+ "id": "tieu-kinh-malunkya",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 63",
+ "summary": "Kinh trong Trung Bộ (MN 63). Tôn giả Malunkyaputta đòi Thế Tôn trả lời các câu hỏi siêu hình như thế giới thường hay vô thường, Như Lai còn hay không sau khi chết. Thế Tôn dùng ví dụ người bị mũi tên độc để dạy rằng điều cấp thiết là chấm dứt khổ, và những câu hỏi ấy không đưa đến giải thoát.",
+ "titles": {
+  "vi": "Tiểu kinh Màlunkyà",
+  "pli": "Cūḷamālukyasutta",
+  "en": "The Shorter Discourse With Māluṅkya"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 40,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn63/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời, Thế Tôn trú ở Sāvatthi, Jetavana, tại tịnh xá ông Anāthapiṇḍika (Cấp Cô Độc)."
+    },
+    {
+     "n": 3,
+     "text": "Rồi Tôn giả Malunkyaputta, trong khi độc trú tịnh cư, khởi lên sự suy tư như sau: Có một số vấn đề này, Thế Tôn không trả lời, bỏ một bên, loại bỏ ra:"
+    },
+    {
+     "n": 4,
+     "text": "“Thế giới là thường còn, thế giới là vô thường, thế giới là hữu biên, thế giới là vô biên; sinh mạng này và thân này là một, sinh mạng này và thân này là khác;"
+    },
+    {
+     "n": 5,
+     "text": "Như Lai có tồn tại sau khi chết, Như Lai không có tồn tại sau khi chết, Như Lai có tồn tại và không có tồn tại sau khi chết."
+    },
+    {
+     "n": 6,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”."
+    },
+    {
+     "n": 7,
+     "text": "Thế Tôn không trả lời cho ta những vấn đề ấy."
+    },
+    {
+     "n": 8,
+     "text": "Vì Thế Tôn không trả lời cho ta những vấn đề ấy, nên ta không được hài lòng, không được thỏa mãn."
+    },
+    {
+     "n": 9,
+     "text": "Vậy ta hãy đi đến Thế Tôn, và sẽ hỏi ý nghĩa này."
+    },
+    {
+     "n": 10,
+     "text": "Nếu Thế Tôn trả lời cho ta: “Thế giới là thường còn, thế giới là vô thường, thế giới là hữu biên, thế giới là vô biên; sinh mạng này và thân này là một, sinh mạng này và thân này là khác;"
+    },
+    {
+     "n": 11,
+     "text": "Như Lai có tồn tại sau khi chết, Như Lai không có tồn tại sau khi chết;"
+    },
+    {
+     "n": 12,
+     "text": "Như Lai có tồn tại và không có tồn tại sau khi chết, hay Như Lai không có tồn tại và không không tồn tại sau khi chết”, thời ta sẽ sống Phạm hạnh dưới (sự chỉ dẫn của) Thế Tôn."
+    },
+    {
+     "n": 13,
+     "text": "Còn nếu Thế Tôn không trả lời cho ta: “Thế giới là thường còn, thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 14,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”, thời ta sẽ bỏ học pháp và hoàn tục."
+    },
+    {
+     "n": 15,
+     "text": "Rồi Tôn giả Malunkyaputta vào buổi chiều, từ Thiền tịnh đứng dậy, đi đến Thế Tôn; sau khi đến, đảnh lễ Thế Tôn rồi ngồi xuống một bên."
+    },
+    {
+     "n": 16,
+     "text": "Sau khi ngồi xuống một bên, Tôn giả Malunkyaputta bạch Thế Tôn"
+    },
+    {
+     "n": 17,
+     "text": "—Ở đây, bạch Thế Tôn, trong khi độc trú tịnh cư, con khởi lên ý nghĩ như sau: Có một số vấn đề này, Thế Tôn không trả lời, bỏ một bên loại bỏ ra: “Thế giới là thường còn, thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 18,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”."
+    },
+    {
+     "n": 19,
+     "text": "Thế Tôn không trả lời cho ta những vấn đề ấy."
+    },
+    {
+     "n": 20,
+     "text": "Vì Thế Tôn không trả lời cho ta những vấn đề ấy, nên ta không được hài lòng, không được thỏa mãn."
+    },
+    {
+     "n": 21,
+     "text": "Vậy ta hãy đi đến Thế Tôn và sẽ hỏi ý nghĩa này."
+    },
+    {
+     "n": 22,
+     "text": "Nếu Thế Tôn trả lời cho ta: “Thế giới là thường còn, thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 23,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”, thời ta sẽ sống Phạm hạnh dưới (sự chỉ dẫn của) Thế Tôn."
+    },
+    {
+     "n": 24,
+     "text": "Còn nếu Thế Tôn không trả lời cho ta: “Thế giới là thường còn, thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 25,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”, thời ta sẽ bỏ học pháp và hoàn tục."
+    },
+    {
+     "n": 26,
+     "text": "Nếu Thế Tôn biết: “Thế giới là thường còn”, Thế Tôn hãy trả lời cho con: “Thế giới là thường còn”."
+    },
+    {
+     "n": 27,
+     "text": "Nếu Thế Tôn biết: “Thế giới là vô thường”."
+    },
+    {
+     "n": 28,
+     "text": "Thế Tôn hãy trả lời cho con: “Thế giới là vô thường”."
+    },
+    {
+     "n": 29,
+     "text": "Nếu Thế Tôn không biết: “Thế giới là thường còn” hay “Thế giới là vô thường”, thời không biết, không thấy, hãy thẳng thắn trả lời: “Ta không biết, Ta không thấy”."
+    },
+    {
+     "n": 30,
+     "text": "Nếu Thế Tôn biết: “Thế giới là hữu biên”, Thế Tôn hãy trả lời cho con: “Thế giới là hữu biên”."
+    },
+    {
+     "n": 31,
+     "text": "Nếu Thế Tôn biết: “Thế giới là vô biên”, Thế Tôn hãy trả lời cho con: “Thế giới là vô biên”."
+    },
+    {
+     "n": 32,
+     "text": "Nếu Thế Tôn không biết: “Thế giới là hữu biên” hay “Thế giới là vô biên”, thời không biết, không thấy, hãy thẳng thắn trả lời: “Ta không biết, Ta không thấy”."
+    },
+    {
+     "n": 33,
+     "text": "Nếu Thế Tôn biết: “Sinh mạng này và thân này là một”, Thế Tôn hãy trả lời cho con: “Sinh mạng này và thân này là một”."
+    },
+    {
+     "n": 34,
+     "text": "Nếu Thế Tôn biết: “Sinh mạng này và thân này là khác,” Thế Tôn hãy trả lời cho con: “Sinh mạng này và thân này là khác”."
+    },
+    {
+     "n": 35,
+     "text": "Nếu Thế Tôn không biết: “Sinh mạng này và thân này là một” hay “Sinh mạng này và thân này là khác”, thời không biết, không thấy, hãy thẳng thắn trả lời: “Ta không biết, Ta không thấy”."
+    },
+    {
+     "n": 36,
+     "text": "Nếu Thế Tôn biết: “Như Lai có tồn tại sau khi chết”, Thế Tôn hãy trả lời cho con: “Như Lai có tồn tại sau khi chết”."
+    },
+    {
+     "n": 37,
+     "text": "Nếu Thế Tôn biết: “Như Lai không có tồn tại sau khi chết”, Thế Tôn hãy trả lời cho con: “Như Lai không có tồn tại sau khi chết”."
+    },
+    {
+     "n": 38,
+     "text": "Nếu Thế Tôn không biết: “Như Lai có tồn tại sau khi chết”, hay “Như Lai không có tồn tại sau khi chết”, thời không biết, không thấy, hãy thẳng thắn trả lời: “Ta không biết, Ta không thấy”."
+    },
+    {
+     "n": 39,
+     "text": "Nếu Thế Tôn biết: “Như Lai có tồn tại và không tồn tại sau khi chết”, Thế Tôn hãy trả lời cho con: “Như Lai có tồn tại và không tồn tại sau khi chết”."
+    },
+    {
+     "n": 40,
+     "text": "Nếu Thế Tôn biết: “Như Lai không tồn tại và không không tồn tại sau khi chết”, Thế Tôn hãy trả lời cho con: “Như Lai không tồn tại và không không tồn tại sau khi chết”."
+    },
+    {
+     "n": 41,
+     "text": "Nếu Thế Tôn không biết: “Như Lai tồn tại và không tồn tại sau khi chết,” hay “Như Lai không tồn tại và không không tồn tại sau khi chết”, thời không biết, không thấy, hãy thẳng thắn trả lời:"
+    },
+    {
+     "n": 42,
+     "text": "“Ta không biết, Ta không thấy”."
+    },
+    {
+     "n": 43,
+     "text": "—Này Malunkyaputta, Ta có nói với Ông: Này Malunkyaputta, hãy đến và sống Phạm hạnh theo Ta, Ta sẽ trả lời cho Ông: “Thế giới là thường còn” hay “Thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 44,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”?"
+    },
+    {
+     "n": 45,
+     "text": "—Thưa không, bạch Thế Tôn."
+    },
+    {
+     "n": 46,
+     "text": "—Hay Ông có nói với Ta như sau: Bạch Thế Tôn, con sẽ sống Phạm hạnh theo Thế Tôn, nếu Thế Tôn sẽ trả lời cho con: “Thế giới là thường còn” hay “Thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 47,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”?"
+    },
+    {
+     "n": 48,
+     "text": "—Thưa không, bạch Thế Tôn."
+    },
+    {
+     "n": 49,
+     "text": "—Như vậy, này Malunkyaputta, Ta không nói với Ông: Này Malunkyaputta, hãy đến và sống Phạm hạnh theo Ta và Ta sẽ trả lời cho Ông: “Thế giới là thường còn” hay “Thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 50,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”, và Ông cũng không nói với Ta: Bạch Thế Tôn, con sẽ sống Phạm hạnh theo Thế Tôn, nếu Thế Tôn sẽ trả lời cho con:"
+    },
+    {
+     "n": 51,
+     "text": "“Thế giới là thường còn” hay “Thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 52,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”."
+    },
+    {
+     "n": 53,
+     "text": "Sự tình là như vậy, thời này kẻ ngu kia, Ông là ai, và Ông phủ nhận cái gì?"
+    },
+    {
+     "n": 54,
+     "text": "Này Malunkyaputta, nếu có ai nói như sau: Ta sẽ sống Phạm hạnh theo Thế Tôn khi nào Thế Tôn sẽ trả lời cho ta: “Thế giới là thường còn” hay “Thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 55,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”, thời này Malunkyaputta, người ấy sẽ chết và vẫn không được Như Lai trả lời."
+    },
+    {
+     "n": 56,
+     "text": "Này Malunkyaputta, ví như một người bị mũi tên bắn, mũi tên được tẩm thuốc độc rất dày."
+    },
+    {
+     "n": 57,
+     "text": "Bạn bè và bà con huyết thống của người ấy mời một vị y sĩ khoa mổ xẻ đến săn sóc."
+    },
+    {
+     "n": 58,
+     "text": "Nhưng người ấy lại nói: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết được người đã bắn tôi thuộc giòng hoàng tộc, hay Bà-la-môn, hay buôn bán, hay người làm công”."
+    },
+    {
+     "n": 59,
+     "text": "Người ấy có thể nói như sau: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết được người đã bắn tôi tên là gì, tộc tánh là gì?”"
+    },
+    {
+     "n": 60,
+     "text": "Người ấy có thể nói như sau: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết được người đã bắn tôi là cao hay thấp, hay người bậc trung”."
+    },
+    {
+     "n": 61,
+     "text": "Người ấy có thể nói như sau: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết được người đã bắn tôi là da đen, da sẫm hay da vàng”."
+    },
+    {
+     "n": 62,
+     "text": "Người ấy có thể nói như sau: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết được người đã bắn tôi thuộc làng nào, thuộc thị trấn nào, thuộc thành phố nào”."
+    },
+    {
+     "n": 63,
+     "text": "Người ấy có thể nói như sau: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết cái cung mà tôi bị bắn, cái cung ấy thuộc loại cung thông thường hay loại cung nỏ”."
+    },
+    {
+     "n": 64,
+     "text": "Người ấy có thể nói như sau: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết được dây cung mà tôi bị bắn, dây cung ấy làm bằng cây leo, hay cây lau, hay một thứ gân, hay một thứ dây gai, hay một thứ cây có nhựa”."
+    },
+    {
+     "n": 65,
+     "text": "Người ấy có thể nói như sau: “Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết cái tên mà tôi bị bắn, cái tên ấy thuộc một loại cây lau này hay cây lau khác”. Người ấy có thể nói như sau:"
+    },
+    {
+     "n": 66,
+     "text": "“Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết cái tên mà tôi bị bắn, mũi tên ấy có kết lông gì, hoặc lông con kên, hoặc lông con cò, hoặc lông con ó, hoặc lông con công, hoặc lông một loại két”."
+    },
+    {
+     "n": 67,
+     "text": "Người ấy có thể nói như sau:"
+    },
+    {
+     "n": 68,
+     "text": "“Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết cái tên mà tôi bị bắn, cái tên ấy được cuốn (parikkhittam) bởi loại gân nào, hoặc là gân bò cái, hoặc là gân trâu, hoặc là gân nai, hoặc là gân lừa”."
+    },
+    {
+     "n": 69,
+     "text": "Người ấy có thể nói như sau:"
+    },
+    {
+     "n": 70,
+     "text": "“Tôi sẽ không rút mũi tên này ra khi nào tôi chưa biết cái tên mà tôi bị bắn, cái tên ấy thuộc loại tên nhọn, hay thuộc loại tên móc, hay thuộc loại tên như đầu sào, hay thuộc loại tên như răng bò,"
+    },
+    {
+     "n": 71,
+     "text": "hay thuộc loại tên như kẽm gai”. Này Malunkyaputta, người ấy sẽ chết và vẫn không được biết gì."
+    },
+    {
+     "n": 72,
+     "text": "Cũng vậy, này Malunkyaputta, ai nói như sau: “Ta sẽ sống Phạm hạnh theo Thế Tôn khi nào Thế Tôn trả lời cho ta: “Thế giới là thường còn” hay “thế giới là vô thường … (như trên) …"
+    },
+    {
+     "n": 73,
+     "text": "Như Lai không có tồn tại và không không tồn tại sau khi chết”, thời này Malunkyaputta, người ấy sẽ chết và vẫn không được Như Lai trả lời."
+    },
+    {
+     "n": 74,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc với quan điểm “Thế giới là thường còn”."
+    },
+    {
+     "n": 75,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc với quan điểm “Thế giới là vô thường”."
+    },
+    {
+     "n": 76,
+     "text": "Này Malunkyaputta, dầu cho có quan điểm “Thế giới là thường còn”, hay dầu cho có quan điểm “Thế giới là vô thường”, thời vẫn có sanh, có già, có chết, có sầu, bi, khổ, ưu, não,"
+    },
+    {
+     "n": 77,
+     "text": "mà Ta giảng dạy sự đoạn trừ ngay trong hiện tại."
+    },
+    {
+     "n": 78,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc với quan điểm “Thế giới là hữu biên”."
+    },
+    {
+     "n": 79,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc với quan điểm “Thế giới là vô biên”."
+    },
+    {
+     "n": 80,
+     "text": "Này Malunkyaputta, dầu cho có quan điểm “Thế giới là hữu biên”, hay dầu cho có quan điểm “Thế giới là vô biên”, thời vẫn có sanh, có già, có chết, có sầu, bi, khổ, ưu, não mà Ta giảng dạy sự đoạn trừ ngay trong hiện tại."
+    },
+    {
+     "n": 81,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc quan điểm “Sinh mạng này và thân này là một”."
+    },
+    {
+     "n": 82,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc quan điểm “Sinh mạng này và thân này là khác”."
+    },
+    {
+     "n": 83,
+     "text": "Này Malunkyaputta, dầu cho có quan điểm “Sinh mạng này và thân này là một”, hay dầu cho có quan điểm “Sinh mạng này và thân này là khác”, thời vẫn có sanh, có già, có chết, có sầu, bi, khổ, ưu,"
+    },
+    {
+     "n": 84,
+     "text": "não mà Ta giảng dạy sự đoạn trừ ngay trong hiện tại."
+    },
+    {
+     "n": 85,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc quan điểm “Như Lai có tồn tại sau khi chết”."
+    },
+    {
+     "n": 86,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc quan điểm “Như Lai không có tồn tại sau khi chết”."
+    },
+    {
+     "n": 87,
+     "text": "Này Malunkyaputta, dầu cho có quan điểm “Như Lai có tồn tại sau khi chết” hay dầu cho có quan điểm “Như Lai không có tồn tại sau khi chết”, thời vẫn có sanh, có già, có chết, có sầu, bi, khổ, ưu,"
+    },
+    {
+     "n": 88,
+     "text": "não mà Ta giảng dạy sự đoạn trừ ngay trong hiện tại."
+    },
+    {
+     "n": 89,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc vào quan điểm “Như Lai có tồn tại và không tồn tại sau khi chết”."
+    },
+    {
+     "n": 90,
+     "text": "Này Malunkyaputta, đời sống Phạm hạnh không thể nói là tùy thuộc với quan điểm “Như Lai không có tồn tại và không không tồn tại sau khi chết”."
+    },
+    {
+     "n": 91,
+     "text": "Này Malunkyaputta, dầu cho có quan điểm “Như Lai có tồn tại và không có tồn tại sau khi chết”, hay dầu cho có quan điểm “Như Lai không có tồn tại và không không tồn tại sau khi chết”, thời vẫn có sanh, có già, có chết,"
+    },
+    {
+     "n": 92,
+     "text": "có sầu, bi, khổ, ưu, não mà Ta giảng dạy sự đoạn trừ ngay trong hiện tại”."
+    },
+    {
+     "n": 93,
+     "text": "Do vậy, này Malunkyaputta, hãy thọ trì là không trả lời những gì Ta không trả lời."
+    },
+    {
+     "n": 94,
+     "text": "Hãy thọ trì là có trả lời những gì Ta có trả lời."
+    },
+    {
+     "n": 95,
+     "text": "Và này Malunkyaputta, điều gì Ta không trả lời?"
+    },
+    {
+     "n": 96,
+     "text": "“Thế giới là thường còn”, này Malunkyaputta là điều Ta không trả lời."
+    },
+    {
+     "n": 97,
+     "text": "“Thế giới là vô thường” là điều Ta không trả lời."
+    },
+    {
+     "n": 98,
+     "text": "“Thế giới là hữu biên” là điều Ta không trả lời."
+    },
+    {
+     "n": 99,
+     "text": "“Thế giới là vô biên” là điều Ta không trả lời."
+    },
+    {
+     "n": 100,
+     "text": "“Sinh mạng này và thân này là một” là điều Ta không trả lời."
+    },
+    {
+     "n": 101,
+     "text": "“Sinh mạng này và thân này khác” là điều Ta không trả lời."
+    },
+    {
+     "n": 102,
+     "text": "“Như Lai có tồn tại sau khi chết” là điều Ta không trả lời."
+    },
+    {
+     "n": 103,
+     "text": "“Như Lai không có tồn tại sau khi chết” là điều Ta không trả lời."
+    },
+    {
+     "n": 104,
+     "text": "“Như Lai có tồn tại và không tồn tại sau khi chết” là điều Ta không trả lời."
+    },
+    {
+     "n": 105,
+     "text": "“Như Lai không có tồn tại và không không tồn tại sau khi chết” là điều Ta không trả lời."
+    },
+    {
+     "n": 106,
+     "text": "Và này Malunkyaputta, vì sao điều ấy Ta không trả lời?"
+    },
+    {
+     "n": 107,
+     "text": "Này Malunkyaputta, vì điều ấy không liên hệ đến mục đích, điều ấy không phải là căn bản Phạm hạnh, điều ấy không đưa đến yểm ly, ly tham, đoạn diệt, an tịnh, thắng trí, giác ngộ, Niết-bàn,"
+    },
+    {
+     "n": 108,
+     "text": "cho nên điều ấy Ta không trả lời."
+    },
+    {
+     "n": 109,
+     "text": "Và này Malunkyaputta, điều gì Ta trả lời?"
+    },
+    {
+     "n": 110,
+     "text": "“Đây là khổ”, này Malunkyaputta là điều Ta trả lời”. “Đây là khổ tập” là điều Ta trả lời. “Đây là khổ diệt” là điều Ta trả lời."
+    },
+    {
+     "n": 111,
+     "text": "“Đây là con đường đưa đến khổ diệt” là điều Ta trả lời."
+    },
+    {
+     "n": 112,
+     "text": "Và này Malunkyaputta, vì sao điều ấy Ta trả lời?"
+    },
+    {
+     "n": 113,
+     "text": "Này Malunkyaputta, vì điều ấy có liên hệ đến mục đích, điều ấy là căn bản Phạm hạnh, điều ấy đưa đến yểm ly, ly tham, đoạn diệt, an tịnh, thắng trí, giác ngộ, Niết-bàn, vì vậy điều ấy Ta trả lời."
+    },
+    {
+     "n": 114,
+     "text": "Do vậy, này Malunkyaputta, hãy thọ trì là không trả lời những điều Ta không trả lời."
+    },
+    {
+     "n": 115,
+     "text": "Hãy thọ trì là trả lời những điều Ta có trả lời."
+    },
+    {
+     "n": 116,
+     "text": "Thế Tôn thuyết giảng như vậy. Tôn giả Malunkyaputta hoan hỷ tín thọ lời Thế Tôn dạy."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn63/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Atha kho āyasmato mālukyaputtassa rahogatassa paṭisallīnassa evaṁ cetaso parivitakko udapādi:"
+    },
+    {
+     "n": 3,
+     "text": "“yānimāni diṭṭhigatāni bhagavatā abyākatāni ṭhapitāni paṭikkhittāni:"
+    },
+    {
+     "n": 4,
+     "text": "‘sassato loko’tipi, ‘asassato loko’tipi, ‘antavā loko’tipi, ‘anantavā loko’tipi, ‘taṁ jīvaṁ taṁ sarīran’tipi, ‘aññaṁ jīvaṁ aññaṁ sarīran’tipi, ‘hoti tathāgato paraṁ maraṇā’tipi, ‘na hoti tathāgato paraṁ maraṇā’tipi,"
+    },
+    {
+     "n": 5,
+     "text": "‘hoti ca na ca hoti tathāgato paraṁ maraṇā’tipi, ‘neva hoti na na hoti tathāgato paraṁ maraṇā’tipi— tāni me bhagavā na byākaroti."
+    },
+    {
+     "n": 6,
+     "text": "Yāni me bhagavā na byākaroti taṁ me na ruccati, taṁ me nakkhamati."
+    },
+    {
+     "n": 7,
+     "text": "Sohaṁ bhagavantaṁ upasaṅkamitvā etamatthaṁ pucchissāmi."
+    },
+    {
+     "n": 8,
+     "text": "Sace me bhagavā byākarissati: ‘sassato loko’ti vā ‘asassato loko’ti vā …pe…"
+    },
+    {
+     "n": 9,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti vā— evāhaṁ bhagavati brahmacariyaṁ carissāmi; no ce me bhagavā byākarissati: ‘sassato loko’ti vā ‘asassato loko’ti vā …pe…"
+    },
+    {
+     "n": 10,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti vā— evāhaṁ sikkhaṁ paccakkhāya hīnāyāvattissāmī”ti."
+    },
+    {
+     "n": 11,
+     "text": "Atha kho āyasmā mālukyaputto sāyanhasamayaṁ paṭisallānā vuṭṭhito yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 12,
+     "text": "Ekamantaṁ nisinno kho āyasmā mālukyaputto bhagavantaṁ etadavoca:"
+    },
+    {
+     "n": 13,
+     "text": "“Idha mayhaṁ, bhante, rahogatassa paṭisallīnassa evaṁ cetaso parivitakko udapādi— yānimāni diṭṭhigatāni bhagavatā abyākatāni ṭhapitāni paṭikkhittāni: ‘sassato loko’tipi, ‘asassato loko’tipi …pe…"
+    },
+    {
+     "n": 14,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’tipi— tāni me bhagavā na byākaroti."
+    },
+    {
+     "n": 15,
+     "text": "Yāni me bhagavā na byākaroti taṁ me na ruccati, taṁ me nakkhamati."
+    },
+    {
+     "n": 16,
+     "text": "Sohaṁ bhagavantaṁ upasaṅkamitvā etamatthaṁ pucchissāmi."
+    },
+    {
+     "n": 17,
+     "text": "Sace me bhagavā byākarissati: ‘sassato loko’ti vā, ‘asassato loko’ti vā …pe…"
+    },
+    {
+     "n": 18,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti vā— evāhaṁ bhagavati, brahmacariyaṁ carissāmi."
+    },
+    {
+     "n": 19,
+     "text": "No ce me bhagavā byākarissati: ‘sassato loko’ti vā, ‘asassato loko’ti vā …pe…"
+    },
+    {
+     "n": 20,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti vā— evāhaṁ sikkhaṁ paccakkhāya hīnāyāvattissāmīti."
+    },
+    {
+     "n": 21,
+     "text": "Sace bhagavā jānāti: ‘sassato loko’ti, ‘sassato loko’ti me bhagavā byākarotu; sace bhagavā jānāti: ‘asassato loko’ti, ‘asassato loko’ti me bhagavā byākarotu."
+    },
+    {
+     "n": 22,
+     "text": "No ce bhagavā jānāti: ‘sassato loko’ti vā, ‘asassato loko’ti vā, ajānato kho pana apassato etadeva ujukaṁ hoti yadidaṁ: ‘na jānāmi, na passāmī’ti."
+    },
+    {
+     "n": 23,
+     "text": "Sace bhagavā jānāti: ‘antavā loko’ti, ‘anantavā loko’ti me bhagavā byākarotu; sace bhagavā jānāti: ‘anantavā loko’ti, ‘anantavā loko’ti me bhagavā byākarotu."
+    },
+    {
+     "n": 24,
+     "text": "No ce bhagavā jānāti: ‘antavā loko’ti vā, ‘anantavā loko’ti vā, ajānato kho pana apassato etadeva ujukaṁ hoti yadidaṁ: ‘na jānāmi, na passāmī’ti."
+    },
+    {
+     "n": 25,
+     "text": "Sace bhagavā jānāti: ‘taṁ jīvaṁ taṁ sarīran’ti, ‘taṁ jīvaṁ taṁ sarīran’ti me bhagavā byākarotu; sace bhagavā jānāti: ‘aññaṁ jīvaṁ aññaṁ sarīran’ti, ‘aññaṁ jīvaṁ aññaṁ sarīran’ti me bhagavā byākarotu."
+    },
+    {
+     "n": 26,
+     "text": "No ce bhagavā jānāti: ‘taṁ jīvaṁ taṁ sarīran’ti vā, ‘aññaṁ jīvaṁ aññaṁ sarīran’ti vā, ajānato kho pana apassato etadeva ujukaṁ hoti yadidaṁ: ‘na jānāmi, na passāmī’ti."
+    },
+    {
+     "n": 27,
+     "text": "Sace bhagavā jānāti: ‘hoti tathāgato paraṁ maraṇā’ti, ‘hoti tathāgato paraṁ maraṇā’ti me bhagavā byākarotu; sace bhagavā jānāti:"
+    },
+    {
+     "n": 28,
+     "text": "‘na hoti tathāgato paraṁ maraṇā’ti, ‘na hoti tathāgato paraṁ maraṇā’ti me bhagavā byākarotu."
+    },
+    {
+     "n": 29,
+     "text": "No ce bhagavā jānāti: ‘hoti tathāgato paraṁ maraṇā’ti vā, ‘na hoti tathāgato paraṁ maraṇā’ti vā, ajānato kho pana apassato etadeva ujukaṁ hoti yadidaṁ: ‘na jānāmi na passāmī’ti."
+    },
+    {
+     "n": 30,
+     "text": "Sace bhagavā jānāti: ‘hoti ca na ca hoti tathāgato paraṁ maraṇā’ti, ‘hoti ca na ca hoti tathāgato paraṁ maraṇā’ti me bhagavā byākarotu; sace bhagavā jānāti:"
+    },
+    {
+     "n": 31,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti, ‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti me bhagavā byākarotu."
+    },
+    {
+     "n": 32,
+     "text": "No ce bhagavā jānāti: ‘hoti ca na ca hoti tathāgato paraṁ maraṇā’ti vā, ‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti vā, ajānato kho pana apassato etadeva ujukaṁ hoti yadidaṁ: ‘na jānāmi, na passāmī’”ti."
+    },
+    {
+     "n": 33,
+     "text": "“Kiṁ nu tāhaṁ, mālukyaputta, evaṁ avacaṁ: ‘ehi tvaṁ, mālukyaputta, mayi brahmacariyaṁ cara, ahaṁ te byākarissāmi:"
+    },
+    {
+     "n": 34,
+     "text": "“sassato loko”ti vā, “asassato loko”ti vā, “antavā loko”ti vā, “anantavā loko”ti vā, “taṁ jīvaṁ taṁ sarīran”ti vā, “aññaṁ jīvaṁ aññaṁ sarīran”ti vā, “hoti tathāgato paraṁ maraṇā”ti vā,"
+    },
+    {
+     "n": 35,
+     "text": "“na hoti tathāgato paraṁ maraṇā”ti vā, “hoti ca na ca hoti tathāgato paraṁ maraṇā”ti vā, “neva hoti na na hoti tathāgato paraṁ maraṇā”ti vā’”ti?"
+    },
+    {
+     "n": 36,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 37,
+     "text": "“Tvaṁ vā pana maṁ evaṁ avaca: ‘ahaṁ, bhante, bhagavati brahmacariyaṁ carissāmi, bhagavā me byākarissati:"
+    },
+    {
+     "n": 38,
+     "text": "“sassato loko”ti vā, “asassato loko”ti vā, “antavā loko”ti vā, “anantavā loko”ti vā, “taṁ jīvaṁ taṁ sarīran”ti vā, “aññaṁ jīvaṁ aññaṁ sarīran”ti vā, “hoti tathāgato paraṁ maraṇā”ti vā,"
+    },
+    {
+     "n": 39,
+     "text": "“na hoti tathāgato paraṁ maraṇā”ti vā, “hoti ca na ca hoti tathāgato paraṁ maraṇā”ti vā, “neva hoti na na hoti tathāgato paraṁ maraṇā”ti vā’”ti?"
+    },
+    {
+     "n": 40,
+     "text": "“No hetaṁ, bhante”."
+    },
+    {
+     "n": 41,
+     "text": "“Iti kira, mālukyaputta, nevāhaṁ taṁ vadāmi: ‘ehi tvaṁ, mālukyaputta, mayi brahmacariyaṁ cara, ahaṁ te byākarissāmi: “sassato loko”ti vā, “asassato loko”ti vā …pe…"
+    },
+    {
+     "n": 42,
+     "text": "“neva hoti na na hoti tathāgato paraṁ maraṇāti vā”’ti; napi kira maṁ tvaṁ vadesi: ‘ahaṁ, bhante, bhagavati brahmacariyaṁ carissāmi, bhagavā me byākarissati: “sassato loko”ti vā “asassato loko”ti vā …pe…"
+    },
+    {
+     "n": 43,
+     "text": "“neva hoti na na hoti tathāgato paraṁ maraṇā”ti vā’ti."
+    },
+    {
+     "n": 44,
+     "text": "Evaṁ sante, moghapurisa, ko santo kaṁ paccācikkhasi?"
+    },
+    {
+     "n": 45,
+     "text": "Yo kho, mālukyaputta, evaṁ vadeyya: ‘na tāvāhaṁ bhagavati brahmacariyaṁ carissāmi yāva me bhagavā na byākarissati: “sassato loko”ti vā, “asassato loko”ti vā …pe…"
+    },
+    {
+     "n": 46,
+     "text": "“neva hoti na na hoti tathāgato paraṁ maraṇā”ti vā’ti, abyākatameva taṁ, mālukyaputta, tathāgatena assa, atha so puggalo kālaṁ kareyya."
+    },
+    {
+     "n": 47,
+     "text": "Seyyathāpi, mālukyaputta, puriso sallena viddho assa savisena gāḷhapalepanena."
+    },
+    {
+     "n": 48,
+     "text": "Tassa mittāmaccā ñātisālohitā bhisakkaṁ sallakattaṁ upaṭṭhapeyyuṁ."
+    },
+    {
+     "n": 49,
+     "text": "So evaṁ vadeyya: ‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ purisaṁ jānāmi yenamhi viddho, khattiyo vā brāhmaṇo vā vesso vā suddo vā’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 50,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ purisaṁ jānāmi yenamhi viddho, evaṁnāmo evaṅgotto iti vā’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 51,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ purisaṁ jānāmi yenamhi viddho, dīgho vā rasso vā majjhimo vā’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 52,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ purisaṁ jānāmi yenamhi viddho, kāḷo vā sāmo vā maṅguracchavī vā’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 53,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ purisaṁ jānāmi yenamhi viddho, amukasmiṁ gāme vā nigame vā nagare vā’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 54,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ dhanuṁ jānāmi yenamhi viddho, yadi vā cāpo yadi vā kodaṇḍo’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 55,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ jiyaṁ jānāmi yāyamhi viddho, yadi vā akkassa yadi vā saṇhassa yadi vā nhārussa yadi vā maruvāya yadi vā khīrapaṇṇino’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 56,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ kaṇḍaṁ jānāmi yenamhi viddho, yadi vā gacchaṁ yadi vā ropiman’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 57,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ kaṇḍaṁ jānāmi yenamhi viddho, yassa pattehi vājitaṁ yadi vā gijjhassa yadi vā kaṅkassa yadi vā kulalassa yadi vā morassa yadi vā sithilahanuno’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 58,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ kaṇḍaṁ jānāmi yenamhi viddho, yassa nhārunā parikkhittaṁ yadi vā gavassa yadi vā mahiṁsassa yadi vā bheravassa yadi vā semhārassā’ti; so evaṁ vadeyya:"
+    },
+    {
+     "n": 59,
+     "text": "‘na tāvāhaṁ imaṁ sallaṁ āharissāmi yāva na taṁ sallaṁ jānāmi yenamhi viddho, yadi vā sallaṁ yadi vā khurappaṁ yadi vā vekaṇḍaṁ yadi vā nārācaṁ yadi vā vacchadantaṁ yadi vā karavīrapattan’ti— aññātameva taṁ, mālukyaputta,"
+    },
+    {
+     "n": 60,
+     "text": "tena purisena assa, atha so puriso kālaṁ kareyya."
+    },
+    {
+     "n": 61,
+     "text": "Evameva kho, mālukyaputta, yo evaṁ vadeyya: ‘na tāvāhaṁ bhagavati brahmacariyaṁ carissāmi yāva me bhagavā na byākarissati: “sassato loko”ti vā “asassato loko”ti vā …pe…"
+    },
+    {
+     "n": 62,
+     "text": "“neva hoti na na hoti tathāgato paraṁ maraṇā”ti vā’ti— abyākatameva taṁ, mālukyaputta, tathāgatena assa, atha so puggalo kālaṁ kareyya."
+    },
+    {
+     "n": 63,
+     "text": "‘Sassato loko’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evaṁ no."
+    },
+    {
+     "n": 64,
+     "text": "‘Asassato loko’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evampi no."
+    },
+    {
+     "n": 65,
+     "text": "‘Sassato loko’ti vā, mālukyaputta, diṭṭhiyā sati, ‘asassato loko’ti vā diṭṭhiyā sati attheva jāti, atthi jarā, atthi maraṇaṁ, santi sokaparidevadukkhadomanassupāyāsā; yesāhaṁ diṭṭheva dhamme nighātaṁ paññapemi."
+    },
+    {
+     "n": 66,
+     "text": "‘Antavā loko’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evaṁ no."
+    },
+    {
+     "n": 67,
+     "text": "‘Anantavā loko’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evampi no."
+    },
+    {
+     "n": 68,
+     "text": "‘Antavā loko’ti vā, mālukyaputta, diṭṭhiyā sati, ‘anantavā loko’ti vā diṭṭhiyā sati attheva jāti, atthi jarā, atthi maraṇaṁ, santi sokaparidevadukkhadomanassupāyāsā; yesāhaṁ diṭṭheva dhamme nighātaṁ paññapemi."
+    },
+    {
+     "n": 69,
+     "text": "‘Taṁ jīvaṁ taṁ sarīran’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evaṁ no."
+    },
+    {
+     "n": 70,
+     "text": "‘Aññaṁ jīvaṁ aññaṁ sarīran’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evampi no."
+    },
+    {
+     "n": 71,
+     "text": "‘Taṁ jīvaṁ taṁ sarīran’ti vā, mālukyaputta, diṭṭhiyā sati, ‘aññaṁ jīvaṁ aññaṁ sarīran’ti vā diṭṭhiyā sati attheva jāti …pe… nighātaṁ paññapemi."
+    },
+    {
+     "n": 72,
+     "text": "‘Hoti tathāgato paraṁ maraṇā’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evaṁ no."
+    },
+    {
+     "n": 73,
+     "text": "‘Na hoti tathāgato paraṁ maraṇā’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evampi no."
+    },
+    {
+     "n": 74,
+     "text": "‘Hoti tathāgato paraṁ maraṇā’ti vā, mālukyaputta, diṭṭhiyā sati, ‘na hoti tathāgato paraṁ maraṇā’ti vā diṭṭhiyā sati attheva jāti …pe… yesāhaṁ diṭṭheva dhamme nighātaṁ paññapemi."
+    },
+    {
+     "n": 75,
+     "text": "‘Hoti ca na ca hoti tathāgato paraṁ maraṇā’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evaṁ no."
+    },
+    {
+     "n": 76,
+     "text": "‘Neva hoti na na hoti tathāgato paraṁ maraṇā’ti, mālukyaputta, diṭṭhiyā sati brahmacariyavāso abhavissāti, evampi no."
+    },
+    {
+     "n": 77,
+     "text": "‘Hoti ca na ca hoti tathāgato paraṁ maraṇā’ti, mālukyaputta, diṭṭhiyā sati, ‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti vā diṭṭhiyā sati attheva jāti …pe… yesāhaṁ diṭṭheva dhamme nighātaṁ paññapemi."
+    },
+    {
+     "n": 78,
+     "text": "Tasmātiha, mālukyaputta, abyākatañca me abyākatato dhāretha; byākatañca me byākatato dhāretha. Kiñca, mālukyaputta, mayā abyākataṁ?"
+    },
+    {
+     "n": 79,
+     "text": "‘Sassato loko’ti mālukyaputta, mayā abyākataṁ; ‘asassato loko’ti— mayā abyākataṁ; ‘antavā loko’ti— mayā abyākataṁ; ‘anantavā loko’ti— mayā abyākataṁ; ‘taṁ jīvaṁ taṁ sarīran’ti— mayā abyākataṁ;"
+    },
+    {
+     "n": 80,
+     "text": "‘aññaṁ jīvaṁ aññaṁ sarīran’ti— mayā abyākataṁ; ‘hoti tathāgato paraṁ maraṇā’ti— mayā abyākataṁ; ‘na hoti tathāgato paraṁ maraṇā’ti— mayā abyākataṁ; ‘hoti ca na ca hoti tathāgato paraṁ maraṇā’ti— mayā abyākataṁ;"
+    },
+    {
+     "n": 81,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti— mayā abyākataṁ."
+    },
+    {
+     "n": 82,
+     "text": "Kasmā cetaṁ, mālukyaputta, mayā abyākataṁ?"
+    },
+    {
+     "n": 83,
+     "text": "Na hetaṁ, mālukyaputta, atthasaṁhitaṁ na ādibrahmacariyakaṁ na nibbidāya na virāgāya na nirodhāya na upasamāya na abhiññāya na sambodhāya na nibbānāya saṁvattati. Tasmā taṁ mayā abyākataṁ."
+    },
+    {
+     "n": 84,
+     "text": "Kiñca, mālukyaputta, mayā byākataṁ? ‘Idaṁ dukkhan’ti, mālukyaputta, mayā byākataṁ; ‘ayaṁ dukkhasamudayo’ti— mayā byākataṁ; ‘ayaṁ dukkhanirodho’ti— mayā byākataṁ; ‘ayaṁ dukkhanirodhagāminī paṭipadā’ti— mayā byākataṁ."
+    },
+    {
+     "n": 85,
+     "text": "Kasmā cetaṁ, mālukyaputta, mayā byākataṁ?"
+    },
+    {
+     "n": 86,
+     "text": "Etañhi, mālukyaputta, atthasaṁhitaṁ etaṁ ādibrahmacariyakaṁ nibbidāya virāgāya nirodhāya upasamāya abhiññāya sambodhāya nibbānāya saṁvattati. Tasmā taṁ mayā byākataṁ."
+    },
+    {
+     "n": 87,
+     "text": "Tasmātiha, mālukyaputta, abyākatañca me abyākatato dhāretha; byākatañca me byākatato dhārethā”ti."
+    },
+    {
+     "n": 88,
+     "text": "Idamavoca bhagavā. Attamano āyasmā mālukyaputto bhagavato bhāsitaṁ abhinandīti."
+    },
+    {
+     "n": 89,
+     "text": "Cūḷamālukyasuttaṁ niṭṭhitaṁ tatiyaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn63/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "Then as Venerable Māluṅkyaputta was in private retreat this thought came to his mind:"
+    },
+    {
+     "n": 3,
+     "text": "“There are several convictions that the Buddha has left undeclared; he has set them aside and turned them down."
+    },
+    {
+     "n": 4,
+     "text": "For example: the cosmos is eternal, or not eternal, or finite, or infinite; the soul and the body are one and the same, or the soul is one thing, the body another;"
+    },
+    {
+     "n": 5,
+     "text": "after death, a realized one still exists, or no longer exists, or both still exists and no longer exists, or neither still exists nor no longer exists."
+    },
+    {
+     "n": 6,
+     "text": "The Buddha does not explain these points to me."
+    },
+    {
+     "n": 7,
+     "text": "I don’t endorse that, and do not accept it. I’ll go to him and ask him about this."
+    },
+    {
+     "n": 8,
+     "text": "If he gives me a straight answer on any of these points, I will lead the spiritual life under him."
+    },
+    {
+     "n": 9,
+     "text": "If he does not explain these points to me, I shall resign the training and return to a lesser life.”"
+    },
+    {
+     "n": 10,
+     "text": "Then in the late afternoon, Māluṅkyaputta came out of retreat and went to the Buddha."
+    },
+    {
+     "n": 11,
+     "text": "He bowed, sat down to one side, and told the Buddha of his thoughts. He then continued:"
+    },
+    {
+     "n": 12,
+     "text": "“If the Buddha knows that the cosmos is eternal, please tell me."
+    },
+    {
+     "n": 13,
+     "text": "If you know that the cosmos is not eternal, tell me."
+    },
+    {
+     "n": 14,
+     "text": "If you don’t know whether the cosmos is eternal or not, then it is straightforward to simply say: ‘I neither know nor see.’"
+    },
+    {
+     "n": 15,
+     "text": "If you know that the cosmos is finite, or infinite; that the soul and the body are one and the same, or is the soul one thing, the body another;"
+    },
+    {
+     "n": 16,
+     "text": "that after death, a realized one still exists, or no longer exists, or both still exists and no longer exists, or neither still exists nor no longer exists, please tell me."
+    },
+    {
+     "n": 17,
+     "text": "If you don’t know any of these things, then it is straightforward to simply say: ‘I neither know nor see.’”"
+    },
+    {
+     "n": 18,
+     "text": "“What, Māluṅkyaputta, did I ever say to you: ‘Come, Māluṅkyaputta, lead the spiritual life under me, and I will declare these things to you’?”"
+    },
+    {
+     "n": 19,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 20,
+     "text": "“Or did you ever say to me: ‘Sir, I will lead the spiritual life under the Buddha, and the Buddha will declare these things to me’?”"
+    },
+    {
+     "n": 21,
+     "text": "“No, sir.”"
+    },
+    {
+     "n": 22,
+     "text": "“So it seems that I did not say to you: ‘Come, Māluṅkyaputta, lead the spiritual life under me, and I will declare these things to you.’"
+    },
+    {
+     "n": 23,
+     "text": "And you never said to me: ‘Sir, I will lead the spiritual life under the Buddha, and the Buddha will declare these things to me.’"
+    },
+    {
+     "n": 24,
+     "text": "In that case, you futile man, who are you and what do you disavow?"
+    },
+    {
+     "n": 25,
+     "text": "Suppose someone were to say this: ‘I will not lead the spiritual life under the Buddha until the Buddha declares to me that the cosmos is eternal,"
+    },
+    {
+     "n": 26,
+     "text": "or that the cosmos is not eternal … or that after death a realized one neither still exists nor no longer exists.’"
+    },
+    {
+     "n": 27,
+     "text": "That would still remain undeclared by the Realized One, and meanwhile that individual would die."
+    },
+    {
+     "n": 28,
+     "text": "Suppose a man was struck by an arrow thickly smeared with poison."
+    },
+    {
+     "n": 29,
+     "text": "His friends and colleagues, relatives and kin would get a surgeon to treat him."
+    },
+    {
+     "n": 30,
+     "text": "But the man would say: ‘I won’t extract this arrow as long as I don’t know whether the man who wounded me was an aristocrat, a brahmin, a peasant, or a menial.’"
+    },
+    {
+     "n": 31,
+     "text": "He’d say: ‘I won’t extract this arrow as long as I don’t know the following things about the man who wounded me: his name and clan; whether he’s tall, short, or medium; whether his skin is black, brown, or dingy;"
+    },
+    {
+     "n": 32,
+     "text": "and whether he comes from such-and-such village, town, or city."
+    },
+    {
+     "n": 33,
+     "text": "I won’t extract this arrow as long as I don’t know whether the bow that wounded me was straight or recurved;"
+    },
+    {
+     "n": 34,
+     "text": "whether the bow-string is made of swallow-wort fibre, sunn hemp fibre, sinew, sanseveria fibre, or spurge fibre; whether the shaft is made from a bush or a plantation tree;"
+    },
+    {
+     "n": 35,
+     "text": "whether the shaft was fitted with feathers from a vulture, a heron, a hawk, a peacock, or a stork; whether the shaft was bound with sinews of a cow, a buffalo, a black lion, or an ape;"
+    },
+    {
+     "n": 36,
+     "text": "and whether the arrowhead was spiked, razor-tipped, barbed, made of iron or a calf’s tooth, or lancet-shaped.’"
+    },
+    {
+     "n": 37,
+     "text": "That man would still not have learned these things, and meanwhile they’d die."
+    },
+    {
+     "n": 38,
+     "text": "In the same way, suppose someone was to say:"
+    },
+    {
+     "n": 39,
+     "text": "‘I will not lead the spiritual life under the Buddha until the Buddha declares to me that the cosmos is eternal,"
+    },
+    {
+     "n": 40,
+     "text": "or that the cosmos is not eternal … or that after death a realized one neither still exists nor no longer exists.’"
+    },
+    {
+     "n": 41,
+     "text": "That would still remain undeclared by the Realized One, and meanwhile that individual would die."
+    },
+    {
+     "n": 42,
+     "text": "It’s not true that if there were the view ‘the cosmos is eternal’ there would be the living of the spiritual life."
+    },
+    {
+     "n": 43,
+     "text": "It’s not true that if there were the view ‘the cosmos is not eternal’ there would be the living of the spiritual life."
+    },
+    {
+     "n": 44,
+     "text": "When there is the view that the cosmos is eternal or that the cosmos is not eternal, there is rebirth, there is old age, there is death, and there is sorrow, lamentation, pain, sadness, and distress."
+    },
+    {
+     "n": 45,
+     "text": "And it is the defeat of these things in this very life that I advocate."
+    },
+    {
+     "n": 46,
+     "text": "It’s not true that if there were the view ‘the cosmos is finite’ … ‘the cosmos is infinite’ …"
+    },
+    {
+     "n": 47,
+     "text": "‘the soul and the body are one and the same’ …"
+    },
+    {
+     "n": 48,
+     "text": "‘the soul is one thing, the body another’ …"
+    },
+    {
+     "n": 49,
+     "text": "‘a realized one still exists after death’ …"
+    },
+    {
+     "n": 50,
+     "text": "‘a realized one no longer exists after death’ …"
+    },
+    {
+     "n": 51,
+     "text": "‘a realized one both still exists and no longer exists after death’ …"
+    },
+    {
+     "n": 52,
+     "text": "‘a realized one neither still exists nor no longer exists after death’ there would be the living of the spiritual life."
+    },
+    {
+     "n": 53,
+     "text": "When there are any of these views there is rebirth, there is old age, there is death, and there is sorrow, lamentation, pain, sadness, and distress."
+    },
+    {
+     "n": 54,
+     "text": "And it is the defeat of these things in this very life that I advocate."
+    },
+    {
+     "n": 55,
+     "text": "So, Māluṅkyaputta, you should remember what I have not declared as undeclared, and what I have declared as declared. And what have I not declared? I have not declared the following:"
+    },
+    {
+     "n": 56,
+     "text": "‘the cosmos is eternal,’ ‘the cosmos is not eternal,’ ‘the cosmos is finite,’ ‘the world is infinite,’ ‘the soul and the body are one and the same,’ ‘the soul is one thing,"
+    },
+    {
+     "n": 57,
+     "text": "the body another,’ ‘a realized one still exists after death,’ ‘a realized one no longer exists after death,’ ‘a realized one both still exists and no longer exists after death,’ ‘a realized one neither still exists nor"
+    },
+    {
+     "n": 58,
+     "text": "no longer exists after death.’"
+    },
+    {
+     "n": 59,
+     "text": "And why haven’t I declared these things?"
+    },
+    {
+     "n": 60,
+     "text": "Because they aren’t beneficial or relevant to the fundamentals of the spiritual life."
+    },
+    {
+     "n": 61,
+     "text": "They don’t lead to disillusionment, dispassion, cessation, peace, insight, awakening, and extinguishment. That’s why I haven’t declared them."
+    },
+    {
+     "n": 62,
+     "text": "And what have I declared? I have declared the following: ‘this is suffering,’ ‘this is the origin of suffering,’ ‘this is the cessation of suffering,’ ‘this is the practice that leads to the cessation of suffering.’"
+    },
+    {
+     "n": 63,
+     "text": "And why have I declared these things? Because they are beneficial and relevant to the fundamentals of the spiritual life."
+    },
+    {
+     "n": 64,
+     "text": "They lead to disillusionment, dispassion, cessation, peace, insight, awakening, and extinguishment. That’s why I have declared them."
+    },
+    {
+     "n": 65,
+     "text": "So, Māluṅkyaputta, you should remember what I have not declared as undeclared, and what I have declared as declared.”"
+    },
+    {
+     "n": 66,
+     "text": "That is what the Buddha said. Satisfied, Venerable Māluṅkyaputta approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

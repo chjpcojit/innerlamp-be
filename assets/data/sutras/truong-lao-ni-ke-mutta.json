@@ -1,0 +1,117 @@
+{
+ "id": "truong-lao-ni-ke-mutta",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Ni Kệ",
+ "reference": "Thig 1.2",
+ "summary": "Kệ ngôn rất ngắn của trưởng lão ni Muttā trong Trưởng Lão Ni Kệ (Tiểu Bộ, Thig 1.2). Đức Thế Tôn giáo huấn vị ni bằng một câu kệ, khuyên cô tự thoát khỏi mọi ràng buộc như mặt trăng thoát khỏi sự nắm giữ của Rāhu, sống với tâm giải thoát, không còn nợ nần và thọ dụng đồ ăn khất thực.",
+ "titles": {
+  "vi": "Trưởng Lão Ni Kệ - Muttā",
+  "pli": "Muttātherīgāthā",
+  "en": "Muttā (1st)"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thig1.2/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Này Muttā, cô hãy tự thoát ra khỏi các sự ràng buộc, ví như mặt trăng thoát ra khỏi sự nắm giữ của Rāhu (hiện tượng nguyệt thực); với tâm đã được giải thoát, không còn nợ nần, cô hãy thọ dụng đồ ăn khất thực.”"
+    },
+    {
+     "n": 2,
+     "text": "Đức Thế Tôn thường xuyên giáo huấn vị ni tu tập sự Muttā bằng lời kệ này như thế."
+    },
+    {
+     "n": 3,
+     "text": "Kệ ngôn của trưởng lão ni Muttā."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig1.2/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Mutte muccassu yogehi,"
+    },
+    {
+     "n": 2,
+     "text": "cando rāhuggahā iva;"
+    },
+    {
+     "n": 3,
+     "text": "Vippamuttena cittena,"
+    },
+    {
+     "n": 4,
+     "text": "anaṇā bhuñja piṇḍakan”ti."
+    },
+    {
+     "n": 5,
+     "text": "Itthaṁ sudaṁ bhagavā muttaṁ sikkhamānaṁ imāya gāthāya abhiṇhaṁ ovadatīti."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig1.2/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Muttā, be released from your yokes,"
+    },
+    {
+     "n": 2,
+     "text": "like the moon released from the eclipse."
+    },
+    {
+     "n": 3,
+     "text": "When your mind is released,"
+    },
+    {
+     "n": 4,
+     "text": "enjoy your alms free of debt."
+    },
+    {
+     "n": 5,
+     "text": "That is how the Buddha regularly advised the trainee nun Muttā with these verses."
+    }
+   ]
+  }
+ ]
+}

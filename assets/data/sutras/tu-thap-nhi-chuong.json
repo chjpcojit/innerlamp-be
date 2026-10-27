@@ -1,0 +1,772 @@
+{
+ "id": "tu-thap-nhi-chuong",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Kinh nhập môn",
+ "reference": "Taishō T0784",
+ "hanTranslator": "Ca Diếp Ma Đằng, Trúc Pháp Lan",
+ "summary": "Kinh Đại thừa gồm bốn mươi hai đoạn lời Phật dạy ngắn gọn, bản Hán dịch của ngài Ca-diếp Ma-đằng và Trúc Pháp Lan. Kinh nói về đời sống người xuất gia, các quả vị tu chứng từ Tu-đà-hoàn đến A-la-hán, việc buông bỏ ái dục và giữ tâm hướng đạo. Nhờ văn phong cô đọng, kinh thường được xem là một bài nhập môn Phật pháp.",
+ "titles": {
+  "vi": "Kinh Tứ Thập Nhị Chương (Kinh Bốn Mươi Hai Chương)",
+  "zh": "四十二章經",
+  "sa": "Dvācatvāriṃśatkhaṇḍa Sūtra",
+  "en": "Sutra of Forty-two Sections"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 40,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Viên Giác (dịch và giảng)",
+   "sourceName": "BuddhaSasana (budsas.org) - Kinh Tứ Thập Nhị Chương, Thích Viên Giác dịch và giảng",
+   "sourceUrl": "https://www.budsas.org/uni/u-kinh42chuong/kinh42c-00.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement on pages",
+   "note": "Chỉ lấy phần \"I. Chánh Văn\" của từng chương; bỏ phần đại ý, giảng nghĩa, chú thích của dịch giả. Section = số chương (phần mở đầu là Chương 0). Nguồn: kinh42c-0108/0913/1425/2637/3842.htm.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Sau khi Đức Thế Tôn thành đạo, Ngài suy nghĩ rằng: \"Ly dục và thanh tịnh là tối thắng, an trú trong Đại thiền định mới hàng phục được chúng ma.\"",
+     "section": "Chương 0 (Mở đầu)"
+    },
+    {
+     "n": 2,
+     "text": "Ở tại vườn Lộc Uyển, Ngài chuyển bánh xe pháp về 4 chân lý độ cho 5 anh em Kiều Trần Như đều chứng được đạo quả.",
+     "section": "Chương 0 (Mở đầu)"
+    },
+    {
+     "n": 3,
+     "text": "Mỗi khi có thầy Tỳ kheo nào nêu lên những điều chưa rõ, cầu Phật chỉ giáo, Đức Thế Tôn giảng giải làm cho tất cả đều được khai ngộ, chắp tay cung kính theo lời Phật dạy.",
+     "section": "Chương 0 (Mở đầu)"
+    },
+    {
+     "n": 4,
+     "text": "Từ giã Cha Mẹ đi xuất gia học Đạo, thấu rõ nguồn tâm, hiểu vô vi pháp, được gọi là bậc Sa môn.",
+     "section": "Chương 1"
+    },
+    {
+     "n": 5,
+     "text": "Thường giữ gìn 250 giới, sống đời thanh tịnh, thực hành 4 chân đạo, thành tựu quả vị A La Hán.",
+     "section": "Chương 1"
+    },
+    {
+     "n": 6,
+     "text": "Vị chứng quả A La Hán có thể phi hành, biến hóa, kéo dài mạng sống, ở đời động cả đất trời.",
+     "section": "Chương 1"
+    },
+    {
+     "n": 7,
+     "text": "Thứ đến là quả Anahàm. Vị chứng Anahàm, khi tuổi thọ hết, thần thức sẽ sinh lên cõi trời thứ 19 thì chứng quả A La Hán.",
+     "section": "Chương 1"
+    },
+    {
+     "n": 8,
+     "text": "Thứ đến là quả Tư Đà Hàm, người chứng quả Tư Đà Hàm, một lần sinh lên cõi Trời, một lần sinh xuống cõi Người thì chứng quả A La Hán.",
+     "section": "Chương 1"
+    },
+    {
+     "n": 9,
+     "text": "Kế đến là quả Tu Đà Hoàn, người chứng quả Tu Đà Hoàn phải 7 lần sinh, 7 lần tử mới chứng quả A La Hán.",
+     "section": "Chương 1"
+    },
+    {
+     "n": 10,
+     "text": "Người chứng quả A La Hán là người đã đoạn tận ái dục, như chân tay bị chặt không thể sử dụng trở lại được.",
+     "section": "Chương 1"
+    },
+    {
+     "n": 11,
+     "text": "Đức Phật dạy: \"Người xuất gia làm Sa môn thì phải từ bỏ ái dục, biết được nguồn tâm, thấu triệt giáo pháp của Phật, hiểu pháp vô vi.",
+     "section": "Chương 2"
+    },
+    {
+     "n": 12,
+     "text": "Bên trong không có cái để được, bên ngoài không có chỗ để cầu.",
+     "section": "Chương 2"
+    },
+    {
+     "n": 13,
+     "text": "Tâm không chấp thủ nơi Đạo, cũng không hệ lụy bởi nghiệp, không có suy tưởng, không có tạo tác, không có tu, không có chứng, chẳng cần trải qua các Thánh vị mà tự thành cao tột, gọi đó là Đạo\".",
+     "section": "Chương 2"
+    },
+    {
+     "n": 14,
+     "text": "Đức Phật dạy: \"Cạo bỏ râu tóc để trở thành một vị Sa môn, lãnh thọ giáo pháp của Phật thì phải xả bỏ của cải thế gian, mong cầu vừa đủ, giữa ngày ăn một bữa, dưới gốc cây ở một đêm, cẩn thận không trở lại lần thứ hai.",
+     "section": "Chương 3"
+    },
+    {
+     "n": 15,
+     "text": "Điều làm cho người ta ngu muội là ái và dục\".",
+     "section": "Chương 3"
+    },
+    {
+     "n": 16,
+     "text": "Đức Phật dạy: \"Chúng sinh do 10 điều mà thành thiện, cũng do 10 điều mà thành ác.",
+     "section": "Chương 4"
+    },
+    {
+     "n": 17,
+     "text": "Mười điều ấy là gì? Thân có 3, Miệng có 4, Ý có 3.",
+     "section": "Chương 4"
+    },
+    {
+     "n": 18,
+     "text": "Thân có 3 là: Giết hại, trộm cắp, dâm dục.",
+     "section": "Chương 4"
+    },
+    {
+     "n": 19,
+     "text": "Lưỡi có 4 là: Nói 2 lưỡi, nói độc ác, nói dối trá, nói hoa mỹ.",
+     "section": "Chương 4"
+    },
+    {
+     "n": 20,
+     "text": "Ý có 3 là: Tật đố, sân hận, ngu si. Mười điều ấy không phù hợp với con đường của bậc Thánh, gọi là hành vi ác.",
+     "section": "Chương 4"
+    },
+    {
+     "n": 21,
+     "text": "Nếu 10 điều ác này được đình chỉ thì gọi là 10 điều thiện vậy\".",
+     "section": "Chương 4"
+    },
+    {
+     "n": 22,
+     "text": "Đức Phật dạy: \"Người có lầm lỗi mà không tự sám hối để mau chấm dứt tâm tạo tội ấy, thì tội lỗi càng chồng chất vào thân như nước chảy về biển, dần dần trở nên sâu rộng.",
+     "section": "Chương 5"
+    },
+    {
+     "n": 23,
+     "text": "Nếu người có tội mà tự nhận biết tội, bỏ ác làm lành thì tội lỗi tự diệt, như bệnh được đổ mồ hôi dần dần sẽ khỏi bệnh\".",
+     "section": "Chương 5"
+    },
+    {
+     "n": 24,
+     "text": "Đức Phật dạy rằng: \"Người ác nghe nói ai làm điều thiện thì đến để phá hoại.",
+     "section": "Chương 6"
+    },
+    {
+     "n": 25,
+     "text": "Khi gặp người như vậy, các ông phải tự chủ, đừng có tức giận trách móc.",
+     "section": "Chương 6"
+    },
+    {
+     "n": 26,
+     "text": "Bởi vì, kẻ mang điều ác đến thì họ sẽ lãnh thọ điều ác đó\".",
+     "section": "Chương 6"
+    },
+    {
+     "n": 27,
+     "text": "Đức Phật dạy: \"Có người nghe ta giữ đạo, thực hành tâm đại nhân từ, nên đến mắng ta; ta im lặng không phản ứng.",
+     "section": "Chương 7"
+    },
+    {
+     "n": 28,
+     "text": "Người kia mắng xong, ta liền hỏi: \"Ông đem lễ vật biếu người khác, người kia không nhận thì lễ vật ấy trở về với ông không?\".",
+     "section": "Chương 7"
+    },
+    {
+     "n": 29,
+     "text": "Đáp: \"Về chứ\". Ta bảo: \"Nay ông mắng ta, ta không nhận thì tự ông rước họa vào thân, giống như vang theo tiếng, bóng theo hình, rốt cuộc không thể tránh khỏi. Vậy, hãy cẩn thận, đừng làm điều ác\".",
+     "section": "Chương 7"
+    },
+    {
+     "n": 30,
+     "text": "Đức Phật dạy: \"Kẻ ác hại người hiền giống như ngước mặt lên trời mà nhổ nước miếng, nhổ không tới trời, nước miếng rơi xuống mặt mình.",
+     "section": "Chương 8"
+    },
+    {
+     "n": 31,
+     "text": "Ngược gió tung bụi, bụi chẳng đến người khác, trở lại dơ thân mình, người hiền không thể hại được mà còn bị họa đến bản thân\".",
+     "section": "Chương 8"
+    },
+    {
+     "n": 32,
+     "text": "Đức Phật dạy: \"Học rộng, hiểu nhiều, đắm say đạo lý thì Đạo khó hội nhập.",
+     "section": "Chương 9"
+    },
+    {
+     "n": 33,
+     "text": "Kiên trì tâm chí thực hành thì Đạo rất lớn lao\".",
+     "section": "Chương 9"
+    },
+    {
+     "n": 34,
+     "text": "Đức Phật dạy rằng: \"Thấy người thực hành bố thí, hoan hỷ giúp đỡ thì được phước rất lớn\".",
+     "section": "Chương 10"
+    },
+    {
+     "n": 35,
+     "text": "Có vị Sa môn hỏi Phật: \"Phước này có hết không?\" Phật đáp: \"Thí như lửa của một ngọn đuốc, hàng trăm hàng ngàn người đem đuốc đến mồi lửa về để nấu ăn hay để thắp sáng, lửa ngọn đuốc này vẫn như cũ.",
+     "section": "Chương 10"
+    },
+    {
+     "n": 36,
+     "text": "Phước của người hoan hỷ hỗ trợ cho người thực hành bố thí cũng vậy\".",
+     "section": "Chương 10"
+    },
+    {
+     "n": 37,
+     "text": "Đức Phật dạy: \"Cho một trăm người ác ăn không bằng cho một người thiện ăn.",
+     "section": "Chương 11"
+    },
+    {
+     "n": 38,
+     "text": "Cho một ngàn người thiện ăn không bằng cho một người thọ ngũ giới ăn.",
+     "section": "Chương 11"
+    },
+    {
+     "n": 39,
+     "text": "Cho một vạn người thọ ngũ giới ăn không bằng cho một vị Tu Đà Hoàn ăn.",
+     "section": "Chương 11"
+    },
+    {
+     "n": 40,
+     "text": "Cho một trăm vị Tu Đà Hoàn ăn không bằng cho một vị Tư Đà Hàm ăn.",
+     "section": "Chương 11"
+    },
+    {
+     "n": 41,
+     "text": "Cho một ngàn vạn vị Tư Đà Hàm ăn không bằng cho một vị A Na Hàm ăn.",
+     "section": "Chương 11"
+    },
+    {
+     "n": 42,
+     "text": "Cho một ức vị A Na Hàm ăn không bằng cho một vị A La Hán ăn.",
+     "section": "Chương 11"
+    },
+    {
+     "n": 43,
+     "text": "Cho mười ức vị A La Hán ăn không bằng cho một vị Bích Chi Phật ăn.",
+     "section": "Chương 11"
+    },
+    {
+     "n": 44,
+     "text": "Cho một trăm ức vị Bích Chi Phật ăn không bằng cho một vị Phật ba đời ăn (Tam thế Phật).",
+     "section": "Chương 11"
+    },
+    {
+     "n": 45,
+     "text": "Cho một ngàn ức vị Phật ba đời ăn không bằng cho một vị Vô niệm, Vô trụ, Vô tu, Vô chứng ăn\".",
+     "section": "Chương 11"
+    },
+    {
+     "n": 46,
+     "text": "Đức Phật dạy: \"Làm người có 20 điều khó:",
+     "section": "Chương 12"
+    },
+    {
+     "n": 47,
+     "text": "Nghèo nàn bố thí là khó, Giàu sang học đạo là khó, Bỏ thân mạng quyết chết là khó, Thấy được kinh Phật là khó, Sinh vào thời có Phật là khó, Nhẫn sắc nhẫn dục là khó, Thấy tốt không cầu là khó, Bị nhục không tức là khó,",
+     "section": "Chương 12"
+    },
+    {
+     "n": 48,
+     "text": "Có thế lực không dựa là khó, Gặp việc vô tâm là khó, Học rộng nghiên cứu sâu là khó, Diệt trừ ngã mạn là khó, Không khinh người chưa học là khó, Thực hành tâm bình đẳng là khó, Không nói chuyện phải trái là khó,",
+     "section": "Chương 12"
+    },
+    {
+     "n": 49,
+     "text": "Gặp được thiện tri thức là khó, Thấy tánh học Đạo là khó, Tùy duyên hóa độ người là khó, Thấy cảnh tâm bất động là khó, Khéo biết phương tiện là khó\".",
+     "section": "Chương 12"
+    },
+    {
+     "n": 50,
+     "text": "Có vị Sa môn hỏi Phật: \"Bởi lý do gì mà biết được đời trước? Mà hội nhập được Đạo chí thượng?\".",
+     "section": "Chương 13"
+    },
+    {
+     "n": 51,
+     "text": "Đức Phật dạy: \"Tâm thanh tịnh, chí vững bền thì hội nhập Đạo chí thượng, như lau kính hết dơ thì trong sáng hiển lộ.(cũng vậy) đoạn tận ái dục, tâm không mong cầu thì sẽ biết được đời trước\".",
+     "section": "Chương 13"
+    },
+    {
+     "n": 52,
+     "text": "Có 1 vị Sa môn hỏi Phật: \"Điều gì là thiện?",
+     "section": "Chương 14"
+    },
+    {
+     "n": 53,
+     "text": "Điều gì là lớn nhất?\". Đức Phật dạy: \"Thực hành Chánh đạo, giữ sự chân thật là Thiện. Chí nguyện hợp với Đạo là lớn nhất\".",
+     "section": "Chương 14"
+    },
+    {
+     "n": 54,
+     "text": "Có vị Sa môn hỏi Đức Phật: \"Điều gì là mạnh nhất?",
+     "section": "Chương 15"
+    },
+    {
+     "n": 55,
+     "text": "Điều gì là sáng nhất?\" Đức Phật dạy: \"Nhẫn nhục là mạnh nhất vì không chứa ác tâm nên tăng sự an ổn.",
+     "section": "Chương 15"
+    },
+    {
+     "n": 56,
+     "text": "Nhẫn nhục là không ác, tất được mọi người tôn kính.",
+     "section": "Chương 15"
+    },
+    {
+     "n": 57,
+     "text": "Tâm ô nhiễm đã được đoạn tận, không còn dấu vết gọi là sáng nhất, nghĩa là tất cả sự vật trong 10 phương, từ vô thỉ thuở chưa có trời đất cho đến ngày nay không vật gì là không thấy, không vật gì là không biết,",
+     "section": "Chương 15"
+    },
+    {
+     "n": 58,
+     "text": "không vật gì là không nghe, đạt được Nhất thiết trí, như vậy được gọi là sáng nhất\".",
+     "section": "Chương 15"
+    },
+    {
+     "n": 59,
+     "text": "Đức Phật dạy: \"Người giữ ái dục ở trong lòng thì không thấy được Đạo.",
+     "section": "Chương 16"
+    },
+    {
+     "n": 60,
+     "text": "Thí như nước trong mà lấy tay khuấy động, người ta đến soi không thấy bóng của mình.",
+     "section": "Chương 16"
+    },
+    {
+     "n": 61,
+     "text": "Người do vì ái dục khuấy động mà trong tâm ô nhiễm nổi lên nên không thấy Đạo được.",
+     "section": "Chương 16"
+    },
+    {
+     "n": 62,
+     "text": "Sa môn các ông cần phải xả ly ái dục. Ái dục hết rồi, có thể thấy Đạo được\".",
+     "section": "Chương 16"
+    },
+    {
+     "n": 63,
+     "text": "Đức Phật dạy: \"Người thấy được Đạo cũng như cầm đuốc vào trong nhà tối, bóng tối liền mất, còn lại ánh sáng.",
+     "section": "Chương 17"
+    },
+    {
+     "n": 64,
+     "text": "Người học Đạo mà thấy được chân lý thì vô minh liền diệt, chỉ còn trí tuệ\".",
+     "section": "Chương 17"
+    },
+    {
+     "n": 65,
+     "text": "Đức Phật dạy: \"Pháp của ta là Niệm mà không còn chủ thể Niệâm và đối tượng Niệm, Làm mà không còn chủ thể Làm và đối tượng Làm, Nói mà không có chủ thể Nói và đối tượng Nói, Tu mà không còn chủ thể Tu và đối tượng Tu.",
+     "section": "Chương 18"
+    },
+    {
+     "n": 66,
+     "text": "Người ngộ thì rất gần, kẻ mê thì rất xa.",
+     "section": "Chương 18"
+    },
+    {
+     "n": 67,
+     "text": "Dứt dường ngôn ngữ, không bị ràng buộc bất cứ cái gì. Sai chỉ một hào ly thì mất tức khắc.",
+     "section": "Chương 18"
+    },
+    {
+     "n": 68,
+     "text": "Đức Phật dạy: \"Quán trời đất nghĩ là vô thường, quán thế giới nghĩ là vô thường, quán linh giác tức là Bồ đề. Hiểu biết như vậy thì chóng đắc đạo\".",
+     "section": "Chương 19"
+    },
+    {
+     "n": 69,
+     "text": "Đức Phật dạy: \"Phải biết rằng bốn đại ở trong thân thể, mỗi đại có một cái tên (Địa, Thủy, Hỏa, Phong) đều là không có Ngã, cái Ngã đã không có, thì cái có chỉ như ảo hóa mà thôi.",
+     "section": "Chương 20"
+    },
+    {
+     "n": 70,
+     "text": "Đức Phật dạy:\"Người thuận theo lòng dục để mong được danh tiếng, khi danh tiếng vừa nổi, thì thân đã mất rồi.",
+     "section": "Chương 21"
+    },
+    {
+     "n": 71,
+     "text": "Ham muốn cái danh tiếng thường tình mà không lo học đạo chỉ uổng công mệt sức mà thôi.",
+     "section": "Chương 21"
+    },
+    {
+     "n": 72,
+     "text": "Giống như đốt hương, khi người ta ngửi được mùi thơm, thì cây hương đã tàn rồi.",
+     "section": "Chương 21"
+    },
+    {
+     "n": 73,
+     "text": "Cái lửa hại thân theo liền cái danh tiếng.",
+     "section": "Chương 21"
+    },
+    {
+     "n": 74,
+     "text": "Đức Phật dạy:\"Tiền tài và sắc đẹp đối với con người rất khó buông xả. (Tiền tài và sắc đẹp ấy) giống như chút mật trên lưỡi dao, không đủ cho bữa ăn ngon, thế mà đứa trẻ liếm vào thì bị nạn đứt lưỡi\".",
+     "section": "Chương 22"
+    },
+    {
+     "n": 75,
+     "text": "Đức Phật dạy: \"Người bị vợ con, nhà cửa ràng buộc còn hơn là lao ngục.",
+     "section": "Chương 23"
+    },
+    {
+     "n": 76,
+     "text": "Lao ngục có kỳ hạn được phóng thích còn đối với vợ con không có ý tưởng xa rời.",
+     "section": "Chương 23"
+    },
+    {
+     "n": 77,
+     "text": "Khi đã đam mê sắc đẹp, đâu có ngại gì đến gian nguy !",
+     "section": "Chương 23"
+    },
+    {
+     "n": 78,
+     "text": "Dù tai họa nơi miệng cọp vẫn cam tâm ! Tự đắm mình vào chốn bùn lầy nên gọi là phàm phu. Vượt thoát cảnh ấy sẽ là bậc Alahán.",
+     "section": "Chương 23"
+    },
+    {
+     "n": 79,
+     "text": "Đức Phật dạy: \"Trong các thứ ái dục, không gì bằng sắc dục.",
+     "section": "Chương 24"
+    },
+    {
+     "n": 80,
+     "text": "Sự ham muốn sắc dục mạnh hơn mọi thứ khác.",
+     "section": "Chương 24"
+    },
+    {
+     "n": 81,
+     "text": "Chỉ có một sắc dục như vậy, nếu có cái thứ hai giống như sắc dục thì người trong thiên hạ không có ai có thể tu tập theo Đạo.",
+     "section": "Chương 24"
+    },
+    {
+     "n": 82,
+     "text": "Đức Phật dạy: \"Người đam mê ái dục giống như người cầm đuốc đi ngược gió, chắc chắn sẽ bị tai họa cháy tay\".",
+     "section": "Chương 25"
+    },
+    {
+     "n": 83,
+     "text": "Thiên thần dâng cho Đức Phật một ngọc nữ với ý đồ phá hoại tâm ý của Phật.",
+     "section": "Chương 26"
+    },
+    {
+     "n": 84,
+     "text": "Phật bảo: \"Túi da ô uế, người đến đây làm gì?",
+     "section": "Chương 26"
+    },
+    {
+     "n": 85,
+     "text": "Đi đi, ta không dùng đâu\".Thiên thần càng thêm kính trọng, do đó mà hỏi về ý của Đạo.",
+     "section": "Chương 26"
+    },
+    {
+     "n": 86,
+     "text": "Đức Phật vì ông mà giảng pháp. Ông nghe xong, đắc quả Tu Đà Hoàn.",
+     "section": "Chương 26"
+    },
+    {
+     "n": 87,
+     "text": "Đức Phật dạy: \"Người thực hành theo Đạo như khúc gỗ trên mặt nước trôi theo dòng nước.",
+     "section": "Chương 27"
+    },
+    {
+     "n": 88,
+     "text": "Nếu không bị người ta vớt, không bị quỷ thần ngăn trở không bị nước xoáy làm cho dừng lại và không bị hư nát, ta đảm bảo rằng khúc cây ấy sẽ ra đến biển.",
+     "section": "Chương 27"
+    },
+    {
+     "n": 89,
+     "text": "Người học Đạo nếu không bị tình dục mê hoặc, không bị tà kiến làm rối loạn, tinh tấn tu tập đạo giải thoát, ta bảo đảm người này sẽ đắc Đạo\".",
+     "section": "Chương 27"
+    },
+    {
+     "n": 90,
+     "text": "Đức Phật dạy: \"Phải thận trọng đừng chủ quan với tâm ý của ông.",
+     "section": "Chương 28"
+    },
+    {
+     "n": 91,
+     "text": "Tâm ý của ông không thể tin được, (vì vậy) hãy thận trọng đừng gần nữ sắc ; gần gũi nữ sắc thì tai họa phát sinh.",
+     "section": "Chương 28"
+    },
+    {
+     "n": 92,
+     "text": "Khi nào chứng quả A La Hán rồi mới có thể tin vào tâm ý của ông\".",
+     "section": "Chương 28"
+    },
+    {
+     "n": 93,
+     "text": "Đức Phật dạy: \" Phải thận trọng đừng nên nhìn ngắm nữ sắc, cũng đừng nói chuyện với nữ nhân.",
+     "section": "Chương 29"
+    },
+    {
+     "n": 94,
+     "text": "Nếu (bắt buộc) phải nói chuyện với họ thì phải giữ tâm chánh trực và suy nghĩ rằng: \"Ta làm Sa môn sống giữa cuộc đời ô nhiễm, phải như hoa sen không bị bùn làm ô nhiễm.",
+     "section": "Chương 29"
+    },
+    {
+     "n": 95,
+     "text": "Nghĩ rằng người (nữ) già như mẹ, người (nữ) lớn tuổi (hơn mình) như chị, người (nữ) nhỏ (hơn mình) như em gái, đứa bé (gái) như con, sinh khởi tâm cứu độ họ được giải thoát.",
+     "section": "Chương 29"
+    },
+    {
+     "n": 96,
+     "text": "Như vậy liền diệt được ý niệm xấu đối với nữ nhân",
+     "section": "Chương 29"
+    },
+    {
+     "n": 97,
+     "text": "Đức Phật dạy: \"Là người tu hành phải coi mình giống như kẻ mang cỏ khô, thấy lửa đến phải tránh, người học Đạo thấy các đối tượng dục lạc phải tránh xa\".",
+     "section": "Chương 30"
+    },
+    {
+     "n": 98,
+     "text": "Đức Phật dạy: \"Có người lo lắng vì lòng dâm dục không dứt nên muốn đoạn âm\".",
+     "section": "Chương 31"
+    },
+    {
+     "n": 99,
+     "text": "Phật dạy rằng: \"Đoạn âm không bằng đoạn tâm.",
+     "section": "Chương 31"
+    },
+    {
+     "n": 100,
+     "text": "Tâm như vị công tào, công tào nếu ngừng thì kẻ tùng sự đều ngừng, tâm tà không ngưng thì đoạn âm có ích lợi gì?",
+     "section": "Chương 31"
+    },
+    {
+     "n": 101,
+     "text": "Phật vì Ông mà nói kệ: \"Dục sinh từ nơi ý.",
+     "section": "Chương 31"
+    },
+    {
+     "n": 102,
+     "text": "Ý do tư tưởng sinh, hai tâm đều tịch lặng, không mê sắc cũng không hành dâm\".",
+     "section": "Chương 31"
+    },
+    {
+     "n": 103,
+     "text": "Phật dạy: \"Bài kệ này do Đức Phật Ca Diếp nói\".",
+     "section": "Chương 31"
+    },
+    {
+     "n": 104,
+     "text": "Con người do ái dục mà sinh sầu ưu, do sầu ưu mà sinh sợ hãi.",
+     "section": "Chương 32"
+    },
+    {
+     "n": 105,
+     "text": "Nếu thoát ly ái dục, thì có gì mà sầu ưu, có gì mà sợ hãi.",
+     "section": "Chương 32"
+    },
+    {
+     "n": 106,
+     "text": "Đức Phật dạy: \"Người tu hành theo Đạo như một người chiến đấu với vạn người.",
+     "section": "Chương 33"
+    },
+    {
+     "n": 107,
+     "text": "Mặc áo giáp ra cửa, tâm ý hoặc khiếp nhược, hoặc đi nửa đường thối lui, hoặc chiến đấu đến chết, hoặc đắc thắng mà về.",
+     "section": "Chương 33"
+    },
+    {
+     "n": 108,
+     "text": "Người Sa môn học Đạo (cũng vậy) phải có ý chí kiên cường, dũng mãnh tiến lên, không sợ cảnh tượng trước mắt (làm chướng ngại) phá tan các loài ma để đắc Đạo thành đạo quả\".",
+     "section": "Chương 33"
+    },
+    {
+     "n": 109,
+     "text": "Có một vị Sa môn ban đêm tụng kinh Di giáo của Đức Phật Ca Diếp, tiếng ông ấy buồn bã, như tiếc nuối muốn thoái lui.",
+     "section": "Chương 34"
+    },
+    {
+     "n": 110,
+     "text": "Đức Phật mới hỏi: \"Xưa kia, khi ở nhà ông thường làm nghề gì?\".",
+     "section": "Chương 34"
+    },
+    {
+     "n": 111,
+     "text": "Đáp rằng: \"Thích chơi đàn cầm\". Đức Phật hỏi: \"Khi dây đàn chùng thì sao?\".",
+     "section": "Chương 34"
+    },
+    {
+     "n": 112,
+     "text": "Đáp rằng: \"Không kêu được\". \"Dây đàn căng quá thì sao?\".",
+     "section": "Chương 34"
+    },
+    {
+     "n": 113,
+     "text": "Đáp rằng: \"Tiếng bị mất\". \"Không căng không chùng thì sao?\".",
+     "section": "Chương 34"
+    },
+    {
+     "n": 114,
+     "text": "Đáp: \"Các âm thanh đầy đủ\". Đức Phật dạy: \"Người Sa môn học đạo cũng như vậy, tâm lý được quân bình thì mới đắc Đạo.",
+     "section": "Chương 34"
+    },
+    {
+     "n": 115,
+     "text": "Đối với sự tu Đạo mà căng thẳng quá làm cho thân mệt mỏi, khi thân mệt mỏi thì tâm ý sẽ sinh phiền não.",
+     "section": "Chương 34"
+    },
+    {
+     "n": 116,
+     "text": "Tâm ý đã sinh phiền não thì công hạnh sẽ thoái lui.",
+     "section": "Chương 34"
+    },
+    {
+     "n": 117,
+     "text": "Khi công hạnh đã thoái lui, thì tội lỗi tăng trưởng.",
+     "section": "Chương 34"
+    },
+    {
+     "n": 118,
+     "text": "Chỉ có sự thanh tịnh và an lạc, Đạo mới không mất được\".",
+     "section": "Chương 34"
+    },
+    {
+     "n": 119,
+     "text": "Đức Phật dạy: \"Như người luyện sắt gạn lọc phần cặn bã, còn lại sắt tinh luyện, chế tạo đồ dùng một cách tinh xảo.",
+     "section": "Chương 35"
+    },
+    {
+     "n": 120,
+     "text": "Người học đạo phải loại bỏ tâm lý ô nhiễm đi thì công hạnh trở nên thanh tịnh\".",
+     "section": "Chương 35"
+    },
+    {
+     "n": 121,
+     "text": "Đức Phật dạy: \"Kẻ thoát được ác đạo được sinh làm người là khó.",
+     "section": "Chương 36"
+    },
+    {
+     "n": 122,
+     "text": "Được làm người mà thoát được thân nữ làm thân nam là khó.",
+     "section": "Chương 36"
+    },
+    {
+     "n": 123,
+     "text": "Làm được thân nam mà sáu giác quan đầy đủ là khó.",
+     "section": "Chương 36"
+    },
+    {
+     "n": 124,
+     "text": "Sáu giác quan đầy đủ mà sinh vào xứ trung tâm là khó.",
+     "section": "Chương 36"
+    },
+    {
+     "n": 125,
+     "text": "Sinh vào xứ trung tâm mà được gặp thời Phật là khó.",
+     "section": "Chương 36"
+    },
+    {
+     "n": 126,
+     "text": "Đã gặp thời Phật mà gặp được Đạo là khó.",
+     "section": "Chương 36"
+    },
+    {
+     "n": 127,
+     "text": "Khởi được niềm tin mà phát tâm Bồ đề là khó.",
+     "section": "Chương 36"
+    },
+    {
+     "n": 128,
+     "text": "Phát tâm Bồ đề mà đạt đến chỗ vô tu vô chứng là khó\".",
+     "section": "Chương 36"
+    },
+    {
+     "n": 129,
+     "text": "Đức Phật dạy: \"Đệ tử của ta tuy ở xa ta vài nghìn dặm, luôn nghĩ đến giới pháp của ta thì chắc chắn sẽ chứng được đạo quả.",
+     "section": "Chương 37"
+    },
+    {
+     "n": 130,
+     "text": "Ở gần bên ta, tuy thường gặp mà ta không thực hành theo giới pháp của ta, cuối cùng vẫn không chứng được Đạo.",
+     "section": "Chương 37"
+    },
+    {
+     "n": 131,
+     "text": "Đức Phật hỏi một vị Sa môn: \"Sinh mạng của con người tồn tại bao lâu?\".",
+     "section": "Chương 38"
+    },
+    {
+     "n": 132,
+     "text": "Đáp rằng: \"Trong vài ngày\". Phật nói: \"Ông chưa hiểu Đạo\".",
+     "section": "Chương 38"
+    },
+    {
+     "n": 133,
+     "text": "Đức Phật lại hỏi một vị Sa môn khác \"Sinh mạng con người tồn tại bao lâu?\".",
+     "section": "Chương 38"
+    },
+    {
+     "n": 134,
+     "text": "Đáp: \"Khoảng một bữa ăn\". Phật nói: \"Ông chưa hiểu Đạo\".",
+     "section": "Chương 38"
+    },
+    {
+     "n": 135,
+     "text": "Đức Phật lại hỏi một vị Sa môn khác nữa: \"Sinh mạng con người tồn tại bao lâu?\".",
+     "section": "Chương 38"
+    },
+    {
+     "n": 136,
+     "text": "Đáp: \"Khoảng một hơi thở\". Phật khen: \"Hay lắm! Ông là người hiểu Đạo\".",
+     "section": "Chương 38"
+    },
+    {
+     "n": 137,
+     "text": "Đức Phật dạy: \"Người tu học theo con đường của Phật thì phải tin tưởng và thực hành những lời Phật dạy.",
+     "section": "Chương 39"
+    },
+    {
+     "n": 138,
+     "text": "Thí dụ ăn mật, ở giữa hay chung quanh bát đều ngọt.",
+     "section": "Chương 39"
+    },
+    {
+     "n": 139,
+     "text": "Giáo pháp của ta cũng vậy\" (đều có vị ngọt giải thoát).",
+     "section": "Chương 39"
+    },
+    {
+     "n": 140,
+     "text": "Đức Phật dạy: \"Sa môn hành đạo đừng như con trâu kéo vất vả; thân tuy có tu tập mà tâm không tu tập.",
+     "section": "Chương 40"
+    },
+    {
+     "n": 141,
+     "text": "Nếu tâm có tu tập thì không cần thân tu tập (hình thức bên ngoài).",
+     "section": "Chương 40"
+    },
+    {
+     "n": 142,
+     "text": "Đức Phật dạy: \"Người hành Đạo giống như con trâu chở nặng đi trong bùn sâu, mệt lắm mà không dám nhìn hai bên, ra khỏi bùn lầy rồi mới có thể nghỉ ngơi.",
+     "section": "Chương 41"
+    },
+    {
+     "n": 143,
+     "text": "Người Sa môn phải luôn quán chiếu tình dục còn hơn bùn lầy, một lòng nhớ Đạo mới có thể khỏi bị khổ vậy.",
+     "section": "Chương 41"
+    },
+    {
+     "n": 144,
+     "text": "Đức Phật dạy: \"Ta xem địa vị vương hầu như bụi qua kẽ hở, đem vàng ngọc quý giá như ngói gạch, xem y phục tơ lụa như giẻ rách, xem đại thiên thế giới như một hạt cải, xem cửa phương tiện như các vật quý giá hóa hiện,",
+     "section": "Chương 42"
+    },
+    {
+     "n": 145,
+     "text": "xem pháp vô thượng thừa như mộng thấy vàng bạc lụa là, xem Phật đạo như hoa đốm trước mắt, xem thiền định như núi Tu Di, xem Niết Bàn như ngày đêm đều thức, xem phải trái như sáu con rồng múa,",
+     "section": "Chương 42"
+    },
+    {
+     "n": 146,
+     "text": "xem pháp bình đẳng như nhất chân địa, xem sự thịnh suy như cây cỏ 4 mùa\".",
+     "section": "Chương 42"
+    }
+   ]
+  }
+ ]
+}

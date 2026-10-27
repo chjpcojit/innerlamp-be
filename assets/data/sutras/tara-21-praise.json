@@ -1,0 +1,1760 @@
+{
+ "id": "tara-21-praise",
+ "tradition": "VAJRAYANA",
+ "kind": "VERSE",
+ "collection": "Mật tông / Tara",
+ "reference": "Toh 438, Derge Kangyur vol. 81 (rgyud, ca): 42b.3-43b.6",
+ "summary": "Bài tán thán Hai mươi mốt Độ Mẫu (Tara), trong Kangyur Tây Tạng (Toh 438), mở đầu bằng lễ kính Thánh Mẫu Tara. Mỗi đoạn kính lễ một hình tướng của Mẫu cùng đức tính như mau lẹ, dũng mãnh, trừ sợ hãi. Phần cuối nói về lợi ích khi tụng bài tán này, theo lời của chính văn bản. Được dùng phổ biến trong truyền thống Tây Tạng để tán thán và cầu nguyện Tara.",
+ "titles": {
+  "vi": "Tán Thán 21 Độ Mẫu",
+  "bo": "སྒྲོལ་མ་ལ་ཕྱག་འཚལ་ཉི་ཤུ་རྩ་གཅིག་གིས་བསྟོད་པ་ཕན་ཡོན་དང་བཅས་པ།",
+  "sa": "Tārā-namas-kāraika-viṃśati-stotra-guṇa-hita-sahita",
+  "en": "The Praise to Tārā with Twenty-One Verses of Homage"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_tara_green",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [],
+ "durationMinutes": 29,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Samye Translations (Stefan Mang, Peter Woods, Ryan Conlon; ed. Libby Hogg), with Adam Pearcey; revised with Rigpa Translations, 2025",
+   "sourceName": "Lotsawa House - The Praise to Tara with Twenty-One Verses of Homage (Toh 438)",
+   "sourceUrl": "https://www.lotsawahouse.org/words-of-the-buddha/twenty-one-tara-praise",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Trailing verse numbers \"(n)\" moved into the section field; footnote markers removed.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Oṃ. Homage to the noble lady Tārā!",
+     "section": "Opening salutation"
+    },
+    {
+     "n": 2,
+     "text": "Homage to Tārā, swift and valiant,",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 3,
+     "text": "Homage to Tuttārā, who banishes fear,",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 4,
+     "text": "Homage to Turā, who fulfils every need,",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 5,
+     "text": "With svāhā we offer you honor and praise!",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 6,
+     "text": "Homage to Tārā, swift and valiant,",
+     "section": "Verse 1"
+    },
+    {
+     "n": 7,
+     "text": "Whose glance flashes like flares of lightning;",
+     "section": "Verse 1"
+    },
+    {
+     "n": 8,
+     "text": "Born on the heart of a blossoming lotus",
+     "section": "Verse 1"
+    },
+    {
+     "n": 9,
+     "text": "That rose from the tears of the Triple World’s Lord.",
+     "section": "Verse 1"
+    },
+    {
+     "n": 10,
+     "text": "Homage to the one whose countenance is",
+     "section": "Verse 2"
+    },
+    {
+     "n": 11,
+     "text": "A hundred full moons gathered in autumn,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 12,
+     "text": "Smiling and glowing with brilliant radiance,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 13,
+     "text": "Like a thousand stars clustered, ablaze.",
+     "section": "Verse 2"
+    },
+    {
+     "n": 14,
+     "text": "Homage, golden lady, whose lotus-hand",
+     "section": "Verse 3"
+    },
+    {
+     "n": 15,
+     "text": "Is graced with a blue water-born flower.",
+     "section": "Verse 3"
+    },
+    {
+     "n": 16,
+     "text": "You embody generosity, diligence, endurance,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 17,
+     "text": "Serenity, patience and meditation.",
+     "section": "Verse 3"
+    },
+    {
+     "n": 18,
+     "text": "Homage to the one whose victories are endless,",
+     "section": "Verse 4"
+    },
+    {
+     "n": 19,
+     "text": "Jewel on the great Tathāgata’s crown.",
+     "section": "Verse 4"
+    },
+    {
+     "n": 20,
+     "text": "You are well served by the heirs of the Victors,",
+     "section": "Verse 4"
+    },
+    {
+     "n": 21,
+     "text": "Those who’ve accomplished all the perfections.",
+     "section": "Verse 4"
+    },
+    {
+     "n": 22,
+     "text": "Homage to the one who, with tuttāra and hūṃ,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 23,
+     "text": "Fills desire realms unto the ends of space.",
+     "section": "Verse 5"
+    },
+    {
+     "n": 24,
+     "text": "You trample underfoot the seven worlds,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 25,
+     "text": "And have the strength to summon all.",
+     "section": "Verse 5"
+    },
+    {
+     "n": 26,
+     "text": "Homage to the one, praised by Indra,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 27,
+     "text": "Agni, Brahmā, Maruts, and Śiva.",
+     "section": "Verse 6"
+    },
+    {
+     "n": 28,
+     "text": "All the hosts of bhūtas, vetālas,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 29,
+     "text": "Gandharvas and yakṣas pay tribute to you.",
+     "section": "Verse 6"
+    },
+    {
+     "n": 30,
+     "text": "Homage to the one who, with traṭ and phaṭ,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 31,
+     "text": "Crushes the enemies’ yantras to dust.",
+     "section": "Verse 7"
+    },
+    {
+     "n": 32,
+     "text": "With right leg bent in and left leg extended,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 33,
+     "text": "Shining you tread amidst a turbulent blaze.",
+     "section": "Verse 7"
+    },
+    {
+     "n": 34,
+     "text": "Homage to Ture, the fearsome lady,",
+     "section": "Verse 8"
+    },
+    {
+     "n": 35,
+     "text": "Destroyer of the most powerful demons.",
+     "section": "Verse 8"
+    },
+    {
+     "n": 36,
+     "text": "With a lotus-face and a deep-furrowed brow,",
+     "section": "Verse 8"
+    },
+    {
+     "n": 37,
+     "text": "You are the slayer of each and every foe.",
+     "section": "Verse 8"
+    },
+    {
+     "n": 38,
+     "text": "Homage to the one whose fingers grace",
+     "section": "Verse 9"
+    },
+    {
+     "n": 39,
+     "text": "Her heart and display the Three Jewels mudrā.",
+     "section": "Verse 9"
+    },
+    {
+     "n": 40,
+     "text": "You’re graced by wheels adorning every direction,",
+     "section": "Verse 9"
+    },
+    {
+     "n": 41,
+     "text": "With dazzling radiance that overwhelms all.",
+     "section": "Verse 9"
+    },
+    {
+     "n": 42,
+     "text": "Homage to the one, supremely joyous,",
+     "section": "Verse 10"
+    },
+    {
+     "n": 43,
+     "text": "Whose splendorous crown spreads garlands of light.",
+     "section": "Verse 10"
+    },
+    {
+     "n": 44,
+     "text": "Smiling and laughing, with tuttāre",
+     "section": "Verse 10"
+    },
+    {
+     "n": 45,
+     "text": "You bring demons and worlds under control.",
+     "section": "Verse 10"
+    },
+    {
+     "n": 46,
+     "text": "Homage to the one who can summon",
+     "section": "Verse 11"
+    },
+    {
+     "n": 47,
+     "text": "The hosts of earthly guardians.",
+     "section": "Verse 11"
+    },
+    {
+     "n": 48,
+     "text": "Your frown it quivers, and the syllable hūṃ",
+     "section": "Verse 11"
+    },
+    {
+     "n": 49,
+     "text": "Delivers us all from every misfortune.",
+     "section": "Verse 11"
+    },
+    {
+     "n": 50,
+     "text": "Homage to the one, so brightly adorned,",
+     "section": "Verse 12"
+    },
+    {
+     "n": 51,
+     "text": "Who has a sliver of moon for a crown,",
+     "section": "Verse 12"
+    },
+    {
+     "n": 52,
+     "text": "Your locks are graced by Amitābha,",
+     "section": "Verse 12"
+    },
+    {
+     "n": 53,
+     "text": "Whose gleaming rays stream forever forth.",
+     "section": "Verse 12"
+    },
+    {
+     "n": 54,
+     "text": "Homage to the one in a blazing halo",
+     "section": "Verse 13"
+    },
+    {
+     "n": 55,
+     "text": "Of flames, all-consuming, apocalyptic—",
+     "section": "Verse 13"
+    },
+    {
+     "n": 56,
+     "text": "Your right leg stretched out and left leg bent inward,",
+     "section": "Verse 13"
+    },
+    {
+     "n": 57,
+     "text": "The whirl of enemies blissfully crushing.",
+     "section": "Verse 13"
+    },
+    {
+     "n": 58,
+     "text": "Homage to the one who strikes the ground",
+     "section": "Verse 14"
+    },
+    {
+     "n": 59,
+     "text": "With her palms and stamps her feet—",
+     "section": "Verse 14"
+    },
+    {
+     "n": 60,
+     "text": "Your brow deeply furrowed, with hūṃ you smash",
+     "section": "Verse 14"
+    },
+    {
+     "n": 61,
+     "text": "The seven netherworlds to nothing but dust.",
+     "section": "Verse 14"
+    },
+    {
+     "n": 62,
+     "text": "Homage to the one, blissful, gracious and tranquil,",
+     "section": "Verse 15"
+    },
+    {
+     "n": 63,
+     "text": "Whose domain is the peace of nirvāṇa.",
+     "section": "Verse 15"
+    },
+    {
+     "n": 64,
+     "text": "With oṃ and svāhā in perfect union,",
+     "section": "Verse 15"
+    },
+    {
+     "n": 65,
+     "text": "You destroy every terrible evil.",
+     "section": "Verse 15"
+    },
+    {
+     "n": 66,
+     "text": "Homage to the one, immersed in rapture,",
+     "section": "Verse 16"
+    },
+    {
+     "n": 67,
+     "text": "Who shatters the bodies of all foes.",
+     "section": "Verse 16"
+    },
+    {
+     "n": 68,
+     "text": "You manifest from the wisdom-syllable hūṃ,",
+     "section": "Verse 16"
+    },
+    {
+     "n": 69,
+     "text": "And display each of your mantra’s ten syllables.",
+     "section": "Verse 16"
+    },
+    {
+     "n": 70,
+     "text": "Homage to Ture, her feet stomping boldly,",
+     "section": "Verse 17"
+    },
+    {
+     "n": 71,
+     "text": "Formed from the seed of the syllable hūṃ.",
+     "section": "Verse 17"
+    },
+    {
+     "n": 72,
+     "text": "The mountains of Meru, Mandara and Vindhya,",
+     "section": "Verse 17"
+    },
+    {
+     "n": 73,
+     "text": "And all the three worlds, you cause them to quake.",
+     "section": "Verse 17"
+    },
+    {
+     "n": 74,
+     "text": "Homage to the one, who holds in her hand",
+     "section": "Verse 18"
+    },
+    {
+     "n": 75,
+     "text": "A deer-marked moon like a divine lake.",
+     "section": "Verse 18"
+    },
+    {
+     "n": 76,
+     "text": "With tāra twice and then with phaṭ,",
+     "section": "Verse 18"
+    },
+    {
+     "n": 77,
+     "text": "You totally cleanse all of the poisons.",
+     "section": "Verse 18"
+    },
+    {
+     "n": 78,
+     "text": "Homage to the one, who is honored by kings",
+     "section": "Verse 19"
+    },
+    {
+     "n": 79,
+     "text": "Of hosts divine, gods and kiṃnaras;",
+     "section": "Verse 19"
+    },
+    {
+     "n": 80,
+     "text": "Clad in your armour of joy and splendour,",
+     "section": "Verse 19"
+    },
+    {
+     "n": 81,
+     "text": "You clear away nightmares, soothe away strife.",
+     "section": "Verse 19"
+    },
+    {
+     "n": 82,
+     "text": "Homage to the one whose eyes shine with lustre,",
+     "section": "Verse 20"
+    },
+    {
+     "n": 83,
+     "text": "Bright with the fullness of the sun and moon;",
+     "section": "Verse 20"
+    },
+    {
+     "n": 84,
+     "text": "With twice-uttered hara and then with tuttāre",
+     "section": "Verse 20"
+    },
+    {
+     "n": 85,
+     "text": "You pacify even the cruelest of diseases.",
+     "section": "Verse 20"
+    },
+    {
+     "n": 86,
+     "text": "Homage to the one with the power to free,",
+     "section": "Verse 21"
+    },
+    {
+     "n": 87,
+     "text": "Who puts forth the realities as a set of three.",
+     "section": "Verse 21"
+    },
+    {
+     "n": 88,
+     "text": "Supreme Ture, you completely destroy",
+     "section": "Verse 21"
+    },
+    {
+     "n": 89,
+     "text": "The hordes of grahas, vetālas, and yakṣas.",
+     "section": "Verse 21"
+    },
+    {
+     "n": 90,
+     "text": "This Praise with the twenty-one verses of homage",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 91,
+     "text": "Is itself the root mantra.",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 92,
+     "text": "The wise who recite these words in earnest,",
+     "section": "Verse 22"
+    },
+    {
+     "n": 93,
+     "text": "Filled with genuine devotion for this goddess,",
+     "section": "Verse 22"
+    },
+    {
+     "n": 94,
+     "text": "At dusk, and also having risen at dawn,",
+     "section": "Verse 23"
+    },
+    {
+     "n": 95,
+     "text": "With recollection, will be granted fearlessness;",
+     "section": "Verse 23"
+    },
+    {
+     "n": 96,
+     "text": "They will utterly eliminate all misdeeds,",
+     "section": "Verse 23"
+    },
+    {
+     "n": 97,
+     "text": "And surmount all evil destinies.",
+     "section": "Verse 23"
+    },
+    {
+     "n": 98,
+     "text": "Seventy million victorious buddhas",
+     "section": "Verse 24"
+    },
+    {
+     "n": 99,
+     "text": "Will swiftly confer empowerment upon them,",
+     "section": "Verse 24"
+    },
+    {
+     "n": 100,
+     "text": "And they will attain greatness in this world,",
+     "section": "Verse 24"
+    },
+    {
+     "n": 101,
+     "text": "And reach the ultimate state of buddhahood.",
+     "section": "Verse 24"
+    },
+    {
+     "n": 102,
+     "text": "Even the most powerful and toxic poisons,",
+     "section": "Verse 25"
+    },
+    {
+     "n": 103,
+     "text": "Which derive from plants or living beings,",
+     "section": "Verse 25"
+    },
+    {
+     "n": 104,
+     "text": "Whether eaten or taken as a draught,",
+     "section": "Verse 25"
+    },
+    {
+     "n": 105,
+     "text": "Will be purged entirely by recalling this praise.",
+     "section": "Verse 25"
+    },
+    {
+     "n": 106,
+     "text": "Reciting this two or three or seven times",
+     "section": "Verse 26"
+    },
+    {
+     "n": 107,
+     "text": "Will eliminate multitudes of suffering",
+     "section": "Verse 26"
+    },
+    {
+     "n": 108,
+     "text": "Brought about by spirits, pestilence, and poison—",
+     "section": "Verse 26"
+    },
+    {
+     "n": 109,
+     "text": "And this applies even to other beings as well.",
+     "section": "Verse 26"
+    },
+    {
+     "n": 110,
+     "text": "Those who wish for progeny will have them;",
+     "section": "Verse 27"
+    },
+    {
+     "n": 111,
+     "text": "Those who wish for riches will acquire them;",
+     "section": "Verse 27"
+    },
+    {
+     "n": 112,
+     "text": "Each and every wish will hereby be fulfilled,",
+     "section": "Verse 27"
+    },
+    {
+     "n": 113,
+     "text": "And obstacles, entirely vanquished, will be no more.",
+     "section": "Verse 27"
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Anonymous (Kangyur)",
+   "sourceName": "Lotsawa House - The Praise to Tara with Twenty-One Verses of Homage (Toh 438)",
+   "sourceUrl": "https://www.lotsawahouse.org/words-of-the-buddha/twenty-one-tara-praise",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ཨོཾ་རྗེ་བཙུན་མ་འཕགས་མ་སྒྲོལ་མ་ལ་ཕྱག་འཚལ་ལོ། །",
+     "section": "Opening salutation"
+    },
+    {
+     "n": 2,
+     "text": "ཕྱག་འཚལ་ཏཱ་རེ་མྱུར་མ་དཔའ་མོ། །",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 3,
+     "text": "ཏུཏྟཱ་ར་ཡིས་འཇིགས་པ་སེལ་མ། །",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 4,
+     "text": "ཏུ་རེས་དོན་ཀུན་སྦྱིན་པས་སྒྲོལ་མ། །",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 5,
+     "text": "སྭཱ་ཧཱའི་ཡི་གེ་ཁྱོད་ལ་འདུད་དོ། །",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 6,
+     "text": "ཕྱག་འཚལ་སྒྲོལ་མ་མྱུར་མ་དཔའ་མོ། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 7,
+     "text": "སྤྱན་ནི་སྐད་ཅིག་གློག་དང་འདྲ་མ། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 8,
+     "text": "འཇིག་རྟེན་གསུམ་མགོན་ཆུ་སྐྱེས་ཞལ་གྱི། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 9,
+     "text": "གེ་སར་བྱེ་བ་ལས་ནི་བྱུང་མ། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 10,
+     "text": "ཕྱག་འཚལ་སྟོན་ཀའི་ཟླ་བ་ཀུན་ཏུ། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 11,
+     "text": "གང་བ་བརྒྱ་ནི་བརྩེགས་པའི་ཞལ་མ། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 12,
+     "text": "སྐར་མ་སྟོང་ཕྲག་ཚོགས་པ་རྣམས་ཀྱི། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 13,
+     "text": "རབ་ཏུ་ཕྱེ་བའི་འོད་རབ་འབར་མ། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 14,
+     "text": "ཕྱག་འཚལ་སེར་སྔོ་ཆུ་ནས་སྐྱེས་ཀྱི། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 15,
+     "text": "པདྨས་ཕྱག་ནི་རྣམ་པར་བརྒྱན་མ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 16,
+     "text": "སྦྱིན་པ་བརྩོན་འགྲུས་དཀའ་ཐུབ་ཞི་བ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 17,
+     "text": "བཟོད་པ་བསམ་གཏན་སྤྱོད་ཡུལ་ཉིད་མ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 18,
+     "text": "ཕྱག་འཚལ་དེ་བཞིན་གཤེགས་པའི་གཙུག་ཏོར། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 19,
+     "text": "མཐའ་ཡས་རྣམ་པར་རྒྱལ་བ་སྤྱོད་མ། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 20,
+     "text": "མ་ལུས་ཕ་རོལ་ཕྱིན་པ་ཐོབ་པའི། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 21,
+     "text": "རྒྱལ་བའི་སྲས་ཀྱིས་ཤིན་ཏུ་བསྟེན་མ། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 22,
+     "text": "ཕྱག་འཚལ་ཏུཏྟཱ་ར་ཧཱུྂ་ཡི་གེ །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 23,
+     "text": "འདོད་དང་ཕྱོགས་དང་ནམ་མཁའ་གང་མ། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 24,
+     "text": "འཇིག་རྟེན་བདུན་པོ་ཞབས་ཀྱིས་མནན་ཏེ། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 25,
+     "text": "ལུས་པ་མེད་པར་འགུགས་པར་ནུས་མ། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 26,
+     "text": "ཕྱག་འཚལ་བརྒྱ་བྱིན་མེ་ལྷ་ཚངས་པ། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 27,
+     "text": "རླུང་ལྷ་སྣ་ཚོགས་དབང་ཕྱུག་མཆོད་མ། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 28,
+     "text": "འབྱུང་པོ་རོ་ལངས་དྲི་ཟ་རྣམས་དང་། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 29,
+     "text": "གནོད་སྦྱིན་ཚོགས་ཀྱིས་མདུན་ནས་བསྟོད་མ། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 30,
+     "text": "ཕྱག་འཚལ་ཏྲཊ་ཅེས་བྱ་དང་ཕཊ་ཀྱིས། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 31,
+     "text": "ཕ་རོལ་འཕྲུལ་འཁོར་རབ་ཏུ་འཇོམས་མ། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 32,
+     "text": "གཡས་བསྐུམ་གཡོན་བརྐྱང་ཞབས་ཀྱིས་མནན་ཏེ། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 33,
+     "text": "མེ་འབར་འཁྲུག་པ་ཤིན་ཏུ་འབར་མ། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 34,
+     "text": "ཕྱག་འཚལ་ཏུ་རེ་འཇིགས་པ་ཆེན་པོས། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 35,
+     "text": "བདུད་ཀྱི་དཔའ་བོ་རྣམ་པར་འཇོམས་མ། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 36,
+     "text": "ཆུ་སྐྱེས་ཞལ་ནི་ཁྲོ་གཉེར་ལྡན་མཛད། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 37,
+     "text": "དགྲ་བོ་ཐམས་ཅད་མ་ལུས་གསོད་མ། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 38,
+     "text": "ཕྱག་འཚལ་དཀོན་མཆོག་གསུམ་མཚོན་ཕྱག་རྒྱའི། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 39,
+     "text": "སོར་མོས་ཐུགས་ཀར་རྣམ་པར་བརྒྱན་མ། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 40,
+     "text": "མ་ལུས་ཕྱོགས་ཀྱི་འཁོར་ལོས་བརྒྱན་པའི། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 41,
+     "text": "རང་གི་འོད་ཀྱི་ཚོགས་རྣམས་འཁྲུག་མ། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 42,
+     "text": "ཕྱག་འཚལ་རབ་ཏུ་དགའ་བ་བརྗིད་པའི། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 43,
+     "text": "དབུ་རྒྱན་འོད་ཀྱི་ཕྲེང་བ་སྤེལ་མ། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 44,
+     "text": "བཞད་པ་རབ་བཞད་ཏུཏྟཱ་ར་ཡིས། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 45,
+     "text": "བདུད་དང་འཇིག་རྟེན་དབང་དུ་མཛད་མ། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 46,
+     "text": "ཕྱག་འཚལ་ས་གཞི་སྐྱོང་བའི་ཚོགས་རྣམས། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 47,
+     "text": "ཐམས་ཅད་འགུགས་པར་ནུས་པ་ཉིད་མ། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 48,
+     "text": "ཁྲོ་གཉེར་གཡོ་བའི་ཡི་གེ་ཧཱུྂ་གིས། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 49,
+     "text": "ཕོངས་པ་ཐམས་ཅད་རྣམ་པར་སྒྲོལ་མ། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 50,
+     "text": "ཕྱག་འཚལ་ཟླ་བའི་དུམ་བུའི་དབུ་རྒྱན། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 51,
+     "text": "བརྒྱན་པ་ཐམས་ཅད་ཤིན་ཏུ་འབར་མ། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 52,
+     "text": "རལ་པའི་ཁྲོད་ན་འོད་དཔག་མེད་ལས། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 53,
+     "text": "རྟག་པར་ཤིན་ཏུ་འོད་རབ་མཛད་མ། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 54,
+     "text": "ཕྱག་འཚལ་བསྐལ་པ་ཐ་མའི་མེ་ལྟར། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 55,
+     "text": "འབར་བའི་ཕྲེང་བའི་དབུས་ན་གནས་མ། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 56,
+     "text": "གཡས་བརྐྱང་གཡོན་བསྐུམ་ཀུན་ནས་བསྐོར་དགའི། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 57,
+     "text": "དགྲ་ཡི་དཔུང་ནི་རྣམ་པར་འཇོམས་མ། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 58,
+     "text": "ཕྱག་འཚལ་ས་གཞིའི་ངོས་ལ་ཕྱག་གི །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 59,
+     "text": "མཐིལ་གྱིས་བསྣུན་ཅིང་ཞབས་ཀྱིས་བརྡུང་མ། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 60,
+     "text": "ཁྲོ་གཉེར་ཅན་མཛད་ཡི་གེ་ཧཱུྂ་གིས། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 61,
+     "text": "རིམ་པ་བདུན་པོ་རྣམས་ནི་འགེམས་མ། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 62,
+     "text": "ཕྱག་འཚལ་བདེ་མ་དགེ་མ་ཞི་མ། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 63,
+     "text": "མྱ་ངན་འདས་ཞི་སྤྱོད་ཡུལ་ཉིད་མ། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 64,
+     "text": "སྭཱ་ཧཱ་ཨོཾ་དང་ཡང་དག་ལྡན་པས། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 65,
+     "text": "སྡིག་པ་ཆེན་པོ་འཇོམས་པ་ཉིད་མ། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 66,
+     "text": "ཕྱག་འཚལ་ཀུན་ནས་བསྐོར་རབ་དགའ་བའི། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 67,
+     "text": "དགྲ་ཡི་ལུས་ནི་རབ་ཏུ་འགེམས་མ། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 68,
+     "text": "ཡི་གེ་བཅུ་པའི་ངག་ནི་བཀོད་པའི། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 69,
+     "text": "རིག་པ་ཧཱུྂ་ལས་སྒྲོལ་མ་ཉིད་མ། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 70,
+     "text": "ཕྱག་འཚལ་ཏུ་རེའི་ཞབས་ནི་བརྡབས་པས། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 71,
+     "text": "ཧཱུྂ་གི་རྣམ་པའི་ས་བོན་ཉིད་མ། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 72,
+     "text": "རི་རབ་མནྡ་ར་དང་འབིགས་བྱེད། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 73,
+     "text": "འཇིག་རྟེན་གསུམ་རྣམས་གཡོ་བ་ཉིད་མ། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 74,
+     "text": "ཕྱག་འཚལ་ལྷ་ཡི་མཚོ་ཡི་རྣམ་པའི། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 75,
+     "text": "རི་དྭགས་རྟགས་ཅན་ཕྱག་ན་བསྣམས་མ། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 76,
+     "text": "ཏཱ་ར་གཉིས་བརྗོད་ཕཊ་ཀྱི་ཡི་གེས། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 77,
+     "text": "དུག་རྣམས་མ་ལུས་པར་ནི་སེལ་མ། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 78,
+     "text": "ཕྱག་འཚལ་ལྷ་ཡི་ཚོགས་རྣམས་རྒྱལ་པོ། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 79,
+     "text": "ལྷ་དང་མིའམ་ཅི་ཡིས་བསྟེན་མ། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 80,
+     "text": "ཀུན་ནས་གོ་ཆ་དགའ་བ་བརྗིད་ཀྱིས། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 81,
+     "text": "རྩོད་དང་རྨི་ལམ་ངན་པ་སེལ་མ། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 82,
+     "text": "ཕྱག་འཚལ་ཉི་མ་ཟླ་བ་རྒྱས་པའི། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 83,
+     "text": "སྤྱན་གཉིས་པོ་ལ་འོད་རབ་གསལ་མ། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 84,
+     "text": "ཧ་ར་གཉིས་བརྗོད་ཏུཏྟཱ་ར་ཡིས། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 85,
+     "text": "ཤིན་ཏུ་དྲག་པོའི་རིམས་ནད་སེལ་མ། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 86,
+     "text": "ཕྱག་འཚལ་དེ་ཉིད་གསུམ་རྣམས་བཀོད་པས། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 87,
+     "text": "ཞི་བའི་མཐུ་དང་ཡང་དག་ལྡན་མ། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 88,
+     "text": "གདོན་དང་རོ་ལངས་གནོད་སྦྱིན་ཚོགས་རྣམས། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 89,
+     "text": "འཇོམས་པ་ཏུ་རེ་རབ་མཆོག་ཉིད་མ། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 90,
+     "text": "རྩ་བའི་སྔགས་ཀྱི་བསྟོད་པ་འདི་དང་། །",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 91,
+     "text": "ཕྱག་འཚལ་བ་ནི་ཉི་ཤུ་རྩ་གཅིག །",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 92,
+     "text": "ལྷ་མོ་ལ་གུས་ཡང་དག་ལྡན་པའི། །",
+     "section": "Verse 22"
+    },
+    {
+     "n": 93,
+     "text": "བློ་ལྡན་གང་གིས་རབ་དང་བརྗོད་དེ། །",
+     "section": "Verse 22"
+    },
+    {
+     "n": 94,
+     "text": "སྲོད་དང་ཐོ་རངས་ལངས་པར་བྱས་ནས། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 95,
+     "text": "དྲན་པས་མི་འཇིགས་ཐམས་ཅད་རབ་སྟེར། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 96,
+     "text": "སྡིག་པ་ཐམས་ཅད་རབ་ཏུ་ཞི་བྱེད། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 97,
+     "text": "ངན་འགྲོ་ཐམས་ཅད་འཇོམས་པ་ཉིད་དོ། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 98,
+     "text": "རྒྱལ་བ་བྱེ་བ་ཕྲག་བདུན་རྣམས་ཀྱིས། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 99,
+     "text": "མྱུར་དུ་དབང་ནི་བསྐུར་བར་འགྱུར་ལ། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 100,
+     "text": "འདི་ལས་ཆེ་བ་ཉིད་ནི་ཐོབ་ཅིང༌། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 101,
+     "text": "སངས་རྒྱས་གོ་འཕང་མཐར་ཐུག་དེར་འགྲོ། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 102,
+     "text": "དེ་ཡི་དུག་ནི་དྲག་པོ་ཆེན་པོ། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 103,
+     "text": "བརྟན་གནས་པའམ་གཞན་ཡང་འགྲོ་བ། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 104,
+     "text": "ཟོས་པ་དང་ནི་འཐུངས་པ་ཉིད་ཀྱང༌། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 105,
+     "text": "དྲན་པས་རབ་ཏུ་སེལ་བ་ཉིད་ཐོབ། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 106,
+     "text": "གདོན་དང་རིམས་དང་དུག་གིས་གཟིར་བའི། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 107,
+     "text": "སྡུག་བསྔལ་ཚོགས་ནི་རྣམ་པར་སྤངས་ཏེ། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 108,
+     "text": "སེམས་ཅན་གཞན་པ་རྣམས་ལ་ཡང་ངོ༌། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 109,
+     "text": "གཉིས་གསུམ་བདུན་དུ་མངོན་པར་བརྗོད་ན། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 110,
+     "text": "བུ་འདོད་པས་ནི་བུ་ཐོབ་འགྱུར་ཞིང༌། །",
+     "section": "Verse 27"
+    },
+    {
+     "n": 111,
+     "text": "ནོར་འདོད་པས་ནི་ནོར་རྣམས་ཉིད་ཐོབ། །",
+     "section": "Verse 27"
+    },
+    {
+     "n": 112,
+     "text": "འདོད་པ་ཐམས་ཅད་ཐོབ་པར་འགྱུར་ལ། །",
+     "section": "Verse 27"
+    },
+    {
+     "n": 113,
+     "text": "བགེགས་རྣམས་མེད་ཅིང་སོ་སོར་འཇོམས་འགྱུར། །",
+     "section": "Verse 27"
+    }
+   ]
+  },
+  {
+   "key": "bo-chant",
+   "lang": "bo",
+   "variant": "chant",
+   "translator": "Lotsawa House",
+   "sourceName": "Lotsawa House - The Praise to Tara with Twenty-One Verses of Homage (Toh 438)",
+   "sourceUrl": "https://www.lotsawahouse.org/words-of-the-buddha/twenty-one-tara-praise",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Latin-script phonetic rendering of the Tibetan pronunciation, as given on the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "om jetsünma pakma drolma la chaktsal lo",
+     "section": "Opening salutation"
+    },
+    {
+     "n": 2,
+     "text": "chaktsal taré nyurma pamo",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 3,
+     "text": "tuttara yi jikpa selma",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 4,
+     "text": "turé dön kün jinpé drolma",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 5,
+     "text": "sa hé yigé khyö la dü do",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 6,
+     "text": "chaktsal drolma nyurma pamo",
+     "section": "Verse 1"
+    },
+    {
+     "n": 7,
+     "text": "chen ni kechik lok dang dra ma",
+     "section": "Verse 1"
+    },
+    {
+     "n": 8,
+     "text": "jikten sum gön chukyé zhal gyi",
+     "section": "Verse 1"
+    },
+    {
+     "n": 9,
+     "text": "gesar jewa lé ni jung ma",
+     "section": "Verse 1"
+    },
+    {
+     "n": 10,
+     "text": "chaktsal tönké dawa küntu",
+     "section": "Verse 2"
+    },
+    {
+     "n": 11,
+     "text": "gangwa gya ni tsekpé zhal ma",
+     "section": "Verse 2"
+    },
+    {
+     "n": 12,
+     "text": "karma tongtrak tsokpa nam kyi",
+     "section": "Verse 2"
+    },
+    {
+     "n": 13,
+     "text": "rabtu chewé ö rab bar ma",
+     "section": "Verse 2"
+    },
+    {
+     "n": 14,
+     "text": "chaktsal ser ngo chu né kyé kyi",
+     "section": "Verse 3"
+    },
+    {
+     "n": 15,
+     "text": "pemé chak ni nampar gyen ma",
+     "section": "Verse 3"
+    },
+    {
+     "n": 16,
+     "text": "jinpa tsöndrü katub zhiwa",
+     "section": "Verse 3"
+    },
+    {
+     "n": 17,
+     "text": "zöpa samten chöyul nyi ma",
+     "section": "Verse 3"
+    },
+    {
+     "n": 18,
+     "text": "chaktsal dezhin shekpé tsuktor",
+     "section": "Verse 4"
+    },
+    {
+     "n": 19,
+     "text": "tayé nampar gyalwa chö ma",
+     "section": "Verse 4"
+    },
+    {
+     "n": 20,
+     "text": "malü parol chinpa tobpé",
+     "section": "Verse 4"
+    },
+    {
+     "n": 21,
+     "text": "gyalwé sé kyi shintu ten ma",
+     "section": "Verse 4"
+    },
+    {
+     "n": 22,
+     "text": "chaktsal tuttara hung yigé",
+     "section": "Verse 5"
+    },
+    {
+     "n": 23,
+     "text": "dö dang chok dang namkha gang ma",
+     "section": "Verse 5"
+    },
+    {
+     "n": 24,
+     "text": "jikten dünpo zhab kyi nen té",
+     "section": "Verse 5"
+    },
+    {
+     "n": 25,
+     "text": "lüpa mepar gukpar nü ma",
+     "section": "Verse 5"
+    },
+    {
+     "n": 26,
+     "text": "chaktsal gyajin melha tsangpa",
+     "section": "Verse 6"
+    },
+    {
+     "n": 27,
+     "text": "lunglha natsok wangchuk chö ma",
+     "section": "Verse 6"
+    },
+    {
+     "n": 28,
+     "text": "jungpo rolang driza nam dang",
+     "section": "Verse 6"
+    },
+    {
+     "n": 29,
+     "text": "nöjin tsok kyi dün né tö ma",
+     "section": "Verse 6"
+    },
+    {
+     "n": 30,
+     "text": "chaktsal tré cheja dang pé kyi",
+     "section": "Verse 7"
+    },
+    {
+     "n": 31,
+     "text": "parol trulkhor rabtu jom ma",
+     "section": "Verse 7"
+    },
+    {
+     "n": 32,
+     "text": "yé kum yön kyang zhab kyi nen té",
+     "section": "Verse 7"
+    },
+    {
+     "n": 33,
+     "text": "mebar trukpa shintu bar ma",
+     "section": "Verse 7"
+    },
+    {
+     "n": 34,
+     "text": "chaktsal turé jikpa chenpö",
+     "section": "Verse 8"
+    },
+    {
+     "n": 35,
+     "text": "dü kyi pawo nampar jom ma",
+     "section": "Verse 8"
+    },
+    {
+     "n": 36,
+     "text": "chukyé zhal ni tronyer den dzé",
+     "section": "Verse 8"
+    },
+    {
+     "n": 37,
+     "text": "drawo tamché malü sö ma",
+     "section": "Verse 8"
+    },
+    {
+     "n": 38,
+     "text": "chaktsal könchok sum tsön chakgyé",
+     "section": "Verse 9"
+    },
+    {
+     "n": 39,
+     "text": "sormö tukkar nampar gyen ma",
+     "section": "Verse 9"
+    },
+    {
+     "n": 40,
+     "text": "malü chok kyi khorlö gyenpé",
+     "section": "Verse 9"
+    },
+    {
+     "n": 41,
+     "text": "rang gi ö kyi tsok nam truk ma",
+     "section": "Verse 9"
+    },
+    {
+     "n": 42,
+     "text": "chaktsal rabtu gawa jipé",
+     "section": "Verse 10"
+    },
+    {
+     "n": 43,
+     "text": "ugyen ö kyi trengwa pelma",
+     "section": "Verse 10"
+    },
+    {
+     "n": 44,
+     "text": "zhepa rab zhé tuttara yi",
+     "section": "Verse 10"
+    },
+    {
+     "n": 45,
+     "text": "dü dang jikten wang du dzé ma",
+     "section": "Verse 10"
+    },
+    {
+     "n": 46,
+     "text": "chaktsal sa zhi kyongwé tsok nam",
+     "section": "Verse 11"
+    },
+    {
+     "n": 47,
+     "text": "tamché gukpar nüpa nyi ma",
+     "section": "Verse 11"
+    },
+    {
+     "n": 48,
+     "text": "tronyer yowé yigé hung gi",
+     "section": "Verse 11"
+    },
+    {
+     "n": 49,
+     "text": "pongpa tamché nampar drolma",
+     "section": "Verse 11"
+    },
+    {
+     "n": 50,
+     "text": "chaktsal dawé dumbü ugyen",
+     "section": "Verse 12"
+    },
+    {
+     "n": 51,
+     "text": "gyenpa tamché shintu bar ma",
+     "section": "Verse 12"
+    },
+    {
+     "n": 52,
+     "text": "ralpé trö na öpakmé lé",
+     "section": "Verse 12"
+    },
+    {
+     "n": 53,
+     "text": "takpar shintu ö rab dzé ma",
+     "section": "Verse 12"
+    },
+    {
+     "n": 54,
+     "text": "chaktsal kalpa tamé mé tar",
+     "section": "Verse 13"
+    },
+    {
+     "n": 55,
+     "text": "barwé trengwé ü na né ma",
+     "section": "Verse 13"
+    },
+    {
+     "n": 56,
+     "text": "yé kyang yön kum künné kor gé",
+     "section": "Verse 13"
+    },
+    {
+     "n": 57,
+     "text": "dra yi pung ni nampar jom ma",
+     "section": "Verse 13"
+    },
+    {
+     "n": 58,
+     "text": "chaktsal sa zhi ngö la chak gi",
+     "section": "Verse 14"
+    },
+    {
+     "n": 59,
+     "text": "til gyi nün ching zhab kyi dung ma",
+     "section": "Verse 14"
+    },
+    {
+     "n": 60,
+     "text": "tronyer chen dzé yigé hung gi",
+     "section": "Verse 14"
+    },
+    {
+     "n": 61,
+     "text": "rimpa dünpo nam ni gem ma",
+     "section": "Verse 14"
+    },
+    {
+     "n": 62,
+     "text": "chaktsal dé ma gé ma zhi ma",
+     "section": "Verse 15"
+    },
+    {
+     "n": 63,
+     "text": "nya ngen dé zhi chöyul nyi ma",
+     "section": "Verse 15"
+    },
+    {
+     "n": 64,
+     "text": "soha om dang yangdak denpé",
+     "section": "Verse 15"
+    },
+    {
+     "n": 65,
+     "text": "dikpa chenpo jompa nyi ma",
+     "section": "Verse 15"
+    },
+    {
+     "n": 66,
+     "text": "chaktsal künné kor rabga bé",
+     "section": "Verse 16"
+    },
+    {
+     "n": 67,
+     "text": "dra yi lü ni rabtu gem ma",
+     "section": "Verse 16"
+    },
+    {
+     "n": 68,
+     "text": "yigé chupé ngak ni köpé",
+     "section": "Verse 16"
+    },
+    {
+     "n": 69,
+     "text": "rigpa hung lé drölma nyi ma",
+     "section": "Verse 16"
+    },
+    {
+     "n": 70,
+     "text": "chaktsal turé zhab ni dabpé",
+     "section": "Verse 17"
+    },
+    {
+     "n": 71,
+     "text": "hung gi nampé sabön nyi ma",
+     "section": "Verse 17"
+    },
+    {
+     "n": 72,
+     "text": "rirab mendara dang bikjé",
+     "section": "Verse 17"
+    },
+    {
+     "n": 73,
+     "text": "jikten sum nam yowa nyi ma",
+     "section": "Verse 17"
+    },
+    {
+     "n": 74,
+     "text": "chaktsal lha yi tso yi nampé",
+     "section": "Verse 18"
+    },
+    {
+     "n": 75,
+     "text": "ridak takchen chak na nam ma",
+     "section": "Verse 18"
+    },
+    {
+     "n": 76,
+     "text": "tara nyi jö pé kyi yigé",
+     "section": "Verse 18"
+    },
+    {
+     "n": 77,
+     "text": "duk nam malüpar ni selma",
+     "section": "Verse 18"
+    },
+    {
+     "n": 78,
+     "text": "chaktsal lha yi tsok nam gyalpo",
+     "section": "Verse 19"
+    },
+    {
+     "n": 79,
+     "text": "lha dang mi'amchi yi ten ma",
+     "section": "Verse 19"
+    },
+    {
+     "n": 80,
+     "text": "künné gocha gawa ji kyi",
+     "section": "Verse 19"
+    },
+    {
+     "n": 81,
+     "text": "tsö dang milam ngenpa selma",
+     "section": "Verse 19"
+    },
+    {
+     "n": 82,
+     "text": "chaktsal nyima dawa gyepé",
+     "section": "Verse 20"
+    },
+    {
+     "n": 83,
+     "text": "chen nyipo la ö rabsal ma",
+     "section": "Verse 20"
+    },
+    {
+     "n": 84,
+     "text": "hara nyi jö tuttara yi",
+     "section": "Verse 20"
+    },
+    {
+     "n": 85,
+     "text": "shintu drakpö rimné selma",
+     "section": "Verse 20"
+    },
+    {
+     "n": 86,
+     "text": "chaktsal denyi sum nam köpé",
+     "section": "Verse 21"
+    },
+    {
+     "n": 87,
+     "text": "zhiwé tu dang yangdak den ma",
+     "section": "Verse 21"
+    },
+    {
+     "n": 88,
+     "text": "dön dang rolang nöjin tsok nam",
+     "section": "Verse 21"
+    },
+    {
+     "n": 89,
+     "text": "jompa turé rab chok nyi ma",
+     "section": "Verse 21"
+    },
+    {
+     "n": 90,
+     "text": "tsawé ngak kyi töpa di dang",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 91,
+     "text": "chaktsalwa ni nyishu tsa chik",
+     "section": "Closing: benefits of the praise"
+    },
+    {
+     "n": 92,
+     "text": "lhamo la gü yangdak denpé",
+     "section": "Verse 22"
+    },
+    {
+     "n": 93,
+     "text": "loden gang gi rab dang jö dé",
+     "section": "Verse 22"
+    },
+    {
+     "n": 94,
+     "text": "sö dang torang langpar jé né",
+     "section": "Verse 23"
+    },
+    {
+     "n": 95,
+     "text": "drenpé mi jik tamché rab ter",
+     "section": "Verse 23"
+    },
+    {
+     "n": 96,
+     "text": "dikpa tamché rabtu zhijé",
+     "section": "Verse 23"
+    },
+    {
+     "n": 97,
+     "text": "ngendro tamché jompa nyi do",
+     "section": "Verse 23"
+    },
+    {
+     "n": 98,
+     "text": "gyalwa jewa trak dün nam kyi",
+     "section": "Verse 24"
+    },
+    {
+     "n": 99,
+     "text": "nyurdu wang ni kurwar gyur la",
+     "section": "Verse 24"
+    },
+    {
+     "n": 100,
+     "text": "di lé chewa nyi ni tob ching",
+     "section": "Verse 24"
+    },
+    {
+     "n": 101,
+     "text": "sangye gopang tartuk der dro",
+     "section": "Verse 24"
+    },
+    {
+     "n": 102,
+     "text": "dé yi duk ni drakpo chenpo",
+     "section": "Verse 25"
+    },
+    {
+     "n": 103,
+     "text": "ten nepa am zhenyang drowa",
+     "section": "Verse 25"
+    },
+    {
+     "n": 104,
+     "text": "zöpa dang ni tungpa nyi kyang",
+     "section": "Verse 25"
+    },
+    {
+     "n": 105,
+     "text": "drenpé rabtu selwa nyi tob",
+     "section": "Verse 25"
+    },
+    {
+     "n": 106,
+     "text": "dön dang rim dang duk gi zirwé",
+     "section": "Verse 26"
+    },
+    {
+     "n": 107,
+     "text": "dukngal tsok ni nampar pang té",
+     "section": "Verse 26"
+    },
+    {
+     "n": 108,
+     "text": "semchen zhenpa nam la yang ngo",
+     "section": "Verse 26"
+    },
+    {
+     "n": 109,
+     "text": "nyi sum dün du ngönpar jö na",
+     "section": "Verse 26"
+    },
+    {
+     "n": 110,
+     "text": "bu döpé ni bu tob gyur zhing",
+     "section": "Verse 27"
+    },
+    {
+     "n": 111,
+     "text": "nor döpé ni nor nam nyi tob",
+     "section": "Verse 27"
+    },
+    {
+     "n": 112,
+     "text": "döpa tamché tobpar gyur la",
+     "section": "Verse 27"
+    },
+    {
+     "n": 113,
+     "text": "gek nam mé ching sosor jom gyur",
+     "section": "Verse 27"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,882 @@
+{
+ "id": "phap-cu-tap-luc",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 290-305",
+ "summary": "Phẩm gồm các câu kệ ngắn thuộc Kinh Pháp Cú (Tiểu Bộ, Dhp 290–305), gom nhiều đề tài khác nhau. Bài kệ nói về việc bỏ lạc nhỏ để thấy lạc lớn, về hậu quả của sự thù hận và phóng dật, về việc siêng năng giữ niệm thân, và về lối sống một mình tự điều phục, không chán nản. Có thể đọc để suy ngẫm về tinh tấn và tự chế ngự.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Tạp Lục",
+  "pli": "Pakiṇṇakavagga",
+  "en": "Miscellaneous"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 5,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp290-305/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nhờ từ bỏ lạc nhỏ,"
+    },
+    {
+     "n": 2,
+     "text": "Thấy được lạc lớn hơn,"
+    },
+    {
+     "n": 3,
+     "text": "Bậc trí bỏ lạc nhỏ,"
+    },
+    {
+     "n": 4,
+     "text": "Thấy được lạc lớn hơn."
+    },
+    {
+     "n": 5,
+     "text": "Gieo khổ đau cho người,"
+    },
+    {
+     "n": 6,
+     "text": "Mong cầu lạc cho mình,"
+    },
+    {
+     "n": 7,
+     "text": "Bị hận thù buộc ràng"
+    },
+    {
+     "n": 8,
+     "text": "Không sao thoát hận thù."
+    },
+    {
+     "n": 9,
+     "text": "Việc đáng làm, không làm,"
+    },
+    {
+     "n": 10,
+     "text": "Không đáng làm, lại làm,"
+    },
+    {
+     "n": 11,
+     "text": "Người ngạo mạn, phóng dật,"
+    },
+    {
+     "n": 12,
+     "text": "Lậu hoặc ắt tăng trưởng."
+    },
+    {
+     "n": 13,
+     "text": "Người siêng năng cần mẫn,"
+    },
+    {
+     "n": 14,
+     "text": "Thường thường quán thân niệm,"
+    },
+    {
+     "n": 15,
+     "text": "Không làm việc không đáng,"
+    },
+    {
+     "n": 16,
+     "text": "Gắng làm việc đáng làm,"
+    },
+    {
+     "n": 17,
+     "text": "Người tư niệm giác tỉnh,"
+    },
+    {
+     "n": 18,
+     "text": "Lậu hoặc được tiêu trừ."
+    },
+    {
+     "n": 19,
+     "text": "Sau khi giết mẹ cha"
+    },
+    {
+     "n": 20,
+     "text": "Giết hai vua Sát-lỵ"
+    },
+    {
+     "n": 21,
+     "text": "Giết vương quốc, quần thần"
+    },
+    {
+     "n": 22,
+     "text": "Vô ưu, Phạm chí sống."
+    },
+    {
+     "n": 23,
+     "text": "Sau khi giết mẹ cha,"
+    },
+    {
+     "n": 24,
+     "text": "Hai vua Bà-la-môn"
+    },
+    {
+     "n": 25,
+     "text": "Giết hổ tướng thứ năm"
+    },
+    {
+     "n": 26,
+     "text": "Vô ưu, Phạm chí sống."
+    },
+    {
+     "n": 27,
+     "text": "Đệ tử Gotama,"
+    },
+    {
+     "n": 28,
+     "text": "Luôn luôn tự tỉnh giác"
+    },
+    {
+     "n": 29,
+     "text": "Vô luận ngày hay đêm,"
+    },
+    {
+     "n": 30,
+     "text": "Thường tưởng niệm Phật-đà."
+    },
+    {
+     "n": 31,
+     "text": "Đệ tử Gotama,"
+    },
+    {
+     "n": 32,
+     "text": "Luôn luôn tự tỉnh giác,"
+    },
+    {
+     "n": 33,
+     "text": "Vô luận ngày hay đêm,"
+    },
+    {
+     "n": 34,
+     "text": "Thường tưởng niệm Chánh Pháp."
+    },
+    {
+     "n": 35,
+     "text": "Đệ tử Gotama,"
+    },
+    {
+     "n": 36,
+     "text": "Luôn luôn tự tỉnh giác,"
+    },
+    {
+     "n": 37,
+     "text": "Vô luận ngày hay đêm,"
+    },
+    {
+     "n": 38,
+     "text": "Thường tưởng niệm Tăng già."
+    },
+    {
+     "n": 39,
+     "text": "Đệ tử Gotama,"
+    },
+    {
+     "n": 40,
+     "text": "Luôn luôn tự tỉnh giác,"
+    },
+    {
+     "n": 41,
+     "text": "Vô luận ngày hay đêm,"
+    },
+    {
+     "n": 42,
+     "text": "Thường tưởng niệm sắc thân."
+    },
+    {
+     "n": 43,
+     "text": "Đệ tử Gotama,"
+    },
+    {
+     "n": 44,
+     "text": "Luôn luôn tự tỉnh giác,"
+    },
+    {
+     "n": 45,
+     "text": "Vô luận ngày hay đêm,"
+    },
+    {
+     "n": 46,
+     "text": "Ý vui niềm bất hại."
+    },
+    {
+     "n": 47,
+     "text": "Đệ tử Gotama,"
+    },
+    {
+     "n": 48,
+     "text": "Luôn luôn tự tỉnh giác,"
+    },
+    {
+     "n": 49,
+     "text": "Vô luận ngày hay đêm,"
+    },
+    {
+     "n": 50,
+     "text": "Ý vui tu thiền quán."
+    },
+    {
+     "n": 51,
+     "text": "Vui hạnh xuất gia khó,"
+    },
+    {
+     "n": 52,
+     "text": "Tại gia sinh hoạt khó,"
+    },
+    {
+     "n": 53,
+     "text": "Sống bạn không đồng, khổ,"
+    },
+    {
+     "n": 54,
+     "text": "Trôi lăn luân hồi, khổ."
+    },
+    {
+     "n": 55,
+     "text": "Vậy chớ sống luân hồi,"
+    },
+    {
+     "n": 56,
+     "text": "Chớ chạy theo đau khổ."
+    },
+    {
+     "n": 57,
+     "text": "Tín tâm, sống giới hạnh"
+    },
+    {
+     "n": 58,
+     "text": "Đủ danh xưng tài sản,"
+    },
+    {
+     "n": 59,
+     "text": "Chỗ nào người ấy đến,"
+    },
+    {
+     "n": 60,
+     "text": "Chỗ ấy được cung kính."
+    },
+    {
+     "n": 61,
+     "text": "Người lành dầu ở xa"
+    },
+    {
+     "n": 62,
+     "text": "Sáng tỏ như núi tuyết,"
+    },
+    {
+     "n": 63,
+     "text": "Người ác dầu ở gần"
+    },
+    {
+     "n": 64,
+     "text": "Như tên bắn đêm đen."
+    },
+    {
+     "n": 65,
+     "text": "Ai ngồi nằm một mình,"
+    },
+    {
+     "n": 66,
+     "text": "Độc hành không buồn chán,"
+    },
+    {
+     "n": 67,
+     "text": "Tự điều phục một mình"
+    },
+    {
+     "n": 68,
+     "text": "Sống thoải mái rừng sâu."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp290-305/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Mattāsukhapariccāgā,"
+    },
+    {
+     "n": 2,
+     "text": "passe ce vipulaṁ sukhaṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Caje mattāsukhaṁ dhīro,"
+    },
+    {
+     "n": 4,
+     "text": "sampassaṁ vipulaṁ sukhaṁ."
+    },
+    {
+     "n": 5,
+     "text": "Paradukkhūpadhānena,"
+    },
+    {
+     "n": 6,
+     "text": "attano sukhamicchati;"
+    },
+    {
+     "n": 7,
+     "text": "Verasaṁsaggasaṁsaṭṭho,"
+    },
+    {
+     "n": 8,
+     "text": "verā so na parimuccati."
+    },
+    {
+     "n": 9,
+     "text": "Yañhi kiccaṁ apaviddhaṁ,"
+    },
+    {
+     "n": 10,
+     "text": "akiccaṁ pana karīyati;"
+    },
+    {
+     "n": 11,
+     "text": "Unnaḷānaṁ pamattānaṁ,"
+    },
+    {
+     "n": 12,
+     "text": "tesaṁ vaḍḍhanti āsavā."
+    },
+    {
+     "n": 13,
+     "text": "Yesañca susamāraddhā,"
+    },
+    {
+     "n": 14,
+     "text": "niccaṁ kāyagatā sati;"
+    },
+    {
+     "n": 15,
+     "text": "Akiccaṁ te na sevanti,"
+    },
+    {
+     "n": 16,
+     "text": "kicce sātaccakārino;"
+    },
+    {
+     "n": 17,
+     "text": "Satānaṁ sampajānānaṁ,"
+    },
+    {
+     "n": 18,
+     "text": "atthaṁ gacchanti āsavā."
+    },
+    {
+     "n": 19,
+     "text": "Mātaraṁ pitaraṁ hantvā,"
+    },
+    {
+     "n": 20,
+     "text": "rājāno dve ca khattiye;"
+    },
+    {
+     "n": 21,
+     "text": "Raṭṭhaṁ sānucaraṁ hantvā,"
+    },
+    {
+     "n": 22,
+     "text": "anīgho yāti brāhmaṇo."
+    },
+    {
+     "n": 23,
+     "text": "Mātaraṁ pitaraṁ hantvā,"
+    },
+    {
+     "n": 24,
+     "text": "rājāno dve ca sotthiye;"
+    },
+    {
+     "n": 25,
+     "text": "Veyagghapañcamaṁ hantvā,"
+    },
+    {
+     "n": 26,
+     "text": "anīgho yāti brāhmaṇo."
+    },
+    {
+     "n": 27,
+     "text": "Suppabuddhaṁ pabujjhanti,"
+    },
+    {
+     "n": 28,
+     "text": "sadā gotamasāvakā;"
+    },
+    {
+     "n": 29,
+     "text": "Yesaṁ divā ca ratto ca,"
+    },
+    {
+     "n": 30,
+     "text": "niccaṁ buddhagatā sati."
+    },
+    {
+     "n": 31,
+     "text": "Suppabuddhaṁ pabujjhanti,"
+    },
+    {
+     "n": 32,
+     "text": "sadā gotamasāvakā;"
+    },
+    {
+     "n": 33,
+     "text": "Yesaṁ divā ca ratto ca,"
+    },
+    {
+     "n": 34,
+     "text": "niccaṁ dhammagatā sati."
+    },
+    {
+     "n": 35,
+     "text": "Suppabuddhaṁ pabujjhanti,"
+    },
+    {
+     "n": 36,
+     "text": "sadā gotamasāvakā;"
+    },
+    {
+     "n": 37,
+     "text": "Yesaṁ divā ca ratto ca,"
+    },
+    {
+     "n": 38,
+     "text": "niccaṁ saṅghagatā sati."
+    },
+    {
+     "n": 39,
+     "text": "Suppabuddhaṁ pabujjhanti,"
+    },
+    {
+     "n": 40,
+     "text": "sadā gotamasāvakā;"
+    },
+    {
+     "n": 41,
+     "text": "Yesaṁ divā ca ratto ca,"
+    },
+    {
+     "n": 42,
+     "text": "niccaṁ kāyagatā sati."
+    },
+    {
+     "n": 43,
+     "text": "Suppabuddhaṁ pabujjhanti,"
+    },
+    {
+     "n": 44,
+     "text": "sadā gotamasāvakā;"
+    },
+    {
+     "n": 45,
+     "text": "Yesaṁ divā ca ratto ca,"
+    },
+    {
+     "n": 46,
+     "text": "ahiṁsāya rato mano."
+    },
+    {
+     "n": 47,
+     "text": "Suppabuddhaṁ pabujjhanti,"
+    },
+    {
+     "n": 48,
+     "text": "sadā gotamasāvakā;"
+    },
+    {
+     "n": 49,
+     "text": "Yesaṁ divā ca ratto ca,"
+    },
+    {
+     "n": 50,
+     "text": "bhāvanāya rato mano."
+    },
+    {
+     "n": 51,
+     "text": "Duppabbajjaṁ durabhiramaṁ,"
+    },
+    {
+     "n": 52,
+     "text": "Durāvāsā gharā dukhā;"
+    },
+    {
+     "n": 53,
+     "text": "Dukkhosamānasaṁvāso,"
+    },
+    {
+     "n": 54,
+     "text": "Dukkhānupatitaddhagū;"
+    },
+    {
+     "n": 55,
+     "text": "Tasmā na caddhagū siyā,"
+    },
+    {
+     "n": 56,
+     "text": "Na ca dukkhānupatito siyā."
+    },
+    {
+     "n": 57,
+     "text": "Saddho sīlena sampanno,"
+    },
+    {
+     "n": 58,
+     "text": "yasobhogasamappito;"
+    },
+    {
+     "n": 59,
+     "text": "Yaṁ yaṁ padesaṁ bhajati,"
+    },
+    {
+     "n": 60,
+     "text": "tattha tattheva pūjito."
+    },
+    {
+     "n": 61,
+     "text": "Dūre santo pakāsenti,"
+    },
+    {
+     "n": 62,
+     "text": "himavantova pabbato;"
+    },
+    {
+     "n": 63,
+     "text": "Asantettha na dissanti,"
+    },
+    {
+     "n": 64,
+     "text": "rattiṁ khittā yathā sarā."
+    },
+    {
+     "n": 65,
+     "text": "Ekāsanaṁ ekaseyyaṁ,"
+    },
+    {
+     "n": 66,
+     "text": "eko caramatandito;"
+    },
+    {
+     "n": 67,
+     "text": "Eko damayamattānaṁ,"
+    },
+    {
+     "n": 68,
+     "text": "vanante ramito siyā."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp290-305/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "If by giving up material happiness"
+    },
+    {
+     "n": 2,
+     "text": "one sees abundant happiness,"
+    },
+    {
+     "n": 3,
+     "text": "the attentive would give up material happiness,"
+    },
+    {
+     "n": 4,
+     "text": "seeing the abundant happiness."
+    },
+    {
+     "n": 5,
+     "text": "Seeking their own happiness"
+    },
+    {
+     "n": 6,
+     "text": "by imposing suffering on others,"
+    },
+    {
+     "n": 7,
+     "text": "intimate with enmity,"
+    },
+    {
+     "n": 8,
+     "text": "they’re not freed from enmity."
+    },
+    {
+     "n": 9,
+     "text": "They dump what should be done,"
+    },
+    {
+     "n": 10,
+     "text": "and do what should not be done."
+    },
+    {
+     "n": 11,
+     "text": "For the insolent and the negligent,"
+    },
+    {
+     "n": 12,
+     "text": "their defilements only grow."
+    },
+    {
+     "n": 13,
+     "text": "Those that have properly undertaken"
+    },
+    {
+     "n": 14,
+     "text": "constant mindfulness of the body,"
+    },
+    {
+     "n": 15,
+     "text": "don’t cultivate what should not be done,"
+    },
+    {
+     "n": 16,
+     "text": "but always do what should be done."
+    },
+    {
+     "n": 17,
+     "text": "Mindful and aware,"
+    },
+    {
+     "n": 18,
+     "text": "their defilements come to an end."
+    },
+    {
+     "n": 19,
+     "text": "Having slain mother and father,"
+    },
+    {
+     "n": 20,
+     "text": "and two aristocratic kings,"
+    },
+    {
+     "n": 21,
+     "text": "and having wiped out the kingdom with its tax collector,"
+    },
+    {
+     "n": 22,
+     "text": "the brahmin walks on untroubled."
+    },
+    {
+     "n": 23,
+     "text": "Having slain mother and father,"
+    },
+    {
+     "n": 24,
+     "text": "and two prosperous kings,"
+    },
+    {
+     "n": 25,
+     "text": "and a tiger as the fifth,"
+    },
+    {
+     "n": 26,
+     "text": "the brahmin walks on untroubled."
+    },
+    {
+     "n": 27,
+     "text": "The disciples of Gotama"
+    },
+    {
+     "n": 28,
+     "text": "always wake up refreshed,"
+    },
+    {
+     "n": 29,
+     "text": "who day and night"
+    },
+    {
+     "n": 30,
+     "text": "constantly recollect the Buddha."
+    },
+    {
+     "n": 31,
+     "text": "The disciples of Gotama"
+    },
+    {
+     "n": 32,
+     "text": "always wake up refreshed,"
+    },
+    {
+     "n": 33,
+     "text": "who day and night"
+    },
+    {
+     "n": 34,
+     "text": "constantly recollect the teaching."
+    },
+    {
+     "n": 35,
+     "text": "The disciples of Gotama"
+    },
+    {
+     "n": 36,
+     "text": "always wake up refreshed,"
+    },
+    {
+     "n": 37,
+     "text": "who day and night"
+    },
+    {
+     "n": 38,
+     "text": "constantly recollect the Saṅgha."
+    },
+    {
+     "n": 39,
+     "text": "The disciples of Gotama"
+    },
+    {
+     "n": 40,
+     "text": "always wake up refreshed,"
+    },
+    {
+     "n": 41,
+     "text": "who day and night"
+    },
+    {
+     "n": 42,
+     "text": "are constantly mindful of the body."
+    },
+    {
+     "n": 43,
+     "text": "The disciples of Gotama"
+    },
+    {
+     "n": 44,
+     "text": "always wake up refreshed,"
+    },
+    {
+     "n": 45,
+     "text": "whose minds day and night"
+    },
+    {
+     "n": 46,
+     "text": "delight in harmlessness."
+    },
+    {
+     "n": 47,
+     "text": "The disciples of Gotama"
+    },
+    {
+     "n": 48,
+     "text": "always wake up refreshed,"
+    },
+    {
+     "n": 49,
+     "text": "whose minds day and night"
+    },
+    {
+     "n": 50,
+     "text": "delight in meditation."
+    },
+    {
+     "n": 51,
+     "text": "Going forth is hard, it’s hard to be happy;"
+    },
+    {
+     "n": 52,
+     "text": "life at home is hard too, and painful,"
+    },
+    {
+     "n": 53,
+     "text": "it’s painful to stay when you’ve nothing in common."
+    },
+    {
+     "n": 54,
+     "text": "A traveler is a prey to pain,"
+    },
+    {
+     "n": 55,
+     "text": "so don’t be a traveler,"
+    },
+    {
+     "n": 56,
+     "text": "don’t be prey to pain."
+    },
+    {
+     "n": 57,
+     "text": "One who is faithful, accomplished in ethics,"
+    },
+    {
+     "n": 58,
+     "text": "blessed with fame and wealth,"
+    },
+    {
+     "n": 59,
+     "text": "is honored in whatever place"
+    },
+    {
+     "n": 60,
+     "text": "they frequent."
+    },
+    {
+     "n": 61,
+     "text": "The good shine from afar,"
+    },
+    {
+     "n": 62,
+     "text": "like the Himalayan peaks,"
+    },
+    {
+     "n": 63,
+     "text": "but the wicked are not seen,"
+    },
+    {
+     "n": 64,
+     "text": "like arrows scattered in the night."
+    },
+    {
+     "n": 65,
+     "text": "Sitting alone, sleeping alone,"
+    },
+    {
+     "n": 66,
+     "text": "tirelessly wandering alone;"
+    },
+    {
+     "n": 67,
+     "text": "one who tames themselves alone"
+    },
+    {
+     "n": 68,
+     "text": "would delight within a forest."
+    }
+   ]
+  }
+ ]
+}

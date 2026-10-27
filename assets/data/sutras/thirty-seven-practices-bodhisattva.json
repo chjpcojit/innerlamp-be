@@ -1,0 +1,1743 @@
+{
+ "id": "thirty-seven-practices-bodhisattva",
+ "tradition": "VAJRAYANA",
+ "kind": "VERSE",
+ "collection": "Mật tông / Lojong",
+ "reference": "",
+ "author": "Gyalse Tokme Zangpo (1295-1369)",
+ "summary": "Bài kệ của Gyalse Tokme Zangpo (1295-1369), tóm tắt ba mươi bảy pháp hành của Bồ Tát theo truyền thống Tây Tạng. Bài đi từ việc nương thầy tốt, bỏ nhà bỏ cảnh phiền loạn, bỏ ba độc, đến phát bồ đề tâm, tu sáu ba la mật và buông bỏ tham chấp. Nội dung hướng đến lợi ích chúng sinh. Cuối bài là lời hồi hướng và nguyện đạt quả vị như Bồ Tát Quán Thế Âm.",
+ "titles": {
+  "vi": "Ba Mươi Bảy Pháp Hành Bồ Tát",
+  "bo": "རྒྱལ་སྲས་ལག་ལེན་སོ་བདུན་མ།",
+  "sa": "Bodhisattvacaryā-saptatriṃśat",
+  "en": "The Thirty-Seven Practices of All the Bodhisattvas"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 44,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Adam Pearcey, 2006 (revised)",
+   "sourceName": "Lotsawa House - The Thirty-Seven Practices of All the Bodhisattvas",
+   "sourceUrl": "https://www.lotsawahouse.org/tibetan-masters/gyalse-thogme-zangpo/37-practices-all-bodhisattvas",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Stanza numbers moved into the section field.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Namo Lokeśvarāya!"
+    },
+    {
+     "n": 2,
+     "text": "You see that all things are beyond coming and going,"
+    },
+    {
+     "n": 3,
+     "text": "Yet still you strive solely for the sake of living beings—"
+    },
+    {
+     "n": 4,
+     "text": "To you, my precious guru inseparable from Lord Avalokita,"
+    },
+    {
+     "n": 5,
+     "text": "I offer perpetual homage, respectfully, with body, speech and mind."
+    },
+    {
+     "n": 6,
+     "text": "The perfect buddhas, who are the source of all benefit and joy,"
+    },
+    {
+     "n": 7,
+     "text": "Come into being through accomplishing the sacred Dharma."
+    },
+    {
+     "n": 8,
+     "text": "And since this in turn depends on knowing how to practise,"
+    },
+    {
+     "n": 9,
+     "text": "I shall now describe the practices of all the buddhas’ heirs."
+    },
+    {
+     "n": 10,
+     "text": "The practice of all the bodhisattvas is to study, reflect and meditate,",
+     "section": "Verse 1"
+    },
+    {
+     "n": 11,
+     "text": "Tirelessly, both day and night, without ever straying into idleness,",
+     "section": "Verse 1"
+    },
+    {
+     "n": 12,
+     "text": "In order to free oneself and others from this ocean of saṃsāra,",
+     "section": "Verse 1"
+    },
+    {
+     "n": 13,
+     "text": "Having gained this supreme vessel—a free, well-favoured human life, so difficult to find.",
+     "section": "Verse 1"
+    },
+    {
+     "n": 14,
+     "text": "The practice of all the bodhisattvas is to leave behind one’s homeland,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 15,
+     "text": "Where our attachment to family and friends overwhelms us like a torrent,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 16,
+     "text": "While our aversion towards enemies rages inside us like a blazing fire,",
+     "section": "Verse 2"
+    },
+    {
+     "n": 17,
+     "text": "And delusion’s darkness obscures what must be adopted and abandoned.",
+     "section": "Verse 2"
+    },
+    {
+     "n": 18,
+     "text": "The practice of all the bodhisattvas is to take to solitary places,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 19,
+     "text": "Avoiding the unwholesome, so that destructive emotions gradually fade away,",
+     "section": "Verse 3"
+    },
+    {
+     "n": 20,
+     "text": "And, in the absence of distraction, virtuous practice naturally gains strength;",
+     "section": "Verse 3"
+    },
+    {
+     "n": 21,
+     "text": "Whilst, with awareness clearly focused, we gain conviction in the teachings.",
+     "section": "Verse 3"
+    },
+    {
+     "n": 22,
+     "text": "The practice of all the bodhisattvas is to renounce this life’s concerns,",
+     "section": "Verse 4"
+    },
+    {
+     "n": 23,
+     "text": "For friends and relatives, long acquainted, must all go their separate ways;",
+     "section": "Verse 4"
+    },
+    {
+     "n": 24,
+     "text": "Wealth and prized possessions, painstakingly acquired, must all be left behind;",
+     "section": "Verse 4"
+    },
+    {
+     "n": 25,
+     "text": "And consciousness, the guest who lodges in the body, must in time depart.",
+     "section": "Verse 4"
+    },
+    {
+     "n": 26,
+     "text": "The practice of all the bodhisattvas is to avoid destructive friends,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 27,
+     "text": "In whose company the three poisons of the mind grow stronger,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 28,
+     "text": "And we engage less and less in study, reflection and meditation,",
+     "section": "Verse 5"
+    },
+    {
+     "n": 29,
+     "text": "So that love and compassion fade away until they are no more.",
+     "section": "Verse 5"
+    },
+    {
+     "n": 30,
+     "text": "The practice of all the bodhisattvas is to cherish spiritual friends,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 31,
+     "text": "By regarding them as even more precious than one’s own body,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 32,
+     "text": "Since they are the ones who will help to rid us of all our faults,",
+     "section": "Verse 6"
+    },
+    {
+     "n": 33,
+     "text": "And make our virtues grow ever greater just like the waxing moon.",
+     "section": "Verse 6"
+    },
+    {
+     "n": 34,
+     "text": "The practice of all the bodhisattvas is to take refuge in the Three Jewels,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 35,
+     "text": "Since they will never fail to provide protection for all who call upon them,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 36,
+     "text": "For whom are the ordinary gods of this world ever capable of helping,",
+     "section": "Verse 7"
+    },
+    {
+     "n": 37,
+     "text": "As long as they themselves are trapped within saṃsāra’s vicious cycle?",
+     "section": "Verse 7"
+    },
+    {
+     "n": 38,
+     "text": "The practice of all the bodhisattvas is never to commit a harmful act,",
+     "section": "Verse 8"
+    },
+    {
+     "n": 39,
+     "text": "Even though not to do so might put one’s very life at risk,",
+     "section": "Verse 8"
+    },
+    {
+     "n": 40,
+     "text": "For the Sage himself has taught how negative actions will ripen",
+     "section": "Verse 8"
+    },
+    {
+     "n": 41,
+     "text": "Into the manifold miseries of the lower realms, so difficult to endure.",
+     "section": "Verse 8"
+    },
+    {
+     "n": 42,
+     "text": "The practice of all the bodhisattvas is to strive towards the goal,",
+     "section": "Verse 9"
+    },
+    {
+     "n": 43,
+     "text": "Which is the supreme state of changeless, everlasting liberation,",
+     "section": "Verse 9"
+    },
+    {
+     "n": 44,
+     "text": "Since all the happiness of the three realms lasts but a moment,",
+     "section": "Verse 9"
+    },
+    {
+     "n": 45,
+     "text": "And then is quickly gone, just like dewdrops on blades of grass.",
+     "section": "Verse 9"
+    },
+    {
+     "n": 46,
+     "text": "The practice of all the bodhisattvas is to arouse bodhicitta,",
+     "section": "Verse 10"
+    },
+    {
+     "n": 47,
+     "text": "So as to bring freedom to all sentient beings, infinite in number.",
+     "section": "Verse 10"
+    },
+    {
+     "n": 48,
+     "text": "For how can true happiness ever be found while our mothers,",
+     "section": "Verse 10"
+    },
+    {
+     "n": 49,
+     "text": "Who have cared for us throughout the ages, endure such pain?",
+     "section": "Verse 10"
+    },
+    {
+     "n": 50,
+     "text": "The practice of all the bodhisattvas is to make a genuine exchange",
+     "section": "Verse 11"
+    },
+    {
+     "n": 51,
+     "text": "Of one’s own happiness and well-being for all the sufferings of others.",
+     "section": "Verse 11"
+    },
+    {
+     "n": 52,
+     "text": "Since all misery comes from seeking happiness for oneself alone,",
+     "section": "Verse 11"
+    },
+    {
+     "n": 53,
+     "text": "Whilst perfect buddhahood is born from the wish for others’ good.",
+     "section": "Verse 11"
+    },
+    {
+     "n": 54,
+     "text": "Even if others, in the grips of great desire, should steal,",
+     "section": "Verse 12"
+    },
+    {
+     "n": 55,
+     "text": "Or encourage others to take away, all the wealth that I possess,",
+     "section": "Verse 12"
+    },
+    {
+     "n": 56,
+     "text": "To dedicate to them entirely my body, possessions and all my merits",
+     "section": "Verse 12"
+    },
+    {
+     "n": 57,
+     "text": "From the past, present and future— this is the practice of all the bodhisattvas.",
+     "section": "Verse 12"
+    },
+    {
+     "n": 58,
+     "text": "Even if others should seek to cut off my head,",
+     "section": "Verse 13"
+    },
+    {
+     "n": 59,
+     "text": "Though I’ve done them not the slightest wrong,",
+     "section": "Verse 13"
+    },
+    {
+     "n": 60,
+     "text": "To take upon myself, out of compassion,",
+     "section": "Verse 13"
+    },
+    {
+     "n": 61,
+     "text": "All the harms they have amassed—this is the practice of all the bodhisattvas.",
+     "section": "Verse 13"
+    },
+    {
+     "n": 62,
+     "text": "Even if others should declare before the world",
+     "section": "Verse 14"
+    },
+    {
+     "n": 63,
+     "text": "All manner of unpleasant things about me,",
+     "section": "Verse 14"
+    },
+    {
+     "n": 64,
+     "text": "To speak only of their qualities in return,",
+     "section": "Verse 14"
+    },
+    {
+     "n": 65,
+     "text": "With a mind that’s filled with love—this is the practice of all the bodhisattvas.",
+     "section": "Verse 14"
+    },
+    {
+     "n": 66,
+     "text": "Even if others should expose my hidden faults or deride me",
+     "section": "Verse 15"
+    },
+    {
+     "n": 67,
+     "text": "When speaking amidst great gatherings of many people,",
+     "section": "Verse 15"
+    },
+    {
+     "n": 68,
+     "text": "To conceive of them as spiritual friends and to bow",
+     "section": "Verse 15"
+    },
+    {
+     "n": 69,
+     "text": "Before them in respect—this is the practice of all the bodhisattvas.",
+     "section": "Verse 15"
+    },
+    {
+     "n": 70,
+     "text": "Even if others whom I have cared for like children of my own",
+     "section": "Verse 16"
+    },
+    {
+     "n": 71,
+     "text": "Should turn upon me and treat me as an enemy,",
+     "section": "Verse 16"
+    },
+    {
+     "n": 72,
+     "text": "To regard them only with special fondness and affection,",
+     "section": "Verse 16"
+    },
+    {
+     "n": 73,
+     "text": "As a mother would her ailing child—this is the practice of all the bodhisattvas.",
+     "section": "Verse 16"
+    },
+    {
+     "n": 74,
+     "text": "Even if others, equal or inferior to me in status,",
+     "section": "Verse 17"
+    },
+    {
+     "n": 75,
+     "text": "Should, out of arrogance, disparage me,",
+     "section": "Verse 17"
+    },
+    {
+     "n": 76,
+     "text": "To honour them, as I would my teacher,",
+     "section": "Verse 17"
+    },
+    {
+     "n": 77,
+     "text": "By bowing down my head before them—this is the practice of all the bodhisattvas.",
+     "section": "Verse 17"
+    },
+    {
+     "n": 78,
+     "text": "Even though I may be destitute and despised by all,",
+     "section": "Verse 18"
+    },
+    {
+     "n": 79,
+     "text": "Beset with terrible illness and plagued by evil spirits,",
+     "section": "Verse 18"
+    },
+    {
+     "n": 80,
+     "text": "Still to take upon myself all beings’ ills and harmful actions,",
+     "section": "Verse 18"
+    },
+    {
+     "n": 81,
+     "text": "Without ever losing heart—this is the practice of all the bodhisattvas.",
+     "section": "Verse 18"
+    },
+    {
+     "n": 82,
+     "text": "Even though I may be famous and revered by all,",
+     "section": "Verse 19"
+    },
+    {
+     "n": 83,
+     "text": "And as rich as Vaiśravaṇa, the god of wealth himself,",
+     "section": "Verse 19"
+    },
+    {
+     "n": 84,
+     "text": "To see the futility of all the glory and riches of this world",
+     "section": "Verse 19"
+    },
+    {
+     "n": 85,
+     "text": "And to remain without conceit—this is the practice of all the bodhisattvas.",
+     "section": "Verse 19"
+    },
+    {
+     "n": 86,
+     "text": "The practice of all the bodhisattvas is to subdue the mind",
+     "section": "Verse 20"
+    },
+    {
+     "n": 87,
+     "text": "With the forces of loving kindness and compassion.",
+     "section": "Verse 20"
+    },
+    {
+     "n": 88,
+     "text": "For unless the real adversary—my own anger—is defeated,",
+     "section": "Verse 20"
+    },
+    {
+     "n": 89,
+     "text": "Outer enemies, though I may conquer them, will continue to appear.",
+     "section": "Verse 20"
+    },
+    {
+     "n": 90,
+     "text": "The practice of all the bodhisattvas is to turn away immediately",
+     "section": "Verse 21"
+    },
+    {
+     "n": 91,
+     "text": "From those things which bring desire and attachment.",
+     "section": "Verse 21"
+    },
+    {
+     "n": 92,
+     "text": "For the pleasures of the senses are just like salty water:",
+     "section": "Verse 21"
+    },
+    {
+     "n": 93,
+     "text": "The more we taste of them, the more our thirst increases.",
+     "section": "Verse 21"
+    },
+    {
+     "n": 94,
+     "text": "The practice of all the bodhisattvas is never to entertain concepts,",
+     "section": "Verse 22"
+    },
+    {
+     "n": 95,
+     "text": "Which revolve around dualistic notions of perceiver and perceived,",
+     "section": "Verse 22"
+    },
+    {
+     "n": 96,
+     "text": "In the knowledge that all these appearances are but the mind itself,",
+     "section": "Verse 22"
+    },
+    {
+     "n": 97,
+     "text": "Whilst mind’s own nature is forever beyond the limitations of ideas.",
+     "section": "Verse 22"
+    },
+    {
+     "n": 98,
+     "text": "The practice of all the bodhisattvas is to let go of grasping",
+     "section": "Verse 23"
+    },
+    {
+     "n": 99,
+     "text": "When encountering things one finds pleasant or attractive,",
+     "section": "Verse 23"
+    },
+    {
+     "n": 100,
+     "text": "Considering them to be like rainbows in the summer skies—",
+     "section": "Verse 23"
+    },
+    {
+     "n": 101,
+     "text": "Beautiful in appearance, yet in truth devoid of any substance.",
+     "section": "Verse 23"
+    },
+    {
+     "n": 102,
+     "text": "The practice of all the bodhisattvas is to recognize delusion",
+     "section": "Verse 24"
+    },
+    {
+     "n": 103,
+     "text": "Whenever one is confronted by adversity or misfortune.",
+     "section": "Verse 24"
+    },
+    {
+     "n": 104,
+     "text": "For these sufferings are just like the death of a child in a dream,",
+     "section": "Verse 24"
+    },
+    {
+     "n": 105,
+     "text": "And it’s so exhausting to cling to delusory perceptions as real.",
+     "section": "Verse 24"
+    },
+    {
+     "n": 106,
+     "text": "The practice of all the bodhisattvas is to give out of generosity,",
+     "section": "Verse 25"
+    },
+    {
+     "n": 107,
+     "text": "With no hopes of karmic recompense or expectation of reward.",
+     "section": "Verse 25"
+    },
+    {
+     "n": 108,
+     "text": "For if those who seek awakening must give even their own bodies,",
+     "section": "Verse 25"
+    },
+    {
+     "n": 109,
+     "text": "What need is there to mention mere outer objects and possessions?",
+     "section": "Verse 25"
+    },
+    {
+     "n": 110,
+     "text": "The practice of all the bodhisattvas is to observe ethical restraint,",
+     "section": "Verse 26"
+    },
+    {
+     "n": 111,
+     "text": "Without the slightest intention of continuing in saṃsāric existence.",
+     "section": "Verse 26"
+    },
+    {
+     "n": 112,
+     "text": "For lacking discipline one will never secure even one’s own well-being,",
+     "section": "Verse 26"
+    },
+    {
+     "n": 113,
+     "text": "And so any thought of bringing benefit to others would be absurd.",
+     "section": "Verse 26"
+    },
+    {
+     "n": 114,
+     "text": "The practice of all the bodhisattvas is to cultivate patience,",
+     "section": "Verse 27"
+    },
+    {
+     "n": 115,
+     "text": "Free from any trace of animosity towards anyone at all,",
+     "section": "Verse 27"
+    },
+    {
+     "n": 116,
+     "text": "Since any potential source of harm is like a priceless treasure",
+     "section": "Verse 27"
+    },
+    {
+     "n": 117,
+     "text": "To the bodhisattva who is eager to enjoy a wealth of virtue.",
+     "section": "Verse 27"
+    },
+    {
+     "n": 118,
+     "text": "The practice of all the bodhisattvas is to strive with enthusiastic diligence—",
+     "section": "Verse 28"
+    },
+    {
+     "n": 119,
+     "text": "The source of all good qualities—when working for the sake of all who live;",
+     "section": "Verse 28"
+    },
+    {
+     "n": 120,
+     "text": "Seeing that even śrāvakas and pratyekabuddhas, who labour for themselves alone,",
+     "section": "Verse 28"
+    },
+    {
+     "n": 121,
+     "text": "Exert themselves as if urgently trying to extinguish fires upon their heads.",
+     "section": "Verse 28"
+    },
+    {
+     "n": 122,
+     "text": "The practice of all the bodhisattvas is to cultivate concentration,",
+     "section": "Verse 29"
+    },
+    {
+     "n": 123,
+     "text": "Which utterly transcends the four formless absorptions,",
+     "section": "Verse 29"
+    },
+    {
+     "n": 124,
+     "text": "In the knowledge that mental afflictions are overcome entirely",
+     "section": "Verse 29"
+    },
+    {
+     "n": 125,
+     "text": "Through penetrating insight suffused with stable calm.",
+     "section": "Verse 29"
+    },
+    {
+     "n": 126,
+     "text": "The practice of all the bodhisattvas is to cultivate wisdom,",
+     "section": "Verse 30"
+    },
+    {
+     "n": 127,
+     "text": "Beyond the three conceptual spheres, alongside skilful means,",
+     "section": "Verse 30"
+    },
+    {
+     "n": 128,
+     "text": "Since it is not possible to attain the perfect level of awakening",
+     "section": "Verse 30"
+    },
+    {
+     "n": 129,
+     "text": "Through the other five pāramitās alone, in wisdom’s absence.",
+     "section": "Verse 30"
+    },
+    {
+     "n": 130,
+     "text": "The practice of all the bodhisattvas is to scrutinize oneself",
+     "section": "Verse 31"
+    },
+    {
+     "n": 131,
+     "text": "Continually and to rid oneself of faults whenever they appear.",
+     "section": "Verse 31"
+    },
+    {
+     "n": 132,
+     "text": "For unless one checks carefully to find one’s own confusion,",
+     "section": "Verse 31"
+    },
+    {
+     "n": 133,
+     "text": "One might appear to be practising Dharma, but act against it.",
+     "section": "Verse 31"
+    },
+    {
+     "n": 134,
+     "text": "The practice of all the bodhisattvas is never to speak ill",
+     "section": "Verse 32"
+    },
+    {
+     "n": 135,
+     "text": "Of others who have embarked upon the greater vehicle,",
+     "section": "Verse 32"
+    },
+    {
+     "n": 136,
+     "text": "For if, under the influence of destructive emotions,",
+     "section": "Verse 32"
+    },
+    {
+     "n": 137,
+     "text": "I speak of other bodhisattvas’ failings, it is I who am at fault.",
+     "section": "Verse 32"
+    },
+    {
+     "n": 138,
+     "text": "The practice of all the bodhisattvas is to let go of attachment",
+     "section": "Verse 33"
+    },
+    {
+     "n": 139,
+     "text": "To the households of benefactors and of family and friends,",
+     "section": "Verse 33"
+    },
+    {
+     "n": 140,
+     "text": "Since one’s study, reflection and meditation will all diminish",
+     "section": "Verse 33"
+    },
+    {
+     "n": 141,
+     "text": "When one quarrels and competes for honours and rewards.",
+     "section": "Verse 33"
+    },
+    {
+     "n": 142,
+     "text": "The practice of all the bodhisattvas is to avoid harsh words,",
+     "section": "Verse 34"
+    },
+    {
+     "n": 143,
+     "text": "Which others might find unpleasant or distasteful,",
+     "section": "Verse 34"
+    },
+    {
+     "n": 144,
+     "text": "Since abusive language upsets the minds of others,",
+     "section": "Verse 34"
+    },
+    {
+     "n": 145,
+     "text": "And thereby undermines a bodhisattva’s conduct.",
+     "section": "Verse 34"
+    },
+    {
+     "n": 146,
+     "text": "The practice of all the bodhisattvas is to slay attachment",
+     "section": "Verse 35"
+    },
+    {
+     "n": 147,
+     "text": "And the rest—mind’s afflictions—at once, the very moment they arise,",
+     "section": "Verse 35"
+    },
+    {
+     "n": 148,
+     "text": "Taking as weapons the remedies held with mindfulness and vigilance.",
+     "section": "Verse 35"
+    },
+    {
+     "n": 149,
+     "text": "For once the kleshas have become familiar, they’ll be harder to avert.",
+     "section": "Verse 35"
+    },
+    {
+     "n": 150,
+     "text": "In short, no matter what one might be doing,",
+     "section": "Verse 36"
+    },
+    {
+     "n": 151,
+     "text": "By examining always the status of one’s mind,",
+     "section": "Verse 36"
+    },
+    {
+     "n": 152,
+     "text": "With continuous mindfulness and alertness,",
+     "section": "Verse 36"
+    },
+    {
+     "n": 153,
+     "text": "To bring about the good of others—this is the practice of all the bodhisattvas.",
+     "section": "Verse 36"
+    },
+    {
+     "n": 154,
+     "text": "The practice of all the bodhisattvas is to dedicate towards enlightenment",
+     "section": "Verse 37"
+    },
+    {
+     "n": 155,
+     "text": "All the virtue to be gained through making effort in these ways,",
+     "section": "Verse 37"
+    },
+    {
+     "n": 156,
+     "text": "With wisdom that is purified entirely of the three conceptual spheres,",
+     "section": "Verse 37"
+    },
+    {
+     "n": 157,
+     "text": "So as to dispel the sufferings of the infinity of beings.",
+     "section": "Verse 37"
+    },
+    {
+     "n": 158,
+     "text": "Here I have set down for those who wish to follow the bodhisattva path,"
+    },
+    {
+     "n": 159,
+     "text": "Thirty-seven practices to be adopted by all the buddhas’ heirs,"
+    },
+    {
+     "n": 160,
+     "text": "Based on what is taught in the sūtras, tantras and treatises,"
+    },
+    {
+     "n": 161,
+     "text": "And following the instructions of the great masters of the past."
+    },
+    {
+     "n": 162,
+     "text": "Since my intellect is only feeble and I have studied but a little,"
+    },
+    {
+     "n": 163,
+     "text": "This is not a composition likely to delight the connoisseurs,"
+    },
+    {
+     "n": 164,
+     "text": "Yet since I’ve relied upon the sūtras and what the saints have taught"
+    },
+    {
+     "n": 165,
+     "text": "I feel these are indeed the genuine trainings of the buddhas’ heirs."
+    },
+    {
+     "n": 166,
+     "text": "Still, the tremendous waves of activity of the bodhisattvas"
+    },
+    {
+     "n": 167,
+     "text": "Are difficult for simple-minded folk like me to comprehend,"
+    },
+    {
+     "n": 168,
+     "text": "And I must therefore beg the indulgence of all the perfect saints"
+    },
+    {
+     "n": 169,
+     "text": "For any contradictions, irrelevancies or other flaws this may contain."
+    },
+    {
+     "n": 170,
+     "text": "Through whatever merit has here been gained, may all beings"
+    },
+    {
+     "n": 171,
+     "text": "Generate sublime bodhicitta, both relative and absolute,"
+    },
+    {
+     "n": 172,
+     "text": "And through this, come to equal Lord Avalokiteśvara,"
+    },
+    {
+     "n": 173,
+     "text": "Transcending the extremes of existence and quiescence."
+    },
+    {
+     "n": 174,
+     "text": "This was composed in Jewel Cave (Rinchen Puk) in Ngulchu by the monk Tokme, a teacher of scripture and reasoning, for his own and others’ benefit."
+    }
+   ]
+  },
+  {
+   "key": "bo-translation",
+   "lang": "bo",
+   "variant": "translation",
+   "translator": "Classical Tibetan (pre-modern author)",
+   "sourceName": "Lotsawa House - The Thirty-Seven Practices of All the Bodhisattvas",
+   "sourceUrl": "https://www.lotsawahouse.org/bo/tibetan-masters/gyalse-thogme-zangpo/37-practices-all-bodhisattvas",
+   "license": "CC-BY-NC-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial 4.0 International; as stated on Lotsawa House",
+   "note": "Original classical Tibetan text (public-domain scripture/composition by a pre-modern author), retrieved from the source page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ན་མོ་ལོ་ཀེ་ཤྭ་ར་ཡེ།"
+    },
+    {
+     "n": 2,
+     "text": "གང་གིས་ཆོས་ཀུན་འགྲོ་འོང་མེད་གཟིགས་ཀྱང༌། །"
+    },
+    {
+     "n": 3,
+     "text": "འགྲོ་བའི་དོན་ལ་གཅིག་ཏུ་བརྩོན་མཛད་པའི། །"
+    },
+    {
+     "n": 4,
+     "text": "བླ་མ་མཆོག་དང་སྤྱན་རས་གཟིགས་མགོན་ལ། །"
+    },
+    {
+     "n": 5,
+     "text": "རྟག་ཏུ་སྒོ་གསུམ་གུས་པས་ཕྱག་འཚལ་ལོ། །"
+    },
+    {
+     "n": 6,
+     "text": "ཕན་བདེའི་འབྱུང་གནས་རྫོགས་པའི་སངས་རྒྱས་རྣམས། །"
+    },
+    {
+     "n": 7,
+     "text": "དམ་ཆོས་སྒྲུབ་ལས་བྱུང་སྟེ་དེ་ཡང་ནི། །"
+    },
+    {
+     "n": 8,
+     "text": "དེ་ཡི་ལག་ལེན་ཤེས་ལ་རགས་ལས་པས། །"
+    },
+    {
+     "n": 9,
+     "text": "རྒྱལ་སྲས་རྣམས་ཀྱི་ལག་ལེན་བཤད་པར་བྱ། །"
+    },
+    {
+     "n": 10,
+     "text": "དལ་འབྱོར་གྲུ་ཆེན་རྙེད་དཀའ་ཐོབ་དུས་འདིར། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 11,
+     "text": "བདག་གཞན་འཁོར་བའི་མཚོ་ལས་བསྒྲལ་བྱའི་ཕྱིར། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 12,
+     "text": "ཉིན་དང་མཚན་དུ་གཡེལ་བ་མེད་པར་ནི། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 13,
+     "text": "ཉན་སེམས་སྒོམ་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 1"
+    },
+    {
+     "n": 14,
+     "text": "གཉེན་གྱི་ཕྱོགས་ལ་འདོད་ཆགས་ཆུ་ལྟར་གཡོ། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 15,
+     "text": "དགྲ་ཡི་ཕྱོགས་ལ་ཞེ་སྡང་མེ་ལྟར་འབར། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 16,
+     "text": "བླང་དོར་བརྗེད་པའི་གཏི་མུག་མུན་ནག་ཅན། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 17,
+     "text": "ཕ་ཡུལ་སྤོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 2"
+    },
+    {
+     "n": 18,
+     "text": "ཡུལ་ངན་སྤངས་པས་ཉོན་མོངས་རིམ་གྱིས་འགྲིབ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 19,
+     "text": "རྣམ་གཡེང་མེད་པས་དགེ་སྦྱོར་ངང་གིས་འཕེལ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 20,
+     "text": "རིག་པ་དྭངས་པས་ཆོས་ལ་ངེས་ཤེས་སྐྱེ། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 21,
+     "text": "དབེན་པ་བསྟེན་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 3"
+    },
+    {
+     "n": 22,
+     "text": "ཡུན་རིང་འགྲོགས་པའི་མཛའ་བཤེས་སོ་སོར་འབྲལ། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 23,
+     "text": "འབད་པས་སྒྲུབ་པའི་ནོར་རྫས་ཤུལ་དུ་ལུས། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 24,
+     "text": "ལུས་ཀྱི་མགྲོན་ཁང་རྣམ་ཤེས་མགྲོན་པོས་བོར། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 25,
+     "text": "ཚེ་འདི་བློས་བཏང་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 4"
+    },
+    {
+     "n": 26,
+     "text": "གང་དང་འགྲོགས་ན་དུག་གསུམ་འཕེལ་འགྱུར་ཞིང༌། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 27,
+     "text": "ཐོས་བསམ་སྒོམ་པའི་བྱ་བ་ཉམས་འགྱུར་ལ། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 28,
+     "text": "བྱམས་དང་སྙིང་རྗེ་མེད་པར་སྒྱུར་བྱེད་པའི། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 29,
+     "text": "གྲོགས་ངན་སྤོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 5"
+    },
+    {
+     "n": 30,
+     "text": "གང་ཞིག་བསྟེན་ན་ཉེས་པ་ཟད་འགྱུར་ཞིང༌། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 31,
+     "text": "ཡོན་ཏན་ཡར་ངོའི་ཟླ་ལྟར་འཕེལ་འགྱུར་བའི། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 32,
+     "text": "བཤེས་གཉེན་དམ་པ་རང་གི་ལུས་ལས་ཀྱང༌། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 33,
+     "text": "གཅེས་པར་འཛིན་པར་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 6"
+    },
+    {
+     "n": 34,
+     "text": "རང་ཡང་འཁོར་བའི་བཙོན་རར་བཅིངས་པ་ཡིས། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 35,
+     "text": "འཇིག་རྟེན་ལྷ་ཡིས་སུ་ཞིག་སྐྱོབ་པར་ནུས། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 36,
+     "text": "དེ་ཕྱིར་གང་ལ་སྐྱབས་ན་མི་བསླུ་བའི། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 37,
+     "text": "དཀོན་མཆོག་སྐྱབས་འགྲོ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 7"
+    },
+    {
+     "n": 38,
+     "text": "ཤིན་ཏུ་བཟོད་དཀའི་ངན་སོང་སྡུག་བསྔལ་རྣམས། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 39,
+     "text": "སྡིག་པའི་ལས་ཀྱི་འབྲས་བུར་ཐུབ་པས་གསུངས། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 40,
+     "text": "དེ་ཕྱིར་སྲོག་ལ་བབ་ཀྱང་སྡིག་པའི་ལས། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 41,
+     "text": "ནམ་ཡང་མི་བྱེད་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 8"
+    },
+    {
+     "n": 42,
+     "text": "སྲིད་གསུམ་བདེ་བ་རྩྭ་རྩེའི་ཟིལ་པ་བཞིན། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 43,
+     "text": "ཡུད་ཙམ་ཞིག་གིས་འཇིགས་པའི་ཆོས་ཅན་ཡིན། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 44,
+     "text": "ནམ་ཡང་མི་འགྱུར་ཐར་པའི་གོ་འཕང་མཆོག །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 45,
+     "text": "དོན་དུ་གཉེར་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 9"
+    },
+    {
+     "n": 46,
+     "text": "ཐོག་མེད་དུས་ནས་བདག་ལ་བརྩེ་བ་ཅན། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 47,
+     "text": "མ་རྣམས་སྡུག་ན་རང་བདེས་ཅི་ཞིག་བྱ། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 48,
+     "text": "དེ་ཕྱིར་མཐའ་ཡས་སེམས་ཅན་བསྒྲལ་བྱའི་ཕྱིར། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 49,
+     "text": "བྱང་ཆུབ་སེམས་བསྐྱེད་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 10"
+    },
+    {
+     "n": 50,
+     "text": "སྡུག་བསྔལ་མ་ལུས་བདག་བདེ་འདོད་ལས་བྱུང༌། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 51,
+     "text": "རྫོགས་པའི་སངས་རྒྱས་གཞན་ཕན་སེམས་ལས་འཁྲུངས། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 52,
+     "text": "དེ་ཕྱིར་བདག་བདེ་གཞན་གྱི་སྡུག་བསྔལ་དག །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 53,
+     "text": "ཡང་དག་བརྗེ་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 11"
+    },
+    {
+     "n": 54,
+     "text": "སུ་དག་འདོད་ཆེན་དབང་གིས་བདག་གི་ནོར། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 55,
+     "text": "ཐམས་ཅད་འཕྲོག་གམ་འཕྲོག་ཏུ་འཇུག་ན་ཡང༌། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 56,
+     "text": "ལུས་དང་ལོངས་སྤྱོད་དུས་གསུམ་དགེ་བ་རྣམས། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 57,
+     "text": "དེ་ལ་བསྔོ་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 12"
+    },
+    {
+     "n": 58,
+     "text": "བདག་ལ་ཉེས་པ་ཅུང་ཟད་མེད་བཞིན་དུ། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 59,
+     "text": "གང་དག་བདག་གི་མགོ་བོ་གཅོད་བྱེད་ན། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 60,
+     "text": "སྙིང་རྗེའི་དབང་གིས་དེ་ཡི་སྡིག་པ་རྣམས། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 61,
+     "text": "བདག་ལ་ལེན་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 13"
+    },
+    {
+     "n": 62,
+     "text": "འགའ་ཞིག་བདག་ལ་མི་སྙན་སྣ་ཚོགས་པ། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 63,
+     "text": "སྟོང་གསུམ་ཁྱབ་པར་སྒྲོགས་པར་བྱེད་ན་ཡང། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 64,
+     "text": "བྱམས་པའི་སེམས་ཀྱིས་སླར་ཡང་དེ་ཉིད་ཀྱི། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 65,
+     "text": "ཡོན་ཏན་བརྗོད་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 14"
+    },
+    {
+     "n": 66,
+     "text": "འགྲོ་མང་འདུས་པའི་དབུས་སུ་འགའ་ཞིག་གིས། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 67,
+     "text": "མཚང་ནས་བྲུས་ཤིང་ཚིག་ངན་སྨྲ་ན་ཡང༌། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 68,
+     "text": "དེ་ལ་དགེ་བའི་བཤེས་ཀྱིས་འདུ་ཤེས་ཀྱིས། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 69,
+     "text": "གུས་པར་འདུད་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 15"
+    },
+    {
+     "n": 70,
+     "text": "བདག་གི་བུ་བཞིན་གཅེས་པར་བསྐྱངས་བའི་མིས། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 71,
+     "text": "བདག་ལ་དགྲ་བཞིན་ལྟ་བར་བྱེད་ན་ཡང༌། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 72,
+     "text": "ནད་ཀྱིས་བཏབ་པའི་བུ་ལ་མ་བཞིན་དུ། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 73,
+     "text": "ལྷག་པར་བརྩེ་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 16"
+    },
+    {
+     "n": 74,
+     "text": "རང་དང་མཉམ་པའམ་དམན་པའི་སྐྱེ་བོ་ཡིས། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 75,
+     "text": "ང་རྒྱལ་དབང་གིས་བརྙས་ཐབས་བྱེད་ན་ཡང༌། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 76,
+     "text": "བླ་མ་བཞིན་དུ་གུས་པས་བདག་ཉིད་ཀྱི། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 77,
+     "text": "སྤྱི་བོར་ལེན་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 17"
+    },
+    {
+     "n": 78,
+     "text": "འཚོ་བས་འཕོངས་ཤིང་རྟག་ཏུ་མི་ཡིས་བརྙས། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 79,
+     "text": "ཚབས་ཆེན་ནད་དང་གདོན་གྱིས་བཏབ་ཀྱང་སླར། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 80,
+     "text": "འགྲོ་ཀུན་སྡིག་སྡུག་བདག་ལ་ལེན་བྱེད་ཅིང༌། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 81,
+     "text": "ཞུམ་པ་མེད་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 18"
+    },
+    {
+     "n": 82,
+     "text": "སྙན་པར་གྲགས་ཤིང་འགྲོ་མང་སྤྱི་བོས་བཏུད། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 83,
+     "text": "རྣམ་ཐོས་བུ་ཡིས་ནོར་འདྲ་ཐོབ་གྱུར་ཀྱང༌། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 84,
+     "text": "སྲིད་པའི་དཔལ་འབྱོར་སྙིང་པོ་མེད་གཟིགས་ནས། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 85,
+     "text": "ཁེངས་པ་མེད་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 19"
+    },
+    {
+     "n": 86,
+     "text": "རང་གི་ཞེ་སྡང་དགྲ་བོ་མ་ཐུལ་ན། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 87,
+     "text": "ཕྱི་རོལ་དགྲ་བོ་བཏུལ་ཞིང་འཕེལ་བར་འགྱུར། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 88,
+     "text": "དེ་ཕྱིར་བྱམས་དང་སྙིང་རྗེའི་དམག་དཔུང་གིས། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 89,
+     "text": "རང་རྒྱུད་འདུལ་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 20"
+    },
+    {
+     "n": 90,
+     "text": "འདོད་པའི་ཡོན་ཏན་ལན་ཚྭའི་ཆུ་དང་འདྲ། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 91,
+     "text": "ཇི་ཙམ་སྤྱད་ཅིང་སྲེད་པ་འཕེལ་བར་འགྱུར། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 92,
+     "text": "གང་ལ་ཞེན་ཆགས་སྐྱེ་བའི་དངོས་པོ་རྣམས། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 93,
+     "text": "འཕྲལ་ལ་སྤོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 21"
+    },
+    {
+     "n": 94,
+     "text": "ཇི་ལྟར་སྣང་བ་འདི་དག་རང་གི་སེམས། །",
+     "section": "Verse 22"
+    },
+    {
+     "n": 95,
+     "text": "སེམས་ཉིད་གདོད་ནས་སྤྲོས་པའི་མཐའ་དང་བྲལ། །",
+     "section": "Verse 22"
+    },
+    {
+     "n": 96,
+     "text": "དེ་ཉིད་ཤེས་ནས་གཟུང་འཛིན་མཚན་མ་རྣམས། །",
+     "section": "Verse 22"
+    },
+    {
+     "n": 97,
+     "text": "ཡིད་ལ་མི་བྱེད་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 22"
+    },
+    {
+     "n": 98,
+     "text": "ཡིད་དུ་འོང་པའི་ཡུལ་དང་འཕྲད་པ་ན། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 99,
+     "text": "དབྱར་གྱི་དུས་ཀྱི་འཇའ་ཚོན་ཇི་བཞིན་དུ། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 100,
+     "text": "མཛེས་པར་སྣང་ཡང་བདེན་པར་མི་ལྟ་ཞིང༌། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 101,
+     "text": "ཞེན་ཆགས་སྤོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 23"
+    },
+    {
+     "n": 102,
+     "text": "སྡུག་བསྔལ་སྣ་ཚོགས་རྨི་ལམ་བུ་ཤི་ལྟར། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 103,
+     "text": "འཁྲུལ་སྣང་བདེན་པར་བཟུང་བས་ཨ་ཐང་ཆད། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 104,
+     "text": "དེའི་ཕྱིར་མི་མཐུན་རྐྱེན་དང་འཕྲད་པའི་ཚེ། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 105,
+     "text": "འཁྲུལ་པར་ལྟ་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 24"
+    },
+    {
+     "n": 106,
+     "text": "བྱང་ཆུབ་འདོད་པས་ལུས་ཀྱང་བཏང་དགོས་ན། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 107,
+     "text": "ཕྱི་རོལ་དངོས་པོ་རྣམས་ལ་སྨོས་ཅི་དགོས། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 108,
+     "text": "དེ་ཕྱིར་ལན་དང་རྣམ་སྨིན་མི་རེ་བའི། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 109,
+     "text": "སྦྱིན་པ་གཏོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 25"
+    },
+    {
+     "n": 110,
+     "text": "ཚུལ་ཁྲིམས་མེད་པར་རང་དོན་མི་འགྲུབ་ན། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 111,
+     "text": "གཞན་དོན་སྒྲུབ་པར་འདོད་པ་གད་མོའི་གནས། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 112,
+     "text": "དེ་ཕྱིར་སྲིད་པའི་འདུན་པ་མེད་པ་ཡི། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 113,
+     "text": "ཚུལ་ཁྲིམས་སྲུང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 26"
+    },
+    {
+     "n": 114,
+     "text": "དགེ་བའི་ལོངས་སྤྱོད་འདོད་པའི་རྒྱལ་སྲས་ལ། །",
+     "section": "Verse 27"
+    },
+    {
+     "n": 115,
+     "text": "གནོད་བྱེད་ཐམས་ཅད་རིན་ཆེན་གཏེར་དང་མཚུངས། །",
+     "section": "Verse 27"
+    },
+    {
+     "n": 116,
+     "text": "དེ་ཕྱིར་ཀུན་ལ་ཞེ་འགྲས་མེད་པ་ཡི། །",
+     "section": "Verse 27"
+    },
+    {
+     "n": 117,
+     "text": "བཟོད་པ་སྒོམ་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 27"
+    },
+    {
+     "n": 118,
+     "text": "རང་དོན་འབའ་ཞིག་སྒྲུབ་པའི་ཉན་རང་ཡང༌། །",
+     "section": "Verse 28"
+    },
+    {
+     "n": 119,
+     "text": "མགོ་ལ་མེ་ཤོར་བཟློག་ལྟར་བརྩོན་མཐོང་ན། །",
+     "section": "Verse 28"
+    },
+    {
+     "n": 120,
+     "text": "འགྲོ་ཀུན་དོན་དུ་ཡོན་ཏན་འབྱུང་གནས་ཀྱི། །",
+     "section": "Verse 28"
+    },
+    {
+     "n": 121,
+     "text": "བརྩོན་འགྲུས་རྩོམ་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 28"
+    },
+    {
+     "n": 122,
+     "text": "ཞི་གནས་རབ་ཏུ་ལྡན་པའི་ལྷག་མཐོང་གིས། །",
+     "section": "Verse 29"
+    },
+    {
+     "n": 123,
+     "text": "ཉོན་མོངས་རྣམ་པར་འཇོམས་པར་ཤེས་བྱས་ནས། །",
+     "section": "Verse 29"
+    },
+    {
+     "n": 124,
+     "text": "གཟུགས་མེད་བཞི་ལས་ཡང་དག་འདའ་བ་ཡི། །",
+     "section": "Verse 29"
+    },
+    {
+     "n": 125,
+     "text": "བསམ་གཏན་སྒོམ་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 29"
+    },
+    {
+     "n": 126,
+     "text": "ཤེས་རབ་མེད་པར་ཕ་རོལ་ཕྱིན་ལྔ་ཡིས། །",
+     "section": "Verse 30"
+    },
+    {
+     "n": 127,
+     "text": "རྫོགས་པའི་བྱང་ཆུབ་འཐོབ་པར་མི་ནུས་པས། །",
+     "section": "Verse 30"
+    },
+    {
+     "n": 128,
+     "text": "ཐབས་དང་ལྡན་ཞིང་འཁོར་གསུམ་མི་རྟོག་པའི། །",
+     "section": "Verse 30"
+    },
+    {
+     "n": 129,
+     "text": "ཤེས་རབ་སྒོམ་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 30"
+    },
+    {
+     "n": 130,
+     "text": "རང་གི་འཁྲུལ་པ་རང་གིས་མ་བརྟགས་ན། །",
+     "section": "Verse 31"
+    },
+    {
+     "n": 131,
+     "text": "ཆོས་པའི་གཟུགས་ཀྱིས་ཆོས་མིན་བྱེད་སྲིད་པས། །",
+     "section": "Verse 31"
+    },
+    {
+     "n": 132,
+     "text": "དེ་ཕྱིར་རྒྱུན་དུ་རང་གི་འཁྲུལ་པ་ལ། །",
+     "section": "Verse 31"
+    },
+    {
+     "n": 133,
+     "text": "བརྟགས་ནས་སྤོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 31"
+    },
+    {
+     "n": 134,
+     "text": "ཉོན་མོངས་དབང་གིས་རྒྱལ་སྲས་གཞན་དག་གིས། །",
+     "section": "Verse 32"
+    },
+    {
+     "n": 135,
+     "text": "ཉེས་པ་གླེང་ན་བདག་ཉིད་ཉམས་འགྱུར་བས། །",
+     "section": "Verse 32"
+    },
+    {
+     "n": 136,
+     "text": "ཐེག་པ་ཆེ་ལ་ཞུགས་པའི་གང་ཟག་གིས། །",
+     "section": "Verse 32"
+    },
+    {
+     "n": 137,
+     "text": "ཉེས་པ་མི་སྨྲ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 32"
+    },
+    {
+     "n": 138,
+     "text": "རྙེད་བཀུར་དབང་གིས་ཕན་ཚུན་རྩོད་འགྱུར་ཞིང༌། །",
+     "section": "Verse 33"
+    },
+    {
+     "n": 139,
+     "text": "ཐོས་བསམ་སྒོམ་པའི་བྱ་བ་ཉམས་འགྱུར་བས། །",
+     "section": "Verse 33"
+    },
+    {
+     "n": 140,
+     "text": "མཛའ་བཤེས་ཁྱིམ་དང་སྦྱིན་བདག་ཁྱིམ་རྣམས་ལ། །",
+     "section": "Verse 33"
+    },
+    {
+     "n": 141,
+     "text": "ཆགས་པ་སྤོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 33"
+    },
+    {
+     "n": 142,
+     "text": "རྩུབ་མོའི་ཚིག་གིས་གཞན་སེམས་འཁྲུག་འགྱུར་ཞིང༌། །",
+     "section": "Verse 34"
+    },
+    {
+     "n": 143,
+     "text": "རྒྱལ་བའི་སྲས་ཀྱི་སྤྱོད་ཚུལ་ཉམས་འགྱུར་བས། །",
+     "section": "Verse 34"
+    },
+    {
+     "n": 144,
+     "text": "དེ་ཕྱིར་གཞན་གྱི་ཡིད་དུ་མི་འོང་བའི། །",
+     "section": "Verse 34"
+    },
+    {
+     "n": 145,
+     "text": "ཚིག་རྩུབ་སྤོང་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 34"
+    },
+    {
+     "n": 146,
+     "text": "ཉོན་མོངས་གོམས་ན་གཉེན་པོས་ཟློག་དཀའ་བས། །",
+     "section": "Verse 35"
+    },
+    {
+     "n": 147,
+     "text": "དྲན་ཤེས་སྐྱེས་བུས་གཉེན་པོའི་མཚོན་བཟུང་ནས། །",
+     "section": "Verse 35"
+    },
+    {
+     "n": 148,
+     "text": "ཆགས་སོགས་ཉོན་མོངས་དང་པོ་སྐྱེས་མ་ཐག །",
+     "section": "Verse 35"
+    },
+    {
+     "n": 149,
+     "text": "འབུར་འཇོམས་བྱེད་པར་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 35"
+    },
+    {
+     "n": 150,
+     "text": "མདོར་ན་གང་དུ་སྤྱོད་ལམ་ཅི་བྱེད་ཀྱང༌། །",
+     "section": "Verse 36"
+    },
+    {
+     "n": 151,
+     "text": "རང་གི་སེམས་ཀྱི་གནས་སྐབས་ཅི་འདྲ་ཞེས། །",
+     "section": "Verse 36"
+    },
+    {
+     "n": 152,
+     "text": "རྒྱུན་དུ་དྲན་དང་ཤེས་བཞིན་ལྡན་པ་ཡིས། །",
+     "section": "Verse 36"
+    },
+    {
+     "n": 153,
+     "text": "གཞན་དོན་སྒྲུབ་པ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 36"
+    },
+    {
+     "n": 154,
+     "text": "དེ་ལྟར་བརྩོན་པས་བསྒྲུབ་པའི་དགེ་བ་རྣམས། །",
+     "section": "Verse 37"
+    },
+    {
+     "n": 155,
+     "text": "མཐའ་ཡས་འགྲོ་བའི་སྡུག་བསྔལ་བསལ་བྱའི་ཕྱིར། །",
+     "section": "Verse 37"
+    },
+    {
+     "n": 156,
+     "text": "འཁོར་གསུམ་རྣམ་པར་དག་པའི་ཤེས་རབ་ཀྱིས། །",
+     "section": "Verse 37"
+    },
+    {
+     "n": 157,
+     "text": "བྱང་ཆུབ་བསྔོ་བ་རྒྱལ་སྲས་ལག་ལེན་ཡིན། །",
+     "section": "Verse 37"
+    },
+    {
+     "n": 158,
+     "text": "མདོ་རྒྱུད་བསྟན་བཅོས་རྣམས་ལས་གསུངས་པའི་དོན། །"
+    },
+    {
+     "n": 159,
+     "text": "དམ་པ་རྣམས་ཀྱི་གསུང་གི་རྗེས་འབྲངས་ནས། །"
+    },
+    {
+     "n": 160,
+     "text": "རྒྱལ་སྲས་རྣམས་ཀྱི་ལག་ལེན་སུམ་ཅུ་བདུན། །"
+    },
+    {
+     "n": 161,
+     "text": "རྒྱལ་སྲས་ལམ་ལ་སློབ་འདོད་དོན་དུ་བཀོད། །"
+    },
+    {
+     "n": 162,
+     "text": "བློ་གྲོས་དམན་ཞིང་སྦྱངས་པ་ཆུང་བའི་ཕྱིར། །"
+    },
+    {
+     "n": 163,
+     "text": "མཁས་ལ་དགྱེས་པའི་སྡེབ་སྦྱོར་མ་མཆིས་ཏེ། །"
+    },
+    {
+     "n": 164,
+     "text": "མདོ་དང་དམ་པའི་གསུང་ལ་བརྟེན་པའི་ཕྱིར། །"
+    },
+    {
+     "n": 165,
+     "text": "རྒྱལ་སྲས་ལག་ལེན་འཁྲུལ་མེད་ལགས་པར་སེམས། །"
+    },
+    {
+     "n": 166,
+     "text": "འོན་ཀྱང་རྒྱལ་སྲས་སྤྱོད་པ་རླབས་ཆེན་རྣམས། །"
+    },
+    {
+     "n": 167,
+     "text": "བློ་དམན་བདག་འདྲས་གཏིང་དཔག་དཀའ་བའི་ཕྱིར། །"
+    },
+    {
+     "n": 168,
+     "text": "འགལ་དང་མ་འབྲེལ་ལ་སོགས་ཉེས་པའི་ཚོགས། །"
+    },
+    {
+     "n": 169,
+     "text": "དམ་པ་རྣམས་ཀྱིས་བཟོད་པ་མཛད་དུ་གསོལ། །"
+    },
+    {
+     "n": 170,
+     "text": "དེ་ལས་བྱུང་བའི་དགེ་བས་འགྲོ་བ་ཀུན། །"
+    },
+    {
+     "n": 171,
+     "text": "དོན་དམ་ཀུན་རྫོབ་བྱང་ཆུབ་སེམས་མཆོག་གིས། །"
+    },
+    {
+     "n": 172,
+     "text": "སྲིད་དང་ཞི་བའི་མཐའ་ལ་མི་གནས་པའི། །"
+    },
+    {
+     "n": 173,
+     "text": "སྤྱན་རས་གཟིགས་མགོན་དེ་དང་མཚུངས་པར་ཤོག །"
+    },
+    {
+     "n": 174,
+     "text": "ཅེས་པ་འདི་རང་གཞན་ལ་ཕན་པའི་དོན་དུ་ལུང་དང་རིགས་པ་སྨྲ་བའི་བཙུན་པ་ཐོགས་མེད་ཀྱིས་དངུལ་ཆུའི་རིན་ཆེན་ཕུག་ཏུ་སྦྱར་བའོ། །།"
+    }
+   ]
+  }
+ ]
+}

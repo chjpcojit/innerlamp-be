@@ -1,0 +1,828 @@
+{
+ "id": "truong-lao-ni-ke-ambapali",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Ni Kệ",
+ "reference": "Thig 13.1",
+ "summary": "Kệ ngôn của trưởng lão ni Ambapālī trong Trưởng Lão Ni Kệ (Tiểu Bộ, Thig 13.1). Bà đối chiếu vẻ đẹp thời trẻ như mái tóc đen, đôi mắt, hàm răng với hình hài già nua hiện tại, mỗi đoạn lặp lại rằng lời bậc Tuyên Thuyết Sự Thật là không sai khác. Bài kệ nói về vô thường của thân, rằng thân già là nơi chứa nhiều khổ đau.",
+ "titles": {
+  "vi": "Trưởng Lão Ni Kệ - Ambapālī",
+  "pli": "Ambapālītherīgāthā",
+  "en": "Ambapālī"
+ },
+ "deities": [],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thig13.1/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Các sợi tóc của tôi đã là màu đen giống như màu của loài ong, có đầu ngọn bị xoắn lại."
+    },
+    {
+     "n": 2,
+     "text": "Bởi tuổi già, chúng trở thành tương tự như những thớ sợi của vỏ cây gai; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 3,
+     "text": "Cái đầu của tôi, đầy những bông hoa, được tỏa hương tựa như cái hộp thơm."
+    },
+    {
+     "n": 4,
+     "text": "Bởi tuổi già, nó trở nên có mùi tương tự như lông của loài chó; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 5,
+     "text": "Tựa như khu rừng rậm khéo được trồng trọt, (đầu tóc) được trông tuyệt đẹp với những đầu ngọn tóc được tách rời ra nhờ vào lược và kim găm."
+    },
+    {
+     "n": 6,
+     "text": "Bởi tuổi già, nó trở nên lơ thơ chỗ này chỗ nọ; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 7,
+     "text": "Được điểm tô với vàng ở chùm tóc đen, được trang điểm với những bím tóc xinh, (đầu tóc) trông tuyệt đẹp."
+    },
+    {
+     "n": 8,
+     "text": "Bởi tuổi già, nó bị làm trở thành cái đầu bị sói; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 9,
+     "text": "Tựa như đường nét được khéo tạo ra bởi người thợ vẽ, cặp lông mày xinh của tôi trước đây trông tuyệt đẹp."
+    },
+    {
+     "n": 10,
+     "text": "Bởi tuổi già, chúng bị giăng ngang với những nếp nhăn; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 11,
+     "text": "Đôi mắt dài, có màu đen tuyền, đã là rực rỡ, vô cùng xinh xắn giống như ngọc ma-ni."
+    },
+    {
+     "n": 12,
+     "text": "Bởi tuổi già, chúng bị tàn phá, không còn tuyệt đẹp; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 13,
+     "text": "Và lỗ mũi tựa như đỉnh chóp thanh tú, trông tuyệt đẹp vào thời điểm còn rất trẻ."
+    },
+    {
+     "n": 14,
+     "text": "Bởi tuổi già, nó tựa như bị quắt lại; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 15,
+     "text": "Hai dái tai của tôi trông tuyệt đẹp, tựa như vòng xuyến khéo được gia công, khéo được hoàn thành."
+    },
+    {
+     "n": 16,
+     "text": "Bởi tuổi già, chúng bị giăng ngang với những nếp nhăn; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 17,
+     "text": "Những cái răng xinh xắn của tôi trước đây trông tuyệt đẹp, tựa như nụ hoa chuối."
+    },
+    {
+     "n": 18,
+     "text": "Bởi tuổi già, chúng bị sứt mẻ và ngả màu vàng; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 19,
+     "text": "Tôi đã thỏ thẻ giọng ngọt ngào tựa như con chim cu cu có sự di chuyển ở trong khu rừng lớn và rừng thưa."
+    },
+    {
+     "n": 20,
+     "text": "Bởi tuổi già, giọng ấy đã bị ngập ngừng chỗ này chỗ nọ; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 21,
+     "text": "Cái cổ xinh của tôi trông vô cùng xinh đẹp, tựa như vỏ sò (có ba ngấn) mềm mại, khéo được chùi bóng."
+    },
+    {
+     "n": 22,
+     "text": "Bởi tuổi già, nó trở nên bị đứt đoạn và võng xuống; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 23,
+     "text": "Hai cánh tay xinh của tôi trông vô cùng xinh đẹp, cả hai giống y như thanh gài cửa tròn trịa."
+    },
+    {
+     "n": 24,
+     "text": "Bởi tuổi già, chúng trở thành giống như (những cành) cây hoa kèn bị khô héo; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 25,
+     "text": "Hai bàn tay xinh của tôi trước đây trông tuyệt đẹp, được tô điểm với chiếc nhẫn thanh nhã làm bằng vàng."
+    },
+    {
+     "n": 26,
+     "text": "Bởi tuổi già, chúng trở thành giống như rễ củ (cà rốt); lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 27,
+     "text": "Bộ ngực nhỏ xinh của tôi trước đây trông tuyệt đẹp, cả hai đều đầy đặn, tròn trịa, liền nhau, dựng đứng."
+    },
+    {
+     "n": 28,
+     "text": "Bởi tuổi già, chúng trở thành lủng lẳng giống như hai túi da hết nước; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 29,
+     "text": "Thân thể xinh của tôi trước đây trông tuyệt đẹp, tựa như lát vàng khéo được đánh bóng."
+    },
+    {
+     "n": 30,
+     "text": "Bởi tuổi già, nó bị tràn lan với các nếp nhăn li ti; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 31,
+     "text": "Cặp đùi xinh của tôi trước đây trông tuyệt đẹp, cả hai tương tự như cái vòi của loài voi."
+    },
+    {
+     "n": 32,
+     "text": "Bởi tuổi già, chúng trở thành giống như các ống tre; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 33,
+     "text": "Hai ống chân xinh của tôi trước đây trông tuyệt đẹp, được điểm tô với các vòng kiềng thanh nhã làm bằng vàng."
+    },
+    {
+     "n": 34,
+     "text": "Bởi tuổi già, chúng trở thành tựa như các cọng thân của cây mè; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 35,
+     "text": "Hai bàn chân xinh của tôi trước đây trông tuyệt đẹp, cả hai tương tự như được phủ đầy bông gòn."
+    },
+    {
+     "n": 36,
+     "text": "Bởi tuổi già, chúng bị nứt nẻ, có nếp nhăn; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác."
+    },
+    {
+     "n": 37,
+     "text": "Thân xác này đã trở nên như thế này, già cỗi, nơi chứa đựng nhiều khổ đau, ngôi nhà cũ kỹ bị rơi xuống các lớp vữa hồ; lời nói của bậc Tuyên Thuyết Sự Thật là không sai khác.”"
+    },
+    {
+     "n": 38,
+     "text": "Trưởng lão ni Ambapālī đã nói những lời kệ như thế."
+    },
+    {
+     "n": 39,
+     "text": "Kệ ngôn của trưởng lão ni Ambapālī."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig13.1/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Kāḷakā bhamaravaṇṇasādisā,"
+    },
+    {
+     "n": 2,
+     "text": "Vellitaggā mama muddhajā ahuṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Te jarāya sāṇavākasādisā,"
+    },
+    {
+     "n": 4,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 5,
+     "text": "Vāsitova surabhī karaṇḍako,"
+    },
+    {
+     "n": 6,
+     "text": "Pupphapūra mama uttamaṅgajo;"
+    },
+    {
+     "n": 7,
+     "text": "Taṁ jarāyatha salomagandhikaṁ,"
+    },
+    {
+     "n": 8,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 9,
+     "text": "Kānanaṁva sahitaṁ suropitaṁ,"
+    },
+    {
+     "n": 10,
+     "text": "Kocchasūcivicitaggasobhitaṁ;"
+    },
+    {
+     "n": 11,
+     "text": "Taṁ jarāya viralaṁ tahiṁ tahiṁ,"
+    },
+    {
+     "n": 12,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 13,
+     "text": "Kaṇhakhandhakasuvaṇṇamaṇḍitaṁ,"
+    },
+    {
+     "n": 14,
+     "text": "Sobhate suveṇīhilaṅkataṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Taṁ jarāya khalitaṁ siraṁ kataṁ,"
+    },
+    {
+     "n": 16,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 17,
+     "text": "Cittakārasukatāva lekhikā,"
+    },
+    {
+     "n": 18,
+     "text": "Sobhare su bhamukā pure mama;"
+    },
+    {
+     "n": 19,
+     "text": "Tā jarāya valibhippalambitā,"
+    },
+    {
+     "n": 20,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 21,
+     "text": "Bhassarā surucirā yathā maṇī,"
+    },
+    {
+     "n": 22,
+     "text": "Nettahesumabhinīlamāyatā;"
+    },
+    {
+     "n": 23,
+     "text": "Te jarāyabhihatā na sobhare,"
+    },
+    {
+     "n": 24,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 25,
+     "text": "Saṇhatuṅgasadisī ca nāsikā,"
+    },
+    {
+     "n": 26,
+     "text": "Sobhate su abhiyobbanaṁ pati;"
+    },
+    {
+     "n": 27,
+     "text": "Sā jarāya upakūlitā viya,"
+    },
+    {
+     "n": 28,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 29,
+     "text": "Kaṅkaṇaṁva sukataṁ suniṭṭhitaṁ,"
+    },
+    {
+     "n": 30,
+     "text": "Sobhare su mama kaṇṇapāḷiyo;"
+    },
+    {
+     "n": 31,
+     "text": "Tā jarāya valibhippalambitā,"
+    },
+    {
+     "n": 32,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 33,
+     "text": "Pattalīmakulavaṇṇasādisā,"
+    },
+    {
+     "n": 34,
+     "text": "Sobhare su dantā pure mama;"
+    },
+    {
+     "n": 35,
+     "text": "Te jarāya khaṇḍitā cāsitā,"
+    },
+    {
+     "n": 36,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 37,
+     "text": "Kānanamhi vanasaṇḍacārinī,"
+    },
+    {
+     "n": 38,
+     "text": "Kokilāva madhuraṁ nikūjihaṁ;"
+    },
+    {
+     "n": 39,
+     "text": "Taṁ jarāya khalitaṁ tahiṁ tahiṁ,"
+    },
+    {
+     "n": 40,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 41,
+     "text": "Saṇhakamburiva suppamajjitā,"
+    },
+    {
+     "n": 42,
+     "text": "Sobhate su gīvā pure mama;"
+    },
+    {
+     "n": 43,
+     "text": "Sā jarāya bhaggā vināmitā,"
+    },
+    {
+     "n": 44,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 45,
+     "text": "Vaṭṭapalighasadisopamā ubho,"
+    },
+    {
+     "n": 46,
+     "text": "Sobhare su bāhā pure mama;"
+    },
+    {
+     "n": 47,
+     "text": "Tā jarāya yatha pāṭalibbalitā,"
+    },
+    {
+     "n": 48,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 49,
+     "text": "Saṇhamuddikasuvaṇṇamaṇḍitā,"
+    },
+    {
+     "n": 50,
+     "text": "Sobhare su hatthā pure mama;"
+    },
+    {
+     "n": 51,
+     "text": "Te jarāya yathā mūlamūlikā,"
+    },
+    {
+     "n": 52,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 53,
+     "text": "Pīnavaṭṭasahituggatā ubho,"
+    },
+    {
+     "n": 54,
+     "text": "Sobhare su thanakā pure mama;"
+    },
+    {
+     "n": 55,
+     "text": "Thevikīva lambanti nodakā,"
+    },
+    {
+     "n": 56,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 57,
+     "text": "Kañcanassa phalakaṁva sammaṭṭhaṁ,"
+    },
+    {
+     "n": 58,
+     "text": "Sobhate su kāyo pure mama;"
+    },
+    {
+     "n": 59,
+     "text": "So valīhi sukhumāhi otato,"
+    },
+    {
+     "n": 60,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 61,
+     "text": "Nāgabhogasadisopamā ubho,"
+    },
+    {
+     "n": 62,
+     "text": "Sobhare su ūrū pure mama;"
+    },
+    {
+     "n": 63,
+     "text": "Te jarāya yathā veḷunāḷiyo,"
+    },
+    {
+     "n": 64,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 65,
+     "text": "Saṇhanūpurasuvaṇṇamaṇḍitā,"
+    },
+    {
+     "n": 66,
+     "text": "Sobhare su jaṅghā pure mama;"
+    },
+    {
+     "n": 67,
+     "text": "Tā jarāya tiladaṇḍakāriva,"
+    },
+    {
+     "n": 68,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 69,
+     "text": "Tūlapuṇṇasadisopamā ubho,"
+    },
+    {
+     "n": 70,
+     "text": "Sobhare su pādā pure mama;"
+    },
+    {
+     "n": 71,
+     "text": "Te jarāya phuṭitā valīmatā,"
+    },
+    {
+     "n": 72,
+     "text": "Saccavādivacanaṁ anaññathā."
+    },
+    {
+     "n": 73,
+     "text": "Ediso ahu ayaṁ samussayo,"
+    },
+    {
+     "n": 74,
+     "text": "Jajjaro bahudukkhānamālayo;"
+    },
+    {
+     "n": 75,
+     "text": "Sopalepapatito jarāgharo,"
+    },
+    {
+     "n": 76,
+     "text": "Saccavādivacanaṁ anaññathā”."
+    },
+    {
+     "n": 77,
+     "text": "… Ambapālī therī …."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig13.1/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "My hair was as black as bees,"
+    },
+    {
+     "n": 2,
+     "text": "graced with curly tips;"
+    },
+    {
+     "n": 3,
+     "text": "now old, it has become like hemp bark—"
+    },
+    {
+     "n": 4,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 5,
+     "text": "Crowned with flowers,"
+    },
+    {
+     "n": 6,
+     "text": "my head was as fragrant as a perfume box;"
+    },
+    {
+     "n": 7,
+     "text": "now old, it smells like dog fur—"
+    },
+    {
+     "n": 8,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 9,
+     "text": "My hair was as thick as a well-planted forest,"
+    },
+    {
+     "n": 10,
+     "text": "it shone, parted with brush and pins;"
+    },
+    {
+     "n": 11,
+     "text": "now old, it’s patchy and sparse—"
+    },
+    {
+     "n": 12,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 13,
+     "text": "With plaits of black and ribbons of gold,"
+    },
+    {
+     "n": 14,
+     "text": "it was so pretty, graced with braids;"
+    },
+    {
+     "n": 15,
+     "text": "now old, my head’s gone bald—"
+    },
+    {
+     "n": 16,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 17,
+     "text": "My eyebrows used to look so nice,"
+    },
+    {
+     "n": 18,
+     "text": "like crescents painted by an artist;"
+    },
+    {
+     "n": 19,
+     "text": "now old, they droop with wrinkles—"
+    },
+    {
+     "n": 20,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 21,
+     "text": "My eyes shone brilliant as gems,"
+    },
+    {
+     "n": 22,
+     "text": "wide and indigo;"
+    },
+    {
+     "n": 23,
+     "text": "ruined by age, they shine no more—"
+    },
+    {
+     "n": 24,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 25,
+     "text": "My nose was like a perfect peak,"
+    },
+    {
+     "n": 26,
+     "text": "lovely in my bloom of youth;"
+    },
+    {
+     "n": 27,
+     "text": "now old, it’s shriveled like a pepper;"
+    },
+    {
+     "n": 28,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 29,
+     "text": "My ear-lobes were so pretty,"
+    },
+    {
+     "n": 30,
+     "text": "like lovingly crafted bracelets;"
+    },
+    {
+     "n": 31,
+     "text": "now old, they droop with wrinkles—"
+    },
+    {
+     "n": 32,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 33,
+     "text": "My teeth used to be so pretty,"
+    },
+    {
+     "n": 34,
+     "text": "bright as a jasmine flower;"
+    },
+    {
+     "n": 35,
+     "text": "now old, they’re broken and yellow—"
+    },
+    {
+     "n": 36,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 37,
+     "text": "My singing was sweet as a cuckoo"
+    },
+    {
+     "n": 38,
+     "text": "wandering in the forest groves;"
+    },
+    {
+     "n": 39,
+     "text": "now old, it’s patchy and croaking—"
+    },
+    {
+     "n": 40,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 41,
+     "text": "My neck used to be so pretty,"
+    },
+    {
+     "n": 42,
+     "text": "like a polished shell of conch;"
+    },
+    {
+     "n": 43,
+     "text": "now old, it’s bowed and bent—"
+    },
+    {
+     "n": 44,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 45,
+     "text": "My arms used to be so pretty,"
+    },
+    {
+     "n": 46,
+     "text": "like rounded cross-bars;"
+    },
+    {
+     "n": 47,
+     "text": "with age, they wrinkle and sag as a patala tree—"
+    },
+    {
+     "n": 48,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 49,
+     "text": "My hands used to be so pretty,"
+    },
+    {
+     "n": 50,
+     "text": "graced with lovely golden rings;"
+    },
+    {
+     "n": 51,
+     "text": "now old, they’re like red radishes—"
+    },
+    {
+     "n": 52,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 53,
+     "text": "My breasts were both once so pretty,"
+    },
+    {
+     "n": 54,
+     "text": "swelling, round, close-set, and perky;"
+    },
+    {
+     "n": 55,
+     "text": "now they droop like water bags—"
+    },
+    {
+     "n": 56,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 57,
+     "text": "My body used to be so pretty,"
+    },
+    {
+     "n": 58,
+     "text": "like a polished slab of lustrous gold;"
+    },
+    {
+     "n": 59,
+     "text": "now it’s covered with delicate wrinkles—"
+    },
+    {
+     "n": 60,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 61,
+     "text": "Both my thighs used to be so pretty,"
+    },
+    {
+     "n": 62,
+     "text": "like an elephant’s trunk;"
+    },
+    {
+     "n": 63,
+     "text": "now old, they’re like bamboo—"
+    },
+    {
+     "n": 64,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 65,
+     "text": "My calves used to be so pretty,"
+    },
+    {
+     "n": 66,
+     "text": "graced with cute golden anklets;"
+    },
+    {
+     "n": 67,
+     "text": "now old, they’re like sesame sticks—"
+    },
+    {
+     "n": 68,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 69,
+     "text": "Both my feet used to be so pretty,"
+    },
+    {
+     "n": 70,
+     "text": "plump as if with cotton-wool;"
+    },
+    {
+     "n": 71,
+     "text": "now old, they’re cracked and wrinkly—"
+    },
+    {
+     "n": 72,
+     "text": "the word of the truthful one is confirmed."
+    },
+    {
+     "n": 73,
+     "text": "This bag of bones once was such,"
+    },
+    {
+     "n": 74,
+     "text": "but now it’s withered, home to so much pain;"
+    },
+    {
+     "n": 75,
+     "text": "like a house in decay with plaster crumbling—"
+    },
+    {
+     "n": 76,
+     "text": "the word of the truthful one is confirmed."
+    }
+   ]
+  }
+ ]
+}

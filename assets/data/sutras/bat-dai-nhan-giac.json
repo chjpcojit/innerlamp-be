@@ -1,0 +1,134 @@
+{
+ "id": "bat-dai-nhan-giac",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Kinh nhật tụng",
+ "reference": "Taishō T0779",
+ "hanTranslator": "An Thế Cao",
+ "hanTranslationYear": 148,
+ "summary": "Kinh Đại thừa ngắn, bản Hán dịch của ngài An Thế Cao (năm 148), nói về tám điều giác ngộ của các bậc đại nhân. Tám điều nhắc đến vô thường, ít muốn biết đủ, tinh tấn, trí tuệ, và tâm từ bi độ chúng sinh. Kinh khuyên đệ tử Phật ngày đêm đọc tụng, quán niệm các điều này và thường được dùng trong các khóa tụng hằng ngày.",
+ "titles": {
+  "vi": "Kinh Bát Đại Nhân Giác (Kinh Tám Điều Giác Ngộ của Bậc Đại Nhân)",
+  "zh": "佛說八大人覺經",
+  "sa": "Aṣṭamahāpuruṣavitarka Sūtra",
+  "en": "Sutra on the Eight Realizations of the Great Beings"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 10,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "translator": "Thích Nhất Hạnh (trích Nghi Thức Tụng Niệm, NXB Lá Bối, 1989)",
+   "sourceName": "BuddhaSasana (budsas.org) - Kinh Tám Điều Giác Ngộ của Bậc Đại Nhân",
+   "sourceUrl": "https://budsas.org/uni/u-vbud/vbkin022.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement on page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Là đệ tử Phật thì nên hết lòng, ngày cũng như đêm, đọc tụng và quán niệm về tám điều mà các bậc đại nhân đã giác ngộ."
+    },
+    {
+     "n": 2,
+     "text": "Thứ Nhất là giác ngộ rằng cuộc đời là vô thường, chế độ chính trị nào cũng dễ xụp đổ, những cấu tạo của bốn đại đều trống rỗng và có tác dụng gây đau khổ, con người do tập hợp của năm ấm mà có, lại không có thực ngã,"
+    },
+    {
+     "n": 3,
+     "text": "sinh diệt thay đổi không ngừng, hư ngụy và không có thực quyền."
+    },
+    {
+     "n": 4,
+     "text": "Trong khi đó thì tâm ta lại là nguồn suối phát sinh điều ác và thân ta thì là một nơi tích tụ của tội lỗi."
+    },
+    {
+     "n": 5,
+     "text": "Quán chiếu như trên thì dần dần thoát được cõi sinh tử."
+    },
+    {
+     "n": 6,
+     "text": "Thứ Hai là giác ngộ rằng càng lắm ham muốn thì lại càng nhiều khổ đau, rằng bao nhiêu cực nhọc trong cõi sinh tử đều do ham muốn mà có."
+    },
+    {
+     "n": 7,
+     "text": "Trong khi đó người ít ham muốn thì không bị hoàn cảnh sai sử, lại cảm thấy thân mình và tâm mình được thư thái."
+    },
+    {
+     "n": 8,
+     "text": "Thứ Ba là giác ngộ rằng vì tâm ta rong ruổi chạy theo danh lợi không bao giờ biết chán cho nên tội lỗi cũng theo đó mà càng ngày càng lớn."
+    },
+    {
+     "n": 9,
+     "text": "Các bậc Bồ Tát thì khác hẳn: họ luôn luôn nhớ nghĩ đến phép tri túc, an vui sống với đạm bạc để hành đạo và xem sự nghiệp duy nhất của mình là sự thực hiện trí tuệ giác ngộ."
+    },
+    {
+     "n": 10,
+     "text": "Thứ Tư là giác ngộ rằng tính lười biếng đưa đến chỗ đọa lạc;"
+    },
+    {
+     "n": 11,
+     "text": "vì vậy con người phải chuyên cần hành đạo, phá giặc phiền não, hàng phục bốn loài ma, và ra khỏi ngục tù của năm ấm và ba giới Thứ Năm là giác ngộ rằng chính vì vô minh nên mới bị giam hãm trong cõi sinh tử."
+    },
+    {
+     "n": 12,
+     "text": "Các vị Bồ Tát thì thường xuyên nhớ rằng phải học rộng, biết nhiều, phát triển trí tuệ, đạt được biện tài để giáo hoá cho mọi người, để cho tất cả đạt tới niềm vui lớn."
+    },
+    {
+     "n": 13,
+     "text": "Thứ Sáu là giác ngộ rằng vì nghèo khổ cho nên người ta sinh ra nhiều oán hận và căm thù, và vì thế lại tạo thêm những nhân xấu."
+    },
+    {
+     "n": 14,
+     "text": "Các vị Bồ Tát biết thế cho nên chuyên tu phép bố thí, coi kẻ ghét người thương như nhau, bỏ qua những điều ác mà người khác đã làm đối với mình và không đem tâm ghét bỏ những ai đã làm ác."
+    },
+    {
+     "n": 15,
+     "text": "Thứ Bảy là giác ngộ rằng năm thứ dục vọng đã gây nên tội lỗi và hoạn nạn."
+    },
+    {
+     "n": 16,
+     "text": "Người xuất gia tuy là người sống trong thế tục nhưng không nhiễm theo cái vui phàm tục, thường quán niệm rằng tài sản của mình chỉ là ba chiếc áo cà sa và một chiếc bình bát, tất cả đều là pháp khí,"
+    },
+    {
+     "n": 17,
+     "text": "rằng chí nguyện xuất gia của mình là sống thanh bạch để hành đạo, giữ phạm hạnh cho thanh cao và đem lòng từ bi để tiếp xử với tất cả mọi người."
+    },
+    {
+     "n": 18,
+     "text": "Thứ Tám là giác ngộ rằng vì lửa sinh tử cháy bừng cho nên mọi loài đang chịu biết bao niềm thống khổ."
+    },
+    {
+     "n": 19,
+     "text": "Biết vậy cho nên ta phải phát tâm Đại Thừa, nguyện cứu tế cho tất cả mọi người, nguyện thay thế cho mọi người mà chịu khổ đau vô lượng, khiến cho tất cả chúng sinh đều đạt tới niềm vui cứu cánh."
+    },
+    {
+     "n": 20,
+     "text": "Tám điều nói trên là những điều giác ngộ của các bậc đại nhân, Phật và Bồ Tát; những vị này đang tinh tiến hành đạo, tu tập từ bi và trí tuệ, đã cưỡi thuyền pháp thân đến được Niết Bàn."
+    },
+    {
+     "n": 21,
+     "text": "Khi trở về lại cõi sinh tử độ thoát cho chúng sinh, họ đều dùng tám điều giác ngộ ấy để khai mở và chỉ đường cho mọi người, khiến chúng sanh ai cũng giác ngộ được cái khổ của sinh tử,"
+    },
+    {
+     "n": 22,
+     "text": "lìa bỏ được ngũ dục và hướng tâm vào con đường thánh."
+    },
+    {
+     "n": 23,
+     "text": "Nếu đệ tử Phật mà thường đọc tụng tám điều này thì mỗi khi quán niệm diệt được vô lượng tội, tiến tới giác ngộ, mau lên chính giác, vĩnh viễn đoạn tuyệt với sinh tử, thường trú trong sự an lạc."
+    }
+   ],
+   "variant": "translation"
+  }
+ ]
+}

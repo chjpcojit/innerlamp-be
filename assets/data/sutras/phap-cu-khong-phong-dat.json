@@ -1,0 +1,666 @@
+{
+ "id": "phap-cu-khong-phong-dat",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 21-32",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 21-32), đề cao sự không phóng dật, tức tinh cần và chánh niệm, được xem là đường sống, còn phóng dật là đường chết. Phẩm khuyên tu thiền định, tinh tấn, giữ chánh niệm, làm hòn đảo cho mình, và nhắc vị tỳ-kheo sợ phóng dật thì không bị thối đọa, gần Niết-bàn.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Không Phóng Dật",
+  "pli": "Appamādavagga",
+  "en": "Diligence"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp21-32/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Không phóng dật, đường sống,"
+    },
+    {
+     "n": 2,
+     "text": "Phóng dật là đường chết."
+    },
+    {
+     "n": 3,
+     "text": "Không phóng dật, không chết,"
+    },
+    {
+     "n": 4,
+     "text": "Phóng dật như chết rồi."
+    },
+    {
+     "n": 5,
+     "text": "Biết rõ sai biệt ấy,"
+    },
+    {
+     "n": 6,
+     "text": "Người trí không phóng dật,"
+    },
+    {
+     "n": 7,
+     "text": "Hoan hỷ, không phóng dật,"
+    },
+    {
+     "n": 8,
+     "text": "An vui hạnh bậc Thánh."
+    },
+    {
+     "n": 9,
+     "text": "Người hằng tu thiền định,"
+    },
+    {
+     "n": 10,
+     "text": "Thường kiên trì tinh tấn."
+    },
+    {
+     "n": 11,
+     "text": "Bậc trí hưởng Niết-bàn,"
+    },
+    {
+     "n": 12,
+     "text": "Đạt an tịnh vô thượng."
+    },
+    {
+     "n": 13,
+     "text": "Nỗ lực, giữ chánh niệm,"
+    },
+    {
+     "n": 14,
+     "text": "Tịnh hạnh, hành thận trọng"
+    },
+    {
+     "n": 15,
+     "text": "Tự điều, sống theo pháp,"
+    },
+    {
+     "n": 16,
+     "text": "Ai sống không phóng dật, Tiếng lành ngày tăng trưởng."
+    },
+    {
+     "n": 17,
+     "text": "Nỗ lực, không phóng dật,"
+    },
+    {
+     "n": 18,
+     "text": "Tự điều, khéo chế ngự."
+    },
+    {
+     "n": 19,
+     "text": "Bậc trí xây hòn đảo,"
+    },
+    {
+     "n": 20,
+     "text": "Nước lụt khó ngập tràn."
+    },
+    {
+     "n": 21,
+     "text": "Chúng ngu si, thiếu trí,"
+    },
+    {
+     "n": 22,
+     "text": "Chuyên sống đời phóng dật."
+    },
+    {
+     "n": 23,
+     "text": "Người trí, không phóng dật,"
+    },
+    {
+     "n": 24,
+     "text": "Như giữ tài sản quý."
+    },
+    {
+     "n": 25,
+     "text": "Chớ sống đời phóng dật,"
+    },
+    {
+     "n": 26,
+     "text": "Chớ mê say dục lạc."
+    },
+    {
+     "n": 27,
+     "text": "Không phóng dật, thiền định,"
+    },
+    {
+     "n": 28,
+     "text": "Đạt được an lạc lớn."
+    },
+    {
+     "n": 29,
+     "text": "Người trí dẹp phóng dật,"
+    },
+    {
+     "n": 30,
+     "text": "Với hạnh không phóng dật,"
+    },
+    {
+     "n": 31,
+     "text": "Leo lầu cao trí tuệ,"
+    },
+    {
+     "n": 32,
+     "text": "Không sầu, nhìn khổ sầu,"
+    },
+    {
+     "n": 33,
+     "text": "Bậc trí đứng núi cao,"
+    },
+    {
+     "n": 34,
+     "text": "Nhìn kẻ ngu, đất bằng."
+    },
+    {
+     "n": 35,
+     "text": "Tinh cần giữa phóng dật,"
+    },
+    {
+     "n": 36,
+     "text": "Tỉnh thức giữa quần mê."
+    },
+    {
+     "n": 37,
+     "text": "Người trí như ngựa phi,"
+    },
+    {
+     "n": 38,
+     "text": "Bỏ sau con ngựa hèn."
+    },
+    {
+     "n": 39,
+     "text": "Đế-thích không phóng dật,"
+    },
+    {
+     "n": 40,
+     "text": "Đạt ngôi vị Thiên chủ."
+    },
+    {
+     "n": 41,
+     "text": "Không phóng dật, được khen;"
+    },
+    {
+     "n": 42,
+     "text": "Phóng dật, thường bị trách."
+    },
+    {
+     "n": 43,
+     "text": "Vui thích không phóng dật,"
+    },
+    {
+     "n": 44,
+     "text": "Tỳ-kheo sợ phóng dật,"
+    },
+    {
+     "n": 45,
+     "text": "Bước tới như lửa hừng,"
+    },
+    {
+     "n": 46,
+     "text": "Thiêu kiết sử lớn nhỏ."
+    },
+    {
+     "n": 47,
+     "text": "Vui thích không phóng dật,"
+    },
+    {
+     "n": 48,
+     "text": "Tỳ-kheo sợ phóng dật,"
+    },
+    {
+     "n": 49,
+     "text": "Không thể bị thối đọa,"
+    },
+    {
+     "n": 50,
+     "text": "Nhất định gần Niết-bàn."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp21-32/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Appamādo amatapadaṁ,"
+    },
+    {
+     "n": 2,
+     "text": "pamādo maccuno padaṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Appamattā na mīyanti,"
+    },
+    {
+     "n": 4,
+     "text": "ye pamattā yathā matā."
+    },
+    {
+     "n": 5,
+     "text": "Evaṁ visesato ñatvā,"
+    },
+    {
+     "n": 6,
+     "text": "appamādamhi paṇḍitā;"
+    },
+    {
+     "n": 7,
+     "text": "Appamāde pamodanti,"
+    },
+    {
+     "n": 8,
+     "text": "ariyānaṁ gocare ratā."
+    },
+    {
+     "n": 9,
+     "text": "Te jhāyino sātatikā,"
+    },
+    {
+     "n": 10,
+     "text": "niccaṁ daḷhaparakkamā;"
+    },
+    {
+     "n": 11,
+     "text": "Phusanti dhīrā nibbānaṁ,"
+    },
+    {
+     "n": 12,
+     "text": "yogakkhemaṁ anuttaraṁ."
+    },
+    {
+     "n": 13,
+     "text": "Uṭṭhānavato satīmato,"
+    },
+    {
+     "n": 14,
+     "text": "Sucikammassa nisammakārino;"
+    },
+    {
+     "n": 15,
+     "text": "Saññatassa dhammajīvino,"
+    },
+    {
+     "n": 16,
+     "text": "Appamattassa yasobhivaḍḍhati."
+    },
+    {
+     "n": 17,
+     "text": "Uṭṭhānenappamādena,"
+    },
+    {
+     "n": 18,
+     "text": "saṁyamena damena ca;"
+    },
+    {
+     "n": 19,
+     "text": "Dīpaṁ kayirātha medhāvī,"
+    },
+    {
+     "n": 20,
+     "text": "yaṁ ogho nābhikīrati."
+    },
+    {
+     "n": 21,
+     "text": "Pamādamanuyuñjanti,"
+    },
+    {
+     "n": 22,
+     "text": "bālā dummedhino janā;"
+    },
+    {
+     "n": 23,
+     "text": "Appamādañca medhāvī,"
+    },
+    {
+     "n": 24,
+     "text": "dhanaṁ seṭṭhaṁva rakkhati."
+    },
+    {
+     "n": 25,
+     "text": "Mā pamādamanuyuñjetha,"
+    },
+    {
+     "n": 26,
+     "text": "mā kāmaratisanthavaṁ;"
+    },
+    {
+     "n": 27,
+     "text": "Appamatto hi jhāyanto,"
+    },
+    {
+     "n": 28,
+     "text": "pappoti vipulaṁ sukhaṁ."
+    },
+    {
+     "n": 29,
+     "text": "Pamādaṁ appamādena,"
+    },
+    {
+     "n": 30,
+     "text": "yadā nudati paṇḍito;"
+    },
+    {
+     "n": 31,
+     "text": "Paññāpāsādamāruyha,"
+    },
+    {
+     "n": 32,
+     "text": "asoko sokiniṁ pajaṁ;"
+    },
+    {
+     "n": 33,
+     "text": "Pabbataṭṭhova bhūmaṭṭhe,"
+    },
+    {
+     "n": 34,
+     "text": "dhīro bāle avekkhati."
+    },
+    {
+     "n": 35,
+     "text": "Appamatto pamattesu,"
+    },
+    {
+     "n": 36,
+     "text": "suttesu bahujāgaro;"
+    },
+    {
+     "n": 37,
+     "text": "Abalassaṁva sīghasso,"
+    },
+    {
+     "n": 38,
+     "text": "hitvā yāti sumedhaso."
+    },
+    {
+     "n": 39,
+     "text": "Appamādena maghavā,"
+    },
+    {
+     "n": 40,
+     "text": "devānaṁ seṭṭhataṁ gato;"
+    },
+    {
+     "n": 41,
+     "text": "Appamādaṁ pasaṁsanti,"
+    },
+    {
+     "n": 42,
+     "text": "pamādo garahito sadā."
+    },
+    {
+     "n": 43,
+     "text": "Appamādarato bhikkhu,"
+    },
+    {
+     "n": 44,
+     "text": "pamāde bhayadassi vā;"
+    },
+    {
+     "n": 45,
+     "text": "Saṁyojanaṁ aṇuṁ thūlaṁ,"
+    },
+    {
+     "n": 46,
+     "text": "ḍahaṁ aggīva gacchati."
+    },
+    {
+     "n": 47,
+     "text": "Appamādarato bhikkhu,"
+    },
+    {
+     "n": 48,
+     "text": "pamāde bhayadassi vā;"
+    },
+    {
+     "n": 49,
+     "text": "Abhabbo parihānāya,"
+    },
+    {
+     "n": 50,
+     "text": "nibbānasseva santike."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp21-32/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Heedfulness is the state free of death;"
+    },
+    {
+     "n": 2,
+     "text": "heedlessness is the state of death."
+    },
+    {
+     "n": 3,
+     "text": "The heedful do not die,"
+    },
+    {
+     "n": 4,
+     "text": "while the heedless are like the dead."
+    },
+    {
+     "n": 5,
+     "text": "Understanding this distinction"
+    },
+    {
+     "n": 6,
+     "text": "when it comes to heedfulness,"
+    },
+    {
+     "n": 7,
+     "text": "the astute rejoice in heedfulness,"
+    },
+    {
+     "n": 8,
+     "text": "happy in the noble ones’ domain."
+    },
+    {
+     "n": 9,
+     "text": "They who regularly meditate,"
+    },
+    {
+     "n": 10,
+     "text": "always staunchly vigorous;"
+    },
+    {
+     "n": 11,
+     "text": "the attentive realize extinguishment,"
+    },
+    {
+     "n": 12,
+     "text": "the supreme sanctuary from the yoke."
+    },
+    {
+     "n": 13,
+     "text": "For the hard-working and mindful,"
+    },
+    {
+     "n": 14,
+     "text": "pure of deed and attentive,"
+    },
+    {
+     "n": 15,
+     "text": "restrained, living righteously, and diligent,"
+    },
+    {
+     "n": 16,
+     "text": "their reputation only grows."
+    },
+    {
+     "n": 17,
+     "text": "By hard work and diligence,"
+    },
+    {
+     "n": 18,
+     "text": "by restraint and by self-control,"
+    },
+    {
+     "n": 19,
+     "text": "a smart person would build an island"
+    },
+    {
+     "n": 20,
+     "text": "that the floods cannot overflow."
+    },
+    {
+     "n": 21,
+     "text": "Fools and simpletons"
+    },
+    {
+     "n": 22,
+     "text": "devote themselves to negligence."
+    },
+    {
+     "n": 23,
+     "text": "But the wise protect diligence"
+    },
+    {
+     "n": 24,
+     "text": "as their best treasure."
+    },
+    {
+     "n": 25,
+     "text": "Don’t devote yourself to negligence,"
+    },
+    {
+     "n": 26,
+     "text": "or delight in erotic intimacy."
+    },
+    {
+     "n": 27,
+     "text": "For if you’re diligent and meditate,"
+    },
+    {
+     "n": 28,
+     "text": "you’ll attain abundant happiness."
+    },
+    {
+     "n": 29,
+     "text": "When the astute dispel negligence"
+    },
+    {
+     "n": 30,
+     "text": "by means of diligence,"
+    },
+    {
+     "n": 31,
+     "text": "ascending the palace of wisdom,"
+    },
+    {
+     "n": 32,
+     "text": "sorrowless, they behold this generation of sorrow,"
+    },
+    {
+     "n": 33,
+     "text": "as an attentive one on a mountain top"
+    },
+    {
+     "n": 34,
+     "text": "beholds the fools below."
+    },
+    {
+     "n": 35,
+     "text": "Heedful among the heedless,"
+    },
+    {
+     "n": 36,
+     "text": "wide awake while others sleep—"
+    },
+    {
+     "n": 37,
+     "text": "a true sage leaves them behind,"
+    },
+    {
+     "n": 38,
+     "text": "like a swift horse passing a feeble."
+    },
+    {
+     "n": 39,
+     "text": "Maghavā became chief of the gods"
+    },
+    {
+     "n": 40,
+     "text": "by means of diligence."
+    },
+    {
+     "n": 41,
+     "text": "People praise diligence,"
+    },
+    {
+     "n": 42,
+     "text": "while negligence is always deplored."
+    },
+    {
+     "n": 43,
+     "text": "A mendicant who loves diligence,"
+    },
+    {
+     "n": 44,
+     "text": "seeing fear in negligence—"
+    },
+    {
+     "n": 45,
+     "text": "advances like fire,"
+    },
+    {
+     "n": 46,
+     "text": "burning up fetters big and small."
+    },
+    {
+     "n": 47,
+     "text": "A mendicant who loves diligence,"
+    },
+    {
+     "n": 48,
+     "text": "seeing fear in negligence—"
+    },
+    {
+     "n": 49,
+     "text": "such a one can’t decline,"
+    },
+    {
+     "n": 50,
+     "text": "and has drawn near to extinguishment."
+    }
+   ]
+  }
+ ]
+}

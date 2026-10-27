@@ -1,0 +1,1680 @@
+{
+ "id": "tieu-kinh-phuong-quang",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 44",
+ "summary": "Kinh trong Trung Bộ (MN 44), là cuộc vấn đáp giữa cư sĩ Visākha và Tỷ-kheo-ni Dhammadinna tại Rājagaha. Hai vị bàn về tự thân, năm thủ uẩn, Bát chánh đạo, các hành và nhiều chủ đề khác. Thế Tôn sau đó xác nhận các câu trả lời ấy đúng như điều Ngài cũng sẽ nói.",
+ "titles": {
+  "vi": "Tiểu kinh Phương quảng",
+  "pli": "Cūḷavedallasutta",
+  "en": "The Shorter Classification"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 35,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn44/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn ở Rājagaha (Vương Xá), tai Veluvana (Trúc Lâm), chỗ Kalandaka Nivapa."
+    },
+    {
+     "n": 3,
+     "text": "Rồi nam cư sĩ Visākha đến chỗ Tỷ-kheo-ni Dhammadinna ở, sau khi đến, đảnh lễ Tỷ-kheo-ni Dhammadinna rồi ngồi xuống một bên."
+    },
+    {
+     "n": 4,
+     "text": "Sau khi ngồi xuống một bên, nam cư sĩ Visākha thưa với Tỷ-kheo ni Dhammadinna"
+    },
+    {
+     "n": 5,
+     "text": "—Thưa Ni sư, tự thân, tự thân, (Sakkaya), được gọi là như vậy.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 6,
+     "text": "Thưa Ni sư, Thế Tôn gọi tự thân là như thế nào?",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 7,
+     "text": "—Hiền giả Visākha, Thế Tôn gọi năm thủ uẩn là tự thân, tức là sắc thủ uẩn, thọ thủ uẩn, tưởng thủ uẩn, hành thủ uẩn và thức thủ uẩn.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 8,
+     "text": "Hiền giả Visākha, năm thủ uẩn này, Thế Tôn gọi là tự thân.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 9,
+     "text": "—Lành thay, thưa Ni sư.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 10,
+     "text": "Nam cư sĩ Visākha hoan hỷ, tín thọ lời Tỷ-kheo-ni Dhammadinna nói, rồi hỏi Tỷ-kheo-ni Dhammadinna thêm một câu hỏi nữa",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 11,
+     "text": "—Tự thân tập khởi, tự thân tập khởi, thưa Ni sư, được gọi là như vậy.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 12,
+     "text": "Thưa Ni sư, Thế Tôn gọi tự thân tập khởi (Sakkaya samudaya) là như thế nào?",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 13,
+     "text": "—Hiền giả Visākha, khát ái này đưa đến tái sanh, câu hữu với hỷ và tham, tìm cầu hỷ lạc chỗ này chỗ kia, tức là dục ái, hữu ái và phi hữu ái.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 14,
+     "text": "Hiền giả Visākha, khát ái này, Thế Tôn gọi là tự thân tập khởi.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 15,
+     "text": "—Tự thân diệt, tự thân diệt, thưa Ni sư, được gọi là như vậy.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 16,
+     "text": "Thế Tôn gọi tự thân diệt là như thế nào?",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 17,
+     "text": "—Hiền giả Visākha, sự đoạn diệt, không tham đắm, không có dư tàn của khát ái ấy, sự xả ly, sự vất bỏ, sự giải thoát, sự vô chấp.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 18,
+     "text": "Hiền giả Visākha, sự đoạn diệt này, Thế Tôn gọi là tự thân diệt.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 19,
+     "text": "—Thưa Ni sư, tự thân diệt đạo, tự thân diệt đạo, được gọi là như vậy.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 20,
+     "text": "Thưa Ni sư, Thế Tôn gọi tự thân diệt đạo là như thế nào?",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 21,
+     "text": "—Hiền giả Visākha, Con đường Thánh tám ngành này, Thế Tôn gọi là tự thân diệt đạo, tức là chánh tri kiến, chánh tư duy, chánh ngữ, chánh nghiệp, chánh mạng, chánh tinh tấn, chánh niệm, chánh định.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 22,
+     "text": "—Thưa Ni sư, thủ này tức là năm thủ uẩn kia hay thủ này khác với năm thủ uẩn?",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 23,
+     "text": "—Không phải, Hiền giả Visākha. Thủ này tức là năm thủ uẩn kia, thủ này không khác với năm thủ uẩn kia, Hiền giả Visākha, phàm có dục tham đối với năm thủ uẩn, tức là (chấp) thủ đối với chúng ở đây vậy.",
+     "section": "(Tự thân)"
+    },
+    {
+     "n": 24,
+     "text": "—Thưa Ni sư, thế nào là thân kiến?",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 25,
+     "text": "—Ở đây, Hiền giả Visākha, kẻ vô văn phàm phu không đến yết kiến các bậc Thánh, không thuần thục pháp các bậc Thánh, không tu tập pháp các bậc Thánh, không đến yết kiến các bậc Chân nhân,",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 26,
+     "text": "không thuần thục pháp các bậc Chân nhân, không tu tập pháp các bậc Chân nhân, xem sắc là tự ngã hay xem tự ngã là có sắc, hay xem sắc là trong tự ngã hay xem tự ngã là trong sắc;",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 27,
+     "text": "xem thọ là tự ngã, hay xem tự ngã là có thọ, hay xem thọ là trong tự ngã, hay xem tự ngã là trong thọ; xem tưởng là tự ngã, hay xem tự ngã là có tưởng, hay xem tưởng là trong tự ngã, hay xem tự ngã là trong tưởng;",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 28,
+     "text": "xem hành là tự ngã, xem tự ngã là có hành, hay xem hành là trong tự ngã, hay xem tự ngã là trong hành; xem thức là tự ngã, hay xem tự ngã là có thức, hay xem thức là trong tự ngã, hay xem tự ngã là trong thức.",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 29,
+     "text": "Như vậy, Hiền giả Visākha, là thân kiến.",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 30,
+     "text": "—Thưa Ni sư, thế nào là không phải thân kiến?",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 31,
+     "text": "—Ở đây, Hiền giả Visākha, vị Đa văn Thánh đệ tử đến yết kiến các bậc Thánh, thuần thục pháp các bậc Thánh, tu tập pháp các bậc Thánh, đến yết kiến các bậc Chân nhân, thuần thục pháp các bậc Chân nhân,",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 32,
+     "text": "tu tập pháp các bậc Chân nhân, không xem sắc là tự ngã, không xem tự ngã là có sắc, không xem sắc là trong tự ngã, không xem tự ngã là trong sắc;",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 33,
+     "text": "không xem thọ là tự ngã, không xem tự ngã là có thọ, không xem thọ là trong tự ngã, không xem tự ngã là trong thọ;",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 34,
+     "text": "không xem tưởng là tự ngã, không xem tự ngã là có tưởng, không xem tưởng là trong tự ngã, không xem tự ngã là trong tưởng;",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 35,
+     "text": "không xem các hành là tự ngã, không xem tự ngã là có các hành, không xem các hành là trong tự ngã, không xem tự ngã là trong các hành;",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 36,
+     "text": "không xem thức là tự ngã, không xem tự ngã là có thức, không xem thức là trong tự ngã, không xem tự ngã là trong thức.",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 37,
+     "text": "Như vậy, Hiền giả Visākha, là không có thân kiến.",
+     "section": "(Thân kiến)"
+    },
+    {
+     "n": 38,
+     "text": "—Thưa Ni sư, thế nào là Thánh đạo Tám ngành?",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 39,
+     "text": "—Hiền giả Visākha, đây là Thánh đạo Tám ngành, tức là chánh tri kiến, chánh tư duy, chánh ngữ, chánh nghiệp, chánh mạng, chánh tinh tấn, chánh niệm, chánh định.",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 40,
+     "text": "—Thưa Ni sư, Thánh đạo Tám ngành này là hữu vi hay vô vi?",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 41,
+     "text": "—Hiền giả Visākha, Thánh đạo Tám ngành này là hữu vi.",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 42,
+     "text": "—Thưa Ni sư, ba uẩn được Thánh đạo Tám ngành thâu nhiếp hay Thánh đạo Tám ngành được ba uẩn thâu nhiếp?",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 43,
+     "text": "—Hiền giả Visākha, ba uẩn không bị Thánh đạo Tám ngành thâu nhiếp; Hiền giả Visākha, Thánh đạo Tám ngành bị ba uẩn thâu nhiếp.",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 44,
+     "text": "Hiền giả Visākha, chánh ngữ, chánh nghiệp và chánh mạng, những pháp này được thâu nhiếp trong giới uẩn.",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 45,
+     "text": "Chánh tinh tấn, chánh niệm và chánh định, những pháp này được thâu nhiếp trong định uẩn.",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 46,
+     "text": "Chánh tri kiến và chánh tư duy, những pháp này được thâu nhiếp trong tuệ uẩn",
+     "section": "(Bát chánh đạo)"
+    },
+    {
+     "n": 47,
+     "text": "—Thưa Ni sư thế nào là định, thế nào là định tướng, thế nào là định tư cụ, thế nào là định tu tập?",
+     "section": "(Định)"
+    },
+    {
+     "n": 48,
+     "text": "—Hiền giả Visākha, nhất tâm là định, Bốn Niệm Xứ là định tướng, Bốn Tinh cần là định tư cụ, sự luyện tập, sự tu tập, sự tái tu tập của những pháp ấy là định tu tập ở đây vậy.",
+     "section": "(Định)"
+    },
+    {
+     "n": 49,
+     "text": "—Thưa Ni sư, có bao nhiêu hành?",
+     "section": "(Hành)"
+    },
+    {
+     "n": 50,
+     "text": "—Hiền giả, có ba loại hành này: thân hành, khẩu hành, và tâm hành.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 51,
+     "text": "—Thưa Ni sư, thế nào là thân hành, thế nào là khẩu hành, thế nào là tâm hành?",
+     "section": "(Hành)"
+    },
+    {
+     "n": 52,
+     "text": "—Thở vô, thở ra, Hiền giả Visākha, là thân hành, tầm tứ là khẩu hành, tưởng và thọ là tâm hành.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 53,
+     "text": "—Thưa Ni sư, vì sao thở vô thở ra là thân hành, vì sao tầm tứ là khẩu hành, vì sao tưởng và thọ là tâm hành?",
+     "section": "(Hành)"
+    },
+    {
+     "n": 54,
+     "text": "—Thở vô, thở ra, Hiền giả Visākha, thuộc về thân, những pháp này lệ thuộc với thân, nên thở vô thở ra thuộc về thân hành.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 55,
+     "text": "Hiền giả Visākha, trước phải tầm và tứ rồi sau mới phát lời nói, nên tầm tứ thuộc về khẩu hành.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 56,
+     "text": "Tưởng và thọ và tâm sở, các pháp này lệ thuộc với tâm, nên tưởng và thọ thuộc về tâm hành.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 57,
+     "text": "—Thưa Ni sư, như thế nào là chứng nhập Diệt thọ tưởng định?",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 58,
+     "text": "—Hiền giả Visākha, Tỷ-kheo chứng nhập Diệt thọ tưởng định, vị ấy không nghĩ rằng: “Tôi sẽ chứng nhập Diệt thọ tưởng định”, hay “Tôi đang chứng nhập Diệt thọ tưởng định” hay “Tôi đã chứng nhập Diệt thọ tưởng định”.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 59,
+     "text": "Vì rằng, tâm của vị này trước đã được tu tập như vậy nên đưa đến trạng thái như vậy.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 60,
+     "text": "—Thưa Ni sư, Tỷ-kheo chứng nhập Diệt thọ tưởng định, những pháp gì diệt trước, thân hành, hay khẩu hành, hay tâm hành?",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 61,
+     "text": "—Hiền giả Visākha, vị Tỷ-kheo chứng nhập Diệt thọ tưởng định, khẩu hành diệt trước, rồi đến thân hành, rồi đến tâm hành.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 62,
+     "text": "—Thưa Ni sư, làm thế nào xuất khởi Diệt thọ tưởng định?",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 63,
+     "text": "—Hiền giả Visākha, vị Tỷ-kheo xuất khởi Diệt thọ tưởng định, không có nghĩ rằng: “Tôi sẽ xuất khởi Diệt thọ tưởng định”, hay “Tôi đang xuất khởi Diệt thọ tưởng định”, hay “Tôi đã xuất khởi Diệt thọ tưởng định”.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 64,
+     "text": "Vì rằng tâm của vị này trước đã tu tập như vậy nên đưa đến trạng thái như vậy.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 65,
+     "text": "—Thưa Ni sư, Tỷ-kheo xuất khởi Diệt thọ tưởng định, những pháp nào khởi lên trước, thân hành, hay khẩu hành hay tâm hành?",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 66,
+     "text": "—Hiền giả Visākha, Tỷ-kheo xuất khởi Diệt thọ tưởng định, tâm hành khởi lên trước nhất, rồi đến thân hành, rồi đến khẩu hành.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 67,
+     "text": "—Thưa Ni sư, khi Tỷ-kheo xuất khởi Diệt thọ tưởng định, vị ấy cảm giác những xúc nào?",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 68,
+     "text": "—Hiền giả Visākha, khi Tỷ-kheo xuất khởi Diệt thọ tưởng định, vị ấy cảm giác ba loại xúc: không xúc, vô tướng xúc, vô nguyện xúc.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 69,
+     "text": "—Thưa Ni sư, khi Tỷ-kheo xuất khởi Diệt thọ tưởng định, tâm của vị ấy thiên về gì, hướng về gì, khuynh hướng về gì?",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 70,
+     "text": "—Hiền giả Visākha, khi Tỷ-kheo xuất khởi Diệt thọ tưởng định, tâm của vị ấy thiên về độc cư, hướng về độc cư, khuynh hướng về độc cư.",
+     "section": "(Diệt định)"
+    },
+    {
+     "n": 71,
+     "text": "—Thưa Ni sư, có bao nhiêu thọ?",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 72,
+     "text": "—Hiền giả Visākha, có ba thọ này, lạc thọ, khổ thọ, bất khổ bất lạc thọ.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 73,
+     "text": "—Thưa Ni sư, thế nào là lạc thọ, thế nào là khổ thọ, thế nào là bất khổ bất lạc thọ?",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 74,
+     "text": "—Hiền giả Visākha, cái gì được cảm thọ bởi thân hay tâm, một cách khoái lạc, khoái cảm, như vậy là lạc thọ.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 75,
+     "text": "Hiền giả Visākha, cái gì được cảm thọ bởi thân hay tâm, một cách đau khổ, không khoái cảm, như vậy là khổ thọ.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 76,
+     "text": "Hiền giả Visākha, cái gì được cảm thọ bởi thân hay tâm không khoái cảm, không khoái cảm như vậy là bất khổ bất lạc thọ.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 77,
+     "text": "—Thưa Ni sư, đối với lạc thọ, cái gì lạc, cái gì khổ?",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 78,
+     "text": "Đối với khổ thọ, cái gì khổ, cái gì lạc?",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 79,
+     "text": "Đối với bất khổ bất lạc thọ, cái gì lạc, cái gì khổ?",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 80,
+     "text": "—Hiền giả Visākha, đối với lạc thọ, cái gì trú là lạc, cái gì biến hoại là khổ.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 81,
+     "text": "Đối với khổ thọ, cái gì trú là khổ, cái gì biến hoại là lạc.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 82,
+     "text": "Đối với bất khổ bất lạc thọ, có trí là lạc, vô trí là khổ.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 83,
+     "text": "—Thưa Ni sư, trong lạc thọ, có tùy miên gì tồn tại; trong khổ thọ, có tùy miên gì tồn tại; trong bất khổ bất lạc thọ, có tùy miên gì tồn tại?",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 84,
+     "text": "—Hiền giả Visākha, trong lạc thọ, tham tùy miên tồn tại; trong khổ thọ, sân tùy miên tồn tại; trong tất cả bất khổ bất lạc thọ, vô minh tùy miên tồn tại.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 85,
+     "text": "—Thưa Ni sư, có phải trong tất cả lạc thọ, tham tùy miên tồn tại; trong tất cả khổ thọ, sân tùy miên tồn tại; trong tất cả bất khổ bất lạc thọ, vô minh tùy miên tồn tại?",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 86,
+     "text": "—Hiền giả Visākha, không phải trong tất cả lạc thọ, tham tùy miên tồn tại; không phải trong tất cả khổ thọ, sân tùy miên tồn tại; không phải trong tất cả bất khổ bất lạc thọ, vô minh tùy miên tồn tại.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 87,
+     "text": "—Thưa Ni sư, trong lạc thọ, cái gì phải từ bỏ. Trong khổ thọ, cái gì phải từ bỏ.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 88,
+     "text": "Trong bất khổ bất lạc thọ, cái gì phải từ bỏ?",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 89,
+     "text": "—Hiền giả Visākha, trong lạc thọ, tham tùy miên phải từ bỏ. Trong khổ thọ, sân tùy miên phải từ bỏ.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 90,
+     "text": "Trong bất khổ bất lạc thọ, vô minh tùy miên phải từ bỏ.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 91,
+     "text": "—Thưa Ni sư, có phải trong tất cả lạc thọ, tham tùy miên phải từ bỏ.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 92,
+     "text": "Trong tất cả khổ thọ, sân tùy miên phải từ bỏ.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 93,
+     "text": "Trong tất cả bất khổ bất lạc thọ, vô minh tùy miên phải từ bỏ?",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 94,
+     "text": "—Hiền giả Visākha, không phải trong tất cả lạc thọ, tham tùy miên phải từ bỏ; trong tất cả khổ thọ, sân tùy miên phải từ bỏ;",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 95,
+     "text": "trong tất cả bất khổ bất lạc thọ, vô minh tùy miên phải từ bỏ. Ở đây, Hiền giả Visākha, vị Tỷ-kheo ly dục, ly bất thiện pháp, chứng và an trú Thiền thứ nhất, một trạng thái hỷ lạc do ly dục sanh, có tầm và tứ.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 96,
+     "text": "Do vậy tham đã được từ bỏ, không còn tham tùy miên tồn tại ở đây.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 97,
+     "text": "Ở đây, Hiền giả Visākha, vị Tỷ-kheo suy tư như sau: “Chắc chắn ta sẽ chứng và an trú trong trú xứ mà nay các vị Thánh đang an trú”.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 98,
+     "text": "Vì muốn phát nguyện hướng đến các cảnh giải thoát vô thượng, do ước nguyện ấy, khởi lên ưu tư.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 99,
+     "text": "Do vậy, sân được từ bỏ, không còn sân tùy miên tồn tại ở đây.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 100,
+     "text": "Ở đây, Hiền giả Visākha, vị Tỷ-kheo xả lạc và xả khổ, diệt hỷ ưu đã cảm thọ trước, chứng và trú Thiền thứ tư, không khổ, không lạc, xả niệm thanh tịnh.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 101,
+     "text": "Do vậy vô minh đã được từ bỏ, không còn vô minh tùy miên tồn tại ở đây.",
+     "section": "(Tùy miên)"
+    },
+    {
+     "n": 102,
+     "text": "—Thưa Ni sư, lạc thọ lấy gì làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 103,
+     "text": "—Hiền giả Visākha, lạc thọ lấy khổ thọ làm tương đương.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 104,
+     "text": "—Thưa Ni sư, khổ thọ lấy gì làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 105,
+     "text": "—Hiền giả Visākha, khổ thọ lấy lạc thọ làm tương đương.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 106,
+     "text": "—Thưa Ni sư, bất khổ bất lạc thọ lấy gì làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 107,
+     "text": "—Hiền giả Visākha, bất khổ bất lạc thọ lấy vô minh làm tương đương.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 108,
+     "text": "—Thưa Ni sư, vô minh lấy gì làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 109,
+     "text": "—Hiền giả Visākha, vô minh lấy minh làm tương đương.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 110,
+     "text": "—Thưa Ni sư, minh lấy gì làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 111,
+     "text": "—Hiền giả Visākha, minh lấy giải thoát làm tương đương.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 112,
+     "text": "—Thưa Ni sư, giải thoát lấy gì làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 113,
+     "text": "—Hiền giả Visākha, giải thoát lấy Niết-bàn làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 114,
+     "text": "—Thưa Ni sư, Niết-bàn lấy gì làm tương đương?",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 115,
+     "text": "—Hiền giả Visākha, câu hỏi đi quá xa, vượt ra ngoài giới hạn câu trả lời.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 116,
+     "text": "Hiền giả Visākha, phạm hạnh là để thể nhập vào Niết-bàn, để vượt qua đến Niết-bàn, để đạt cứu cánh Niết-bàn.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 117,
+     "text": "Hiền giả Visākha, nếu Hiền giả muốn, hãy đến chỗ Thế Tôn ở, và hỏi ý nghĩa này.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 118,
+     "text": "Và Thế Tôn trả lời cho Hiền giả như thế nào, hãy như vậy thọ trì.",
+     "section": "(Đối tác)"
+    },
+    {
+     "n": 119,
+     "text": "Rồi nam cư sĩ Visākha hoan hỷ, tín thọ lời Tỷ-kheo-ni Dhammadinna giảng, từ chỗ ngồi đứng dậy, đảnh lễ Tỷ-kheo ni Dhammadinna, thân bên phải hướng về phía Tỷ-kheo-ni rồi từ biệt, đi đến chỗ Thế Tôn ở.",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 120,
+     "text": "Sau khi đến, đảnh lễ Thế Tôn rồi ngồi xuống một bên.",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 121,
+     "text": "Ngồi một bên, nam cư sĩ Visākha thuật lại cho Thế Tôn tất cả câu chuyện đàm đạo với Tỷ-kheo-ni Dhammadinna.",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 122,
+     "text": "Khi nghe nói vậy, Thế Tôn nói với nam cư sĩ Visākha",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 123,
+     "text": "—Này Visākha, Tỷ-kheo-ni Dhammadinna là bậc Hiền trí!",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 124,
+     "text": "Này Visākha, Tỷ-kheo-ni Dhammadinna là bậc Đại tuệ.",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 125,
+     "text": "Này Visākha, nếu Ông hỏi Ta ý nghĩa ấy, Ta cũng trả lời như Tỷ-kheo-ni Dhammadinna đã trả lời.",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 126,
+     "text": "Ông đối với nghĩa này, hãy như vậy thọ trì.",
+     "section": "(Kết luận)"
+    },
+    {
+     "n": 127,
+     "text": "Thế Tôn thuyết giảng như vậy. Nam cư sĩ Visākha hoan hỷ, tín thọ lời Thế Tôn dạy.",
+     "section": "(Kết luận)"
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn44/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā rājagahe viharati veḷuvane kalandakanivāpe."
+    },
+    {
+     "n": 2,
+     "text": "Atha kho visākho upāsako yena dhammadinnā bhikkhunī tenupasaṅkami; upasaṅkamitvā dhammadinnaṁ bhikkhuniṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 3,
+     "text": "Ekamantaṁ nisinno kho visākho upāsako dhammadinnaṁ bhikkhuniṁ etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“‘sakkāyo sakkāyo’ti, ayye, vuccati. Katamo nu kho, ayye, sakkāyo vutto bhagavatā”ti?"
+    },
+    {
+     "n": 5,
+     "text": "“Pañca kho ime, āvuso visākha, upādānakkhandhā sakkāyo vutto bhagavatā, seyyathidaṁ—rūpupādānakkhandho, vedanupādānakkhandho, saññupādānakkhandho, saṅkhārupādānakkhandho, viññāṇupādānakkhandho."
+    },
+    {
+     "n": 6,
+     "text": "Ime kho, āvuso visākha, pañcupādānakkhandhā sakkāyo vutto bhagavatā”ti."
+    },
+    {
+     "n": 7,
+     "text": "“Sādhayye”ti kho visākho upāsako dhammadinnāya bhikkhuniyā bhāsitaṁ abhinanditvā anumoditvā dhammadinnaṁ bhikkhuniṁ uttariṁ pañhaṁ apucchi:"
+    },
+    {
+     "n": 8,
+     "text": "“‘sakkāyasamudayo sakkāyasamudayo’ti, ayye, vuccati."
+    },
+    {
+     "n": 9,
+     "text": "Katamo nu kho, ayye, sakkāyasamudayo vutto bhagavatā”ti?"
+    },
+    {
+     "n": 10,
+     "text": "“Yāyaṁ, āvuso visākha, taṇhā ponobbhavikā nandīrāgasahagatā tatratatrābhinandinī, seyyathidaṁ— kāmataṇhā bhavataṇhā vibhavataṇhā; ayaṁ kho, āvuso visākha, sakkāyasamudayo vutto bhagavatā”ti."
+    },
+    {
+     "n": 11,
+     "text": "“‘Sakkāyanirodho sakkāyanirodho’ti, ayye, vuccati."
+    },
+    {
+     "n": 12,
+     "text": "Katamo nu kho, ayye, sakkāyanirodho vutto bhagavatā”ti?"
+    },
+    {
+     "n": 13,
+     "text": "“Yo kho, āvuso visākha, tassāyeva taṇhāya asesavirāganirodho cāgo paṭinissaggo mutti anālayo; ayaṁ kho, āvuso visākha, sakkāyanirodho vutto bhagavatā”ti."
+    },
+    {
+     "n": 14,
+     "text": "“‘Sakkāyanirodhagāminī paṭipadā sakkāyanirodhagāminī paṭipadā’ti, ayye, vuccati."
+    },
+    {
+     "n": 15,
+     "text": "Katamā nu kho, ayye, sakkāyanirodhagāminī paṭipadā vuttā bhagavatā”ti?"
+    },
+    {
+     "n": 16,
+     "text": "“Ayameva kho, āvuso visākha, ariyo aṭṭhaṅgiko maggo sakkāyanirodhagāminī paṭipadā vuttā bhagavatā, seyyathidaṁ— sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto sammāājīvo sammāvāyāmo sammāsati sammāsamādhī”ti."
+    },
+    {
+     "n": 17,
+     "text": "“Taññeva nu kho, ayye, upādānaṁ te pañcupādānakkhandhā udāhu aññatra pañcahupādānakkhandhehi upādānan”ti?"
+    },
+    {
+     "n": 18,
+     "text": "“Na kho, āvuso visākha, taññeva upādānaṁ te pañcupādānakkhandhā, nāpi aññatra pañcahupādānakkhandhehi upādānaṁ."
+    },
+    {
+     "n": 19,
+     "text": "Yo kho, āvuso visākha, pañcasu upādānakkhandhesu chandarāgo taṁ tattha upādānan”ti."
+    },
+    {
+     "n": 20,
+     "text": "“Kathaṁ panāyye, sakkāyadiṭṭhi hotī”ti?"
+    },
+    {
+     "n": 21,
+     "text": "“Idhāvuso visākha, assutavā puthujjano, ariyānaṁ adassāvī ariyadhammassa akovido ariyadhamme avinīto, sappurisānaṁ adassāvī sappurisadhammassa akovido sappurisadhamme avinīto, rūpaṁ attato samanupassati,"
+    },
+    {
+     "n": 22,
+     "text": "rūpavantaṁ vā attānaṁ, attani vā rūpaṁ, rūpasmiṁ vā attānaṁ."
+    },
+    {
+     "n": 23,
+     "text": "Vedanaṁ …pe… saññaṁ … saṅkhāre … viññāṇaṁ attato samanupassati, viññāṇavantaṁ vā attānaṁ, attani vā viññāṇaṁ, viññāṇasmiṁ vā attānaṁ."
+    },
+    {
+     "n": 24,
+     "text": "Evaṁ kho, āvuso visākha, sakkāyadiṭṭhi hotī”ti."
+    },
+    {
+     "n": 25,
+     "text": "“Kathaṁ panāyye, sakkāyadiṭṭhi na hotī”ti?"
+    },
+    {
+     "n": 26,
+     "text": "“Idhāvuso visākha, sutavā ariyasāvako, ariyānaṁ dassāvī ariyadhammassa kovido ariyadhamme suvinīto, sappurisānaṁ dassāvī sappurisadhammassa kovido sappurisadhamme suvinīto, na rūpaṁ attato samanupassati,"
+    },
+    {
+     "n": 27,
+     "text": "na rūpavantaṁ vā attānaṁ, na attani vā rūpaṁ, na rūpasmiṁ vā attānaṁ."
+    },
+    {
+     "n": 28,
+     "text": "Na vedanaṁ …pe… na saññaṁ … na saṅkhāre …pe… na viññāṇaṁ attato samanupassati, na viññāṇavantaṁ vā attānaṁ, na attani vā viññāṇaṁ, na viññāṇasmiṁ vā attānaṁ."
+    },
+    {
+     "n": 29,
+     "text": "Evaṁ kho, āvuso visākha, sakkāyadiṭṭhi na hotī”ti."
+    },
+    {
+     "n": 30,
+     "text": "“Katamo panāyye, ariyo aṭṭhaṅgiko maggo”ti?"
+    },
+    {
+     "n": 31,
+     "text": "“Ayameva kho, āvuso visākha, ariyo aṭṭhaṅgiko maggo, seyyathidaṁ— sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto sammāājīvo sammāvāyāmo sammāsati sammāsamādhī”ti."
+    },
+    {
+     "n": 32,
+     "text": "“Ariyo panāyye, aṭṭhaṅgiko maggo saṅkhato udāhu asaṅkhato”ti?"
+    },
+    {
+     "n": 33,
+     "text": "“Ariyo kho, āvuso visākha, aṭṭhaṅgiko maggo saṅkhato”ti."
+    },
+    {
+     "n": 34,
+     "text": "“Ariyena nu kho, ayye, aṭṭhaṅgikena maggena tayo khandhā saṅgahitā udāhu tīhi khandhehi ariyo aṭṭhaṅgiko maggo saṅgahito”ti?"
+    },
+    {
+     "n": 35,
+     "text": "“Na kho, āvuso visākha, ariyena aṭṭhaṅgikena maggena tayo khandhā saṅgahitā; tīhi ca kho, āvuso visākha, khandhehi ariyo aṭṭhaṅgiko maggo saṅgahito."
+    },
+    {
+     "n": 36,
+     "text": "Yā cāvuso visākha, sammāvācā yo ca sammākammanto yo ca sammāājīvo ime dhammā sīlakkhandhe saṅgahitā."
+    },
+    {
+     "n": 37,
+     "text": "Yo ca sammāvāyāmo yā ca sammāsati yo ca sammāsamādhi ime dhammā samādhikkhandhe saṅgahitā."
+    },
+    {
+     "n": 38,
+     "text": "Yā ca sammādiṭṭhi yo ca sammāsaṅkappo, ime dhammā paññākkhandhe saṅgahitā”ti."
+    },
+    {
+     "n": 39,
+     "text": "“Katamo panāyye, samādhi, katame dhammā samādhinimittā, katame dhammā samādhiparikkhārā, katamā samādhibhāvanā”ti?"
+    },
+    {
+     "n": 40,
+     "text": "“Yā kho, āvuso visākha, cittassa ekaggatā ayaṁ samādhi; cattāro satipaṭṭhānā samādhinimittā; cattāro sammappadhānā samādhiparikkhārā."
+    },
+    {
+     "n": 41,
+     "text": "Yā tesaṁyeva dhammānaṁ āsevanā bhāvanā bahulīkammaṁ, ayaṁ ettha samādhibhāvanā”ti."
+    },
+    {
+     "n": 42,
+     "text": "“Kati panāyye, saṅkhārā”ti?"
+    },
+    {
+     "n": 43,
+     "text": "“Tayome, āvuso visākha, saṅkhārā— kāyasaṅkhāro, vacīsaṅkhāro, cittasaṅkhāro”ti."
+    },
+    {
+     "n": 44,
+     "text": "“Katamo panāyye, kāyasaṅkhāro, katamo vacīsaṅkhāro, katamo cittasaṅkhāro”ti?"
+    },
+    {
+     "n": 45,
+     "text": "“Assāsapassāsā kho, āvuso visākha, kāyasaṅkhāro, vitakkavicārā vacīsaṅkhāro, saññā ca vedanā ca cittasaṅkhāro”ti."
+    },
+    {
+     "n": 46,
+     "text": "“Kasmā panāyye, assāsapassāsā kāyasaṅkhāro, kasmā vitakkavicārā vacīsaṅkhāro, kasmā saññā ca vedanā ca cittasaṅkhāro”ti?"
+    },
+    {
+     "n": 47,
+     "text": "“Assāsapassāsā kho, āvuso visākha, kāyikā ete dhammā kāyappaṭibaddhā, tasmā assāsapassāsā kāyasaṅkhāro."
+    },
+    {
+     "n": 48,
+     "text": "Pubbe kho, āvuso visākha, vitakketvā vicāretvā pacchā vācaṁ bhindati, tasmā vitakkavicārā vacīsaṅkhāro."
+    },
+    {
+     "n": 49,
+     "text": "Saññā ca vedanā ca cetasikā ete dhammā cittappaṭibaddhā, tasmā saññā ca vedanā ca cittasaṅkhāro”ti."
+    },
+    {
+     "n": 50,
+     "text": "“Kathaṁ panāyye, saññāvedayitanirodhasamāpatti hotī”ti?"
+    },
+    {
+     "n": 51,
+     "text": "“Na kho, āvuso visākha, saññāvedayitanirodhaṁ samāpajjantassa bhikkhuno evaṁ hoti:"
+    },
+    {
+     "n": 52,
+     "text": "‘ahaṁ saññāvedayitanirodhaṁ samāpajjissan’ti vā, ‘ahaṁ saññāvedayitanirodhaṁ samāpajjāmī’ti vā, ‘ahaṁ saññāvedayitanirodhaṁ samāpanno’ti vā."
+    },
+    {
+     "n": 53,
+     "text": "Atha khvāssa pubbeva tathā cittaṁ bhāvitaṁ hoti yaṁ taṁ tathattāya upanetī”ti."
+    },
+    {
+     "n": 54,
+     "text": "“Saññāvedayitanirodhaṁ samāpajjantassa panāyye, bhikkhuno katame dhammā paṭhamaṁ nirujjhanti—yadi vā kāyasaṅkhāro, yadi vā vacīsaṅkhāro, yadi vā cittasaṅkhāro”ti?"
+    },
+    {
+     "n": 55,
+     "text": "“Saññāvedayitanirodhaṁ samāpajjantassa kho, āvuso visākha, bhikkhuno paṭhamaṁ nirujjhati vacīsaṅkhāro, tato kāyasaṅkhāro, tato cittasaṅkhāro”ti."
+    },
+    {
+     "n": 56,
+     "text": "“Kathaṁ panāyye, saññāvedayitanirodhasamāpattiyā vuṭṭhānaṁ hotī”ti?"
+    },
+    {
+     "n": 57,
+     "text": "“Na kho, āvuso visākha, saññāvedayitanirodhasamāpattiyā vuṭṭhahantassa bhikkhuno evaṁ hoti:"
+    },
+    {
+     "n": 58,
+     "text": "‘ahaṁ saññāvedayitanirodhasamāpattiyā vuṭṭhahissan’ti vā, ‘ahaṁ saññāvedayitanirodhasamāpattiyā vuṭṭhahāmī’ti vā, ‘ahaṁ saññāvedayitanirodhasamāpattiyā vuṭṭhito’ti vā."
+    },
+    {
+     "n": 59,
+     "text": "Atha khvāssa pubbeva tathā cittaṁ bhāvitaṁ hoti yaṁ taṁ tathattāya upanetī”ti."
+    },
+    {
+     "n": 60,
+     "text": "“Saññāvedayitanirodhasamāpattiyā vuṭṭhahantassa panāyye, bhikkhuno katame dhammā paṭhamaṁ uppajjanti—yadi vā kāyasaṅkhāro, yadi vā vacīsaṅkhāro, yadi vā cittasaṅkhāro”ti?"
+    },
+    {
+     "n": 61,
+     "text": "“Saññāvedayitanirodhasamāpattiyā vuṭṭhahantassa kho, āvuso visākha, bhikkhuno paṭhamaṁ uppajjati cittasaṅkhāro, tato kāyasaṅkhāro, tato vacīsaṅkhāro”ti."
+    },
+    {
+     "n": 62,
+     "text": "“Saññāvedayitanirodhasamāpattiyā vuṭṭhitaṁ panāyye, bhikkhuṁ kati phassā phusantī”ti?"
+    },
+    {
+     "n": 63,
+     "text": "“Saññāvedayitanirodhasamāpattiyā vuṭṭhitaṁ kho, āvuso visākha, bhikkhuṁ tayo phassā phusanti—suññato phasso, animitto phasso, appaṇihito phasso”ti."
+    },
+    {
+     "n": 64,
+     "text": "“Saññāvedayitanirodhasamāpattiyā vuṭṭhitassa panāyye, bhikkhuno kiṁninnaṁ cittaṁ hoti kiṁpoṇaṁ kiṁpabbhāran”ti?"
+    },
+    {
+     "n": 65,
+     "text": "“Saññāvedayitanirodhasamāpattiyā vuṭṭhitassa kho, āvuso visākha, bhikkhuno vivekaninnaṁ cittaṁ hoti, vivekapoṇaṁ vivekapabbhāran”ti."
+    },
+    {
+     "n": 66,
+     "text": "“Kati panāyye, vedanā”ti?"
+    },
+    {
+     "n": 67,
+     "text": "“Tisso kho imā, āvuso visākha, vedanā— sukhā vedanā, dukkhā vedanā, adukkhamasukhā vedanā”ti."
+    },
+    {
+     "n": 68,
+     "text": "“Katamā panāyye, sukhā vedanā, katamā dukkhā vedanā, katamā adukkhamasukhā vedanā”ti?"
+    },
+    {
+     "n": 69,
+     "text": "“Yaṁ kho, āvuso visākha, kāyikaṁ vā cetasikaṁ vā sukhaṁ sātaṁ vedayitaṁ— ayaṁ sukhā vedanā."
+    },
+    {
+     "n": 70,
+     "text": "Yaṁ kho, āvuso visākha, kāyikaṁ vā cetasikaṁ vā dukkhaṁ asātaṁ vedayitaṁ— ayaṁ dukkhā vedanā."
+    },
+    {
+     "n": 71,
+     "text": "Yaṁ kho, āvuso visākha, kāyikaṁ vā cetasikaṁ vā neva sātaṁ nāsātaṁ vedayitaṁ— ayaṁ adukkhamasukhā vedanā”ti."
+    },
+    {
+     "n": 72,
+     "text": "“Sukhā panāyye, vedanā kiṁsukhā kiṁdukkhā, dukkhā vedanā kiṁsukhā kiṁdukkhā, adukkhamasukhā vedanā kiṁsukhā kiṁdukkhā”ti?"
+    },
+    {
+     "n": 73,
+     "text": "“Sukhā kho, āvuso visākha, vedanā ṭhitisukhā vipariṇāmadukkhā; dukkhā vedanā ṭhitidukkhā vipariṇāmasukhā; adukkhamasukhā vedanā ñāṇasukhā aññāṇadukkhā”ti."
+    },
+    {
+     "n": 74,
+     "text": "“Sukhāya panāyye, vedanāya kiṁ anusayo anuseti, dukkhāya vedanāya kiṁ anusayo anuseti, adukkhamasukhāya vedanāya kiṁ anusayo anusetī”ti?"
+    },
+    {
+     "n": 75,
+     "text": "“Sukhāya kho, āvuso visākha, vedanāya rāgānusayo anuseti, dukkhāya vedanāya paṭighānusayo anuseti, adukkhamasukhāya vedanāya avijjānusayo anusetī”ti."
+    },
+    {
+     "n": 76,
+     "text": "“Sabbāya nu kho, ayye, sukhāya vedanāya rāgānusayo anuseti, sabbāya dukkhāya vedanāya paṭighānusayo anuseti, sabbāya adukkhamasukhāya vedanāya avijjānusayo anusetī”ti?"
+    },
+    {
+     "n": 77,
+     "text": "“Na kho, āvuso visākha, sabbāya sukhāya vedanāya rāgānusayo anuseti, na sabbāya dukkhāya vedanāya paṭighānusayo anuseti, na sabbāya adukkhamasukhāya vedanāya avijjānusayo anusetī”ti."
+    },
+    {
+     "n": 78,
+     "text": "“Sukhāya panāyye, vedanāya kiṁ pahātabbaṁ, dukkhāya vedanāya kiṁ pahātabbaṁ, adukkhamasukhāya vedanāya kiṁ pahātabban”ti?"
+    },
+    {
+     "n": 79,
+     "text": "“Sukhāya kho, āvuso visākha, vedanāya rāgānusayo pahātabbo, dukkhāya vedanāya paṭighānusayo pahātabbo, adukkhamasukhāya vedanāya avijjānusayo pahātabbo”ti."
+    },
+    {
+     "n": 80,
+     "text": "“Sabbāya nu kho, ayye, sukhāya vedanāya rāgānusayo pahātabbo, sabbāya dukkhāya vedanāya paṭighānusayo pahātabbo, sabbāya adukkhamasukhāya vedanāya avijjānusayo pahātabbo”ti?"
+    },
+    {
+     "n": 81,
+     "text": "“Na kho, āvuso visākha, sabbāya sukhāya vedanāya rāgānusayo pahātabbo, na sabbāya dukkhāya vedanāya paṭighānusayo pahātabbo, na sabbāya adukkhamasukhāya vedanāya avijjānusayo pahātabbo."
+    },
+    {
+     "n": 82,
+     "text": "Idhāvuso visākha, bhikkhu vivicceva kāmehi vivicca akusalehi dhammehi savitakkaṁ savicāraṁ vivekajaṁ pītisukhaṁ paṭhamaṁ jhānaṁ upasampajja viharati."
+    },
+    {
+     "n": 83,
+     "text": "Rāgaṁ tena pajahati, na tattha rāgānusayo anuseti."
+    },
+    {
+     "n": 84,
+     "text": "Idhāvuso visākha, bhikkhu iti paṭisañcikkhati: ‘kudāssu nāmāhaṁ tadāyatanaṁ upasampajja viharissāmi yadariyā etarahi āyatanaṁ upasampajja viharantī’ti?"
+    },
+    {
+     "n": 85,
+     "text": "Iti anuttaresu vimokkhesu pihaṁ upaṭṭhāpayato uppajjati pihāppaccayā domanassaṁ."
+    },
+    {
+     "n": 86,
+     "text": "Paṭighaṁ tena pajahati, na tattha paṭighānusayo anuseti."
+    },
+    {
+     "n": 87,
+     "text": "Idhāvuso visākha, bhikkhu sukhassa ca pahānā, dukkhassa ca pahānā, pubbeva somanassadomanassānaṁ atthaṅgamā, adukkhamasukhaṁ upekkhāsatipārisuddhiṁ catutthaṁ jhānaṁ upasampajja viharati."
+    },
+    {
+     "n": 88,
+     "text": "Avijjaṁ tena pajahati, na tattha avijjānusayo anusetī”ti."
+    },
+    {
+     "n": 89,
+     "text": "“Sukhāya panāyye, vedanāya kiṁ paṭibhāgo”ti?"
+    },
+    {
+     "n": 90,
+     "text": "“Sukhāya kho, āvuso visākha, vedanāya dukkhā vedanā paṭibhāgo”ti."
+    },
+    {
+     "n": 91,
+     "text": "“Dukkhāya pannāyye, vedanāya kiṁ paṭibhāgo”ti?"
+    },
+    {
+     "n": 92,
+     "text": "“Dukkhāya kho, āvuso visākha, vedanāya sukhā vedanā paṭibhāgo”ti."
+    },
+    {
+     "n": 93,
+     "text": "“Adukkhamasukhāya panāyye, vedanāya kiṁ paṭibhāgo”ti?"
+    },
+    {
+     "n": 94,
+     "text": "“Adukkhamasukhāya kho, āvuso visākha, vedanāya avijjā paṭibhāgo”ti."
+    },
+    {
+     "n": 95,
+     "text": "“Avijjāya panāyye, kiṁ paṭibhāgo”ti?"
+    },
+    {
+     "n": 96,
+     "text": "“Avijjāya kho, āvuso visākha, vijjā paṭibhāgo”ti."
+    },
+    {
+     "n": 97,
+     "text": "“Vijjāya panāyye, kiṁ paṭibhāgo”ti?"
+    },
+    {
+     "n": 98,
+     "text": "“Vijjāya kho, āvuso visākha, vimutti paṭibhāgo”ti."
+    },
+    {
+     "n": 99,
+     "text": "“Vimuttiyā panāyye, kiṁ paṭibhāgo”ti?"
+    },
+    {
+     "n": 100,
+     "text": "“Vimuttiyā kho, āvuso visākha, nibbānaṁ paṭibhāgo”ti."
+    },
+    {
+     "n": 101,
+     "text": "“Nibbānassa panāyye, kiṁ paṭibhāgo”ti?"
+    },
+    {
+     "n": 102,
+     "text": "“Accayāsi, āvuso visākha, pañhaṁ, nāsakkhi pañhānaṁ pariyantaṁ gahetuṁ."
+    },
+    {
+     "n": 103,
+     "text": "Nibbānogadhañhi, āvuso visākha, brahmacariyaṁ, nibbānaparāyanaṁ nibbānapariyosānaṁ. Ākaṅkhamāno ca tvaṁ, āvuso visākha, bhagavantaṁ upasaṅkamitvā etamatthaṁ puccheyyāsi,"
+    },
+    {
+     "n": 104,
+     "text": "yathā ca te bhagavā byākaroti tathā naṁ dhāreyyāsī”ti."
+    },
+    {
+     "n": 105,
+     "text": "Atha kho visākho upāsako dhammadinnāya bhikkhuniyā bhāsitaṁ abhinanditvā anumoditvā uṭṭhāyāsanā dhammadinnaṁ bhikkhuniṁ abhivādetvā padakkhiṇaṁ katvā yena bhagavā tenupasaṅkami;"
+    },
+    {
+     "n": 106,
+     "text": "upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 107,
+     "text": "Ekamantaṁ nisinno kho visākho upāsako yāvatako ahosi dhammadinnāya bhikkhuniyā saddhiṁ kathāsallāpo taṁ sabbaṁ bhagavato ārocesi."
+    },
+    {
+     "n": 108,
+     "text": "Evaṁ vutte, bhagavā visākhaṁ upāsakaṁ etadavoca: “paṇḍitā, visākha, dhammadinnā bhikkhunī, mahāpaññā, visākha, dhammadinnā bhikkhunī."
+    },
+    {
+     "n": 109,
+     "text": "Mañcepi tvaṁ, visākha, etamatthaṁ puccheyyāsi, ahampi taṁ evamevaṁ byākareyyaṁ, yathā taṁ dhammadinnāya bhikkhuniyā byākataṁ. Eso cevetassa attho. Evañca naṁ dhārehī”ti."
+    },
+    {
+     "n": 110,
+     "text": "Idamavoca bhagavā. Attamano visākho upāsako bhagavato bhāsitaṁ abhinandīti."
+    },
+    {
+     "n": 111,
+     "text": "Cūḷavedallasuttaṁ niṭṭhitaṁ catutthaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn44/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Rājagaha in the Bamboo Grove, the squirrels’ feeding ground."
+    },
+    {
+     "n": 2,
+     "text": "Then the layman Visākha went to see the nun Dhammadinnā, bowed, sat down to one side, and said to her:"
+    },
+    {
+     "n": 3,
+     "text": "“Ma’am, they speak of this thing called ‘substantial reality’."
+    },
+    {
+     "n": 4,
+     "text": "What is this substantial reality that the Buddha spoke of?”"
+    },
+    {
+     "n": 5,
+     "text": "“Visākha, the Buddha said that these five grasping aggregates are substantial reality."
+    },
+    {
+     "n": 6,
+     "text": "That is, the grasping aggregates of form, feeling, perception, choices, and consciousness."
+    },
+    {
+     "n": 7,
+     "text": "The Buddha said that these five grasping aggregates are substantial reality.”"
+    },
+    {
+     "n": 8,
+     "text": "Saying “Good, ma’am,” Visākha approved and agreed with what Dhammadinnā said. Then he asked another question:"
+    },
+    {
+     "n": 9,
+     "text": "“Ma’am, they speak of this thing called ‘the origin of substantial reality’."
+    },
+    {
+     "n": 10,
+     "text": "What is the origin of substantial reality that the Buddha spoke of?”"
+    },
+    {
+     "n": 11,
+     "text": "“It’s the craving that leads to future lives, mixed up with relishing and greed, taking pleasure there wherever it alights."
+    },
+    {
+     "n": 12,
+     "text": "That is, craving for sensual pleasures, craving for continued existence, and craving for nonexistence."
+    },
+    {
+     "n": 13,
+     "text": "The Buddha said that this is the origin of substantial reality.”"
+    },
+    {
+     "n": 14,
+     "text": "“Ma’am, they speak of this thing called ‘the cessation of substantial reality’."
+    },
+    {
+     "n": 15,
+     "text": "What is the cessation of substantial reality that the Buddha spoke of?”"
+    },
+    {
+     "n": 16,
+     "text": "“It’s the fading away and cessation of that very same craving with no residue left behind; giving it away, letting it go, releasing it, and not clinging to it."
+    },
+    {
+     "n": 17,
+     "text": "The Buddha said that this is the cessation of substantial reality.”"
+    },
+    {
+     "n": 18,
+     "text": "“Ma’am, they speak of the practice that leads to the cessation of substantial reality."
+    },
+    {
+     "n": 19,
+     "text": "What is the practice that leads to the cessation of substantial reality that the Buddha spoke of?”"
+    },
+    {
+     "n": 20,
+     "text": "“The practice that leads to the cessation of substantial reality that the Buddha spoke of is simply this noble eightfold path, that is:"
+    },
+    {
+     "n": 21,
+     "text": "right view, right purpose, right speech, right action, right livelihood, right effort, right mindfulness, and right immersion.”"
+    },
+    {
+     "n": 22,
+     "text": "“But ma’am, is that grasping the exact same thing as the five grasping aggregates?"
+    },
+    {
+     "n": 23,
+     "text": "Or is grasping one thing and the five grasping aggregates another?”"
+    },
+    {
+     "n": 24,
+     "text": "“That grasping is not the exact same thing as the five grasping aggregates."
+    },
+    {
+     "n": 25,
+     "text": "Nor is grasping one thing and the five grasping aggregates another."
+    },
+    {
+     "n": 26,
+     "text": "The desire and greed for the five grasping aggregates is the grasping there.”"
+    },
+    {
+     "n": 27,
+     "text": "“But ma’am, how does substantialist view come about?”"
+    },
+    {
+     "n": 28,
+     "text": "“It’s when an unlearned ordinary person has not seen the noble ones, and is neither skilled nor trained in the teaching of the noble ones."
+    },
+    {
+     "n": 29,
+     "text": "They’ve not seen true persons, and are neither skilled nor trained in the teaching of the true persons."
+    },
+    {
+     "n": 30,
+     "text": "They regard form as self, self as having form, form in self, or self in form."
+    },
+    {
+     "n": 31,
+     "text": "They regard feeling … perception … choices … consciousness as self, self as having consciousness, consciousness in self, or self in consciousness."
+    },
+    {
+     "n": 32,
+     "text": "That’s how substantialist view comes about.”"
+    },
+    {
+     "n": 33,
+     "text": "“But ma’am, how does substantialist view not come about?”"
+    },
+    {
+     "n": 34,
+     "text": "“It’s when a learned noble disciple has seen the noble ones, and is skilled and trained in the teaching of the noble ones."
+    },
+    {
+     "n": 35,
+     "text": "They’ve seen true persons, and are skilled and trained in the teaching of the true persons."
+    },
+    {
+     "n": 36,
+     "text": "They don’t regard form as self, self as having form, form in self, or self in form."
+    },
+    {
+     "n": 37,
+     "text": "They don’t regard feeling … perception … choices … consciousness as self, self as having consciousness, consciousness in self, or self in consciousness."
+    },
+    {
+     "n": 38,
+     "text": "That’s how substantialist view does not come about.”"
+    },
+    {
+     "n": 39,
+     "text": "“But ma’am, what is the noble eightfold path?”"
+    },
+    {
+     "n": 40,
+     "text": "“It is simply this noble eightfold path, that is: right view, right purpose, right speech, right action, right livelihood, right effort, right mindfulness, and right immersion.”"
+    },
+    {
+     "n": 41,
+     "text": "“But ma’am, is the noble eightfold path conditioned or unconditioned?”"
+    },
+    {
+     "n": 42,
+     "text": "“The noble eightfold path is conditioned.”"
+    },
+    {
+     "n": 43,
+     "text": "“Are the three spectrums of practice included in the noble eightfold path?"
+    },
+    {
+     "n": 44,
+     "text": "Or is the noble eightfold path included in the three spectrums of practice?”"
+    },
+    {
+     "n": 45,
+     "text": "“The three spectrums of practice are not included in the noble eightfold path."
+    },
+    {
+     "n": 46,
+     "text": "Rather, the noble eightfold path is included in the three spectrums of practice."
+    },
+    {
+     "n": 47,
+     "text": "Right speech, right action, and right livelihood: these things are included in the spectrum of ethics."
+    },
+    {
+     "n": 48,
+     "text": "Right effort, right mindfulness, and right immersion: these things are included in the spectrum of immersion."
+    },
+    {
+     "n": 49,
+     "text": "Right view and right purpose: these things are included in the spectrum of wisdom.”"
+    },
+    {
+     "n": 50,
+     "text": "“But ma’am, what is immersion? What things are the bases of immersion?"
+    },
+    {
+     "n": 51,
+     "text": "What things are the prerequisites for immersion? What is the development of immersion?”"
+    },
+    {
+     "n": 52,
+     "text": "“Unification of the mind is immersion. The four kinds of mindfulness meditation are the bases for immersion."
+    },
+    {
+     "n": 53,
+     "text": "The four right efforts are the prerequisites for immersion."
+    },
+    {
+     "n": 54,
+     "text": "The cultivation, development, and making much of these very same things is the development of immersion.”"
+    },
+    {
+     "n": 55,
+     "text": "“How many processes are there?”"
+    },
+    {
+     "n": 56,
+     "text": "“There are these three processes. The physical process, the verbal process, and the mental process.”"
+    },
+    {
+     "n": 57,
+     "text": "“But ma’am, what is the physical process? What’s the verbal process? What’s the mental process?”"
+    },
+    {
+     "n": 58,
+     "text": "“Breathing is a physical process. Placing the mind and keeping it connected are a verbal process."
+    },
+    {
+     "n": 59,
+     "text": "Perception and feeling are a mental process.”"
+    },
+    {
+     "n": 60,
+     "text": "“But ma’am, why is breathing a physical process?"
+    },
+    {
+     "n": 61,
+     "text": "Why are placing the mind and keeping it connected a verbal process?"
+    },
+    {
+     "n": 62,
+     "text": "Why are perception and feeling a mental process?”"
+    },
+    {
+     "n": 63,
+     "text": "“Breathing is physical. It’s tied up with the body, that’s why breathing is a physical process."
+    },
+    {
+     "n": 64,
+     "text": "First you place the mind and keep it connected, then you break into speech."
+    },
+    {
+     "n": 65,
+     "text": "That’s why placing the mind and keeping it connected are a verbal process. Perception and feeling are mental."
+    },
+    {
+     "n": 66,
+     "text": "They’re tied up with the mind, that’s why perception and feeling are a mental process.”"
+    },
+    {
+     "n": 67,
+     "text": "“But ma’am, how does someone attain the cessation of perception and feeling?”"
+    },
+    {
+     "n": 68,
+     "text": "“A mendicant who is entering such an attainment does not think:"
+    },
+    {
+     "n": 69,
+     "text": "‘I will enter the cessation of perception and feeling’ or ‘I am entering the cessation of perception and feeling’ or ‘I have entered the cessation of perception and feeling.’"
+    },
+    {
+     "n": 70,
+     "text": "Rather, their mind has been previously developed so as to lead to such a state.”"
+    },
+    {
+     "n": 71,
+     "text": "“But ma’am, which process ceases first for a mendicant who is entering the cessation of perception and feeling: physical, verbal, or mental?”"
+    },
+    {
+     "n": 72,
+     "text": "“The verbal process ceases first, then physical, then mental.”"
+    },
+    {
+     "n": 73,
+     "text": "“But ma’am, how does someone emerge from the cessation of perception and feeling?”"
+    },
+    {
+     "n": 74,
+     "text": "“A mendicant who is emerging from such an attainment does not think:"
+    },
+    {
+     "n": 75,
+     "text": "‘I will emerge from the cessation of perception and feeling’ or ‘I am emerging from the cessation of perception and feeling’ or ‘I have emerged from the cessation of perception and feeling.’"
+    },
+    {
+     "n": 76,
+     "text": "Rather, their mind has been previously developed so as to lead to such a state.”"
+    },
+    {
+     "n": 77,
+     "text": "“But ma’am, which process arises first for a mendicant who is emerging from the cessation of perception and feeling: physical, verbal, or mental?”"
+    },
+    {
+     "n": 78,
+     "text": "“The mental process arises first, then physical, then verbal.”"
+    },
+    {
+     "n": 79,
+     "text": "“But ma’am, when a mendicant has emerged from the attainment of the cessation of perception and feeling, how many kinds of contact do they experience?”"
+    },
+    {
+     "n": 80,
+     "text": "“They experience three kinds of contact: emptiness, signless, and undirected contacts.”"
+    },
+    {
+     "n": 81,
+     "text": "“But ma’am, when a mendicant has emerged from the attainment of the cessation of perception and feeling, what does their mind slant, slope, and incline to?”"
+    },
+    {
+     "n": 82,
+     "text": "“Their mind slants, slopes, and inclines to seclusion.”"
+    },
+    {
+     "n": 83,
+     "text": "“But ma’am, how many feelings are there?”"
+    },
+    {
+     "n": 84,
+     "text": "“There are three feelings: pleasant, painful, and neutral feeling.”"
+    },
+    {
+     "n": 85,
+     "text": "“What are these three feelings?”"
+    },
+    {
+     "n": 86,
+     "text": "“Anything felt physically or mentally as pleasant or enjoyable. This is pleasant feeling."
+    },
+    {
+     "n": 87,
+     "text": "Anything felt physically or mentally as painful or unpleasant. This is painful feeling."
+    },
+    {
+     "n": 88,
+     "text": "Anything felt physically or mentally as neither pleasurable nor painful. This is neutral feeling.”"
+    },
+    {
+     "n": 89,
+     "text": "“What is pleasant and what is painful regarding each of the three feelings?”"
+    },
+    {
+     "n": 90,
+     "text": "“Pleasant feeling is pleasant when it remains and painful when it perishes."
+    },
+    {
+     "n": 91,
+     "text": "Painful feeling is painful when it remains and pleasant when it perishes."
+    },
+    {
+     "n": 92,
+     "text": "Neutral feeling is pleasant in the presence of knowledge, and painful in the presence of ignorance.”"
+    },
+    {
+     "n": 93,
+     "text": "“What underlying tendencies underlie each of the three feelings?”"
+    },
+    {
+     "n": 94,
+     "text": "“The underlying tendency for greed underlies pleasant feeling."
+    },
+    {
+     "n": 95,
+     "text": "The underlying tendency for aversion underlies painful feeling."
+    },
+    {
+     "n": 96,
+     "text": "The underlying tendency for ignorance underlies neutral feeling.”"
+    },
+    {
+     "n": 97,
+     "text": "“Do these underlying tendencies always underlie these feelings?”"
+    },
+    {
+     "n": 98,
+     "text": "“No, they do not.”"
+    },
+    {
+     "n": 99,
+     "text": "“What should be given up in regard to each of these three feelings?”"
+    },
+    {
+     "n": 100,
+     "text": "“The underlying tendency to greed should be given up when it comes to pleasant feeling."
+    },
+    {
+     "n": 101,
+     "text": "The underlying tendency to aversion should be given up when it comes to painful feeling."
+    },
+    {
+     "n": 102,
+     "text": "The underlying tendency to ignorance should be given up when it comes to neutral feeling.”"
+    },
+    {
+     "n": 103,
+     "text": "“Should these underlying tendencies be given up regarding all instances of these feelings?”"
+    },
+    {
+     "n": 104,
+     "text": "“No, not in all instances. Take a mendicant who, quite secluded from sensual pleasures, secluded from unskillful qualities, enters and remains in the first absorption, which has the rapture and bliss born of seclusion,"
+    },
+    {
+     "n": 105,
+     "text": "while placing the mind and keeping it connected."
+    },
+    {
+     "n": 106,
+     "text": "With this they give up greed, and the underlying tendency to greed does not lie within that."
+    },
+    {
+     "n": 107,
+     "text": "And take a mendicant who reflects: ‘Oh, when will I enter and remain in the same dimension that the noble ones enter and remain in today?’"
+    },
+    {
+     "n": 108,
+     "text": "Nursing such a longing for the supreme liberations gives rise to sadness due to longing."
+    },
+    {
+     "n": 109,
+     "text": "With this they give up aversion, and the underlying tendency to aversion does not lie within that."
+    },
+    {
+     "n": 110,
+     "text": "Take a mendicant who, with the giving up of pleasure and pain and the disappearance of former happiness and sadness, enters and remains in the fourth absorption, without pleasure or pain,"
+    },
+    {
+     "n": 111,
+     "text": "with pure equanimity and mindfulness. With this they give up ignorance, and the underlying tendency to ignorance does not lie within that.”"
+    },
+    {
+     "n": 112,
+     "text": "“But ma’am, what is the counterpart of pleasant feeling?”"
+    },
+    {
+     "n": 113,
+     "text": "“Painful feeling.”"
+    },
+    {
+     "n": 114,
+     "text": "“What is the counterpart of painful feeling?”"
+    },
+    {
+     "n": 115,
+     "text": "“Pleasant feeling.”"
+    },
+    {
+     "n": 116,
+     "text": "“What is the counterpart of neutral feeling?”"
+    },
+    {
+     "n": 117,
+     "text": "“Ignorance.”"
+    },
+    {
+     "n": 118,
+     "text": "“What is the counterpart of ignorance?”"
+    },
+    {
+     "n": 119,
+     "text": "“Knowledge.”"
+    },
+    {
+     "n": 120,
+     "text": "“What is the counterpart of knowledge?”"
+    },
+    {
+     "n": 121,
+     "text": "“Freedom.”"
+    },
+    {
+     "n": 122,
+     "text": "“What is the counterpart of freedom?”"
+    },
+    {
+     "n": 123,
+     "text": "“Extinguishment.”"
+    },
+    {
+     "n": 124,
+     "text": "“What is the counterpart of extinguishment?”"
+    },
+    {
+     "n": 125,
+     "text": "“Your question goes too far, Visākha. You weren’t able to grasp the limit of questioning."
+    },
+    {
+     "n": 126,
+     "text": "For extinguishment is the objective, destination, and culmination of the spiritual life."
+    },
+    {
+     "n": 127,
+     "text": "If you wish, go to the Buddha and ask him this question."
+    },
+    {
+     "n": 128,
+     "text": "You should remember it in line with his answer.”"
+    },
+    {
+     "n": 129,
+     "text": "And then the layman Visākha approved and agreed with what the nun Dhammadinnā said."
+    },
+    {
+     "n": 130,
+     "text": "He rose from his seat, bowed, and respectfully circled her, keeping her on his right."
+    },
+    {
+     "n": 131,
+     "text": "Then he went up to the Buddha, bowed, sat down to one side, and informed the Buddha of all they had discussed."
+    },
+    {
+     "n": 132,
+     "text": "When he had spoken, the Buddha said to him, “The nun Dhammadinnā is astute, Visākha, she has great wisdom."
+    },
+    {
+     "n": 133,
+     "text": "If you came to me and asked this question, I would answer it in exactly the same way as the nun Dhammadinnā."
+    },
+    {
+     "n": 134,
+     "text": "That is what it means, and that’s how you should remember it.”"
+    },
+    {
+     "n": 135,
+     "text": "That is what the Buddha said. Satisfied, the layman Visākha approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

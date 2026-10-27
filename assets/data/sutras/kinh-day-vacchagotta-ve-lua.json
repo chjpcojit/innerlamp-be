@@ -1,0 +1,1245 @@
+{
+ "id": "kinh-day-vacchagotta-ve-lua",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 72",
+ "summary": "Kinh thuộc Trung Bộ (MN 72). Du sĩ ngoại đạo Vacchagotta lần lượt hỏi Đức Phật có chủ trương các quan điểm như thế giới thường hay vô thường, hữu biên hay vô biên, nhưng Ngài đều không nhận. Ngài giải thích bằng ví dụ về ngọn lửa. Kinh kết thúc khi Vacchagotta hoan hỷ và xin quy y Phật, Pháp, Tăng.",
+ "titles": {
+  "vi": "Kinh Dạy Vacchagotta về Lửa",
+  "pli": "Aggivacchasutta",
+  "en": "With Vacchagotta on Fire"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 35,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn72/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn ở Sāvatthi (Xá-vệ) Jetavana (Kỳ-đà-Lâm), tại tinh xá ông Anāthapiṇḍika (Cấp Cô Độc)."
+    },
+    {
+     "n": 3,
+     "text": "Rồi du sĩ ngoại đạo Vacchagotta đi đến chỗ Thế Tôn, sau khi đến, nói lên những lời chào đón hỏi thăm với Thế Tôn, sau khi nói lên những lời chào đón hỏi thăm thân hữu rồi ngồi xuống một bên."
+    },
+    {
+     "n": 4,
+     "text": "Sau khi ngồi xuống một bên, du sĩ ngoại đạo Vacchagotta bạch Thế Tôn"
+    },
+    {
+     "n": 5,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là thường trú, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 6,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Thế giới là thường trú, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 7,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là vô thường, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 8,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Thế giới là vô thường, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 9,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là hữu biên, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 10,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Thế giới là hữu biên, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 11,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là vô biên, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 12,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Thế giới là vô biên, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 13,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Sinh mạng và thân thể là một, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 14,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Sinh mạng và thân thể là một, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 15,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Sinh mạng và thân thể là khác, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 16,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Sinh mạng và thân thể là khác, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 17,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Như Lai có tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 18,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Như Lai có tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 19,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Như Lai không có tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 20,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Như Lai không có tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 21,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Như Lai có tồn tại và không tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 22,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Như Lai có tồn tại và không có tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 23,
+     "text": "—Tôn giả Gotama, phải chăng Tôn giả Gotama có tri kiến như sau: “Như Lai không có tồn tại và không không tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 24,
+     "text": "—Này Vaccha, Ta không có tri kiến như sau: “Như Lai không có tồn tại và không không tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”."
+    },
+    {
+     "n": 25,
+     "text": "—Sao vậy, thưa Tôn giả Gotama?"
+    },
+    {
+     "n": 26,
+     "text": "Khi được hỏi: “Phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là thường trú, chỉ như vậy là chơn, ngoài ra là hư vọng”?, Tôn giả Gotama đã trả lời: “Này Vaccha, Ta không có tri kiến như sau:"
+    },
+    {
+     "n": 27,
+     "text": "“Thế giới là thường trú, chỉ như vậy là chơn, ngoài ra là hư vọng”. Sao vậy, thưa Tôn giả Gotama?"
+    },
+    {
+     "n": 28,
+     "text": "Khi được hỏi: “Phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là vô thường, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 29,
+     "text": "Tôn giả Gotama đã trả lời: “Này Vaccha, Ta không có tri kiến như sau: “Thế giới là vô thường, chỉ như vậy là chơn, ngoài ra là hư vọng”. Sao vậy, thưa Tôn giả Gotama?"
+    },
+    {
+     "n": 30,
+     "text": "Khi được hỏi: “Phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là hữu biên, chỉ như vậy là chơn, ngoài ra là hư vọng”?"
+    },
+    {
+     "n": 31,
+     "text": "Tôn giả Gotama đã trả lời: “Này Vaccha, Ta không có tri kiến như sau: “Thế giới là hữu biên, chỉ như vậy là chơn, ngoài ra là hư vọng”. Sao vậy, thưa Tôn giả Gotama?"
+    },
+    {
+     "n": 32,
+     "text": "Khi được hỏi: “Phải chăng Tôn giả Gotama có tri kiến như sau: “Thế giới là vô biên, chỉ như vậy là chơn, ngoài ra là hư vọng”?, Tôn giả Gotama đã trả lời: “Này Vaccha, Ta không có tri kiến như sau:"
+    },
+    {
+     "n": 33,
+     "text": "“Thế giới là vô biên, chỉ như vậy là chơn, ngoài ra là hư vọng” … Sao vậy, thưa Tôn giả Gotama?"
+    },
+    {
+     "n": 34,
+     "text": "Khi được hỏi: “Phải chăng Tôn giả Gotama có tri kiến như sau: “Như Lai không có tồn tại và không không tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng”?, Tôn giả Gotama đã trả lời:"
+    },
+    {
+     "n": 35,
+     "text": "“Này Vaccha, Ta không có tri kiến như sau:"
+    },
+    {
+     "n": 36,
+     "text": "“Như Lai không có tồn tại và không không tồn tại sau khi chết, chỉ như vậy là chơn, ngoài ra là hư vọng” Tôn giả Gotama thấy có sự nguy hại gì mà Ngài không chấp nhận hoàn toàn những tri kiến này như vậy?"
+    },
+    {
+     "n": 37,
+     "text": "—Này Vaccha, nghĩ rằng:"
+    },
+    {
+     "n": 38,
+     "text": "“Thế giới là thường trú”, như vậy là tà kiến, kiến trù lâm, kiến hoang vu, kiến hý luận, kiến tranh chấp, kiến kiết phược, đi đôi với khổ, với tàn hại, với não hại, với nhiệt não, không hướng đến yểm ly, ly tham,"
+    },
+    {
+     "n": 39,
+     "text": "đoạn diệt, an tịnh, thắng trí, giác ngộ, Niết-bàn."
+    },
+    {
+     "n": 40,
+     "text": "Này Vaccha, nghĩ rằng: “Thế giới là thường trú” … “Thế giới là vô thường” … “Thế giới là hữu biên” … “Thế giới là vô biên” … “Sinh mạng và thân thể là một” … “Sinh mạng và thân thể là khác” …"
+    },
+    {
+     "n": 41,
+     "text": "“Như Lai có tồn tại sau khi chết” … “Như Lai không có tồn tại sau khi chết” …"
+    },
+    {
+     "n": 42,
+     "text": "“Như Lai có tồn tại và không có tồn tại sau khi chết” … Này Vaccha, nghĩ rằng:"
+    },
+    {
+     "n": 43,
+     "text": "“Như Lai không có tồn tại và không không tồn tại sau khi chết”, như vậy là tà kiến, kiến trù lâm, kiến hoang vu, kiến hý luận, kiến tranh chấp, kiến kiết phược, đi đôi với khổ, với tàn hại, với não hại, với nhiệt não,"
+    },
+    {
+     "n": 44,
+     "text": "không hướng đến yểm ly, ly tham, đoạn diệt, an tịnh, thắng trí, giác ngộ, Niết-bàn."
+    },
+    {
+     "n": 45,
+     "text": "Này Vaccha, Ta thấy có sự nguy hại này mà Ta không chấp nhận hoàn toàn những tri kiến như vậy."
+    },
+    {
+     "n": 46,
+     "text": "—Nhưng Tôn giả Gotama có tà kiến nào không?"
+    },
+    {
+     "n": 47,
+     "text": "—Này Vaccha, tà kiến đã được Như Lai đoạn trừ."
+    },
+    {
+     "n": 48,
+     "text": "Nhưng này Vaccha, đây là điều Như Lai đã thấy: “Đây là sắc, đây là sắc tập, đây là sắc diệt; đây là thọ, đây là thọ tập, đây là thọ diệt; đây là tưởng, đây là tưởng tập, đây là tưởng diệt;"
+    },
+    {
+     "n": 49,
+     "text": "đây là hành, đây là hành tập, đây là hành diệt; đây là thức, đây là thức tập, đây là thức diệt”."
+    },
+    {
+     "n": 50,
+     "text": "Do vậy, ta nói rằng, với sự đoạn trừ, ly tham, đoạn diệt, xả bỏ, vứt bỏ tất cả ảo tưởng của tất cả hôn mê, của tất cả ngã kiến, ngã sở kiến, mạn tùy miên, mà Như Lai được giải thoát, không còn chấp thủ."
+    },
+    {
+     "n": 51,
+     "text": "—Thưa Tôn giả Gotama, một Tỷ-kheo được tâm giải thoát như vậy sanh khởi chỗ nào?"
+    },
+    {
+     "n": 52,
+     "text": "—Sanh khởi, này Vaccha, không có áp dụng."
+    },
+    {
+     "n": 53,
+     "text": "—Như vậy, Tôn giả Gotama, vị ấy không sanh khởi?"
+    },
+    {
+     "n": 54,
+     "text": "—Không sanh khởi, này Vaccha, không có áp dụng."
+    },
+    {
+     "n": 55,
+     "text": "—Như vậy, Tôn giả Gotama, vị ấy sanh khởi và không sanh khởi?"
+    },
+    {
+     "n": 56,
+     "text": "—Sanh khởi và không sanh khởi, này Vaccha, không có áp dụng."
+    },
+    {
+     "n": 57,
+     "text": "—Như vậy, Tôn giả Gotama, vị ấy không sanh khởi và không không sanh khởi?"
+    },
+    {
+     "n": 58,
+     "text": "—Không sanh khởi và không không sanh khởi, này Vaccha, không có áp dụng."
+    },
+    {
+     "n": 59,
+     "text": "—Khi được hỏi: “Tôn giả Gotama, vị Tỷ-kheo được tâm giải thoát như vậy sanh khởi tại chỗ nào?”, Tôn giả đáp: “Sanh khởi, này Vaccha, không có áp dụng”."
+    },
+    {
+     "n": 60,
+     "text": "Khi được hỏi: “Như vậy, Tôn giả Gotama, vị ấy không sanh khởi?”"
+    },
+    {
+     "n": 61,
+     "text": "Tôn giả đáp: “Không sanh khởi, này Vaccha, không có áp dụng”."
+    },
+    {
+     "n": 62,
+     "text": "Khi được hỏi: “Như vậy, Tôn giả Gotama, vị ấy sanh khởi và không sanh khởi?”, Tôn giả đáp: “Sanh khởi và không sanh khởi, này Vaccha, không có áp dụng”."
+    },
+    {
+     "n": 63,
+     "text": "Khi được hỏi: “Như vậy, Tôn giả Gotama, vị ấy không sanh khởi và không không sanh khởi?”, Tôn giả đáp: “Không sanh khởi và không không sanh khởi, này Vaccha, không có áp dụng”."
+    },
+    {
+     "n": 64,
+     "text": "Thưa Tôn giả Gotama, tôi trở thành vô tri về điểm này, tôi trở thành mê mờ về điểm này, và một số tin tưởng tôi đã có đối với Tôn giả Gotama do các cuộc đàm thoại lúc trước đem lại, nay đã biến mất nơi tôi."
+    },
+    {
+     "n": 65,
+     "text": "—Này Vaccha, thôi vừa rồi, vô tri của Ông! Thôi vừa rồi, mê mờ (của Ông)!"
+    },
+    {
+     "n": 66,
+     "text": "Này Vaccha, sâu kín là pháp này, khó thấy, khó giác ngộ, an tịnh, thù thắng, không thể luận bàn, tế nhị, chỉ bậc trí mới hiểu."
+    },
+    {
+     "n": 67,
+     "text": "Thật rất khó cho Ông có thể hiểu được, khi Ông thuộc tri kiến khác, kham nhẫn khác, lý tưởng khác, hành trì khác, đạo sư khác. Và này Vaccha, nay Ta trở lại hỏi Ông. Hãy trả lời nếu Ông kham nhẫn."
+    },
+    {
+     "n": 68,
+     "text": "Này Vaccha, Ông nghĩ thế nào? Nếu một ngọn lửa cháy đỏ trước mặt Ông, Ông có biết: “Ngọn lửa này cháy đỏ trước mặt tôi?”"
+    },
+    {
+     "n": 69,
+     "text": "—Tôn giả Gotama, nếu một ngọn lửa cháy đỏ trước mặt tôi, tôi có biết: “Ngọn lửa này cháy đỏ trước mặt tôi”?"
+    },
+    {
+     "n": 70,
+     "text": "—Nhưng nếu, này Vaccha, có người hỏi Ông như sau: “Ngọn lửa này cháy đỏ trước mặt Ông, ngọn lửa này do duyên gì mà cháy đỏ?”, nếu được hỏi vậy, này Vaccha, Ông trả lời như thế nào?"
+    },
+    {
+     "n": 71,
+     "text": "—Thưa Tôn giả Gotama, nếu có người hỏi tôi như sau: “Ngọn lửa này cháy đỏ trước mặt Ông, ngọn lửa này do duyên gì mà cháy đỏ?”, nếu được hỏi vậy, thưa Tôn giả Gotama, tôi sẽ trả lời như sau:"
+    },
+    {
+     "n": 72,
+     "text": "“Ngọn lửa cháy đỏ trước mặt tôi, ngọn lửa này cháy đỏ do duyên nhiên liệu cỏ và củi”."
+    },
+    {
+     "n": 73,
+     "text": "—Này Vaccha, nếu ngọn lửa ấy bị tắt trước mặt Ông, Ông có biết: “Ngọn lửa này đã tắt trước mặt tôi?”"
+    },
+    {
+     "n": 74,
+     "text": "—Tôn giả Gotama, nếu ngọn lửa ấy được tắt trước mặt tôi, tôi sẽ biết: “Ngọn lửa này đã tắt trước mặt tôi”."
+    },
+    {
+     "n": 75,
+     "text": "—Này Vaccha, nếu có người hỏi Ông như sau:"
+    },
+    {
+     "n": 76,
+     "text": "“Ngọn lửa này đã tắt trước mặt Ông, ngọn lửa ấy từ đây đã đi về phương hướng nào, phương Đông, phương Tây, phương Bắc, hay phương Nam?”, được hỏi vậy, này Vaccha, Ông trả lời thế nào?"
+    },
+    {
+     "n": 77,
+     "text": "—Không có thể áp dụng ở đây, Tôn giả Gotama."
+    },
+    {
+     "n": 78,
+     "text": "Vì rằng, này Tôn giả Gotama, ngọn lửa ấy đã cháy vì duyên nhiên liệu cỏ và củi."
+    },
+    {
+     "n": 79,
+     "text": "Khi cỏ và củi ấy hết và vì không có nhiên liệu khác, nên được xem là không có nhiên liệu, đã bị tắt."
+    },
+    {
+     "n": 80,
+     "text": "—Cũng vậy, này Vaccha, do sắc pháp này, nhờ đó mà một người nhận biết Như Lai có thể nhận biết được, sắc pháp ấy đã được Như Lai đoạn diệt, cắt tận gốc rễ, làm cho như thân cây tala không được tái sanh,"
+    },
+    {
+     "n": 81,
+     "text": "không thể sanh khởi trong tương lai. Giải thoát khỏi cái gọi là sắc, này Vaccha, là Như Lai, thâm sâu, vô lượng, khó dò đến đáy như đại dương."
+    },
+    {
+     "n": 82,
+     "text": "Khởi lên không có áp dụng, không khởi lên không có áp dụng, khởi lên và không khởi lên không có áp dụng, không khởi lên và không không khởi lên không có áp dụng."
+    },
+    {
+     "n": 83,
+     "text": "Do thọ này, nhờ đó mà một người nhận biết Như Lai có thể nhận biết được, thọ ấy đã được Như Lai đoạn diệt, cắt đứt tận gốc rễ, làm cho như thân cây tala không được tái sanh, không thể sanh khởi trong tương lai."
+    },
+    {
+     "n": 84,
+     "text": "Giải thoát cái gọi là thọ, này Vaccha, là Như Lai, thâm sâu, vô lượng khó dò đến đáy đại dương, khởi lên không có áp dụng, không khởi lên không có áp dụng, khởi lên và không khởi lên không có áp dụng,"
+    },
+    {
+     "n": 85,
+     "text": "không khởi lên và không không khởi lên không có áp dụng."
+    },
+    {
+     "n": 86,
+     "text": "Do tưởng này, nhờ đó mà một người nhận biết Như Lai có thể nhận biết được, tưởng ấy đã được Như Lai đoạn diệt, cắt đứt tận gốc rễ, làm cho như thân cây tala không được tái sanh, không thể sanh khởi trong tương lai."
+    },
+    {
+     "n": 87,
+     "text": "Giải thoát cái gọi là tưởng, này Vaccha, là Như Lai, thâm sâu, vô lượng, khó dò đến đáy đại dương, khởi lên không có áp dụng, không khởi lên không có áp dụng, khởi lên và không khởi lên không có áp dụng,"
+    },
+    {
+     "n": 88,
+     "text": "không khởi lên và không không khởi lên không có áp dụng."
+    },
+    {
+     "n": 89,
+     "text": "Do những hành này, nhờ đó mà một người nhận biết Như Lai có thể nhận biết được, các hành ấy đã được Như Lai đoạn diệt, cắt đứt tận gốc rễ, làm cho như thân cây tala không được tái sanh,"
+    },
+    {
+     "n": 90,
+     "text": "không thể sanh khởi trong tương lai."
+    },
+    {
+     "n": 91,
+     "text": "Giải thoát những cái gọi là hành, này Vaccha, là Như Lai, thâm sâu, vô lượng khó dò đến đáy đại dương, khởi lên không có áp dụng, không khởi lên không có áp dụng, khởi lên và không khởi lên không có áp dụng,"
+    },
+    {
+     "n": 92,
+     "text": "không khởi lên và không không khởi lên, không có áp dụng."
+    },
+    {
+     "n": 93,
+     "text": "Do thức này, nhờ đó mà một người nhận biết Như Lai có thể nhận biết được, cái thức ấy đã được Như Lai đoạn diệt, cắt đứt được tận gốc rễ, làm cho như thân cây tala không được tái sanh,"
+    },
+    {
+     "n": 94,
+     "text": "không thể sanh khởi trong tương lai."
+    },
+    {
+     "n": 95,
+     "text": "Giải thoát cái gọi là thức, này Vaccha, là Như Lai, thâm sâu, vô lượng, khó dò đến đáy như đại dương, khởi lên không có áp dụng, không khởi lên không có áp dụng, khởi lên và không khởi lên không có áp dụng,"
+    },
+    {
+     "n": 96,
+     "text": "không khởi lên và không không khởi lên không có áp dụng."
+    },
+    {
+     "n": 97,
+     "text": "Khi được nói vậy, du sĩ ngoại đạo Vacchagotta bạch Thế Tôn"
+    },
+    {
+     "n": 98,
+     "text": "—Thưa Tôn giả Gotama, như một cây tala lớn, không xa làng hay thị trấn, vì vô thường nên cành lá rơi rụng, vỏ và đọt non rơi rụng, giác cây rơi rụng và sau một thời gian, với cành lá rơi rụng, với vỏ và đọt non rơi rụng,"
+    },
+    {
+     "n": 99,
+     "text": "với giác cây rơi rụng, cây ấy thuần tịnh chỉ còn lại lõi cây."
+    },
+    {
+     "n": 100,
+     "text": "Cũng vậy, lời nói này của Tôn giả Gotama, với cành lá rơi rụng, với vỏ và đọt non rụng, với giác cây rơi rụng, lời nói ấy thuần tịnh, chỉ còn lại lõi cây."
+    },
+    {
+     "n": 101,
+     "text": "Thật vi diệu thay, Tôn giả Gotama! Thật vi diệu thay, Tôn giả Gotama!"
+    },
+    {
+     "n": 102,
+     "text": "Như người dựng đứng lại những gì bị quăng ngã xuống, phơi bày ra những gì bị che kín, chỉ đường cho người bị lạc hướng, đem đèn sáng vào trong bóng tối để những ai có mắt có thể thấy sắc;"
+    },
+    {
+     "n": 103,
+     "text": "cũng vậy, Chánh pháp đã được Tôn giả Gotama dùng nhiều phương tiện trình bày giải thích."
+    },
+    {
+     "n": 104,
+     "text": "Con xin quy y Tôn giả Gotama, quy y Pháp và quy y Tăng."
+    },
+    {
+     "n": 105,
+     "text": "Mong Tôn giả Gotama nhận con làm đệ tử, từ nay trở đi cho đến mạng chung, con xin trọn đời quy ngưỡng."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn72/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Atha kho vacchagotto paribbājako yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavatā saddhiṁ sammodi."
+    },
+    {
+     "n": 3,
+     "text": "Sammodanīyaṁ kathaṁ sāraṇīyaṁ vītisāretvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 4,
+     "text": "Ekamantaṁ nisinno kho vacchagotto paribbājako bhagavantaṁ etadavoca:"
+    },
+    {
+     "n": 5,
+     "text": "“Kiṁ nu kho, bho gotama, ‘sassato loko, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 6,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘sassato loko, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 7,
+     "text": "“Kiṁ pana, bho gotama, ‘asassato loko, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 8,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘asassato loko, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 9,
+     "text": "“Kiṁ nu kho, bho gotama, ‘antavā loko, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 10,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘antavā loko, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 11,
+     "text": "“Kiṁ pana, bho gotama, ‘anantavā loko, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 12,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘anantavā loko, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 13,
+     "text": "“Kiṁ nu kho, bho gotama, ‘taṁ jīvaṁ taṁ sarīraṁ, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 14,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘taṁ jīvaṁ taṁ sarīraṁ, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 15,
+     "text": "“Kiṁ pana, bho gotama, ‘aññaṁ jīvaṁ aññaṁ sarīraṁ, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 16,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘aññaṁ jīvaṁ aññaṁ sarīraṁ, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 17,
+     "text": "“Kiṁ nu kho, bho gotama, ‘hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 18,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 19,
+     "text": "“Kiṁ pana, bho gotama, ‘na hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 20,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘na hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 21,
+     "text": "“Kiṁ nu kho, bho gotama, ‘hoti ca na ca hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 22,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘hoti ca na ca hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 23,
+     "text": "“Kiṁ pana, bho gotama, ‘neva hoti na na hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’ti— evaṁdiṭṭhi bhavaṁ gotamo”ti?"
+    },
+    {
+     "n": 24,
+     "text": "“Na kho ahaṁ, vaccha, evaṁdiṭṭhi: ‘neva hoti na na hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’”ti."
+    },
+    {
+     "n": 25,
+     "text": "“‘Kiṁ nu kho, bho gotama, sassato loko, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— sassato loko, idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 26,
+     "text": "‘Kiṁ pana, bho gotama, asassato loko, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— asassato loko, idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 27,
+     "text": "‘Kiṁ nu kho, bho gotama, antavā loko, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— antavā loko, idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 28,
+     "text": "‘Kiṁ pana, bho gotama, anantavā loko, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— anantavā loko, idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 29,
+     "text": "‘Kiṁ nu kho, bho gotama, taṁ jīvaṁ taṁ sarīraṁ, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— taṁ jīvaṁ taṁ sarīraṁ, idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 30,
+     "text": "‘Kiṁ pana, bho gotama, aññaṁ jīvaṁ aññaṁ sarīraṁ, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— aññaṁ jīvaṁ aññaṁ sarīraṁ,"
+    },
+    {
+     "n": 31,
+     "text": "idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 32,
+     "text": "‘Kiṁ nu kho, bho gotama, hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— hoti tathāgato paraṁ maraṇā,"
+    },
+    {
+     "n": 33,
+     "text": "idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 34,
+     "text": "‘Kiṁ pana, bho gotama, na hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— na hoti tathāgato paraṁ maraṇā,"
+    },
+    {
+     "n": 35,
+     "text": "idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 36,
+     "text": "‘Kiṁ nu kho, bho gotama, hoti ca na ca hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha, evaṁdiṭṭhi— hoti ca na ca hoti tathāgato paraṁ maraṇā,"
+    },
+    {
+     "n": 37,
+     "text": "idameva saccaṁ moghamaññan’ti vadesi. ‘Kiṁ pana, bho gotama, neva hoti na na hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññanti— evaṁdiṭṭhi bhavaṁ gotamo’ti iti puṭṭho samāno ‘na kho ahaṁ, vaccha,"
+    },
+    {
+     "n": 38,
+     "text": "evaṁdiṭṭhi— neva hoti na na hoti tathāgato paraṁ maraṇā, idameva saccaṁ moghamaññan’ti vadesi."
+    },
+    {
+     "n": 39,
+     "text": "Kiṁ pana bho gotamo ādīnavaṁ sampassamāno evaṁ imāni sabbaso diṭṭhigatāni anupagato”ti?"
+    },
+    {
+     "n": 40,
+     "text": "“‘Sassato loko’ti kho, vaccha, diṭṭhigatametaṁ diṭṭhigahanaṁ diṭṭhikantāro diṭṭhivisūkaṁ diṭṭhivipphanditaṁ diṭṭhisaṁyojanaṁ sadukkhaṁ savighātaṁ saupāyāsaṁ sapariḷāhaṁ,"
+    },
+    {
+     "n": 41,
+     "text": "na nibbidāya na virāgāya na nirodhāya na upasamāya na abhiññāya na sambodhāya na nibbānāya saṁvattati. ‘Asassato loko’ti kho, vaccha …pe… ‘antavā loko’ti kho, vaccha …pe… ‘anantavā loko’ti kho, vaccha …pe…"
+    },
+    {
+     "n": 42,
+     "text": "‘taṁ jīvaṁ taṁ sarīran’ti kho, vaccha …pe…"
+    },
+    {
+     "n": 43,
+     "text": "‘aññaṁ jīvaṁ aññaṁ sarīran’ti kho, vaccha …pe…"
+    },
+    {
+     "n": 44,
+     "text": "‘hoti tathāgato paraṁ maraṇā’ti kho, vaccha …pe…"
+    },
+    {
+     "n": 45,
+     "text": "‘na hoti tathāgato paraṁ maraṇā’ti kho, vaccha …pe…"
+    },
+    {
+     "n": 46,
+     "text": "‘hoti ca na ca hoti tathāgato paraṁ maraṇā’ti kho, vaccha …pe…"
+    },
+    {
+     "n": 47,
+     "text": "‘neva hoti na na hoti tathāgato paraṁ maraṇā’ti kho, vaccha, diṭṭhigatametaṁ diṭṭhigahanaṁ diṭṭhikantāro diṭṭhivisūkaṁ diṭṭhivipphanditaṁ diṭṭhisaṁyojanaṁ sadukkhaṁ savighātaṁ saupāyāsaṁ sapariḷāhaṁ,"
+    },
+    {
+     "n": 48,
+     "text": "na nibbidāya na virāgāya na nirodhāya na upasamāya na abhiññāya na sambodhāya na nibbānāya saṁvattati."
+    },
+    {
+     "n": 49,
+     "text": "Imaṁ kho ahaṁ, vaccha, ādīnavaṁ sampassamāno evaṁ imāni sabbaso diṭṭhigatāni anupagato”ti."
+    },
+    {
+     "n": 50,
+     "text": "“Atthi pana bhoto gotamassa kiñci diṭṭhigatan”ti?"
+    },
+    {
+     "n": 51,
+     "text": "“Diṭṭhigatanti kho, vaccha, apanītametaṁ tathāgatassa."
+    },
+    {
+     "n": 52,
+     "text": "Diṭṭhañhetaṁ, vaccha, tathāgatena: ‘iti rūpaṁ, iti rūpassa samudayo, iti rūpassa atthaṅgamo; iti vedanā, iti vedanāya samudayo, iti vedanāya atthaṅgamo; iti saññā, iti saññāya samudayo, iti saññāya atthaṅgamo;"
+    },
+    {
+     "n": 53,
+     "text": "iti saṅkhārā, iti saṅkhārānaṁ samudayo, iti saṅkhārānaṁ atthaṅgamo; iti viññāṇaṁ, iti viññāṇassa samudayo, iti viññāṇassa atthaṅgamo’ti."
+    },
+    {
+     "n": 54,
+     "text": "Tasmā tathāgato sabbamaññitānaṁ sabbamathitānaṁ sabbaahaṅkāramamaṅkāramānānusayānaṁ khayā virāgā nirodhā cāgā paṭinissaggā anupādā vimuttoti vadāmī”ti."
+    },
+    {
+     "n": 55,
+     "text": "“Evaṁ vimuttacitto pana, bho gotama, bhikkhu kuhiṁ upapajjatī”ti?"
+    },
+    {
+     "n": 56,
+     "text": "“Upapajjatīti kho, vaccha, na upeti”."
+    },
+    {
+     "n": 57,
+     "text": "“Tena hi, bho gotama, na upapajjatī”ti?"
+    },
+    {
+     "n": 58,
+     "text": "“Na upapajjatīti kho, vaccha, na upeti”."
+    },
+    {
+     "n": 59,
+     "text": "“Tena hi, bho gotama, upapajjati ca na ca upapajjatī”ti?"
+    },
+    {
+     "n": 60,
+     "text": "“Upapajjati ca na ca upapajjatīti kho, vaccha, na upeti”."
+    },
+    {
+     "n": 61,
+     "text": "“Tena hi, bho gotama, neva upapajjati na na upapajjatī”ti?"
+    },
+    {
+     "n": 62,
+     "text": "“Neva upapajjati na na upapajjatīti kho, vaccha, na upeti”."
+    },
+    {
+     "n": 63,
+     "text": "“‘Evaṁ vimuttacitto pana, bho gotama, bhikkhu kuhiṁ upapajjatī’ti iti puṭṭho samāno ‘upapajjatīti kho, vaccha, na upetī’ti vadesi."
+    },
+    {
+     "n": 64,
+     "text": "‘Tena hi, bho gotama, na upapajjatī’ti iti puṭṭho samāno ‘na upapajjatīti kho, vaccha, na upetī’ti vadesi."
+    },
+    {
+     "n": 65,
+     "text": "‘Tena hi, bho gotama, upapajjati ca na ca upapajjatī’ti iti puṭṭho samāno ‘upapajjati ca na ca upapajjatīti kho, vaccha, na upetī’ti vadesi."
+    },
+    {
+     "n": 66,
+     "text": "‘Tena hi, bho gotama, neva upapajjati na na upapajjatī’ti iti puṭṭho samāno ‘neva upapajjati na na upapajjatīti kho, vaccha, na upetī’ti vadesi."
+    },
+    {
+     "n": 67,
+     "text": "Etthāhaṁ, bho gotama, aññāṇamāpādiṁ, ettha sammohamāpādiṁ."
+    },
+    {
+     "n": 68,
+     "text": "Yāpi me esā bhoto gotamassa purimena kathāsallāpena ahu pasādamattā sāpi me etarahi antarahitā”ti."
+    },
+    {
+     "n": 69,
+     "text": "“Alañhi te, vaccha, aññāṇāya, alaṁ sammohāya."
+    },
+    {
+     "n": 70,
+     "text": "Gambhīro hāyaṁ, vaccha, dhammo duddaso duranubodho santo paṇīto atakkāvacaro nipuṇo paṇḍitavedanīyo."
+    },
+    {
+     "n": 71,
+     "text": "So tayā dujjāno aññadiṭṭhikena aññakhantikena aññarucikena aññatrayogena aññatrācariyakena."
+    },
+    {
+     "n": 72,
+     "text": "Tena hi, vaccha, taññevettha paṭipucchissāmi; yathā te khameyya tathā naṁ byākareyyāsi."
+    },
+    {
+     "n": 73,
+     "text": "Taṁ kiṁ maññasi, vaccha, sace te purato aggi jaleyya, jāneyyāsi tvaṁ: ‘ayaṁ me purato aggi jalatī’”ti?"
+    },
+    {
+     "n": 74,
+     "text": "“Sace me, bho gotama, purato aggi jaleyya, jāneyyāhaṁ: ‘ayaṁ me purato aggi jalatī’”ti."
+    },
+    {
+     "n": 75,
+     "text": "“Sace pana taṁ, vaccha, evaṁ puccheyya: ‘yo te ayaṁ purato aggi jalati ayaṁ aggi kiṁ paṭicca jalatī’ti, evaṁ puṭṭho tvaṁ, vaccha, kinti byākareyyāsī”ti?"
+    },
+    {
+     "n": 76,
+     "text": "“Sace maṁ, bho gotama, evaṁ puccheyya:"
+    },
+    {
+     "n": 77,
+     "text": "‘yo te ayaṁ purato aggi jalati ayaṁ aggi kiṁ paṭicca jalatī’ti, evaṁ puṭṭho ahaṁ, bho gotama, evaṁ byākareyyaṁ: ‘yo me ayaṁ purato aggi jalati ayaṁ aggi tiṇakaṭṭhupādānaṁ paṭicca jalatī’”ti."
+    },
+    {
+     "n": 78,
+     "text": "“Sace te, vaccha, purato so aggi nibbāyeyya, jāneyyāsi tvaṁ: ‘ayaṁ me purato aggi nibbuto’”ti?"
+    },
+    {
+     "n": 79,
+     "text": "“Sace me, bho gotama, purato so aggi nibbāyeyya, jāneyyāhaṁ: ‘ayaṁ me purato aggi nibbuto’”ti."
+    },
+    {
+     "n": 80,
+     "text": "“Sace pana taṁ, vaccha, evaṁ puccheyya: ‘yo te ayaṁ purato aggi nibbuto so aggi ito katamaṁ disaṁ gato— puratthimaṁ vā dakkhiṇaṁ vā pacchimaṁ vā uttaraṁ vā’ti, evaṁ puṭṭho tvaṁ, vaccha, kinti byākareyyāsī”ti?"
+    },
+    {
+     "n": 81,
+     "text": "“Na upeti, bho gotama, yañhi so, bho gotama, aggi tiṇakaṭṭhupādānaṁ paṭicca ajali tassa ca pariyādānā aññassa ca anupahārā anāhāro nibbutotveva saṅkhyaṁ gacchatī”ti."
+    },
+    {
+     "n": 82,
+     "text": "“Evameva kho, vaccha, yena rūpena tathāgataṁ paññāpayamāno paññāpeyya taṁ rūpaṁ tathāgatassa pahīnaṁ ucchinnamūlaṁ tālāvatthukataṁ anabhāvaṅkataṁ āyatiṁ anuppādadhammaṁ."
+    },
+    {
+     "n": 83,
+     "text": "Rūpasaṅkhayavimutto kho, vaccha, tathāgato gambhīro appameyyo duppariyogāḷho— seyyathāpi mahāsamuddo."
+    },
+    {
+     "n": 84,
+     "text": "Upapajjatīti na upeti, na upapajjatīti na upeti, upapajjati ca na ca upapajjatīti na upeti, neva upapajjati na na upapajjatīti na upeti."
+    },
+    {
+     "n": 85,
+     "text": "Yāya vedanāya tathāgataṁ paññāpayamāno paññāpeyya sā vedanā tathāgatassa pahīnā ucchinnamūlā tālāvatthukatā anabhāvaṅkatā āyatiṁ anuppādadhammā."
+    },
+    {
+     "n": 86,
+     "text": "Vedanāsaṅkhayavimutto kho, vaccha, tathāgato gambhīro appameyyo duppariyogāḷho— seyyathāpi mahāsamuddo."
+    },
+    {
+     "n": 87,
+     "text": "Upapajjatīti na upeti, na upapajjatīti na upeti, upapajjati ca na ca upapajjatīti na upeti, neva upapajjati na na upapajjatīti na upeti."
+    },
+    {
+     "n": 88,
+     "text": "Yāya saññāya tathāgataṁ paññāpayamāno paññāpeyya sā saññā tathāgatassa pahīnā ucchinnamūlā tālāvatthukatā anabhāvaṅkatā āyatiṁ anuppādadhammā."
+    },
+    {
+     "n": 89,
+     "text": "Saññāsaṅkhayavimutto kho, vaccha, tathāgato gambhīro appameyyo duppariyogāḷho— seyyathāpi mahāsamuddo."
+    },
+    {
+     "n": 90,
+     "text": "Upapajjatīti na upeti, na upapajjatīti na upeti, upapajjati ca na ca upapajjatīti na upeti, neva upapajjati na na upapajjatīti na upeti."
+    },
+    {
+     "n": 91,
+     "text": "Yehi saṅkhārehi tathāgataṁ paññāpayamāno paññāpeyya te saṅkhārā tathāgatassa pahīnā ucchinnamūlā tālāvatthukatā anabhāvaṅkatā āyatiṁ anuppādadhammā."
+    },
+    {
+     "n": 92,
+     "text": "Saṅkhārasaṅkhayavimutto kho, vaccha, tathāgato gambhīro appameyyo duppariyogāḷho— seyyathāpi mahāsamuddo."
+    },
+    {
+     "n": 93,
+     "text": "Upapajjatīti na upeti, na upapajjatīti na upeti, upapajjati ca na ca upapajjatīti na upeti, neva upapajjati na na upapajjatīti na upeti."
+    },
+    {
+     "n": 94,
+     "text": "Yena viññāṇena tathāgataṁ paññāpayamāno paññāpeyya taṁ viññāṇaṁ tathāgatassa pahīnaṁ ucchinnamūlaṁ tālāvatthukataṁ anabhāvaṅkataṁ āyatiṁ anuppādadhammaṁ."
+    },
+    {
+     "n": 95,
+     "text": "Viññāṇasaṅkhayavimutto kho, vaccha, tathāgato gambhīro appameyyo duppariyogāḷho— seyyathāpi mahāsamuddo."
+    },
+    {
+     "n": 96,
+     "text": "Upapajjatīti na upeti, na upapajjatīti na upeti, upapajjati ca na ca upapajjatīti na upeti, neva upapajjati na na upapajjatīti na upetī”ti."
+    },
+    {
+     "n": 97,
+     "text": "Evaṁ vutte, vacchagotto paribbājako bhagavantaṁ etadavoca:"
+    },
+    {
+     "n": 98,
+     "text": "“seyyathāpi, bho gotama, gāmassa vā nigamassa vā avidūre mahāsālarukkho."
+    },
+    {
+     "n": 99,
+     "text": "Tassa aniccatā sākhāpalāsā palujjeyyuṁ, tacapapaṭikā palujjeyyuṁ, pheggū palujjeyyuṁ; so aparena samayena apagatasākhāpalāso apagatatacapapaṭiko apagataphegguko suddho assa, sāre patiṭṭhito;"
+    },
+    {
+     "n": 100,
+     "text": "evameva bhoto gotamassa pāvacanaṁ apagatasākhāpalāsaṁ apagatatacapapaṭikaṁ apagatapheggukaṁ suddhaṁ, sāre patiṭṭhitaṁ."
+    },
+    {
+     "n": 101,
+     "text": "Abhikkantaṁ, bho gotama …pe… upāsakaṁ maṁ bhavaṁ gotamo dhāretu ajjatagge pāṇupetaṁ saraṇaṁ gatan”ti."
+    },
+    {
+     "n": 102,
+     "text": "Aggivacchasuttaṁ niṭṭhitaṁ dutiyaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn72/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "Then the wanderer Vacchagotta went up to the Buddha and exchanged greetings with him."
+    },
+    {
+     "n": 3,
+     "text": "When the greetings and polite conversation were over, he sat down to one side and said to the Buddha:"
+    },
+    {
+     "n": 4,
+     "text": "“Worthy Gotama, is this your view: ‘The cosmos is eternal."
+    },
+    {
+     "n": 5,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 6,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 7,
+     "text": "“Then is this your view: ‘The cosmos is not eternal."
+    },
+    {
+     "n": 8,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 9,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 10,
+     "text": "“Then is this your view: ‘The cosmos is finite."
+    },
+    {
+     "n": 11,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 12,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 13,
+     "text": "“Then is this your view: ‘The cosmos is infinite."
+    },
+    {
+     "n": 14,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 15,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 16,
+     "text": "“Then is this your view: ‘The soul and the body are one and the same."
+    },
+    {
+     "n": 17,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 18,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 19,
+     "text": "“Then is this your view: ‘The soul is one thing, the body another."
+    },
+    {
+     "n": 20,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 21,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 22,
+     "text": "“Then is this your view: ‘A realized one still exists after death."
+    },
+    {
+     "n": 23,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 24,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 25,
+     "text": "“Then is this your view: ‘A realized one no longer exists after death."
+    },
+    {
+     "n": 26,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 27,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 28,
+     "text": "“Then is this your view: ‘A realized one both still exists and no longer exists after death."
+    },
+    {
+     "n": 29,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 30,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 31,
+     "text": "“Then is this your view: ‘A realized one neither still exists nor no longer exists after death."
+    },
+    {
+     "n": 32,
+     "text": "This is the only truth, anything else is futile’?”"
+    },
+    {
+     "n": 33,
+     "text": "“That’s not my view, Vaccha.”"
+    },
+    {
+     "n": 34,
+     "text": "“Worthy Gotama, when asked these ten questions, you say: ‘That’s not my view.’"
+    },
+    {
+     "n": 35,
+     "text": "Seeing what drawback do you avoid all these convictions?”"
+    },
+    {
+     "n": 36,
+     "text": "“Each of these ten convictions is the thicket of views, the desert of views, the twist of views, the dodge of views, the fetter of views."
+    },
+    {
+     "n": 37,
+     "text": "They’re beset with suffering, distress, anguish, and fever."
+    },
+    {
+     "n": 38,
+     "text": "They don’t lead to disillusionment, dispassion, cessation, peace, insight, awakening, and extinguishment."
+    },
+    {
+     "n": 39,
+     "text": "Seeing this drawback I avoid all these convictions.”"
+    },
+    {
+     "n": 40,
+     "text": "“But does the worthy Gotama have any convictions at all?”"
+    },
+    {
+     "n": 41,
+     "text": "“A realized one has done away with convictions."
+    },
+    {
+     "n": 42,
+     "text": "For a realized one has seen: ‘Such is form, such is the origin of form, such is the disappearance of form."
+    },
+    {
+     "n": 43,
+     "text": "Such is feeling, such is the origin of feeling, such is the disappearance of feeling."
+    },
+    {
+     "n": 44,
+     "text": "Such is perception, such is the origin of perception, such is the disappearance of perception."
+    },
+    {
+     "n": 45,
+     "text": "Such are choices, such is the origin of choices, such is the disappearance of choices."
+    },
+    {
+     "n": 46,
+     "text": "Such is consciousness, such is the origin of consciousness, such is the disappearance of consciousness.’"
+    },
+    {
+     "n": 47,
+     "text": "That’s why a Realized One is freed by not grasping with the ending, fading away, cessation, giving up, and letting go of all conceiving, all churning, and all I-making, mine-making, or underlying tendency to conceit,"
+    },
+    {
+     "n": 48,
+     "text": "I say.”"
+    },
+    {
+     "n": 49,
+     "text": "“But worthy Gotama, when a mendicant’s mind is freed like this, where are they reborn?”"
+    },
+    {
+     "n": 50,
+     "text": "“‘They’re reborn’ doesn’t apply, Vaccha.”"
+    },
+    {
+     "n": 51,
+     "text": "“Well then, are they not reborn?”"
+    },
+    {
+     "n": 52,
+     "text": "“‘They’re not reborn’ doesn’t apply, Vaccha.”"
+    },
+    {
+     "n": 53,
+     "text": "“Well then, are they both reborn and not reborn?”"
+    },
+    {
+     "n": 54,
+     "text": "“‘They’re both reborn and not reborn’ doesn’t apply, Vaccha.”"
+    },
+    {
+     "n": 55,
+     "text": "“Well then, are they neither reborn nor not reborn?”"
+    },
+    {
+     "n": 56,
+     "text": "“‘They’re neither reborn nor not reborn’ doesn’t apply, Vaccha.”"
+    },
+    {
+     "n": 57,
+     "text": "“Worthy Gotama, when asked all these questions, you say: ‘It doesn’t apply.’"
+    },
+    {
+     "n": 58,
+     "text": "I fail to understand this point, worthy Gotama; I’ve fallen into confusion."
+    },
+    {
+     "n": 59,
+     "text": "And I’ve now lost even the degree of clarity I had from previous discussions with the worthy Gotama.”"
+    },
+    {
+     "n": 60,
+     "text": "“No wonder you don’t understand, Vaccha, no wonder you’re confused."
+    },
+    {
+     "n": 61,
+     "text": "For this principle is deep, hard to see, hard to understand, peaceful, sublime, beyond the scope of logic, subtle, comprehensible to the astute."
+    },
+    {
+     "n": 62,
+     "text": "It’s hard for you to understand, since you have a different view, creed, and belief, and another discipline and denomination."
+    },
+    {
+     "n": 63,
+     "text": "Well then, Vaccha, I’ll ask you about this in return, and you can answer as you like."
+    },
+    {
+     "n": 64,
+     "text": "What do you think, Vaccha? Suppose a fire was burning in front of you."
+    },
+    {
+     "n": 65,
+     "text": "Would you know: ‘This fire is burning in front of me’?”"
+    },
+    {
+     "n": 66,
+     "text": "“Yes, I would, worthy Gotama.”"
+    },
+    {
+     "n": 67,
+     "text": "“But Vaccha, suppose they were to ask you: ‘This fire burning in front of you: what does it depend on to burn?’ How would you answer?”"
+    },
+    {
+     "n": 68,
+     "text": "“I would answer like this: ‘This fire burning in front of me burns in dependence on grass and logs as fuel.’”"
+    },
+    {
+     "n": 69,
+     "text": "“Suppose that fire burning in front of you was extinguished."
+    },
+    {
+     "n": 70,
+     "text": "Would you know: ‘This fire in front of me is quenched’?”"
+    },
+    {
+     "n": 71,
+     "text": "“Yes, I would, worthy Gotama.”"
+    },
+    {
+     "n": 72,
+     "text": "“But Vaccha, suppose they were to ask you: ‘This fire in front of you that is quenched: in what direction did it go— east, south, west, or north?’ How would you answer?”"
+    },
+    {
+     "n": 73,
+     "text": "“It doesn’t apply, worthy Gotama. The fire depended on grass and logs as fuel."
+    },
+    {
+     "n": 74,
+     "text": "When that runs out, and no more fuel is added, the fire is reckoned to have become quenched due to lack of fuel.”"
+    },
+    {
+     "n": 75,
+     "text": "“In the same way, Vaccha, any form by which a realized one might be described has been given up, cut off at the root, made like a palm stump, obliterated, and unable to arise in the future."
+    },
+    {
+     "n": 76,
+     "text": "A realized one is freed from reckoning in terms of form."
+    },
+    {
+     "n": 77,
+     "text": "They’re deep, immeasurable, and hard to fathom, like the ocean."
+    },
+    {
+     "n": 78,
+     "text": "‘They’re reborn’, ‘they’re not reborn’, ‘they’re both reborn and not reborn’, ‘they’re neither reborn nor not reborn’—none of these apply."
+    },
+    {
+     "n": 79,
+     "text": "Any feeling … perception … choices … consciousness by which a realized one might be described has been given up, cut off at the root, made like a palm stump, obliterated, and unable to arise in the future."
+    },
+    {
+     "n": 80,
+     "text": "A realized one is freed from reckoning in terms of consciousness."
+    },
+    {
+     "n": 81,
+     "text": "They’re deep, immeasurable, and hard to fathom, like the ocean."
+    },
+    {
+     "n": 82,
+     "text": "‘They’re reborn’, ‘they’re not reborn’, ‘they’re both reborn and not reborn’, ‘they’re neither reborn nor not reborn’—none of these apply.”"
+    },
+    {
+     "n": 83,
+     "text": "When he said this, the wanderer Vacchagotta said to the Buddha:"
+    },
+    {
+     "n": 84,
+     "text": "“Worthy Gotama, suppose there was a large sal tree not far from a town or village."
+    },
+    {
+     "n": 85,
+     "text": "And because it’s impermanent, its branches and foliage, bark and shoots, and softwood would fall off."
+    },
+    {
+     "n": 86,
+     "text": "After some time it would be rid of branches and foliage, bark and shoots, and softwood, pure, and consolidated in the core."
+    },
+    {
+     "n": 87,
+     "text": "In the same way, worthy Gotama’s dispensation is rid of branches and foliage, bark and shoots, and softwood, pure, and consolidated in the core."
+    },
+    {
+     "n": 88,
+     "text": "Excellent, worthy Gotama! … From this day forth, may the worthy Gotama remember me as a lay follower who has gone for refuge for life.”"
+    }
+   ]
+  }
+ ]
+}

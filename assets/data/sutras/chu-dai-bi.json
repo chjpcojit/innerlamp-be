@@ -1,0 +1,387 @@
+{
+ "id": "chu-dai-bi",
+ "tradition": "MAHAYANA",
+ "kind": "DHARANI",
+ "collection": "Chú",
+ "reference": "Taishō T1060",
+ "originalTitle": "Thiên Thủ Thiên Nhãn Quán Thế Âm Bồ Tát Quảng Đại Viên Mãn Vô Ngại Đại Bi Tâm Đà La Ni",
+ "summary": "Thần chú (đà-la-ni) thuộc truyền thống Đại thừa, gắn với Bồ Tát Quán Thế Âm theo tên đầy đủ là Thiên Thủ Thiên Nhãn Vô Ngại Đại Bi Tâm Đà La Ni. Văn bản được đọc theo âm Hán Việt phiên âm từ tiếng Phạn, mở đầu bằng lời quy kính Đại Bi hội thượng Phật Bồ Tát. Chú được trì tụng phổ biến trong các khóa tụng và nghi lễ của Phật giáo Việt Nam.",
+ "titles": {
+  "vi": "Chú Đại Bi",
+  "zh": "大悲咒",
+  "sa": "Nīlakaṇṭha Dhāraṇī",
+  "en": "Great Compassion Mantra"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "TRI_CHU",
+  "CAU_AN"
+ ],
+ "durationMinutes": 6,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Bản Việt âm phổ thông (không ghi dịch giả)",
+   "sourceName": "Phatgiao.org.vn (Cổng thông tin Phật giáo, GHPGVN) - Chú Đại bi 84 biến, mục \"CHÚ ĐẠI BI 84 câu\"",
+   "sourceUrl": "https://phatgiao.org.vn/chu-dai-bi-84-bien-de-doc-de-nhin-d48889.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Nguồn ghi: bản dịch từ âm Phạn ra âm Hán ra âm Việt dùng chính thức trong các nghi thức tụng niệm phổ thông. 2 dòng đầu + 84 câu đánh số; bỏ ghi chú \"(Lặp lại 3 lần từ câu 81 đến 84 khi trì biến cuối)\". Giữ nguyên viết hoa Title Case của nguồn; câu 16 giữ nguyên phần ngoặc \"(Na Ma Bà Tát Đa)\". Lưu ý: cùng trang này, đoạn văn xuôi liền mạch (\"Chú Đại bi Tiếng Việt\") khác danh sách 84 câu ở vài âm: kiết/yết (bà lô kiết/yết đế, cu lô cu lô kiết/yết mông), dá/giá ra, y hê di hê / y hê y hê, bàn đà ra dạ / bàn dà ra dạ, ma bà lị / ma bà lợi thắng, thước bàng/bàn ra dạ, mạn đa/đà ra. Bản này theo danh sách 84 câu đánh số.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nam Mô Đại Bi Hội Thượng Phật Bồ Tát"
+    },
+    {
+     "n": 2,
+     "text": "Thiên thủ thiên nhãn vô ngại Đại bi tâm đà la ni"
+    },
+    {
+     "n": 3,
+     "text": "Nam Mô Hắc Ra Đát Na Đa Ra Dạ Da"
+    },
+    {
+     "n": 4,
+     "text": "Nam Mô A Rị Da"
+    },
+    {
+     "n": 5,
+     "text": "Bà Lô Yết Đế Thước Bát Ra Da"
+    },
+    {
+     "n": 6,
+     "text": "Bồ Đề Tát Đỏa Bà Da"
+    },
+    {
+     "n": 7,
+     "text": "Ma Ha Tát Đỏa Bà Da"
+    },
+    {
+     "n": 8,
+     "text": "Ma Ha Ca Lô Ni Ca Da"
+    },
+    {
+     "n": 9,
+     "text": "Án"
+    },
+    {
+     "n": 10,
+     "text": "Tát Bàn Ra Phạt Duệ"
+    },
+    {
+     "n": 11,
+     "text": "Số Đát Na Đát Tỏa"
+    },
+    {
+     "n": 12,
+     "text": "Nam Mô Tất Kiết Lật Đỏa Y Mông A Rị Da"
+    },
+    {
+     "n": 13,
+     "text": "Bà Lô Yết Đế Thất Phật Ra Lăng Đà Bà"
+    },
+    {
+     "n": 14,
+     "text": "Nam Mô Na Ra Cẩn Trì"
+    },
+    {
+     "n": 15,
+     "text": "Hê Rị Ma Ha Bàn Đa Sa Mế"
+    },
+    {
+     "n": 16,
+     "text": "Tát Bà A Tha Đậu Du Bằng"
+    },
+    {
+     "n": 17,
+     "text": "A Thệ Dựng"
+    },
+    {
+     "n": 18,
+     "text": "Tát Bà Tát Đa (Na Ma Bà Tát Đa) Na Ma Bà Già"
+    },
+    {
+     "n": 19,
+     "text": "Ma Phạt Đạt Đậu"
+    },
+    {
+     "n": 20,
+     "text": "Đát Điệt Tha"
+    },
+    {
+     "n": 21,
+     "text": "Án A Bà Lô Hê"
+    },
+    {
+     "n": 22,
+     "text": "Lô Ca Đế"
+    },
+    {
+     "n": 23,
+     "text": "Ca Ra Đế"
+    },
+    {
+     "n": 24,
+     "text": "Di Hê Rị"
+    },
+    {
+     "n": 25,
+     "text": "Ma Ha Bồ Đề Tát Đỏa"
+    },
+    {
+     "n": 26,
+     "text": "Tát Bà Tát Bà"
+    },
+    {
+     "n": 27,
+     "text": "Ma Ra Ma Ra"
+    },
+    {
+     "n": 28,
+     "text": "Ma Hê Ma Hê Rị Đà Dựng"
+    },
+    {
+     "n": 29,
+     "text": "Cu Lô Cu Lô Yết Mông"
+    },
+    {
+     "n": 30,
+     "text": "Độ Lô Độ Lô Phạt Xà Da Đế"
+    },
+    {
+     "n": 31,
+     "text": "Ma Ha Phạt Xà Da Đế"
+    },
+    {
+     "n": 32,
+     "text": "Đà Ra Đà Ra"
+    },
+    {
+     "n": 33,
+     "text": "Địa Rị Ni"
+    },
+    {
+     "n": 34,
+     "text": "Thất Phật Ra Da"
+    },
+    {
+     "n": 35,
+     "text": "Giá Ra Giá Ra"
+    },
+    {
+     "n": 36,
+     "text": "Mạ Mạ Phạt Ma Ra"
+    },
+    {
+     "n": 37,
+     "text": "Mục Đế Lệ"
+    },
+    {
+     "n": 38,
+     "text": "Y Hê Y Hê"
+    },
+    {
+     "n": 39,
+     "text": "Thất Na Thất Na"
+    },
+    {
+     "n": 40,
+     "text": "A Ra Sâm Phật Ra Xá Lợi"
+    },
+    {
+     "n": 41,
+     "text": "Phạt Sa Phạt Sâm"
+    },
+    {
+     "n": 42,
+     "text": "Phật Ra Xá Da"
+    },
+    {
+     "n": 43,
+     "text": "Hô Lô Hô Lô Ma Ra"
+    },
+    {
+     "n": 44,
+     "text": "Hô Lô Hô Lô Hê Rị"
+    },
+    {
+     "n": 45,
+     "text": "Ta Ra Ta Ra"
+    },
+    {
+     "n": 46,
+     "text": "Tất Rị Tất Rị"
+    },
+    {
+     "n": 47,
+     "text": "Tô Rô Tô Rô"
+    },
+    {
+     "n": 48,
+     "text": "Bồ Đề Dạ Bồ Đề Dạ"
+    },
+    {
+     "n": 49,
+     "text": "Bồ Đà Dạ Bồ Đà Dạ"
+    },
+    {
+     "n": 50,
+     "text": "Di Đế Rị Dạ"
+    },
+    {
+     "n": 51,
+     "text": "Na Ra Cẩn Trì"
+    },
+    {
+     "n": 52,
+     "text": "Địa Rị Sắc Ni Na"
+    },
+    {
+     "n": 53,
+     "text": "Ba Dạ Ma Na"
+    },
+    {
+     "n": 54,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 55,
+     "text": "Tất Đà Dạ"
+    },
+    {
+     "n": 56,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 57,
+     "text": "Ma Ha Tất Đà Dạ"
+    },
+    {
+     "n": 58,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 59,
+     "text": "Tất Đà Du Nghệ"
+    },
+    {
+     "n": 60,
+     "text": "Thất Bàn Ra Dạ"
+    },
+    {
+     "n": 61,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 62,
+     "text": "Na Ra Cẩn Trì"
+    },
+    {
+     "n": 63,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 64,
+     "text": "Ma Ra Na Ra"
+    },
+    {
+     "n": 65,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 66,
+     "text": "Tất Ra Tăng A Mục Khê Da"
+    },
+    {
+     "n": 67,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 68,
+     "text": "Ta Bà Ma Ha A Tất Đà Dạ"
+    },
+    {
+     "n": 69,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 70,
+     "text": "Giả Kiết Ra A Tất Đà Dạ"
+    },
+    {
+     "n": 71,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 72,
+     "text": "Ba Đà Ma Yết Tất Đà Dạ"
+    },
+    {
+     "n": 73,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 74,
+     "text": "Na Ra Cẩn Trì Bàn Dà Ra Dạ"
+    },
+    {
+     "n": 75,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 76,
+     "text": "Ma Bà Lợi Thắng Yết Ra Dạ"
+    },
+    {
+     "n": 77,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 78,
+     "text": "Nam Mô Hắc Ra Đát na Đa Ra Dạ Da"
+    },
+    {
+     "n": 79,
+     "text": "Nam Mô A Rị Da"
+    },
+    {
+     "n": 80,
+     "text": "Bà Lô Yết Đế"
+    },
+    {
+     "n": 81,
+     "text": "Thước Bàn Ra Dạ"
+    },
+    {
+     "n": 82,
+     "text": "Ta Bà Ha"
+    },
+    {
+     "n": 83,
+     "text": "Án Tất Điện Đô"
+    },
+    {
+     "n": 84,
+     "text": "Mạn Đà Ra"
+    },
+    {
+     "n": 85,
+     "text": "Bạt Đà Dạ"
+    },
+    {
+     "n": 86,
+     "text": "Ta Bà Ha"
+    }
+   ]
+  }
+ ]
+}

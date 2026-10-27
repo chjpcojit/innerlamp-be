@@ -1,0 +1,1225 @@
+{
+ "id": "kinh-kalama",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tăng Chi Bộ",
+ "reference": "AN 3.65",
+ "summary": "Kinh trong Tăng Chi Bộ (AN 3.65), Thế Tôn dạy dân Kālāma ở Kesaputta khi họ bối rối trước nhiều vị đạo sư. Ngài khuyên đừng tin chỉ vì truyền thống, nghe nói hay quyền uy, mà tự xét pháp nào gây hại, pháp nào đem lại an lạc. Ngài phân tích tham, sân, si là gốc bất thiện, và vô tham, vô sân, vô si là gốc thiện.",
+ "titles": {
+  "vi": "Kinh Kàlàma",
+  "pli": "Kesamuttisutta",
+  "en": "With the Kālāmas of Kesamutta"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 40,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/an3.65/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; prepared for SuttaCentral by editor named in footer; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "—Như vầy tôi nghe. Một thời, Thế Tôn đang đi du hành giữa dân chúng Kosala, cùng với đại chúng Tỷ-kheo, đi đến Kesaputta, thị trấn của các người Kàlàmà."
+    },
+    {
+     "n": 2,
+     "text": "Các người Kàlàmà ở Kesaputta được nghe: “Sa-môn Gotama là Thích tử, xuất gia từ dòng họ Thích ca đã đến Kesaputta."
+    },
+    {
+     "n": 3,
+     "text": "Tiếng đồn tốt đẹp như sau được truyền đi về Sa-môn Gotama:"
+    },
+    {
+     "n": 4,
+     "text": "Ngài là Thế Tôn, bậc Ứng Cúng A-la-hán, Chánh Đẳng Giác, Minh Hạnh Túc, Thiên Tuệ, Thế Gian Giải, Vô Thượng Sĩ, Điều Ngự Trượng Phu, Thiên Nhân Sư, Phật, Thế Tôn."
+    },
+    {
+     "n": 5,
+     "text": "Sau khi tự thực chứng, Ngài đã giảng dạy chư thiên và loài người, hàng tu sĩ và cư sĩ, vua chúa cùng thường dân, Ngài đã giảng Pháp cao diệu từ chặng đầu, chặng giữa, cho đến chặng cuối;"
+    },
+    {
+     "n": 6,
+     "text": "Ngài đã giảng đời sống phạm hạnh chi tiết và rõ ràng, toàn hảo, hoàn toàn tinh khiết."
+    },
+    {
+     "n": 7,
+     "text": "Lành thay, nếu chúng tôi được yết kiến một vị Ứng cúng như vậy”."
+    },
+    {
+     "n": 8,
+     "text": "—Rồi các người Kàlàmà ở Kesaputta đi đến Thế Tôn."
+    },
+    {
+     "n": 9,
+     "text": "Sau khi đến, có người đảnh lễ Thế Tôn rồi ngồi xuống một bên; có người nói lên với Thế Tôn những lời chào đón thăm hỏi, sau khi nói lên những lời chào đón thăm hỏi thân hữu rồi ngồi xuống một bên;"
+    },
+    {
+     "n": 10,
+     "text": "có người chắp tay vái chào Thế Tôn rồi ngồi xuống một bên; có người xưng tên và dòng họ rồi ngồi xuống một bên; có người im lặng rồi ngồi xuống một bên."
+    },
+    {
+     "n": 11,
+     "text": "Sau khi ngồi xuống một bên, các người Kàlàmà ở Kesaputta bạch Thế Tôn:"
+    },
+    {
+     "n": 12,
+     "text": "—Có một số Sa-môn, Bà-la-môn, bạch Thế Tôn, đi đến Kesaputta."
+    },
+    {
+     "n": 13,
+     "text": "Họ làm sáng tỏ, làm chói sáng quan điểm của mình, nhưng họ bài xích quan điểm người khác, khinh miệt, chê bai, xuyên tạc."
+    },
+    {
+     "n": 14,
+     "text": "Bạch Thế Tôn, lại có một số Sa-môn, Bà-la-môn khác cũng đi đến Kesaputta, họ làm sáng tỏ, làm chói sáng quan điểm của mình, nhưng họ bài xích quan điểm người khác, khinh miệt, chê bai, xuyên tạc."
+    },
+    {
+     "n": 15,
+     "text": "Đối với họ, bạch Thế Tôn, chúng con có những nghi ngờ phân vân: “Trong những Tôn giả Sa-môn này, ai nói sự thật, ai nói láo?”"
+    },
+    {
+     "n": 16,
+     "text": "—Đương nhiên, này các Kàlàmà, các Ông có những nghi ngờ!"
+    },
+    {
+     "n": 17,
+     "text": "Đương nhiên, này các Kàlàmà, các Ông có những phân vân!"
+    },
+    {
+     "n": 18,
+     "text": "Trong những trường hợp đáng nghi ngờ, các Ông đương nhiên khởi lên phân vân."
+    },
+    {
+     "n": 19,
+     "text": "Này các Kàlàmà, chớ có tin vì nghe báo cáo, chớ có tin vì nghe truyền thuyết; chớ có tin vì theo truyền thống; chớ có tin vì được kinh điển truyền tụng; chớ có tin vì lý luận suy diễn; chớ có tin vì diễn giải tương tự;"
+    },
+    {
+     "n": 20,
+     "text": "chớ có tin vì đánh giá hời hợt những dữ kiện; chớ có tin vì phù hợp với định kiến; chớ có tin vì phát xuất từ nơi có uy quyền, chớ có tin vì vị Sa-môn là bậc đạo sư của mình."
+    },
+    {
+     "n": 21,
+     "text": "Nhưng này các Kàlàmà, khi nào tự mình biết rõ như sau: “Các pháp này là bất thiện; Các pháp này là đáng chê; Các pháp này bị các người có trí chỉ trích;"
+    },
+    {
+     "n": 22,
+     "text": "Các pháp này nếu thực hiện và chấp nhận đưa đến bất hạnh khổ đau”, thời này Kàlàmà, hãy từ bỏ chúng!"
+    },
+    {
+     "n": 23,
+     "text": "Các Ông nghĩ thế nào, này Kàlàmà! Lòng tham khởi lên trong nội tâm người nào, khởi lên như vậy là đưa lại hạnh phúc hay bất hạnh?"
+    },
+    {
+     "n": 24,
+     "text": "—Bất hạnh, bạch Thế Tôn."
+    },
+    {
+     "n": 25,
+     "text": "—Người này có tham, này các Kàlàmà, bị tham chinh phục, tâm bị xâm chiếm, giết các sinh vật, lấy của không cho, đi đến vợ người, nói láo, khích lệ người khác cũng làm như vậy."
+    },
+    {
+     "n": 26,
+     "text": "Như vậy, có làm cho người ấy bất hạnh đau khổ lâu dài hay không?"
+    },
+    {
+     "n": 27,
+     "text": "—Thưa có, bạch Thế Tôn."
+    },
+    {
+     "n": 28,
+     "text": "—Các Ông nghĩ thế nào, này các Kàlàmà, lòng sân khi khởi lên trong nội tâm người nào, khởi lên như vậy là đưa lại hạnh phúc hay bất hạnh?"
+    },
+    {
+     "n": 29,
+     "text": "—Bất hạnh, bạch Thế Tôn."
+    },
+    {
+     "n": 30,
+     "text": "—Người này có sân, này các Kàlàmà, bị sân chinh phục, tâm bị xâm chiếm, giết các sinh vật, lấy của không cho, đi đến vợ người, nói láo, khích lệ người khác cũng làm như vậy."
+    },
+    {
+     "n": 31,
+     "text": "Như vậy, có làm cho người ấy bất hạnh đau khổ lâu dài hay không?"
+    },
+    {
+     "n": 32,
+     "text": "—Thưa có, bạch Thế Tôn.."
+    },
+    {
+     "n": 33,
+     "text": "—Các Ông nghĩ thế nào, này các Kàlàmà, lòng si khi khởi lên trong nội tâm người nào, khởi lên như vậy là đưa lại hạnh phúc hay bất hạnh?"
+    },
+    {
+     "n": 34,
+     "text": "—Bất hạnh, bạch Thế Tôn."
+    },
+    {
+     "n": 35,
+     "text": "—Người này có si, này các Kàlàmà, bị si chinh phục, tâm bị xâm chiếm, giết các sinh vật, lấy của không cho, đi đến vợ người, nói láo, khích lệ người khác cũng làm như vậy."
+    },
+    {
+     "n": 36,
+     "text": "Như vậy, có làm cho người ấy bất hạnh đau khổ lâu dài hay không?"
+    },
+    {
+     "n": 37,
+     "text": "—Thưa có, bạch Thế Tôn."
+    },
+    {
+     "n": 38,
+     "text": "—Các Ông nghĩ thế nào, này các Kàlàmà, các pháp này là thiện hay bất thiện?"
+    },
+    {
+     "n": 39,
+     "text": "—Là bất thiện, bạch Thế Tôn."
+    },
+    {
+     "n": 40,
+     "text": "—Đáng chê hay không đáng chê?"
+    },
+    {
+     "n": 41,
+     "text": "—Có tội, bạch Thế Tôn."
+    },
+    {
+     "n": 42,
+     "text": "—Bị người có trí quở trách hay không bị người có trí quở trách?"
+    },
+    {
+     "n": 43,
+     "text": "—Bị người có trí quở trách, bạch Thế Tôn."
+    },
+    {
+     "n": 44,
+     "text": "—Nếu được thực hiện, được chấp nhận, có đưa đến bất hạnh đau khổ không? Hay ở đây, là như thế nào?"
+    },
+    {
+     "n": 45,
+     "text": "—Được thực hiện, được chấp nhận, bạch Thế Tôn, chúng đưa đến bất hạnh, đau khổ, ở đây, đối với chúng con là vậy."
+    },
+    {
+     "n": 46,
+     "text": "—Như vậy, này các Kàlàmà, điều Ta vừa nói với các Ông: “Chớ có tin vì nghe báo cáo, chớ có tin vì nghe truyền thuyết; chớ có tin vì theo truyền thống; chớ có tin vì được kinh điển truyền tụng;"
+    },
+    {
+     "n": 47,
+     "text": "chớ có tin vì lý luận suy diễn; chớ có tin vì diễn giải tương tự; chớ có tin vì đánh giá hời hợt những dữ kiện; chớ có tin vì phù hợp với định kiến;"
+    },
+    {
+     "n": 48,
+     "text": "chớ có tin vì phát xuất từ nơi có uy quyền, chớ có tin vì vị Sa-môn là bậc đạo sư của mình.”."
+    },
+    {
+     "n": 49,
+     "text": "Nhưng này các Kàlàmà, khi nào tự mình biết rõ như sau: “Các pháp này là bất thiện; Các pháp này là đáng chê; Các pháp này bị các người có trí quở trách;"
+    },
+    {
+     "n": 50,
+     "text": "Các pháp này nếu thực hiện và chấp nhận đưa đến bất hạnh khổ đau”, thời này Kàlàmà, hãy từ bỏ chúng!"
+    },
+    {
+     "n": 51,
+     "text": "Điều đã được nói lên như vậy, chính do duyên như vậy được nói lên."
+    },
+    {
+     "n": 52,
+     "text": "Này các Kàlàmà, chớ có tin vì nghe báo cáo, chớ có tin vì nghe truyền thuyết; chớ có tin vì theo truyền thống; chớ có tin vì được kinh điển truyền tụng; chớ có tin vì lý luận suy diễn; chớ có tin vì diễn giải tương tự;"
+    },
+    {
+     "n": 53,
+     "text": "chớ có tin vì đánh giá hời hợt những dữ kiện; chớ có tin vì phù hợp với định kiến; chớ có tin vì phát xuất từ nơi có uy quyền, chớ có tin vì vị Sa-môn là bậc đạo sư của mình."
+    },
+    {
+     "n": 54,
+     "text": "Nhưng này các Kàlàmà, khi nào tự mình biết như sau: “Các pháp này là thiện; Các pháp này là không đáng chê; Các pháp này không bị các người có trí chỉ trích;"
+    },
+    {
+     "n": 55,
+     "text": "Các pháp này nếu thực hiện và chấp nhận đưa đến hạnh phúc an lạc”, thời này Kàlàmà, hãy tự đạt đến và an trú!"
+    },
+    {
+     "n": 56,
+     "text": "Các Ông nghĩ thế nào, này các Kàlàmà, không tham, khi khởi lên trong nội tâm người nào, khởi lên như vậy, là đưa lại hạnh phúc hay bất hạnh cho người ấy?"
+    },
+    {
+     "n": 57,
+     "text": "—Hạnh phúc, bạch Thế Tôn."
+    },
+    {
+     "n": 58,
+     "text": "—Người này không tham, này các Kàlàmà, không bị tham chinh phục, tâm không bị xâm chiếm, không giết các sinh vật, không lấy của không cho, không đi đến vợ người, không nói láo, khích lệ người khác cũng làm như vậy."
+    },
+    {
+     "n": 59,
+     "text": "Như vậy, có làm cho người ấy hạnh phúc an lạc lâu dài hay không?"
+    },
+    {
+     "n": 60,
+     "text": "—Thưa có, bạch Thế Tôn."
+    },
+    {
+     "n": 61,
+     "text": "—Các Ông nghĩ thế nào, này các Kàlàmà, không sân, khi khởi lên trong nội tâm người nào, khởi lên như vậy là đưa lại hạnh phúc hay bất hạnh cho người ấy?"
+    },
+    {
+     "n": 62,
+     "text": "—Hạnh phúc, bạch Thế Tôn."
+    },
+    {
+     "n": 63,
+     "text": "—Người này không sân, này các Kàlàmà, không bị sân chinh phục, tâm không bị xâm chiếm, không giết các sinh vật, không lấy của không cho, không đi đến vợ người, không nói láo, khích lệ người khác cũng làm như vậy."
+    },
+    {
+     "n": 64,
+     "text": "Như vậy, có đem lại đem lại hạnh phúc, an lạc lâu dài cho người ấy hay không?"
+    },
+    {
+     "n": 65,
+     "text": "—Thưa có, bạch Thế Tôn."
+    },
+    {
+     "n": 66,
+     "text": "—Các Ông nghĩ thế nào, này các Kàlàmà, không si khi khởi lên trong nội tâm người nào, khởi lên như vậy là đưa lại hạnh phúc hay bất hạnh cho người ấy?"
+    },
+    {
+     "n": 67,
+     "text": "—Hạnh phúc, bạch Thế Tôn."
+    },
+    {
+     "n": 68,
+     "text": "—Người này không si, này các Kàlàmà, không bị si chinh phục, tâm không bị xâm chiếm, không giết các sinh vật, không lấy của không cho, không đi đến vợ người, không nói láo, khích lệ người khác cũng làm như vậy."
+    },
+    {
+     "n": 69,
+     "text": "Như vậy, có đem lại hạnh phúc an lạc lâu dài cho người ấy hay không?"
+    },
+    {
+     "n": 70,
+     "text": "—Thưa có, bạch Thế Tôn."
+    },
+    {
+     "n": 71,
+     "text": "—Các Ông nghĩ thế nào, này các Kàlàmà, các pháp này là thiện hay bất thiện?"
+    },
+    {
+     "n": 72,
+     "text": "—Là thiện, bạch Thế Tôn."
+    },
+    {
+     "n": 73,
+     "text": "—Các pháp này là đáng chê hay không đáng chê?"
+    },
+    {
+     "n": 74,
+     "text": "—Không đáng chê, bạch Thế Tôn."
+    },
+    {
+     "n": 75,
+     "text": "—Bị người có trí quở trách hay được người có trí tán thán?"
+    },
+    {
+     "n": 76,
+     "text": "—Được người trí tán thán, bạch Thế Tôn."
+    },
+    {
+     "n": 77,
+     "text": "—Nếu được thực hiện, được chấp nhận, có đưa đến hạnh phúc an lạc không, hay ở đây, là như thế nào?"
+    },
+    {
+     "n": 78,
+     "text": "—Được thực hiện, được chấp nhận, bạch Thế Tôn, chúng đưa đến hạnh phúc, an lạc. Ở đây, đối với chúng con là vậy."
+    },
+    {
+     "n": 79,
+     "text": "—Này các Kàlàmà, chớ có tin vì nghe báo cáo, chớ có tin vì nghe truyền thuyết; chớ có tin vì theo truyền thống; chớ có tin vì được kinh điển truyền tụng; chớ có tin vì nhân lý luận siêu hình;"
+    },
+    {
+     "n": 80,
+     "text": "chớ có tin vì đúng theo một lập trường; chớ có tin vì đánh giá hời hợt những dữ kiện; chớ có tin vì phù hợp với định kiến; chớ có tin vì phát xuất từ nơi có uy quyền, chớ có tin vì vị Sa-môn là bậc đạo sư của mình."
+    },
+    {
+     "n": 81,
+     "text": "Nhưng này các Kàlàmà, khi nào tự mình biết rõ như sau: “Các pháp này là thiện; Các pháp này là không có tội; Các pháp này được người có trí tán thán;"
+    },
+    {
+     "n": 82,
+     "text": "Các pháp này nếu được thực hiện, được chấp nhận đưa đến hạnh phúc an lạc”, thời này Kàlàmà, hãy chứng đạt và an trú!"
+    },
+    {
+     "n": 83,
+     "text": "Điều đã được nói lên như vậy, chính do duyên như vậy được nói lên."
+    },
+    {
+     "n": 84,
+     "text": "—Này các Kàlàmà, vị Thánh đệ tử nào ly tham, ly sân, ly si như vậy, tỉnh giác, chánh niệm, với tâm câu hữu với Từ biến mãn một phương; cũng vậy phương thứ hai; cũng vậy phương thứ ba; cũng vậy phương thứ tư."
+    },
+    {
+     "n": 85,
+     "text": "Như vậy, cùng khắp thế giới, trên, dưới, bề ngang, hết thảy phương xứ, cùng khắp vô biên giới, vị ấy an trú biến mãn với tâm câu hữu với Từ, quảng đại, đại hành, vô biên, không hận, không sân."
+    },
+    {
+     "n": 86,
+     "text": "Vị Thánh đệ tử nào ly tham, ly sân, ly si như vậy, tỉnh giác, chánh niệm, với tâm câu hữu với Bi biến mãn một phương; cũng vậy phương thứ hai; cũng vậy phương thứ ba; cũng vậy phương thứ tư."
+    },
+    {
+     "n": 87,
+     "text": "Như vậy, cùng khắp thế giới, trên, dưới, bề ngang, hết thảy phương xứ, cùng khắp vô biên giới, vị ấy an trú biến mãn với tâm câu hữu với Bi, quảng đại, đại hành, vô biên, không hận, không sân."
+    },
+    {
+     "n": 88,
+     "text": "Vị Thánh đệ tử nào ly tham, ly sân, ly si như vậy, tỉnh giác, chánh niệm, với tâm câu hữu với Hỷ biến mãn một phương; cũng vậy phương thứ hai; cũng vậy phương thứ ba; cũng vậy phương thứ tư."
+    },
+    {
+     "n": 89,
+     "text": "Như vậy, cùng khắp thế giới, trên, dưới, bề ngang, hết thảy phương xứ, cùng khắp vô biên giới, vị ấy an trú biến mãn với tâm câu hữu với Hỷ, quảng đại, đại hành, vô biên, không hận, không sân."
+    },
+    {
+     "n": 90,
+     "text": "Vị Thánh đệ tử nào ly tham, ly sân, ly si như vậy, tỉnh giác, chánh niệm, với tâm câu hữu với Xả biến mãn một phương; cũng vậy phương thứ hai; cũng vậy phương thứ ba; cũng vậy phương thứ tư."
+    },
+    {
+     "n": 91,
+     "text": "Như vậy, cùng khắp thế giới, trên, dưới, bề ngang, hết thảy phương xứ, cùng khắp vô biên giới, vị ấy an trú biến mãn với tâm câu hữu với Xả, quảng đại, đại hành, vô biên, không hận, không sân."
+    },
+    {
+     "n": 92,
+     "text": "Thánh đệ tử ấy, này các Kàlàmà, với tâm không oán như vậy, không sân như vậy, không uế nhiễm như vậy, thanh tịnh như vậy, ngay trong hiện tại, người ấy đạt được bốn sự an ổn:"
+    },
+    {
+     "n": 93,
+     "text": "i) “Nếu có đời sau, nếu có kết quả dị thục các nghiệp thiện ác, sau khi thân hoại mạng chung, ta sẽ sanh lên cõi thiện, cõi trời, cõi đời này”; đây là an ổn thứ nhất vị ấy có được."
+    },
+    {
+     "n": 94,
+     "text": "ii) “Nếu không có đời sau, nếu không có kết quả dị thục các nghiệp thiện ác, thời ở đây, trong hiện tại, ta tự sống với tâm không oán, không sân, không phiền não, được an lạc”; đây là an ổn thứ hai vị ấy có được."
+    },
+    {
+     "n": 95,
+     "text": "iii) “Nếu việc ác có làm, nhưng ta không có tâm ác đối với ai cả, và nếu ta không làm điều ác, sao ta có thể cảm thọ khổ đau được”; đây là an ổn thứ ba vị ấy có được."
+    },
+    {
+     "n": 96,
+     "text": "iv) “Nếu việc ác không có làm, như vậy, cả hai phương diện (do ta làm vô ý hay cố ý), ta quán thấy ta hoàn toàn thanh tịnh”; đây là an ổn thứ tư vị ấy có được."
+    },
+    {
+     "n": 97,
+     "text": "Thánh đệ tử ấy, này các Kàlàmà, với tâm không oán như vậy, với tâm không sân như vậy, với tâm không uế nhiễm như vậy, với tâm thanh tịnh như vậy, ngay trong hiện tại, vị có được bốn an ổn này."
+    },
+    {
+     "n": 98,
+     "text": "—Sự việc là như vậy, bạch Thế Tôn! Sự việc là như vậy, bạch Thiện Thệ!"
+    },
+    {
+     "n": 99,
+     "text": "Thánh đệ tử ấy, bạch Thế Tôn, với tâm không oán như vậy, với tâm không sân như vậy, với tâm không uế nhiễm như vậy, với tâm thanh tịnh như vậy, ngay trong hiện tại, vị có được bốn an ổn:"
+    },
+    {
+     "n": 100,
+     "text": "“Nếu có đời sau, nếu có kết quả dị thục các nghiệp thiện ác, sau khi thân hoại mạng chung, ta sẽ được sanh lên cõi thiện, cõi Trời, cõi đời này”; đây là an ổn thứ nhất vị ấy có được."
+    },
+    {
+     "n": 101,
+     "text": "“Nếu không có đời sau, nếu không có kết quả dị thục các nghiệp thiện ác, thời ở đây, trong hiện tại, ta tự sống với tâm không oán, không sân, không phiền não, được an lạc”; đây là an ổn thứ hai vị ấy có được."
+    },
+    {
+     "n": 102,
+     "text": "“Nếu việc ác có làm, nhưng ta không có tâm ác đối với ai cả, và nếu ta không làm điều ác, sao ta có thể cảm thọ khổ đau được”; đây là an ổn thứ ba vị ấy có được."
+    },
+    {
+     "n": 103,
+     "text": "“Nếu việc ác không có làm, như vậy, cả hai phương diện (do ta làm vô ý hay cố ý), ta quán thấy ta hoàn toàn thanh tịnh”; đây là an ổn thứ tư vị ấy có được."
+    },
+    {
+     "n": 104,
+     "text": "Vị Thánh đệ tử ấy, bạch Thế Tôn, với tâm không oán như vậy, với tâm không sân như vậy, với tâm không uế nhiễm như vậy, với tâm thanh tịnh như vậy, ngay trong hiện tại, vị có được bốn an ổn này."
+    },
+    {
+     "n": 105,
+     "text": "Thật vi diệu thay, bạch Thế Tôn! Thật vi diệu thay, bạch Thế Tôn!"
+    },
+    {
+     "n": 106,
+     "text": "Bạch Thế Tôn, như người dựng đứng những gì bị quăng ngã xuống, hay trình bày cái gì bị che kín, hay chỉ đường cho người bị lạc hướng, hay cầm đèn sáng vào bóng tối để những ai có mắt có thể thấy sắc."
+    },
+    {
+     "n": 107,
+     "text": "Cũng vậy, Chánh pháp đã được Tôn giả Gotama dùng nhiều phương tiện thuyết giảng."
+    },
+    {
+     "n": 108,
+     "text": "Chúng con nay xin quy y Thế Tôn, quy y Pháp, quy y chúng Tỷ-kheo."
+    },
+    {
+     "n": 109,
+     "text": "Mong Thế Tôn nhận chúng con làm đệ tử cư sĩ, từ nay cho đến mạng chung, chúng con xin trọn đời quy ngưỡng."
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an3.65/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā kosalesu cārikaṁ caramāno mahatā bhikkhusaṅghena saddhiṁ yena kesamuttaṁ nāma kālāmānaṁ nigamo tadavasari. Assosuṁ kho kesamuttiyā kālāmā:"
+    },
+    {
+     "n": 2,
+     "text": "“samaṇo khalu, bho, gotamo sakyaputto sakyakulā pabbajito kesamuttaṁ anuppatto."
+    },
+    {
+     "n": 3,
+     "text": "Taṁ kho pana bhavantaṁ gotamaṁ evaṁ kalyāṇo kittisaddo abbhuggato: ‘itipi so bhagavā …pe… sādhu kho pana tathārūpānaṁ arahataṁ dassanaṁ hotī’”ti."
+    },
+    {
+     "n": 4,
+     "text": "Atha kho kesamuttiyā kālāmā yena bhagavā tenupasaṅkamiṁsu;"
+    },
+    {
+     "n": 5,
+     "text": "upasaṅkamitvā appekacce bhagavantaṁ abhivādetvā ekamantaṁ nisīdiṁsu, appekacce bhagavatā saddhiṁ sammodiṁsu, sammodanīyaṁ kathaṁ sāraṇīyaṁ vītisāretvā ekamantaṁ nisīdiṁsu,"
+    },
+    {
+     "n": 6,
+     "text": "appekacce yena bhagavā tenañjaliṁ paṇāmetvā ekamantaṁ nisīdiṁsu, appekacce nāmagottaṁ sāvetvā ekamantaṁ nisīdiṁsu, appekacce tuṇhībhūtā ekamantaṁ nisīdiṁsu."
+    },
+    {
+     "n": 7,
+     "text": "Ekamantaṁ nisinnā kho te kesamuttiyā kālāmā bhagavantaṁ etadavocuṁ:"
+    },
+    {
+     "n": 8,
+     "text": "“Santi, bhante, eke samaṇabrāhmaṇā kesamuttaṁ āgacchanti."
+    },
+    {
+     "n": 9,
+     "text": "Te sakaṁyeva vādaṁ dīpenti jotenti, parappavādaṁ pana khuṁsenti vambhenti paribhavanti omakkhiṁ karonti."
+    },
+    {
+     "n": 10,
+     "text": "Aparepi, bhante, eke samaṇabrāhmaṇā kesamuttaṁ āgacchanti."
+    },
+    {
+     "n": 11,
+     "text": "Tepi sakaṁyeva vādaṁ dīpenti jotenti, parappavādaṁ pana khuṁsenti vambhenti paribhavanti omakkhiṁ karonti."
+    },
+    {
+     "n": 12,
+     "text": "Tesaṁ no, bhante, amhākaṁ hoteva kaṅkhā hoti vicikicchā: ‘ko su nāma imesaṁ bhavataṁ samaṇabrāhmaṇānaṁ saccaṁ āha, ko musā’”ti?"
+    },
+    {
+     "n": 13,
+     "text": "“Alañhi vo, kālāmā, kaṅkhituṁ alaṁ vicikicchituṁ."
+    },
+    {
+     "n": 14,
+     "text": "Kaṅkhanīyeva pana vo ṭhāne vicikicchā uppannā."
+    },
+    {
+     "n": 15,
+     "text": "Etha tumhe, kālāmā, mā anussavena, mā paramparāya, mā itikirāya, mā piṭakasampadānena, mā takkahetu, mā nayahetu, mā ākāraparivitakkena, mā diṭṭhinijjhānakkhantiyā, mā bhabbarūpatāya, mā samaṇo no garūti."
+    },
+    {
+     "n": 16,
+     "text": "Yadā tumhe, kālāmā, attanāva jāneyyātha: ‘ime dhammā akusalā, ime dhammā sāvajjā, ime dhammā viññugarahitā, ime dhammā samattā samādinnā ahitāya dukkhāya saṁvattantī’ti, atha tumhe, kālāmā, pajaheyyātha."
+    },
+    {
+     "n": 17,
+     "text": "Taṁ kiṁ maññatha, kālāmā, lobho purisassa ajjhattaṁ uppajjamāno uppajjati hitāya vā ahitāya vā”ti?"
+    },
+    {
+     "n": 18,
+     "text": "“Ahitāya, bhante”."
+    },
+    {
+     "n": 19,
+     "text": "“Luddho panāyaṁ, kālāmā, purisapuggalo lobhena abhibhūto pariyādinnacitto pāṇampi hanati, adinnampi ādiyati, paradārampi gacchati, musāpi bhaṇati, parampi tathattāya samādapeti,"
+    },
+    {
+     "n": 20,
+     "text": "yaṁ sa hoti dīgharattaṁ ahitāya dukkhāyā”ti."
+    },
+    {
+     "n": 21,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 22,
+     "text": "“Taṁ kiṁ maññatha, kālāmā, doso purisassa ajjhattaṁ uppajjamāno uppajjati hitāya vā ahitāya vā”ti?"
+    },
+    {
+     "n": 23,
+     "text": "“Ahitāya, bhante”."
+    },
+    {
+     "n": 24,
+     "text": "“Duṭṭho panāyaṁ, kālāmā, purisapuggalo dosena abhibhūto pariyādinnacitto pāṇampi hanati, adinnampi ādiyati, paradārampi gacchati, musāpi bhaṇati, parampi tathattāya samādapeti,"
+    },
+    {
+     "n": 25,
+     "text": "yaṁ sa hoti dīgharattaṁ ahitāya dukkhāyā”ti."
+    },
+    {
+     "n": 26,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 27,
+     "text": "“Taṁ kiṁ maññatha, kālāmā, moho purisassa ajjhattaṁ uppajjamāno uppajjati hitāya vā ahitāya vā”ti?"
+    },
+    {
+     "n": 28,
+     "text": "“Ahitāya, bhante”."
+    },
+    {
+     "n": 29,
+     "text": "“Mūḷho panāyaṁ, kālāmā, purisapuggalo mohena abhibhūto pariyādinnacitto pāṇampi hanati, adinnampi ādiyati, paradārampi gacchati, musāpi bhaṇati, parampi tathattāya samādapeti, yaṁ sa hoti dīgharattaṁ ahitāya dukkhāyā”ti."
+    },
+    {
+     "n": 30,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 31,
+     "text": "“Taṁ kiṁ maññatha, kālāmā, ime dhammā kusalā vā akusalā vā”ti?"
+    },
+    {
+     "n": 32,
+     "text": "“Akusalā, bhante”."
+    },
+    {
+     "n": 33,
+     "text": "“Sāvajjā vā anavajjā vā”ti?"
+    },
+    {
+     "n": 34,
+     "text": "“Sāvajjā, bhante”."
+    },
+    {
+     "n": 35,
+     "text": "“Viññugarahitā vā viññuppasatthā vā”ti?"
+    },
+    {
+     "n": 36,
+     "text": "“Viññugarahitā, bhante”."
+    },
+    {
+     "n": 37,
+     "text": "“Samattā samādinnā ahitāya dukkhāya saṁvattanti, no vā? Kathaṁ vā ettha hotī”ti?"
+    },
+    {
+     "n": 38,
+     "text": "“Samattā, bhante, samādinnā ahitāya dukkhāya saṁvattantīti. Evaṁ no ettha hotī”ti."
+    },
+    {
+     "n": 39,
+     "text": "“Iti kho, kālāmā, yaṁ taṁ avocumhā: ‘etha tumhe, kālāmā."
+    },
+    {
+     "n": 40,
+     "text": "Mā anussavena, mā paramparāya, mā itikirāya, mā piṭakasampadānena, mā takkahetu, mā nayahetu, mā ākāraparivitakkena, mā diṭṭhinijjhānakkhantiyā, mā bhabbarūpatāya, mā samaṇo no garūti."
+    },
+    {
+     "n": 41,
+     "text": "Yadā tumhe kālāmā attanāva jāneyyātha:"
+    },
+    {
+     "n": 42,
+     "text": "“ime dhammā akusalā, ime dhammā sāvajjā, ime dhammā viññugarahitā, ime dhammā samattā samādinnā ahitāya dukkhāya saṁvattantīti, atha tumhe, kālāmā, pajaheyyāthā”’ti, iti yaṁ taṁ vuttaṁ, idametaṁ paṭicca vuttaṁ."
+    },
+    {
+     "n": 43,
+     "text": "Etha tumhe, kālāmā, mā anussavena, mā paramparāya, mā itikirāya, mā piṭakasampadānena, mā takkahetu, mā nayahetu, mā ākāraparivitakkena, mā diṭṭhinijjhānakkhantiyā, mā bhabbarūpatāya, mā samaṇo no garūti."
+    },
+    {
+     "n": 44,
+     "text": "Yadā tumhe, kālāmā, attanāva jāneyyātha: ‘ime dhammā kusalā, ime dhammā anavajjā, ime dhammā viññuppasatthā, ime dhammā samattā samādinnā hitāya sukhāya saṁvattantī’ti, atha tumhe, kālāmā, upasampajja vihareyyātha."
+    },
+    {
+     "n": 45,
+     "text": "Taṁ kiṁ maññatha, kālāmā, alobho purisassa ajjhattaṁ uppajjamāno uppajjati hitāya vā ahitāya vā”ti?"
+    },
+    {
+     "n": 46,
+     "text": "“Hitāya, bhante”."
+    },
+    {
+     "n": 47,
+     "text": "“Aluddho panāyaṁ, kālāmā, purisapuggalo lobhena anabhibhūto apariyādinnacitto neva pāṇaṁ hanati, na adinnaṁ ādiyati, na paradāraṁ gacchati, na musā bhaṇati, na parampi tathattāya samādapeti,"
+    },
+    {
+     "n": 48,
+     "text": "yaṁ sa hoti dīgharattaṁ hitāya sukhāyā”ti."
+    },
+    {
+     "n": 49,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 50,
+     "text": "“Taṁ kiṁ maññatha, kālāmā, adoso purisassa ajjhattaṁ uppajjamāno uppajjati …pe… amoho purisassa ajjhattaṁ uppajjamāno uppajjati …pe… hitāya sukhāyā”ti."
+    },
+    {
+     "n": 51,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 52,
+     "text": "“Taṁ kiṁ maññatha, kālāmā, ime dhammā kusalā vā akusalā vā”ti?"
+    },
+    {
+     "n": 53,
+     "text": "“Kusalā, bhante”."
+    },
+    {
+     "n": 54,
+     "text": "“Sāvajjā vā anavajjā vā”ti?"
+    },
+    {
+     "n": 55,
+     "text": "“Anavajjā, bhante”."
+    },
+    {
+     "n": 56,
+     "text": "“Viññugarahitā vā viññuppasatthā vā”ti?"
+    },
+    {
+     "n": 57,
+     "text": "“Viññuppasatthā, bhante”."
+    },
+    {
+     "n": 58,
+     "text": "“Samattā samādinnā hitāya sukhāya saṁvattanti no vā? Kathaṁ vā ettha hotī”ti?"
+    },
+    {
+     "n": 59,
+     "text": "“Samattā, bhante, samādinnā hitāya sukhāya saṁvattanti. Evaṁ no ettha hotī”ti."
+    },
+    {
+     "n": 60,
+     "text": "“Iti kho, kālāmā, yaṁ taṁ avocumhā: ‘etha tumhe, kālāmā."
+    },
+    {
+     "n": 61,
+     "text": "Mā anussavena, mā paramparāya, mā itikirāya, mā piṭakasampadānena, mā takkahetu, mā nayahetu, mā ākāraparivitakkena, mā diṭṭhinijjhānakkhantiyā, mā bhabbarūpatāya, mā samaṇo no garūti."
+    },
+    {
+     "n": 62,
+     "text": "Yadā tumhe, kālāmā, attanāva jāneyyātha—"
+    },
+    {
+     "n": 63,
+     "text": "ime dhammā kusalā, ime dhammā anavajjā, ime dhammā viññuppasatthā, ime dhammā samattā samādinnā hitāya sukhāya saṁvattantīti, atha tumhe, kālāmā, upasampajja vihareyyāthā’ti, iti yaṁ taṁ vuttaṁ idametaṁ paṭicca vuttaṁ."
+    },
+    {
+     "n": 64,
+     "text": "Sa kho so, kālāmā, ariyasāvako evaṁ vigatābhijjho vigatabyāpādo asammūḷho sampajāno patissato mettāsahagatena cetasā ekaṁ disaṁ pharitvā viharati, tathā dutiyaṁ, tathā tatiyaṁ, tathā catutthaṁ,"
+    },
+    {
+     "n": 65,
+     "text": "iti uddhamadho tiriyaṁ sabbadhi sabbattatāya sabbāvantaṁ lokaṁ mettāsahagatena cetasā vipulena mahaggatena appamāṇena averena abyāpajjhena pharitvā viharati."
+    },
+    {
+     "n": 66,
+     "text": "Karuṇāsahagatena cetasā …pe…"
+    },
+    {
+     "n": 67,
+     "text": "muditāsahagatena cetasā …pe…"
+    },
+    {
+     "n": 68,
+     "text": "upekkhāsahagatena cetasā ekaṁ disaṁ pharitvā viharati, tathā dutiyaṁ, tathā tatiyaṁ, tathā catutthaṁ,"
+    },
+    {
+     "n": 69,
+     "text": "iti uddhamadho tiriyaṁ sabbadhi sabbattatāya sabbāvantaṁ lokaṁ upekkhāsahagatena cetasā vipulena mahaggatena appamāṇena averena abyāpajjhena pharitvā viharati."
+    },
+    {
+     "n": 70,
+     "text": "Sa kho so, kālāmā, ariyasāvako evaṁ averacitto evaṁ abyāpajjhacitto evaṁ asaṅkiliṭṭhacitto evaṁ visuddhacitto."
+    },
+    {
+     "n": 71,
+     "text": "Tassa diṭṭheva dhamme cattāro assāsā adhigatā honti."
+    },
+    {
+     "n": 72,
+     "text": "‘Sace kho pana atthi paro loko, atthi sukatadukkaṭānaṁ kammānaṁ phalaṁ vipāko, athāhaṁ kāyassa bhedā paraṁ maraṇā sugatiṁ saggaṁ lokaṁ upapajjissāmī’ti, ayamassa paṭhamo assāso adhigato hoti."
+    },
+    {
+     "n": 73,
+     "text": "‘Sace kho pana natthi paro loko, natthi sukatadukkaṭānaṁ kammānaṁ phalaṁ vipāko, athāhaṁ diṭṭheva dhamme averaṁ abyāpajjhaṁ anīghaṁ sukhiṁ attānaṁ pariharāmī’ti, ayamassa dutiyo assāso adhigato hoti."
+    },
+    {
+     "n": 74,
+     "text": "‘Sace kho pana karoto karīyati pāpaṁ, na kho panāhaṁ kassaci pāpaṁ cetemi."
+    },
+    {
+     "n": 75,
+     "text": "Akarontaṁ kho pana maṁ pāpakammaṁ kuto dukkhaṁ phusissatī’ti, ayamassa tatiyo assāso adhigato hoti."
+    },
+    {
+     "n": 76,
+     "text": "‘Sace kho pana karoto na karīyati pāpaṁ, athāhaṁ ubhayeneva visuddhaṁ attānaṁ samanupassāmī’ti, ayamassa catuttho assāso adhigato hoti."
+    },
+    {
+     "n": 77,
+     "text": "Sa kho so, kālāmā, ariyasāvako evaṁ averacitto evaṁ abyāpajjhacitto evaṁ asaṅkiliṭṭhacitto evaṁ visuddhacitto."
+    },
+    {
+     "n": 78,
+     "text": "Tassa diṭṭheva dhamme ime cattāro assāsā adhigatā hontī”ti."
+    },
+    {
+     "n": 79,
+     "text": "“Evametaṁ, bhagavā, evametaṁ, sugata. Sa kho so, bhante, ariyasāvako evaṁ averacitto evaṁ abyāpajjhacitto evaṁ asaṅkiliṭṭhacitto evaṁ visuddhacitto."
+    },
+    {
+     "n": 80,
+     "text": "Tassa diṭṭheva dhamme cattāro assāsā adhigatā honti."
+    },
+    {
+     "n": 81,
+     "text": "‘Sace kho pana atthi paro loko, atthi sukatadukkaṭānaṁ kammānaṁ phalaṁ vipāko, athāhaṁ kāyassa bhedā paraṁ maraṇā sugatiṁ saggaṁ lokaṁ upapajjissāmī’ti, ayamassa paṭhamo assāso adhigato hoti."
+    },
+    {
+     "n": 82,
+     "text": "‘Sace kho pana natthi paro loko, natthi sukatadukkaṭānaṁ kammānaṁ phalaṁ vipāko, athāhaṁ diṭṭheva dhamme averaṁ abyāpajjhaṁ anīghaṁ sukhiṁ attānaṁ pariharāmī’ti, ayamassa dutiyo assāso adhigato hoti."
+    },
+    {
+     "n": 83,
+     "text": "‘Sace kho pana karoto karīyati pāpaṁ, na kho panāhaṁ kassaci pāpaṁ cetemi, akarontaṁ kho pana maṁ pāpakammaṁ kuto dukkhaṁ phusissatī’ti, ayamassa tatiyo assāso adhigato hoti."
+    },
+    {
+     "n": 84,
+     "text": "‘Sace kho pana karoto na karīyati pāpaṁ, athāhaṁ ubhayeneva visuddhaṁ attānaṁ samanupassāmī’ti, ayamassa catuttho assāso adhigato hoti."
+    },
+    {
+     "n": 85,
+     "text": "Sa kho so, bhante, ariyasāvako evaṁ averacitto evaṁ abyāpajjhacitto evaṁ asaṅkiliṭṭhacitto evaṁ visuddhacitto."
+    },
+    {
+     "n": 86,
+     "text": "Tassa diṭṭheva dhamme ime cattāro assāsā adhigatā honti."
+    },
+    {
+     "n": 87,
+     "text": "Abhikkantaṁ, bhante …pe… ete mayaṁ, bhante, bhagavantaṁ saraṇaṁ gacchāma dhammañca bhikkhusaṅghañca."
+    },
+    {
+     "n": 88,
+     "text": "Upāsake no, bhante, bhagavā dhāretu ajjatagge pāṇupete saraṇaṁ gate”ti."
+    },
+    {
+     "n": 89,
+     "text": "Pañcamaṁ."
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an3.65/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was wandering in the land of the Kosalans together with a large Saṅgha of mendicants when he arrived at a town of the Kālāmas named Kesamutta. The Kālāmas of Kesamutta heard:"
+    },
+    {
+     "n": 2,
+     "text": "“It seems the ascetic Gotama—a Sakyan, gone forth from a Sakyan family—has arrived at Kesamutta."
+    },
+    {
+     "n": 3,
+     "text": "He has this good reputation: ‘That Blessed One is perfected, a fully awakened Buddha …’ It’s good to see such perfected ones.”"
+    },
+    {
+     "n": 4,
+     "text": "Then the Kālāmas went up to the Buddha."
+    },
+    {
+     "n": 5,
+     "text": "Before sitting down to one side, some bowed, some exchanged greetings and polite conversation, some held up their cupped palms toward the Buddha, some announced their name and clan, while some kept silent."
+    },
+    {
+     "n": 6,
+     "text": "Seated to one side the Kālāmas said to the Buddha:"
+    },
+    {
+     "n": 7,
+     "text": "“There are, sir, some ascetics and brahmins who come to Kesamutta."
+    },
+    {
+     "n": 8,
+     "text": "They explain and promote only their own doctrine, while they attack, badmouth, disparage, and smear the doctrines of others."
+    },
+    {
+     "n": 9,
+     "text": "Then some other ascetics and brahmins come to Kesamutta."
+    },
+    {
+     "n": 10,
+     "text": "They too explain and promote only their own doctrine, while they attack, badmouth, disparage, and smear the doctrines of others."
+    },
+    {
+     "n": 11,
+     "text": "So, sir, we’re doubting and uncertain: ‘I wonder who of these respected ascetics and brahmins speaks the truth, and who speaks falsehood?’”"
+    },
+    {
+     "n": 12,
+     "text": "“It is enough, Kālāmas, for you to be doubting and uncertain."
+    },
+    {
+     "n": 13,
+     "text": "Doubt has come up in you about an uncertain matter."
+    },
+    {
+     "n": 14,
+     "text": "Please, Kālāmas, don’t go by oral transmission, don’t go by lineage, don’t go by testament, don’t go by canonical authority, don’t rely on logic, don’t rely on inference, don’t go by reasoned train of thought,"
+    },
+    {
+     "n": 15,
+     "text": "don’t go by the acceptance of a view after deliberation, don’t go by the appearance of competence, and don’t think ‘The ascetic is our respected teacher.’"
+    },
+    {
+     "n": 16,
+     "text": "But when you know for yourselves: ‘These things are unskillful, blameworthy, criticized by sensible people, and when you undertake them, they lead to harm and suffering’, then you should give them up."
+    },
+    {
+     "n": 17,
+     "text": "What do you think, Kālāmas? Does greed come up in a person for their welfare or harm?”"
+    },
+    {
+     "n": 18,
+     "text": "“Harm, sir.”"
+    },
+    {
+     "n": 19,
+     "text": "“A greedy individual, overcome by greed, kills living creatures, steals, commits adultery, lies, and encourages others to do the same."
+    },
+    {
+     "n": 20,
+     "text": "Is that for their lasting harm and suffering?”"
+    },
+    {
+     "n": 21,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 22,
+     "text": "“What do you think, Kālāmas? Does hate come up in a person for their welfare or harm?”"
+    },
+    {
+     "n": 23,
+     "text": "“Harm, sir.”"
+    },
+    {
+     "n": 24,
+     "text": "“A hateful individual, overcome by hate, kills living creatures, steals, commits adultery, lies, and encourages others to do the same."
+    },
+    {
+     "n": 25,
+     "text": "Is that for their lasting harm and suffering?”"
+    },
+    {
+     "n": 26,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 27,
+     "text": "“What do you think, Kālāmas? Does delusion come up in a person for their welfare or harm?”"
+    },
+    {
+     "n": 28,
+     "text": "“Harm, sir.”"
+    },
+    {
+     "n": 29,
+     "text": "“A deluded individual, overcome by delusion, kills living creatures, steals, commits adultery, lies, and encourages others to do the same."
+    },
+    {
+     "n": 30,
+     "text": "Is that for their lasting harm and suffering?”"
+    },
+    {
+     "n": 31,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 32,
+     "text": "“What do you think, Kālāmas, are these things skillful or unskillful?”"
+    },
+    {
+     "n": 33,
+     "text": "“Unskillful, sir.”"
+    },
+    {
+     "n": 34,
+     "text": "“Blameworthy or blameless?”"
+    },
+    {
+     "n": 35,
+     "text": "“Blameworthy, sir.”"
+    },
+    {
+     "n": 36,
+     "text": "“Criticized or praised by sensible people?”"
+    },
+    {
+     "n": 37,
+     "text": "“Criticized by sensible people, sir.”"
+    },
+    {
+     "n": 38,
+     "text": "“When you undertake them, do they lead to harm and suffering, or not? Or how do you see this?”"
+    },
+    {
+     "n": 39,
+     "text": "“When you undertake them, they lead to harm and suffering. That’s how we see it.”"
+    },
+    {
+     "n": 40,
+     "text": "“So, Kālāmas, when I said:"
+    },
+    {
+     "n": 41,
+     "text": "‘Please, don’t go by oral transmission, don’t go by lineage, don’t go by testament, don’t go by canonical authority, don’t rely on logic, don’t rely on inference, don’t go by reasoned train of thought,"
+    },
+    {
+     "n": 42,
+     "text": "don’t go by the acceptance of a view after deliberation, don’t go by the appearance of competence, and don’t think “The ascetic is our respected teacher.”"
+    },
+    {
+     "n": 43,
+     "text": "But when you know for yourselves: “These things are unskillful, blameworthy, criticized by sensible people, and when you undertake them, they lead to harm and suffering”, then you should give them up.’"
+    },
+    {
+     "n": 44,
+     "text": "That’s what I said, and this is why I said it."
+    },
+    {
+     "n": 45,
+     "text": "Please, Kālāmas, don’t go by oral transmission, don’t go by lineage, don’t go by testament, don’t go by canonical authority, don’t rely on logic, don’t rely on inference, don’t go by reasoned train of thought,"
+    },
+    {
+     "n": 46,
+     "text": "don’t go by the acceptance of a view after deliberation, don’t go by the appearance of competence, and don’t think ‘The ascetic is our respected teacher.’"
+    },
+    {
+     "n": 47,
+     "text": "But when you know for yourselves: ‘These things are skillful, blameless, praised by sensible people, and when you undertake them, they lead to welfare and happiness’, then you should acquire them and keep them."
+    },
+    {
+     "n": 48,
+     "text": "What do you think, Kālāmas? Does contentment come up in a person for their welfare or harm?”"
+    },
+    {
+     "n": 49,
+     "text": "“Welfare, sir.”"
+    },
+    {
+     "n": 50,
+     "text": "“An individual who is content, not overcome by greed, doesn’t kill living creatures, steal, commit adultery, lie, or encourage others to do the same."
+    },
+    {
+     "n": 51,
+     "text": "Is that for their lasting welfare and happiness?”"
+    },
+    {
+     "n": 52,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 53,
+     "text": "“What do you think, Kālāmas? Does love come up in a person for their welfare or harm? …"
+    },
+    {
+     "n": 54,
+     "text": "Does understanding come up in a person for their welfare or harm? …"
+    },
+    {
+     "n": 55,
+     "text": "Is that for their lasting welfare and happiness?”"
+    },
+    {
+     "n": 56,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 57,
+     "text": "“What do you think, Kālāmas, are these things skillful or unskillful?”"
+    },
+    {
+     "n": 58,
+     "text": "“Skillful, sir.”"
+    },
+    {
+     "n": 59,
+     "text": "“Blameworthy or blameless?”"
+    },
+    {
+     "n": 60,
+     "text": "“Blameless, sir.”"
+    },
+    {
+     "n": 61,
+     "text": "“Criticized or praised by sensible people?”"
+    },
+    {
+     "n": 62,
+     "text": "“Praised by sensible people, sir.”"
+    },
+    {
+     "n": 63,
+     "text": "“When you undertake them, do they lead to welfare and happiness, or not? Or how do you see this?”"
+    },
+    {
+     "n": 64,
+     "text": "“When you undertake them, they lead to welfare and happiness. That’s how we see it.”"
+    },
+    {
+     "n": 65,
+     "text": "“So, Kālāmas, when I said:"
+    },
+    {
+     "n": 66,
+     "text": "‘Please, don’t go by oral transmission, don’t go by lineage, don’t go by testament, don’t go by canonical authority, don’t rely on logic, don’t rely on inference, don’t go by reasoned train of thought,"
+    },
+    {
+     "n": 67,
+     "text": "don’t go by the acceptance of a view after deliberation, don’t go by the appearance of competence, and don’t think “The ascetic is our respected teacher.” But when you know for yourselves:"
+    },
+    {
+     "n": 68,
+     "text": "“These things are skillful, blameless, praised by sensible people, and when you undertake them, they lead to welfare and happiness”, then you should acquire them and keep them.’"
+    },
+    {
+     "n": 69,
+     "text": "That’s what I said, and this is why I said it."
+    },
+    {
+     "n": 70,
+     "text": "Then that noble disciple is rid of desire, rid of ill will, unconfused, aware, and mindful."
+    },
+    {
+     "n": 71,
+     "text": "They meditate spreading a heart full of love to one direction, and to the second, and to the third, and to the fourth."
+    },
+    {
+     "n": 72,
+     "text": "In the same way above, below, across, everywhere, all around, they spread a heart full of love to the whole world—abundant, expansive, limitless, free of enmity and ill will."
+    },
+    {
+     "n": 73,
+     "text": "They meditate spreading a heart full of compassion to one direction, and to the second, and to the third, and to the fourth."
+    },
+    {
+     "n": 74,
+     "text": "In the same way above, below, across, everywhere, all around, they spread a heart full of compassion to the whole world—abundant, expansive, limitless, free of enmity and ill will."
+    },
+    {
+     "n": 75,
+     "text": "They meditate spreading a heart full of rejoicing to one direction, and to the second, and to the third, and to the fourth."
+    },
+    {
+     "n": 76,
+     "text": "In the same way above, below, across, everywhere, all around, they spread a heart full of rejoicing to the whole world—abundant, expansive, limitless, free of enmity and ill will."
+    },
+    {
+     "n": 77,
+     "text": "They meditate spreading a heart full of equanimity to one direction, and to the second, and to the third, and to the fourth."
+    },
+    {
+     "n": 78,
+     "text": "In the same way above, below, across, everywhere, all around, they spread a heart full of equanimity to the whole world—abundant, expansive, limitless, free of enmity and ill will."
+    },
+    {
+     "n": 79,
+     "text": "When that noble disciple has a mind that’s free of enmity and ill will, uncorrupted and purified, they’ve won four consolations in this very life."
+    },
+    {
+     "n": 80,
+     "text": "‘If it turns out there is another world, and good and bad deeds have a result, then—when the body breaks up, after death—I’ll be reborn in a good place, a heavenly realm.’"
+    },
+    {
+     "n": 81,
+     "text": "This is the first consolation they’ve won."
+    },
+    {
+     "n": 82,
+     "text": "‘If it turns out there is no other world, and good and bad deeds don’t have a result, then in this very life I’ll keep myself free of enmity and ill will, untroubled and happy.’"
+    },
+    {
+     "n": 83,
+     "text": "This is the second consolation they’ve won."
+    },
+    {
+     "n": 84,
+     "text": "‘If it turns out that bad things happen to people who do bad things, then since I have no bad intentions, and since I’m not doing anything bad, how can suffering touch me?’"
+    },
+    {
+     "n": 85,
+     "text": "This is the third consolation they’ve won."
+    },
+    {
+     "n": 86,
+     "text": "‘If it turns out that bad things don’t happen to people who do bad things, then I still see myself pure on both sides.’"
+    },
+    {
+     "n": 87,
+     "text": "This is the fourth consolation they’ve won."
+    },
+    {
+     "n": 88,
+     "text": "When that noble disciple has a mind that’s free of enmity and ill will, uncorrupted and purified, they’ve won these four consolations in this very life.”"
+    },
+    {
+     "n": 89,
+     "text": "“That’s so true, Blessed One! That’s so true, Holy One!"
+    },
+    {
+     "n": 90,
+     "text": "When that noble disciple has a mind that’s free of enmity and ill will, uncorrupted and purified, they’ve won these four consolations in this very life. …"
+    },
+    {
+     "n": 91,
+     "text": "Excellent, sir! Excellent! … We go for refuge to the Buddha, to the teaching, and to the mendicant Saṅgha."
+    },
+    {
+     "n": 92,
+     "text": "From this day forth, may the Buddha remember us as lay followers who have gone for refuge for life.”"
+    }
+   ],
+   "variant": "translation"
+  }
+ ]
+}

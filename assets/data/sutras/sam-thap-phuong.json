@@ -1,0 +1,341 @@
+{
+ "id": "sam-thap-phuong",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Sám hối",
+ "reference": "",
+ "summary": "Bài kệ ngắn trong phần sám hối, lễ chư Phật mười phương ba đời mà Phật A Di Đà là bậc đứng đầu. Người tụng quy y, sám hối ba nghiệp, hồi hướng phước lành, nguyện cùng niệm Phật, lúc lâm chung thấy cảnh Tây phương và sinh Cực Lạc. Kết bằng bốn đại nguyện và lời nguyện độ chúng sinh cùng thành Phật đạo.",
+ "titles": {
+  "vi": "Bài Thập Phương (Sám Phật Thập Phương)",
+  "zh": "十方三世佛",
+  "en": "Verse of the Buddhas of the Ten Directions"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "SAM_HOI"
+ ],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "HT. Thích Trí Quang (dịch âm, theo Thiền môn nhật tụng Huế)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch âm",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu2.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn. Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Thập phương tam thế Phật,"
+    },
+    {
+     "n": 2,
+     "text": "A di đà đệ nhất,"
+    },
+    {
+     "n": 3,
+     "text": "cửu phẩm độ chúng sinh,"
+    },
+    {
+     "n": 4,
+     "text": "uy đức vô cùng cực."
+    },
+    {
+     "n": 5,
+     "text": "Ngã kim đại qui y,"
+    },
+    {
+     "n": 6,
+     "text": "sám hối tam nghiệp tội,"
+    },
+    {
+     "n": 7,
+     "text": "phàm hữu chư phước thiện,"
+    },
+    {
+     "n": 8,
+     "text": "chí tâm dụng hồi hướng."
+    },
+    {
+     "n": 9,
+     "text": "Nguyện đồng niệm Phật nhân,"
+    },
+    {
+     "n": 10,
+     "text": "cảm ứng tùy thời hiện,"
+    },
+    {
+     "n": 11,
+     "text": "lâm chung tây phương cảnh,"
+    },
+    {
+     "n": 12,
+     "text": "phân minh tại mục tiền,"
+    },
+    {
+     "n": 13,
+     "text": "kiến văn giai tinh tiến,"
+    },
+    {
+     "n": 14,
+     "text": "đồng sinh Cực lạc quốc,"
+    },
+    {
+     "n": 15,
+     "text": "kiến Phật liễu sinh tử,"
+    },
+    {
+     "n": 16,
+     "text": "như Phật độ nhất thế."
+    },
+    {
+     "n": 17,
+     "text": "Vô biên phiền não đoạn,"
+    },
+    {
+     "n": 18,
+     "text": "vô lượng pháp môn tu,"
+    },
+    {
+     "n": 19,
+     "text": "thệ nguyện độ chúng sinh,"
+    },
+    {
+     "n": 20,
+     "text": "giai cọng thành Phật đạo."
+    },
+    {
+     "n": 21,
+     "text": "Hư không hữu tận,"
+    },
+    {
+     "n": 22,
+     "text": "ngã nguyện vô cùng,"
+    },
+    {
+     "n": 23,
+     "text": "tình dữ vô tình"
+    },
+    {
+     "n": 24,
+     "text": "đồng viên chủng trí."
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "HT. Thích Trí Quang (dịch nghĩa)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch nghĩa",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu4.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn. Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Chư Phật thế tôn"
+    },
+    {
+     "n": 2,
+     "text": "mười phương ba đời,"
+    },
+    {
+     "n": 3,
+     "text": "A di đà phật"
+    },
+    {
+     "n": 4,
+     "text": "là bậc thứ nhất,"
+    },
+    {
+     "n": 5,
+     "text": "hoa sen chín phẩm"
+    },
+    {
+     "n": 6,
+     "text": "tiếp độ chúng sinh,"
+    },
+    {
+     "n": 7,
+     "text": "uy thần công đức"
+    },
+    {
+     "n": 8,
+     "text": "không thể cùng cực."
+    },
+    {
+     "n": 9,
+     "text": "Nay con trọn vẹn"
+    },
+    {
+     "n": 10,
+     "text": "qui y với ngài,"
+    },
+    {
+     "n": 11,
+     "text": "sám hối lầm lỗi"
+    },
+    {
+     "n": 12,
+     "text": "của thân miệng ý,"
+    },
+    {
+     "n": 13,
+     "text": "bao nhiêu phước lành"
+    },
+    {
+     "n": 14,
+     "text": "mà con có được,"
+    },
+    {
+     "n": 15,
+     "text": "con xin hết lòng"
+    },
+    {
+     "n": 16,
+     "text": "hồi hướng về ngài,"
+    },
+    {
+     "n": 17,
+     "text": "nguyện như những người"
+    },
+    {
+     "n": 18,
+     "text": "đã từng niệm Phật,"
+    },
+    {
+     "n": 19,
+     "text": "là sự cảm ứng"
+    },
+    {
+     "n": 20,
+     "text": "theo lúc hiện ra,"
+    },
+    {
+     "n": 21,
+     "text": "và khi gần chết"
+    },
+    {
+     "n": 22,
+     "text": "thì cảnh Cực lạc"
+    },
+    {
+     "n": 23,
+     "text": "hiện ra rõ ràng"
+    },
+    {
+     "n": 24,
+     "text": "ở trước mắt con,"
+    },
+    {
+     "n": 25,
+     "text": "làm cho những người"
+    },
+    {
+     "n": 26,
+     "text": "thấy được nghe được"
+    },
+    {
+     "n": 27,
+     "text": "đều cùng tinh tiến"
+    },
+    {
+     "n": 28,
+     "text": "cùng sinh Cực lạc,"
+    },
+    {
+     "n": 29,
+     "text": "và nhìn thấy Phật"
+    },
+    {
+     "n": 30,
+     "text": "là thoát sinh tử,"
+    },
+    {
+     "n": 31,
+     "text": "hóa độ tất cả"
+    },
+    {
+     "n": 32,
+     "text": "như Phật hóa độ."
+    },
+    {
+     "n": 33,
+     "text": "Vô biên phiền não"
+    },
+    {
+     "n": 34,
+     "text": "thệ nguyện đoạn trừ,"
+    },
+    {
+     "n": 35,
+     "text": "vô lượng pháp môn"
+    },
+    {
+     "n": 36,
+     "text": "thệ nguyện tu học,"
+    },
+    {
+     "n": 37,
+     "text": "thệ nguyện hóa độ"
+    },
+    {
+     "n": 38,
+     "text": "các loài chúng sinh,"
+    },
+    {
+     "n": 39,
+     "text": "làm cho cùng được"
+    },
+    {
+     "n": 40,
+     "text": "tuệ giác của Phật."
+    },
+    {
+     "n": 41,
+     "text": "Không gian có thể"
+    },
+    {
+     "n": 42,
+     "text": "cùng tận đi nữa,"
+    },
+    {
+     "n": 43,
+     "text": "tâm nguyện của con"
+    },
+    {
+     "n": 44,
+     "text": "vẫn không cùng tận,"
+    },
+    {
+     "n": 45,
+     "text": "nguyện cầu hết thảy"
+    },
+    {
+     "n": 46,
+     "text": "hữu tình vô tình"
+    },
+    {
+     "n": 47,
+     "text": "đồng được viên thành"
+    },
+    {
+     "n": 48,
+     "text": "tuệ giác chư Phật."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,678 @@
+{
+ "id": "phap-cu-an-lac",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 197-208",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 197-208), nói về niềm vui sống không hận thù, không bệnh, không rộn ràng giữa người xung quanh còn hận thù, ốm đau, bận rộn. Phẩm chỉ ra tham, sân là những ngọn lửa và điều ác lớn, xem tịnh lạc (Niết-bàn) là an lạc cao nhất, đồng thời khuyên gần gũi người hiền trí.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm An Lạc",
+  "pli": "Sukhavagga",
+  "en": "Happiness"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp197-208/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Vui thay, chúng ta sống,"
+    },
+    {
+     "n": 2,
+     "text": "Không hận, giữa hận thù!"
+    },
+    {
+     "n": 3,
+     "text": "Giữa những người thù hận,"
+    },
+    {
+     "n": 4,
+     "text": "Ta sống, không hận thù!"
+    },
+    {
+     "n": 5,
+     "text": "Vui thay, chúng ta sống,"
+    },
+    {
+     "n": 6,
+     "text": "Không bệnh giữa ốm đau!"
+    },
+    {
+     "n": 7,
+     "text": "Giữa những người bệnh hoạn,"
+    },
+    {
+     "n": 8,
+     "text": "Ta sống, không ốm đau."
+    },
+    {
+     "n": 9,
+     "text": "Vui thay, chúng ta sống,"
+    },
+    {
+     "n": 10,
+     "text": "Không rộn giữa rộn ràng;"
+    },
+    {
+     "n": 11,
+     "text": "Giữa những người rộn ràng,"
+    },
+    {
+     "n": 12,
+     "text": "Ta sống, không rộn ràng."
+    },
+    {
+     "n": 13,
+     "text": "Vui thay chúng ta sống,"
+    },
+    {
+     "n": 14,
+     "text": "Không gì, gọi của ta."
+    },
+    {
+     "n": 15,
+     "text": "Ta sẻ hưởng hỷ lạc,"
+    },
+    {
+     "n": 16,
+     "text": "Như chư thiên Quang Âm."
+    },
+    {
+     "n": 17,
+     "text": "Chiến thắng sinh thù oán,"
+    },
+    {
+     "n": 18,
+     "text": "Thất bại chịu khổ đau,"
+    },
+    {
+     "n": 19,
+     "text": "Sống tịch tịnh an lạc."
+    },
+    {
+     "n": 20,
+     "text": "Bỏ sau mọi thắng bại."
+    },
+    {
+     "n": 21,
+     "text": "Lửa nào sánh lửa tham?"
+    },
+    {
+     "n": 22,
+     "text": "Ác nào bằng sân hận?"
+    },
+    {
+     "n": 23,
+     "text": "Khổ nào sánh khổ uẩn,"
+    },
+    {
+     "n": 24,
+     "text": "Lạc nào bằng tịnh lạc."
+    },
+    {
+     "n": 25,
+     "text": "Đói ăn, bệnh tối thượng,"
+    },
+    {
+     "n": 26,
+     "text": "Các hành, khổ tối thượng,"
+    },
+    {
+     "n": 27,
+     "text": "Hiểu như thực là vậy,"
+    },
+    {
+     "n": 28,
+     "text": "Niết-bàn, lạc tối thượng."
+    },
+    {
+     "n": 29,
+     "text": "Không bệnh, lợi tối thượng,"
+    },
+    {
+     "n": 30,
+     "text": "Biết đủ, tiền tối thượng."
+    },
+    {
+     "n": 31,
+     "text": "Thành tín đối với nhau, Là bà con tối thượng,"
+    },
+    {
+     "n": 32,
+     "text": "Niết-bàn, lạc tối thượng."
+    },
+    {
+     "n": 33,
+     "text": "Đã nếm vị độc cư,"
+    },
+    {
+     "n": 34,
+     "text": "Được hưởng vị nhàn tịnh,"
+    },
+    {
+     "n": 35,
+     "text": "Không sợ hãi, không ác,"
+    },
+    {
+     "n": 36,
+     "text": "Nếm được vị pháp hỷ."
+    },
+    {
+     "n": 37,
+     "text": "Lành thay, thấy thánh nhân,"
+    },
+    {
+     "n": 38,
+     "text": "Sống chung thường hưởng lạc."
+    },
+    {
+     "n": 39,
+     "text": "Không thấy những người ngu,"
+    },
+    {
+     "n": 40,
+     "text": "Thường thường được an lạc."
+    },
+    {
+     "n": 41,
+     "text": "Sống chung với người ngu,"
+    },
+    {
+     "n": 42,
+     "text": "Lâu dài bị lo buồn."
+    },
+    {
+     "n": 43,
+     "text": "Khổ thay gần người ngu,"
+    },
+    {
+     "n": 44,
+     "text": "Như thường sống kẻ thù."
+    },
+    {
+     "n": 45,
+     "text": "Vui thay, gần người trí,"
+    },
+    {
+     "n": 46,
+     "text": "Như chung sống bà con."
+    },
+    {
+     "n": 47,
+     "text": "Do vậy:"
+    },
+    {
+     "n": 48,
+     "text": "Bậc hiền sĩ, trí tuệ"
+    },
+    {
+     "n": 49,
+     "text": "Bậc nghe nhiều, trì giới, Bậc tự chế, Thánh nhân;"
+    },
+    {
+     "n": 50,
+     "text": "Hãy gần gũi, thân cận Thiện nhân, trí giả ấy,"
+    },
+    {
+     "n": 51,
+     "text": "Như trăng theo đường sao."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp197-208/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Susukhaṁ vata jīvāma,"
+    },
+    {
+     "n": 2,
+     "text": "verinesu averino;"
+    },
+    {
+     "n": 3,
+     "text": "Verinesu manussesu,"
+    },
+    {
+     "n": 4,
+     "text": "viharāma averino."
+    },
+    {
+     "n": 5,
+     "text": "Susukhaṁ vata jīvāma,"
+    },
+    {
+     "n": 6,
+     "text": "āturesu anāturā;"
+    },
+    {
+     "n": 7,
+     "text": "Āturesu manussesu,"
+    },
+    {
+     "n": 8,
+     "text": "viharāma anāturā."
+    },
+    {
+     "n": 9,
+     "text": "Susukhaṁ vata jīvāma,"
+    },
+    {
+     "n": 10,
+     "text": "ussukesu anussukā;"
+    },
+    {
+     "n": 11,
+     "text": "Ussukesu manussesu,"
+    },
+    {
+     "n": 12,
+     "text": "viharāma anussukā."
+    },
+    {
+     "n": 13,
+     "text": "Susukhaṁ vata jīvāma,"
+    },
+    {
+     "n": 14,
+     "text": "yesaṁ no natthi kiñcanaṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Pītibhakkhā bhavissāma,"
+    },
+    {
+     "n": 16,
+     "text": "devā ābhassarā yathā."
+    },
+    {
+     "n": 17,
+     "text": "Jayaṁ veraṁ pasavati,"
+    },
+    {
+     "n": 18,
+     "text": "dukkhaṁ seti parājito;"
+    },
+    {
+     "n": 19,
+     "text": "Upasanto sukhaṁ seti,"
+    },
+    {
+     "n": 20,
+     "text": "hitvā jayaparājayaṁ."
+    },
+    {
+     "n": 21,
+     "text": "Natthi rāgasamo aggi,"
+    },
+    {
+     "n": 22,
+     "text": "Natthi dosasamo kali;"
+    },
+    {
+     "n": 23,
+     "text": "Natthi khandhasamā dukkhā,"
+    },
+    {
+     "n": 24,
+     "text": "Natthi santiparaṁ sukhaṁ."
+    },
+    {
+     "n": 25,
+     "text": "Jighacchāparamā rogā,"
+    },
+    {
+     "n": 26,
+     "text": "saṅkhāraparamā dukhā;"
+    },
+    {
+     "n": 27,
+     "text": "Etaṁ ñatvā yathābhūtaṁ,"
+    },
+    {
+     "n": 28,
+     "text": "nibbānaṁ paramaṁ sukhaṁ."
+    },
+    {
+     "n": 29,
+     "text": "Ārogyaparamā lābhā,"
+    },
+    {
+     "n": 30,
+     "text": "Santuṭṭhiparamaṁ dhanaṁ;"
+    },
+    {
+     "n": 31,
+     "text": "Vissāsaparamā ñāti,"
+    },
+    {
+     "n": 32,
+     "text": "Nibbānaṁ paramaṁ sukhaṁ."
+    },
+    {
+     "n": 33,
+     "text": "Pavivekarasaṁ pitvā,"
+    },
+    {
+     "n": 34,
+     "text": "rasaṁ upasamassa ca;"
+    },
+    {
+     "n": 35,
+     "text": "Niddaro hoti nippāpo,"
+    },
+    {
+     "n": 36,
+     "text": "dhammapītirasaṁ pivaṁ."
+    },
+    {
+     "n": 37,
+     "text": "Sāhu dassanamariyānaṁ,"
+    },
+    {
+     "n": 38,
+     "text": "sannivāso sadā sukho;"
+    },
+    {
+     "n": 39,
+     "text": "Adassanena bālānaṁ,"
+    },
+    {
+     "n": 40,
+     "text": "niccameva sukhī siyā."
+    },
+    {
+     "n": 41,
+     "text": "Bālasaṅgatacārī hi,"
+    },
+    {
+     "n": 42,
+     "text": "dīghamaddhāna socati;"
+    },
+    {
+     "n": 43,
+     "text": "Dukkho bālehi saṁvāso,"
+    },
+    {
+     "n": 44,
+     "text": "amitteneva sabbadā;"
+    },
+    {
+     "n": 45,
+     "text": "Dhīro ca sukhasaṁvāso,"
+    },
+    {
+     "n": 46,
+     "text": "ñātīnaṁva samāgamo."
+    },
+    {
+     "n": 47,
+     "text": "Tasmā hi—"
+    },
+    {
+     "n": 48,
+     "text": "Dhīrañca paññañca bahussutañca,"
+    },
+    {
+     "n": 49,
+     "text": "Dhorayhasīlaṁ vatavantamariyaṁ;"
+    },
+    {
+     "n": 50,
+     "text": "Taṁ tādisaṁ sappurisaṁ sumedhaṁ,"
+    },
+    {
+     "n": 51,
+     "text": "Bhajetha nakkhattapathaṁva candimā."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp197-208/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Let us live so very happily,"
+    },
+    {
+     "n": 2,
+     "text": "loving among the hostile."
+    },
+    {
+     "n": 3,
+     "text": "Among hostile humans,"
+    },
+    {
+     "n": 4,
+     "text": "let us live with love."
+    },
+    {
+     "n": 5,
+     "text": "Let us live so very happily,"
+    },
+    {
+     "n": 6,
+     "text": "healthy among the ailing."
+    },
+    {
+     "n": 7,
+     "text": "Among ailing humans"
+    },
+    {
+     "n": 8,
+     "text": "let us live healthily."
+    },
+    {
+     "n": 9,
+     "text": "Let us live so very happily,"
+    },
+    {
+     "n": 10,
+     "text": "content among the greedy."
+    },
+    {
+     "n": 11,
+     "text": "Among greedy humans,"
+    },
+    {
+     "n": 12,
+     "text": "let us live content."
+    },
+    {
+     "n": 13,
+     "text": "Let us live so very happily,"
+    },
+    {
+     "n": 14,
+     "text": "we who have nothing."
+    },
+    {
+     "n": 15,
+     "text": "We shall feed on rapture,"
+    },
+    {
+     "n": 16,
+     "text": "like the gods of sublime luminosity."
+    },
+    {
+     "n": 17,
+     "text": "Victory breeds enmity;"
+    },
+    {
+     "n": 18,
+     "text": "the defeated sleep badly."
+    },
+    {
+     "n": 19,
+     "text": "The peaceful sleep at ease,"
+    },
+    {
+     "n": 20,
+     "text": "having left victory and defeat behind."
+    },
+    {
+     "n": 21,
+     "text": "There is no fire like greed,"
+    },
+    {
+     "n": 22,
+     "text": "no crime like hate,"
+    },
+    {
+     "n": 23,
+     "text": "no suffering like the aggregates,"
+    },
+    {
+     "n": 24,
+     "text": "no bliss beyond peace."
+    },
+    {
+     "n": 25,
+     "text": "Hunger is the worst illness,"
+    },
+    {
+     "n": 26,
+     "text": "conditions are the worst suffering."
+    },
+    {
+     "n": 27,
+     "text": "When one has known this as it is,"
+    },
+    {
+     "n": 28,
+     "text": "extinguishment is the ultimate happiness."
+    },
+    {
+     "n": 29,
+     "text": "Health is the ultimate blessing;"
+    },
+    {
+     "n": 30,
+     "text": "contentment, the ultimate wealth;"
+    },
+    {
+     "n": 31,
+     "text": "trust is the ultimate family;"
+    },
+    {
+     "n": 32,
+     "text": "extinguishment, the ultimate happiness."
+    },
+    {
+     "n": 33,
+     "text": "Having drunk the nectar of seclusion"
+    },
+    {
+     "n": 34,
+     "text": "and the nectar of peace—"
+    },
+    {
+     "n": 35,
+     "text": "free of stress, free of evil,"
+    },
+    {
+     "n": 36,
+     "text": "drink the joyous nectar of truth."
+    },
+    {
+     "n": 37,
+     "text": "It’s good to see the noble ones,"
+    },
+    {
+     "n": 38,
+     "text": "staying with them is always good."
+    },
+    {
+     "n": 39,
+     "text": "Were you not to see fools,"
+    },
+    {
+     "n": 40,
+     "text": "you’d always be happy."
+    },
+    {
+     "n": 41,
+     "text": "For one who consorts with fools"
+    },
+    {
+     "n": 42,
+     "text": "grieves long."
+    },
+    {
+     "n": 43,
+     "text": "Painful is living with fools,"
+    },
+    {
+     "n": 44,
+     "text": "like being stuck with your enemy."
+    },
+    {
+     "n": 45,
+     "text": "Happy is living with an attentive one,"
+    },
+    {
+     "n": 46,
+     "text": "like meeting with your kin."
+    },
+    {
+     "n": 47,
+     "text": "Therefore:"
+    },
+    {
+     "n": 48,
+     "text": "An attentive one, wise and learned,"
+    },
+    {
+     "n": 49,
+     "text": "a behemoth of virtue, true to their vows, noble:"
+    },
+    {
+     "n": 50,
+     "text": "follow a true and intelligent person such as this,"
+    },
+    {
+     "n": 51,
+     "text": "as the moon tracks the path of the stars."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,176 @@
+{
+ "id": "hoi-huong",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Hồi hướng",
+ "reference": "",
+ "summary": "Bài văn hồi hướng đọc cuối khóa tụng buổi sáng, bắt đầu bằng câu Thượng lai hiện tiền thanh tịnh chúng. Nội dung hồi hướng công đức tụng kinh, trì chú đến Tam bảo, chư thiên, long thần và bốn ân ba cõi. Bài nguyện quốc gia yên ổn, mưa gió thuận hòa, dân chúng an vui, và đại chúng tu học tinh tiến, sơn môn thanh tịnh, đàn tín thêm phước tuệ.",
+ "titles": {
+  "vi": "Hồi hướng (Thượng lai hiện tiền thanh tịnh chúng)",
+  "zh": "迴向",
+  "en": "Dedication of merit (morning service)"
+ },
+ "deities": [],
+ "dailyChant": true,
+ "purposes": [
+  "HOI_HUONG"
+ ],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "HT. Thích Trí Quang (dịch âm, theo Thiền môn nhật tụng Huế)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch âm",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu1.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Thượng lai hiện tiền thanh tịnh chúng, phúng tụng Lăng nghiêm chư phẩm chú, hồi hướng Tam bảo chúng long thiên, thủ hộ già lam chư thánh chúng. tam đồ bát nạn câu li khổ,"
+    },
+    {
+     "n": 2,
+     "text": "tứ ân tam hữu tận triêm ân; quốc giới an ninh binh cách tiêu, phong điều vũ thuận dân an lạc."
+    },
+    {
+     "n": 3,
+     "text": "Đại chúng huân tu hy thắng tiến, thập địa đốn siêu vô nan sự."
+    },
+    {
+     "n": 4,
+     "text": "Sơn môn thanh tịnh tuyệt phi ngu, đàn tín qui y tăng phước tuệ."
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "HT. Thích Trí Quang (dịch nghĩa)",
+   "sourceName": "Tu Viện Quảng Đức (tuvienquangduc.com.au) - \"Hai Thời Công Phu\", HT. Thích Trí Quang dịch giải - Dịch nghĩa",
+   "sourceUrl": "https://www.tuvienquangduc.com.au/kinhdien-2/347haithoicongphu3.html",
+   "license": "UNKNOWN",
+   "licenseNote": "không thấy tuyên bố giấy phép trên trang; chân trang ghi \"Trình bày: Nhị Tường\", \"Cập nhật: 3-6-2007\", trang \"Nguồn: www.buddhismtoday.com\"",
+   "note": "Giữ nguyên chữ của nguồn; bỏ số chú thích [(n)] và các chỉ dẫn lễ nghi như \"(3 lần)\", \"(1 lạy)\". Dịch âm ngắt câu theo dấu câu của nguồn. Giữ ngắt dòng theo nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Từ trên đến đây,"
+    },
+    {
+     "n": 2,
+     "text": "tịnh chúng hiện tiền"
+    },
+    {
+     "n": 3,
+     "text": "trì tụng Lăng nghiêm"
+    },
+    {
+     "n": 4,
+     "text": "và các thần chú."
+    },
+    {
+     "n": 5,
+     "text": "Nguyện đem công đức"
+    },
+    {
+     "n": 6,
+     "text": "trì tụng như vậy"
+    },
+    {
+     "n": 7,
+     "text": "hướng về Tam bảo,"
+    },
+    {
+     "n": 8,
+     "text": "tám bộ thiên long,"
+    },
+    {
+     "n": 9,
+     "text": "các thánh thủ hộ"
+    },
+    {
+     "n": 10,
+     "text": "cho chốn già lam."
+    },
+    {
+     "n": 11,
+     "text": "Hết lòng nguyện cầu"
+    },
+    {
+     "n": 12,
+     "text": "ba đường tám nạn"
+    },
+    {
+     "n": 13,
+     "text": "cùng thoát khổ lớn,"
+    },
+    {
+     "n": 14,
+     "text": "bốn ơn ba cõi"
+    },
+    {
+     "n": 15,
+     "text": "toàn gội ơn cao;"
+    },
+    {
+     "n": 16,
+     "text": "lại càng nguyện ước"
+    },
+    {
+     "n": 17,
+     "text": "quốc gia yên ổn"
+    },
+    {
+     "n": 18,
+     "text": "chinh chiến tiêu tan,"
+    },
+    {
+     "n": 19,
+     "text": "mưa gió thuần hòa"
+    },
+    {
+     "n": 20,
+     "text": "dân chúng an lạc."
+    },
+    {
+     "n": 21,
+     "text": "Tăng chúng huân tu"
+    },
+    {
+     "n": 22,
+     "text": "hy vọng thắng tiến,"
+    },
+    {
+     "n": 23,
+     "text": "lên ngay mười địa"
+    },
+    {
+     "n": 24,
+     "text": "không có khó khăn;"
+    },
+    {
+     "n": 25,
+     "text": "sơn môn thanh tịnh"
+    },
+    {
+     "n": 26,
+     "text": "tuyệt hết lầm lỗi,"
+    },
+    {
+     "n": 27,
+     "text": "đàn tín qui y"
+    },
+    {
+     "n": 28,
+     "text": "tăng thêm phước tuệ."
+    }
+   ]
+  }
+ ]
+}

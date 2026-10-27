@@ -1,0 +1,505 @@
+{
+ "id": "truong-lao-ni-ke-kisagotami",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Ni Kệ",
+ "reference": "Thig 10.1",
+ "summary": "Kệ ngôn của trưởng lão ni Kisāgotamī trong Trưởng Lão Ni Kệ (Tiểu Bộ, Thig 10.1). Bài kệ ca ngợi việc thân cận bạn lành để trí tuệ tăng trưởng và hiểu Bốn Thánh Đế, nói đến nỗi khổ của người nữ, rồi nhắc lại những mất mát của Paṭācārā. Kết thúc, vị ni tuyên bố đã chứng sự Bất Tử, tâm được giải thoát.",
+ "titles": {
+  "vi": "Trưởng Lão Ni Kệ - Kisāgotamī",
+  "pli": "Kisāgotamītherīgāthā",
+  "en": "Kisāgotamī"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 6,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thig10.1/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tư cách bạn lành đã được bậc Hiền Trí khen ngợi khi đề cập đến thế gian."
+    },
+    {
+     "n": 2,
+     "text": "Trong khi thân cận với các bạn lành, ngay cả kẻ ngu dốt cũng có thể trở thành người sáng trí."
+    },
+    {
+     "n": 3,
+     "text": "Những người tốt nên được thân cận, như thế trí tuệ tăng trưởng cho những người thân cận."
+    },
+    {
+     "n": 4,
+     "text": "Người thân cận những người tốt có thể thoát khỏi tất cả những nỗi khổ đau."
+    },
+    {
+     "n": 5,
+     "text": "(Người thân cận những người tốt) có thể nhận thức được Khổ, sự sanh lên của Khổ, sự Tịch Diệt, và Đạo Lộ tám chi phần, luôn cả bốn Chân Lý cao thượng."
+    },
+    {
+     "n": 6,
+     "text": "Bản thể người nữ là khổ, (là điều) đã được đấng Điều Ngự Trượng Phu nói đến."
+    },
+    {
+     "n": 7,
+     "text": "Tình trạng có chung chồng cũng là khổ, một số người nữ sanh đẻ lần đầu (cũng là khổ)."
+    },
+    {
+     "n": 8,
+     "text": "Những người nữ mang bào thai nghịch tử (nằm sai vị trí) thậm chí còn cắt ở cổ họng, những người có thân hình mảnh mai ăn vào các chất độc, cả hai (mẹ và con) đều gánh chịu các sự bất hạnh."
+    },
+    {
+     "n": 9,
+     "text": "Khi đã gần đến lúc sanh nở, trong khi đang đi (về nhà mẹ), tôi đã nhìn thấy người chồng bị chết."
+    },
+    {
+     "n": 10,
+     "text": "Tôi đã sanh đẻ ở trên đường, khi tôi còn chưa đạt đến căn nhà của mình."
+    },
+    {
+     "n": 11,
+     "text": "(Paṭācārā) người đàn bà khốn khổ có hai con trai đã qua đời, và người chồng đã chết trên đường đi, mẹ, cha, và em trai được thiêu đốt chung một giàn hỏa táng."
+    },
+    {
+     "n": 12,
+     "text": "Này người đàn bà khốn khổ có gia tộc đã bị tiêu tán, khổ đau của nàng đã gánh chịu là vô ngần, và nước mắt của nàng đã được tuôn trào trong nhiều ngàn kiếp sống."
+    },
+    {
+     "n": 13,
+     "text": "Tôi cũng đã nhìn thấy khi ấy, ở giữa bãi tha ma, những mẩu thịt của con trai bị ngấu nghiến (bởi loài thú)."
+    },
+    {
+     "n": 14,
+     "text": "Là người nữ có gia tộc đã bị giết chết, bị mọi người quở trách, là góa phụ, tôi đã chứng đắc sự Bất Tử."
+    },
+    {
+     "n": 15,
+     "text": "Thánh Đạo tám chi phần đưa đến sự Bất Tử đã được tôi tu tập, Niết Bàn đã được tôi chứng ngộ; tôi đã nhìn thấy tấm gương Giáo Pháp."
+    },
+    {
+     "n": 16,
+     "text": "Tôi có mũi tên đã được nhổ lên, có gánh nặng đã được đặt xuống, có việc cần làm đã được làm xong."
+    },
+    {
+     "n": 17,
+     "text": "Trưởng lão ni Kisāgotamī, với tâm đã được giải thoát, đã nói lên điều này.”"
+    },
+    {
+     "n": 18,
+     "text": "Trưởng lão ni Kisāgotamī đã nói những lời kệ như thế."
+    },
+    {
+     "n": 19,
+     "text": "Kệ ngôn của trưởng lão ni Kisāgotamī."
+    },
+    {
+     "n": 20,
+     "text": "Nhóm Mười Một được chấm dứt."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig10.1/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Kalyāṇamittatā muninā,"
+    },
+    {
+     "n": 2,
+     "text": "lokaṁ ādissa vaṇṇitā;"
+    },
+    {
+     "n": 3,
+     "text": "Kalyāṇamitte bhajamāno,"
+    },
+    {
+     "n": 4,
+     "text": "api bālo paṇḍito assa."
+    },
+    {
+     "n": 5,
+     "text": "Bhajitabbā sappurisā,"
+    },
+    {
+     "n": 6,
+     "text": "Paññā tathā vaḍḍhati bhajantānaṁ;"
+    },
+    {
+     "n": 7,
+     "text": "Bhajamāno sappurise,"
+    },
+    {
+     "n": 8,
+     "text": "Sabbehipi dukkhehi pamucceyya."
+    },
+    {
+     "n": 9,
+     "text": "Dukkhañca vijāneyya,"
+    },
+    {
+     "n": 10,
+     "text": "Dukkhassa ca samudayaṁ nirodhaṁ;"
+    },
+    {
+     "n": 11,
+     "text": "Aṭṭhaṅgikañca maggaṁ,"
+    },
+    {
+     "n": 12,
+     "text": "Cattāripi ariyasaccāni”."
+    },
+    {
+     "n": 13,
+     "text": "“Dukkho itthibhāvo,"
+    },
+    {
+     "n": 14,
+     "text": "Akkhāto purisadammasārathinā;"
+    },
+    {
+     "n": 15,
+     "text": "Sapattikampi hi dukkhaṁ,"
+    },
+    {
+     "n": 16,
+     "text": "Appekaccā sakiṁ vijātāyo."
+    },
+    {
+     "n": 17,
+     "text": "Galake api kantanti,"
+    },
+    {
+     "n": 18,
+     "text": "Sukhumāliniyo visāni khādanti;"
+    },
+    {
+     "n": 19,
+     "text": "Janamārakamajjhagatā,"
+    },
+    {
+     "n": 20,
+     "text": "Ubhopi byasanāni anubhonti”."
+    },
+    {
+     "n": 21,
+     "text": "“Upavijaññā gacchantī,"
+    },
+    {
+     "n": 22,
+     "text": "addasāhaṁ patiṁ mataṁ;"
+    },
+    {
+     "n": 23,
+     "text": "Panthamhi vijāyitvāna,"
+    },
+    {
+     "n": 24,
+     "text": "appattāva sakaṁ gharaṁ."
+    },
+    {
+     "n": 25,
+     "text": "Dve puttā kālakatā,"
+    },
+    {
+     "n": 26,
+     "text": "Patī ca panthe mato kapaṇikāya;"
+    },
+    {
+     "n": 27,
+     "text": "Mātā pitā ca bhātā,"
+    },
+    {
+     "n": 28,
+     "text": "Ḍayhanti ca ekacitakāyaṁ”."
+    },
+    {
+     "n": 29,
+     "text": "“Khīṇakulīne kapaṇe,"
+    },
+    {
+     "n": 30,
+     "text": "Anubhūtaṁ te dukhaṁ aparimāṇaṁ;"
+    },
+    {
+     "n": 31,
+     "text": "Assū ca te pavattaṁ,"
+    },
+    {
+     "n": 32,
+     "text": "Bahūni ca jātisahassāni."
+    },
+    {
+     "n": 33,
+     "text": "Vasitā susānamajjhe,"
+    },
+    {
+     "n": 34,
+     "text": "Athopi khāditāni puttamaṁsāni;"
+    },
+    {
+     "n": 35,
+     "text": "Hatakulikā sabbagarahitā,"
+    },
+    {
+     "n": 36,
+     "text": "Matapatikā amatamadhigacchiṁ."
+    },
+    {
+     "n": 37,
+     "text": "Bhāvito me maggo,"
+    },
+    {
+     "n": 38,
+     "text": "Ariyo aṭṭhaṅgiko amatagāmī;"
+    },
+    {
+     "n": 39,
+     "text": "Nibbānaṁ sacchikataṁ,"
+    },
+    {
+     "n": 40,
+     "text": "Dhammādāsaṁ avekkhiṁhaṁ."
+    },
+    {
+     "n": 41,
+     "text": "Ahamamhi kantasallā,"
+    },
+    {
+     "n": 42,
+     "text": "Ohitabhārā katañhi karaṇīyaṁ;"
+    },
+    {
+     "n": 43,
+     "text": "Kisā gotamī therī,"
+    },
+    {
+     "n": 44,
+     "text": "Vimuttacittā imaṁ bhaṇī”ti."
+    },
+    {
+     "n": 45,
+     "text": "… Kisā gotamī therī …."
+    },
+    {
+     "n": 46,
+     "text": "Ekādasakanipāto niṭṭhito."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig10.1/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Pointing out how the world works,"
+    },
+    {
+     "n": 2,
+     "text": "the sages have praised good friendship."
+    },
+    {
+     "n": 3,
+     "text": "Associating with good friends,"
+    },
+    {
+     "n": 4,
+     "text": "even a fool becomes astute."
+    },
+    {
+     "n": 5,
+     "text": "Associate with true persons,"
+    },
+    {
+     "n": 6,
+     "text": "for that is how wisdom grows."
+    },
+    {
+     "n": 7,
+     "text": "Should you associate with true persons,"
+    },
+    {
+     "n": 8,
+     "text": "you would be freed from all suffering."
+    },
+    {
+     "n": 9,
+     "text": "And you would understand suffering,"
+    },
+    {
+     "n": 10,
+     "text": "its origin and cessation,"
+    },
+    {
+     "n": 11,
+     "text": "the eightfold path,"
+    },
+    {
+     "n": 12,
+     "text": "and so the four noble truths.”"
+    },
+    {
+     "n": 13,
+     "text": "“‘A woman’s life is painful,’"
+    },
+    {
+     "n": 14,
+     "text": "explained the Buddha, guide for those fit to train,"
+    },
+    {
+     "n": 15,
+     "text": "‘and for a co-wife it’s especially so."
+    },
+    {
+     "n": 16,
+     "text": "After giving birth just once,"
+    },
+    {
+     "n": 17,
+     "text": "some women even cut their own throat,"
+    },
+    {
+     "n": 18,
+     "text": "while delicate ladies take poison."
+    },
+    {
+     "n": 19,
+     "text": "Being guilty of killing a person,"
+    },
+    {
+     "n": 20,
+     "text": "they both undergo ruin.’”"
+    },
+    {
+     "n": 21,
+     "text": "“I was on the road, near to giving birth,"
+    },
+    {
+     "n": 22,
+     "text": "when I saw my husband dead."
+    },
+    {
+     "n": 23,
+     "text": "I gave birth there on the road"
+    },
+    {
+     "n": 24,
+     "text": "before I’d reached my own house."
+    },
+    {
+     "n": 25,
+     "text": "My two children have died,"
+    },
+    {
+     "n": 26,
+     "text": "and on the road my husband lies dead—oh woe is me!"
+    },
+    {
+     "n": 27,
+     "text": "Mother, father, and brother"
+    },
+    {
+     "n": 28,
+     "text": "all burning up on the same pyre.”"
+    },
+    {
+     "n": 29,
+     "text": "“Oh woe is you whose family is lost,"
+    },
+    {
+     "n": 30,
+     "text": "the suffering you have undergone has no measure;"
+    },
+    {
+     "n": 31,
+     "text": "you have been shedding tears"
+    },
+    {
+     "n": 32,
+     "text": "for many thousands of lives.”"
+    },
+    {
+     "n": 33,
+     "text": "“While staying in the charnel ground,"
+    },
+    {
+     "n": 34,
+     "text": "I saw my son’s flesh being eaten."
+    },
+    {
+     "n": 35,
+     "text": "With my family destroyed, condemned by all,"
+    },
+    {
+     "n": 36,
+     "text": "and my husband dead, I realized freedom from death."
+    },
+    {
+     "n": 37,
+     "text": "I’ve developed the noble eightfold path"
+    },
+    {
+     "n": 38,
+     "text": "leading to freedom from death."
+    },
+    {
+     "n": 39,
+     "text": "I’ve realized extinguishment,"
+    },
+    {
+     "n": 40,
+     "text": "as seen in the mirror of the Dhamma."
+    },
+    {
+     "n": 41,
+     "text": "I’ve plucked out the dart,"
+    },
+    {
+     "n": 42,
+     "text": "laid down the burden, and done what needed to be done.”"
+    },
+    {
+     "n": 43,
+     "text": "The senior nun Kisāgotamī,"
+    },
+    {
+     "n": 44,
+     "text": "her mind released, said this."
+    }
+   ]
+  }
+ ]
+}

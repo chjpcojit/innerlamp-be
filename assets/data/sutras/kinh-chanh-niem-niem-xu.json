@@ -1,0 +1,205 @@
+{
+ "id": "kinh-chanh-niem-niem-xu",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tương Ưng Bộ",
+ "reference": "SN 47.2",
+ "summary": "Bài kinh ngắn trong Tương Ưng Bộ, tại rừng xoài Ambapāli, Vesālī. Đức Phật nhắc các Tỷ-kheo phải sống chánh niệm và tỉnh giác. Chánh niệm là quán thân trên thân, thọ trên thọ, tâm trên tâm, pháp trên pháp với nhiệt tâm; tỉnh giác là biết rõ mọi oai nghi và hoạt động như đi, đứng, ăn uống, nói năng, im lặng.",
+ "titles": {
+  "vi": "Kinh Chánh Niệm (Niệm Xứ)",
+  "pli": "Satisutta",
+  "en": "Mindful"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "THIEN_DINH"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/sn47.2/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh đã được Hòa thượng Thích Minh Châu dịch sang Việt ngữ và Thiền viện Vạn Hạnh phát hành trong đầu thập niên 1980. Sau đó, trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được tái bản năm 1993 và có số thứ tự từ 12 đến 16.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Một thời Thế Tôn ở Vesālī, tại rừng Ambapāli."
+    },
+    {
+     "n": 2,
+     "text": "Ở đấy, Thế Tôn gọi các Tỷ-kheo …"
+    },
+    {
+     "n": 3,
+     "text": "—Này các Tỷ-kheo, Tỷ-kheo cần phải trú chánh niệm, tỉnh giác."
+    },
+    {
+     "n": 4,
+     "text": "Đây là lời giáo giới của Ta cho các Ông."
+    },
+    {
+     "n": 5,
+     "text": "Và này các Tỷ-kheo, thế nào là Tỷ-kheo chánh niệm? Ở đây, này các Tỷ-kheo, Tỷ-kheo trú, quán thân trên thân, nhiệt tâm, tỉnh giác, chánh niệm,"
+    },
+    {
+     "n": 6,
+     "text": "nhiếp phục tham ưu ở đời … quán thọ trên các thọ … quán tâm trên tâm … quán pháp trên các pháp, nhiệt tâm, tỉnh giác, chánh niệm, nhiếp phục tham ưu ở đời."
+    },
+    {
+     "n": 7,
+     "text": "Như vậy, này các Tỷ-kheo, là Tỷ-kheo chánh niệm."
+    },
+    {
+     "n": 8,
+     "text": "Và này các Tỷ-kheo, thế nào là Tỷ-kheo tỉnh giác? Ở đây, này các Tỷ-kheo, Tỷ-kheo khi đi tới, khi đi lui, đều tỉnh giác; khi nhìn tới, khi nhìn lui, đều tỉnh giác; khi co cánh tay, duỗi cánh tay, đều tỉnh giác;"
+    },
+    {
+     "n": 9,
+     "text": "khi đắp y Tăng-già-lê, khi mang y bát, đều tỉnh giác; khi ăn uống, nhai nếm, đều tỉnh giác; khi đi tiểu tiện, đại tiện, đều tỉnh giác; khi đi, đứng, ngồi, ngủ, thức, nói, im lặng, đều tỉnh giác."
+    },
+    {
+     "n": 10,
+     "text": "Như vậy, này các Tỷ-kheo, là Tỷ-kheo tỉnh giác."
+    },
+    {
+     "n": 11,
+     "text": "Này các Tỷ-kheo, Tỷ-kheo hãy chánh niệm, tỉnh giác."
+    },
+    {
+     "n": 12,
+     "text": "Đây là lời giáo giới của Ta cho các Ông."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn47.2/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ekaṁ samayaṁ bhagavā vesāliyaṁ viharati ambapālivane."
+    },
+    {
+     "n": 2,
+     "text": "Tatra kho bhagavā bhikkhū āmantesi: “bhikkhavo”ti."
+    },
+    {
+     "n": 3,
+     "text": "“Bhadante”ti te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“Sato, bhikkhave, bhikkhu vihareyya sampajāno. Ayaṁ vo amhākaṁ anusāsanī."
+    },
+    {
+     "n": 5,
+     "text": "Kathañca, bhikkhave, bhikkhu sato hoti? Idha, bhikkhave, bhikkhu kāye kāyānupassī viharati ātāpī sampajāno satimā, vineyya loke abhijjhādomanassaṁ;"
+    },
+    {
+     "n": 6,
+     "text": "vedanāsu …pe… citte …pe… dhammesu dhammānupassī viharati ātāpī sampajāno satimā, vineyya loke abhijjhādomanassaṁ. Evaṁ kho, bhikkhave, bhikkhu sato hoti."
+    },
+    {
+     "n": 7,
+     "text": "Kathañca, bhikkhave, bhikkhu sampajāno hoti?"
+    },
+    {
+     "n": 8,
+     "text": "Idha, bhikkhave, bhikkhu abhikkante paṭikkante sampajānakārī hoti, ālokite vilokite sampajānakārī hoti, samiñjite pasārite sampajānakārī hoti, saṅghāṭipattacīvaradhāraṇe sampajānakārī hoti,"
+    },
+    {
+     "n": 9,
+     "text": "asite pīte khāyite sāyite sampajānakārī hoti, uccārapassāvakamme sampajānakārī hoti, gate ṭhite nisinne sutte jāgarite bhāsite tuṇhībhāve sampajānakārī hoti."
+    },
+    {
+     "n": 10,
+     "text": "Evaṁ kho, bhikkhave, bhikkhu sampajānakārī hoti."
+    },
+    {
+     "n": 11,
+     "text": "Sato, bhikkhave, bhikkhu vihareyya sampajāno. Ayaṁ vo amhākaṁ anusāsanī”ti."
+    },
+    {
+     "n": 12,
+     "text": "Dutiyaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn47.2/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "At one time the Buddha was staying near Vesālī in Ambapālī’s Mango Grove."
+    },
+    {
+     "n": 2,
+     "text": "There the Buddha addressed the mendicants, “Mendicants!”"
+    },
+    {
+     "n": 3,
+     "text": "“Venerable sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 4,
+     "text": "“Mendicants, a mendicant should live mindful and aware. This is my instruction to you."
+    },
+    {
+     "n": 5,
+     "text": "And how is a mendicant mindful? It’s when a mendicant meditates by observing an aspect of the body—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 6,
+     "text": "They meditate observing an aspect of feelings … mind … principles—keen, aware, and mindful, rid of covetousness and displeasure for the world. That’s how a mendicant is mindful."
+    },
+    {
+     "n": 7,
+     "text": "And how is a mendicant aware?"
+    },
+    {
+     "n": 8,
+     "text": "It’s when a mendicant acts with situational awareness when going out and coming back; when looking ahead and aside; when bending and extending the limbs; when bearing the outer robe, bowl and robes;"
+    },
+    {
+     "n": 9,
+     "text": "when eating, drinking, chewing, and tasting; when urinating and defecating; when walking, standing, sitting, sleeping, waking, speaking, and keeping silent."
+    },
+    {
+     "n": 10,
+     "text": "That’s how a mendicant acts with situational awareness."
+    },
+    {
+     "n": 11,
+     "text": "A mendicant should live mindful and aware. This is my instruction to you.”"
+    }
+   ]
+  }
+ ]
+}

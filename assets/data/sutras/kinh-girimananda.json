@@ -1,0 +1,1017 @@
+{
+ "id": "kinh-girimananda",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tăng Chi Bộ",
+ "reference": "AN 10.60",
+ "summary": "Kinh trong Tăng Chi Bộ (AN 10.60). Khi Tôn giả Girimānanda lâm trọng bệnh, Tôn giả Ānanda xin Thế Tôn từ bi giúp đỡ. Thế Tôn dạy Ānanda đến đọc cho vị ấy nghe mười tưởng, như vô thường, vô ngã, bất tịnh, nguy hại. Nghe xong, bệnh của Tôn giả Girimānanda thuyên giảm.",
+ "titles": {
+  "vi": "Kinh Girimānanda",
+  "pli": "Girimānandasutta",
+  "en": "With Girimānanda"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 20,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/an10.60/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh nầy được Hòa thượng Thích Minh Châu dịch từ tạng Pali sang Việt ngữ năm 1976–1977, và được Viện Phật Học Vạn Hạnh, Sài Gòn, ấn hành năm 1980–1981. Trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được hiệu đính thành 4 tập và tái bản năm 1996, qua số thứ tự 21, 22, 23, và 24. These texts have been used with the kind permission of the webmaster of http://www.budsas.net/",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Một thời, Thế Tôn trú ở Sàvatthi, tại Jetavana, khu vườn của ông Anàthapindika."
+    },
+    {
+     "n": 2,
+     "text": "Lúc bấy giờ, Tôn giả Girimànanda bị bịnh, khổ đau, bị trọng bịnh."
+    },
+    {
+     "n": 3,
+     "text": "Rồi Tôn giả Ananda đi đến Thế Tôn; sau khi đến, đảnh lễ Thế Tôn rồi ngồi xuống một bên."
+    },
+    {
+     "n": 4,
+     "text": "Ngồi xuống một bên, Tôn giả Ananda bạch Thế Tôn:"
+    },
+    {
+     "n": 5,
+     "text": "—Tôn giả Girimànanda, bạch Thế Tôn, bị bệnh, khổ đau, bị trọng bệnh."
+    },
+    {
+     "n": 6,
+     "text": "Lành thay, nếu Thế Tôn đi đến Tôn giả Girimànanda, vì lòng từ mẫn."
+    },
+    {
+     "n": 7,
+     "text": "—Này Ananda, nếu Thầy đi đến Tỷ-kheo Girimànanda và đọc lên mười tưởng, thời sự kiện này có thể xảy ra: Tỷ-kheo Girimànanda sau khi được nghe mười tưởng, bệnh của vị ấy có thể được thuyên giảm ngay lập tức!"
+    },
+    {
+     "n": 8,
+     "text": "Thế nào là mười?"
+    },
+    {
+     "n": 9,
+     "text": "Tưởng vô thường, tưởng vô ngã, tưởng bất tịnh, tưởng nguy hại, tưởng đoạn tận, tưởng từ bỏ, tưởng đoạn diệt, tưởng nhàm chán đối với tất cả thế giới, tưởng vô thường trong tất cả hành, tưởng niệm hơi thở vô hơi thở ra."
+    },
+    {
+     "n": 10,
+     "text": "Và này Ananda, thế nào là tưởng vô thường?"
+    },
+    {
+     "n": 11,
+     "text": "Ở đây, này Ananda, Tỷ-kheo đi đến ngôi rừng, hay đến gốc cây, hay đi đến ngôi nhà trống, quán sát như sau: “Sắc là vô thường, thọ là vô thường, tưởng là vô thường, hành là vô thường, thức là vô thường.”"
+    },
+    {
+     "n": 12,
+     "text": "Như vậy vị ấy trú, tùy quán vô thường, trong năm thú uẩn này. Này Ananda, đây gọi là tưởng vô thường. Và này Ananda, thế nào là tưởng vô ngã?"
+    },
+    {
+     "n": 13,
+     "text": "Ở đây, này Ananda, Tỷ-kheo đi đến khu rừng hay đi đến gốc cây, hay đi đến ngôi nhà trống, quán sát như sau: “Mắt là vô ngã, các sắc là vô ngã; tai là vô ngã, các tiếng là vô ngã; mũi là vô ngã, các hương là vô ngã;"
+    },
+    {
+     "n": 14,
+     "text": "lưỡi là vô ngã, các vị là vô ngã; thân là vô ngã, xúc là vô ngã; ý là vô ngã, các pháp là vô ngã.” Này Ananda, đây gọi là tưởng vô ngã."
+    },
+    {
+     "n": 15,
+     "text": "Và này, Ananda thế nào là tưởng bất tịnh?"
+    },
+    {
+     "n": 16,
+     "text": "Ở đây, này Ananda, Tỷ-kheo quán sát thân này từ bàn chân trở lên, từ đỉnh tóc trở xuống, được da bao bọc, đầy những vật bất tịnh sai biệt như:"
+    },
+    {
+     "n": 17,
+     "text": "“Trong thân này có tóc, lông, móng, răng, da, thịt, dây gân, xương, tủy, thận, quả tim, gan, hoành cách mô, lá lách, phổi, ruột, màng ruột, bụng, phân, mật, đàm (niêm dịch), mủ, máu, mồ hôi, mỡ, nước mắt, mỡ da,"
+    },
+    {
+     "n": 18,
+     "text": "nước miếng, nước mũi, nước ở khớp xương, nước tiểu”."
+    },
+    {
+     "n": 19,
+     "text": "Như vậy, vị ấy trú quán bất tịnh trong thân này. Này Ananda, đây gọi là tưởng bất tịnh."
+    },
+    {
+     "n": 20,
+     "text": "Và này Ananda, thế nào là tưởng nguy hại?"
+    },
+    {
+     "n": 21,
+     "text": "Ở đây, này Ananda, Tỷ-kheo đi đến khu rừng, đi đến gốc cây, hay đi đến ngôi nhà trống, quán sát như sau: “Nhiều khổ là thân này, nhiều sự nguy hại."
+    },
+    {
+     "n": 22,
+     "text": "Như vậy trong thân này, nhiều loại bệnh khởi lên."
+    },
+    {
+     "n": 23,
+     "text": "Ví như bệnh đau mắt, bệnh đau về tai, bệnh đau mũi, bệnh đau lưỡi, bệnh đau thân, bệnh đau đầu, bệnh đau vành tai, bệnh đau miệng, bệnh đau răng, bệnh ho, bệnh suyễn, bệnh sổ mũi, bệnh sốt, bệnh già yếu, bệnh đau yếu,"
+    },
+    {
+     "n": 24,
+     "text": "bệnh đau bụng, bất tỉnh, kiết lỵ, bệnh đau bụng quặn, bệnh thổ tả, bệnh hủi, bệnh ung nhọt, bệnh ghẻ lở, bệnh ho lao, bệnh trúng gió, bệnh da, bệnh ngứa, bệnh da đóng vảy, bệnh hắc lào lang ben, bệnh ghẻ,"
+    },
+    {
+     "n": 25,
+     "text": "bệnh huyết đảm (mật trong máu), bệnh đái đường, bệnh trĩ, bệnh mụt nhọt, bệnh ung nhọt ung loét, các bệnh khởi lên do mật, bệnh khởi lên từ đàm, niêm dịch, các bệnh khởi lên từ gió;"
+    },
+    {
+     "n": 26,
+     "text": "bệnh do hòa hợp các thể dịch sinh ra; các bệnh do thời tiết sinh ra, các bệnh do làm việc quá độ sanh, các bệnh do sự trùng hợp các sự kiêng; các bệnh do nghiệp thuần thục, lạnh, nóng, đói, khát, đại tiện, tiểu tiện”."
+    },
+    {
+     "n": 27,
+     "text": "Như vậy, vị ấy sống, quán sự nguy hại trong thân này."
+    },
+    {
+     "n": 28,
+     "text": "Này Ananda, đây gọi là các tưởng nguy hại."
+    },
+    {
+     "n": 29,
+     "text": "Và này Ananda, thế nào là tưởng đoạn tận?"
+    },
+    {
+     "n": 30,
+     "text": "Ở đây, này Ananda, Tỷ-kheo, không có chấp nhận dục tầm đã sanh, từ bỏ, tẩy sạch, chấm dứt, đi đến không sanh trưởng; không có chấp nhận sân tầm đã sanh, từ bỏ, tẩy sạch, chấm dứt, đi đến không sanh trưởng;"
+    },
+    {
+     "n": 31,
+     "text": "không có chấp nhận hại tầm… đã sanh…; không có chấp nhận các ác bất thiện pháp tiếp tục khởi lên, từ bỏ, tẩy sạch, chấm dứt, đi đến không sanh trưởng."
+    },
+    {
+     "n": 32,
+     "text": "Này Ananda, đây được gọi tưởng đoạn tận. Và này Ananda, thế nào là từ bỏ?"
+    },
+    {
+     "n": 33,
+     "text": "Ở đây, này Ananda, Tỷ-kheo đi đến khu rừng, hay đi đến gốc cây, hay đi đến ngôi nhà trống, suy xét như sau:"
+    },
+    {
+     "n": 34,
+     "text": "“Đây là an tịnh, đây là thù thắng, tức là sự an chỉ tất cả hành, sự từ bỏ tất cả sanh y, ái diệt, ly tham, Niết bàn."
+    },
+    {
+     "n": 35,
+     "text": "Và này Ananda, thế nào là tưởng đoạn diệt?"
+    },
+    {
+     "n": 36,
+     "text": "Ở đây, này Ananda, Tỷ-kheo đi đến khu rừng, hay đi đến gốc cây, hay đi đến ngôi nhà trống, suy xét như sau:"
+    },
+    {
+     "n": 37,
+     "text": "“Đây là an tịnh, đây là thù thắng, tức là sự an chỉ tất cả hành, sự từ bỏ tất cả sanh y, ái diệt, ly tham, Niết bàn”."
+    },
+    {
+     "n": 38,
+     "text": "Và này Ananda, thế nào là tưởng không ưa thích trong tất cả thế giới?"
+    },
+    {
+     "n": 39,
+     "text": "Ở đây, này Ananda, phàm ở đời có những chấp thủ phương tiện, tâm quyết định, thiên kiến, tùy miên nào, Tỷ-kheo từ bỏ chúng, không ưa thích, không chấp thủ."
+    },
+    {
+     "n": 40,
+     "text": "Này Ananda, đây gọi là tưởng không hoan hỷ đối với tất cả thế giới."
+    },
+    {
+     "n": 41,
+     "text": "Và này các Tỷ-kheo, thế nào là tưởng vô thường trong tất cả hành?"
+    },
+    {
+     "n": 42,
+     "text": "Ở đây, này Ananda, Tỷ-kheo bực phiền, xấu hổ, nhàm chán đối với tất cả hành."
+    },
+    {
+     "n": 43,
+     "text": "Này Ananda, đây gọi là vô thường trong tất cả hành."
+    },
+    {
+     "n": 44,
+     "text": "Và này Ananda, thế nào là tưởng niệm hơi thở vào, hơi thở ra?"
+    },
+    {
+     "n": 45,
+     "text": "Ở đây, này Ananda, Tỷ-kheo đi đến khu rừng hay đi đến gốc cây, hay đi đến ngôi nhà trống, ngồi kiết-già, lưng thẳng, để niệm trước mặt."
+    },
+    {
+     "n": 46,
+     "text": "Chánh niệm, vị ấy thở vô; chánh niệm, vị ấy thở ra."
+    },
+    {
+     "n": 47,
+     "text": "Thở vô dài, vị ấy rõ biết: “Tôi thở vô dài”."
+    },
+    {
+     "n": 48,
+     "text": "Thở ra dài, vị ấy rõ biết: “Tôi thở ra dài”, Hay thở vô ngắn, vị ấy rõ biết “Tôi thở vô ngắn”; hay thở ra ngắn, vị ấy rõ biết: “Tôi thở ra ngắn”."
+    },
+    {
+     "n": 49,
+     "text": "“Cảm giác toàn thân, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 50,
+     "text": "“Cảm giác toàn thân, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 51,
+     "text": "“An tịnh thân hành, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 52,
+     "text": "“An tịnh thân hành, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 53,
+     "text": "“Cảm giác hỷ thọ, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 54,
+     "text": "“Cảm giác hỷ thọ, tôi sẽ thở ra,” vị ấy tập."
+    },
+    {
+     "n": 55,
+     "text": "“Cảm giác lạc thọ, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 56,
+     "text": "“Cảm giác lạc thọ, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 57,
+     "text": "“Cảm giác tâm hành, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 58,
+     "text": "“Cảm giác tâm hành, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 59,
+     "text": "“An tịnh tâm hành, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 60,
+     "text": "“An tịnh tâm hành, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 61,
+     "text": "“Cảm giác về tâm, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 62,
+     "text": "“Cảm giác về tâm, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 63,
+     "text": "“Với tâm hân hoan, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 64,
+     "text": "“Với tâm hân hoan, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 65,
+     "text": "“Với tâm định tĩnh, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 66,
+     "text": "“Với tâm định tĩnh, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 67,
+     "text": "“Với tâm giải thoát, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 68,
+     "text": "“Với tâm giải thoát, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 69,
+     "text": "“Quán vô thường, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 70,
+     "text": "“Quán vô thường, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 71,
+     "text": "“Quán ly tham, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 72,
+     "text": "“Quán ly tham, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 73,
+     "text": "“Quán đoạn diệt, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 74,
+     "text": "“Quán đoạn diệt, tôi sẽ thở ra”, vị ấy tập. “Quán từ bỏ, tôi sẽ thở vô”, vị ấy tập. “Quán từ bỏ, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 75,
+     "text": "Này Ananda, đó là niệm hơi thở vô, hơi thở ra."
+    },
+    {
+     "n": 76,
+     "text": "Này Ananda, nếu Thầy đi đến Tỷ-kheo Girimànanda và đọc lên mười tưởng này, sự kiện này có xảy ra: Tỷ-kheo Girimànanda, sau khi nghe mười tưởng này, bệnh của vị ấy được thuyên giảm ngay lập tức”."
+    },
+    {
+     "n": 77,
+     "text": "Rồi Tôn giả Ananda, sau khi học thuộc từ Thế Tôn mười tưởng này, đi đến Tôn giả Girimànanda, sau khi đến, nói lên với Tôn giả Girimànanda mười tưởng này."
+    },
+    {
+     "n": 78,
+     "text": "Và Tôn giả Girimànanda, sau khi nghe mười tưởng này, bệnh của vị ấy được thuyên giảm ngay lập tức."
+    },
+    {
+     "n": 79,
+     "text": "Tôn giả Girimànanda, được thoát khỏi bệnh ấy."
+    },
+    {
+     "n": 80,
+     "text": "Được đoạn tận như vậy là chứng bệnh ấy của Tôn giả Girimànanda."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an10.60/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Tena kho pana samayena āyasmā girimānando ābādhiko hoti dukkhito bāḷhagilāno."
+    },
+    {
+     "n": 3,
+     "text": "Atha kho āyasmā ānando yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 4,
+     "text": "Ekamantaṁ nisinno kho āyasmā ānando bhagavantaṁ etadavoca:"
+    },
+    {
+     "n": 5,
+     "text": "“Āyasmā, bhante, girimānando ābādhiko hoti dukkhito bāḷhagilāno."
+    },
+    {
+     "n": 6,
+     "text": "Sādhu, bhante, bhagavā yenāyasmā girimānando tenupasaṅkamatu anukampaṁ upādāyā”ti."
+    },
+    {
+     "n": 7,
+     "text": "“Sace kho tvaṁ, ānanda, girimānandassa bhikkhuno dasa saññā bhāseyyāsi, ṭhānaṁ kho panetaṁ vijjati yaṁ girimānandassa bhikkhuno dasa saññā sutvā so ābādho ṭhānaso paṭippassambheyya."
+    },
+    {
+     "n": 8,
+     "text": "Katamā dasa? Aniccasaññā, anattasaññā, asubhasaññā, ādīnavasaññā, pahānasaññā, virāgasaññā, nirodhasaññā, sabbaloke anabhiratasaññā, sabbasaṅkhāresu anicchāsaññā, ānāpānassati."
+    },
+    {
+     "n": 9,
+     "text": "Katamā cānanda, aniccasaññā? Idhānanda, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā iti paṭisañcikkhati: ‘rūpaṁ aniccaṁ, vedanā aniccā, saññā aniccā, saṅkhārā aniccā, viññāṇaṁ aniccan’ti."
+    },
+    {
+     "n": 10,
+     "text": "Iti imesu pañcasu upādānakkhandhesu aniccānupassī viharati. Ayaṁ vuccatānanda, aniccasaññā."
+    },
+    {
+     "n": 11,
+     "text": "Katamā cānanda, anattasaññā? Idhānanda, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā iti paṭisañcikkhati:"
+    },
+    {
+     "n": 12,
+     "text": "‘cakkhu anattā, rūpā anattā, sotaṁ anattā, saddā anattā, ghānaṁ anattā, gandhā anattā, jivhā anattā, rasā anattā, kāyā anattā, phoṭṭhabbā anattā, mano anattā, dhammā anattā’ti."
+    },
+    {
+     "n": 13,
+     "text": "Iti imesu chasu ajjhattikabāhiresu āyatanesu anattānupassī viharati. Ayaṁ vuccatānanda, anattasaññā."
+    },
+    {
+     "n": 14,
+     "text": "Katamā cānanda, asubhasaññā? Idhānanda, bhikkhu imameva kāyaṁ uddhaṁ pādatalā adho kesamatthakā tacapariyantaṁ pūraṁ nānāppakārassa asucino paccavekkhati:"
+    },
+    {
+     "n": 15,
+     "text": "‘atthi imasmiṁ kāye kesā lomā nakhā dantā taco, maṁsaṁ nhāru aṭṭhi aṭṭhimiñjaṁ vakkaṁ, hadayaṁ yakanaṁ kilomakaṁ pihakaṁ papphāsaṁ, antaṁ antaguṇaṁ udariyaṁ karīsaṁ, pittaṁ semhaṁ pubbo lohitaṁ sedo medo,"
+    },
+    {
+     "n": 16,
+     "text": "assu vasā kheḷo siṅghāṇikā lasikā muttan’ti."
+    },
+    {
+     "n": 17,
+     "text": "Iti imasmiṁ kāye asubhānupassī viharati. Ayaṁ vuccatānanda, asubhasaññā."
+    },
+    {
+     "n": 18,
+     "text": "Katamā cānanda, ādīnavasaññā? Idhānanda, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā iti paṭisañcikkhati: ‘bahudukkho kho ayaṁ kāyo bahuādīnavo."
+    },
+    {
+     "n": 19,
+     "text": "Iti imasmiṁ kāye vividhā ābādhā uppajjanti,"
+    },
+    {
+     "n": 20,
+     "text": "seyyathidaṁ— cakkhurogo sotarogo ghānarogo jivhārogo kāyarogo sīsarogo kaṇṇarogo mukharogo dantarogo oṭṭharogo kāso sāso pināso ḍāho jaro kucchirogo mucchā pakkhandikā sūlā visūcikā kuṭṭhaṁ gaṇḍo kilāso soso apamāro"
+    },
+    {
+     "n": 21,
+     "text": "daddu kaṇḍu kacchu nakhasā vitacchikā lohitaṁ pittaṁ madhumeho aṁsā piḷakā bhagandalā pittasamuṭṭhānā ābādhā semhasamuṭṭhānā ābādhā vātasamuṭṭhānā ābādhā sannipātikā ābādhā utupariṇāmajā ābādhā visamaparihārajā ābādhā"
+    },
+    {
+     "n": 22,
+     "text": "opakkamikā ābādhā kammavipākajā ābādhā sītaṁ uṇhaṁ jighacchā pipāsā uccāro passāvo’ti."
+    },
+    {
+     "n": 23,
+     "text": "Iti imasmiṁ kāye ādīnavānupassī viharati. Ayaṁ vuccatānanda, ādīnavasaññā."
+    },
+    {
+     "n": 24,
+     "text": "Katamā cānanda, pahānasaññā? Idhānanda, bhikkhu uppannaṁ kāmavitakkaṁ nādhivāseti, pajahati, vinodeti, byantīkaroti, anabhāvaṁ gameti."
+    },
+    {
+     "n": 25,
+     "text": "Uppannaṁ byāpādavitakkaṁ nādhivāseti, pajahati, vinodeti, byantīkaroti, anabhāvaṁ gameti."
+    },
+    {
+     "n": 26,
+     "text": "Uppannaṁ vihiṁsāvitakkaṁ nādhivāseti, pajahati, vinodeti, byantīkaroti, anabhāvaṁ gameti."
+    },
+    {
+     "n": 27,
+     "text": "Uppannuppanne pāpake akusale dhamme nādhivāseti, pajahati, vinodeti, byantīkaroti, anabhāvaṁ gameti. Ayaṁ vuccatānanda, pahānasaññā."
+    },
+    {
+     "n": 28,
+     "text": "Katamā cānanda, virāgasaññā?"
+    },
+    {
+     "n": 29,
+     "text": "Idhānanda, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā iti paṭisañcikkhati: ‘etaṁ santaṁ etaṁ paṇītaṁ yadidaṁ sabbasaṅkhārasamatho sabbūpadhippaṭinissaggo taṇhākkhayo virāgo nibbānan’ti."
+    },
+    {
+     "n": 30,
+     "text": "Ayaṁ vuccatānanda, virāgasaññā."
+    },
+    {
+     "n": 31,
+     "text": "Katamā cānanda, nirodhasaññā?"
+    },
+    {
+     "n": 32,
+     "text": "Idhānanda, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā iti paṭisañcikkhati: ‘etaṁ santaṁ etaṁ paṇītaṁ yadidaṁ sabbasaṅkhārasamatho sabbūpadhippaṭinissaggo taṇhākkhayo nirodho nibbānan’ti."
+    },
+    {
+     "n": 33,
+     "text": "Ayaṁ vuccatānanda, nirodhasaññā."
+    },
+    {
+     "n": 34,
+     "text": "Katamā cānanda, sabbaloke anabhiratasaññā?"
+    },
+    {
+     "n": 35,
+     "text": "Idhānanda, bhikkhu ye loke upādānā cetaso adhiṭṭhānābhinivesānusayā, te pajahanto viharati anupādiyanto."
+    },
+    {
+     "n": 36,
+     "text": "Ayaṁ vuccatānanda, sabbaloke anabhiratasaññā."
+    },
+    {
+     "n": 37,
+     "text": "Katamā cānanda, sabbasaṅkhāresu anicchāsaññā?"
+    },
+    {
+     "n": 38,
+     "text": "Idhānanda, bhikkhu sabbasaṅkhāresu aṭṭīyati harāyati jigucchati."
+    },
+    {
+     "n": 39,
+     "text": "Ayaṁ vuccatānanda, sabbasaṅkhāresu anicchāsaññā."
+    },
+    {
+     "n": 40,
+     "text": "Katamā cānanda, ānāpānassati? Idhānanda, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā nisīdati pallaṅkaṁ ābhujitvā ujuṁ kāyaṁ paṇidhāya parimukhaṁ satiṁ upaṭṭhapetvā. So satova assasati satova passasati."
+    },
+    {
+     "n": 41,
+     "text": "Dīghaṁ vā assasanto ‘dīghaṁ assasāmī’ti pajānāti."
+    },
+    {
+     "n": 42,
+     "text": "Dīghaṁ vā passasanto ‘dīghaṁ passasāmī’ti pajānāti."
+    },
+    {
+     "n": 43,
+     "text": "Rassaṁ vā assasanto ‘rassaṁ assasāmī’ti pajānāti."
+    },
+    {
+     "n": 44,
+     "text": "Rassaṁ vā passasanto ‘rassaṁ passasāmī’ti pajānāti."
+    },
+    {
+     "n": 45,
+     "text": "‘Sabbakāyapaṭisaṁvedī assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 46,
+     "text": "‘Sabbakāyapaṭisaṁvedī passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 47,
+     "text": "‘Passambhayaṁ kāyasaṅkhāraṁ assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 48,
+     "text": "‘Passambhayaṁ kāyasaṅkhāraṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 49,
+     "text": "‘Pītipaṭisaṁvedī assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 50,
+     "text": "‘Pītipaṭisaṁvedī passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 51,
+     "text": "‘Sukhapaṭisaṁvedī assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 52,
+     "text": "‘Sukhapaṭisaṁvedī passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 53,
+     "text": "‘Cittasaṅkhārapaṭisaṁvedī assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 54,
+     "text": "‘Cittasaṅkhārapaṭisaṁvedī passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 55,
+     "text": "‘Passambhayaṁ cittasaṅkhāraṁ assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 56,
+     "text": "‘Passambhayaṁ cittasaṅkhāraṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 57,
+     "text": "‘Cittapaṭisaṁvedī assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 58,
+     "text": "‘Cittapaṭisaṁvedī passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 59,
+     "text": "Abhippamodayaṁ cittaṁ …pe… samādahaṁ cittaṁ …pe… vimocayaṁ cittaṁ …pe… aniccānupassī …pe… virāgānupassī …pe… nirodhānupassī …pe…"
+    },
+    {
+     "n": 60,
+     "text": "‘paṭinissaggānupassī assasissāmī’ti sikkhati."
+    },
+    {
+     "n": 61,
+     "text": "‘Paṭinissaggānupassī passasissāmī’ti sikkhati. Ayaṁ vuccatānanda, ānāpānassati."
+    },
+    {
+     "n": 62,
+     "text": "Sace kho tvaṁ, ānanda, girimānandassa bhikkhuno imā dasa saññā bhāseyyāsi, ṭhānaṁ kho panetaṁ vijjati yaṁ girimānandassa bhikkhuno imā dasa saññā sutvā so ābādho ṭhānaso paṭippassambheyyā”ti."
+    },
+    {
+     "n": 63,
+     "text": "Atha kho āyasmā ānando bhagavato santike imā dasa saññā uggahetvā yenāyasmā girimānando tenupasaṅkami; upasaṅkamitvā āyasmato girimānandassa imā dasa saññā abhāsi."
+    },
+    {
+     "n": 64,
+     "text": "Atha kho āyasmato girimānandassa dasa saññā sutvā so ābādho ṭhānaso paṭippassambhi."
+    },
+    {
+     "n": 65,
+     "text": "Vuṭṭhahi cāyasmā girimānando tamhā ābādhā."
+    },
+    {
+     "n": 66,
+     "text": "Tathā pahīno ca panāyasmato girimānandassa so ābādho ahosīti."
+    },
+    {
+     "n": 67,
+     "text": "Dasamaṁ."
+    },
+    {
+     "n": 68,
+     "text": "Tassuddānaṁ"
+    },
+    {
+     "n": 69,
+     "text": "Sacittañca sāriputta,"
+    },
+    {
+     "n": 70,
+     "text": "ṭhiti ca samathena ca;"
+    },
+    {
+     "n": 71,
+     "text": "Parihāno ca dve saññā,"
+    },
+    {
+     "n": 72,
+     "text": "mūlā pabbajitaṁ girīti."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an10.60/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "Now at that time Venerable Girimānanda was sick, suffering, gravely ill."
+    },
+    {
+     "n": 3,
+     "text": "Then Venerable Ānanda went up to the Buddha, bowed, sat down to one side, and said to him:"
+    },
+    {
+     "n": 4,
+     "text": "“Sir, Venerable Girimānanda is sick, suffering, gravely ill."
+    },
+    {
+     "n": 5,
+     "text": "Sir, please go to Venerable Girimānanda out of sympathy.”"
+    },
+    {
+     "n": 6,
+     "text": "“Ānanda, if you were to recite to the mendicant Girimānanda these ten perceptions, it’s possible that after hearing them his illness will die down on the spot."
+    },
+    {
+     "n": 7,
+     "text": "What ten? The perceptions of impermanence, not-self, ugliness, drawbacks, giving up, fading away, cessation, dissatisfaction with the whole world, impermanence of all conditions, and mindfulness of breathing."
+    },
+    {
+     "n": 8,
+     "text": "And what is the perception of impermanence?"
+    },
+    {
+     "n": 9,
+     "text": "It’s when a mendicant has gone to a wilderness, or to the root of a tree, or to an empty hut, and reflects like this: ‘Form, feeling, perception, choices, and consciousness are impermanent.’"
+    },
+    {
+     "n": 10,
+     "text": "And so they meditate observing impermanence in the five grasping aggregates."
+    },
+    {
+     "n": 11,
+     "text": "This is called the perception of impermanence."
+    },
+    {
+     "n": 12,
+     "text": "And what is the perception of not-self? It’s when a mendicant has gone to a wilderness, or to the root of a tree, or to an empty hut, and reflects like this:"
+    },
+    {
+     "n": 13,
+     "text": "‘The eye and sights, ear and sounds, nose and smells, tongue and tastes, body and touches, and mind and ideas are not-self.’"
+    },
+    {
+     "n": 14,
+     "text": "And so they meditate observing not-self in the six interior and exterior sense fields."
+    },
+    {
+     "n": 15,
+     "text": "This is called the perception of not-self."
+    },
+    {
+     "n": 16,
+     "text": "And what is the perception of ugliness? It’s when a mendicant examines their own body up from the soles of the feet and down from the tips of the hairs, wrapped in skin and full of many kinds of filth."
+    },
+    {
+     "n": 17,
+     "text": "‘In this body there is head hair, body hair, nails, teeth, skin, flesh, sinews, bones, bone marrow, kidneys, heart, liver, diaphragm, spleen, lungs, intestines, mesentery, undigested food, feces, bile, phlegm, pus,"
+    },
+    {
+     "n": 18,
+     "text": "blood, sweat, fat, tears, grease, saliva, snot, synovial fluid, urine.’"
+    },
+    {
+     "n": 19,
+     "text": "And so they meditate observing ugliness in this body."
+    },
+    {
+     "n": 20,
+     "text": "This is called the perception of ugliness."
+    },
+    {
+     "n": 21,
+     "text": "And what is the perception of drawbacks?"
+    },
+    {
+     "n": 22,
+     "text": "It’s when a mendicant has gone to a wilderness, or to the root of a tree, or to an empty hut, and reflects like this: ‘This body has much suffering and many drawbacks."
+    },
+    {
+     "n": 23,
+     "text": "For this body is beset with many kinds of affliction, such as the following."
+    },
+    {
+     "n": 24,
+     "text": "Diseases of the eye, inner ear, nose, tongue, body, head, outer ear, mouth, teeth, and lips."
+    },
+    {
+     "n": 25,
+     "text": "Cough, asthma, catarrh, inflammation, fever, stomach ache, fainting, dysentery, gastric pain, cholera, leprosy, boils, eczema, tuberculosis, epilepsy, herpes, itch, scabs, smallpox, scabies, hemorrhage, diabetes, piles,"
+    },
+    {
+     "n": 26,
+     "text": "pimples, and ulcers. Afflictions stemming from disorders of bile, phlegm, wind, or their conjunction."
+    },
+    {
+     "n": 27,
+     "text": "Afflictions caused by change in weather, by not taking care of yourself, by exertion, or as the result of past deeds."
+    },
+    {
+     "n": 28,
+     "text": "Cold, heat, hunger, thirst, defecation, and urination.’"
+    },
+    {
+     "n": 29,
+     "text": "And so they meditate observing drawbacks in this body."
+    },
+    {
+     "n": 30,
+     "text": "This is called the perception of drawbacks."
+    },
+    {
+     "n": 31,
+     "text": "And what is the perception of giving up?"
+    },
+    {
+     "n": 32,
+     "text": "It’s when a mendicant doesn’t tolerate a sensual, malicious, or cruel thought that has arisen, and they don’t tolerate any bad, unskillful qualities that have arisen, but give them up, dispel them, eliminate them,"
+    },
+    {
+     "n": 33,
+     "text": "and obliterate them. This is called the perception of giving up."
+    },
+    {
+     "n": 34,
+     "text": "And what is the perception of fading away?"
+    },
+    {
+     "n": 35,
+     "text": "It’s when a mendicant has gone to a wilderness, or to the root of a tree, or to an empty hut, and reflects like this: ‘This is peaceful;"
+    },
+    {
+     "n": 36,
+     "text": "this is sublime—that is, the stilling of all activities, the letting go of all attachments, the ending of craving, fading away, extinguishment.’"
+    },
+    {
+     "n": 37,
+     "text": "This is called the perception of fading away."
+    },
+    {
+     "n": 38,
+     "text": "And what is the perception of cessation?"
+    },
+    {
+     "n": 39,
+     "text": "It’s when a mendicant has gone to a wilderness, or to the root of a tree, or to an empty hut, and reflects like this: ‘This is peaceful;"
+    },
+    {
+     "n": 40,
+     "text": "this is sublime—that is, the stilling of all activities, the letting go of all attachments, the ending of craving, cessation, extinguishment.’"
+    },
+    {
+     "n": 41,
+     "text": "This is called the perception of cessation."
+    },
+    {
+     "n": 42,
+     "text": "And what is the perception of dissatisfaction with the whole world?"
+    },
+    {
+     "n": 43,
+     "text": "It’s when a mendicant lives giving up and not grasping on to the attraction and grasping to the world, the mental fixation, insistence, and underlying tendencies."
+    },
+    {
+     "n": 44,
+     "text": "This is called the perception of dissatisfaction with the whole world."
+    },
+    {
+     "n": 45,
+     "text": "And what is the perception of the impermanence of all conditions?"
+    },
+    {
+     "n": 46,
+     "text": "It’s when a mendicant is horrified, repelled, and disgusted with all conditions."
+    },
+    {
+     "n": 47,
+     "text": "This is called the perception of the impermanence of all conditions."
+    },
+    {
+     "n": 48,
+     "text": "And what is mindfulness of breathing? It’s when a mendicant has gone to a wilderness, or to the root of a tree, or to an empty hut, sits down cross-legged, sets their body straight, and brings mindfulness to the present."
+    },
+    {
+     "n": 49,
+     "text": "Just mindful, they breathe in. Mindful, they breathe out."
+    },
+    {
+     "n": 50,
+     "text": "Breathing in heavily they know: ‘I’m breathing in heavily.’"
+    },
+    {
+     "n": 51,
+     "text": "Breathing out heavily they know: ‘I’m breathing out heavily.’"
+    },
+    {
+     "n": 52,
+     "text": "Breathing in lightly they know: ‘I’m breathing in lightly.’"
+    },
+    {
+     "n": 53,
+     "text": "Breathing out lightly they know: ‘I’m breathing out lightly.’"
+    },
+    {
+     "n": 54,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the whole body.’"
+    },
+    {
+     "n": 55,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the whole body.’"
+    },
+    {
+     "n": 56,
+     "text": "They practice like this: ‘I’ll breathe in stilling the physical process.’"
+    },
+    {
+     "n": 57,
+     "text": "They practice like this: ‘I’ll breathe out stilling the physical process.’"
+    },
+    {
+     "n": 58,
+     "text": "They practice like this: ‘I’ll breathe in experiencing rapture.’"
+    },
+    {
+     "n": 59,
+     "text": "They practice like this: ‘I’ll breathe out experiencing rapture.’"
+    },
+    {
+     "n": 60,
+     "text": "They practice like this: ‘I’ll breathe in experiencing bliss.’"
+    },
+    {
+     "n": 61,
+     "text": "They practice like this: ‘I’ll breathe out experiencing bliss.’"
+    },
+    {
+     "n": 62,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the mental process.’"
+    },
+    {
+     "n": 63,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the mental process.’"
+    },
+    {
+     "n": 64,
+     "text": "They practice like this: ‘I’ll breathe in stilling the mental process.’"
+    },
+    {
+     "n": 65,
+     "text": "They practice like this: ‘I’ll breathe out stilling the mental process.’"
+    },
+    {
+     "n": 66,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the mind.’"
+    },
+    {
+     "n": 67,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the mind.’"
+    },
+    {
+     "n": 68,
+     "text": "They practice like this: ‘I’ll breathe in gladdening the mind.’"
+    },
+    {
+     "n": 69,
+     "text": "They practice like this: ‘I’ll breathe out gladdening the mind.’"
+    },
+    {
+     "n": 70,
+     "text": "They practice like this: ‘I’ll breathe in immersing the mind in samādhi.’"
+    },
+    {
+     "n": 71,
+     "text": "They practice like this: ‘I’ll breathe out immersing the mind in samādhi.’"
+    },
+    {
+     "n": 72,
+     "text": "They practice like this: ‘I’ll breathe in freeing the mind.’"
+    },
+    {
+     "n": 73,
+     "text": "They practice like this: ‘I’ll breathe out freeing the mind.’"
+    },
+    {
+     "n": 74,
+     "text": "They practice like this: ‘I’ll breathe in observing impermanence.’"
+    },
+    {
+     "n": 75,
+     "text": "They practice like this: ‘I’ll breathe out observing impermanence.’"
+    },
+    {
+     "n": 76,
+     "text": "They practice like this: ‘I’ll breathe in observing fading away.’"
+    },
+    {
+     "n": 77,
+     "text": "They practice like this: ‘I’ll breathe out observing fading away.’"
+    },
+    {
+     "n": 78,
+     "text": "They practice like this: ‘I’ll breathe in observing cessation.’"
+    },
+    {
+     "n": 79,
+     "text": "They practice like this: ‘I’ll breathe out observing cessation.’"
+    },
+    {
+     "n": 80,
+     "text": "They practice like this: ‘I’ll breathe in observing letting go.’"
+    },
+    {
+     "n": 81,
+     "text": "They practice like this: ‘I’ll breathe out observing letting go.’"
+    },
+    {
+     "n": 82,
+     "text": "This is called mindfulness of breathing."
+    },
+    {
+     "n": 83,
+     "text": "If you were to recite to the mendicant Girimānanda these ten perceptions, it’s possible that after hearing them his illness will die down on the spot.”"
+    },
+    {
+     "n": 84,
+     "text": "Then Ānanda, having learned these ten perceptions from the Buddha himself, went to Girimānanda and recited them."
+    },
+    {
+     "n": 85,
+     "text": "Then after Girimānanda heard these ten perceptions his illness died down on the spot."
+    },
+    {
+     "n": 86,
+     "text": "And that’s how he recovered from that illness."
+    }
+   ]
+  }
+ ]
+}

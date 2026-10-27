@@ -1,0 +1,965 @@
+{
+ "id": "kinh-nam-quan-tuong",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tăng Chi Bộ",
+ "reference": "AN 5.57",
+ "summary": "Bài kinh trong Tăng Chi Bộ, Đức Phật dạy năm sự kiện mà người nam hay nữ, tại gia hay xuất gia đều nên thường xuyên quán sát: mình sẽ già, sẽ bệnh, sẽ chết, mọi thứ ưa thích rồi sẽ đổi khác, và mình là chủ nhân của nghiệp mình làm. Mỗi sự kiện được nêu kèm lợi ích là làm giảm kiêu mạn và tham đắm, giúp bớt làm điều ác.",
+ "titles": {
+  "vi": "Kinh Năm Sự Kiện Cần Quán Sát",
+  "pli": "Abhiṇhapaccavekkhitabbaṭhānasutta",
+  "en": "Subjects for Regular Reviewing"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 20,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/an5.57/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh nầy được Hòa thượng Thích Minh Châu dịch từ tạng Pali sang Việt ngữ năm 1976–1977, và được Viện Phật Học Vạn Hạnh, Sài Gòn, ấn hành năm 1980–1981. Trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được hiệu đính thành 4 tập và tái bản năm 1996, qua số thứ tự 21, 22, 23, và 24. These texts have been used with the kind permission of the webmaster of http://www.budsas.net/",
+   "lines": [
+    {
+     "n": 1,
+     "text": "—Có năm sự kiện này, này các Tỷ-kheo, cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia. Thế nào là năm?"
+    },
+    {
+     "n": 2,
+     "text": "“Ta phải bị già, không thoát khỏi già” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 3,
+     "text": "“Ta phải bị bệnh, không thoát khỏi bệnh” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 4,
+     "text": "“Ta phải bị chết, không thoát khỏi chết” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 5,
+     "text": "“Tất cả pháp khả ái, khả ý đối với ta sẽ phải đổi khác, sẽ phải biến diệt”, là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 6,
+     "text": "“Ta là chủ nhân của nghiệp, là thừa tự của nghiệp, nghiệp là thai tạng, nghiệp là quyến thuộc, nghiệp là điểm tựa."
+    },
+    {
+     "n": 7,
+     "text": "Phàm nghiệp nào ta sẽ làm thiện hay ác, ta sẽ thừa tự nghiệp ấy” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 8,
+     "text": "Và do duyên lợi ích như thế nào, này các Tỷ-kheo, “Ta phải bị già, không thoát khỏi già”, là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 9,
+     "text": "Có những loài hữu tình, này các Tỷ-kheo, đang còn trẻ, kiêu mạn trong tuổi trẻ, say đắm trong kiêu mạn ấy, thân làm ác, miệng nói ác, ý nghĩ ác."
+    },
+    {
+     "n": 10,
+     "text": "Do vị ấy thường xuyên quán sát sự kiện này, sự kiêu mạn tuổi trẻ trong tuổi trẻ được hoàn toàn đoạn tận hay được giảm thiểu."
+    },
+    {
+     "n": 11,
+     "text": "Do duyên lợi ích này, này các Tỷ-kheo, “Ta phải bị già, không thoát khỏi già”, cần phải thường xuyên quán sát như vậy bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 12,
+     "text": "Do duyên lợi ích như thế nào, này các Tỷ-kheo, “Ta phải bị bệnh, ta không thoát khỏi bệnh” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia?"
+    },
+    {
+     "n": 13,
+     "text": "Có những loài hữu tình khỏe mạnh, này các Tỷ-kheo, kiêu mạn trong khỏe mạnh."
+    },
+    {
+     "n": 14,
+     "text": "Do say đắm trong kiêu mạn ấy, thân làm ác, miệng nói ác, ý nghĩ ác."
+    },
+    {
+     "n": 15,
+     "text": "Do vị ấy thường xuyên quán sát sự kiện này, sự kiêu mạn khỏe mạnh trong khỏe mạnh được hoàn toàn đoạn tận hay được giảm thiểu."
+    },
+    {
+     "n": 16,
+     "text": "Do duyên lợi ích này, này các Tỷ-kheo, “Ta phải bị bệnh, không thoát khỏi bệnh” cần phải thường xuyên quán sát như vậy bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 17,
+     "text": "Do duyên lợi ích như thế nào, này các Tỷ-kheo, “Ta phải bị chết, ta không thoát khỏi chết”, là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia?"
+    },
+    {
+     "n": 18,
+     "text": "Có những lời hữu tình đang sống, này các Tỷ-kheo, kiêu mạn trong sự sống."
+    },
+    {
+     "n": 19,
+     "text": "Do say đắm trong kiêu mạn ấy, thân làm ác, miệng nói ác, ý nghĩ ác."
+    },
+    {
+     "n": 20,
+     "text": "Do vị ấy thường xuyên quán sát sự kiện này, sự kiêu mạn sự sống trong sự sống được hoàn toàn đoạn tận hay được giảm thiểu."
+    },
+    {
+     "n": 21,
+     "text": "Do duyên lợi ích này, này các Tỷ-kheo, “Ta phải bị chết, không thoát khỏi chết”, cần phải thường xuyên quán sát như vậy bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 22,
+     "text": "Do duyên lợi ích như thế nào, này các Tỷ-kheo, “Tất cả pháp khả ái, khả hỷ đối với ta sẽ phải đổi khác, sẽ phải biến diệt” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia?"
+    },
+    {
+     "n": 23,
+     "text": "Có những loài hữu tình, này các Tỷ-kheo, có lòng tham dục đối với các vật khả ái."
+    },
+    {
+     "n": 24,
+     "text": "Do say đắm với lòng tham dục ấy, thân làm ác, miệng nói ác, ý nghĩ ác."
+    },
+    {
+     "n": 25,
+     "text": "Do vị ấy thường xuyên quán sát sự kiện ấy, nên tham dục đối với các vật khả ái được đoạn tận hoàn toàn hay được giảm thiểu."
+    },
+    {
+     "n": 26,
+     "text": "Do duyên lợi ích này, này các Tỷ-kheo, “Tất cả pháp khả ái, khả hỷ đối với ta sẽ phải đổi khác, phải biến diệt” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 27,
+     "text": "Và do duyên lợi ích như thế nào, này các Tỷ-kheo, “Ta là chủ nhân của nghiệp, là thừa tự của nghiệp, nghiệp là thai tạng, nghiệp là quyến thuộc, nghiệp là điểm tựa."
+    },
+    {
+     "n": 28,
+     "text": "Phàm nghiệp nào ta sẽ làm, thiện hay ác, ta sẽ thừa tự nghiệp ấy” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia?"
+    },
+    {
+     "n": 29,
+     "text": "Có những loài hữu tình, này các Tỷ-kheo, thân làm ác, miệng nói ác, ý nghĩ ác."
+    },
+    {
+     "n": 30,
+     "text": "Do vị ấy thường xuyên quán sát như vậy, ác hạnh được hoàn toàn đoạn tận hay được giảm thiểu."
+    },
+    {
+     "n": 31,
+     "text": "Do duyên lợi ích này, này các Tỷ-kheo, “Ta là chủ nhân của nghiệp, là thừa tự của nghiệp, nghiệp là thai tạng, nghiệp là quyến thuộc, nghiệp là điểm tựa."
+    },
+    {
+     "n": 32,
+     "text": "Phàm nghiệp nào ta sẽ làm, thiện hay ác, ta sẽ thừa tự nghiệp ấy” là sự kiện cần phải thường xuyên quán sát bởi nữ nhân hay nam nhân, bởi tại gia hay xuất gia."
+    },
+    {
+     "n": 33,
+     "text": "Nếu vị Thánh đệ tử, này các Tỷ-kheo, suy tư như sau:"
+    },
+    {
+     "n": 34,
+     "text": "“Không phải chỉ một mình ta già, không thoát khỏi già, nhưng phàm có những loài hữu tình nào có đến, có đi, có diệt, có sanh, tất cả loài hữu tình ấy phải bị già, không thoát khỏi già”."
+    },
+    {
+     "n": 35,
+     "text": "Do vị ấy thường xuyên quán sát sự kiện ấy, con đường được sanh khởi."
+    },
+    {
+     "n": 36,
+     "text": "Vị ấy sử dụng con đường ấy, tu tập, làm cho sung mãn."
+    },
+    {
+     "n": 37,
+     "text": "Do vị ấy sử dụng con đường ấy, tu tập, làm cho sung mãn nên các kiết sử được đoạn tận, các tùy miên được chấm dứt."
+    },
+    {
+     "n": 38,
+     "text": "“Không phải chỉ một mình ta bị bệnh, không thoát khỏi bệnh, nhưng phàm có những loài hữu tình nào có đến, có đi, có diệt, có sanh, tất cả loài hữu tình ấy phải bị bệnh, không thoát khỏi bệnh”."
+    },
+    {
+     "n": 39,
+     "text": "Do vị ấy thường xuyên quán sát sự kiện ấy, con đường được sanh khởi."
+    },
+    {
+     "n": 40,
+     "text": "Vị ấy sử dụng con đường ấy, tu tập, làm cho sung mãn."
+    },
+    {
+     "n": 41,
+     "text": "Do vị ấy sử dụng con đường ấy, tu tập, làm cho sung mãn, nên các kiết sử được đoạn tận, các tùy miên được chấm dứt."
+    },
+    {
+     "n": 42,
+     "text": "“Không phải chỉ một mình ta bị chết, không thoát khỏi chết, nhưng phàm có những loài hữu tình nào, có đến, có đi, có diệt, có sanh, tất cả các loài hữu tình ấy phải bị chết, không thoát khỏi chết…” …"
+    },
+    {
+     "n": 43,
+     "text": "“Không phải chỉ có các pháp khả ái, khả ý của riêng một mình ta sẽ phải đổi khác, sẽ phải biến diệt."
+    },
+    {
+     "n": 44,
+     "text": "Phàm có các loài hữu tình nào có đến, có đi, có diệt, có sanh, các pháp khả ái, khả ý của tất cả loài hữu tình ấy sẽ phải đổi khác, sẽ phải biến diệt…”."
+    },
+    {
+     "n": 45,
+     "text": "“Không phải chỉ có một mình ta là chủ nhân của nghiệp, là thừa tự của nghiệp, nghiệp là thai tạng, nghiệp là quyến thuộc, nghiệp là điểm tựa."
+    },
+    {
+     "n": 46,
+     "text": "Phàm nghiệp nào ta sẽ làm, thiện hay ác ta sẽ thừa tự nghiệp ấy”."
+    },
+    {
+     "n": 47,
+     "text": "Phàm có các loài hữu tình nào có đến, có đi, có diệt, có sanh, tất cả các loài hữu tình ấy là chủ nhân của nghiệp, là thừa tự của nghiệp, nghiệp là thai tạng, nghiệp là quyến thuộc, nghiệp là điểm tựa."
+    },
+    {
+     "n": 48,
+     "text": "Phàm nghiệp nào họ sẽ làm thiện hay ác, họ sẽ thừa tự nghiệp ấy."
+    },
+    {
+     "n": 49,
+     "text": "Do vị ấy thường xuyên quán sát dự kiện ấy, nên con đường được sanh khởi."
+    },
+    {
+     "n": 50,
+     "text": "Vị ấy sử dụng con đường ấy, tu tập, làm cho sung mãn."
+    },
+    {
+     "n": 51,
+     "text": "Do vị ấy sử dụng con đường ấy, tu tập, làm cho sung mãn, nên các kiết sử dụng được đoạn tận, các tùy miên được chấm dứt."
+    },
+    {
+     "n": 52,
+     "text": "Bị bệnh và bị già,"
+    },
+    {
+     "n": 53,
+     "text": "Lại thêm phải bị chết,"
+    },
+    {
+     "n": 54,
+     "text": "Pháp yếu là như vậy,"
+    },
+    {
+     "n": 55,
+     "text": "Hữu tình là như vậy."
+    },
+    {
+     "n": 56,
+     "text": "Phàm phu sanh nhàm chán,"
+    },
+    {
+     "n": 57,
+     "text": "Thật không hợp cho Ta,"
+    },
+    {
+     "n": 58,
+     "text": "Nếu Ta cũng nhàm chán,"
+    },
+    {
+     "n": 59,
+     "text": "Đối với các chúng sanh,"
+    },
+    {
+     "n": 60,
+     "text": "Cùng chung một số phận."
+    },
+    {
+     "n": 61,
+     "text": "Trong khi đời sống Ta,"
+    },
+    {
+     "n": 62,
+     "text": "Không khác gì đời họ,"
+    },
+    {
+     "n": 63,
+     "text": "Ta được sống như vậy,"
+    },
+    {
+     "n": 64,
+     "text": "Biết pháp không sanh y,"
+    },
+    {
+     "n": 65,
+     "text": "Kiêu mạn trong không bệnh,"
+    },
+    {
+     "n": 66,
+     "text": "Trong tuổi trẻ sinh mạng,"
+    },
+    {
+     "n": 67,
+     "text": "Tất cả Ta nhiếp phục"
+    },
+    {
+     "n": 68,
+     "text": "Phát xuất từ an ổn,"
+    },
+    {
+     "n": 69,
+     "text": "Ta thấy hạnh viễn ly,"
+    },
+    {
+     "n": 70,
+     "text": "Ta phát tâm dõng mãnh,"
+    },
+    {
+     "n": 71,
+     "text": "Thấy được cảnh Niết-bàn."
+    },
+    {
+     "n": 72,
+     "text": "Nay Ta không có thể,"
+    },
+    {
+     "n": 73,
+     "text": "Hưởng thọ các dục vọng,"
+    },
+    {
+     "n": 74,
+     "text": "Ta sẽ không thối đọa,"
+    },
+    {
+     "n": 75,
+     "text": "Chứng cứu cánh Phạm hạnh."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an5.57/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Pañcimāni, bhikkhave, ṭhānāni abhiṇhaṁ paccavekkhitabbāni itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā. Katamāni pañca?"
+    },
+    {
+     "n": 2,
+     "text": "‘Jarādhammomhi, jaraṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 3,
+     "text": "‘Byādhidhammomhi, byādhiṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 4,
+     "text": "‘Maraṇadhammomhi, maraṇaṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 5,
+     "text": "‘Sabbehi me piyehi manāpehi nānābhāvo vinābhāvo’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 6,
+     "text": "‘Kammassakomhi, kammadāyādo kammayoni kammabandhu kammapaṭisaraṇo."
+    },
+    {
+     "n": 7,
+     "text": "Yaṁ kammaṁ karissāmi—kalyāṇaṁ vā pāpakaṁ vā— tassa dāyādo bhavissāmī’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 8,
+     "text": "Kiñca, bhikkhave, atthavasaṁ paṭicca ‘jarādhammomhi, jaraṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā?"
+    },
+    {
+     "n": 9,
+     "text": "Atthi, bhikkhave, sattānaṁ yobbane yobbanamado, yena madena mattā kāyena duccaritaṁ caranti, vācāya duccaritaṁ caranti, manasā duccaritaṁ caranti."
+    },
+    {
+     "n": 10,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato yo yobbane yobbanamado so sabbaso vā pahīyati tanu vā pana hoti."
+    },
+    {
+     "n": 11,
+     "text": "Idaṁ kho, bhikkhave, atthavasaṁ paṭicca ‘jarādhammomhi, jaraṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 12,
+     "text": "Kiñca, bhikkhave, atthavasaṁ paṭicca ‘byādhidhammomhi, byādhiṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā?"
+    },
+    {
+     "n": 13,
+     "text": "Atthi, bhikkhave, sattānaṁ ārogye ārogyamado, yena madena mattā kāyena duccaritaṁ caranti, vācāya duccaritaṁ caranti, manasā duccaritaṁ caranti."
+    },
+    {
+     "n": 14,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato yo ārogye ārogyamado so sabbaso vā pahīyati tanu vā pana hoti."
+    },
+    {
+     "n": 15,
+     "text": "Idaṁ kho, bhikkhave, atthavasaṁ paṭicca ‘byādhidhammomhi, byādhiṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 16,
+     "text": "Kiñca, bhikkhave, atthavasaṁ paṭicca ‘maraṇadhammomhi, maraṇaṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā?"
+    },
+    {
+     "n": 17,
+     "text": "Atthi, bhikkhave, sattānaṁ jīvite jīvitamado, yena madena mattā kāyena duccaritaṁ caranti, vācāya duccaritaṁ caranti, manasā duccaritaṁ caranti."
+    },
+    {
+     "n": 18,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato yo jīvite jīvitamado so sabbaso vā pahīyati tanu vā pana hoti."
+    },
+    {
+     "n": 19,
+     "text": "Idaṁ kho, bhikkhave, atthavasaṁ paṭicca ‘maraṇadhammomhi, maraṇaṁ anatīto’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 20,
+     "text": "Kiñca, bhikkhave, atthavasaṁ paṭicca ‘sabbehi me piyehi manāpehi nānābhāvo vinābhāvo’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā?"
+    },
+    {
+     "n": 21,
+     "text": "Atthi, bhikkhave, sattānaṁ piyesu manāpesu yo chandarāgo yena rāgena rattā kāyena duccaritaṁ caranti, vācāya duccaritaṁ caranti, manasā duccaritaṁ caranti."
+    },
+    {
+     "n": 22,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato yo piyesu manāpesu chandarāgo so sabbaso vā pahīyati tanu vā pana hoti."
+    },
+    {
+     "n": 23,
+     "text": "Idaṁ kho, bhikkhave, atthavasaṁ paṭicca ‘sabbehi me piyehi manāpehi nānābhāvo vinābhāvo’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 24,
+     "text": "Kiñca, bhikkhave, atthavasaṁ paṭicca ‘kammassakomhi, kammadāyādo kammayoni kammabandhu kammapaṭisaraṇo,"
+    },
+    {
+     "n": 25,
+     "text": "yaṁ kammaṁ karissāmi— kalyāṇaṁ vā pāpakaṁ vā—tassa dāyādo bhavissāmī’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā?"
+    },
+    {
+     "n": 26,
+     "text": "Atthi, bhikkhave, sattānaṁ kāyaduccaritaṁ vacīduccaritaṁ manoduccaritaṁ."
+    },
+    {
+     "n": 27,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato sabbaso vā duccaritaṁ pahīyati tanu vā pana hoti."
+    },
+    {
+     "n": 28,
+     "text": "Idaṁ kho, bhikkhave, atthavasaṁ paṭicca ‘kammassakomhi, kammadāyādo kammayoni kammabandhu kammapaṭisaraṇo,"
+    },
+    {
+     "n": 29,
+     "text": "yaṁ kammaṁ karissāmi— kalyāṇaṁ vā pāpakaṁ vā— tassa dāyādo bhavissāmī’ti abhiṇhaṁ paccavekkhitabbaṁ itthiyā vā purisena vā gahaṭṭhena vā pabbajitena vā."
+    },
+    {
+     "n": 30,
+     "text": "Sa kho so, bhikkhave, ariyasāvako iti paṭisañcikkhati: ‘na kho ahaññeveko jarādhammo jaraṁ anatīto, atha kho yāvatā sattānaṁ āgati gati cuti upapatti sabbe sattā jarādhammā jaraṁ anatītā’ti."
+    },
+    {
+     "n": 31,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato maggo sañjāyati."
+    },
+    {
+     "n": 32,
+     "text": "So taṁ maggaṁ āsevati bhāveti bahulīkaroti."
+    },
+    {
+     "n": 33,
+     "text": "Tassa taṁ maggaṁ āsevato bhāvayato bahulīkaroto saṁyojanāni sabbaso pahīyanti anusayā byantīhonti."
+    },
+    {
+     "n": 34,
+     "text": "‘Na kho ahaññeveko byādhidhammo byādhiṁ anatīto, atha kho yāvatā sattānaṁ āgati gati cuti upapatti sabbe sattā byādhidhammā byādhiṁ anatītā’ti."
+    },
+    {
+     "n": 35,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato maggo sañjāyati."
+    },
+    {
+     "n": 36,
+     "text": "So taṁ maggaṁ āsevati bhāveti bahulīkaroti."
+    },
+    {
+     "n": 37,
+     "text": "Tassa taṁ maggaṁ āsevato bhāvayato bahulīkaroto saṁyojanāni sabbaso pahīyanti, anusayā byantīhonti."
+    },
+    {
+     "n": 38,
+     "text": "‘Na kho ahaññeveko maraṇadhammo maraṇaṁ anatīto, atha kho yāvatā sattānaṁ āgati gati cuti upapatti sabbe sattā maraṇadhammā maraṇaṁ anatītā’ti."
+    },
+    {
+     "n": 39,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato maggo sañjāyati."
+    },
+    {
+     "n": 40,
+     "text": "So taṁ maggaṁ āsevati bhāveti bahulīkaroti."
+    },
+    {
+     "n": 41,
+     "text": "Tassa taṁ maggaṁ āsevato bhāvayato bahulīkaroto saṁyojanāni sabbaso pahīyanti, anusayā byantīhonti."
+    },
+    {
+     "n": 42,
+     "text": "‘Na kho mayhevekassa sabbehi piyehi manāpehi nānābhāvo vinābhāvo, atha kho yāvatā sattānaṁ āgati gati cuti upapatti sabbesaṁ sattānaṁ piyehi manāpehi nānābhāvo vinābhāvo’ti."
+    },
+    {
+     "n": 43,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato maggo sañjāyati."
+    },
+    {
+     "n": 44,
+     "text": "So taṁ maggaṁ āsevati bhāveti bahulīkaroti."
+    },
+    {
+     "n": 45,
+     "text": "Tassa taṁ maggaṁ āsevato bhāvayato bahulīkaroto saṁyojanāni sabbaso pahīyanti, anusayā byantīhonti."
+    },
+    {
+     "n": 46,
+     "text": "‘Na kho ahaññeveko kammassako kammadāyādo kammayoni kammabandhu kammapaṭisaraṇo, yaṁ kammaṁ karissāmi—kalyāṇaṁ vā pāpakaṁ vā—tassa dāyādo bhavissāmi;"
+    },
+    {
+     "n": 47,
+     "text": "atha kho yāvatā sattānaṁ āgati gati cuti upapatti sabbe sattā kammassakā kammadāyādā kammayoni kammabandhu kammapaṭisaraṇā, yaṁ kammaṁ karissanti—kalyāṇaṁ vā pāpakaṁ vā—tassa dāyādā bhavissantī’ti."
+    },
+    {
+     "n": 48,
+     "text": "Tassa taṁ ṭhānaṁ abhiṇhaṁ paccavekkhato maggo sañjāyati."
+    },
+    {
+     "n": 49,
+     "text": "So taṁ maggaṁ āsevati bhāveti bahulīkaroti."
+    },
+    {
+     "n": 50,
+     "text": "Tassa taṁ maggaṁ āsevato bhāvayato bahulīkaroto saṁyojanāni sabbaso pahīyanti, anusayā byantīhontīti."
+    },
+    {
+     "n": 51,
+     "text": "Byādhidhammā jarādhammā,"
+    },
+    {
+     "n": 52,
+     "text": "atho maraṇadhammino;"
+    },
+    {
+     "n": 53,
+     "text": "Yathā dhammā tathā sattā,"
+    },
+    {
+     "n": 54,
+     "text": "jigucchanti puthujjanā."
+    },
+    {
+     "n": 55,
+     "text": "Ahañce taṁ jiguccheyyaṁ,"
+    },
+    {
+     "n": 56,
+     "text": "evaṁ dhammesu pāṇisu;"
+    },
+    {
+     "n": 57,
+     "text": "Na metaṁ patirūpassa,"
+    },
+    {
+     "n": 58,
+     "text": "mama evaṁ vihārino."
+    },
+    {
+     "n": 59,
+     "text": "Sohaṁ evaṁ viharanto,"
+    },
+    {
+     "n": 60,
+     "text": "ñatvā dhammaṁ nirūpadhiṁ;"
+    },
+    {
+     "n": 61,
+     "text": "Ārogye yobbanasmiñca,"
+    },
+    {
+     "n": 62,
+     "text": "jīvitasmiñca ye madā."
+    },
+    {
+     "n": 63,
+     "text": "Sabbe made abhibhosmi,"
+    },
+    {
+     "n": 64,
+     "text": "Nekkhammaṁ daṭṭhu khemato;"
+    },
+    {
+     "n": 65,
+     "text": "Tassa me ahu ussāho,"
+    },
+    {
+     "n": 66,
+     "text": "Nibbānaṁ abhipassato."
+    },
+    {
+     "n": 67,
+     "text": "Nāhaṁ bhabbo etarahi,"
+    },
+    {
+     "n": 68,
+     "text": "Kāmāni paṭisevituṁ;"
+    },
+    {
+     "n": 69,
+     "text": "Anivatti bhavissāmi,"
+    },
+    {
+     "n": 70,
+     "text": "Brahmacariyaparāyaṇo”ti."
+    },
+    {
+     "n": 71,
+     "text": "Sattamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an5.57/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Mendicants, a woman or a man, a layperson or a renunciate should often review these five subjects. What five?"
+    },
+    {
+     "n": 2,
+     "text": "‘I am liable to grow old, I am not exempt from old age.’"
+    },
+    {
+     "n": 3,
+     "text": "A woman or a man, a layperson or a renunciate should often review this."
+    },
+    {
+     "n": 4,
+     "text": "‘I am liable to get sick, I am not exempt from sickness.’ …"
+    },
+    {
+     "n": 5,
+     "text": "‘I am liable to die, I am not exempt from death.’ …"
+    },
+    {
+     "n": 6,
+     "text": "‘I must be parted and separated from all I hold dear and beloved.’ …"
+    },
+    {
+     "n": 7,
+     "text": "‘I am the owner of my deeds and heir to my deeds."
+    },
+    {
+     "n": 8,
+     "text": "Deeds are my womb, my relative, and my refuge."
+    },
+    {
+     "n": 9,
+     "text": "I shall be the heir of whatever deeds I do, whether good or bad.’"
+    },
+    {
+     "n": 10,
+     "text": "A woman or a man, a layperson or a renunciate should often review this."
+    },
+    {
+     "n": 11,
+     "text": "What is the advantage for a woman or a man, a layperson or a renunciate of often reviewing this: ‘I am liable to grow old, I am not exempt from old age’?"
+    },
+    {
+     "n": 12,
+     "text": "There are sentient beings who, intoxicated with the vanity of youth, do bad things by way of body, speech, and mind."
+    },
+    {
+     "n": 13,
+     "text": "Reviewing this subject often, they entirely give up the vanity of youth, or at least reduce it."
+    },
+    {
+     "n": 14,
+     "text": "This is the advantage for a woman or a man, a layperson or a renunciate of often reviewing this: ‘I am liable to grow old, I am not exempt from old age’."
+    },
+    {
+     "n": 15,
+     "text": "What is the advantage of often reviewing this: ‘I am liable to get sick, I am not exempt from sickness’?"
+    },
+    {
+     "n": 16,
+     "text": "There are sentient beings who, drunk on the vanity of health, do bad things by way of body, speech, and mind."
+    },
+    {
+     "n": 17,
+     "text": "Reviewing this subject often, they entirely give up the vanity of health, or at least reduce it."
+    },
+    {
+     "n": 18,
+     "text": "This is the advantage of often reviewing this: ‘I am liable to get sick, I am not exempt from sickness’."
+    },
+    {
+     "n": 19,
+     "text": "What is the advantage of often reviewing this: ‘I am liable to die, I am not exempt from death’?"
+    },
+    {
+     "n": 20,
+     "text": "There are sentient beings who, drunk on the vanity of life, do bad things by way of body, speech, and mind."
+    },
+    {
+     "n": 21,
+     "text": "Reviewing this subject often, they entirely give up the vanity of life, or at least reduce it."
+    },
+    {
+     "n": 22,
+     "text": "This is the advantage of often reviewing this: ‘I am liable to die, I am not exempt from death’."
+    },
+    {
+     "n": 23,
+     "text": "What is the advantage of often reviewing this: ‘I must be parted and separated from all I hold dear and beloved’?"
+    },
+    {
+     "n": 24,
+     "text": "There are sentient beings who, aroused by desire and lust for their dear and beloved, do bad things by way of body, speech, and mind."
+    },
+    {
+     "n": 25,
+     "text": "Reviewing this subject often, they entirely give up desire and lust for their dear and beloved, or at least reduce it."
+    },
+    {
+     "n": 26,
+     "text": "This is the advantage of often reviewing this: ‘I must be parted and separated from all I hold dear and beloved’."
+    },
+    {
+     "n": 27,
+     "text": "What is the advantage of often reviewing like this: ‘I am the owner of my deeds and heir to my deeds."
+    },
+    {
+     "n": 28,
+     "text": "Deeds are my womb, my relative, and my refuge."
+    },
+    {
+     "n": 29,
+     "text": "I shall be the heir of whatever deeds I do, whether good or bad’?"
+    },
+    {
+     "n": 30,
+     "text": "There are sentient beings who do bad things by way of body, speech, and mind."
+    },
+    {
+     "n": 31,
+     "text": "Reviewing this subject often, they entirely give up bad conduct, or at least reduce it."
+    },
+    {
+     "n": 32,
+     "text": "This is the advantage for a woman or a man, a layperson or a renunciate of often reviewing like this: ‘I am the owner of my deeds and heir to my deeds."
+    },
+    {
+     "n": 33,
+     "text": "Deeds are my womb, my relative, and my refuge."
+    },
+    {
+     "n": 34,
+     "text": "I shall be the heir of whatever deeds I do, whether good or bad.’"
+    },
+    {
+     "n": 35,
+     "text": "Then that noble disciple reflects: ‘It’s not just me who is liable to grow old, not being exempt from old age."
+    },
+    {
+     "n": 36,
+     "text": "For all sentient beings grow old according to their nature, as long as they come and go, pass away and are reborn.’"
+    },
+    {
+     "n": 37,
+     "text": "When they review this subject often, the path is born in them."
+    },
+    {
+     "n": 38,
+     "text": "They cultivate, develop, and make much of it."
+    },
+    {
+     "n": 39,
+     "text": "By doing so, they give up the fetters and eliminate the underlying tendencies."
+    },
+    {
+     "n": 40,
+     "text": "‘It’s not just me who is liable to get sick, not being exempt from sickness."
+    },
+    {
+     "n": 41,
+     "text": "For all sentient beings get sick according to their nature, as long as they come and go, pass away and are reborn.’"
+    },
+    {
+     "n": 42,
+     "text": "When they review this subject often, the path is born in them."
+    },
+    {
+     "n": 43,
+     "text": "They cultivate, develop, and make much of it."
+    },
+    {
+     "n": 44,
+     "text": "By doing so, they give up the fetters and eliminate the underlying tendencies."
+    },
+    {
+     "n": 45,
+     "text": "‘It’s not just me who is liable to die, not being exempt from death."
+    },
+    {
+     "n": 46,
+     "text": "For all sentient beings die according to their nature, as long as they come and go, pass away and are reborn.’"
+    },
+    {
+     "n": 47,
+     "text": "When they review this subject often, the path is born in them."
+    },
+    {
+     "n": 48,
+     "text": "They cultivate, develop, and make much of it."
+    },
+    {
+     "n": 49,
+     "text": "By doing so, they give up the fetters and eliminate the underlying tendencies."
+    },
+    {
+     "n": 50,
+     "text": "‘It’s not just me who must be parted and separated from all I hold dear and beloved."
+    },
+    {
+     "n": 51,
+     "text": "For all sentient beings must be parted and separated from all they hold dear and beloved, as long as they come and go, pass away and are reborn.’"
+    },
+    {
+     "n": 52,
+     "text": "When they review this subject often, the path is born in them."
+    },
+    {
+     "n": 53,
+     "text": "They cultivate, develop, and make much of it."
+    },
+    {
+     "n": 54,
+     "text": "By doing so, they give up the fetters and eliminate the underlying tendencies."
+    },
+    {
+     "n": 55,
+     "text": "‘It’s not just me who shall be the owner of my deeds and heir to my deeds."
+    },
+    {
+     "n": 56,
+     "text": "For all sentient beings shall be the owners of their deeds and heirs to their deeds, as long as they come and go, pass away and are reborn.’"
+    },
+    {
+     "n": 57,
+     "text": "When they review this subject often, the path is born in them."
+    },
+    {
+     "n": 58,
+     "text": "They cultivate, develop, and make much of it."
+    },
+    {
+     "n": 59,
+     "text": "By doing so, they give up the fetters and eliminate the underlying tendencies."
+    },
+    {
+     "n": 60,
+     "text": "For others, sickness is natural,"
+    },
+    {
+     "n": 61,
+     "text": "and so are old age and death."
+    },
+    {
+     "n": 62,
+     "text": "Though this is how their nature is,"
+    },
+    {
+     "n": 63,
+     "text": "ordinary people feel disgusted."
+    },
+    {
+     "n": 64,
+     "text": "If I were to be disgusted"
+    },
+    {
+     "n": 65,
+     "text": "with creatures whose nature is such,"
+    },
+    {
+     "n": 66,
+     "text": "it would not be appropriate for me,"
+    },
+    {
+     "n": 67,
+     "text": "since my life is just the same."
+    },
+    {
+     "n": 68,
+     "text": "Living in such a way,"
+    },
+    {
+     "n": 69,
+     "text": "I understood the truth without attachments."
+    },
+    {
+     "n": 70,
+     "text": "I mastered all vanities—"
+    },
+    {
+     "n": 71,
+     "text": "of health, of youth,"
+    },
+    {
+     "n": 72,
+     "text": "and even of life—"
+    },
+    {
+     "n": 73,
+     "text": "seeing renunciation as sanctuary."
+    },
+    {
+     "n": 74,
+     "text": "Zeal sprang up in me"
+    },
+    {
+     "n": 75,
+     "text": "as I looked to extinguishment."
+    },
+    {
+     "n": 76,
+     "text": "Now I’m unable"
+    },
+    {
+     "n": 77,
+     "text": "to indulge in sensual pleasures;"
+    },
+    {
+     "n": 78,
+     "text": "there’s no turning back,"
+    },
+    {
+     "n": 79,
+     "text": "I’m committed to the spiritual life.”"
+    }
+   ]
+  }
+ ]
+}

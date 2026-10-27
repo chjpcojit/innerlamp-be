@@ -1,0 +1,3057 @@
+{
+ "id": "chu-lang-nghiem",
+ "tradition": "MAHAYANA",
+ "kind": "DHARANI",
+ "collection": "Chú",
+ "reference": "Taishō T0945",
+ "originalTitle": "Đại Phật Đảnh Như Lai Mật Nhân Tu Chứng Liễu Nghĩa Chư Bồ Tát Vạn Hạnh Thủ Lăng Nghiêm Kinh",
+ "referenceNote": "Quyển 7",
+ "summary": "Thần chú (đà-la-ni) dài nằm trong Kinh Thủ Lăng Nghiêm (quyển 7, Taishō 945) của Phật giáo Đại thừa. Văn bản mở đầu bằng bài kệ tán và lời nguyện, sau đó là phần chú dịch âm Hán Việt từ tiếng Phạn, kết thúc bằng câu Ta bà ha. Chú thường được trì tụng trong các khóa lễ, đặc biệt ở các chùa theo truyền thống Hán truyền.",
+ "titles": {
+  "vi": "Thủ Lăng Nghiêm Thần Chú",
+  "zh": "楞嚴咒",
+  "sa": "Śūraṅgama Dhāraṇī",
+  "en": "Shurangama Mantra"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  },
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "TRI_CHU"
+ ],
+ "durationMinutes": 35,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Thiện Minh (tác giả bài đăng; bản Việt âm phổ thông, không ghi dịch giả)",
+   "sourceName": "Phatgiao.org.vn - \"Thần chú Lăng Nghiêm bản tiếng Việt, lợi ích to lớn khi trì chú thần chú Lăng Nghiêm\"",
+   "sourceUrl": "https://phatgiao.org.vn/than-chu-lang-nghiem-ban-tieng-viet-loi-ich-to-lon-khi-tri-chu-than-chu-lang-nghiem-d45329.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Nguồn ghi: bản dịch từ âm Phạn, âm Hán, âm Việt dùng chính thức trong kinh điển và nghi thức tụng niệm phổ thông. Gồm phần mở đầu (kệ + Nam-mô + \"Nhĩ thời Thế-Tôn...\") rồi 554 câu đánh số của 5 hội (Đệ Nhất 1-187, Nhị 188-232, Tam 233-363, Tứ 364-434, Ngũ 435-554); mỗi dòng = một câu của nguồn, trường \"section\" ghi hội. Bỏ ghi chú \"( 3 lần )\"; chuẩn hóa khoảng trắng quanh dấu phẩy/gạch nối (nguồn có \" ,\" và \" –\"); đổi chữ Đ kiểu cũ thành Đ. Giữ nguyên lỗi nguồn như \"ấn thố na mạ mạ tỏa\" (chữ \"ấn\" thường). Đối chiếu với \"Nghi thức tụng niệm hằng ngày\" (Thích Thiện Thành, dieungu.org PDF): ~144 chỗ khác biệt chủ yếu dà/già, câu/cu, c/t cuối âm (vd \"bà dà bà đế\" / \"bà già bà đế\", \"Đa tha dà đa\" / \"Đa tha già đa\", \"nhơn dà ra da\" / \"nhơn đà ra da\"); phần mở đầu của hai bản cũng khác (Thiện Thành dùng bản kệ Việt dịch).",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nam-Mô-Lăng-Nghiêm Hội-Thượng Phật Bồ Tát",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 2,
+     "text": "Diệu trạm tổng trì bất động tôn,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 3,
+     "text": "Thủ-Lăng-Nghiêm-Vương thế hi hữu,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 4,
+     "text": "Tiêu Ngã ức kiếp điên-đảo tưởng.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 5,
+     "text": "Bất lịch tăng-kỳ hoạch pháp thân,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 6,
+     "text": "Nguyện kim đắc quả thành bảo-vương,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 7,
+     "text": "Hườn độ như thị hằng sa chúng,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 8,
+     "text": "Tương thử thâm tâm phụng trần sát,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 9,
+     "text": "Thị tắc danh vị báo Phật ân:",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 10,
+     "text": "Phục thỉnh Thế-Tôn vị chứng minh,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 11,
+     "text": "Ngũ-trược ác-thế thệ tiên nhập,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 12,
+     "text": "Như nhứt chúng sanh vị thành Phật,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 13,
+     "text": "Chung bất ư thử thủ nê-hoàn.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 14,
+     "text": "Đại-hùng đại-lực đại-từ-bi,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 15,
+     "text": "Hi cánh thẩm trừ vi-tế hoặc,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 16,
+     "text": "Linh ngã tảo đăng vô-thượng giác,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 17,
+     "text": "Ư thập phương giới tọa đạo tràng;",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 18,
+     "text": "Thuấn nhã đa tánh khả tiêu vong,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 19,
+     "text": "Thước-ca-ra tâm vô động chuyển.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 20,
+     "text": "Nam-mô thường-trụ thập-phương Phật.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 21,
+     "text": "Nam-mô thường-trụ thập-phương Pháp.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 22,
+     "text": "Nam-mô thường-trụ thập-phương Tăng.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 23,
+     "text": "Nam-mô Thích-Ca Mâu-Ni Phật.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 24,
+     "text": "Nam-mô Phật Đảnh Thủ-Lăng-Nghiêm.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 25,
+     "text": "Nam-mô Quán-Thế-Âm Bồ-Tát.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 26,
+     "text": "Nam-mô Kim-Cang-Tạng Bồ-Tát.",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 27,
+     "text": "Nhĩ thời Thế-Tôn,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 28,
+     "text": "Tùng nhục-kế trung,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 29,
+     "text": "Dõng bá bảo-quang,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 30,
+     "text": "Quang trung dõng xuất,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 31,
+     "text": "Thiên diệp bảo liên,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 32,
+     "text": "Hữu hóa Như-Lai,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 33,
+     "text": "Tọa bảo hoa trung,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 34,
+     "text": "Đảnh phóng thập đạo,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 35,
+     "text": "Bá bảo quang-minh,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 36,
+     "text": "Nhứt nhứt quang-minh,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 37,
+     "text": "Giai biến thị hiện,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 38,
+     "text": "Thập hằng hà sa,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 39,
+     "text": "Kim-Cang mật tích,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 40,
+     "text": "Kình sơn trì sử,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 41,
+     "text": "Biến hư-không giới,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 42,
+     "text": "Đại chúng ngưỡng quan,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 43,
+     "text": "Ủy ái kiêm bảo,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 44,
+     "text": "Cầu Phật ai hựu,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 45,
+     "text": "Nhứt tâm thính Phật,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 46,
+     "text": "Vô-kiến đảnh tướng,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 47,
+     "text": "Phóng quang như Lai,",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 48,
+     "text": "Tuyên thuyết thần chú:",
+     "section": "Mở đầu"
+    },
+    {
+     "n": 49,
+     "text": "Nam-mô tát đát tha",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 50,
+     "text": "Tô già đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 51,
+     "text": "A ra ha đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 52,
+     "text": "Tam-miệu tam bồ đà tỏa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 53,
+     "text": "Nam mô tát đát tha",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 54,
+     "text": "Phật đà cu tri sắc ni sam",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 55,
+     "text": "Nam-mô tát bà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 56,
+     "text": "Bột đà bột địa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 57,
+     "text": "Tát đa bệ tệ",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 58,
+     "text": "Nam-mô tát đa nẩm",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 59,
+     "text": "Tam-miệu tam bồ đà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 60,
+     "text": "Cu tri nẩm",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 61,
+     "text": "Ta xá ra bà ca",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 62,
+     "text": "Tăng già nẩm",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 63,
+     "text": "Nam-mô lô kê A-La-Hán đa nẩm.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 64,
+     "text": "Nam-mô tô lô đa ba na nẩm.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 65,
+     "text": "Nam-mô ta yết rị đà dà di nẩm.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 66,
+     "text": "Nam-mô lô kê tam-miệu dà đa nẩm.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 67,
+     "text": "Tam-miệu dà ba ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 68,
+     "text": "Để ba đa na nẩm.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 69,
+     "text": "Nam-mô đề bà ly sắc nỏa.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 70,
+     "text": "Nam-mô tất đà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 71,
+     "text": "Tỳ địa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 72,
+     "text": "Đà ra ly sắc nỏa.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 73,
+     "text": "Xá ba noa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 74,
+     "text": "Yết ra ha",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 75,
+     "text": "Ta ha ta ra ma tha nẩm",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 76,
+     "text": "Nam-mô bạt ra ha ma ni",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 77,
+     "text": "Nam-mô nhơn dà ra da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 78,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 79,
+     "text": "Lô đà ra da.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 80,
+     "text": "Ô ma bát đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 81,
+     "text": "Ta hê dạ da.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 82,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 83,
+     "text": "Na ra dả",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 84,
+     "text": "Noa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 85,
+     "text": "Bàn dá ma ha tam mộ đà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 86,
+     "text": "Nam-mô tất yết rị đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 87,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 88,
+     "text": "Ma ha ca ra da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 89,
+     "text": "Địa rị bác lặc na",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 90,
+     "text": "Dà ra tỳ đà ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 91,
+     "text": "Ba noa ca ra da.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 92,
+     "text": "A địa mục đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 93,
+     "text": "Thi ma xá na nê",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 94,
+     "text": "Bà tất nê",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 95,
+     "text": "Ma đát rị dà noa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 96,
+     "text": "Nam-mô tất yết rị đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 97,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 98,
+     "text": "Đa tha dà đa câu ra da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 99,
+     "text": "Nam-mô bát đầu ma câu ra da.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 100,
+     "text": "Nam-mô bạc xà ra câu ra da.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 101,
+     "text": "Nam-mô ma ni câu ra da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 102,
+     "text": "Nam-mô dà xà câu ra da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 103,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 104,
+     "text": "Đế rị trà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 105,
+     "text": "Du ra tây na.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 106,
+     "text": "Ba ra ha ra noa ra xà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 107,
+     "text": "Đa tha dà đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 108,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 109,
+     "text": "Nam-mô A di đa bà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 110,
+     "text": "Đa tha dà đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 111,
+     "text": "A ra ha đế.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 112,
+     "text": "Tam-miệu tam bồ đà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 113,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 114,
+     "text": "A sô bệ da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 115,
+     "text": "Đa tha dà đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 116,
+     "text": "A ra ha đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 117,
+     "text": "Tam-miệu tam bồ đà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 118,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 119,
+     "text": "Bệ xa xà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 120,
+     "text": "Câu lô phệ trụ rị da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 121,
+     "text": "Bác ra bà ra xà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 122,
+     "text": "Đa tha dà đa da.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 123,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 124,
+     "text": "Tam bổ sư bí đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 125,
+     "text": "Tát lân nại ra lặc xà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 126,
+     "text": "Đa tha dà đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 127,
+     "text": "A ra ha đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 128,
+     "text": "Tam-miệu tam bồ đà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 129,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 130,
+     "text": "Xá kê dã mẫu na duệ",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 131,
+     "text": "Đa tha dà đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 132,
+     "text": "A ra ha đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 133,
+     "text": "Tam-miệu tam bồ đà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 134,
+     "text": "Nam-mô bà dà bà đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 135,
+     "text": "Lặc đát na kê đô ra xà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 136,
+     "text": "Đa tha dà đa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 137,
+     "text": "A ra ha đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 138,
+     "text": "Tam-miệu tam bồ đà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 139,
+     "text": "Đế biều",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 140,
+     "text": "Nam-mô tát yết rị đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 141,
+     "text": "ế đàm bà dà bà đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 142,
+     "text": "Tát đác tha dà đô sắc ni sam",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 143,
+     "text": "Tát đác đa bát đác lam",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 144,
+     "text": "Nam-mô a bà ra thị đam",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 145,
+     "text": "Bác ra đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 146,
+     "text": "Dương kỳ ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 147,
+     "text": "Tát ra bà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 148,
+     "text": "Bộ đa yết ra ha",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 149,
+     "text": "Ni yết ra ha",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 150,
+     "text": "Yết ca ra ha ni",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 151,
+     "text": "Bạt ra bí địa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 152,
+     "text": "Sất đà nể",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 153,
+     "text": "A ca ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 154,
+     "text": "Mật rị trụ",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 155,
+     "text": "Bát rị đác ra da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 156,
+     "text": "Nảnh yết rị",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 157,
+     "text": "Tát ra bà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 158,
+     "text": "Bàn đà na",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 159,
+     "text": "Mục xoa ni",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 160,
+     "text": "Tát ra bà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 161,
+     "text": "Đột sắc tra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 162,
+     "text": "Đột tất phạp",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 163,
+     "text": "Bát na nể",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 164,
+     "text": "Phạt ra ni",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 165,
+     "text": "Giả đô ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 166,
+     "text": "Thất đế nẩm",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 167,
+     "text": "Yết ra ha",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 168,
+     "text": "Ta ha tát ra nhã xà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 169,
+     "text": "Tỳ đa băng ta na yết rị",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 170,
+     "text": "A sắc tra băng xá đế nẩm",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 171,
+     "text": "Na xoa sát đác ra nhã xà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 172,
+     "text": "Ba ra tát đà na yết rị",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 173,
+     "text": "A sắc tra nẩm",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 174,
+     "text": "Ma ha yết ra ha nhã xà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 175,
+     "text": "Tỳ đa băng tát na yết rị",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 176,
+     "text": "Tát bà xá đô lô",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 177,
+     "text": "Nể bà ra nhã xà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 178,
+     "text": "Hô lam đột tất phạp",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 179,
+     "text": "Nan giá na xá ni",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 180,
+     "text": "Bí sa xá",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 181,
+     "text": "Tất đác ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 182,
+     "text": "A kiết ni",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 183,
+     "text": "Ô đà ca ra nhã xà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 184,
+     "text": "A bát ra thị đa câu ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 185,
+     "text": "Ma ha bác ra chiến trì",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 186,
+     "text": "Ma ha điệp đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 187,
+     "text": "Ma ha đế xà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 188,
+     "text": "Ma ha thuế đa xà bà ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 189,
+     "text": "Ma ha bạt ra bàn đà ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 190,
+     "text": "Bà tất nể",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 191,
+     "text": "A rị da đa ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 192,
+     "text": "Tỳ rị câu tri",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 193,
+     "text": "Thệ bà tỳ xà da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 194,
+     "text": "Bạt xà ra ma lễ để",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 195,
+     "text": "Tỳ xá lô đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 196,
+     "text": "Bột đằng dõng ca",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 197,
+     "text": "Bạt xà ra chế hắt na a giá",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 198,
+     "text": "Ma ra chế bà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 199,
+     "text": "Bát ra chất đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 200,
+     "text": "Bạt xà ra thiện trì",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 201,
+     "text": "Tỳ xá ra giá",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 202,
+     "text": "Phiến đa xá",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 203,
+     "text": "Bệ để bà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 204,
+     "text": "Bổ thị đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 205,
+     "text": "Tô ma lô ba",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 206,
+     "text": "Ma ha thuế đa",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 207,
+     "text": "A rị da đa ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 208,
+     "text": "Ma ha bà ra a bác ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 209,
+     "text": "Bạt xà ra thương yết ra chế bà",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 210,
+     "text": "Bạt xà ra câu ma rị",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 211,
+     "text": "Câu lam đà rị",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 212,
+     "text": "Bạt xà ra hắt tát đa giá",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 213,
+     "text": "Tỳ địa da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 214,
+     "text": "Kiền dá na",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 215,
+     "text": "Ma rị ca",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 216,
+     "text": "Khuất tô mẫu",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 217,
+     "text": "Bà yết ra đá na",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 218,
+     "text": "Bệ lô giá na",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 219,
+     "text": "Câu rị da",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 220,
+     "text": "Dạ ra thố",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 221,
+     "text": "Sắc ni sam",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 222,
+     "text": "Tỳ chiếc lam bà ma ni giá.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 223,
+     "text": "Bạt xà ra ca na ca ba ra bà.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 224,
+     "text": "Lồ xà na",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 225,
+     "text": "Bạt xà ra đốn trỉ giá",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 226,
+     "text": "Thuế đa giá",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 227,
+     "text": "Ca ma ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 228,
+     "text": "Sát sa thi",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 229,
+     "text": "Ba ra bà.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 230,
+     "text": "ế đế di đế",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 231,
+     "text": "Mẫu đà ra",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 232,
+     "text": "Yết noa.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 233,
+     "text": "Ta bệ ra sám",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 234,
+     "text": "Quật phạm đô",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 235,
+     "text": "ấn thố na mạ mạ tỏa.",
+     "section": "Hội thứ nhất"
+    },
+    {
+     "n": 236,
+     "text": "Ô Hồng",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 237,
+     "text": "Rị sắc yết noa",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 238,
+     "text": "Bác lặc xá tất đa",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 239,
+     "text": "Tát đác tha",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 240,
+     "text": "Già đô sắc ni sam",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 241,
+     "text": "Hổ hồng đô lô ung",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 242,
+     "text": "Chiêm bà na",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 243,
+     "text": "Hổ hồng đô lô ung",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 244,
+     "text": "Tất đam bà na",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 245,
+     "text": "Hổ hồng đô lô ung",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 246,
+     "text": "Ba ra sắc địa da",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 247,
+     "text": "Tam bác xoa",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 248,
+     "text": "Noa yết ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 249,
+     "text": "Hổ hồng đô lô ung",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 250,
+     "text": "Tát bà dược xoa",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 251,
+     "text": "Hắt ra sát ta",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 252,
+     "text": "Yết ra ha nhã xà",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 253,
+     "text": "Tỳ đằng băng tát na yết ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 254,
+     "text": "Hổ hồng đô lô ung",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 255,
+     "text": "Giả đô ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 256,
+     "text": "Thi để nẩm",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 257,
+     "text": "Yết ra ha",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 258,
+     "text": "Ta ha tát ra nẩm",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 259,
+     "text": "Tỳ đằng băng tát na ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 260,
+     "text": "Hổ hồng đô lô ung",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 261,
+     "text": "Ra xoa",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 262,
+     "text": "Bà già phạm",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 263,
+     "text": "Tát đác tha",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 264,
+     "text": "Già đô sắc ni sam",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 265,
+     "text": "Ba ra điểm",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 266,
+     "text": "Xà kiết rị",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 267,
+     "text": "Ma ha ta ha tát ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 268,
+     "text": "Bột thọ ta ha tát ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 269,
+     "text": "Thất rị sa",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 270,
+     "text": "Câu tri ta ha tát nê",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 271,
+     "text": "Đế lệ a tệ đề thị bà rị đa",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 272,
+     "text": "Tra tra anh ca",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 273,
+     "text": "Ma ha bạt xà lô đà ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 274,
+     "text": "Đế rị bồ bà na",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 275,
+     "text": "Man trà ra",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 276,
+     "text": "Ô hồng",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 277,
+     "text": "Ta tất đế",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 278,
+     "text": "Bạt bà đô",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 279,
+     "text": "Mạ mạ",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 280,
+     "text": "ấn thố na mạ mạ tỏa.",
+     "section": "Hội thứ hai"
+    },
+    {
+     "n": 281,
+     "text": "Ra xà bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 282,
+     "text": "Chủ ra bạt dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 283,
+     "text": "A kỳ ni bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 284,
+     "text": "Ô đà ca bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 285,
+     "text": "Tỳ xa bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 286,
+     "text": "Xá tát đa ra bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 287,
+     "text": "Bà ra chước yết ra bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 288,
+     "text": "Đột sắc xoa bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 289,
+     "text": "A xá nể bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 290,
+     "text": "A ca ra",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 291,
+     "text": "Mật rị trụ bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 292,
+     "text": "Đà ra nị bộ di kiếm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 293,
+     "text": "Ba già ba đà bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 294,
+     "text": "Ô ra ca bà đa bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 295,
+     "text": "Lặc xà đàn trà bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 296,
+     "text": "Na dà bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 297,
+     "text": "Tỳ điều đát bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 298,
+     "text": "Tô ba ra noa bà dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 299,
+     "text": "Dược xoa yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 300,
+     "text": "Ra xoa tư yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 301,
+     "text": "Tất rị đa yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 302,
+     "text": "Tỳ xá giá yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 303,
+     "text": "Bô đa yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 304,
+     "text": "Cưu bàn trà yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 305,
+     "text": "Bổ đơn na yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 306,
+     "text": "Ca tra bổ đơn na yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 307,
+     "text": "Tất kiền độ yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 308,
+     "text": "A bá tất ma ra yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 309,
+     "text": "Ô đàn ma đà yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 310,
+     "text": "Xa dạ yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 311,
+     "text": "Hê rị bà đế yết ra ha",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 312,
+     "text": "Xả đa ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 313,
+     "text": "Yết bà ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 314,
+     "text": "Lô địa ra ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 315,
+     "text": "Mang ta ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 316,
+     "text": "Mê đà ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 317,
+     "text": "Ma xà ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 318,
+     "text": "Xà đa ha rị nữ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 319,
+     "text": "Thị tỷ đa ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 320,
+     "text": "Tỳ đa ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 321,
+     "text": "Bà đa ha rị nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 322,
+     "text": "A du giá ha rị nữ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 323,
+     "text": "Chất đa ha rị nữ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 324,
+     "text": "Đế sam tát bệ sam",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 325,
+     "text": "Tát bà yết ra ha nẩm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 326,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 327,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 328,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 329,
+     "text": "Ba rị bạt ra giả ca",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 330,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 331,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 332,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 333,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 334,
+     "text": "Trà diễn ni",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 335,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 336,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 337,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 338,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 339,
+     "text": "Ma ha bát du bát đác dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 340,
+     "text": "Lô đà ra",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 341,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 342,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 343,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 344,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 345,
+     "text": "Na ra dạ noa",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 346,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 347,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 348,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 349,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 350,
+     "text": "Đát đỏa dà lô trà tây",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 351,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 352,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 353,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 354,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 355,
+     "text": "Ma ha ca ra",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 356,
+     "text": "Ma đác rị già noa",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 357,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 358,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 359,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 360,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 361,
+     "text": "Ca ba rị ca",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 362,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 363,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 364,
+     "text": "Sân đà dạ di.",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 365,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 366,
+     "text": "Xà dạ yết ra",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 367,
+     "text": "Ma độ yết ra",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 368,
+     "text": "Tát bà ra tha ta đạt na",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 369,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 370,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 371,
+     "text": "Sân dà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 372,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 373,
+     "text": "Giả đốt ra",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 374,
+     "text": "Bà kỳ nể",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 375,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 376,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 377,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 378,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 379,
+     "text": "Tỳ rị dương hất rị tri",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 380,
+     "text": "Nan đà kê sa ra",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 381,
+     "text": "Dà noa bác đế",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 382,
+     "text": "Sách hê dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 383,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 384,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 385,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 386,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 387,
+     "text": "Na yết na xá ra bà noa",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 388,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 389,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 390,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 391,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 392,
+     "text": "A-la-hán",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 393,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 394,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 395,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 396,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 397,
+     "text": "Tỳ đa ra dà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 398,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 399,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 400,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 401,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 402,
+     "text": "Bạt xà ra ba nể",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 403,
+     "text": "Câu hê dạ câu hê dạ",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 404,
+     "text": "Ca địa bát đế",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 405,
+     "text": "Hất rị đởm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 406,
+     "text": "Tỳ đà dạ xà",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 407,
+     "text": "Sân đà dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 408,
+     "text": "Kê ra dạ di",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 409,
+     "text": "Ra xoa vỏng",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 410,
+     "text": "Bà dà phạm",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 411,
+     "text": "ấn thố na mạ mạ tỏa",
+     "section": "Hội thứ ba"
+    },
+    {
+     "n": 412,
+     "text": "Bà dà phạm",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 413,
+     "text": "Tát đác đa bát đác ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 414,
+     "text": "Nam-mô tý đô đế",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 415,
+     "text": "A tất đa na ra lặc ca",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 416,
+     "text": "Ba ra bà",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 417,
+     "text": "Tất phổ tra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 418,
+     "text": "Tỳ ca tát đác đa bát đế rị",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 419,
+     "text": "Thập Phật ra thập Phật ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 420,
+     "text": "Đà ra đà ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 421,
+     "text": "Tần đà ra tần đà ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 422,
+     "text": "Sân đà sân đà",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 423,
+     "text": "Hổ hồng hổ hồng.",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 424,
+     "text": "Phấn tra phấn tra phấn tra phấn tra phấn tra.",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 425,
+     "text": "Ta ha",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 426,
+     "text": "Hê hê phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 427,
+     "text": "A mâu ca da phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 428,
+     "text": "A ba ra đề ha da phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 429,
+     "text": "Ba ra bà ra đà phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 430,
+     "text": "A tố ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 431,
+     "text": "Tỳ đà ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 432,
+     "text": "Ba ca phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 433,
+     "text": "Tát bà đề bệ tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 434,
+     "text": "Tát bà na dà tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 435,
+     "text": "Tát bà dược xoa tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 436,
+     "text": "Tát bà kiền thát bà tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 437,
+     "text": "Tát bà bổ đơn na tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 438,
+     "text": "Ca tra bổ đơn na tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 439,
+     "text": "Tát bà đột lang chỉ đế tệ phấn.",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 440,
+     "text": "Tát bà đột sáp tỷ lê",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 441,
+     "text": "Hất sắc đế tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 442,
+     "text": "Tát bà thập bà lê tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 443,
+     "text": "Tát bà a bá tất ma lê tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 444,
+     "text": "Tát bà xá ra bà noa tệ phấn.",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 445,
+     "text": "Tát bà địa đế kê tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 446,
+     "text": "Tát bà đát ma đà kê tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 447,
+     "text": "Tát bà tệ đà da",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 448,
+     "text": "Ra thệ giá lê tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 449,
+     "text": "Xà dạ yết ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 450,
+     "text": "Ma độ yết ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 451,
+     "text": "Tát bà ra tha ta đà kê tệ phấn.",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 452,
+     "text": "Tỳ địa dạ",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 453,
+     "text": "Giá lê tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 454,
+     "text": "Giả đô ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 455,
+     "text": "Phược kỳ nể tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 456,
+     "text": "Bạt xà ra",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 457,
+     "text": "Câu ma rị;",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 458,
+     "text": "Tỳ đà dạ",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 459,
+     "text": "La thệ tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 460,
+     "text": "Ma ha ba ra đinh dương",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 461,
+     "text": "Xoa kỳ rị tệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 462,
+     "text": "Bạt xà ra thương yết ra dạ",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 463,
+     "text": "Ba ra trượng kỳ ra xà da phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 464,
+     "text": "Ma ha ca ra dạ",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 465,
+     "text": "Ma ha mạt đát rị ca noa",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 466,
+     "text": "Nam-mô ta yết rị đa da phấn.",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 467,
+     "text": "Tỷ sắc noa tỳ duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 468,
+     "text": "Bột ra ha mâu ni duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 469,
+     "text": "A kỳ ni duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 470,
+     "text": "Ma ha yết rị duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 471,
+     "text": "yết ra đàn tri duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 472,
+     "text": "Miệc đát rị duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 473,
+     "text": "Lao đát rị duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 474,
+     "text": "Giá văn trà duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 475,
+     "text": "Yết la ra đác rị duệ phấn.",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 476,
+     "text": "Ca bát rị duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 477,
+     "text": "A địa mục chất đa",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 478,
+     "text": "Ca thi ma xá na",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 479,
+     "text": "Bà tư nể duệ phấn",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 480,
+     "text": "Diễn kiết chất",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 481,
+     "text": "Tát đỏa bà tỏa",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 482,
+     "text": "Mạ mạ ấn thố na mạ mạ tỏa",
+     "section": "Hội thứ tư"
+    },
+    {
+     "n": 483,
+     "text": "Đột sắc tra chất đa",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 484,
+     "text": "A mạt đác rị chất đa",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 485,
+     "text": "Ô xà ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 486,
+     "text": "Dà ba ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 487,
+     "text": "Lô địa ra ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 488,
+     "text": "Ta bà ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 489,
+     "text": "Ma xà ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 490,
+     "text": "Xà đa ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 491,
+     "text": "Thị tỉ đa ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 492,
+     "text": "Bạt lược dạ ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 493,
+     "text": "Kiền đà ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 494,
+     "text": "Bố sữ ba ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 495,
+     "text": "Phả ra ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 496,
+     "text": "Bà tả ha ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 497,
+     "text": "Bát ba chất đa",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 498,
+     "text": "Đột sắc tra chất đa.",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 499,
+     "text": "Lao đà ra chất đa",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 500,
+     "text": "Dược xoa yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 501,
+     "text": "Ra sát ta yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 502,
+     "text": "Bế lệ đa yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 503,
+     "text": "Tỳ xá giá yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 504,
+     "text": "Bộ đa yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 505,
+     "text": "Cưu bàn trà yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 506,
+     "text": "Tất kiền đà yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 507,
+     "text": "Ô đát ma đà yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 508,
+     "text": "Xa dạ yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 509,
+     "text": "A bá tất ma ra yết ra ha.",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 510,
+     "text": "Trạch khê cách",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 511,
+     "text": "Trà kỳ ni yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 512,
+     "text": "Rị Phật đế yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 513,
+     "text": "Xà di ca yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 514,
+     "text": "Xá câu ni yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 515,
+     "text": "Lao đà ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 516,
+     "text": "Nan địa ca yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 517,
+     "text": "A lam bà yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 518,
+     "text": "Kiền độ ba ni yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 519,
+     "text": "Thập phạt ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 520,
+     "text": "Yên ca hê ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 521,
+     "text": "Trị đế dược ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 522,
+     "text": "Đát lệ đế dược ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 523,
+     "text": "Giả đột thác ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 524,
+     "text": "Ni đề thập phạt ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 525,
+     "text": "Tỉ sam ma thập phạt ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 526,
+     "text": "Bạt để ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 527,
+     "text": "Tỷ để ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 528,
+     "text": "Thất lệ sắc mật ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 529,
+     "text": "Ta nể bát để ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 530,
+     "text": "Tát bà thập phạt ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 531,
+     "text": "Thất lô kiết đế",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 532,
+     "text": "Mạt đà bệ đạt lô chế kiếm",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 533,
+     "text": "A ỷ lô kiềm",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 534,
+     "text": "Mục khê lô kiềm",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 535,
+     "text": "Yết rị đột lô kiềm",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 536,
+     "text": "Yết ra ha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 537,
+     "text": "Yết lam yết noa du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 538,
+     "text": "Đản đa du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 539,
+     "text": "Hất rị dạ du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 540,
+     "text": "Mạt mạ du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 541,
+     "text": "Bạt rị thất bà du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 542,
+     "text": "Tỷ lật sắc tra du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 543,
+     "text": "Ô đà ra du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 544,
+     "text": "Yết tri du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 545,
+     "text": "Bạt tất đế du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 546,
+     "text": "Ô lô du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 547,
+     "text": "Thường dà du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 548,
+     "text": "Hắc tất đa du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 549,
+     "text": "Bạt đà du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 550,
+     "text": "Ta phòng án dà",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 551,
+     "text": "Bát ra trượng dà du lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 552,
+     "text": "Bộ đa tỷ đa trà",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 553,
+     "text": "Trà kỳ ni",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 554,
+     "text": "Thập bà ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 555,
+     "text": "Đà đột lô ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 556,
+     "text": "Kiến đốt lô kiết tri",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 557,
+     "text": "Bà lộ đa tỳ",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 558,
+     "text": "Tát bát lô",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 559,
+     "text": "Ha lăng già",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 560,
+     "text": "Du sa đát ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 561,
+     "text": "Ta na yết ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 562,
+     "text": "Tỳ sa dụ ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 563,
+     "text": "A kỳ ni",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 564,
+     "text": "Ô đà ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 565,
+     "text": "Mạt ra bệ ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 566,
+     "text": "Kiến đa ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 567,
+     "text": "A ca ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 568,
+     "text": "Mật rị đốt",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 569,
+     "text": "Đát liểm bộ ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 570,
+     "text": "Địa lật lặc tra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 571,
+     "text": "Tỷ rị sắc chất ca",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 572,
+     "text": "Tát bà na câu ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 573,
+     "text": "Tứ dẫn dà tệ",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 574,
+     "text": "Yết ra rị dược xoa",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 575,
+     "text": "Đác ra sô",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 576,
+     "text": "Mạt ra thị",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 577,
+     "text": "Phệ đế sam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 578,
+     "text": "Ta bệ sam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 579,
+     "text": "Tất đát đa bát đác ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 580,
+     "text": "Ma ha bạt xà lô",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 581,
+     "text": "Sắc ni sam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 582,
+     "text": "Ma ha bát lặc trượng kỳ lam",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 583,
+     "text": "Dạ ba đột đà",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 584,
+     "text": "Xá dụ xà na",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 585,
+     "text": "Biện đát lệ noa",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 586,
+     "text": "Tỳ đà da",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 587,
+     "text": "Bàn đàm ca lô di",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 588,
+     "text": "Đế thù",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 589,
+     "text": "Bàn đàm ca lô di",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 590,
+     "text": "Bát ra tỳ đà",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 591,
+     "text": "Bàn đàm ca lô di",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 592,
+     "text": "Đát điệt tha",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 593,
+     "text": "Án",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 594,
+     "text": "A na lệ",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 595,
+     "text": "Tỳ xá đề",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 596,
+     "text": "Bệ ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 597,
+     "text": "Bạt xà ra",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 598,
+     "text": "Đà rị",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 599,
+     "text": "Bàn đà bàn đà nể",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 600,
+     "text": "Bạt xà ra bán ni phấn",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 601,
+     "text": "Hổ hồng đô lô ung phấn",
+     "section": "Hội thứ năm"
+    },
+    {
+     "n": 602,
+     "text": "Ta bà ha.",
+     "section": "Hội thứ năm"
+    }
+   ]
+  }
+ ]
+}

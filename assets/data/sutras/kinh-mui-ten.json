@@ -1,0 +1,713 @@
+{
+ "id": "kinh-mui-ten",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tương Ưng Bộ",
+ "reference": "SN 36.6",
+ "summary": "Bài kinh trong Tương Ưng Bộ, Đức Phật so sánh người phàm phu và bậc Thánh đệ tử khi gặp khổ thọ. Người phàm sầu muộn, than khóc nên chịu thêm khổ tâm, như bị bắn thêm mũi tên thứ hai; bậc Thánh đệ tử chỉ cảm thọ khổ thân, không thêm khổ tâm. Phần kệ nói về người trí không bị cảm thọ chi phối, hướng đến giải thoát.",
+ "titles": {
+  "vi": "Kinh Mũi Tên",
+  "pli": "Sallasutta",
+  "en": "An Arrow"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/sn36.6/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh đã được Hòa thượng Thích Minh Châu dịch sang Việt ngữ và Thiền viện Vạn Hạnh phát hành trong đầu thập niên 1980. Sau đó, trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được tái bản năm 1993 và có số thứ tự từ 12 đến 16.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "… —Này các Tỷ-kheo, kẻ vô văn phàm phu, cảm thọ cảm giác lạc thọ, cảm thọ cảm giác khổ thọ, cảm thọ cảm giác bất khổ bất lạc thọ."
+    },
+    {
+     "n": 2,
+     "text": "Này các Tỷ-kheo, bậc Đa văn Thánh đệ tử cũng cảm thọ cảm giác lạc thọ, cảm thọ cảm giác khổ thọ, cảm thọ cảm giác bất khổ bất lạc thọ."
+    },
+    {
+     "n": 3,
+     "text": "Ở đây, này các Tỷ-kheo, thế nào là đặc thù, thế nào là thù thắng, thế nào là sai biệt giữa bậc Đa văn Thánh đệ tử và kẻ vô văn phàm phu?"
+    },
+    {
+     "n": 4,
+     "text": "—Bạch Thế Tôn, các pháp lấy Thế Tôn làm căn bản …"
+    },
+    {
+     "n": 5,
+     "text": "—Này các Tỷ-kheo, kẻ vô văn phàm phu khi cảm xúc khổ thọ, sầu muộn, than vãn, khóc lóc, đấm ngực, đi đến bất tỉnh."
+    },
+    {
+     "n": 6,
+     "text": "Vị ấy cảm giác hai cảm thọ, cảm thọ về thân và cảm thọ về tâm."
+    },
+    {
+     "n": 7,
+     "text": "Ví như, này các Tỷ-kheo, có người bị người ta bắn với mũi tên, rồi họ bắn người ấy với mũi tên thứ hai."
+    },
+    {
+     "n": 8,
+     "text": "Như vậy, này các Tỷ-kheo, người ấy cảm giác cảm thọ cả hai mũi tên."
+    },
+    {
+     "n": 9,
+     "text": "Cũng vậy, này các Tỷ-kheo, kẻ vô văn phàm phu khi cảm xúc khổ thọ; thời sầu muộn, than vãn, khóc lóc, đấm ngực, đi đến bất tỉnh."
+    },
+    {
+     "n": 10,
+     "text": "Người ấy cảm giác hai cảm thọ, cảm thọ về thân và cảm thọ về tâm."
+    },
+    {
+     "n": 11,
+     "text": "Cảm xúc bởi khổ thọ ấy, người ấy cảm thấy sân hận (patigha)."
+    },
+    {
+     "n": 12,
+     "text": "Do cảm thấy sân hận đối với khổ thọ ấy, sân tùy miên đối với khổ thọ được tồn chỉ tùy miên (anuseti)."
+    },
+    {
+     "n": 13,
+     "text": "Cảm xúc bởi khổ thọ, người ấy hoan hỷ dục lạc. Vì sao?"
+    },
+    {
+     "n": 14,
+     "text": "Vì rằng, này các Tỷ-kheo, kẻ vô văn phàm phu không tìm thấy một sự xuất ly khổ thọ nào khác, ngoài dục lạc."
+    },
+    {
+     "n": 15,
+     "text": "Do hoan hỷ dục lạc ấy, tham tùy miên đối với lạc thọ tồn tại."
+    },
+    {
+     "n": 16,
+     "text": "Người ấy không như thật rõ biết sự tập khởi, sự đoạn diệt, vị ngọt, sự nguy hiểm và sự xuất ly của các cảm thọ ấy."
+    },
+    {
+     "n": 17,
+     "text": "Do người ấy không như thật rõ biết sự tập khởi, sự đoạn diệt, vị ngọt, sự nguy hiểm và sự xuất ly của các cảm thọ ấy, nên vô minh tùy miên đối với bất khổ bất lạc thọ tồn tại."
+    },
+    {
+     "n": 18,
+     "text": "Nếu người ấy cảm thọ cảm giác lạc thọ, người ấy cảm thọ cảm giác như người bị trói buộc (sannutto)."
+    },
+    {
+     "n": 19,
+     "text": "Nếu người ấy cảm thọ cảm giác khổ thọ, người ấy cảm thọ cảm giác như người bị trói buộc."
+    },
+    {
+     "n": 20,
+     "text": "Nếu người ấy cảm thọ cảm giác bất khổ bất lạc thọ, người ấy cảm thọ cảm giác như người bị trói buộc."
+    },
+    {
+     "n": 21,
+     "text": "Này các Tỷ-kheo, đây gọi là kẻ vô văn phàm phu bị trói buộc bởi sanh, già, chết, sầu, bi, khổ, ưu, não."
+    },
+    {
+     "n": 22,
+     "text": "Ta nói rằng người ấy bị trói buộc bởi đau khổ."
+    },
+    {
+     "n": 23,
+     "text": "Và này các Tỷ-kheo, bậc Đa văn Thánh đệ tử khi cảm xúc khổ thọ thời không có sầu muộn, không có than vãn, không có khóc lóc, không có đấm ngực, không có đi đến bất tỉnh."
+    },
+    {
+     "n": 24,
+     "text": "Vị ấy chỉ cảm thọ cảm giác một cảm thọ, tức là cảm thọ về thân, không phải cảm thọ về tâm."
+    },
+    {
+     "n": 25,
+     "text": "Ví như, này các Tỷ-kheo, có người bị người ta bắn một mũi tên."
+    },
+    {
+     "n": 26,
+     "text": "Họ không bắn tiếp người ấy với mũi tên thứ hai."
+    },
+    {
+     "n": 27,
+     "text": "Như vậy, này các Tỷ-kheo, người ấy cảm giác cảm thọ của một mũi tên."
+    },
+    {
+     "n": 28,
+     "text": "Cũng vậy, này các Tỷ-kheo, bậc Đa văn Thánh đệ tử khi cảm xúc khổ thọ; vị ấy không sầu muộn, không than vãn, không khóc lóc, không đấm ngực, không đi đến bất tỉnh."
+    },
+    {
+     "n": 29,
+     "text": "Vị ấy cảm giác chỉ một cảm thọ, cảm thọ về thân, không phải cảm thọ về tâm."
+    },
+    {
+     "n": 30,
+     "text": "Vị ấy không cảm thấy sân hận đối với khổ thọ ấy."
+    },
+    {
+     "n": 31,
+     "text": "Do không cảm thấy sân hận đối với khổ thọ ấy, sân tùy miên đối với khổ thọ không có tồn tại."
+    },
+    {
+     "n": 32,
+     "text": "Cảm xúc bởi khổ thọ, vị ấy không hoan hỷ dục lạc. Vì sao?"
+    },
+    {
+     "n": 33,
+     "text": "Vì bậc Đa văn Thánh đệ tử có tuệ tri một sự xuất ly khác đối với khổ thọ, ngoài dục lạc."
+    },
+    {
+     "n": 34,
+     "text": "Vì vị ấy không hoan hỷ dục lạc, tham tùy miên đối với dục lạc không có tồn tại."
+    },
+    {
+     "n": 35,
+     "text": "Vị ấy như thật tuệ tri sự tập khởi, sự đoạn diệt, vị ngọt, sự nguy hiểm và sự xuất ly của những cảm thọ ấy."
+    },
+    {
+     "n": 36,
+     "text": "Vì rằng, vị ấy như thật tuệ tri sự tập khởi, sự đoạn diệt, vị ngọt, sự nguy hiểm và sự xuất ly của các cảm thọ ấy."
+    },
+    {
+     "n": 37,
+     "text": "Vì rằng, vị ấy như thật tuệ tri sự tập khởi, sự đoạn diệt, vị ngọt, sự nguy hiểm và sự xuất ly của các cảm thọ ấy, đối với bất khổ bất lạc thọ, vô minh tùy miên không có tồn tại."
+    },
+    {
+     "n": 38,
+     "text": "Nếu vị ấy cảm thọ lạc thọ, vị ấy cảm thọ lạc thọ như người không bị trói buộc."
+    },
+    {
+     "n": 39,
+     "text": "Nếu vị ấy cảm thọ cảm giác khổ thọ, vị ấy cảm thọ cảm giác như người không bị trói buộc."
+    },
+    {
+     "n": 40,
+     "text": "Nếu vị ấy cảm thọ cảm giác bất khổ bất lạc thọ, vị ấy cảm thọ cảm giác như người không bị trói buộc."
+    },
+    {
+     "n": 41,
+     "text": "Này các Tỷ-kheo, đây gọi là Tỷ-kheo không bị trói buộc bởi sanh, già, chết, sầu, bi, khổ, ưu, ão."
+    },
+    {
+     "n": 42,
+     "text": "Ta nói rằng vị ấy không bị trói buộc bởi đau khổ."
+    },
+    {
+     "n": 43,
+     "text": "Này các Tỷ-kheo, đây là sự đặc thù, đây là thù thắng, đây là sự sai biệt giữa bậc Đa văn Thánh đệ tử và kẻ vô văn phàm phu."
+    },
+    {
+     "n": 44,
+     "text": "Bậc Trí tuệ Đa văn,"
+    },
+    {
+     "n": 45,
+     "text": "Lạc khổ không chi phối,"
+    },
+    {
+     "n": 46,
+     "text": "Giữa kẻ trí, phàm phu,"
+    },
+    {
+     "n": 47,
+     "text": "Thiện sai biệt rất lớn."
+    },
+    {
+     "n": 48,
+     "text": "Bậc Đa văn, Tầm pháp,"
+    },
+    {
+     "n": 49,
+     "text": "Thấy đời này, đời sau,"
+    },
+    {
+     "n": 50,
+     "text": "Ái pháp không phá tâm,"
+    },
+    {
+     "n": 51,
+     "text": "Không ái, không sân hận."
+    },
+    {
+     "n": 52,
+     "text": "Tùy thuận hay đối nghịch,"
+    },
+    {
+     "n": 53,
+     "text": "Tiêu tán, diệt, không còn,"
+    },
+    {
+     "n": 54,
+     "text": "Vị ấy biết con đường,"
+    },
+    {
+     "n": 55,
+     "text": "Đường không cấu, không sầu,"
+    },
+    {
+     "n": 56,
+     "text": "Chánh trí, đoạn tái sanh,"
+    },
+    {
+     "n": 57,
+     "text": "Đến được bờ giác ngộ."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn36.6/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Assutavā, bhikkhave, puthujjano sukhampi vedanaṁ vedayati, dukkhampi vedanaṁ vedayati, adukkhamasukhampi vedanaṁ vedayati."
+    },
+    {
+     "n": 2,
+     "text": "Sutavā, bhikkhave, ariyasāvako sukhampi vedanaṁ vedayati, dukkhampi vedanaṁ vedayati, adukkhamasukhampi vedanaṁ vedayati."
+    },
+    {
+     "n": 3,
+     "text": "Tatra, bhikkhave, ko viseso ko adhippayāso kiṁ nānākaraṇaṁ sutavato ariyasāvakassa assutavatā puthujjanenā”ti?"
+    },
+    {
+     "n": 4,
+     "text": "Bhagavaṁmūlakā no, bhante, dhammā …pe…"
+    },
+    {
+     "n": 5,
+     "text": "assutavā, bhikkhave, puthujjano dukkhāya vedanāya phuṭṭho samāno socati kilamati paridevati urattāḷiṁ kandati sammohaṁ āpajjati."
+    },
+    {
+     "n": 6,
+     "text": "So dve vedanā vedayati— kāyikañca, cetasikañca."
+    },
+    {
+     "n": 7,
+     "text": "Seyyathāpi, bhikkhave, purisaṁ sallena vijjheyya."
+    },
+    {
+     "n": 8,
+     "text": "Tamenaṁ dutiyena sallena anuvedhaṁ vijjheyya."
+    },
+    {
+     "n": 9,
+     "text": "Evañhi so, bhikkhave, puriso dvisallena vedanaṁ vedayati."
+    },
+    {
+     "n": 10,
+     "text": "Evameva kho, bhikkhave, assutavā puthujjano dukkhāya vedanāya phuṭṭho samāno socati kilamati paridevati urattāḷiṁ kandati sammohaṁ āpajjati."
+    },
+    {
+     "n": 11,
+     "text": "So dve vedanā vedayati— kāyikañca, cetasikañca."
+    },
+    {
+     "n": 12,
+     "text": "Tassāyeva kho pana dukkhāya vedanāya phuṭṭho samāno paṭighavā hoti."
+    },
+    {
+     "n": 13,
+     "text": "Tamenaṁ dukkhāya vedanāya paṭighavantaṁ, yo dukkhāya vedanāya paṭighānusayo, so anuseti."
+    },
+    {
+     "n": 14,
+     "text": "So dukkhāya vedanāya phuṭṭho samāno kāmasukhaṁ abhinandati. Taṁ kissa hetu?"
+    },
+    {
+     "n": 15,
+     "text": "Na hi so, bhikkhave, pajānāti assutavā puthujjano aññatra kāmasukhā dukkhāya vedanāya nissaraṇaṁ, tassa kāmasukhañca abhinandato, yo sukhāya vedanāya rāgānusayo, so anuseti."
+    },
+    {
+     "n": 16,
+     "text": "So tāsaṁ vedanānaṁ samudayañca atthaṅgamañca assādañca ādīnavañca nissaraṇañca yathābhūtaṁ nappajānāti."
+    },
+    {
+     "n": 17,
+     "text": "Tassa tāsaṁ vedanānaṁ samudayañca atthaṅgamañca assādañca ādīnavañca nissaraṇañca yathābhūtaṁ appajānato, yo adukkhamasukhāya vedanāya avijjānusayo, so anuseti."
+    },
+    {
+     "n": 18,
+     "text": "So sukhañce vedanaṁ vedayati, saññutto naṁ vedayati."
+    },
+    {
+     "n": 19,
+     "text": "Dukkhañce vedanaṁ vedayati, saññutto naṁ vedayati."
+    },
+    {
+     "n": 20,
+     "text": "Adukkhamasukhañce vedanaṁ vedayati, saññutto naṁ vedayati."
+    },
+    {
+     "n": 21,
+     "text": "Ayaṁ vuccati, bhikkhave, ‘assutavā puthujjano saññutto jātiyā jarāya maraṇena sokehi paridevehi dukkhehi domanassehi upāyāsehi, saññutto dukkhasmā’ti vadāmi."
+    },
+    {
+     "n": 22,
+     "text": "Sutavā ca kho, bhikkhave, ariyasāvako dukkhāya vedanāya phuṭṭho samāno na socati, na kilamati, na paridevati, na urattāḷiṁ kandati, na sammohaṁ āpajjati."
+    },
+    {
+     "n": 23,
+     "text": "So ekaṁ vedanaṁ vedayati— kāyikaṁ, na cetasikaṁ."
+    },
+    {
+     "n": 24,
+     "text": "Seyyathāpi, bhikkhave, purisaṁ sallena vijjheyya."
+    },
+    {
+     "n": 25,
+     "text": "Tamenaṁ dutiyena sallena anuvedhaṁ na vijjheyya."
+    },
+    {
+     "n": 26,
+     "text": "Evañhi so, bhikkhave, puriso ekasallena vedanaṁ vedayati."
+    },
+    {
+     "n": 27,
+     "text": "Evameva kho, bhikkhave, sutavā ariyasāvako dukkhāya vedanāya phuṭṭho samāno na socati, na kilamati, na paridevati, na urattāḷiṁ kandati, na sammohaṁ āpajjati."
+    },
+    {
+     "n": 28,
+     "text": "So ekaṁ vedanaṁ vedayati— kāyikaṁ, na cetasikaṁ."
+    },
+    {
+     "n": 29,
+     "text": "Tassāyeva kho pana dukkhāya vedanāya phuṭṭho samāno paṭighavā na hoti."
+    },
+    {
+     "n": 30,
+     "text": "Tamenaṁ dukkhāya vedanāya appaṭighavantaṁ, yo dukkhāya vedanāya paṭighānusayo, so nānuseti."
+    },
+    {
+     "n": 31,
+     "text": "So dukkhāya vedanāya phuṭṭho samāno kāmasukhaṁ nābhinandati. Taṁ kissa hetu?"
+    },
+    {
+     "n": 32,
+     "text": "Pajānāti hi so, bhikkhave, sutavā ariyasāvako aññatra kāmasukhā dukkhāya vedanāya nissaraṇaṁ."
+    },
+    {
+     "n": 33,
+     "text": "Tassa kāmasukhaṁ nābhinandato yo sukhāya vedanāya rāgānusayo, so nānuseti."
+    },
+    {
+     "n": 34,
+     "text": "So tāsaṁ vedanānaṁ samudayañca atthaṅgamañca assādañca ādīnavaṁ ca nissaraṇañca yathābhūtaṁ pajānāti."
+    },
+    {
+     "n": 35,
+     "text": "Tassa tāsaṁ vedanānaṁ samudayañca atthaṅgamañca assādañca ādīnavañca nissaraṇañca yathābhūtaṁ pajānato, yo adukkhamasukhāya vedanāya avijjānusayo, so nānuseti."
+    },
+    {
+     "n": 36,
+     "text": "So sukhañce vedanaṁ vedayati, visaññutto naṁ vedayati."
+    },
+    {
+     "n": 37,
+     "text": "Dukkhañce vedanaṁ vedayati, visaññutto naṁ vedayati."
+    },
+    {
+     "n": 38,
+     "text": "Adukkhamasukhañce vedanaṁ vedayati, visaññutto naṁ vedayati."
+    },
+    {
+     "n": 39,
+     "text": "Ayaṁ vuccati, bhikkhave, ‘sutavā ariyasāvako visaññutto jātiyā jarāya maraṇena sokehi paridevehi dukkhehi domanassehi upāyāsehi, visaññutto dukkhasmā’ti vadāmi."
+    },
+    {
+     "n": 40,
+     "text": "Ayaṁ kho, bhikkhave, viseso, ayaṁ adhippayāso, idaṁ nānākaraṇaṁ sutavato ariyasāvakassa assutavatā puthujjanenāti."
+    },
+    {
+     "n": 41,
+     "text": "Na vedanaṁ vedayati sapañño,"
+    },
+    {
+     "n": 42,
+     "text": "Sukhampi dukkhampi bahussutopi;"
+    },
+    {
+     "n": 43,
+     "text": "Ayañca dhīrassa puthujjanena,"
+    },
+    {
+     "n": 44,
+     "text": "Mahā viseso kusalassa hoti."
+    },
+    {
+     "n": 45,
+     "text": "Saṅkhātadhammassa bahussutassa,"
+    },
+    {
+     "n": 46,
+     "text": "Vipassato lokamimaṁ parañca;"
+    },
+    {
+     "n": 47,
+     "text": "Iṭṭhassa dhammā na mathenti cittaṁ,"
+    },
+    {
+     "n": 48,
+     "text": "Aniṭṭhato no paṭighātameti."
+    },
+    {
+     "n": 49,
+     "text": "Tassānurodhā athavā virodhā,"
+    },
+    {
+     "n": 50,
+     "text": "Vidhūpitā atthagatā na santi;"
+    },
+    {
+     "n": 51,
+     "text": "Padañca ñatvā virajaṁ asokaṁ,"
+    },
+    {
+     "n": 52,
+     "text": "Sammā pajānāti bhavassa pāragū”ti."
+    },
+    {
+     "n": 53,
+     "text": "Chaṭṭhaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn36.6/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Mendicants, an unlearned ordinary person feels pleasant, painful, and neutral feelings."
+    },
+    {
+     "n": 2,
+     "text": "A learned noble disciple also feels pleasant, painful, and neutral feelings."
+    },
+    {
+     "n": 3,
+     "text": "What, then, is the difference between a learned noble disciple and an ordinary unlearned person?”"
+    },
+    {
+     "n": 4,
+     "text": "“Our teachings are rooted in the Buddha. …”"
+    },
+    {
+     "n": 5,
+     "text": "“When an unlearned ordinary person experiences painful physical feelings they sorrow and wail and lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 6,
+     "text": "They experience two feelings: physical and mental."
+    },
+    {
+     "n": 7,
+     "text": "It’s like a person who is struck with an arrow, only to be struck with a second arrow."
+    },
+    {
+     "n": 8,
+     "text": "That person experiences the feeling of two arrows."
+    },
+    {
+     "n": 9,
+     "text": "In the same way, when an unlearned ordinary person experiences painful physical feelings they sorrow and wail and lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 10,
+     "text": "They experience two feelings: physical and mental."
+    },
+    {
+     "n": 11,
+     "text": "When they’re touched by painful feeling, they resist it."
+    },
+    {
+     "n": 12,
+     "text": "The underlying tendency for aversion toward painful feeling underlies that."
+    },
+    {
+     "n": 13,
+     "text": "When touched by painful feeling they look forward to enjoying sensual pleasures. Why is that?"
+    },
+    {
+     "n": 14,
+     "text": "Because an unlearned ordinary person doesn’t understand any escape from painful feeling apart from sensual pleasures."
+    },
+    {
+     "n": 15,
+     "text": "Since they look forward to enjoying sensual pleasures, the underlying tendency to greed for pleasant feeling underlies that."
+    },
+    {
+     "n": 16,
+     "text": "They don’t truly understand feelings’ origin, disappearance, gratification, drawback, and escape."
+    },
+    {
+     "n": 17,
+     "text": "The underlying tendency to ignorance about neutral feeling underlies that."
+    },
+    {
+     "n": 18,
+     "text": "If they feel a pleasant feeling, they feel it attached."
+    },
+    {
+     "n": 19,
+     "text": "If they feel a painful feeling, they feel it attached."
+    },
+    {
+     "n": 20,
+     "text": "If they feel a neutral feeling, they feel it attached."
+    },
+    {
+     "n": 21,
+     "text": "They’re called an unlearned ordinary person who is attached to rebirth, old age, and death, to sorrow, lamentation, pain, sadness, and distress. They are attached to suffering, I say."
+    },
+    {
+     "n": 22,
+     "text": "When a learned noble disciple experiences painful physical feelings they don’t sorrow or wail or lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 23,
+     "text": "They experience one feeling: physical, not mental."
+    },
+    {
+     "n": 24,
+     "text": "It’s like a person who is struck with an arrow, but was not struck with a second arrow."
+    },
+    {
+     "n": 25,
+     "text": "That person would experience the feeling of one arrow."
+    },
+    {
+     "n": 26,
+     "text": "In the same way, when a learned noble disciple experiences painful physical feelings they don’t sorrow or wail or lament, beating their breast and falling into confusion."
+    },
+    {
+     "n": 27,
+     "text": "They experience one feeling: physical, not mental."
+    },
+    {
+     "n": 28,
+     "text": "When they’re touched by painful feeling, they don’t resist it."
+    },
+    {
+     "n": 29,
+     "text": "There’s no underlying tendency for aversion toward painful feeling underlying that."
+    },
+    {
+     "n": 30,
+     "text": "When touched by painful feeling they don’t look forward to enjoying sensual pleasures. Why is that?"
+    },
+    {
+     "n": 31,
+     "text": "Because a learned noble disciple understands an escape from painful feeling apart from sensual pleasures."
+    },
+    {
+     "n": 32,
+     "text": "Since they don’t look forward to enjoying sensual pleasures, there’s no underlying tendency to greed for pleasant feeling underlying that."
+    },
+    {
+     "n": 33,
+     "text": "They truly understand feelings’ origin, disappearance, gratification, drawback, and escape."
+    },
+    {
+     "n": 34,
+     "text": "There’s no underlying tendency to ignorance about neutral feeling underlying that."
+    },
+    {
+     "n": 35,
+     "text": "If they feel a pleasant feeling, they feel it detached."
+    },
+    {
+     "n": 36,
+     "text": "If they feel a painful feeling, they feel it detached."
+    },
+    {
+     "n": 37,
+     "text": "If they feel a neutral feeling, they feel it detached."
+    },
+    {
+     "n": 38,
+     "text": "They’re called a learned noble disciple who is detached from rebirth, old age, and death, from sorrow, lamentation, pain, sadness, and distress."
+    },
+    {
+     "n": 39,
+     "text": "They are detached from suffering, I say."
+    },
+    {
+     "n": 40,
+     "text": "This is the difference between a learned noble disciple and an unlearned ordinary person."
+    },
+    {
+     "n": 41,
+     "text": "A wise and learned person does not not feel"
+    },
+    {
+     "n": 42,
+     "text": "the feeling of pleasure and pain."
+    },
+    {
+     "n": 43,
+     "text": "This is the great difference of skill"
+    },
+    {
+     "n": 44,
+     "text": "between the attentive one and the ordinary."
+    },
+    {
+     "n": 45,
+     "text": "A learned person who has appraised the teaching"
+    },
+    {
+     "n": 46,
+     "text": "discerns this world and the next."
+    },
+    {
+     "n": 47,
+     "text": "Desirable things don’t disturb their mind,"
+    },
+    {
+     "n": 48,
+     "text": "nor are they repelled by the undesirable."
+    },
+    {
+     "n": 49,
+     "text": "Both favoring and opposing"
+    },
+    {
+     "n": 50,
+     "text": "are cleared and ended, and are no more."
+    },
+    {
+     "n": 51,
+     "text": "Knowing the stainless, sorrowless state,"
+    },
+    {
+     "n": 52,
+     "text": "they who have gone beyond rebirth understand rightly.”"
+    }
+   ]
+  }
+ ]
+}

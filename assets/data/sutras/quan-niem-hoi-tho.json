@@ -1,0 +1,2061 @@
+{
+ "id": "quan-niem-hoi-tho",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 118",
+ "summary": "Kinh trong Trung Bộ (MN 118), Thế Tôn thuyết tại Đông Viên, Xá-vệ, giữa đông đảo Thượng tọa Tỷ-kheo. Nội dung trình bày phương pháp niệm hơi thở vô, hơi thở ra theo từng bước, gắn với tứ niệm xứ và thất giác chi, dẫn đến minh và giải thoát. Đây là bài kinh căn bản về thiền quán hơi thở.",
+ "titles": {
+  "vi": "Kinh Nhập tức, Xuất tức niệm (Kinh Quán niệm hơi thở)",
+  "pli": "Ānāpānassatisutta",
+  "en": "Mindfulness of Breathing"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "THIEN_DINH"
+ ],
+ "durationMinutes": 50,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn118/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn ở Sāvatthi (Xá-vệ), tại Đông Viên (Pubbārāma), giảng đường Lộc Mẫu (Migaramatupasade), cùng với rất nhiều Thượng tọa có thời danh, có danh xưng như Tôn giả Sāriputta (Xá-lợi-phất),"
+    },
+    {
+     "n": 3,
+     "text": "Tôn giả Mahamoggallana (Đại Mục-kiền-liên), Tôn giả Mahakaccayana (Đại Ca-chiên-diên), Tôn giả Mahākotthita (Đại Câu-hy-la), Tôn giả Mahākappina (Đại Kiếp-tân-na), Tôn giả Mahācunda (Đại Thuần-đà),"
+    },
+    {
+     "n": 4,
+     "text": "Tôn giả Anuruddha (A-na-luật), Tôn giả Revata (Ly-bà-đa) và Tôn giả Ānanda (A-nan), cùng với nhiều bậc Thượng tọa đệ tử khác có thời danh, có danh xưng."
+    },
+    {
+     "n": 5,
+     "text": "Lúc bấy giờ, các Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy các tân Tỷ-kheo."
+    },
+    {
+     "n": 6,
+     "text": "Một số Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy mười tân Tỷ-kheo."
+    },
+    {
+     "n": 7,
+     "text": "Một số Thượng Tọa Tỷ-kheo khuyến giáo, giảng dạy hai mươi tân Tỷ-kheo."
+    },
+    {
+     "n": 8,
+     "text": "Một số Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy ba mươi tân Tỷ-kheo."
+    },
+    {
+     "n": 9,
+     "text": "Một số Thượng Tọa Tỷ-kheo khuyến giáo, giảng dạy bốn mươi tân Tỷ-kheo."
+    },
+    {
+     "n": 10,
+     "text": "Và các tân Tỷ-kheo được các Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy ý thức rõ ràng những quả vị cao diệu, tiệm thứ, thù thắng đã chứng đạt."
+    },
+    {
+     "n": 11,
+     "text": "Lúc bấy giờ Thế Tôn, vào ngày Bố-tát, ngày rằm, vào đêm trăng tròn sau ngày Tự tứ, đang ngồi giữa trời với chúng Tỷ-kheo đoanh vây."
+    },
+    {
+     "n": 12,
+     "text": "Thế Tôn nhìn quanh chúng Tỷ-kheo đang yên lặng, hết sức yên lặng, rồi bảo các Tỷ-kheo"
+    },
+    {
+     "n": 13,
+     "text": "—Ta được thỏa mãn, này các Tỷ-kheo, với đạo lộ này."
+    },
+    {
+     "n": 14,
+     "text": "Tâm ta được thỏa mãn, này các Tỷ-kheo, với đạo lộ này."
+    },
+    {
+     "n": 15,
+     "text": "Do vậy, này các Tỷ-kheo, hãy tinh tấn hơn nữa, để chứng đạt những gì chưa chứng đạt, để chứng đắc những gì chưa chứng đắc, để chứng ngộ những gì chưa chứng ngộ."
+    },
+    {
+     "n": 16,
+     "text": "Ta sẽ ở đây, tại Sāvatthi cho đến tháng tư, lễ Komudi."
+    },
+    {
+     "n": 17,
+     "text": "Những Tỷ-kheo địa phương được nghe: “Thế Tôn sẽ ở đây, tại Sāvatthi, cho đến tháng tư, lễ Komudi”."
+    },
+    {
+     "n": 18,
+     "text": "Các Tỷ-kheo địa phương tụ họp tại Sāvatthi để yết kiến Thế Tôn."
+    },
+    {
+     "n": 19,
+     "text": "Và các Thượng tọa Tỷ-kheo lại càng khuyến giáo, giảng dạy các tân Tỷ-kheo nhiều hơn nữa."
+    },
+    {
+     "n": 20,
+     "text": "Một số Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy mười tân Tỷ-kheo."
+    },
+    {
+     "n": 21,
+     "text": "Một số Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy hai mươi tân Tỷ-kheo, Một số Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy ba mươi tân Tỷ-kheo."
+    },
+    {
+     "n": 22,
+     "text": "Một số Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy bốn mươi tân Tỷ-kheo."
+    },
+    {
+     "n": 23,
+     "text": "Và những tân Tỷ-kheo được các Thượng tọa Tỷ-kheo khuyến giáo, giảng dạy ý thức rõ ràng những quả vị cao diệu, tiệm thứ, thù thắng đã chứng đạt."
+    },
+    {
+     "n": 24,
+     "text": "Lúc bấy giờ Thế Tôn vào ngày Bố-tát, ngày rằm, vào đêm trăng tròn, ngày lễ Komudi vào tháng tư, Thế Tôn đang ngồi ngoài trời, chung quanh có chúng Tỷ-kheo đoanh vây."
+    },
+    {
+     "n": 25,
+     "text": "Rồi Thế Tôn sau khi nhìn xung quanh chúng Tỷ-kheo đang yên lặng, hết sức yên lặng liền bảo các Tỷ-kheo"
+    },
+    {
+     "n": 26,
+     "text": "—Hội chúng này, này các Tỷ-kheo, không có lời thừa thãi."
+    },
+    {
+     "n": 27,
+     "text": "Hội chúng này, này các Tỷ-kheo, không có lời dư thừa, đã được an trú trong lõi cây thanh tịnh."
+    },
+    {
+     "n": 28,
+     "text": "Chúng Tỷ-kheo như thế này, này các Tỷ-kheo, hội chúng như thế này, này các Tỷ-kheo, là một hội chúng đáng được cung kính, đáng được tôn trọng, đáng được cúng dường, đáng được chấp tay, là phước điền vô thượng ở đời."
+    },
+    {
+     "n": 29,
+     "text": "Chúng Tỷ-kheo như thế này, này các Tỷ-kheo, hội chúng như thế này, này các Tỷ-kheo, là một hội chúng bố thí ít, được phước báo nhiều; bố thí nhiều, càng được phước báo nhiều hơn nữa."
+    },
+    {
+     "n": 30,
+     "text": "Chúng Tỷ-kheo như thế này, này các Tỷ-kheo, hội chúng như thế này, này các Tỷ-kheo, là một hội chúng khó thấy ở đời."
+    },
+    {
+     "n": 31,
+     "text": "Chúng Tỷ-kheo như thế này, này các Tỷ-kheo, hội chúng như thế này, này các Tỷ-kheo, là một hội chúng xứng đáng đi nhiều do tuần (yojana) với một bao lương thực trên vai để đến yết kiến."
+    },
+    {
+     "n": 32,
+     "text": "Chúng Tỷ-kheo này là như vậy, này các Tỷ-kheo; hội chúng này là như vậy, này các Tỷ-kheo."
+    },
+    {
+     "n": 33,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo là những A-la-hán, các lậu hoặc đã đoạn trừ, Phạm hạnh đã thành, các việc nên làm đã làm, gánh nặng đã đặt xuống, mục đích đã thành đạt,"
+    },
+    {
+     "n": 34,
+     "text": "hữu kiết sử đã được đoạn tận, được giải thoát nhờ chánh trí."
+    },
+    {
+     "n": 35,
+     "text": "Này các Tỷ-kheo, có những bậc Tỷ-kheo như vậy trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 36,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo đã đoạn trừ năm hạ phần kiết sử, được hóa sanh, từ ở đấy được nhập Niết-bàn, không còn phải trở lại đời này nữa."
+    },
+    {
+     "n": 37,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 38,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, này có những Tỷ-kheo đã đoạn trừ ba kiết sử, đã làm cho muội lược tham, sân, si, là bậc Nhất lai, sau khi sanh vào đời này một lần nữa, sẽ đoạn tận khổ đau."
+    },
+    {
+     "n": 39,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 40,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo, có những Tỷ-kheo đã đoạn trừ ba kiết sử, là bậc Dự lưu, không còn đọa vào ác đạo, chắc chắn sẽ được giác ngộ."
+    },
+    {
+     "n": 41,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 42,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo là những vị sống chuyên tâm, chú tâm, tu tập bốn niệm xứ."
+    },
+    {
+     "n": 43,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 44,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo là những vị sống chuyên tâm, chú tâm, tu tập bốn chánh cần."
+    },
+    {
+     "n": 45,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong hội chúng này."
+    },
+    {
+     "n": 46,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập bốn như ý túc."
+    },
+    {
+     "n": 47,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 48,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập năm căn."
+    },
+    {
+     "n": 49,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 50,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập năm lực."
+    },
+    {
+     "n": 51,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 52,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập bảy giác chi."
+    },
+    {
+     "n": 53,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 54,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này có những Tỷ-kheo sống chuyên tâm, chú tâm tu tập Thánh đạo tám ngành."
+    },
+    {
+     "n": 55,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 56,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập từ tâm."
+    },
+    {
+     "n": 57,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 58,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập bi tâm."
+    },
+    {
+     "n": 59,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 60,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập hỷ tâm."
+    },
+    {
+     "n": 61,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 62,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập xả tâm."
+    },
+    {
+     "n": 63,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 64,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo, sống chuyên tâm, chú tâm tu tập bất tịnh."
+    },
+    {
+     "n": 65,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 66,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này có những Tỷ-kheo sống chuyên tâm, chú tâm tu tập vô thường tưởng."
+    },
+    {
+     "n": 67,
+     "text": "Các bậc Tỷ-kheo như vậy, này các Tỷ-kheo, có mặt trong chúng Tỷ-kheo này."
+    },
+    {
+     "n": 68,
+     "text": "Này các Tỷ-kheo, trong chúng Tỷ-kheo này, có những Tỷ-kheo sống chuyên tâm, chú tâm tu tập nhập tức xuất tức niệm."
+    },
+    {
+     "n": 69,
+     "text": "Nhập tức xuất tức niệm, này các Tỷ-kheo, được tu tập, được làm cho sung mãn, đưa đến quả lớn, công đức lớn.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 70,
+     "text": "Nhập tức xuất tức niệm, được tu tập, làm cho sung mãn, khiến cho bốn niệm xứ được viên mãn.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 71,
+     "text": "Bốn niệm xứ được tu tập, làm cho sung mãn, khiến cho bảy giác chi được viên mãn.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 72,
+     "text": "Bảy giác chi được tu tập, làm cho sung mãn, khiến cho minh giải thoát (vijjavimutti) được viên mãn.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 73,
+     "text": "Và này các Tỷ-kheo, như thế nào là tu tập nhập tức xuất tức niệm? Như thế nào là làm cho sung mãn? Như thế nào là quả lớn, công đức lớn?",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 74,
+     "text": "Ở đây, này các Tỷ-kheo, Tỷ-kheo đi đến khu rừng, đi đến gốc cây, hay đi đến ngôi nhà trống, và ngồi kiết-già, lưng thẳng và trú niệm trước mặt.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 75,
+     "text": "Chánh niệm, vị ấy thở vô; chánh niệm, vị ấy thở ra.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 76,
+     "text": "Thở vô dài, vị ấy biết: “Tôi thở vô dài”.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 77,
+     "text": "Hay thở ra dài, vị ấy biết: “Tôi thở ra dài”.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 78,
+     "text": "Hay thở vô ngắn, vị ấy biết: “Tôi thở vô ngắn”.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 79,
+     "text": "Hay thở ra ngắn, vị ấy biết: “Tôi thở ra ngắn”.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 80,
+     "text": "“Cảm giác cả toàn thân, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 81,
+     "text": "“Cảm giác cả toàn thân, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 82,
+     "text": "“An tịnh thân hành, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 83,
+     "text": "“An tịnh thân hành, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 84,
+     "text": "“Cảm giác hỷ thọ, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 85,
+     "text": "“Cảm giác hỷ thọ, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 86,
+     "text": "“Cảm giác lạc thọ, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 87,
+     "text": "“Cảm giác lạc thọ, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 88,
+     "text": "“Cảm giác tâm hành, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 89,
+     "text": "“Cảm giác tâm hành, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 90,
+     "text": "“An tịnh tâm hành, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 91,
+     "text": "“An tịnh tâm hành, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 92,
+     "text": "“Cảm giác về tâm, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 93,
+     "text": "“Cảm giác về tâm, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 94,
+     "text": "“Với tâm hân hoan, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 95,
+     "text": "“Với tâm hân hoan, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 96,
+     "text": "“Với tâm định tĩnh, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 97,
+     "text": "“Với tâm định tĩnh, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 98,
+     "text": "“Với tâm giải thoát, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 99,
+     "text": "“Với tâm giải thoát, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 100,
+     "text": "“Quán vô thường, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 101,
+     "text": "“Quán vô thường, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 102,
+     "text": "“Quán ly tham, tôi sẽ thở vô”, vị ấy tập “Quán ly tham, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 103,
+     "text": "“Quán đoạn diệt, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 104,
+     "text": "“Quán đoạn diệt, tôi sẽ thở ra, vị ấy tập. “Quán từ bỏ, tôi sẽ thở vô”, vị ấy tập. “Quán từ bỏ, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 105,
+     "text": "Nhập tức xuất tức niệm, này các Tỷ-kheo, tu tập như vậy, làm cho sung mãn như vậy, được quả lớn, được công đức lớn.",
+     "section": "(Quán niệm hơi thở)"
+    },
+    {
+     "n": 106,
+     "text": "Và như thế nào, này các Tỷ-kheo, là nhập tức xuất tức niệm được tu tập?",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 107,
+     "text": "Như thế nào là làm cho sung mãn, khiến bốn niệm xứ được viên mãn?",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 108,
+     "text": "Khi nào, này các Tỷ-kheo, Tỷ-kheo thở vô dài, vị ấy biết: “Tôi thở vô dài”.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 109,
+     "text": "Hay khi thở ra dài, vị ấy biết “Tôi thở ra dài”.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 110,
+     "text": "Hay thở vô ngắn, vị ấy biết: “Tôi thở vô ngắn”.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 111,
+     "text": "Hay khi thở ra ngắn, vị ấy biết: “Tôi thở ra ngắn”.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 112,
+     "text": "“Cảm giác cả toàn thân, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 113,
+     "text": "“Cảm giác cả toàn thân, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 114,
+     "text": "“An tịnh thân hành, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 115,
+     "text": "“An tịnh thân hành, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 116,
+     "text": "Trong khi tùy quán thân trên thân, này các Tỷ-kheo, vị Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 117,
+     "text": "Này các Tỷ-kheo, đối với các thân, Ta nói đây là một, tức là thở vô thở ra.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 118,
+     "text": "Do vậy, này các Tỷ-kheo, trong khi tùy quán thân trên thân, vị Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 119,
+     "text": "Khi nào, này các Tỷ-kheo, vị Tỷ-kheo nghĩ: “Cảm giác hỷ thọ, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 120,
+     "text": "“Cảm giác hỷ thọ, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 121,
+     "text": "“Cảm giác lạc thọ, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 122,
+     "text": "“Cảm giác lạc thọ, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 123,
+     "text": "“Cảm giác tâm hành, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 124,
+     "text": "“Cảm giác tâm hành, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 125,
+     "text": "“An tịnh tâm hành tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 126,
+     "text": "“An tịnh tâm hành tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 127,
+     "text": "Trong khi tùy quán thọ trên các thọ, này các Tỷ-kheo, Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm, để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 128,
+     "text": "Này các Tỷ-kheo, đối với các cảm thọ, Ta nói đây là một, tức là thở vô thở ra.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 129,
+     "text": "Do vậy này các Tỷ-kheo, trong khi tùy quán thọ trên các cảm thọ, Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 130,
+     "text": "Khi nào, này các Tỷ-kheo, Tỷ-kheo nghĩ: “Cảm giác tâm, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 131,
+     "text": "“Cảm giác tâm, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 132,
+     "text": "“Với tâm hân hoan, tôi sẽ thở vô”, vị ấy tu tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 133,
+     "text": "“Với tâm hân hoan, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 134,
+     "text": "“Với tâm Thiền định, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 135,
+     "text": "“Với tâm Thiền định, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 136,
+     "text": "“Với tâm giải thoát, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 137,
+     "text": "“Với tâm giải thoát, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 138,
+     "text": "Trong khi tùy quán tâm trên tâm, này các Tỷ-kheo, Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm, để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 139,
+     "text": "Này các Tỷ-kheo, sự tu tập nhập tức xuất tức niệm không thể đến với kẻ thất niệm, không có tỉnh giác.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 140,
+     "text": "Do vậy, này các Tỷ-kheo, trong khi tùy quán tâm trên tâm, Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 141,
+     "text": "Khi nào này các Tỷ-kheo, Tỷ-kheo nghĩ: “Quán vô thường, tôi sẽ thở vô”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 142,
+     "text": "“Quán vô thường, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 143,
+     "text": "“Quán ly tham … quán đoạn diệt … quán từ bỏ, tôi sẽ thở vô”, vị ấy tập. “Quán từ bỏ, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 144,
+     "text": "Trong khi tùy quán trên các pháp, này các Tỷ-kheo, Tỷ-kheo an trú, nhiệt tâm, tỉnh giác, chánh niệm để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 145,
+     "text": "Vị ấy, do đoạn trừ tham ưu, sau khi thấy với trí tuệ, khéo nhìn sự vật với niệm xả ly.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 146,
+     "text": "Do vậy, này các Tỷ-kheo, trong khi tùy quán pháp trên các pháp, Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm để chế ngự tham ưu ở đời.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 147,
+     "text": "Nhập tức xuất tức niệm, này các Tỷ-kheo, được tu tập như vậy, được làm cho sung mãn như vậy, khiến cho bốn niệm xứ được viên mãn.",
+     "section": "(Làm viên mãn bốn niệm xứ)"
+    },
+    {
+     "n": 148,
+     "text": "Và bốn niệm xứ, này các Tỷ-kheo, được tu tập như thế nào, được làm sung mãn như thế nào, khiến cho bảy giác chi được viên mãn?",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 149,
+     "text": "Này các Tỷ-kheo, trong khi tùy quán thân trên thân, Tỷ-kheo trú, nhiệt tâm, tỉnh giác, chánh niệm để chế ngự tham ưu ở đời, trong khi ấy, niệm không hôn mê của vị ấy được an trú.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 150,
+     "text": "Trong khi niệm không hôn mê của vị ấy cũng được an trú, này các Tỷ-kheo, trong khi ấy niệm giác chi được bắt đầu khởi lên với Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 151,
+     "text": "Trong khi ấy, Tỷ-kheo tu tập niệm giác chi.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 152,
+     "text": "Trong khi ấy, niệm giác chi được Tỷ-kheo tu tập đi đến viên mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 153,
+     "text": "Vị ấy an trú với chánh niệm như vậy, suy tư, tư duy, thẩm sát pháp ấy với trí tuệ.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 154,
+     "text": "Này các Tỷ-kheo, trong khi trú với chánh niệm như vậy, Tỷ-kheo với trí tuệ suy tư, tư duy, thẩm sát pháp ấy, trong khi ấy trạch pháp giác chi được bắt đầu khởi lên với Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 155,
+     "text": "Trong khi ấy, Tỷ-kheo tu tập trạch pháp giác chi.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 156,
+     "text": "Trong khi ấy, trạch pháp giác chi được Tỷ-kheo tu tập đi đến viên mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 157,
+     "text": "Trong khi Tỷ-kheo với trí tuệ suy tư, tư duy, thẩm sát pháp ấy, sự tinh tấn không thụ động bắt đầu khởi lên với vị Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 158,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo với trí tuệ suy tư, tư duy, thẩm sát pháp ấy, trong khi ấy sự tinh tấn không thụ động bắt đầu khởi lên với Tỷ-kheo ấy.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 159,
+     "text": "Trong khi ấy tinh tấn giác chi được bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 160,
+     "text": "Trong khi ấy, Tỷ-kheo tu tập tinh tấn giác chi.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 161,
+     "text": "Trong khi ấy, tinh tấn giác chi được Tỷ-kheo tu tập đi đến viên mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 162,
+     "text": "Hỷ không liên hệ đến vật chất được khởi lên nơi vị tinh tấn tinh cần.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 163,
+     "text": "Này các Tỷ-kheo, trong khi hỷ không liên hệ đến vật chất khởi lên nơi Tỷ-kheo tinh tấn tinh cần, trong khi ấy, hỷ giác chi bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 164,
+     "text": "Trong khi ấy, hỷ giác chi được vị Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 165,
+     "text": "Trong khi ấy hỷ giác chi được Tỷ-kheo tu tập đi đến viên mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 166,
+     "text": "Thân của vị ấy được tâm hoan hỷ trở thành khinh an, tâm cũng được khinh an.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 167,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo với ý hoan hỷ được thân khinh an, được tâm cũng khinh an, trong khi ấy, khinh an giác chi bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 168,
+     "text": "Trong khi ấy, khinh an giác chi được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 169,
+     "text": "Trong khi ấy, khinh an giác chi được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 170,
+     "text": "Một vị có thân khinh an, an lạc, tâm vị ấy được định tĩnh.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 171,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo có thân khinh an, an lạc, tâm vị ấy được định tĩnh, trong khi ấy, định giác chi bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 172,
+     "text": "Trong khi ấy, định giác chi được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 173,
+     "text": "Trong khi ấy định giác chi được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 174,
+     "text": "Vị ấy với tâm định tĩnh như vậy, khéo nhìn sự vật với ý niệm xả ly.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 175,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo với tâm định tĩnh như vậy, khéo nhìn sự vật với ý niệm xả ly, trong khi ấy, xả giác chi bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 176,
+     "text": "Trong khi ấy, xả giác chi được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 177,
+     "text": "Trong khi ấy xả giác chi, được Tỷ-kheo làm cho đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 178,
+     "text": "Này các Tỷ-kheo, trong khi quán thọ trên các cảm thọ …",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 179,
+     "text": "Này các Tỷ-kheo, trong khi quán tâm trên tâm …",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 180,
+     "text": "Này các Tỷ-kheo, trong khi quán pháp trên các pháp, Tỷ-kheo an trú, nhiệt tâm, tỉnh giác, chánh niệm với mục đích điều phục tham ưu ở đời, trong khi ấy niệm của vị ấy được an trú, không có hôn mê.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 181,
+     "text": "Này các Tỷ-kheo, trong khi niệm của Tỷ-kheo được an trú, không có hôn mê, niệm giác chi, trong khi ấy, được bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 182,
+     "text": "Niệm giác chi trong khi ấy được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 183,
+     "text": "Niệm giác chi trong khi ấy, được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 184,
+     "text": "Vị ấy an trú với chánh niệm như vậy, suy tư, tư duy, thẩm sát pháp ấy với trí tuệ.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 185,
+     "text": "Này các Tỷ-kheo, trong khi an trú với chánh niệm như vậy, vị ấy suy tư, tư duy, thẩm sát pháp ấy với trí tuệ.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 186,
+     "text": "Trạch pháp giác chi trong khi ấy được bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 187,
+     "text": "Trạch pháp giác chi trong khi ấy được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 188,
+     "text": "Trạch pháp giác chi trong khi ấy đi đến sung mãn, tinh tấn không thụ động bắt đầu khởi lên nơi vị ấy.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 189,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo suy tư, tư duy, thẩm sát pháp ấy với trí tuệ, và tinh tấn không thụ động bắt đầu khởi lên nơi vị ấy, tinh tấn giác chi trong khi ấy bắt đầu khởi lên nơi vị Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 190,
+     "text": "Tinh tấn giác chi được Tỷ-kheo tu tập. Tinh tấn giác chi được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 191,
+     "text": "Đối với vị ấy, tinh cần tinh tấn, hỷ không liên hệ đến vật chất khởi lên.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 192,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo tinh cần tinh tấn và hỷ không liên hệ đến vật chất khởi lên, hỷ giác chi trong khi ấy bắt đầu được khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 193,
+     "text": "Hỷ giác chi trong khi ấy được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 194,
+     "text": "Hỷ giác chi trong khi ấy được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 195,
+     "text": "Thân của vị ấy được tâm hoan hỷ trở thành khinh an, tâm cũng được khinh an.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 196,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo với ý hoan hỷ được thân khinh an, được tâm cũng khinh an, trong khi ấy khinh an giác chi bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 197,
+     "text": "Trong khi ấy, khinh an giác chi được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 198,
+     "text": "Trong khi ấy, khinh an giác chi được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 199,
+     "text": "Một vị có tâm khinh an, an lạc, tâm vị ấy được định tĩnh.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 200,
+     "text": "Này các Tỷ-kheo, trong khi vị ấy có thân khinh an, an lạc, tâm vị ấy được định tĩnh, trong khi ấy định giác chi bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 201,
+     "text": "Trong khi ấy, định giác chi được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 202,
+     "text": "Trong khi ấy định giác chi được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 203,
+     "text": "Vị ấy với tâm định tĩnh như vậy khéo nhìn sự vật với ý niệm xả ly.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 204,
+     "text": "Này các Tỷ-kheo, trong khi Tỷ-kheo với tâm định tĩnh như vậy, khéo nhìn sự vật với ý niệm xả ly, trong khi ấy xả giác chi bắt đầu khởi lên nơi Tỷ-kheo.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 205,
+     "text": "Trong khi ấy, xả giác chi được Tỷ-kheo tu tập.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 206,
+     "text": "Trong khi ấy xả giác chi được Tỷ-kheo làm cho đi đến sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 207,
+     "text": "Này các Tỷ-kheo, bốn niệm xứ được tu tập như vậy, được làm cho sung mãn như vậy khiến cho bảy giác chi được sung mãn.",
+     "section": "(Làm viên mãn bảy giác chi)"
+    },
+    {
+     "n": 208,
+     "text": "Và này các Tỷ-kheo, bảy giác chi được tu tập như thế nào, được làm cho sung mãn như thế nào, khiến cho minh giải thoát được viên mãn?",
+     "section": "(Minh giải thoát được viên mãn)"
+    },
+    {
+     "n": 209,
+     "text": "Ở đây, này các Tỷ-kheo, Tỷ-kheo tu tập niệm giác chi, liên hệ đến viễn ly, liên hệ đến ly tham, liên hệ đến diệt, hướng đến xả ly;",
+     "section": "(Minh giải thoát được viên mãn)"
+    },
+    {
+     "n": 210,
+     "text": "tu tập trạch pháp giác chi … tu tập tinh tấn giác chi … tu tập hỷ giác chi … tu tập khinh an giác chi … tu tập định giác chi … tu tập xả giác chi, liên hệ đến viễn ly, liên hệ đến ly tham, liên hệ đến diệt,",
+     "section": "(Minh giải thoát được viên mãn)"
+    },
+    {
+     "n": 211,
+     "text": "hướng đến xả ly. Này các Tỷ-kheo, bảy giác chi được tu tập như vậy, được làm cho sung mãn như vậy, khiến cho minh giải thoát được viên mãn.",
+     "section": "(Minh giải thoát được viên mãn)"
+    },
+    {
+     "n": 212,
+     "text": "Thế Tôn thuyết giảng như vậy. Các Tỷ-kheo ấy hoan hỷ tín thọ lời Thế Tôn dạy.",
+     "section": "(Minh giải thoát được viên mãn)"
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn118/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati pubbārāme migāramātupāsāde sambahulehi abhiññātehi abhiññātehi therehi sāvakehi saddhiṁ— āyasmatā ca sāriputtena āyasmatā ca mahāmoggallānena āyasmatā ca"
+    },
+    {
+     "n": 2,
+     "text": "mahākassapena āyasmatā ca mahākaccāyanena āyasmatā ca mahākoṭṭhikena āyasmatā ca mahākappinena āyasmatā ca mahācundena āyasmatā ca anuruddhena āyasmatā ca revatena āyasmatā ca ānandena,"
+    },
+    {
+     "n": 3,
+     "text": "aññehi ca abhiññātehi abhiññātehi therehi sāvakehi saddhiṁ."
+    },
+    {
+     "n": 4,
+     "text": "Tena kho pana samayena therā bhikkhū nave bhikkhū ovadanti anusāsanti."
+    },
+    {
+     "n": 5,
+     "text": "Appekacce therā bhikkhū dasapi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū vīsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū tiṁsampi bhikkhū ovadanti anusāsanti,"
+    },
+    {
+     "n": 6,
+     "text": "appekacce therā bhikkhū cattārīsampi bhikkhū ovadanti anusāsanti."
+    },
+    {
+     "n": 7,
+     "text": "Te ca navā bhikkhū therehi bhikkhūhi ovadiyamānā anusāsiyamānā uḷāraṁ pubbenāparaṁ visesaṁ jānanti."
+    },
+    {
+     "n": 8,
+     "text": "Tena kho pana samayena bhagavā tadahuposathe pannarase pavāraṇāya puṇṇāya puṇṇamāya rattiyā bhikkhusaṅghaparivuto abbhokāse nisinno hoti."
+    },
+    {
+     "n": 9,
+     "text": "Atha kho bhagavā tuṇhībhūtaṁ tuṇhībhūtaṁ bhikkhusaṅghaṁ anuviloketvā bhikkhū āmantesi:"
+    },
+    {
+     "n": 10,
+     "text": "“āraddhosmi, bhikkhave, imāya paṭipadāya; āraddhacittosmi, bhikkhave, imāya paṭipadāya."
+    },
+    {
+     "n": 11,
+     "text": "Tasmātiha, bhikkhave, bhiyyoso mattāya vīriyaṁ ārabhatha appattassa pattiyā, anadhigatassa adhigamāya, asacchikatassa sacchikiriyāya."
+    },
+    {
+     "n": 12,
+     "text": "Idhevāhaṁ sāvatthiyaṁ komudiṁ cātumāsiniṁ āgamessāmī”ti."
+    },
+    {
+     "n": 13,
+     "text": "Assosuṁ kho jānapadā bhikkhū: “bhagavā kira tattheva sāvatthiyaṁ komudiṁ cātumāsiniṁ āgamessatī”ti."
+    },
+    {
+     "n": 14,
+     "text": "Te jānapadā bhikkhū sāvatthiṁ osaranti bhagavantaṁ dassanāya."
+    },
+    {
+     "n": 15,
+     "text": "Te ca kho therā bhikkhū bhiyyoso mattāya nave bhikkhū ovadanti anusāsanti."
+    },
+    {
+     "n": 16,
+     "text": "Appekacce therā bhikkhū dasapi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū vīsampi bhikkhū ovadanti anusāsanti, appekacce therā bhikkhū tiṁsampi bhikkhū ovadanti anusāsanti,"
+    },
+    {
+     "n": 17,
+     "text": "appekacce therā bhikkhū cattārīsampi bhikkhū ovadanti anusāsanti."
+    },
+    {
+     "n": 18,
+     "text": "Te ca navā bhikkhū therehi bhikkhūhi ovadiyamānā anusāsiyamānā uḷāraṁ pubbenāparaṁ visesaṁ jānanti."
+    },
+    {
+     "n": 19,
+     "text": "Tena kho pana samayena bhagavā tadahuposathe pannarase komudiyā cātumāsiniyā puṇṇāya puṇṇamāya rattiyā bhikkhusaṅghaparivuto abbhokāse nisinno hoti."
+    },
+    {
+     "n": 20,
+     "text": "Atha kho bhagavā tuṇhībhūtaṁ tuṇhībhūtaṁ bhikkhusaṅghaṁ anuviloketvā bhikkhū āmantesi:"
+    },
+    {
+     "n": 21,
+     "text": "“Apalāpāyaṁ, bhikkhave, parisā; nippalāpāyaṁ, bhikkhave, parisā; suddhā sāre patiṭṭhitā."
+    },
+    {
+     "n": 22,
+     "text": "Tathārūpo ayaṁ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṁ, bhikkhave, parisā yathārūpā parisā āhuneyyā pāhuneyyā dakkhiṇeyyā añjalikaraṇīyā anuttaraṁ puññakkhettaṁ lokassa."
+    },
+    {
+     "n": 23,
+     "text": "Tathārūpo ayaṁ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṁ, bhikkhave, parisā yathārūpāya parisāya appaṁ dinnaṁ bahu hoti, bahu dinnaṁ bahutaraṁ."
+    },
+    {
+     "n": 24,
+     "text": "Tathārūpo ayaṁ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṁ, bhikkhave, parisā yathārūpā parisā dullabhā dassanāya lokassa."
+    },
+    {
+     "n": 25,
+     "text": "Tathārūpo ayaṁ, bhikkhave, bhikkhusaṅgho; tathārūpā ayaṁ, bhikkhave, parisā yathārūpaṁ parisaṁ alaṁ yojanagaṇanāni dassanāya gantuṁ puṭosenāpi."
+    },
+    {
+     "n": 26,
+     "text": "Santi, bhikkhave, bhikkhū imasmiṁ bhikkhusaṅghe arahanto khīṇāsavā vusitavanto katakaraṇīyā ohitabhārā anuppattasadatthā parikkhīṇabhavasaṁyojanā sammadaññāvimuttā— evarūpāpi, bhikkhave,"
+    },
+    {
+     "n": 27,
+     "text": "santi bhikkhū imasmiṁ bhikkhusaṅghe."
+    },
+    {
+     "n": 28,
+     "text": "Santi, bhikkhave, bhikkhū imasmiṁ bhikkhusaṅghe pañcannaṁ orambhāgiyānaṁ saṁyojanānaṁ parikkhayā opapātikā tattha parinibbāyino anāvattidhammā tasmā lokā— evarūpāpi, bhikkhave, santi bhikkhū imasmiṁ bhikkhusaṅghe."
+    },
+    {
+     "n": 29,
+     "text": "Santi, bhikkhave, bhikkhū imasmiṁ bhikkhusaṅghe tiṇṇaṁ saṁyojanānaṁ parikkhayā rāgadosamohānaṁ tanuttā sakadāgāmino sakideva imaṁ lokaṁ āgantvā dukkhassantaṁ karissanti— evarūpāpi, bhikkhave,"
+    },
+    {
+     "n": 30,
+     "text": "santi bhikkhū imasmiṁ bhikkhusaṅghe."
+    },
+    {
+     "n": 31,
+     "text": "Santi, bhikkhave, bhikkhū imasmiṁ bhikkhusaṅghe tiṇṇaṁ saṁyojanānaṁ parikkhayā sotāpannā avinipātadhammā niyatā sambodhiparāyanā— evarūpāpi, bhikkhave, santi bhikkhū imasmiṁ bhikkhusaṅghe."
+    },
+    {
+     "n": 32,
+     "text": "Santi, bhikkhave, bhikkhū imasmiṁ bhikkhusaṅghe catunnaṁ satipaṭṭhānānaṁ bhāvanānuyogamanuyuttā viharanti— evarūpāpi, bhikkhave, santi bhikkhū imasmiṁ bhikkhusaṅghe. Santi, bhikkhave,"
+    },
+    {
+     "n": 33,
+     "text": "bhikkhū imasmiṁ bhikkhusaṅghe catunnaṁ sammappadhānānaṁ bhāvanānuyogamanuyuttā viharanti …pe… catunnaṁ iddhipādānaṁ … pañcannaṁ indriyānaṁ … pañcannaṁ balānaṁ … sattannaṁ bojjhaṅgānaṁ … ariyassa aṭṭhaṅgikassa maggassa"
+    },
+    {
+     "n": 34,
+     "text": "bhāvanānuyogamanuyuttā viharanti— evarūpāpi,"
+    },
+    {
+     "n": 35,
+     "text": "bhikkhave, santi bhikkhū imasmiṁ bhikkhusaṅghe. Santi, bhikkhave,"
+    },
+    {
+     "n": 36,
+     "text": "bhikkhū imasmiṁ bhikkhusaṅghe mettābhāvanānuyogamanuyuttā viharanti … karuṇābhāvanānuyogamanuyuttā viharanti … muditābhāvanānuyogamanuyuttā viharanti … upekkhābhāvanānuyogamanuyuttā viharanti …"
+    },
+    {
+     "n": 37,
+     "text": "asubhabhāvanānuyogamanuyuttā viharanti … aniccasaññābhāvanānuyogamanuyuttā viharanti— evarūpāpi,"
+    },
+    {
+     "n": 38,
+     "text": "bhikkhave, santi bhikkhū imasmiṁ bhikkhusaṅghe."
+    },
+    {
+     "n": 39,
+     "text": "Santi, bhikkhave, bhikkhū imasmiṁ bhikkhusaṅghe ānāpānassatibhāvanānuyogamanuyuttā viharanti."
+    },
+    {
+     "n": 40,
+     "text": "Ānāpānassati, bhikkhave, bhāvitā bahulīkatā mahapphalā hoti mahānisaṁsā. Ānāpānassati, bhikkhave, bhāvitā bahulīkatā cattāro satipaṭṭhāne paripūreti."
+    },
+    {
+     "n": 41,
+     "text": "Cattāro satipaṭṭhānā bhāvitā bahulīkatā satta bojjhaṅge paripūrenti."
+    },
+    {
+     "n": 42,
+     "text": "Satta bojjhaṅgā bhāvitā bahulīkatā vijjāvimuttiṁ paripūrenti."
+    },
+    {
+     "n": 43,
+     "text": "Kathaṁ bhāvitā ca, bhikkhave, ānāpānassati kathaṁ bahulīkatā mahapphalā hoti mahānisaṁsā?"
+    },
+    {
+     "n": 44,
+     "text": "Idha, bhikkhave, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā nisīdati pallaṅkaṁ ābhujitvā ujuṁ kāyaṁ paṇidhāya parimukhaṁ satiṁ upaṭṭhapetvā. So satova assasati satova passasati."
+    },
+    {
+     "n": 45,
+     "text": "Dīghaṁ vā assasanto ‘dīghaṁ assasāmī’ti pajānāti, dīghaṁ vā passasanto ‘dīghaṁ passasāmī’ti pajānāti; rassaṁ vā assasanto ‘rassaṁ assasāmī’ti pajānāti, rassaṁ vā passasanto ‘rassaṁ passasāmī’ti pajānāti;"
+    },
+    {
+     "n": 46,
+     "text": "‘sabbakāyapaṭisaṁvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṁvedī passasissāmī’ti sikkhati; ‘passambhayaṁ kāyasaṅkhāraṁ assasissāmī’ti sikkhati, ‘passambhayaṁ kāyasaṅkhāraṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 47,
+     "text": "‘Pītipaṭisaṁvedī assasissāmī’ti sikkhati, ‘pītipaṭisaṁvedī passasissāmī’ti sikkhati; ‘sukhapaṭisaṁvedī assasissāmī’ti sikkhati, ‘sukhapaṭisaṁvedī passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 48,
+     "text": "‘cittasaṅkhārapaṭisaṁvedī assasissāmī’ti sikkhati, ‘cittasaṅkhārapaṭisaṁvedī passasissāmī’ti sikkhati; ‘passambhayaṁ cittasaṅkhāraṁ assasissāmī’ti sikkhati, ‘passambhayaṁ cittasaṅkhāraṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 49,
+     "text": "‘Cittapaṭisaṁvedī assasissāmī’ti sikkhati, ‘cittapaṭisaṁvedī passasissāmī’ti sikkhati; ‘abhippamodayaṁ cittaṁ assasissāmī’ti sikkhati, ‘abhippamodayaṁ cittaṁ passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 50,
+     "text": "‘samādahaṁ cittaṁ assasissāmī’ti sikkhati, ‘samādahaṁ cittaṁ passasissāmī’ti sikkhati; ‘vimocayaṁ cittaṁ assasissāmī’ti sikkhati, ‘vimocayaṁ cittaṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 51,
+     "text": "‘Aniccānupassī assasissāmī’ti sikkhati, ‘aniccānupassī passasissāmī’ti sikkhati; ‘virāgānupassī assasissāmī’ti sikkhati, ‘virāgānupassī passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 52,
+     "text": "‘nirodhānupassī assasissāmī’ti sikkhati, ‘nirodhānupassī passasissāmī’ti sikkhati; ‘paṭinissaggānupassī assasissāmī’ti sikkhati, ‘paṭinissaggānupassī passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 53,
+     "text": "Evaṁ bhāvitā kho, bhikkhave, ānāpānassati evaṁ bahulīkatā mahapphalā hoti mahānisaṁsā."
+    },
+    {
+     "n": 54,
+     "text": "Kathaṁ bhāvitā ca, bhikkhave, ānāpānassati kathaṁ bahulīkatā cattāro satipaṭṭhāne paripūreti?"
+    },
+    {
+     "n": 55,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu dīghaṁ vā assasanto ‘dīghaṁ assasāmī’ti pajānāti, dīghaṁ vā passasanto ‘dīghaṁ passasāmī’ti pajānāti;"
+    },
+    {
+     "n": 56,
+     "text": "rassaṁ vā assasanto ‘rassaṁ assasāmī’ti pajānāti, rassaṁ vā passasanto ‘rassaṁ passasāmī’ti pajānāti; ‘sabbakāyapaṭisaṁvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṁvedī passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 57,
+     "text": "‘passambhayaṁ kāyasaṅkhāraṁ assasissāmī’ti sikkhati, ‘passambhayaṁ kāyasaṅkhāraṁ passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 58,
+     "text": "kāye kāyānupassī, bhikkhave, tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 59,
+     "text": "Kāyesu kāyaññatarāhaṁ, bhikkhave, evaṁ vadāmi yadidaṁ—assāsapassāsā."
+    },
+    {
+     "n": 60,
+     "text": "Tasmātiha, bhikkhave, kāye kāyānupassī tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 61,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu ‘pītipaṭisaṁvedī assasissāmī’ti sikkhati, ‘pītipaṭisaṁvedī passasissāmī’ti sikkhati; ‘sukhapaṭisaṁvedī assasissāmī’ti sikkhati, ‘sukhapaṭisaṁvedī passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 62,
+     "text": "‘cittasaṅkhārapaṭisaṁvedī assasissāmī’ti sikkhati, ‘cittasaṅkhārapaṭisaṁvedī passasissāmī’ti sikkhati; ‘passambhayaṁ cittasaṅkhāraṁ assasissāmī’ti sikkhati, ‘passambhayaṁ cittasaṅkhāraṁ passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 63,
+     "text": "vedanāsu vedanānupassī, bhikkhave, tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 64,
+     "text": "Vedanāsu vedanāññatarāhaṁ, bhikkhave, evaṁ vadāmi yadidaṁ—assāsapassāsānaṁ sādhukaṁ manasikāraṁ."
+    },
+    {
+     "n": 65,
+     "text": "Tasmātiha, bhikkhave, vedanāsu vedanānupassī tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 66,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu ‘cittapaṭisaṁvedī assasissāmī’ti sikkhati, ‘cittapaṭisaṁvedī passasissāmī’ti sikkhati; ‘abhippamodayaṁ cittaṁ assasissāmī’ti sikkhati, ‘abhippamodayaṁ cittaṁ passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 67,
+     "text": "‘samādahaṁ cittaṁ assasissāmī’ti sikkhati, ‘samādahaṁ cittaṁ passasissāmī’ti sikkhati; ‘vimocayaṁ cittaṁ assasissāmī’ti sikkhati, ‘vimocayaṁ cittaṁ passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 68,
+     "text": "citte cittānupassī, bhikkhave, tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 69,
+     "text": "Nāhaṁ, bhikkhave, muṭṭhassatissa asampajānassa ānāpānassatiṁ vadāmi."
+    },
+    {
+     "n": 70,
+     "text": "Tasmātiha, bhikkhave, citte cittānupassī tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 71,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu ‘aniccānupassī assasissāmī’ti sikkhati, ‘aniccānupassī passasissāmī’ti sikkhati; ‘virāgānupassī assasissāmī’ti sikkhati, ‘virāgānupassī passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 72,
+     "text": "‘nirodhānupassī assasissāmī’ti sikkhati, ‘nirodhānupassī passasissāmī’ti sikkhati; ‘paṭinissaggānupassī assasissāmī’ti sikkhati, ‘paṭinissaggānupassī passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 73,
+     "text": "dhammesu dhammānupassī, bhikkhave, tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 74,
+     "text": "So yaṁ taṁ abhijjhādomanassānaṁ pahānaṁ taṁ paññāya disvā sādhukaṁ ajjhupekkhitā hoti."
+    },
+    {
+     "n": 75,
+     "text": "Tasmātiha, bhikkhave, dhammesu dhammānupassī tasmiṁ samaye bhikkhu viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 76,
+     "text": "Evaṁ bhāvitā kho, bhikkhave, ānāpānassati evaṁ bahulīkatā cattāro satipaṭṭhāne paripūreti."
+    },
+    {
+     "n": 77,
+     "text": "Kathaṁ bhāvitā ca, bhikkhave, cattāro satipaṭṭhānā kathaṁ bahulīkatā satta bojjhaṅge paripūrenti?"
+    },
+    {
+     "n": 78,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu kāye kāyānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ, upaṭṭhitāssa tasmiṁ samaye sati hoti asammuṭṭhā."
+    },
+    {
+     "n": 79,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno upaṭṭhitā sati hoti asammuṭṭhā, satisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti."
+    },
+    {
+     "n": 80,
+     "text": "Satisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti, satisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 81,
+     "text": "So tathāsato viharanto taṁ dhammaṁ paññāya pavicinati pavicayati parivīmaṁsaṁ āpajjati."
+    },
+    {
+     "n": 82,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu tathāsato viharanto taṁ dhammaṁ paññāya pavicinati pavicayati parivīmaṁsaṁ āpajjati, dhammavicayasambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti,"
+    },
+    {
+     "n": 83,
+     "text": "dhammavicayasambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti, dhammavicayasambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 84,
+     "text": "Tassa taṁ dhammaṁ paññāya pavicinato pavicayato parivīmaṁsaṁ āpajjato āraddhaṁ hoti vīriyaṁ asallīnaṁ."
+    },
+    {
+     "n": 85,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno taṁ dhammaṁ paññāya pavicinato pavicayato parivīmaṁsaṁ āpajjato āraddhaṁ hoti vīriyaṁ asallīnaṁ, vīriyasambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti,"
+    },
+    {
+     "n": 86,
+     "text": "vīriyasambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti, vīriyasambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 87,
+     "text": "Āraddhavīriyassa uppajjati pīti nirāmisā."
+    },
+    {
+     "n": 88,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno āraddhavīriyassa uppajjati pīti nirāmisā, pītisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, pītisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 89,
+     "text": "pītisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 90,
+     "text": "Pītimanassa kāyopi passambhati, cittampi passambhati."
+    },
+    {
+     "n": 91,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno pītimanassa kāyopi passambhati, cittampi passambhati, passaddhisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, passaddhisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 92,
+     "text": "passaddhisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 93,
+     "text": "Passaddhakāyassa sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 94,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno passaddhakāyassa sukhino cittaṁ samādhiyati, samādhisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, samādhisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 95,
+     "text": "samādhisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 96,
+     "text": "So tathāsamāhitaṁ cittaṁ sādhukaṁ ajjhupekkhitā hoti."
+    },
+    {
+     "n": 97,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu tathāsamāhitaṁ cittaṁ sādhukaṁ ajjhupekkhitā hoti, upekkhāsambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, upekkhāsambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 98,
+     "text": "upekkhāsambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 99,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu vedanāsu …pe… citte … dhammesu dhammānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ, upaṭṭhitāssa tasmiṁ samaye sati hoti asammuṭṭhā."
+    },
+    {
+     "n": 100,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno upaṭṭhitā sati hoti asammuṭṭhā, satisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, satisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 101,
+     "text": "satisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 102,
+     "text": "So tathāsato viharanto taṁ dhammaṁ paññāya pavicinati pavicayati parivīmaṁsaṁ āpajjati."
+    },
+    {
+     "n": 103,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu tathāsato viharanto taṁ dhammaṁ paññāya pavicinati pavicayati parivīmaṁsaṁ āpajjati, dhammavicayasambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti,"
+    },
+    {
+     "n": 104,
+     "text": "dhammavicayasambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti, dhammavicayasambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 105,
+     "text": "Tassa taṁ dhammaṁ paññāya pavicinato pavicayato parivīmaṁsaṁ āpajjato āraddhaṁ hoti vīriyaṁ asallīnaṁ."
+    },
+    {
+     "n": 106,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno taṁ dhammaṁ paññāya pavicinato pavicayato parivīmaṁsaṁ āpajjato āraddhaṁ hoti vīriyaṁ asallīnaṁ, vīriyasambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti,"
+    },
+    {
+     "n": 107,
+     "text": "vīriyasambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti, vīriyasambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati. Āraddhavīriyassa uppajjati pīti nirāmisā."
+    },
+    {
+     "n": 108,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno āraddhavīriyassa uppajjati pīti nirāmisā, pītisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, pītisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 109,
+     "text": "pītisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 110,
+     "text": "Pītimanassa kāyopi passambhati, cittampi passambhati."
+    },
+    {
+     "n": 111,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno pītimanassa kāyopi passambhati, cittampi passambhati, passaddhisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, passaddhisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 112,
+     "text": "passaddhisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 113,
+     "text": "Passaddhakāyassa sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 114,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhuno passaddhakāyassa sukhino cittaṁ samādhiyati, samādhisambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, samādhisambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 115,
+     "text": "samādhisambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 116,
+     "text": "So tathāsamāhitaṁ cittaṁ sādhukaṁ ajjhupekkhitā hoti."
+    },
+    {
+     "n": 117,
+     "text": "Yasmiṁ samaye, bhikkhave, bhikkhu tathāsamāhitaṁ cittaṁ sādhukaṁ ajjhupekkhitā hoti, upekkhāsambojjhaṅgo tasmiṁ samaye bhikkhuno āraddho hoti, upekkhāsambojjhaṅgaṁ tasmiṁ samaye bhikkhu bhāveti,"
+    },
+    {
+     "n": 118,
+     "text": "upekkhāsambojjhaṅgo tasmiṁ samaye bhikkhuno bhāvanāpāripūriṁ gacchati."
+    },
+    {
+     "n": 119,
+     "text": "Evaṁ bhāvitā kho, bhikkhave, cattāro satipaṭṭhānā evaṁ bahulīkatā satta sambojjhaṅge paripūrenti."
+    },
+    {
+     "n": 120,
+     "text": "Kathaṁ bhāvitā ca, bhikkhave, satta bojjhaṅgā kathaṁ bahulīkatā vijjāvimuttiṁ paripūrenti?"
+    },
+    {
+     "n": 121,
+     "text": "Idha, bhikkhave, bhikkhu satisambojjhaṅgaṁ bhāveti vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ."
+    },
+    {
+     "n": 122,
+     "text": "Dhammavicayasambojjhaṅgaṁ bhāveti …pe… vīriyasambojjhaṅgaṁ bhāveti … pītisambojjhaṅgaṁ bhāveti … passaddhisambojjhaṅgaṁ bhāveti … samādhisambojjhaṅgaṁ bhāveti …"
+    },
+    {
+     "n": 123,
+     "text": "upekkhāsambojjhaṅgaṁ bhāveti vivekanissitaṁ virāganissitaṁ nirodhanissitaṁ vossaggapariṇāmiṁ."
+    },
+    {
+     "n": 124,
+     "text": "Evaṁ bhāvitā kho, bhikkhave, satta bojjhaṅgā evaṁ bahulīkatā vijjāvimuttiṁ paripūrentī”ti."
+    },
+    {
+     "n": 125,
+     "text": "Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṁ abhinandunti."
+    },
+    {
+     "n": 126,
+     "text": "Ānāpānassatisuttaṁ niṭṭhitaṁ aṭṭhamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn118/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard."
+    },
+    {
+     "n": 2,
+     "text": "At one time the Buddha was staying near Sāvatthī in the stilt longhouse of Migāra’s mother in the Eastern Monastery, together with several well-known senior disciples, such as the venerables Sāriputta, Mahāmoggallāna,"
+    },
+    {
+     "n": 3,
+     "text": "Mahākassapa, Mahākaccāna, Mahākoṭṭhita, Mahākappina, Mahācunda, Anuruddha, Revata, Ānanda, and others."
+    },
+    {
+     "n": 4,
+     "text": "Now at that time the senior monks were advising and instructing the junior monks."
+    },
+    {
+     "n": 5,
+     "text": "Some senior monks instructed ten monks, while some instructed twenty, thirty, or forty."
+    },
+    {
+     "n": 6,
+     "text": "Being instructed by the senior monks, the junior monks realized a higher distinction than they had before."
+    },
+    {
+     "n": 7,
+     "text": "Now, at that time it was the sabbath—the full moon on the fifteenth day—and the Buddha was sitting surrounded by the Saṅgha of monks for the invitation to admonish."
+    },
+    {
+     "n": 8,
+     "text": "Then the Buddha looked around the Saṅgha of monks, who were so very silent. He addressed them:"
+    },
+    {
+     "n": 9,
+     "text": "“I am satisfied, monks, with this practice."
+    },
+    {
+     "n": 10,
+     "text": "My heart is satisfied with this practice."
+    },
+    {
+     "n": 11,
+     "text": "So you should rouse up even more energy for attaining the unattained, achieving the unachieved, and realizing the unrealized."
+    },
+    {
+     "n": 12,
+     "text": "I will wait here in Sāvatthī for the Komudī full moon of the fourth month.”"
+    },
+    {
+     "n": 13,
+     "text": "Mendicants from around the country heard about this, and came down to Sāvatthī to see the Buddha."
+    },
+    {
+     "n": 14,
+     "text": "And those senior monks instructed the junior monks even more."
+    },
+    {
+     "n": 15,
+     "text": "Some senior monks instructed ten monks, while some instructed twenty, thirty, or forty."
+    },
+    {
+     "n": 16,
+     "text": "Being instructed by the senior monks, the junior monks realized a higher distinction than they had before."
+    },
+    {
+     "n": 17,
+     "text": "Now, at that time it was the sabbath—the Komudī full moon on the fifteenth day of the fourth month—and the Buddha was sitting in the open surrounded by the Saṅgha of monks."
+    },
+    {
+     "n": 18,
+     "text": "Then the Buddha looked around the Saṅgha of monks, who were so very silent. He addressed them:"
+    },
+    {
+     "n": 19,
+     "text": "“This assembly has no chaff, monks, it is free of chaff, pure, and consolidated in the core."
+    },
+    {
+     "n": 20,
+     "text": "Such is this Saṅgha of monks, such is this assembly!"
+    },
+    {
+     "n": 21,
+     "text": "An assembly such as this is worthy of offerings dedicated to the gods, worthy of hospitality, worthy of a religious donation, worthy of greeting with cupped palms, and is the supreme field of merit for the world."
+    },
+    {
+     "n": 22,
+     "text": "Such is this Saṅgha of monks, such is this assembly!"
+    },
+    {
+     "n": 23,
+     "text": "For an assembly such as this, giving little becomes much, while giving much becomes even more."
+    },
+    {
+     "n": 24,
+     "text": "Such is this Saṅgha of monks, such is this assembly!"
+    },
+    {
+     "n": 25,
+     "text": "An assembly such as this is rarely seen in the world."
+    },
+    {
+     "n": 26,
+     "text": "Such is this Saṅgha of monks, such is this assembly!"
+    },
+    {
+     "n": 27,
+     "text": "An assembly such as this is worth traveling many leagues to see, even if you have to carry your own provisions in a knapsack."
+    },
+    {
+     "n": 28,
+     "text": "For in this Saṅgha there are perfected mendicants who have ended the defilements, completed the spiritual journey, done what had to be done, laid down the burden, achieved their heart’s goal,"
+    },
+    {
+     "n": 29,
+     "text": "utterly ended the fetter of continued existence, and are rightly freed through enlightenment."
+    },
+    {
+     "n": 30,
+     "text": "There are such mendicants in this Saṅgha."
+    },
+    {
+     "n": 31,
+     "text": "In this Saṅgha there are mendicants who, with the ending of the five lower fetters are reborn spontaneously."
+    },
+    {
+     "n": 32,
+     "text": "They are extinguished there, and are not liable to return from that world."
+    },
+    {
+     "n": 33,
+     "text": "There are such mendicants in this Saṅgha."
+    },
+    {
+     "n": 34,
+     "text": "In this Saṅgha there are mendicants who, with the ending of three fetters, and the weakening of greed, hate, and delusion, are once-returners."
+    },
+    {
+     "n": 35,
+     "text": "They come back to this world once only, then make an end of suffering."
+    },
+    {
+     "n": 36,
+     "text": "There are such mendicants in this Saṅgha."
+    },
+    {
+     "n": 37,
+     "text": "In this Saṅgha there are mendicants who, with the ending of three fetters are stream-enterers, not liable to be reborn in the underworld, assured, destined for awakening."
+    },
+    {
+     "n": 38,
+     "text": "There are such mendicants in this Saṅgha."
+    },
+    {
+     "n": 39,
+     "text": "In this Saṅgha there are mendicants who are committed to developing the four kinds of mindfulness meditation … the four right efforts … the four bases of psychic power … the five faculties … the five powers … the seven"
+    },
+    {
+     "n": 40,
+     "text": "awakening factors … the noble eightfold path."
+    },
+    {
+     "n": 41,
+     "text": "There are such mendicants in this Saṅgha."
+    },
+    {
+     "n": 42,
+     "text": "In this Saṅgha there are mendicants who are committed to developing the meditation on love … compassion … rejoicing … equanimity … ugliness … impermanence."
+    },
+    {
+     "n": 43,
+     "text": "There are such mendicants in this Saṅgha."
+    },
+    {
+     "n": 44,
+     "text": "In this Saṅgha there are mendicants who are committed to developing the meditation on mindfulness of breathing."
+    },
+    {
+     "n": 45,
+     "text": "Mendicants, when mindfulness of breathing is developed and cultivated it is very fruitful and beneficial."
+    },
+    {
+     "n": 46,
+     "text": "Mindfulness of breathing, when developed and cultivated, fulfills the four kinds of mindfulness meditation."
+    },
+    {
+     "n": 47,
+     "text": "The four kinds of mindfulness meditation, when developed and cultivated, fulfill the seven awakening factors."
+    },
+    {
+     "n": 48,
+     "text": "And the seven awakening factors, when developed and cultivated, fulfill knowledge and freedom."
+    },
+    {
+     "n": 49,
+     "text": "And how is mindfulness of breathing developed and cultivated to be very fruitful and beneficial?"
+    },
+    {
+     "n": 50,
+     "text": "It’s when a mendicant—gone to a wilderness, or to the root of a tree, or to an empty hut—sits down cross-legged, sets their body straight, and brings mindfulness to the present. Just mindful, they breathe in."
+    },
+    {
+     "n": 51,
+     "text": "Mindful, they breathe out."
+    },
+    {
+     "n": 52,
+     "text": "Breathing in heavily they know: ‘I’m breathing in heavily.’"
+    },
+    {
+     "n": 53,
+     "text": "Breathing out heavily they know: ‘I’m breathing out heavily.’"
+    },
+    {
+     "n": 54,
+     "text": "Breathing in lightly they know: ‘I’m breathing in lightly.’"
+    },
+    {
+     "n": 55,
+     "text": "Breathing out lightly they know: ‘I’m breathing out lightly.’"
+    },
+    {
+     "n": 56,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the whole body.’"
+    },
+    {
+     "n": 57,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the whole body.’"
+    },
+    {
+     "n": 58,
+     "text": "They practice like this: ‘I’ll breathe in stilling the physical process.’"
+    },
+    {
+     "n": 59,
+     "text": "They practice like this: ‘I’ll breathe out stilling the physical process.’"
+    },
+    {
+     "n": 60,
+     "text": "They practice like this: ‘I’ll breathe in experiencing rapture.’"
+    },
+    {
+     "n": 61,
+     "text": "They practice like this: ‘I’ll breathe out experiencing rapture.’"
+    },
+    {
+     "n": 62,
+     "text": "They practice like this: ‘I’ll breathe in experiencing bliss.’"
+    },
+    {
+     "n": 63,
+     "text": "They practice like this: ‘I’ll breathe out experiencing bliss.’"
+    },
+    {
+     "n": 64,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the mental process.’"
+    },
+    {
+     "n": 65,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the mental process.’"
+    },
+    {
+     "n": 66,
+     "text": "They practice like this: ‘I’ll breathe in stilling the mental process.’"
+    },
+    {
+     "n": 67,
+     "text": "They practice like this: ‘I’ll breathe out stilling the mental process.’"
+    },
+    {
+     "n": 68,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the mind.’"
+    },
+    {
+     "n": 69,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the mind.’"
+    },
+    {
+     "n": 70,
+     "text": "They practice like this: ‘I’ll breathe in gladdening the mind.’"
+    },
+    {
+     "n": 71,
+     "text": "They practice like this: ‘I’ll breathe out gladdening the mind.’"
+    },
+    {
+     "n": 72,
+     "text": "They practice like this: ‘I’ll breathe in immersing the mind in samādhi.’"
+    },
+    {
+     "n": 73,
+     "text": "They practice like this: ‘I’ll breathe out immersing the mind in samādhi.’"
+    },
+    {
+     "n": 74,
+     "text": "They practice like this: ‘I’ll breathe in freeing the mind.’"
+    },
+    {
+     "n": 75,
+     "text": "They practice like this: ‘I’ll breathe out freeing the mind.’"
+    },
+    {
+     "n": 76,
+     "text": "They practice like this: ‘I’ll breathe in observing impermanence.’"
+    },
+    {
+     "n": 77,
+     "text": "They practice like this: ‘I’ll breathe out observing impermanence.’"
+    },
+    {
+     "n": 78,
+     "text": "They practice like this: ‘I’ll breathe in observing fading away.’"
+    },
+    {
+     "n": 79,
+     "text": "They practice like this: ‘I’ll breathe out observing fading away.’"
+    },
+    {
+     "n": 80,
+     "text": "They practice like this: ‘I’ll breathe in observing cessation.’"
+    },
+    {
+     "n": 81,
+     "text": "They practice like this: ‘I’ll breathe out observing cessation.’"
+    },
+    {
+     "n": 82,
+     "text": "They practice like this: ‘I’ll breathe in observing letting go.’"
+    },
+    {
+     "n": 83,
+     "text": "They practice like this: ‘I’ll breathe out observing letting go.’"
+    },
+    {
+     "n": 84,
+     "text": "Mindfulness of breathing, when developed and cultivated in this way, is very fruitful and beneficial."
+    },
+    {
+     "n": 85,
+     "text": "And how is mindfulness of breathing developed and cultivated so as to fulfill the four kinds of mindfulness meditation?"
+    },
+    {
+     "n": 86,
+     "text": "Whenever a mendicant knows that they breathe heavily, or lightly, or experiencing the whole body, or stilling the physical process— at that time they’re meditating by observing an aspect of the body—keen, aware,"
+    },
+    {
+     "n": 87,
+     "text": "and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 88,
+     "text": "For I say that the in-breaths and out-breaths are an aspect of the body."
+    },
+    {
+     "n": 89,
+     "text": "That’s why at that time a mendicant is meditating by observing an aspect of the body—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 90,
+     "text": "Whenever a mendicant practices breathing while experiencing rapture, or experiencing bliss, or experiencing the mental process,"
+    },
+    {
+     "n": 91,
+     "text": "or stilling the mental process— at that time they meditate observing an aspect of feelings—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 92,
+     "text": "For I say that careful application of mind to the in-breaths and out-breaths is an aspect of feelings."
+    },
+    {
+     "n": 93,
+     "text": "That’s why at that time a mendicant is meditating by observing an aspect of feelings—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 94,
+     "text": "Whenever a mendicant practices breathing while experiencing the mind, or gladdening the mind, or immersing the mind in samādhi, or freeing the mind— at that time they meditate observing an aspect of the mind—keen, aware,"
+    },
+    {
+     "n": 95,
+     "text": "and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 96,
+     "text": "There is no development of mindfulness of breathing for someone who is unmindful and lacks awareness, I say."
+    },
+    {
+     "n": 97,
+     "text": "That’s why at that time a mendicant is meditating by observing an aspect of the mind—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 98,
+     "text": "Whenever a mendicant practices breathing while observing impermanence, or observing fading away, or observing cessation, or observing letting go— at that time they meditate observing an aspect of principles—keen, aware,"
+    },
+    {
+     "n": 99,
+     "text": "and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 100,
+     "text": "Having seen with wisdom the giving up of covetousness and displeasure, they watch over closely with equanimity."
+    },
+    {
+     "n": 101,
+     "text": "That’s why at that time a mendicant is meditating by observing an aspect of principles—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 102,
+     "text": "That’s how mindfulness of breathing, when developed and cultivated, fulfills the four kinds of mindfulness meditation."
+    },
+    {
+     "n": 103,
+     "text": "And how are the four kinds of mindfulness meditation developed and cultivated so as to fulfill the seven awakening factors?"
+    },
+    {
+     "n": 104,
+     "text": "Whenever a mendicant meditates by observing an aspect of the body, at that time their mindfulness is established and lucid."
+    },
+    {
+     "n": 105,
+     "text": "At such a time, a mendicant has initiated the awakening factor of mindfulness; they develop it and perfect it."
+    },
+    {
+     "n": 106,
+     "text": "As they live mindfully in this way they investigate, explore, and inquire into that principle with wisdom."
+    },
+    {
+     "n": 107,
+     "text": "At such a time, a mendicant has initiated the awakening factor of investigation of principles; they develop it and perfect it."
+    },
+    {
+     "n": 108,
+     "text": "As they investigate principles with wisdom in this way their energy is roused up and unflagging."
+    },
+    {
+     "n": 109,
+     "text": "At such a time, a mendicant has initiated the awakening factor of energy; they develop it and perfect it."
+    },
+    {
+     "n": 110,
+     "text": "When they’re energetic, rapture not of the flesh arises."
+    },
+    {
+     "n": 111,
+     "text": "At such a time, a mendicant has initiated the awakening factor of rapture; they develop it and perfect it."
+    },
+    {
+     "n": 112,
+     "text": "When the mind is full of rapture, the body and mind become tranquil."
+    },
+    {
+     "n": 113,
+     "text": "At such a time, a mendicant has initiated the awakening factor of tranquility; they develop it and perfect it."
+    },
+    {
+     "n": 114,
+     "text": "When the body is tranquil and they feel bliss, the mind becomes immersed in samādhi."
+    },
+    {
+     "n": 115,
+     "text": "At such a time, a mendicant has initiated the awakening factor of immersion; they develop it and perfect it."
+    },
+    {
+     "n": 116,
+     "text": "They closely watch over that mind immersed in samādhi."
+    },
+    {
+     "n": 117,
+     "text": "At such a time, a mendicant has initiated the awakening factor of equanimity; they develop it and perfect it."
+    },
+    {
+     "n": 118,
+     "text": "Whenever a mendicant meditates by observing an aspect of feelings … mind … principles, at that time their mindfulness is established and lucid."
+    },
+    {
+     "n": 119,
+     "text": "At such a time, a mendicant has initiated the awakening factor of mindfulness … investigation of principles … energy … rapture … tranquility … immersion … equanimity."
+    },
+    {
+     "n": 120,
+     "text": "That’s how the four kinds of mindfulness meditation, when developed and cultivated, fulfill the seven awakening factors."
+    },
+    {
+     "n": 121,
+     "text": "And how are the seven awakening factors developed and cultivated so as to fulfill knowledge and freedom?"
+    },
+    {
+     "n": 122,
+     "text": "It’s when a mendicant develops the awakening factors of mindfulness, investigation of principles, energy, rapture, tranquility, immersion,"
+    },
+    {
+     "n": 123,
+     "text": "and equanimity, which rely on seclusion, fading away, and cessation, and ripen as letting go."
+    },
+    {
+     "n": 124,
+     "text": "That’s how the seven awakening factors, when developed and cultivated, fulfill knowledge and freedom.”"
+    },
+    {
+     "n": 125,
+     "text": "That is what the Buddha said. Satisfied, the monks approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

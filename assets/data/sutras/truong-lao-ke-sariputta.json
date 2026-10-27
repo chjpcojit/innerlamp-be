@@ -1,0 +1,1461 @@
+{
+ "id": "truong-lao-ke-sariputta",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Kệ",
+ "reference": "Thag 17.2",
+ "summary": "Kệ ngôn của trưởng lão Sāriputta (Xá-lợi-phất) trong Trưởng Lão Kệ (Tiểu Bộ, Thag 17.2). Các câu kệ mô tả phẩm chất người tỳ khưu như có niệm, biết đủ, ăn uống chừng mực, khuyên xa lìa vọng tưởng để hướng đến Niết Bàn, và ca ngợi nơi các vị A-la-hán cư ngụ. Phần cuối là lời dặn hãy nỗ lực không xao lãng, khi ngài chuẩn bị viên tịch.",
+ "titles": {
+  "vi": "Trưởng Lão Kệ - Sāriputta",
+  "pli": "Sāriputtattheragāthā",
+  "en": "Sāriputta"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 20,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thag17.2/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Vị có hạnh kiểm như thế, có tánh tốt như thế, có niệm, có sự suy tư đã được kiềm chế, có thiền chứng, không bị xao lãng, được thỏa thích ở nội tâm, có bản thân được định tĩnh, đơn độc, tự biết đủ,"
+    },
+    {
+     "n": 2,
+     "text": "người ta gọi vị ấy là tỳ khưu."
+    },
+    {
+     "n": 3,
+     "text": "Trong khi thọ dụng đồ ăn ướt hay đồ ăn khô, không nên thỏa mãn một cách quá độ, vị tỳ khưu du hành, có bao tử thiếu thốn, có vật thực chừng mực, có niệm."
+    },
+    {
+     "n": 4,
+     "text": "Nên ngưng không ăn bốn, năm vắt cơm (sau cùng) và nên uống nước, vậy là đủ cho sự sống thoải mái của vị tỳ khưu bản tính cương quyết."
+    },
+    {
+     "n": 5,
+     "text": "Nếu mặc lên y ấy, (là y) đã được làm cho đúng phép, thì điều này là có lợi ích, vậy là đủ cho sự sống thoải mái của vị tỳ khưu bản tính cương quyết."
+    },
+    {
+     "n": 6,
+     "text": "Đối với vị đang ngồi với thế kiết già, trời mưa còn chưa làm ướt đầu gối, vậy là đủ cho sự sống thoải mái của vị tỳ khưu bản tính cương quyết."
+    },
+    {
+     "n": 7,
+     "text": "Người nào đã thấy lạc là khổ, đã nhìn thấy khổ là mũi tên, đã không ở giữa cả hai (lạc và khổ), còn có điều gì (trói buộc) ở thế gian và có thể trở thành cái gì (ở tương lai)?"
+    },
+    {
+     "n": 8,
+     "text": "Mong rằng kẻ có ước muốn xấu xa, biếng nhác, có sự tinh tấn kém cỏi, ít học hỏi, không có sự tôn trọng, chớ bao giờ gần bên tôi, còn có điều gì ở thế gian (để giáo huấn) và có thể trở thành cái gì (được lợi ích)?"
+    },
+    {
+     "n": 9,
+     "text": "Và mong rằng vị nghe nhiều, thông minh, khéo chuyên chú vào các giới, được gắn bó với sự vắng lặng của tâm, hãy đứng ngay ở đỉnh đầu."
+    },
+    {
+     "n": 10,
+     "text": "Kẻ nào bị gắn bó với vọng tưởng, thỏa thích vọng tưởng giống như con thú, kẻ ấy đã lìa xa Niết Bàn, sự an toàn khỏi các ràng buộc, vô thượng."
+    },
+    {
+     "n": 11,
+     "text": "Và vị nào, sau khi từ bỏ vọng tưởng, được thích thú ở đạo lộ không có vọng tưởng, vị ấy đã thành tựu Niết Bàn, sự an toàn khỏi các ràng buộc, vô thượng."
+    },
+    {
+     "n": 12,
+     "text": "Cho dầu ở làng hoặc là ở rừng, cho dầu ở thung lũng hoặc ở cao nguyên, nơi nào các vị A-la-hán cư ngụ, vùng đất ấy thật đáng yêu."
+    },
+    {
+     "n": 13,
+     "text": "Các khu rừng đáng yêu là nơi con người không ưa thích."
+    },
+    {
+     "n": 14,
+     "text": "Những vị có luyến ái đã được xa lìa sẽ ưa thích, các vị ấy không phải là những kẻ tầm cầu ái dục."
+    },
+    {
+     "n": 15,
+     "text": "Nên gặp gỡ người thông minh, nhìn thấy được lỗi lầm, có lời nói khiển trách, tựa như người chỉ ra những của cải chôn giấu."
+    },
+    {
+     "n": 16,
+     "text": "Nên giao thiệp với người thông minh như thế ấy."
+    },
+    {
+     "n": 17,
+     "text": "Người giao thiệp với vị (thông minh) như thế ấy có được điều tốt hơn, không xấu."
+    },
+    {
+     "n": 18,
+     "text": "Người có thể giáo giới, có thể chỉ dạy, có thể ngăn chặn điều không tốt lành, thật vậy đối với những người tốt thì người ấy được thương mến, đối với những người không tốt thì không được yêu mến."
+    },
+    {
+     "n": 19,
+     "text": "Đức Phật Thế Tôn, bậc Hữu Nhãn, đã thuyết giảng Giáo Pháp đến người khác."
+    },
+    {
+     "n": 20,
+     "text": "Trong khi Giáo Pháp đang được thuyết giảng, là người có mục đích, tôi đã lắng tai nghe."
+    },
+    {
+     "n": 21,
+     "text": "Việc lắng nghe ấy của tôi là không vô ích, tôi đã được giải thoát, không còn lậu hoặc."
+    },
+    {
+     "n": 22,
+     "text": "Không vì đời sống trong thời quá khứ, cũng không vì Thiên nhãn, vì thần thông về việc biết được tâm (của người khác), về sự chết và sự sanh, về sự thanh tịnh của nhĩ giới, là ước nguyện không có ở tôi."
+    },
+    {
+     "n": 23,
+     "text": "Vị trưởng lão Upatissa, tối thượng về trí tuệ, đầu cạo, trùm lên y hai lớp, đã ngồi xuống ngay tại gốc cây, tham thiền."
+    },
+    {
+     "n": 24,
+     "text": "Đã đạt được trạng thái vô tầm, vị đệ tử của bậc Chánh Đẳng Giác ngay tức thời đạt đến trạng thái im lặng thánh thiện."
+    },
+    {
+     "n": 25,
+     "text": "Cũng giống như ngọn núi đá, không bị lay động, đã khéo được thiết lập, tương tự như vậy vị tỳ khưu, do sự cạn kiệt của si mê, không rung chuyển tựa như ngọn núi."
+    },
+    {
+     "n": 26,
+     "text": "Đối với người không có (đầu óc) nhơ bẩn, luôn tầm cầu sự tinh khiết, phần nhỏ bằng đầu cọng tóc của sự xấu xa được xem như là kích thước của đám mây."
+    },
+    {
+     "n": 27,
+     "text": "Tôi không vui thích sự chết, tôi không vui thích sự sống, tôi sẽ lìa bỏ thân xác này, có sự nhận biết rõ, có niệm."
+    },
+    {
+     "n": 28,
+     "text": "Tôi không vui thích sự chết, tôi không vui thích sự sống, và tôi chờ đợi thời điểm, giống như người làm thuê chờ đợi tiền công."
+    },
+    {
+     "n": 29,
+     "text": "Ở cả hai thời, sau này (lúc về già) hoặc trước đây (lúc còn trẻ), cái này chính là sự chết, không phải không chết, các vị hãy tiến bước, các vị chớ có hư hỏng, chớ để thời khắc của quý vị trôi qua."
+    },
+    {
+     "n": 30,
+     "text": "Giống như thành trì ở biên thùy được canh phòng bên trong lẫn bên ngoài, các vị hãy gìn giữ bản thân như vậy, chớ để thời khắc của quý vị trôi qua,"
+    },
+    {
+     "n": 31,
+     "text": "bởi vì những kẻ đã để thời khắc trôi qua bị sầu muộn khi bị đưa vào ở địa ngục."
+    },
+    {
+     "n": 32,
+     "text": "Vị an tịnh, tự chế, có lời nói đúng đắn, không tự kiêu, rũ bỏ các ác pháp tựa như gió làm rụng lá cây."
+    },
+    {
+     "n": 33,
+     "text": "Vị an tịnh, tự chế, có lời nói đúng đắn, không tự kiêu, rũ bỏ các ác pháp tựa như gió ngắt bỏ lá cây."
+    },
+    {
+     "n": 34,
+     "text": "Vị an tịnh, không buồn phiền, hoàn toàn tịnh tín, không náo động, có giới tốt đẹp, thông minh, có thể thực hiện việc chấm dứt khổ đau."
+    },
+    {
+     "n": 35,
+     "text": "Không thể tin được rằng một số người tại gia luôn cả xuất gia lại là như vầy, thậm chí đã là tốt lành rồi trở thành không tốt lành, đã là không tốt lành rồi lại trở thành tốt lành."
+    },
+    {
+     "n": 36,
+     "text": "Ước muốn về dục, và ác tâm, sự dã dượi buồn ngủ, sự phóng dật, và hoài nghi, đây là năm ô nhiễm ở tâm của vị tỳ khưu."
+    },
+    {
+     "n": 37,
+     "text": "Đối với vị nào, ở cả hai trường hợp, đang được tôn vinh và không có tôn vinh, mà có sự an trú không bị xao lãng, định của vị ấy không dao động."
+    },
+    {
+     "n": 38,
+     "text": "Vị tham thiền liên tục, có sự quán xét về tà kiến vi tế, có sự ưa thích về sự cạn kiệt của chấp thủ, người ta gọi vị ấy là ‘bậc thiện nhân.’"
+    },
+    {
+     "n": 39,
+     "text": "Đại dương, trái đất, quả núi, và luôn cả ngọn gió, không được liên kết với sự so sánh về sự giải thoát cao quý của bậc Đạo Sư."
+    },
+    {
+     "n": 40,
+     "text": "Vị tiếp tục xoay chuyển bánh xe, bậc trưởng lão, có trí tuệ lớn lao, được định tĩnh, tương tự đất, nước, và lửa, không bị luyến ái, không bị sân hận."
+    },
+    {
+     "n": 41,
+     "text": "Đã đạt đến sự toàn hảo về tuệ, có tánh giác vĩ đại, có tư tưởng lớn lao, không đần độn giống như là đần độn, luôn sống được tịch tịnh."
+    },
+    {
+     "n": 42,
+     "text": "Bậc Đạo Sư đã được tôi hầu hạ, lời dạy của đức Phật đã được thực hành, vật mang nặng đã được đặt xuống, lối dẫn đến hiện hữu đã được xóa sạch."
+    },
+    {
+     "n": 43,
+     "text": "Quý vị hãy nỗ lực với sự không xao lãng, điều này là lời chỉ dạy của tôi."
+    },
+    {
+     "n": 44,
+     "text": "Tốt lắm, tôi sẽ viên tịch Niết Bàn, tôi đã được giải thoát về mọi mặt.”"
+    },
+    {
+     "n": 45,
+     "text": "Đại đức trưởng lão Sāriputta đã nói những lời kệ như thế."
+    },
+    {
+     "n": 46,
+     "text": "Kệ ngôn của trưởng lão Sāriputta."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag17.2/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Yathācārī yathāsato satīmā,"
+    },
+    {
+     "n": 2,
+     "text": "Yatasaṅkappajjhāyi appamatto;"
+    },
+    {
+     "n": 3,
+     "text": "Ajjhattarato samāhitatto,"
+    },
+    {
+     "n": 4,
+     "text": "Eko santusito tamāhu bhikkhuṁ."
+    },
+    {
+     "n": 5,
+     "text": "Allaṁ sukkhaṁ vā bhuñjanto,"
+    },
+    {
+     "n": 6,
+     "text": "Na bāḷhaṁ suhito siyā;"
+    },
+    {
+     "n": 7,
+     "text": "Ūnūdaro mitāhāro,"
+    },
+    {
+     "n": 8,
+     "text": "Sato bhikkhu paribbaje."
+    },
+    {
+     "n": 9,
+     "text": "Cattāro pañca ālope,"
+    },
+    {
+     "n": 10,
+     "text": "abhutvā udakaṁ pive;"
+    },
+    {
+     "n": 11,
+     "text": "Alaṁ phāsuvihārāya,"
+    },
+    {
+     "n": 12,
+     "text": "pahitattassa bhikkhuno."
+    },
+    {
+     "n": 13,
+     "text": "Kappiyaṁ tañce chādeti,"
+    },
+    {
+     "n": 14,
+     "text": "cīvaraṁ idamatthikaṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Alaṁ phāsuvihārāya,"
+    },
+    {
+     "n": 16,
+     "text": "pahitattassa bhikkhuno."
+    },
+    {
+     "n": 17,
+     "text": "Pallaṅkena nisinnassa,"
+    },
+    {
+     "n": 18,
+     "text": "jaṇṇuke nābhivassati;"
+    },
+    {
+     "n": 19,
+     "text": "Alaṁ phāsuvihārāya,"
+    },
+    {
+     "n": 20,
+     "text": "pahitattassa bhikkhuno."
+    },
+    {
+     "n": 21,
+     "text": "Yo sukhaṁ dukkhato adda,"
+    },
+    {
+     "n": 22,
+     "text": "dukkhamaddakkhi sallato;"
+    },
+    {
+     "n": 23,
+     "text": "Ubhayantarena nāhosi,"
+    },
+    {
+     "n": 24,
+     "text": "kena lokasmi kiṁ siyā."
+    },
+    {
+     "n": 25,
+     "text": "Mā me kadāci pāpiccho,"
+    },
+    {
+     "n": 26,
+     "text": "kusīto hīnavīriyo;"
+    },
+    {
+     "n": 27,
+     "text": "Appassuto anādaro,"
+    },
+    {
+     "n": 28,
+     "text": "kena lokasmi kiṁ siyā."
+    },
+    {
+     "n": 29,
+     "text": "Bahussuto ca medhāvī,"
+    },
+    {
+     "n": 30,
+     "text": "sīlesu susamāhito;"
+    },
+    {
+     "n": 31,
+     "text": "Cetosamathamanuyutto,"
+    },
+    {
+     "n": 32,
+     "text": "api muddhani tiṭṭhatu."
+    },
+    {
+     "n": 33,
+     "text": "Yo papañcamanuyutto,"
+    },
+    {
+     "n": 34,
+     "text": "papañcābhirato mago;"
+    },
+    {
+     "n": 35,
+     "text": "Virādhayī so nibbānaṁ,"
+    },
+    {
+     "n": 36,
+     "text": "yogakkhemaṁ anuttaraṁ."
+    },
+    {
+     "n": 37,
+     "text": "Yo ca papañcaṁ hitvāna,"
+    },
+    {
+     "n": 38,
+     "text": "nippapañcapathe rato;"
+    },
+    {
+     "n": 39,
+     "text": "Ārādhayī so nibbānaṁ,"
+    },
+    {
+     "n": 40,
+     "text": "yogakkhemaṁ anuttaraṁ."
+    },
+    {
+     "n": 41,
+     "text": "Gāme vā yadi vāraññe,"
+    },
+    {
+     "n": 42,
+     "text": "Ninne vā yadi vā thale;"
+    },
+    {
+     "n": 43,
+     "text": "Yattha arahanto viharanti,"
+    },
+    {
+     "n": 44,
+     "text": "Taṁ bhūmirāmaṇeyyakaṁ."
+    },
+    {
+     "n": 45,
+     "text": "Ramaṇīyāni araññāni,"
+    },
+    {
+     "n": 46,
+     "text": "yattha na ramatī jano;"
+    },
+    {
+     "n": 47,
+     "text": "Vītarāgā ramissanti,"
+    },
+    {
+     "n": 48,
+     "text": "na te kāmagavesino."
+    },
+    {
+     "n": 49,
+     "text": "Nidhīnaṁva pavattāraṁ,"
+    },
+    {
+     "n": 50,
+     "text": "yaṁ passe vajjadassinaṁ;"
+    },
+    {
+     "n": 51,
+     "text": "Niggayhavādiṁ medhāviṁ,"
+    },
+    {
+     "n": 52,
+     "text": "tādisaṁ paṇḍitaṁ bhaje;"
+    },
+    {
+     "n": 53,
+     "text": "Tādisaṁ bhajamānassa,"
+    },
+    {
+     "n": 54,
+     "text": "seyyo hoti na pāpiyo."
+    },
+    {
+     "n": 55,
+     "text": "Ovadeyyānusāseyya,"
+    },
+    {
+     "n": 56,
+     "text": "asabbhā ca nivāraye;"
+    },
+    {
+     "n": 57,
+     "text": "Satañhi so piyo hoti,"
+    },
+    {
+     "n": 58,
+     "text": "asataṁ hoti appiyo."
+    },
+    {
+     "n": 59,
+     "text": "Aññassa bhagavā buddho,"
+    },
+    {
+     "n": 60,
+     "text": "dhammaṁ desesi cakkhumā;"
+    },
+    {
+     "n": 61,
+     "text": "Dhamme desiyamānamhi,"
+    },
+    {
+     "n": 62,
+     "text": "sotamodhesimatthiko."
+    },
+    {
+     "n": 63,
+     "text": "Taṁ me amoghaṁ savanaṁ,"
+    },
+    {
+     "n": 64,
+     "text": "vimuttomhi anāsavo."
+    },
+    {
+     "n": 65,
+     "text": "Neva pubbenivāsāya,"
+    },
+    {
+     "n": 66,
+     "text": "napi dibbassa cakkhuno;"
+    },
+    {
+     "n": 67,
+     "text": "Cetopariyāya iddhiyā,"
+    },
+    {
+     "n": 68,
+     "text": "cutiyā upapattiyā;"
+    },
+    {
+     "n": 69,
+     "text": "Sotadhātuvisuddhiyā,"
+    },
+    {
+     "n": 70,
+     "text": "paṇidhī me na vijjati”."
+    },
+    {
+     "n": 71,
+     "text": "“Rukkhamūlaṁva nissāya,"
+    },
+    {
+     "n": 72,
+     "text": "muṇḍo saṅghāṭipāruto;"
+    },
+    {
+     "n": 73,
+     "text": "Paññāya uttamo thero,"
+    },
+    {
+     "n": 74,
+     "text": "upatissova jhāyati."
+    },
+    {
+     "n": 75,
+     "text": "Avitakkaṁ samāpanno,"
+    },
+    {
+     "n": 76,
+     "text": "sammāsambuddhasāvako;"
+    },
+    {
+     "n": 77,
+     "text": "Ariyena tuṇhībhāvena,"
+    },
+    {
+     "n": 78,
+     "text": "upeto hoti tāvade."
+    },
+    {
+     "n": 79,
+     "text": "Yathāpi pabbato selo,"
+    },
+    {
+     "n": 80,
+     "text": "acalo suppatiṭṭhito;"
+    },
+    {
+     "n": 81,
+     "text": "Evaṁ mohakkhayā bhikkhu,"
+    },
+    {
+     "n": 82,
+     "text": "pabbatova na vedhati”."
+    },
+    {
+     "n": 83,
+     "text": "“Anaṅgaṇassa posassa,"
+    },
+    {
+     "n": 84,
+     "text": "niccaṁ sucigavesino;"
+    },
+    {
+     "n": 85,
+     "text": "Vālaggamattaṁ pāpassa,"
+    },
+    {
+     "n": 86,
+     "text": "abbhamattaṁva khāyati."
+    },
+    {
+     "n": 87,
+     "text": "Nābhinandāmi maraṇaṁ,"
+    },
+    {
+     "n": 88,
+     "text": "nābhinandāmi jīvitaṁ;"
+    },
+    {
+     "n": 89,
+     "text": "Nikkhipissaṁ imaṁ kāyaṁ,"
+    },
+    {
+     "n": 90,
+     "text": "sampajāno patissato."
+    },
+    {
+     "n": 91,
+     "text": "Nābhinandāmi maraṇaṁ,"
+    },
+    {
+     "n": 92,
+     "text": "nābhinandāmi jīvitaṁ;"
+    },
+    {
+     "n": 93,
+     "text": "Kālañca paṭikaṅkhāmi,"
+    },
+    {
+     "n": 94,
+     "text": "nibbisaṁ bhatako yathā”."
+    },
+    {
+     "n": 95,
+     "text": "“Ubhayena midaṁ maraṇameva,"
+    },
+    {
+     "n": 96,
+     "text": "Nāmaraṇaṁ pacchā vā pure vā;"
+    },
+    {
+     "n": 97,
+     "text": "Paṭipajjatha mā vinassatha,"
+    },
+    {
+     "n": 98,
+     "text": "Khaṇo vo mā upaccagā."
+    },
+    {
+     "n": 99,
+     "text": "Nagaraṁ yathā paccantaṁ,"
+    },
+    {
+     "n": 100,
+     "text": "guttaṁ santarabāhiraṁ;"
+    },
+    {
+     "n": 101,
+     "text": "Evaṁ gopetha attānaṁ,"
+    },
+    {
+     "n": 102,
+     "text": "khaṇo vo mā upaccagā;"
+    },
+    {
+     "n": 103,
+     "text": "Khaṇātītā hi socanti,"
+    },
+    {
+     "n": 104,
+     "text": "nirayamhi samappitā”."
+    },
+    {
+     "n": 105,
+     "text": "“Upasanto uparato,"
+    },
+    {
+     "n": 106,
+     "text": "mantabhāṇī anuddhato;"
+    },
+    {
+     "n": 107,
+     "text": "Dhunāti pāpake dhamme,"
+    },
+    {
+     "n": 108,
+     "text": "dumapattaṁva māluto."
+    },
+    {
+     "n": 109,
+     "text": "Upasanto uparato,"
+    },
+    {
+     "n": 110,
+     "text": "mantabhāṇī anuddhato;"
+    },
+    {
+     "n": 111,
+     "text": "Appāsi pāpake dhamme,"
+    },
+    {
+     "n": 112,
+     "text": "dumapattaṁva māluto."
+    },
+    {
+     "n": 113,
+     "text": "Upasanto anāyāso,"
+    },
+    {
+     "n": 114,
+     "text": "vippasanno anāvilo;"
+    },
+    {
+     "n": 115,
+     "text": "Kalyāṇasīlo medhāvī,"
+    },
+    {
+     "n": 116,
+     "text": "dukkhassantakaro siyā”."
+    },
+    {
+     "n": 117,
+     "text": "“Na vissase ekatiyesu evaṁ,"
+    },
+    {
+     "n": 118,
+     "text": "Agārisu pabbajitesu cāpi;"
+    },
+    {
+     "n": 119,
+     "text": "Sādhūpi hutvā na asādhu honti,"
+    },
+    {
+     "n": 120,
+     "text": "Asādhu hutvā puna sādhu honti."
+    },
+    {
+     "n": 121,
+     "text": "Kāmacchando ca byāpādo,"
+    },
+    {
+     "n": 122,
+     "text": "thinamiddhañca bhikkhuno;"
+    },
+    {
+     "n": 123,
+     "text": "Uddhaccaṁ vicikicchā ca,"
+    },
+    {
+     "n": 124,
+     "text": "pañcete cittakelisā."
+    },
+    {
+     "n": 125,
+     "text": "Yassa sakkariyamānassa,"
+    },
+    {
+     "n": 126,
+     "text": "asakkārena cūbhayaṁ;"
+    },
+    {
+     "n": 127,
+     "text": "Samādhi na vikampati,"
+    },
+    {
+     "n": 128,
+     "text": "appamādavihārino."
+    },
+    {
+     "n": 129,
+     "text": "Taṁ jhāyinaṁ sātatikaṁ,"
+    },
+    {
+     "n": 130,
+     "text": "sukhumadiṭṭhivipassakaṁ;"
+    },
+    {
+     "n": 131,
+     "text": "Upādānakkhayārāmaṁ,"
+    },
+    {
+     "n": 132,
+     "text": "āhu sappuriso iti."
+    },
+    {
+     "n": 133,
+     "text": "Mahāsamuddo pathavī,"
+    },
+    {
+     "n": 134,
+     "text": "pabbato anilopi ca;"
+    },
+    {
+     "n": 135,
+     "text": "Upamāya na yujjanti,"
+    },
+    {
+     "n": 136,
+     "text": "satthu varavimuttiyā."
+    },
+    {
+     "n": 137,
+     "text": "Cakkānuvattako thero,"
+    },
+    {
+     "n": 138,
+     "text": "mahāñāṇī samāhito;"
+    },
+    {
+     "n": 139,
+     "text": "Pathavāpaggisamāno,"
+    },
+    {
+     "n": 140,
+     "text": "na rajjati na dussati."
+    },
+    {
+     "n": 141,
+     "text": "Paññāpāramitaṁ patto,"
+    },
+    {
+     "n": 142,
+     "text": "mahābuddhi mahāmati;"
+    },
+    {
+     "n": 143,
+     "text": "Ajaḷo jaḷasamāno,"
+    },
+    {
+     "n": 144,
+     "text": "sadā carati nibbuto."
+    },
+    {
+     "n": 145,
+     "text": "Pariciṇṇo mayā satthā, … pe …"
+    },
+    {
+     "n": 146,
+     "text": "bhavanetti samūhatā."
+    },
+    {
+     "n": 147,
+     "text": "Sampādethappamādena,"
+    },
+    {
+     "n": 148,
+     "text": "esā me anusāsanī;"
+    },
+    {
+     "n": 149,
+     "text": "Handāhaṁ parinibbissaṁ,"
+    },
+    {
+     "n": 150,
+     "text": "vippamuttomhi sabbadhī”ti."
+    },
+    {
+     "n": 151,
+     "text": "… Sāriputto thero …"
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag17.2/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“One who’s mindful as per their conduct and mindfulness,"
+    },
+    {
+     "n": 2,
+     "text": "diligent as per their intentions and meditation,"
+    },
+    {
+     "n": 3,
+     "text": "happy inside, serene, solitary, contented:"
+    },
+    {
+     "n": 4,
+     "text": "that is what they call a mendicant."
+    },
+    {
+     "n": 5,
+     "text": "When eating fresh or dried food,"
+    },
+    {
+     "n": 6,
+     "text": "one shouldn’t be overly replete."
+    },
+    {
+     "n": 7,
+     "text": "A mendicant should wander mindfully,"
+    },
+    {
+     "n": 8,
+     "text": "with empty stomach, taking limited food."
+    },
+    {
+     "n": 9,
+     "text": "Four or five mouthfuls before you’re full,"
+    },
+    {
+     "n": 10,
+     "text": "drink some water;"
+    },
+    {
+     "n": 11,
+     "text": "this is enough for a resolute mendicant"
+    },
+    {
+     "n": 12,
+     "text": "to live in comfort."
+    },
+    {
+     "n": 13,
+     "text": "If they cover themselves with a robe"
+    },
+    {
+     "n": 14,
+     "text": "that’s allowable and fit for purpose;"
+    },
+    {
+     "n": 15,
+     "text": "this is enough for a resolute mendicant"
+    },
+    {
+     "n": 16,
+     "text": "to live in comfort."
+    },
+    {
+     "n": 17,
+     "text": "When sitting cross-legged,"
+    },
+    {
+     "n": 18,
+     "text": "the rain doesn’t fall on the knees;"
+    },
+    {
+     "n": 19,
+     "text": "this is enough for a resolute mendicant"
+    },
+    {
+     "n": 20,
+     "text": "to live in comfort.”"
+    },
+    {
+     "n": 21,
+     "text": "“When you’ve seen happiness as suffering,"
+    },
+    {
+     "n": 22,
+     "text": "and suffering as a dart,"
+    },
+    {
+     "n": 23,
+     "text": "and that there’s nothing between the two—"
+    },
+    {
+     "n": 24,
+     "text": "what keeps you in the world? What would you become?"
+    },
+    {
+     "n": 25,
+     "text": "Thinking, ‘May I have nothing to do with those of bad wishes,"
+    },
+    {
+     "n": 26,
+     "text": "lazy, lacking energy,"
+    },
+    {
+     "n": 27,
+     "text": "unlearned, lacking regard for others’—"
+    },
+    {
+     "n": 28,
+     "text": "what keeps you in the world? What would you become?”"
+    },
+    {
+     "n": 29,
+     "text": "“An intelligent, learned person,"
+    },
+    {
+     "n": 30,
+     "text": "steady in ethics,"
+    },
+    {
+     "n": 31,
+     "text": "devoted to serenity of heart—"
+    },
+    {
+     "n": 32,
+     "text": "let them stand at the head.”"
+    },
+    {
+     "n": 33,
+     "text": "“A beast who likes to proliferate,"
+    },
+    {
+     "n": 34,
+     "text": "enjoying proliferation,"
+    },
+    {
+     "n": 35,
+     "text": "fails to win extinguishment,"
+    },
+    {
+     "n": 36,
+     "text": "the supreme sanctuary from the yoke."
+    },
+    {
+     "n": 37,
+     "text": "But one who gives up proliferation,"
+    },
+    {
+     "n": 38,
+     "text": "enjoying the state of non-proliferation,"
+    },
+    {
+     "n": 39,
+     "text": "wins extinguishment,"
+    },
+    {
+     "n": 40,
+     "text": "the supreme sanctuary from the yoke.”"
+    },
+    {
+     "n": 41,
+     "text": "“Whether in the village or the wilderness,"
+    },
+    {
+     "n": 42,
+     "text": "in a valley or the uplands,"
+    },
+    {
+     "n": 43,
+     "text": "wherever the perfected ones live"
+    },
+    {
+     "n": 44,
+     "text": "is a delightful place.”"
+    },
+    {
+     "n": 45,
+     "text": "“Delightful are the wildernesses"
+    },
+    {
+     "n": 46,
+     "text": "where no people delight."
+    },
+    {
+     "n": 47,
+     "text": "Those free of greed will delight there,"
+    },
+    {
+     "n": 48,
+     "text": "not those who seek sensual pleasures.”"
+    },
+    {
+     "n": 49,
+     "text": "“Regard one who sees your faults"
+    },
+    {
+     "n": 50,
+     "text": "as a guide to a hidden treasure."
+    },
+    {
+     "n": 51,
+     "text": "Stay close to one so intelligent and astute"
+    },
+    {
+     "n": 52,
+     "text": "who curbs you when you need it."
+    },
+    {
+     "n": 53,
+     "text": "Sticking close to such an impartial person,"
+    },
+    {
+     "n": 54,
+     "text": "things get better, not worse.”"
+    },
+    {
+     "n": 55,
+     "text": "“Advise and instruct;"
+    },
+    {
+     "n": 56,
+     "text": "curb wickedness:"
+    },
+    {
+     "n": 57,
+     "text": "for you shall be loved by the good,"
+    },
+    {
+     "n": 58,
+     "text": "and disliked by the bad.”"
+    },
+    {
+     "n": 59,
+     "text": "“The Blessed One, the Buddha, the seer"
+    },
+    {
+     "n": 60,
+     "text": "was teaching Dhamma to another."
+    },
+    {
+     "n": 61,
+     "text": "As he taught the Dhamma,"
+    },
+    {
+     "n": 62,
+     "text": "I lent an ear to get the meaning."
+    },
+    {
+     "n": 63,
+     "text": "My listening wasn’t wasted:"
+    },
+    {
+     "n": 64,
+     "text": "I’m freed, without defilements.”"
+    },
+    {
+     "n": 65,
+     "text": "“Not for knowledge of past lives,"
+    },
+    {
+     "n": 66,
+     "text": "nor even for clairvoyance;"
+    },
+    {
+     "n": 67,
+     "text": "not for psychic powers, or encompassing the minds of others,"
+    },
+    {
+     "n": 68,
+     "text": "nor for knowing people’s passing away and being reborn;"
+    },
+    {
+     "n": 69,
+     "text": "not for purifying the power of clairaudience,"
+    },
+    {
+     "n": 70,
+     "text": "did I have any wish.”"
+    },
+    {
+     "n": 71,
+     "text": "“His only shelter is the foot of a tree;"
+    },
+    {
+     "n": 72,
+     "text": "shaven, wrapped in his outer robe,"
+    },
+    {
+     "n": 73,
+     "text": "the senior monk foremost in wisdom,"
+    },
+    {
+     "n": 74,
+     "text": "Upatissa himself practices absorption."
+    },
+    {
+     "n": 75,
+     "text": "When in a meditation free of placing the mind,"
+    },
+    {
+     "n": 76,
+     "text": "a disciple of the Buddha"
+    },
+    {
+     "n": 77,
+     "text": "is at that moment blessed"
+    },
+    {
+     "n": 78,
+     "text": "with noble silence."
+    },
+    {
+     "n": 79,
+     "text": "As a rocky mountain"
+    },
+    {
+     "n": 80,
+     "text": "is unwavering and well grounded,"
+    },
+    {
+     "n": 81,
+     "text": "so when delusion ends,"
+    },
+    {
+     "n": 82,
+     "text": "a monk, like a mountain, doesn’t tremble.”"
+    },
+    {
+     "n": 83,
+     "text": "“To the man who has not a blemish,"
+    },
+    {
+     "n": 84,
+     "text": "who is always seeking purity,"
+    },
+    {
+     "n": 85,
+     "text": "even a hair-tip of evil"
+    },
+    {
+     "n": 86,
+     "text": "seems as big as a stormcloud.”"
+    },
+    {
+     "n": 87,
+     "text": "“I don’t long for death;"
+    },
+    {
+     "n": 88,
+     "text": "I don’t long for life;"
+    },
+    {
+     "n": 89,
+     "text": "I will lay down this body,"
+    },
+    {
+     "n": 90,
+     "text": "aware and mindful."
+    },
+    {
+     "n": 91,
+     "text": "I don’t long for death;"
+    },
+    {
+     "n": 92,
+     "text": "I don’t long for life;"
+    },
+    {
+     "n": 93,
+     "text": "I await my time,"
+    },
+    {
+     "n": 94,
+     "text": "like a worker waiting for their wages.”"
+    },
+    {
+     "n": 95,
+     "text": "“Both what came before and what follows after"
+    },
+    {
+     "n": 96,
+     "text": "are nothing but death, not freedom from death."
+    },
+    {
+     "n": 97,
+     "text": "Practice, don’t perish—"
+    },
+    {
+     "n": 98,
+     "text": "don’t let the moment pass you by."
+    },
+    {
+     "n": 99,
+     "text": "Just like a frontier city,"
+    },
+    {
+     "n": 100,
+     "text": "is guarded inside and out,"
+    },
+    {
+     "n": 101,
+     "text": "so you should ward yourselves—"
+    },
+    {
+     "n": 102,
+     "text": "don’t let the moment pass you by."
+    },
+    {
+     "n": 103,
+     "text": "For if you miss your moment"
+    },
+    {
+     "n": 104,
+     "text": "you’ll grieve when sent to hell.”"
+    },
+    {
+     "n": 105,
+     "text": "“Calm and still,"
+    },
+    {
+     "n": 106,
+     "text": "thoughtful in counsel, not restless—"
+    },
+    {
+     "n": 107,
+     "text": "he shakes off bad qualities"
+    },
+    {
+     "n": 108,
+     "text": "as the gale shakes leaves off a tree."
+    },
+    {
+     "n": 109,
+     "text": "Calm and still,"
+    },
+    {
+     "n": 110,
+     "text": "thoughtful in counsel, not restless—"
+    },
+    {
+     "n": 111,
+     "text": "he plucks off bad qualities"
+    },
+    {
+     "n": 112,
+     "text": "as the gale shakes leaves off a tree."
+    },
+    {
+     "n": 113,
+     "text": "Calm and free of despair,"
+    },
+    {
+     "n": 114,
+     "text": "clear and unclouded,"
+    },
+    {
+     "n": 115,
+     "text": "of good morals, intelligent:"
+    },
+    {
+     "n": 116,
+     "text": "one would make an end of suffering.”"
+    },
+    {
+     "n": 117,
+     "text": "“Some householders, and even some renunciants,"
+    },
+    {
+     "n": 118,
+     "text": "are not to be trusted."
+    },
+    {
+     "n": 119,
+     "text": "Some who were good later become bad;"
+    },
+    {
+     "n": 120,
+     "text": "while some who were bad become good.”"
+    },
+    {
+     "n": 121,
+     "text": "“Sensual desire, ill will,"
+    },
+    {
+     "n": 122,
+     "text": "dullness and drowsiness,"
+    },
+    {
+     "n": 123,
+     "text": "restlessness, and doubt:"
+    },
+    {
+     "n": 124,
+     "text": "these are the five mental stains for a monk.”"
+    },
+    {
+     "n": 125,
+     "text": "“Whether they’re honored"
+    },
+    {
+     "n": 126,
+     "text": "or not honored, or both,"
+    },
+    {
+     "n": 127,
+     "text": "their immersion doesn’t waver"
+    },
+    {
+     "n": 128,
+     "text": "as they abide in the immeasurables."
+    },
+    {
+     "n": 129,
+     "text": "They persistently practice absorption"
+    },
+    {
+     "n": 130,
+     "text": "with subtle view and discernment."
+    },
+    {
+     "n": 131,
+     "text": "Rejoicing in the ending of grasping,"
+    },
+    {
+     "n": 132,
+     "text": "they’re said to be a true person.”"
+    },
+    {
+     "n": 133,
+     "text": "“The oceans and the earth,"
+    },
+    {
+     "n": 134,
+     "text": "the mountains and the wind—"
+    },
+    {
+     "n": 135,
+     "text": "no simile can do justice"
+    },
+    {
+     "n": 136,
+     "text": "to the Teacher’s magnificent liberation.”"
+    },
+    {
+     "n": 137,
+     "text": "“The senior monk who keeps the wheel rolling,"
+    },
+    {
+     "n": 138,
+     "text": "he is very wise and serene."
+    },
+    {
+     "n": 139,
+     "text": "Like earth, like water, like fire,"
+    },
+    {
+     "n": 140,
+     "text": "he is neither attracted nor repelled."
+    },
+    {
+     "n": 141,
+     "text": "He has attained the perfection of wisdom,"
+    },
+    {
+     "n": 142,
+     "text": "so intelligent and thoughtful."
+    },
+    {
+     "n": 143,
+     "text": "He is bright, but seems to be dull;"
+    },
+    {
+     "n": 144,
+     "text": "he always wanders, quenched.”"
+    },
+    {
+     "n": 145,
+     "text": "“I’ve served the Teacher"
+    },
+    {
+     "n": 146,
+     "text": "and fulfilled the Buddha’s instructions."
+    },
+    {
+     "n": 147,
+     "text": "The heavy burden is laid down,"
+    },
+    {
+     "n": 148,
+     "text": "the leash to existence is eradicated."
+    },
+    {
+     "n": 149,
+     "text": "Persist with diligence:"
+    },
+    {
+     "n": 150,
+     "text": "this is my instruction."
+    },
+    {
+     "n": 151,
+     "text": "Come, I’ll be fully quenched—"
+    },
+    {
+     "n": 152,
+     "text": "I am everywhere free.”"
+    }
+   ]
+  }
+ ]
+}

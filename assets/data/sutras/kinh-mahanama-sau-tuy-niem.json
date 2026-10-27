@@ -1,0 +1,733 @@
+{
+ "id": "kinh-mahanama-sau-tuy-niem",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tăng Chi Bộ",
+ "reference": "AN 6.10",
+ "summary": "Kinh trong Tăng Chi Bộ (AN 6.10). Thích Mahānāma hỏi Thế Tôn về nếp sống của vị Thánh đệ tử đã chứng quả. Thế Tôn dạy sáu pháp tùy niệm: niệm Phật, niệm Pháp, niệm Tăng, niệm giới, niệm thí và niệm thiên. Khi niệm, tâm không bị tham sân si chi phối, được hân hoan và định tĩnh.",
+ "titles": {
+  "vi": "Kinh Mahānāma (Sáu Tùy Niệm)",
+  "pli": "Mahānāmasutta",
+  "en": "With Mahānāma"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 20,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/an6.10/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh nầy được Hòa thượng Thích Minh Châu dịch từ tạng Pali sang Việt ngữ năm 1976–1977, và được Viện Phật Học Vạn Hạnh, Sài Gòn, ấn hành năm 1980–1981. Trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được hiệu đính thành 4 tập và tái bản năm 1996, qua số thứ tự 21, 22, 23, và 24. These texts have been used with the kind permission of the webmaster of http://www.budsas.net/",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Một thời, Thế Tôn trú giữa các vị Thích-ca, tại Kapilavatthu, khu vườn Nigrodha."
+    },
+    {
+     "n": 2,
+     "text": "Rồi họ Thích Mahànàma đi đến Thế Tôn; sau khi đến, đảnh lễ Thế Tôn rồi ngồi xuống một bên."
+    },
+    {
+     "n": 3,
+     "text": "Ngồi xuống một bên, họ Thích Mahànàma bạch Thế Tôn:"
+    },
+    {
+     "n": 4,
+     "text": "—Vị Thánh đệ tử này, bạch Thế Tôn, đã đi đến quả, đã liễu giải giáo pháp, đời sống gì vị ấy sống một cách sung mãn?"
+    },
+    {
+     "n": 5,
+     "text": "—Này Mahànàma, Thánh đệ tử nào đã đi đến quả, đã liễu giải giáo pháp, với nếp sống này, sống một cách sung mãn."
+    },
+    {
+     "n": 6,
+     "text": "(1) Ở đây, này Mahànàma, Thánh đệ tử tùy niệm Như Lai: “Đây là Thế Tôn, bậc A-la-hán, Chánh Đẳng Giác, Minh Hạnh Túc, Thiện Thệ, Thế Gian Giải, Vô Thượng Sĩ, Điều Ngự Trượng Phu, Thiên Nhân Sư, Phật, Thế Tôn”."
+    },
+    {
+     "n": 7,
+     "text": "Khi nào, này Mahànàma, Thánh đệ tử niệm Như Lai, trong khi ấy, tâm không bị tham chi phối, tâm không bị sân chi phối, tâm không bị si chi phối; trong khi ấy, tâm vị ấy được chánh trực nhờ dựa vào Như Lai."
+    },
+    {
+     "n": 8,
+     "text": "Và này Mahànàma, một Thánh đệ tử, với tâm chánh trực, được nghĩa tín thọ, được pháp tín thọ, được hân hoan liên hệ đến pháp. Người có hân hoan, nên hỷ sanh. Người có hỷ, nên thân được khinh an."
+    },
+    {
+     "n": 9,
+     "text": "Với thân khinh an, vị ấy cảm giác lạc thọ. Người có lạc thọ, tâm được định tĩnh."
+    },
+    {
+     "n": 10,
+     "text": "Này Mahànàma, về vị Thánh đệ tử này, được nói như sau: “Với quần chúng không bình thản, vị ấy sống bình thản."
+    },
+    {
+     "n": 11,
+     "text": "Với quần chúng có não hại, vị ấy sống không não hại."
+    },
+    {
+     "n": 12,
+     "text": "Nhập được pháp lưu, vị ấy tu tập niệm Phật”."
+    },
+    {
+     "n": 13,
+     "text": "(2) Lại nữa, này Mahànàma, Thánh đệ tử tùy niệm Pháp: “Pháp được Thế Tôn khéo thuyết, thiết thực hiện tại, không có thời gian, đến để mà thấy, có khả năng hướng thượng, được những bậc trí tự mình giác hiểu!”."
+    },
+    {
+     "n": 14,
+     "text": "Này Mahànama, trong khi vị Thánh đệ tử tùy niệm Pháp, trong khi ấy, tâm không bị tham chi phối, không bị sân chi phối, không bị si chi phối; trong khi ấy, tâm vị ấy được chánh trực nhờ dựa vào Pháp."
+    },
+    {
+     "n": 15,
+     "text": "Và này Mahànama, Thánh đệ tử với tâm chánh trực, được nghĩa tín thọ, được pháp tín thọ, được hân hoan liên hệ đến Pháp. Người có hân hoan, nên hỷ sanh. Người có hỷ, nên thân được khinh an."
+    },
+    {
+     "n": 16,
+     "text": "Với thân khinh an, vị ấy cảm giác lạc thọ. Người có lạc thọ, tâm được định tĩnh."
+    },
+    {
+     "n": 17,
+     "text": "Này Mahànàma, về vị Thánh đệ tử này được nói như sau: “Với quần chúng không bình thản, vị ấy sống bình thản."
+    },
+    {
+     "n": 18,
+     "text": "Với quần chúng có não hại, vị ấy sống không não hại."
+    },
+    {
+     "n": 19,
+     "text": "Nhập được pháp lưu, vị ấy tu tập niệm Pháp”."
+    },
+    {
+     "n": 20,
+     "text": "(3) Lại nữa, này Mahànàma, Thánh đệ tử tùy niệm Tăng: “Diệu hạnh là chúng đệ tử Thế Tôn."
+    },
+    {
+     "n": 21,
+     "text": "Trực hạnh là chúng đệ tử Thế Tôn. Ứng lý hạnh là chúng đệ tử Thế Tôn. Chánh hạnh là chúng đệ tử Thế Tôn. Tức là bốn đôi tám vị."
+    },
+    {
+     "n": 22,
+     "text": "Chúng đệ tử Thế Tôn này đáng được cung kính, đáng được tôn trọng, đáng được cúng dường, đáng được chắp tay, là vô thượng phước điền ở đời”."
+    },
+    {
+     "n": 23,
+     "text": "Này Mahànàma, trong khi Thánh đệ tử tùy niệm chúng Tăng, trong khi ấy, tâm không bị tham chi phối, không bị sân chi phối, không bị si chi phối; trong khi ấy, tâm vị ấy được chánh trực nhờ dựa vào Tăng."
+    },
+    {
+     "n": 24,
+     "text": "Và này Mahànama, Thánh đệ tử với tâm chánh trực, được nghĩa tín thọ, được pháp tín thọ, được hân hoan liên hệ đến Tăng. Người có hân hoan, nên hỷ sanh. Người có hỷ, nên thân được khinh an."
+    },
+    {
+     "n": 25,
+     "text": "Với thân khinh an, vị ấy cảm giác lạc thọ. Người có lạc thọ, tâm được định tĩnh."
+    },
+    {
+     "n": 26,
+     "text": "Này Mahànàma, về vị Thánh đệ tử này, được nói như sau: “Với quần chúng không bình thản, vị ấy sống bình thản."
+    },
+    {
+     "n": 27,
+     "text": "Với quần chúng có não hại, vị ấy sống không não hại."
+    },
+    {
+     "n": 28,
+     "text": "Nhập được pháp lưu, vị ấy tu tập niệm Tăng”."
+    },
+    {
+     "n": 29,
+     "text": "(4) Lại nữa, này Mahànàma, Thánh đệ tử tùy niệm các Giới của mình:"
+    },
+    {
+     "n": 30,
+     "text": "“Giới không bị bể vụn, không bị sứt mẻ, không bị vết chấm, không có uế tạp, đưa đến giải thoát, được người trí tán thán, không bị chấp thủ, đưa đến Thiền định”."
+    },
+    {
+     "n": 31,
+     "text": "Này Mahànàma, trong khi Thánh đệ tử tùy niệm Giới, trong khi ấy, tâm không bị tham chi phối, không bị sân chi phối, không bị si chi phối; trong khi ấy, tâm vị ấy được chánh trực nhờ dựa vào Giới."
+    },
+    {
+     "n": 32,
+     "text": "Và này Mahànama, Thánh đệ tử với tâm chánh trực, được nghĩa tín thọ, được pháp tín thọ, được hân hoan liên hệ đến Giới. Người có hân hoan, nên hỷ sanh. Người có hỷ, nên thân được khinh an."
+    },
+    {
+     "n": 33,
+     "text": "Với thân khinh an, vị ấy cảm giác lạc thọ. Người có lạc thọ, tâm được định tĩnh."
+    },
+    {
+     "n": 34,
+     "text": "Này Mahànàma, về vị Thánh đệ tử này, được nói như sau: “Với quần chúng không bình thản, vị ấy sống bình thản."
+    },
+    {
+     "n": 35,
+     "text": "Với quần chúng có não hại, vị ấy sống không não hại."
+    },
+    {
+     "n": 36,
+     "text": "Nhập được pháp lưu, vị ấy tu tập niệm Giới”."
+    },
+    {
+     "n": 37,
+     "text": "(5) Lại nữa, này các Tỷ-kheo, Thánh đệ tử tự mình niệm Thí của mình: “Thật là được lợi cho ta!"
+    },
+    {
+     "n": 38,
+     "text": "Thật là khéo được lợi cho ta, vì rằng với quần chúng bị cấu uế xan tham chi phối, ta sống trong gia đình, với tâm không bị cấu uế của xan tham chi phối, bố thí rộng rãi với bàn tay sạch sẽ, ưa thích từ bỏ,"
+    },
+    {
+     "n": 39,
+     "text": "sẵn sàng để được yêu cầu, ưa thích phân phát vật bố thí”."
+    },
+    {
+     "n": 40,
+     "text": "Này Mahànàma, trong khi vị Thánh đệ tử tùy niệm bố thí, trong khi ấy, tâm không bị tham chi phối, không bị sân chi phối, không bị si chi phối; trong khi ấy, tâm vị ấy được chánh trực nhờ dựa vào Thí."
+    },
+    {
+     "n": 41,
+     "text": "Và này Mahànama, Thánh đệ tử với tâm chánh trực, được nghĩa tín thọ, được pháp tín thọ, được hân hoan liên hệ đến Thí. Người có hân hoan, nên hỷ sanh. Người có hỷ, nên thân được khinh an."
+    },
+    {
+     "n": 42,
+     "text": "Với thân khinh an, vị ấy cảm giác lạc thọ. Người có lạc thọ, tâm được định tĩnh."
+    },
+    {
+     "n": 43,
+     "text": "Này Mahànàma, về vị Thánh đệ tử này, được nói như sau: “Với quần chúng không bình thản, vị ấy sống bình thản."
+    },
+    {
+     "n": 44,
+     "text": "Với quần chúng có não hại, vị ấy sống không não hại."
+    },
+    {
+     "n": 45,
+     "text": "Nhập được pháp lưu, vị ấy tu tập niệm Thí”."
+    },
+    {
+     "n": 46,
+     "text": "(6) Lại nữa, này Mahànama, Thánh đệ tử tu tập tùy niệm Thiên:"
+    },
+    {
+     "n": 47,
+     "text": "“Có chư Thiên bốn Thiên vương Thiên, có chư Thiên cõi trời Ba mươi ba, có chư Thiên Yàma, có chư Thiên Tusità (Đâu-suất), có chư Thiên Hóa lạc Thiên, có chư Thiên Tha hóa Tự tại, có chư Thiên Phạm chúng,"
+    },
+    {
+     "n": 48,
+     "text": "có chư Thiên cao hơn nữa. Đầy đủ với lòng tin như vậy, chư Thiên ấy, sau khi chết ở chỗ này, được sanh tại chỗ kia. Lòng tin như vậy cũng có đầy đủ nơi ta."
+    },
+    {
+     "n": 49,
+     "text": "Đầy đủ với giới như vậy, chư Thiên ấy sau khi chết ở chỗ này, được sanh tại chỗ kia. Giới như vậy cũng có đầy đủ nơi ta."
+    },
+    {
+     "n": 50,
+     "text": "Đầy đủ với nghe pháp như vậy, chư Thiên ấy sau khi chết ở chỗ này, được sanh tại chỗ kia."
+    },
+    {
+     "n": 51,
+     "text": "Nghe pháp như vậy cũng có đầy đủ nơi ta."
+    },
+    {
+     "n": 52,
+     "text": "Đầy đủ với Thí như vậy, chư Thiên ấy sau khi chết ở chỗ này, được sanh tại chỗ kia. Thí như vậy cũng có đầy đủ ở nơi ta."
+    },
+    {
+     "n": 53,
+     "text": "Đầy đủ với Tuệ như vậy, chư Thiên ấy sau khi chết ở chỗ này, được sanh tại chỗ kia. Tuệ như vậy cũng đầy đủ nơi ta”."
+    },
+    {
+     "n": 54,
+     "text": "Khi vị ấy niệm Tín, Giới, nghe Pháp, Thí và Tuệ của tự mình và chư Thiên ấy; trong khi ấy, tâm không bị tham chi phối, tâm không bị sân chi phối, không bị si chi phối;"
+    },
+    {
+     "n": 55,
+     "text": "trong khi ấy, tâm vị ấy được chánh trực nhờ dựa vào chư Thiên."
+    },
+    {
+     "n": 56,
+     "text": "Và này Mahànàma, Thánh đệ tử với tâm chánh trực được nghĩa tín thọ, được pháp tín thọ, được hân hoan liên hệ đến pháp. Người có hân hoan, nên hỷ sanh. Người có hỷ nên thân được khinh an."
+    },
+    {
+     "n": 57,
+     "text": "Với thân khinh an, vị ấy cảm giác lạc thọ. Người có lạc thọ, tâm được định tĩnh."
+    },
+    {
+     "n": 58,
+     "text": "Này Mahànàma, về vị Thánh đệ tử này, được nói như sau: “Với quần chúng không bình thản, vị ấy sống bình thản."
+    },
+    {
+     "n": 59,
+     "text": "Với quần chúng có não hại, vị ấy sống không não hại."
+    },
+    {
+     "n": 60,
+     "text": "Nhập được pháp lưu, vị ấy tu tập niệm Thiên”."
+    },
+    {
+     "n": 61,
+     "text": "Này Mahànàma, vị Thánh đệ tử nào đã đi đến quả, đã liễu giải giáo pháp, vị ấy sống một cách sung mãn với nếp sống này."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an6.10/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ekaṁ samayaṁ bhagavā sakkesu viharati kapilavatthusmiṁ nigrodhārāme."
+    },
+    {
+     "n": 2,
+     "text": "Atha kho mahānāmo sakko yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 3,
+     "text": "Ekamantaṁ nisinno, kho mahānāmo sakko bhagavantaṁ etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“yo so, bhante, ariyasāvako āgataphalo viññātasāsano, so katamena vihārena bahulaṁ viharatī”ti?"
+    },
+    {
+     "n": 5,
+     "text": "“Yo so, mahānāma, ariyasāvako āgataphalo viññātasāsano, so iminā vihārena bahulaṁ viharati."
+    },
+    {
+     "n": 6,
+     "text": "Idha, mahānāma, ariyasāvako tathāgataṁ anussarati: ‘itipi so bhagavā arahaṁ sammāsambuddho vijjācaraṇasampanno sugato lokavidū anuttaro purisadammasārathi satthā devamanussānaṁ buddho bhagavā’ti."
+    },
+    {
+     "n": 7,
+     "text": "Yasmiṁ, mahānāma, samaye ariyasāvako tathāgataṁ anussarati nevassa tasmiṁ samaye rāgapariyuṭṭhitaṁ cittaṁ hoti, na dosapariyuṭṭhitaṁ cittaṁ hoti, na mohapariyuṭṭhitaṁ cittaṁ hoti;"
+    },
+    {
+     "n": 8,
+     "text": "ujugatamevassa tasmiṁ samaye cittaṁ hoti tathāgataṁ ārabbha."
+    },
+    {
+     "n": 9,
+     "text": "Ujugatacitto kho pana, mahānāma, ariyasāvako labhati atthavedaṁ, labhati dhammavedaṁ, labhati dhammūpasaṁhitaṁ pāmojjaṁ."
+    },
+    {
+     "n": 10,
+     "text": "Pamuditassa pīti jāyati, pītimanassa kāyo passambhati, passaddhakāyo sukhaṁ vediyati, sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 11,
+     "text": "Ayaṁ vuccati, mahānāma: ‘ariyasāvako visamagatāya pajāya samappatto viharati, sabyāpajjāya pajāya abyāpajjo viharati, dhammasotaṁ samāpanno buddhānussatiṁ bhāveti’."
+    },
+    {
+     "n": 12,
+     "text": "Puna caparaṁ, mahānāma, ariyasāvako dhammaṁ anussarati: ‘svākkhāto bhagavatā dhammo sandiṭṭhiko akāliko ehipassiko opaneyyiko paccattaṁ veditabbo viññūhī’ti."
+    },
+    {
+     "n": 13,
+     "text": "Yasmiṁ, mahānāma, samaye ariyasāvako dhammaṁ anussarati nevassa tasmiṁ samaye rāgapariyuṭṭhitaṁ cittaṁ hoti, na dosapariyuṭṭhitaṁ cittaṁ hoti, na mohapariyuṭṭhitaṁ cittaṁ hoti;"
+    },
+    {
+     "n": 14,
+     "text": "ujugatamevassa tasmiṁ samaye cittaṁ hoti dhammaṁ ārabbha."
+    },
+    {
+     "n": 15,
+     "text": "Ujugatacitto kho pana, mahānāma, ariyasāvako labhati atthavedaṁ, labhati dhammavedaṁ, labhati dhammūpasaṁhitaṁ pāmojjaṁ."
+    },
+    {
+     "n": 16,
+     "text": "Pamuditassa pīti jāyati, pītimanassa kāyo passambhati, passaddhakāyo sukhaṁ vediyati, sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 17,
+     "text": "Ayaṁ vuccati, mahānāma: ‘ariyasāvako visamagatāya pajāya samappatto viharati, sabyāpajjāya pajāya abyāpajjo viharati, dhammasotaṁ samāpanno dhammānussatiṁ bhāveti’."
+    },
+    {
+     "n": 18,
+     "text": "Puna caparaṁ, mahānāma, ariyasāvako saṅghaṁ anussarati:"
+    },
+    {
+     "n": 19,
+     "text": "‘suppaṭipanno bhagavato sāvakasaṅgho, ujuppaṭipanno bhagavato sāvakasaṅgho, ñāyappaṭipanno bhagavato sāvakasaṅgho, sāmīcippaṭipanno bhagavato sāvakasaṅgho,"
+    },
+    {
+     "n": 20,
+     "text": "yadidaṁ cattāri purisayugāni aṭṭha purisapuggalā esa bhagavato sāvakasaṅgho āhuneyyo pāhuneyyo dakkhiṇeyyo añjalikaraṇīyo anuttaraṁ puññakkhettaṁ lokassā’ti."
+    },
+    {
+     "n": 21,
+     "text": "Yasmiṁ, mahānāma, samaye ariyasāvako saṅghaṁ anussarati nevassa tasmiṁ samaye rāgapariyuṭṭhitaṁ cittaṁ hoti, na dosapariyuṭṭhitaṁ cittaṁ hoti, na mohapariyuṭṭhitaṁ cittaṁ hoti;"
+    },
+    {
+     "n": 22,
+     "text": "ujugatamevassa tasmiṁ samaye cittaṁ hoti saṅghaṁ ārabbha."
+    },
+    {
+     "n": 23,
+     "text": "Ujugatacitto kho pana, mahānāma, ariyasāvako labhati atthavedaṁ, labhati dhammavedaṁ, labhati dhammūpasaṁhitaṁ pāmojjaṁ."
+    },
+    {
+     "n": 24,
+     "text": "Pamuditassa pīti jāyati, pītimanassa kāyo passambhati, passaddhakāyo sukhaṁ vediyati, sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 25,
+     "text": "Ayaṁ vuccati, mahānāma: ‘ariyasāvako visamagatāya pajāya samappatto viharati, sabyāpajjāya pajāya abyāpajjo viharati, dhammasotaṁ samāpanno saṅghānussatiṁ bhāveti’."
+    },
+    {
+     "n": 26,
+     "text": "Puna caparaṁ, mahānāma, ariyasāvako attano sīlāni anussarati akhaṇḍāni acchiddāni asabalāni akammāsāni bhujissāni viññuppasatthāni aparāmaṭṭhāni samādhisaṁvattanikāni."
+    },
+    {
+     "n": 27,
+     "text": "Yasmiṁ, mahānāma, samaye ariyasāvako sīlaṁ anussarati nevassa tasmiṁ samaye rāgapariyuṭṭhitaṁ cittaṁ hoti, na dosapariyuṭṭhitaṁ cittaṁ hoti, na mohapariyuṭṭhitaṁ cittaṁ hoti;"
+    },
+    {
+     "n": 28,
+     "text": "ujugatamevassa tasmiṁ samaye cittaṁ hoti sīlaṁ ārabbha."
+    },
+    {
+     "n": 29,
+     "text": "Ujugatacitto kho pana, mahānāma, ariyasāvako labhati atthavedaṁ, labhati dhammavedaṁ, labhati dhammūpasaṁhitaṁ pāmojjaṁ."
+    },
+    {
+     "n": 30,
+     "text": "Pamuditassa pīti jāyati, pītimanassa kāyo passambhati, passaddhakāyo sukhaṁ vediyati, sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 31,
+     "text": "Ayaṁ vuccati, mahānāma: ‘ariyasāvako visamagatāya pajāya samappatto viharati, sabyāpajjāya pajāya abyāpajjo viharati, dhammasotaṁ samāpanno sīlānussatiṁ bhāveti’."
+    },
+    {
+     "n": 32,
+     "text": "Puna caparaṁ, mahānāma, ariyasāvako attano cāgaṁ anussarati: ‘lābhā vata me, suladdhaṁ vata me."
+    },
+    {
+     "n": 33,
+     "text": "Yohaṁ maccheramalapariyuṭṭhitāya pajāya vigatamalamaccherena cetasā agāraṁ ajjhāvasāmi muttacāgo payatapāṇi vosaggarato yācayogo dānasaṁvibhāgarato’ti."
+    },
+    {
+     "n": 34,
+     "text": "Yasmiṁ, mahānāma, samaye ariyasāvako cāgaṁ anussarati nevassa tasmiṁ samaye rāgapariyuṭṭhitaṁ cittaṁ hoti, na dosapariyuṭṭhitaṁ cittaṁ hoti, na mohapariyuṭṭhitaṁ cittaṁ hoti;"
+    },
+    {
+     "n": 35,
+     "text": "ujugatamevassa tasmiṁ samaye cittaṁ hoti cāgaṁ ārabbha."
+    },
+    {
+     "n": 36,
+     "text": "Ujugatacitto kho pana, mahānāma, ariyasāvako labhati atthavedaṁ, labhati dhammavedaṁ, labhati dhammūpasaṁhitaṁ pāmojjaṁ."
+    },
+    {
+     "n": 37,
+     "text": "Pamuditassa pīti jāyati, pītimanassa kāyo passambhati, passaddhakāyo sukhaṁ vediyati, sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 38,
+     "text": "Ayaṁ vuccati, mahānāma: ‘ariyasāvako visamagatāya pajāya samappatto viharati, sabyāpajjāya pajāya abyāpajjo viharati, dhammasotaṁ samāpanno cāgānussatiṁ bhāveti’."
+    },
+    {
+     "n": 39,
+     "text": "Puna caparaṁ, mahānāma, ariyasāvako devatānussatiṁ bhāveti:"
+    },
+    {
+     "n": 40,
+     "text": "‘santi devā cātumahārājikā, santi devā tāvatiṁsā, santi devā yāmā, santi devā tusitā, santi devā nimmānaratino, santi devā paranimmitavasavattino, santi devā brahmakāyikā, santi devā tatuttari."
+    },
+    {
+     "n": 41,
+     "text": "Yathārūpāya saddhāya samannāgatā tā devatā ito cutā tattha upapannā, mayhampi tathārūpā saddhā saṁvijjati."
+    },
+    {
+     "n": 42,
+     "text": "Yathārūpena sīlena samannāgatā tā devatā ito cutā tattha upapannā, mayhampi tathārūpaṁ sīlaṁ saṁvijjati."
+    },
+    {
+     "n": 43,
+     "text": "Yathārūpena sutena samannāgatā tā devatā ito cutā tattha upapannā, mayhampi tathārūpaṁ sutaṁ saṁvijjati."
+    },
+    {
+     "n": 44,
+     "text": "Yathārūpena cāgena samannāgatā tā devatā ito cutā tattha upapannā, mayhampi tathārūpo cāgo saṁvijjati."
+    },
+    {
+     "n": 45,
+     "text": "Yathārūpāya paññāya samannāgatā tā devatā ito cutā tattha upapannā, mayhampi tathārūpā paññā saṁvijjatī’ti."
+    },
+    {
+     "n": 46,
+     "text": "Yasmiṁ, mahānāma, samaye ariyasāvako attano ca tāsañca devatānaṁ saddhañca sīlañca sutañca cāgañca paññañca anussarati nevassa tasmiṁ samaye rāgapariyuṭṭhitaṁ cittaṁ hoti, na dosapariyuṭṭhitaṁ cittaṁ hoti,"
+    },
+    {
+     "n": 47,
+     "text": "na mohapariyuṭṭhitaṁ cittaṁ hoti; ujugatamevassa tasmiṁ samaye cittaṁ hoti tā devatā ārabbha."
+    },
+    {
+     "n": 48,
+     "text": "Ujugatacitto kho pana, mahānāma, ariyasāvako labhati atthavedaṁ, labhati dhammavedaṁ, labhati dhammūpasaṁhitaṁ pāmojjaṁ."
+    },
+    {
+     "n": 49,
+     "text": "Pamuditassa pīti jāyati, pītimanassa kāyo passambhati, passaddhakāyo sukhaṁ vediyati, sukhino cittaṁ samādhiyati."
+    },
+    {
+     "n": 50,
+     "text": "Ayaṁ vuccati, mahānāma: ‘ariyasāvako visamagatāya pajāya samappatto viharati, sabyāpajjāya pajāya abyāpajjo viharati, dhammasotaṁ samāpanno devatānussatiṁ bhāveti’."
+    },
+    {
+     "n": 51,
+     "text": "Yo so, mahānāma, ariyasāvako āgataphalo viññātasāsano, so iminā vihārena bahulaṁ viharatī”ti."
+    },
+    {
+     "n": 52,
+     "text": "Dasamaṁ."
+    },
+    {
+     "n": 53,
+     "text": "Tassuddānaṁ"
+    },
+    {
+     "n": 54,
+     "text": "Dve āhuneyyā indriya,"
+    },
+    {
+     "n": 55,
+     "text": "balāni tayo ājānīyā;"
+    },
+    {
+     "n": 56,
+     "text": "Anuttariya anussatī,"
+    },
+    {
+     "n": 57,
+     "text": "mahānāmena te dasāti."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/an6.10/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "At one time the Buddha was staying in the land of the Sakyans, near Kapilavatthu in the Banyan Tree Monastery."
+    },
+    {
+     "n": 2,
+     "text": "Then Mahānāma the Sakyan went up to the Buddha, bowed, sat down to one side, and said to him:"
+    },
+    {
+     "n": 3,
+     "text": "“Sir, when a noble disciple has reached the fruit and understood the instructions, what kind of meditation do they frequently practice?”"
+    },
+    {
+     "n": 4,
+     "text": "“Mahānāma, when a noble disciple has reached the fruit and understood the instructions they frequently practice this kind of meditation."
+    },
+    {
+     "n": 5,
+     "text": "Firstly, a noble disciple recollects the Realized One:"
+    },
+    {
+     "n": 6,
+     "text": "‘That Blessed One is perfected, a fully awakened Buddha, accomplished in knowledge and conduct, holy, knower of the world, supreme guide for those fit for training, teacher of gods and humans, awakened, blessed.’"
+    },
+    {
+     "n": 7,
+     "text": "When a noble disciple recollects the Realized One their mind is not full of greed, hate, and delusion."
+    },
+    {
+     "n": 8,
+     "text": "At that time their mind is quite unswerving, based on the Realized One."
+    },
+    {
+     "n": 9,
+     "text": "A noble disciple whose mind is unswerving finds inspiration in the meaning and the teaching, and finds joy connected with the teaching."
+    },
+    {
+     "n": 10,
+     "text": "When they’re joyful, rapture springs up."
+    },
+    {
+     "n": 11,
+     "text": "When the mind is full of rapture, the body becomes tranquil."
+    },
+    {
+     "n": 12,
+     "text": "When the body is tranquil, they feel bliss."
+    },
+    {
+     "n": 13,
+     "text": "And when they’re blissful, the mind becomes immersed in samādhi."
+    },
+    {
+     "n": 14,
+     "text": "This is called a noble disciple who lives in balance among people who are unbalanced, and lives untroubled among people who are troubled."
+    },
+    {
+     "n": 15,
+     "text": "They’ve entered the stream of the teaching and develop the recollection of the Buddha."
+    },
+    {
+     "n": 16,
+     "text": "Furthermore, a noble disciple recollects the teaching:"
+    },
+    {
+     "n": 17,
+     "text": "‘The teaching is well explained by the Buddha—apparent in the present life, immediately effective, inviting inspection, relevant, so that sensible people can know it for themselves.’"
+    },
+    {
+     "n": 18,
+     "text": "When a noble disciple recollects the teaching their mind is not full of greed, hate, and delusion. …"
+    },
+    {
+     "n": 19,
+     "text": "This is called a noble disciple who lives in balance among people who are unbalanced, and lives untroubled among people who are troubled."
+    },
+    {
+     "n": 20,
+     "text": "They’ve entered the stream of the teaching and develop the recollection of the teaching."
+    },
+    {
+     "n": 21,
+     "text": "Furthermore, a noble disciple recollects the Saṅgha: ‘The Saṅgha of the Buddha’s disciples is practicing the way that’s good, direct, systematic, and proper."
+    },
+    {
+     "n": 22,
+     "text": "It consists of the four pairs, the eight individual persons."
+    },
+    {
+     "n": 23,
+     "text": "This is the Saṅgha of the Buddha’s disciples that is worthy of offerings dedicated to the gods, worthy of hospitality, worthy of a religious donation, worthy of greeting with cupped palms,"
+    },
+    {
+     "n": 24,
+     "text": "and is the supreme field of merit for the world.’"
+    },
+    {
+     "n": 25,
+     "text": "When a noble disciple recollects the Saṅgha their mind is not full of greed, hate, and delusion. …"
+    },
+    {
+     "n": 26,
+     "text": "This is called a noble disciple who lives in balance among people who are unbalanced, and lives untroubled among people who are troubled."
+    },
+    {
+     "n": 27,
+     "text": "They’ve entered the stream of the teaching and develop the recollection of the Saṅgha."
+    },
+    {
+     "n": 28,
+     "text": "Furthermore, a noble disciple recollects their own ethical precepts, which are intact, impeccable, spotless, and unmarred, liberating, praised by sensible people, not mistaken, and leading to immersion."
+    },
+    {
+     "n": 29,
+     "text": "When a noble disciple recollects their ethical precepts their mind is not full of greed, hate, and delusion. …"
+    },
+    {
+     "n": 30,
+     "text": "This is called a noble disciple who lives in balance among people who are unbalanced, and lives untroubled among people who are troubled."
+    },
+    {
+     "n": 31,
+     "text": "They’ve entered the stream of the teaching and develop the recollection of ethics."
+    },
+    {
+     "n": 32,
+     "text": "Furthermore, a noble disciple recollects their generosity: ‘I’m so fortunate, so very fortunate!"
+    },
+    {
+     "n": 33,
+     "text": "Among people full of the stain of stinginess I live at home with heart rid of the stain of stinginess, freely generous, open-handed, loving to let go, committed to charity, loving to give and to share.’"
+    },
+    {
+     "n": 34,
+     "text": "When a noble disciple recollects their generosity their mind is not full of greed, hate, and delusion. …"
+    },
+    {
+     "n": 35,
+     "text": "This is called a noble disciple who lives in balance among people who are unbalanced, and lives untroubled among people who are troubled."
+    },
+    {
+     "n": 36,
+     "text": "They’ve entered the stream of the teaching and develop the recollection of generosity."
+    },
+    {
+     "n": 37,
+     "text": "Furthermore, a noble disciple recollects the deities:"
+    },
+    {
+     "n": 38,
+     "text": "‘There are the gods of the four great kings, the gods of the thirty-three, the gods of Yama, the joyful gods, the gods who love to create, the gods who control what is created by others, the gods of the Divinity’s host,"
+    },
+    {
+     "n": 39,
+     "text": "and gods even higher than these. When those deities passed away from here, they were reborn there because of their faith, ethics, learning, generosity, and wisdom."
+    },
+    {
+     "n": 40,
+     "text": "I, too, have the same kind of faith, ethics, learning, generosity, and wisdom.’"
+    },
+    {
+     "n": 41,
+     "text": "When a noble disciple recollects the faith, ethics, learning, generosity, and wisdom of both themselves and the deities their mind is not full of greed, hate, and delusion."
+    },
+    {
+     "n": 42,
+     "text": "At that time their mind is quite unswerving, based on the deities."
+    },
+    {
+     "n": 43,
+     "text": "A noble disciple whose mind is unswerving finds inspiration in the meaning and the teaching, and finds joy connected with the teaching. When you’re joyful, rapture springs up."
+    },
+    {
+     "n": 44,
+     "text": "When the mind is full of rapture, the body becomes tranquil."
+    },
+    {
+     "n": 45,
+     "text": "When the body is tranquil, you feel bliss."
+    },
+    {
+     "n": 46,
+     "text": "And when you’re blissful, the mind becomes immersed in samādhi."
+    },
+    {
+     "n": 47,
+     "text": "This is called a noble disciple who lives in balance among people who are unbalanced, and lives untroubled among people who are troubled."
+    },
+    {
+     "n": 48,
+     "text": "They’ve entered the stream of the teaching and develop the recollection of the deities."
+    },
+    {
+     "n": 49,
+     "text": "When a noble disciple has reached the fruit and understood the instructions this is the kind of meditation they frequently practice.”"
+    }
+   ]
+  }
+ ]
+}

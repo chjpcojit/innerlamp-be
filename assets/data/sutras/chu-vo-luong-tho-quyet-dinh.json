@@ -1,0 +1,86 @@
+{
+ "id": "chu-vo-luong-tho-quyet-dinh",
+ "tradition": "MAHAYANA",
+ "kind": "DHARANI",
+ "collection": "Thập Chú",
+ "reference": "",
+ "originalTitle": "Thánh Vô Lượng Thọ Quyết Định Quang Minh Vương Như Lai Đà La Ni Kinh",
+ "summary": "Một trong Thập Chú, đà la ni lấy từ Kinh Thánh Vô Lượng Thọ Quyết Định Quang Minh Vương Như Lai, hướng đến đức Phật Vô Lượng Thọ. Phần nghĩa trong nguồn là lời quy mạng lễ Đức Thế Tôn, xem mọi hoạt động tâm ý vốn thanh tịnh như hư không và phát nguyện rộng lớn để mau đạt an lạc Đại Niết Bàn. Thường được tụng trong thời khóa Thập Chú.",
+ "titles": {
+  "vi": "Thánh Vô Lượng Thọ Quyết Định Quang Minh Vương Đà La Ni",
+  "zh": "聖無量壽決定光明王陀羅尼",
+  "en": "Aparimitāyus Dhāraṇī (Amitayus Radiance King)"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_amitabha",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "TRI_CHU"
+ ],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "không ghi (bản Việt âm phổ thông)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Âm Hán\" của nguồn (phiên âm Hán-Việt). Ngắt dòng theo câu của nguồn; câu dài ngắt tại dấu phẩy. Giữ nguyên dấu gạch nối/viết hoa của nguồn. Đối chiếu Thiện Thành: \"mã hắt nại dã ... tá hắt\" / \"mã hát nại dã ... tá hát\".",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Án, nại ma ba cát ngỏa đế, a ba ra mật đạp, a ưu rị a nạp, tô tất nể, thiệt chấp đạp,"
+    },
+    {
+     "n": 2,
+     "text": "điệp tả ra tể dã, đát tháp cả đạt dã, a ra ha đế, tam dược tam bất đạt dã, đát nể dã tháp."
+    },
+    {
+     "n": 3,
+     "text": "Án, tát rị ba, tang tư cát rị, bót rị thuật đạp, đạt ra mã đế, cả cả nại, tang mã ngột cả đế,"
+    },
+    {
+     "n": 4,
+     "text": "ta ba ngỏa, tỷ thuật đế, mã hắt nại dã, bát rị ngỏa rị tá hắt."
+    }
+   ]
+  },
+  {
+   "key": "vi-meaning",
+   "lang": "vi",
+   "variant": "meaning",
+   "translator": "không ghi (nguồn do Minh Chính tổng hợp)",
+   "sourceName": "Phatgiao.org.vn - \"Thập Chú và ý nghĩa\" (Minh Chính, tổng hợp)",
+   "sourceUrl": "https://phatgiao.org.vn/thap-chu-va-y-nghia-d36445.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Nghĩa\" của nguồn.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Quy mạng lễ Đức Thế Tôn Vô lượng thọ trí quyết định quang minh vương Như Lai Ứng Cúng Chính Đẳng Chính Giác."
+    },
+    {
+     "n": 2,
+     "text": "Tất cả hoạt động Tâm Ý đều là Pháp Tính cực thanh tịnh."
+    },
+    {
+     "n": 3,
+     "text": "Thanh tịnh như Tự Tính thắng thượng của Hư Không."
+    },
+    {
+     "n": 4,
+     "text": "Hãy phát khởi Thắng Nguyện rộng lớn để mau chóng đạt được sự an lạc thanh tịnh của Đại Niết Bàn."
+    }
+   ]
+  }
+ ]
+}

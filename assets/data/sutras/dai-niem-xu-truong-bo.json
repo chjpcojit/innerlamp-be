@@ -1,0 +1,4361 @@
+{
+ "id": "dai-niem-xu-truong-bo",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trường Bộ",
+ "reference": "DN 22",
+ "summary": "Kinh trong Trường Bộ (DN 22), Thế Tôn thuyết tại xứ Kuru, dạy bốn niệm xứ là con đường độc nhất đưa đến thanh tịnh. Nội dung gồm quán thân, quán thọ, quán tâm, quán pháp, và so với kinh Niệm xứ trong Trung Bộ, bài này giảng rộng phần Tứ Thánh đế. Đây là bài kinh nền tảng của thiền chánh niệm.",
+ "titles": {
+  "vi": "Kinh Đại Niệm xứ",
+  "pli": "Mahāsatipaṭṭhānasutta",
+  "en": "The Longer Discourse on Mindfulness Meditation"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "THIEN_DINH"
+ ],
+ "durationMinutes": 100,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/dn22/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe như vậy."
+    },
+    {
+     "n": 2,
+     "text": "1 Một thời, Thế Tôn ở xứ Kuru (Câu lâu), tại Kammāsadhamma (Kiềm ma sắt đàm)—đô thị của xứ Kuru."
+    },
+    {
+     "n": 3,
+     "text": "Rồi Thế Tôn gọi các vị Tỷ kheo: “Này các Tỷ kheo.”"
+    },
+    {
+     "n": 4,
+     "text": "Các Tỷ kheo trả lời Thế Tôn: “Bạch Thế Tôn.” Thế Tôn nói như sau"
+    },
+    {
+     "n": 5,
+     "text": "—Này các Tỷ kheo, đây là con đường độc nhất, đưa đến thanh tịnh cho chúng sanh, vượt khỏi sầu bi, diệt trừ khổ ưu, thành tựu chánh lý, chứng ngộ Niết bàn. Đó là Bốn niệm xứ."
+    },
+    {
+     "n": 6,
+     "text": "Thế nào là bốn?"
+    },
+    {
+     "n": 7,
+     "text": "Này các Tỷ kheo, ở đây vị Tỷ kheo sống quán thân trên thân, nhiệt tâm, tỉnh giác, chánh niệm, để chế ngự tham ưu ở đời; sống quán thọ trên các thọ, nhiệt tâm, tỉnh giác, chánh niệm, để chế ngự tham ưu ở đời;"
+    },
+    {
+     "n": 8,
+     "text": "sống quán tâm trên tâm, nhiệt tâm, tỉnh giác, chánh niệm, để chế ngự tham ưu ở đời; sống quán pháp trên các pháp, nhiệt tâm, tỉnh giác, chánh niệm, để chế ngự tham ưu ở đời."
+    },
+    {
+     "n": 9,
+     "text": "Này các Tỷ kheo, thế nào là Tỷ kheo sống quán thân trên thân?",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 10,
+     "text": "Này các Tỷ kheo, ở đây Tỷ kheo đi đến khu rừng, đi đến gốc cây, hay đi đến ngôi nhà trống, và ngồi kiết già, lưng thẳng và an trú chánh niệm trước mặt.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 11,
+     "text": "Tỉnh giác, vị ấy thở vô; tỉnh giác, vị ấy thở ra.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 12,
+     "text": "Thở vô dài, vị ấy tuệ tri: “Tôi thở vô dài”; hay thở ra dài, vị ấy tuệ tri: “Tôi thở ra dài”; hay thở vô ngắn, vị ấy tuệ tri: “Tôi thở vô ngắn”; hay thở ra ngắn, vị ấy tuệ tri: “Tôi thở ra ngắn”;",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 13,
+     "text": "Cảm giác toàn thân, tôi sẽ thở vô”, vị ấy tập; “Cảm giác toàn thân, tôi sẽ thở ra”, vị ấy tập; “An tịnh thân hành, tôi sẽ thở vô”, vị ấy tập; “An tịnh thân hành, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 14,
+     "text": "Này các tỷ kheo, như người thợ quay hay học trò người thợ quay tuệ tri thiện xảo, khi quay dài, tuệ tri rằng: “Tôi quay dài”; hay khi quay ngắn, tuệ tri rằng: “Tôi quay ngắn.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 15,
+     "text": "Cũng vậy, này các Tỷ kheo, Tỷ kheo thở vô dài, tuệ tri: “Tôi thở vô dài”; hay thở ra dài tuệ tri: “Tôi thở ra dài”; hay thở vô ngắn, tuệ tri: “Tôi thở vô ngắn”; hay thở ra ngắn, tuệ tri: “Tôi thở ra ngắn”;",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 16,
+     "text": "“Cảm giác toàn thân, tôi sẽ thở vô”, vị ấy tập; “Cảm giác toàn thân, tôi sẽ thở ra”, vị ấy tập; “An tịnh thân hành, tôi sẽ thở vô”, vị ấy tập; “An tịnh thân hành, tôi sẽ thở ra”, vị ấy tập.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 17,
+     "text": "Như vậy, vị ấy sống, quán thân trên nội thân hay sống quán thân trên ngoại thân; hay sống quán thân trên cả nội thân, ngoại thân; hay vị ấy sống quán tánh sanh khởi trên thân; hay sống quán tánh diệt tận trên thân;",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 18,
+     "text": "hay sống quán tánh sanh diệt trên thân. “Có thân đây”, vị ấy an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 19,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước vật gì ở trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 20,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 21,
+     "text": "Lại nữa, này các Tỷ keo, Tỷ kheo đi, tuệ tri: “Tôi đi”; hay đứng, tuệ tri: “Tôi đứng”; hay ngồi, tuệ tri: “Tôi ngồi”; hay nằm, tuệ tri: “Tôi nằm”.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 22,
+     "text": "Thân thể được sử dụng như thế nào, vị ấy biết thân như thế ấy.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 23,
+     "text": "Như vậy, vị ấy sống quán thân trên nội thân; hay vị ấy sống quán thân trên ngoại thân; hay vị ấy sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 24,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay vị ấy sống quán tánh diệt tận trên thân; hay vị ấy sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 25,
+     "text": "“Có thân đây”, vị ấy an trú chánh niệm như vậy với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 26,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 27,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 28,
+     "text": "Lại nữa, này các Tỷ kheo, Tỷ kheo, khi bước tới, bước lui, biết rõ việc mình đang làm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 29,
+     "text": "Khi ngó tới, ngó lui, biết rõ việc mình đang làm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 30,
+     "text": "Khi co tay khi duỗi tay biết rõ việc mình đang làm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 31,
+     "text": "Khi mang áo Sanghàti (Tăng-già-lê), mang bát, mang y, biết rõ việc mình đang làm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 32,
+     "text": "Khi ăn, uống, nhai, nếm, biết rõ việc mình đang làm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 33,
+     "text": "Khi đi đại tiện, tiểu tiện, biết rõ việc mình đang làm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 34,
+     "text": "Khi đi, đứng, ngồi, nằm, biết rõ việc mình đang làm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 35,
+     "text": "Như vậy, vị ấy sống quán thân trên nội thân; hay sống quán thân trên ngoại thân; hay sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 36,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay sống quán tánh diệt tận trên thân; hay sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 37,
+     "text": "“Có thân đây”, vị ấy an trú chánh niệm như vậy với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 38,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 39,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 40,
+     "text": "Lại nữa này các Tỷ kheo, Tỷ kheo quán sát thân này, dưới từ bàn chân trở lên, trên cho đến đảnh tóc, bao bọc bởi da và chứa đầy những vật bất tịnh sai biệt:",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 41,
+     "text": "“Trong thân này, đây là tóc, lông, móng, răng, da, thịt, gân, xương, thận, tủy, tim, gan, hoành cách mô, lá lách, phổi, ruột, màng ruột, bụng, phân, mật, đàm, mủ, máu, mồ hôi, mỡ, nước mắt, mỡ da, nước miếng, niêm dịch,",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 42,
+     "text": "nước ở khớp xương, nước tiểu.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 43,
+     "text": "Này các Tỷ kheo, cũng như một bao đồ, hai đầu trống đựng đầy các loại hột như gạo, lúa, đậu xanh, đậu lớn, mè, gạo đã xay rồi.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 44,
+     "text": "Một người có mắt, đổ các hột ấy ra và quan sát: “Đây là hột gạo, đây là hột lúa, đây là đậu xanh, đây là đậu đỏ, đây là mè, đây là hột lúa đã xay rồi.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 45,
+     "text": "Cũng vậy, này các Tỷ kheo, một Tỷ kheo quán sát thân này dưới từ bàn chân trở lên, trên cho đến đảnh tóc, bao bọc bởi da và chứa đầy những vật bất tịnh sai biệt:",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 46,
+     "text": "“Trong thân này, đây là tóc, lông, móng, răng, da, thịt, gân, xương, tủy, thận, tim, gan, hoành cách mô, lá lách, phổi, ruột, màng ruột, bụng, phân, mật, đàm, mủ, máu, mồ hôi, mỡ, nước mắt, mỡ da, nước miếng, niêm dịch,",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 47,
+     "text": "nước ở khớp xương, nước tiểu.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 48,
+     "text": "Như vậy vị ấy sống quán thân trên nội thân; hay sống quán thân trên ngoại thân; hay sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 49,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay sống quán tánh diệt tận trên thân; hay sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 50,
+     "text": "“Có thân đây”, vị ấy an trú chánh niệm như vậy với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 51,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 52,
+     "text": "Này các Tỷ kheo, như vậy vị Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 53,
+     "text": "Lại nữa này các Tỷ kheo, Tỷ kheo quán sát thân này về vị trí các giới và sự sắp đặt các giới: “Trong thân này có địa đại, thủy đại, hỏa đại và phong đại.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 54,
+     "text": "Này các Tỷ kheo, như một người đồ tể thiện xảo, hay đệ tử của một người đồ tể giết một con bò, ngồi cắt chia từng thân phần tại ngã tư đường.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 55,
+     "text": "Cũng vậy này các Tỷ kheo, vị Tỷ kheo quán sát thân nay về vị trí các giới và về sự sắp đặt các giới: “Trong thân này có địa đại, thủy đại, hỏa đại và phong đại.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 56,
+     "text": "Như vậy vị ấy sống quán thân trên nội thân; hay sống quán thân trên ngoại thân; hay sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 57,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay sống quán tánh diệt tận trên thân; hay sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 58,
+     "text": "“Có thân đây”, vị ấy an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm, và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 59,
+     "text": "Này các Tỷ kheo, như vậy Tỷ keo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 60,
+     "text": "Lại nữa này các Tỷ kheo, Tỷ kheo, như thấy một thi thể quăng bỏ trong nghĩa địa một ngày, hai ngày, ba ngày, thi thể ấy trương phồng lên, xanh đen lại, nát thối ra.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 61,
+     "text": "Tỷ kheo quán thân ấy như sau: “Thân này tánh chất là như vậy, bản tánh là như vậy, không vượt khỏi tánh chất ấy.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 62,
+     "text": "Như vậy vị ấy sống quán thân trên nội thân; hay sống quán thân trên ngoại thân hay sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 63,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay sống quán tánh diệt tận trên thân; hay sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 64,
+     "text": "“Có thân đây”, vị ấy an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 65,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 66,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 67,
+     "text": "Lại nữa này các Tỷ kheo, Tỷ kheo như thấy một thi thể quăng bỏ trong nghĩa địa bị các loài quạ ăn, hay bị các loài diều hâu ăn, hay bị các chim kên ăn; hay bị các loài chó ăn;",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 68,
+     "text": "hay bị các loài giả can ăn, hay bị các loài côn trùng ăn.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 69,
+     "text": "Tỷ kheo quán thân ấy như sau: “Thân này tánh chất là như vậy, bản chất là như vậy, không vượt khỏi tánh chất ấy.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 70,
+     "text": "Như vậy vị ấy sống quán thân trên nội thân; hay sống quán thên trên ngoại thân; hay sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 71,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay sống quán tánh sanh diệt trên thân; hay sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 72,
+     "text": "“Có thân đây”, vị ấy an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 73,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 74,
+     "text": "Này các Tỷ kheo, lại nữa Tỷ kheo như thấy một thi thể bị quăng bỏ trong nghĩa địa; với các xương còn liên kết với nhau, còn dính thịt và máu, còn được các đường gân cột lại;",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 75,
+     "text": "với các xương còn liên kết với nhau, không còn dính thịt nhưng còn dính máu, còn được các đường gân cột lại, với các xương còn liên kết với nhau, không còn dính thịt và máu, còn được các đường gân cột lại;",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 76,
+     "text": "chỉ còn có xương không dính lại với nhau, rải rác chỗ này chỗ kia, ở đây là xương tay, ở đây là xương chân, ở đây là xương ống, ở đây là xương bắp vế, ở đây là xương mông, ở đây là xương sống, ở đây là xương đầu, …",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 77,
+     "text": "Tỷ kheo quán thân ấy như sau: “Thân này tánh chất là như vậy, bản tánh là như vậy, không vượt khỏi tánh chất ấy”.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 78,
+     "text": "Như vậy vị ấy sống quán thân trên nội thân; hay sống quán thân trên ngoại thân; hay sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 79,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay vị ấy sống quán tánh diệt tận trên thân; hay vị ấy sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 80,
+     "text": "“Có thân đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 81,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì ở trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 82,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 83,
+     "text": "Lại nữa này các Tỷ kheo, Tỷ kheo như thấy một thi thể quăng bỏ trong nghĩa địa, chỉ còn toàn xương trắng màu vỏ ốc … chỉ còn một đống xương lâu hơn một năm … chỉ còn là xương thối trở thành bột.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 84,
+     "text": "Tỷ kheo quán thân ấy như sau: “Thân này tánh chất là như vậy, bản tánh là như vậy, không vượt khỏi tánh chất ấy.”",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 85,
+     "text": "Như vậy vị ấy sống quán thân trên nội thân; hay sống quán thân trên ngoại thân; hay sống quán thân trên cả nội thân, ngoại thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 86,
+     "text": "Hay vị ấy sống quán tánh sanh khởi trên thân; hay sống quán tánh diệt tận trên thân; hay sống quán tánh sanh diệt trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 87,
+     "text": "“Có thân đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 88,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì ở trên đời.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 89,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thân trên thân.",
+     "section": "(Quán thân)"
+    },
+    {
+     "n": 90,
+     "text": "Này các Tỷ kheo, như thế nào Tỷ kheo sống quán thọ trên các thọ?",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 91,
+     "text": "Này các Tỷ kheo, ở nơi đây Tỷ kheo khi cảm giác lạc thọ, biết rằng: “Tôi cảm giác lạc thọ”; khi cảm giác khổ thọ, biết rằng: “Tôi cảm giác khổ thọ”; khi cảm giác bất khổ bất lạc thọ, biết rằng:",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 92,
+     "text": "“Tôi cảm giác bất khổ bất lạc thọ”. Hay khi cảm giác lạc thọ thuộc vật chất biết rằng: “Tôi cảm giác lạc thọ thuộc vật chất”.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 93,
+     "text": "Hay khi cảm giác lạc thọ không thuộc vật chất, biết rằng: “Tôi cảm giác lạc thọ không thuộc vật chất”.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 94,
+     "text": "Hay khi cảm giác khổ thọ thuộc vật chất, biết rằng: “Tôi cảm giác khổ thọ thuộc vật chất”.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 95,
+     "text": "Hay khi cảm giác khổ thọ không thuộc vật chất, biết rằng: “Tôi cảm giác khổ thọ không thuộc vật chất”.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 96,
+     "text": "Hay khi cảm giác bất khổ bất lạc thọ thuộc vật chất, biết rằng: “Tôi cảm giác bất khổ bất lạc thọ thuộc vật chất”.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 97,
+     "text": "Hay khi cảm giác bất khổ bất lạc thọ không thuộc vật chất, biết rằng: “Tôi cảm giác bất khổ bất lạc thọ không thuộc vật chất”.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 98,
+     "text": "Như vậy vị ấy sống quán thọ trên các nội thọ; hay sống quán thọ trên các ngoại thọ; hay sống quán thọ trên cả các nội thọ, ngoại thọ.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 99,
+     "text": "Hay sống quán tánh sanh khởi trên các thọ; hay sống quán tánh diệt tận trên các thọ; hay sống quán tánh sanh diệt trên các thọ.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 100,
+     "text": "“Có thọ đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 101,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì ở trên đời.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 102,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán thọ trên các thọ.",
+     "section": "(Quán thọ)"
+    },
+    {
+     "n": 103,
+     "text": "Này các Tỷ kheo, như thế nào Tỷ kheo sống quán tâm trên tâm?",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 104,
+     "text": "Này các Tỷ kheo, ở đây vị Tỷ kheo: “Với tâm có tham, biết rằng tâm có tham”; hay “Với tâm không tham, biết rằng tâm không tham”; hay “Với tâm có sân, biết rằng tâm có sân”;",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 105,
+     "text": "hay “Với tâm không sân, biết rằng tâm không sân”; hay “Với tâm có si, biết rằng tâm có si”; hay “Với tâm không si, biết rằng tâm không si”; hay “Với tâm thâu nhiếp, biết rằng tâm được thâu nhiếp”;",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 106,
+     "text": "hay “Với tâm tán loạn, biết rằng tâm bị tán loạn”; hay “Với tâm quảng đại, biết rằng tâm được quảng đại”; hay “Với tâm không quảng đại, biết rằng tâm không được quảng đại”; hay “Với tâm hữu hạn, biết rằng tâm hữu hạn”;",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 107,
+     "text": "hay “Với tâm vô thượng, biết rằng tâm vô thượng”; hay “Với tâm có định, biết rằng tâm có định”; hay “Với tâm không định, biết rằng tâm không định”; hay “Với tâm giải thoát, biết rằng tâm có giải thoát”;",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 108,
+     "text": "hay “Với tâm không giải thoát, biết rằng tâm không giải thoát”.",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 109,
+     "text": "Như vậy vị ấy sống quán tâm trên nội tâm; hay sống quán tâm trên ngoại tâm; hay sống quán tâm trên nội tâm, ngoại tâm.",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 110,
+     "text": "Hay sống quán tánh sanh khởi trên tâm; hay sống quán tánh diệt tận trên tâm; hay sống quán tánh sanh diệt trên tâm.",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 111,
+     "text": "“Có tâm đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 112,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 113,
+     "text": "Này các Tỷ kheo, như vậy vị Tỷ kheo sống quán tâm trên tâm.",
+     "section": "(Quán tâm)"
+    },
+    {
+     "n": 114,
+     "text": "Này các Tỷ kheo, thế nào là vị Tỷ kheo sống quán pháp trên các pháp?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 115,
+     "text": "Này các Tỷ kheo, ở đây Tỷ kheo sống quán pháp trên các pháp đối với năm triền cái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 116,
+     "text": "Và này các Tỷ kheo, thế nào là vị Tỷ kheo sống quán pháp trên các pháp đối với năm triền cái?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 117,
+     "text": "Này các Tỷ kheo, ở đây Tỷ kheo, nội tâm có tham dục, tuệ tri: “Nội tâm tôi có tham dục”; hay nội tâm không có tham dục, tuệ tri rằng: “Nội tâm tôi không có tham dục”.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 118,
+     "text": "Và với tham dục chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 119,
+     "text": "Và với tham dục đã sanh nay được đoạn diệt, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 120,
+     "text": "Và với tham dục đã được đoạn diệt, tương lai không sanh khởi nữa, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 121,
+     "text": "Hay nội tâm có sân hận, tuệ tri rằng: “Nội tâm tôi có sân hận”; hay nội tâm không có sân hận, tuệ tri rằng: “Nội tâm tôi không có sân hận.”",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 122,
+     "text": "Và với sân hận chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 123,
+     "text": "Và với sân hận đã sanh nay được đoạn diệt, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 124,
+     "text": "Và với sân hận đã được đoạn diệt, tương lai không sanh khởi nữa, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 125,
+     "text": "Hay nội tâm có hôn trầm thụy miên, tuệ tri rằng: “Nội tâm tôi có hôn trầm thụy miên”; hay nội tâm không có hôn trầm thụy miên, tuệ tri rằng: “Nội tâm tôi không có hôn trầm thụy miên”.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 126,
+     "text": "Và với hôn trầm thụy miên chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 127,
+     "text": "Và với hôn trầm thụy miên đã sanh nay được đoạn diệt, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 128,
+     "text": "Và với hôn trầm thụy miên đã được đoạn diệt, tương lai không sanh khởi nữa, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 129,
+     "text": "Hay nội tâm có trạo hối, tuệ tri rằng: “Nội tâm tôi có trạo hối”; hay nội tâm không có trạo hối, tuệ tri rằng: “Nội tâm tôi không có trạo hối”.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 130,
+     "text": "Và với trạo hối chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 131,
+     "text": "Và với trạo hối đã sanh nay được đoạn diệt, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 132,
+     "text": "Và với trạo hối đã được đoạn diệt, tương lai không sanh khởi nữa, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 133,
+     "text": "Hay nội tâm có nghi, tuệ tri rằng: “Nội tâm tôi có nghi”; hay nội tâm không có nghi, tuệ tri rằng: “Nội tâm tôi không có nghi.”",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 134,
+     "text": "Và với nghi chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 135,
+     "text": "Và với nghi đã sanh, nay được đoạn diệt, vị ấy tuệ tri như vậy, và với nghi đã được đoạn diệt, tương lai không sanh khởi nữa, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 136,
+     "text": "Như vậy vị ấy sống quán pháp trên các nội pháp; hay sống quán pháp trên các ngoại pháp; hay sống quán pháp trên cả các nội pháp, ngoại pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 137,
+     "text": "Hay sống quán tánh sanh khởi trên các pháp; hay sống quán tánh diệt tận trên các pháp; hay sống quán tánh sanh diệt trên các pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 138,
+     "text": "“Có những pháp ở đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 139,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 140,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán pháp trên các pháp, đối với năm triền cái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 141,
+     "text": "Lại nữa, này các Tỷ kheo, Tỷ kheo sống quán pháp trên các pháp đối với Năm Thủ uẩn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 142,
+     "text": "Này các Tỷ kheo, thế nào là Tỷ kheo sống quán pháp trên các pháp đối với Năm Thủ uẩn?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 143,
+     "text": "Này các Tỷ kheo, Tỷ kheo suy tư: “Đây là sắc, đây là sắc sanh, đây là sắc diệt.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 144,
+     "text": "Đây là thọ, đây là thọ sanh, đây là thọ diệt.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 145,
+     "text": "Đây là tưởng, đây là tưởng sanh, đây là tưởng diệt.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 146,
+     "text": "Đây là hành, đây là hành sanh, đây là hành diệt.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 147,
+     "text": "Đây là thức, đây là thức sanh, đây là thức diệt”.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 148,
+     "text": "Như vậy vị ấy sống quán pháp trên các nội pháp; hay sống quán pháp trên các ngoại pháp; hay sống quán pháp trên các nội pháp, ngoại pháp; hay sống quán tánh sanh khởi trên các pháp;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 149,
+     "text": "hay sống quán tánh diệt tận trên các pháp; hay sống quán tánh sanh diệt trên các pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 150,
+     "text": "“Có những pháp ở đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 151,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì ở trên đời.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 152,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán pháp trên các pháp đối với Năm Thủ uẩn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 153,
+     "text": "Lại nữa này các Tỷ kheo, Tỷ kheo sống quán pháp trên các pháp đối với Sáu Nội Ngoại xứ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 154,
+     "text": "Này các Tỷ kheo, thế nào là Tỷ kheo sống quán pháp trên các pháp đối với Sáu Nội Ngoại xứ?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 155,
+     "text": "Này các Tỷ kheo, ở đây Tỷ kheo tuệ tri con mắt và tuệ tri các sắc, do duyên hai pháp này, kiết sử sanh khởi, vị ấy tuệ tri như vậy; và với kiết sử chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 156,
+     "text": "và với kiết sử đã sanh nay được đoạn diệt, vị ấy tuệ tri như vậy;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 157,
+     "text": "và với kiết sử đã được đoạn diệt, tương lai không sanh khởi nữa,",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 158,
+     "text": "vị ấy tuệ tri như vậy … và tuệ tri tai và tuệ tri các tiếng … và tuệ tri mũi và tuệ tri các hương … và tuệ tri lưỡi và tuệ tri các vị … và tuệ tri thân và tuệ tri các xúc … và tuệ tri ý và tuệ tri các pháp;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 159,
+     "text": "do duyên hai pháp này, kiết sử sanh khởi, vị ấy tuệ tri như vậy; và với kiết sử chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy; và với kiết sử đã sanh nay được đoạn diệt, vị ấy tuệ tri như vậy;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 160,
+     "text": "và với kiết sử đã được đoạn diệt, tương lai không sanh khởi nữa, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 161,
+     "text": "Như vậy vị ấy sống quán pháp trên các nội pháp; hay sống quán pháp trên các ngoại pháp; hay sống quán pháp trên cả các nội pháp, ngoại pháp; hay sống quán tánh sanh khởi trên các pháp;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 162,
+     "text": "hay sống quán tánh diệt tận trên các pháp; hay sống quán tánh sanh diệt trên các pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 163,
+     "text": "“Có những pháp ở đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 164,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 165,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán pháp trên các pháp, đối với Sáu Nội Ngoại xứ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 166,
+     "text": "Lại nữa này các Tỷ kheo, Tỷ kheo sống quán pháp trên các pháp đối với Bảy Giác chi.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 167,
+     "text": "Này các Tỷ kheo, thế nào là Tỷ kheo sống quán pháp trên các pháp đối với Bảy Giác chi?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 168,
+     "text": "Này các Tỷ kheo, ở đây Tỷ kheo, nội tâm có Niệm Giác chi, tuệ tri rằng: “Nội tâm tôi có Niệm Giác chi”, hay nội tâm không có Niệm Giác chi, tuệ tri rằng: “Nội tâm tôi không có Niệm Giác chi”;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 169,
+     "text": "và với Niệm Giác chi chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy, và với Niệm Giác chi đã sanh, nay được tu tập viên thành, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 170,
+     "text": "Hay nội tâm có Trạch pháp Giác chi …",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 171,
+     "text": "Hay nội tâm có Tinh tấn Giác chi …",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 172,
+     "text": "Hay nội tâm có Hỷ Giác chi …",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 173,
+     "text": "Hay nội tâm có Khinh an Giác chi …",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 174,
+     "text": "Hay nội tâm có Định Giác chi …",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 175,
+     "text": "Hay nội tâm có Xả Giác chi; tuệ tri rằng: “Nội tâm tôi có Xả Giác chi”; hay nội tâm không có Xả Giác chi, tuệ tri rằng: “Nội tâm tôi không có Xả Giác chi.”",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 176,
+     "text": "Và với Xả Giác chi chưa sanh nay sanh khởi, vị ấy tuệ tri như vậy; và với Xả Giác chi đã sanh nay được tu tập viên thành, vị ấy tuệ tri như vậy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 177,
+     "text": "Như vậy vị ấy sống quán pháp trên các nội pháp; hay sống quán pháp trên các ngoại pháp; hay sống quán pháp trên cả các nội pháp, ngoại pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 178,
+     "text": "Hay sống quán tánh sanh khởi trên các pháp; hay sống quán tánh diệt tận trên các pháp; hay sống quán tánh sanh diệt trên các pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 179,
+     "text": "“Có những pháp ở đây”; vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 180,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 181,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán pháp trên các pháp đối với Bảy Giác chi.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 182,
+     "text": "Lại nữa này các Tỷ kheo, vị ấy sống quán pháp trên các pháp đối với Bốn Sự thật.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 183,
+     "text": "Này các Tỷ kheo, thế nào là Tỷ kheo sống quán pháp trên các pháp đối với Bốn Sự thật?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 184,
+     "text": "Này các Tỷ kheo, ở đây Tỷ kheo như thật tuệ tri: “Đây là khổ”; như thật tuệ tri: “Đây là khổ tập”; như thật tuệ tri: “Đây là khổ diệt”; như thật tuệ tri: “Đây là con đường đưa đến khổ diệt”.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 185,
+     "text": "Và này các Tỷ kheo, thế nào Khổ Thánh đế?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 186,
+     "text": "Sanh là khổ, già là khổ, chết là khổ, sầu, bi.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 187,
+     "text": "Khổ, ưu, não là khổ, cầu không được là khổ, tóm lại Năm Thủ uẩn là khổ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 188,
+     "text": "Này các Tỷ kheo thế nào là sanh? Mỗi mỗi hạng chúng sanh trong từng giới loại, sự xuất sản, xuất sanh, xuất thành, tái sanh của họ, sự xuất hiện các uẩn, sự hoạch đắc các căn. Này các Tỷ kheo, như vậy gọi là sanh.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 189,
+     "text": "Này các Tỷ kheo, thế nào là già? Mỗi mỗi hạng chúng sanh, trong từng giới hạn, sự niên lão, sự hủy hoại, trạng thái rụng răng, trạng thái tóc bạc, da nhăn, tuổi thọ rút ngắn, các căn hủy hoại.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 190,
+     "text": "Này các Tỷ kheo, như vậy là già.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 191,
+     "text": "Này các Tỷ kheo, thế nào là chết? Mỗi mỗi hạng chúng sanh trong từng giới loại, sự tạ thế, sự từ trần, thân hoại, sự diệt vong, sự chết, sự tử vong, thời đã đến, các uẩn đã tận diệt, sự vất bỏ tử thi.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 192,
+     "text": "Này các Tỷ kheo, như vậy gọi là chết.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 193,
+     "text": "Này các Tỷ kheo, thế nào gọi là sầu?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 194,
+     "text": "Này các Tỷ kheo, với những ai gặp phải tai nạn này hay tai nạn khác; với những ai cảm thọ sự đau khổ này hay sự đau khổ khác, sự sầu, sự sầu lo, sự sầu muộn, nội sầu, mọi khổ sầu của người ấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 195,
+     "text": "Này các Tỷ kheo, như vậy gọi là sầu.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 196,
+     "text": "Này các Tỷ kheo, thế nào là bi?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 197,
+     "text": "Này các Tỷ kheo, với những ai gặp phải tai nạn này hay tai nạn khác; với những ai cảm thọ sự đau khổ này hay sự đau khổ khác, sự bi ai, sự bi thảm, sự than van, sự than khóc, sự bi thán, sự bi thống của người ấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 198,
+     "text": "Này các Tỷ kheo, như vậy gọi là bi.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 199,
+     "text": "Này các Tỷ kheo, thế nào là khổ? Này các Tỷ kheo, sự đau khổ về thân, sự không sảng khoái về thân, sự đau khổ do thân cảm thọ, sự không sảng khoái do thân cảm thọ. Này các Tỷ kheo, như vậy gọi là khổ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 200,
+     "text": "Này các Tỷ kheo, thế nào là ưu? Này các Tỷ kheo, sự đau khổ về tâm, sự không sảng khoái về tâm, sự đau khổ do tâm cảm thọ, sự không sảng khoái do tâm cảm thọ. Này các Tỷ kheo, như vậy gọi là ưu.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 201,
+     "text": "Này các Tỷ kheo, thế nào là não? Này các Tỷ kheo, với những ai gặp tai nạn này hay tai nạn khác; với những ai cảm thọ sự đau khổ này hay sự đau khổ khác, sự áo não, sự bi não, sự thất vọng, sự tuyệt vọng của người ấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 202,
+     "text": "Này các Tỷ kheo, như vậy gọi là não.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 203,
+     "text": "Này các Tỷ kheo, thế nào là cầu bất đắc khổ?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 204,
+     "text": "Này các Tỷ kheo, chúng sanh bị sanh chi phối, khởi sự mong cầu: “Mong rằng ta khỏi bị sanh chi phối, mong rằng ta khỏi phải đi thác sanh”. Lời cầu mong ấy không được thành tựu. Như vậy gọi là cầu bất đắc khổ!",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 205,
+     "text": "Này các Tỷ kheo, chúng sanh bị già chi phối … chúng sanh bị bệnh chi phối … chúng sanh bị chết chi phối.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 206,
+     "text": "Chúng sanh bị sầu, bi, khổ, ưu, não chi phối, khởi sự mong cầu: “Mong rằng ta khỏi bị sầu, bi, khổ, ưu, não chi phối!",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 207,
+     "text": "Mong rằng ta khỏi đương chịu sầu, bi, khổ, ưu, não”. Lời mong cầu ấy không được thành tựu. Như vậy là cầu bất đắc khổ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 208,
+     "text": "Này các Tỷ kheo, như thế nào là tóm lại, Năm Thủ uẩn là khổ?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 209,
+     "text": "Như Sắc thủ uẩn, Thọ thủ uẩn, Tưởng thủ uẩn, Hành thủ uẩn, Thức thủ uẩn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 210,
+     "text": "Này các Tỷ kheo, như vậy tóm lại Năm Thủ uẩn là khổ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 211,
+     "text": "Này các Tỷ kheo, thế nào là Khổ tập Thánh đế?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 212,
+     "text": "Sự tham ái đưa đến tái sanh, câu hữu với hỷ và tham, tìm cầu hỷ lạc chỗ này chỗ kia. Như dục ái, hữu ái, vô hữu ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 213,
+     "text": "Này các Tỷ kheo, sự tham ái này khi sanh khởi thì sanh khởi ở đâu, khi an trú thì an trú ở đâu? Ở đời, sắc gì thân ái, sắc gì khả ái? Ở đời con mắt là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 214,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy. Ở đời cái tai … ở đời mũi … ở đời lưỡi … ở đời thân … ở đời ý là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 215,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 216,
+     "text": "Ở đời các sắc … ở đời các tiếng … ở đời các hương … ở đời các vị … ở đời các cảm xúc … ở đời các pháp là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 217,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 218,
+     "text": "Ở đời nhãn thức … ở đời nhĩ thức … ở đời tỷ thức … ở đời thiệt thức … ở đời thân thức … ở đời ý thức là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 219,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 220,
+     "text": "Ở đời nhãn xúc … ở đời nhĩ xúc … ở đời tỷ xúc … ở đời thiệt xúc … ở đời thân xúc … ở đời ý xúc là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 221,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 222,
+     "text": "Ở đời nhãn xúc sở sanh thọ … ở đời nhĩ xúc sở sanh thọ … ở đời tỷ xúc sở sanh thọ … ở đời thiệt xúc sở thanh thọ … ở đời thân xúc sở sanh thọ … ở đời ý xúc sở sanh thọ là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 223,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 224,
+     "text": "Ở đời sắc tưởng … ở đời thanh tưởng … ở đời hương tưởng … ở đời vị tưởng … ở đời xúc tưởng … ở đời pháp tưởng là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 225,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 226,
+     "text": "Ở đời sắc tư … ở đời thanh tư … ở đời hương tư … ở đời vị tư … ở đời xúc tư … ở đời pháp tư là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 227,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 228,
+     "text": "Ở đời sắc ái … ở đời thanh ái … ở đời hương ái … ở đời vị ái … ở đời xúc ái … ở đời pháp ái là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 229,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đây.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 230,
+     "text": "Ở đời sắc tầm … ở đời thanh tầm … ở đời hương tầm … ở đời vị tầm … ở đời xúc tầm … ở đời pháp tầm là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 231,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 232,
+     "text": "Ở đời sắc tứ … ở đời thanh tứ … ở đời hương tứ … ở đời vị tứ … ở đời xúc tứ … ở đời pháp tứ là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 233,
+     "text": "Sự tham ái này khi sanh khởi thì sanh khởi ở đấy, khi an trú thì an trú ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 234,
+     "text": "Này các Tỷ kheo, như vậy gọi là Khổ tập Thánh đế.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 235,
+     "text": "Này các Tỷ kheo, và thế nào là Khổ diệt Thánh đế?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 236,
+     "text": "Sự diệt tận không còn luyến tiếc tham ái ấy, sự xả ly, sự khí xả, sự giải thoát, sự vô nhiễm (tham ái ấy).",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 237,
+     "text": "Này các Tỷ kheo, sự tham ái này khi xả ly thì xả ly ở đâu, khi diệt trừ thì diệt trừ ở đâu? Ở đời các sắc gì thân, các sắc gì ái, sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 238,
+     "text": "Ở đời sắc gì thân ái, sắc gì khả ái? Ở đời con mắt là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 239,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy. Ở đời lỗ tai … ở đời mũi … ở đời lưỡi … ở đời thân … ở đời ý là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 240,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 241,
+     "text": "Ở đời các sắc … ở đời các tiếng … ở đời các mùi hương … ở đời các vị. Ở đời các xúc … ở đời các pháp là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 242,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 243,
+     "text": "Ở đời nhãn thức … ở đời nhĩ thức … ở đời tỷ thức … ở đời thiệt thức … ở đời ý thức là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 244,
+     "text": "Sự tham ái khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 245,
+     "text": "Ở đời nhãn xúc … ở đời nhĩ xúc … ở đời tỷ xúc … ở đời thiệt xúc … ở đời thân xúc … ở đời ý xúc là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 246,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 247,
+     "text": "Ở đời nhãn xúc sở sanh thọ … ở đời nhĩ xúc sở sanh thọ … ở đời tỷ xúc sở sanh thọ … ở đời thiệt xúc sở sanh thọ … ở đời thân xúc sở sanh thọ. Ở đời ý xúc sở sanh thọ là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 248,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 249,
+     "text": "Ở đời sắc tưởng … ở đời thanh tưởng … ở đời hương tưởng … ở đời vị tưởng … ở đời xúc tưởng … ở đời pháp tưởng là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 250,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 251,
+     "text": "Ở đời sắc tư … ở đời thanh tư … ở đời hương tư … ở đời vị tư … ở đời xúc tư … ở đời pháp tư là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 252,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 253,
+     "text": "Ở đời sắc ái … ở đời thanh ái … ở đời hương ái … ở đời vị ái … ở đời xúc ái … ở đời pháp ái là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 254,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 255,
+     "text": "Ở đời sắc tầm … ở đời thanh tầm … ở đời hương tầm … ở đời vị tầm … ở đời xúc tầm … ở đời pháp tầm là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 256,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 257,
+     "text": "Ở đời sắc tứ … ở đời thanh tứ … ở đời hương tứ … ở đời vị tứ … ở đời xúc tứ … ở đời pháp tứ là sắc thân ái, là sắc khả ái.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 258,
+     "text": "Sự tham ái này khi xả ly thì xả ly ở đấy, khi diệt trừ thì diệt trừ ở đấy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 259,
+     "text": "Này các Tỷ kheo, như vậy gọi là Khổ diệt Thánh đế.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 260,
+     "text": "Này các Tỷ kheo, thế nào là Khổ diệt đạo Thánh đế.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 261,
+     "text": "Đó là bát chi Thánh đạo, tức là Chánh tri kiến, Chánh tư duy, Chánh ngữ, Chánh nghiệp, Chánh mạng, Chánh tinh tấn, Chánh niệm, Chánh định.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 262,
+     "text": "Này các Tỷ kheo, thế nào là Chánh tri kiến?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 263,
+     "text": "Này các Tỷ kheo, tri kiến về Khổ, tri kiến về Khổ tập, tri kiến về Khổ diệt, tri kiến về Khổ diệt đạo.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 264,
+     "text": "Này các Tỷ kheo, như vậy gọi là Chánh tri kiến.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 265,
+     "text": "Này các Tỷ kheo, thế nào là Chánh tư duy?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 266,
+     "text": "Tư duy về ly dục, tư duy về vô sân, tư duy về bất hại.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 267,
+     "text": "Này các tỷ kheo, như vậy gọi là Chánh tư duy.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 268,
+     "text": "Này các Tỷ kheo thế nào là Chánh ngữ? Tự chế không nói láo, tự chế không nói hai lưỡi, tự chế không ác khẩu, tự chế không nói lời phù phiếm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 269,
+     "text": "Này các Tỷ kheo, như vậy gọi là Chánh ngữ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 270,
+     "text": "Này các Tỷ kheo, thế nào là Chánh nghiệp?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 271,
+     "text": "Tự chế không sát sanh, tự chế không trộm cướp, tự chế không tà dâm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 272,
+     "text": "Này các Tỷ kheo, như vậy gọi là Chánh nghiệp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 273,
+     "text": "Này các Tỷ kheo, thế nào là Chánh mạng? Này các Tỷ kheo, ở đây vị Thánh đệ tử từ bỏ tà mạng, sinh sống bằng chánh mạng.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 274,
+     "text": "Này các Tỷ kheo, như vậy gọi là Chánh mạng.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 275,
+     "text": "Này các Tỷ kheo, và thế nào là Chánh tinh tấn?",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 276,
+     "text": "Này các Tỷ kheo, ở đây Tỷ kheo, đối với các ác, bất thiện pháp chưa sanh, khởi lên ý muốn không cho sanh khởi; vị này nỗ lực, tinh tấn, quyết tâm, trì chí.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 277,
+     "text": "Đối với các ác, bất thiện pháp đã sanh, khởi lên ý muốn trừ diệt, vị này nỗ lực, tinh tấn, quyết tâm, trì chí.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 278,
+     "text": "Đối với các thiện pháp chưa sanh, khởi lên ý muốn khiến cho sanh khởi; vị này nỗ lực, tinh tấn, quyết tâm, trì chí.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 279,
+     "text": "Đối với các thiện pháp đã sanh, khởi lên ý muốn khiến cho an trú, không cho băng hoại, khiến cho tăng trưởng, phát triển, viên mãn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 280,
+     "text": "Vị này nỗ lực, tinh tấn, quyết tâm, trì chí.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 281,
+     "text": "Này các Tỷ kheo, như vậy gọi là Chánh tinh tấn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 282,
+     "text": "Này các Tỷ kheo, thế nào là Chánh niệm? Này các Tỷ kheo, ở đây vị Tỷ kheo sống quán thân trên thân, nhiệt tâm, tỉnh giác, chánh niệm, để chế ngự tham ưu ở đời;",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 283,
+     "text": "trên các cảm thọ … trên các tâm … quán pháp trên các pháp, tinh cần tỉnh giác, chánh niệm để chế ngự tham ưu ở đời.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 284,
+     "text": "Này các Tỷ kheo, như vậy gọi là Chánh niệm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 285,
+     "text": "Này các Tỷ kheo, thế nào là Chánh định? Này các Tỷ kheo, ở đây Tỷ kheo ly dục, ly ác bất thiện pháp, chứng và trú Thiền thứ nhất, một trạng thái hỷ lạc do ly dục sanh, với tầm, với tứ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 286,
+     "text": "Tỷ kheo ấy diệt tầm, diệt tứ, chứng và trú Thiền thứ hai, một trạng thái hỷ lạc do định sanh, không tầm, không tứ, nội tĩnh nhất tâm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 287,
+     "text": "Tỷ kheo ấy ly hỷ trú xả, chánh niệm tỉnh giác, thân cảm sự lạc thọ mà các bậc Thánh gọi là xả niệm lạc trú, chứng và trú Thiền thứ ba.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 288,
+     "text": "Tỷ kheo ấy xả lạc, xả khổ, diệt hỷ ưu đã cảm thọ trước, chứng và trú Thiền thứ tư, không khổ, không lạc, xả niệm thanh tịnh.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 289,
+     "text": "Này các Tỷ kheo, như vậy gọi là Chánh định.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 290,
+     "text": "Này các Tỷ kheo, như vậy gọi là Khổ diệt đạo thánh đế.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 291,
+     "text": "Như vậy vị ấy sống quán pháp trên các nội pháp; hay sống quán pháp trên các ngoại pháp; hay sống quán pháp trên các nội pháp, ngoại pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 292,
+     "text": "Hay sống quán tánh sanh khởi trên các pháp; hay sống quán tánh diệt tận trên các pháp; hay sống quán tánh sanh diệt trên các pháp.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 293,
+     "text": "“Có những pháp ở đây”, vị ấy sống an trú chánh niệm như vậy, với hy vọng hướng đến chánh trí, chánh niệm.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 294,
+     "text": "Và vị ấy sống không nương tựa, không chấp trước một vật gì trên đời.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 295,
+     "text": "Này các Tỷ kheo, như vậy Tỷ kheo sống quán pháp trên các pháp đối với Bốn Thánh đế.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 296,
+     "text": "Này các Tỷ kheo, vị nào tu tập Bốn Niệm xứ này như vậy trong bảy năm, vị ấy có thể chứng một trong hai quả sau đây: Một là chứng Chánh trí ngay trong hiện tại; hai là nếu còn hữu dư y, chứng quả Bất hoàn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 297,
+     "text": "Này các Tỷ kheo, không cần gì đến bảy năm, một vị nào tu tập Bốn Niệm xứ này như vậy trong sáu năm … trong năm năm … trong bốn năm … trong ba năm … trong hai năm … trong một năm,",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 298,
+     "text": "vị ấy có thể chứng một trong hai quả sau đây:",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 299,
+     "text": "Một là chứng Chánh trí ngay trong hiện tại; hai là nếu còn hữu dư y, chứng quả Bất hoàn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 300,
+     "text": "Này các Tỷ kheo, không cần gì đến một năm, một vị nào tu tập Bốn Niệm xứ này trong bảy tháng, vị ấy có thể chứng một trong hai quả sau đây:",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 301,
+     "text": "Một là chứng Chánh trí ngay trong hiện tại, hay nếu còn hữu dư y, thì chứng quả Bất hoàn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 302,
+     "text": "Này các Tỷ-kheo, không cần gì bảy tháng,",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 303,
+     "text": "một vị nào tu tập Bốn Niệm xứ này trong sáu tháng … trong năm tháng … trong bốn tháng … trong ba tháng … trong hai tháng … trong một tháng … trong nửa tháng … vị ấy có thể chứng một trong hai quả sau đây:",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 304,
+     "text": "Một là chứng Chánh trí ngay trong hiện tại, hai là nếu còn hữu dư y, thì chứng quả Bất hoàn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 305,
+     "text": "Này các Tỷ-kheo, không cần gì nửa tháng, một vị nào tu tập Bốn Niệm xứ này trong bảy ngày, vị ấy có thể chứng một trong hai quả sau đây:",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 306,
+     "text": "Một là chứng Chánh trí ngay trong hiện tại, hai là nếu còn hữu dư y, thì chứng quả Bất hoàn.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 307,
+     "text": "Này các Tỷ kheo, đây là con đường độc nhất đưa đến sự thanh tịnh cho chúng sanh, vượt khỏi sầu bi, diệt trừ khổ ưu, thành tựu Chánh lý, chứng ngộ Niết Bàn. Đó là Bốn Niệm xứ.",
+     "section": "(Quán pháp)"
+    },
+    {
+     "n": 308,
+     "text": "Thế Tôn thuyết pháp đã xong. Các Tỷ kheo ấy hoan hỷ tín thọ lời Thế Tôn dạy.",
+     "section": "(Quán pháp)"
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dn22/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā kurūsu viharati kammāsadhammaṁ nāma kurūnaṁ nigamo."
+    },
+    {
+     "n": 2,
+     "text": "Tatra kho bhagavā bhikkhū āmantesi: “bhikkhavo”ti."
+    },
+    {
+     "n": 3,
+     "text": "“Bhaddante”ti te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“Ekāyano ayaṁ, bhikkhave, maggo sattānaṁ visuddhiyā, sokaparidevānaṁ samatikkamāya dukkhadomanassānaṁ atthaṅgamāya ñāyassa adhigamāya nibbānassa sacchikiriyāya, yadidaṁ cattāro satipaṭṭhānā."
+    },
+    {
+     "n": 5,
+     "text": "Katame cattāro? Idha, bhikkhave, bhikkhu kāye kāyānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ, vedanāsu vedanānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ,"
+    },
+    {
+     "n": 6,
+     "text": "citte cittānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ, dhammesu dhammānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ."
+    },
+    {
+     "n": 7,
+     "text": "Uddeso niṭṭhito."
+    },
+    {
+     "n": 8,
+     "text": "Kathañca pana, bhikkhave, bhikkhu kāye kāyānupassī viharati?",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 9,
+     "text": "Idha, bhikkhave, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā nisīdati pallaṅkaṁ ābhujitvā ujuṁ kāyaṁ paṇidhāya parimukhaṁ satiṁ upaṭṭhapetvā. So satova assasati, satova passasati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 10,
+     "text": "Dīghaṁ vā assasanto ‘dīghaṁ assasāmī’ti pajānāti, dīghaṁ vā passasanto ‘dīghaṁ passasāmī’ti pajānāti.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 11,
+     "text": "Rassaṁ vā assasanto ‘rassaṁ assasāmī’ti pajānāti, rassaṁ vā passasanto ‘rassaṁ passasāmī’ti pajānāti.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 12,
+     "text": "‘Sabbakāyapaṭisaṁvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṁvedī passasissāmī’ti sikkhati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 13,
+     "text": "‘Passambhayaṁ kāyasaṅkhāraṁ assasissāmī’ti sikkhati, ‘passambhayaṁ kāyasaṅkhāraṁ passasissāmī’ti sikkhati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 14,
+     "text": "Seyyathāpi, bhikkhave, dakkho bhamakāro vā bhamakārantevāsī vā dīghaṁ vā añchanto ‘dīghaṁ añchāmī’ti pajānāti, rassaṁ vā añchanto ‘rassaṁ añchāmī’ti pajānāti;",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 15,
+     "text": "evameva kho, bhikkhave, bhikkhu dīghaṁ vā assasanto ‘dīghaṁ assasāmī’ti pajānāti, dīghaṁ vā passasanto ‘dīghaṁ passasāmī’ti pajānāti, rassaṁ vā assasanto ‘rassaṁ assasāmī’ti pajānāti,",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 16,
+     "text": "rassaṁ vā passasanto ‘rassaṁ passasāmī’ti pajānāti.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 17,
+     "text": "‘Sabbakāyapaṭisaṁvedī assasissāmī’ti sikkhati, ‘sabbakāyapaṭisaṁvedī passasissāmī’ti sikkhati, ‘passambhayaṁ kāyasaṅkhāraṁ assasissāmī’ti sikkhati, ‘passambhayaṁ kāyasaṅkhāraṁ passasissāmī’ti sikkhati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 18,
+     "text": "Iti ajjhattaṁ vā kāye kāyānupassī viharati, bahiddhā vā kāye kāyānupassī viharati, ajjhattabahiddhā vā kāye kāyānupassī viharati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 19,
+     "text": "Samudayadhammānupassī vā kāyasmiṁ viharati, vayadhammānupassī vā kāyasmiṁ viharati, samudayavayadhammānupassī vā kāyasmiṁ viharati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 20,
+     "text": "‘Atthi kāyo’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 21,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 22,
+     "text": "Ānāpānapabbaṁ niṭṭhitaṁ.",
+     "section": "1.1. Kāyānupassanāānāpānapabba"
+    },
+    {
+     "n": 23,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu gacchanto vā ‘gacchāmī’ti pajānāti, ṭhito vā ‘ṭhitomhī’ti pajānāti, nisinno vā ‘nisinnomhī’ti pajānāti, sayāno vā ‘sayānomhī’ti pajānāti,",
+     "section": "1.2. Kāyānupassanāiriyāpathapabba"
+    },
+    {
+     "n": 24,
+     "text": "yathā yathā vā panassa kāyo paṇihito hoti tathā tathā naṁ pajānāti.",
+     "section": "1.2. Kāyānupassanāiriyāpathapabba"
+    },
+    {
+     "n": 25,
+     "text": "Iti ajjhattaṁ vā kāye kāyānupassī viharati, bahiddhā vā kāye kāyānupassī viharati, ajjhattabahiddhā vā kāye kāyānupassī viharati.",
+     "section": "1.2. Kāyānupassanāiriyāpathapabba"
+    },
+    {
+     "n": 26,
+     "text": "Samudayadhammānupassī vā kāyasmiṁ viharati, vayadhammānupassī vā kāyasmiṁ viharati, samudayavayadhammānupassī vā kāyasmiṁ viharati.",
+     "section": "1.2. Kāyānupassanāiriyāpathapabba"
+    },
+    {
+     "n": 27,
+     "text": "‘Atthi kāyo’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "1.2. Kāyānupassanāiriyāpathapabba"
+    },
+    {
+     "n": 28,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.2. Kāyānupassanāiriyāpathapabba"
+    },
+    {
+     "n": 29,
+     "text": "Iriyāpathapabbaṁ niṭṭhitaṁ.",
+     "section": "1.2. Kāyānupassanāiriyāpathapabba"
+    },
+    {
+     "n": 30,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu abhikkante paṭikkante sampajānakārī hoti, ālokite vilokite sampajānakārī hoti, samiñjite pasārite sampajānakārī hoti, saṅghāṭipattacīvaradhāraṇe sampajānakārī hoti,",
+     "section": "1.3. Kāyānupassanāsampajānapabba"
+    },
+    {
+     "n": 31,
+     "text": "asite pīte khāyite sāyite sampajānakārī hoti, uccārapassāvakamme sampajānakārī hoti, gate ṭhite nisinne sutte jāgarite bhāsite tuṇhībhāve sampajānakārī hoti.",
+     "section": "1.3. Kāyānupassanāsampajānapabba"
+    },
+    {
+     "n": 32,
+     "text": "Iti ajjhattaṁ vā …pe…",
+     "section": "1.3. Kāyānupassanāsampajānapabba"
+    },
+    {
+     "n": 33,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.3. Kāyānupassanāsampajānapabba"
+    },
+    {
+     "n": 34,
+     "text": "Sampajānapabbaṁ niṭṭhitaṁ.",
+     "section": "1.3. Kāyānupassanāsampajānapabba"
+    },
+    {
+     "n": 35,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu imameva kāyaṁ uddhaṁ pādatalā adho kesamatthakā tacapariyantaṁ pūraṁ nānappakārassa asucino paccavekkhati:",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 36,
+     "text": "‘atthi imasmiṁ kāye kesā lomā nakhā dantā taco, maṁsaṁ nhāru aṭṭhi aṭṭhimiñjaṁ vakkaṁ, hadayaṁ yakanaṁ kilomakaṁ pihakaṁ papphāsaṁ, antaṁ antaguṇaṁ udariyaṁ karīsaṁ, pittaṁ semhaṁ pubbo lohitaṁ sedo medo,",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 37,
+     "text": "assu vasā kheḷo siṅghāṇikā lasikā muttan’ti.",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 38,
+     "text": "Seyyathāpi, bhikkhave, ubhatomukhā putoḷi pūrā nānāvihitassa dhaññassa, seyyathidaṁ—sālīnaṁ vīhīnaṁ muggānaṁ māsānaṁ tilānaṁ taṇḍulānaṁ.",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 39,
+     "text": "Tamenaṁ cakkhumā puriso muñcitvā paccavekkheyya: ‘ime sālī, ime vīhī ime muggā ime māsā ime tilā ime taṇḍulā’ti.",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 40,
+     "text": "Evameva kho, bhikkhave, bhikkhu imameva kāyaṁ uddhaṁ pādatalā adho kesamatthakā tacapariyantaṁ pūraṁ nānappakārassa asucino paccavekkhati: ‘atthi imasmiṁ kāye kesā lomā …pe… muttan’ti.",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 41,
+     "text": "Iti ajjhattaṁ vā …pe…",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 42,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 43,
+     "text": "Paṭikūlamanasikārapabbaṁ niṭṭhitaṁ.",
+     "section": "1.4. Kāyānupassanāpaṭikūlamanasikārapabba"
+    },
+    {
+     "n": 44,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu imameva kāyaṁ yathāṭhitaṁ yathāpaṇihitaṁ dhātuso paccavekkhati: ‘atthi imasmiṁ kāye pathavīdhātu āpodhātu tejodhātu vāyodhātū’ti.",
+     "section": "1.5. Kāyānupassanādhātumanasikārapabba"
+    },
+    {
+     "n": 45,
+     "text": "Seyyathāpi, bhikkhave, dakkho goghātako vā goghātakantevāsī vā gāviṁ vadhitvā catumahāpathe bilaso vibhajitvā nisinno assa; evameva kho, bhikkhave, bhikkhu imameva kāyaṁ yathāṭhitaṁ yathāpaṇihitaṁ dhātuso paccavekkhati:",
+     "section": "1.5. Kāyānupassanādhātumanasikārapabba"
+    },
+    {
+     "n": 46,
+     "text": "‘atthi imasmiṁ kāye pathavīdhātu āpodhātu tejodhātu vāyodhātū’ti.",
+     "section": "1.5. Kāyānupassanādhātumanasikārapabba"
+    },
+    {
+     "n": 47,
+     "text": "Iti ajjhattaṁ vā kāye kāyānupassī viharati …pe…",
+     "section": "1.5. Kāyānupassanādhātumanasikārapabba"
+    },
+    {
+     "n": 48,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.5. Kāyānupassanādhātumanasikārapabba"
+    },
+    {
+     "n": 49,
+     "text": "Dhātumanasikārapabbaṁ niṭṭhitaṁ.",
+     "section": "1.5. Kāyānupassanādhātumanasikārapabba"
+    },
+    {
+     "n": 50,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu seyyathāpi passeyya sarīraṁ sivathikāya chaḍḍitaṁ ekāhamataṁ vā dvīhamataṁ vā tīhamataṁ vā uddhumātakaṁ vinīlakaṁ vipubbakajātaṁ.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 51,
+     "text": "So imameva kāyaṁ upasaṁharati: ‘ayampi kho kāyo evaṁdhammo evaṁbhāvī evaṁanatīto’ti. Iti ajjhattaṁ vā …pe…",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 52,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 53,
+     "text": "Puna caparaṁ, bhikkhave,",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 54,
+     "text": "bhikkhu seyyathāpi passeyya sarīraṁ sivathikāya chaḍḍitaṁ kākehi vā khajjamānaṁ kulalehi vā khajjamānaṁ gijjhehi vā khajjamānaṁ kaṅkehi vā khajjamānaṁ sunakhehi vā khajjamānaṁ byagghehi vā khajjamānaṁ dīpīhi vā",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 55,
+     "text": "khajjamānaṁ siṅgālehi vā khajjamānaṁ vividhehi vā pāṇakajātehi khajjamānaṁ.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 56,
+     "text": "So imameva kāyaṁ upasaṁharati: ‘ayampi kho kāyo evaṁdhammo evaṁbhāvī evaṁanatīto’ti. Iti ajjhattaṁ vā …pe…",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 57,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 58,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu seyyathāpi passeyya sarīraṁ sivathikāya chaḍḍitaṁ aṭṭhikasaṅkhalikaṁ samaṁsalohitaṁ nhārusambandhaṁ …pe…",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 59,
+     "text": "Aṭṭhikasaṅkhalikaṁ nimaṁsalohitamakkhitaṁ nhārusambandhaṁ …pe…",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 60,
+     "text": "Aṭṭhikasaṅkhalikaṁ apagatamaṁsalohitaṁ nhārusambandhaṁ …pe…",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 61,
+     "text": "Aṭṭhikāni apagatasambandhāni disā vidisā vikkhittāni,",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 62,
+     "text": "aññena hatthaṭṭhikaṁ aññena pādaṭṭhikaṁ aññena gopphakaṭṭhikaṁ aññena jaṅghaṭṭhikaṁ aññena ūruṭṭhikaṁ aññena kaṭiṭṭhikaṁ aññena phāsukaṭṭhikaṁ aññena piṭṭhiṭṭhikaṁ aññena khandhaṭṭhikaṁ aññena gīvaṭṭhikaṁ aññena",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 63,
+     "text": "hanukaṭṭhikaṁ aññena dantaṭṭhikaṁ aññena sīsakaṭāhaṁ.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 64,
+     "text": "So imameva kāyaṁ upasaṁharati: ‘ayampi kho kāyo evaṁdhammo evaṁbhāvī evaṁanatīto’ti. Iti ajjhattaṁ vā …pe… viharati.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 65,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu seyyathāpi passeyya sarīraṁ sivathikāya chaḍḍitaṁ aṭṭhikāni setāni saṅkhavaṇṇapaṭibhāgāni …pe…",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 66,
+     "text": "Aṭṭhikāni puñjakitāni terovassikāni …pe…",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 67,
+     "text": "Aṭṭhikāni pūtīni cuṇṇakajātāni. So imameva kāyaṁ upasaṁharati: ‘ayampi kho kāyo evaṁdhammo evaṁbhāvī evaṁanatīto’ti.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 68,
+     "text": "Iti ajjhattaṁ vā kāye kāyānupassī viharati, bahiddhā vā kāye kāyānupassī viharati, ajjhattabahiddhā vā kāye kāyānupassī viharati.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 69,
+     "text": "Samudayadhammānupassī vā kāyasmiṁ viharati, vayadhammānupassī vā kāyasmiṁ viharati, samudayavayadhammānupassī vā kāyasmiṁ viharati.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 70,
+     "text": "‘Atthi kāyo’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 71,
+     "text": "Evampi kho, bhikkhave, bhikkhu kāye kāyānupassī viharati.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 72,
+     "text": "Navasivathikapabbaṁ niṭṭhitaṁ.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 73,
+     "text": "Cuddasa kāyānupassanā niṭṭhitā.",
+     "section": "1.6. Kāyānupassanānavasivathikapabba"
+    },
+    {
+     "n": 74,
+     "text": "Kathañca pana, bhikkhave, bhikkhu vedanāsu vedanānupassī viharati?",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 75,
+     "text": "Idha, bhikkhave, bhikkhu sukhaṁ vā vedanaṁ vedayamāno ‘sukhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 76,
+     "text": "Dukkhaṁ vā vedanaṁ vedayamāno ‘dukkhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 77,
+     "text": "Adukkhamasukhaṁ vā vedanaṁ vedayamāno ‘adukkhamasukhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 78,
+     "text": "Sāmisaṁ vā sukhaṁ vedanaṁ vedayamāno ‘sāmisaṁ sukhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 79,
+     "text": "Nirāmisaṁ vā sukhaṁ vedanaṁ vedayamāno ‘nirāmisaṁ sukhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 80,
+     "text": "Sāmisaṁ vā dukkhaṁ vedanaṁ vedayamāno ‘sāmisaṁ dukkhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 81,
+     "text": "Nirāmisaṁ vā dukkhaṁ vedanaṁ vedayamāno ‘nirāmisaṁ dukkhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 82,
+     "text": "Sāmisaṁ vā adukkhamasukhaṁ vedanaṁ vedayamāno ‘sāmisaṁ adukkhamasukhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 83,
+     "text": "Nirāmisaṁ vā adukkhamasukhaṁ vedanaṁ vedayamāno ‘nirāmisaṁ adukkhamasukhaṁ vedanaṁ vedayāmī’ti pajānāti.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 84,
+     "text": "Iti ajjhattaṁ vā vedanāsu vedanānupassī viharati, bahiddhā vā vedanāsu vedanānupassī viharati, ajjhattabahiddhā vā vedanāsu vedanānupassī viharati.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 85,
+     "text": "Samudayadhammānupassī vā vedanāsu viharati, vayadhammānupassī vā vedanāsu viharati, samudayavayadhammānupassī vā vedanāsu viharati.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 86,
+     "text": "‘Atthi vedanā’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 87,
+     "text": "Evampi kho, bhikkhave, bhikkhu vedanāsu vedanānupassī viharati.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 88,
+     "text": "Vedanānupassanā niṭṭhitā.",
+     "section": "2. Vedanānupassanā"
+    },
+    {
+     "n": 89,
+     "text": "Kathañca pana, bhikkhave, bhikkhu citte cittānupassī viharati?",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 90,
+     "text": "Idha, bhikkhave, bhikkhu sarāgaṁ vā cittaṁ ‘sarāgaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 91,
+     "text": "Vītarāgaṁ vā cittaṁ ‘vītarāgaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 92,
+     "text": "Sadosaṁ vā cittaṁ ‘sadosaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 93,
+     "text": "Vītadosaṁ vā cittaṁ ‘vītadosaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 94,
+     "text": "Samohaṁ vā cittaṁ ‘samohaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 95,
+     "text": "Vītamohaṁ vā cittaṁ ‘vītamohaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 96,
+     "text": "Saṅkhittaṁ vā cittaṁ ‘saṅkhittaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 97,
+     "text": "Vikkhittaṁ vā cittaṁ ‘vikkhittaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 98,
+     "text": "Mahaggataṁ vā cittaṁ ‘mahaggataṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 99,
+     "text": "Amahaggataṁ vā cittaṁ ‘amahaggataṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 100,
+     "text": "Sauttaraṁ vā cittaṁ ‘sauttaraṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 101,
+     "text": "Anuttaraṁ vā cittaṁ ‘anuttaraṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 102,
+     "text": "Samāhitaṁ vā cittaṁ ‘samāhitaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 103,
+     "text": "Asamāhitaṁ vā cittaṁ ‘asamāhitaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 104,
+     "text": "Vimuttaṁ vā cittaṁ ‘vimuttaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 105,
+     "text": "Avimuttaṁ vā cittaṁ ‘avimuttaṁ cittan’ti pajānāti.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 106,
+     "text": "Iti ajjhattaṁ vā citte cittānupassī viharati, bahiddhā vā citte cittānupassī viharati, ajjhattabahiddhā vā citte cittānupassī viharati.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 107,
+     "text": "Samudayadhammānupassī vā cittasmiṁ viharati, vayadhammānupassī vā cittasmiṁ viharati, samudayavayadhammānupassī vā cittasmiṁ viharati.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 108,
+     "text": "‘Atthi cittan’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 109,
+     "text": "Evampi kho, bhikkhave, bhikkhu citte cittānupassī viharati.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 110,
+     "text": "Cittānupassanā niṭṭhitā.",
+     "section": "3. Cittānupassanā"
+    },
+    {
+     "n": 111,
+     "text": "Kathañca pana, bhikkhave, bhikkhu dhammesu dhammānupassī viharati?",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 112,
+     "text": "Idha, bhikkhave, bhikkhu dhammesu dhammānupassī viharati pañcasu nīvaraṇesu.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 113,
+     "text": "Kathañca pana, bhikkhave, bhikkhu dhammesu dhammānupassī viharati pañcasu nīvaraṇesu?",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 114,
+     "text": "Idha, bhikkhave, bhikkhu santaṁ vā ajjhattaṁ kāmacchandaṁ ‘atthi me ajjhattaṁ kāmacchando’ti pajānāti, asantaṁ vā ajjhattaṁ kāmacchandaṁ ‘natthi me ajjhattaṁ kāmacchando’ti pajānāti,",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 115,
+     "text": "yathā ca anuppannassa kāmacchandassa uppādo hoti tañca pajānāti, yathā ca uppannassa kāmacchandassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa kāmacchandassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 116,
+     "text": "Santaṁ vā ajjhattaṁ byāpādaṁ ‘atthi me ajjhattaṁ byāpādo’ti pajānāti, asantaṁ vā ajjhattaṁ byāpādaṁ ‘natthi me ajjhattaṁ byāpādo’ti pajānāti, yathā ca anuppannassa byāpādassa uppādo hoti tañca pajānāti,",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 117,
+     "text": "yathā ca uppannassa byāpādassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa byāpādassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 118,
+     "text": "Santaṁ vā ajjhattaṁ thinamiddhaṁ ‘atthi me ajjhattaṁ thinamiddhan’ti pajānāti, asantaṁ vā ajjhattaṁ thinamiddhaṁ ‘natthi me ajjhattaṁ thinamiddhan’ti pajānāti,",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 119,
+     "text": "yathā ca anuppannassa thinamiddhassa uppādo hoti tañca pajānāti, yathā ca uppannassa thinamiddhassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa thinamiddhassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 120,
+     "text": "Santaṁ vā ajjhattaṁ uddhaccakukkuccaṁ ‘atthi me ajjhattaṁ uddhaccakukkuccan’ti pajānāti, asantaṁ vā ajjhattaṁ uddhaccakukkuccaṁ ‘natthi me ajjhattaṁ uddhaccakukkuccan’ti pajānāti,",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 121,
+     "text": "yathā ca anuppannassa uddhaccakukkuccassa uppādo hoti tañca pajānāti, yathā ca uppannassa uddhaccakukkuccassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa uddhaccakukkuccassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 122,
+     "text": "Santaṁ vā ajjhattaṁ vicikicchaṁ ‘atthi me ajjhattaṁ vicikicchā’ti pajānāti, asantaṁ vā ajjhattaṁ vicikicchaṁ ‘natthi me ajjhattaṁ vicikicchā’ti pajānāti, yathā ca anuppannāya vicikicchāya uppādo hoti tañca pajānāti,",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 123,
+     "text": "yathā ca uppannāya vicikicchāya pahānaṁ hoti tañca pajānāti, yathā ca pahīnāya vicikicchāya āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 124,
+     "text": "Iti ajjhattaṁ vā dhammesu dhammānupassī viharati, bahiddhā vā dhammesu dhammānupassī viharati, ajjhattabahiddhā vā dhammesu dhammānupassī viharati.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 125,
+     "text": "Samudayadhammānupassī vā dhammesu viharati, vayadhammānupassī vā dhammesu viharati, samudayavayadhammānupassī vā dhammesu viharati.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 126,
+     "text": "‘Atthi dhammā’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya, anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 127,
+     "text": "Evampi kho, bhikkhave, bhikkhu dhammesu dhammānupassī viharati pañcasu nīvaraṇesu.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 128,
+     "text": "Nīvaraṇapabbaṁ niṭṭhitaṁ.",
+     "section": "4.1. Dhammānupassanānīvaraṇapabba"
+    },
+    {
+     "n": 129,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu dhammesu dhammānupassī viharati pañcasu upādānakkhandhesu.",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 130,
+     "text": "Kathañca pana, bhikkhave, bhikkhu dhammesu dhammānupassī viharati pañcasu upādānakkhandhesu?",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 131,
+     "text": "Idha, bhikkhave, bhikkhu: ‘iti rūpaṁ, iti rūpassa samudayo, iti rūpassa atthaṅgamo; iti vedanā, iti vedanāya samudayo, iti vedanāya atthaṅgamo; iti saññā, iti saññāya samudayo, iti saññāya atthaṅgamo;",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 132,
+     "text": "iti saṅkhārā, iti saṅkhārānaṁ samudayo, iti saṅkhārānaṁ atthaṅgamo, iti viññāṇaṁ, iti viññāṇassa samudayo, iti viññāṇassa atthaṅgamo’ti, iti ajjhattaṁ vā dhammesu dhammānupassī viharati,",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 133,
+     "text": "bahiddhā vā dhammesu dhammānupassī viharati, ajjhattabahiddhā vā dhammesu dhammānupassī viharati.",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 134,
+     "text": "Samudayadhammānupassī vā dhammesu viharati, vayadhammānupassī vā dhammesu viharati, samudayavayadhammānupassī vā dhammesu viharati.",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 135,
+     "text": "‘Atthi dhammā’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya, anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 136,
+     "text": "Evampi kho, bhikkhave, bhikkhu dhammesu dhammānupassī viharati pañcasu upādānakkhandhesu.",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 137,
+     "text": "Khandhapabbaṁ niṭṭhitaṁ.",
+     "section": "4.2. Dhammānupassanākhandhapabba"
+    },
+    {
+     "n": 138,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu dhammesu dhammānupassī viharati chasu ajjhattikabāhiresu āyatanesu.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 139,
+     "text": "Kathañca pana, bhikkhave, bhikkhu dhammesu dhammānupassī viharati chasu ajjhattikabāhiresu āyatanesu?",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 140,
+     "text": "Idha, bhikkhave, bhikkhu cakkhuñca pajānāti, rūpe ca pajānāti, yañca tadubhayaṁ paṭicca uppajjati saṁyojanaṁ tañca pajānāti, yathā ca anuppannassa saṁyojanassa uppādo hoti tañca pajānāti,",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 141,
+     "text": "yathā ca uppannassa saṁyojanassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa saṁyojanassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 142,
+     "text": "Sotañca pajānāti, sadde ca pajānāti, yañca tadubhayaṁ paṭicca uppajjati saṁyojanaṁ tañca pajānāti, yathā ca anuppannassa saṁyojanassa uppādo hoti tañca pajānāti,",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 143,
+     "text": "yathā ca uppannassa saṁyojanassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa saṁyojanassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 144,
+     "text": "Ghānañca pajānāti, gandhe ca pajānāti, yañca tadubhayaṁ paṭicca uppajjati saṁyojanaṁ tañca pajānāti, yathā ca anuppannassa saṁyojanassa uppādo hoti tañca pajānāti,",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 145,
+     "text": "yathā ca uppannassa saṁyojanassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa saṁyojanassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 146,
+     "text": "Jivhañca pajānāti, rase ca pajānāti, yañca tadubhayaṁ paṭicca uppajjati saṁyojanaṁ tañca pajānāti, yathā ca anuppannassa saṁyojanassa uppādo hoti tañca pajānāti,",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 147,
+     "text": "yathā ca uppannassa saṁyojanassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa saṁyojanassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 148,
+     "text": "Kāyañca pajānāti, phoṭṭhabbe ca pajānāti, yañca tadubhayaṁ paṭicca uppajjati saṁyojanaṁ tañca pajānāti, yathā ca anuppannassa saṁyojanassa uppādo hoti tañca pajānāti,",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 149,
+     "text": "yathā ca uppannassa saṁyojanassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa saṁyojanassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 150,
+     "text": "Manañca pajānāti, dhamme ca pajānāti, yañca tadubhayaṁ paṭicca uppajjati saṁyojanaṁ tañca pajānāti, yathā ca anuppannassa saṁyojanassa uppādo hoti tañca pajānāti,",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 151,
+     "text": "yathā ca uppannassa saṁyojanassa pahānaṁ hoti tañca pajānāti, yathā ca pahīnassa saṁyojanassa āyatiṁ anuppādo hoti tañca pajānāti.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 152,
+     "text": "Iti ajjhattaṁ vā dhammesu dhammānupassī viharati, bahiddhā vā dhammesu dhammānupassī viharati, ajjhattabahiddhā vā dhammesu dhammānupassī viharati.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 153,
+     "text": "Samudayadhammānupassī vā dhammesu viharati, vayadhammānupassī vā dhammesu viharati, samudayavayadhammānupassī vā dhammesu viharati.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 154,
+     "text": "‘Atthi dhammā’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya, anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 155,
+     "text": "Evampi kho, bhikkhave, bhikkhu dhammesu dhammānupassī viharati chasu ajjhattikabāhiresu āyatanesu.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 156,
+     "text": "Āyatanapabbaṁ niṭṭhitaṁ.",
+     "section": "4.3. Dhammānupassanāāyatanapabba"
+    },
+    {
+     "n": 157,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu dhammesu dhammānupassī viharati sattasu bojjhaṅgesu.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 158,
+     "text": "Kathañca pana, bhikkhave, bhikkhu dhammesu dhammānupassī viharati sattasu bojjhaṅgesu?",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 159,
+     "text": "Idha, bhikkhave, bhikkhu santaṁ vā ajjhattaṁ satisambojjhaṅgaṁ ‘atthi me ajjhattaṁ satisambojjhaṅgo’ti pajānāti, asantaṁ vā ajjhattaṁ satisambojjhaṅgaṁ ‘natthi me ajjhattaṁ satisambojjhaṅgo’ti pajānāti,",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 160,
+     "text": "yathā ca anuppannassa satisambojjhaṅgassa uppādo hoti tañca pajānāti, yathā ca uppannassa satisambojjhaṅgassa bhāvanāya pāripūrī hoti tañca pajānāti.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 161,
+     "text": "Santaṁ vā ajjhattaṁ dhammavicayasambojjhaṅgaṁ ‘atthi me ajjhattaṁ dhammavicayasambojjhaṅgo’ti pajānāti, asantaṁ vā ajjhattaṁ dhammavicayasambojjhaṅgaṁ ‘natthi me ajjhattaṁ dhammavicayasambojjhaṅgo’ti pajānāti,",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 162,
+     "text": "yathā ca anuppannassa dhammavicayasambojjhaṅgassa uppādo hoti tañca pajānāti, yathā ca uppannassa dhammavicayasambojjhaṅgassa bhāvanāya pāripūrī hoti tañca pajānāti.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 163,
+     "text": "Santaṁ vā ajjhattaṁ vīriyasambojjhaṅgaṁ ‘atthi me ajjhattaṁ vīriyasambojjhaṅgo’ti pajānāti, asantaṁ vā ajjhattaṁ vīriyasambojjhaṅgaṁ ‘natthi me ajjhattaṁ vīriyasambojjhaṅgo’ti pajānāti,",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 164,
+     "text": "yathā ca anuppannassa vīriyasambojjhaṅgassa uppādo hoti tañca pajānāti, yathā ca uppannassa vīriyasambojjhaṅgassa bhāvanāya pāripūrī hoti tañca pajānāti.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 165,
+     "text": "Santaṁ vā ajjhattaṁ pītisambojjhaṅgaṁ ‘atthi me ajjhattaṁ pītisambojjhaṅgo’ti pajānāti, asantaṁ vā ajjhattaṁ pītisambojjhaṅgaṁ ‘natthi me ajjhattaṁ pītisambojjhaṅgo’ti pajānāti,",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 166,
+     "text": "yathā ca anuppannassa pītisambojjhaṅgassa uppādo hoti tañca pajānāti, yathā ca uppannassa pītisambojjhaṅgassa bhāvanāya pāripūrī hoti tañca pajānāti.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 167,
+     "text": "Santaṁ vā ajjhattaṁ passaddhisambojjhaṅgaṁ ‘atthi me ajjhattaṁ passaddhisambojjhaṅgo’ti pajānāti, asantaṁ vā ajjhattaṁ passaddhisambojjhaṅgaṁ ‘natthi me ajjhattaṁ passaddhisambojjhaṅgo’ti pajānāti,",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 168,
+     "text": "yathā ca anuppannassa passaddhisambojjhaṅgassa uppādo hoti tañca pajānāti, yathā ca uppannassa passaddhisambojjhaṅgassa bhāvanāya pāripūrī hoti tañca pajānāti.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 169,
+     "text": "Santaṁ vā ajjhattaṁ samādhisambojjhaṅgaṁ ‘atthi me ajjhattaṁ samādhisambojjhaṅgo’ti pajānāti, asantaṁ vā ajjhattaṁ samādhisambojjhaṅgaṁ ‘natthi me ajjhattaṁ samādhisambojjhaṅgo’ti pajānāti,",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 170,
+     "text": "yathā ca anuppannassa samādhisambojjhaṅgassa uppādo hoti tañca pajānāti, yathā ca uppannassa samādhisambojjhaṅgassa bhāvanāya pāripūrī hoti tañca pajānāti.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 171,
+     "text": "Santaṁ vā ajjhattaṁ upekkhāsambojjhaṅgaṁ ‘atthi me ajjhattaṁ upekkhāsambojjhaṅgo’ti pajānāti, asantaṁ vā ajjhattaṁ upekkhāsambojjhaṅgaṁ ‘natthi me ajjhattaṁ upekkhāsambojjhaṅgo’ti pajānāti,",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 172,
+     "text": "yathā ca anuppannassa upekkhāsambojjhaṅgassa uppādo hoti tañca pajānāti, yathā ca uppannassa upekkhāsambojjhaṅgassa bhāvanāya pāripūrī hoti tañca pajānāti.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 173,
+     "text": "Iti ajjhattaṁ vā dhammesu dhammānupassī viharati, bahiddhā vā dhammesu dhammānupassī viharati, ajjhattabahiddhā vā dhammesu dhammānupassī viharati.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 174,
+     "text": "Samudayadhammānupassī vā dhammesu viharati, vayadhammānupassī vā dhammesu viharati, samudayavayadhammānupassī vā dhammesu viharati.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 175,
+     "text": "‘Atthi dhammā’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya, anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 176,
+     "text": "Evampi kho, bhikkhave, bhikkhu dhammesu dhammānupassī viharati sattasu bojjhaṅgesu.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 177,
+     "text": "Bojjhaṅgapabbaṁ niṭṭhitaṁ.",
+     "section": "4.4. Dhammānupassanābojjhaṅgapabba"
+    },
+    {
+     "n": 178,
+     "text": "Puna caparaṁ, bhikkhave, bhikkhu dhammesu dhammānupassī viharati catūsu ariyasaccesu.",
+     "section": "4.5. Dhammānupassanāsaccapabba"
+    },
+    {
+     "n": 179,
+     "text": "Kathañca pana, bhikkhave, bhikkhu dhammesu dhammānupassī viharati catūsu ariyasaccesu?",
+     "section": "4.5. Dhammānupassanāsaccapabba"
+    },
+    {
+     "n": 180,
+     "text": "Idha, bhikkhave, bhikkhu ‘idaṁ dukkhan’ti yathābhūtaṁ pajānāti, ‘ayaṁ dukkhasamudayo’ti yathābhūtaṁ pajānāti, ‘ayaṁ dukkhanirodho’ti yathābhūtaṁ pajānāti, ‘ayaṁ dukkhanirodhagāminī paṭipadā’ti yathābhūtaṁ pajānāti.",
+     "section": "4.5. Dhammānupassanāsaccapabba"
+    },
+    {
+     "n": 181,
+     "text": "Paṭhamabhāṇavāro niṭṭhito.",
+     "section": "4.5. Dhammānupassanāsaccapabba"
+    },
+    {
+     "n": 182,
+     "text": "Katamañca, bhikkhave, dukkhaṁ ariyasaccaṁ?",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 183,
+     "text": "Jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkhaṁ, sokaparidevadukkhadomanassupāyāsāpi dukkhā, appiyehi sampayogopi dukkho, piyehi vippayogopi dukkho, yampicchaṁ na labhati tampi dukkhaṁ,",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 184,
+     "text": "saṅkhittena pañcupādānakkhandhā dukkhā.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 185,
+     "text": "Katamā ca, bhikkhave, jāti? Yā tesaṁ tesaṁ sattānaṁ tamhi tamhi sattanikāye jāti sañjāti okkanti abhinibbatti khandhānaṁ pātubhāvo āyatanānaṁ paṭilābho, ayaṁ vuccati, bhikkhave, jāti.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 186,
+     "text": "Katamā ca, bhikkhave, jarā? Yā tesaṁ tesaṁ sattānaṁ tamhi tamhi sattanikāye jarā jīraṇatā khaṇḍiccaṁ pāliccaṁ valittacatā āyuno saṁhāni indriyānaṁ paripāko, ayaṁ vuccati, bhikkhave, jarā.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 187,
+     "text": "Katamañca, bhikkhave, maraṇaṁ?",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 188,
+     "text": "Yaṁ tesaṁ tesaṁ sattānaṁ tamhā tamhā sattanikāyā cuti cavanatā bhedo antaradhānaṁ maccu maraṇaṁ kālakiriyā khandhānaṁ bhedo kaḷevarassa nikkhepo jīvitindriyassupacchedo, idaṁ vuccati, bhikkhave, maraṇaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 189,
+     "text": "Katamo ca, bhikkhave, soko? Yo kho, bhikkhave, aññataraññatarena byasanena samannāgatassa aññataraññatarena dukkhadhammena phuṭṭhassa soko socanā socitattaṁ antosoko antoparisoko, ayaṁ vuccati, bhikkhave, soko.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 190,
+     "text": "Katamo ca, bhikkhave, paridevo?",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 191,
+     "text": "Yo kho, bhikkhave, aññataraññatarena byasanena samannāgatassa aññataraññatarena dukkhadhammena phuṭṭhassa ādevo paridevo ādevanā paridevanā ādevitattaṁ paridevitattaṁ, ayaṁ vuccati, bhikkhave, paridevo.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 192,
+     "text": "Katamañca, bhikkhave, dukkhaṁ? Yaṁ kho, bhikkhave, kāyikaṁ dukkhaṁ kāyikaṁ asātaṁ kāyasamphassajaṁ dukkhaṁ asātaṁ vedayitaṁ, idaṁ vuccati, bhikkhave, dukkhaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 193,
+     "text": "Katamañca, bhikkhave, domanassaṁ? Yaṁ kho, bhikkhave, cetasikaṁ dukkhaṁ cetasikaṁ asātaṁ manosamphassajaṁ dukkhaṁ asātaṁ vedayitaṁ, idaṁ vuccati, bhikkhave, domanassaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 194,
+     "text": "Katamo ca, bhikkhave, upāyāso? Yo kho, bhikkhave, aññataraññatarena byasanena samannāgatassa aññataraññatarena dukkhadhammena phuṭṭhassa āyāso upāyāso āyāsitattaṁ upāyāsitattaṁ, ayaṁ vuccati, bhikkhave, upāyāso.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 195,
+     "text": "Katamo ca, bhikkhave, appiyehi sampayogo dukkho?",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 196,
+     "text": "Idha yassa te honti aniṭṭhā akantā amanāpā rūpā saddā gandhā rasā phoṭṭhabbā dhammā, ye vā panassa te honti anatthakāmā ahitakāmā aphāsukakāmā ayogakkhemakāmā, yā tehi saddhiṁ saṅgati samāgamo samodhānaṁ missībhāvo,",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 197,
+     "text": "ayaṁ vuccati, bhikkhave, appiyehi sampayogo dukkho.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 198,
+     "text": "Katamo ca, bhikkhave, piyehi vippayogo dukkho?",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 199,
+     "text": "Idha yassa te honti iṭṭhā kantā manāpā rūpā saddā gandhā rasā phoṭṭhabbā dhammā,",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 200,
+     "text": "ye vā panassa te honti atthakāmā hitakāmā phāsukakāmā yogakkhemakāmā mātā vā pitā vā bhātā vā bhaginī vā mittā vā amaccā vā ñātisālohitā vā, yā tehi saddhiṁ asaṅgati asamāgamo asamodhānaṁ amissībhāvo, ayaṁ vuccati,",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 201,
+     "text": "bhikkhave, piyehi vippayogo dukkho.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 202,
+     "text": "Katamañca, bhikkhave, yampicchaṁ na labhati tampi dukkhaṁ?",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 203,
+     "text": "Jātidhammānaṁ, bhikkhave, sattānaṁ evaṁ icchā uppajjati: ‘aho vata mayaṁ na jātidhammā assāma, na ca vata no jāti āgaccheyyā’ti.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 204,
+     "text": "Na kho panetaṁ icchāya pattabbaṁ, idampi yampicchaṁ na labhati tampi dukkhaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 205,
+     "text": "Jarādhammānaṁ, bhikkhave, sattānaṁ evaṁ icchā uppajjati: ‘aho vata mayaṁ na jarādhammā assāma, na ca vata no jarā āgaccheyyā’ti.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 206,
+     "text": "Na kho panetaṁ icchāya pattabbaṁ, idampi yampicchaṁ na labhati tampi dukkhaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 207,
+     "text": "Byādhidhammānaṁ, bhikkhave, sattānaṁ evaṁ icchā uppajjati ‘aho vata mayaṁ na byādhidhammā assāma, na ca vata no byādhi āgaccheyyā’ti.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 208,
+     "text": "Na kho panetaṁ icchāya pattabbaṁ, idampi yampicchaṁ na labhati tampi dukkhaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 209,
+     "text": "Maraṇadhammānaṁ, bhikkhave, sattānaṁ evaṁ icchā uppajjati ‘aho vata mayaṁ na maraṇadhammā assāma, na ca vata no maraṇaṁ āgaccheyyā’ti.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 210,
+     "text": "Na kho panetaṁ icchāya pattabbaṁ, idampi yampicchaṁ na labhati tampi dukkhaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 211,
+     "text": "Sokaparidevadukkhadomanassupāyāsadhammānaṁ, bhikkhave, sattānaṁ evaṁ icchā uppajjati ‘aho vata mayaṁ na sokaparidevadukkhadomanassupāyāsadhammā assāma,",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 212,
+     "text": "na ca vata no sokaparidevadukkhadomanassupāyāsadhammā āgaccheyyun’ti.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 213,
+     "text": "Na kho panetaṁ icchāya pattabbaṁ, idampi yampicchaṁ na labhati tampi dukkhaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 214,
+     "text": "Katame ca, bhikkhave, saṅkhittena pañcupādānakkhandhā dukkhā?",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 215,
+     "text": "Seyyathidaṁ—rūpupādānakkhandho, vedanupādānakkhandho, saññupādānakkhandho, saṅkhārupādānakkhandho, viññāṇupādānakkhandho.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 216,
+     "text": "Ime vuccanti, bhikkhave, saṅkhittena pañcupādānakkhandhā dukkhā.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 217,
+     "text": "Idaṁ vuccati, bhikkhave, dukkhaṁ ariyasaccaṁ.",
+     "section": "4.5.1. Dukkhasaccaniddesa"
+    },
+    {
+     "n": 218,
+     "text": "Katamañca, bhikkhave, dukkhasamudayaṁ ariyasaccaṁ?",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 219,
+     "text": "Yāyaṁ taṇhā ponobbhavikā nandīrāgasahagatā tatratatrābhinandinī, seyyathidaṁ— kāmataṇhā bhavataṇhā vibhavataṇhā.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 220,
+     "text": "Sā kho panesā, bhikkhave, taṇhā kattha uppajjamānā uppajjati, kattha nivisamānā nivisati?",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 221,
+     "text": "Yaṁ loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 222,
+     "text": "Kiñca loke piyarūpaṁ sātarūpaṁ? Cakkhu loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 223,
+     "text": "Sotaṁ loke …pe… ghānaṁ loke … jivhā loke … kāyo loke … mano loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 224,
+     "text": "Rūpā loke … saddā loke … gandhā loke … rasā loke … phoṭṭhabbā loke … dhammā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 225,
+     "text": "Cakkhuviññāṇaṁ loke … sotaviññāṇaṁ loke … ghānaviññāṇaṁ loke … jivhāviññāṇaṁ loke … kāyaviññāṇaṁ loke … manoviññāṇaṁ loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 226,
+     "text": "Cakkhusamphasso loke … sotasamphasso loke … ghānasamphasso loke … jivhāsamphasso loke … kāyasamphasso loke … manosamphasso loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 227,
+     "text": "Cakkhusamphassajā vedanā loke … sotasamphassajā vedanā loke … ghānasamphassajā vedanā loke … jivhāsamphassajā vedanā loke … kāyasamphassajā vedanā loke … manosamphassajā vedanā loke piyarūpaṁ sātarūpaṁ,",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 228,
+     "text": "etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 229,
+     "text": "Rūpasaññā loke … saddasaññā loke … gandhasaññā loke … rasasaññā loke … phoṭṭhabbasaññā loke … dhammasaññā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 230,
+     "text": "Rūpasañcetanā loke … saddasañcetanā loke … gandhasañcetanā loke … rasasañcetanā loke … phoṭṭhabbasañcetanā loke … dhammasañcetanā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 231,
+     "text": "Rūpataṇhā loke … saddataṇhā loke … gandhataṇhā loke … rasataṇhā loke … phoṭṭhabbataṇhā loke … dhammataṇhā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 232,
+     "text": "Rūpavitakko loke … saddavitakko loke … gandhavitakko loke … rasavitakko loke … phoṭṭhabbavitakko loke … dhammavitakko loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 233,
+     "text": "Rūpavicāro loke … saddavicāro loke … gandhavicāro loke … rasavicāro loke … phoṭṭhabbavicāro loke … dhammavicāro loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā uppajjamānā uppajjati, ettha nivisamānā nivisati.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 234,
+     "text": "Idaṁ vuccati, bhikkhave, dukkhasamudayaṁ ariyasaccaṁ.",
+     "section": "4.5.2. Samudayasaccaniddesa"
+    },
+    {
+     "n": 235,
+     "text": "Katamañca, bhikkhave, dukkhanirodhaṁ ariyasaccaṁ?",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 236,
+     "text": "Yo tassāyeva taṇhāya asesavirāganirodho cāgo paṭinissaggo mutti anālayo.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 237,
+     "text": "Sā kho panesā, bhikkhave, taṇhā kattha pahīyamānā pahīyati, kattha nirujjhamānā nirujjhati?",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 238,
+     "text": "Yaṁ loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 239,
+     "text": "Kiñca loke piyarūpaṁ sātarūpaṁ? Cakkhu loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 240,
+     "text": "Sotaṁ loke …pe… ghānaṁ loke … jivhā loke … kāyo loke … mano loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 241,
+     "text": "Rūpā loke … saddā loke … gandhā loke … rasā loke … phoṭṭhabbā loke … dhammā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 242,
+     "text": "Cakkhuviññāṇaṁ loke … sotaviññāṇaṁ loke … ghānaviññāṇaṁ loke … jivhāviññāṇaṁ loke … kāyaviññāṇaṁ loke … manoviññāṇaṁ loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 243,
+     "text": "Cakkhusamphasso loke … sotasamphasso loke … ghānasamphasso loke … jivhāsamphasso loke … kāyasamphasso loke … manosamphasso loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 244,
+     "text": "Cakkhusamphassajā vedanā loke … sotasamphassajā vedanā loke … ghānasamphassajā vedanā loke … jivhāsamphassajā vedanā loke … kāyasamphassajā vedanā loke … manosamphassajā vedanā loke piyarūpaṁ sātarūpaṁ,",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 245,
+     "text": "etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 246,
+     "text": "Rūpasaññā loke … saddasaññā loke … gandhasaññā loke … rasasaññā loke … phoṭṭhabbasaññā loke … dhammasaññā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 247,
+     "text": "Rūpasañcetanā loke … saddasañcetanā loke … gandhasañcetanā loke … rasasañcetanā loke … phoṭṭhabbasañcetanā loke … dhammasañcetanā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati,",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 248,
+     "text": "ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 249,
+     "text": "Rūpataṇhā loke … saddataṇhā loke … gandhataṇhā loke … rasataṇhā loke … phoṭṭhabbataṇhā loke … dhammataṇhā loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 250,
+     "text": "Rūpavitakko loke … saddavitakko loke … gandhavitakko loke … rasavitakko loke … phoṭṭhabbavitakko loke … dhammavitakko loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 251,
+     "text": "Rūpavicāro loke … saddavicāro loke … gandhavicāro loke … rasavicāro loke … phoṭṭhabbavicāro loke … dhammavicāro loke piyarūpaṁ sātarūpaṁ, etthesā taṇhā pahīyamānā pahīyati, ettha nirujjhamānā nirujjhati.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 252,
+     "text": "Idaṁ vuccati, bhikkhave, dukkhanirodhaṁ ariyasaccaṁ.",
+     "section": "4.5.3. Nirodhasaccaniddesa"
+    },
+    {
+     "n": 253,
+     "text": "Katamañca, bhikkhave, dukkhanirodhagāminī paṭipadā ariyasaccaṁ?",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 254,
+     "text": "Ayameva ariyo aṭṭhaṅgiko maggo seyyathidaṁ— sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto sammāājīvo sammāvāyāmo sammāsati sammāsamādhi.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 255,
+     "text": "Katamā ca, bhikkhave, sammādiṭṭhi? Yaṁ kho, bhikkhave, dukkhe ñāṇaṁ, dukkhasamudaye ñāṇaṁ, dukkhanirodhe ñāṇaṁ, dukkhanirodhagāminiyā paṭipadāya ñāṇaṁ. Ayaṁ vuccati, bhikkhave, sammādiṭṭhi.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 256,
+     "text": "Katamo ca, bhikkhave, sammāsaṅkappo? Nekkhammasaṅkappo abyāpādasaṅkappo avihiṁsāsaṅkappo. Ayaṁ vuccati, bhikkhave, sammāsaṅkappo.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 257,
+     "text": "Katamā ca, bhikkhave, sammāvācā? Musāvādā veramaṇī pisuṇāya vācāya veramaṇī pharusāya vācāya veramaṇī samphappalāpā veramaṇī. Ayaṁ vuccati, bhikkhave, sammāvācā.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 258,
+     "text": "Katamo ca, bhikkhave, sammākammanto? Pāṇātipātā veramaṇī adinnādānā veramaṇī kāmesumicchācārā veramaṇī. Ayaṁ vuccati, bhikkhave, sammākammanto.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 259,
+     "text": "Katamo ca, bhikkhave, sammāājīvo? Idha, bhikkhave, ariyasāvako micchāājīvaṁ pahāya sammāājīvena jīvitaṁ kappeti. Ayaṁ vuccati, bhikkhave, sammāājīvo.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 260,
+     "text": "Katamo ca, bhikkhave, sammāvāyāmo? Idha, bhikkhave, bhikkhu anuppannānaṁ pāpakānaṁ akusalānaṁ dhammānaṁ anuppādāya chandaṁ janeti vāyamati vīriyaṁ ārabhati cittaṁ paggaṇhāti padahati;",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 261,
+     "text": "uppannānaṁ pāpakānaṁ akusalānaṁ dhammānaṁ pahānāya chandaṁ janeti vāyamati vīriyaṁ ārabhati cittaṁ paggaṇhāti padahati;",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 262,
+     "text": "anuppannānaṁ kusalānaṁ dhammānaṁ uppādāya chandaṁ janeti vāyamati vīriyaṁ ārabhati cittaṁ paggaṇhāti padahati;",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 263,
+     "text": "uppannānaṁ kusalānaṁ dhammānaṁ ṭhitiyā asammosāya bhiyyobhāvāya vepullāya bhāvanāya pāripūriyā chandaṁ janeti vāyamati vīriyaṁ ārabhati cittaṁ paggaṇhāti padahati. Ayaṁ vuccati, bhikkhave, sammāvāyāmo.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 264,
+     "text": "Katamā ca, bhikkhave, sammāsati?",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 265,
+     "text": "Idha, bhikkhave, bhikkhu kāye kāyānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ; vedanāsu vedanānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ;",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 266,
+     "text": "citte cittānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ; dhammesu dhammānupassī viharati ātāpī sampajāno satimā vineyya loke abhijjhādomanassaṁ. Ayaṁ vuccati, bhikkhave, sammāsati.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 267,
+     "text": "Katamo ca, bhikkhave, sammāsamādhi? Idha, bhikkhave, bhikkhu vivicceva kāmehi vivicca akusalehi dhammehi savitakkaṁ savicāraṁ vivekajaṁ pītisukhaṁ paṭhamaṁ jhānaṁ upasampajja viharati.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 268,
+     "text": "Vitakkavicārānaṁ vūpasamā ajjhattaṁ sampasādanaṁ cetaso ekodibhāvaṁ avitakkaṁ avicāraṁ samādhijaṁ pītisukhaṁ dutiyaṁ jhānaṁ upasampajja viharati.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 269,
+     "text": "Pītiyā ca virāgā upekkhako ca viharati, sato ca sampajāno, sukhañca kāyena paṭisaṁvedeti, yaṁ taṁ ariyā ācikkhanti ‘upekkhako satimā sukhavihārī’ti tatiyaṁ jhānaṁ upasampajja viharati.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 270,
+     "text": "Sukhassa ca pahānā dukkhassa ca pahānā pubbeva somanassadomanassānaṁ atthaṅgamā adukkhamasukhaṁ upekkhāsatipārisuddhiṁ catutthaṁ jhānaṁ upasampajja viharati. Ayaṁ vuccati, bhikkhave, sammāsamādhi.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 271,
+     "text": "Idaṁ vuccati, bhikkhave, dukkhanirodhagāminī paṭipadā ariyasaccaṁ.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 272,
+     "text": "Iti ajjhattaṁ vā dhammesu dhammānupassī viharati, bahiddhā vā dhammesu dhammānupassī viharati, ajjhattabahiddhā vā dhammesu dhammānupassī viharati.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 273,
+     "text": "Samudayadhammānupassī vā dhammesu viharati, vayadhammānupassī vā dhammesu viharati, samudayavayadhammānupassī vā dhammesu viharati.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 274,
+     "text": "‘Atthi dhammā’ti vā panassa sati paccupaṭṭhitā hoti yāvadeva ñāṇamattāya paṭissatimattāya anissito ca viharati, na ca kiñci loke upādiyati.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 275,
+     "text": "Evampi kho, bhikkhave, bhikkhu dhammesu dhammānupassī viharati catūsu ariyasaccesu.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 276,
+     "text": "Saccapabbaṁ niṭṭhitaṁ.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 277,
+     "text": "Dhammānupassanā niṭṭhitā.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 278,
+     "text": "Yo hi koci, bhikkhave, ime cattāro satipaṭṭhāne evaṁ bhāveyya sattavassāni, tassa dvinnaṁ phalānaṁ aññataraṁ phalaṁ pāṭikaṅkhaṁ diṭṭheva dhamme aññā; sati vā upādisese anāgāmitā.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 279,
+     "text": "Tiṭṭhantu, bhikkhave, sattavassāni.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 280,
+     "text": "Yo hi koci, bhikkhave, ime cattāro satipaṭṭhāne evaṁ bhāveyya cha vassāni …pe… pañca vassāni … cattāri vassāni … tīṇi vassāni … dve vassāni … ekaṁ vassaṁ … tiṭṭhatu, bhikkhave, ekaṁ vassaṁ.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 281,
+     "text": "Yo hi koci, bhikkhave, ime cattāro satipaṭṭhāne evaṁ bhāveyya sattamāsāni, tassa dvinnaṁ phalānaṁ aññataraṁ phalaṁ pāṭikaṅkhaṁ diṭṭheva dhamme aññā; sati vā upādisese anāgāmitā. Tiṭṭhantu, bhikkhave, satta māsāni.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 282,
+     "text": "Yo hi koci, bhikkhave, ime cattāro satipaṭṭhāne evaṁ bhāveyya cha māsāni …pe… pañca māsāni … cattāri māsāni … tīṇi māsāni … dve māsāni … ekaṁ māsaṁ … aḍḍhamāsaṁ … tiṭṭhatu, bhikkhave, aḍḍhamāso.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 283,
+     "text": "Yo hi koci, bhikkhave, ime cattāro satipaṭṭhāne evaṁ bhāveyya sattāhaṁ, tassa dvinnaṁ phalānaṁ aññataraṁ phalaṁ pāṭikaṅkhaṁ diṭṭheva dhamme aññā; sati vā upādisese anāgāmitāti.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 284,
+     "text": "Ekāyano ayaṁ, bhikkhave, maggo sattānaṁ visuddhiyā sokaparidevānaṁ samatikkamāya dukkhadomanassānaṁ atthaṅgamāya ñāyassa adhigamāya nibbānassa sacchikiriyāya yadidaṁ cattāro satipaṭṭhānāti.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 285,
+     "text": "Iti yaṁ taṁ vuttaṁ, idametaṁ paṭicca vuttan”ti.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 286,
+     "text": "Idamavoca bhagavā. Attamanā te bhikkhū bhagavato bhāsitaṁ abhinandunti.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    },
+    {
+     "n": 287,
+     "text": "Mahāsatipaṭṭhānasuttaṁ niṭṭhitaṁ navamaṁ.",
+     "section": "4.5.4. Maggasaccaniddesa"
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dn22/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying in the land of the Kurus, near the Kuru town named Kammāsadamma."
+    },
+    {
+     "n": 2,
+     "text": "There the Buddha addressed the mendicants, “Mendicants!”"
+    },
+    {
+     "n": 3,
+     "text": "“Venerable sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 4,
+     "text": "“Mendicants, the four kinds of mindfulness meditation are the path to convergence."
+    },
+    {
+     "n": 5,
+     "text": "They are in order to purify sentient beings, to get past sorrow and crying, to make an end of pain and sadness, to discover the system, and to realize extinguishment."
+    },
+    {
+     "n": 6,
+     "text": "What four? It’s when a mendicant meditates by observing an aspect of the body—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 7,
+     "text": "They meditate observing an aspect of feelings—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 8,
+     "text": "They meditate observing an aspect of the mind—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 9,
+     "text": "They meditate observing an aspect of principles—keen, aware, and mindful, rid of covetousness and displeasure for the world."
+    },
+    {
+     "n": 10,
+     "text": "And how does a mendicant meditate observing an aspect of the body?",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 11,
+     "text": "It’s when a mendicant—gone to a wilderness, or to the root of a tree, or to an empty hut—sits down cross-legged, sets their body straight, and brings mindfulness to the present. Just mindful, they breathe in.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 12,
+     "text": "Mindful, they breathe out.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 13,
+     "text": "Breathing in heavily they know: ‘I’m breathing in heavily.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 14,
+     "text": "Breathing out heavily they know: ‘I’m breathing out heavily.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 15,
+     "text": "Breathing in lightly they know: ‘I’m breathing in lightly.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 16,
+     "text": "Breathing out lightly they know: ‘I’m breathing out lightly.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 17,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the whole body.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 18,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the whole body.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 19,
+     "text": "They practice like this: ‘I’ll breathe in stilling the physical process.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 20,
+     "text": "They practice like this: ‘I’ll breathe out stilling the physical process.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 21,
+     "text": "It’s like a deft lathe-turner or lathe-turner’s apprentice.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 22,
+     "text": "When drawing a long pull they know: ‘I’m drawing a long pull,’ and when drawing a short pull they know: ‘I’m drawing a short pull.’",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 23,
+     "text": "And so they meditate observing an aspect of the body internally, externally, and both internally and externally.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 24,
+     "text": "With respect to the body, they meditate observing the liability to originate, to vanish, and to originate and vanish.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 25,
+     "text": "Or mindfulness is established that the body exists, to the extent necessary for knowledge and mindfulness.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 26,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 27,
+     "text": "That’s how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.1. Mindfulness of Breathing"
+    },
+    {
+     "n": 28,
+     "text": "Furthermore, when a mendicant is walking they know: ‘I am walking.’",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 29,
+     "text": "When standing they know: ‘I am standing.’ When sitting they know: ‘I am sitting.’",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 30,
+     "text": "And when lying down they know: ‘I am lying down.’",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 31,
+     "text": "Whatever posture their body is in, they know it.",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 32,
+     "text": "And so they meditate observing an aspect of the body internally, externally, and both internally and externally.",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 33,
+     "text": "They meditate observing, with respect to the body, the liability to originate, to vanish, and to originate and vanish.",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 34,
+     "text": "Or mindfulness is established that the body exists, to the extent necessary for knowledge and mindfulness.",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 35,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 36,
+     "text": "That too is how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.2. The Postures"
+    },
+    {
+     "n": 37,
+     "text": "Furthermore, a mendicant acts with situational awareness when going out and coming back; when looking ahead and aside; when bending and extending the limbs; when bearing the outer robe, bowl, and robes;",
+     "section": "1.3. Situational Awareness"
+    },
+    {
+     "n": 38,
+     "text": "when eating, drinking, chewing, and tasting; when urinating and defecating; when walking, standing, sitting, sleeping, waking, speaking, and keeping silent.",
+     "section": "1.3. Situational Awareness"
+    },
+    {
+     "n": 39,
+     "text": "And so they meditate observing an aspect of the body internally …",
+     "section": "1.3. Situational Awareness"
+    },
+    {
+     "n": 40,
+     "text": "That too is how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.3. Situational Awareness"
+    },
+    {
+     "n": 41,
+     "text": "Furthermore, a mendicant examines their own body, up from the soles of the feet and down from the tips of the hairs, wrapped in skin and full of many kinds of filth.",
+     "section": "1.4. Focusing on the Repulsive"
+    },
+    {
+     "n": 42,
+     "text": "‘In this body there is head hair, body hair, nails, teeth, skin, flesh, sinews, bones, bone marrow, kidneys, heart, liver, diaphragm, spleen, lungs, intestines, mesentery, undigested food, feces, bile, phlegm, pus,",
+     "section": "1.4. Focusing on the Repulsive"
+    },
+    {
+     "n": 43,
+     "text": "blood, sweat, fat, tears, grease, saliva, snot, synovial fluid, urine.’",
+     "section": "1.4. Focusing on the Repulsive"
+    },
+    {
+     "n": 44,
+     "text": "It’s as if there were a bag with openings at both ends, filled with various kinds of grains, such as fine rice, wheat, mung beans, peas, sesame, and ordinary rice.",
+     "section": "1.4. Focusing on the Repulsive"
+    },
+    {
+     "n": 45,
+     "text": "And a person with clear eyes were to open it and examine the contents: ‘These grains are fine rice, these are wheat, these are mung beans, these are peas, these are sesame, and these are ordinary rice.’",
+     "section": "1.4. Focusing on the Repulsive"
+    },
+    {
+     "n": 46,
+     "text": "And so they meditate observing an aspect of the body internally …",
+     "section": "1.4. Focusing on the Repulsive"
+    },
+    {
+     "n": 47,
+     "text": "That too is how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.4. Focusing on the Repulsive"
+    },
+    {
+     "n": 48,
+     "text": "Furthermore, a mendicant examines their own body, whatever its placement or posture, according to the elements: ‘In this body there is the earth element, the water element, the fire element, and the air element.’",
+     "section": "1.5. Focusing on the Elements"
+    },
+    {
+     "n": 49,
+     "text": "It’s as if a deft butcher or butcher’s apprentice were to kill a cow and sit down at the crossroads with the meat cut into chops.",
+     "section": "1.5. Focusing on the Elements"
+    },
+    {
+     "n": 50,
+     "text": "And so they meditate observing an aspect of the body internally …",
+     "section": "1.5. Focusing on the Elements"
+    },
+    {
+     "n": 51,
+     "text": "That too is how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.5. Focusing on the Elements"
+    },
+    {
+     "n": 52,
+     "text": "Furthermore, suppose a mendicant were to see a corpse discarded in a charnel ground.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 53,
+     "text": "And it had been dead for one, two, or three days, bloated, livid, and festering.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 54,
+     "text": "They’d compare it with their own body: ‘This body is also of that same nature, that same kind, and cannot go beyond that.’",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 55,
+     "text": "And so they meditate observing an aspect of the body internally …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 56,
+     "text": "That too is how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 57,
+     "text": "Furthermore, suppose they were to see a corpse discarded in a charnel ground being devoured by crows, hawks, vultures, herons, hounds, tigers, leopards, jackals, and many kinds of little creatures.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 58,
+     "text": "They’d compare it with their own body: ‘This body is also of that same nature, that same kind, and cannot go beyond that.’",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 59,
+     "text": "And so they meditate observing an aspect of the body internally …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 60,
+     "text": "That too is how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 61,
+     "text": "Furthermore, suppose they were to see a corpse discarded in a charnel ground, a skeleton with flesh and blood, held together by sinews …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 62,
+     "text": "A skeleton without flesh but smeared with blood, and held together by sinews …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 63,
+     "text": "A skeleton rid of flesh and blood, held together by sinews …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 64,
+     "text": "Bones rid of sinews scattered in every direction.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 65,
+     "text": "Here a hand-bone, there a foot-bone, here an ankle bone, there a shin-bone, here a thigh-bone, there a hip-bone, here a rib-bone, there a back-bone, here an arm-bone, there a neck-bone, here a jaw-bone, there a tooth,",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 66,
+     "text": "here the skull. …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 67,
+     "text": "White bones, the color of shells …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 68,
+     "text": "Decrepit bones, heaped in a pile …",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 69,
+     "text": "Bones rotted and crumbled to powder. They’d compare it with their own body: ‘This body is also of that same nature, that same kind, and cannot go beyond that.’",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 70,
+     "text": "And so they meditate observing an aspect of the body internally, externally, and both internally and externally.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 71,
+     "text": "With respect to the body, they meditate observing the liability to originate, to vanish, and to originate and vanish.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 72,
+     "text": "Or mindfulness is established that the body exists, to the extent necessary for knowledge and mindfulness.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 73,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 74,
+     "text": "That too is how a mendicant meditates by observing an aspect of the body.",
+     "section": "1.6. The Charnel Ground Contemplations"
+    },
+    {
+     "n": 75,
+     "text": "And how does a mendicant meditate observing an aspect of feelings?",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 76,
+     "text": "It’s when a mendicant who feels a pleasant feeling knows: ‘I feel a pleasant feeling.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 77,
+     "text": "When they feel a painful feeling, they know: ‘I feel a painful feeling.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 78,
+     "text": "When they feel a neutral feeling, they know: ‘I feel a neutral feeling.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 79,
+     "text": "When they feel a pleasant feeling of the flesh, they know: ‘I feel a pleasant feeling of the flesh.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 80,
+     "text": "When they feel a pleasant feeling not of the flesh, they know: ‘I feel a pleasant feeling not of the flesh.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 81,
+     "text": "When they feel a painful feeling of the flesh, they know: ‘I feel a painful feeling of the flesh.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 82,
+     "text": "When they feel a painful feeling not of the flesh, they know: ‘I feel a painful feeling not of the flesh.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 83,
+     "text": "When they feel a neutral feeling of the flesh, they know: ‘I feel a neutral feeling of the flesh.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 84,
+     "text": "When they feel a neutral feeling not of the flesh, they know: ‘I feel a neutral feeling not of the flesh.’",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 85,
+     "text": "And so they meditate observing an aspect of feelings internally, externally, and both internally and externally.",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 86,
+     "text": "With respect to feelings, they meditate observing the liability to originate, to vanish, and to originate and vanish.",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 87,
+     "text": "Or mindfulness is established that feelings exist, to the extent necessary for knowledge and mindfulness.",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 88,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 89,
+     "text": "That’s how a mendicant meditates by observing an aspect of feelings.",
+     "section": "2. Observing the Feelings"
+    },
+    {
+     "n": 90,
+     "text": "And how does a mendicant meditate observing an aspect of the mind?",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 91,
+     "text": "It’s when a mendicant understands mind with greed as ‘mind with greed,’ and mind without greed as ‘mind without greed.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 92,
+     "text": "They understand mind with hate as ‘mind with hate,’ and mind without hate as ‘mind without hate.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 93,
+     "text": "They understand mind with delusion as ‘mind with delusion,’ and mind without delusion as ‘mind without delusion.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 94,
+     "text": "They know constricted mind as ‘constricted mind,’ and scattered mind as ‘scattered mind.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 95,
+     "text": "They know expansive mind as ‘expansive mind,’ and unexpansive mind as ‘unexpansive mind.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 96,
+     "text": "They know mind that is not supreme as ‘mind that is not supreme,’ and mind that is supreme as ‘mind that is supreme.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 97,
+     "text": "They know mind immersed in samādhi as ‘mind immersed in samādhi,’ and mind not immersed in samādhi as ‘mind not immersed in samādhi.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 98,
+     "text": "They know freed mind as ‘freed mind,’ and unfreed mind as ‘unfreed mind.’",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 99,
+     "text": "And so they meditate observing an aspect of the mind internally, externally, and both internally and externally.",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 100,
+     "text": "With respect to the mind, they meditate observing the liability to originate, to vanish, and to originate and vanish.",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 101,
+     "text": "Or mindfulness is established that the mind exists, to the extent necessary for knowledge and mindfulness.",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 102,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 103,
+     "text": "That’s how a mendicant meditates by observing an aspect of the mind.",
+     "section": "3. Observing the Mind"
+    },
+    {
+     "n": 104,
+     "text": "And how does a mendicant meditate observing an aspect of principles?",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 105,
+     "text": "It’s when a mendicant meditates by observing an aspect of principles with respect to the five hindrances.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 106,
+     "text": "And how does a mendicant meditate observing an aspect of principles with respect to the five hindrances?",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 107,
+     "text": "It’s when a mendicant who has sensual desire in them understands: ‘I have sensual desire in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 108,
+     "text": "When they don’t have sensual desire in them, they understand: ‘I don’t have sensual desire in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 109,
+     "text": "They understand how sensual desire arises; how, when it’s already arisen, it’s given up; and how, once it’s given up, it doesn’t arise again in the future.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 110,
+     "text": "When they have ill will in them, they understand: ‘I have ill will in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 111,
+     "text": "When they don’t have ill will in them, they understand: ‘I don’t have ill will in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 112,
+     "text": "They understand how ill will arises; how, when it’s already arisen, it’s given up; and how, once it’s given up, it doesn’t arise again in the future.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 113,
+     "text": "When they have dullness and drowsiness in them, they understand: ‘I have dullness and drowsiness in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 114,
+     "text": "When they don’t have dullness and drowsiness in them, they understand: ‘I don’t have dullness and drowsiness in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 115,
+     "text": "They understand how dullness and drowsiness arise; how, when they’ve already arisen, they’re given up; and how, once they’re given up, they don’t arise again in the future.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 116,
+     "text": "When they have restlessness and remorse in them, they understand: ‘I have restlessness and remorse in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 117,
+     "text": "When they don’t have restlessness and remorse in them, they understand: ‘I don’t have restlessness and remorse in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 118,
+     "text": "They understand how restlessness and remorse arise; how, when they’ve already arisen, they’re given up; and how, once they’re given up, they don’t arise again in the future.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 119,
+     "text": "When they have doubt in them, they understand: ‘I have doubt in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 120,
+     "text": "When they don’t have doubt in them, they understand: ‘I don’t have doubt in me.’",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 121,
+     "text": "They understand how doubt arises; how, when it’s already arisen, it’s given up; and how, once it’s given up, it doesn’t arise again in the future.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 122,
+     "text": "And so they meditate observing an aspect of principles internally, externally, and both internally and externally.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 123,
+     "text": "They meditate observing the principles as liable to originate, as liable to fall, and as liable to both originate and vanish.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 124,
+     "text": "Or mindfulness is established that principles exist, to the extent necessary for knowledge and mindfulness.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 125,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 126,
+     "text": "That’s how a mendicant meditates by observing an aspect of principles with respect to the five hindrances.",
+     "section": "4.1. The Hindrances"
+    },
+    {
+     "n": 127,
+     "text": "Furthermore, a mendicant meditates by observing an aspect of principles with respect to the five grasping aggregates.",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 128,
+     "text": "And how does a mendicant meditate observing an aspect of principles with respect to the five grasping aggregates?",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 129,
+     "text": "It’s when a mendicant contemplates: ‘Such is form, such is the origin of form, such is the disappearance of form.",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 130,
+     "text": "Such is feeling, such is the origin of feeling, such is the disappearance of feeling.",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 131,
+     "text": "Such is perception, such is the origin of perception, such is the disappearance of perception.",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 132,
+     "text": "Such are choices, such is the origin of choices, such is the disappearance of choices.",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 133,
+     "text": "Such is consciousness, such is the origin of consciousness, such is the disappearance of consciousness.’",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 134,
+     "text": "And so they meditate observing an aspect of principles internally …",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 135,
+     "text": "That’s how a mendicant meditates by observing an aspect of principles with respect to the five grasping aggregates.",
+     "section": "4.2. The Aggregates"
+    },
+    {
+     "n": 136,
+     "text": "Furthermore, a mendicant meditates by observing an aspect of principles with respect to the six interior and exterior sense fields.",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 137,
+     "text": "And how does a mendicant meditate observing an aspect of principles with respect to the six interior and exterior sense fields?",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 138,
+     "text": "It’s when a mendicant understands the eye, sights, and the fetter that arises dependent on both of these.",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 139,
+     "text": "They understand how the fetter that has not arisen comes to arise; how the arisen fetter comes to be abandoned; and how the abandoned fetter comes to not rise again in the future.",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 140,
+     "text": "They understand the ear, sounds, and the fetter …",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 141,
+     "text": "They understand the nose, smells, and the fetter …",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 142,
+     "text": "They understand the tongue, tastes, and the fetter …",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 143,
+     "text": "They understand the body, touches, and the fetter …",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 144,
+     "text": "They understand the mind, ideas, and the fetter that arises dependent on both of these.",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 145,
+     "text": "They understand how the fetter that has not arisen comes to arise; how the arisen fetter comes to be abandoned; and how the abandoned fetter comes to not rise again in the future.",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 146,
+     "text": "And so they meditate observing an aspect of principles internally …",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 147,
+     "text": "That’s how a mendicant meditates by observing an aspect of principles with respect to the six interior and exterior sense fields.",
+     "section": "4.3. The Sense Fields"
+    },
+    {
+     "n": 148,
+     "text": "Furthermore, a mendicant meditates by observing an aspect of principles with respect to the seven awakening factors.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 149,
+     "text": "And how does a mendicant meditate observing an aspect of principles with respect to the seven awakening factors?",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 150,
+     "text": "It’s when a mendicant who has the awakening factor of mindfulness in them understands: ‘I have the awakening factor of mindfulness in me.’",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 151,
+     "text": "When they don’t have the awakening factor of mindfulness in them, they understand: ‘I don’t have the awakening factor of mindfulness in me.’",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 152,
+     "text": "They understand how the awakening factor of mindfulness that has not arisen comes to arise; and how the awakening factor of mindfulness that has arisen becomes fully developed.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 153,
+     "text": "When they have the awakening factor of investigation of principles … energy … rapture … tranquility … immersion … equanimity in them, they understand: ‘I have the awakening factor of equanimity in me.’",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 154,
+     "text": "When they don’t have the awakening factor of equanimity in them, they understand: ‘I don’t have the awakening factor of equanimity in me.’",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 155,
+     "text": "They understand how the awakening factor of equanimity that has not arisen comes to arise; and how the awakening factor of equanimity that has arisen becomes fully developed.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 156,
+     "text": "And so they meditate observing an aspect of principles internally, externally, and both internally and externally.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 157,
+     "text": "They meditate observing, with respect to the principles, the liability to originate, to vanish, and to originate and vanish.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 158,
+     "text": "Or mindfulness is established that principles exist, to the extent necessary for knowledge and mindfulness.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 159,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 160,
+     "text": "That’s how a mendicant meditates by observing an aspect of principles with respect to the seven awakening factors.",
+     "section": "4.4. The Awakening Factors"
+    },
+    {
+     "n": 161,
+     "text": "Furthermore, a mendicant meditates by observing an aspect of principles with respect to the four noble truths.",
+     "section": "4.5. The Truths"
+    },
+    {
+     "n": 162,
+     "text": "And how does a mendicant meditate observing an aspect of principles with respect to the four noble truths?",
+     "section": "4.5. The Truths"
+    },
+    {
+     "n": 163,
+     "text": "It’s when a mendicant truly understands: ‘This is suffering’ … ‘This is the origin of suffering’ … ‘This is the cessation of suffering’ …",
+     "section": "4.5. The Truths"
+    },
+    {
+     "n": 164,
+     "text": "‘This is the practice that leads to the cessation of suffering.’",
+     "section": "4.5. The Truths"
+    },
+    {
+     "n": 165,
+     "text": "The first recitation section is complete.",
+     "section": "4.5. The Truths"
+    },
+    {
+     "n": 166,
+     "text": "And what is the noble truth of suffering?",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 167,
+     "text": "Rebirth is suffering; old age is suffering; death is suffering; sorrow, lamentation, pain, sadness, and distress are suffering; being coupled with the disliked is suffering; separation from the liked is suffering;",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 168,
+     "text": "not getting what you wish for is suffering.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 169,
+     "text": "In brief, the five grasping aggregates are suffering.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 170,
+     "text": "And what is rebirth? The rebirth, inception, conception, regeneration, manifestation of the aggregates, and acquisition of the sense fields of the various sentient beings in the various orders of sentient beings.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 171,
+     "text": "This is called rebirth.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 172,
+     "text": "And what is old age? The old age, decrepitude, broken teeth, grey hair, wrinkly skin, diminished vitality, and failing faculties of the various sentient beings in the various orders of sentient beings.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 173,
+     "text": "This is called old age.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 174,
+     "text": "And what is death? The passing away, passing on, disintegration, demise, mortality, death, decease, breaking up of the aggregates, laying to rest of the corpse,",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 175,
+     "text": "and cutting off of the life faculty of the various sentient beings in the various orders of sentient beings. This is called death.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 176,
+     "text": "And what is sorrow? The sorrow, sorrowing, state of sorrow, inner sorrow, inner deep sorrow in someone who has undergone misfortune, who has experienced suffering. This is called sorrow.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 177,
+     "text": "And what is lamentation? The wail, lament, wailing, lamenting, state of wailing and lamentation in someone who has undergone misfortune, who has experienced suffering. This is called lamentation.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 178,
+     "text": "And what is pain? Physical pain, physical unpleasantness, the painful, unpleasant feeling that’s born from physical contact. This is called pain.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 179,
+     "text": "And what is sadness? Mental pain, mental displeasure, the painful, unpleasant feeling that’s born from mind contact. This is called sadness.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 180,
+     "text": "And what is distress? The stress, distress, state of stress and distress in someone who has undergone misfortune, who has experienced suffering. This is called distress.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 181,
+     "text": "And what is meant by ‘being coupled with the disliked is suffering’?",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 182,
+     "text": "There are sights, sounds, smells, tastes, touches, and ideas, which are unlikable, undesirable, and disagreeable.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 183,
+     "text": "And there are those who want to harm, injure, disturb, and threaten you.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 184,
+     "text": "The coming together with these, the joining, inclusion, mixing with them: this is what is meant by ‘being coupled with the disliked is suffering’.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 185,
+     "text": "And what is meant by ‘separation from the liked is suffering’?",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 186,
+     "text": "There are sights, sounds, smells, tastes, touches, and ideas, which are likable, desirable, and agreeable.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 187,
+     "text": "And there are those who want to help, benefit, comfort, and protect you: mother and father, brother and sister, friends and colleagues, relatives and kin.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 188,
+     "text": "The division from these, the disconnection, segregation, and parting from them: this is what is meant by ‘separation from the liked is suffering’.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 189,
+     "text": "And what is meant by ‘not getting what you wish for is suffering’?",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 190,
+     "text": "In sentient beings who are liable to be reborn, such a wish arises: ‘Oh, if only we were not liable to be reborn! If only rebirth would not come to us!’ But you can’t get that by wishing.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 191,
+     "text": "This is what is meant by ‘not getting what you wish for is suffering’.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 192,
+     "text": "In sentient beings who are liable to grow old … fall ill … die … experience sorrow, lamentation, pain, sadness, and distress, such a wish arises:",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 193,
+     "text": "‘Oh, if only we were not liable to experience sorrow, lamentation, pain, sadness, and distress!",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 194,
+     "text": "If only sorrow, lamentation, pain, sadness, and distress would not come to us!’ But you can’t get that by wishing.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 195,
+     "text": "This is what is meant by ‘not getting what you wish for is suffering’.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 196,
+     "text": "And what is meant by ‘in brief, the five grasping aggregates are suffering’?",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 197,
+     "text": "They are the grasping aggregates that consist of form, feeling, perception, choices, and consciousness.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 198,
+     "text": "This is what is meant by ‘in brief, the five grasping aggregates are suffering’.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 199,
+     "text": "This is called the noble truth of suffering.",
+     "section": "4.5.1. The Truth of Suffering"
+    },
+    {
+     "n": 200,
+     "text": "And what is the noble truth of the origin of suffering?",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 201,
+     "text": "It’s the craving that leads to future lives, mixed up with relishing and greed, taking pleasure there wherever it alights.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 202,
+     "text": "That is, craving for sensual pleasures, craving for continued existence, and craving for nonexistence.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 203,
+     "text": "But where does that craving arise and where does it settle?",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 204,
+     "text": "Whatever in the world seems nice and pleasant, it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 205,
+     "text": "And what in the world seems nice and pleasant?",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 206,
+     "text": "The eye in the world seems nice and pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 207,
+     "text": "The ear … nose … tongue … body … mind in the world seems nice and pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 208,
+     "text": "Sights … sounds … smells … tastes … touches … ideas in the world seem nice and pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 209,
+     "text": "Eye consciousness … ear consciousness … nose consciousness … tongue consciousness … body consciousness … mind consciousness in the world seems nice and pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 210,
+     "text": "Eye contact … ear contact … nose contact … tongue contact … body contact … mind contact in the world seems nice and pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 211,
+     "text": "Feeling born of eye contact … feeling born of ear contact … feeling born of nose contact … feeling born of tongue contact … feeling born of body contact … feeling born of mind contact in the world seems nice and",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 212,
+     "text": "pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 213,
+     "text": "Perception of sights … perception of sounds … perception of smells … perception of tastes … perception of touches … perception of ideas in the world seems nice and pleasant,",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 214,
+     "text": "and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 215,
+     "text": "Intention regarding sights … intention regarding sounds … intention regarding smells … intention regarding tastes … intention regarding touches … intention regarding ideas in the world seems nice and pleasant,",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 216,
+     "text": "and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 217,
+     "text": "Craving for sights … craving for sounds … craving for smells … craving for tastes … craving for touches … craving for ideas in the world seems nice and pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 218,
+     "text": "Thoughts about sights … thoughts about sounds … thoughts about smells … thoughts about tastes … thoughts about touches … thoughts about ideas in the world seem nice and pleasant,",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 219,
+     "text": "and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 220,
+     "text": "Considerations regarding sights … considerations regarding sounds … considerations regarding smells … considerations regarding tastes … considerations regarding touches … considerations regarding ideas in the world seem",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 221,
+     "text": "nice and pleasant, and it is there that craving arises and settles.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 222,
+     "text": "This is called the noble truth of the origin of suffering.",
+     "section": "4.5.2. The Origin of Suffering"
+    },
+    {
+     "n": 223,
+     "text": "And what is the noble truth of the cessation of suffering?",
+     "section": "4.5.3. The Cessation of Suffering"
+    },
+    {
+     "n": 224,
+     "text": "It’s the fading away and cessation of that very same craving with no residue left behind; giving it away, letting it go, releasing it, and not clinging to it.",
+     "section": "4.5.3. The Cessation of Suffering"
+    },
+    {
+     "n": 225,
+     "text": "Whatever in the world seems nice and pleasant, it is there that craving is given up and ceases.",
+     "section": "4.5.3. The Cessation of Suffering"
+    },
+    {
+     "n": 226,
+     "text": "And what in the world seems nice and pleasant?",
+     "section": "4.5.3. The Cessation of Suffering"
+    },
+    {
+     "n": 227,
+     "text": "The eye in the world seems nice and pleasant, and it is there that craving is given up and ceases. …",
+     "section": "4.5.3. The Cessation of Suffering"
+    },
+    {
+     "n": 228,
+     "text": "Considerations regarding ideas in the world seem nice and pleasant, and it is there that craving is given up and ceases.",
+     "section": "4.5.3. The Cessation of Suffering"
+    },
+    {
+     "n": 229,
+     "text": "This is called the noble truth of the cessation of suffering.",
+     "section": "4.5.3. The Cessation of Suffering"
+    },
+    {
+     "n": 230,
+     "text": "And what is the noble truth of the practice that leads to the cessation of suffering?",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 231,
+     "text": "It is simply this noble eightfold path, that is: right view, right purpose, right speech, right action, right livelihood, right effort, right mindfulness, and right immersion.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 232,
+     "text": "And what is right view? Knowing about suffering, the origin of suffering, the cessation of suffering, and the practice that leads to the cessation of suffering. This is called right view.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 233,
+     "text": "And what is right purpose? Purposes of renunciation, good will, and harmlessness. This is called right purpose.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 234,
+     "text": "And what is right speech? Refraining from lying, backbiting, harsh speech, and talking nonsense. This is called right speech.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 235,
+     "text": "And what is right action? Refraining from killing living creatures, stealing, and sexual misconduct. This is called right action.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 236,
+     "text": "And what is right livelihood? It’s when a noble disciple gives up wrong livelihood and earns a living by right livelihood. This is called right livelihood.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 237,
+     "text": "And what is right effort? It’s when a mendicant generates enthusiasm, tries, makes an effort, exerts the mind, and strives so that bad, unskillful qualities don’t arise.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 238,
+     "text": "They generate enthusiasm, try, make an effort, exert the mind, and strive so that bad, unskillful qualities that have arisen are given up.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 239,
+     "text": "They generate enthusiasm, try, make an effort, exert the mind, and strive so that skillful qualities arise.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 240,
+     "text": "They generate enthusiasm, try, make an effort, exert the mind, and strive so that skillful qualities that have arisen remain, are not lost, but increase, mature, and are fully developed. This is called right effort.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 241,
+     "text": "And what is right mindfulness? It’s when a mendicant meditates by observing an aspect of the body—keen, aware, and mindful, rid of covetousness and displeasure for the world.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 242,
+     "text": "They meditate observing an aspect of feelings—keen, aware, and mindful, rid of covetousness and displeasure for the world.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 243,
+     "text": "They meditate observing an aspect of the mind—keen, aware, and mindful, rid of covetousness and displeasure for the world.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 244,
+     "text": "They meditate observing an aspect of principles—keen, aware, and mindful, rid of covetousness and displeasure for the world. This is called right mindfulness.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 245,
+     "text": "And what is right immersion?",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 246,
+     "text": "It’s when a mendicant, quite secluded from sensual pleasures, secluded from unskillful qualities, enters and remains in the first absorption, which has the rapture and bliss born of seclusion,",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 247,
+     "text": "while placing the mind and keeping it connected.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 248,
+     "text": "As the placing of the mind and keeping it connected are stilled, they enter and remain in the second absorption, which has the rapture and bliss born of immersion, with internal clarity and mind at one,",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 249,
+     "text": "without placing the mind and keeping it connected.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 250,
+     "text": "And with the fading away of rapture, they enter and remain in the third absorption, where they meditate with equanimity, mindful and aware, experiencing for themselves the bliss of which the noble ones declare,",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 251,
+     "text": "‘Equanimous and mindful, one meditates in bliss.’",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 252,
+     "text": "With the giving up of pleasure and pain and the disappearance of former happiness and sadness, they enter and remain in the fourth absorption, without pleasure or pain, with pure equanimity and mindfulness.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 253,
+     "text": "This is called right immersion.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 254,
+     "text": "This is called the noble truth of the practice that leads to the cessation of suffering.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 255,
+     "text": "And so they meditate observing an aspect of principles internally, externally, and both internally and externally.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 256,
+     "text": "They meditate observing, with respect to the principles, the liability to originate, to vanish, and to originate and vanish.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 257,
+     "text": "Or mindfulness is established that principles exist, to the extent necessary for knowledge and mindfulness.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 258,
+     "text": "They meditate independent, not grasping at anything in the world.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 259,
+     "text": "That’s how a mendicant meditates by observing an aspect of principles with respect to the four noble truths.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 260,
+     "text": "Anyone who develops these four kinds of mindfulness meditation in this way for seven years can expect one of two results: enlightenment in this very life, or if there’s residue left behind, non-return.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 261,
+     "text": "Let alone seven years,",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 262,
+     "text": "anyone who develops these four kinds of mindfulness meditation in this way for six years … five years … four years … three years … two years … one year … seven months … six months … five months … four months … three",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 263,
+     "text": "months … two months … one month … a fortnight …",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 264,
+     "text": "Let alone a fortnight, anyone who develops these four kinds of mindfulness meditation in this way for seven days can expect one of two results:",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 265,
+     "text": "enlightenment in this very life, or if there’s residue left behind, non-return.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 266,
+     "text": "‘The four kinds of mindfulness meditation are the path to convergence.",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 267,
+     "text": "They are in order to purify sentient beings, to get past sorrow and crying, to make an end of pain and sadness, to discover the system, and to realize extinguishment.’",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 268,
+     "text": "That’s what I said, and this is why I said it.”",
+     "section": "4.5.4. The Path"
+    },
+    {
+     "n": 269,
+     "text": "That is what the Buddha said. Satisfied, the mendicants approved what the Buddha said.",
+     "section": "4.5.4. The Path"
+    }
+   ]
+  }
+ ]
+}

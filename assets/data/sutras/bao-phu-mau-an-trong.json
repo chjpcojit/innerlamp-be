@@ -1,0 +1,780 @@
+{
+ "id": "bao-phu-mau-an-trong",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Hiếu hạnh",
+ "reference": "Taishō T2887",
+ "originalTitle": "Phật thuyết Phụ Mẫu Ân Trọng Nan Báo Kinh",
+ "referenceNote": "Bản Đôn Hoàng; bản Việt thể thơ",
+ "summary": "Kinh Đại thừa nói về công ơn sâu nặng của cha mẹ, bản Việt này viết theo thể thơ. Kinh kể lúc Đức Phật cùng đại chúng đi qua, thấy đống xương khô chất cao và dạy ngài A-nan về nỗi vất vả của cha mẹ khi mang thai, sinh nở, nuôi dưỡng con. Kinh nhấn mạnh việc đền đáp công ơn cha mẹ và nhắc người con giữ đạo hiếu.",
+ "titles": {
+  "vi": "Kinh Đại Báo Phụ Mẫu Trọng Ân",
+  "zh": "佛說父母恩重難報經",
+  "sa": "",
+  "en": "Sutra on the Profound Kindness of Parents and the Difficulty of Repaying It"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "BAO_HIEU",
+  "CAU_SIEU"
+ ],
+ "durationMinutes": 45,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "unknown (not stated on page; Vietnamese verse-style version, \"re-typed by L.V.T (Australia)\")",
+   "sourceName": "BuddhaSasana (budsas.org) - Kinh Đại Báo Phụ Mẫu Trọng Ân",
+   "sourceUrl": "https://www.budsas.org/uni/u-kinh-bt-ngan/dbpmta.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement on page",
+   "note": "Bỏ phần tán hương, khai kinh kệ và 10 câu kính lạy cuối bản; giữ nguyên lỗi chính tả nguồn (vd. \"thừơng\", \"nứơc\", \"ngườị\").",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tôi nghe thế nầy: một khi Phật ở, trong một Tinh Xá, vườn Cấp-cô- độc, cây của Kỳ-Đà, cùng các Tăng-già, có trên hai vạn, thêm tám nghìn người, cùng chư Bồ-Tát."
+    },
+    {
+     "n": 2,
+     "text": "Bấy giờ Thế-Tôn, cùng với Đại chúng, nhân buổi nhàn du đi về phía nam, thấy đống xương khô chất cao như núi, Đức Phật Thế Tôn liền sụp lạy ngay đống xương ấy."
+    },
+    {
+     "n": 3,
+     "text": "Tôi bạch Phật rằng: \"Lạy Đức Thế Tôn, Ngài ở trên ngôi chí Tôn, chí Quý, Thầy cả ba cõi, Cha lành bốn loài, thiên thượng nhân gian thảy điều tôn kính, sao Ngài lại lễ đống xương kia?\""
+    },
+    {
+     "n": 4,
+     "text": "\"Nầy A-Nan ơi! Ngươi tuy xuất gia theo ta tu học, trong bấy nhiêu lâu, những sự thấy nghe, đã rộng rãi, đống xương khô ấy hoặc là ông bà, hay là cha mẹ, thân trứơc của ta, ngàn muôn ức kiếp, đời đã cách xa,"
+    },
+    {
+     "n": 5,
+     "text": "bởi thế nay ta chí thành kính lễ. Ngươi đem xương nầy chia làm hai phần, một là đàn ông, hai là đàn bà, phân biệt cho ta.\""
+    },
+    {
+     "n": 6,
+     "text": "\"Bạch Đức Thế Tôn, con xem ở đời, phàm là con trai mang đai hia mão, ai cũng nhận ra, đấy là nam giới, những người con gái, hương hoa phấn sáp, kiềng xuyến nhẫn hoa, ai cũng nhận ra, đó là nữ giới ."
+    },
+    {
+     "n": 7,
+     "text": "Nay người đã chết, xương trắng một mầu, chúng con biết đâu mà phân biệt được.\""
+    },
+    {
+     "n": 8,
+     "text": "Đây là lời Phật:"
+    },
+    {
+     "n": 9,
+     "text": "\"Này A-Nan con, về bên nam giới, trong lúc bình sinh, thừơng lui tới những chốn chùa chiền, nhờ có nhân duyên nghe Kinh lễ Phật, kính mến Tăng-già, nợ trần đã qua, hồn về cỡi Phật, bao nhiêu xương trắng,"
+    },
+    {
+     "n": 10,
+     "text": "nhắc thấy nặng hơn là xương nam giới, còn như nữ giới, trong lúc bình sinh, nhiều lần sinh nở, nuôi nấng con thơ, tổn hao khí huyết, mổi một kỳ sinh, máu đặc trong mình chảy ra sáu đấu, mổi người con bú,"
+    },
+    {
+     "n": 11,
+     "text": "tám thùng bốn đấu, sửa ở trong mình giảm bớt tinh anh, cho nên xương nhẹ và có sắc đen.\""
+    },
+    {
+     "n": 12,
+     "text": "Tôi nghe Phật nói, thương xót vô cùng, như dao cắt ruột, nứơc mắt chứa chan, hai hàng châu lệ, mà bạch Phật rằng:"
+    },
+    {
+     "n": 13,
+     "text": "\"Lạy Đức Thế Tôn, công ơn cha mẹ như non như bể, thăm thẳm nghìn trùng, lấy gì báo đáp, cúi xin Đức Phật dủ lòng thương xót, dạy bảo chúng con.\""
+    },
+    {
+     "n": 14,
+     "text": "\"Nầy A-Nan con, Về ân đức mẹ, trong vòng mười tháng đi lại nặng nề, cưu mang nhọc mệt, khổ không xiết:"
+    },
+    {
+     "n": 15,
+     "text": "Khi vừa một tháng, ở trong thai mẹ, khác gì hạt sương dính trên ngọn cỏ, sớm còn tụ đọng, trưa đã tan, khó lòng giử được."
+    },
+    {
+     "n": 16,
+     "text": "Khi được hai tháng, ở trong thai mẹ, hình như sưã đặc, đã chắc gì đâu."
+    },
+    {
+     "n": 17,
+     "text": "Khi được ba tháng, ở trong thai mẹ, ví như cục máu, đông đặc đỏ ngầu, vô tri vô giác."
+    },
+    {
+     "n": 18,
+     "text": "Khi được bốn tháng, ở trong thai mẹ, mới dạng hình ngườị"
+    },
+    {
+     "n": 19,
+     "text": "Khi được năm tháng, ở trong thai mẹ,mới đủ năm hình, chân tay đầu tóc."
+    },
+    {
+     "n": 20,
+     "text": "Khi được sáu tháng, ở trong thai mẹ, sáu căn mới đủ, mắt tay mũi lưỡi, thân hình và ý."
+    },
+    {
+     "n": 21,
+     "text": "Khi được bảy tháng, ở trong thai mẹ, mới sinh đầy đủ, ba trăm sáu mươi, những cái đốt xương, cùng là tám vạn, bốn nghìn chân lông."
+    },
+    {
+     "n": 22,
+     "text": "Khi được tám tháng, ở trong thai mẹ, phủ tạng mới sinh, ý chí mới đủ, chín khiếu mới thông."
+    },
+    {
+     "n": 23,
+     "text": "Khi được chín tháng, ở trong thai mẹ, mới đủ hình người, ngồi trong bụng mẹ, khát uống nguyên khí, không ăn hoa quả, cùng là ngủ cốc, sinh tạng rủ xuống, thực tạng hướng lên, có một dãy núi, gồm có ba quả;"
+    },
+    {
+     "n": 24,
+     "text": "một là Tu Di, hai là núi Nghiệp, ba là núi máu, núi nầy đồng thời, hoá ra dòng máu, rót vào trong miệng."
+    },
+    {
+     "n": 25,
+     "text": "Ở trong thai mẹ, trong vòng mười tháng, trăm phần toàn vẹn, mới đến ngày sinh, nếu là con hiếu, chắp tay thu hình, thuận lối mà ra, không đau lòng mẹ, nếu là con bạc, dẫy giụa bải bơi, khiến lòng mẹ, buốt chói từng hồ,"
+    },
+    {
+     "n": 26,
+     "text": "như đâm như xỉa, như cấu như cào, như nghìn mũi dao, đâm vào gan ruột, đau đón vô cùng, nói sao cho siết, sinh được thân nầy, mừng thay vui thay, yêu thay mến thay.\""
+    },
+    {
+     "n": 27,
+     "text": "Phật bảo A-Nan:"
+    },
+    {
+     "n": 28,
+     "text": "\"Công ơn từ mẫu, gồm có mười điều, phàm kẻ làm con, phải lo báo hiếu."
+    },
+    {
+     "n": 29,
+     "text": "Những gì là mười điều ?"
+    },
+    {
+     "n": 30,
+     "text": "1) Nhớ ơn mẹ ta, chín tháng mười ngày, cưu mang nặng nhọc."
+    },
+    {
+     "n": 31,
+     "text": "2) Nhớ ơn mẹ ta, khi sinh lúc nở, đau đớn vô cùng."
+    },
+    {
+     "n": 32,
+     "text": "3) Nhớ ơn mẹ ta, khi sanh lúc nở, quên cả âu lọ"
+    },
+    {
+     "n": 33,
+     "text": "4) Nhớ lại công ơn, mẹ ăn miếng đắng, lại nhả miếng ngon, dành dụm cho con."
+    },
+    {
+     "n": 34,
+     "text": "5) Nhớ lại công ơn, chỗ ướt mẹ nằm, chổ ráo xê con."
+    },
+    {
+     "n": 35,
+     "text": "6) Nhớ ơn mẹ ta, ba năm bú mớm, nuôi nấng thuốc thang, trong khi sài đẹn."
+    },
+    {
+     "n": 36,
+     "text": "7) Nhớ ơn mẹ ta, giặt diệm hong phơi, áo quần dơ dáy, ô uế tanh hôi, mẹ đành cam chịu ."
+    },
+    {
+     "n": 37,
+     "text": "8) Nhớ ơn mẹ ta, khi đi đâu xa, vì thương nhớ con, trong lòng cầy cậy, một phút chẳng ngơi ."
+    },
+    {
+     "n": 38,
+     "text": "9) Nhớ công ơn mẹ, vì sanh nuôi con, mà mẹ cam lòng tạo bao nhiêu ác nghiệp."
+    },
+    {
+     "n": 39,
+     "text": "10) Nhớ công ơn mẹ, lòng rất thương con, trọn đời yêu dấu, không phút nào ngơi ."
+    },
+    {
+     "n": 40,
+     "text": "Đệ nhất ân: Chín tháng mười ngày cưu mang nặng nhọc"
+    },
+    {
+     "n": 41,
+     "text": "Bao kiếp, duyên cùng nợ;"
+    },
+    {
+     "n": 42,
+     "text": "Ngày nay, mới vào thai,"
+    },
+    {
+     "n": 43,
+     "text": "Đầy tháng, sanh ngủ tạng;"
+    },
+    {
+     "n": 44,
+     "text": "Bảy bảy, sáu tinh khai,"
+    },
+    {
+     "n": 45,
+     "text": "Thân trọng, như non Thái"
+    },
+    {
+     "n": 46,
+     "text": "Động tĩnh, sợ phong tai,"
+    },
+    {
+     "n": 47,
+     "text": "Áo the, đành xốc-xếch,"
+    },
+    {
+     "n": 48,
+     "text": "Gương lược, biếng trang đài."
+    },
+    {
+     "n": 49,
+     "text": "Đệ nhị ân: Khi gần sanh nở"
+    },
+    {
+     "n": 50,
+     "text": "Khi gần, ngày sanh nở"
+    },
+    {
+     "n": 51,
+     "text": "Nặng nhọc, khổ vô cùng,"
+    },
+    {
+     "n": 52,
+     "text": "Cưu mang, trong mười tháng"
+    },
+    {
+     "n": 53,
+     "text": "Sanh nở, sắp đến ngày"
+    },
+    {
+     "n": 54,
+     "text": "Đứng ngồi, coi nặng nhọc;"
+    },
+    {
+     "n": 55,
+     "text": "Dáng vẻ, tựa ngô ngây,"
+    },
+    {
+     "n": 56,
+     "text": "Sợ hãi, lo, cùng lắng;"
+    },
+    {
+     "n": 57,
+     "text": "Tử sanh giờ phút nầy !"
+    },
+    {
+     "n": 58,
+     "text": "Đệ tam ân: Sanh nở"
+    },
+    {
+     "n": 59,
+     "text": "Mẹ ta, khi sanh nở,"
+    },
+    {
+     "n": 60,
+     "text": "Thân thể đều mở toang!"
+    },
+    {
+     "n": 61,
+     "text": "Tâm hồn như mê mẩn,"
+    },
+    {
+     "n": 62,
+     "text": "Máu me chan hòa đầy,"
+    },
+    {
+     "n": 63,
+     "text": "Chờ nghe, thấy con khóc;"
+    },
+    {
+     "n": 64,
+     "text": "Lòng mẹ mừng rỡ thay!"
+    },
+    {
+     "n": 65,
+     "text": "Đương mừng lại lo đến"
+    },
+    {
+     "n": 66,
+     "text": "Rầu rĩ ruột gan nầỵ"
+    },
+    {
+     "n": 67,
+     "text": "Đệ tứ ân: Ăn đắng nhả ngọt"
+    },
+    {
+     "n": 68,
+     "text": "Mẹ ta lòng thành thực,"
+    },
+    {
+     "n": 69,
+     "text": "Thương con chẳng chút ngơi,"
+    },
+    {
+     "n": 70,
+     "text": "Nhả ngọt nào có tiếc!"
+    },
+    {
+     "n": 71,
+     "text": "Ăn đắng nói cùng ai?"
+    },
+    {
+     "n": 72,
+     "text": "Yêu dấu như vàng ngọc."
+    },
+    {
+     "n": 73,
+     "text": "Nâng niu tay chẳng rời,"
+    },
+    {
+     "n": 74,
+     "text": "Những mong con ấm no;"
+    },
+    {
+     "n": 75,
+     "text": "Mẹ đói rách cũng vui ."
+    },
+    {
+     "n": 76,
+     "text": "Đệ ngũ ân: Xê con tự thấp"
+    },
+    {
+     "n": 77,
+     "text": "Tự mình nằm chỗ ướt,"
+    },
+    {
+     "n": 78,
+     "text": "Chỗ ráo để xê con,"
+    },
+    {
+     "n": 79,
+     "text": "Hai vú phòng đói khát;"
+    },
+    {
+     "n": 80,
+     "text": "Hai tay ủ gió sương."
+    },
+    {
+     "n": 81,
+     "text": "Thâu đêm nằm chẳng ngủ;"
+    },
+    {
+     "n": 82,
+     "text": "Nâng niu tựa ngọc vàng"
+    },
+    {
+     "n": 83,
+     "text": "Những mong con vui vẻ;"
+    },
+    {
+     "n": 84,
+     "text": "Lòng mẹ mới được yên."
+    },
+    {
+     "n": 85,
+     "text": "Đệ lục ân: Bú mớm nuôi nấng"
+    },
+    {
+     "n": 86,
+     "text": "Đức mẹ dày như đất;"
+    },
+    {
+     "n": 87,
+     "text": "Công cha thẳm tựa trời,"
+    },
+    {
+     "n": 88,
+     "text": "Chở che coi bìng đẳng;"
+    },
+    {
+     "n": 89,
+     "text": "Cha mẹ cũng thế thôi!"
+    },
+    {
+     "n": 90,
+     "text": "Chẳng quản, câm mù, điếc!"
+    },
+    {
+     "n": 91,
+     "text": "Chẳng hiềm, quắt tay chân!"
+    },
+    {
+     "n": 92,
+     "text": "Bởi vì con ruột thịt,"
+    },
+    {
+     "n": 93,
+     "text": "Trọn đời dạ chẳng khuây."
+    },
+    {
+     "n": 94,
+     "text": "Đệ bát ân: Đi xa lòng mẹ thương nhớ"
+    },
+    {
+     "n": 95,
+     "text": "Từ biệt, lòng khôn nhẫn;"
+    },
+    {
+     "n": 96,
+     "text": "Sanh ly dạ đáng thương;"
+    },
+    {
+     "n": 97,
+     "text": "Con đi đường xa cách"
+    },
+    {
+     "n": 98,
+     "text": "Mẹ ở chốn tha hương,"
+    },
+    {
+     "n": 99,
+     "text": "Ngày đêm thường tưởng nhớ;"
+    },
+    {
+     "n": 100,
+     "text": "Sớm tối vẩn vấn vương"
+    },
+    {
+     "n": 101,
+     "text": "Như vượn thương con đỏ"
+    },
+    {
+     "n": 102,
+     "text": "Khúc khúc đoạn can trường?"
+    },
+    {
+     "n": 103,
+     "text": "Đệ cửu ân: Vì sanh con mà cam lòng tạo bao ác nghiệp"
+    },
+    {
+     "n": 104,
+     "text": "Mẹ trải qua bao nhiêu gian khổ,"
+    },
+    {
+     "n": 105,
+     "text": "Công lao tựa vực trời,"
+    },
+    {
+     "n": 106,
+     "text": "Bồng bế cùng nuôi nấng;"
+    },
+    {
+     "n": 107,
+     "text": "Mong sao con ăn chơi,"
+    },
+    {
+     "n": 108,
+     "text": "Nhường cơm cùng xẻ áo;"
+    },
+    {
+     "n": 109,
+     "text": "Mẹ đói rách dũng vui!"
+    },
+    {
+     "n": 110,
+     "text": "Khôn lớn tìm đôi lứa"
+    },
+    {
+     "n": 111,
+     "text": "Gây dựng cho nên người"
+    },
+    {
+     "n": 112,
+     "text": "Đệ thập ân: Mẹ trọn đời thương yêu con"
+    },
+    {
+     "n": 113,
+     "text": "Công cha cùng đức mẹ"
+    },
+    {
+     "n": 114,
+     "text": "Cao sâu tựa vực Trời,"
+    },
+    {
+     "n": 115,
+     "text": "Mẹ già, hơn trăm tuổi,"
+    },
+    {
+     "n": 116,
+     "text": "Vẩn thương con tám mươi!"
+    },
+    {
+     "n": 117,
+     "text": "Bao giờ ân oán hết?"
+    },
+    {
+     "n": 118,
+     "text": "Tắt nghỉ cũng chẳng thôi !...\""
+    },
+    {
+     "n": 119,
+     "text": "Phật bảo A-Nan:"
+    },
+    {
+     "n": 120,
+     "text": "\"Ta xem chúng sanh, dẫu làm được người, lòng còn ngu muội, chẳng nghĩ mẹ cha, công đức kể ra, như non như bể, chẳng cung chẳng kính, chẳng hiếu chẳng từ, mẹ mang thai con, trong vòng mười tháng, ngồi đứng không yên,"
+    },
+    {
+     "n": 121,
+     "text": "như mang gánh nặng, ăn uống chẳng ngon, như người mang bệnh, ngày tháng thoi đưa, dến khi sanh nở, chịu khổ mọi đường, phút giây hay dở, kinh sợ vô cùng, như giết trâu dê, máu me lai láng, còn nhiều khổ nữa,"
+    },
+    {
+     "n": 122,
+     "text": "mới được thân nầy, ăn đắng nuốt cay, nhả bùi nhả ngọt, nâng niu dưỡng dục, giặc giũ dáy dơ, không nề gian khổ, bức bối nồng nàn, rét mướt cơ hàn, lầm than tân khổ, mẹ nằm chổ ướt, ráo để xê con, ba năm bú mớm,"
+    },
+    {
+     "n": 123,
+     "text": "bồng bế nâng niu, dạy bảo đủ điều, lễ nghi phép tắc, cho ăn đi học, tìm đủ mọi nghề, đưa đón đi về, cần lao chăm chú, chẳng kể gì công."
+    },
+    {
+     "n": 124,
+     "text": "Trái nắng dở Trời, tuần trăng cuối gió, bệnh nọ chứng kia, bông hoa sài đẹn, thang thuốc đâu đâu, một mình lo lắng, chạy ngược chạy xuôi, năm canh vò võ, bệnh con có khỏi, lòng mẹ mới yên, mong con lớn lên,"
+    },
+    {
+     "n": 125,
+     "text": "con thảo con hiền, để mà trông cậy."
+    },
+    {
+     "n": 126,
+     "text": "Không ngờ ngày nay, hóa con bất hiếu, mẹ già cha yếu, con chẳng đỡ đần, cãi vã song thân, nói năng cắn cẩu, giương đôi mắt chẫu, khinh rẻ mẹ cha, chú bác ông bà, cô dì chẳng nể, anh em cũng kệ, đánh lộn xẩy ra,"
+    },
+    {
+     "n": 127,
+     "text": "ô nhục nước nhà, bất trung bất nghĩa, bất hiếu bất lương, phép nước coi thường, mẹ cha cũng kệ, xóm giềng chẳng nể, chửi bới nhau luôn, sớm tối ra vào, chẳng thưa chẳng gởi, nói năng càn rỡ, tự ý làm bừa,"
+    },
+    {
+     "n": 128,
+     "text": "cha mẹ cũng thừa, thầy trên cũng mặc!"
+    },
+    {
+     "n": 129,
+     "text": "Bé thì ai chấp, người những nâng niu, dần dần khôn lớn, gai ngạnh mọi điều, chẳng hòa chẳng thuận, thường hay sân si, bỏ cả bạn lành, giao du bạn ác, tập thói xa hoa, chơi khắp gần xa, thất thường điên đảo,"
+    },
+    {
+     "n": 130,
+     "text": "bị kẻ dổ dành, mất cả thân danh, bỏ làng trốn mất, trái ý mẹ cha, ly biệt quê nhà, chẳng nhìn quê quán, hoặc vì buôn bán, hoặc bởi tòng quân, tiêm nhiễm dần dần, trở nên lưu luyến, vợ nọ con kia, chẳng thiết đi về,"
+    },
+    {
+     "n": 131,
+     "text": "quê hương bổn quán, ở đất nước người, lại hay rong chơi, bị người lừa gạt, tai vạ liên miên, pháp luật gia hình, tù loa cấm cố, cực khổ mọi điều, chẳng may yếu đau, chứng kia tật nọ, ở chốn tha hương, ai kẻ thích thân,"
+    },
+    {
+     "n": 132,
+     "text": "ai người thang thuốc, mẹ cha cách biệt, thân thích biết đâu, cam chịu ưu sầu, quê người đất khách; Khốn khổ gầy còm, không người trông nom, lại bị khinh rẻ, lang thang đường ngõ, vì thế chết đi;"
+    },
+    {
+     "n": 133,
+     "text": "không người mai táng, chương phềnh thối nát, giãi bừa, chó cầy nhai xé !...."
+    },
+    {
+     "n": 134,
+     "text": "Mẹ cha thân thuộc, khi được tin buồn, luống những đau thương, ruột như dao cắt, hai hàng nước mắt, lã chã chứa chan, hoặc vì quá thương, kết thành bệnh khí, hoặc là đến chết, làm quỷ ôm thây, chẳng để cho ai,"
+    },
+    {
+     "n": 135,
+     "text": "khư khư giữ mãi."
+    },
+    {
+     "n": 136,
+     "text": "Hoặc là vì con, chẳng chăm học tập, chỉ mải rong chơi, nay đây mai đó, cùng bạn vô loài, làm điều vô ích, giao du trộm cắp, chẳng sợ lệ làng, chè rượu nghêng ngang, đánh cờ đánh bạc, gian tham tội ác, lụy đến tôn thân,"
+    },
+    {
+     "n": 137,
+     "text": "nay Sở mai Tần, lên đồn xuống phủ, mẹ cha ủ rũ, khốn khổ vì con."
+    },
+    {
+     "n": 138,
+     "text": "Nào con có biết, cha mẹ khổ đau, trăm não nghìn sầu, mùa Thu mùa Đông, rét run bức bối, chẳng nhìn sớm tối;"
+    },
+    {
+     "n": 139,
+     "text": "ấp lạnh quạt nồng, chẳng viếng chẳng thăm, chẳng hầu chẳng hạ, mẹ cha già cả, hình vóc gầy còm, hổ mặt người non, dầy vò mắng nhiếc, mẹ cha hoặc góa, trơ trọi một mình, luống những buồn tanh, như người ngủ trọ,"
+    },
+    {
+     "n": 140,
+     "text": "chiếc gối một phòng, năm canh vò võ, mùa đông sương gió, rét mướt cơ hàn, trai gái các con, nào ai hỏi đến, đêm ngày thương khóc, tự thán tự thương!"
+    },
+    {
+     "n": 141,
+     "text": "Khi đem thức ăn, dâng lên cha mẹ, thì lại giữ kẽ, rằng ngượng e, sợ kẻ cười chê; ví đem quà bánh, cho vợ cho con, mặt dạn mày dầy, không hề xấu hổ, vợ con dặn bảo, phải đúng như lời, cha mẹ hết hơi, không hề hối cải."
+    },
+    {
+     "n": 142,
+     "text": "Đây là con gái, khi chưa gả chồng, hãy còn ở chung, tỏ ra hiếu thảo;"
+    },
+    {
+     "n": 143,
+     "text": "khi đã gã bán, về ở nhà người, một ngày một lười, thiết gì cha mẹ, những ngày giỗi tết, có đảo về qua, ví dù mẹ cha, có gì sơ ý, liền sinh giận dữ, tỏ vẻ oán hờn, chồng chửi nhơn nhơn, đành cam lòng chịu,"
+    },
+    {
+     "n": 144,
+     "text": "khác họ khác làng, tình nghĩa keo sơn, hóa ra thâm trọng, mẹ cha máu mủ, thì lại sơ tình."
+    },
+    {
+     "n": 145,
+     "text": "Hoặc đi theo chồng, quê người đất khách, quận nọ tỉnh kia, cha mẹ xa lìa."
+    },
+    {
+     "n": 146,
+     "text": "Làng không tưởng nhớ, chẳng viếng chẳng thăm, thư tín cũng không, tuyệt không tin tức, mẹ cha thương nhớ, rầu rĩ ruột gan, luống những bàng hoàng, sớm chiều mong mỏi, công đức cha mẹ, vô lượng vô biên,"
+    },
+    {
+     "n": 147,
+     "text": "con chẳng hiếu hiền, ở đời cũng lắm.\""
+    },
+    {
+     "n": 148,
+     "text": "Khi ấy Đại chúng, nghe Phật nói ra, công đức cha mẹ, cao tầy non Thái, đều cùng đứng dậy, hoặc tự gieo mình, đập đầu lăn khóc, máu me trào trạt, lai láng cả nhà, chết ngất cả ra, hồi lâu mới tỉnh, mà nói lời nầy,"
+    },
+    {
+     "n": 149,
+     "text": "khổ thay khổ thay!"
+    },
+    {
+     "n": 150,
+     "text": "Đau lòng đứt ruột, lũ con ngày nay, tội ác ngập đầu, xưa có biết đâu, mờ như đêm tối, ngày nay biết hối, thì sự đã rồi, đau đớn lòng tôi, trót đà bội bạc, cúi xin chư Phật, soi xét kẻ phàm, phóng Ngọc hào quang,"
+    },
+    {
+     "n": 151,
+     "text": "ra tay cứu vớt, làm sao báo được, ân đức mẹ cha."
+    },
+    {
+     "n": 152,
+     "text": "Phật liền nói ra, đủ đầy tám giọng, bảo Đại chúng rằng :"
+    },
+    {
+     "n": 153,
+     "text": "\"1) Ví có kẻ nào, hai vai kiệu cõng, cha mẹ đi chơi, suốt cả mọi nơi, trên rừng dưới biển, hai vai nặng trễ, mòn cả đến xương, máu chảy cùng đường, không hề ân hận, cũng chưa báo được công đức mẹ cha, kể trong muôn một."
+    },
+    {
+     "n": 154,
+     "text": "2) Ví lại có người. Gặp khi đói kém, cắt hết thịt mình, cung nuôi cha mẹ, khỏi lúc nguy nàn, riêng mình cam chịu, thịt nát xương tan, trăm nghìn muôn kiếp, để báo thâm ân, chẳng được một phần, kể trong muôn một."
+    },
+    {
+     "n": 155,
+     "text": "3) Ví lại có người, trải trăm nghìn kiếp, tự tay cầm dao, khoét đôi mắt mình, luyện làm thang thuốc, chữa bịnh mẹ cha, như thế cũng là, chưa trả được ân, kể trong muôn một."
+    },
+    {
+     "n": 156,
+     "text": "4) Ví lại có người, trải trăm nghìn kiếp, đều tự tay mình, cầm dao khoét ruột, móc lấy tim gan, luyện thành thanh thuốc, chữa bịnh mẹ cha, như thế cũng là, chưa trả được ân, kể trong muôn một."
+    },
+    {
+     "n": 157,
+     "text": "5) Ví lại có người, trải trăm nghìn kiếp, vì tội mẹ cha, trăm nghìn vòng dao, băm vằm thân thể, thịt nát xương tan, như thế cũng là, kể trong muôn một."
+    },
+    {
+     "n": 158,
+     "text": "6) Ví lại có người, trải trăm nghìn kiếp, vì báo ơn mẹ, lấy mình đốt lên, làm cây đèn thịt, cúng dàng chư Phật, như thế cũng là, chưa trả được ân, kể trong muôn một."
+    },
+    {
+     "n": 159,
+     "text": "7) Ví lại có người, trải trăm nghìn kiếp, vì bệnh mẹ cha, đập xương lấy tủy, để làm thang thuốc, chữa bệnh mẹ cha, như thế cũng là, chưa trả được ân, kể trong muôn một."
+    },
+    {
+     "n": 160,
+     "text": "8) Ví lại có người, trải trăm nghìn kiếp, vì cứu mẹ cha, trải trăm nghìn kiếp, nuốt viên sắt nóng, cháy sém cả mình, như thế cũng là, chưa trả được ân, kể trong muôn một.\""
+    },
+    {
+     "n": 161,
+     "text": "Bấy giờ Đại chúng, nghe Phật nói rồi, trong dạ bồi hồi, ruột đau như cắt, hai hành nước mắt, tầm tả như mưa, mà bạch Phật rằng: \"Con muốn đền ơn, công đức mẹ cha, cúi xin Phật Đà, rủ lòng chỉ bảo?\""
+    },
+    {
+     "n": 162,
+     "text": "Đức Phật liền bảo: \"Cặn kẽ mọi lời, này chúng sinh ơi, muốn đền ân mẹ, nhất là một lẽ, nên chép Kinh nầy, kính biếu gần xa, cho nhiều người tụng."
+    },
+    {
+     "n": 163,
+     "text": "Hai vì cha mẹ, đọc tụng Kinh này, chuyên cần chớ đoạn."
+    },
+    {
+     "n": 164,
+     "text": "Ba vì cha mẹ, sám hối làm chay. Bốn vì cha mẹ, cúng dường Tam Bảo, tùy duyên sở dùng."
+    },
+    {
+     "n": 165,
+     "text": "Năm vì cha mẹ, trong sáu ngày Trai, phải nên nhớ giữ."
+    },
+    {
+     "n": 166,
+     "text": "Sáu vì cha mẹ, thường hay bố thí. Làm được như thế, thực là con hiếu, cứu được cha mẹ, siêu thăng Cưc Lạc, phúc đẳng Hà sa.\""
+    },
+    {
+     "n": 167,
+     "text": "Phật bảo A-Nan: \"Ở trên thế gian, những người bất hiếu, sau hết duyên trần, nguyên cái xác thân, chôn vùi dưới đất:"
+    },
+    {
+     "n": 168,
+     "text": "còn phần Linh giác, là cái chân thân, phải vào Điạ Ngục, Chính ngục A-Tỳ, vuông rộng tứ vi, tám ngàn cây số, bốn mặt có tường sắt, tường đồng, lửa cháy tứ tung, toàn dây thép điện, thường có lửa bén, cháy đỏ hồng hồng,"
+    },
+    {
+     "n": 169,
+     "text": "bốc cháy tứ tung, thấy mà kinh sợ; hơn như thế nữa, sấm chớp đùng đùng, chó sắt rắn đồng, phun ra khói lửa, đốt cháy tội nhân."
+    },
+    {
+     "n": 170,
+     "text": "Lại còn nước đồng, đun sôi sùng sục, rót ngay vào miệng những kẻ tội nhân, vì tội bất hiếu, cãi giả mẹ cha, cam chịu cực hình, ở trong ngục ấy, gươm dao sào gậy, đâm chém suốt ngày, như hạt mưa bay,"
+    },
+    {
+     "n": 171,
+     "text": "trên không rơi xuống, trải nghìn muôn kiếp, không phút nào nguôi, hết hạn ấy rồi lại vào ngục khác;"
+    },
+    {
+     "n": 172,
+     "text": "Đầu đội chậu máu, xe sắt nghiến mình, mình mẩy chân tay, dập dừ tan nát, một ngày phải chết, tới nghìn vạn lần, khổ sở gian truân, vì chứng bất hiếu.\""
+    },
+    {
+     "n": 173,
+     "text": "Phật lại dạy rằng: \"Ví có Thiện nam hay là Tín nữ, thật là hiếu tử, trả nghĩa mẹ cha, in Kinh nầy ra, biếu cho người tụng, in được một quyển, được một công đức, in được mười quyển, được mười công đức,"
+    },
+    {
+     "n": 174,
+     "text": "in được trăm quyển, được trăm đức Phật, in được muôn quyển, được muôn đức Phật, phù hộ độ trì, lại tiếp hồn đi về phương Cực Lạc, đây là lời Phật, chớ có coi thường, Điạ ngục vấn vương, khó lòng thoát khỏi!\""
+    },
+    {
+     "n": 175,
+     "text": "Bấy giờ A-Nan cùng chư Đại chúng, Trời Rồng, Thần, Quỉ, Dạ Xoa, La Sát, người cùng phi nhân, được nghe Phật nói, đều phát nguyện rằng :"
+    },
+    {
+     "n": 176,
+     "text": "\"Chúng con tận tâm, chí thành chí kính, dù trăm nghìn kiếp, thịt nát xương tan, nhỏ như vi trần, cũng chẳng dám quên lời chư Phật dạy."
+    },
+    {
+     "n": 177,
+     "text": "Thà rằng lấy kìm, cặp lưỡi rút ra, dài trăm do tuần, cho trâu sắt cày, máu chảy chan hòa, thành sông thành suối, con thề chẳng trái lơì Phật dạy răn."
+    },
+    {
+     "n": 178,
+     "text": "Chúng con thề rằng: Thà lấy trăm nghìn vòng dao giáo mác, đâm chém thân này, nhỏ như vi trần, cũng chẳng dám quên lời chư Phật dạy."
+    },
+    {
+     "n": 179,
+     "text": "Chúng con thề rằng : Thà lấy lưới sắt, quất chặt vào thân trăm nghìn muôn kiếp, chẳng tháo cho ra, cực khổ vô cùng, cũng chẳng dám quên lời chư Phật dạy."
+    },
+    {
+     "n": 180,
+     "text": "Chúng con thề rằng : Thà đâm thà chém, thà mổ thà xả, thà xay thà giã, nhỏ như vi trần, đem cái xác thân nầy, làm nghìn muôn thứ, nào da nào thịt, nào gân nào xương, rơi rác ngoài đường, trong nhà, ngoài ngỏ;"
+    },
+    {
+     "n": 181,
+     "text": "trảỉ trăm nghìn kiếp, chịu khổ như thế, cũng chẳng dám quên lời chư Phật dạy.\""
+    },
+    {
+     "n": 182,
+     "text": "Khi ấy A-Nan, liền bạch Phật rằng: \"Lạy Đức Thế Tôn, đây là kinh gì, lũ chúng con đây đều muốn tụng trì, có được hay chăng?\""
+    },
+    {
+     "n": 183,
+     "text": "Đức Phật dạy rằng: \"Chúng con nên biết: Kinh nầy là Kinh Đại Báo Phụ Mẫu Trọng Ân chi Kinh, tất cả chúng sinh thảy đều nên tụng.\""
+    },
+    {
+     "n": 184,
+     "text": "Khi ấy Đại chúng nghe Phật nói rồi, tin, kính phụng lành, lễ tạ mà lui ."
+    }
+   ]
+  }
+ ]
+}

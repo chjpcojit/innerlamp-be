@@ -1,0 +1,280 @@
+{
+ "id": "truong-lao-ni-ke-patacara",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Ni Kệ",
+ "reference": "Thig 5.10",
+ "summary": "Kệ ngôn của trưởng lão ni Paṭācārā trong Trưởng Lão Ni Kệ (Tiểu Bộ, Thig 5.10). Bà kể lại cách mình chứng ngộ: nhìn nước rửa chân chảy từ chỗ cao xuống thấp mà thu tâm vào định, rồi dùng kim khều tim đèn, và tâm được giải thoát như ngọn đèn lụi tàn. Bài kệ còn có mấy câu mở đầu so sánh với những người lo mưu sinh.",
+ "titles": {
+  "vi": "Trưởng Lão Ni Kệ - Paṭācārā",
+  "pli": "Paṭācārātherīgāthā",
+  "en": "Paṭācārā"
+ },
+ "deities": [],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thig5.10/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Trong khi cày thửa ruộng với những cái cày, trong khi gieo những hạt giống ở đất, trong khi nuôi dưỡng các con và vợ, những người thanh niên tìm kiếm tài sản."
+    },
+    {
+     "n": 2,
+     "text": "Được đầy đủ giới, là người thực hành lời dạy của bậc Đạo Sư, không biếng nhác, không loạn động, tại sao tôi không chứng đắc Niết Bàn?"
+    },
+    {
+     "n": 3,
+     "text": "Sau khi rửa hai bàn chân, tôi chú ý ở những chỗ nước (đã được đổ xuống), và tôi đã nhìn thấy nước rửa chân từ đất cao đi đến chỗ thấp."
+    },
+    {
+     "n": 4,
+     "text": "Do đó, tôi đã khiến tâm được định, tựa như (người xa phu điều khiển) con ngựa hiền thiện thuần chủng."
+    },
+    {
+     "n": 5,
+     "text": "Sau đó, tôi đã cầm lấy cây đèn rồi đi vào trú xá."
+    },
+    {
+     "n": 6,
+     "text": "Sau khi xem xét chỗ nằm, tôi đã ngồi xuống chiếc giường nhỏ."
+    },
+    {
+     "n": 7,
+     "text": "Sau đó, tôi cầm lấy cây kim khều cái tim đèn."
+    },
+    {
+     "n": 8,
+     "text": "Sự giải thoát của tâm đã xảy ra, tựa như sự lụi tàn của cây đèn.”"
+    },
+    {
+     "n": 9,
+     "text": "Trưởng lão ni Paṭācārā đã nói những lời kệ như thế."
+    },
+    {
+     "n": 10,
+     "text": "Kệ ngôn của trưởng lão ni Paṭācārā."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig5.10/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Naṅgalehi kasaṁ khettaṁ,"
+    },
+    {
+     "n": 2,
+     "text": "bījāni pavapaṁ chamā;"
+    },
+    {
+     "n": 3,
+     "text": "Puttadārāni posentā,"
+    },
+    {
+     "n": 4,
+     "text": "dhanaṁ vindanti māṇavā."
+    },
+    {
+     "n": 5,
+     "text": "Kimahaṁ sīlasampannā,"
+    },
+    {
+     "n": 6,
+     "text": "satthusāsanakārikā;"
+    },
+    {
+     "n": 7,
+     "text": "Nibbānaṁ nādhigacchāmi,"
+    },
+    {
+     "n": 8,
+     "text": "akusītā anuddhatā."
+    },
+    {
+     "n": 9,
+     "text": "Pāde pakkhālayitvāna,"
+    },
+    {
+     "n": 10,
+     "text": "udakesu karomahaṁ;"
+    },
+    {
+     "n": 11,
+     "text": "Pādodakañca disvāna,"
+    },
+    {
+     "n": 12,
+     "text": "thalato ninnamāgataṁ."
+    },
+    {
+     "n": 13,
+     "text": "Tato cittaṁ samādhesiṁ,"
+    },
+    {
+     "n": 14,
+     "text": "assaṁ bhadraṁvajāniyaṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Tato dīpaṁ gahetvāna,"
+    },
+    {
+     "n": 16,
+     "text": "vihāraṁ pāvisiṁ ahaṁ;"
+    },
+    {
+     "n": 17,
+     "text": "Seyyaṁ olokayitvāna,"
+    },
+    {
+     "n": 18,
+     "text": "mañcakamhi upāvisiṁ."
+    },
+    {
+     "n": 19,
+     "text": "Tato sūciṁ gahetvāna,"
+    },
+    {
+     "n": 20,
+     "text": "vaṭṭiṁ okassayāmahaṁ;"
+    },
+    {
+     "n": 21,
+     "text": "Padīpasseva nibbānaṁ,"
+    },
+    {
+     "n": 22,
+     "text": "vimokkho ahu cetaso”ti."
+    },
+    {
+     "n": 23,
+     "text": "… Paṭācārā therī …."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig5.10/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Plowing the fields,"
+    },
+    {
+     "n": 2,
+     "text": "sowing seeds in the ground,"
+    },
+    {
+     "n": 3,
+     "text": "providing for partners and children,"
+    },
+    {
+     "n": 4,
+     "text": "young men acquire wealth."
+    },
+    {
+     "n": 5,
+     "text": "I am accomplished in ethics,"
+    },
+    {
+     "n": 6,
+     "text": "and I do the Teacher’s bidding,"
+    },
+    {
+     "n": 7,
+     "text": "being neither lazy nor restless—"
+    },
+    {
+     "n": 8,
+     "text": "why then do I not achieve quenching?"
+    },
+    {
+     "n": 9,
+     "text": "Having washed my feet,"
+    },
+    {
+     "n": 10,
+     "text": "I took note of the water,"
+    },
+    {
+     "n": 11,
+     "text": "seeing the foot-washing water"
+    },
+    {
+     "n": 12,
+     "text": "flowing from high ground to low."
+    },
+    {
+     "n": 13,
+     "text": "My mind became serene,"
+    },
+    {
+     "n": 14,
+     "text": "like a fine thoroughbred steed."
+    },
+    {
+     "n": 15,
+     "text": "Then, taking a lamp,"
+    },
+    {
+     "n": 16,
+     "text": "I entered my dwelling,"
+    },
+    {
+     "n": 17,
+     "text": "inspected the bed,"
+    },
+    {
+     "n": 18,
+     "text": "and sat on my cot."
+    },
+    {
+     "n": 19,
+     "text": "Then, grabbing the pin,"
+    },
+    {
+     "n": 20,
+     "text": "I drew out the wick."
+    },
+    {
+     "n": 21,
+     "text": "The liberation of my heart"
+    },
+    {
+     "n": 22,
+     "text": "was like the quenching of the lamp."
+    }
+   ]
+  }
+ ]
+}

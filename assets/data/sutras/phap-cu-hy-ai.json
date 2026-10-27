@@ -1,0 +1,642 @@
+{
+ "id": "phap-cu-hy-ai",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 209-220",
+ "summary": "Phẩm thuộc Kinh Pháp Cú (Tiểu Bộ, kệ 209-220), bàn về sự yêu thích và luyến ái. Phẩm chỉ ra gần người yêu xa kẻ ghét đều sinh khổ, từ ái sinh sầu ưu và sợ hãi, nên ai không còn luyến ái thì không còn buộc ràng. Phẩm cũng ví phước nghiệp như người thân đón người làm lành khi sang đời khác.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Hỷ Ái",
+  "pli": "Piyavagga",
+  "en": "The Beloved"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp209-220/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Tự chuyên, không đáng chuyên"
+    },
+    {
+     "n": 2,
+     "text": "Không chuyên, việc đáng chuyên"
+    },
+    {
+     "n": 3,
+     "text": "Bỏ đích, theo hỷ ái,"
+    },
+    {
+     "n": 4,
+     "text": "Ganh tị bậc tự chuyên."
+    },
+    {
+     "n": 5,
+     "text": "Chớ gần gũi người yêu,"
+    },
+    {
+     "n": 6,
+     "text": "Trọn đời xa kẻ ghét."
+    },
+    {
+     "n": 7,
+     "text": "Yêu không gặp là khổ,"
+    },
+    {
+     "n": 8,
+     "text": "Oán phải gặp cũng đau."
+    },
+    {
+     "n": 9,
+     "text": "Do vậy chớ yêu ai,"
+    },
+    {
+     "n": 10,
+     "text": "Ái biệt ly là ác;"
+    },
+    {
+     "n": 11,
+     "text": "Những ai không yêu ghét,"
+    },
+    {
+     "n": 12,
+     "text": "Không thể có buộc ràng."
+    },
+    {
+     "n": 13,
+     "text": "Do ái sinh sầu ưu,"
+    },
+    {
+     "n": 14,
+     "text": "Do ái sinh sợ hãi,"
+    },
+    {
+     "n": 15,
+     "text": "Ai thoát khỏi tham ái,"
+    },
+    {
+     "n": 16,
+     "text": "Không sầu, đâu sợ hãi?"
+    },
+    {
+     "n": 17,
+     "text": "Ái luyến sinh sầu ưu,"
+    },
+    {
+     "n": 18,
+     "text": "Ái luyến sinh sợ hãi."
+    },
+    {
+     "n": 19,
+     "text": "Ai giải thoát ái luyến"
+    },
+    {
+     "n": 20,
+     "text": "Không sầu, đâu sợ hãi?"
+    },
+    {
+     "n": 21,
+     "text": "Hỷ ái sinh sầu ưu,"
+    },
+    {
+     "n": 22,
+     "text": "Hỷ ái sinh sợ hãi."
+    },
+    {
+     "n": 23,
+     "text": "Ai giải thoát hỷ ái,"
+    },
+    {
+     "n": 24,
+     "text": "Không sầu, đâu sợ hãi?"
+    },
+    {
+     "n": 25,
+     "text": "Dục ái sinh sầu ưu,"
+    },
+    {
+     "n": 26,
+     "text": "Dục ái sinh sợ hãi,"
+    },
+    {
+     "n": 27,
+     "text": "Ai thoát khỏi dục ái,"
+    },
+    {
+     "n": 28,
+     "text": "Không sầu, đâu sợ hãi?"
+    },
+    {
+     "n": 29,
+     "text": "Tham ái sinh sầu ưu,"
+    },
+    {
+     "n": 30,
+     "text": "Tham ái sinh sợ hãi."
+    },
+    {
+     "n": 31,
+     "text": "Ai giải thoát tham ái,"
+    },
+    {
+     "n": 32,
+     "text": "Không sầu, đâu sợ hãi?"
+    },
+    {
+     "n": 33,
+     "text": "Đủ giới đức, chánh kiến;"
+    },
+    {
+     "n": 34,
+     "text": "Trú pháp, chứng chân lý,"
+    },
+    {
+     "n": 35,
+     "text": "Tự làm công việc mình,"
+    },
+    {
+     "n": 36,
+     "text": "Được quần chúng ái kính."
+    },
+    {
+     "n": 37,
+     "text": "Ước vọng pháp ly ngôn"
+    },
+    {
+     "n": 38,
+     "text": "Ý cảm xúc thượng quả"
+    },
+    {
+     "n": 39,
+     "text": "Tâm thoát ly các dục,"
+    },
+    {
+     "n": 40,
+     "text": "Xứng gọi bậc Thượng Lưu."
+    },
+    {
+     "n": 41,
+     "text": "Khách lâu ngày ly hương,"
+    },
+    {
+     "n": 42,
+     "text": "An toàn từ xa về,"
+    },
+    {
+     "n": 43,
+     "text": "Bà con cùng thân hữu,"
+    },
+    {
+     "n": 44,
+     "text": "Hân hoan đón chào mừng."
+    },
+    {
+     "n": 45,
+     "text": "Cũng vậy các phước nghiệp,"
+    },
+    {
+     "n": 46,
+     "text": "Đón chào người làm lành,"
+    },
+    {
+     "n": 47,
+     "text": "Đời này đến đời kia."
+    },
+    {
+     "n": 48,
+     "text": "Như thân nhân, đón chào."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp209-220/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ayoge yuñjamattānaṁ,"
+    },
+    {
+     "n": 2,
+     "text": "yogasmiñca ayojayaṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Atthaṁ hitvā piyaggāhī,"
+    },
+    {
+     "n": 4,
+     "text": "pihetattānuyoginaṁ."
+    },
+    {
+     "n": 5,
+     "text": "Mā piyehi samāgañchi,"
+    },
+    {
+     "n": 6,
+     "text": "appiyehi kudācanaṁ;"
+    },
+    {
+     "n": 7,
+     "text": "Piyānaṁ adassanaṁ dukkhaṁ,"
+    },
+    {
+     "n": 8,
+     "text": "appiyānañca dassanaṁ."
+    },
+    {
+     "n": 9,
+     "text": "Tasmā piyaṁ na kayirātha,"
+    },
+    {
+     "n": 10,
+     "text": "piyāpāyo hi pāpako;"
+    },
+    {
+     "n": 11,
+     "text": "Ganthā tesaṁ na vijjanti,"
+    },
+    {
+     "n": 12,
+     "text": "yesaṁ natthi piyāppiyaṁ."
+    },
+    {
+     "n": 13,
+     "text": "Piyato jāyatī soko,"
+    },
+    {
+     "n": 14,
+     "text": "piyato jāyatī bhayaṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Piyato vippamuttassa,"
+    },
+    {
+     "n": 16,
+     "text": "natthi soko kuto bhayaṁ."
+    },
+    {
+     "n": 17,
+     "text": "Pemato jāyatī soko,"
+    },
+    {
+     "n": 18,
+     "text": "pemato jāyatī bhayaṁ;"
+    },
+    {
+     "n": 19,
+     "text": "Pemato vippamuttassa,"
+    },
+    {
+     "n": 20,
+     "text": "natthi soko kuto bhayaṁ."
+    },
+    {
+     "n": 21,
+     "text": "Ratiyā jāyatī soko,"
+    },
+    {
+     "n": 22,
+     "text": "ratiyā jāyatī bhayaṁ;"
+    },
+    {
+     "n": 23,
+     "text": "Ratiyā vippamuttassa,"
+    },
+    {
+     "n": 24,
+     "text": "natthi soko kuto bhayaṁ."
+    },
+    {
+     "n": 25,
+     "text": "Kāmato jāyatī soko,"
+    },
+    {
+     "n": 26,
+     "text": "kāmato jāyatī bhayaṁ;"
+    },
+    {
+     "n": 27,
+     "text": "Kāmato vippamuttassa,"
+    },
+    {
+     "n": 28,
+     "text": "natthi soko kuto bhayaṁ."
+    },
+    {
+     "n": 29,
+     "text": "Taṇhāya jāyatī soko,"
+    },
+    {
+     "n": 30,
+     "text": "taṇhāya jāyatī bhayaṁ;"
+    },
+    {
+     "n": 31,
+     "text": "Taṇhāya vippamuttassa,"
+    },
+    {
+     "n": 32,
+     "text": "natthi soko kuto bhayaṁ."
+    },
+    {
+     "n": 33,
+     "text": "Sīladassanasampannaṁ,"
+    },
+    {
+     "n": 34,
+     "text": "dhammaṭṭhaṁ saccavedinaṁ;"
+    },
+    {
+     "n": 35,
+     "text": "Attano kamma kubbānaṁ,"
+    },
+    {
+     "n": 36,
+     "text": "taṁ jano kurute piyaṁ."
+    },
+    {
+     "n": 37,
+     "text": "Chandajāto anakkhāte,"
+    },
+    {
+     "n": 38,
+     "text": "Manasā ca phuṭo siyā;"
+    },
+    {
+     "n": 39,
+     "text": "Kāmesu ca appaṭibaddhacitto,"
+    },
+    {
+     "n": 40,
+     "text": "Uddhaṁsototi vuccati."
+    },
+    {
+     "n": 41,
+     "text": "Cirappavāsiṁ purisaṁ,"
+    },
+    {
+     "n": 42,
+     "text": "dūrato sotthimāgataṁ;"
+    },
+    {
+     "n": 43,
+     "text": "Ñātimittā suhajjā ca,"
+    },
+    {
+     "n": 44,
+     "text": "abhinandanti āgataṁ."
+    },
+    {
+     "n": 45,
+     "text": "Tatheva katapuññampi,"
+    },
+    {
+     "n": 46,
+     "text": "asmā lokā paraṁ gataṁ;"
+    },
+    {
+     "n": 47,
+     "text": "Puññāni paṭigaṇhanti,"
+    },
+    {
+     "n": 48,
+     "text": "piyaṁ ñātīva āgataṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp209-220/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Applying yourself where you ought not,"
+    },
+    {
+     "n": 2,
+     "text": "neglecting what you should be doing,"
+    },
+    {
+     "n": 3,
+     "text": "forgetting your goal, you cling to what you hold dear,"
+    },
+    {
+     "n": 4,
+     "text": "jealous of those devoted to their heart’s goal."
+    },
+    {
+     "n": 5,
+     "text": "Don’t ever get too close"
+    },
+    {
+     "n": 6,
+     "text": "to those you like or dislike."
+    },
+    {
+     "n": 7,
+     "text": "For not seeing the liked is suffering,"
+    },
+    {
+     "n": 8,
+     "text": "and so is seeing the disliked."
+    },
+    {
+     "n": 9,
+     "text": "Therefore don’t hold anything dear,"
+    },
+    {
+     "n": 10,
+     "text": "for it’s bad to lose those you love."
+    },
+    {
+     "n": 11,
+     "text": "No ties are found in they who"
+    },
+    {
+     "n": 12,
+     "text": "hold nothing loved or loathed."
+    },
+    {
+     "n": 13,
+     "text": "Sorrow springs from what we hold dear,"
+    },
+    {
+     "n": 14,
+     "text": "fear springs from what we hold dear;"
+    },
+    {
+     "n": 15,
+     "text": "one free from holding anything dear"
+    },
+    {
+     "n": 16,
+     "text": "has no sorrow, let alone fear."
+    },
+    {
+     "n": 17,
+     "text": "Sorrow springs from attachment,"
+    },
+    {
+     "n": 18,
+     "text": "fear springs from attachment;"
+    },
+    {
+     "n": 19,
+     "text": "one free from attachment"
+    },
+    {
+     "n": 20,
+     "text": "has no sorrow, let alone fear."
+    },
+    {
+     "n": 21,
+     "text": "Sorrow springs from relishing,"
+    },
+    {
+     "n": 22,
+     "text": "fear springs from relishing;"
+    },
+    {
+     "n": 23,
+     "text": "one free from relishing"
+    },
+    {
+     "n": 24,
+     "text": "has no sorrow, let alone fear."
+    },
+    {
+     "n": 25,
+     "text": "Sorrow springs from desire,"
+    },
+    {
+     "n": 26,
+     "text": "fear springs from desire;"
+    },
+    {
+     "n": 27,
+     "text": "one free from desire"
+    },
+    {
+     "n": 28,
+     "text": "has no sorrow, let alone fear."
+    },
+    {
+     "n": 29,
+     "text": "Sorrow springs from craving,"
+    },
+    {
+     "n": 30,
+     "text": "fear springs from craving;"
+    },
+    {
+     "n": 31,
+     "text": "one free from craving"
+    },
+    {
+     "n": 32,
+     "text": "has no sorrow, let alone fear."
+    },
+    {
+     "n": 33,
+     "text": "One accomplished in virtue and vision,"
+    },
+    {
+     "n": 34,
+     "text": "firmly principled, and truthful,"
+    },
+    {
+     "n": 35,
+     "text": "doing oneself what ought be done:"
+    },
+    {
+     "n": 36,
+     "text": "that’s who the people love."
+    },
+    {
+     "n": 37,
+     "text": "One eager to realize the ineffable"
+    },
+    {
+     "n": 38,
+     "text": "would be filled with awareness."
+    },
+    {
+     "n": 39,
+     "text": "Their mind not bound to pleasures of sense,"
+    },
+    {
+     "n": 40,
+     "text": "they’re said to be heading upstream."
+    },
+    {
+     "n": 41,
+     "text": "When a man returns safely"
+    },
+    {
+     "n": 42,
+     "text": "after a long time spent abroad,"
+    },
+    {
+     "n": 43,
+     "text": "family, friends, and loved ones"
+    },
+    {
+     "n": 44,
+     "text": "celebrate his return."
+    },
+    {
+     "n": 45,
+     "text": "Just so, when one who has done good"
+    },
+    {
+     "n": 46,
+     "text": "goes from this world to the next,"
+    },
+    {
+     "n": 47,
+     "text": "their good deeds receive them there,"
+    },
+    {
+     "n": 48,
+     "text": "as family welcomes home one they love."
+    }
+   ]
+  }
+ ]
+}

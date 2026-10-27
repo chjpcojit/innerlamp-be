@@ -1,0 +1,2157 @@
+{
+ "id": "angulimala",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 86",
+ "summary": "Kinh thuộc Trung Bộ (MN 86), kể chuyện Thế Tôn ở Sāvatthi, đi trên con đường có tên cướp Aṅgulimāla, kẻ giết người và đeo vòng hoa bằng ngón tay người. Dù được dân chúng can ngăn, Ngài vẫn đi tiếp; Aṅgulimāla đuổi theo nhưng không kịp, nghe Phật dạy mà quăng bỏ vũ khí và xin xuất gia. Kinh nói về sự chuyển hóa của một người từng làm ác nặng.",
+ "titles": {
+  "vi": "Kinh Angulimàla",
+  "pli": "Aṅgulimālasutta",
+  "en": "With Aṅgulimāla"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 35,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn86/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn trú tại Sāvatthi, Jetavana, ở tinh xá ông Anthapindika (Cấp cô độc)."
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ, trong lãnh thổ của quốc vương Pasenadi (Ba-tư-nặc), nước Kosala, có tên cướp Angulimala một thợ săn, tay vấy máu, sát hại, bạo tàn, không có lòng từ mẫn đối với chúng sanh."
+    },
+    {
+     "n": 4,
+     "text": "Vì nó, các làng trở thành không làng, các thị trấn trở thành không thị trấn, quốc độ trở thành không quốc độ."
+    },
+    {
+     "n": 5,
+     "text": "Do nó luôn luôn giết người, nó mang một vòng hoa làm bằng ngón tay người."
+    },
+    {
+     "n": 6,
+     "text": "Rồi Thế Tôn vào buổi sáng đắp y, cầm y bát, vào Sāvatthi để khất thực."
+    },
+    {
+     "n": 7,
+     "text": "Sau khi khất thực ở Sāvatthi, ăn xong, dọn dẹp sàng tọa, cầm y bát, Ngài quay trở về và đi trên con đường dẫn đến tên cướp Angulimala."
+    },
+    {
+     "n": 8,
+     "text": "Các người chăn bò, các người chăn thú, các người làm ruộng, các người bộ hành thấy Thế Tôn đang đi trên con đường dẫn đến tên cướp Angulimala, thấy vậy liền bạch Thế Tôn: “Thưa Sa-môn, chớ có đi trên con đường này."
+    },
+    {
+     "n": 9,
+     "text": "Thưa Sa-môn, trên con đường này có tên cướp Angulimala, là một thợ săn, tay vấy máu, sát hại, bạo tàn, không có lòng từ mẫn đối với chúng sanh."
+    },
+    {
+     "n": 10,
+     "text": "Vì nó, các làng trở thành không làng, các thị trấn trở thành không thị trấn, các quốc độ trở thành không quốc độ."
+    },
+    {
+     "n": 11,
+     "text": "Do nó luôn luôn giết người, nó mang một vòng hoa làm bằng ngón tay người."
+    },
+    {
+     "n": 12,
+     "text": "Thưa Sa-môn, trên đường này, có mười người, hai mươi người, ba mươi người, bốn mươi người tụ họp lại, tụ họp lại rồi cùng đi."
+    },
+    {
+     "n": 13,
+     "text": "Tuy vậy, họ vẫn rơi vào tay của tên cướp Angulimala”."
+    },
+    {
+     "n": 14,
+     "text": "Được nghe nói vậy, Thế Tôn giữ im lặng, vẫn tiếp tục đi."
+    },
+    {
+     "n": 15,
+     "text": "Lần thứ hai, các người chăn bò, các người chăn thú, các người làm ruộng, các người đi đường bạch Thế Tôn: “Thưa Sa-môn, chớ có đi con đường ấy … rơi vào tay của tên cướp Angulimala”."
+    },
+    {
+     "n": 16,
+     "text": "Lần thứ hai, Thế Tôn giữ im lặng, vẫn tiếp tục đi."
+    },
+    {
+     "n": 17,
+     "text": "Lần thứ ba, các người chăn bò, các người chăn thú, các người làm ruộng, các người đi đường bạch Thế Tôn: “Thưa Sa-môn, chớ có đi con đường ấy … rơi vào tay của tên cướp Angulimala”. Thế Tôn giữ im lặng, vẫn tiếp tục đi."
+    },
+    {
+     "n": 18,
+     "text": "Tên cướp Angulimala thấy Thế Tôn từ xa đi lại, sau khi thấy liền nghĩ: “Thật vi diệu thay! Thật hy hữu thay!"
+    },
+    {
+     "n": 19,
+     "text": "Con đường này, cho đến mười người, hai mươi người, ba mươi người, bốn mươi người, năm mươi người tụ họp lại, tụ họp lại rồi cùng đi; tuy vậy, chúng vẫn rơi vào tay của ta."
+    },
+    {
+     "n": 20,
+     "text": "Nay người Sa-môn này, chỉ có một mình, không có người thứ hai, lại đi đến, hình như do một sức mạnh gì?"
+    },
+    {
+     "n": 21,
+     "text": "Vậy ta giết hại mạng sống của người Sa-môn này!"
+    },
+    {
+     "n": 22,
+     "text": "” Rồi tên cướp Angulimala lấy kiếm và tấm khiên, đeo cung và tên vào, và đi theo sau lưng Thế Tôn."
+    },
+    {
+     "n": 23,
+     "text": "Rồi Thế Tôn hiện thần thông lực một cách làm cho tên cướp Angulimala, dầu cho đi với tất cả tốc lực của nó cũng không có thể bắt kịp Thế Tôn đang đi với tốc lực bình thường."
+    },
+    {
+     "n": 24,
+     "text": "Rồi tên cướp Angulimala suy nghĩ: “Thật vi diệu thay! Thật hy hữu thay!"
+    },
+    {
+     "n": 25,
+     "text": "Ta trước đây đuổi theo con voi đang chạy và bắt kịp nó, đuổi theo con ngựa đang chạy và bắt kịp nó, đuổi theo chiếc xe đang chạy và bắt kịp nó, đuổi theo con nai đang chạy và bắt kịp nó."
+    },
+    {
+     "n": 26,
+     "text": "Nay dẫu ta đi với tất cả tốc lực của ta cũng không thể bắt kịp Sa-môn này đang đi với tốc lực bình thường”. Nó thưa với Thế Tôn"
+    },
+    {
+     "n": 27,
+     "text": "—Hãy đứng lại, Sa-môn! Hãy đứng lại, Sa-môn!"
+    },
+    {
+     "n": 28,
+     "text": "—Ta đã đứng rồi, này Angulimala! Và ngươi hãy đứng lại!"
+    },
+    {
+     "n": 29,
+     "text": "Rồi tên cướp Angulimala suy nghĩ: “Những Sa-môn Thích Tử này là những người nói sự thật và chấp nhận sự thật."
+    },
+    {
+     "n": 30,
+     "text": "Và Sa-môn này dẫu cho đang đi lại nói: “Ta đã đứng rồi, này Angulimala! Và ngươi hãy đứng lại”. Vậy ta hãy hỏi vị Sa-môn này”."
+    },
+    {
+     "n": 31,
+     "text": "Rồi tên cướp Angulimala với bài kệ nói với Thế Tôn"
+    },
+    {
+     "n": 32,
+     "text": "—Người đi lại nói: “Ta đã đứng rồi”,"
+    },
+    {
+     "n": 33,
+     "text": "Ta đứng, Ngươi nói: “Sao ta không đứng?”"
+    },
+    {
+     "n": 34,
+     "text": "Sa-môn, ta hỏi về ý nghĩa này,"
+    },
+    {
+     "n": 35,
+     "text": "Sao Ngươi đứng lại, còn ta không đứng?"
+    },
+    {
+     "n": 36,
+     "text": "—Angulimala, Ta đã đứng rồi."
+    },
+    {
+     "n": 37,
+     "text": "Với mọi chúng sanh, Ta bỏ trượng, kiếm,"
+    },
+    {
+     "n": 38,
+     "text": "Còn ngươi hữu tình, không tự kiềm chế,"
+    },
+    {
+     "n": 39,
+     "text": "Do vậy, Ta đứng, còn Ngươi chưa đứng."
+    },
+    {
+     "n": 40,
+     "text": "—Đã lâu tôi kính, bậc Đại Tiên Nhân,"
+    },
+    {
+     "n": 41,
+     "text": "Nay Sa-môn này bước vào Đại Lâm."
+    },
+    {
+     "n": 42,
+     "text": "Không lâu, tôi sẽ đoạn trừ ác pháp,"
+    },
+    {
+     "n": 43,
+     "text": "Sau khi được nghe pháp kệ của Ngài."
+    },
+    {
+     "n": 44,
+     "text": "Nói xong tên cướp liền quăng bỏ kiếm,"
+    },
+    {
+     "n": 45,
+     "text": "Quăng bỏ khí giới xuống vực thâm sâu,"
+    },
+    {
+     "n": 46,
+     "text": "Tên cướp đảnh lễ dưới chân Thiện Thệ,"
+    },
+    {
+     "n": 47,
+     "text": "Ngay tại chỗ ấy, xin được xuất gia."
+    },
+    {
+     "n": 48,
+     "text": "Đức Phật từ bi, bậc Đại Tiên Nhân,"
+    },
+    {
+     "n": 49,
+     "text": "Đạo Sư Nhân giới, cùng với Thiên giới,"
+    },
+    {
+     "n": 50,
+     "text": "Ngài đã trả lời: “Thiện lai Tỷ-kheo”."
+    },
+    {
+     "n": 51,
+     "text": "Uy đức Tỷ-kheo được Ngài xác chứng."
+    },
+    {
+     "n": 52,
+     "text": "Rồi Thế Tôn cùng Tôn giả Angulimala là Sa-môn tùy tùng, bắt đầu du hành đi đến Sāvatthi, và tuần tự du hành, Thế Tôn đến Sāvatthi. Ở đây, Thế Tôn trú tại Sāvatthi, Jetavana, tại tinh xá ông Anthapindika."
+    },
+    {
+     "n": 53,
+     "text": "Lúc bấy giờ, tại cửa nội cung vua Pasenadi nước Kosala, một số đông quần chúng tụ họp lại, cao tiếng, lớn tiếng nói lên:"
+    },
+    {
+     "n": 54,
+     "text": "“Tâu Đại vương, trong lãnh thổ Đại vương, có tên cướp tên Angulimala, là tên thợ săn, bàn tay vấy máu, sát hại, bạo tàn, không có lòng từ mẫn đối với chúng sanh."
+    },
+    {
+     "n": 55,
+     "text": "Do vì nó, các làng trở thành không làng, thị trấn trở thành không thị trấn, quốc độ trở thành không quốc độ."
+    },
+    {
+     "n": 56,
+     "text": "Do nó luôn luôn giết người, nó mang một vòng hoa làm bằng ngón tay người. Đại vương hãy tẩn xuất nó”."
+    },
+    {
+     "n": 57,
+     "text": "Rồi vua Pasenadi nước Kosala, với khoảng năm trăm con ngựa, sáng sớm đi ra khỏi Sāvatthi, đi đến tinh xá, đi xe đến chỗ nào còn đi xe được, rồi vua xuống xe, đi bộ đến Thế Tôn, sau khi đến,"
+    },
+    {
+     "n": 58,
+     "text": "đảnh lễ Thế Tôn rồi ngồi xuống một bên. Thế Tôn nói với vua Pasenadi xứ Kosala đang ngồi một bên"
+    },
+    {
+     "n": 59,
+     "text": "—Thưa Đại vương, có phải vua Seniya Bimbisāra nước Magadha tức giận với Đại vương, hay các người Licchavi ở Vesālī, hay một địch vương nào khác?"
+    },
+    {
+     "n": 60,
+     "text": "—Bạch Thế Tôn, vua Seniya Bimbisāra xứ Magadha không có tức giận với con, không phải các người Licchavi ở Vesālī, cũng không phải có địch vương nào khác."
+    },
+    {
+     "n": 61,
+     "text": "Bạch Thế Tôn, trong lãnh thổ của con, có tên cướp tên là Angulimala, một tên thợ săn, bàn tay vấy máu, sát hại, bạo tàn, không có lòng từ mẫn đối với chúng sanh."
+    },
+    {
+     "n": 62,
+     "text": "Vì nó, các làng trở thành không làng, các thị trấn trở thành không thị trấn, các quốc độ trở thành không quốc độ."
+    },
+    {
+     "n": 63,
+     "text": "Bạch Thế Tôn, nhưng con không có thể tẩn xuất nó được (napatisedhissami)."
+    },
+    {
+     "n": 64,
+     "text": "—Thưa Đại vương, nếu Đại vương được thấy Angulimala cạo bỏ râu tóc, đắp áo cà-sa, xuất gia, từ bỏ gia đình, sống không gia đình, từ bỏ sát sanh, từ bỏ lấy của không cho, từ bỏ nói láo, ăn một ngày một bữa,"
+    },
+    {
+     "n": 65,
+     "text": "sống Phạm hạnh, giữ giới, hành trì thiện pháp. Đại vương sẽ làm gì với Angulimala?"
+    },
+    {
+     "n": 66,
+     "text": "—Bạch Thế Tôn, con sẽ đảnh lễ, hay đứng dậy, hay đưa ghế mời ngồi, hay lo liệu bốn sự cúng dường Angulimala, tức là y phục, ẩm thực, sàng tọa và dược phẩm trị bệnh, hay chúng con bảo vệ, hộ trì đúng pháp."
+    },
+    {
+     "n": 67,
+     "text": "Nhưng Bạch Thế Tôn, từ đâu một người phá giới, làm các ác pháp lại có thể trở thành giữ giới, biết chế ngự như vậy?"
+    },
+    {
+     "n": 68,
+     "text": "Lúc bấy giờ tôn giả Angulimala ngồi không xa Thế Tôn bao nhiêu."
+    },
+    {
+     "n": 69,
+     "text": "Rồi Thế Tôn duỗi cánh tay mặt và nói với vua Pasenadi"
+    },
+    {
+     "n": 70,
+     "text": "—Thưa Đại vương, đây là Angulimala."
+    },
+    {
+     "n": 71,
+     "text": "Vua Pasenadi nước Kosala liền hoảng sợ, run sợ, lông tóc dựng ngược."
+    },
+    {
+     "n": 72,
+     "text": "Thế Tôn biết được vua Pasenadi nước Kosala, hoảng sợ, khiếp sợ, lông tóc dựng ngược, bèn nói với vua Pasenadi, nước Kosala"
+    },
+    {
+     "n": 73,
+     "text": "—Chớ có sợ hãi, thưa Đại vương! Chớ có sợ hãi, thưa Đại vương. Ở đây, không có gì đáng sợ hãi cho Đại vương."
+    },
+    {
+     "n": 74,
+     "text": "Rồi sự hoảng sợ, khiếp sợ, lông tóc dựng ngược của vua Pasenadi, nước Kosala, được tan biến."
+    },
+    {
+     "n": 75,
+     "text": "Rồi vua Pasenadi nước Kosala đến gần Tôn giả Angulimala, sau khi đến, thưa với Tôn giả Angulimala"
+    },
+    {
+     "n": 76,
+     "text": "—Thưa Tôn giả, có phải Tôn giả là Angulimala?"
+    },
+    {
+     "n": 77,
+     "text": "—Thưa phải, Đại vương."
+    },
+    {
+     "n": 78,
+     "text": "—Thưa Tôn giả, phụ thân Tôn giả thuộc dòng họ gì? Mẫu thân thuộc dòng họ gì?"
+    },
+    {
+     "n": 79,
+     "text": "—Thưa Đại vương, phụ thân tôi thuộc dòng họ Gagga, mẫu thân thuộc dòng họ Mantani."
+    },
+    {
+     "n": 80,
+     "text": "—Thưa Tôn giả, mong Tôn giả Gagga Mantāniputta được hoan hỷ."
+    },
+    {
+     "n": 81,
+     "text": "Tôi sẽ cố gắng lo bốn sự cúng dường là y phục, ẩm thực, sàng tọa, y dược trị bệnh cho tôn giả."
+    },
+    {
+     "n": 82,
+     "text": "Lúc bấy giờ, Tôn giả Angulimala theo hạnh ở rừng núi, đi khất thực mà ăn, sống chỉ với ba y."
+    },
+    {
+     "n": 83,
+     "text": "Rồi Tôn giả Angulimala nói với vua Pasenadi nước Kosala"
+    },
+    {
+     "n": 84,
+     "text": "—Thôi vừa rồi, thưa Đại vương, tôi đã đủ ba y."
+    },
+    {
+     "n": 85,
+     "text": "Rồi vua Pasenadi nước Kosala đi đến gần Thế Tôn, sau khi đến, đảnh lễ Thế Tôn và ngồi xuống một bên."
+    },
+    {
+     "n": 86,
+     "text": "Ngồi xuống một bên, vua Pasenadi nước Kosala bạch Thế Tôn"
+    },
+    {
+     "n": 87,
+     "text": "—Thật vi diệu thay, bạch Thế Tôn! Thật hy hữu thay, bạch Thế Tôn!"
+    },
+    {
+     "n": 88,
+     "text": "Làm sao Thế Tôn lại nhiếp phục được người không thể nhiếp phục, làm cho an tịnh được người không thể an tịnh, làm cho tịch diệt được người không có thể tịch diệt."
+    },
+    {
+     "n": 89,
+     "text": "Bạch Thế Tôn, đối với người con không thể nhiếp phục với gậy, với kiếm, Thế Tôn đã có thể nhiếp phục được, với không gậy, không kiếm. Bạch Thế Tôn, nay chúng con phải đi."
+    },
+    {
+     "n": 90,
+     "text": "Chúng con có nhiều công việc, có nhiều trách nhiệm phải làm."
+    },
+    {
+     "n": 91,
+     "text": "—Thưa Đại vương, nay Đại vương hãy làm những gì Đại vương nghĩ là hợp thời."
+    },
+    {
+     "n": 92,
+     "text": "Rồi vua Pasenadi, nước Kosala, từ chỗ ngồi đứng dậy, đảnh lễ Thế Tôn, thân bên hữu hướng về Ngài và ra đi."
+    },
+    {
+     "n": 93,
+     "text": "Rồi Tôn giả Angulimala, vào buổi sáng đắp y, cầm y bát đi vào Sāvatthi để khất thực."
+    },
+    {
+     "n": 94,
+     "text": "Trong khi đi khất thực từng nhà một ở Sāvatthi, Tôn giả Angulimala thấy một người đàn bà đang sanh đẻ, rất là nguy kịch và đau đớn."
+    },
+    {
+     "n": 95,
+     "text": "Thấy vậy, Tôn giả suy nghĩ: “Thật đau khổ thay các chúng sanh! Thật đau khổ thay các chúng sanh!"
+    },
+    {
+     "n": 96,
+     "text": "” Rồi Tôn giả Angulimala, sau khi đi khất thực ở Sāvatthi, sau buổi ăn, trên con đường đi khất thực trở về, đi đến Thế Tôn, sau khi đến, đảnh lễ Thế Tôn rồi ngồi xuống một bên."
+    },
+    {
+     "n": 97,
+     "text": "Ngồi xuống một bên, Tôn giả Angulimala bạch Thế Tôn"
+    },
+    {
+     "n": 98,
+     "text": "—Bạch Thế Tôn, ở đây, con vào buổi sáng đắp y, cầm y bát, đi vào thành Sāvatthi để khất thực."
+    },
+    {
+     "n": 99,
+     "text": "Bạch Thế Tôn, trong khi đi khất thực từng nhà một ở Sāvatthi, con thấy một người đàn bà đang sanh đẻ, rất là nguy kịch, đau đớn."
+    },
+    {
+     "n": 100,
+     "text": "Thấy vậy, con suy nghĩ: “Thật đau khổ thay các chúng sanh! Thật đau khổ thay các chúng sanh! ”"
+    },
+    {
+     "n": 101,
+     "text": "—Này Angulimala, Ông hãy đi đến Sāvatthi, sau khi đến, nói với người đàn bà ấy như sau:"
+    },
+    {
+     "n": 102,
+     "text": "“Này Bà chị, vì rằng tôi từ khi sanh ra chưa bao giờ cố ý giết hại mạng sống của chúng sanh, mong rằng với sự thật ấy, bà được an toàn, và sanh đẻ được an toàn!”"
+    },
+    {
+     "n": 103,
+     "text": "—Bạch Thế Tôn, nếu làm vậy, thời con là cố ý nói láo."
+    },
+    {
+     "n": 104,
+     "text": "Bạch Thế Tôn, con đã cố ý giết hại mạng sống rất nhiều chúng sanh rồi."
+    },
+    {
+     "n": 105,
+     "text": "—Vậy thì, này Angulimala, Ông hãy đi đến Sāvatthi, sau khi đến hãy nói với người đàn bà ấy như sau:"
+    },
+    {
+     "n": 106,
+     "text": "“Này Bà chị, vì rằng tôi từ khi được Thánh sanh đến này chưa bao giờ cố ý giết hại mạng sống của chúng sanh, mong rằng với sự thật ấy, bà được an toàn và sanh đẻ được an toàn!”"
+    },
+    {
+     "n": 107,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 108,
+     "text": "Tôn giả Angulimala, sau khi vâng đáp Thế Tôn, đi đến Sāvatthi, sau khi đến nói với người đàn bà ấy như sau:"
+    },
+    {
+     "n": 109,
+     "text": "“Thưa Bà chị, vì rằng tôi từ khi được Thánh sanh đến nay chưa bao giờ cố ý giết hại mạng sống của chúng sanh, mong rằng với sự thật ấy, bà được an toàn, và sanh đẻ được an toàn!”"
+    },
+    {
+     "n": 110,
+     "text": "Và người đàn bà được an toàn, sanh đẻ được an toàn."
+    },
+    {
+     "n": 111,
+     "text": "Rồi Tôn giả Angulimala, sống một mình, viễn ly, không phóng dật, nhiệt tâm, tinh cần, và không bao lâu sau, tự thân chứng ngộ với thắng trí,"
+    },
+    {
+     "n": 112,
+     "text": "chứng đắc và an trú ngay trong hiện tại vô thượng cứu cánh Phạm hạnh mà vì mục đích này các Thiện nam tử xuất gia, từ bỏ gia đình, sống không gia đình."
+    },
+    {
+     "n": 113,
+     "text": "“Sanh đã tận, Phạm hạnh đã thành, những gì nên làm đã làm, từ nay không còn trở lui đời này nữa”. Vị ấy biết như vậy."
+    },
+    {
+     "n": 114,
+     "text": "Và như vậy, Tôn giả Angulimala trở thành một vị A-la-hán nữa."
+    },
+    {
+     "n": 115,
+     "text": "Rồi Tôn giả Angulimala buổi sáng đắp y, cầm y bát, đi vào Sāvatthi để khất thực."
+    },
+    {
+     "n": 116,
+     "text": "Lúc bấy giờ, một cục đất do một người ném, rơi trên thân Tôn giả Angulimala, rồi một cây gậy do một người khác quăng, rơi trên thân Tôn giả Angulimala, rồi một hòn sỏi do một người khác quăng,"
+    },
+    {
+     "n": 117,
+     "text": "rơi trên thân Tôn giả Angulimala. Rồi Tôn giả Angulimala bị lỗ đầu, chảy máu, bình bát bị bể, ngoại y bị rách, đi đến Thế Tôn."
+    },
+    {
+     "n": 118,
+     "text": "Thế Tôn thấy Tôn giả Angulimala từ xa đi đến, thấy vậy, liền nói với Tôn giả Angulimala: “Hãy kham nhẫn, này Bà-la-môn! Hãy kham nhẫn, này Bà-la-môn!"
+    },
+    {
+     "n": 119,
+     "text": "Ông đang gặt hái ngay trong hiện tại quả báo của nghiệp mà đáng lẽ Ông phải chịu nấu sôi ở địa ngục nhiều năm, nhiều trăm năm, nhiều ngàn năm”."
+    },
+    {
+     "n": 120,
+     "text": "Rồi Tôn giả Angulimala sống độc cư, Thiền tịnh, cảm thọ được giải thoát lạc, và trong lúc ấy nói lên lời cảm khái sau đây:"
+    },
+    {
+     "n": 121,
+     "text": "“Ai trước phóng dật, sau không phóng dật,"
+    },
+    {
+     "n": 122,
+     "text": "Sáng chói đời này, như trăng thoát mây,"
+    },
+    {
+     "n": 123,
+     "text": "Ai làm ác nghiệp, nhờ thiện chận lại,"
+    },
+    {
+     "n": 124,
+     "text": "Sáng chói đời này, như trăng thoát mây."
+    },
+    {
+     "n": 125,
+     "text": "Niên thiếu Tỷ-kheo trung thành Phật giáo,"
+    },
+    {
+     "n": 126,
+     "text": "Sáng chói đời này, như trăng thoát mây."
+    },
+    {
+     "n": 127,
+     "text": "Mong kẻ địch ta, nghe giảng Pháp thoại!"
+    },
+    {
+     "n": 128,
+     "text": "Mong kẻ địch ta, trung thành Phật giáo!"
+    },
+    {
+     "n": 129,
+     "text": "Mong kẻ địch ta, thọ lãnh chánh pháp,"
+    },
+    {
+     "n": 130,
+     "text": "Thân tâm an tịnh, san sẻ mọi người."
+    },
+    {
+     "n": 131,
+     "text": "Mong kẻ địch ta, từ bậc Thuyết nhẫn,"
+    },
+    {
+     "n": 132,
+     "text": "Từ bậc Tán thán, vô oán hận tâm."
+    },
+    {
+     "n": 133,
+     "text": "Thời thời nghe pháp, y pháp hành trì."
+    },
+    {
+     "n": 134,
+     "text": "Một kẻ như vậy, không có hại ta,"
+    },
+    {
+     "n": 135,
+     "text": "Cũng không làm hại một người nào khác."
+    },
+    {
+     "n": 136,
+     "text": "Vị ấy sẽ chứng tối thượng tịch tịnh."
+    },
+    {
+     "n": 137,
+     "text": "Hộ trì mọi người, kẻ tham người không,"
+    },
+    {
+     "n": 138,
+     "text": "Như người dẫn nước, hướng dẫn nước chảy,"
+    },
+    {
+     "n": 139,
+     "text": "Như kẻ làm tên uốn cong thân tên,"
+    },
+    {
+     "n": 140,
+     "text": "Như người thợ mộc uốn nắn cây gỗ."
+    },
+    {
+     "n": 141,
+     "text": "Kẻ trí tự mình, tự điều phục mình,"
+    },
+    {
+     "n": 142,
+     "text": "Có kẻ được điều bởi gậy, roi, móc,"
+    },
+    {
+     "n": 143,
+     "text": "Riêng Ta được điều không gậy, không kiếm."
+    },
+    {
+     "n": 144,
+     "text": "(Bởi bậc như vậy)."
+    },
+    {
+     "n": 145,
+     "text": "Ta tên Vô Hại, trước ta sát hại,"
+    },
+    {
+     "n": 146,
+     "text": "Nay được chánh danh, vì chẳng hại ai."
+    },
+    {
+     "n": 147,
+     "text": "Trước ta được tên Angulimala,"
+    },
+    {
+     "n": 148,
+     "text": "Bị nước thác cuốn, ta quy y Phật."
+    },
+    {
+     "n": 149,
+     "text": "Trước tay vấy máu, danh xưng Angulimala,"
+    },
+    {
+     "n": 150,
+     "text": "Xem ta quy y, đoạn dây sanh tử,"
+    },
+    {
+     "n": 151,
+     "text": "Làm nghiệp như vậy phải sanh ác thú,"
+    },
+    {
+     "n": 152,
+     "text": "Khi lãnh nghiệp báo, không nợ ta hưởng."
+    },
+    {
+     "n": 153,
+     "text": "Kẻ ngu vô trí, đam mê phóng dật,"
+    },
+    {
+     "n": 154,
+     "text": "Còn người có trí, giữ không phóng dật,"
+    },
+    {
+     "n": 155,
+     "text": "Như giữ tài sản, tối thượng, tối quý,"
+    },
+    {
+     "n": 156,
+     "text": "Chớ mê phóng dật, chớ mê dục lạc."
+    },
+    {
+     "n": 157,
+     "text": "Giữ không phóng dật, luôn luôn Thiền định,"
+    },
+    {
+     "n": 158,
+     "text": "Chứng đắc đại lạc, quảng đại vô lượng,"
+    },
+    {
+     "n": 159,
+     "text": "Thiện lai, ta đến, không đi lạc hướng,"
+    },
+    {
+     "n": 160,
+     "text": "Không ai khuyên ta theo tư tưởng ác."
+    },
+    {
+     "n": 161,
+     "text": "Giữa các chân lý được khéo giảng dạy,"
+    },
+    {
+     "n": 162,
+     "text": "Chân lý ta theo, chân lý tối thượng,"
+    },
+    {
+     "n": 163,
+     "text": "Thiện lai ta đến, không đi lạc hướng,"
+    },
+    {
+     "n": 164,
+     "text": "Không ai khuyên ta theo tư tưởng ác,"
+    },
+    {
+     "n": 165,
+     "text": "Ba minh ta chứng, Phật lý viên thành."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn86/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Tena kho pana samayena rañño pasenadissa kosalassa vijite coro aṅgulimālo nāma hoti luddo lohitapāṇi hatapahate niviṭṭho adayāpanno pāṇabhūtesu."
+    },
+    {
+     "n": 3,
+     "text": "Tena gāmāpi agāmā katā, nigamāpi anigamā katā, janapadāpi ajanapadā katā."
+    },
+    {
+     "n": 4,
+     "text": "So manusse vadhitvā vadhitvā aṅgulīnaṁ mālaṁ dhāreti."
+    },
+    {
+     "n": 5,
+     "text": "Atha kho bhagavā pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya sāvatthiṁ piṇḍāya pāvisi."
+    },
+    {
+     "n": 6,
+     "text": "Sāvatthiyaṁ piṇḍāya caritvā pacchābhattaṁ piṇḍapātapaṭikkanto senāsanaṁ saṁsāmetvā pattacīvaramādāya yena coro aṅgulimālo tenaddhānamaggaṁ paṭipajji."
+    },
+    {
+     "n": 7,
+     "text": "Addasāsuṁ kho gopālakā pasupālakā kassakā pathāvino bhagavantaṁ yena coro aṅgulimālo tenaddhānamaggapaṭipannaṁ."
+    },
+    {
+     "n": 8,
+     "text": "Disvāna bhagavantaṁ etadavocuṁ: “mā, samaṇa, etaṁ maggaṁ paṭipajji."
+    },
+    {
+     "n": 9,
+     "text": "Etasmiṁ, samaṇa, magge coro aṅgulimālo nāma luddo lohitapāṇi hatapahate niviṭṭho adayāpanno pāṇabhūtesu."
+    },
+    {
+     "n": 10,
+     "text": "Tena gāmāpi agāmā katā, nigamāpi anigamā katā, janapadāpi ajanapadā katā."
+    },
+    {
+     "n": 11,
+     "text": "So manusse vadhitvā vadhitvā aṅgulīnaṁ mālaṁ dhāreti."
+    },
+    {
+     "n": 12,
+     "text": "Etañhi, samaṇa, maggaṁ dasapi purisā vīsampi purisā tiṁsampi purisā cattārīsampi purisā paññāsampi purisā saṅkaritvā saṅkaritvā paṭipajjanti."
+    },
+    {
+     "n": 13,
+     "text": "Tepi corassa aṅgulimālassa hatthatthaṁ gacchantī”ti. Evaṁ vutte, bhagavā tuṇhībhūto agamāsi."
+    },
+    {
+     "n": 14,
+     "text": "Dutiyampi kho gopālakā …pe… tatiyampi kho gopālakā pasupālakā kassakā pathāvino bhagavantaṁ etadavocuṁ:"
+    },
+    {
+     "n": 15,
+     "text": "“mā, samaṇa, etaṁ maggaṁ paṭipajji, etasmiṁ samaṇa magge coro aṅgulimālo nāma luddo lohitapāṇi hatapahate niviṭṭho adayāpanno pāṇabhūtesu, tena gāmāpi agāmā katā, nigamāpi anigamā katā, janapadāpi ajanapadā katā."
+    },
+    {
+     "n": 16,
+     "text": "So manusse vadhitvā vadhitvā aṅgulīnaṁ mālaṁ dhāreti."
+    },
+    {
+     "n": 17,
+     "text": "Etañhi samaṇa maggaṁ dasapi purisā vīsampi purisā tiṁsampi purisā cattārīsampi purisā paññāsampi purisā saṅkaritvā saṅkaritvā paṭipajjanti."
+    },
+    {
+     "n": 18,
+     "text": "Tepi corassa aṅgulimālassa hatthatthaṁ gacchantī”ti."
+    },
+    {
+     "n": 19,
+     "text": "Atha kho bhagavā tuṇhībhūto agamāsi."
+    },
+    {
+     "n": 20,
+     "text": "Addasā kho coro aṅgulimālo bhagavantaṁ dūratova āgacchantaṁ."
+    },
+    {
+     "n": 21,
+     "text": "Disvānassa etadahosi: “acchariyaṁ vata bho, abbhutaṁ vata bho."
+    },
+    {
+     "n": 22,
+     "text": "Imañhi maggaṁ dasapi purisā vīsampi purisā tiṁsampi purisā cattārīsampi purisā paññāsampi purisā saṅkaritvā saṅkaritvā paṭipajjanti. Tepi mama hatthatthaṁ gacchanti."
+    },
+    {
+     "n": 23,
+     "text": "Atha ca panāyaṁ samaṇo eko adutiyo pasayha maññe āgacchati."
+    },
+    {
+     "n": 24,
+     "text": "Yannūnāhaṁ imaṁ samaṇaṁ jīvitā voropeyyan”ti."
+    },
+    {
+     "n": 25,
+     "text": "Atha kho coro aṅgulimālo asicammaṁ gahetvā dhanukalāpaṁ sannayhitvā bhagavantaṁ piṭṭhito piṭṭhito anubandhi."
+    },
+    {
+     "n": 26,
+     "text": "Atha kho bhagavā tathārūpaṁ iddhābhisaṅkhāraṁ abhisaṅkhāsi yathā coro aṅgulimālo bhagavantaṁ pakatiyā gacchantaṁ sabbathāmena gacchanto na sakkoti sampāpuṇituṁ."
+    },
+    {
+     "n": 27,
+     "text": "Atha kho corassa aṅgulimālassa etadahosi: “acchariyaṁ vata bho, abbhutaṁ vata bho."
+    },
+    {
+     "n": 28,
+     "text": "Ahañhi pubbe hatthimpi dhāvantaṁ anupatitvā gaṇhāmi, assampi dhāvantaṁ anupatitvā gaṇhāmi, rathampi dhāvantaṁ anupatitvā gaṇhāmi, migampi dhāvantaṁ anupatitvā gaṇhāmi;"
+    },
+    {
+     "n": 29,
+     "text": "atha ca panāhaṁ imaṁ samaṇaṁ pakatiyā gacchantaṁ sabbathāmena gacchanto na sakkomi sampāpuṇitun”ti."
+    },
+    {
+     "n": 30,
+     "text": "Ṭhitova bhagavantaṁ etadavoca: “tiṭṭha, tiṭṭha, samaṇā”ti."
+    },
+    {
+     "n": 31,
+     "text": "“Ṭhito ahaṁ, aṅgulimāla, tvañca tiṭṭhā”ti."
+    },
+    {
+     "n": 32,
+     "text": "Atha kho corassa aṅgulimālassa etadahosi: “ime kho samaṇā sakyaputtiyā saccavādino saccapaṭiññā."
+    },
+    {
+     "n": 33,
+     "text": "Atha panāyaṁ samaṇo gacchaṁ yevāha: ‘ṭhito ahaṁ, aṅgulimāla, tvañca tiṭṭhā’ti. Yannūnāhaṁ imaṁ samaṇaṁ puccheyyan”ti."
+    },
+    {
+     "n": 34,
+     "text": "Atha kho coro aṅgulimālo bhagavantaṁ gāthāya ajjhabhāsi:"
+    },
+    {
+     "n": 35,
+     "text": "“Gacchaṁ vadesi samaṇa ṭhitomhi,"
+    },
+    {
+     "n": 36,
+     "text": "Mamañca brūsi ṭhitamaṭṭhitoti;"
+    },
+    {
+     "n": 37,
+     "text": "Pucchāmi taṁ samaṇa etamatthaṁ,"
+    },
+    {
+     "n": 38,
+     "text": "Kathaṁ ṭhito tvaṁ ahamaṭṭhitomhī”ti."
+    },
+    {
+     "n": 39,
+     "text": "“Ṭhito ahaṁ aṅgulimāla sabbadā,"
+    },
+    {
+     "n": 40,
+     "text": "Sabbesu bhūtesu nidhāya daṇḍaṁ;"
+    },
+    {
+     "n": 41,
+     "text": "Tuvañca pāṇesu asaññatosi,"
+    },
+    {
+     "n": 42,
+     "text": "Tasmā ṭhitohaṁ tuvamaṭṭhitosī”ti."
+    },
+    {
+     "n": 43,
+     "text": "“Cirassaṁ vata me mahito mahesī,"
+    },
+    {
+     "n": 44,
+     "text": "Mahāvanaṁ pāpuṇi saccavādī;"
+    },
+    {
+     "n": 45,
+     "text": "Sohaṁ carissāmi pahāya pāpaṁ,"
+    },
+    {
+     "n": 46,
+     "text": "Sutvāna gāthaṁ tava dhammayuttaṁ”."
+    },
+    {
+     "n": 47,
+     "text": "Itveva coro asimāvudhañca,"
+    },
+    {
+     "n": 48,
+     "text": "Sobbhe papāte narake akiri;"
+    },
+    {
+     "n": 49,
+     "text": "Avandi coro sugatassa pāde,"
+    },
+    {
+     "n": 50,
+     "text": "Tattheva naṁ pabbajjaṁ ayāci."
+    },
+    {
+     "n": 51,
+     "text": "Buddho ca kho kāruṇiko mahesi,"
+    },
+    {
+     "n": 52,
+     "text": "Yo satthā lokassa sadevakassa;"
+    },
+    {
+     "n": 53,
+     "text": "“Tamehi bhikkhū”ti tadā avoca,"
+    },
+    {
+     "n": 54,
+     "text": "Eseva tassa ahu bhikkhubhāvoti."
+    },
+    {
+     "n": 55,
+     "text": "Atha kho bhagavā āyasmatā aṅgulimālena pacchāsamaṇena yena sāvatthi tena cārikaṁ pakkāmi."
+    },
+    {
+     "n": 56,
+     "text": "Anupubbena cārikaṁ caramāno yena sāvatthi tadavasari."
+    },
+    {
+     "n": 57,
+     "text": "Tatra sudaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 58,
+     "text": "Tena kho pana samayena rañño pasenadissa kosalassa antepuradvāre mahājanakāyo sannipatitvā uccāsaddo mahāsaddo hoti: “coro te, deva, vijite aṅgulimālo nāma luddo lohitapāṇi hatapahate niviṭṭho adayāpanno pāṇabhūtesu."
+    },
+    {
+     "n": 59,
+     "text": "Tena gāmāpi agāmā katā, nigamāpi anigamā katā, janapadāpi ajanapadā katā."
+    },
+    {
+     "n": 60,
+     "text": "So manusse vadhitvā vadhitvā aṅgulīnaṁ mālaṁ dhāreti. Taṁ devo paṭisedhetū”ti."
+    },
+    {
+     "n": 61,
+     "text": "Atha kho rājā pasenadi kosalo pañcamattehi assasatehi sāvatthiyā nikkhami divā divassa. Yena ārāmo tena pāvisi."
+    },
+    {
+     "n": 62,
+     "text": "Yāvatikā yānassa bhūmi yānena gantvā yānā paccorohitvā pattikova yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 63,
+     "text": "Ekamantaṁ nisinnaṁ kho rājānaṁ pasenadiṁ kosalaṁ bhagavā etadavoca:"
+    },
+    {
+     "n": 64,
+     "text": "“kiṁ nu te, mahārāja, rājā vā māgadho seniyo bimbisāro kupito vesālikā vā licchavī aññe vā paṭirājāno”ti?"
+    },
+    {
+     "n": 65,
+     "text": "“Na kho me, bhante, rājā māgadho seniyo bimbisāro kupito, nāpi vesālikā licchavī, nāpi aññe paṭirājāno."
+    },
+    {
+     "n": 66,
+     "text": "Coro me, bhante, vijite aṅgulimālo nāma luddo lohitapāṇi hatapahate niviṭṭho adayāpanno pāṇabhūtesu."
+    },
+    {
+     "n": 67,
+     "text": "Tena gāmāpi agāmā katā, nigamāpi anigamā katā, janapadāpi ajanapadā katā."
+    },
+    {
+     "n": 68,
+     "text": "So manusse vadhitvā vadhitvā aṅgulīnaṁ mālaṁ dhāreti. Tāhaṁ, bhante, paṭisedhissāmī”ti."
+    },
+    {
+     "n": 69,
+     "text": "“Sace pana tvaṁ, mahārāja, aṅgulimālaṁ passeyyāsi kesamassuṁ ohāretvā kāsāyāni vatthāni acchādetvā agārasmā anagāriyaṁ pabbajitaṁ, virataṁ pāṇātipātā, virataṁ adinnādānā, virataṁ musāvādā, ekabhattikaṁ, brahmacāriṁ,"
+    },
+    {
+     "n": 70,
+     "text": "sīlavantaṁ, kalyāṇadhammaṁ, kinti naṁ kareyyāsī”ti?"
+    },
+    {
+     "n": 71,
+     "text": "“Abhivādeyyāma vā, bhante, paccuṭṭheyyāma vā āsanena vā nimanteyyāma, abhinimanteyyāma vā naṁ cīvarapiṇḍapātasenāsanagilānappaccayabhesajjaparikkhārehi, dhammikaṁ vā assa rakkhāvaraṇaguttiṁ saṁvidaheyyāma."
+    },
+    {
+     "n": 72,
+     "text": "Kuto panassa, bhante, dussīlassa pāpadhammassa evarūpo sīlasaṁyamo bhavissatī”ti?"
+    },
+    {
+     "n": 73,
+     "text": "Tena kho pana samayena āyasmā aṅgulimālo bhagavato avidūre nisinno hoti."
+    },
+    {
+     "n": 74,
+     "text": "Atha kho bhagavā dakkhiṇaṁ bāhuṁ paggahetvā rājānaṁ pasenadiṁ kosalaṁ etadavoca: “eso, mahārāja, aṅgulimālo”ti."
+    },
+    {
+     "n": 75,
+     "text": "Atha kho rañño pasenadissa kosalassa ahudeva bhayaṁ, ahu chambhitattaṁ, ahu lomahaṁso."
+    },
+    {
+     "n": 76,
+     "text": "Atha kho bhagavā rājānaṁ pasenadiṁ kosalaṁ bhītaṁ saṁviggaṁ lomahaṭṭhajātaṁ viditvā rājānaṁ pasenadiṁ kosalaṁ etadavoca: “mā bhāyi, mahārāja, natthi te ito bhayan”ti."
+    },
+    {
+     "n": 77,
+     "text": "Atha kho rañño pasenadissa kosalassa yaṁ ahosi bhayaṁ vā chambhitattaṁ vā lomahaṁso vā so paṭippassambhi."
+    },
+    {
+     "n": 78,
+     "text": "Atha kho rājā pasenadi kosalo yenāyasmā aṅgulimālo tenupasaṅkami; upasaṅkamitvā āyasmantaṁ aṅgulimālaṁ etadavoca: “ayyo no, bhante, aṅgulimālo”ti?"
+    },
+    {
+     "n": 79,
+     "text": "“Evaṁ, mahārājā”ti."
+    },
+    {
+     "n": 80,
+     "text": "“Kathaṅgotto ayyassa pitā, kathaṅgottā mātā”ti?"
+    },
+    {
+     "n": 81,
+     "text": "“Gaggo kho, mahārāja, pitā, mantāṇī mātā”ti."
+    },
+    {
+     "n": 82,
+     "text": "“Abhiramatu, bhante, ayyo gaggo mantāṇiputto."
+    },
+    {
+     "n": 83,
+     "text": "Ahamayyassa gaggassa mantāṇiputtassa ussukkaṁ karissāmi cīvarapiṇḍapātasenāsanagilānappaccayabhesajjaparikkhārānan”ti."
+    },
+    {
+     "n": 84,
+     "text": "Tena kho pana samayena āyasmā aṅgulimālo āraññiko hoti piṇḍapātiko paṁsukūliko tecīvariko."
+    },
+    {
+     "n": 85,
+     "text": "Atha kho āyasmā aṅgulimālo rājānaṁ pasenadiṁ kosalaṁ etadavoca: “alaṁ, mahārāja, paripuṇṇaṁ me cīvaran”ti."
+    },
+    {
+     "n": 86,
+     "text": "Atha kho rājā pasenadi kosalo yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 87,
+     "text": "Ekamantaṁ nisinno kho rājā pasenadi kosalo bhagavantaṁ etadavoca: “acchariyaṁ, bhante, abbhutaṁ, bhante."
+    },
+    {
+     "n": 88,
+     "text": "Yāvañcidaṁ, bhante, bhagavā adantānaṁ dametā, asantānaṁ sametā, aparinibbutānaṁ parinibbāpetā."
+    },
+    {
+     "n": 89,
+     "text": "Yañhi mayaṁ, bhante, nāsakkhimhā daṇḍenapi satthenapi dametuṁ so bhagavatā adaṇḍena asattheneva danto."
+    },
+    {
+     "n": 90,
+     "text": "Handa ca dāni mayaṁ, bhante, gacchāma; bahukiccā mayaṁ bahukaraṇīyā”ti."
+    },
+    {
+     "n": 91,
+     "text": "“Yassadāni, mahārāja, kālaṁ maññasī”ti. Atha kho rājā pasenadi kosalo uṭṭhāyāsanā bhagavantaṁ abhivādetvā padakkhiṇaṁ katvā pakkāmi."
+    },
+    {
+     "n": 92,
+     "text": "Atha kho āyasmā aṅgulimālo pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya sāvatthiyaṁ piṇḍāya pāvisi."
+    },
+    {
+     "n": 93,
+     "text": "Addasā kho āyasmā aṅgulimālo sāvatthiyaṁ sapadānaṁ piṇḍāya caramāno aññataraṁ itthiṁ mūḷhagabbhaṁ vighātagabbhaṁ."
+    },
+    {
+     "n": 94,
+     "text": "Disvānassa etadahosi: “kilissanti vata, bho, sattā; kilissanti vata, bho, sattā”ti."
+    },
+    {
+     "n": 95,
+     "text": "Atha kho āyasmā aṅgulimālo sāvatthiyaṁ piṇḍāya caritvā pacchābhattaṁ piṇḍapātapaṭikkanto yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 96,
+     "text": "Ekamantaṁ nisinno kho āyasmā aṅgulimālo bhagavantaṁ etadavoca: “idhāhaṁ, bhante, pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya sāvatthiṁ piṇḍāya pāvisiṁ."
+    },
+    {
+     "n": 97,
+     "text": "Addasaṁ kho ahaṁ, bhante, sāvatthiyaṁ sapadānaṁ piṇḍāya caramāno aññataraṁ itthiṁ mūḷhagabbhaṁ vighātagabbhaṁ."
+    },
+    {
+     "n": 98,
+     "text": "Disvāna mayhaṁ etadahosi: ‘kilissanti vata bho sattā, kilissanti vata bho sattā’”ti."
+    },
+    {
+     "n": 99,
+     "text": "“Tena hi tvaṁ, aṅgulimāla, yena sā itthī tenupasaṅkama; upasaṅkamitvā taṁ itthiṁ evaṁ vadehi:"
+    },
+    {
+     "n": 100,
+     "text": "‘yatohaṁ, bhagini, jāto nābhijānāmi sañcicca pāṇaṁ jīvitā voropetā, tena saccena sotthi te hotu, sotthi gabbhassā’”ti."
+    },
+    {
+     "n": 101,
+     "text": "“So hi nūna me, bhante, sampajānamusāvādo bhavissati."
+    },
+    {
+     "n": 102,
+     "text": "Mayā hi, bhante, bahū sañcicca pāṇā jīvitā voropitā”ti."
+    },
+    {
+     "n": 103,
+     "text": "“Tena hi tvaṁ, aṅgulimāla, yena sā itthī tenupasaṅkama; upasaṅkamitvā taṁ itthiṁ evaṁ vadehi:"
+    },
+    {
+     "n": 104,
+     "text": "‘yatohaṁ, bhagini, ariyāya jātiyā jāto, nābhijānāmi sañcicca pāṇaṁ jīvitā voropetā, tena saccena sotthi te hotu, sotthi gabbhassā’”ti."
+    },
+    {
+     "n": 105,
+     "text": "“Evaṁ, bhante”ti kho āyasmā aṅgulimālo bhagavato paṭissutvā yena sā itthī tenupasaṅkami; upasaṅkamitvā taṁ itthiṁ etadavoca:"
+    },
+    {
+     "n": 106,
+     "text": "“yatohaṁ, bhagini, ariyāya jātiyā jāto, nābhijānāmi sañcicca pāṇaṁ jīvitā voropetā, tena saccena sotthi te hotu, sotthi gabbhassā”ti."
+    },
+    {
+     "n": 107,
+     "text": "Atha khvāssā itthiyā sotthi ahosi, sotthi gabbhassa."
+    },
+    {
+     "n": 108,
+     "text": "Atha kho āyasmā aṅgulimālo eko vūpakaṭṭho appamatto ātāpī pahitatto viharanto nacirasseva—yassatthāya kulaputtā sammadeva agārasmā anagāriyaṁ pabbajanti,"
+    },
+    {
+     "n": 109,
+     "text": "tadanuttaraṁ—brahmacariyapariyosānaṁ diṭṭheva dhamme sayaṁ abhiññā sacchikatvā upasampajja vihāsi."
+    },
+    {
+     "n": 110,
+     "text": "“Khīṇā jāti, vusitaṁ brahmacariyaṁ, kataṁ karaṇīyaṁ, nāparaṁ itthattāyā”ti abbhaññāsi."
+    },
+    {
+     "n": 111,
+     "text": "Aññataro kho panāyasmā aṅgulimālo arahataṁ ahosi."
+    },
+    {
+     "n": 112,
+     "text": "Atha kho āyasmā aṅgulimālo pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya sāvatthiṁ piṇḍāya pāvisi."
+    },
+    {
+     "n": 113,
+     "text": "Tena kho pana samayena aññenapi leḍḍu khitto āyasmato aṅgulimālassa kāye nipatati, aññenapi daṇḍo khitto āyasmato aṅgulimālassa kāye nipatati, aññenapi sakkharā khittā āyasmato aṅgulimālassa kāye nipatati."
+    },
+    {
+     "n": 114,
+     "text": "Atha kho āyasmā aṅgulimālo bhinnena sīsena, lohitena gaḷantena, bhinnena pattena, vipphālitāya saṅghāṭiyā yena bhagavā tenupasaṅkami."
+    },
+    {
+     "n": 115,
+     "text": "Addasā kho bhagavā āyasmantaṁ aṅgulimālaṁ dūratova āgacchantaṁ."
+    },
+    {
+     "n": 116,
+     "text": "Disvāna āyasmantaṁ aṅgulimālaṁ etadavoca: “adhivāsehi tvaṁ, brāhmaṇa, adhivāsehi tvaṁ, brāhmaṇa."
+    },
+    {
+     "n": 117,
+     "text": "Yassa kho tvaṁ, brāhmaṇa, kammassa vipākena bahūni vassāni bahūni vassasatāni bahūni vassasahassāni niraye pacceyyāsi tassa tvaṁ, brāhmaṇa, kammassa vipākaṁ diṭṭheva dhamme paṭisaṁvedesī”ti."
+    },
+    {
+     "n": 118,
+     "text": "Atha kho āyasmā aṅgulimālo rahogato paṭisallīno vimuttisukhaṁ paṭisaṁvedi; tāyaṁ velāyaṁ imaṁ udānaṁ udānesi:"
+    },
+    {
+     "n": 119,
+     "text": "“Yo pubbeva pamajjitvā,"
+    },
+    {
+     "n": 120,
+     "text": "pacchā so nappamajjati;"
+    },
+    {
+     "n": 121,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 122,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 123,
+     "text": "Yassa pāpaṁ kataṁ kammaṁ,"
+    },
+    {
+     "n": 124,
+     "text": "kusalena pidhīyati;"
+    },
+    {
+     "n": 125,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 126,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 127,
+     "text": "Yo have daharo bhikkhu,"
+    },
+    {
+     "n": 128,
+     "text": "yuñjati buddhasāsane;"
+    },
+    {
+     "n": 129,
+     "text": "Somaṁ lokaṁ pabhāseti,"
+    },
+    {
+     "n": 130,
+     "text": "abbhā muttova candimā."
+    },
+    {
+     "n": 131,
+     "text": "Disā hi me dhammakathaṁ suṇantu,"
+    },
+    {
+     "n": 132,
+     "text": "Disā hi me yuñjantu buddhasāsane;"
+    },
+    {
+     "n": 133,
+     "text": "Disā hi me te manujā bhajantu,"
+    },
+    {
+     "n": 134,
+     "text": "Ye dhammamevādapayanti santo."
+    },
+    {
+     "n": 135,
+     "text": "Disā hi me khantivādānaṁ,"
+    },
+    {
+     "n": 136,
+     "text": "avirodhappasaṁsīnaṁ;"
+    },
+    {
+     "n": 137,
+     "text": "Suṇantu dhammaṁ kālena,"
+    },
+    {
+     "n": 138,
+     "text": "tañca anuvidhīyantu."
+    },
+    {
+     "n": 139,
+     "text": "Na hi jātu so mamaṁ hiṁse,"
+    },
+    {
+     "n": 140,
+     "text": "aññaṁ vā pana kiñci naṁ;"
+    },
+    {
+     "n": 141,
+     "text": "Pappuyya paramaṁ santiṁ,"
+    },
+    {
+     "n": 142,
+     "text": "rakkheyya tasathāvare."
+    },
+    {
+     "n": 143,
+     "text": "Udakañhi nayanti nettikā,"
+    },
+    {
+     "n": 144,
+     "text": "Usukārā namayanti tejanaṁ;"
+    },
+    {
+     "n": 145,
+     "text": "Dāruṁ namayanti tacchakā,"
+    },
+    {
+     "n": 146,
+     "text": "Attānaṁ damayanti paṇḍitā."
+    },
+    {
+     "n": 147,
+     "text": "Daṇḍeneke damayanti,"
+    },
+    {
+     "n": 148,
+     "text": "aṅkusehi kasāhi ca;"
+    },
+    {
+     "n": 149,
+     "text": "Adaṇḍena asatthena,"
+    },
+    {
+     "n": 150,
+     "text": "ahaṁ dantomhi tādinā."
+    },
+    {
+     "n": 151,
+     "text": "Ahiṁsakoti me nāmaṁ,"
+    },
+    {
+     "n": 152,
+     "text": "hiṁsakassa pure sato;"
+    },
+    {
+     "n": 153,
+     "text": "Ajjāhaṁ saccanāmomhi,"
+    },
+    {
+     "n": 154,
+     "text": "na naṁ hiṁsāmi kiñci naṁ."
+    },
+    {
+     "n": 155,
+     "text": "Coro ahaṁ pure āsiṁ,"
+    },
+    {
+     "n": 156,
+     "text": "aṅgulimāloti vissuto;"
+    },
+    {
+     "n": 157,
+     "text": "Vuyhamāno mahoghena,"
+    },
+    {
+     "n": 158,
+     "text": "buddhaṁ saraṇamāgamaṁ."
+    },
+    {
+     "n": 159,
+     "text": "Lohitapāṇi pure āsiṁ,"
+    },
+    {
+     "n": 160,
+     "text": "aṅgulimāloti vissuto;"
+    },
+    {
+     "n": 161,
+     "text": "Saraṇagamanaṁ passa,"
+    },
+    {
+     "n": 162,
+     "text": "bhavanetti samūhatā."
+    },
+    {
+     "n": 163,
+     "text": "Tādisaṁ kammaṁ katvāna,"
+    },
+    {
+     "n": 164,
+     "text": "bahuṁ duggatigāminaṁ;"
+    },
+    {
+     "n": 165,
+     "text": "Phuṭṭho kammavipākena,"
+    },
+    {
+     "n": 166,
+     "text": "aṇaṇo bhuñjāmi bhojanaṁ."
+    },
+    {
+     "n": 167,
+     "text": "Pamādamanuyuñjanti,"
+    },
+    {
+     "n": 168,
+     "text": "bālā dummedhino janā;"
+    },
+    {
+     "n": 169,
+     "text": "Appamādañca medhāvī,"
+    },
+    {
+     "n": 170,
+     "text": "dhanaṁ seṭṭhaṁva rakkhati."
+    },
+    {
+     "n": 171,
+     "text": "Mā pamādamanuyuñjetha,"
+    },
+    {
+     "n": 172,
+     "text": "mā kāmarati santhavaṁ;"
+    },
+    {
+     "n": 173,
+     "text": "Appamatto hi jhāyanto,"
+    },
+    {
+     "n": 174,
+     "text": "pappoti vipulaṁ sukhaṁ."
+    },
+    {
+     "n": 175,
+     "text": "Svāgataṁ nāpagataṁ,"
+    },
+    {
+     "n": 176,
+     "text": "nayidaṁ dummantitaṁ mama;"
+    },
+    {
+     "n": 177,
+     "text": "Saṁvibhattesu dhammesu,"
+    },
+    {
+     "n": 178,
+     "text": "yaṁ seṭṭhaṁ tadupāgamaṁ."
+    },
+    {
+     "n": 179,
+     "text": "Svāgataṁ nāpagataṁ,"
+    },
+    {
+     "n": 180,
+     "text": "nayidaṁ dummantitaṁ mama;"
+    },
+    {
+     "n": 181,
+     "text": "Tisso vijjā anuppattā,"
+    },
+    {
+     "n": 182,
+     "text": "kataṁ buddhassa sāsanan”ti."
+    },
+    {
+     "n": 183,
+     "text": "Aṅgulimālasuttaṁ niṭṭhitaṁ chaṭṭhaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn86/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "Now at that time in the realm of King Pasenadi of Kosala there was a bandit named Aṅgulimāla."
+    },
+    {
+     "n": 3,
+     "text": "He was violent, bloody-handed, a hardened killer, merciless to living beings."
+    },
+    {
+     "n": 4,
+     "text": "He laid waste to villages, towns, and countries."
+    },
+    {
+     "n": 5,
+     "text": "He was constantly murdering humans, and he wore their fingers as a necklace."
+    },
+    {
+     "n": 6,
+     "text": "Then the Buddha robed up in the morning and, taking his bowl and robe, entered Sāvatthī for alms."
+    },
+    {
+     "n": 7,
+     "text": "Then, after the meal, on his return from almsround, he set his lodgings in order and, taking his bowl and robe, he walked down the road that led to Aṅgulimāla."
+    },
+    {
+     "n": 8,
+     "text": "The cowherds, shepherds, farmers, and travelers saw him on the road, and said to him, “Don’t take this road, ascetic."
+    },
+    {
+     "n": 9,
+     "text": "On this road there is a bandit named Aṅgulimāla."
+    },
+    {
+     "n": 10,
+     "text": "He is violent, bloody-handed, a hardened killer, merciless to living beings."
+    },
+    {
+     "n": 11,
+     "text": "He has laid waste to villages, towns, and countries."
+    },
+    {
+     "n": 12,
+     "text": "He is constantly murdering humans, and he wears their fingers as a necklace."
+    },
+    {
+     "n": 13,
+     "text": "People travel along this road only after banding closely together in groups of ten, twenty, thirty, forty, or fifty."
+    },
+    {
+     "n": 14,
+     "text": "Still they meet their end by Aṅgulimāla’s hand.”"
+    },
+    {
+     "n": 15,
+     "text": "But when they said this, the Buddha went on in silence."
+    },
+    {
+     "n": 16,
+     "text": "For a second time … and a third time, they urged the Buddha to turn back."
+    },
+    {
+     "n": 17,
+     "text": "But when they said this, the Buddha went on in silence."
+    },
+    {
+     "n": 18,
+     "text": "The bandit Aṅgulimāla saw the Buddha coming off in the distance, and thought, “Oh lord, how incredible, how amazing!"
+    },
+    {
+     "n": 19,
+     "text": "People travel along this road only after banding closely together in groups of ten, twenty, thirty, forty, or fifty. Still they meet their end by my hand."
+    },
+    {
+     "n": 20,
+     "text": "But still this ascetic comes along alone and unaccompanied, like a conqueror. Why don’t I take his life?”"
+    },
+    {
+     "n": 21,
+     "text": "Then Aṅgulimāla donned his sword and shield, fastened his bow and arrows, and followed behind the Buddha."
+    },
+    {
+     "n": 22,
+     "text": "But the Buddha used his psychic power to will that Aṅgulimāla could not catch up with him no matter how hard he tried, even though the Buddha kept walking at a normal speed."
+    },
+    {
+     "n": 23,
+     "text": "Then Aṅgulimāla thought, “Oh lord, how incredible, how amazing!"
+    },
+    {
+     "n": 24,
+     "text": "Previously, even when I’ve chased a speeding elephant, horse, chariot or deer, I’ve always caught up with them."
+    },
+    {
+     "n": 25,
+     "text": "But I can’t catch up with this ascetic no matter how hard I try, even though he’s walking at a normal speed.”"
+    },
+    {
+     "n": 26,
+     "text": "He stood still and said, “Stop, stop, ascetic!”"
+    },
+    {
+     "n": 27,
+     "text": "“I’ve stopped, Aṅgulimāla—now you stop.”"
+    },
+    {
+     "n": 28,
+     "text": "Then Aṅgulimāla thought, “These ascetics who follow the Sakyan speak the truth."
+    },
+    {
+     "n": 29,
+     "text": "Yet while walking the ascetic says: ‘I’ve stopped, Aṅgulimāla—now you stop.’ Why don’t I ask him about this?”"
+    },
+    {
+     "n": 30,
+     "text": "Then he addressed the Buddha in verse:"
+    },
+    {
+     "n": 31,
+     "text": "“While walking, ascetic, you say ‘I’ve stopped.’"
+    },
+    {
+     "n": 32,
+     "text": "And I have stopped, but you tell me I’ve not."
+    },
+    {
+     "n": 33,
+     "text": "I’m asking you this, ascetic:"
+    },
+    {
+     "n": 34,
+     "text": "how is it you’ve stopped and I have not?”"
+    },
+    {
+     "n": 35,
+     "text": "“Aṅgulimāla, I have forever stopped—"
+    },
+    {
+     "n": 36,
+     "text": "I’ve laid aside violence toward all creatures."
+    },
+    {
+     "n": 37,
+     "text": "But you can’t stop yourself from harming living creatures;"
+    },
+    {
+     "n": 38,
+     "text": "that’s why I’ve stopped, but you have not.”"
+    },
+    {
+     "n": 39,
+     "text": "“Oh, at long last a renowned great seer,"
+    },
+    {
+     "n": 40,
+     "text": "an ascetic has followed me into this deep wood."
+    },
+    {
+     "n": 41,
+     "text": "Now that I’ve heard your verse on Dhamma,"
+    },
+    {
+     "n": 42,
+     "text": "I shall live without evil.”"
+    },
+    {
+     "n": 43,
+     "text": "With these words, the bandit hurled his sword and weapons"
+    },
+    {
+     "n": 44,
+     "text": "down a cliff into an abyss."
+    },
+    {
+     "n": 45,
+     "text": "He venerated the Holy One’s feet,"
+    },
+    {
+     "n": 46,
+     "text": "and requested the going forth right away."
+    },
+    {
+     "n": 47,
+     "text": "Then the Buddha, the compassionate great seer,"
+    },
+    {
+     "n": 48,
+     "text": "the Teacher of the world with its gods,"
+    },
+    {
+     "n": 49,
+     "text": "said to him, “Come, monk!”"
+    },
+    {
+     "n": 50,
+     "text": "And with that he became a monk."
+    },
+    {
+     "n": 51,
+     "text": "Then the Buddha set out for Sāvatthī with Venerable Aṅgulimāla as his second monk."
+    },
+    {
+     "n": 52,
+     "text": "Traveling stage by stage, he arrived at Sāvatthī, where he stayed in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 53,
+     "text": "Now at that time a crowd had gathered by the gate of King Pasenadi’s royal compound making a colossal racket, “In your realm, Your Majesty, there is a bandit named Aṅgulimāla."
+    },
+    {
+     "n": 54,
+     "text": "He is violent, bloody-handed, a hardened killer, merciless to living beings."
+    },
+    {
+     "n": 55,
+     "text": "He has laid waste to villages, towns, and countries."
+    },
+    {
+     "n": 56,
+     "text": "He is constantly murdering humans, and he wears their fingers as a necklace. Your Majesty must put a stop to him!”"
+    },
+    {
+     "n": 57,
+     "text": "Then King Pasenadi drove out from Sāvatthī in the middle of the day with around five hundred horses, heading for the monastery."
+    },
+    {
+     "n": 58,
+     "text": "He went by carriage as far as the terrain allowed, then descended and approached the Buddha on foot. He bowed and sat down to one side. The Buddha said to him,"
+    },
+    {
+     "n": 59,
+     "text": "“What is it, Great King? Is King Seniya Bimbisāra of Magadha angry with you, or the Licchavis of Vesālī, or some other opposing ruler?”"
+    },
+    {
+     "n": 60,
+     "text": "“No, sir. In my realm there is a bandit named Aṅgulimāla."
+    },
+    {
+     "n": 61,
+     "text": "He is violent, bloody-handed, a hardened killer, merciless to living beings. … I shall put a stop to him.”"
+    },
+    {
+     "n": 62,
+     "text": "“But, Great King, suppose you were to see that Aṅgulimāla had shaved off his hair and beard, dressed in ocher robes, and gone forth from the lay life to homelessness."
+    },
+    {
+     "n": 63,
+     "text": "And that he was refraining from killing living creatures, stealing, and lying; that he was eating in one part of the day, and was chaste, ethical, and of good character. What would you do to him?”"
+    },
+    {
+     "n": 64,
+     "text": "“I would bow to him, rise in his presence, or offer him a seat."
+    },
+    {
+     "n": 65,
+     "text": "I’d invite him to accept robes, almsfood, lodgings, and medicines and supplies for the sick."
+    },
+    {
+     "n": 66,
+     "text": "And I’d organize his lawful guarding and protection."
+    },
+    {
+     "n": 67,
+     "text": "But sir, how could such an immoral, evil man ever have such virtue and restraint?”"
+    },
+    {
+     "n": 68,
+     "text": "Now at that time Venerable Aṅgulimāla was sitting not far from the Buddha."
+    },
+    {
+     "n": 69,
+     "text": "Then the Buddha pointed with his right arm and said to the king, “Great king, this is Aṅgulimāla.”"
+    },
+    {
+     "n": 70,
+     "text": "Then the king became frightened, scared, his hair standing on end."
+    },
+    {
+     "n": 71,
+     "text": "Knowing this, the Buddha said to him, “Do not fear, Great King. You have nothing to fear from him.” Then the king’s fear died down."
+    },
+    {
+     "n": 72,
+     "text": "Then the king went over to Aṅgulimāla and said, “Sir, is the master really Aṅgulimāla?”"
+    },
+    {
+     "n": 73,
+     "text": "“Yes, Great King.”"
+    },
+    {
+     "n": 74,
+     "text": "“What clans were your father and mother from?”"
+    },
+    {
+     "n": 75,
+     "text": "“My father was a Gagga, and my mother a Mantāṇī.”"
+    },
+    {
+     "n": 76,
+     "text": "“Sir, may Master Gagga son of Mantāṇī be happy."
+    },
+    {
+     "n": 77,
+     "text": "I’ll make sure that you’re provided with robes, almsfood, lodgings, and medicines and supplies for the sick.”"
+    },
+    {
+     "n": 78,
+     "text": "But at that time Venerable Aṅgulimāla lived in the wilderness, ate only almsfood, and owned just three robes."
+    },
+    {
+     "n": 79,
+     "text": "So he said to the king, “Enough, Great King. My robes are complete.”"
+    },
+    {
+     "n": 80,
+     "text": "Then the king went back to the Buddha, bowed, sat down to one side, and said to him, “It’s incredible, sir, it’s amazing!"
+    },
+    {
+     "n": 81,
+     "text": "How the Buddha tames those who are wild, pacifies those who are violent, and extinguishes those who are unquenched!"
+    },
+    {
+     "n": 82,
+     "text": "For I was not able to tame him with the rod and the sword, but the Buddha tamed him without rod or sword. Well, now, sir, I must go. I have many duties, and much to do.”"
+    },
+    {
+     "n": 83,
+     "text": "“Please, Great King, go at your convenience.”"
+    },
+    {
+     "n": 84,
+     "text": "Then King Pasenadi rose from his seat, bowed, and respectfully circled the Buddha, keeping him on his right, before leaving."
+    },
+    {
+     "n": 85,
+     "text": "Then Venerable Aṅgulimāla robed up in the morning and, taking his bowl and robe, entered Sāvatthī for alms."
+    },
+    {
+     "n": 86,
+     "text": "Then as he was wandering indiscriminately for almsfood he saw a woman undergoing a distressing obstructed labor."
+    },
+    {
+     "n": 87,
+     "text": "Seeing this, it occurred to him, “Oh, beings undergo such travail! Oh, beings undergo such travail!”"
+    },
+    {
+     "n": 88,
+     "text": "Then after wandering for alms in Sāvatthī, after the meal, on his return from almsround, he went to the Buddha, bowed, sat down to one side, and told him what had happened."
+    },
+    {
+     "n": 89,
+     "text": "The Buddha said to him, “Well then, Aṅgulimāla, go to that woman and say this:"
+    },
+    {
+     "n": 90,
+     "text": "‘Ever since I was born, sister, I don’t recall having intentionally taken the life of a living creature."
+    },
+    {
+     "n": 91,
+     "text": "By this truth, may both you and your baby be safe.’”"
+    },
+    {
+     "n": 92,
+     "text": "“But sir, wouldn’t that be telling a deliberate lie?"
+    },
+    {
+     "n": 93,
+     "text": "For I have intentionally killed many living creatures.”"
+    },
+    {
+     "n": 94,
+     "text": "“In that case, Aṅgulimāla, go to that woman and say this:"
+    },
+    {
+     "n": 95,
+     "text": "‘Ever since I was born in the noble birth, sister, I don’t recall having intentionally taken the life of a living creature."
+    },
+    {
+     "n": 96,
+     "text": "By this truth, may both you and your baby be safe.’”"
+    },
+    {
+     "n": 97,
+     "text": "“Yes, sir,” replied Aṅgulimāla. He went to that woman and said:"
+    },
+    {
+     "n": 98,
+     "text": "“Ever since I was born in the noble birth, sister, I don’t recall having intentionally taken the life of a living creature."
+    },
+    {
+     "n": 99,
+     "text": "By this truth, may both you and your baby be safe.”"
+    },
+    {
+     "n": 100,
+     "text": "Then that woman was safe, and so was her baby."
+    },
+    {
+     "n": 101,
+     "text": "Then Aṅgulimāla, living alone, withdrawn, diligent, keen, and resolute, soon realized the supreme culmination of the spiritual path in this very life."
+    },
+    {
+     "n": 102,
+     "text": "He lived having achieved with his own insight the goal for which gentlemen rightly go forth from the lay life to homelessness."
+    },
+    {
+     "n": 103,
+     "text": "He understood: “Rebirth is ended; the spiritual journey has been completed; what had to be done has been done; there is nothing further for this place.”"
+    },
+    {
+     "n": 104,
+     "text": "And Venerable Aṅgulimāla became one of the perfected."
+    },
+    {
+     "n": 105,
+     "text": "Then Venerable Aṅgulimāla robed up in the morning and, taking his bowl and robe, entered Sāvatthī for alms."
+    },
+    {
+     "n": 106,
+     "text": "Now at that time someone threw a stone that hit Aṅgulimāla, someone else threw a stick, and someone else threw gravel."
+    },
+    {
+     "n": 107,
+     "text": "Then Aṅgulimāla—with cracked head, bleeding, his bowl broken, and his outer robe torn—went to the Buddha."
+    },
+    {
+     "n": 108,
+     "text": "The Buddha saw him coming off in the distance, and said to him, “Endure it, brahmin! Endure it, brahmin!"
+    },
+    {
+     "n": 109,
+     "text": "You’re experiencing in this very life the result of deeds that might have caused you to be tormented in hell for many years, many hundreds or thousands of years.”"
+    },
+    {
+     "n": 110,
+     "text": "Later, Venerable Aṅgulimāla was experiencing the bliss of release while in private retreat."
+    },
+    {
+     "n": 111,
+     "text": "On that occasion he expressed this heartfelt sentiment:"
+    },
+    {
+     "n": 112,
+     "text": "“He who once was heedless,"
+    },
+    {
+     "n": 113,
+     "text": "but turned to heedfulness,"
+    },
+    {
+     "n": 114,
+     "text": "shines upon this world,"
+    },
+    {
+     "n": 115,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 116,
+     "text": "Someone whose bad deed"
+    },
+    {
+     "n": 117,
+     "text": "is supplanted by the good,"
+    },
+    {
+     "n": 118,
+     "text": "shines upon this world,"
+    },
+    {
+     "n": 119,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 120,
+     "text": "A young mendicant"
+    },
+    {
+     "n": 121,
+     "text": "devoted to the Buddha’s teaching,"
+    },
+    {
+     "n": 122,
+     "text": "shines upon this world,"
+    },
+    {
+     "n": 123,
+     "text": "like the moon freed from clouds."
+    },
+    {
+     "n": 124,
+     "text": "May even my enemies hear a Dhamma talk!"
+    },
+    {
+     "n": 125,
+     "text": "May even my enemies devote themselves to the Buddha’s teaching!"
+    },
+    {
+     "n": 126,
+     "text": "May even my enemies associate with those good men"
+    },
+    {
+     "n": 127,
+     "text": "who establish others in the Dhamma!"
+    },
+    {
+     "n": 128,
+     "text": "May even my enemies hear Dhamma at the right time,"
+    },
+    {
+     "n": 129,
+     "text": "from those who teach acceptance,"
+    },
+    {
+     "n": 130,
+     "text": "praising acquiescence;"
+    },
+    {
+     "n": 131,
+     "text": "and may they follow that path!"
+    },
+    {
+     "n": 132,
+     "text": "For then they’d never wish harm"
+    },
+    {
+     "n": 133,
+     "text": "upon myself or others."
+    },
+    {
+     "n": 134,
+     "text": "Having arrived at ultimate peace,"
+    },
+    {
+     "n": 135,
+     "text": "they’d look after creatures firm and frail."
+    },
+    {
+     "n": 136,
+     "text": "For while irrigators guide water,"
+    },
+    {
+     "n": 137,
+     "text": "fletchers bend arrows straight,"
+    },
+    {
+     "n": 138,
+     "text": "and carpenters bend timber straight,"
+    },
+    {
+     "n": 139,
+     "text": "the astute tame themselves."
+    },
+    {
+     "n": 140,
+     "text": "Some tame by using the rod,"
+    },
+    {
+     "n": 141,
+     "text": "some with goads, and some with whips."
+    },
+    {
+     "n": 142,
+     "text": "But the unaffected one tamed me"
+    },
+    {
+     "n": 143,
+     "text": "without rod or sword."
+    },
+    {
+     "n": 144,
+     "text": "My name is ‘Harmless’,"
+    },
+    {
+     "n": 145,
+     "text": "though I used to be harmful."
+    },
+    {
+     "n": 146,
+     "text": "The name I bear today is true,"
+    },
+    {
+     "n": 147,
+     "text": "for I do no harm to anyone."
+    },
+    {
+     "n": 148,
+     "text": "I used to be a bandit,"
+    },
+    {
+     "n": 149,
+     "text": "the notorious Aṅgulimāla."
+    },
+    {
+     "n": 150,
+     "text": "Swept away in a great flood,"
+    },
+    {
+     "n": 151,
+     "text": "I went to the Buddha as a refuge."
+    },
+    {
+     "n": 152,
+     "text": "I used to have blood on my hands,"
+    },
+    {
+     "n": 153,
+     "text": "the notorious Aṅgulimāla."
+    },
+    {
+     "n": 154,
+     "text": "See the refuge I’ve found—"
+    },
+    {
+     "n": 155,
+     "text": "the leash to existence is eradicated."
+    },
+    {
+     "n": 156,
+     "text": "I’ve done many of the sort of deeds"
+    },
+    {
+     "n": 157,
+     "text": "that lead to a bad destination."
+    },
+    {
+     "n": 158,
+     "text": "The result of my deeds has already struck me,"
+    },
+    {
+     "n": 159,
+     "text": "so I enjoy my food free of debt."
+    },
+    {
+     "n": 160,
+     "text": "Fools and simpletons"
+    },
+    {
+     "n": 161,
+     "text": "devote themselves to negligence."
+    },
+    {
+     "n": 162,
+     "text": "But the wise protect diligence"
+    },
+    {
+     "n": 163,
+     "text": "as their best treasure."
+    },
+    {
+     "n": 164,
+     "text": "Don’t devote yourself to negligence,"
+    },
+    {
+     "n": 165,
+     "text": "or delight in erotic intimacy."
+    },
+    {
+     "n": 166,
+     "text": "For if you’re diligent and practice absorption,"
+    },
+    {
+     "n": 167,
+     "text": "you’ll attain abundant happiness."
+    },
+    {
+     "n": 168,
+     "text": "It was welcome, not unwelcome,"
+    },
+    {
+     "n": 169,
+     "text": "the advice I got was good."
+    },
+    {
+     "n": 170,
+     "text": "Of the well-explained teachings,"
+    },
+    {
+     "n": 171,
+     "text": "I arrived at the best."
+    },
+    {
+     "n": 172,
+     "text": "It was welcome, not unwelcome,"
+    },
+    {
+     "n": 173,
+     "text": "the advice I got was good."
+    },
+    {
+     "n": 174,
+     "text": "I’ve attained the three knowledges"
+    },
+    {
+     "n": 175,
+     "text": "and fulfilled the Buddha’s instructions.”"
+    }
+   ]
+  }
+ ]
+}

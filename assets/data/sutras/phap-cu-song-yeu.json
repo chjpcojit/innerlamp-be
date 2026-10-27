@@ -1,0 +1,1146 @@
+{
+ "id": "phap-cu-song-yeu",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 1-20",
+ "summary": "Phẩm mở đầu của Kinh Pháp Cú (Tiểu Bộ, kệ 1-20), dùng các cặp câu đối nhau để nói về tâm ý. Ý dẫn đầu các pháp: với ý ô nhiễm thì khổ theo sau như bánh xe theo chân con vật kéo, với ý thanh tịnh thì an lạc theo như bóng theo hình. Phẩm cũng nói hận thù chỉ dứt bằng không hận, và so sánh người giữ giới với kẻ phóng dật.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Song Yếu",
+  "pli": "Yamakavagga",
+  "en": "Pairs"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 6,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp1-20/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ý dẫn đầu các pháp,"
+    },
+    {
+     "n": 2,
+     "text": "Ý làm chủ, ý tạo;"
+    },
+    {
+     "n": 3,
+     "text": "Nếu với ý ô nhiễm,"
+    },
+    {
+     "n": 4,
+     "text": "Nói lên hay hành động,"
+    },
+    {
+     "n": 5,
+     "text": "Khổ não bước theo sau,"
+    },
+    {
+     "n": 6,
+     "text": "Như xe, chân vật kéo."
+    },
+    {
+     "n": 7,
+     "text": "Ý dẫn đầu các pháp,"
+    },
+    {
+     "n": 8,
+     "text": "Ý làm chủ, ý tạo;"
+    },
+    {
+     "n": 9,
+     "text": "Nếu với ý thanh tịnh,"
+    },
+    {
+     "n": 10,
+     "text": "Nói lên hay hành động,"
+    },
+    {
+     "n": 11,
+     "text": "An lạc bước theo sau,"
+    },
+    {
+     "n": 12,
+     "text": "Như bóng, không rời hình."
+    },
+    {
+     "n": 13,
+     "text": "Nó mắng tôi, đánh tôi,"
+    },
+    {
+     "n": 14,
+     "text": "Nó thắng tôi, cướp tôi"
+    },
+    {
+     "n": 15,
+     "text": "Ai ôm hiềm hận ấy,"
+    },
+    {
+     "n": 16,
+     "text": "Hận thù không thể nguôi."
+    },
+    {
+     "n": 17,
+     "text": "Nó mắng tôi, đánh tôi,"
+    },
+    {
+     "n": 18,
+     "text": "Nó thắng tôi, cướp tôi"
+    },
+    {
+     "n": 19,
+     "text": "Không ôm hiềm hận ấy,"
+    },
+    {
+     "n": 20,
+     "text": "Hận thù được tự nguôi."
+    },
+    {
+     "n": 21,
+     "text": "Với hận diệt hận thù,"
+    },
+    {
+     "n": 22,
+     "text": "Đời này không có được."
+    },
+    {
+     "n": 23,
+     "text": "Không hận diệt hận thù,"
+    },
+    {
+     "n": 24,
+     "text": "Là định luật ngàn thu."
+    },
+    {
+     "n": 25,
+     "text": "Và người khác không biết,"
+    },
+    {
+     "n": 26,
+     "text": "Chúng ta đây bị hại."
+    },
+    {
+     "n": 27,
+     "text": "Chỗ ấy, ai hiểu được"
+    },
+    {
+     "n": 28,
+     "text": "Tranh luận được lắng êm."
+    },
+    {
+     "n": 29,
+     "text": "Ai sống nhìn tịnh tướng,"
+    },
+    {
+     "n": 30,
+     "text": "Không hộ trì các căn,"
+    },
+    {
+     "n": 31,
+     "text": "ăn uống thiếu tiết độ,"
+    },
+    {
+     "n": 32,
+     "text": "biếng nhác, chẳng tinh cần."
+    },
+    {
+     "n": 33,
+     "text": "Ma uy hiếp kẻ ấy,"
+    },
+    {
+     "n": 34,
+     "text": "như cây yếu trước gió."
+    },
+    {
+     "n": 35,
+     "text": "Ai sống quán bất tịnh,"
+    },
+    {
+     "n": 36,
+     "text": "Khéo hộ trì các căn,"
+    },
+    {
+     "n": 37,
+     "text": "ăn uống có tiết độ,"
+    },
+    {
+     "n": 38,
+     "text": "Có lòng tin, tinh cần,"
+    },
+    {
+     "n": 39,
+     "text": "Ma không uy hiếp được,"
+    },
+    {
+     "n": 40,
+     "text": "Như núi đá, trước gió."
+    },
+    {
+     "n": 41,
+     "text": "Ai mặc áo cà-sa."
+    },
+    {
+     "n": 42,
+     "text": "tâm chưa rời uế trược,"
+    },
+    {
+     "n": 43,
+     "text": "không tự chế, không thực,"
+    },
+    {
+     "n": 44,
+     "text": "không xứng áo cà-sa"
+    },
+    {
+     "n": 45,
+     "text": "Ai rời bỏ uế trược,"
+    },
+    {
+     "n": 46,
+     "text": "giới luật khéo nghiêm trì,"
+    },
+    {
+     "n": 47,
+     "text": "tự chế, sống chơn thực,"
+    },
+    {
+     "n": 48,
+     "text": "thật xứng áo cà-sa."
+    },
+    {
+     "n": 49,
+     "text": "Không chân, tướng chân thật,"
+    },
+    {
+     "n": 50,
+     "text": "chân thật, thấy không chân:"
+    },
+    {
+     "n": 51,
+     "text": "chúng không đạt chân thật,"
+    },
+    {
+     "n": 52,
+     "text": "do tà tư, tà hạnh."
+    },
+    {
+     "n": 53,
+     "text": "Chân thật, biết chân thật,"
+    },
+    {
+     "n": 54,
+     "text": "Không chân, biết không chân:"
+    },
+    {
+     "n": 55,
+     "text": "chúng đạt được chân thật,"
+    },
+    {
+     "n": 56,
+     "text": "do chánh tư, chánh hạnh."
+    },
+    {
+     "n": 57,
+     "text": "Như mái nhà vụng lợp,"
+    },
+    {
+     "n": 58,
+     "text": "Mưa liền xâm nhập vào."
+    },
+    {
+     "n": 59,
+     "text": "Cũng vậy tâm không tu,"
+    },
+    {
+     "n": 60,
+     "text": "Tham dục liền xâm nhập."
+    },
+    {
+     "n": 61,
+     "text": "Như ngôi nhà khéo lợp,"
+    },
+    {
+     "n": 62,
+     "text": "Mưa không xâm nhập vào."
+    },
+    {
+     "n": 63,
+     "text": "Cũng vậy tâm khéo tu,"
+    },
+    {
+     "n": 64,
+     "text": "Tham dục không xâm nhập."
+    },
+    {
+     "n": 65,
+     "text": "Nay sầu, đời sau sầu,"
+    },
+    {
+     "n": 66,
+     "text": "Kẻ ác, hai đời sầu;"
+    },
+    {
+     "n": 67,
+     "text": "Nó sầu, nó ưu não,"
+    },
+    {
+     "n": 68,
+     "text": "Thấy nghiệp uế mình làm."
+    },
+    {
+     "n": 69,
+     "text": "Nay vui, đời sau vui,"
+    },
+    {
+     "n": 70,
+     "text": "Làm phước, hai đời vui,"
+    },
+    {
+     "n": 71,
+     "text": "Nó vui, nó an vui,"
+    },
+    {
+     "n": 72,
+     "text": "Thấy nghiệp tịnh mình làm."
+    },
+    {
+     "n": 73,
+     "text": "Nay than, đời sau than,"
+    },
+    {
+     "n": 74,
+     "text": "Kẻ ác, hai đời than,"
+    },
+    {
+     "n": 75,
+     "text": "Nó than: ‘Ta làm ác’"
+    },
+    {
+     "n": 76,
+     "text": "Đọa cõi dữ, than hơn."
+    },
+    {
+     "n": 77,
+     "text": "Nay sướng, đời sau sướng,"
+    },
+    {
+     "n": 78,
+     "text": "Làm phước, hai đời sướng."
+    },
+    {
+     "n": 79,
+     "text": "Nó sướng: ‘Ta làm thiện’,"
+    },
+    {
+     "n": 80,
+     "text": "Sanh cõi lành, sướng hơn."
+    },
+    {
+     "n": 81,
+     "text": "Nếu người nói nhiều kinh,"
+    },
+    {
+     "n": 82,
+     "text": "Không hành trì, phóng dật;"
+    },
+    {
+     "n": 83,
+     "text": "Như kẻ chăn bò người,"
+    },
+    {
+     "n": 84,
+     "text": "Không phần Sa môn hạnh."
+    },
+    {
+     "n": 85,
+     "text": "Dầu nói ít kinh điển,"
+    },
+    {
+     "n": 86,
+     "text": "Nhưng hành pháp, tùy pháp,"
+    },
+    {
+     "n": 87,
+     "text": "Từ bỏ tham, sân, si,"
+    },
+    {
+     "n": 88,
+     "text": "Tĩnh giác, tâm giải thoát,"
+    },
+    {
+     "n": 89,
+     "text": "Không chấp thủ hai đời,"
+    },
+    {
+     "n": 90,
+     "text": "Dự phần Sa môn hạnh."
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp1-20/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Manopubbaṅgamā dhammā,"
+    },
+    {
+     "n": 2,
+     "text": "manoseṭṭhā manomayā;"
+    },
+    {
+     "n": 3,
+     "text": "Manasā ce paduṭṭhena,"
+    },
+    {
+     "n": 4,
+     "text": "bhāsati vā karoti vā;"
+    },
+    {
+     "n": 5,
+     "text": "Tato naṁ dukkhamanveti,"
+    },
+    {
+     "n": 6,
+     "text": "cakkaṁva vahato padaṁ."
+    },
+    {
+     "n": 7,
+     "text": "Manopubbaṅgamā dhammā,"
+    },
+    {
+     "n": 8,
+     "text": "manoseṭṭhā manomayā;"
+    },
+    {
+     "n": 9,
+     "text": "Manasā ce pasannena,"
+    },
+    {
+     "n": 10,
+     "text": "bhāsati vā karoti vā;"
+    },
+    {
+     "n": 11,
+     "text": "Tato naṁ sukhamanveti,"
+    },
+    {
+     "n": 12,
+     "text": "chāyāva anapāyinī."
+    },
+    {
+     "n": 13,
+     "text": "Akkocchi maṁ avadhi maṁ,"
+    },
+    {
+     "n": 14,
+     "text": "ajini maṁ ahāsi me;"
+    },
+    {
+     "n": 15,
+     "text": "Ye ca taṁ upanayhanti,"
+    },
+    {
+     "n": 16,
+     "text": "veraṁ tesaṁ na sammati."
+    },
+    {
+     "n": 17,
+     "text": "Akkocchi maṁ avadhi maṁ,"
+    },
+    {
+     "n": 18,
+     "text": "ajini maṁ ahāsi me;"
+    },
+    {
+     "n": 19,
+     "text": "Ye ca taṁ nupanayhanti,"
+    },
+    {
+     "n": 20,
+     "text": "veraṁ tesūpasammati."
+    },
+    {
+     "n": 21,
+     "text": "Na hi verena verāni,"
+    },
+    {
+     "n": 22,
+     "text": "sammantīdha kudācanaṁ;"
+    },
+    {
+     "n": 23,
+     "text": "Averena ca sammanti,"
+    },
+    {
+     "n": 24,
+     "text": "esa dhammo sanantano."
+    },
+    {
+     "n": 25,
+     "text": "Pare ca na vijānanti,"
+    },
+    {
+     "n": 26,
+     "text": "mayamettha yamāmase;"
+    },
+    {
+     "n": 27,
+     "text": "Ye ca tattha vijānanti,"
+    },
+    {
+     "n": 28,
+     "text": "tato sammanti medhagā."
+    },
+    {
+     "n": 29,
+     "text": "Subhānupassiṁ viharantaṁ,"
+    },
+    {
+     "n": 30,
+     "text": "indriyesu asaṁvutaṁ;"
+    },
+    {
+     "n": 31,
+     "text": "Bhojanamhi cāmattaññuṁ,"
+    },
+    {
+     "n": 32,
+     "text": "kusītaṁ hīnavīriyaṁ;"
+    },
+    {
+     "n": 33,
+     "text": "Taṁ ve pasahati māro,"
+    },
+    {
+     "n": 34,
+     "text": "vāto rukkhaṁva dubbalaṁ."
+    },
+    {
+     "n": 35,
+     "text": "Asubhānupassiṁ viharantaṁ,"
+    },
+    {
+     "n": 36,
+     "text": "Indriyesu susaṁvutaṁ;"
+    },
+    {
+     "n": 37,
+     "text": "Bhojanamhi ca mattaññuṁ,"
+    },
+    {
+     "n": 38,
+     "text": "Saddhaṁ āraddhavīriyaṁ;"
+    },
+    {
+     "n": 39,
+     "text": "Taṁ ve nappasahati māro,"
+    },
+    {
+     "n": 40,
+     "text": "Vāto selaṁva pabbataṁ."
+    },
+    {
+     "n": 41,
+     "text": "Anikkasāvo kāsāvaṁ,"
+    },
+    {
+     "n": 42,
+     "text": "yo vatthaṁ paridahissati;"
+    },
+    {
+     "n": 43,
+     "text": "Apeto damasaccena,"
+    },
+    {
+     "n": 44,
+     "text": "na so kāsāvamarahati."
+    },
+    {
+     "n": 45,
+     "text": "Yo ca vantakasāvassa,"
+    },
+    {
+     "n": 46,
+     "text": "sīlesu susamāhito;"
+    },
+    {
+     "n": 47,
+     "text": "Upeto damasaccena,"
+    },
+    {
+     "n": 48,
+     "text": "sa ve kāsāvamarahati."
+    },
+    {
+     "n": 49,
+     "text": "Asāre sāramatino,"
+    },
+    {
+     "n": 50,
+     "text": "sāre cāsāradassino;"
+    },
+    {
+     "n": 51,
+     "text": "Te sāraṁ nādhigacchanti,"
+    },
+    {
+     "n": 52,
+     "text": "micchāsaṅkappagocarā."
+    },
+    {
+     "n": 53,
+     "text": "Sārañca sārato ñatvā,"
+    },
+    {
+     "n": 54,
+     "text": "asārañca asārato;"
+    },
+    {
+     "n": 55,
+     "text": "Te sāraṁ adhigacchanti,"
+    },
+    {
+     "n": 56,
+     "text": "sammāsaṅkappagocarā."
+    },
+    {
+     "n": 57,
+     "text": "Yathā agāraṁ ducchannaṁ,"
+    },
+    {
+     "n": 58,
+     "text": "vuṭṭhī samativijjhati;"
+    },
+    {
+     "n": 59,
+     "text": "Evaṁ abhāvitaṁ cittaṁ,"
+    },
+    {
+     "n": 60,
+     "text": "rāgo samativijjhati."
+    },
+    {
+     "n": 61,
+     "text": "Yathā agāraṁ suchannaṁ,"
+    },
+    {
+     "n": 62,
+     "text": "vuṭṭhī na samativijjhati;"
+    },
+    {
+     "n": 63,
+     "text": "Evaṁ subhāvitaṁ cittaṁ,"
+    },
+    {
+     "n": 64,
+     "text": "rāgo na samativijjhati."
+    },
+    {
+     "n": 65,
+     "text": "Idha socati pecca socati,"
+    },
+    {
+     "n": 66,
+     "text": "Pāpakārī ubhayattha socati;"
+    },
+    {
+     "n": 67,
+     "text": "So socati so vihaññati,"
+    },
+    {
+     "n": 68,
+     "text": "Disvā kammakiliṭṭhamattano."
+    },
+    {
+     "n": 69,
+     "text": "Idha modati pecca modati,"
+    },
+    {
+     "n": 70,
+     "text": "Katapuñño ubhayattha modati;"
+    },
+    {
+     "n": 71,
+     "text": "So modati so pamodati,"
+    },
+    {
+     "n": 72,
+     "text": "Disvā kammavisuddhimattano."
+    },
+    {
+     "n": 73,
+     "text": "Idha tappati pecca tappati,"
+    },
+    {
+     "n": 74,
+     "text": "Pāpakārī ubhayattha tappati;"
+    },
+    {
+     "n": 75,
+     "text": "“Pāpaṁ me katan”ti tappati,"
+    },
+    {
+     "n": 76,
+     "text": "Bhiyyo tappati duggatiṁ gato."
+    },
+    {
+     "n": 77,
+     "text": "Idha nandati pecca nandati,"
+    },
+    {
+     "n": 78,
+     "text": "Katapuñño ubhayattha nandati;"
+    },
+    {
+     "n": 79,
+     "text": "“Puññaṁ me katan”ti nandati,"
+    },
+    {
+     "n": 80,
+     "text": "Bhiyyo nandati suggatiṁ gato."
+    },
+    {
+     "n": 81,
+     "text": "Bahumpi ce saṁhita bhāsamāno,"
+    },
+    {
+     "n": 82,
+     "text": "Na takkaro hoti naro pamatto;"
+    },
+    {
+     "n": 83,
+     "text": "Gopova gāvo gaṇayaṁ paresaṁ,"
+    },
+    {
+     "n": 84,
+     "text": "Na bhāgavā sāmaññassa hoti."
+    },
+    {
+     "n": 85,
+     "text": "Appampi ce saṁhita bhāsamāno,"
+    },
+    {
+     "n": 86,
+     "text": "Dhammassa hoti anudhammacārī;"
+    },
+    {
+     "n": 87,
+     "text": "Rāgañca dosañca pahāya mohaṁ,"
+    },
+    {
+     "n": 88,
+     "text": "Sammappajāno suvimuttacitto;"
+    },
+    {
+     "n": 89,
+     "text": "Anupādiyāno idha vā huraṁ vā,"
+    },
+    {
+     "n": 90,
+     "text": "Sa bhāgavā sāmaññassa hoti."
+    }
+   ],
+   "variant": "translation"
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp1-20/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Intention is the leader of things;"
+    },
+    {
+     "n": 2,
+     "text": "intention is first, they’re made by intention."
+    },
+    {
+     "n": 3,
+     "text": "If with corrupt intent"
+    },
+    {
+     "n": 4,
+     "text": "you speak or act,"
+    },
+    {
+     "n": 5,
+     "text": "suffering follows you,"
+    },
+    {
+     "n": 6,
+     "text": "like a wheel, the ox’s foot."
+    },
+    {
+     "n": 7,
+     "text": "Intention is the leader of things;"
+    },
+    {
+     "n": 8,
+     "text": "intention is first, they’re made by intention."
+    },
+    {
+     "n": 9,
+     "text": "If with pure intent"
+    },
+    {
+     "n": 10,
+     "text": "you speak or act,"
+    },
+    {
+     "n": 11,
+     "text": "happiness follows you"
+    },
+    {
+     "n": 12,
+     "text": "like a shadow that never leaves."
+    },
+    {
+     "n": 13,
+     "text": "“They abused me, they hit me!"
+    },
+    {
+     "n": 14,
+     "text": "They beat me, they robbed me!”"
+    },
+    {
+     "n": 15,
+     "text": "For those who bear such a grudge,"
+    },
+    {
+     "n": 16,
+     "text": "hatred is never laid to rest."
+    },
+    {
+     "n": 17,
+     "text": "“They abused me, they hit me!"
+    },
+    {
+     "n": 18,
+     "text": "They beat me, they robbed me!”"
+    },
+    {
+     "n": 19,
+     "text": "For those who bear no such grudge,"
+    },
+    {
+     "n": 20,
+     "text": "hatred is laid to rest."
+    },
+    {
+     "n": 21,
+     "text": "For never is hatred"
+    },
+    {
+     "n": 22,
+     "text": "laid to rest by hate,"
+    },
+    {
+     "n": 23,
+     "text": "it’s laid to rest by love:"
+    },
+    {
+     "n": 24,
+     "text": "this is an ancient teaching."
+    },
+    {
+     "n": 25,
+     "text": "When others do not understand,"
+    },
+    {
+     "n": 26,
+     "text": "let us, who do understand this,"
+    },
+    {
+     "n": 27,
+     "text": "restrain ourselves in this regard;"
+    },
+    {
+     "n": 28,
+     "text": "for that is how conflicts are laid to rest."
+    },
+    {
+     "n": 29,
+     "text": "Those who contemplate the beautiful,"
+    },
+    {
+     "n": 30,
+     "text": "their faculties unrestrained,"
+    },
+    {
+     "n": 31,
+     "text": "immoderate in eating,"
+    },
+    {
+     "n": 32,
+     "text": "lazy, lacking energy:"
+    },
+    {
+     "n": 33,
+     "text": "Māra strikes them down"
+    },
+    {
+     "n": 34,
+     "text": "like the wind, a feeble tree."
+    },
+    {
+     "n": 35,
+     "text": "Those who contemplate the ugly,"
+    },
+    {
+     "n": 36,
+     "text": "their faculties well-restrained,"
+    },
+    {
+     "n": 37,
+     "text": "eating in moderation,"
+    },
+    {
+     "n": 38,
+     "text": "faithful and energetic:"
+    },
+    {
+     "n": 39,
+     "text": "Māra cannot strike them down,"
+    },
+    {
+     "n": 40,
+     "text": "like the wind, a rocky mountain."
+    },
+    {
+     "n": 41,
+     "text": "One who, not free of stains themselves,"
+    },
+    {
+     "n": 42,
+     "text": "would wear the robe stained in ocher,"
+    },
+    {
+     "n": 43,
+     "text": "bereft of self-control and truth:"
+    },
+    {
+     "n": 44,
+     "text": "they are not worthy of the ocher robe."
+    },
+    {
+     "n": 45,
+     "text": "One who’s purged all their stains,"
+    },
+    {
+     "n": 46,
+     "text": "steady in ethics,"
+    },
+    {
+     "n": 47,
+     "text": "possessed of self-control and of truth,"
+    },
+    {
+     "n": 48,
+     "text": "they are truly worthy of the ocher robe."
+    },
+    {
+     "n": 49,
+     "text": "Thinking the inessential is essential,"
+    },
+    {
+     "n": 50,
+     "text": "seeing the essential as inessential;"
+    },
+    {
+     "n": 51,
+     "text": "they don’t realize the essential,"
+    },
+    {
+     "n": 52,
+     "text": "for wrong thoughts are their habitat."
+    },
+    {
+     "n": 53,
+     "text": "Having known the essential as essential,"
+    },
+    {
+     "n": 54,
+     "text": "and the inessential as inessential;"
+    },
+    {
+     "n": 55,
+     "text": "they realize the essential,"
+    },
+    {
+     "n": 56,
+     "text": "for right thoughts are their habitat."
+    },
+    {
+     "n": 57,
+     "text": "Just as rain seeps into"
+    },
+    {
+     "n": 58,
+     "text": "a poorly roofed house,"
+    },
+    {
+     "n": 59,
+     "text": "lust seeps into"
+    },
+    {
+     "n": 60,
+     "text": "an undeveloped mind."
+    },
+    {
+     "n": 61,
+     "text": "Just as rain doesn’t seep into"
+    },
+    {
+     "n": 62,
+     "text": "a well roofed house,"
+    },
+    {
+     "n": 63,
+     "text": "lust doesn’t seep into"
+    },
+    {
+     "n": 64,
+     "text": "a well developed mind."
+    },
+    {
+     "n": 65,
+     "text": "Here they grieve, hereafter they grieve,"
+    },
+    {
+     "n": 66,
+     "text": "an evildoer grieves in both places."
+    },
+    {
+     "n": 67,
+     "text": "They grieve and fret,"
+    },
+    {
+     "n": 68,
+     "text": "seeing their own corrupt deeds."
+    },
+    {
+     "n": 69,
+     "text": "Here they rejoice, hereafter they rejoice,"
+    },
+    {
+     "n": 70,
+     "text": "one who does good rejoices in both places."
+    },
+    {
+     "n": 71,
+     "text": "They rejoice and celebrate,"
+    },
+    {
+     "n": 72,
+     "text": "seeing their own pure deeds."
+    },
+    {
+     "n": 73,
+     "text": "Here they’re tormented, hereafter they’re tormented,"
+    },
+    {
+     "n": 74,
+     "text": "an evildoer is tormented in both places."
+    },
+    {
+     "n": 75,
+     "text": "They’re tormented thinking of bad things they’ve done;"
+    },
+    {
+     "n": 76,
+     "text": "when gone to a bad place, they’re tormented all the more."
+    },
+    {
+     "n": 77,
+     "text": "Here they delight, hereafter they delight,"
+    },
+    {
+     "n": 78,
+     "text": "one who does good delights in both places."
+    },
+    {
+     "n": 79,
+     "text": "They delight thinking of good things they’ve done;"
+    },
+    {
+     "n": 80,
+     "text": "when gone to a good place, they delight all the more."
+    },
+    {
+     "n": 81,
+     "text": "Much though they may recite scripture,"
+    },
+    {
+     "n": 82,
+     "text": "if a negligent person does not apply them,"
+    },
+    {
+     "n": 83,
+     "text": "then, like a cowherd who counts the cattle of others,"
+    },
+    {
+     "n": 84,
+     "text": "they miss out on the blessings of the ascetic life."
+    },
+    {
+     "n": 85,
+     "text": "Little though they may recite scripture,"
+    },
+    {
+     "n": 86,
+     "text": "if they live in line with the teaching,"
+    },
+    {
+     "n": 87,
+     "text": "having given up greed, hate, and delusion,"
+    },
+    {
+     "n": 88,
+     "text": "with deep understanding and heart well freed,"
+    },
+    {
+     "n": 89,
+     "text": "not grasping to this life or the next,"
+    },
+    {
+     "n": 90,
+     "text": "they share in the blessings of the ascetic life."
+    }
+   ],
+   "variant": "translation"
+  }
+ ]
+}

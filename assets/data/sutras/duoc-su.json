@@ -1,0 +1,1530 @@
+{
+ "id": "duoc-su",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Dược Sư",
+ "reference": "Taishō T0450",
+ "hanTranslator": "Huyền Trang",
+ "summary": "Kinh Đại thừa, bản Hán dịch của ngài Huyền Trang, ghi lời Đức Phật nói với Bồ Tát Mạn Thù Thất Lợi tại thành Quảng Nghiêm. Kinh giới thiệu Đức Dược Sư Lưu Ly Quang Như Lai, giáo chủ cõi Tịnh Lưu Ly ở phương Đông, cùng mười hai đại nguyện mà Ngài phát khi còn tu hạnh Bồ Tát. Kinh cũng nói về công đức của việc thọ trì danh hiệu và bản nguyện của Ngài.",
+ "titles": {
+  "vi": "Kinh Dược Sư (Dược Sư Lưu Ly Quang Như Lai Bổn Nguyện Công Đức)",
+  "zh": "藥師琉璃光如來本願功德經",
+  "sa": "Bhaiṣajyaguruvaiḍūryaprabhārāja Sūtra",
+  "en": "Medicine Buddha Sutra"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  },
+  {
+   "deity_id": "buddha_bhaisajyaguru",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "CAU_AN"
+ ],
+ "durationMinutes": 80,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "translator": "Hòa thượng Thích Huyền Dung (Việt dịch từ bản Hán của Huyền Trang)",
+   "sourceName": "Phatgiao.org.vn (Cổng thông tin Phật giáo, Giáo hội Phật giáo Việt Nam) - Kinh Dược Sư",
+   "sourceUrl": "https://phatgiao.org.vn/kinh-duoc-su-tieng-viet-de-doc-de-hieu-d70736.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Trang ghi: \"Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!\" (không nêu giấy phép chuẩn như CC); bản quyền bản dịch gốc của dịch giả không được nêu",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ta nghe như vầy: “Một thuở nọ, Đức Bạt Già Phạm đi châu du giáo hóa các nước, đến thành Quảng Nghiêm, ở nghỉ dưới cây Nhạc Âm, cùng với tám ngàn vị đại Bí Sô, ba vạn sáu ngàn vị đại Bồ Tát,"
+    },
+    {
+     "n": 2,
+     "text": "các hàng Quốc Vương, Đại Thần, Bà La Môn, các hàng Cư Sĩ, Thiên, Long, Trời, Người, cả thảy đồng vây quanh Phật, cung kính thỉnh Ngài thuyết Pháp.”"
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ, ông Mạn Thù Thất Lợi pháp vương tử nhờ oai thần của Phật, từ chỗ ngồi đứng dậy, vén áo bên hữu và gối bên mặt quì sát đất, chắp tay hướng về Phật và bạch rằng:"
+    },
+    {
+     "n": 4,
+     "text": "“Bạch Đức Thế Tôn, cúi mong Ngài nói rõ những danh hiệu, những bổn nguyện rộng lớn, cùng những công đức thù thắng của chư Phật,"
+    },
+    {
+     "n": 5,
+     "text": "để cho những người đang nghe Pháp, nghiệp chướng tiêu trừ, và để cho chúng hữu tình ở đời tượng pháp được nhiều lợi lạc về sau”."
+    },
+    {
+     "n": 6,
+     "text": "Đức Thế Tôn khen ông Mạn Thù Thất Lợi: “Hay thay, Mạn Thù Thất Lợi!"
+    },
+    {
+     "n": 7,
+     "text": "Ngươi lấy lòng đại bi yêu cầu ta nói danh hiệu và bổn nguyện công đức của chư Phật, vì muốn cho chúng hữu tình khỏi bị nghiệp chướng ràng buộc, lợi ích an vui trong đời tượng pháp."
+    },
+    {
+     "n": 8,
+     "text": "Nay ngươi nên lắng nghe và suy nghĩ kỹ, Ta sẽ vì Ông mà nói."
+    },
+    {
+     "n": 9,
+     "text": "Nầy Ông Mạn Thù Thất Lợi, ở phương Đông, cách đây hơn mười căn dà sa, có một thế giới tên là Tịnh Lưu Ly."
+    },
+    {
+     "n": 10,
+     "text": "Đức giáo chủ cõi ấy hiệu là Dược Sư Lưu Ly Quang Như Lai, Ứng Chánh Đẳng Giác, Minh Hạnh Viên Mãn, Thiện Thệ, Thế Gian Giải, Vô Thượng Sĩ, Điều Ngự Trượng Phu, Thiên Nhân Sư, Phật, Bạt Già Phạm."
+    },
+    {
+     "n": 11,
+     "text": "Này Mạn Thù Thất Lợi, Đức Dược Sư Lưu Ly Quang Như Lai, khi còn tu hạnh Bồ Tát có phát mười hai hạnh nguyện lớn, khiến cho chúng hữu tình cầu chi được nấy."
+    },
+    {
+     "n": 12,
+     "text": "Nguyện thứ nhất: Ta nguyện đời sau, khi chứng được quả vị Chánh Đẳng Chánh Giác, thân ta có hào quang sáng chói, chiếu khắp vô số thế giới,"
+    },
+    {
+     "n": 13,
+     "text": "khiến cho chúng hữu tình đều có đủ ba mươi hai tướng tốt và tám mươi tướng phụ như thân của ta vậy."
+    },
+    {
+     "n": 14,
+     "text": "Nguyện thứ hai: Ta nguyện đời sau, khi đặng Đạo Bồ Đề, thân ta như ngọc lưu ly, trong ngoài sáng suốt, tinh sạch hoàn toàn, không có chút nhơ bợn,"
+    },
+    {
+     "n": 15,
+     "text": "ánh quang minh chói lọi khắp nơi, công đức cao vòi vọi và an trú giữa từng lưới dệt bằng tia sáng, tỏ hơn vầng nhật nguyệt."
+    },
+    {
+     "n": 16,
+     "text": "Chúng sanh trong cõi U minh đều nhờ ánh sáng ấy, tâm trí được mở mang, muốn đi đến chỗ nào để làm nên sự nghiệp, sẽ được như ý."
+    },
+    {
+     "n": 17,
+     "text": "Nguyện thứ ba: Ta nguyện đời sau, khi đặng Đạo Bồ Đề, dùng trí huệ, và phương tiện vô lượng vô biên, độ cho chúng hữu tình, khiến mọi người có đủ các vật dụng, không ai phải chịu sự thiếu thốn."
+    },
+    {
+     "n": 18,
+     "text": "Nguyện thứ tư: Ta nguyện đời sau, khi đặng Đạo Bồ Đề, nếu có chúng hữu tình tu theo tà đạo, ta khiến họ quay về an trụ trong Đạo Bồ Đề."
+    },
+    {
+     "n": 19,
+     "text": "Hoặc có những người tu theo hạnh Thinh Văn, Độc Giác, dùng giáo lý Đại Thừa, ta giảng dạy cho họ."
+    },
+    {
+     "n": 20,
+     "text": "Nguyện thứ năm: Ta nguyện đời sau, khi đặng Đạo Bồ Đề, nếu có chúng hữu tình, tu hạnh thanh tịnh, theo giáo pháp của ta, ta sẽ giúp họ giữ được giới pháp hoàn toàn đầy đủ."
+    },
+    {
+     "n": 21,
+     "text": "Nếu có người bị tội hủy phạm giới pháp, nghe được danh hiệu ta, người đó sẽ được thanh tịnh, khỏi sa vào đường ác."
+    },
+    {
+     "n": 22,
+     "text": "Nguyện thứ sáu: Ta nguyện đời sau, khi chứng đạo Bồ Đề, nếu có chúng hữu tình nào thân hình hèn hạ, các căn không đủ, xấu xa, khờ khạo, tai điếc, mắt đui, nói năng ngọng liệu,"
+    },
+    {
+     "n": 23,
+     "text": "tay chân tật nguyền, lác hủi, điên cuồng, chịu những bịnh khổ ấy, nếu nghe danh hiệu ta, liền được thân hình đoan chánh, tâm tánh khôn ngoan, các căn đầy đủ, không có những bệnh khổ ấy nữa."
+    },
+    {
+     "n": 24,
+     "text": "Nguyện thứ bảy: Ta nguyện đời sau, khi chứng Đạo Bồ Đề, nếu có chúng hữu tình nào bị những chứng bịnh hiểm nghèo không ai cứu chữa, không ai để nương nhờ, không gặp thầy, không gặp thuốc, không bà con, không nhà cửa,"
+    },
+    {
+     "n": 25,
+     "text": "chịu nhiều nỗi nghèo hèn khốn khổ, nếu nghe danh hiệu ta một lần, tất cả bệnh hoạn khổ não đều tiêu trừ, thân tâm an lạc, gia quyến sum vầy, của cải sung túc, cho đến chứng được đạo quả vô thượng Bồ Đề."
+    },
+    {
+     "n": 26,
+     "text": "Nguyện thứ tám: Ta nguyện đời sau, khi chứng Đạo Bồ Đề, nếu có phụ nữ nào bị trăm điều hèn hạ khổ sở, buồn rầu, bực tức, sanh tâm nhàm chán,"
+    },
+    {
+     "n": 27,
+     "text": "muốn bỏ thân ấy, nếu nghe danh hiệu ta, được chuyển thân gái thành thân trai, có đủ hình tướng trượng phu, cho đến chứng đạo quả vô thượng Bồ Đề."
+    },
+    {
+     "n": 28,
+     "text": "Nguyện thứ chín: Ta nguyện đời sau, khi chứng Đạo Bồ Đề, dẫn dắt chúng hữu tình ra khỏi vòng lưới ma nghiệp, được giải thoát tất cả sự ràng buộc của ngoại đạo."
+    },
+    {
+     "n": 29,
+     "text": "Nếu có những kẻ sa vào rừng ác kiến, ta dẫn họ về với chánh kiến, và dần dần dạy họ tu tập theo các hạnh Bồ Tát đặng mau chứng Đạo Bồ Đề."
+    },
+    {
+     "n": 30,
+     "text": "Nguyện thứ mười: Ta nguyện đời sau, khi chứng Đạo Bồ Đề, nếu có hữu tình nào bị nhà vua xiềng xích, đánh đập, hoặc bị lao tù, hoặc bị chém giết, hoặc bị nhiều tai nạn nhục nhã,"
+    },
+    {
+     "n": 31,
+     "text": "thân tâm chịu những nỗi khổ, buồn rầu, bứt rứt, nếu nghe danh hiệu ta, nhờ sức oai thần phước đức của ta, đều được giải thoát tất cả những nỗi ưu khổ ấy."
+    },
+    {
+     "n": 32,
+     "text": "Nguyện thứ mười một: Ta nguyện đời sau, khi chứng Đạo Bồ Đề, nếu có hữu tình nào bị sự đói khát hoành hành, vì tìm miếng ăn phải tạo các nghiệp dữ, nếu nghe danh hiệu ta,"
+    },
+    {
+     "n": 33,
+     "text": "chuyên niệm thọ trì, trước hết ta dùng các món ăn ngon ban bố cho họ được no đủ, và sau ta đem giáo pháp nhiệm mầu kiến lập cho họ cảnh giới an lạc hoàn toàn."
+    },
+    {
+     "n": 34,
+     "text": "Nguyện thừ mười hai: Ta nguyện đời sau khi chứng Bồ Đề, nếu có hữu tình nào nghèo đến nỗi không có áo che thân, bị mũi mòng cắn đốt,"
+    },
+    {
+     "n": 35,
+     "text": "nóng lạnh dãi dầu, ngày đêm khổ bức, nếu nghe và trì niệm danh hiệu ta, ta sẽ giúp cho người đó được như ý muốn:"
+    },
+    {
+     "n": 36,
+     "text": "các thứ y phục tốt đẹp, bảo vật trang nghiêm, tràng hoa, phấn sáp thơm ngát, trống nhạc ca múa, muốn thưởng thức thứ nào cũng được thỏa mãn cả."
+    },
+    {
+     "n": 37,
+     "text": "Nầy Mạn Thù Thất Lợi, đó là mười hai lời nguyện nhiệm mầu của Đức Dược Sư Lưu Ly Quang Như Lai, Ứng Chánh Đẳng Giác phát ra trong khi tu hạnh Bồ Tát."
+    },
+    {
+     "n": 38,
+     "text": "Lại nữa, Mạn Thù Thất Lợi, Đức Dược Sư Lưu Ly Quang Như Lai khi còn tu hạnh Bồ Tát phát những lời nguyện rộng lớn và những công đức trang nghiêm ở cõi Ngài, dầu ta nói mãn một kiếp cũng không thể hết được."
+    },
+    {
+     "n": 39,
+     "text": "Nhưng ta có thể nói ngay rằng, cõi Phật kia một bề thanh tịnh, không có đàn bà, cũng không có đường dữ, và đến tiếng khổ cũng không."
+    },
+    {
+     "n": 40,
+     "text": "Ở cõi ấy đất toàn bằng chất lưu ly, đường đi có dây bằng vàng giăng làm ranh giới, thành quách cung điện,"
+    },
+    {
+     "n": 41,
+     "text": "mái hiên cửa sổ cho đến các lớp lưới bao phủ cũng toàn bằng đồ thất bảo làm ra, chẳng khác gì những công đức trang nghiêm ở cõi Tây Phương Cực Lạc vậy."
+    },
+    {
+     "n": 42,
+     "text": "Cõi Phật ấy, có hai vị Đại Bồ Tát là Nhật Quang Biến Chiếu và Nguyệt Quang Biến Chiếu, là hai bực thượng thủ trong vô lượng, vô số Bồ Tát, và lại là những bậc sắp bổ xứ làm Phật."
+    },
+    {
+     "n": 43,
+     "text": "Hai vị này đều giữ kho báu chánh pháp của Đức Dược Sư Lưu Ly Quang Như Lai."
+    },
+    {
+     "n": 44,
+     "text": "Mạn Thù Thất Lợi, vì thế những kẻ thiện nam tính nữ nào có lòng tin vững chắc thì nên nguyện sanh về thế giới của Ngài.”"
+    },
+    {
+     "n": 45,
+     "text": "Lúc ấy, Đức Thế Tôn lại bảo Đồng Tử Mạn Thù Thất Lợi rằng:"
+    },
+    {
+     "n": 46,
+     "text": "“Có những chúng sanh không biết điều lành dữ, cứ ôm lòng bỏn xẻn, không biết bố thí và cũng không biết quả báo của sự bố thí là gì, ngu si vô trí, thiếu hẳn đức tin,"
+    },
+    {
+     "n": 47,
+     "text": "lại ham chứa chất của cải cho nhiều, đêm ngày bo bo gìn giữ, thấy ai đến xin, lòng đã không muốn, nhưng nếu cực chẳng đã phải đưa của ra thì đau đớn mến tiếc, dường như lóc thịt cho người vậy."
+    },
+    {
+     "n": 48,
+     "text": "Lại có chúng hữu tình tham lam, chỉ lo tích trữ của cải cho nhiều mà tự mình không dám ăn tiêu, còn nói chi đến sự đem của ấy thí cho cha mẹ, vợ con, tôi tớ và những kẻ nghèo hèn đến xin."
+    },
+    {
+     "n": 49,
+     "text": "Những kẻ tham lam ấy, khi chết bị đọa vào đường ngạ quỷ hay bàng sinh."
+    },
+    {
+     "n": 50,
+     "text": "Mặc dù ở trong ác thú, nhưng nhờ đời trước, sống trong cõi nhơn gian đã từng nghe qua danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, nay lại còn nhớ niệm danh hiệu của Ngài, liền từ cõi ấy thoát sanh trở lại làm người."
+    },
+    {
+     "n": 51,
+     "text": "Khi đã được làm người lại nhớ đến kiếp sống trong đường ngạ quỷ súc sanh, biết sợ sự đau khổ, nên người đó không ưa đắm dục lạc,"
+    },
+    {
+     "n": 52,
+     "text": "muốn tự mình làm việc bố thí, không tham tiếc món gì, có thể đem cả đầu, mắt, tay, chơn hay máu thịt của thân mình, bố thí cho những kẻ đến xin."
+    },
+    {
+     "n": 53,
+     "text": "Lại nữa, Mạn Thù Thất Lợi, trong chốn hữu tình có người thọ giới của Phật để tu học mà lại phá giới, hoặc có kẻ không phá giới mà lại phá phép tắc,"
+    },
+    {
+     "n": 54,
+     "text": "hoặc có kẻ tuy chẳng phá giới và phép tắc mà lại hủy hại chánh kiến, hoặc có kẻ tuy không hủy hoại chánh kiến mà lại bỏ sự đa văn,"
+    },
+    {
+     "n": 55,
+     "text": "nên không hiểu được nghĩa lý sâu xa trong kinh Phật nói, hoặc có kẻ tuy đa văn mà có thói tăng thượng mạn,"
+    },
+    {
+     "n": 56,
+     "text": "do thói tăng thượng mạn ấy che lấp tâm tánh, cố chấp cho mình là phải, người khác là quấy, chê bai chánh pháp, kết đảng với ma."
+    },
+    {
+     "n": 57,
+     "text": "Những kẻ ngu si ấy, tự mình đã theo tà kiến, khiến cho người khác cũng sa vào hố nguy hiểm."
+    },
+    {
+     "n": 58,
+     "text": "Những chúng hữu tình ấy, bị trôi lăn trong các đường địa ngục, ngạ quỷ, bàng sanh không khi nào cùng."
+    },
+    {
+     "n": 59,
+     "text": "Nếu nghe được danh hiệu Đức Dược Sư Lưu Ly Quang Như Lai, họ liền bỏ những hạnh dữ, tu theo các phép lành, khỏi bị đọa vào ác thú nữa."
+    },
+    {
+     "n": 60,
+     "text": "Giả sử có người không thể bỏ những hạnh dữ và không tu theo những pháp lành mà phải bị đọa vào ác thú thì cũng nhờ oai lực và bổn nguyện của Đức Dược Sư,"
+    },
+    {
+     "n": 61,
+     "text": "liền từ nơi ác thú đó sanh vào cõi người, tinh tấn tu hành chân chánh,"
+    },
+    {
+     "n": 62,
+     "text": "khéo điều hòa tâm ý, xuất gia tu học giáo pháp của Như Lai, hiểu rõ nghĩa lý sâu xa, lìa được thói tăng thượng mạn, không chê bai chánh pháp, không bè bạn với ma, dần dần tu theo hạnh Bồ Tát, sẽ chứng được đạo quả Bồ Đề."
+    },
+    {
+     "n": 63,
+     "text": "Lại nữa, Mạn Thù Thất Lợi, nếu chúng hữu tình có tính tham lam tật đố, hay khen mình chê người, sẽ bị đọa vào ba đường dữ,"
+    },
+    {
+     "n": 64,
+     "text": "địa ngục, ngạ quỷ, súc sanh, chịu nhiều sự đau đớn khổ sở, trải qua không biết mấy nghìn năm mới hết."
+    },
+    {
+     "n": 65,
+     "text": "Khi đã hết sự đau khổ đó, liền sanh lại cõi người phải làm thân trâu, ngựa, lừa, lạc đà, thường bị người hành hạ, đánh đập và bị đói khát dầy vò, đường xa chở nặng, cực nhọc muôn phần;"
+    },
+    {
+     "n": 66,
+     "text": "may đặng làm thân người, lại bị sanh vào hạng hạ tiện, làm tôi tớ cho kẻ khác, mãi bị sai sử, không khi nào được chút tự do."
+    },
+    {
+     "n": 67,
+     "text": "Nếu những người ấy, đời trước đã từng nghe danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, do nhân lành ấy,"
+    },
+    {
+     "n": 68,
+     "text": "ngày nay nhớ lại, chí tâm qui y Ngài, nhờ thần lực của Ngài gia hộ, được thoát khỏi mọi khổ não, các căn thông lợi,"
+    },
+    {
+     "n": 69,
+     "text": "trí huệ sáng suốt, lại thêm đa văn, hằng cầu thắng pháp, thường gặp bạn lành, đời đời dứt hẳn lưới ma, đập nát vỏ vô minh, tát cạn sông phiền não, được thoát khỏi sanh, lão, bệnh, tử và những nỗi đau khổ lo buồn."
+    },
+    {
+     "n": 70,
+     "text": "Lại nữa, Mạn Thù Thất Lợi, nếu có chúng hữu tình ưa sự ngang trái chia lìa, tranh đấu, kiện cáo lẫn nhau, làm não loạn cho mình và người, đem thân, khẩu,"
+    },
+    {
+     "n": 71,
+     "text": "ý tạo thêm nghiệp ác, xoay qua trở lại, thường làm những việc không nhiêu ích để mưu hại lẫn nhau, hoặc cáo triệu thần núi, thần cây, thần sông v.v..., để hại người,"
+    },
+    {
+     "n": 72,
+     "text": "hoặc giết chúng sanh lấy huyết thịt cúng tế quỷ Dược Xoa và quỷ La Sát để cậy quỷ hại người, hoặc biên tên họ hay làm hình tượng của người cừu oán, dùng phép chú thuật tà ác trù ẻo cho chết,"
+    },
+    {
+     "n": 73,
+     "text": "hoặc theo lối ếm đối hay dùng những đồ độc, chú pháp hại người, người nào bị những tai nạn ấy, nếu nghe danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, các thứ tà ác kia không thể hại được."
+    },
+    {
+     "n": 74,
+     "text": "Nếu những kẻ ác tâm đó khởi lòng từ bi làm việc lợi ích an vui cho kẻ khác, không còn ý tổn não và hiềm giận, người đó sẽ được an vui."
+    },
+    {
+     "n": 75,
+     "text": "Lại nữa, Mạn Thù Thất Lợi, nếu trong hàng tứ chúng:"
+    },
+    {
+     "n": 76,
+     "text": "Bí Sô, Bí Sô ni, Ô Ba Sách Ca, Ô Ba Tư Ca và những thiện nam tín nữ đều thọ trì tám giới cấm, hoặc trong một năm, hoặc mỗi năm ba tháng, vâng giữ giới pháp làm nơi y chỉ tu học,"
+    },
+    {
+     "n": 77,
+     "text": "đem căn lành này nguyện sanh về cõi Cực Lạc của Đức Phật A Di Đà, để nghe chánh pháp, nhưng nếu chưa quyết định, hễ nghe danh hiệu Đức Dược Sư Lưu Ly Quang Như Lai,"
+    },
+    {
+     "n": 78,
+     "text": "khi mạng chung, sẽ có tám vị Đại Bồ Tát như Văn Thù Sư Lợi Bồ Tát, Quán Thế Âm Bồ Tát, Đắc Đại Thế Bồ Tát, Vô Tận Ý Bồ Tát, Bảo Đàn Hoa Bồ Tát,"
+    },
+    {
+     "n": 79,
+     "text": "Dược Vương Bồ Tát, Dược Thượng Bồ Tát, Di Lặc Bồ Tát từ trên không trung đi đến đưa đường chỉ lối, người đó liền được sanh trong những hoa báu đủ màu."
+    },
+    {
+     "n": 80,
+     "text": "Hoặc nếu có kẻ nhờ nguyện lực của Đức Dược Sư, được sanh lên cõi trời, và lại nhờ căn lành sẵn có, không còn sanh lại những đường ác nữa."
+    },
+    {
+     "n": 81,
+     "text": "Khi tuổi thọ ở cõi trời đã mãn, người đó lại sanh trong chốn nhân gian, hoặc làm bậc Luân Vương, thống nhiếp cả bốn châu thiên hạ, oai đức tự tại, giáo hóa cho vô lượng trăm ngàn chúng hữu tình theo đường thập thiện,"
+    },
+    {
+     "n": 82,
+     "text": "hoặc sanh vào dòng Sát Đế Ly, Bà La Môn hay cư sĩ đại cô, của tiền dư dật, kho đụn tràn đầy, tướng mạo đoan trang, quyến thuộc sum vầy, lại được thông minh trí huệ, dõng mãnh oai hùng như người đại lực sĩ."
+    },
+    {
+     "n": 83,
+     "text": "Còn nếu có người phụ nữ nào nghe danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, hết lòng thọ trì danh hiệu ấy, đời sau sẽ không làm thân gái nữa."
+    },
+    {
+     "n": 84,
+     "text": "Này Mạn Thù Thất Lợi! Đức Dược Sư Lưu Ly Quang Như Lai khi đã chứng Đạo Bồ Đề, do sức bổn nguyện mà Ngài quan sát biết chúng hữu tình gặp phải các thứ bịnh khổ như da vàng,"
+    },
+    {
+     "n": 85,
+     "text": "gầy ốm, cảm nhiệt, thương hàn, hoặc trúng phải những thứ ếm đối, đồ độc, hoặc bị hoạnh tử, hoặc bị chết non."
+    },
+    {
+     "n": 86,
+     "text": "Muốn những chứng bịnh ấy được tiêu trừ và lòng mong cầu của chúng hữu tình được mãn nguyện, Ngài liền nhập định để diệt trừ tất cả khổ não của chúng sanh."
+    },
+    {
+     "n": 87,
+     "text": "Khi Ngài nhập định, từ trong nhục kế phóng ra luồng ánh sáng lớn, trong luồng ánh sáng ấy nói Đại Đà La Ni:"
+    },
+    {
+     "n": 88,
+     "text": "Nam Mô bạt dà phạt đế, bệ sát xã lụ rô thích lưu ly, bát lặt bà hắt ra xà dã, đát tha yết đa da, a ra hắt đế, tam miệu tam bột đà da, đát điệt tha."
+    },
+    {
+     "n": 89,
+     "text": "Án, bệ sát thệ, bệ sát thệ, bệ sát xã, tam một yết đế tá ha."
+    },
+    {
+     "n": 90,
+     "text": "Lúc đó, luồng ánh sáng diễn chú này rồi, cả đại địa rúng động, phóng ra ánh đại quang minh, làm cho tất cả chúng sanh, dứt hết bệnh khổ, hưởng được an vui."
+    },
+    {
+     "n": 91,
+     "text": "Này Mạn Thù Thất Lợi! Nếu thấy người nào đang mắc bệnh, khuyên họ tắm gội sạch sẽ, và vì họ nhứt tâm tụng chú này một trăm lẻ tám biến,"
+    },
+    {
+     "n": 92,
+     "text": "chú nguyện trong thức ăn, trong thuốc uống, hay trong nước không vi trùng, cho họ uống, những bệnh khổ ấy đếu dứt hết."
+    },
+    {
+     "n": 93,
+     "text": "Nếu có người mong cầu việc gì, chỉ nhất tâm tụng chú này, đều được như ý muốn, đã không bịnh lại được sống lâu,"
+    },
+    {
+     "n": 94,
+     "text": "sau khi mạng chung, người đó được sanh về thế giới Tịnh Lưu Ly, không còn thối chuyển, rồi dần dần chứng quả Bồ Đề."
+    },
+    {
+     "n": 95,
+     "text": "Vậy nên, Mạn Thù Thất Lợi! Chúng hữu tình hết lòng ân cần tôn trọng, cung kính, cúng dường Đức Dược Sư Lưu Ly Quang Như Lai và thường trì tụng chú này đừng lãng quên."
+    },
+    {
+     "n": 96,
+     "text": "Lại nữa, nếu có thiện nam tín nữ nào được thấy hình tượng Đức Dược Sư Lưu Ly Quang Như Lai, Ứng Chánh Đẳng Giác, mỗi sớm mai,"
+    },
+    {
+     "n": 97,
+     "text": "súc miệng, đánh răng tắm gội sạch sẽ, xong lại thắp hương, rải dầu thơm, các món kỹ nhạc để cúng dường hình tượng;"
+    },
+    {
+     "n": 98,
+     "text": "với kinh này, nên dạy người khác hay tự mình biên chép ra, một lòng thọ trì để thấu hiểu nghĩa lý với vị pháp sư giảng nói kinh pháp,"
+    },
+    {
+     "n": 99,
+     "text": "nên cúng dường tất cả những vật dụng cần thiết, hễ hết lòng như vậy, chư Phật sẽ phò hộ người đó được mãn nguyện mọi sự mong cầu.”"
+    },
+    {
+     "n": 100,
+     "text": "Lúc bấy giờ, Mạn Thù Thất Lợi đồng tử bạch Phật rằng:"
+    },
+    {
+     "n": 101,
+     "text": "“Bạch Đức Thế Tôn, qua thời kỳ tượng pháp, tôi sẽ dùng đủ chước phương tiện, khiến cho những thiện nam tín nữ có lòng tin trong sạch,"
+    },
+    {
+     "n": 102,
+     "text": "được nghe danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, cả đến trong giấc ngủ của họ, tôi cũng dùng danh hiệu của Đức Phật này, thức tỉnh nơi tai cho họ rõ biết."
+    },
+    {
+     "n": 103,
+     "text": "Bạch Đức Thế Tôn, nếu ai thọ trì đọc tụng kinh này, hoặc đem giảng nói, bày tỏ cho người khác, hoặc tự mình hay dạy người biên chép kinh này,"
+    },
+    {
+     "n": 104,
+     "text": "hết lòng cung kính tôn trọng, dùng bông thơm, dầu thơm, các thứ hương đốt, tràng hoa, anh lạc, phướn lọng, cùng âm nhạc hát múa,"
+    },
+    {
+     "n": 105,
+     "text": "để cúng dường, hoặc dùng hàng ngũ sắc làm đãy đựng kinh này, quét dọn một nơi sạch sẽ, thiết lập một cái đài cao để lên,"
+    },
+    {
+     "n": 106,
+     "text": "liền có bốn vị Thiên Vương quyến thuộc, và vô lượng trăm ngàn thiên chúng ở các cõi trời khác nhau đều đến đó cúng dường và thủ hộ."
+    },
+    {
+     "n": 107,
+     "text": "Bạch Đức Thế Tôn, nếu kinh này lưu hành đến chỗ nào có người thọ trì và nghe được danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, nhờ công đức bổn nguyện của Ngài,"
+    },
+    {
+     "n": 108,
+     "text": "chỗ ấy không bị bịnh hoạnh tử, cũng không bị những ác quỷ, ác thần đoạt lấy tinh khí, dầu có bị đoạt lấy, cũng được hoàn lại, thân tâm khỏe mạnh như thường.”"
+    },
+    {
+     "n": 109,
+     "text": "Phật bảo Mạn Thù Thất Lợi: “Thật đúng như lời ngươi nói, nếu có thiện nam tín nữ nào muốn cúng dường Đức Dược Sư Lưu Ly Quang Như Lai, trước phải tạo lập hình tượng Ngài,"
+    },
+    {
+     "n": 110,
+     "text": "để trên tòa cao sạch sẽ, rải bông, đốt các thứ hương, dùng các thứ tràng phan trang nghiêm, thờ như thế trong bảy ngày bảy đêm."
+    },
+    {
+     "n": 111,
+     "text": "Người đó phải thọ tám giới, ăn đồ thanh tịnh, tắm gội sạch sẽ, y phục chỉnh tề, giữ lòng thanh tịnh, không giận dữ, không sát hại, đối với tất cả loài hữu tình phải khởi tâm bình đẳng, đủ cả tâm Từ,"
+    },
+    {
+     "n": 112,
+     "text": "Bi, Hỉ, Xả, làm cho họ được lợi ích an vui, đánh nhạc ca hát ngợi khen, đi nhiễu quanh tượng Phật, nghĩ nhớ công đức bổn nguyện đọc tụng kinh này, suy nghiệm nghĩa lý, khai thị cho người khác biết."
+    },
+    {
+     "n": 113,
+     "text": "Làm như vậy, người đó được toại ý việc mong cầu, như cầu sống lâu, được sống lâu; cầu giàu sang, được giàu sang; cầu quan vị, được quan vị; cầu được sanh con trai, con gái, thì được sanh con trai, con gái."
+    },
+    {
+     "n": 114,
+     "text": "Nếu có người nào trong giấc ngủ thấy những điềm chiêm bao dữ, khi thức thấy những ác tướng, như chim đậu gần nhà, hoặc chỗ ở hiện ra trăm điều quái dị,"
+    },
+    {
+     "n": 115,
+     "text": "người ấy nên dùng của báu cúng dường Đức Dược Sư Lưu Ly Quang Như Lai, những ác mộng, ác tướng và những điềm xấu ấy thảy đều ẩn hết, không còn phải lo sợ."
+    },
+    {
+     "n": 116,
+     "text": "Nếu người nào gặp tai nạn nguy hiểm như nạn nước, lửa, gươm, đao, thuốc độc và cầm thú dữ gây sợ hãi như:"
+    },
+    {
+     "n": 117,
+     "text": "voi, sư tử, cọp, sói, gấu, rắn độc, bò cạp, rít, sên, lằn muỗi, hết lòng nhớ niệm và cung kính cúng dường Đức Dược Sư, người đó được thoát những sợ hãi ấy,"
+    },
+    {
+     "n": 118,
+     "text": "hoặc nếu bị các nước khác xâm lăng, nhiễu hại, trộm cướp rối loạn, nhớ niệm và cung kính Đức Dược Sư, người đó cũng được thoát khỏi những nạn ấy."
+    },
+    {
+     "n": 119,
+     "text": "Lại nữa, Mạn Thù Thất Lợi, nếu có thiện nam tín nữ nào từ khi phát tâm thọ giới cho đến ngày chết, không thờ những vị Trời nào,"
+    },
+    {
+     "n": 120,
+     "text": "chỉ một lòng nương theo Phật, Pháp, Tăng, giữ gìn năm giới, mười giới, Bồ Tát mười giới trọng, bốn mươi tám giới khinh,"
+    },
+    {
+     "n": 121,
+     "text": "Tỳ Kheo Tăng hai trăm năm mươi giới, Tỳ Kheo Ni ba trăm bốn mươi tám giới, nếu có hủy phạm những giới pháp đã thọ,"
+    },
+    {
+     "n": 122,
+     "text": "sợ đọa vào ác thú, nếu chuyên niệm và cung kính cúng dường Đức Dược Sư, người đó quyết định không thọ sanh trong ba đường ác."
+    },
+    {
+     "n": 123,
+     "text": "Lại nếu có người nữ nào đương lúc sinh sản phải chịu cực khổ đau đớn, xưng danh hiệu, lễ bái và hết lòng cung kính cúng dường Đức Dược Sư, người đó sẽ khỏi những sự đau khổ ấy,"
+    },
+    {
+     "n": 124,
+     "text": "khi sanh con ra được vuông tròn, tướng mạo đoan nghiêm, lợi căn thông minh, an ổn ít bịnh hoạn, ai thấy cũng vui mừng và không bị quỷ cướp đoạt tinh khí.”"
+    },
+    {
+     "n": 125,
+     "text": "Lúc ấy, Đức Thích Ca bảo A Nan: “Như ta đã khen ngợi công hạnh của Đức Dược Sư Lưu Ly Quang Như Lai, đó là công hạnh sâu xa của chư Phật, khó hiểu thấu được, vậy ngươi có tin chăng?”"
+    },
+    {
+     "n": 126,
+     "text": "A Nan bạch Phật: “Bạch Đức Thế Tôn, đối với Khế Kinh của Như Lai nói, không bao giờ tôi sanh tâm nghi hoặc."
+    },
+    {
+     "n": 127,
+     "text": "Tại sao? Vì những nghiệp thân, khẩu, ý của Như Lai đều thanh tịnh."
+    },
+    {
+     "n": 128,
+     "text": "Bạch Đức Thế Tôn, mặt trời, mặt trăng có thể rơi xuống, núi Diệu Cao có thể lay động, nhưng những lời của chư Phật nói ra không bao giờ sai được."
+    },
+    {
+     "n": 129,
+     "text": "Bạch Đức Thế Tôn nếu có chúng sanh nào tín căn không đầy đủ, nghe nói đến những công hạnh sâu xa của chư Phật, thì nghĩ rằng:"
+    },
+    {
+     "n": 130,
+     "text": "Làm sao chỉ niệm danh hiệu của một đức Dược Sư Lưu Ly Quang Như Lai mà được nhiều công đức thắng lợi ngần ấy?"
+    },
+    {
+     "n": 131,
+     "text": "Vì sự không tin đó, trở sanh lòng hủy báng, nên họ phải mất nhiều điều lợi ích, mãi ở trong cảnh đêm dài tăm tối, lại còn bị đọa lạc trong các đường ác thú, lưu chuyển không cùng.”"
+    },
+    {
+     "n": 132,
+     "text": "Phật lại bảo A Nan: “Những chúng hữu tình ấy nếu nghe danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, chí tâm thọ trì, không sanh lòng nghi hoặc, mà đọa vào ác thú, thì thật vô lý vậy”"
+    },
+    {
+     "n": 133,
+     "text": "Này A Nan, đó là công hạnh rất mầu nhiệm của chư Phật, khó tin, khó hiểu, nay ngươi lãnh thọ được, đó là nhờ oai lực của Như Lai vậy."
+    },
+    {
+     "n": 134,
+     "text": "Này A Nan, tất cả các hàng Thinh Văn, Độc Giác và các Bồ Tát chưa lên bậc Sơ Địa đều không thể tin đúng như Phật, chỉ trừ những bậc Nhất Sanh Sở Hệ Bồ Tát mới tin hiểu được mà thôi."
+    },
+    {
+     "n": 135,
+     "text": "Này A Nan, thân người khó đặng, nhưng hết lòng tin kính tôn trọng ngôi Tam Bảo còn khó hơn, huống chi nghe được danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai lại còn khó hơn nữa."
+    },
+    {
+     "n": 136,
+     "text": "Này A Nan, Đức Dược Sư Lưu Ly Quang Như Lai tu không biết bao nhiêu hạnh Bồ Tát, dùng không biết bao nhiêu phương tiện khéo léo, phát không biết bao nhiêu nguyện rộng lớn,"
+    },
+    {
+     "n": 137,
+     "text": "nếu ta nói ra trong một kiếp hay hơn một kiếp, thì kiếp số đó có thể mau hết, chớ những hạnh nguyện và những và những phương tiện khéo léo của Đức Dược Sư, không khi nào nói cho hết được.”"
+    },
+    {
+     "n": 138,
+     "text": "Lúc bây giờ trong chúng hội có một vị Đại Bồ Tát tên là Cứu Thoát Bồ Tát liền từ chỗ ngồi đứng dậy, trịch vai áo bên hữu, gối bên mặt quì sát đất, cúi đầu chắp tay bạch Phật rằng:"
+    },
+    {
+     "n": 139,
+     "text": "“Bạch Đức Thế Tôn, đến thời kỳ tượng pháp có những chúng sanh bị nhiều hoạn nạn, khốn khổ, tật bệnh luôn luôn, thân hình gầy ốm,"
+    },
+    {
+     "n": 140,
+     "text": "ăn uống không được, môi cổ khô ran, mắt thấy đen tối, tướng chết hiện ra, cha mẹ, bà con, bạn bè quen biết, vây quanh khóc lóc."
+    },
+    {
+     "n": 141,
+     "text": "Thân bịnh nằm đó, đã thấy quỉ sứ đến dẫn thần thức, đem lại trước vua Diêm Ma."
+    },
+    {
+     "n": 142,
+     "text": "Liền khi ấy thần Cu Sanh ghi tội phước của người đó, dâng lên vua Diêm ma."
+    },
+    {
+     "n": 143,
+     "text": "Lúc bấy giờ, vua phán hỏi và kê tính những tội phước của người kia đã làm mà xử đoán."
+    },
+    {
+     "n": 144,
+     "text": "Nếu trong lúc đó, bà con quen biết, vì người bịnh ấy, quy y với Đức Dược Sư Lưu Ly Quang Như Lai và thỉnh chúng Tăng đọc tụng kinh này, đốt đèn bảy tầng, treo thần phan tục mạng năm sắc, hoặc liền trong lúc ấy,"
+    },
+    {
+     "n": 145,
+     "text": "hoặc trải qua bảy ngày, hai mươi mốt ngày, ba mươi lăm ngày, bốn mươi chín ngày, thần thức người kia được trở lại như vừa tỉnh giấc chiêm bao, tự mình nhớ biết những nghiệp lành, nghiệp dữ và quả báo đã thọ."
+    },
+    {
+     "n": 146,
+     "text": "Chính đã thấy rõ những nghiệp báo như vậy, dầu có gặp phải những tai nạn nguy hiểm đến tánh mạng, người đó cũng không dám tạo những nghiệp ác nữa."
+    },
+    {
+     "n": 147,
+     "text": "Vậy nên, những thiện nam tín nữ phải một lòng trì niệm danh hiệu Đức Dược Sư Lưu Ly Quang Như Lai.”"
+    },
+    {
+     "n": 148,
+     "text": "Lúc bấy giờ, A Nan hỏi Cứu Thoát Bồ Tát rằng: “Nên cung kính cúng dường Đức Dược Sư Lưu Ly như thế nào, còn đèn và phan tục mạng phải làm sao?”"
+    },
+    {
+     "n": 149,
+     "text": "Cứu Thoát Bồ Tát nói: “Nếu có người bịnh nào, muốn khỏi bịnh khổ, bà con của họ phải thọ trì tám phần trai giới trong bảy ngày, bảy đêm, tùy theo sức mình sắm sửa thức ăn uống và các thứ cần dùng để cúng dường chư Tăng,"
+    },
+    {
+     "n": 150,
+     "text": "ngày đêm sáu thời, kính lễ Đức Dược Sư Lưu Ly Quang Như Lai, đọc tụng kinh này bốn mươi chín biến và thắp bốn mươi chín ngọn đèn,"
+    },
+    {
+     "n": 151,
+     "text": "lại tạo bảy hình tượng Đức Dược Sư, trước mỗi hình tượng để bảy ngọn đèn, mỗi ngọn lớn như bánh xe, đốt luôn trong bốn mươi chín ngày đêm đừng cho tắt, thần phan được làm bằng hàng ngũ sắc,"
+    },
+    {
+     "n": 152,
+     "text": "bề dài bốn mươi chín gang tay, phải phóng sinh bốn mươi chín loài vật khác nhau, người bịnh ấy sẽ qua khỏi ách nạn, không còn bị hoạnh tử và các loài quỷ nhiễu hại."
+    },
+    {
+     "n": 153,
+     "text": "Lại nữa A Nan, nếu trong dòng Sát Đế Lỵ có những vị quốc vương đã làm lễ quán đảnh mà gặp lúc có nạn, nhân dân bị bịnh dịch, bị nước khác xâm lăng, bị nội loạn, hay bị nạn tinh tú biến ra nhiều điềm quái dị:"
+    },
+    {
+     "n": 154,
+     "text": "như nhựt thực, nguyệt thực, mưa gió trái mùa, hạn hán, động đất v.v..., khi đó các vị quốc vương phải đem lòng từ bi,"
+    },
+    {
+     "n": 155,
+     "text": "thương xót tất cả nhân dân, ân xá cho tội nhơn bị giam cầm, cúng dường Đức Dược Sư Lưu Ly Quang Như Lai,"
+    },
+    {
+     "n": 156,
+     "text": "nhờ căn lành này và nhờ thần lực của Ngài, khiến trong nước được an ổn, mưa hòa gió thuận, lúa thóc được mùa, tất cả nhân dân đều vui vẻ, không bịnh hoạn, không có thần Dược Xoa bạo ác, não hại lê dân."
+    },
+    {
+     "n": 157,
+     "text": "Tất cả ác tướng ấy đều ẩn mất và các vị quốc vương được sống lâu khỏe mạnh."
+    },
+    {
+     "n": 158,
+     "text": "Này A Nan, nếu các hoàng hậu, hoàng phi, công chúa, thái tử, vương tử, đại thần phụ tướng, thể nữ trong cung, bá quan và thứ dân bị bịnh khổ cùng những tai nạn, nên tạo lập thần phan năm sắc,"
+    },
+    {
+     "n": 159,
+     "text": "đèn Dược Sư nên thắp sáng luôn, phóng sanh các loài vật, rải hoa đủ sắc, đốt các thứ danh hương để cúng dường Đức Dược Sư, những người đó sẽ được lành bịnh và thoát khỏi các tai nạn.”"
+    },
+    {
+     "n": 160,
+     "text": "Ngài A Nan lại hỏi Cứu Thoát Bồ Tát rằng: “Tại sao cái mạng đã hết mà còn sống thêm được?”"
+    },
+    {
+     "n": 161,
+     "text": "Cứu Thoát Bồ Tát nói: “Như Lai nói có chín thứ hoạnh tử, Đại Đức không nghe hay sao?"
+    },
+    {
+     "n": 162,
+     "text": "Vậy nên, Cứu Thoát khuyên người làm phan và đèn tục mạng, tu các phước đức và nhờ đó nên suốt đời không bị khổ sở hoạn nạn.”"
+    },
+    {
+     "n": 163,
+     "text": "Ngài A Nan lại hỏi:”Chín thứ hoạnh tử là gì?”."
+    },
+    {
+     "n": 164,
+     "text": "Cứu Thoát Bồ Tát trả lời: “Một là có người nào bị bệnh tuy nhẹ, nhưng không thầy không thuốc, không người săn sóc, hay có gặp thầy lại cho uống lầm thuốc, bịnh không đáng chết mà bị chết oan."
+    },
+    {
+     "n": 165,
+     "text": "Trong khi đang bịnh mà tin theo những thuyết họa phước vu vơ của tà ma ngoại đạo, yêu nghiệt trong đời, sanh lòng run sợ, không còn tự chủ, phân biệt chánh tà,"
+    },
+    {
+     "n": 166,
+     "text": "bói khoa chú thuật, gây thêm tội lỗi, giết hại sinh linh, tấu với thần minh, vái van vọng tưởng, để xin ban phước, mong được sống lâu, nhưng không thể được."
+    },
+    {
+     "n": 167,
+     "text": "Bởi si mê lầm lạc, tin theo tà kiến, điên đảo quỷ mị, nên bị hoạnh tử, đọa vào địa ngục, đời đời không ra khỏi."
+    },
+    {
+     "n": 168,
+     "text": "Hai là bị phép vua tru lục. Ba là chơi bời trụy lạc, săn bắn, đam mê tửu sắc, buông lung vô độ, bị loài quỷ đoạt mất tinh khí."
+    },
+    {
+     "n": 169,
+     "text": "Bốn là bị chết thiêu. Năm là bị chết đắm."
+    },
+    {
+     "n": 170,
+     "text": "Sáu là bị các thú dữ ăn thịt. Bảy là bị sa từ trên cao xuống."
+    },
+    {
+     "n": 171,
+     "text": "Tám là bị chết vì thuốc độc, ếm đối, chửi rủa, trù ẻo và bị quỷ Tử Thi làm hại."
+    },
+    {
+     "n": 172,
+     "text": "Chín là bị chết vì đói khát khốn khổ. Đó là chín hoạnh tử, Như Lai nói ra."
+    },
+    {
+     "n": 173,
+     "text": "Còn những hoạnh tử khác, nhiều vô lượng, không thể nói hết được."
+    },
+    {
+     "n": 174,
+     "text": "Lại nữa A Nan, vua Diêm Ma kia là thủ lãnh ghi chép sổ bộ, tên tuổi, tội phước trên thế gian."
+    },
+    {
+     "n": 175,
+     "text": "Nếu có người nào ăn ở bất hiếu, ngũ nghịch, hủy nhục ngôi Tam Bảo, phá hoại phép vua tôi, hủy phạm giới cấm, vua Diêm Ma theo tội nặng nhẹ mà hành phạt."
+    },
+    {
+     "n": 176,
+     "text": "Vì thế ta khuyên mọi người nên thắp đèn làm phan, phóng sanh, tu phước để khỏi các khổ ách, chỉ gặp những điều vui.”"
+    },
+    {
+     "n": 177,
+     "text": "Lúc bấy giờ, trong chúng hội có mười hai vị Dược Xoa Đại Tướng:"
+    },
+    {
+     "n": 178,
+     "text": "Cung Tì La đại tướng, Phạt Chiếc La đại tướng, Mê Súy La đại tướng, An Để La đại tướng, Át Nể La đại tướng, San Để La đại tướng,"
+    },
+    {
+     "n": 179,
+     "text": "Nhơn Đạt La đại tướng, Ba Di La đại tướng, Ma Hổ La đại tướng, Chơn Đạt La đại tướng, Chiêu Đổ La đại tướng, Tỳ Yết La đại tướng."
+    },
+    {
+     "n": 180,
+     "text": "Mười hai vị đại tướng này, mỗi vị đều có bảy ngàn quyến thuộc Dược Xoa đồng cất tiếng bạch Phật rằng:"
+    },
+    {
+     "n": 181,
+     "text": "“Bạch Đức Thế Tôn, hôm nay, chúng tôi nhờ oai lực của Phật, được nghe danh hiệu của Đức Dược Sư Lưu Ly Quang Như Lai, không còn sợ sệt các đường ác thú nữa."
+    },
+    {
+     "n": 182,
+     "text": "Chúng tôi đồng một lòng quy y Phật, Pháp, Tăng, thề sẽ gánh vác cho chúng hữu tình, làm việc nghĩa lợi đưa đến sự nhiêu ích an vui."
+    },
+    {
+     "n": 183,
+     "text": "Trong làng, xóm, thành, nước, hoặc trong rừng cây vắng vẻ, nếu có kinh này lưu bố đến, hay có người thọ trì danh hiệu Đức Dược Sư Lưu Ly Quang Như Lai và cung kính cúng dường Ngài,"
+    },
+    {
+     "n": 184,
+     "text": "chúng tôi cùng quyến thuộc đồng hộ vệ người ấy thoát khỏi tất cả ách nạn và khiến họ cần việc chi cũng được thỏa mãn."
+    },
+    {
+     "n": 185,
+     "text": "Nếu có ai bị bịnh hoạn khổ ách, muốn cầu cho khỏi, nên đọc tụng kinh này và lấy chỉ ngũ sắc gút danh tự chúng tôi, khi đã được như lòng mong cầu thì mới mở nó ra.”"
+    },
+    {
+     "n": 186,
+     "text": "Lúc ấy, Đức Thích Ca khen các vị Dược Xoa đại tướng rằng: “Hay thay!"
+    },
+    {
+     "n": 187,
+     "text": "Hay thay! Đại tướng Dược Xoa, các ngươi muốn báo đáp công hạnh của đức Dược Sư Lưu Ly Quang Như Lai nên phát nguyện làm những việc lợi ích an vui cho tất cả chúng hữu tình như vậy.”"
+    },
+    {
+     "n": 188,
+     "text": "Đồng thời, A Nan bạch Phật rằng: “Bạch Đức Thế Tôn, pháp môn này gọi tên là gì?"
+    },
+    {
+     "n": 189,
+     "text": "Và chúng thôi phải phụng trì như thế nào?”"
+    },
+    {
+     "n": 190,
+     "text": "Phật bảo A Nan: “Pháp môn này gọi là Bổn Nguyện và Công Hạnh của Đức Dược Sư Lưu Ly Quang Như Lai, cũng gọi là Kiết Nguyện Thần Chú của mười hai Thần Tướng, và cũng gọi là Con Đường Dứt Trừ Tất Cả Nghiệp Chướng."
+    },
+    {
+     "n": 191,
+     "text": "Nên đúng như vậy mà thọ trì.”"
+    },
+    {
+     "n": 192,
+     "text": "Khi Phật nói lời ấy rồi, các hàng Đại Bồ Tát, Thinh Văn, Quốc Vương, Đại Thần, Bà La Môn, Thiên, Long, Dược Xoa, Kiền Thát Bà, A Tố Lạc,"
+    },
+    {
+     "n": 193,
+     "text": "Yết Lộ Trà, Khẫn Nại Lạc, Mạc Hô Lạc Dà, Người cùng các loài quỷ thần, tất cả đại chúng đều hết sức vui mừng và đồng tin giữ vâng làm."
+    }
+   ],
+   "note": "Đã bỏ chỉ dẫn nghi thức \"(1 tiếng chuông)\"; trang nguồn có vài lỗi gõ (vd \"chúng thôi phải\"); giữ nguyên đúng nguồn",
+   "variant": "translation"
+  },
+  {
+   "key": "zh-translation",
+   "lang": "zh",
+   "translator": "玄奘 (Huyền Trang)",
+   "sourceName": "Wikisource 中文 - 藥師琉璃光如來本願功德經 - Taishō T0450",
+   "sourceUrl": "https://zh.wikisource.org/wiki/%E8%97%A5%E5%B8%AB%E7%90%89%E7%92%83%E5%85%89%E5%A6%82%E4%BE%86%E6%9C%AC%E9%A1%98%E5%8A%9F%E5%BE%B7%E7%B6%93",
+   "license": "PUBLIC_DOMAIN",
+   "licenseNote": "Wikisource ghi: tác phẩm gốc xuất bản trước 1931, tác giả mất >100 năm",
+   "lines": [
+    {
+     "n": 1,
+     "text": "如是我聞：一時薄伽梵，遊化諸國，至廣嚴城，住樂音樹下。"
+    },
+    {
+     "n": 2,
+     "text": "與大苾芻眾八千人俱，菩薩摩訶薩三萬六千，及國王、大臣，婆羅門、居士，天龍八部，人非人等，無量大眾，恭敬圍繞，而為說法。"
+    },
+    {
+     "n": 3,
+     "text": "爾時、曼殊室利法王子，承佛威神，從座而起，偏袒一肩，右膝著地，向薄伽梵，曲躬合掌。"
+    },
+    {
+     "n": 4,
+     "text": "白言：「世尊！惟願演說 如是相類 諸佛名號，及本大願 殊勝功德，令諸聞者 業障銷除，為欲利樂 像法轉時 諸有情故」。"
+    },
+    {
+     "n": 5,
+     "text": "爾時、世尊讚曼殊室利童子言：「善哉！善哉！"
+    },
+    {
+     "n": 6,
+     "text": "曼殊室利！汝以大悲，勸請我說 諸佛名號，本願功德，為拔業障 所纏有情，利益安樂 像法轉時 諸有情故。汝今諦聽！極善思惟！當為汝說」。"
+    },
+    {
+     "n": 7,
+     "text": "曼殊室利言：「唯然，願說！我等樂聞！」"
+    },
+    {
+     "n": 8,
+     "text": "佛告曼殊室利：「東方去此，過十殑伽沙等佛土，有世界名淨琉璃，佛號藥師琉璃光如來、應、正等覺，明行圓滿、善逝、世間解、無上士、調御丈夫、天人師、佛、薄伽梵。」"
+    },
+    {
+     "n": 9,
+     "text": "「曼殊室利！彼世尊藥師琉璃光如來本行菩薩道時，發十二大願，令諸有情，所求皆得」。"
+    },
+    {
+     "n": 10,
+     "text": "「第一大願：願我來世，得阿耨多羅三藐三菩提時，自身光明 熾然照耀 無量無數 無邊世界，以三十二 大丈夫相，八十隨形 莊嚴其身；令一切有情 如我無異」。"
+    },
+    {
+     "n": 11,
+     "text": "「第二大願：願我來世得 菩提時，身如琉璃，內外明徹，淨無瑕穢；"
+    },
+    {
+     "n": 12,
+     "text": "光明廣大，功德巍巍，身善安住，燄網莊嚴 過於日月；"
+    },
+    {
+     "n": 13,
+     "text": "幽冥眾生，悉蒙開曉，隨意所趣，作諸事業」。"
+    },
+    {
+     "n": 14,
+     "text": "「第三大願：願我來世 得菩提時，以無量無邊 智慧方便，令諸有情 皆得無盡 所受用物，莫令眾生，有所乏少」。"
+    },
+    {
+     "n": 15,
+     "text": "「第四大願：願我來世 得菩提時，若諸有情 行邪道者，悉令安住 菩提道中；"
+    },
+    {
+     "n": 16,
+     "text": "若行聲聞 獨覺乘者，皆以大乘 而安立之」。"
+    },
+    {
+     "n": 17,
+     "text": "「第五大願：願我來世 得菩提時，若有無量 無邊有情，於我法中 修行梵行，一切皆令 得不缺戒、具三聚戒；"
+    },
+    {
+     "n": 18,
+     "text": "設有毀犯，聞我名已 還得清淨，不墮惡趣！」"
+    },
+    {
+     "n": 19,
+     "text": "「第六大願：願我來世 得菩提時，若諸有情，其身下劣，諸根不具，醜陋、頑愚、盲、聾、瘖、啞、攣躄、背僂、白癩、顛狂、種種病苦；"
+    },
+    {
+     "n": 20,
+     "text": "聞我名已，一切皆得 端正黠慧，諸根完具，無諸疾苦」。"
+    },
+    {
+     "n": 21,
+     "text": "「第七大願：願我來世 得菩提時，若諸有情 眾病逼切，無救無歸，無醫無藥，無親無家，貧窮多苦；"
+    },
+    {
+     "n": 22,
+     "text": "我之名號 一經其耳，眾病悉除，身心安樂，家屬資具 悉皆豐足，乃至證得 無上菩提」。"
+    },
+    {
+     "n": 23,
+     "text": "「第八大願：願我來世 得菩提時，若有女人 為女百惡 之所逼惱，極生厭離，願捨女身；"
+    },
+    {
+     "n": 24,
+     "text": "聞我名已，一切皆得 轉女成男，具丈夫相，乃至證得 無上菩提」。"
+    },
+    {
+     "n": 25,
+     "text": "「第九大願：願我來世 得菩提時，令諸有情 出魔罥網，解脫一切 外道纏縛；"
+    },
+    {
+     "n": 26,
+     "text": "若墮種種 惡見稠林，皆當引攝 置於正見，漸令修習 諸菩薩行，速證無上 正等菩提！"
+    },
+    {
+     "n": 27,
+     "text": "「第十大願：願我來世 得菩提時，若諸有情 王法所錄，繩縛鞭撻，繫閉牢獄，或當刑戮，及餘無量 災難凌辱，悲愁煎逼，身心受苦；"
+    },
+    {
+     "n": 28,
+     "text": "若聞我名，以我福德 威神力故，皆得解脫一切憂苦！」"
+    },
+    {
+     "n": 29,
+     "text": "「第十一大願：願我來世 得菩提時，若諸有情 饑渴所惱，為求食故 造諸惡業；"
+    },
+    {
+     "n": 30,
+     "text": "得聞我名，專念受持，我當先以 上妙飲食 飽足其身，後以法味 畢竟安樂 而建立之」。"
+    },
+    {
+     "n": 31,
+     "text": "「第十二大願：願我來世 得菩提時，若諸有情 貧無衣服，蚊虻寒熱，晝夜逼惱；"
+    },
+    {
+     "n": 32,
+     "text": "若聞我名，專念受持，如其所好 即得種種 上妙衣服，亦得一切 寶莊嚴具，華鬘、塗香，鼓樂眾伎，隨心所翫，皆令滿足」。"
+    },
+    {
+     "n": 33,
+     "text": "「曼殊室利！是為彼世尊藥師琉璃光如來、應、正等覺行菩薩道時，所發十二 微妙上願」。"
+    },
+    {
+     "n": 34,
+     "text": "「復次、曼殊室利！彼世尊藥師琉璃光如來行菩薩道時，所發大願，及彼佛土 功德莊嚴，我若一劫、若一劫餘，說不能盡。"
+    },
+    {
+     "n": 35,
+     "text": "然彼佛土，一向清淨，無有女人，亦無惡趣，及苦音聲；"
+    },
+    {
+     "n": 36,
+     "text": "琉璃為地，金繩界道，城闕宮閣，軒窗羅網，皆七寶成；"
+    },
+    {
+     "n": 37,
+     "text": "亦如西方 極樂世界，功德莊嚴，等無差別。"
+    },
+    {
+     "n": 38,
+     "text": "於其國中，有二菩薩摩訶薩：一名日光遍照，二名月光遍照。"
+    },
+    {
+     "n": 39,
+     "text": "是彼無量 無數菩薩 眾之上首，次補佛處，悉能持彼 世尊藥師琉璃光如來 正法寶藏。"
+    },
+    {
+     "n": 40,
+     "text": "是故曼殊室利！諸有信心 善男子、善女人等，應當願生 彼佛世界」。"
+    },
+    {
+     "n": 41,
+     "text": "爾時、世尊，復告曼殊室利童子言：「曼殊室利！"
+    },
+    {
+     "n": 42,
+     "text": "有諸眾生，不識善惡，惟懷貪吝，不知布施 及施果報，愚痴無智，闕於信根，多聚財寶，勤加守護。"
+    },
+    {
+     "n": 43,
+     "text": "見乞者來，其心不喜，設不獲已 而行施時，如割身肉，深生痛惜。"
+    },
+    {
+     "n": 44,
+     "text": "復有無量 慳貪有情，積集資財，於其自身 尚不受用，何況能與父母、妻子、奴婢作使，及來乞者？"
+    },
+    {
+     "n": 45,
+     "text": "彼諸有情，從此命終 生餓鬼界，或傍生趣。"
+    },
+    {
+     "n": 46,
+     "text": "由昔人間 曾得暫聞 藥師琉璃光如來名故，今在惡趣，暫得憶念 彼如來名，即於念時 從彼處沒，還生人中；"
+    },
+    {
+     "n": 47,
+     "text": "得宿命念，畏惡趣苦，不樂欲樂，好行惠施，讚歎施者，一切所有 悉無貪惜，漸次尚能 以頭目手足 血肉身分 施來求者，況餘財物？」"
+    },
+    {
+     "n": 48,
+     "text": "「復次、曼殊室利！若諸有情，雖於如來 受諸學處，而破尸羅；"
+    },
+    {
+     "n": 49,
+     "text": "有雖不破尸羅 而破軌則；有於尸羅、軌則，雖則不壞，然毀正見；"
+    },
+    {
+     "n": 50,
+     "text": "有雖不毀正見 而棄多聞，於佛所說 契經深義 不能解了；"
+    },
+    {
+     "n": 51,
+     "text": "有雖多聞 而增上慢，由增上慢 覆蔽心故，自是非他，嫌謗正法，為魔伴黨。"
+    },
+    {
+     "n": 52,
+     "text": "如是愚人，自行邪見，復令無量 俱胝有情，墮大險坑。"
+    },
+    {
+     "n": 53,
+     "text": "此諸有情，應於地獄、傍生鬼趣 流轉無窮。"
+    },
+    {
+     "n": 54,
+     "text": "若得聞此 藥師琉璃光如來名號，便捨惡行，修諸善法，不墮惡趣；"
+    },
+    {
+     "n": 55,
+     "text": "設有不能 捨諸惡行、修行善法，墮惡趣者，以彼如來 本願威力 令其現前，暫聞名號，從彼命終 還生人趣，得正見精進，善調意樂，"
+    },
+    {
+     "n": 56,
+     "text": "便能捨家 趣於非家，如來法中，受持學處 無有毀犯，正見多聞，解甚深義，離增上慢，不謗正法，不為魔伴，漸次修行 諸菩薩行，速得圓滿」。"
+    },
+    {
+     "n": 57,
+     "text": "「復次、曼殊室利！若諸有情 慳貪、嫉妒，自讚毀他，當墮三惡趣中，無量千歲 受諸劇苦！"
+    },
+    {
+     "n": 58,
+     "text": "受劇苦已，從彼命終，來生人間，作牛馬駝驢，恆被鞭撻，饑渴逼惱，又常負重 隨路而行。"
+    },
+    {
+     "n": 59,
+     "text": "或得為人，生居下賤，作人奴婢，受他驅役，恆不自在。"
+    },
+    {
+     "n": 60,
+     "text": "若昔人中 曾聞世尊 藥師琉璃光如來名號，由此善因，今復憶念，至心歸依。"
+    },
+    {
+     "n": 61,
+     "text": "以佛神力，眾苦解脫，諸根聰利，智慧多聞，恆求勝法，常遇善友，永斷魔罥，破無明殼，竭煩惱河，解脫一切 生老病死 憂愁苦惱」。"
+    },
+    {
+     "n": 62,
+     "text": "「復次、曼殊室利！若諸有情 好喜乖離，更相鬥訟，惱亂自他，以身語意，造作增長 種種惡業，展轉常為 不饒益事，互相謀害。"
+    },
+    {
+     "n": 63,
+     "text": "告召山林 樹塚等神；殺諸眾生，取其血肉 祭祀藥叉、羅剎婆等；"
+    },
+    {
+     "n": 64,
+     "text": "書怨人名，作其形像，以惡咒術 而咒詛之；"
+    },
+    {
+     "n": 65,
+     "text": "厭魅蠱道，咒起屍鬼，令斷彼命，及壞其身。"
+    },
+    {
+     "n": 66,
+     "text": "是諸有情，若得聞此 藥師琉璃光如來名號，彼諸惡事 悉不能害，一切展轉 皆起慈心，利益安樂，無損惱意 及嫌恨心，各各歡悅，於自所受 生於喜足，不相侵凌 互為饒益」。"
+    },
+    {
+     "n": 67,
+     "text": "「復次、曼殊室利！若有四眾：苾芻、苾芻尼、鄔波索迦、鄔波斯迦，及餘淨信善男子、善女人等，有能受持八分齋戒，或經一年、或復三月受持學處，以此善根，"
+    },
+    {
+     "n": 68,
+     "text": "願生西方 極樂世界 無量壽佛 所聽聞正法 而未定者，若聞世尊 藥師琉璃光如來名號，臨命終時，有八大菩薩，其名曰："
+    },
+    {
+     "n": 69,
+     "text": "文殊師利菩薩，觀世音菩薩，得大勢菩薩，無盡意菩薩，寶檀華菩薩，藥王菩薩，藥上菩薩，彌勒菩薩。"
+    },
+    {
+     "n": 70,
+     "text": "是八大菩薩 乘空而來，示其道路，即於彼界 種種雜色 眾寶華中，自然化生」。"
+    },
+    {
+     "n": 71,
+     "text": "「或有因此，生於天上，雖生天上，而本善根，亦未窮盡，不復更生 諸餘惡趣。"
+    },
+    {
+     "n": 72,
+     "text": "天上壽盡，還生人間，或為輪王，統攝四洲，威德自在，安立無量 百千有情 於十善道；"
+    },
+    {
+     "n": 73,
+     "text": "或 生剎帝利、婆羅門、居士大家，多饒財寶，倉庫盈溢，形相端正，眷屬具足，聰明智慧，勇健威猛，如大力士。"
+    },
+    {
+     "n": 74,
+     "text": "若是女人，得聞世尊 藥師琉璃光如來名號，至心受持，於後不復 更受女身」。"
+    },
+    {
+     "n": 75,
+     "text": "「復次、曼殊室利！彼藥師琉璃光如來得菩提時，由本願力，觀諸有情，遇眾病苦 瘦攣、乾消、黃熱等病；"
+    },
+    {
+     "n": 76,
+     "text": "或被厭魅、蠱毒所中；或復短命，或時橫死；欲令是等 病苦消除 所求願滿」。"
+    },
+    {
+     "n": 77,
+     "text": "「時彼世尊，入三摩地，名曰除滅一切眾生苦惱。"
+    },
+    {
+     "n": 78,
+     "text": "既入定已，於肉髻中 出大光明，光中演說，大陀羅尼曰："
+    },
+    {
+     "n": 79,
+     "text": "『那謨薄伽筏帝，裨殺社窶嚕，薜琉璃缽剌婆喝囉闍也，怛陀揭多耶，阿羅訶帝，三藐三勃陀耶。"
+    },
+    {
+     "n": 80,
+     "text": "怛姪阤：唵，鞞殺逝，鞞殺逝，鞞殺社，三沒揭帝娑訶』」。"
+    },
+    {
+     "n": 81,
+     "text": "爾時、光中說此咒已，大地震動，放大光明，一切眾生 病苦皆除，受安隱樂。"
+    },
+    {
+     "n": 82,
+     "text": "「曼殊室利！若見 男子女人 有病苦者，應當一心，為彼病人，常清淨澡漱，或食或藥 或無蟲水、咒一百八遍，與彼服食，所有病苦 悉皆消滅。"
+    },
+    {
+     "n": 83,
+     "text": "若有所求，至心念誦，皆得如是 無病延年；"
+    },
+    {
+     "n": 84,
+     "text": "命終之後，生彼世界，得不退轉，乃至菩提。"
+    },
+    {
+     "n": 85,
+     "text": "是故曼殊室利！若有男子、女人，於彼藥師琉璃光如來，至心殷重，恭敬供養者，常持此咒，勿令廢忘」。"
+    },
+    {
+     "n": 86,
+     "text": "「復次、曼殊室利！若有淨信 男子女人，得聞 藥師琉璃光如來 應正等覺 所有名號，聞已誦持。"
+    },
+    {
+     "n": 87,
+     "text": "晨嚼齒木，澡漱清淨，以諸香花，燒香、塗香，作眾伎樂，供養形象。"
+    },
+    {
+     "n": 88,
+     "text": "於此經典，若自書，若教人書，一心受持，聽聞其義。"
+    },
+    {
+     "n": 89,
+     "text": "於彼法師，應修供養：一切所有 資身之具，悉皆施與，勿令乏少。"
+    },
+    {
+     "n": 90,
+     "text": "如是便蒙 諸佛護念，所求願滿，乃至菩提」。"
+    },
+    {
+     "n": 91,
+     "text": "爾時、曼殊室利童子白佛言：「世尊！我當誓於 像法轉時，以種種方便，令諸淨信 善男子、善女人等，得聞世尊 藥師琉璃光如來名號，乃至睡中 亦以佛名 覺悟其耳。"
+    },
+    {
+     "n": 92,
+     "text": "世尊！若於此經 受持讀誦。或復為他 演說開示；"
+    },
+    {
+     "n": 93,
+     "text": "若自書、若教人書；恭敬尊重，以種種華香、塗香、末香、燒香、花鬘、瓔珞、幡蓋、伎樂，而為供養；"
+    },
+    {
+     "n": 94,
+     "text": "以五色綵，作囊盛之；掃灑淨處，敷設高座，而用安處。"
+    },
+    {
+     "n": 95,
+     "text": "爾時、四大天王與其眷屬，及餘無量 百千天眾，皆詣其所，供養守護。"
+    },
+    {
+     "n": 96,
+     "text": "世尊！若此經寶 流行之處，有能受持，以彼世尊藥師琉璃光如來 本願功德，及聞名號，當知是處 無復橫死；"
+    },
+    {
+     "n": 97,
+     "text": "亦復不為 諸惡鬼神 奪其精氣，設已奪者，還得如故，身心安樂」。"
+    },
+    {
+     "n": 98,
+     "text": "佛告曼殊室利：「如是！如是！如汝所說。曼殊室利！"
+    },
+    {
+     "n": 99,
+     "text": "若有淨信善男子、善女人等，欲供養彼 世尊藥師琉璃光如來者，應先造立 彼佛形像，敷清淨座而安處之。"
+    },
+    {
+     "n": 100,
+     "text": "散種種花，燒種種香，以種種幢幡 莊嚴其處。"
+    },
+    {
+     "n": 101,
+     "text": "七日七夜，受八分齋戒，食清淨食，澡浴香潔，著清淨衣，應生無垢濁心，無怒害心，於一切有情 起利益安樂，慈悲喜捨平等之心，鼓樂歌讚，右遶佛像。"
+    },
+    {
+     "n": 102,
+     "text": "復應念彼 如來本願功德，讀誦此經，思惟其義，演說開示。"
+    },
+    {
+     "n": 103,
+     "text": "隨所樂求，一切皆遂：求長壽，得長壽，求富饒，得富饒，求官位得官位，求男女得男女」。"
+    },
+    {
+     "n": 104,
+     "text": "「若復有人，忽得惡夢，見諸惡相；或怪鳥來集；"
+    },
+    {
+     "n": 105,
+     "text": "或於住處百怪出現。此人若以眾妙資具，恭敬供養彼世尊藥師琉璃光如來者，惡夢、惡相諸不吉祥，皆悉隱沒，不能為患。"
+    },
+    {
+     "n": 106,
+     "text": "或有水火刀毒、懸險惡象、師子虎狼、熊羆毒蛇、惡蠍蜈蚣、蚰蜒蚊虻等佈；"
+    },
+    {
+     "n": 107,
+     "text": "若能至心憶念彼佛，恭敬供養，一切怖畏皆得解脫。"
+    },
+    {
+     "n": 108,
+     "text": "若他國侵擾，盜賊反亂，憶念恭敬彼如來者，亦皆解脫」。"
+    },
+    {
+     "n": 109,
+     "text": "「復次、曼殊室利！若有淨信 善男子、善女人等，乃至盡形 不事餘天，唯當一心，歸佛法僧，受持禁戒："
+    },
+    {
+     "n": 110,
+     "text": "若五戒、十戒，菩薩四百戒、苾芻二百五十戒，苾芻尼五百戒。"
+    },
+    {
+     "n": 111,
+     "text": "於所受中 或有毀犯，怖墮惡趣，若能專念 彼佛名號，恭敬供養者，必定不受 三惡趣生。"
+    },
+    {
+     "n": 112,
+     "text": "或有女人，臨當產時，受於極苦；若能至心 稱名禮讚，恭敬供養 彼如來者，眾苦皆除。"
+    },
+    {
+     "n": 113,
+     "text": "所生之子，身分具足，形色端正，見者歡喜，利根聰明，安隱少病，無有非人，奪其精氣」。"
+    },
+    {
+     "n": 114,
+     "text": "爾時、世尊告阿難言：「如我稱揚 彼世尊藥師琉璃光如來 所有功德，此是諸佛 甚深行處，難可解了，汝為信不？」"
+    },
+    {
+     "n": 115,
+     "text": "阿難白言：「大德世尊！我於如來 所說契經 不生疑惑，所以者何？"
+    },
+    {
+     "n": 116,
+     "text": "一切如來 身語意業 無不清淨。世尊！此日月輪 可令墮落，妙高山王 可使傾動，諸佛所言 無有異也」。"
+    },
+    {
+     "n": 117,
+     "text": "「世尊！有諸眾生，信根不具，聞說諸佛 甚深行處，作是思惟："
+    },
+    {
+     "n": 118,
+     "text": "云何但念 藥師琉璃光如來一佛名號，便獲爾所 功德勝利？"
+    },
+    {
+     "n": 119,
+     "text": "由此不信，返生誹謗。彼於長夜 失大利樂，墮諸惡趣，流轉無窮！」"
+    },
+    {
+     "n": 120,
+     "text": "佛告阿難：「是諸有情 若聞世尊 藥師琉璃光如來名號，至心受持，不生疑惑，墮惡趣者 無有是處」。"
+    },
+    {
+     "n": 121,
+     "text": "「阿難！此是諸佛 甚深所行，難可信解；汝今能受，當知皆是 如來威力。"
+    },
+    {
+     "n": 122,
+     "text": "阿難！一切聲聞、獨覺，及未登地諸菩薩等，皆悉不能 如實信解，唯除一生 所繫菩薩。"
+    },
+    {
+     "n": 123,
+     "text": "阿難！人身難得；於三寶中，信敬尊重，亦難可得 聞世尊藥師琉璃光如來名號，復難於是」。"
+    },
+    {
+     "n": 124,
+     "text": "「阿難！彼藥師琉璃光如來，無量菩薩行，無量善巧方便，無量廣大願；"
+    },
+    {
+     "n": 125,
+     "text": "我若一劫，若一劫餘 而廣說者，劫可速盡，彼佛行願，善巧方便 無有盡也！」"
+    },
+    {
+     "n": 126,
+     "text": "爾時、眾中，有一菩薩摩訶薩，名曰救脫，即從座起，偏袒一肩，右膝著地，曲躬合掌 而白佛言："
+    },
+    {
+     "n": 127,
+     "text": "「大德世尊！像法轉時，有諸眾生 為種種患 之所困厄，長病贏瘦，不能飲食，喉脣乾燥，見諸方暗，死相現前，父母親屬、朋友知識 啼泣圍繞；"
+    },
+    {
+     "n": 128,
+     "text": "然彼自身 臥在本處，見琰魔使，引其神識 至於琰魔法王之前。"
+    },
+    {
+     "n": 129,
+     "text": "然諸有情，有俱生神，隨其所作 若罪若福，皆具書之，盡持授與 琰魔法王。"
+    },
+    {
+     "n": 130,
+     "text": "爾時、彼王推問其人，計算所作，隨其罪福 而處斷之。"
+    },
+    {
+     "n": 131,
+     "text": "時彼病人，親屬、知識，若能為彼 歸依世尊藥師琉璃光如來，請諸眾僧，轉讀此經，然七層之燈，懸五色續命神幡，或有是處 彼識得還，如在夢中 明了自見。"
+    },
+    {
+     "n": 132,
+     "text": "或經七日，或二十一日，或三十五日，或四十九日，彼識還時，如從夢覺，皆自憶知 善不善業 所得果報；"
+    },
+    {
+     "n": 133,
+     "text": "由自證見 業果報故，乃至命難，亦不造作 諸惡之業。"
+    },
+    {
+     "n": 134,
+     "text": "是故淨信 善男子 善女人等，皆應受持 藥師琉璃光如來名號，隨力所能，恭敬供養」。"
+    },
+    {
+     "n": 135,
+     "text": "爾時、阿難問救脫菩薩曰：「善男子！應云何 恭敬供養 彼世尊藥師琉璃光如來？"
+    },
+    {
+     "n": 136,
+     "text": "續命幡燈 復云何造」？救脫菩薩言：「大德！"
+    },
+    {
+     "n": 137,
+     "text": "若有病人，欲脫病苦，當為其人，七日七夜 受持八分齋戒。"
+    },
+    {
+     "n": 138,
+     "text": "應以飲食 及餘資具，隨力所辦，供養苾芻僧。"
+    },
+    {
+     "n": 139,
+     "text": "晝夜六時，禮拜供養 彼世尊藥師琉璃光如來。"
+    },
+    {
+     "n": 140,
+     "text": "讀誦此經 四十九遍，然四十九燈；造彼如來 形像七軀，一一像前 各置七燈，一一燈量 大如車輪，乃至四十九日 光明不絕。"
+    },
+    {
+     "n": 141,
+     "text": "造五色綵幡，長四十九搩手，應放雜類眾生 至四十九，可得過度 危厄之難，不為諸橫 惡鬼所持」。"
+    },
+    {
+     "n": 142,
+     "text": "「復次、阿難！若剎帝利、灌頂王等，災難起時，所謂："
+    },
+    {
+     "n": 143,
+     "text": "人眾疾疫難，他國侵逼難，自界叛逆難，星宿變怪難，日月薄蝕難，非時風雨難，過時不雨難。"
+    },
+    {
+     "n": 144,
+     "text": "彼剎帝利 灌頂王等，爾時應於 一切有情 起慈悲心，赦諸繫閉。"
+    },
+    {
+     "n": 145,
+     "text": "依前所說 供養之法，供養彼世尊藥師琉璃光如來。"
+    },
+    {
+     "n": 146,
+     "text": "由此善根 及彼如來 本願力故，令其國界 即得安隱，風雨順時，穀稼成熟，一切有情 無病歡樂。"
+    },
+    {
+     "n": 147,
+     "text": "於其國中，無有暴惡 藥叉等神 惱有情者，一切惡相 皆即隱沒；"
+    },
+    {
+     "n": 148,
+     "text": "而剎帝利 灌頂王等 壽命色力，無病自在，皆得增益」。"
+    },
+    {
+     "n": 149,
+     "text": "「阿難！若帝后妃主，儲君王子，大臣輔相，中宮綵女，百官黎庶，為病所苦，及餘厄難；"
+    },
+    {
+     "n": 150,
+     "text": "亦應造立 五色神幡，然燈續明，放諸生命，散雜色花，燒眾名香；病得除愈，眾難解脫」。"
+    },
+    {
+     "n": 151,
+     "text": "爾時，阿難問救脫菩薩言：「善男子！云何 已盡之命 而可增益」？"
+    },
+    {
+     "n": 152,
+     "text": "救脫菩薩言：「大德！汝豈不聞 如來說有 九橫死耶？"
+    },
+    {
+     "n": 153,
+     "text": "是故勸造 續命幡燈，修諸福德，以修福故，盡其壽命 不經苦患」。"
+    },
+    {
+     "n": 154,
+     "text": "阿難問言：「九橫云何」？救脫菩薩言：「若諸有情，得病雖輕，然無醫藥 及看病者，設復遇醫，授以非藥，實不應死 而便橫死。"
+    },
+    {
+     "n": 155,
+     "text": "又信世間 邪魔外道 妖孽之師妄說禍福，便生恐動，心不自正，卜問覓禍，殺種種眾生，解奏神明，呼諸魍魎，請乞福祐，欲冀延年，終不能得。"
+    },
+    {
+     "n": 156,
+     "text": "愚痴迷惑，信邪倒見，遂令橫死 入於地獄，無有出期，是名初橫。"
+    },
+    {
+     "n": 157,
+     "text": "二者、橫被王法 之所誅戮。三者、畋獵嬉戲，耽淫嗜酒，放逸無度，橫為非人 奪其精氣。"
+    },
+    {
+     "n": 158,
+     "text": "四者、橫為火焚。五者、橫為水溺。六者、橫為種種 惡獸所噉。"
+    },
+    {
+     "n": 159,
+     "text": "七者、橫墮山崖。八者、橫為毒藥、厭禱、咒詛、起屍鬼等之所中害。"
+    },
+    {
+     "n": 160,
+     "text": "九者、饑渴所困，不得飲食 而便橫死。是為如來 略說橫死，有此九種，其餘復有 無量諸橫，難可具說！"
+    },
+    {
+     "n": 161,
+     "text": "「復次、阿難！彼琰魔王 主領世間 名籍之記，若諸有情，不孝五逆，破辱三寶，壞君臣法，毀於性戒，琰魔法王 隨罪輕重，考而罰之。"
+    },
+    {
+     "n": 162,
+     "text": "是故我今 勸諸有情，然燈造幡，放生修福，令度苦厄，不遭眾難」。"
+    },
+    {
+     "n": 163,
+     "text": "爾時、眾中有十二藥叉大將，俱在會坐，所謂："
+    },
+    {
+     "n": 164,
+     "text": "宮毘羅大將，伐折羅大將，迷企羅大將，安底羅大將，頞你羅大將，珊底羅大將，因達羅大將，波夷羅大將，摩虎羅大將，真達羅大將，招杜羅大將，毘羯魔大將："
+    },
+    {
+     "n": 165,
+     "text": "此十二藥叉大將，一一各有七千藥叉，以為眷屬。"
+    },
+    {
+     "n": 166,
+     "text": "同時舉聲 白佛言：「世尊！我等今者 蒙佛威力，得聞世尊 藥師琉璃光如來名號，不復更有 惡趣之怖。"
+    },
+    {
+     "n": 167,
+     "text": "我等相率，皆同一心，乃至盡形 歸佛法僧，誓當荷負 一切有情，為作義利，饒益安樂。"
+    },
+    {
+     "n": 168,
+     "text": "隨於何等 村城國邑，空閑林中，若有流布 此經，或復受持 藥師琉璃光如來名號 恭敬供養者，我等眷屬 衛護是人，皆使解脫 一切苦難，諸有願求 悉令滿足。"
+    },
+    {
+     "n": 169,
+     "text": "或有疾厄 求度脫者，亦應讀誦此經，以五色縷，結我名字，得如願已，然後解結」。"
+    },
+    {
+     "n": 170,
+     "text": "爾時、世尊讚諸藥叉大將言：「善哉！善哉！"
+    },
+    {
+     "n": 171,
+     "text": "大藥叉將！汝等念報 世尊藥師琉璃光如來恩德者，常應如是 利益安樂 一切有情」。"
+    },
+    {
+     "n": 172,
+     "text": "爾時、阿難白佛言：「世尊！當何名此法門？"
+    },
+    {
+     "n": 173,
+     "text": "我等云何奉持？」佛告阿難：此法門名說 藥師琉璃光如來本願功德；"
+    },
+    {
+     "n": 174,
+     "text": "亦名說十二神將 饒益有情 結願神咒；亦名拔除一切業障；應如是持」！"
+    },
+    {
+     "n": 175,
+     "text": "時薄伽梵 說是語已，諸菩薩摩訶薩，及大聲聞，國王、大臣、婆羅門、居士、天 龍、藥叉、健達縛、阿素洛、揭路荼、緊捺洛、莫呼洛伽、人、非人等一切大眾，聞佛所說，皆大歡喜，信受奉行。"
+    }
+   ],
+   "variant": "translation"
+  }
+ ]
+}

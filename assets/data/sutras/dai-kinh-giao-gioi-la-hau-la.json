@@ -1,0 +1,1369 @@
+{
+ "id": "dai-kinh-giao-gioi-la-hau-la",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 62",
+ "summary": "Kinh thuộc Trung Bộ (MN 62). Đức Phật dạy La-hầu-la (Rāhula) quán sát năm uẩn bằng chánh trí tuệ: cái này không phải của ta, không phải là ta, không phải tự ngã của ta. Tôn giả Sāriputta sau đó hướng dẫn tu tập niệm hơi thở vô, hơi thở ra, và Phật giải thích cách tu này. Kinh nhấn mạnh quán vô ngã và thực hành chánh niệm.",
+ "titles": {
+  "vi": "Đại kinh Giáo giới La-hầu-la",
+  "pli": "Mahārāhulovādasutta",
+  "en": "The Longer Advice to Rāhula"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 35,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn62/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời, Thế Tôn ở Sāvatthi, Jetavana, tại tịnh xá Anāthapiṇḍika (Cấp Cô độc)."
+    },
+    {
+     "n": 3,
+     "text": "Rồi Thế Tôn vào buổi sáng đắp y, cầm y bát, đi vào Sāvatthi để khất thực."
+    },
+    {
+     "n": 4,
+     "text": "Tôn giả Rāhula vào buổi sáng cũng đắp y, cầm y bát, đi sau lưng Thế Tôn."
+    },
+    {
+     "n": 5,
+     "text": "Rồi Thế Tôn, sau khi đưa mắt ngó xung quanh, bảo Tôn giả Rāhula"
+    },
+    {
+     "n": 6,
+     "text": "—Này Rāhula, bất cứ sắc pháp nào, quá khứ, vị lai, hiện tại, nội hay ngoại, thô hay tế, liệt hay thắng, xa hay gần, tất cả sắc pháp phải được quán sát như thật với chánh trí tuệ:"
+    },
+    {
+     "n": 7,
+     "text": "“Cái này không phải của ta, cái này không phải là ta, cái này không phải tự ngã của ta”."
+    },
+    {
+     "n": 8,
+     "text": "—Bạch Thế Tôn, có phải chỉ sắc mà thôi? Bạch Thiện Thệ, có phải chỉ sắc mà thôi?"
+    },
+    {
+     "n": 9,
+     "text": "—Cả sắc, này Rāhula; cả thọ, này Rāhula; cả tưởng, này Rāhula; cả hành, này Rāhula; và cả thức, này Rāhula."
+    },
+    {
+     "n": 10,
+     "text": "Rồi Tôn giả Rāhula tự nghĩ: “Ai có thể hôm nay được Thế Tôn trực tiếp giảng dạy với bài giáo giới, còn có thể đi vào làng để khất thực?”"
+    },
+    {
+     "n": 11,
+     "text": "Rồi Tôn giả từ chỗ ấy đi trở lui về, ngồi xuống một gốc cây, kiết già, lưng thẳng, an trú niệm trước mặt."
+    },
+    {
+     "n": 12,
+     "text": "Tôn giả Sāriputta thấy Tôn giả Rāhula đang ngồi dưới một gốc cây, kiết già, lưng thẳng, an trú niệm trước mặt."
+    },
+    {
+     "n": 13,
+     "text": "Sau khi thấy vậy, Ngài nói với Tôn giả Rāhula"
+    },
+    {
+     "n": 14,
+     "text": "—Này Rāhula, hãy tu tập sự tu tập nhập tức xuất tức niệm (niệm hơi thở vô, hơi thở ra)."
+    },
+    {
+     "n": 15,
+     "text": "Này Rāhula, tu tập niệm hơi thở vô hơi thở ra, làm cho sung mãn, được quả lớn, được lợi ích lớn."
+    },
+    {
+     "n": 16,
+     "text": "Rồi Tôn giả Rāhula, vào buổi chiều, sau khi từ Thiền tịnh đứng dậy, đi đến chỗ Thế Tôn ở, sau khi đến, đảnh lễ Thế Tôn rồi ngồi xuống một bên."
+    },
+    {
+     "n": 17,
+     "text": "Sau khi ngồi xuống một bên, Tôn giả Rāhula bạch Thế Tôn"
+    },
+    {
+     "n": 18,
+     "text": "—Bạch Thế Tôn, niệm hơi thở vô hơi thở ra được tu tập như thế nào?"
+    },
+    {
+     "n": 19,
+     "text": "Làm cho sung mãn, (pháp môn này) như thế nào là để được quả lớn, được lợi ích lớn?"
+    },
+    {
+     "n": 20,
+     "text": "—Này Rāhula, cái gì thuộc nội thân, thuộc cá nhân, kiên cứng, thô phù, bị chấp thủ, như tóc, lông, móng, răng, da, thịt, gân, xương, tủy, thận, tim, gan, hoành cách mô, lá lách, phổi, ruột, màng ruột, bao tử,"
+    },
+    {
+     "n": 21,
+     "text": "phân và bất cứ vật gì khác, thuộc nội thân, thuộc cá nhân, kiên cứng, thô phù, bị chấp thủ;"
+    },
+    {
+     "n": 22,
+     "text": "như vậy, này Rāhula, được gọi là nội địa giới."
+    },
+    {
+     "n": 23,
+     "text": "Những gì thuộc nội địa giới và những gì thuộc ngoại địa giới đều thuộc về địa giới."
+    },
+    {
+     "n": 24,
+     "text": "Địa giới ấy phải được quán sát như thật với chánh trí tuệ như sau: “Cái này không phải là của ta, cái này không phải là ta, cái này không phải tự là ngã của ta”."
+    },
+    {
+     "n": 25,
+     "text": "Sau khi như thật quán sát địa giới với chánh trí tuệ như vậy, vị ấy sanh yểm ly đối với địa giới, tâm từ bỏ địa giới."
+    },
+    {
+     "n": 26,
+     "text": "Và này Rāhula, thế nào là thủy giới? Có nội thủy giới, có ngoại thủy giới."
+    },
+    {
+     "n": 27,
+     "text": "Và này Rāhula, thế nào là nội thủy giới?"
+    },
+    {
+     "n": 28,
+     "text": "Cái gì thuộc nội thân, thuộc cá nhân, thuộc nước, thuộc chất lỏng, bị chấp thủ, như mật, đàm, niêm dịch, mủ, máu, mồ hôi, mỡ, nước mắt, mỡ da, nước miếng, nước ở khớp xương, nước tiểu, và bất cứ vật gì khác,"
+    },
+    {
+     "n": 29,
+     "text": "thuộc nội thân, thuộc cá nhân, thuộc nước, thuộc chất lỏng, bị chấp thủ;"
+    },
+    {
+     "n": 30,
+     "text": "như vậy, này Rāhula, được gọi là thủy giới."
+    },
+    {
+     "n": 31,
+     "text": "Những gì thuộc nội thủy giới và những gì thuộc ngoại thủy giới đều thuộc về thủy giới."
+    },
+    {
+     "n": 32,
+     "text": "Thủy giới ấy phải được quán sát như thật với chánh trí tuệ như sau: “Cái này không phải của ta, cái này không phải là ta, cái này không phải tự ngã của ta”."
+    },
+    {
+     "n": 33,
+     "text": "Sau khi như thật quán sát thủy giới với chánh trí tuệ như vậy, vị ấy sanh yểm ly đối với thủy giới, tâm từ bỏ thủy giới."
+    },
+    {
+     "n": 34,
+     "text": "Và này Rāhula, thế nào là hỏa giới? Có nội hỏa giới, có ngoại hỏa giới. Và này Rāhula, thế nào là nội hỏa giới?"
+    },
+    {
+     "n": 35,
+     "text": "Cái gì thuộc về nội thân, thuộc về cá nhân, thuộc lửa, thuộc chất nóng, bị chấp thủ;"
+    },
+    {
+     "n": 36,
+     "text": "như cái gì khiến cho hâm nóng, khiến cho hủy hoại, khiến cho thiêu cháy, cái gì khiến cho những vật được ăn, uống, nhai, nếm, có thể khéo tiêu hóa, hay tất cả những vật gì khác, thuộc nội thân, thuộc cá nhân, thuộc lửa,"
+    },
+    {
+     "n": 37,
+     "text": "thuộc chất nóng, bị chấp thủ; này Rāhula, như vậy được gọi là nội hỏa giới."
+    },
+    {
+     "n": 38,
+     "text": "Những gì thuộc nội hỏa giới, và những gì thuộc ngoại hỏa giới đều thuộc về hỏa giới."
+    },
+    {
+     "n": 39,
+     "text": "Hỏa giới ấy phải được quán sát như thật với chánh trí tuệ như sau: “Cái này không phải của ta, cái này không phải là ta, cái này không phải tự ngã của ta”."
+    },
+    {
+     "n": 40,
+     "text": "Sau khi như thật quán sát hỏa giới với chánh trí tuệ như vậy, vị ấy sanh yểm ly đối với hỏa giới, tâm từ bỏ hỏa giới."
+    },
+    {
+     "n": 41,
+     "text": "Và này Rāhula, thế nào là phong giới? Có nội phong giới, có ngoại phong giới."
+    },
+    {
+     "n": 42,
+     "text": "Và này Rāhula, thế nào là nội phong giới?"
+    },
+    {
+     "n": 43,
+     "text": "Cái gì thuộc về nội thân, thuộc cá nhân, thuộc gió, thuộc tánh động, bị chấp thủ, như gió thổi lên, gió thổi xuống, gió trong ruột, gió trong bụng dưới, gió thổi ngang các đốt, các khớp, hơi thở vô, hơi thở ra,"
+    },
+    {
+     "n": 44,
+     "text": "và bất cứ vật gì khác thuộc nội thân, thuộc cá nhân, thuộc gió, thuộc tánh động, bị chấp thủ;"
+    },
+    {
+     "n": 45,
+     "text": "này Rāhula, như vậy được gọi là nội phong giới."
+    },
+    {
+     "n": 46,
+     "text": "Những gì thuộc nội phong giới và những gì thuộc ngoại phong giới đều thuộc về phong giới."
+    },
+    {
+     "n": 47,
+     "text": "Phong giới ấy phải được quán sát như thật với chánh trí tuệ như sau: “Cái này không phải của ta, cái này không phải là ta, cái này không phải tự ngã của ta”."
+    },
+    {
+     "n": 48,
+     "text": "Sau khi như thật quán sát phong giới với chánh trí tuệ như vậy, vị ấy sanh yểm ly đối với phong giới, tâm từ bỏ phong giới."
+    },
+    {
+     "n": 49,
+     "text": "Và này Rāhula, thế nào là hư không giới?"
+    },
+    {
+     "n": 50,
+     "text": "Có nội hư không giới, có ngoại hư không giới."
+    },
+    {
+     "n": 51,
+     "text": "Và này Rāhula, thế nào là nội hư không giới?"
+    },
+    {
+     "n": 52,
+     "text": "Cái gì thuộc về nội thân, thuộc cá nhân, thuộc hư không, thuộc hư không tánh, bị chấp thủ, như lỗ tai, lỗ mũi, cửa miệng, do cái gì người ta nuốt, những gì được nhai, được uống, được ăn và được nếm,"
+    },
+    {
+     "n": 53,
+     "text": "và tại chỗ mà những gì được nhai, được uống, được ăn và được uống được giữ lại, và ngang qua chỗ mà những gì được nhai, được uống, được ăn và được tống xuất xuống phần dưới để ra ngoài,"
+    },
+    {
+     "n": 54,
+     "text": "và bất cứ vật gì khác thuộc nội thân, thuộc cá nhân, thuộc hư không, thuộc hư không tánh, bị chấp thủ;"
+    },
+    {
+     "n": 55,
+     "text": "này Rāhula, như vậy được gọi là nội hư không giới."
+    },
+    {
+     "n": 56,
+     "text": "Những gì thuộc nội hư không giới và những gì thuộc ngoại hư không giới đều thuộc về hư không giới."
+    },
+    {
+     "n": 57,
+     "text": "Hư không giới ấy phải được quán sát như thật với chánh trí tuệ như sau:"
+    },
+    {
+     "n": 58,
+     "text": "“Cái này không phải của ta, cái này không phải là ta, cái này không phải tự ngã của ta,” Sau khi như thật quán sát hư không giới với chánh trí tuệ như vậy, vị ấy sanh yểm ly đối với hư không giới,"
+    },
+    {
+     "n": 59,
+     "text": "tâm từ bỏ hư không giới."
+    },
+    {
+     "n": 60,
+     "text": "Này Rāhula, hãy tu tập sự tu tập như đất."
+    },
+    {
+     "n": 61,
+     "text": "Này Rāhula, do tu tập sự tu tập như đất, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 62,
+     "text": "Này Rāhula, ví như trên đất người ta quăng đồ tịnh, quăng đồ không tịnh, quăng phân uế, quăng nước tiểu, nhổ nước miếng, quăng mủ và quăng máu; tuy vậy đất không lo âu, không dao động, hay không nhàm chán;"
+    },
+    {
+     "n": 63,
+     "text": "cũng vậy, này Rāhula, hãy tu tập như đất."
+    },
+    {
+     "n": 64,
+     "text": "Này Rāhula, do tu tập sự tu tập như đất, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 65,
+     "text": "Này Rāhula, hãy tu tập sự tu tập như nước."
+    },
+    {
+     "n": 66,
+     "text": "Này Rāhula, do tu tập sự tu tập như nước, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 67,
+     "text": "Này Rāhula, ví như trong nước người ta rửa đồ tịnh, rửa đồ không tịnh, rửa sạch phân uế, rửa sạch nước tiểu, rửa sạch nước miếng, rửa sạch mủ, rửa sạch máu; tuy vậy nước không lo âu, không dao động, không nhàm chán;"
+    },
+    {
+     "n": 68,
+     "text": "cũng vậy, này Rāhula, hãy tu tập sự tụ tập như nước, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 69,
+     "text": "Này Rāhula, hãy tu tập sự tu tập như lửa."
+    },
+    {
+     "n": 70,
+     "text": "Này Rāhula, do tu tập sự tu tập như lửa, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 71,
+     "text": "Này Rāhula, ví như lửa đốt các đồ tịnh, đốt các đồ không tịnh, đốt phân uế, đốt nước tiểu, đốt nước miếng, đốt mủ, đốt máu; tuy vậy lửa không lo âu, không dao động, không nhàm chán;"
+    },
+    {
+     "n": 72,
+     "text": "cũng vậy, này Rāhula, hãy tu tập sự tu tập như lửa, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 73,
+     "text": "Này Rāhula, hãy tu tập sự tu tập như gió."
+    },
+    {
+     "n": 74,
+     "text": "Này Rāhula, do tu tập sự tu tập như gió, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 75,
+     "text": "Này Rāhula, như gió thổi các đồ tịnh, thổi các đồ không tịnh, thổi phân uế, thổi nước tiểu, thổi nước miếng, thổi mủ, thổi máu, tuy vậy gió không lo âu, không dao động, không nhàm chán;"
+    },
+    {
+     "n": 76,
+     "text": "cũng vậy, này Rāhula, hãy tu tập sự tu tập như gió, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 77,
+     "text": "Này Rāhula, hãy tu tập sự tu tập như hư không."
+    },
+    {
+     "n": 78,
+     "text": "Này Rāhula, do tu tập sự tu tập như hư không, các xúc khả ái, không khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 79,
+     "text": "Này Rāhula, ví như hư không không bị trú tại một chỗ nào; cũng vậy, này Rāhula, hãy tu tập sự tu tập như hư không."
+    },
+    {
+     "n": 80,
+     "text": "Này Rāhula, do tu tập sự tu tập như hư không, các xúc khả ái không, khả ái được khởi lên, không có nắm giữ tâm, không có tồn tại."
+    },
+    {
+     "n": 81,
+     "text": "Này Rāhula, hãy tu tập sự tu tập về lòng từ."
+    },
+    {
+     "n": 82,
+     "text": "Này Rāhula, do tu tập sự tu tập về lòng từ, cái gì thuộc sân tâm sẽ được trừ diệt."
+    },
+    {
+     "n": 83,
+     "text": "Này Rāhula, hãy tu tập sự tu tập về lòng bi."
+    },
+    {
+     "n": 84,
+     "text": "Này Rāhula, do tu tập sự tu tập về lòng bi, cái gì thuộc hại tâm sẽ được trừ diệt. Này Rāhula, hãy tu tập sự tu tập về hỷ."
+    },
+    {
+     "n": 85,
+     "text": "Này Rāhula, do tu tập sự tu tập về hỷ, cái gì thuộc bất lạc sẽ được trừ diệt. Này Rāhula, hãy tu tập sự tu tập về xả."
+    },
+    {
+     "n": 86,
+     "text": "Này Rāhula, do tu tập sự tu tập về xả, cái gì thuộc hận tâm sẽ được trừ diệt."
+    },
+    {
+     "n": 87,
+     "text": "Này Rāhula, hãy tu tập sự tu tập về bất tịnh."
+    },
+    {
+     "n": 88,
+     "text": "Này Rāhula, do tu tập sự tu tập về bất tịnh, cái gì thuộc tham ái được trừ diệt."
+    },
+    {
+     "n": 89,
+     "text": "Này Rāhula, hãy tu tập sự tu tập về vô thường."
+    },
+    {
+     "n": 90,
+     "text": "Này Rāhula, do tu tập sự tu tập về vô thường, cái gì thuộc ngã mạn được trừ diệt."
+    },
+    {
+     "n": 91,
+     "text": "Này Rāhula, hãy tu tập sự tu tập về niệm hơi thở vô hơi thở ra."
+    },
+    {
+     "n": 92,
+     "text": "Này Rāhula, do tu tập niệm hơi thở vô hơi thở ra, làm cho sung mãn, nên được quả lớn, được lợi ích lớn."
+    },
+    {
+     "n": 93,
+     "text": "Và này Rāhula, thế nào là tu tập niệm hơi thở vô hơi thở ra, làm cho sung mãn nên được quả lớn, được lợi ích lớn?"
+    },
+    {
+     "n": 94,
+     "text": "Ở đây, này Rāhula, vị Tỷ-kheo đi đến khu rừng, đi đến gốc cây, hay đi đến ngôi nhà trống, và ngồi kiết già, lưng thẳng và an trú chánh niệm trước mặt."
+    },
+    {
+     "n": 95,
+     "text": "Tỉnh giác, vị ấy thở vô; tỉnh giác, vị ấy thở ra."
+    },
+    {
+     "n": 96,
+     "text": "Hay thở vô dài, vị ấy biết: “Tôi thở vô dài”; hay thở ra dài, vị ấy biết “Tôi thở ra dài”; hay thở vô ngắn, vị ấy biết: “Tôi thở vô ngắn”; hay thở ra ngắn, vị ấy biết: “Tôi thở ra ngắn”."
+    },
+    {
+     "n": 97,
+     "text": "“Cảm giác toàn thân, tôi sẽ thở vô,” vị ấy tập."
+    },
+    {
+     "n": 98,
+     "text": "“Cảm giác toàn thân, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 99,
+     "text": "“An tịnh thân hành, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 100,
+     "text": "“An tịnh thân hành, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 101,
+     "text": "“Cảm giác hỷ thọ, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 102,
+     "text": "“Cảm giác hỷ thọ, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 103,
+     "text": "“Cảm giác lạc thọ, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 104,
+     "text": "“Cảm giác tâm hành (Cittasankhara), tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 105,
+     "text": "“Cảm giác tâm hành, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 106,
+     "text": "“An tịnh tâm hành, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 107,
+     "text": "“An tịnh tâm hành, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 108,
+     "text": "“Cảm giác về tâm, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 109,
+     "text": "“Cảm giác về tâm, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 110,
+     "text": "“Với tâm hân hoan, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 111,
+     "text": "“Với tâm hân hoan, tôi sẽ thở ra, vị ấy tập."
+    },
+    {
+     "n": 112,
+     "text": "“Với tâm định tĩnh, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 113,
+     "text": "“Với tâm định tĩnh, tôi sẽ thở ra, vị ấy tập."
+    },
+    {
+     "n": 114,
+     "text": "“Với tâm giải thoát, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 115,
+     "text": "“Với tâm giải thoát, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 116,
+     "text": "“Quán vô thường, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 117,
+     "text": "“Quán vô thường, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 118,
+     "text": "“Quán ly tham, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 119,
+     "text": "“Quán ly tham, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 120,
+     "text": "“Quán đoạn diệt, tôi sẽ thở vô”, vị ấy tập."
+    },
+    {
+     "n": 121,
+     "text": "“Quán đoạn diệt, tôi sẽ thở ra”, vị ấy tập “Quán từ bỏ, tôi sẽ thở vô”, vị ấy tập. “Quán từ bỏ, tôi sẽ thở ra”, vị ấy tập."
+    },
+    {
+     "n": 122,
+     "text": "Tu tập niệm hơi thở vô hơi thở ra như vậy, này Rāhula, làm cho sung mãn như vậy, có quả lớn, có lợi ích lớn."
+    },
+    {
+     "n": 123,
+     "text": "Này Rāhula, tu tập niệm hơi thở vô hơi thở ra như vậy, làm cho sung mãn như vậy, thời khi những hơi thở vô, hơi thở ra tối hậu chấm dứt, chứng được giác tri, không phải không được giác tri."
+    },
+    {
+     "n": 124,
+     "text": "Thế Tôn thuyết giảng như vậy. Tôn giả Rāhula hoan hỷ tín thọ lời Thế Tôn dạy."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn62/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Atha kho bhagavā pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya sāvatthiṁ piṇḍāya pāvisi. Āyasmāpi kho rāhulo pubbaṇhasamayaṁ nivāsetvā pattacīvaramādāya bhagavantaṁ piṭṭhito piṭṭhito anubandhi."
+    },
+    {
+     "n": 3,
+     "text": "Atha kho bhagavā apaloketvā āyasmantaṁ rāhulaṁ āmantesi:"
+    },
+    {
+     "n": 4,
+     "text": "“yaṁ kiñci, rāhula, rūpaṁ—atītānāgatapaccuppannaṁ ajjhattaṁ vā bahiddhā vā oḷārikaṁ vā sukhumaṁ vā hīnaṁ vā paṇītaṁ vā yaṁ dūre santike vā—sabbaṁ rūpaṁ ‘netaṁ mama, nesohamasmi,"
+    },
+    {
+     "n": 5,
+     "text": "na meso attā’ti evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabban”ti."
+    },
+    {
+     "n": 6,
+     "text": "“Rūpameva nu kho, bhagavā, rūpameva nu kho, sugatā”ti?"
+    },
+    {
+     "n": 7,
+     "text": "“Rūpampi, rāhula, vedanāpi, rāhula, saññāpi, rāhula, saṅkhārāpi, rāhula, viññāṇampi, rāhulā”ti."
+    },
+    {
+     "n": 8,
+     "text": "Atha kho āyasmā rāhulo “ko najja bhagavatā sammukhā ovādena ovadito gāmaṁ piṇḍāya pavisissatī”ti tato paṭinivattitvā aññatarasmiṁ rukkhamūle nisīdi pallaṅkaṁ ābhujitvā ujuṁ kāyaṁ paṇidhāya parimukhaṁ satiṁ upaṭṭhapetvā."
+    },
+    {
+     "n": 9,
+     "text": "Addasā kho āyasmā sāriputto āyasmantaṁ rāhulaṁ aññatarasmiṁ rukkhamūle nisinnaṁ pallaṅkaṁ ābhujitvā ujuṁ kāyaṁ paṇidhāya parimukhaṁ satiṁ upaṭṭhapetvā."
+    },
+    {
+     "n": 10,
+     "text": "Disvāna āyasmantaṁ rāhulaṁ āmantesi: “ānāpānassatiṁ, rāhula, bhāvanaṁ bhāvehi. Ānāpānassati, rāhula, bhāvanā bhāvitā bahulīkatā mahapphalā hoti mahānisaṁsā”ti."
+    },
+    {
+     "n": 11,
+     "text": "Atha kho āyasmā rāhulo sāyanhasamayaṁ paṭisallānā vuṭṭhito yena bhagavā tenupasaṅkami; upasaṅkamitvā bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 12,
+     "text": "Ekamantaṁ nisinno kho āyasmā rāhulo bhagavantaṁ etadavoca:"
+    },
+    {
+     "n": 13,
+     "text": "“kathaṁ bhāvitā nu kho, bhante, ānāpānassati, kathaṁ bahulīkatā mahapphalā hoti mahānisaṁsā”ti?"
+    },
+    {
+     "n": 14,
+     "text": "“Yaṁ kiñci, rāhula, ajjhattaṁ paccattaṁ kakkhaḷaṁ kharigataṁ upādinnaṁ,"
+    },
+    {
+     "n": 15,
+     "text": "seyyathidaṁ— kesā lomā nakhā dantā taco maṁsaṁ nhāru aṭṭhi aṭṭhimiñjaṁ vakkaṁ hadayaṁ yakanaṁ kilomakaṁ pihakaṁ papphāsaṁ antaṁ antaguṇaṁ udariyaṁ karīsaṁ,"
+    },
+    {
+     "n": 16,
+     "text": "yaṁ vā panaññampi kiñci ajjhattaṁ paccattaṁ kakkhaḷaṁ kharigataṁ upādinnaṁ— ayaṁ vuccati, rāhula, ajjhattikā pathavīdhātu."
+    },
+    {
+     "n": 17,
+     "text": "Yā ceva kho pana ajjhattikā pathavīdhātu yā ca bāhirā pathavīdhātu, pathavīdhāturevesā."
+    },
+    {
+     "n": 18,
+     "text": "Taṁ ‘netaṁ mama, nesohamasmi, na meso attā’ti—evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 19,
+     "text": "Evametaṁ yathābhūtaṁ sammappaññāya disvā pathavīdhātuyā nibbindati, pathavīdhātuyā cittaṁ virājeti."
+    },
+    {
+     "n": 20,
+     "text": "Katamā ca, rāhula, āpodhātu? Āpodhātu siyā ajjhattikā, siyā bāhirā. Katamā ca, rāhula, ajjhattikā āpodhātu?"
+    },
+    {
+     "n": 21,
+     "text": "Yaṁ ajjhattaṁ paccattaṁ āpo āpogataṁ upādinnaṁ, seyyathidaṁ— pittaṁ semhaṁ pubbo lohitaṁ sedo medo assu vasā kheḷo siṅghāṇikā lasikā muttaṁ,"
+    },
+    {
+     "n": 22,
+     "text": "yaṁ vā panaññampi kiñci ajjhattaṁ paccattaṁ āpo āpogataṁ upādinnaṁ— ayaṁ vuccati, rāhula, ajjhattikā āpodhātu."
+    },
+    {
+     "n": 23,
+     "text": "Yā ceva kho pana ajjhattikā āpodhātu yā ca bāhirā āpodhātu āpodhāturevesā."
+    },
+    {
+     "n": 24,
+     "text": "Taṁ ‘netaṁ mama, nesohamasmi, na meso attā’ti—evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 25,
+     "text": "Evametaṁ yathābhūtaṁ sammappaññāya disvā āpodhātuyā nibbindati, āpodhātuyā cittaṁ virājeti."
+    },
+    {
+     "n": 26,
+     "text": "Katamā ca, rāhula, tejodhātu? Tejodhātu siyā ajjhattikā, siyā bāhirā."
+    },
+    {
+     "n": 27,
+     "text": "Katamā ca, rāhula, ajjhattikā tejodhātu?"
+    },
+    {
+     "n": 28,
+     "text": "Yaṁ ajjhattaṁ paccattaṁ tejo tejogataṁ upādinnaṁ, seyyathidaṁ— yena ca santappati yena ca jīrīyati yena ca pariḍayhati yena ca asitapītakhāyitasāyitaṁ sammā pariṇāmaṁ gacchati,"
+    },
+    {
+     "n": 29,
+     "text": "yaṁ vā panaññampi kiñci ajjhattaṁ paccattaṁ tejo tejogataṁ upādinnaṁ— ayaṁ vuccati, rāhula, ajjhattikā tejodhātu."
+    },
+    {
+     "n": 30,
+     "text": "Yā ceva kho pana ajjhattikā tejodhātu yā ca bāhirā tejodhātu tejodhāturevesā."
+    },
+    {
+     "n": 31,
+     "text": "Taṁ ‘netaṁ mama, nesohamasmi, na meso attā’ti—evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 32,
+     "text": "Evametaṁ yathābhūtaṁ sammappaññāya disvā tejodhātuyā nibbindati, tejodhātuyā cittaṁ virājeti."
+    },
+    {
+     "n": 33,
+     "text": "Katamā ca, rāhula, vāyodhātu? Vāyodhātu siyā ajjhattikā, siyā bāhirā."
+    },
+    {
+     "n": 34,
+     "text": "Katamā ca, rāhula, ajjhattikā vāyodhātu?"
+    },
+    {
+     "n": 35,
+     "text": "Yaṁ ajjhattaṁ paccattaṁ vāyo vāyogataṁ upādinnaṁ, seyyathidaṁ— uddhaṅgamā vātā, adhogamā vātā, kucchisayā vātā, koṭṭhāsayā vātā, aṅgamaṅgānusārino vātā, assāso passāso iti,"
+    },
+    {
+     "n": 36,
+     "text": "yaṁ vā panaññampi kiñci ajjhattaṁ paccattaṁ vāyo vāyogataṁ upādinnaṁ— ayaṁ vuccati, rāhula, ajjhattikā vāyodhātu."
+    },
+    {
+     "n": 37,
+     "text": "Yā ceva kho pana ajjhattikā vāyodhātu yā ca bāhirā vāyodhātu vāyodhāturevesā."
+    },
+    {
+     "n": 38,
+     "text": "Taṁ ‘netaṁ mama, nesohamasmi, na meso attā’ti—evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 39,
+     "text": "Evametaṁ yathābhūtaṁ sammappaññāya disvā vāyodhātuyā nibbindati, vāyodhātuyā cittaṁ virājeti."
+    },
+    {
+     "n": 40,
+     "text": "Katamā ca, rāhula, ākāsadhātu? Ākāsadhātu siyā ajjhattikā, siyā bāhirā."
+    },
+    {
+     "n": 41,
+     "text": "Katamā ca, rāhula, ajjhattikā ākāsadhātu?"
+    },
+    {
+     "n": 42,
+     "text": "Yaṁ ajjhattaṁ paccattaṁ ākāsaṁ ākāsagataṁ upādinnaṁ, seyyathidaṁ— kaṇṇacchiddaṁ nāsacchiddaṁ mukhadvāraṁ, yena ca asitapītakhāyitasāyitaṁ ajjhoharati, yattha ca asitapītakhāyitasāyitaṁ santiṭṭhati,"
+    },
+    {
+     "n": 43,
+     "text": "yena ca asitapītakhāyitasāyitaṁ adhobhāgaṁ nikkhamati, yaṁ vā panaññampi kiñci ajjhattaṁ paccattaṁ ākāsaṁ ākāsagataṁ, aghaṁ aghagataṁ, vivaraṁ vivaragataṁ, asamphuṭṭhaṁ, maṁsalohitehi upādinnaṁ— ayaṁ vuccati, rāhula,"
+    },
+    {
+     "n": 44,
+     "text": "ajjhattikā ākāsadhātu. Yā ceva kho pana ajjhattikā ākāsadhātu yā ca bāhirā ākāsadhātu ākāsadhāturevesā."
+    },
+    {
+     "n": 45,
+     "text": "Taṁ ‘netaṁ mama, nesohamasmi, na meso attā’ti—evametaṁ yathābhūtaṁ sammappaññāya daṭṭhabbaṁ."
+    },
+    {
+     "n": 46,
+     "text": "Evametaṁ yathābhūtaṁ sammappaññāya disvā ākāsadhātuyā cittaṁ nibbindati, ākāsadhātuyā cittaṁ virājeti."
+    },
+    {
+     "n": 47,
+     "text": "Pathavīsamaṁ, rāhula, bhāvanaṁ bhāvehi. Pathavīsamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 48,
+     "text": "Seyyathāpi, rāhula, pathaviyā sucimpi nikkhipanti, asucimpi nikkhipanti, gūthagatampi nikkhipanti, muttagatampi nikkhipanti, kheḷagatampi nikkhipanti, pubbagatampi nikkhipanti, lohitagatampi nikkhipanti,"
+    },
+    {
+     "n": 49,
+     "text": "na ca tena pathavī aṭṭīyati vā harāyati vā jigucchati vā;"
+    },
+    {
+     "n": 50,
+     "text": "evameva kho tvaṁ, rāhula, pathavīsamaṁ bhāvanaṁ bhāvehi."
+    },
+    {
+     "n": 51,
+     "text": "Pathavīsamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 52,
+     "text": "Āposamaṁ, rāhula, bhāvanaṁ bhāvehi. Āposamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 53,
+     "text": "Seyyathāpi, rāhula, āpasmiṁ sucimpi dhovanti, asucimpi dhovanti, gūthagatampi dhovanti, muttagatampi dhovanti, kheḷagatampi dhovanti, pubbagatampi dhovanti, lohitagatampi dhovanti,"
+    },
+    {
+     "n": 54,
+     "text": "na ca tena āpo aṭṭīyati vā harāyati vā jigucchati vā;"
+    },
+    {
+     "n": 55,
+     "text": "evameva kho tvaṁ, rāhula, āposamaṁ bhāvanaṁ bhāvehi. Āposamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 56,
+     "text": "Tejosamaṁ, rāhula, bhāvanaṁ bhāvehi. Tejosamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 57,
+     "text": "Seyyathāpi, rāhula, tejo sucimpi dahati, asucimpi dahati, gūthagatampi dahati, muttagatampi dahati, kheḷagatampi dahati, pubbagatampi dahati, lohitagatampi dahati, na ca tena tejo aṭṭīyati vā harāyati vā jigucchati vā;"
+    },
+    {
+     "n": 58,
+     "text": "evameva kho tvaṁ, rāhula, tejosamaṁ bhāvanaṁ bhāvehi."
+    },
+    {
+     "n": 59,
+     "text": "Tejosamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 60,
+     "text": "Vāyosamaṁ, rāhula, bhāvanaṁ bhāvehi. Vāyosamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 61,
+     "text": "Seyyathāpi, rāhula, vāyo sucimpi upavāyati, asucimpi upavāyati, gūthagatampi upavāyati, muttagatampi upavāyati, kheḷagatampi upavāyati, pubbagatampi upavāyati, lohitagatampi upavāyati,"
+    },
+    {
+     "n": 62,
+     "text": "na ca tena vāyo aṭṭīyati vā harāyati vā jigucchati vā;"
+    },
+    {
+     "n": 63,
+     "text": "evameva kho tvaṁ, rāhula, vāyosamaṁ bhāvanaṁ bhāvehi."
+    },
+    {
+     "n": 64,
+     "text": "Vāyosamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 65,
+     "text": "Ākāsasamaṁ, rāhula, bhāvanaṁ bhāvehi. Ākāsasamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 66,
+     "text": "Seyyathāpi, rāhula, ākāso na katthaci patiṭṭhito; evameva kho tvaṁ, rāhula, ākāsasamaṁ bhāvanaṁ bhāvehi. Ākāsasamañhi te, rāhula, bhāvanaṁ bhāvayato uppannā manāpāmanāpā phassā cittaṁ na pariyādāya ṭhassanti."
+    },
+    {
+     "n": 67,
+     "text": "Mettaṁ, rāhula, bhāvanaṁ bhāvehi. Mettañhi te, rāhula, bhāvanaṁ bhāvayato yo byāpādo so pahīyissati."
+    },
+    {
+     "n": 68,
+     "text": "Karuṇaṁ, rāhula, bhāvanaṁ bhāvehi. Karuṇañhi te, rāhula, bhāvanaṁ bhāvayato yā vihesā sā pahīyissati."
+    },
+    {
+     "n": 69,
+     "text": "Muditaṁ, rāhula, bhāvanaṁ bhāvehi. Muditañhi te, rāhula, bhāvanaṁ bhāvayato yā arati sā pahīyissati."
+    },
+    {
+     "n": 70,
+     "text": "Upekkhaṁ, rāhula, bhāvanaṁ bhāvehi. Upekkhañhi te, rāhula, bhāvanaṁ bhāvayato yo paṭigho so pahīyissati."
+    },
+    {
+     "n": 71,
+     "text": "Asubhaṁ, rāhula, bhāvanaṁ bhāvehi. Asubhañhi te, rāhula, bhāvanaṁ bhāvayato yo rāgo so pahīyissati."
+    },
+    {
+     "n": 72,
+     "text": "Aniccasaññaṁ, rāhula, bhāvanaṁ bhāvehi. Aniccasaññañhi te, rāhula, bhāvanaṁ bhāvayato yo asmimāno so pahīyissati."
+    },
+    {
+     "n": 73,
+     "text": "Ānāpānassatiṁ, rāhula, bhāvanaṁ bhāvehi. Ānāpānassati hi te, rāhula, bhāvitā bahulīkatā mahapphalā hoti mahānisaṁsā."
+    },
+    {
+     "n": 74,
+     "text": "Kathaṁ bhāvitā ca, rāhula, ānāpānassati, kathaṁ bahulīkatā mahapphalā hoti mahānisaṁsā?"
+    },
+    {
+     "n": 75,
+     "text": "Idha, rāhula, bhikkhu araññagato vā rukkhamūlagato vā suññāgāragato vā nisīdati pallaṅkaṁ ābhujitvā ujuṁ kāyaṁ paṇidhāya parimukhaṁ satiṁ upaṭṭhapetvā. So satova assasati satova passasati."
+    },
+    {
+     "n": 76,
+     "text": "Dīghaṁ vā assasanto ‘dīghaṁ assasāmī’ti pajānāti, dīghaṁ vā passasanto ‘dīghaṁ passasāmī’ti pajānāti; rassaṁ vā assasanto ‘rassaṁ assasāmī’ti pajānāti, rassaṁ vā passasanto ‘rassaṁ passasāmī’ti pajānāti."
+    },
+    {
+     "n": 77,
+     "text": "‘Sabbakāyappaṭisaṁvedī assasissāmī’ti sikkhati; ‘sabbakāyappaṭisaṁvedī passasissāmī’ti sikkhati; ‘passambhayaṁ kāyasaṅkhāraṁ assasissāmī’ti sikkhati; ‘passambhayaṁ kāyasaṅkhāraṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 78,
+     "text": "‘Pītippaṭisaṁvedī assasissāmī’ti sikkhati; ‘pītippaṭisaṁvedī passasissāmī’ti sikkhati; ‘sukhappaṭisaṁvedī assasissāmī’ti sikkhati; ‘sukhappaṭisaṁvedī passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 79,
+     "text": "‘cittasaṅkhārappaṭisaṁvedī assasissāmī’ti sikkhati; ‘cittasaṅkhārappaṭisaṁvedī passasissāmī’ti sikkhati; ‘passambhayaṁ cittasaṅkhāraṁ assasissāmī’ti sikkhati; ‘passambhayaṁ cittasaṅkhāraṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 80,
+     "text": "‘Cittappaṭisaṁvedī assasissāmī’ti sikkhati; ‘cittappaṭisaṁvedī passasissāmī’ti sikkhati; ‘abhippamodayaṁ cittaṁ assasissāmī’ti sikkhati; ‘abhippamodayaṁ cittaṁ passasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 81,
+     "text": "‘samādahaṁ cittaṁ assasissāmī’ti sikkhati; ‘samādahaṁ cittaṁ passasissāmī’ti sikkhati; ‘vimocayaṁ cittaṁ assasissāmī’ti sikkhati; ‘vimocayaṁ cittaṁ passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 82,
+     "text": "‘Aniccānupassī assasissāmī’ti sikkhati; ‘aniccānupassī passasissāmī’ti sikkhati; ‘virāgānupassī assasissāmī’ti sikkhati; ‘virāgānupassī passasissāmī’ti sikkhati; ‘nirodhānupassī assasissāmī’ti sikkhati;"
+    },
+    {
+     "n": 83,
+     "text": "‘nirodhānupassī passasissāmī’ti sikkhati; ‘paṭinissaggānupassī assasissāmī’ti sikkhati; ‘paṭinissaggānupassī passasissāmī’ti sikkhati."
+    },
+    {
+     "n": 84,
+     "text": "Evaṁ bhāvitā kho, rāhula, ānāpānassati, evaṁ bahulīkatā mahapphalā hoti mahānisaṁsā."
+    },
+    {
+     "n": 85,
+     "text": "Evaṁ bhāvitāya, rāhula, ānāpānassatiyā, evaṁ bahulīkatāya yepi te carimakā assāsā tepi viditāva nirujjhanti no aviditā”ti."
+    },
+    {
+     "n": 86,
+     "text": "Idamavoca bhagavā. Attamano āyasmā rāhulo bhagavato bhāsitaṁ abhinandīti."
+    },
+    {
+     "n": 87,
+     "text": "Mahārāhulovādasuttaṁ niṭṭhitaṁ dutiyaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn62/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "Then the Buddha robed up in the morning and, taking his bowl and robe, entered Sāvatthī for alms."
+    },
+    {
+     "n": 3,
+     "text": "And Venerable Rāhula also robed up and followed behind the Buddha."
+    },
+    {
+     "n": 4,
+     "text": "Then the Buddha looked back at Rāhula and said, “Rāhula, you should truly see any kind of form at all—past, future, or present; internal or external; solid or subtle; inferior or superior; far or near:"
+    },
+    {
+     "n": 5,
+     "text": "all form—with right understanding: ‘This is not mine, I am not this, this is not my self.’”"
+    },
+    {
+     "n": 6,
+     "text": "“Only form, Blessed One? Only form, Holy One?”"
+    },
+    {
+     "n": 7,
+     "text": "“Form, Rāhula, as well as feeling and perception and choices and consciousness.”"
+    },
+    {
+     "n": 8,
+     "text": "Then Rāhula thought, “Who would go to the village for alms today after being advised directly by the Buddha?”"
+    },
+    {
+     "n": 9,
+     "text": "Turning back, he sat down cross-legged at the root of a certain tree, setting his body straight, and bringing mindfulness to the present."
+    },
+    {
+     "n": 10,
+     "text": "Venerable Sāriputta saw him sitting there, and addressed him, “Rāhula, develop mindfulness of breathing."
+    },
+    {
+     "n": 11,
+     "text": "When mindfulness of breathing is developed and cultivated it’s very fruitful and beneficial.”"
+    },
+    {
+     "n": 12,
+     "text": "Then in the late afternoon, Rāhula came out of retreat, went to the Buddha, bowed, sat down to one side, and said to him:"
+    },
+    {
+     "n": 13,
+     "text": "“Sir, how is mindfulness of breathing developed and cultivated to be very fruitful and beneficial?”"
+    },
+    {
+     "n": 14,
+     "text": "“Rāhula, the interior earth element is anything internal, personal, that’s hard, solid, and appropriated."
+    },
+    {
+     "n": 15,
+     "text": "This includes: head hair, body hair, nails, teeth, skin, flesh, sinews, bones, bone marrow, kidneys, heart, liver, diaphragm, spleen, lungs, intestines, mesentery, undigested food, feces;"
+    },
+    {
+     "n": 16,
+     "text": "or anything else internal, personal, that’s hard, solid, and appropriated."
+    },
+    {
+     "n": 17,
+     "text": "This is called the interior earth element."
+    },
+    {
+     "n": 18,
+     "text": "The interior earth element and the exterior earth element are just the earth element."
+    },
+    {
+     "n": 19,
+     "text": "This should be truly seen with right understanding like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 20,
+     "text": "When you truly see with right understanding, you grow disillusioned with the earth element, detaching the mind from the earth element."
+    },
+    {
+     "n": 21,
+     "text": "And what is the water element? The water element may be interior or exterior. And what is the interior water element?"
+    },
+    {
+     "n": 22,
+     "text": "Anything internal, personal, that’s water, watery, and appropriated."
+    },
+    {
+     "n": 23,
+     "text": "This includes: bile, phlegm, pus, blood, sweat, fat, tears, grease, saliva, snot, synovial fluid, urine; or anything else internal, personal, that’s water, watery, and appropriated."
+    },
+    {
+     "n": 24,
+     "text": "This is called the interior water element."
+    },
+    {
+     "n": 25,
+     "text": "The interior water element and the exterior water element are just the water element."
+    },
+    {
+     "n": 26,
+     "text": "This should be truly seen with right understanding like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 27,
+     "text": "When you truly see with right understanding, you grow disillusioned with the water element, detaching the mind from the water element."
+    },
+    {
+     "n": 28,
+     "text": "And what is the fire element? The fire element may be interior or exterior. And what is the interior fire element?"
+    },
+    {
+     "n": 29,
+     "text": "Anything internal, personal, that’s fire, fiery, and appropriated."
+    },
+    {
+     "n": 30,
+     "text": "This includes: that which warms, that which ages, that which heats you up when feverish, that which properly digests food and drink; or anything else internal, personal, that’s fire, fiery, and appropriated."
+    },
+    {
+     "n": 31,
+     "text": "This is called the interior fire element."
+    },
+    {
+     "n": 32,
+     "text": "The interior fire element and the exterior fire element are just the fire element."
+    },
+    {
+     "n": 33,
+     "text": "This should be truly seen with right understanding like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 34,
+     "text": "When you truly see with right understanding, you grow disillusioned with the fire element, detaching the mind from the fire element."
+    },
+    {
+     "n": 35,
+     "text": "And what is the air element? The air element may be interior or exterior. And what is the interior air element?"
+    },
+    {
+     "n": 36,
+     "text": "Anything internal, personal, that’s air, airy, and appropriated."
+    },
+    {
+     "n": 37,
+     "text": "This includes: winds that go up or down, winds in the belly or the bowels, winds that flow through the limbs, in-breaths and out-breaths; or anything else internal, personal, that’s air, airy, and appropriated."
+    },
+    {
+     "n": 38,
+     "text": "This is called the interior air element."
+    },
+    {
+     "n": 39,
+     "text": "The interior air element and the exterior air element are just the air element."
+    },
+    {
+     "n": 40,
+     "text": "This should be truly seen with right understanding like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 41,
+     "text": "When you truly see with right understanding, you grow disillusioned with the air element, detaching the mind from the air element."
+    },
+    {
+     "n": 42,
+     "text": "And what is the space element? The space element may be interior or exterior. And what is the interior space element?"
+    },
+    {
+     "n": 43,
+     "text": "Anything internal, personal, that’s space, spacious, and appropriated."
+    },
+    {
+     "n": 44,
+     "text": "This includes: the ear canals, nostrils, and mouth; and the space for swallowing what is eaten and drunk, the space where it stays, and the space for excreting it from the nether regions;"
+    },
+    {
+     "n": 45,
+     "text": "or anything else internal, personal, that’s space, spacious, and appropriated."
+    },
+    {
+     "n": 46,
+     "text": "This is called the interior space element."
+    },
+    {
+     "n": 47,
+     "text": "The interior space element and the exterior space element are just the space element."
+    },
+    {
+     "n": 48,
+     "text": "This should be truly seen with right understanding like this: ‘This is not mine, I am not this, this is not my self.’"
+    },
+    {
+     "n": 49,
+     "text": "When you truly see with right understanding, you grow disillusioned with the space element, detaching the mind from the space element."
+    },
+    {
+     "n": 50,
+     "text": "Rāhula, meditate like the earth. For when you meditate like the earth, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 51,
+     "text": "Suppose they were to toss both clean and unclean things on the earth, like feces, urine, spit, pus, and blood."
+    },
+    {
+     "n": 52,
+     "text": "The earth isn’t horrified, repelled, and disgusted because of this."
+    },
+    {
+     "n": 53,
+     "text": "In the same way, meditate like the earth."
+    },
+    {
+     "n": 54,
+     "text": "For when you meditate like the earth, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 55,
+     "text": "Meditate like water. For when you meditate like water, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 56,
+     "text": "Suppose they were to wash both clean and unclean things in the water, like feces, urine, spit, pus, and blood."
+    },
+    {
+     "n": 57,
+     "text": "The water isn’t horrified, repelled, and disgusted because of this. In the same way, meditate like water."
+    },
+    {
+     "n": 58,
+     "text": "For when you meditate like water, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 59,
+     "text": "Meditate like fire. For when you meditate like fire, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 60,
+     "text": "Suppose a fire were to burn both clean and unclean things, like feces, urine, spit, pus, and blood."
+    },
+    {
+     "n": 61,
+     "text": "The fire isn’t horrified, repelled, and disgusted because of this. In the same way, meditate like fire."
+    },
+    {
+     "n": 62,
+     "text": "For when you meditate like fire, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 63,
+     "text": "Meditate like wind. For when you meditate like wind, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 64,
+     "text": "Suppose the wind were to blow on both clean and unclean things, like feces, urine, spit, pus, and blood."
+    },
+    {
+     "n": 65,
+     "text": "The wind isn’t horrified, repelled, and disgusted because of this."
+    },
+    {
+     "n": 66,
+     "text": "In the same way, meditate like the wind."
+    },
+    {
+     "n": 67,
+     "text": "For when you meditate like wind, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 68,
+     "text": "Meditate like space. For when you meditate like space, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 69,
+     "text": "Just as space is not established anywhere, in the same way, meditate like space."
+    },
+    {
+     "n": 70,
+     "text": "For when you meditate like space, pleasant and unpleasant contacts will not occupy your mind."
+    },
+    {
+     "n": 71,
+     "text": "Meditate on love. For when you meditate on love any ill will will be given up."
+    },
+    {
+     "n": 72,
+     "text": "Meditate on compassion. For when you meditate on compassion any cruelty will be given up."
+    },
+    {
+     "n": 73,
+     "text": "Meditate on rejoicing. For when you meditate on rejoicing any discontent will be given up."
+    },
+    {
+     "n": 74,
+     "text": "Meditate on equanimity. For when you meditate on equanimity any aversion will be given up."
+    },
+    {
+     "n": 75,
+     "text": "Meditate on ugliness. For when you meditate on ugliness any lust will be given up."
+    },
+    {
+     "n": 76,
+     "text": "Meditate on impermanence. For when you meditate on impermanence any conceit ‘I am’ will be given up."
+    },
+    {
+     "n": 77,
+     "text": "Develop mindfulness of breathing. When mindfulness of breathing is developed and cultivated it’s very fruitful and beneficial."
+    },
+    {
+     "n": 78,
+     "text": "And how is mindfulness of breathing developed and cultivated to be very fruitful and beneficial?"
+    },
+    {
+     "n": 79,
+     "text": "It’s when a mendicant—gone to a wilderness, or to the root of a tree, or to an empty hut—sits down cross-legged, sets their body straight, and brings mindfulness to the present. Just mindful, they breathe in."
+    },
+    {
+     "n": 80,
+     "text": "Mindful, they breathe out."
+    },
+    {
+     "n": 81,
+     "text": "Breathing in heavily they know: ‘I’m breathing in heavily.’"
+    },
+    {
+     "n": 82,
+     "text": "Breathing out heavily they know: ‘I’m breathing out heavily.’"
+    },
+    {
+     "n": 83,
+     "text": "Breathing in lightly they know: ‘I’m breathing in lightly.’"
+    },
+    {
+     "n": 84,
+     "text": "Breathing out lightly they know: ‘I’m breathing out lightly.’"
+    },
+    {
+     "n": 85,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the whole body.’"
+    },
+    {
+     "n": 86,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the whole body.’"
+    },
+    {
+     "n": 87,
+     "text": "They practice like this: ‘I’ll breathe in stilling the physical process.’"
+    },
+    {
+     "n": 88,
+     "text": "They practice like this: ‘I’ll breathe out stilling the physical process.’"
+    },
+    {
+     "n": 89,
+     "text": "They practice like this: ‘I’ll breathe in experiencing rapture.’"
+    },
+    {
+     "n": 90,
+     "text": "They practice like this: ‘I’ll breathe out experiencing rapture.’"
+    },
+    {
+     "n": 91,
+     "text": "They practice like this: ‘I’ll breathe in experiencing bliss.’"
+    },
+    {
+     "n": 92,
+     "text": "They practice like this: ‘I’ll breathe out experiencing bliss.’"
+    },
+    {
+     "n": 93,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the mental process.’"
+    },
+    {
+     "n": 94,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the mental process.’"
+    },
+    {
+     "n": 95,
+     "text": "They practice like this: ‘I’ll breathe in stilling the mental process.’"
+    },
+    {
+     "n": 96,
+     "text": "They practice like this: ‘I’ll breathe out stilling the mental process.’"
+    },
+    {
+     "n": 97,
+     "text": "They practice like this: ‘I’ll breathe in experiencing the mind.’"
+    },
+    {
+     "n": 98,
+     "text": "They practice like this: ‘I’ll breathe out experiencing the mind.’"
+    },
+    {
+     "n": 99,
+     "text": "They practice like this: ‘I’ll breathe in gladdening the mind.’"
+    },
+    {
+     "n": 100,
+     "text": "They practice like this: ‘I’ll breathe out gladdening the mind.’"
+    },
+    {
+     "n": 101,
+     "text": "They practice like this: ‘I’ll breathe in immersing the mind in samādhi.’"
+    },
+    {
+     "n": 102,
+     "text": "They practice like this: ‘I’ll breathe out immersing the mind in samādhi.’"
+    },
+    {
+     "n": 103,
+     "text": "They practice like this: ‘I’ll breathe in freeing the mind.’"
+    },
+    {
+     "n": 104,
+     "text": "They practice like this: ‘I’ll breathe out freeing the mind.’"
+    },
+    {
+     "n": 105,
+     "text": "They practice like this: ‘I’ll breathe in observing impermanence.’"
+    },
+    {
+     "n": 106,
+     "text": "They practice like this: ‘I’ll breathe out observing impermanence.’"
+    },
+    {
+     "n": 107,
+     "text": "They practice like this: ‘I’ll breathe in observing fading away.’"
+    },
+    {
+     "n": 108,
+     "text": "They practice like this: ‘I’ll breathe out observing fading away.’"
+    },
+    {
+     "n": 109,
+     "text": "They practice like this: ‘I’ll breathe in observing cessation.’"
+    },
+    {
+     "n": 110,
+     "text": "They practice like this: ‘I’ll breathe out observing cessation.’"
+    },
+    {
+     "n": 111,
+     "text": "They practice like this: ‘I’ll breathe in observing letting go.’"
+    },
+    {
+     "n": 112,
+     "text": "They practice like this: ‘I’ll breathe out observing letting go.’"
+    },
+    {
+     "n": 113,
+     "text": "Mindfulness of breathing, when developed and cultivated in this way, is very fruitful and beneficial."
+    },
+    {
+     "n": 114,
+     "text": "When mindfulness of breathing is developed and cultivated in this way, even as the final breaths cease they are known, not unknown.”"
+    },
+    {
+     "n": 115,
+     "text": "That is what the Buddha said. Satisfied, Venerable Rāhula approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

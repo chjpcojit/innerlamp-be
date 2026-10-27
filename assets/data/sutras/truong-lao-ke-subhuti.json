@@ -1,0 +1,289 @@
+{
+ "id": "truong-lao-ke-subhuti",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Kệ",
+ "reference": "Thag 1.1",
+ "summary": "Kệ ngôn ngắn của trưởng lão Subhūti trong Trưởng Lão Kệ (Tiểu Bộ, Thag 1.1), bài mở đầu bộ kệ. Sau lời kính lễ đức Thế Tôn, vị trưởng lão nói về cái cốc nhỏ lợp kín, thoải mái, rồi mời trời cứ mưa, vì tâm ông đã khéo định tĩnh, được giải thoát và sống tinh cần. Bài kệ thể hiện sự an lạc và giải thoát nội tâm bằng hình ảnh giản dị.",
+ "titles": {
+  "vi": "Trưởng Lão Kệ - Subhūti",
+  "pli": "Subhūtittheragāthā",
+  "en": "Subhūti"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thag1.1/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Kính lễ đức Thế Tôn, bậc A-la-hán, đấng Chánh Biến Tri!"
+    },
+    {
+     "n": 2,
+     "text": "Chúng ta hãy lắng nghe những kệ ngôn liên quan đến bản thân của những vị có nội tâm đã được tu tập, tựa như những con sư tử có răng nanh ở trong hang núi đang rống lên.",
+     "section": "KỆ NGÔN MỞ ĐẦU"
+    },
+    {
+     "n": 3,
+     "text": "Các vị có các tên như vầy, có các họ như vầy, có sự an trú vào Giáo Pháp như vầy, đã được giải thoát như vầy, có trí tuệ, đã sống không lười biếng.",
+     "section": "KỆ NGÔN MỞ ĐẦU"
+    },
+    {
+     "n": 4,
+     "text": "Sau khi thấy rõ trường hợp này trường hợp khác, sau khi chạm đến Đạo Lộ Bất Tử, trong khi quán xét lại đích cuối cùng đã được làm xong, các vị đã thốt lên ý nghĩa này.",
+     "section": "KỆ NGÔN MỞ ĐẦU"
+    },
+    {
+     "n": 5,
+     "text": "“Cái cốc nhỏ của tôi đã được lợp, thoải mái, kín gió.",
+     "section": "1."
+    },
+    {
+     "n": 6,
+     "text": "Này ông Trời, ông hãy mưa một cách thoải mái.",
+     "section": "1."
+    },
+    {
+     "n": 7,
+     "text": "Tâm của tôi khéo được định tĩnh, được giải thoát. Tôi sống có sự tinh cần. Này ông Trời, ông hãy mưa.”",
+     "section": "1."
+    },
+    {
+     "n": 8,
+     "text": "Đại đức trưởng lão Subhūti đã nói lời kệ như thế.",
+     "section": "1."
+    },
+    {
+     "n": 9,
+     "text": "Kệ ngôn của trưởng lão Subhūti.",
+     "section": "1."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag1.1/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Namo tassa Bhagavato Arahato Sammāsambuddhassa.",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 2,
+     "text": "Sīhānaṁva nadantānaṁ,",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 3,
+     "text": "dāṭhīnaṁ girigabbhare;",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 4,
+     "text": "Suṇātha bhāvitattānaṁ,",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 5,
+     "text": "gāthā atthūpanāyikā.",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 6,
+     "text": "Yathānāmā yathāgottā,",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 7,
+     "text": "yathādhammavihārino;",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 8,
+     "text": "Yathādhimuttā sappaññā,",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 9,
+     "text": "vihariṁsu atanditā.",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 10,
+     "text": "Tattha tattha vipassitvā,",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 11,
+     "text": "phusitvā accutaṁ padaṁ;",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 12,
+     "text": "Katantaṁ paccavekkhantā,",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 13,
+     "text": "imamatthamabhāsisuṁ.",
+     "section": "Nidānagāthā"
+    },
+    {
+     "n": 14,
+     "text": "“Channā me kuṭikā sukhā nivātā,",
+     "section": "Subhūtittheragāthā"
+    },
+    {
+     "n": 15,
+     "text": "Vassa deva yathāsukhaṁ;",
+     "section": "Subhūtittheragāthā"
+    },
+    {
+     "n": 16,
+     "text": "Cittaṁ me susamāhitaṁ vimuttaṁ,",
+     "section": "Subhūtittheragāthā"
+    },
+    {
+     "n": 17,
+     "text": "Ātāpī viharāmi vassa devā”ti.",
+     "section": "Subhūtittheragāthā"
+    },
+    {
+     "n": 18,
+     "text": "Itthaṁ sudaṁ āyasmā subhūtitthero gāthaṁ abhāsitthāti.",
+     "section": "Subhūtittheragāthā"
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag1.1/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Homage to him, the blessed one, the perfected one, the fully awakened Buddha!",
+     "section": "Background"
+    },
+    {
+     "n": 2,
+     "text": "Like the lions of mighty fang",
+     "section": "Background"
+    },
+    {
+     "n": 3,
+     "text": "who roar in mountain caves—",
+     "section": "Background"
+    },
+    {
+     "n": 4,
+     "text": "hear now from those who’ve practiced well",
+     "section": "Background"
+    },
+    {
+     "n": 5,
+     "text": "their own verses about themselves.",
+     "section": "Background"
+    },
+    {
+     "n": 6,
+     "text": "What their name, and what their clan,",
+     "section": "Background"
+    },
+    {
+     "n": 7,
+     "text": "and how they lived by the teaching;",
+     "section": "Background"
+    },
+    {
+     "n": 8,
+     "text": "how dedicated were those wise ones,",
+     "section": "Background"
+    },
+    {
+     "n": 9,
+     "text": "as they meditated tirelessly.",
+     "section": "Background"
+    },
+    {
+     "n": 10,
+     "text": "Clearly discerning in every case,",
+     "section": "Background"
+    },
+    {
+     "n": 11,
+     "text": "they reached the state that does not pass.",
+     "section": "Background"
+    },
+    {
+     "n": 12,
+     "text": "Reviewing their completed task,",
+     "section": "Background"
+    },
+    {
+     "n": 13,
+     "text": "they spoke about it in these words.",
+     "section": "Background"
+    },
+    {
+     "n": 14,
+     "text": "My hut is roofed and pleasant, sheltered from the wind:",
+     "section": "Subhūti"
+    },
+    {
+     "n": 15,
+     "text": "so rain, heavens, as you please!",
+     "section": "Subhūti"
+    },
+    {
+     "n": 16,
+     "text": "My mind is serene and freed,",
+     "section": "Subhūti"
+    },
+    {
+     "n": 17,
+     "text": "I practice wholeheartedly: so rain, heavens!",
+     "section": "Subhūti"
+    },
+    {
+     "n": 18,
+     "text": "That is how this verse was recited by the senior venerable Subhūti.",
+     "section": "Subhūti"
+    }
+   ]
+  }
+ ]
+}

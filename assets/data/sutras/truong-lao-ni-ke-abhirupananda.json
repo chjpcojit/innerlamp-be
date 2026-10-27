@@ -1,0 +1,153 @@
+{
+ "id": "truong-lao-ni-ke-abhirupananda",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Ni Kệ",
+ "reference": "Thig 2.1",
+ "summary": "Kệ ngôn ngắn của trưởng lão ni Abhirūpanandā trong Trưởng Lão Ni Kệ (Tiểu Bộ, Thig 2.1). Đức Thế Tôn giáo huấn vị ni này, bảo cô quán xác thân là bệnh hoạn, không trong sạch, tu tập tâm chuyên nhất với đề mục tử thi, rồi tu vô tướng và dẹp bỏ sự tiềm ẩn của ngã mạn để sống an tịnh.",
+ "titles": {
+  "vi": "Trưởng Lão Ni Kệ - Abhirūpanandā",
+  "pli": "Abhirūpanandātherīgāthā",
+  "en": "Abhirūpanandā"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 2,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thig2.1/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Này Nandā, cô hãy nhìn thấy xác thân là bệnh hoạn, không trong sạch, hôi thối, hãy tu tập tâm được chuyên nhất, khéo được định tĩnh, về (đề mục) tử thi."
+    },
+    {
+     "n": 2,
+     "text": "Cô hãy tu tập về vô tướng, hãy dẹp bỏ sự tiềm ẩn của ngã mạn; sau đó, nhờ vào sự lãnh hội về ngã mạn, cô sẽ sống, được an tịnh.”"
+    },
+    {
+     "n": 3,
+     "text": "Đức Thế Tôn thường xuyên giáo huấn vị ni tu tập sự Abhirūpanandā bằng những lời kệ này như thế."
+    },
+    {
+     "n": 4,
+     "text": "Kệ ngôn của trưởng lão ni Abhirūpanandā."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig2.1/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Āturaṁ asuciṁ pūtiṁ,"
+    },
+    {
+     "n": 2,
+     "text": "passa nande samussayaṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Asubhāya cittaṁ bhāvehi,"
+    },
+    {
+     "n": 4,
+     "text": "ekaggaṁ susamāhitaṁ."
+    },
+    {
+     "n": 5,
+     "text": "Animittañca bhāvehi,"
+    },
+    {
+     "n": 6,
+     "text": "mānānusayamujjaha;"
+    },
+    {
+     "n": 7,
+     "text": "Tato mānābhisamayā,"
+    },
+    {
+     "n": 8,
+     "text": "upasantā carissasī”ti."
+    },
+    {
+     "n": 9,
+     "text": "Itthaṁ sudaṁ abhirūpanandā therī gāthāyo abhāsitthāti."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thig2.1/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nandā, see this bag of bones as"
+    },
+    {
+     "n": 2,
+     "text": "diseased, filthy, and rotten."
+    },
+    {
+     "n": 3,
+     "text": "With mind unified and serene,"
+    },
+    {
+     "n": 4,
+     "text": "meditate on the ugly aspects of the body."
+    },
+    {
+     "n": 5,
+     "text": "Meditate on the signless,"
+    },
+    {
+     "n": 6,
+     "text": "give up the tendency to conceit;"
+    },
+    {
+     "n": 7,
+     "text": "and when you comprehend conceit,"
+    },
+    {
+     "n": 8,
+     "text": "you will live at peace."
+    },
+    {
+     "n": 9,
+     "text": "That is how the Buddha regularly advised the trainee nun Nandā with these verses."
+    }
+   ]
+  }
+ ]
+}

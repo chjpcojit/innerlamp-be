@@ -1,0 +1,738 @@
+{
+ "id": "phap-cu-voi",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 320-333",
+ "summary": "Phẩm kệ trong Kinh Pháp Cú (Tiểu Bộ, Dhp 320–333) lấy hình ảnh con voi làm chủ đề. Kệ ví người tu như voi giữa trận chịu đựng tên đạn, tức nhẫn chịu lời phỉ báng, và nhấn mạnh người đã được rèn luyện, tự điều phục mới là bậc tối thượng. Phẩm cũng nói đến việc sống một mình, không làm ác, và kết bằng những điều đáng vui như giữ giới, có tín và trí tuệ.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Voi",
+  "pli": "Nāgavagga",
+  "en": "Elephants"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 4,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp320-333/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ta như voi giữa trận"
+    },
+    {
+     "n": 2,
+     "text": "Hứng chịu cung tên rơi,"
+    },
+    {
+     "n": 3,
+     "text": "Chịu đựng mọi phỉ báng."
+    },
+    {
+     "n": 4,
+     "text": "Ác giới rất nhiều người."
+    },
+    {
+     "n": 5,
+     "text": "Voi luyện, đưa dự hội,"
+    },
+    {
+     "n": 6,
+     "text": "Ngựa luyện, được vua cưỡi,"
+    },
+    {
+     "n": 7,
+     "text": "Người luyện, bậc tối thượng"
+    },
+    {
+     "n": 8,
+     "text": "Chịu đựng mọi phỉ báng."
+    },
+    {
+     "n": 9,
+     "text": "Tốt thay, con la thuần,"
+    },
+    {
+     "n": 10,
+     "text": "Thuần chủng loài ngựa xinh."
+    },
+    {
+     "n": 11,
+     "text": "Đại tượng, voi có ngà."
+    },
+    {
+     "n": 12,
+     "text": "Tự điều mới tối thượng."
+    },
+    {
+     "n": 13,
+     "text": "Chẳng phải loài cưỡi ấy,"
+    },
+    {
+     "n": 14,
+     "text": "Đưa người đến Niết bàn,"
+    },
+    {
+     "n": 15,
+     "text": "Chỉ có người tự điều,"
+    },
+    {
+     "n": 16,
+     "text": "Đến đích nhờ điều phục."
+    },
+    {
+     "n": 17,
+     "text": "Con voi tên Tài Hộ,"
+    },
+    {
+     "n": 18,
+     "text": "Phát dục, khó điều phục,"
+    },
+    {
+     "n": 19,
+     "text": "Trói buộc, không ăn uống."
+    },
+    {
+     "n": 20,
+     "text": "Voi nhớ đến rừng voi."
+    },
+    {
+     "n": 21,
+     "text": "Người ưa ngủ, ăn lớn"
+    },
+    {
+     "n": 22,
+     "text": "Nằm lăn lóc qua lại,"
+    },
+    {
+     "n": 23,
+     "text": "Chẳng khác heo no bụng,"
+    },
+    {
+     "n": 24,
+     "text": "Kẻ ngu nhập thai mãi."
+    },
+    {
+     "n": 25,
+     "text": "Trước tâm này buông lung,"
+    },
+    {
+     "n": 26,
+     "text": "Chạy theo ái, dục, lạc."
+    },
+    {
+     "n": 27,
+     "text": "Nay Ta chánh chế ngự,"
+    },
+    {
+     "n": 28,
+     "text": "Như cầm móc điều voi."
+    },
+    {
+     "n": 29,
+     "text": "Hãy vui không phóng dật,"
+    },
+    {
+     "n": 30,
+     "text": "Khéo phòng hộ tâm ý."
+    },
+    {
+     "n": 31,
+     "text": "Kéo mình khỏi ác đạo,"
+    },
+    {
+     "n": 32,
+     "text": "Như voi bị sa lầy."
+    },
+    {
+     "n": 33,
+     "text": "Nếu được bạn hiền trí"
+    },
+    {
+     "n": 34,
+     "text": "Đáng sống chung, hạnh lành,"
+    },
+    {
+     "n": 35,
+     "text": "Nhiếp phục mọi hiểm nguy"
+    },
+    {
+     "n": 36,
+     "text": "Hoan hỷ sống chánh niệm."
+    },
+    {
+     "n": 37,
+     "text": "Không gặp bạn hiền trí."
+    },
+    {
+     "n": 38,
+     "text": "Đáng sống chung, hạnh lành"
+    },
+    {
+     "n": 39,
+     "text": "Như vua bỏ nước bại"
+    },
+    {
+     "n": 40,
+     "text": "Hãy sống riêng cô độc, Như voi sống rừng voi."
+    },
+    {
+     "n": 41,
+     "text": "Tốt hơn sống một mình,"
+    },
+    {
+     "n": 42,
+     "text": "Không người ngu kết bạn."
+    },
+    {
+     "n": 43,
+     "text": "Độc thân, không ác hạnh"
+    },
+    {
+     "n": 44,
+     "text": "Sống vô tư vô lự, Như voi sống rừng voi."
+    },
+    {
+     "n": 45,
+     "text": "Vui thay, bạn lúc cần!"
+    },
+    {
+     "n": 46,
+     "text": "Vui thay, sống biết đủ,"
+    },
+    {
+     "n": 47,
+     "text": "Vui thay, chết có đức!"
+    },
+    {
+     "n": 48,
+     "text": "Vui thay, mọi khổ đoạn."
+    },
+    {
+     "n": 49,
+     "text": "Vui thay, hiếu kính mẹ,"
+    },
+    {
+     "n": 50,
+     "text": "Vui thay, hiếu kính cha,"
+    },
+    {
+     "n": 51,
+     "text": "Vui thay, kính Sa-môn,"
+    },
+    {
+     "n": 52,
+     "text": "Vui thay, kính Hiền Thánh."
+    },
+    {
+     "n": 53,
+     "text": "Vui thay, già có giới!"
+    },
+    {
+     "n": 54,
+     "text": "Vui thay, tín an trú!"
+    },
+    {
+     "n": 55,
+     "text": "Vui thay, được trí tuệ,"
+    },
+    {
+     "n": 56,
+     "text": "Vui thay, ác không làm."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp320-333/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ahaṁ nāgova saṅgāme,"
+    },
+    {
+     "n": 2,
+     "text": "cāpato patitaṁ saraṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Ativākyaṁ titikkhissaṁ,"
+    },
+    {
+     "n": 4,
+     "text": "dussīlo hi bahujjano."
+    },
+    {
+     "n": 5,
+     "text": "Dantaṁ nayanti samitiṁ,"
+    },
+    {
+     "n": 6,
+     "text": "dantaṁ rājābhirūhati;"
+    },
+    {
+     "n": 7,
+     "text": "Danto seṭṭho manussesu,"
+    },
+    {
+     "n": 8,
+     "text": "yotivākyaṁ titikkhati."
+    },
+    {
+     "n": 9,
+     "text": "Varamassatarā dantā,"
+    },
+    {
+     "n": 10,
+     "text": "ājānīyā ca sindhavā;"
+    },
+    {
+     "n": 11,
+     "text": "Kuñjarā ca mahānāgā,"
+    },
+    {
+     "n": 12,
+     "text": "attadanto tato varaṁ."
+    },
+    {
+     "n": 13,
+     "text": "Na hi etehi yānehi,"
+    },
+    {
+     "n": 14,
+     "text": "gaccheyya agataṁ disaṁ;"
+    },
+    {
+     "n": 15,
+     "text": "Yathāttanā sudantena,"
+    },
+    {
+     "n": 16,
+     "text": "danto dantena gacchati."
+    },
+    {
+     "n": 17,
+     "text": "Dhanapālo nāma kuñjaro,"
+    },
+    {
+     "n": 18,
+     "text": "Kaṭukabhedano dunnivārayo;"
+    },
+    {
+     "n": 19,
+     "text": "Baddho kabaḷaṁ na bhuñjati,"
+    },
+    {
+     "n": 20,
+     "text": "Sumarati nāgavanassa kuñjaro."
+    },
+    {
+     "n": 21,
+     "text": "Middhī yadā hoti mahagghaso ca,"
+    },
+    {
+     "n": 22,
+     "text": "Niddāyitā samparivattasāyī;"
+    },
+    {
+     "n": 23,
+     "text": "Mahāvarāhova nivāpapuṭṭho,"
+    },
+    {
+     "n": 24,
+     "text": "Punappunaṁ gabbhamupeti mando."
+    },
+    {
+     "n": 25,
+     "text": "Idaṁ pure cittamacāri cārikaṁ,"
+    },
+    {
+     "n": 26,
+     "text": "Yenicchakaṁ yatthakāmaṁ yathāsukhaṁ;"
+    },
+    {
+     "n": 27,
+     "text": "Tadajjahaṁ niggahessāmi yoniso,"
+    },
+    {
+     "n": 28,
+     "text": "Hatthippabhinnaṁ viya aṅkusaggaho."
+    },
+    {
+     "n": 29,
+     "text": "Appamādaratā hotha,"
+    },
+    {
+     "n": 30,
+     "text": "sacittamanurakkhatha;"
+    },
+    {
+     "n": 31,
+     "text": "Duggā uddharathattānaṁ,"
+    },
+    {
+     "n": 32,
+     "text": "paṅke sannova kuñjaro."
+    },
+    {
+     "n": 33,
+     "text": "Sace labhetha nipakaṁ sahāyaṁ,"
+    },
+    {
+     "n": 34,
+     "text": "Saddhiṁ caraṁ sādhuvihāridhīraṁ;"
+    },
+    {
+     "n": 35,
+     "text": "Abhibhuyya sabbāni parissayāni,"
+    },
+    {
+     "n": 36,
+     "text": "Careyya tenattamano satīmā."
+    },
+    {
+     "n": 37,
+     "text": "No ce labhetha nipakaṁ sahāyaṁ,"
+    },
+    {
+     "n": 38,
+     "text": "Saddhiṁ caraṁ sādhuvihāridhīraṁ;"
+    },
+    {
+     "n": 39,
+     "text": "Rājāva raṭṭhaṁ vijitaṁ pahāya,"
+    },
+    {
+     "n": 40,
+     "text": "Eko care mātaṅgaraññeva nāgo."
+    },
+    {
+     "n": 41,
+     "text": "Ekassa caritaṁ seyyo,"
+    },
+    {
+     "n": 42,
+     "text": "Natthi bāle sahāyatā;"
+    },
+    {
+     "n": 43,
+     "text": "Eko care na ca pāpāni kayirā,"
+    },
+    {
+     "n": 44,
+     "text": "Appossukko mātaṅgaraññeva nāgo."
+    },
+    {
+     "n": 45,
+     "text": "Atthamhi jātamhi sukhā sahāyā,"
+    },
+    {
+     "n": 46,
+     "text": "Tuṭṭhī sukhā yā itarītarena;"
+    },
+    {
+     "n": 47,
+     "text": "Puññaṁ sukhaṁ jīvitasaṅkhayamhi,"
+    },
+    {
+     "n": 48,
+     "text": "Sabbassa dukkhassa sukhaṁ pahānaṁ."
+    },
+    {
+     "n": 49,
+     "text": "Sukhā matteyyatā loke,"
+    },
+    {
+     "n": 50,
+     "text": "atho petteyyatā sukhā;"
+    },
+    {
+     "n": 51,
+     "text": "Sukhā sāmaññatā loke,"
+    },
+    {
+     "n": 52,
+     "text": "atho brahmaññatā sukhā."
+    },
+    {
+     "n": 53,
+     "text": "Sukhaṁ yāva jarā sīlaṁ,"
+    },
+    {
+     "n": 54,
+     "text": "sukhā saddhā patiṭṭhitā;"
+    },
+    {
+     "n": 55,
+     "text": "Sukho paññāya paṭilābho,"
+    },
+    {
+     "n": 56,
+     "text": "pāpānaṁ akaraṇaṁ sukhaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp320-333/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Like an elephant struck"
+    },
+    {
+     "n": 2,
+     "text": "with arrows in battle,"
+    },
+    {
+     "n": 3,
+     "text": "I shall endure abuse,"
+    },
+    {
+     "n": 4,
+     "text": "for so many folk are badly behaved."
+    },
+    {
+     "n": 5,
+     "text": "The well-tamed beast is the one led to the crowd;"
+    },
+    {
+     "n": 6,
+     "text": "the tamed elephant’s the one the king mounts;"
+    },
+    {
+     "n": 7,
+     "text": "the tamed person who endures abuse"
+    },
+    {
+     "n": 8,
+     "text": "is the best of human beings."
+    },
+    {
+     "n": 9,
+     "text": "Those who have tamed themselves are better"
+    },
+    {
+     "n": 10,
+     "text": "than fine tamed mules,"
+    },
+    {
+     "n": 11,
+     "text": "thoroughbreds from Sindh,"
+    },
+    {
+     "n": 12,
+     "text": "or giant tuskers."
+    },
+    {
+     "n": 13,
+     "text": "For not on those mounts"
+    },
+    {
+     "n": 14,
+     "text": "would you go to the untrodden place,"
+    },
+    {
+     "n": 15,
+     "text": "whereas, with the help of one whose self is well tamed,"
+    },
+    {
+     "n": 16,
+     "text": "you go there, tamed by the tamed."
+    },
+    {
+     "n": 17,
+     "text": "The tusker named Dhanapāla"
+    },
+    {
+     "n": 18,
+     "text": "is musky in rut, hard to control."
+    },
+    {
+     "n": 19,
+     "text": "Bound, he eats not a morsel,"
+    },
+    {
+     "n": 20,
+     "text": "for he misses the elephant forest."
+    },
+    {
+     "n": 21,
+     "text": "One who gets drowsy from overeating,"
+    },
+    {
+     "n": 22,
+     "text": "fond of sleep, rolling round the bed"
+    },
+    {
+     "n": 23,
+     "text": "like a great hog stuffed with grain:"
+    },
+    {
+     "n": 24,
+     "text": "that dullard returns to the womb again and again."
+    },
+    {
+     "n": 25,
+     "text": "In the past my mind wandered"
+    },
+    {
+     "n": 26,
+     "text": "how it wished, where it liked, as it pleased."
+    },
+    {
+     "n": 27,
+     "text": "Now I’ll carefully guide it,"
+    },
+    {
+     "n": 28,
+     "text": "as a trainer with a hook guides a rutting elephant."
+    },
+    {
+     "n": 29,
+     "text": "Delight in diligence!"
+    },
+    {
+     "n": 30,
+     "text": "Take good care of your mind!"
+    },
+    {
+     "n": 31,
+     "text": "Pull yourself out of this pit,"
+    },
+    {
+     "n": 32,
+     "text": "like an elephant sunk in a bog."
+    },
+    {
+     "n": 33,
+     "text": "If you find an alert companion,"
+    },
+    {
+     "n": 34,
+     "text": "an attentive friend to live happily together,"
+    },
+    {
+     "n": 35,
+     "text": "then, overcoming all adversities,"
+    },
+    {
+     "n": 36,
+     "text": "wander with them, joyful and mindful."
+    },
+    {
+     "n": 37,
+     "text": "If you find no alert companion,"
+    },
+    {
+     "n": 38,
+     "text": "no attentive friend to live happily together,"
+    },
+    {
+     "n": 39,
+     "text": "then, like a king who flees his conquered realm,"
+    },
+    {
+     "n": 40,
+     "text": "wander alone like a tusker in the wilds."
+    },
+    {
+     "n": 41,
+     "text": "It’s better to wander alone,"
+    },
+    {
+     "n": 42,
+     "text": "there’s no fellowship with fools."
+    },
+    {
+     "n": 43,
+     "text": "Wander alone and do no wrong,"
+    },
+    {
+     "n": 44,
+     "text": "at ease like a tusker in the wilds."
+    },
+    {
+     "n": 45,
+     "text": "A friend in need is a blessing;"
+    },
+    {
+     "n": 46,
+     "text": "it’s a blessing to be content with whatever;"
+    },
+    {
+     "n": 47,
+     "text": "good deeds are a blessing at the end of life,"
+    },
+    {
+     "n": 48,
+     "text": "and giving up all suffering is a blessing."
+    },
+    {
+     "n": 49,
+     "text": "In this world it’s a blessing to serve"
+    },
+    {
+     "n": 50,
+     "text": "one’s mother and one’s father."
+    },
+    {
+     "n": 51,
+     "text": "And it’s a blessing also to serve"
+    },
+    {
+     "n": 52,
+     "text": "ascetics and brahmins."
+    },
+    {
+     "n": 53,
+     "text": "It’s a blessing to keep precepts until you grow old;"
+    },
+    {
+     "n": 54,
+     "text": "a blessing to be grounded in faith;"
+    },
+    {
+     "n": 55,
+     "text": "the getting of wisdom’s a blessing;"
+    },
+    {
+     "n": 56,
+     "text": "and it’s a blessing to avoid doing wrong."
+    }
+   ]
+  }
+ ]
+}

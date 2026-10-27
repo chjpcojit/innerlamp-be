@@ -1,0 +1,2195 @@
+{
+ "id": "chanh-tri-kien",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 9",
+ "summary": "Kinh thuộc Trung Bộ (MN 9), do Tôn giả Sāriputta giảng cho chư Tỷ-kheo tại Jetavana, Sāvatthi, về chánh tri kiến. Ngài trình bày vị Thánh đệ tử tuệ tri bất thiện và căn bổn bất thiện, thiện và căn bổn thiện, rồi mở rộng sang nhiều đề mục như thực, Bốn Thánh Đế, duyên khởi và lậu hoặc. Kinh kết bằng việc đoạn trừ tùy miên và diệt tận khổ đau.",
+ "titles": {
+  "vi": "Kinh Chánh tri kiến",
+  "pli": "Sammādiṭṭhisutta",
+  "en": "Right View"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 60,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn9/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời Thế Tôn ở Sāvatthi (Xá-vệ), tại Jetavana (Kỳ-đà Lâm), vườn ông Anāthapiṇḍika (Cấp Cô Độc)."
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ, Tôn giả Sāriputta (Xá-lợi-phất) gọi các Tỷ-kheo: “Này các Tỷ-kheo”.—“ Hiền giả”, các Tỷ-kheo ấy vâng đáp Tôn giả Sāriputta. Tôn giả Sāriputta nói như sau"
+    },
+    {
+     "n": 4,
+     "text": "—Chư Hiền, chánh tri kiến, chánh tri kiến, được gọi là như vậy."
+    },
+    {
+     "n": 5,
+     "text": "Chư Hiền, cho đến như thế nào, một Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này?"
+    },
+    {
+     "n": 6,
+     "text": "—Chúng tôi từ xa đến để được hiểu ý nghĩa lời nói ấy từ Tôn giả Sāriputta."
+    },
+    {
+     "n": 7,
+     "text": "Thật lành thay, nếu Tôn giả Sāriputta giảng cho ý nghĩa lời nói ấy."
+    },
+    {
+     "n": 8,
+     "text": "Sau khi nghe Tôn giả Sāriputta, các Tỷ-kheo sẽ thọ trì."
+    },
+    {
+     "n": 9,
+     "text": "—Chư Hiền, vậy hãy nghe, hãy khéo tác ý. Ta sẽ giảng."
+    },
+    {
+     "n": 10,
+     "text": "—Thưa vâng, Hiền giả!—Các Tỷ-kheo vâng đáp Tôn giả Sāriputta."
+    },
+    {
+     "n": 11,
+     "text": "Tôn giả Sāriputta nói như sau"
+    },
+    {
+     "n": 12,
+     "text": "—Chư Hiền, khi Thánh đệ tử tuệ tri được bất thiện và tuệ tri được căn bổn bất thiện, tuệ tri được thiện và tuệ tri được căn bổn thiện, chư Hiền, khi ấy Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực,",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 13,
+     "text": "có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 14,
+     "text": "Chư Hiền, thế nào là bất thiện, thế nào là căn bổn bất thiện, thế nào là thiện, thế nào là căn bổn thiện?",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 15,
+     "text": "Chư Hiền, sát sanh là bất thiện, lấy của không cho là bất thiện, tà hạnh trong các dục là bất thiện, nói láo là bất thiện, nói hai lưỡi là bất thiện, ác khẩu là bất thiện, nói phù phiếm là bất thiện,",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 16,
+     "text": "tham dục là bất thiện, sân là bất thiện, tà kiến là bất thiện. Chư Hiền, như vậy gọi là bất thiện.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 17,
+     "text": "Và chư Hiền, thế nào là căn bổn bất thiện?",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 18,
+     "text": "Tham là căn bổn bất thiện, sân là căn bổn bất thiện, si là căn bổn bất thiện.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 19,
+     "text": "Chư Hiền, như vậy gọi là căn bổn bất thiện.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 20,
+     "text": "Và này chư Hiền, thế nào là thiện?",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 21,
+     "text": "Từ bỏ sát sanh là thiện, từ bỏ lấy của không cho là thiện, từ bỏ tà hạnh trong các dục là thiện, từ bỏ nói láo là thiện, từ bỏ nói hai lưỡi là thiện, từ bỏ ác khẩu là thiện, từ bỏ nói phù phiếm là thiện,",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 22,
+     "text": "không tham dục là thiện, không sân là thiện, chánh tri kiến là thiện. Chư Hiền, như vậy gọi là thiện.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 23,
+     "text": "Chư Hiền, thế nào là căn bổn thiện? Không tham là căn bổn thiện, không sân là căn bổn thiện, không si là căn bổn thiện. Chư Hiền, như vậy gọi là căn bổn thiện.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 24,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri bất thiện như vậy, tuệ tri căn bổn bất thiện như vậy, tuệ tri thiện như vậy, tuệ tri căn bổn thiện như vậy, khi ấy, vị ấy đoạn trừ tất cả tham tùy miên, tẩy sạch sân tùy miên,",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 25,
+     "text": "nhổ tận gốc kiến mạn tùy miên “Tôi là”, đoạn trừ vô minh, khiến minh khởi lên, diệt tận khổ đau ngay trong hiện tại.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 26,
+     "text": "Chư Hiền, như vậy Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này.",
+     "section": "(Thiện và bất thiện)"
+    },
+    {
+     "n": 27,
+     "text": "—Lành thay, Hiền giả!",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 28,
+     "text": "Các Tỷ-kheo ấy, sau khi hoan hỷ, tín thọ lời nói Tôn giả Sāriputta và hỏi thêm Tôn giả Sāriputta câu hỏi như sau",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 29,
+     "text": "—Này Hiền giả, có thể có pháp môn nào khác, nhờ pháp môn này vị Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này?",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 30,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 31,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri thức ăn, tuệ tri tập khởi của thức ăn, tuệ tri đoạn diệt của thức ăn, và tuệ tri con đường đưa đến đoạn diệt của thức ăn, chư Hiền, khi ấy Thánh đệ tử có chánh tri kiến,",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 32,
+     "text": "có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này.",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 33,
+     "text": "Chư Hiền, thế nào là thức ăn, thế nào là tập khởi của thức ăn, thế nào là đoạn diệt của thức ăn, thế nào là con đường đưa đến đoạn diệt của thức ăn?",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 34,
+     "text": "Chư Hiền, có bốn loại thức ăn này, khiến các loài chúng sanh đã sanh được an trú hay các loài hữu tình sẽ sanh được hỗ trợ cho sanh. Thế nào là bốn?",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 35,
+     "text": "Đoàn thực, loại thô hay loại tế, xúc thực là thứ hai, tư niệm thực là thứ ba, thức thực là thứ tư.",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 36,
+     "text": "Từ tập khởi của ái có tập khởi của thức ăn, từ đoạn diệt của ái có đoạn diệt của thức ăn.",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 37,
+     "text": "Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của thức ăn, tức là: Chánh Tri kiến, Chánh Tư duy, Chánh Ngữ, Chánh Nghiệp, Chánh Mạng, Chánh Tinh tấn, Chánh Niệm, Chánh Định.",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 38,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri thức ăn như vậy, tuệ tri tập khởi của thức ăn như vậy, tuệ tri đoạn diệt của thức ăn như vậy, tuệ tri con đường đưa đến đoạn diệt của thức ăn như vậy, khi ấy,",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 39,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên, tẩy sạch sân tùy miên, nhổ tận gốc kiến mạn tùy miên “Tôi là”, đoạn trừ vô minh, khiến minh khởi lên, diệt tận khổ đau ngay trong hiện tại.",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 40,
+     "text": "Chư Hiền, như vậy Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này.",
+     "section": "(Thức ăn)"
+    },
+    {
+     "n": 41,
+     "text": "—Lành thay, Hiền giả!",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 42,
+     "text": "Các Tỷ-kheo ấy, sau khi hoan hỷ, tín thọ lời nói Tôn giả Sāriputta liền hỏi thêm Tôn giả Sāriputta câu hỏi như sau",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 43,
+     "text": "—Này Hiền giả, có pháp môn nào khác, nhờ pháp môn này Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này?",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 44,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 45,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri Khổ, tuệ tri Tập khởi của khổ, tuệ tri Đoạn diệt của khổ, tuệ tri Con Đường đưa đến đoạn diệt của khổ, chư Hiền, khi ấy Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực,",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 46,
+     "text": "có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 47,
+     "text": "Chư Hiền, thế nào là Khổ, thế nào là Tập khởi của khổ, thế nào là Đoạn diệt của khổ, thế nào là Con Đường đưa đến đoạn diệt của khổ?",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 48,
+     "text": "Sanh là khổ, già là khổ, bệnh là khổ, chết là khổ, sầu bi khổ ưu não là khổ, cầu không được là khổ, tóm lại năm thủ uẩn là khổ. Chư Hiền, như vậy gọi là Khổ.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 49,
+     "text": "Chư Hiền, thế nào là Tập khởi của khổ? Chính là ái đưa đến tái sanh, cùng khởi hỷ dục và tham hướng đến tái sanh, cùng khởi hỷ dục và tham, tìm cầu hỷ lạc chỗ này chỗ kia, tức là dục ái, hữu ái, phi hữu ái.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 50,
+     "text": "Chư Hiền, như vậy gọi là Tập khởi của khổ.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 51,
+     "text": "Chư Hiền, thế nào là Đoạn diệt của khổ? Đó là sự đoạn diệt, ly tham, không có dư tàn, sự quăng bỏ, sự từ bỏ, sự giải thoát, sự vô chấp khát ái ấy.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 52,
+     "text": "Chư Hiền, thế nào là Con Đường đưa đến đoạn diệt của khổ?",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 53,
+     "text": "Chính là Thánh Đạo Tám Ngành đưa đến khổ diệt, tức là Chánh tri kiến … Chánh Định.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 54,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri Khổ như vậy, tuệ tri Tập khởi của khổ như vậy, tuệ tri Đoạn diệt của khổ như vậy, tuệ tri con Đường đưa đến đoạn diệt của khổ như vậy, khi ấy vị ấy đoạn trừ tất cả tham tùy miên,",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 55,
+     "text": "tẩy sạch sân tùy miên, … (như trên) … và thành tựu diệu pháp này.",
+     "section": "(Tứ diệu đế)"
+    },
+    {
+     "n": 56,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác, nhờ pháp môn này Thánh đệ tử … (như trên) … thành tựu diệu pháp này?",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 57,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 58,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri già chết, tuệ tri tập khởi của già chết, tuệ tri đoạn diệt của già chết, tuệ tri con đường đưa đến đoạn diệt của già chết, chư Hiền, khi ấy Thánh đệ tử có chánh tri kiến, …",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 59,
+     "text": "(như trên) … và thành tựu diệu pháp này.",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 60,
+     "text": "Chư Hiền, thế nào là già chết, thế nào là tập khởi của già chết, thế nào là đoạn diệt của già chết, thế nào là con đường đưa đến đoạn diệt của già chết?",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 61,
+     "text": "Thuộc bất kỳ hữu tình giới nào, trong từng mỗi loại hữu tình, sự già cả, suy lão, rụng răng, tóc bạc da nhăn, tuổi thọ ngày một hao mòn, bại hoại các căn; chư Hiền, như vậy gọi là già. Chư Hiền thế nào là chết?",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 62,
+     "text": "Thuộc bất kỳ hữu tình giới nào trong từng mỗi loại hữu tình, sự mệnh một, từ trần, hủy hoại, hoại diệt, tử biệt, mệnh chung, hủy hoại các uẩn, vất bỏ hình hài; chư Hiền, như vậy gọi là chết.",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 63,
+     "text": "Già như vậy và chết như vậy, chư Hiền, như vậy gọi là già chết.",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 64,
+     "text": "Từ sự tập khởi của sanh, có sự tập khởi của già chết, từ sự đoạn diệt của sanh, có sự đoạn diệt của già chết.",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 65,
+     "text": "Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của già chết, tức là: Chánh Tri kiến … (như trên) … Chánh Định.",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 66,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri già chết như vậy, tuệ tri tập khởi của già chết như vậy, tuệ tri đoạn diệt của già chết như vậy, tuệ tri con đường đưa đến đoạn diệt của già chết như vậy, khi ấy,",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 67,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên, tẩy sạch sân tùy miên …",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 68,
+     "text": "(như trên)…, và thành tựu diệu pháp này.",
+     "section": "(Già và chết)"
+    },
+    {
+     "n": 69,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 70,
+     "text": "—Chư Hiền, có thể có. Chư Hiền, khi nào Thánh đệ tử tuệ tri sanh, tuệ tri tập khởi của sanh, tuệ tri đoạn diệt của sanh, tuệ tri con đường đưa đến đoạn diệt của sanh, chư Hiền, khi ấy vị Thánh đệ tử có chánh tri kiến …",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 71,
+     "text": "(như trên) … và thành tựu diệu pháp này.",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 72,
+     "text": "Chư Hiền, thế nào là sanh, thế nào là tập khởi của sanh, thế nào là đoạn diệt của sanh, thế nào là con đường đưa đến đoạn diệt của sanh?",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 73,
+     "text": "Thuộc bất kỳ hữu tình giới nào trong từng mỗi loại hữu tình, sự sanh, hiện khởi, xuất hiện, hiện diện, hiện hành các uẩn, tụ đắc các xứ; Chư Hiền, như vậy gọi là sanh.",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 74,
+     "text": "Từ sự tập khởi của hữu có sự tập khởi của sanh, từ sự đoạn diệt của hữu, có sự đoạn diệt của sanh, và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của sanh, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 75,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri được sanh như vậy, tuệ tri được tập khởi của sanh như vậy, tuệ tri được đoạn diệt của sanh như vậy, tuệ tri được con đường đưa đến đoạn diệt của sanh như vậy, khi ấy,",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 76,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … (như trên) … như vậy …",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 77,
+     "text": "(như trên) … và thành tựu diệu pháp này.",
+     "section": "(Sanh)"
+    },
+    {
+     "n": 78,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có pháp môn nào khác…?",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 79,
+     "text": "—Chư Hiền, có thể có. Chư Hiền, khi nào Thánh đệ tử tuệ tri hữu, tuệ tri tập khởi của hữu, tuệ tri đoạn diệt của hữu, tuệ tri con đường đưa đến đoạn diệt của hữu, chư Hiền, khi ấy vị Thánh đệ tử có chánh tri kiến …",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 80,
+     "text": "(như trên) … và thành tựu diệu pháp này.",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 81,
+     "text": "Chư Hiền, thế nào là hữu, thế nào là tập khởi của hữu, thế nào là đoạn diệt của hữu, thế nào là con đường đưa đến đoạn diệt của hữu?",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 82,
+     "text": "Chư Hiền, có ba hữu này: dục hữu, sắc hữu, vô sắc hữu.",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 83,
+     "text": "Từ tập khởi của thủ, có tập khởi của hữu; từ đoạn diệt của thủ có đoạn diệt của hữu và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của hữu, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 84,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri hữu như vậy, tuệ tri tập khởi của hữu như vậy, tuệ tri đoạn diệt của hữu như vậy, tuệ tri con đường đưa đến đoạn diệt của hữu như vậy, khi ấy,",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 85,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp này.",
+     "section": "(Hữu)"
+    },
+    {
+     "n": 86,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Thủ)"
+    },
+    {
+     "n": 87,
+     "text": "- Chư Hiền, có thể có. Chư Hiền, khi nào Thánh đệ tử tuệ tri tập khởi của thủ, tuệ tri đoạn diệt của thủ, tuệ tri con đường đưa đến đoạn diệt của thủ, khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Thủ)"
+    },
+    {
+     "n": 88,
+     "text": "Chư Hiền, thế nào là thủ, thế nào là tập khởi của thủ, thế nào là đoạn diệt của thủ, thế nào là con đường đưa đến đoạn diệt của thủ?",
+     "section": "(Thủ)"
+    },
+    {
+     "n": 89,
+     "text": "Chư Hiền, có bốn thủ này: dục thủ, kiến thủ, giới cấm thủ, ngã luận thủ.",
+     "section": "(Thủ)"
+    },
+    {
+     "n": 90,
+     "text": "Từ tập khởi của ái, có tập khởi của thủ; từ đoạn diệt của ái, có đoạn diệt của thủ; và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của thủ, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Thủ)"
+    },
+    {
+     "n": 91,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri thủ như vậy, tuệ tri tập khởi của thủ như vậy, tuệ tri đoạn diệt của thủ như vậy, tuệ tri con đường đưa đến đoạn diệt của thủ như vậy, khi ấy,",
+     "section": "(Thủ)"
+    },
+    {
+     "n": 92,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên và thành tựu diệu pháp này.",
+     "section": "(Thủ)"
+    },
+    {
+     "n": 93,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có pháp môn nào khác…?",
+     "section": "(Ái)"
+    },
+    {
+     "n": 94,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Ái)"
+    },
+    {
+     "n": 95,
+     "text": "Chư Hiền khi nào Thánh đệ tử tuệ tri ái, tuệ tri tập khởi của ái, tuệ tri đoạn diệt của ái, tuệ tri con đường đưa đến đoạn diệt của ái, khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Ái)"
+    },
+    {
+     "n": 96,
+     "text": "Chư Hiền, thế nào là ái, thế nào là tập khởi của ái, thế nào là đoạn diệt của ái, thế nào là con đường đưa đến đoạn diệt của ái?",
+     "section": "(Ái)"
+    },
+    {
+     "n": 97,
+     "text": "Chư Hiền, có sáu loại ái này: sắc ái, thanh ái, hương ái, vị ái, xúc ái, pháp ái.",
+     "section": "(Ái)"
+    },
+    {
+     "n": 98,
+     "text": "Từ tập khởi của thọ, có tập của ái, từ đoạn diệt của thọ, có đoạn diệt của ái, và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của ái, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Ái)"
+    },
+    {
+     "n": 99,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri ái như vậy, tuệ tri tập khởi của ái như vậy, tuệ tri đoạn diệt của ái như vậy, tuệ tri con đường đưa đến đoạn diệt của ái như vậy, khi ấy, vị ấy,",
+     "section": "(Ái)"
+    },
+    {
+     "n": 100,
+     "text": "đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp.",
+     "section": "(Ái)"
+    },
+    {
+     "n": 101,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 102,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 103,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri thọ, tuệ tri tập khởi của thọ, tuệ tri đoạn diệt của thọ, tuệ tri con đường đưa đến đoạn diệt của thọ, khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 104,
+     "text": "Chư Hiền, thế nào là thọ, thế nào là tập khởi của thọ, thế nào là đoạn diệt của thọ, thế nào là con đường đưa đến đoạn diệt của thọ?",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 105,
+     "text": "Chư Hiền, có sáu loại thọ này: thọ do nhãn xúc sanh, thọ do nhĩ xúc sanh, thọ do tỷ xúc sanh, thọ do thiệt xúc sanh, thọ do thân xúc sanh, thọ do ý xúc sanh.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 106,
+     "text": "Từ tập khởi của xúc, có tập khởi của thọ; từ đoạn diệt của xúc, có đoạn diệt của thọ; và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của thọ, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 107,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri thọ như vậy, tuệ tri tập khởi của thọ như vậy, tuệ tri đoạn diệt của thọ như vậy, tuệ tri con đường đưa đến đoạn diệt của thọ như vậy, khi ấy,",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 108,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp này.",
+     "section": "(Thọ)"
+    },
+    {
+     "n": 109,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 110,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 111,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri xúc, tuệ tri tập khởi của xúc, tuệ tri đoạn diệt của xúc, tuệ tri con đường đưa đến đoạn diệt của xúc, khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 112,
+     "text": "Chư Hiền, thế nào là xúc, thế nào là tập khởi của xúc, thế nào là đoạn diệt của xúc, thế nào là con đường đưa đến đoạn diệt của xúc?",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 113,
+     "text": "Chư Hiền, có sau loại xúc này: nhãn xúc, nhĩ xúc, tỷ xúc, thiệt xúc, thân xúc, ý xúc.",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 114,
+     "text": "Từ tập khởi của sáu nhập, có tập khởi từ xúc; từ đoạn diệt của sáu nhập, có đoạn diệt của xúc, và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của xúc, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 115,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri xúc như vậy, tuệ tri tập khởi của xúc như vậy, tuệ tri đoạn diệt của xúc như vậy, tuệ tri con đường đưa đến đoạn diệt của xúc như vậy, khi ấy,",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 116,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp này.",
+     "section": "(Xúc)"
+    },
+    {
+     "n": 117,
+     "text": "—Lành thay, Hiền giả … câu hỏi như sau: Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 118,
+     "text": "—Chư Hiền, có thể có. Chư Hiền, khi nào Thánh đệ tử tuệ tri sáu nhập, tuệ tri tập khởi của sáu nhập, tuệ tri đoạn diệt của sáu nhập, tuệ tri con đường đưa đến đoạn diệt của sáu nhập,",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 119,
+     "text": "khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 120,
+     "text": "Chư Hiền, thế nào là sáu nhập, thế nào là tập khởi của sáu nhập, thế nào là đoạn diệt của sáu nhập, thế nào là con đường đưa đến đoạn diệt của sáu nhập?",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 121,
+     "text": "Chư Hiền, có sáu nhập này: nhãn nhập, nhĩ nhập, tỷ nhập, thiệt nhập, thân nhập, ý nhập.",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 122,
+     "text": "Từ tập khởi của danh sắc có tập khởi của sáu nhập; từ đoạn diệt của danh sắc có đoạn diệt của sáu nhập; và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của sáu nhập, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 123,
+     "text": "Chư Hiền, khi nào vị Thánh đệ tử tuệ tri sáu nhập như vậy, tuệ tri tập khởi của sáu nhập như vậy, tuệ tri đoạn diệt của sáu nhập như vậy, tuệ tri con đường đưa đến đoạn diệt của sáu nhập như vậy, khi ấy,",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 124,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … và thành tựu diệu hạnh pháp này.",
+     "section": "(Nhập)"
+    },
+    {
+     "n": 125,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 126,
+     "text": "—Chư Hiền, có thể có. Chư Hiền, khi nào Thánh đệ tử tuệ tri danh sắc, tuệ tri tập khởi của danh sắc, tuệ tri đoạn diệt của danh sắc, tuệ tri con đường đưa đến đoạn diệt của danh sắc,",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 127,
+     "text": "khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 128,
+     "text": "Chư Hiền, thế nào là danh sắc, thế nào là tập khởi của danh sắc, thế nào là đoạn diệt của danh sắc, thế nào là con đường đưa đến đoạn diệt của danh sắc?",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 129,
+     "text": "Thọ, tưởng, tư, xúc, tác ý, chư Hiền, như vậy gọi là danh; bốn đại và sắc do bốn đại tạo thành, chư Hiền, như vậy gọi là sắc; như vậy đây là danh và đây là sắc, Chư Hiền, như vậy gọi là danh sắc.",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 130,
+     "text": "Từ tập khởi của thức, có tập khởi của danh sắc; từ đoạn diệt của thức, có đoạn diệt của danh sắc; và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của danh sắc, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 131,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri danh sắc như vậy, tuệ tri tập khởi của danh sắc như vậy, tuệ tri đoạn diệt của danh sắc như vậy, tuệ tri con đường đưa đến đoạn diệt của danh sắc như vậy, khi ấy, vị ấy,",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 132,
+     "text": "đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp này.",
+     "section": "(Danh sắc)"
+    },
+    {
+     "n": 133,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Thức)"
+    },
+    {
+     "n": 134,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Thức)"
+    },
+    {
+     "n": 135,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri thức, tuệ tri tập khởi của thức, tuệ tri đoạn diệt của thức, tuệ tri con đường đưa đến đoạn diệt của thức, khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Thức)"
+    },
+    {
+     "n": 136,
+     "text": "Chư Hiền, thế nào là thức, thế nào là tập khởi của thức, thế nào là đoạn diệt của thức, thế nào là con đường đưa đến đoạn diệt của thức?",
+     "section": "(Thức)"
+    },
+    {
+     "n": 137,
+     "text": "Chư Hiền, có sáu loại thức này: nhãn thức, nhĩ thức, tỷ thức, thiệt thức, thân thức, ý thức.",
+     "section": "(Thức)"
+    },
+    {
+     "n": 138,
+     "text": "Từ tập khởi của hành, có tập khởi của thức; từ đoạn diệt của hành có đoạn diệt của thức; và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của thức, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Thức)"
+    },
+    {
+     "n": 139,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri thức như vậy, tuệ tri tập khởi của thức như vậy, tuệ tri đoạn diệt của thức như vậy, tuệ tri con đường đưa đến đoạn diệt của thức như vậy, khi ấy,",
+     "section": "(Thức)"
+    },
+    {
+     "n": 140,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp này.",
+     "section": "(Thức)"
+    },
+    {
+     "n": 141,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Hành)"
+    },
+    {
+     "n": 142,
+     "text": "—Chư Hiền, có thể có.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 143,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri hành, tuệ tri tập khởi của hành, tuệ tri đoạn diệt của hành, tuệ tri con đường đưa đến đoạn diệt của hành, khi ấy Thánh đệ tử có chánh tri kiến … và thành tựu diệu pháp này.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 144,
+     "text": "Chư Hiền, thế nào là hành, thế nào là tập khởi của hành, thế nào là đoạn diệt của hành, thế nào là con đường đưa đến đoạn diệt của hành?",
+     "section": "(Hành)"
+    },
+    {
+     "n": 145,
+     "text": "Chư Hiền, có ba loại hành này: thân hành, ngữ hành, tâm hành.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 146,
+     "text": "Từ tập khởi của vô minh, có tập khởi của hành; từ đoạn diệt của vô minh, có đoạn diệt của hành; và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của hành, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 147,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri hành như vậy, tuệ tri tập khởi của hành như vậy, tuệ tri đoạn diệt của hành như vậy, tuệ tri con đường đưa đến đoạn diệt của hành như vậy, khi ấy,",
+     "section": "(Hành)"
+    },
+    {
+     "n": 148,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp này.",
+     "section": "(Hành)"
+    },
+    {
+     "n": 149,
+     "text": "—Lành thay, Hiền giả … (như trên) … Này Hiền giả, có thể có pháp môn nào khác…?",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 150,
+     "text": "—Chư Hiền, có thể có. Chư Hiền, khi nào Thánh đệ tử tuệ tri vô minh, tuệ tri tập khởi của vô minh, tuệ tri đoạn diệt của vô minh, tuệ tri con đường đưa đến đoạn diệt của vô minh, khi ấy, Thánh đệ tử có chánh tri kiến …",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 151,
+     "text": "(như trên) … và thành tựu diệu pháp này.",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 152,
+     "text": "Chư Hiền, thế nào là vô minh, thế nào là tập khởi của vô minh, thế nào là đoạn diệt của vô minh, thế nào là con đường đưa đến đoạn diệt của vô minh?",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 153,
+     "text": "Sự không tuệ tri về khổ, không tuệ tri về khổ tập, không tuệ tri về khổ diệt, không tuệ tri về con đường đưa đến khổ diệt, Chư Hiền, như vậy gọi là vô minh.",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 154,
+     "text": "Từ tập khởi của lậu hoặc, có tập khởi của vô minh; từ đoạn diệt của lậu hoặc, có đoạn diệt của vô minh; và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của vô minh, tức là: Chánh Tri kiến … Chánh Định.",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 155,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri vô minh như vậy, tuệ tri tập khởi của vô minh như vậy, tuệ tri đoạn diệt của vô minh như vậy, tuệ tri con đường đưa đến đoạn diệt của vô minh như vậy, khi ấy,",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 156,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên … và thành tựu diệu pháp này.",
+     "section": "(Vô minh)"
+    },
+    {
+     "n": 157,
+     "text": "—Lành thay, Hiền giả!",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 158,
+     "text": "Các vị Tỷ-kheo ấy, sau khi hoan hỷ, tín thọ lời nói Tôn giả Sāriputta, liền hỏi thêm Tôn giả Sāriputta câu hỏi như sau",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 159,
+     "text": "—Này Hiền giả, có thể có pháp môn nào khác, nhờ pháp môn này Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này?",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 160,
+     "text": "—Chư Hiền, có thể có. Chư Hiền, khi nào Thánh đệ tử tuệ tri lậu hoặc, tuệ tri tập khởi của lậu hoặc, tuệ tri đoạn diệt của lậu hoặc, tuệ tri con đường đưa đến đoạn diệt của lậu hoặc.",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 161,
+     "text": "Chư Hiền, khi ấy Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này.",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 162,
+     "text": "Chư Hiền, thế nào là lậu hoặc, thế nào là tập khởi của lậu hoặc, thế nào là đoạn diệt của lậu hoặc, thế nào là con đường đưa đến đoạn diệt của lậu hoặc?",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 163,
+     "text": "Chư Hiền, có ba lậu hoặc này: dục lậu, hữu lậu, vô minh lậu.",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 164,
+     "text": "Từ tập khởi của vô minh có tập khởi của lậu hoặc; từ đoạn diệt của vô minh có đoạn diệt của lậu hoặc và Thánh Đạo Tám Ngành này là con đường đưa đến đoạn diệt của lậu hoặc, tức là:",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 165,
+     "text": "Chánh Tri kiến, Chánh Tư duy, Chánh Ngữ, Chánh Nghiệp, Chánh Mạng, Chánh Tinh tấn, Chánh Niệm, Chánh Định.",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 166,
+     "text": "Chư Hiền, khi nào Thánh đệ tử tuệ tri lậu hoặc như vậy, tuệ tri tập khởi của lậu hoặc như vậy, tuệ tri đoạn diệt của lậu hoặc như vậy, tuệ tri con đường đưa đến đoạn diệt của lậu hoặc như vậy, khi ấy,",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 167,
+     "text": "vị ấy đoạn trừ tất cả tham tùy miên, tẩy sạch sân tùy miên, nhổ tận gốc kiến mạn tùy miên “Tôi là”, đoạn trừ vô minh, khiến minh khởi lên, diệt tận khổ đau ngay trong hiện tại.",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 168,
+     "text": "Chư Hiền, như vậy Thánh đệ tử có chánh tri kiến, có tri kiến chánh trực, có lòng tin Pháp tuyệt đối và thành tựu diệu pháp này.",
+     "section": "(Lậu hoặc)"
+    },
+    {
+     "n": 169,
+     "text": "Tôn giả Sāriputta thuyết giảng như vậy. Các Tỷ-kheo ấy hoan hỷ, tín thọ lời giảng của Tôn giả Sāriputta.",
+     "section": "(Lậu hoặc)"
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn9/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā sāvatthiyaṁ viharati jetavane anāthapiṇḍikassa ārāme."
+    },
+    {
+     "n": 2,
+     "text": "Tatra kho āyasmā sāriputto bhikkhū āmantesi: “āvuso bhikkhave”ti."
+    },
+    {
+     "n": 3,
+     "text": "“Āvuso”ti kho te bhikkhū āyasmato sāriputtassa paccassosuṁ. Āyasmā sāriputto etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“‘Sammādiṭṭhi sammādiṭṭhī’ti, āvuso, vuccati."
+    },
+    {
+     "n": 5,
+     "text": "Kittāvatā nu kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti?"
+    },
+    {
+     "n": 6,
+     "text": "“Dūratopi kho mayaṁ, āvuso, āgaccheyyāma āyasmato sāriputtassa santike etassa bhāsitassa atthamaññātuṁ."
+    },
+    {
+     "n": 7,
+     "text": "Sādhu vatāyasmantaṁyeva sāriputtaṁ paṭibhātu etassa bhāsitassa attho. Āyasmato sāriputtassa sutvā bhikkhū dhāressantī”ti."
+    },
+    {
+     "n": 8,
+     "text": "“Tena hi, āvuso, suṇātha, sādhukaṁ manasi karotha, bhāsissāmī”ti."
+    },
+    {
+     "n": 9,
+     "text": "“Evamāvuso”ti kho te bhikkhū āyasmato sāriputtassa paccassosuṁ. Āyasmā sāriputto etadavoca:"
+    },
+    {
+     "n": 10,
+     "text": "“Yato kho, āvuso, ariyasāvako akusalañca pajānāti, akusalamūlañca pajānāti, kusalañca pajānāti, kusalamūlañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 11,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 12,
+     "text": "Katamaṁ panāvuso, akusalaṁ, katamaṁ akusalamūlaṁ, katamaṁ kusalaṁ, katamaṁ kusalamūlaṁ?"
+    },
+    {
+     "n": 13,
+     "text": "Pāṇātipāto kho, āvuso, akusalaṁ, adinnādānaṁ akusalaṁ, kāmesumicchācāro akusalaṁ, musāvādo akusalaṁ, pisuṇā vācā akusalaṁ, pharusā vācā akusalaṁ, samphappalāpo akusalaṁ, abhijjhā akusalaṁ, byāpādo akusalaṁ,"
+    },
+    {
+     "n": 14,
+     "text": "micchādiṭṭhi akusalaṁ— idaṁ vuccatāvuso akusalaṁ."
+    },
+    {
+     "n": 15,
+     "text": "Katamañcāvuso, akusalamūlaṁ? Lobho akusalamūlaṁ, doso akusalamūlaṁ, moho akusalamūlaṁ— idaṁ vuccatāvuso, akusalamūlaṁ."
+    },
+    {
+     "n": 16,
+     "text": "Katamañcāvuso, kusalaṁ?"
+    },
+    {
+     "n": 17,
+     "text": "Pāṇātipātā veramaṇī kusalaṁ, adinnādānā veramaṇī kusalaṁ, kāmesumicchācārā veramaṇī kusalaṁ, musāvādā veramaṇī kusalaṁ, pisuṇāya vācāya veramaṇī kusalaṁ, pharusāya vācāya veramaṇī kusalaṁ, samphappalāpā veramaṇī kusalaṁ,"
+    },
+    {
+     "n": 18,
+     "text": "anabhijjhā kusalaṁ, abyāpādo kusalaṁ, sammādiṭṭhi kusalaṁ— idaṁ vuccatāvuso, kusalaṁ."
+    },
+    {
+     "n": 19,
+     "text": "Katamañcāvuso, kusalamūlaṁ? Alobho kusalamūlaṁ, adoso kusalamūlaṁ, amoho kusalamūlaṁ— idaṁ vuccatāvuso, kusalamūlaṁ."
+    },
+    {
+     "n": 20,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ akusalaṁ pajānāti, evaṁ akusalamūlaṁ pajānāti, evaṁ kusalaṁ pajānāti, evaṁ kusalamūlaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya, paṭighānusayaṁ paṭivinodetvā,"
+    },
+    {
+     "n": 21,
+     "text": "‘asmī’ti diṭṭhimānānusayaṁ samūhanitvā, avijjaṁ pahāya vijjaṁ uppādetvā, diṭṭheva dhamme dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato,"
+    },
+    {
+     "n": 22,
+     "text": "āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 23,
+     "text": "“Sādhāvuso”ti kho te bhikkhū āyasmato sāriputtassa bhāsitaṁ abhinanditvā anumoditvā āyasmantaṁ sāriputtaṁ uttari pañhaṁ apucchuṁ:"
+    },
+    {
+     "n": 24,
+     "text": "“siyā panāvuso, aññopi pariyāyo yathā ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti?"
+    },
+    {
+     "n": 25,
+     "text": "“Siyā, āvuso."
+    },
+    {
+     "n": 26,
+     "text": "Yato kho, āvuso, ariyasāvako āhārañca pajānāti, āhārasamudayañca pajānāti, āhāranirodhañca pajānāti, āhāranirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 27,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 28,
+     "text": "Katamo panāvuso, āhāro, katamo āhārasamudayo, katamo āhāranirodho, katamā āhāranirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 29,
+     "text": "Cattārome, āvuso, āhārā bhūtānaṁ vā sattānaṁ ṭhitiyā, sambhavesīnaṁ vā anuggahāya. Katame cattāro?"
+    },
+    {
+     "n": 30,
+     "text": "Kabaḷīkāro āhāro oḷāriko vā sukhumo vā, phasso dutiyo, manosañcetanā tatiyā, viññāṇaṁ catutthaṁ."
+    },
+    {
+     "n": 31,
+     "text": "Taṇhāsamudayā āhārasamudayo, taṇhānirodhā āhāranirodho, ayameva ariyo aṭṭhaṅgiko maggo āhāranirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto,"
+    },
+    {
+     "n": 32,
+     "text": "sammāājīvo sammāvāyāmo sammāsati sammāsamādhi."
+    },
+    {
+     "n": 33,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ āhāraṁ pajānāti, evaṁ āhārasamudayaṁ pajānāti, evaṁ āhāranirodhaṁ pajānāti, evaṁ āhāranirodhagāminiṁ paṭipadaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya, paṭighānusayaṁ paṭivinodetvā,"
+    },
+    {
+     "n": 34,
+     "text": "‘asmī’ti diṭṭhimānānusayaṁ samūhanitvā, avijjaṁ pahāya vijjaṁ uppādetvā, diṭṭheva dhamme dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato,"
+    },
+    {
+     "n": 35,
+     "text": "āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 36,
+     "text": "“Sādhāvuso”ti kho te bhikkhū āyasmato sāriputtassa bhāsitaṁ abhinanditvā anumoditvā āyasmantaṁ sāriputtaṁ uttari pañhaṁ apucchuṁ:"
+    },
+    {
+     "n": 37,
+     "text": "“siyā panāvuso, aññopi pariyāyo yathā ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti?"
+    },
+    {
+     "n": 38,
+     "text": "“Siyā, āvuso."
+    },
+    {
+     "n": 39,
+     "text": "Yato kho, āvuso, ariyasāvako dukkhañca pajānāti, dukkhasamudayañca pajānāti, dukkhanirodhañca pajānāti, dukkhanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 40,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 41,
+     "text": "Katamaṁ panāvuso, dukkhaṁ, katamo dukkhasamudayo, katamo dukkhanirodho, katamā dukkhanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 42,
+     "text": "Jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkhaṁ, sokaparidevadukkhadomanassupāyāsāpi dukkhā, appiyehi sampayogopi dukkho, piyehi vippayogopi dukkho, yampicchaṁ na labhati tampi dukkhaṁ,"
+    },
+    {
+     "n": 43,
+     "text": "saṅkhittena pañcupādānakkhandhā dukkhā— idaṁ vuccatāvuso, dukkhaṁ. Katamo cāvuso, dukkhasamudayo?"
+    },
+    {
+     "n": 44,
+     "text": "Yāyaṁ taṇhā ponobbhavikā nandīrāgasahagatā tatratatrābhinandinī, seyyathidaṁ— kāmataṇhā bhavataṇhā vibhavataṇhā— ayaṁ vuccatāvuso, dukkhasamudayo. Katamo cāvuso, dukkhanirodho?"
+    },
+    {
+     "n": 45,
+     "text": "Yo tassāyeva taṇhāya asesavirāganirodho cāgo paṭinissaggo mutti anālayo— ayaṁ vuccatāvuso, dukkhanirodho."
+    },
+    {
+     "n": 46,
+     "text": "Katamā cāvuso, dukkhanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 47,
+     "text": "Ayameva ariyo aṭṭhaṅgiko maggo, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi— ayaṁ vuccatāvuso, dukkhanirodhagāminī paṭipadā."
+    },
+    {
+     "n": 48,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ dukkhaṁ pajānāti, evaṁ dukkhasamudayaṁ pajānāti, evaṁ dukkhanirodhaṁ pajānāti, evaṁ dukkhanirodhagāminiṁ paṭipadaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya, paṭighānusayaṁ paṭivinodetvā,"
+    },
+    {
+     "n": 49,
+     "text": "‘asmī’ti diṭṭhimānānusayaṁ samūhanitvā, avijjaṁ pahāya vijjaṁ uppādetvā, diṭṭheva dhamme dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato,"
+    },
+    {
+     "n": 50,
+     "text": "āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 51,
+     "text": "“Sādhāvuso”ti kho te bhikkhū āyasmato sāriputtassa bhāsitaṁ abhinanditvā anumoditvā āyasmantaṁ sāriputtaṁ uttari pañhaṁ apucchuṁ:"
+    },
+    {
+     "n": 52,
+     "text": "“siyā panāvuso, aññopi pariyāyo yathā ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti?"
+    },
+    {
+     "n": 53,
+     "text": "“Siyā, āvuso."
+    },
+    {
+     "n": 54,
+     "text": "Yato kho, āvuso, ariyasāvako jarāmaraṇañca pajānāti, jarāmaraṇasamudayañca pajānāti, jarāmaraṇanirodhañca pajānāti, jarāmaraṇanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti,"
+    },
+    {
+     "n": 55,
+     "text": "ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 56,
+     "text": "Katamaṁ panāvuso, jarāmaraṇaṁ, katamo jarāmaraṇasamudayo, katamo jarāmaraṇanirodho, katamā jarāmaraṇanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 57,
+     "text": "Yā tesaṁ tesaṁ sattānaṁ tamhi tamhi sattanikāye jarā jīraṇatā khaṇḍiccaṁ pāliccaṁ valittacatā āyuno saṁhāni indriyānaṁ paripāko— ayaṁ vuccatāvuso, jarā. Katamañcāvuso, maraṇaṁ?"
+    },
+    {
+     "n": 58,
+     "text": "Yā tesaṁ tesaṁ sattānaṁ tamhā tamhā sattanikāyā cuti cavanatā bhedo antaradhānaṁ maccu maraṇaṁ kālaṅkiriyā khandhānaṁ bhedo, kaḷevarassa nikkhepo, jīvitindriyassupacchedo— idaṁ vuccatāvuso, maraṇaṁ."
+    },
+    {
+     "n": 59,
+     "text": "Iti ayañca jarā idañca maraṇaṁ— idaṁ vuccatāvuso, jarāmaraṇaṁ."
+    },
+    {
+     "n": 60,
+     "text": "Jātisamudayā jarāmaraṇasamudayo, jātinirodhā jarāmaraṇanirodho, ayameva ariyo aṭṭhaṅgiko maggo jarāmaraṇanirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 61,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ jarāmaraṇaṁ pajānāti, evaṁ jarāmaraṇasamudayaṁ pajānāti, evaṁ jarāmaraṇanirodhaṁ pajānāti, evaṁ jarāmaraṇanirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 62,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 63,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 64,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 65,
+     "text": "Yato kho, āvuso, ariyasāvako jātiñca pajānāti, jātisamudayañca pajānāti, jātinirodhañca pajānāti, jātinirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 66,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 67,
+     "text": "Katamā panāvuso, jāti, katamo jātisamudayo, katamo jātinirodho, katamā jātinirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 68,
+     "text": "Yā tesaṁ tesaṁ sattānaṁ tamhi tamhi sattanikāye jāti sañjāti okkanti abhinibbatti khandhānaṁ pātubhāvo, āyatanānaṁ paṭilābho— ayaṁ vuccatāvuso, jāti."
+    },
+    {
+     "n": 69,
+     "text": "Bhavasamudayā jātisamudayo, bhavanirodhā jātinirodho, ayameva ariyo aṭṭhaṅgiko maggo jātinirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 70,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ jātiṁ pajānāti, evaṁ jātisamudayaṁ pajānāti, evaṁ jātinirodhaṁ pajānāti, evaṁ jātinirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 71,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 72,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 73,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 74,
+     "text": "Yato kho, āvuso, ariyasāvako bhavañca pajānāti, bhavasamudayañca pajānāti, bhavanirodhañca pajānāti, bhavanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 75,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 76,
+     "text": "Katamo panāvuso, bhavo, katamo bhavasamudayo, katamo bhavanirodho, katamā bhavanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 77,
+     "text": "Tayome, āvuso, bhavā— kāmabhavo, rūpabhavo, arūpabhavo."
+    },
+    {
+     "n": 78,
+     "text": "Upādānasamudayā bhavasamudayo, upādānanirodhā bhavanirodho, ayameva ariyo aṭṭhaṅgiko maggo bhavanirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 79,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ bhavaṁ pajānāti, evaṁ bhavasamudayaṁ pajānāti, evaṁ bhavanirodhaṁ pajānāti, evaṁ bhavanirodhagāminiṁ paṭipadaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti."
+    },
+    {
+     "n": 80,
+     "text": "Ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 81,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 82,
+     "text": "“siyā, āvuso. Yato kho, āvuso, ariyasāvako upādānañca pajānāti, upādānasamudayañca pajānāti, upādānanirodhañca pajānāti, upādānanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti,"
+    },
+    {
+     "n": 83,
+     "text": "ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 84,
+     "text": "Katamaṁ panāvuso, upādānaṁ, katamo upādānasamudayo, katamo upādānanirodho, katamā upādānanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 85,
+     "text": "Cattārimāni, āvuso, upādānāni— kāmupādānaṁ, diṭṭhupādānaṁ, sīlabbatupādānaṁ, attavādupādānaṁ."
+    },
+    {
+     "n": 86,
+     "text": "Taṇhāsamudayā upādānasamudayo, taṇhānirodhā upādānanirodho, ayameva ariyo aṭṭhaṅgiko maggo upādānanirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 87,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ upādānaṁ pajānāti, evaṁ upādānasamudayaṁ pajānāti, evaṁ upādānanirodhaṁ pajānāti, evaṁ upādānanirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 88,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 89,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 90,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 91,
+     "text": "Yato kho, āvuso, ariyasāvako taṇhañca pajānāti, taṇhāsamudayañca pajānāti, taṇhānirodhañca pajānāti, taṇhānirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 92,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 93,
+     "text": "Katamā panāvuso, taṇhā, katamo taṇhāsamudayo, katamo taṇhānirodho, katamā taṇhānirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 94,
+     "text": "Chayime, āvuso, taṇhākāyā— rūpataṇhā, saddataṇhā, gandhataṇhā, rasataṇhā, phoṭṭhabbataṇhā, dhammataṇhā."
+    },
+    {
+     "n": 95,
+     "text": "Vedanāsamudayā taṇhāsamudayo, vedanānirodhā taṇhānirodho, ayameva ariyo aṭṭhaṅgiko maggo taṇhānirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 96,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ taṇhaṁ pajānāti, evaṁ taṇhāsamudayaṁ pajānāti, evaṁ taṇhānirodhaṁ pajānāti, evaṁ taṇhānirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 97,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 98,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 99,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 100,
+     "text": "Yato kho, āvuso, ariyasāvako vedanañca pajānāti, vedanāsamudayañca pajānāti, vedanānirodhañca pajānāti, vedanānirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 101,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 102,
+     "text": "Katamā panāvuso, vedanā, katamo vedanāsamudayo, katamo vedanānirodho, katamā vedanānirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 103,
+     "text": "Chayime, āvuso, vedanākāyā— cakkhusamphassajā vedanā, sotasamphassajā vedanā, ghānasamphassajā vedanā, jivhāsamphassajā vedanā, kāyasamphassajā vedanā, manosamphassajā vedanā."
+    },
+    {
+     "n": 104,
+     "text": "Phassasamudayā vedanāsamudayo, phassanirodhā vedanānirodho, ayameva ariyo aṭṭhaṅgiko maggo vedanānirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 105,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ vedanaṁ pajānāti, evaṁ vedanāsamudayaṁ pajānāti, evaṁ vedanānirodhaṁ pajānāti, evaṁ vedanānirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 106,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 107,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 108,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 109,
+     "text": "Yato kho, āvuso, ariyasāvako phassañca pajānāti, phassasamudayañca pajānāti, phassanirodhañca pajānāti, phassanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 110,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 111,
+     "text": "Katamo panāvuso, phasso, katamo phassasamudayo, katamo phassanirodho, katamā phassanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 112,
+     "text": "Chayime, āvuso, phassakāyā— cakkhusamphasso, sotasamphasso, ghānasamphasso, jivhāsamphasso, kāyasamphasso, manosamphasso."
+    },
+    {
+     "n": 113,
+     "text": "Saḷāyatanasamudayā phassasamudayo, saḷāyatananirodhā phassanirodho, ayameva ariyo aṭṭhaṅgiko maggo phassanirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 114,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ phassaṁ pajānāti, evaṁ phassasamudayaṁ pajānāti, evaṁ phassanirodhaṁ pajānāti, evaṁ phassanirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 115,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 116,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 117,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 118,
+     "text": "Yato kho, āvuso, ariyasāvako saḷāyatanañca pajānāti, saḷāyatanasamudayañca pajānāti, saḷāyatananirodhañca pajānāti, saḷāyatananirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti,"
+    },
+    {
+     "n": 119,
+     "text": "ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 120,
+     "text": "Katamaṁ panāvuso, saḷāyatanaṁ, katamo saḷāyatanasamudayo, katamo saḷāyatananirodho, katamā saḷāyatananirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 121,
+     "text": "Chayimāni, āvuso, āyatanāni— cakkhāyatanaṁ, sotāyatanaṁ, ghānāyatanaṁ, jivhāyatanaṁ, kāyāyatanaṁ, manāyatanaṁ."
+    },
+    {
+     "n": 122,
+     "text": "Nāmarūpasamudayā saḷāyatanasamudayo, nāmarūpanirodhā saḷāyatananirodho, ayameva ariyo aṭṭhaṅgiko maggo saḷāyatananirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 123,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ saḷāyatanaṁ pajānāti, evaṁ saḷāyatanasamudayaṁ pajānāti, evaṁ saḷāyatananirodhaṁ pajānāti, evaṁ saḷāyatananirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 124,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 125,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 126,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 127,
+     "text": "Yato kho, āvuso, ariyasāvako nāmarūpañca pajānāti, nāmarūpasamudayañca pajānāti, nāmarūpanirodhañca pajānāti, nāmarūpanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti,"
+    },
+    {
+     "n": 128,
+     "text": "ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 129,
+     "text": "Katamaṁ panāvuso, nāmarūpaṁ, katamo nāmarūpasamudayo, katamo nāmarūpanirodho, katamā nāmarūpanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 130,
+     "text": "Vedanā, saññā, cetanā, phasso, manasikāro— idaṁ vuccatāvuso, nāmaṁ; cattāri ca mahābhūtāni, catunnañca mahābhūtānaṁ upādāyarūpaṁ— idaṁ vuccatāvuso, rūpaṁ."
+    },
+    {
+     "n": 131,
+     "text": "Iti idañca nāmaṁ idañca rūpaṁ— idaṁ vuccatāvuso, nāmarūpaṁ."
+    },
+    {
+     "n": 132,
+     "text": "Viññāṇasamudayā nāmarūpasamudayo, viññāṇanirodhā nāmarūpanirodho, ayameva ariyo aṭṭhaṅgiko maggo nāmarūpanirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 133,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ nāmarūpaṁ pajānāti, evaṁ nāmarūpasamudayaṁ pajānāti, evaṁ nāmarūpanirodhaṁ pajānāti, evaṁ nāmarūpanirodhagāminiṁ paṭipadaṁ pajānāti,"
+    },
+    {
+     "n": 134,
+     "text": "so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 135,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 136,
+     "text": "“siyā, āvuso. Yato kho, āvuso, ariyasāvako viññāṇañca pajānāti, viññāṇasamudayañca pajānāti, viññāṇanirodhañca pajānāti, viññāṇanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti,"
+    },
+    {
+     "n": 137,
+     "text": "ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 138,
+     "text": "Katamaṁ panāvuso, viññāṇaṁ, katamo viññāṇasamudayo, katamo viññāṇanirodho, katamā viññāṇanirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 139,
+     "text": "Chayime, āvuso, viññāṇakāyā— cakkhuviññāṇaṁ, sotaviññāṇaṁ, ghānaviññāṇaṁ, jivhāviññāṇaṁ, kāyaviññāṇaṁ, manoviññāṇaṁ."
+    },
+    {
+     "n": 140,
+     "text": "Saṅkhārasamudayā viññāṇasamudayo, saṅkhāranirodhā viññāṇanirodho, ayameva ariyo aṭṭhaṅgiko maggo viññāṇanirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 141,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ viññāṇaṁ pajānāti, evaṁ viññāṇasamudayaṁ pajānāti, evaṁ viññāṇanirodhaṁ pajānāti, evaṁ viññāṇanirodhagāminiṁ paṭipadaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya …pe… dukkhassantakaro hoti—"
+    },
+    {
+     "n": 142,
+     "text": "ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 143,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 144,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 145,
+     "text": "Yato kho, āvuso, ariyasāvako saṅkhāre ca pajānāti, saṅkhārasamudayañca pajānāti, saṅkhāranirodhañca pajānāti, saṅkhāranirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti,"
+    },
+    {
+     "n": 146,
+     "text": "ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 147,
+     "text": "Katame panāvuso, saṅkhārā, katamo saṅkhārasamudayo, katamo saṅkhāranirodho, katamā saṅkhāranirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 148,
+     "text": "Tayome, āvuso, saṅkhārā— kāyasaṅkhāro, vacīsaṅkhāro, cittasaṅkhāro."
+    },
+    {
+     "n": 149,
+     "text": "Avijjāsamudayā saṅkhārasamudayo, avijjānirodhā saṅkhāranirodho, ayameva ariyo aṭṭhaṅgiko maggo saṅkhāranirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 150,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ saṅkhāre pajānāti, evaṁ saṅkhārasamudayaṁ pajānāti, evaṁ saṅkhāranirodhaṁ pajānāti, evaṁ saṅkhāranirodhagāminiṁ paṭipadaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya,"
+    },
+    {
+     "n": 151,
+     "text": "paṭighānusayaṁ paṭivinodetvā, ‘asmī’ti diṭṭhimānānusayaṁ samūhanitvā, avijjaṁ pahāya vijjaṁ uppādetvā, diṭṭheva dhamme dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 152,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 153,
+     "text": "“Sādhāvuso”ti kho …pe… apucchuṁ— siyā panāvuso …pe…"
+    },
+    {
+     "n": 154,
+     "text": "“siyā, āvuso."
+    },
+    {
+     "n": 155,
+     "text": "Yato kho, āvuso, ariyasāvako avijjañca pajānāti, avijjāsamudayañca pajānāti, avijjānirodhañca pajānāti, avijjānirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 156,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 157,
+     "text": "Katamā panāvuso, avijjā, katamo avijjāsamudayo, katamo avijjānirodho, katamā avijjānirodhagāminī paṭipadā?"
+    },
+    {
+     "n": 158,
+     "text": "Yaṁ kho, āvuso, dukkhe aññāṇaṁ, dukkhasamudaye aññāṇaṁ, dukkhanirodhe aññāṇaṁ, dukkhanirodhagāminiyā paṭipadāya aññāṇaṁ— ayaṁ vuccatāvuso, avijjā. Āsavasamudayā avijjāsamudayo, āsavanirodhā avijjānirodho,"
+    },
+    {
+     "n": 159,
+     "text": "ayameva ariyo aṭṭhaṅgiko maggo avijjānirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 160,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ avijjaṁ pajānāti, evaṁ avijjāsamudayaṁ pajānāti, evaṁ avijjānirodhaṁ pajānāti, evaṁ avijjānirodhagāminiṁ paṭipadaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya, paṭighānusayaṁ paṭivinodetvā,"
+    },
+    {
+     "n": 161,
+     "text": "‘asmī’ti diṭṭhimānānusayaṁ samūhanitvā, avijjaṁ pahāya vijjaṁ uppādetvā, diṭṭheva dhamme dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato,"
+    },
+    {
+     "n": 162,
+     "text": "āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 163,
+     "text": "“Sādhāvuso”ti kho te bhikkhū āyasmato sāriputtassa bhāsitaṁ abhinanditvā anumoditvā āyasmantaṁ sāriputtaṁ uttari pañhaṁ apucchuṁ:"
+    },
+    {
+     "n": 164,
+     "text": "“siyā panāvuso, aññopi pariyāyo yathā ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato, āgato imaṁ saddhamman”ti?"
+    },
+    {
+     "n": 165,
+     "text": "“Siyā, āvuso."
+    },
+    {
+     "n": 166,
+     "text": "Yato kho, āvuso, ariyasāvako āsavañca pajānāti, āsavasamudayañca pajānāti, āsavanirodhañca pajānāti, āsavanirodhagāminiṁ paṭipadañca pajānāti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi,"
+    },
+    {
+     "n": 167,
+     "text": "dhamme aveccappasādena samannāgato, āgato imaṁ saddhammaṁ."
+    },
+    {
+     "n": 168,
+     "text": "Katamo panāvuso, āsavo, katamo āsavasamudayo, katamo āsavanirodho, katamā āsavanirodhagāminī paṭipadāti?"
+    },
+    {
+     "n": 169,
+     "text": "Tayome, āvuso, āsavā— kāmāsavo, bhavāsavo, avijjāsavo."
+    },
+    {
+     "n": 170,
+     "text": "Avijjāsamudayā āsavasamudayo, avijjānirodhā āsavanirodho, ayameva ariyo aṭṭhaṅgiko maggo āsavanirodhagāminī paṭipadā, seyyathidaṁ— sammādiṭṭhi …pe… sammāsamādhi."
+    },
+    {
+     "n": 171,
+     "text": "Yato kho, āvuso, ariyasāvako evaṁ āsavaṁ pajānāti, evaṁ āsavasamudayaṁ pajānāti, evaṁ āsavanirodhaṁ pajānāti, evaṁ āsavanirodhagāminiṁ paṭipadaṁ pajānāti, so sabbaso rāgānusayaṁ pahāya, paṭighānusayaṁ paṭivinodetvā,"
+    },
+    {
+     "n": 172,
+     "text": "‘asmī’ti diṭṭhimānānusayaṁ samūhanitvā, avijjaṁ pahāya vijjaṁ uppādetvā, diṭṭheva dhamme dukkhassantakaro hoti— ettāvatāpi kho, āvuso, ariyasāvako sammādiṭṭhi hoti, ujugatāssa diṭṭhi, dhamme aveccappasādena samannāgato,"
+    },
+    {
+     "n": 173,
+     "text": "āgato imaṁ saddhamman”ti."
+    },
+    {
+     "n": 174,
+     "text": "Idamavocāyasmā sāriputto. Attamanā te bhikkhū āyasmato sāriputtassa bhāsitaṁ abhinandunti."
+    },
+    {
+     "n": 175,
+     "text": "Sammādiṭṭhisuttaṁ niṭṭhitaṁ navamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn9/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Sāvatthī in Jeta’s Grove, Anāthapiṇḍika’s monastery."
+    },
+    {
+     "n": 2,
+     "text": "There Sāriputta addressed the mendicants: “Reverends, mendicants!”"
+    },
+    {
+     "n": 3,
+     "text": "“Reverend,” they replied. Sāriputta said this:"
+    },
+    {
+     "n": 4,
+     "text": "“Reverends, they speak of this thing called ‘right view’."
+    },
+    {
+     "n": 5,
+     "text": "How do you define a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching?”"
+    },
+    {
+     "n": 6,
+     "text": "“Reverend, we would travel a long way to learn the meaning of this statement in the presence of Venerable Sāriputta."
+    },
+    {
+     "n": 7,
+     "text": "May Venerable Sāriputta himself please clarify the meaning of this."
+    },
+    {
+     "n": 8,
+     "text": "The mendicants will listen and remember it.”"
+    },
+    {
+     "n": 9,
+     "text": "“Well then, reverends, listen and apply your mind well, I will speak.”"
+    },
+    {
+     "n": 10,
+     "text": "“Yes, reverend,” they replied. Sāriputta said this:"
+    },
+    {
+     "n": 11,
+     "text": "“A noble disciple understands the unskillful and its root, and the skillful and its root."
+    },
+    {
+     "n": 12,
+     "text": "When they’ve done this, they’re defined as a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching."
+    },
+    {
+     "n": 13,
+     "text": "But what is the unskillful and what is its root?"
+    },
+    {
+     "n": 14,
+     "text": "And what is the skillful and what is its root?"
+    },
+    {
+     "n": 15,
+     "text": "Killing living creatures, stealing, and sexual misconduct; speech that’s false, divisive, harsh, or nonsensical; covetousness, ill will, and wrong view. This is called the unskillful."
+    },
+    {
+     "n": 16,
+     "text": "And what is the root of the unskillful? Greed, hate, and delusion."
+    },
+    {
+     "n": 17,
+     "text": "This is called the root of the unskillful."
+    },
+    {
+     "n": 18,
+     "text": "And what is the skillful? Refraining from killing living creatures, stealing, and sexual misconduct; refraining from speech that’s false, divisive, harsh, or nonsensical; contentment, good will, and right view."
+    },
+    {
+     "n": 19,
+     "text": "This is called the skillful."
+    },
+    {
+     "n": 20,
+     "text": "And what is the root of the skillful? Contentment, love, and understanding."
+    },
+    {
+     "n": 21,
+     "text": "This is called the root of the skillful."
+    },
+    {
+     "n": 22,
+     "text": "A noble disciple understands in this way the unskillful and its root, and the skillful and its root."
+    },
+    {
+     "n": 23,
+     "text": "They’ve completely given up the underlying tendency to greed, dispelled the underlying tendency to aversion, and eradicated the underlying tendency to the view and conceit ‘I am’."
+    },
+    {
+     "n": 24,
+     "text": "They’ve given up ignorance and given rise to knowledge, and make an end of suffering in this very life."
+    },
+    {
+     "n": 25,
+     "text": "When they’ve done this, they’re defined as a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching.”"
+    },
+    {
+     "n": 26,
+     "text": "Saying “Good, reverend,” those mendicants approved and agreed with what Sāriputta said. Then they asked another question:"
+    },
+    {
+     "n": 27,
+     "text": "“But reverend, might there be another way to describe a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching?”"
+    },
+    {
+     "n": 28,
+     "text": "“There might, reverends. A noble disciple understands fuel, its origin, its cessation, and the practice that leads to its cessation."
+    },
+    {
+     "n": 29,
+     "text": "When they’ve done this, they’re defined as a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching."
+    },
+    {
+     "n": 30,
+     "text": "But what is fuel? What is its origin, its cessation, and the practice that leads to its cessation?"
+    },
+    {
+     "n": 31,
+     "text": "These four fuels maintain sentient beings that have been born and help those about to be born. What four?"
+    },
+    {
+     "n": 32,
+     "text": "Edible food, whether solid or subtle; contact is the second, mental intention the third, and consciousness the fourth. Fuel originates from craving. Fuel ceases when craving ceases."
+    },
+    {
+     "n": 33,
+     "text": "The practice that leads to the cessation of fuel is simply this noble eightfold path, that is:"
+    },
+    {
+     "n": 34,
+     "text": "right view, right purpose, right speech, right action, right livelihood, right effort, right mindfulness, and right immersion."
+    },
+    {
+     "n": 35,
+     "text": "A noble disciple understands in this way fuel, its origin, its cessation, and the practice that leads to its cessation."
+    },
+    {
+     "n": 36,
+     "text": "They’ve completely given up the underlying tendency to greed, dispelled the underlying tendency to aversion, and eradicated the underlying tendency to the view and conceit ‘I am’."
+    },
+    {
+     "n": 37,
+     "text": "They’ve given up ignorance and given rise to knowledge, and make an end of suffering in this very life."
+    },
+    {
+     "n": 38,
+     "text": "When they’ve done this, they’re defined as a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching.”"
+    },
+    {
+     "n": 39,
+     "text": "Saying “Good, reverend,” those mendicants … asked another question: “But reverend, might there be another way to describe a noble disciple who … has come to the true teaching?”"
+    },
+    {
+     "n": 40,
+     "text": "“There might, reverends. A noble disciple understands suffering, its origin, its cessation, and the practice that leads to its cessation."
+    },
+    {
+     "n": 41,
+     "text": "When they’ve done this, they’re defined as a noble disciple who … has come to the true teaching. But what is suffering?"
+    },
+    {
+     "n": 42,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation?"
+    },
+    {
+     "n": 43,
+     "text": "Rebirth is suffering; old age is suffering; death is suffering; sorrow, lamentation, pain, sadness, and distress are suffering; being coupled with the disliked is suffering; separation from the liked is suffering;"
+    },
+    {
+     "n": 44,
+     "text": "not getting what you wish for is suffering."
+    },
+    {
+     "n": 45,
+     "text": "In brief, the five grasping aggregates are suffering. This is called suffering. And what is the origin of suffering?"
+    },
+    {
+     "n": 46,
+     "text": "It’s the craving that leads to future lives, mixed up with relishing and greed, taking pleasure there wherever it alights."
+    },
+    {
+     "n": 47,
+     "text": "That is, craving for sensual pleasures, craving for continued existence, and craving for nonexistence. This is called the origin of suffering. And what is the cessation of suffering?"
+    },
+    {
+     "n": 48,
+     "text": "It’s the fading away and cessation of that very same craving with no residue left behind; giving it away, letting it go, releasing it, and not clinging to it."
+    },
+    {
+     "n": 49,
+     "text": "This is called the cessation of suffering."
+    },
+    {
+     "n": 50,
+     "text": "And what is the practice that leads to the cessation of suffering?"
+    },
+    {
+     "n": 51,
+     "text": "It is simply this noble eightfold path, that is: right view … right immersion."
+    },
+    {
+     "n": 52,
+     "text": "This is called the practice that leads to the cessation of suffering."
+    },
+    {
+     "n": 53,
+     "text": "A noble disciple understands in this way suffering, its origin, its cessation, and the practice that leads to its cessation."
+    },
+    {
+     "n": 54,
+     "text": "They’ve completely given up the underlying tendency to greed, dispelled the underlying tendency to aversion, and eradicated the underlying tendency to the view and conceit ‘I am’."
+    },
+    {
+     "n": 55,
+     "text": "They’ve given up ignorance and given rise to knowledge, and make an end of suffering in this very life."
+    },
+    {
+     "n": 56,
+     "text": "When they’ve done this, they’re defined as a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching.”"
+    },
+    {
+     "n": 57,
+     "text": "Saying “Good, reverend,” those mendicants … asked another question: “But reverend, might there be another way to describe a noble disciple who … has come to the true teaching?”"
+    },
+    {
+     "n": 58,
+     "text": "“There might, reverends. A noble disciple understands old age and death, their origin, their cessation, and the practice that leads to their cessation … But what are old age and death?"
+    },
+    {
+     "n": 59,
+     "text": "What is their origin, their cessation, and the practice that leads to their cessation?"
+    },
+    {
+     "n": 60,
+     "text": "The old age, decrepitude, broken teeth, gray hair, wrinkly skin, diminished vitality, and failing faculties of the various sentient beings in the various orders of sentient beings. This is called old age."
+    },
+    {
+     "n": 61,
+     "text": "And what is death? The passing away, perishing, disintegration, demise, mortality, death, decease, breaking up of the aggregates, laying to rest of the corpse,"
+    },
+    {
+     "n": 62,
+     "text": "and cutting off of the life faculty of the various sentient beings in the various orders of sentient beings. This is called death. Such is old age, and such is death. This is called old age and death."
+    },
+    {
+     "n": 63,
+     "text": "Old age and death originate from rebirth."
+    },
+    {
+     "n": 64,
+     "text": "Old age and death cease when rebirth ceases."
+    },
+    {
+     "n": 65,
+     "text": "The practice that leads to the cessation of old age and death is simply this noble eightfold path …”"
+    },
+    {
+     "n": 66,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 67,
+     "text": "“There might, reverends. A noble disciple understands rebirth, its origin, its cessation, and the practice that leads to its cessation … But what is rebirth?"
+    },
+    {
+     "n": 68,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation?"
+    },
+    {
+     "n": 69,
+     "text": "The rebirth, inception, conception, regeneration, manifestation of the aggregates, and acquisition of the sense fields of the various sentient beings in the various orders of sentient beings. This is called rebirth."
+    },
+    {
+     "n": 70,
+     "text": "Rebirth originates from continued existence."
+    },
+    {
+     "n": 71,
+     "text": "Rebirth ceases when continued existence ceases."
+    },
+    {
+     "n": 72,
+     "text": "The practice that leads to the cessation of rebirth is simply this noble eightfold path …”"
+    },
+    {
+     "n": 73,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 74,
+     "text": "“There might, reverends. A noble disciple understands continued existence, its origin, its cessation, and the practice that leads to its cessation. But what is continued existence?"
+    },
+    {
+     "n": 75,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation?"
+    },
+    {
+     "n": 76,
+     "text": "There are these three states of continued existence."
+    },
+    {
+     "n": 77,
+     "text": "Existence in the sensual realm, the realm of luminous form, and the formless realm."
+    },
+    {
+     "n": 78,
+     "text": "Continued existence originates from grasping."
+    },
+    {
+     "n": 79,
+     "text": "Continued existence ceases when grasping ceases."
+    },
+    {
+     "n": 80,
+     "text": "The practice that leads to the cessation of continued existence is simply this noble eightfold path …”"
+    },
+    {
+     "n": 81,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 82,
+     "text": "“There might, reverends. A noble disciple understands grasping, its origin, its cessation, and the practice that leads to its cessation … But what is grasping?"
+    },
+    {
+     "n": 83,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation? There are these four kinds of grasping."
+    },
+    {
+     "n": 84,
+     "text": "Grasping at sensual pleasures, views, precepts and observances, and theories of a self. Grasping originates from craving. Grasping ceases when craving ceases."
+    },
+    {
+     "n": 85,
+     "text": "The practice that leads to the cessation of grasping is simply this noble eightfold path …”"
+    },
+    {
+     "n": 86,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 87,
+     "text": "“There might, reverends. A noble disciple understands craving, its origin, its cessation, and the practice that leads to its cessation … But what is craving?"
+    },
+    {
+     "n": 88,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation? There are these six classes of craving."
+    },
+    {
+     "n": 89,
+     "text": "Craving for sights, sounds, smells, tastes, touches, and ideas. Craving originates from feeling. Craving ceases when feeling ceases."
+    },
+    {
+     "n": 90,
+     "text": "The practice that leads to the cessation of craving is simply this noble eightfold path …”"
+    },
+    {
+     "n": 91,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 92,
+     "text": "“There might, reverends. A noble disciple understands feeling, its origin, its cessation, and the practice that leads to its cessation … But what is feeling?"
+    },
+    {
+     "n": 93,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation? There are these six classes of feeling."
+    },
+    {
+     "n": 94,
+     "text": "Feeling born of contact through the eye, ear, nose, tongue, body, and mind. Feeling originates from contact. Feeling ceases when contact ceases."
+    },
+    {
+     "n": 95,
+     "text": "The practice that leads to the cessation of feeling is simply this noble eightfold path …”"
+    },
+    {
+     "n": 96,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 97,
+     "text": "“There might, reverends. A noble disciple understands contact, its origin, its cessation, and the practice that leads to its cessation … But what is contact?"
+    },
+    {
+     "n": 98,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation? There are these six classes of contact."
+    },
+    {
+     "n": 99,
+     "text": "Contact through the eye, ear, nose, tongue, body, and mind."
+    },
+    {
+     "n": 100,
+     "text": "Contact originates from the six sense fields."
+    },
+    {
+     "n": 101,
+     "text": "Contact ceases when the six sense fields cease."
+    },
+    {
+     "n": 102,
+     "text": "The practice that leads to the cessation of contact is simply this noble eightfold path …”"
+    },
+    {
+     "n": 103,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 104,
+     "text": "“There might, reverends. A noble disciple understands the six sense fields, their origin, their cessation, and the practice that leads to their cessation … But what are the six sense fields?"
+    },
+    {
+     "n": 105,
+     "text": "What is their origin, their cessation, and the practice that leads to their cessation? There are these six sense fields."
+    },
+    {
+     "n": 106,
+     "text": "The sense fields of the eye, ear, nose, tongue, body, and mind."
+    },
+    {
+     "n": 107,
+     "text": "The six sense fields originate from name and form."
+    },
+    {
+     "n": 108,
+     "text": "The six sense fields cease when name and form cease."
+    },
+    {
+     "n": 109,
+     "text": "The practice that leads to the cessation of the six sense fields is simply this noble eightfold path …”"
+    },
+    {
+     "n": 110,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 111,
+     "text": "“There might, reverends. A noble disciple understands name and form, their origin, their cessation, and the practice that leads to their cessation … But what are name and form?"
+    },
+    {
+     "n": 112,
+     "text": "What is their origin, their cessation, and the practice that leads to their cessation?"
+    },
+    {
+     "n": 113,
+     "text": "Feeling, perception, intention, contact, and application of mind— this is called name."
+    },
+    {
+     "n": 114,
+     "text": "The four principal states, and form derived from the four principal states— this is called form. Such is name and such is form. This is called name and form."
+    },
+    {
+     "n": 115,
+     "text": "Name and form originate from consciousness."
+    },
+    {
+     "n": 116,
+     "text": "Name and form cease when consciousness ceases."
+    },
+    {
+     "n": 117,
+     "text": "The practice that leads to the cessation of name and form is simply this noble eightfold path …”"
+    },
+    {
+     "n": 118,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 119,
+     "text": "“There might, reverends. A noble disciple understands consciousness, its origin, its cessation, and the practice that leads to its cessation … But what is consciousness?"
+    },
+    {
+     "n": 120,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation?"
+    },
+    {
+     "n": 121,
+     "text": "There are these six classes of consciousness."
+    },
+    {
+     "n": 122,
+     "text": "Eye, ear, nose, tongue, body, and mind consciousness. Consciousness originates from choices."
+    },
+    {
+     "n": 123,
+     "text": "Consciousness ceases when choices cease."
+    },
+    {
+     "n": 124,
+     "text": "The practice that leads to the cessation of consciousness is simply this noble eightfold path …”"
+    },
+    {
+     "n": 125,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 126,
+     "text": "“There might, reverends. A noble disciple understands choices, their origin, their cessation, and the practice that leads to their cessation … But what are choices?"
+    },
+    {
+     "n": 127,
+     "text": "What is their origin, their cessation, and the practice that leads to their cessation? There are these three kinds of choice."
+    },
+    {
+     "n": 128,
+     "text": "Choices by way of body, speech, and mind. Choices originate from ignorance. Choices cease when ignorance ceases."
+    },
+    {
+     "n": 129,
+     "text": "The practice that leads to the cessation of choices is simply this noble eightfold path …”"
+    },
+    {
+     "n": 130,
+     "text": "“Might there be another way to describe a noble disciple?”"
+    },
+    {
+     "n": 131,
+     "text": "“There might, reverends. A noble disciple understands ignorance, its origin, its cessation, and the practice that leads to its cessation … But what is ignorance?"
+    },
+    {
+     "n": 132,
+     "text": "What is its origin, its cessation, and the practice that leads to its cessation?"
+    },
+    {
+     "n": 133,
+     "text": "Not knowing about suffering, the origin of suffering, the cessation of suffering, and the practice that leads to the cessation of suffering. This is called ignorance. Ignorance originates from defilement."
+    },
+    {
+     "n": 134,
+     "text": "Ignorance ceases when defilement ceases."
+    },
+    {
+     "n": 135,
+     "text": "The practice that leads to the cessation of ignorance is simply this noble eightfold path …”"
+    },
+    {
+     "n": 136,
+     "text": "Saying “Good, reverend,” those mendicants approved and agreed with what Sāriputta said. Then they asked another question:"
+    },
+    {
+     "n": 137,
+     "text": "“But reverend, might there be another way to describe a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching?”"
+    },
+    {
+     "n": 138,
+     "text": "“There might, reverends. A noble disciple understands defilement, its origin, its cessation, and the practice that leads to its cessation."
+    },
+    {
+     "n": 139,
+     "text": "When they’ve done this, they’re defined as a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching."
+    },
+    {
+     "n": 140,
+     "text": "But what is defilement? What is its origin, its cessation, and the practice that leads to its cessation? There are these three defilements."
+    },
+    {
+     "n": 141,
+     "text": "The defilements of sensuality, desire to be reborn, and ignorance. Defilement originates from ignorance."
+    },
+    {
+     "n": 142,
+     "text": "Defilement ceases when ignorance ceases."
+    },
+    {
+     "n": 143,
+     "text": "The practice that leads to the cessation of defilement is simply this noble eightfold path, that is:"
+    },
+    {
+     "n": 144,
+     "text": "right view, right purpose, right speech, right action, right livelihood, right effort, right mindfulness, and right immersion."
+    },
+    {
+     "n": 145,
+     "text": "A noble disciple understands in this way defilement, its origin, its cessation, and the practice that leads to its cessation."
+    },
+    {
+     "n": 146,
+     "text": "They’ve completely given up the underlying tendency to greed, dispelled the underlying tendency to aversion, and eradicated the underlying tendency to the view and conceit ‘I am’."
+    },
+    {
+     "n": 147,
+     "text": "They’ve given up ignorance and given rise to knowledge, and make an end of suffering in this very life."
+    },
+    {
+     "n": 148,
+     "text": "When they’ve done this, they’re defined as a noble disciple who has right view, whose view is correct, who has experiential confidence in the teaching, and has come to the true teaching.”"
+    },
+    {
+     "n": 149,
+     "text": "That is what Venerable Sāriputta said. Satisfied, the mendicants approved what Sāriputta said."
+    }
+   ]
+  }
+ ]
+}

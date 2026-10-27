@@ -1,0 +1,594 @@
+{
+ "id": "phap-cu-tu-nga",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ",
+ "reference": "Dhp 157-166",
+ "summary": "Phẩm kệ trong Kinh Pháp Cú (Tiểu Bộ, Dhp 157–166) bàn về tự ngã, tức việc nương tựa và rèn luyện chính mình. Kệ nhắc người biết yêu mình thì phải khéo giữ gìn mình, nên tự đặt mình vào điều thích đáng trước rồi mới dạy người, và rằng khó nhất là tự điều phục. Phẩm nhấn mạnh tự mình y chỉ nơi mình, đồng thời không quên việc tu tập lợi mình.",
+ "titles": {
+  "vi": "Kinh Pháp Cú - Phẩm Tự Ngã",
+  "pli": "Attavagga",
+  "en": "The Self"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Thích Minh Châu (Hòa thượng Thích Minh Châu; SuttaCentral digital edition by phantuananh, 2021)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp157-166/phantuananh?lang=vi",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub43)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nếu biết yêu tự ngã,"
+    },
+    {
+     "n": 2,
+     "text": "Phải khéo bảo vệ mình,"
+    },
+    {
+     "n": 3,
+     "text": "Người trí trong ba canh,"
+    },
+    {
+     "n": 4,
+     "text": "Phải luôn tỉnh thức."
+    },
+    {
+     "n": 5,
+     "text": "Trước hết tự đặt mình,"
+    },
+    {
+     "n": 6,
+     "text": "Vào những gì thích đáng."
+    },
+    {
+     "n": 7,
+     "text": "Sau mới giáo hóa người,"
+    },
+    {
+     "n": 8,
+     "text": "Người trí khỏi bị nhiễm."
+    },
+    {
+     "n": 9,
+     "text": "Hãy tự làm cho mình,"
+    },
+    {
+     "n": 10,
+     "text": "Như điều mình dạy người."
+    },
+    {
+     "n": 11,
+     "text": "Khéo tự điều, điều người,"
+    },
+    {
+     "n": 12,
+     "text": "Khó thay tự điều phục!"
+    },
+    {
+     "n": 13,
+     "text": "Tự mình y chỉ mình,"
+    },
+    {
+     "n": 14,
+     "text": "Nào có y chỉ khác."
+    },
+    {
+     "n": 15,
+     "text": "Nhờ khéo điều phục mình,"
+    },
+    {
+     "n": 16,
+     "text": "Được y chỉ khó được."
+    },
+    {
+     "n": 17,
+     "text": "Điều ác mình tự làm,"
+    },
+    {
+     "n": 18,
+     "text": "Tự mình sanh, mình tạo."
+    },
+    {
+     "n": 19,
+     "text": "Nghiền nát kẻ ngu si,"
+    },
+    {
+     "n": 20,
+     "text": "Như kim cương, ngọc báu."
+    },
+    {
+     "n": 21,
+     "text": "Phá giới quá trầm trọng,"
+    },
+    {
+     "n": 22,
+     "text": "Như dây leo bám cây"
+    },
+    {
+     "n": 23,
+     "text": "Gieo hại cho tự thân,"
+    },
+    {
+     "n": 24,
+     "text": "Như kẻ thù mong ước."
+    },
+    {
+     "n": 25,
+     "text": "Dễ làm các điều ác,"
+    },
+    {
+     "n": 26,
+     "text": "Dễ làm tự hại mình."
+    },
+    {
+     "n": 27,
+     "text": "Còn việc lành, việc tốt,"
+    },
+    {
+     "n": 28,
+     "text": "Thật tối thượng khó làm."
+    },
+    {
+     "n": 29,
+     "text": "Kẻ ngu si miệt thị,"
+    },
+    {
+     "n": 30,
+     "text": "Giáo pháp bậc La-hán,"
+    },
+    {
+     "n": 31,
+     "text": "Bậc Thánh, bậc chánh mạng."
+    },
+    {
+     "n": 32,
+     "text": "Chính do ác kiến này,"
+    },
+    {
+     "n": 33,
+     "text": "Như quả loại cây lau"
+    },
+    {
+     "n": 34,
+     "text": "Mang quả tự hoại diệt."
+    },
+    {
+     "n": 35,
+     "text": "Tự mình, điều ác làm"
+    },
+    {
+     "n": 36,
+     "text": "Tự mình làm nhiễm ô,"
+    },
+    {
+     "n": 37,
+     "text": "Tự mình, ác không làm,"
+    },
+    {
+     "n": 38,
+     "text": "Tự mình làm thanh tịnh."
+    },
+    {
+     "n": 39,
+     "text": "Tịnh, không tịnh tự mình,"
+    },
+    {
+     "n": 40,
+     "text": "Không ai thanh tịnh ai!"
+    },
+    {
+     "n": 41,
+     "text": "Dầu lợi người bao nhiêu,"
+    },
+    {
+     "n": 42,
+     "text": "Chớ quên phần tư lợi,"
+    },
+    {
+     "n": 43,
+     "text": "Nhờ thắng trí tư lợi."
+    },
+    {
+     "n": 44,
+     "text": "Hãy chuyên tâm lợi mình."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp157-166/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Attānañce piyaṁ jaññā,"
+    },
+    {
+     "n": 2,
+     "text": "rakkheyya naṁ surakkhitaṁ;"
+    },
+    {
+     "n": 3,
+     "text": "Tiṇṇaṁ aññataraṁ yāmaṁ,"
+    },
+    {
+     "n": 4,
+     "text": "paṭijaggeyya paṇḍito."
+    },
+    {
+     "n": 5,
+     "text": "Attānameva paṭhamaṁ,"
+    },
+    {
+     "n": 6,
+     "text": "patirūpe nivesaye;"
+    },
+    {
+     "n": 7,
+     "text": "Athaññamanusāseyya,"
+    },
+    {
+     "n": 8,
+     "text": "na kilisseyya paṇḍito."
+    },
+    {
+     "n": 9,
+     "text": "Attānañce tathā kayirā,"
+    },
+    {
+     "n": 10,
+     "text": "yathāññamanusāsati;"
+    },
+    {
+     "n": 11,
+     "text": "Sudanto vata dametha,"
+    },
+    {
+     "n": 12,
+     "text": "attā hi kira duddamo."
+    },
+    {
+     "n": 13,
+     "text": "Attā hi attano nātho,"
+    },
+    {
+     "n": 14,
+     "text": "ko hi nātho paro siyā;"
+    },
+    {
+     "n": 15,
+     "text": "Attanā hi sudantena,"
+    },
+    {
+     "n": 16,
+     "text": "nāthaṁ labhati dullabhaṁ."
+    },
+    {
+     "n": 17,
+     "text": "Attanā hi kataṁ pāpaṁ,"
+    },
+    {
+     "n": 18,
+     "text": "Attajaṁ attasambhavaṁ;"
+    },
+    {
+     "n": 19,
+     "text": "Abhimatthati dummedhaṁ,"
+    },
+    {
+     "n": 20,
+     "text": "Vajiraṁvasmamayaṁ maṇiṁ."
+    },
+    {
+     "n": 21,
+     "text": "Yassa accantadussilyaṁ,"
+    },
+    {
+     "n": 22,
+     "text": "māluvā sālamivotthataṁ;"
+    },
+    {
+     "n": 23,
+     "text": "Karoti so tathattānaṁ,"
+    },
+    {
+     "n": 24,
+     "text": "yathā naṁ icchatī diso."
+    },
+    {
+     "n": 25,
+     "text": "Sukarāni asādhūni,"
+    },
+    {
+     "n": 26,
+     "text": "attano ahitāni ca;"
+    },
+    {
+     "n": 27,
+     "text": "Yaṁ ve hitañca sādhuñca,"
+    },
+    {
+     "n": 28,
+     "text": "taṁ ve paramadukkaraṁ."
+    },
+    {
+     "n": 29,
+     "text": "Yo sāsanaṁ arahataṁ,"
+    },
+    {
+     "n": 30,
+     "text": "ariyānaṁ dhammajīvinaṁ;"
+    },
+    {
+     "n": 31,
+     "text": "Paṭikkosati dummedho,"
+    },
+    {
+     "n": 32,
+     "text": "diṭṭhiṁ nissāya pāpikaṁ;"
+    },
+    {
+     "n": 33,
+     "text": "Phalāni kaṭṭhakasseva,"
+    },
+    {
+     "n": 34,
+     "text": "attaghātāya phallati."
+    },
+    {
+     "n": 35,
+     "text": "Attanā hi kataṁ pāpaṁ,"
+    },
+    {
+     "n": 36,
+     "text": "attanā saṅkilissati;"
+    },
+    {
+     "n": 37,
+     "text": "Attanā akataṁ pāpaṁ,"
+    },
+    {
+     "n": 38,
+     "text": "attanāva visujjhati;"
+    },
+    {
+     "n": 39,
+     "text": "Suddhī asuddhi paccattaṁ,"
+    },
+    {
+     "n": 40,
+     "text": "nāñño aññaṁ visodhaye."
+    },
+    {
+     "n": 41,
+     "text": "Attadatthaṁ paratthena,"
+    },
+    {
+     "n": 42,
+     "text": "bahunāpi na hāpaye;"
+    },
+    {
+     "n": 43,
+     "text": "Attadatthamabhiññāya,"
+    },
+    {
+     "n": 44,
+     "text": "sadatthapasuto siyā."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/dhp157-166/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "If you knew your self as beloved,"
+    },
+    {
+     "n": 2,
+     "text": "you’d look after it so well."
+    },
+    {
+     "n": 3,
+     "text": "In one of the night’s three watches,"
+    },
+    {
+     "n": 4,
+     "text": "an astute person would remain alert."
+    },
+    {
+     "n": 5,
+     "text": "The astute would avoid being corrupted"
+    },
+    {
+     "n": 6,
+     "text": "by first grounding themselves"
+    },
+    {
+     "n": 7,
+     "text": "in what is suitable,"
+    },
+    {
+     "n": 8,
+     "text": "and then instructing others."
+    },
+    {
+     "n": 9,
+     "text": "If one were to treat oneself"
+    },
+    {
+     "n": 10,
+     "text": "as one instructs another,"
+    },
+    {
+     "n": 11,
+     "text": "the well-tamed indeed would tame:"
+    },
+    {
+     "n": 12,
+     "text": "for the self, it seems, is hard to tame."
+    },
+    {
+     "n": 13,
+     "text": "One is indeed the lord of oneself,"
+    },
+    {
+     "n": 14,
+     "text": "for who else would be one’s lord?"
+    },
+    {
+     "n": 15,
+     "text": "By means of a well-tamed self,"
+    },
+    {
+     "n": 16,
+     "text": "one gains a lord that’s rare indeed."
+    },
+    {
+     "n": 17,
+     "text": "For the evil that is done by oneself,"
+    },
+    {
+     "n": 18,
+     "text": "born and produced in oneself,"
+    },
+    {
+     "n": 19,
+     "text": "grinds down a simpleton,"
+    },
+    {
+     "n": 20,
+     "text": "as diamond grinds a lesser gem."
+    },
+    {
+     "n": 21,
+     "text": "One choked by immorality,"
+    },
+    {
+     "n": 22,
+     "text": "as a sal tree by a creeper,"
+    },
+    {
+     "n": 23,
+     "text": "does to themselves"
+    },
+    {
+     "n": 24,
+     "text": "what a foe only wishes."
+    },
+    {
+     "n": 25,
+     "text": "It’s easy to do bad things"
+    },
+    {
+     "n": 26,
+     "text": "harmful to oneself,"
+    },
+    {
+     "n": 27,
+     "text": "but good things that are helpful"
+    },
+    {
+     "n": 28,
+     "text": "are the hardest things to do."
+    },
+    {
+     "n": 29,
+     "text": "On account of wicked views—"
+    },
+    {
+     "n": 30,
+     "text": "scorning the guidance"
+    },
+    {
+     "n": 31,
+     "text": "of the perfected ones,"
+    },
+    {
+     "n": 32,
+     "text": "the noble ones living righteously—"
+    },
+    {
+     "n": 33,
+     "text": "the idiot begets their own self’s demise,"
+    },
+    {
+     "n": 34,
+     "text": "like the bamboo bearing fruit."
+    },
+    {
+     "n": 35,
+     "text": "For it is by oneself that evil’s done,"
+    },
+    {
+     "n": 36,
+     "text": "one is corrupted by oneself."
+    },
+    {
+     "n": 37,
+     "text": "It’s by oneself that evil’s not done,"
+    },
+    {
+     "n": 38,
+     "text": "one is purified by oneself."
+    },
+    {
+     "n": 39,
+     "text": "Purity and impurity are personal matters,"
+    },
+    {
+     "n": 40,
+     "text": "no one can purify another."
+    },
+    {
+     "n": 41,
+     "text": "Never neglect what is good for yourself"
+    },
+    {
+     "n": 42,
+     "text": "for the sake of another, however great."
+    },
+    {
+     "n": 43,
+     "text": "Knowing well what is good for yourself,"
+    },
+    {
+     "n": 44,
+     "text": "be intent upon your heart’s goal."
+    }
+   ]
+  }
+ ]
+}

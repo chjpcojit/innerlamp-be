@@ -1,0 +1,601 @@
+{
+ "id": "kinh-dhajagga-dau-la-co",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Tương Ưng Bộ",
+ "reference": "SN 11.3",
+ "summary": "Bài kinh trong Tương Ưng Bộ, tại Jetavana, Sāvatthi. Đức Phật kể chuyện xưa, trong cuộc chiến giữa chư Thiên và A-tu-la, Thiên chủ Sakka dặn chư Thiên nhìn lên ngọn cờ để bớt sợ hãi. Ngài nói với các Tỷ-kheo rằng khi sợ hãi, hãy tư niệm đến Phật, Pháp, Tăng, và phần kệ nêu ba ngôi báu ấy.",
+ "titles": {
+  "vi": "Kinh Đầu Lá Cờ (Dhajagga)",
+  "pli": "Dhajaggasutta",
+  "en": "The Banner’s Crest"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/sn11.3/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Bộ kinh đã được Hòa thượng Thích Minh Châu dịch sang Việt ngữ và Thiền viện Vạn Hạnh phát hành trong đầu thập niên 1980. Sau đó, trong chương trình phiên dịch và ấn hành Đại tạng kinh Việt Nam, bộ kinh được tái bản năm 1993 và có số thứ tự từ 12 đến 16.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Thế Tôn trú ở Sāvatthi, Jetavana, tại vườn ông Anāthapiṇḍika."
+    },
+    {
+     "n": 2,
+     "text": "Rồi Thế Tôn gọi các Tỷ-kheo: ” —Này các Tỷ-kheo.” ” —Thưa vâng, bạch Thế Tôn.” Các Tỷ-kheo ấy vâng đáp Thế Tôn."
+    },
+    {
+     "n": 3,
+     "text": "Thế Tôn nói như sau:"
+    },
+    {
+     "n": 4,
+     "text": "—Thuở xưa, này các Tỷ-kheo, một cuộc chiến dữ dội khởi lên giữa chư Thiên và các Asùra."
+    },
+    {
+     "n": 5,
+     "text": "Rồi này các Tỷ-kheo, Thiên chủ Sakka gọi chư Thiên ở Tam thập tam thiên:"
+    },
+    {
+     "n": 6,
+     "text": "“ —Này thân hữu, khi các Ông lâm chiến, nếu sợ hãi, hoảng hốt hay lông tóc dựng ngược có khởi lên; lúc ấy, các Ông hãy nhìn nơi đầu ngọn cờ của ta."
+    },
+    {
+     "n": 7,
+     "text": "Khi các Ông nhìn lên đầu ngọn cờ của ta, thời sợ hãi, hoảng hốt hay lông tóc dựng ngược sẽ tiêu diệt."
+    },
+    {
+     "n": 8,
+     "text": "Nếu các Ông không ngó lên đầu ngọn cờ của ta, thời hãy ngó lên đầu ngọn cờ của Thiên vương Pajāpati."
+    },
+    {
+     "n": 9,
+     "text": "Khi các Ông ngó lên đầu ngọn cờ của Thiên vương Pajāpati, thời sợ hãi, hoảng hốt hay lông tóc dựng ngược có khởi lên, cũng sẽ tiêu diệt."
+    },
+    {
+     "n": 10,
+     "text": "Nếu các Ông không ngó lên đầu ngọn cờ của Thiên vương Pajāpati, hãy ngó lên đầu ngọn cờ của Thiên vương Varuṇa."
+    },
+    {
+     "n": 11,
+     "text": "Khi các Ông ngó lên đầu ngọn cờ của Thiên vương Varuṇa, thời sợ hãi, hoảng hốt hay lông tóc dựng ngược có khởi lên cũng sẽ tiêu diệt."
+    },
+    {
+     "n": 12,
+     "text": "Nếu các Ông không ngó lên đầu ngọn cờ của Thiên vương Varuṇa, hãy ngó lên đầu ngọn cờ của Thiên vương Īsāna."
+    },
+    {
+     "n": 13,
+     "text": "Khi các Ông ngó lên đầu ngọn cờ của Thiên vương Īsāna, thời sợ hãi, hoảng hốt hay lông tóc dựng ngược có khởi lên, cũng sẽ tiêu diệt.”"
+    },
+    {
+     "n": 14,
+     "text": "Này các Tỷ-kheo, khi họ nhìn lên đầu ngọn cờ của Thiên chủ Sakka, hay khi họ nhìn lên đầu ngọn cờ của Thiên vương Pajāpati, hay khi họ nhìn lên đầu ngọn cờ của Thiên vương Varuṇa,"
+    },
+    {
+     "n": 15,
+     "text": "hay khi họ nhìn lên đầu ngọn cờ của Thiên vương Īsāna, thời sợ hãi, hoảng hốt hay lông tóc dựng ngược được khởi lên, có thể sẽ biến diệt và sẽ không biến diệt."
+    },
+    {
+     "n": 16,
+     "text": "Vì cớ sao? Này các Tỷ-kheo, vì Thiên chủ Sakka chưa đoạn diệt tham, chưa đoạn diệt sân, chưa đoạn diệt si, còn nhát gan, hoảng hốt, hoảng sợ, hoảng chạy."
+    },
+    {
+     "n": 17,
+     "text": "Và này các Tỷ-kheo, Ta nói như sau: Này các Tỷ-kheo, khi các Ông đi vào rừng, đi đến gốc cây hay đi đến nhà trống, nếu run sợ, hoảng hốt, hay lông tóc dựng ngược có khởi lên, trong khi ấy hãy niệm nhớ đến Ta:"
+    },
+    {
+     "n": 18,
+     "text": "“Ngài là Thế Tôn, Ứng Cúng, Chánh Biến Tri, Minh Hạnh Túc, Thiện Thệ, Thế Gian Giải, Vô Thượng Sĩ, Điều Ngự Trượng Phu, Thiên Nhơn Sư, Phật, Thế Tôn”."
+    },
+    {
+     "n": 19,
+     "text": "Này các Tỷ-kheo, khi các Ông niệm nhớ đến Ta, thời sợ hãi, hoảng hốt hay lông tóc dựng ngược có khởi lên, sẽ được tiêu diệt."
+    },
+    {
+     "n": 20,
+     "text": "Nếu các Ông không niệm nhớ đến Ta, hãy niệm nhớ đến Pháp: “Đây là Pháp do Thế Tôn khéo thuyết, thiết thực hiện tại, có quả tức thời, đến để mà thấy, có khả năng hướng thượng, do người trí tự mình giác hiểu.”"
+    },
+    {
+     "n": 21,
+     "text": "Này các Tỷ-kheo, khi các Ông niệm nhớ đến Pháp, thời sợ hãi, hoảng hốt hay lông tóc dựng ngược có khởi lên sẽ tiêu diệt."
+    },
+    {
+     "n": 22,
+     "text": "Nếu các Ông không niệm nhớ đến Pháp, hãy niệm nhớ đến chúng Tăng: “Chúng Tăng đệ tử Thế Tôn là bậc Thiện hạnh; chúng Tăng đệ tử Thế Tôn là bậc Trực hạnh; chúng Tăng đệ tử Thế Tôn là bậc Chánh hạnh;"
+    },
+    {
+     "n": 23,
+     "text": "chúng Tăng đệ tử Thế Tôn là bậc Như pháp hạnh, tức là bốn đôi, tám chúng."
+    },
+    {
+     "n": 24,
+     "text": "Chúng Tăng đệ tử này của Thế Tôn đáng được cúng dường, đáng được hiến dâng, đáng được bố thí, đáng được chấp tay, là vô thượng phước điền ở trên đời.”"
+    },
+    {
+     "n": 25,
+     "text": "Này các Tỷ-kheo, khi các Ông niệm nhớ đến chúng Tăng, thời sợ hãi, hoảng hốt, hay lông tóc dựng ngược có khởi lên sẽ tiêu diệt."
+    },
+    {
+     "n": 26,
+     "text": "Vì sao? Này các Tỷ-kheo, Như Lai, bậc Ứng Cúng, Chánh Biến Tri đã ly tham, ly sân, ly si, không nhát gan, không hoảng hốt, không hoảng sợ, không hoảng chạy."
+    },
+    {
+     "n": 27,
+     "text": "Thế Tôn nói như vậy, Thiện Thệ nói vậy xong, bậc Đạo Sư nói tiếp:"
+    },
+    {
+     "n": 28,
+     "text": "Này các vị Tỷ-kheo,"
+    },
+    {
+     "n": 29,
+     "text": "Trong rừng hay gốc cây,"
+    },
+    {
+     "n": 30,
+     "text": "Hay tại căn nhà trống,"
+    },
+    {
+     "n": 31,
+     "text": "Hãy niệm bậc Chánh Giác."
+    },
+    {
+     "n": 32,
+     "text": "Các Ông có sợ hãi,"
+    },
+    {
+     "n": 33,
+     "text": "Sợ hãi sẽ tiêu diệt."
+    },
+    {
+     "n": 34,
+     "text": "Nếu không tư niệm Phật,"
+    },
+    {
+     "n": 35,
+     "text": "Tối thượng chủ ở đời,"
+    },
+    {
+     "n": 36,
+     "text": "Và cũng là Ngưu vương,"
+    },
+    {
+     "n": 37,
+     "text": "Trong thế giới loài Người,"
+    },
+    {
+     "n": 38,
+     "text": "Vậy hãy tư niệm Pháp,"
+    },
+    {
+     "n": 39,
+     "text": "Hướng thượng, khéo tuyên thuyết."
+    },
+    {
+     "n": 40,
+     "text": "Nếu không tư niệm Pháp,"
+    },
+    {
+     "n": 41,
+     "text": "Hướng thượng, khéo tuyên thuyết,"
+    },
+    {
+     "n": 42,
+     "text": "Vậy hãy tư niệm Tăng,"
+    },
+    {
+     "n": 43,
+     "text": "Là phước điền vô thượng."
+    },
+    {
+     "n": 44,
+     "text": "Vậy này các Tỷ-kheo,"
+    },
+    {
+     "n": 45,
+     "text": "Như vậy tư niệm Phật,"
+    },
+    {
+     "n": 46,
+     "text": "Tư niệm Pháp và Tăng,"
+    },
+    {
+     "n": 47,
+     "text": "Sợ hãi hay hoảng hốt,"
+    },
+    {
+     "n": 48,
+     "text": "Hay lông tóc dựng ngược,"
+    },
+    {
+     "n": 49,
+     "text": "Không bao giờ khởi lên."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn11.3/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Sāvatthiyaṁ."
+    },
+    {
+     "n": 2,
+     "text": "Tatra kho bhagavā bhikkhū āmantesi: “bhikkhavo”ti."
+    },
+    {
+     "n": 3,
+     "text": "“Bhadante”ti te bhikkhū bhagavato paccassosuṁ. Bhagavā etadavoca:"
+    },
+    {
+     "n": 4,
+     "text": "“Bhūtapubbaṁ, bhikkhave, devāsurasaṅgāmo samupabyūḷho ahosi."
+    },
+    {
+     "n": 5,
+     "text": "Atha kho, bhikkhave, sakko devānamindo deve tāvatiṁse āmantesi:"
+    },
+    {
+     "n": 6,
+     "text": "‘Sace, mārisā, devānaṁ saṅgāmagatānaṁ uppajjeyya bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, mameva tasmiṁ samaye dhajaggaṁ ullokeyyātha."
+    },
+    {
+     "n": 7,
+     "text": "Mamañhi vo dhajaggaṁ ullokayataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, so pahīyissati."
+    },
+    {
+     "n": 8,
+     "text": "No ce me dhajaggaṁ ullokeyyātha, atha pajāpatissa devarājassa dhajaggaṁ ullokeyyātha."
+    },
+    {
+     "n": 9,
+     "text": "Pajāpatissa hi vo devarājassa dhajaggaṁ ullokayataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, so pahīyissati."
+    },
+    {
+     "n": 10,
+     "text": "No ce pajāpatissa devarājassa dhajaggaṁ ullokeyyātha, atha varuṇassa devarājassa dhajaggaṁ ullokeyyātha."
+    },
+    {
+     "n": 11,
+     "text": "Varuṇassa hi vo devarājassa dhajaggaṁ ullokayataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, so pahīyissati."
+    },
+    {
+     "n": 12,
+     "text": "No ce varuṇassa devarājassa dhajaggaṁ ullokeyyātha, atha īsānassa devarājassa dhajaggaṁ ullokeyyātha. Īsānassa hi vo devarājassa dhajaggaṁ ullokayataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā,"
+    },
+    {
+     "n": 13,
+     "text": "so pahīyissatī’ti."
+    },
+    {
+     "n": 14,
+     "text": "Taṁ kho pana, bhikkhave, sakkassa vā devānamindassa dhajaggaṁ ullokayataṁ, pajāpatissa vā devarājassa dhajaggaṁ ullokayataṁ, varuṇassa vā devarājassa dhajaggaṁ ullokayataṁ,"
+    },
+    {
+     "n": 15,
+     "text": "īsānassa vā devarājassa dhajaggaṁ ullokayataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, so pahīyethāpi nopi pahīyetha."
+    },
+    {
+     "n": 16,
+     "text": "Taṁ kissa hetu? Sakko hi, bhikkhave, devānamindo avītarāgo avītadoso avītamoho bhīru chambhī utrāsī palāyīti."
+    },
+    {
+     "n": 17,
+     "text": "Ahañca kho, bhikkhave, evaṁ vadāmi: ‘sace tumhākaṁ, bhikkhave, araññagatānaṁ vā rukkhamūlagatānaṁ vā suññāgāragatānaṁ vā uppajjeyya bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, mameva tasmiṁ samaye anussareyyātha:"
+    },
+    {
+     "n": 18,
+     "text": "“itipi so bhagavā arahaṁ sammāsambuddho vijjācaraṇasampanno sugato lokavidū anuttaro purisadammasārathi satthā devamanussānaṁ buddho bhagavā”ti."
+    },
+    {
+     "n": 19,
+     "text": "Mamañhi vo, bhikkhave, anussarataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, so pahīyissati."
+    },
+    {
+     "n": 20,
+     "text": "No ce maṁ anussareyyātha, atha dhammaṁ anussareyyātha: “svākkhāto bhagavatā dhammo sandiṭṭhiko akāliko ehipassiko opaneyyiko paccattaṁ veditabbo viññūhī”ti."
+    },
+    {
+     "n": 21,
+     "text": "Dhammañhi vo, bhikkhave, anussarataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, so pahīyissati."
+    },
+    {
+     "n": 22,
+     "text": "No ce dhammaṁ anussareyyātha, atha saṅghaṁ anussareyyātha:"
+    },
+    {
+     "n": 23,
+     "text": "“suppaṭipanno bhagavato sāvakasaṅgho ujuppaṭipanno bhagavato sāvakasaṅgho ñāyappaṭipanno bhagavato sāvakasaṅgho sāmīcippaṭipanno bhagavato sāvakasaṅgho,"
+    },
+    {
+     "n": 24,
+     "text": "yadidaṁ cattāri purisayugāni aṭṭha purisapuggalā esa bhagavato sāvakasaṅgho, āhuneyyo pāhuneyyo dakkhiṇeyyo añjalikaraṇīyo anuttaraṁ puññakkhettaṁ lokassā”ti."
+    },
+    {
+     "n": 25,
+     "text": "Saṅghañhi vo, bhikkhave, anussarataṁ yaṁ bhavissati bhayaṁ vā chambhitattaṁ vā lomahaṁso vā, so pahīyissati."
+    },
+    {
+     "n": 26,
+     "text": "Taṁ kissa hetu? Tathāgato hi, bhikkhave, arahaṁ sammāsambuddho vītarāgo vītadoso vītamoho abhīru acchambhī anutrāsī apalāyī’”ti."
+    },
+    {
+     "n": 27,
+     "text": "Idamavoca bhagavā. Idaṁ vatvāna sugato athāparaṁ etadavoca satthā:"
+    },
+    {
+     "n": 28,
+     "text": "“Araññe rukkhamūle vā,"
+    },
+    {
+     "n": 29,
+     "text": "suññāgāreva bhikkhavo;"
+    },
+    {
+     "n": 30,
+     "text": "Anussaretha sambuddhaṁ,"
+    },
+    {
+     "n": 31,
+     "text": "bhayaṁ tumhāka no siyā."
+    },
+    {
+     "n": 32,
+     "text": "No ce buddhaṁ sareyyātha,"
+    },
+    {
+     "n": 33,
+     "text": "lokajeṭṭhaṁ narāsabhaṁ;"
+    },
+    {
+     "n": 34,
+     "text": "Atha dhammaṁ sareyyātha,"
+    },
+    {
+     "n": 35,
+     "text": "niyyānikaṁ sudesitaṁ."
+    },
+    {
+     "n": 36,
+     "text": "No ce dhammaṁ sareyyātha,"
+    },
+    {
+     "n": 37,
+     "text": "niyyānikaṁ sudesitaṁ;"
+    },
+    {
+     "n": 38,
+     "text": "Atha saṅghaṁ sareyyātha,"
+    },
+    {
+     "n": 39,
+     "text": "puññakkhettaṁ anuttaraṁ."
+    },
+    {
+     "n": 40,
+     "text": "Evaṁ buddhaṁ sarantānaṁ,"
+    },
+    {
+     "n": 41,
+     "text": "Dhammaṁ saṅghañca bhikkhavo;"
+    },
+    {
+     "n": 42,
+     "text": "Bhayaṁ vā chambhitattaṁ vā,"
+    },
+    {
+     "n": 43,
+     "text": "Lomahaṁso na hessatī”ti."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/sn11.3/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "At Sāvatthī."
+    },
+    {
+     "n": 2,
+     "text": "There the Buddha addressed the mendicants, “Mendicants!”"
+    },
+    {
+     "n": 3,
+     "text": "“Venerable sir,” they replied. The Buddha said this:"
+    },
+    {
+     "n": 4,
+     "text": "“Once upon a time, mendicants, a battle was fought between the gods and the titans."
+    },
+    {
+     "n": 5,
+     "text": "Then Sakka, lord of gods, addressed the gods of the thirty-three:"
+    },
+    {
+     "n": 6,
+     "text": "‘Good fellows, when the gods are fighting, if you get scared or terrified, just look up at my banner’s crest. Then your fear and terror will go away."
+    },
+    {
+     "n": 7,
+     "text": "If you can’t see my banner’s crest, then look up at the banner’s crest of the Progenitor, king of gods. Then your fear and terror will go away."
+    },
+    {
+     "n": 8,
+     "text": "If you can’t see his banner’s crest, then look up at the banner’s crest of Varuṇa, king of gods. Then your fear and terror will go away."
+    },
+    {
+     "n": 9,
+     "text": "If you can’t see his banner’s crest, then look up at the banner’s crest of Īsāna, king of gods."
+    },
+    {
+     "n": 10,
+     "text": "Then your fear and terror will go away.’"
+    },
+    {
+     "n": 11,
+     "text": "However, when they look up at those banner’s crests their fear and terror might go away or it might not."
+    },
+    {
+     "n": 12,
+     "text": "Why is that? Because Sakka is not free of greed, hate, and delusion."
+    },
+    {
+     "n": 13,
+     "text": "He is fearful, scared, nervous, quick to flee."
+    },
+    {
+     "n": 14,
+     "text": "But, mendicants, I say this: If you’ve gone to a wilderness, or to the root of a tree, or to an empty hut and you get scared or terrified, just recollect me:"
+    },
+    {
+     "n": 15,
+     "text": "‘That Blessed One is perfected, a fully awakened Buddha, accomplished in knowledge and conduct, holy, knower of the world, supreme guide for those fit for training, teacher of gods and humans, awakened, blessed.’"
+    },
+    {
+     "n": 16,
+     "text": "Then your fear and terror will go away."
+    },
+    {
+     "n": 17,
+     "text": "If you can’t recollect me, then recollect the teaching:"
+    },
+    {
+     "n": 18,
+     "text": "‘The teaching is well explained by the Buddha—apparent in the present life, immediately effective, inviting inspection, relevant, so that sensible people can know it for themselves.’"
+    },
+    {
+     "n": 19,
+     "text": "Then your fear and terror will go away."
+    },
+    {
+     "n": 20,
+     "text": "If you can’t recollect the teaching, then recollect the Saṅgha: ‘The Saṅgha of the Buddha’s disciples is practicing the way that’s good, direct, systematic, and proper."
+    },
+    {
+     "n": 21,
+     "text": "It consists of the four pairs, the eight individual persons."
+    },
+    {
+     "n": 22,
+     "text": "This is the Saṅgha of the Buddha’s disciples that is worthy of offerings dedicated to the gods, worthy of hospitality, worthy of a religious donation, worthy of greeting with cupped palms,"
+    },
+    {
+     "n": 23,
+     "text": "and is the supreme field of merit for the world.’ Then your fear and terror will go away."
+    },
+    {
+     "n": 24,
+     "text": "Why is that? Because the Realized One is free of greed, hate, and delusion."
+    },
+    {
+     "n": 25,
+     "text": "He is fearless, brave, bold, and stands his ground.”"
+    },
+    {
+     "n": 26,
+     "text": "That is what the Buddha said. Then the Holy One, the Teacher, went on to say:"
+    },
+    {
+     "n": 27,
+     "text": "“In the wilderness, at a tree’s root,"
+    },
+    {
+     "n": 28,
+     "text": "or an empty hut, O mendicants,"
+    },
+    {
+     "n": 29,
+     "text": "recollect the Buddha,"
+    },
+    {
+     "n": 30,
+     "text": "and no fear will come to you."
+    },
+    {
+     "n": 31,
+     "text": "If you can’t recollect the Buddha—"
+    },
+    {
+     "n": 32,
+     "text": "the eldest in the world, the captain of men—"
+    },
+    {
+     "n": 33,
+     "text": "then recollect the teaching,"
+    },
+    {
+     "n": 34,
+     "text": "emancipating, well taught."
+    },
+    {
+     "n": 35,
+     "text": "If you can’t recollect the teaching—"
+    },
+    {
+     "n": 36,
+     "text": "emancipating, well taught—"
+    },
+    {
+     "n": 37,
+     "text": "then recollect the Saṅgha,"
+    },
+    {
+     "n": 38,
+     "text": "the supreme field of merit."
+    },
+    {
+     "n": 39,
+     "text": "Thus recollecting the Buddha,"
+    },
+    {
+     "n": 40,
+     "text": "the teaching, and the Saṅgha, mendicants,"
+    },
+    {
+     "n": 41,
+     "text": "fear and terror"
+    },
+    {
+     "n": 42,
+     "text": "and goosebumps will be no more.”"
+    }
+   ]
+  }
+ ]
+}

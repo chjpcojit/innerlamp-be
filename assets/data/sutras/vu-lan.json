@@ -1,0 +1,615 @@
+{
+ "id": "vu-lan",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Hiếu hạnh",
+ "reference": "Taishō T0685",
+ "originalTitle": "Kinh Vu Lan Bồn (Ullambana Sutra)",
+ "referenceNote": "Bản dịch thể thơ song thất lục bát",
+ "summary": "Kinh Đại thừa (Taishō 685) về lòng hiếu thảo, được dịch sang Việt theo thể thơ song thất lục bát. Kinh kể ngài Mục-kiền-liên sau khi đắc lục thông, dùng huệ nhãn thấy mẹ đã mất sinh làm ngạ quỷ và tìm cách cứu mẹ. Đức Phật chỉ dạy việc cúng dường chư Tăng sau mùa an cư; đây là nguồn gốc của lễ Vu Lan báo hiếu cha mẹ.",
+ "titles": {
+  "vi": "Kinh Vu Lan Bồn",
+  "zh": "佛說盂蘭盆經",
+  "sa": "Ullambana Sūtra",
+  "en": "Ullambana Sutra"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "BAO_HIEU",
+  "CAU_SIEU"
+ ],
+ "durationMinutes": 15,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "translator": "unknown (not stated on page; song thất lục bát verse version)",
+   "sourceName": "BuddhaSasana (budsas.org) - Kinh Vu Lan Bồn",
+   "sourceUrl": "https://www.budsas.org/uni/u-kinh-bt-ngan/vulan.htm",
+   "license": "UNKNOWN",
+   "licenseNote": "no copyright/license statement on page",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Ta từng nghe lời tạc như vầy:"
+    },
+    {
+     "n": 2,
+     "text": "Một thuở nọ Thế-tôn an-trụ"
+    },
+    {
+     "n": 3,
+     "text": "Xá-vệ thành Kỳ-thụ viên trung,"
+    },
+    {
+     "n": 4,
+     "text": "Mục-liên mới đặng lục-thông,"
+    },
+    {
+     "n": 5,
+     "text": "Muốn cho cha mẹ khỏi vòng trầm-luân."
+    },
+    {
+     "n": 6,
+     "text": "Công dưỡng-dục thâm-ân dốc trả,"
+    },
+    {
+     "n": 7,
+     "text": "Nghĩa sanh thành đạo cả mong đền,"
+    },
+    {
+     "n": 8,
+     "text": "Làm con hiếu-hạnh vi tiên,"
+    },
+    {
+     "n": 9,
+     "text": "Bèn dùng huệ-nhãn dưới trên kiếm tầm."
+    },
+    {
+     "n": 10,
+     "text": "Thấy vong-mẫu sanh làm ngạ-quỷ,"
+    },
+    {
+     "n": 11,
+     "text": "Không uống ăn tiều-tụy hình-hài."
+    },
+    {
+     "n": 12,
+     "text": "Mục-liên thấy vậy bi-ai,"
+    },
+    {
+     "n": 13,
+     "text": "Biết mẹ đói khát ai-hoài tình thâm."
+    },
+    {
+     "n": 14,
+     "text": "Lo phẩm-vật đem dâng từ-mẫu,"
+    },
+    {
+     "n": 15,
+     "text": "Đặng đỡ lòng cực khổ bấy lâu."
+    },
+    {
+     "n": 16,
+     "text": "Thấy cơm mẹ rất lo âu,"
+    },
+    {
+     "n": 17,
+     "text": "Tay tả che đậy, hữu hầu bốc ăn."
+    },
+    {
+     "n": 18,
+     "text": "Lòng bỏn-xẻn tiền-căn chưa dứt,"
+    },
+    {
+     "n": 19,
+     "text": "Sợ chúng ma cướp dựt của bà."
+    },
+    {
+     "n": 20,
+     "text": "Cơm đưa chưa tới miệng đà,"
+    },
+    {
+     "n": 21,
+     "text": "Hóa thành than lửa nuốt mà đặng đâu."
+    },
+    {
+     "n": 22,
+     "text": "Thấy như vậy âu-sầu thê-thảm,"
+    },
+    {
+     "n": 23,
+     "text": "Mục-kiền-liên bi-cảm xót thương,"
+    },
+    {
+     "n": 24,
+     "text": "Mau mau về đến giảng-đường,"
+    },
+    {
+     "n": 25,
+     "text": "Bạch cùng sư-phụ tìm phương giải nàn."
+    },
+    {
+     "n": 26,
+     "text": "Phật mới bảo rõ ràng căn-cội,"
+    },
+    {
+     "n": 27,
+     "text": "Rằng mẹ ông gốc tội rất sâu."
+    },
+    {
+     "n": 28,
+     "text": "Dầu ông thần-lực nhiệm-mầu,"
+    },
+    {
+     "n": 29,
+     "text": "Một mình không thể ai cầu được đâu."
+    },
+    {
+     "n": 30,
+     "text": "Lòng hiếu-thảo của ông dầu lớn,"
+    },
+    {
+     "n": 31,
+     "text": "Tiếng vang đồn thấu đến cửu-thiên"
+    },
+    {
+     "n": 32,
+     "text": "Cùng là các bực Thần-kỳ"
+    },
+    {
+     "n": 33,
+     "text": "Tà, ma, ngoại-đạo, bốn vì Thiên-vương"
+    },
+    {
+     "n": 34,
+     "text": "Cộng ba cõi sáu phương tu-tập,"
+    },
+    {
+     "n": 35,
+     "text": "Cũng không phương cứu-tế mẹ ngươị"
+    },
+    {
+     "n": 36,
+     "text": "Muốn cho cứu đặng mạng người,"
+    },
+    {
+     "n": 37,
+     "text": "Phải nhờ thần-lực của mười phương Tăng."
+    },
+    {
+     "n": 38,
+     "text": "Pháp cứu-tế ta toan giải nói"
+    },
+    {
+     "n": 39,
+     "text": "Cho mọi người thoát khỏi ách-nàn"
+    },
+    {
+     "n": 40,
+     "text": "Bèn kêu Mục-thị đến gần,"
+    },
+    {
+     "n": 41,
+     "text": "Truyền cho diệu-pháp ân-cần thiết thi"
+    },
+    {
+     "n": 42,
+     "text": "Rằm tháng bảy là ngày Tự-tứ"
+    },
+    {
+     "n": 43,
+     "text": "Mười phương Tăng đều dự lễ này"
+    },
+    {
+     "n": 44,
+     "text": "Phải toan sắm sửa chớ chầy"
+    },
+    {
+     "n": 45,
+     "text": "Thức ăn trăm món trái cây năm màu"
+    },
+    {
+     "n": 46,
+     "text": "Lại phải sắm giường nằm nệm lót"
+    },
+    {
+     "n": 47,
+     "text": "Cùng thau, bồn, đèn đuốc, nhang, dầu,"
+    },
+    {
+     "n": 48,
+     "text": "Món ăn tinh-sạch báu mầu"
+    },
+    {
+     "n": 49,
+     "text": "Đựng trong bình-bát vọng-cầu kính dâng"
+    },
+    {
+     "n": 50,
+     "text": "Chư Đại-đức mười phương thọ-thực"
+    },
+    {
+     "n": 51,
+     "text": "Trong bảy đời sẽ đặng siêu thiên"
+    },
+    {
+     "n": 52,
+     "text": "Lại thêm cha mẹ hiện-tiền"
+    },
+    {
+     "n": 53,
+     "text": "Đặng nhờ phước-lực tiêu-khiên ách-nàn."
+    },
+    {
+     "n": 54,
+     "text": "Vì ngày ấy Thánh-tăng đều đủ"
+    },
+    {
+     "n": 55,
+     "text": "Dầu ở đâu cũng tụ-hội về."
+    },
+    {
+     "n": 56,
+     "text": "Như người Thiền-định sơn-khê"
+    },
+    {
+     "n": 57,
+     "text": "Tránh điều phiền-não chăm về thiền-na"
+    },
+    {
+     "n": 58,
+     "text": "Hoặc người đặng bốn tòa đạo quả"
+    },
+    {
+     "n": 59,
+     "text": "Công tu-hành nguyện thỏa vô-sanh"
+    },
+    {
+     "n": 60,
+     "text": "Hoặc người thọ hạ kinh-hành"
+    },
+    {
+     "n": 61,
+     "text": "Chẳng ham quyền-quý ẩn-danh lâm-tòng"
+    },
+    {
+     "n": 62,
+     "text": "Hoặc người đặng lục-thông tấn-phát"
+    },
+    {
+     "n": 63,
+     "text": "Và những hàng Duyên-giác, Thanh-văn"
+    },
+    {
+     "n": 64,
+     "text": "Hoặc chư Bồ-tát mười phương"
+    },
+    {
+     "n": 65,
+     "text": "Hiện hình làm sãi ở gần chúng-sanh"
+    },
+    {
+     "n": 66,
+     "text": "Đều trì giới rất thanh, rất tịnh"
+    },
+    {
+     "n": 67,
+     "text": "Đạo-đức dày, chánh-định chơn-tâm"
+    },
+    {
+     "n": 68,
+     "text": "Tất cả các bực Thánh, Phàm"
+    },
+    {
+     "n": 69,
+     "text": "Đồng lòng thọ-lãnh bát cơm lục-hòa"
+    },
+    {
+     "n": 70,
+     "text": "Người nào có sắm ra vật-thực"
+    },
+    {
+     "n": 71,
+     "text": "Đặng cúng-dường Tự-tứ Tăng thời"
+    },
+    {
+     "n": 72,
+     "text": "Hiện-tiền phụ-mẫu của người"
+    },
+    {
+     "n": 73,
+     "text": "Bà con quyến-thuộc thảy đều nhờ ơn"
+    },
+    {
+     "n": 74,
+     "text": "Tam-đồ khổ chắc rằng ra khỏi"
+    },
+    {
+     "n": 75,
+     "text": "Cảnh thanh-nhàn hưởng-thọ tự-nhiên."
+    },
+    {
+     "n": 76,
+     "text": "Như còn cha mẹ hiện-tiền"
+    },
+    {
+     "n": 77,
+     "text": "Đó nhờ cũng đặng bá niên thọ-trường"
+    },
+    {
+     "n": 78,
+     "text": "Như cha mẹ bảy đời quá-vãng"
+    },
+    {
+     "n": 79,
+     "text": "Sẽ hóa-sanh về cõi thiên-cung"
+    },
+    {
+     "n": 80,
+     "text": "Người thời tuấn-tú hình-dung"
+    },
+    {
+     "n": 81,
+     "text": "Hào-quang chiếu sáng khắp cùng châu-thân"
+    },
+    {
+     "n": 82,
+     "text": "Phật dạy bảo mười phương Tăng-chúng"
+    },
+    {
+     "n": 83,
+     "text": "Phải tuân theo thể-thức sau này:"
+    },
+    {
+     "n": 84,
+     "text": "Trước khi thọ thực đàn chay"
+    },
+    {
+     "n": 85,
+     "text": "Phải cầu chú-nguyện cho người tín-gia."
+    },
+    {
+     "n": 86,
+     "text": "Cầu thất-thế mẹ cha thí-chủ"
+    },
+    {
+     "n": 87,
+     "text": "Định tâm-thần quán đủ đừng quên"
+    },
+    {
+     "n": 88,
+     "text": "Cho xong ý-định hành-thiền"
+    },
+    {
+     "n": 89,
+     "text": "Mới dùng phẩm-vật đàn-tiền hiến-dâng."
+    },
+    {
+     "n": 90,
+     "text": "Khi thọ-dụng nên an vật-thực"
+    },
+    {
+     "n": 91,
+     "text": "Trước Phật-đài hoặc tự tháp trung:"
+    },
+    {
+     "n": 92,
+     "text": "Chư Tăng chú nguyện viên dung"
+    },
+    {
+     "n": 93,
+     "text": "Sau rồi tự-tiện thọ dùng bữa trưa"
+    },
+    {
+     "n": 94,
+     "text": "Pháp cứu-tế Phật vừa nói dứt"
+    },
+    {
+     "n": 95,
+     "text": "Mục-liên cùng Bồ-tát chư Tăng"
+    },
+    {
+     "n": 96,
+     "text": "Đồng nhau tỏ dạ vui mừng"
+    },
+    {
+     "n": 97,
+     "text": "Mục-liên cũng hết khóc thương rầu buồn"
+    },
+    {
+     "n": 98,
+     "text": "Mục-liên mẫu cũng trong ngày ấy"
+    },
+    {
+     "n": 99,
+     "text": "Kiếp khổ về ngạ-quỷ được tan"
+    },
+    {
+     "n": 100,
+     "text": "Mục-liên bạch với Phật rằng:"
+    },
+    {
+     "n": 101,
+     "text": "\"Mẹ con nhờ sức Thánh-Tăng khỏi nàn"
+    },
+    {
+     "n": 102,
+     "text": "Lại cũng nhờ oai thần Tam-bảo"
+    },
+    {
+     "n": 103,
+     "text": "Bằng chẳng thì nạn khổ khó ra"
+    },
+    {
+     "n": 104,
+     "text": "Như sau đệ-tử xuất-gia"
+    },
+    {
+     "n": 105,
+     "text": "Vu-lan-bồn pháp dùng mà độ sanh"
+    },
+    {
+     "n": 106,
+     "text": "Độ cha mẹ còn đương tại thế"
+    },
+    {
+     "n": 107,
+     "text": "Hoặc bảy đời có thể đặng không ?\""
+    },
+    {
+     "n": 108,
+     "text": "Phật rằng: \"Lời hỏi rất thông"
+    },
+    {
+     "n": 109,
+     "text": "Ta vừa muốn nói con dùng hỏi theo"
+    },
+    {
+     "n": 110,
+     "text": "Thiện-nam-tử, tỳ-kheo nam nữ"
+    },
+    {
+     "n": 111,
+     "text": "Cùng quốc-vương, thái-tử, đại-thần"
+    },
+    {
+     "n": 112,
+     "text": "Tam-công, tể-tướng, bá-quan"
+    },
+    {
+     "n": 113,
+     "text": "Cùng hàng lê-thứ vạn dân cõi trần"
+    },
+    {
+     "n": 114,
+     "text": "Như chí muốn đền ơn cha mẹ"
+    },
+    {
+     "n": 115,
+     "text": "Hiện-tại cùng thất-thế tình thâm"
+    },
+    {
+     "n": 116,
+     "text": "Đến rằm tháng bảy mỗi năm"
+    },
+    {
+     "n": 117,
+     "text": "Sau khi kiết-hạ chư Tăng tựu về"
+    },
+    {
+     "n": 118,
+     "text": "Chính ngày ấy Phật đà hoan-hỉ"
+    },
+    {
+     "n": 119,
+     "text": "Phải sắm sanh bá vị cơm canh"
+    },
+    {
+     "n": 120,
+     "text": "Đựng trong bình-bát tinh-anh"
+    },
+    {
+     "n": 121,
+     "text": "Chờ giờ Tự-tứ chúng Tăng cúng-dường"
+    },
+    {
+     "n": 122,
+     "text": "Đặng cầu-nguyện song-đường trường-thọ"
+    },
+    {
+     "n": 123,
+     "text": "Chẳng ốm đau, cũng chẳng khổ chi"
+    },
+    {
+     "n": 124,
+     "text": "Cùng cầu thất-thế đồng thì"
+    },
+    {
+     "n": 125,
+     "text": "Lìa nơi ngạ-quỷ sanh về nhơn, thiên"
+    },
+    {
+     "n": 126,
+     "text": "Đặng hưởng phước nhân duyên vui đẹp"
+    },
+    {
+     "n": 127,
+     "text": "Lại xa lìa nạn khổ cực thân"
+    },
+    {
+     "n": 128,
+     "text": "Môn-sanh Phật-tử ân-cần"
+    },
+    {
+     "n": 129,
+     "text": "Hạnh tu hiếu-thuận phải cần phải chuyên"
+    },
+    {
+     "n": 130,
+     "text": "Thường cầu-nguyện thung-huyên an-hảo"
+    },
+    {
+     "n": 131,
+     "text": "Cùng bảy đời phụ-mẫu siêu-sanh"
+    },
+    {
+     "n": 132,
+     "text": "Ngày rằm tháng bảy mỗi năm"
+    },
+    {
+     "n": 133,
+     "text": "Vì lòng hiếu-thảo thâm-ân phải đền"
+    },
+    {
+     "n": 134,
+     "text": "Lễ cứu-tế chí-thành sắp đặt"
+    },
+    {
+     "n": 135,
+     "text": "Ngỏ cúng-dường chư Phật chư Tăng"
+    },
+    {
+     "n": 136,
+     "text": "Ấy là báo đáp thù ân"
+    },
+    {
+     "n": 137,
+     "text": "Sanh-thành dưỡng-dục song-thân buổi đầu"
+    },
+    {
+     "n": 138,
+     "text": "Đệ-tử Phật lo âu gìn-giữ"
+    },
+    {
+     "n": 139,
+     "text": "Mới phải là Thích-tử Thiền-môn"
+    },
+    {
+     "n": 140,
+     "text": "Vừa nghe dứt pháp Lan-bồn"
+    },
+    {
+     "n": 141,
+     "text": "Môn-sanh tứ-chúng thảy đồng hỉ-hoan"
+    },
+    {
+     "n": 142,
+     "text": "Mục-liên với bốn ban Phật-tử"
+    },
+    {
+     "n": 143,
+     "text": "Nguyện một lòng tín-sự phụng-hành !"
+    }
+   ],
+   "variant": "translation"
+  }
+ ]
+}

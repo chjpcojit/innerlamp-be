@@ -1,0 +1,1321 @@
+{
+ "id": "giao-gioi-la-hau-la-ambalatthika",
+ "tradition": "THERAVADA",
+ "kind": "SUTRA",
+ "collection": "Trung Bộ",
+ "reference": "MN 61",
+ "summary": "Kinh thuộc Trung Bộ (MN 61), Thế Tôn đến chỗ Tôn giả La-hầu-la (Rāhula) ở rừng Ambalaṭṭhika để dạy về sự chân thật. Ngài dùng hình ảnh chút nước còn lại trong chậu bị đổ đi để ví hạnh sa-môn của người biết mà nói láo. Kinh khuyên nên phản tỉnh nhiều lần để tịnh hóa thân nghiệp, khẩu nghiệp, ý nghiệp.",
+ "titles": {
+  "vi": "Kinh Giáo giới La-hầu-la ở rừng Āmala",
+  "pli": "Ambalaṭṭhikarāhulovādasutta",
+  "en": "Advice to Rāhula at Ambalaṭṭhika"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "SPEAKER"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 35,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Thích Minh Châu",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/mn61/minh_chau?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "SuttaCentral page states only: Translated by Thích Minh Châu; no license given",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Như vầy tôi nghe."
+    },
+    {
+     "n": 2,
+     "text": "Một thời, Thế Tôn trú ở Rājagaha (Vương Xá), Veluvana (Trúc Lâm), tại Kalandakanivapa (chỗ nuôi dưỡng sóc)."
+    },
+    {
+     "n": 3,
+     "text": "Lúc bấy giờ, Tôn giả Rāhula (La-hầu-la) ở tại Ambalaṭṭhika (rừng Āmala)."
+    },
+    {
+     "n": 4,
+     "text": "Rồi Thế Tôn, vào buổi chiều, từ Thiền tịnh đứng dậy, đi đến Ambalaṭṭhika, chỗ Tôn giả Rāhula ở."
+    },
+    {
+     "n": 5,
+     "text": "Tôn giả Rāhula thấy Thế Tôn từ xa đi đến, sau khi thấy, liền sửa soạn chỗ ngồi và nước rửa chân."
+    },
+    {
+     "n": 6,
+     "text": "Thế Tôn ngồi xuống trên chỗ đã soạn sẵn, và sau khi ngồi, Ngài rửa chân."
+    },
+    {
+     "n": 7,
+     "text": "Tôn giả Rāhula đảnh lễ Thế Tôn và ngồi xuống một bên."
+    },
+    {
+     "n": 8,
+     "text": "Rồi Thế Tôn, sau khi để một ít nước còn lại trong chậu nước, bảo Tôn giả Rāhula"
+    },
+    {
+     "n": 9,
+     "text": "—Này Rāhula, Ông có thấy một ít nước còn lại này trong chậu nước không?"
+    },
+    {
+     "n": 10,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 11,
+     "text": "—Cũng ít vậy, này Rāhula, là Sa-môn hạnh của những người nào biết mà nói láo, không có tàm quý."
+    },
+    {
+     "n": 12,
+     "text": "Rồi Thế Tôn, sau khi đổ đi chút ít nước còn lại ấy rồi bảo Rāhula"
+    },
+    {
+     "n": 13,
+     "text": "—Này Rāhula, Ông có thấy chút ít nước còn lại ấy bị đổ đi không?"
+    },
+    {
+     "n": 14,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 15,
+     "text": "—Cũng đổ đi vậy, này Rāhula, là Sa-môn hạnh của những người nào biết mà nói láo, không có tàm quý."
+    },
+    {
+     "n": 16,
+     "text": "Rồi Thế Tôn lật úp chậu nước ấy và bảo Tôn giả Rāhula."
+    },
+    {
+     "n": 17,
+     "text": "—Này Rāhula, Ông có thấy chậu nước bị lật úp ấy không?"
+    },
+    {
+     "n": 18,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 19,
+     "text": "—Cũng lật úp vậy, này Rāhula, là Sa-môn hạnh của những người nào biết mà nói láo, không có tàm quý."
+    },
+    {
+     "n": 20,
+     "text": "Rồi Thế Tôn lật ngửa trở lại chậu nước ấy và bảo Tôn giả Rāhula"
+    },
+    {
+     "n": 21,
+     "text": "—Này Rāhula, Ông có thấy chậu nước này trống không không?"
+    },
+    {
+     "n": 22,
+     "text": "—Thưa vâng, bạch Thế Tôn."
+    },
+    {
+     "n": 23,
+     "text": "—Cũng trống không vậy, này Rāhula, là Sa-môn hạnh của những người nào biết mà nói láo, không có tàm quý."
+    },
+    {
+     "n": 24,
+     "text": "Này Rāhula, ví như một con voi của vua, có ngà dài như một cán cày, to lớn, khéo luyện, thường có mặt ở chiến trường."
+    },
+    {
+     "n": 25,
+     "text": "Khi lâm trận, con voi này dùng hai chân trước, dùng hai chân sau, dùng phần thân trước, dùng phần thân sau, dùng đầu, dùng tai, dùng ngà, dùng đuôi, nhưng bảo vệ cái vòi. Ở đây, người nài nghĩ rằng:"
+    },
+    {
+     "n": 26,
+     "text": "“Con voi của vua này có ngà dài như một cán cày, to lớn, khéo luyện, thường hay có mặt ở chiến trường."
+    },
+    {
+     "n": 27,
+     "text": "Khi lâm trận con voi này thường dùng hai chân trước, dùng hai chân sau, dùng phần thân trước, dùng phần thân sau, dùng đầu, dùng tai, dùng ngà, dùng đuôi, nhưng bảo vệ cái vòi."
+    },
+    {
+     "n": 28,
+     "text": "Con voi của vua (như vậy) không quăng bỏ mạng sống (của mình)”."
+    },
+    {
+     "n": 29,
+     "text": "Này Rāhula, nhưng khi con voi của vua, có ngà dài như một cán cày, to lớn, khéo luyện, thường hay có mặt ở chiến trường, khi lâm trận, con voi này dùng hai chân trước, dùng hai chân sau, dùng phần thân trước,"
+    },
+    {
+     "n": 30,
+     "text": "dùng phần thân sau, dùng đầu, dùng tai, dùng ngà, dùng đuôi, dùng vòi. Ở đây, người nài nghĩ rằng:"
+    },
+    {
+     "n": 31,
+     "text": "“Con voi của vua này, có ngà dài như một cán cày, to lớn, khéo luyện, thường hay có mặt ở chiến trường … (như trên) … dùng đuôi, dùng vòi."
+    },
+    {
+     "n": 32,
+     "text": "Con voi của vua (như vậy) đã quăng bỏ mạng sống (của mình), và nay con voi của vua không có việc gì mà không làm”."
+    },
+    {
+     "n": 33,
+     "text": "Cũng vậy, này Rāhula, đối với ai biết mà nói láo, không có tàm quý, thời Ta nói rằng người ấy không có việc ác gì mà không làm."
+    },
+    {
+     "n": 34,
+     "text": "Do vậy, này Rāhula, “Ta quyết không nói láo, dầu nói để mà chơi”, này Rāhula, Ông phải học tập như vậy."
+    },
+    {
+     "n": 35,
+     "text": "Này Rāhula, Ông nghĩ thế nào? Mục đích của cái gương là gì?"
+    },
+    {
+     "n": 36,
+     "text": "—Bạch Thế Tôn, mục đích là để phản tỉnh."
+    },
+    {
+     "n": 37,
+     "text": "—Cũng vậy, này Rāhula, sau khi phản tỉnh nhiều lần, hãy hành thân nghiệp."
+    },
+    {
+     "n": 38,
+     "text": "Sau khi phản tỉnh nhiều lần, hãy hành khẩu nghiệp."
+    },
+    {
+     "n": 39,
+     "text": "Sau khi phản tỉnh nhiều lần, hãy hành ý nghiệp."
+    },
+    {
+     "n": 40,
+     "text": "Này Rāhula, khi Ông muốn làm một thân nghiệp gì, hãy phản tỉnh thân nghiệp ấy như sau: “Thân nghiệp này của ta có thể đưa đến tự hại, có thể đưa đến hại người, có thể đưa đến hại cả hai;"
+    },
+    {
+     "n": 41,
+     "text": "thời thân nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 42,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, Ông biết: “Thân nghiệp này, ta muốn làm."
+    },
+    {
+     "n": 43,
+     "text": "Thân nghiệp này của ta có thể đưa đến tự hại, có thể đưa đến hại người, có thể đưa đến hại cả hai; thời thân nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 44,
+     "text": "Một thân nghiệp như vậy, này Rāhula, Ông nhất định chớ có làm."
+    },
+    {
+     "n": 45,
+     "text": "Này Rāhula, nếu sau khi phản tỉnh, ông biết: “Thân nghiệp này ta muốn làm."
+    },
+    {
+     "n": 46,
+     "text": "Thân nghiệp này của ta không có thể đưa đến tự hại, không có thể đưa đến hại người, không có thể đưa đến hại cả hai; thời thân nghiệp này là thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 47,
+     "text": "Một thân nghiệp như vậy, này Rāhula, Ông nên làm."
+    },
+    {
+     "n": 48,
+     "text": "Này Rāhula, khi Ông đang làm một thân nghiệp, Ông cần phải phản tỉnh thân nghiệp ấy như sau: “Thân nghiệp này ta đang làm."
+    },
+    {
+     "n": 49,
+     "text": "Thân nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời thân nghiệp này là bất thiện, đưa đến đau khổ; đem đến quả báo đau khổ."
+    },
+    {
+     "n": 50,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, Ông biết: “Thân nghiệp này ta đang làm."
+    },
+    {
+     "n": 51,
+     "text": "Thân nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời thân nghiệp này là bất thiện, đưa đến đau khổ, đưa đến quả báo đau khổ”."
+    },
+    {
+     "n": 52,
+     "text": "Này Rāhula, ông hãy từ bỏ một thân nghiệp như vậy."
+    },
+    {
+     "n": 53,
+     "text": "Nhưng nếu, này Rāhula, trong khi phản tỉnh ông biết như sau: “Thân nghiệp này ta đang làm."
+    },
+    {
+     "n": 54,
+     "text": "Thân nghiệp này của ta không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai; thời thân nghiệp này là thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 55,
+     "text": "Thân nghiệp như vậy, này Rāhula, Ông cần phải tiếp tục làm."
+    },
+    {
+     "n": 56,
+     "text": "Sau khi Ông làm xong một thân nghiệp, này Rāhula, Ông cần phải phản tỉnh thân nghiệp ấy như sau: “Thân nghiệp này ta đã làm."
+    },
+    {
+     "n": 57,
+     "text": "Thân nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời thân nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 58,
+     "text": "Nếu trong khi phản tỉnh, này Rāhula, Ông biết như sau: “Thân nghiệp này ta đã làm."
+    },
+    {
+     "n": 59,
+     "text": "Thân nghiệp này đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời thân nghiệp này là bất thiện đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 60,
+     "text": "Một thân nghiệp như vậy, này Rāhula, Ông cần phải thưa lên, cần phải tỏ lộ, cần phải trình bày trước các vị Đạo sư, hay trước các vị đồng Phạm hạnh có trí."
+    },
+    {
+     "n": 61,
+     "text": "Sau khi đã thưa lên, tỏ lộ, trình bày, cần phải phòng hộ trong tương lai."
+    },
+    {
+     "n": 62,
+     "text": "Nếu trong khi phản tỉnh, này Rāhula, Ông biết như sau: “Thân nghiệp này ta đã làm."
+    },
+    {
+     "n": 63,
+     "text": "Thân nghiệp này không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai; thời thân nghiệp này thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 64,
+     "text": "Do vậy, này Rāhula, Ông phải an trú trong niềm hoan hỷ tự mình tiếp tục tu học ngày đêm trong các thiện pháp."
+    },
+    {
+     "n": 65,
+     "text": "Này Rāhula, khi Ông muốn làm một khẩu nghiệp gì, hãy phản tỉnh khẩu nghiệp ấy như sau:"
+    },
+    {
+     "n": 66,
+     "text": "“Khẩu nghiệp này của ta có thể đưa đến tự hại, có thể đưa đến hại người, có thể đưa đến hại cả hai, khẩu nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 67,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, Ông biết: “Khẩu nghiệp này ta muốn làm."
+    },
+    {
+     "n": 68,
+     "text": "Khẩu nghiệp này của ta có thể đưa đến tự hại, có thể đưa đến hại người, có thể đưa đến hại cả hai; thời khẩu nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 69,
+     "text": "Một khẩu nghiệp như vậy, này Rāhula, nhất định chớ có làm."
+    },
+    {
+     "n": 70,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, Ông biết: “Khẩu nghiệp này ta muốn làm."
+    },
+    {
+     "n": 71,
+     "text": "Khẩu nghiệp này của ta không có thể đưa đến tự hại, không có thể đưa đến hại người, không có thể đưa đến hại cả hai; thời khẩu nghiệp này là thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 72,
+     "text": "Một khẩu nghiệp như vậy, này Rāhula, Ông nên làm."
+    },
+    {
+     "n": 73,
+     "text": "Này Rāhula, khi Ông đang làm một khẩu nghiệp, Ông cần phải phản tỉnh khẩu nghiệp ấy như sau: “Khẩu nghiệp này ta đang làm."
+    },
+    {
+     "n": 74,
+     "text": "Khẩu nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai, thời khẩu nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 75,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, Ông biết: “Khẩu nghiệp này ta đang làm."
+    },
+    {
+     "n": 76,
+     "text": "Khẩu nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời khẩu nghiệp này là bất thiện, đưa đến đau khổ, đưa đến quả báo đau khổ”."
+    },
+    {
+     "n": 77,
+     "text": "Này Rāhula, Ông hãy từ bỏ một khẩu nghiệp như vậy."
+    },
+    {
+     "n": 78,
+     "text": "Nhưng nếu, này Rāhula, khi phản tỉnh, Ông biết như sau: “Khẩu nghiệp này ta đang làm."
+    },
+    {
+     "n": 79,
+     "text": "Khẩu nghiệp này của ta không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai; thời khẩu nghiệp này là thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 80,
+     "text": "Khẩu nghiệp như vậy, này Rāhula, Ông cần phải tiếp tục làm."
+    },
+    {
+     "n": 81,
+     "text": "Sau khi Ông làm xong một khẩu nghiệp, này Rāhula, Ông cần phải phản tỉnh khẩu nghiệp ấy như sau: “Khẩu nghiệp này ta đã làm."
+    },
+    {
+     "n": 82,
+     "text": "Khẩu nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời khẩu nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 83,
+     "text": "Nếu trong khi phản tỉnh, này Rāhula, Ông biết như sau: “Khẩu nghiệp này ta đã làm."
+    },
+    {
+     "n": 84,
+     "text": "Khẩu nghiệp này đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai, khẩu nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 85,
+     "text": "Một khẩu nghiệp như vậy, này Rāhula, Ông cần phải thưa lên, cần phải tỏ lộ, cần phải trình bày trước vị Đạo sư, hay trước các vị đồng Phạm hạnh có trí."
+    },
+    {
+     "n": 86,
+     "text": "Sau khi đã thưa lên, tỏ lộ, trình bày, cần phải phòng hộ trong tương lai."
+    },
+    {
+     "n": 87,
+     "text": "Nếu trong khi phản tỉnh, này Rāhula, Ông biết như sau: “Khẩu nghiệp này ta đã làm."
+    },
+    {
+     "n": 88,
+     "text": "Khẩu nghiệp này không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai; thời khẩu nghiệp này là thiện, đưa đến an lạc, đưa đến quả báo an lạc”."
+    },
+    {
+     "n": 89,
+     "text": "Do vậy, này Rāhula, Ông phải an trú trong niềm hoan hỷ, tự mình tiếp tục tu học ngày đêm trong các thiện pháp."
+    },
+    {
+     "n": 90,
+     "text": "Này Rāhula, như Ông muốn làm một ý nghiệp gì, hãy phản tỉnh ý nghiệp ấy như sau:"
+    },
+    {
+     "n": 91,
+     "text": "“Ý nghiệp này của ta có thể đưa đến tự hại, có thể đưa đến hại người, có thể đưa đến hại cả hai, ý nghiệp này là bất thiện, đưa đến đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 92,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, Ông biết: “Ý nghiệp này ta muốn làm."
+    },
+    {
+     "n": 93,
+     "text": "Ý nghiệp này của ta có thể đưa đến tự hại, có thể đưa đến hại người, có thể đưa đến hại cả hai; thời ý nghiệp này là bất thiện, đưa đến đau khổ, đưa đến quả báo đau khổ”."
+    },
+    {
+     "n": 94,
+     "text": "Một ý nghiệp như vậy, này Rāhula, Ông nhất định chớ có làm."
+    },
+    {
+     "n": 95,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, ông biết: “Ý nghiệp này ta muốn làm."
+    },
+    {
+     "n": 96,
+     "text": "Ý nghiệp này của ta không có thể đưa đến tự hại, không có thể đưa đến hại người, không có thể đưa đến hại cả hai; thời ý nghiệp này là thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 97,
+     "text": "Ý nghiệp như vậy, này Rāhula, Ông nên làm."
+    },
+    {
+     "n": 98,
+     "text": "Này Rāhula, khi Ông đang làm một ý nghiệp, Ông cần phải phản tỉnh ý nghiệp ấy như sau: “Ý nghiệp này ta đang làm."
+    },
+    {
+     "n": 99,
+     "text": "Ý nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời ý nghiệp này là bất thiện, đưa đến đau khổ, đưa đến quả báo đau khổ”."
+    },
+    {
+     "n": 100,
+     "text": "Này Rāhula, nếu trong khi phản tỉnh, Ông biết: “Ý nghiệp này ta đang làm."
+    },
+    {
+     "n": 101,
+     "text": "Ý nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời ý nghiệp này là bất thiện, đưa đến đau khổ, đem lại quả báo đau khổ”."
+    },
+    {
+     "n": 102,
+     "text": "Này Rāhula, Ông hãy từ bỏ một ý nghiệp như vậy."
+    },
+    {
+     "n": 103,
+     "text": "Nhưng nếu, này Rāhula, khi phản tỉnh Ông biết như sau: “Ý nghiệp này ta đang làm."
+    },
+    {
+     "n": 104,
+     "text": "Ý nghiệp này của ta không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai; thời ý nghiệp này là thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 105,
+     "text": "Ý nghiệp như vậy, này Rāhula, Ông phải tiếp tục làm."
+    },
+    {
+     "n": 106,
+     "text": "Sau khi Ông làm xong một ý nghiệp, này Rāhula, Ông cần phải phản tỉnh ý nghiệp ấy như sau: “Ý nghiệp này ta đã làm."
+    },
+    {
+     "n": 107,
+     "text": "Ý nghiệp này của ta đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; thời ý nghiệp này là bất thiện, đưa đến đau khổ, đem lại quả báo đau khổ, đem đến quả báo đau khổ”."
+    },
+    {
+     "n": 108,
+     "text": "Nếu trong khi phản tỉnh, này Rāhula, Ông biết như sau: “Ý nghiệp này ta đã làm."
+    },
+    {
+     "n": 109,
+     "text": "Ý nghiệp này đưa đến tự hại, đưa đến hại người, đưa đến hại cả hai; ý nghiệp này là bất thiện, đưa đến đau khổ, đưa đến quả báo đau khổ”."
+    },
+    {
+     "n": 110,
+     "text": "Một ý nghiệp như vậy, này Rāhula, Ông cần phải lo âu, cần phải tàm quý, cần phải nhàm chán."
+    },
+    {
+     "n": 111,
+     "text": "Sau khi lo âu, tàm quý, nhàm chán, cần phải phòng hộ trong tương lai."
+    },
+    {
+     "n": 112,
+     "text": "Còn nếu trong khi phản tỉnh, này Rāhula, Ông biết: “Ý nghiệp này ta đã làm."
+    },
+    {
+     "n": 113,
+     "text": "Ý nghiệp này không đưa đến tự hại, không đưa đến hại người, không đưa đến hại cả hai, ý nghiệp này là thiện, đưa đến an lạc, đem đến quả báo an lạc”."
+    },
+    {
+     "n": 114,
+     "text": "Do vậy, này Rāhula, Ông phải an trú trong niềm hoan hỷ, tự mình tiếp tục tu học ngày đêm trong các thiện pháp."
+    },
+    {
+     "n": 115,
+     "text": "Này Rāhula, trong thời quá khứ, những Sa-môn hay Bà-la-môn nào đã tịnh hóa thân nghiệp, đã tịnh hóa khẩu nghiệp, đã tịnh hóa ý nghiệp, tất cả những vị ấy, sau khi phản tỉnh như vậy nhiều lần đã tịnh hóa thân nghiệp,"
+    },
+    {
+     "n": 116,
+     "text": "sau khi phản tỉnh như vậy nhiều lần, đã tịnh hóa khẩu nghiệp, sau khi phản tỉnh như vậy nhiều lần, đã tịnh hóa ý nghiệp."
+    },
+    {
+     "n": 117,
+     "text": "Này Rāhula, trong thời vị lai, những Sa-môn hay Bà-la-môn nào sẽ tịnh hóa thân nghiệp, sẽ tịnh hóa khẩu nghiệp, sẽ tịnh hóa ý nghiệp, tất cả những vị ấy;"
+    },
+    {
+     "n": 118,
+     "text": "sau khi phản tỉnh như vậy nhiều lần, sẽ tịnh hóa thân nghiệp, sau khi phản tỉnh như vậy nhiều lần, sẽ tịnh hóa khẩu nghiệp, sau khi phản tỉnh như vậy nhiều lần, sẽ tịnh hóa ý nghiệp."
+    },
+    {
+     "n": 119,
+     "text": "Này Rāhula, trong thời hiện tại, những Sa-môn hay Bà-la-môn nào tịnh hóa thân nghiệp, tịnh hóa khẩu nghiệp, tịnh hóa ý nghiệp, tất cả những vị ấy, sau khi phản tỉnh như vậy nhiều lần, tịnh hóa khẩu nghiệp;"
+    },
+    {
+     "n": 120,
+     "text": "sau khi phản tỉnh như vậy nhiều lần, tịnh hóa ý nghiệp."
+    },
+    {
+     "n": 121,
+     "text": "Do vậy, này Rāhula: “Sau khi phản tỉnh nhiều lần, tôi sẽ tịnh hóa thân nghiệp; sau khi phản tỉnh nhiều lần, tôi sẽ tịnh hóa khẩu nghiệp, sau khi phản tỉnh nhiều lần, tôi sẽ tịnh hóa ý nghiệp”."
+    },
+    {
+     "n": 122,
+     "text": "Như vậy, này Rāhula, Ông cần phải tu học."
+    },
+    {
+     "n": 123,
+     "text": "Thế Tôn thuyết giảng như vậy. Tôn giả Rāhula hoan hỷ, tín thọ lời Thế Tôn giảng."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn61/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Evaṁ me sutaṁ— ekaṁ samayaṁ bhagavā rājagahe viharati veḷuvane kalandakanivāpe."
+    },
+    {
+     "n": 2,
+     "text": "Tena kho pana samayena āyasmā rāhulo ambalaṭṭhikāyaṁ viharati."
+    },
+    {
+     "n": 3,
+     "text": "Atha kho bhagavā sāyanhasamayaṁ paṭisallānā vuṭṭhito yena ambalaṭṭhikā yenāyasmā rāhulo tenupasaṅkami."
+    },
+    {
+     "n": 4,
+     "text": "Addasā kho āyasmā rāhulo bhagavantaṁ dūratova āgacchantaṁ."
+    },
+    {
+     "n": 5,
+     "text": "Disvāna āsanaṁ paññāpesi, udakañca pādānaṁ. Nisīdi bhagavā paññatte āsane."
+    },
+    {
+     "n": 6,
+     "text": "Nisajja pāde pakkhālesi. Āyasmāpi kho rāhulo bhagavantaṁ abhivādetvā ekamantaṁ nisīdi."
+    },
+    {
+     "n": 7,
+     "text": "Atha kho bhagavā parittaṁ udakāvasesaṁ udakādhāne ṭhapetvā āyasmantaṁ rāhulaṁ āmantesi: “passasi no tvaṁ, rāhula, imaṁ parittaṁ udakāvasesaṁ udakādhāne ṭhapitan”ti?"
+    },
+    {
+     "n": 8,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 9,
+     "text": "“Evaṁ parittakaṁ kho, rāhula, tesaṁ sāmaññaṁ yesaṁ natthi sampajānamusāvāde lajjā”ti."
+    },
+    {
+     "n": 10,
+     "text": "Atha kho bhagavā parittaṁ udakāvasesaṁ chaḍḍetvā āyasmantaṁ rāhulaṁ āmantesi: “passasi no tvaṁ, rāhula, parittaṁ udakāvasesaṁ chaḍḍitan”ti?"
+    },
+    {
+     "n": 11,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 12,
+     "text": "“Evaṁ chaḍḍitaṁ kho, rāhula, tesaṁ sāmaññaṁ yesaṁ natthi sampajānamusāvāde lajjā”ti."
+    },
+    {
+     "n": 13,
+     "text": "Atha kho bhagavā taṁ udakādhānaṁ nikkujjitvā āyasmantaṁ rāhulaṁ āmantesi: “passasi no tvaṁ, rāhula, imaṁ udakādhānaṁ nikkujjitan”ti?"
+    },
+    {
+     "n": 14,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 15,
+     "text": "“Evaṁ nikkujjitaṁ kho, rāhula, tesaṁ sāmaññaṁ yesaṁ natthi sampajānamusāvāde lajjā”ti."
+    },
+    {
+     "n": 16,
+     "text": "Atha kho bhagavā taṁ udakādhānaṁ ukkujjitvā āyasmantaṁ rāhulaṁ āmantesi: “passasi no tvaṁ, rāhula, imaṁ udakādhānaṁ rittaṁ tucchan”ti?"
+    },
+    {
+     "n": 17,
+     "text": "“Evaṁ, bhante”."
+    },
+    {
+     "n": 18,
+     "text": "“Evaṁ rittaṁ tucchaṁ kho, rāhula, tesaṁ sāmaññaṁ yesaṁ natthi sampajānamusāvāde lajjāti."
+    },
+    {
+     "n": 19,
+     "text": "Seyyathāpi, rāhula, rañño nāgo īsādanto urūḷhavā abhijāto saṅgāmāvacaro saṅgāmagato purimehipi pādehi kammaṁ karoti, pacchimehipi pādehi kammaṁ karoti, purimenapi kāyena kammaṁ karoti, pacchimenapi kāyena kammaṁ karoti,"
+    },
+    {
+     "n": 20,
+     "text": "sīsenapi kammaṁ karoti, kaṇṇehipi kammaṁ karoti, dantehipi kammaṁ karoti, naṅguṭṭhenapi kammaṁ karoti; rakkhateva soṇḍaṁ."
+    },
+    {
+     "n": 21,
+     "text": "Tattha hatthārohassa evaṁ hoti: ‘ayaṁ kho rañño nāgo īsādanto urūḷhavā abhijāto saṅgāmāvacaro saṅgāmagato purimehipi pādehi kammaṁ karoti, pacchimehipi pādehi kammaṁ karoti …pe… naṅguṭṭhenapi kammaṁ karoti;"
+    },
+    {
+     "n": 22,
+     "text": "rakkhateva soṇḍaṁ. Apariccattaṁ kho rañño nāgassa jīvitan’ti."
+    },
+    {
+     "n": 23,
+     "text": "Yato kho, rāhula, rañño nāgo īsādanto urūḷhavā abhijāto saṅgāmāvacaro saṅgāmagato purimehipi pādehi kammaṁ karoti, pacchimehipi pādehi kammaṁ karoti …pe… naṅguṭṭhenapi kammaṁ karoti, soṇḍāyapi kammaṁ karoti,"
+    },
+    {
+     "n": 24,
+     "text": "tattha hatthārohassa evaṁ hoti:"
+    },
+    {
+     "n": 25,
+     "text": "‘ayaṁ kho rañño nāgo īsādanto urūḷhavā abhijāto saṅgāmāvacaro saṅgāmagato purimehipi pādehi kammaṁ karoti, pacchimehipi pādehi kammaṁ karoti, purimenapi kāyena kammaṁ karoti, pacchimenapi kāyena kammaṁ karoti,"
+    },
+    {
+     "n": 26,
+     "text": "sīsenapi kammaṁ karoti, kaṇṇehipi kammaṁ karoti, dantehipi kammaṁ karoti, naṅguṭṭhenapi kammaṁ karoti, soṇḍāyapi kammaṁ karoti. Pariccattaṁ kho rañño nāgassa jīvitaṁ."
+    },
+    {
+     "n": 27,
+     "text": "Natthi dāni kiñci rañño nāgassa akaraṇīyan’ti."
+    },
+    {
+     "n": 28,
+     "text": "Evameva kho, rāhula, yassa kassaci sampajānamusāvāde natthi lajjā, nāhaṁ tassa kiñci pāpaṁ akaraṇīyanti vadāmi."
+    },
+    {
+     "n": 29,
+     "text": "Tasmātiha te, rāhula, ‘hassāpi na musā bhaṇissāmī’ti— evañhi te, rāhula, sikkhitabbaṁ."
+    },
+    {
+     "n": 30,
+     "text": "Taṁ kiṁ maññasi, rāhula, kimatthiyo ādāso”ti?"
+    },
+    {
+     "n": 31,
+     "text": "“Paccavekkhaṇattho, bhante”ti."
+    },
+    {
+     "n": 32,
+     "text": "“Evameva kho, rāhula, paccavekkhitvā paccavekkhitvā kāyena kammaṁ kattabbaṁ, paccavekkhitvā paccavekkhitvā vācāya kammaṁ kattabbaṁ, paccavekkhitvā paccavekkhitvā manasā kammaṁ kattabbaṁ."
+    },
+    {
+     "n": 33,
+     "text": "Yadeva tvaṁ, rāhula, kāyena kammaṁ kattukāmo ahosi, tadeva te kāyakammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 34,
+     "text": "‘yannu kho ahaṁ idaṁ kāyena kammaṁ kattukāmo idaṁ me kāyakammaṁ attabyābādhāyapi saṁvatteyya, parabyābādhāyapi saṁvatteyya, ubhayabyābādhāyapi saṁvatteyya— akusalaṁ idaṁ kāyakammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 35,
+     "text": "Sace tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 36,
+     "text": "‘yaṁ kho ahaṁ idaṁ kāyena kammaṁ kattukāmo idaṁ me kāyakammaṁ attabyābādhāyapi saṁvatteyya, parabyābādhāyapi saṁvatteyya, ubhayabyābādhāyapi saṁvatteyya— akusalaṁ idaṁ kāyakammaṁ dukkhudrayaṁ dukkhavipākan’ti,"
+    },
+    {
+     "n": 37,
+     "text": "evarūpaṁ te, rāhula, kāyena kammaṁ sasakkaṁ na karaṇīyaṁ."
+    },
+    {
+     "n": 38,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 39,
+     "text": "‘yaṁ kho ahaṁ idaṁ kāyena kammaṁ kattukāmo idaṁ me kāyakammaṁ nevattabyābādhāyapi saṁvatteyya, na parabyābādhāyapi saṁvatteyya, na ubhayabyābādhāyapi saṁvatteyya— kusalaṁ idaṁ kāyakammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 40,
+     "text": "evarūpaṁ te, rāhula, kāyena kammaṁ karaṇīyaṁ."
+    },
+    {
+     "n": 41,
+     "text": "Karontenapi te, rāhula, kāyena kammaṁ tadeva te kāyakammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 42,
+     "text": "‘yannu kho ahaṁ idaṁ kāyena kammaṁ karomi idaṁ me kāyakammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ kāyakammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 43,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 44,
+     "text": "‘yaṁ kho ahaṁ idaṁ kāyena kammaṁ karomi idaṁ me kāyakammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ kāyakammaṁ dukkhudrayaṁ dukkhavipākan’ti,"
+    },
+    {
+     "n": 45,
+     "text": "paṭisaṁhareyyāsi tvaṁ, rāhula, evarūpaṁ kāyakammaṁ."
+    },
+    {
+     "n": 46,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 47,
+     "text": "‘yaṁ kho ahaṁ idaṁ kāyena kammaṁ karomi idaṁ me kāyakammaṁ nevattabyābādhāyapi saṁvattati, na parabyābādhāyapi saṁvattati, na ubhayabyābādhāyapi saṁvattati— kusalaṁ idaṁ kāyakammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 48,
+     "text": "anupadajjeyyāsi tvaṁ, rāhula, evarūpaṁ kāyakammaṁ."
+    },
+    {
+     "n": 49,
+     "text": "Katvāpi te, rāhula, kāyena kammaṁ tadeva te kāyakammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 50,
+     "text": "‘yannu kho ahaṁ idaṁ kāyena kammaṁ akāsiṁ idaṁ me kāyakammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ kāyakammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 51,
+     "text": "Sace kho tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 52,
+     "text": "‘yaṁ kho ahaṁ idaṁ kāyena kammaṁ akāsiṁ, idaṁ me kāyakammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ kāyakammaṁ dukkhudrayaṁ dukkhavipākan’ti, evarūpaṁ te,"
+    },
+    {
+     "n": 53,
+     "text": "rāhula, kāyakammaṁ satthari vā viññūsu vā sabrahmacārīsu desetabbaṁ, vivaritabbaṁ, uttānīkātabbaṁ;"
+    },
+    {
+     "n": 54,
+     "text": "desetvā vivaritvā uttānīkatvā āyatiṁ saṁvaraṁ āpajjitabbaṁ."
+    },
+    {
+     "n": 55,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 56,
+     "text": "‘yaṁ kho ahaṁ idaṁ kāyena kammaṁ akāsiṁ idaṁ me kāyakammaṁ nevattabyābādhāyapi saṁvattati, na parabyābādhāyapi saṁvattati, na ubhayabyābādhāyapi saṁvattati— kusalaṁ idaṁ kāyakammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 57,
+     "text": "teneva tvaṁ, rāhula, pītipāmojjena vihareyyāsi ahorattānusikkhī kusalesu dhammesu."
+    },
+    {
+     "n": 58,
+     "text": "“Yadeva tvaṁ, rāhula, vācāya kammaṁ kattukāmo ahosi, tadeva te vacīkammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 59,
+     "text": "‘yannu kho ahaṁ idaṁ vācāya kammaṁ kattukāmo idaṁ me vacīkammaṁ attabyābādhāyapi saṁvatteyya, parabyābādhāyapi saṁvatteyya, ubhayabyābādhāyapi saṁvatteyya— akusalaṁ idaṁ vacīkammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 60,
+     "text": "Sace tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 61,
+     "text": "‘yaṁ kho ahaṁ idaṁ vācāya kammaṁ kattukāmo idaṁ me vacīkammaṁ attabyābādhāyapi saṁvatteyya, parabyābādhāyapi saṁvatteyya, ubhayabyābādhāyapi saṁvatteyya— akusalaṁ idaṁ vacīkammaṁ dukkhudrayaṁ dukkhavipākan’ti,"
+    },
+    {
+     "n": 62,
+     "text": "evarūpaṁ te, rāhula, vācāya kammaṁ sasakkaṁ na karaṇīyaṁ."
+    },
+    {
+     "n": 63,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 64,
+     "text": "‘yaṁ kho ahaṁ idaṁ vācāya kammaṁ kattukāmo idaṁ me vacīkammaṁ nevattabyābādhāyapi saṁvatteyya, na parabyābādhāyapi saṁvatteyya— kusalaṁ idaṁ vacīkammaṁ sukhudrayaṁ sukhavipākan’ti, evarūpaṁ te, rāhula,"
+    },
+    {
+     "n": 65,
+     "text": "vācāya kammaṁ karaṇīyaṁ."
+    },
+    {
+     "n": 66,
+     "text": "Karontenapi te, rāhula, vācāya kammaṁ tadeva te vacīkammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 67,
+     "text": "‘yannu kho ahaṁ idaṁ vācāya kammaṁ karomi idaṁ me vacīkammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ vacīkammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 68,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 69,
+     "text": "‘yaṁ kho ahaṁ idaṁ vācāya kammaṁ karomi idaṁ me vacīkammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ vacīkammaṁ dukkhudrayaṁ dukkhavipākan’ti,"
+    },
+    {
+     "n": 70,
+     "text": "paṭisaṁhareyyāsi tvaṁ, rāhula, evarūpaṁ vacīkammaṁ."
+    },
+    {
+     "n": 71,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 72,
+     "text": "‘yaṁ kho ahaṁ idaṁ vācāya kammaṁ karomi idaṁ me vacīkammaṁ nevattabyābādhāyapi saṁvattati, na parabyābādhāyapi saṁvattati, na ubhayabyābādhāyapi saṁvattati— kusalaṁ idaṁ vacīkammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 73,
+     "text": "anupadajjeyyāsi tvaṁ, rāhula, evarūpaṁ vacīkammaṁ."
+    },
+    {
+     "n": 74,
+     "text": "Katvāpi te, rāhula, vācāya kammaṁ tadeva te vacīkammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 75,
+     "text": "‘yannu kho ahaṁ idaṁ vācāya kammaṁ akāsiṁ idaṁ me vacīkammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ vacīkammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 76,
+     "text": "Sace kho tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 77,
+     "text": "‘yaṁ kho ahaṁ idaṁ vācāya kammaṁ akāsiṁ idaṁ me vacīkammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ vacīkammaṁ dukkhudrayaṁ dukkhavipākan’ti, evarūpaṁ te,"
+    },
+    {
+     "n": 78,
+     "text": "rāhula, vacīkammaṁ satthari vā viññūsu vā sabrahmacārīsu desetabbaṁ, vivaritabbaṁ, uttānīkattabbaṁ;"
+    },
+    {
+     "n": 79,
+     "text": "desetvā vivaritvā uttānīkatvā āyatiṁ saṁvaraṁ āpajjitabbaṁ."
+    },
+    {
+     "n": 80,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 81,
+     "text": "‘yaṁ kho ahaṁ idaṁ vācāya kammaṁ akāsiṁ idaṁ me vacīkammaṁ nevattabyābādhāyapi saṁvattati, na parabyābādhāyapi saṁvattati, na ubhayabyābādhāyapi saṁvattati— kusalaṁ idaṁ vacīkammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 82,
+     "text": "teneva tvaṁ, rāhula, pītipāmojjena vihareyyāsi ahorattānusikkhī kusalesu dhammesu."
+    },
+    {
+     "n": 83,
+     "text": "Yadeva tvaṁ, rāhula, manasā kammaṁ kattukāmo ahosi, tadeva te manokammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 84,
+     "text": "‘yannu kho ahaṁ idaṁ manasā kammaṁ kattukāmo idaṁ me manokammaṁ attabyābādhāyapi saṁvatteyya, parabyābādhāyapi saṁvatteyya, ubhayabyābādhāyapi saṁvatteyya— akusalaṁ idaṁ manokammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 85,
+     "text": "Sace tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 86,
+     "text": "‘yaṁ kho ahaṁ idaṁ manasā kammaṁ kattukāmo idaṁ me manokammaṁ attabyābādhāyapi saṁvatteyya, parabyābādhāyapi saṁvatteyya, ubhayabyābādhāyapi saṁvatteyya— akusalaṁ idaṁ manokammaṁ dukkhudrayaṁ dukkhavipākan’ti,"
+    },
+    {
+     "n": 87,
+     "text": "evarūpaṁ te, rāhula, manasā kammaṁ sasakkaṁ na karaṇīyaṁ."
+    },
+    {
+     "n": 88,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 89,
+     "text": "‘yaṁ kho ahaṁ idaṁ manasā kammaṁ kattukāmo idaṁ me manokammaṁ nevattabyābādhāyapi saṁvatteyya, na parabyābādhāyapi saṁvatteyya, na ubhayabyābādhāyapi saṁvatteyya— kusalaṁ idaṁ manokammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 90,
+     "text": "evarūpaṁ te, rāhula, manasā kammaṁ karaṇīyaṁ."
+    },
+    {
+     "n": 91,
+     "text": "Karontenapi te, rāhula, manasā kammaṁ tadeva te manokammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 92,
+     "text": "‘yannu kho ahaṁ idaṁ manasā kammaṁ karomi idaṁ me manokammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ manokammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 93,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 94,
+     "text": "‘yaṁ kho ahaṁ idaṁ manasā kammaṁ karomi idaṁ me manokammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ manokammaṁ dukkhudrayaṁ dukkhavipākan’ti,"
+    },
+    {
+     "n": 95,
+     "text": "paṭisaṁhareyyāsi tvaṁ, rāhula, evarūpaṁ manokammaṁ."
+    },
+    {
+     "n": 96,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 97,
+     "text": "‘yaṁ kho ahaṁ idaṁ manasā kammaṁ karomi idaṁ me manokammaṁ nevattabyābādhāyapi saṁvattati, na parabyābādhāyapi saṁvattati, na ubhayabyābādhāyapi saṁvattati— kusalaṁ idaṁ manokammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 98,
+     "text": "anupadajjeyyāsi tvaṁ, rāhula, evarūpaṁ manokammaṁ."
+    },
+    {
+     "n": 99,
+     "text": "Katvāpi te, rāhula, manasā kammaṁ tadeva te manokammaṁ paccavekkhitabbaṁ:"
+    },
+    {
+     "n": 100,
+     "text": "‘yannu kho ahaṁ idaṁ manasā kammaṁ akāsiṁ idaṁ me manokammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ manokammaṁ dukkhudrayaṁ dukkhavipākan’ti?"
+    },
+    {
+     "n": 101,
+     "text": "Sace kho tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 102,
+     "text": "‘yaṁ kho ahaṁ idaṁ manasā kammaṁ akāsiṁ idaṁ me manokammaṁ attabyābādhāyapi saṁvattati, parabyābādhāyapi saṁvattati, ubhayabyābādhāyapi saṁvattati— akusalaṁ idaṁ manokammaṁ dukkhudrayaṁ dukkhavipākan’ti,"
+    },
+    {
+     "n": 103,
+     "text": "evarūpaṁ pana te, rāhula, manokammaṁ aṭṭīyitabbaṁ harāyitabbaṁ jigucchitabbaṁ;"
+    },
+    {
+     "n": 104,
+     "text": "aṭṭīyitvā harāyitvā jigucchitvā āyatiṁ saṁvaraṁ āpajjitabbaṁ."
+    },
+    {
+     "n": 105,
+     "text": "Sace pana tvaṁ, rāhula, paccavekkhamāno evaṁ jāneyyāsi:"
+    },
+    {
+     "n": 106,
+     "text": "‘yaṁ kho ahaṁ idaṁ manasā kammaṁ akāsiṁ idaṁ me manokammaṁ nevattabyābādhāyapi saṁvattati, na parabyābādhāyapi saṁvattati, na ubhayabyābādhāyapi saṁvattati— kusalaṁ idaṁ manokammaṁ sukhudrayaṁ sukhavipākan’ti,"
+    },
+    {
+     "n": 107,
+     "text": "teneva tvaṁ, rāhula, pītipāmojjena vihareyyāsi ahorattānusikkhī kusalesu dhammesu."
+    },
+    {
+     "n": 108,
+     "text": "Ye hi keci, rāhula, atītamaddhānaṁ samaṇā vā brāhmaṇā vā kāyakammaṁ parisodhesuṁ, vacīkammaṁ parisodhesuṁ, manokammaṁ parisodhesuṁ, sabbe te evamevaṁ paccavekkhitvā paccavekkhitvā kāyakammaṁ parisodhesuṁ,"
+    },
+    {
+     "n": 109,
+     "text": "paccavekkhitvā paccavekkhitvā vacīkammaṁ parisodhesuṁ, paccavekkhitvā paccavekkhitvā manokammaṁ parisodhesuṁ."
+    },
+    {
+     "n": 110,
+     "text": "Yepi hi keci, rāhula, anāgatamaddhānaṁ samaṇā vā brāhmaṇā vā kāyakammaṁ parisodhessanti, vacīkammaṁ parisodhessanti, manokammaṁ parisodhessanti, sabbe te evamevaṁ paccavekkhitvā paccavekkhitvā kāyakammaṁ parisodhessanti,"
+    },
+    {
+     "n": 111,
+     "text": "paccavekkhitvā paccavekkhitvā vacīkammaṁ parisodhessanti, paccavekkhitvā paccavekkhitvā manokammaṁ parisodhessan”ti."
+    },
+    {
+     "n": 112,
+     "text": "Yepi hi keci, rāhula, etarahi samaṇā vā brāhmaṇā vā kāyakammaṁ parisodhenti, vacīkammaṁ parisodhenti, manokammaṁ parisodhenti, sabbe te evamevaṁ paccavekkhitvā paccavekkhitvā kāyakammaṁ parisodhenti,"
+    },
+    {
+     "n": 113,
+     "text": "paccavekkhitvā paccavekkhitvā vacīkammaṁ parisodhenti, paccavekkhitvā paccavekkhitvā manokammaṁ parisodhenti."
+    },
+    {
+     "n": 114,
+     "text": "Tasmātiha, rāhula, ‘paccavekkhitvā paccavekkhitvā kāyakammaṁ parisodhessāmi, paccavekkhitvā paccavekkhitvā vacīkammaṁ parisodhessāmi, paccavekkhitvā paccavekkhitvā manokammaṁ parisodhessāmī’ti— evañhi te, rāhula,"
+    },
+    {
+     "n": 115,
+     "text": "sikkhitabban”ti."
+    },
+    {
+     "n": 116,
+     "text": "Idamavoca bhagavā. Attamano āyasmā rāhulo bhagavato bhāsitaṁ abhinandīti."
+    },
+    {
+     "n": 117,
+     "text": "Ambalaṭṭhikarāhulovādasuttaṁ niṭṭhitaṁ paṭhamaṁ."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/mn61/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "So I have heard. At one time the Buddha was staying near Rājagaha in the Bamboo Grove, the squirrels’ feeding ground."
+    },
+    {
+     "n": 2,
+     "text": "Now at that time Venerable Rāhula was staying at Ambalaṭṭhikā."
+    },
+    {
+     "n": 3,
+     "text": "Then in the late afternoon, the Buddha came out of retreat and went to Ambalaṭṭhika to see Venerable Rāhula."
+    },
+    {
+     "n": 4,
+     "text": "Rāhula saw the Buddha coming off in the distance."
+    },
+    {
+     "n": 5,
+     "text": "He spread out a seat and placed water for washing the feet."
+    },
+    {
+     "n": 6,
+     "text": "The Buddha sat down on the seat spread out, and washed his feet."
+    },
+    {
+     "n": 7,
+     "text": "Rāhula bowed to the Buddha and sat down to one side."
+    },
+    {
+     "n": 8,
+     "text": "Then the Buddha, leaving a little water in the pot, addressed Rāhula, “Rāhula, do you see this little bit of water left in the pot?”"
+    },
+    {
+     "n": 9,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 10,
+     "text": "“That’s how little of the ascetic’s nature is left in those who are not ashamed to tell a deliberate lie.”"
+    },
+    {
+     "n": 11,
+     "text": "Then the Buddha, discarding what little water was left in the pot, said to Rāhula, “Do you see this little bit of water that was discarded?”"
+    },
+    {
+     "n": 12,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 13,
+     "text": "“That’s how the ascetic’s nature is discarded in those who are not ashamed to tell a deliberate lie.”"
+    },
+    {
+     "n": 14,
+     "text": "Then the Buddha, turning the pot upside down, said to Rāhula, “Do you see how this pot is turned upside down?”"
+    },
+    {
+     "n": 15,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 16,
+     "text": "“That’s how the ascetic’s nature is turned upside down in those who are not ashamed to tell a deliberate lie.”"
+    },
+    {
+     "n": 17,
+     "text": "Then the Buddha, turning the pot right side up, said to Rāhula, “Do you see how this pot is vacant and hollow?”"
+    },
+    {
+     "n": 18,
+     "text": "“Yes, sir.”"
+    },
+    {
+     "n": 19,
+     "text": "“That’s how vacant and hollow the ascetic’s nature is in those who are not ashamed to tell a deliberate lie."
+    },
+    {
+     "n": 20,
+     "text": "Suppose there was a royal bull elephant with tusks like draft-poles, able to draw a heavy load, pedigree and battle-hardened."
+    },
+    {
+     "n": 21,
+     "text": "In battle it uses its fore-feet and hind-feet, its fore-quarters and hind-quarters, its head, ears, tusks, and tail, but it still protects its trunk."
+    },
+    {
+     "n": 22,
+     "text": "So its rider thinks: ‘This royal bull elephant still protects its trunk. It has not yet given its life.’"
+    },
+    {
+     "n": 23,
+     "text": "But when that royal bull elephant … in battle uses its fore-feet and hind-feet, its fore-quarters and hind-quarters, its head, ears, tusks, and tail, and its trunk, its rider thinks:"
+    },
+    {
+     "n": 24,
+     "text": "‘This royal bull elephant … in battle uses its fore-feet and hind-feet, its fore-quarters and hind-quarters, its head, ears, tusks, and tail, and its trunk. It has given its life."
+    },
+    {
+     "n": 25,
+     "text": "Now there is nothing that royal bull elephant would not do.’"
+    },
+    {
+     "n": 26,
+     "text": "In the same way, when someone is not ashamed to tell a deliberate lie, there is no bad deed they would not do, I say."
+    },
+    {
+     "n": 27,
+     "text": "So you should train like this: ‘I will not tell a lie, even for a joke.’"
+    },
+    {
+     "n": 28,
+     "text": "What do you think, Rāhula? What is the purpose of a mirror?”"
+    },
+    {
+     "n": 29,
+     "text": "“It’s for checking your reflection, sir.”"
+    },
+    {
+     "n": 30,
+     "text": "“In the same way, deeds of body, speech, and mind should be done only after repeated checking."
+    },
+    {
+     "n": 31,
+     "text": "When you want to act with the body, you should check on that same deed: ‘Does this act with the body that I want to do lead to hurting myself, hurting others, or hurting both?"
+    },
+    {
+     "n": 32,
+     "text": "Is it unskillful, with suffering as its outcome and result?’"
+    },
+    {
+     "n": 33,
+     "text": "If, while checking in this way, you know: ‘This act with the body that I want to do leads to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 34,
+     "text": "It’s unskillful, with suffering as its outcome and result.’"
+    },
+    {
+     "n": 35,
+     "text": "To the best of your ability, Rāhula, you should not do such a deed."
+    },
+    {
+     "n": 36,
+     "text": "But if, while checking in this way, you know: ‘This act with the body that I want to do doesn’t lead to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 37,
+     "text": "It’s skillful, with happiness as its outcome and result.’"
+    },
+    {
+     "n": 38,
+     "text": "Then, Rāhula, you should do such a deed."
+    },
+    {
+     "n": 39,
+     "text": "While you are acting with the body, you should check on that same act: ‘Does this act with the body that I am doing lead to hurting myself, hurting others, or hurting both?"
+    },
+    {
+     "n": 40,
+     "text": "Is it unskillful, with suffering as its outcome and result?’"
+    },
+    {
+     "n": 41,
+     "text": "If, while checking in this way, you know: ‘This act with the body that I am doing leads to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 42,
+     "text": "It’s unskillful, with suffering as its outcome and result.’"
+    },
+    {
+     "n": 43,
+     "text": "Then, Rāhula, you should desist from such a deed."
+    },
+    {
+     "n": 44,
+     "text": "But if, while checking in this way, you know: ‘This act with the body that I am doing doesn’t lead to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 45,
+     "text": "It’s skillful, with happiness as its outcome and result.’"
+    },
+    {
+     "n": 46,
+     "text": "Then, Rāhula, you should continue doing such a deed."
+    },
+    {
+     "n": 47,
+     "text": "After you have acted with the body, you should check on that same act: ‘Does this act with the body that I have done lead to hurting myself, hurting others, or hurting both?"
+    },
+    {
+     "n": 48,
+     "text": "Is it unskillful, with suffering as its outcome and result?’"
+    },
+    {
+     "n": 49,
+     "text": "If, while checking in this way, you know: ‘This act with the body that I have done leads to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 50,
+     "text": "It’s unskillful, with suffering as its outcome and result.’"
+    },
+    {
+     "n": 51,
+     "text": "Then, Rāhula, you should confess, reveal, and clarify such a deed to the Teacher or a sensible spiritual companion."
+    },
+    {
+     "n": 52,
+     "text": "And having revealed it you should restrain yourself in future."
+    },
+    {
+     "n": 53,
+     "text": "But if, while checking in this way, you know: ‘This act with the body that I have done doesn’t lead to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 54,
+     "text": "It’s skillful, with happiness as its outcome and result.’"
+    },
+    {
+     "n": 55,
+     "text": "Then, Rāhula, you should live in rapture and joy because of this, training day and night in skillful qualities."
+    },
+    {
+     "n": 56,
+     "text": "When you want to act with speech, you should check on that same deed: ‘Does this act of speech that I want to do lead to hurting myself, hurting others, or hurting both? …’ …"
+    },
+    {
+     "n": 57,
+     "text": "If, while checking in this way, you know: ‘This act of speech that I have done leads to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 58,
+     "text": "It’s unskillful, with suffering as its outcome and result.’"
+    },
+    {
+     "n": 59,
+     "text": "Then, Rāhula, you should confess, reveal, and clarify such a deed to the Teacher or a sensible spiritual companion."
+    },
+    {
+     "n": 60,
+     "text": "And having revealed it you should restrain yourself in future."
+    },
+    {
+     "n": 61,
+     "text": "But if, while checking in this way, you know: ‘This act of speech that I have done doesn’t lead to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 62,
+     "text": "It’s skillful, with happiness as its outcome and result.’"
+    },
+    {
+     "n": 63,
+     "text": "Then, Rāhula, you should live in rapture and joy because of this, training day and night in skillful qualities."
+    },
+    {
+     "n": 64,
+     "text": "When you want to act with the mind, you should check on that same deed: ‘Does this act of mind that I want to do lead to hurting myself, hurting others, or hurting both? …’ …"
+    },
+    {
+     "n": 65,
+     "text": "If, while checking in this way, you know: ‘This act of mind that I have done leads to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 66,
+     "text": "It’s unskillful, with suffering as its outcome and result.’"
+    },
+    {
+     "n": 67,
+     "text": "Then, Rāhula, you should be horrified, repelled, and disgusted by that deed."
+    },
+    {
+     "n": 68,
+     "text": "And being repelled, you should restrain yourself in future."
+    },
+    {
+     "n": 69,
+     "text": "But if, while checking in this way, you know: ‘This act with the mind that I have done doesn’t lead to hurting myself, hurting others, or hurting both."
+    },
+    {
+     "n": 70,
+     "text": "It’s skillful, with happiness as its outcome and result.’"
+    },
+    {
+     "n": 71,
+     "text": "Then, Rāhula, you should live in rapture and joy because of this, training day and night in skillful qualities."
+    },
+    {
+     "n": 72,
+     "text": "All the ascetics and brahmins of the past, future, and present who purify their physical, verbal, and mental actions do so after repeatedly checking."
+    },
+    {
+     "n": 73,
+     "text": "So Rāhula, you should train yourself like this: ‘I will purify my physical, verbal, and mental actions after repeatedly checking.’”"
+    },
+    {
+     "n": 74,
+     "text": "That is what the Buddha said. Satisfied, Venerable Rāhula approved what the Buddha said."
+    }
+   ]
+  }
+ ]
+}

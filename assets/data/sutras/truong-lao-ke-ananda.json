@@ -1,0 +1,1425 @@
+{
+ "id": "truong-lao-ke-ananda",
+ "tradition": "THERAVADA",
+ "kind": "VERSE",
+ "collection": "Tiểu Bộ - Trưởng Lão Kệ",
+ "reference": "Thag 17.3",
+ "summary": "Kệ ngôn của trưởng lão Ānanda, thị giả của đức Phật, trích từ Trưởng Lão Kệ (Tiểu Bộ, Thag 17.3). Các câu kệ khuyên chọn bạn tốt, tránh kẻ xấu, quán thân thể bệnh hoạn, bất tịnh dù được trang sức, dùng hình ảnh con nai thoát bẫy mồi của thợ săn. Phần cuối nói về vị thị giả nghe nhiều đã buông gánh nặng, lậu hoặc cạn kiệt, sắp nằm xuống.",
+ "titles": {
+  "vi": "Trưởng Lão Kệ - Ānanda",
+  "pli": "Ānandattheragāthā",
+  "en": "Ānanda"
+ },
+ "deities": [
+  {
+   "deity_id": "buddha_shakyamuni",
+   "role": "MENTIONED"
+  }
+ ],
+ "dailyChant": false,
+ "purposes": [
+  "HOC_GIAO_LY"
+ ],
+ "durationMinutes": 20,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Bhikkhu Indacanda (Tỳ-khưu Indacanda)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/suttas/thag17.3/indacanda?lang=vi",
+   "license": "UNKNOWN",
+   "licenseNote": "no license stated; SuttaCentral page footer states: Translated by Bhikkhu Indacanda, 2011. Based on the Buddha Jayanthi edition of the Pali canon, as corrected by Bhikkhu Indacanda. Full text, translation, and notes are available at the translator’s website: http://tamtangpaliviet.net/. Used by kind permission of the translator.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Người sáng trí không nên kết bạn với kẻ nói đâm thọc, giận dữ, bỏn xẻn, vui với sự bất hạnh (của người khác); việc giao du với kẻ xấu là tệ hại."
+    },
+    {
+     "n": 2,
+     "text": "Người sáng trí nên kết bạn với người có đức tin, khéo cư xử, có trí tuệ, và nghe nhiều; việc giao du với người tốt là may mắn."
+    },
+    {
+     "n": 3,
+     "text": "Hãy nhìn xem bóng dáng được vẽ màu, nơi hội tụ các vết thương, được dựng lên (bằng ba trăm khúc xương), bệnh hoạn, nhiều suy tư (sái quấy), không có sự tồn tại trường cửu."
+    },
+    {
+     "n": 4,
+     "text": "Hãy nhìn xem vóc dáng được vẽ màu, với ngọc ma-ni và với bông tai; là xương được bọc lại bởi da, nó rạng rỡ nhờ vải vóc."
+    },
+    {
+     "n": 5,
+     "text": "Các bàn chân được sơn màu đỏ, khuôn mặt được bôi phấn bột, là đủ cho sự mê muội đối với kẻ ngu, nhưng không đủ đối với người có sự tầm cầu bờ kia."
+    },
+    {
+     "n": 6,
+     "text": "Các sợi tóc được làm thành tám lớp, các con mắt được bôi thuốc màu, là đủ cho sự mê muội đối với kẻ ngu, nhưng không đủ đối với người có sự tầm cầu bờ kia."
+    },
+    {
+     "n": 7,
+     "text": "Thân thể hôi thối đã được trang điểm tựa như hộp thuốc bôi đã được vẽ màu, là đủ cho sự mê muội đối với kẻ ngu, nhưng không đủ đối với người có sự tầm cầu bờ kia."
+    },
+    {
+     "n": 8,
+     "text": "Thợ săn đã đặt bẫy mồi, con nai đã không đến gần cái lưới bẫy."
+    },
+    {
+     "n": 9,
+     "text": "Sau khi ăn xong mồi nhử, chúng ta hãy ra đi, trong khi kẻ bắt thú đang than vãn."
+    },
+    {
+     "n": 10,
+     "text": "Các bẫy mồi của gã thợ săn đã bị đứt lìa, con nai đã không đến gần cái lưới bẫy."
+    },
+    {
+     "n": 11,
+     "text": "Sau khi ăn xong mồi nhử, chúng ta hãy ra đi, trong khi kẻ săn thú sầu muộn."
+    },
+    {
+     "n": 12,
+     "text": "Vị thị giả của đức Phật, nghe nhiều, có sự thuyết giảng tài ba, có gánh nặng đã được buông xuống, không bị ràng buộc, vị dòng dõi Gotama chuẩn bị việc nằm."
+    },
+    {
+     "n": 13,
+     "text": "(Vị ấy) có lậu hoặc đã được cạn kiệt, không bị ràng buộc, đã vượt qua sự bám víu, đã khéo được tịch tịnh, đang duy trì thân mạng cuối cùng, là người đã đi đến bờ kia của sanh tử."
+    },
+    {
+     "n": 14,
+     "text": "Vị dòng dõi Gotama ấy đấy, đứng ở Đạo Lộ dẫn đến Niết Bàn, nơi ấy các lời dạy của đức Phật, vị thân quyến của mặt trời, đã được thiết lập."
+    },
+    {
+     "n": 15,
+     "text": "Tôi đã tiếp nhận tám mươi hai ngàn từ đức Phật, hai ngàn từ vị tỳ khưu, tám mươi bốn ngàn Pháp (uẩn) này là có sự vận hành."
+    },
+    {
+     "n": 16,
+     "text": "Kẻ này ít học, tựa như con bò đực trở thành già cỗi, các bắp thịt của kẻ ấy tăng trưởng, trí tuệ của kẻ ấy không tăng trường."
+    },
+    {
+     "n": 17,
+     "text": "Người nào học nhiều rồi khinh chê kẻ ít học về việc học, giống như người cầm cây đèn bị mù, điều nảy sanh trong trí của tôi tương tự y như thế."
+    },
+    {
+     "n": 18,
+     "text": "Hãy phụng sự người học nhiều, và chớ hủy hoại việc học, việc ấy là gốc rễ của Phạm hạnh; vì thế nên là người có sự ghi nhớ về Giáo Pháp."
+    },
+    {
+     "n": 19,
+     "text": "Là người biết điều nào trước điều nào sau, biết về ý nghĩa, rành rẽ về ngôn ngữ và từ vựng, nắm giữ điều đã được học tốt đẹp, và quán xét về ý nghĩa."
+    },
+    {
+     "n": 20,
+     "text": "Đã nảy sanh ước muốn nhờ vào sự nhẫn nại, sau khi đã ra sức thì cân nhắc về điều ấy, vị ấy nỗ lực đúng thời điểm, nội tâm khéo được định tĩnh."
+    },
+    {
+     "n": 21,
+     "text": "Vị đệ tử của đức Phật, có sự nghe nhiều, có sự ghi nhớ về Giáo Pháp, có trí tuệ, đang mong mỏi sự nhận thức về Giáo Pháp; nên thân cận vị có đức tính như thế ấy."
+    },
+    {
+     "n": 22,
+     "text": "Vị đại ẩn sĩ, có sự nghe nhiều, có sự ghi nhớ về Giáo Pháp, có sự bảo vệ kho tàng (Giáo Pháp), là con mắt của tất cả thế gian; sự nghe nhiều đáng được cúng dường."
+    },
+    {
+     "n": 23,
+     "text": "Có sự ưa thích Giáo Pháp, được thích thú Giáo Pháp, trong khi suy tư về Giáo Pháp, trong khi suy niệm về Giáo Pháp, vị tỳ khưu không rời bỏ Chánh Pháp."
+    },
+    {
+     "n": 24,
+     "text": "Đối với kẻ có sự chú trọng ở việc ích kỷ về thân xác, trong khi đang bị tiêu hoại (dần), không thể tự sách tấn, đối với kẻ bị tham đắm trong sự khoái lạc của cơ thể, tính chất thoải mái của Sa-môn từ đâu mà có?"
+    },
+    {
+     "n": 25,
+     "text": "Mọi phương hướng không hiện rõ, các Giáo Pháp không hiển hiện cho tôi, khi người bạn tốt lành đã ra đi, như thể bóng tối xuất hiện."
+    },
+    {
+     "n": 26,
+     "text": "Đối với vị có bạn hữu đã đi xa, đối với vị có bậc Đạo Sư đã qua rồi, đã ra đi, không có người bạn nào giống như thế ấy, giống như niệm đặt ở thân."
+    },
+    {
+     "n": 27,
+     "text": "Những vị xưa kia đã qua rồi, tâm tôi không hợp với những vị mới."
+    },
+    {
+     "n": 28,
+     "text": "Hôm nay, tôi đây chỉ một mình, tham thiền, tựa như con chim đi về nơi trú ẩn."
+    },
+    {
+     "n": 29,
+     "text": "‘Chớ ngăn cản nhiều người từ các xứ sở khác nhau đang đi đến để yết kiến, giờ là thời điểm, hãy để cho những người lắng nghe gặp Ta.’"
+    },
+    {
+     "n": 30,
+     "text": "Đấng Đạo Sư, bậc Hữu Nhãn, cho cơ hội đến những người từ các xứ sở khác nhau đang đi đến để yết kiến, không ngăn cản."
+    },
+    {
+     "n": 31,
+     "text": "Hai mươi lăm năm, suy tưởng về ái dục đã không khởi lên ở tôi khi đang còn ở bản thể Hữu Học, hãy nhìn xem bản chất tốt đẹp của Giáo Pháp."
+    },
+    {
+     "n": 32,
+     "text": "Hai mươi lăm năm, suy tưởng về sân hận đã không khởi lên ở tôi khi đang còn ở bản thể Hữu Học; hãy nhìn xem bản chất tốt đẹp của Giáo Pháp."
+    },
+    {
+     "n": 33,
+     "text": "Hai mươi lăm năm, tôi đã hầu cận đức Thế Tôn với tâm từ qua thân nghiệp, như chiếc bóng không có sự xa lìa."
+    },
+    {
+     "n": 34,
+     "text": "Hai mươi lăm năm, tôi đã hầu cận đức Thế Tôn với tâm từ qua khẩu nghiệp, như chiếc bóng không có sự xa lìa."
+    },
+    {
+     "n": 35,
+     "text": "Hai mươi lăm năm, tôi đã hầu cận đức Thế Tôn với tâm từ qua ý nghiệp, như chiếc bóng không có sự xa lìa."
+    },
+    {
+     "n": 36,
+     "text": "Khi đức Phật đang đi kinh hành, tôi đã đi theo ở phía sau."
+    },
+    {
+     "n": 37,
+     "text": "Khi Giáo Pháp đang được thuyết giảng, trí đã khởi lên ở tôi."
+    },
+    {
+     "n": 38,
+     "text": "Tôi là bậc Hữu Học, còn có việc cần phải làm, tâm ý chưa được đạt đến, và bậc Đạo Sư, người có lòng thương tưởng đến tôi, viên tịch Niết Bàn."
+    },
+    {
+     "n": 39,
+     "text": "Khi bậc Toàn Giác, được hội đủ mọi biểu hiện cao quý, viên tịch Niết Bàn, khi ấy đã có sự kinh sợ, khi ấy đã có sự nổi da gà."
+    },
+    {
+     "n": 40,
+     "text": "Vị Ānanda, bậc đại ẩn sĩ, có sự nghe nhiều, có sự ghi nhớ về Giáo Pháp, con mắt của tất cả thế gian, viên tịch Niết Bàn."
+    },
+    {
+     "n": 41,
+     "text": "Vị đại ẩn sĩ, có sự nghe nhiều, có sự ghi nhớ về Giáo Pháp, có sự bảo vệ kho tàng (Giáo Pháp), con mắt của tất cả thế gian, có sự xua tan tăm tối ở bóng đêm."
+    },
+    {
+     "n": 42,
+     "text": "Bậc Đạo Sư đã được tôi hầu hạ, lời dạy của đức Phật đã được thực hành, vật mang nặng đã được đặt xuống, giờ đây không còn tái sanh nữa.”"
+    },
+    {
+     "n": 43,
+     "text": "Đại đức trưởng lão Ānanda đã nói những lời kệ như thế."
+    },
+    {
+     "n": 44,
+     "text": "Kệ ngôn của trưởng lão Ānanda."
+    },
+    {
+     "n": 45,
+     "text": "TÓM LƯỢC NHÓM NÀY"
+    },
+    {
+     "n": 46,
+     "text": "“Vị Phussa, vị Upatissa, vị Ānanda, là ba vị đã được thuật lại ở nhóm Ba Mươi, các câu kệ đã được tạo ra ở tại nơi ấy là một trăm lẻ năm.”"
+    },
+    {
+     "n": 47,
+     "text": "Nhóm Ba Mươi được chấm dứt."
+    }
+   ]
+  },
+  {
+   "key": "pli-translation",
+   "lang": "pli",
+   "variant": "translation",
+   "translator": "Mahāsaṅgīti Tipiṭaka Buddhavasse 2500 (The M.L. Maniratana Bunnag Dhamma Society Fund)",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag17.3/sujato?lang=en (root_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (scpub38, Mahāsaṅgīti Tipiṭaka Buddhavasse 2500, The M.L. Maniratana Bunnag Dhamma Society Fund, 2005)",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“Pisuṇena ca kodhanena ca,"
+    },
+    {
+     "n": 2,
+     "text": "Maccharinā ca vibhūtanandinā;"
+    },
+    {
+     "n": 3,
+     "text": "Sakhitaṁ na kareyya paṇḍito,"
+    },
+    {
+     "n": 4,
+     "text": "Pāpo kāpurisena saṅgamo."
+    },
+    {
+     "n": 5,
+     "text": "Saddhena ca pesalena ca,"
+    },
+    {
+     "n": 6,
+     "text": "Paññavatā bahussutena ca;"
+    },
+    {
+     "n": 7,
+     "text": "Sakhitaṁ kareyya paṇḍito,"
+    },
+    {
+     "n": 8,
+     "text": "Bhaddo sappurisena saṅgamo."
+    },
+    {
+     "n": 9,
+     "text": "Passa cittakataṁ bimbaṁ, … pe …"
+    },
+    {
+     "n": 10,
+     "text": "yassa natthi dhuvaṁ ṭhiti."
+    },
+    {
+     "n": 11,
+     "text": "Passa cittakataṁ bimbaṁ, … pe …"
+    },
+    {
+     "n": 12,
+     "text": "vatthehi sobhati."
+    },
+    {
+     "n": 13,
+     "text": "Alattakakatā, … pe …"
+    },
+    {
+     "n": 14,
+     "text": "no ca pāragavesino."
+    },
+    {
+     "n": 15,
+     "text": "Aṭṭhapadakatā, … pe …"
+    },
+    {
+     "n": 16,
+     "text": "no ca pāragavesino."
+    },
+    {
+     "n": 17,
+     "text": "Añjanīva navā, … pe …"
+    },
+    {
+     "n": 18,
+     "text": "no ca pāragavesino."
+    },
+    {
+     "n": 19,
+     "text": "Bahussuto cittakathī,"
+    },
+    {
+     "n": 20,
+     "text": "buddhassa paricārako;"
+    },
+    {
+     "n": 21,
+     "text": "Pannabhāro visaññutto,"
+    },
+    {
+     "n": 22,
+     "text": "seyyaṁ kappeti gotamo."
+    },
+    {
+     "n": 23,
+     "text": "Khīṇāsavo visaññutto,"
+    },
+    {
+     "n": 24,
+     "text": "saṅgātīto sunibbuto;"
+    },
+    {
+     "n": 25,
+     "text": "Dhāreti antimaṁ dehaṁ,"
+    },
+    {
+     "n": 26,
+     "text": "jātimaraṇapāragū."
+    },
+    {
+     "n": 27,
+     "text": "Yasmiṁ patiṭṭhitā dhammā,"
+    },
+    {
+     "n": 28,
+     "text": "buddhassādiccabandhuno;"
+    },
+    {
+     "n": 29,
+     "text": "Nibbānagamane magge,"
+    },
+    {
+     "n": 30,
+     "text": "soyaṁ tiṭṭhati gotamo."
+    },
+    {
+     "n": 31,
+     "text": "Dvāsīti buddhato gaṇhiṁ,"
+    },
+    {
+     "n": 32,
+     "text": "dve sahassāni bhikkhuto;"
+    },
+    {
+     "n": 33,
+     "text": "Caturāsītisahassāni,"
+    },
+    {
+     "n": 34,
+     "text": "ye me dhammā pavattino."
+    },
+    {
+     "n": 35,
+     "text": "Appassutāyaṁ puriso,"
+    },
+    {
+     "n": 36,
+     "text": "balibaddova jīrati;"
+    },
+    {
+     "n": 37,
+     "text": "Maṁsāni tassa vaḍḍhanti,"
+    },
+    {
+     "n": 38,
+     "text": "paññā tassa na vaḍḍhati."
+    },
+    {
+     "n": 39,
+     "text": "Bahussuto appassutaṁ,"
+    },
+    {
+     "n": 40,
+     "text": "yo sutenātimaññati;"
+    },
+    {
+     "n": 41,
+     "text": "Andho padīpadhārova,"
+    },
+    {
+     "n": 42,
+     "text": "tatheva paṭibhāti maṁ."
+    },
+    {
+     "n": 43,
+     "text": "Bahussutaṁ upāseyya,"
+    },
+    {
+     "n": 44,
+     "text": "sutañca na vināsaye;"
+    },
+    {
+     "n": 45,
+     "text": "Taṁ mūlaṁ brahmacariyassa,"
+    },
+    {
+     "n": 46,
+     "text": "tasmā dhammadharo siyā."
+    },
+    {
+     "n": 47,
+     "text": "Pubbāparaññū atthaññū,"
+    },
+    {
+     "n": 48,
+     "text": "niruttipadakovido;"
+    },
+    {
+     "n": 49,
+     "text": "Suggahītañca gaṇhāti,"
+    },
+    {
+     "n": 50,
+     "text": "atthañcopaparikkhati."
+    },
+    {
+     "n": 51,
+     "text": "Khantyā chandikato hoti,"
+    },
+    {
+     "n": 52,
+     "text": "ussahitvā tuleti taṁ;"
+    },
+    {
+     "n": 53,
+     "text": "Samaye so padahati,"
+    },
+    {
+     "n": 54,
+     "text": "ajjhattaṁ susamāhito."
+    },
+    {
+     "n": 55,
+     "text": "Bahussutaṁ dhammadharaṁ,"
+    },
+    {
+     "n": 56,
+     "text": "sappaññaṁ buddhasāvakaṁ;"
+    },
+    {
+     "n": 57,
+     "text": "Dhammaviññāṇamākaṅkhaṁ,"
+    },
+    {
+     "n": 58,
+     "text": "taṁ bhajetha tathāvidhaṁ."
+    },
+    {
+     "n": 59,
+     "text": "Bahussuto dhammadharo,"
+    },
+    {
+     "n": 60,
+     "text": "kosārakkho mahesino;"
+    },
+    {
+     "n": 61,
+     "text": "Cakkhu sabbassa lokassa,"
+    },
+    {
+     "n": 62,
+     "text": "pūjanīyo bahussuto."
+    },
+    {
+     "n": 63,
+     "text": "Dhammārāmo dhammarato,"
+    },
+    {
+     "n": 64,
+     "text": "dhammaṁ anuvicintayaṁ;"
+    },
+    {
+     "n": 65,
+     "text": "Dhammaṁ anussaraṁ bhikkhu,"
+    },
+    {
+     "n": 66,
+     "text": "saddhammā na parihāyati."
+    },
+    {
+     "n": 67,
+     "text": "Kāyamaccheragaruno,"
+    },
+    {
+     "n": 68,
+     "text": "hiyyamāne anuṭṭhahe;"
+    },
+    {
+     "n": 69,
+     "text": "Sarīrasukhagiddhassa,"
+    },
+    {
+     "n": 70,
+     "text": "kuto samaṇaphāsutā."
+    },
+    {
+     "n": 71,
+     "text": "Na pakkhanti disā sabbā,"
+    },
+    {
+     "n": 72,
+     "text": "dhammā na paṭibhanti maṁ;"
+    },
+    {
+     "n": 73,
+     "text": "Gate kalyāṇamittamhi,"
+    },
+    {
+     "n": 74,
+     "text": "andhakāraṁva khāyati."
+    },
+    {
+     "n": 75,
+     "text": "Abbhatītasahāyassa,"
+    },
+    {
+     "n": 76,
+     "text": "atītagatasatthuno;"
+    },
+    {
+     "n": 77,
+     "text": "Natthi etādisaṁ mittaṁ,"
+    },
+    {
+     "n": 78,
+     "text": "yathā kāyagatā sati."
+    },
+    {
+     "n": 79,
+     "text": "Ye purāṇā atītā te,"
+    },
+    {
+     "n": 80,
+     "text": "navehi na sameti me;"
+    },
+    {
+     "n": 81,
+     "text": "Svajja ekova jhāyāmi,"
+    },
+    {
+     "n": 82,
+     "text": "vassupetova pakkhimā”."
+    },
+    {
+     "n": 83,
+     "text": "“Dassanāya abhikkante,"
+    },
+    {
+     "n": 84,
+     "text": "nānāverajjake bahū;"
+    },
+    {
+     "n": 85,
+     "text": "Mā vārayittha sotāro,"
+    },
+    {
+     "n": 86,
+     "text": "passantu samayo mamaṁ”."
+    },
+    {
+     "n": 87,
+     "text": "“Dassanāya abhikkante,"
+    },
+    {
+     "n": 88,
+     "text": "nānāverajjake puthu;"
+    },
+    {
+     "n": 89,
+     "text": "Karoti satthā okāsaṁ,"
+    },
+    {
+     "n": 90,
+     "text": "na nivāreti cakkhumā."
+    },
+    {
+     "n": 91,
+     "text": "Paṇṇavīsativassāni,"
+    },
+    {
+     "n": 92,
+     "text": "sekhabhūtassa me sato;"
+    },
+    {
+     "n": 93,
+     "text": "Na kāmasaññā uppajji,"
+    },
+    {
+     "n": 94,
+     "text": "passa dhammasudhammataṁ."
+    },
+    {
+     "n": 95,
+     "text": "Paṇṇavīsativassāni,"
+    },
+    {
+     "n": 96,
+     "text": "sekhabhūtassa me sato;"
+    },
+    {
+     "n": 97,
+     "text": "Na dosasaññā uppajji,"
+    },
+    {
+     "n": 98,
+     "text": "passa dhammasudhammataṁ."
+    },
+    {
+     "n": 99,
+     "text": "Paṇṇavīsativassāni,"
+    },
+    {
+     "n": 100,
+     "text": "bhagavantaṁ upaṭṭhahiṁ;"
+    },
+    {
+     "n": 101,
+     "text": "Mettena kāyakammena,"
+    },
+    {
+     "n": 102,
+     "text": "chāyāva anapāyinī."
+    },
+    {
+     "n": 103,
+     "text": "Paṇṇavīsativassāni,"
+    },
+    {
+     "n": 104,
+     "text": "bhagavantaṁ upaṭṭhahiṁ;"
+    },
+    {
+     "n": 105,
+     "text": "Mettena vacīkammena,"
+    },
+    {
+     "n": 106,
+     "text": "chāyāva anapāyinī."
+    },
+    {
+     "n": 107,
+     "text": "Paṇṇavīsativassāni,"
+    },
+    {
+     "n": 108,
+     "text": "bhagavantaṁ upaṭṭhahiṁ;"
+    },
+    {
+     "n": 109,
+     "text": "Mettena manokammena,"
+    },
+    {
+     "n": 110,
+     "text": "chāyāva anapāyinī."
+    },
+    {
+     "n": 111,
+     "text": "Buddhassa caṅkamantassa,"
+    },
+    {
+     "n": 112,
+     "text": "piṭṭhito anucaṅkamiṁ;"
+    },
+    {
+     "n": 113,
+     "text": "Dhamme desiyamānamhi,"
+    },
+    {
+     "n": 114,
+     "text": "ñāṇaṁ me udapajjatha."
+    },
+    {
+     "n": 115,
+     "text": "Ahaṁ sakaraṇīyomhi,"
+    },
+    {
+     "n": 116,
+     "text": "sekho appattamānaso;"
+    },
+    {
+     "n": 117,
+     "text": "Satthu ca parinibbānaṁ,"
+    },
+    {
+     "n": 118,
+     "text": "yo amhaṁ anukampako."
+    },
+    {
+     "n": 119,
+     "text": "Tadāsi yaṁ bhiṁsanakaṁ,"
+    },
+    {
+     "n": 120,
+     "text": "tadāsi lomahaṁsanaṁ;"
+    },
+    {
+     "n": 121,
+     "text": "Sabbākāravarūpete,"
+    },
+    {
+     "n": 122,
+     "text": "sambuddhe parinibbute”."
+    },
+    {
+     "n": 123,
+     "text": "“Bahussuto dhammadharo,"
+    },
+    {
+     "n": 124,
+     "text": "kosārakkho mahesino;"
+    },
+    {
+     "n": 125,
+     "text": "Cakkhu sabbassa lokassa,"
+    },
+    {
+     "n": 126,
+     "text": "ānando parinibbuto."
+    },
+    {
+     "n": 127,
+     "text": "Bahussuto dhammadharo,"
+    },
+    {
+     "n": 128,
+     "text": "kosārakkho mahesino;"
+    },
+    {
+     "n": 129,
+     "text": "Cakkhu sabbassa lokassa,"
+    },
+    {
+     "n": 130,
+     "text": "andhakāre tamonudo."
+    },
+    {
+     "n": 131,
+     "text": "Gatimanto satimanto,"
+    },
+    {
+     "n": 132,
+     "text": "dhitimanto ca yo isi;"
+    },
+    {
+     "n": 133,
+     "text": "Saddhammadhārako thero,"
+    },
+    {
+     "n": 134,
+     "text": "ānando ratanākaro”."
+    },
+    {
+     "n": 135,
+     "text": "“Pariciṇṇo mayā satthā,"
+    },
+    {
+     "n": 136,
+     "text": "kataṁ buddhassa sāsanaṁ;"
+    },
+    {
+     "n": 137,
+     "text": "Ohito garuko bhāro,"
+    },
+    {
+     "n": 138,
+     "text": "natthi dāni punabbhavo”ti."
+    },
+    {
+     "n": 139,
+     "text": "… Ānando thero …"
+    },
+    {
+     "n": 140,
+     "text": "Tiṁsanipāto niṭṭhito."
+    },
+    {
+     "n": 141,
+     "text": "Tatruddānaṁ"
+    },
+    {
+     "n": 142,
+     "text": "Phusso patisso ānando,"
+    },
+    {
+     "n": 143,
+     "text": "tayotime pakittitā;"
+    },
+    {
+     "n": 144,
+     "text": "Gāthāyo tattha saṅkhātā,"
+    },
+    {
+     "n": 145,
+     "text": "sataṁ pañca ca uttarīti."
+    }
+   ]
+  },
+  {
+   "key": "en-translation",
+   "lang": "en",
+   "variant": "translation",
+   "translator": "Bhikkhu Sujato",
+   "sourceName": "SuttaCentral",
+   "sourceUrl": "https://suttacentral.net/api/bilarasuttas/thag17.3/sujato?lang=en (translation_text)",
+   "license": "CC0-1.0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "licenseNote": "as stated in SuttaCentral publication metadata (bilara-data _publication-v2.json); the translator additionally requests that use not be for AI training datasets, AI models or AI-derived technologies",
+   "lines": [
+    {
+     "n": 1,
+     "text": "“The astute would not make friends"
+    },
+    {
+     "n": 2,
+     "text": "with the slanderous or the hateful,"
+    },
+    {
+     "n": 3,
+     "text": "with a miser or a gloater,"
+    },
+    {
+     "n": 4,
+     "text": "for it’s bad to consort with reprobates."
+    },
+    {
+     "n": 5,
+     "text": "The astute would make friends"
+    },
+    {
+     "n": 6,
+     "text": "with the faithful and the pleasant,"
+    },
+    {
+     "n": 7,
+     "text": "the wise and the learned,"
+    },
+    {
+     "n": 8,
+     "text": "for it’s a blessing to consort with true persons.”"
+    },
+    {
+     "n": 9,
+     "text": "“See this fancy puppet,"
+    },
+    {
+     "n": 10,
+     "text": "a body built of sores,"
+    },
+    {
+     "n": 11,
+     "text": "diseased, obsessed over,"
+    },
+    {
+     "n": 12,
+     "text": "in which nothing lasts at all."
+    },
+    {
+     "n": 13,
+     "text": "See this fancy puppet,"
+    },
+    {
+     "n": 14,
+     "text": "with its gems and earrings;"
+    },
+    {
+     "n": 15,
+     "text": "it is bones swathed in skin,"
+    },
+    {
+     "n": 16,
+     "text": "made pretty by its clothes."
+    },
+    {
+     "n": 17,
+     "text": "Rouged feet"
+    },
+    {
+     "n": 18,
+     "text": "and powdered face"
+    },
+    {
+     "n": 19,
+     "text": "may be enough to beguile a fool,"
+    },
+    {
+     "n": 20,
+     "text": "but not a seeker of the far shore."
+    },
+    {
+     "n": 21,
+     "text": "Hair in eight braids"
+    },
+    {
+     "n": 22,
+     "text": "and eyeshadow"
+    },
+    {
+     "n": 23,
+     "text": "may be enough to beguile a fool,"
+    },
+    {
+     "n": 24,
+     "text": "but not a seeker of the far shore."
+    },
+    {
+     "n": 25,
+     "text": "A rotting body all adorned"
+    },
+    {
+     "n": 26,
+     "text": "like a freshly painted makeup box"
+    },
+    {
+     "n": 27,
+     "text": "may be enough to beguile a fool,"
+    },
+    {
+     "n": 28,
+     "text": "but not a seeker of the far shore.”"
+    },
+    {
+     "n": 29,
+     "text": "“Gotama is learned, a brilliant speaker,"
+    },
+    {
+     "n": 30,
+     "text": "the attendant to the Buddha."
+    },
+    {
+     "n": 31,
+     "text": "With burden put down, detached,"
+    },
+    {
+     "n": 32,
+     "text": "Gotama made his bed."
+    },
+    {
+     "n": 33,
+     "text": "Defilements ended, detached,"
+    },
+    {
+     "n": 34,
+     "text": "he has got over clinging and become quenched."
+    },
+    {
+     "n": 35,
+     "text": "He bears his final body,"
+    },
+    {
+     "n": 36,
+     "text": "having gone beyond birth and death.”"
+    },
+    {
+     "n": 37,
+     "text": "“Gotama stands firm"
+    },
+    {
+     "n": 38,
+     "text": "on the path that leads to quenching,"
+    },
+    {
+     "n": 39,
+     "text": "where the teachings of the Buddha,"
+    },
+    {
+     "n": 40,
+     "text": "the Kinsman of the Sun, are grounded.”"
+    },
+    {
+     "n": 41,
+     "text": "“82,000 from the Buddha,"
+    },
+    {
+     "n": 42,
+     "text": "and 2,000 more from the monks:"
+    },
+    {
+     "n": 43,
+     "text": "84,000 teachings I’ve learned,"
+    },
+    {
+     "n": 44,
+     "text": "and these are what I promulgate.”"
+    },
+    {
+     "n": 45,
+     "text": "“A person of little learning"
+    },
+    {
+     "n": 46,
+     "text": "ages like an ox—"
+    },
+    {
+     "n": 47,
+     "text": "their flesh grows,"
+    },
+    {
+     "n": 48,
+     "text": "but not their wisdom."
+    },
+    {
+     "n": 49,
+     "text": "A learned person who, on account of their learning,"
+    },
+    {
+     "n": 50,
+     "text": "looks down on someone of little learning,"
+    },
+    {
+     "n": 51,
+     "text": "strikes me as like"
+    },
+    {
+     "n": 52,
+     "text": "a blind man holding a lamp."
+    },
+    {
+     "n": 53,
+     "text": "You should stay close to a learned person—"
+    },
+    {
+     "n": 54,
+     "text": "don’t lose what you’ve learned."
+    },
+    {
+     "n": 55,
+     "text": "It is the root of the spiritual life,"
+    },
+    {
+     "n": 56,
+     "text": "which is why you should memorize the teaching."
+    },
+    {
+     "n": 57,
+     "text": "Knowing the sequence and meaning of the teaching,"
+    },
+    {
+     "n": 58,
+     "text": "expert in the definition of terms,"
+    },
+    {
+     "n": 59,
+     "text": "they make sure it is well memorized,"
+    },
+    {
+     "n": 60,
+     "text": "and then examine the meaning."
+    },
+    {
+     "n": 61,
+     "text": "Accepting the teachings, they become enthusiastic;"
+    },
+    {
+     "n": 62,
+     "text": "making an attempt, they weigh up the teaching."
+    },
+    {
+     "n": 63,
+     "text": "When it’s time, they strive"
+    },
+    {
+     "n": 64,
+     "text": "serene inside themselves."
+    },
+    {
+     "n": 65,
+     "text": "If you want to understand the teaching,"
+    },
+    {
+     "n": 66,
+     "text": "you should befriend that sort,"
+    },
+    {
+     "n": 67,
+     "text": "who are learned and have memorized the teachings,"
+    },
+    {
+     "n": 68,
+     "text": "wise disciples of the Buddha."
+    },
+    {
+     "n": 69,
+     "text": "One who is learned and has memorized the teaching,"
+    },
+    {
+     "n": 70,
+     "text": "a keeper of the great seer’s treasury,"
+    },
+    {
+     "n": 71,
+     "text": "is a visionary for the whole world,"
+    },
+    {
+     "n": 72,
+     "text": "learned and honorable."
+    },
+    {
+     "n": 73,
+     "text": "Delighting in the teaching, enjoying the teaching,"
+    },
+    {
+     "n": 74,
+     "text": "contemplating the teaching,"
+    },
+    {
+     "n": 75,
+     "text": "a mendicant who recollects the teaching"
+    },
+    {
+     "n": 76,
+     "text": "doesn’t fall away from the true teaching.”"
+    },
+    {
+     "n": 77,
+     "text": "“When your body is pampered and heavy,"
+    },
+    {
+     "n": 78,
+     "text": "while your remaining time is running out,"
+    },
+    {
+     "n": 79,
+     "text": "greedy for physical pleasure,"
+    },
+    {
+     "n": 80,
+     "text": "how can you be comfortable as an ascetic?”"
+    },
+    {
+     "n": 81,
+     "text": "“I’m completely disorientated!"
+    },
+    {
+     "n": 82,
+     "text": "The teachings don’t spring to mind!"
+    },
+    {
+     "n": 83,
+     "text": "With the passing of our good friend,"
+    },
+    {
+     "n": 84,
+     "text": "everything seems dark."
+    },
+    {
+     "n": 85,
+     "text": "When your friend has passed away,"
+    },
+    {
+     "n": 86,
+     "text": "and your Teacher is past and gone,"
+    },
+    {
+     "n": 87,
+     "text": "there’s no friend like"
+    },
+    {
+     "n": 88,
+     "text": "mindfulness of the body."
+    },
+    {
+     "n": 89,
+     "text": "The old have passed away,"
+    },
+    {
+     "n": 90,
+     "text": "and I don’t agree with the new."
+    },
+    {
+     "n": 91,
+     "text": "Today I meditate alone"
+    },
+    {
+     "n": 92,
+     "text": "like a bird snug in its nest.”"
+    },
+    {
+     "n": 93,
+     "text": "“Many visitors from abroad"
+    },
+    {
+     "n": 94,
+     "text": "have come to visit."
+    },
+    {
+     "n": 95,
+     "text": "Don’t block the audience,"
+    },
+    {
+     "n": 96,
+     "text": "let the congregation see me.”"
+    },
+    {
+     "n": 97,
+     "text": "“Lots of visitors from abroad"
+    },
+    {
+     "n": 98,
+     "text": "have come to visit."
+    },
+    {
+     "n": 99,
+     "text": "The teacher grants them the opportunity,"
+    },
+    {
+     "n": 100,
+     "text": "the Clear-eyed One doesn’t turn them away.”"
+    },
+    {
+     "n": 101,
+     "text": "“In the twenty five years that have passed"
+    },
+    {
+     "n": 102,
+     "text": "since I became a trainee,"
+    },
+    {
+     "n": 103,
+     "text": "no sensual perception has arisen in me:"
+    },
+    {
+     "n": 104,
+     "text": "behold the clear rightness of the teaching!"
+    },
+    {
+     "n": 105,
+     "text": "In the twenty-five years"
+    },
+    {
+     "n": 106,
+     "text": "since I became a trainee,"
+    },
+    {
+     "n": 107,
+     "text": "no malicious perception has arisen in me:"
+    },
+    {
+     "n": 108,
+     "text": "behold the clear rightness of the teaching!”"
+    },
+    {
+     "n": 109,
+     "text": "“For twenty-five years"
+    },
+    {
+     "n": 110,
+     "text": "I attended on the Buddha"
+    },
+    {
+     "n": 111,
+     "text": "with loving deeds,"
+    },
+    {
+     "n": 112,
+     "text": "like a shadow that never left."
+    },
+    {
+     "n": 113,
+     "text": "For twenty-five years"
+    },
+    {
+     "n": 114,
+     "text": "I attended on the Buddha"
+    },
+    {
+     "n": 115,
+     "text": "with loving words,"
+    },
+    {
+     "n": 116,
+     "text": "like a shadow that never left."
+    },
+    {
+     "n": 117,
+     "text": "For twenty-five years"
+    },
+    {
+     "n": 118,
+     "text": "I attended on the Buddha"
+    },
+    {
+     "n": 119,
+     "text": "with loving thoughts,"
+    },
+    {
+     "n": 120,
+     "text": "like a shadow that never left."
+    },
+    {
+     "n": 121,
+     "text": "While the Buddha was walking mindfully,"
+    },
+    {
+     "n": 122,
+     "text": "I walked behind him."
+    },
+    {
+     "n": 123,
+     "text": "As he taught the Dhamma,"
+    },
+    {
+     "n": 124,
+     "text": "knowledge arose in me.”"
+    },
+    {
+     "n": 125,
+     "text": "“I’m a trainee, who has more to do;"
+    },
+    {
+     "n": 126,
+     "text": "my heart’s desire is still unfulfilled."
+    },
+    {
+     "n": 127,
+     "text": "Yet the Teacher, who was so compassionate to me,"
+    },
+    {
+     "n": 128,
+     "text": "has become fully extinguished."
+    },
+    {
+     "n": 129,
+     "text": "Then there was terror!"
+    },
+    {
+     "n": 130,
+     "text": "Then they had goosebumps!"
+    },
+    {
+     "n": 131,
+     "text": "When the Buddha, endowed with all fine qualities,"
+    },
+    {
+     "n": 132,
+     "text": "was fully quenched.”"
+    },
+    {
+     "n": 133,
+     "text": "“Ānanda, who was learned and had memorized the teaching,"
+    },
+    {
+     "n": 134,
+     "text": "a keeper of the great seer’s treasury,"
+    },
+    {
+     "n": 135,
+     "text": "a visionary for the entire world,"
+    },
+    {
+     "n": 136,
+     "text": "has become fully quenched."
+    },
+    {
+     "n": 137,
+     "text": "He was learned and had memorized the teaching,"
+    },
+    {
+     "n": 138,
+     "text": "a keeper of the great seer’s treasury,"
+    },
+    {
+     "n": 139,
+     "text": "a visionary for the entire world,"
+    },
+    {
+     "n": 140,
+     "text": "in thick of night he dispelled the dark."
+    },
+    {
+     "n": 141,
+     "text": "He is the seer who remembered the teachings,"
+    },
+    {
+     "n": 142,
+     "text": "and mastered their sequence, holding them firm."
+    },
+    {
+     "n": 143,
+     "text": "The senior monk who memorized the teaching,"
+    },
+    {
+     "n": 144,
+     "text": "Ānanda was a mine of gems.”"
+    },
+    {
+     "n": 145,
+     "text": "“I’ve served the Teacher"
+    },
+    {
+     "n": 146,
+     "text": "and fulfilled the Buddha’s instructions."
+    },
+    {
+     "n": 147,
+     "text": "The heavy burden is laid down,"
+    },
+    {
+     "n": 148,
+     "text": "now there’ll be no more future lives.”"
+    }
+   ]
+  }
+ ]
+}

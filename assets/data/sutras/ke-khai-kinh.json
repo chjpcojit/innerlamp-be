@@ -1,0 +1,76 @@
+{
+ "id": "ke-khai-kinh",
+ "tradition": "MAHAYANA",
+ "kind": "VERSE",
+ "collection": "Nhật tụng / Kệ khai kinh",
+ "reference": "",
+ "summary": "Bài kệ bốn câu thường đọc trước khi tụng hoặc nghiên cứu một bộ kinh, vì vậy được gọi là kệ khai kinh. Kệ tán thán Phật pháp vô thượng, sâu xa, mầu nhiệm, trăm ngàn vạn kiếp khó gặp, nay con được thấy nghe và thọ trì. Kệ kết bằng lời nguyện hiểu được nghĩa chân thật của Như Lai.",
+ "titles": {
+  "vi": "Khai Kinh Kệ",
+  "zh": "開經偈",
+  "en": "Verse for Opening a Sutra"
+ },
+ "deities": [],
+ "dailyChant": true,
+ "purposes": [],
+ "durationMinutes": 1,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Võ Tắc Thiên (tác giả, Đường); Hán-Việt",
+   "sourceName": "Phatgiao.org.vn - \"Nữ đế Võ Tắc Thiên, người đề bút bài Khai Kinh kệ tuyệt diệu\" (Thiện Sinh biên dịch)",
+   "sourceUrl": "https://phatgiao.org.vn/nu-de-vo-tac-thien-nguoi-de-but-bai-khai-kinh-ke-tuyet-dieu-d75569.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Vô thượng thậm thâm vi diệu pháp"
+    },
+    {
+     "n": 2,
+     "text": "Bá thiên vạn kiếp nan tao ngộ"
+    },
+    {
+     "n": 3,
+     "text": "Ngã kim kiến văn đắc thọ trì"
+    },
+    {
+     "n": 4,
+     "text": "Nguyện giải Như Lai chân thực nghĩa."
+    }
+   ]
+  },
+  {
+   "key": "vi-poem",
+   "lang": "vi",
+   "variant": "poem",
+   "translator": "Thiện Sinh (biên dịch, mục \"Tạm dịch là\")",
+   "sourceName": "Phatgiao.org.vn - cùng bài",
+   "sourceUrl": "https://phatgiao.org.vn/nu-de-vo-tac-thien-nguoi-de-but-bai-khai-kinh-ke-tuyet-dieu-d75569.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Phật pháp rộng sâu rất nhiệm mầu"
+    },
+    {
+     "n": 2,
+     "text": "Trăm ngàn muôn kiếp khó tìm cầu"
+    },
+    {
+     "n": 3,
+     "text": "Con nay nghe được chuyên trì tụng"
+    },
+    {
+     "n": 4,
+     "text": "Nguyện rõ Như Lai nghĩa nhiệm mầu"
+    }
+   ]
+  }
+ ]
+}

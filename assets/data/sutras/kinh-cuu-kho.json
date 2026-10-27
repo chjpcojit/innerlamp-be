@@ -1,0 +1,118 @@
+{
+ "id": "kinh-cuu-kho",
+ "tradition": "MAHAYANA",
+ "kind": "SUTRA",
+ "collection": "Kinh / Cứu khổ",
+ "reference": "Vạn Tục Tạng Kinh, quyển 1, số 34",
+ "referenceNote": "Theo nguồn",
+ "summary": "Bài kinh ngắn tôn xưng Bồ Tát Quán Thế Âm, thường gọi là Kinh Cứu Khổ, trích theo Vạn Tục Tạng Kinh. Văn bản gồm lời quy kính Bồ Tát Quán Thế Âm cùng chư Phật, các câu cầu mong sự hộ trì để thoát khổ nạn, và kết bằng một đoạn chân ngôn. Kinh được lưu truyền trong dân gian để trì tụng, cầu bình an.",
+ "titles": {
+  "vi": "Kinh Quán Thế Âm Bồ Tát Cứu Khổ",
+  "zh": "觀世音菩薩救苦經",
+  "en": "Avalokiteshvara Bodhisattva Sutra for Relief from Suffering"
+ },
+ "deities": [
+  {
+   "deity_id": "bodhisattva_avalokiteshvara",
+   "role": "SUBJECT"
+  }
+ ],
+ "dailyChant": true,
+ "purposes": [
+  "CAU_AN"
+ ],
+ "durationMinutes": 3,
+ "reviewStatus": "UNREVIEWED",
+ "translations": [
+  {
+   "key": "vi-chant",
+   "lang": "vi",
+   "variant": "chant",
+   "translator": "Quảng Minh (Tu Viện Huệ Quang) - phần \"Dịch âm\"",
+   "sourceName": "Phatgiao.org.vn - \"Kinh Quán Thế Âm bồ tát cứu khổ\"",
+   "sourceUrl": "https://phatgiao.org.vn/kinh-quan-the-am-bo-tat-cuu-kho-d37007.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Dịch âm\" của nguồn (Hán-Việt). Bản này có đoạn \"ma kheo ma kheo\" như nguồn. Đoạn văn tách theo câu.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Nam mô cứu khổ Quan Thế Âm bồ tát, bách thiên vạn ức Phật, hằng hà sa số Phật, vô lượng công đức Phật."
+    },
+    {
+     "n": 2,
+     "text": "Phật cáo A Nan ngôn, thử kinh đại thánh, năng cứu ngục tù, năng cứu trọng bịnh, năng cứu thiên tai bách nạn khổ."
+    },
+    {
+     "n": 3,
+     "text": "Nhược hữu nhân, tụng đắc nhất thiên biến, nhất thân ly khổ nạn, tụng đắc nhất vạn biến, hợp gia ly khổ nạn."
+    },
+    {
+     "n": 4,
+     "text": "Nam mô Phật lực uy, nam mô Phật lực hộ, sử nhân vô ác tâm, linh nhân thân đắc độ."
+    },
+    {
+     "n": 5,
+     "text": "Hồi Quang bồ tát, Hồi Thiện bồ tát, A Nậu đại thiên vương, Chánh Điện bồ tát, ma kheo ma kheo, thanh tịnh tỳ kheo, quan sự đắc tán, tư sự đắc hưu."
+    },
+    {
+     "n": 6,
+     "text": "Chư đại bồ tát, ngũ bách la hán, cứu hộ đệ tử thân, tất giai ly khổ nạn."
+    },
+    {
+     "n": 7,
+     "text": "Tự nhiên Quan Thế Âm, anh lạc bất tu giải, cần tụng thiên vạn biến, tai nạn tự nhiên đắc giải."
+    },
+    {
+     "n": 8,
+     "text": "Tín thọ phụng hành, tức thuyết chân ngôn viết: Kim bồ kim bồ đề, đà la ni đế, ni khư la đế, bồ đề tát bà ha."
+    }
+   ]
+  },
+  {
+   "key": "vi-translation",
+   "lang": "vi",
+   "variant": "translation",
+   "translator": "Quảng Minh (Tu Viện Huệ Quang) - phần \"Dịch nghĩa\"",
+   "sourceName": "Phatgiao.org.vn - \"Kinh Quán Thế Âm bồ tát cứu khổ\"",
+   "sourceUrl": "https://phatgiao.org.vn/kinh-quan-the-am-bo-tat-cuu-kho-d37007.html",
+   "license": "COPY_ALLOWED",
+   "licenseNote": "Mọi sự copy, sao chép từ Phatgiao.org.vn đều không cần trích dẫn và được hoan nghênh!",
+   "note": "Mục \"Dịch nghĩa\" của nguồn. Đã bỏ chú thích ảnh, tiêu đề bài liên quan.",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Kính lạy bồ tát Quán Thế Âm, bậc đại sĩ cứu khổ, kính lạy trăm ngàn muôn ức đức Phật, hằng hà sa số đức Phật, những bậc toàn giác có vô lượng công đức."
+    },
+    {
+     "n": 2,
+     "text": "Đức Phật dạy tôn giả A Nan rằng: “Kinh này rất là cao cả, có thể cứu thoát ngục tù, có thể cứu chữa bịnh nặng, có thể cứu vớt trăm tai nạn ngàn khổ ách."
+    },
+    {
+     "n": 3,
+     "text": "Nếu có người tụng kinh này được một ngàn lần thì bản thân lìa khổ nạn, tụng được một muôn lần thì cả nhà lìa khổ nạn.”"
+    },
+    {
+     "n": 4,
+     "text": "Quay về nương tựa sức oai thần của Phật, quay về nương tựa sức gia hộ của Phật, khiến cho mọi người không sanh tâm ác độc, làm cho mọi người và bản thân được Phật cứu độ."
+    },
+    {
+     "n": 5,
+     "text": "Quay về nương tựa bồ tát Hồi Quang, bồ tát Hồi Thiện, đại thiên vương A Nậu, bồ tát Chánh Điện, các bậc tỳ kheo thanh tịnh, bố ma và phá ác, thì việc cửa quan được cởi bỏ, việc không chánh đáng được ngưng dứt."
+    },
+    {
+     "n": 6,
+     "text": "Cúi xin chư vị đại bồ tát, năm trăm vị la hán cứu hộ bản thân đệ tử (và thân nhân/ mọi người/ chúng sanh) thảy đều lìa khổ nạn."
+    },
+    {
+     "n": 7,
+     "text": "Như xâu chuỗi anh lạc của bồ tát Quán Thế Âm tự nhiên phân rời ra, người nào siêng năng tụng ngàn muôn lần (kinh này) thì các tai nạn tự nhiên được cởi bỏ, thoát khỏi."
+    },
+    {
+     "n": 8,
+     "text": "Đại chúng nghe lời Phật dạy, tin tưởng, tiếp nhận và vâng làm, bồ tát Quan Thế Âm liền nói thần chú rằng: Kim bồ kim bồ đề, đà la ni đế, ni khư la đế, bồ đề tát bà ha."
+    }
+   ]
+  }
+ ]
+}
