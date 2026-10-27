@@ -21,8 +21,8 @@ func (m *mockLampUsecase) Light(ctx context.Context, userID int64, in domain.Lam
 	return nil, args.Bool(1), args.Error(2)
 }
 
-func (m *mockLampUsecase) Garden(ctx context.Context, f domain.GardenFilter) (*domain.GardenPage, error) {
-	args := m.Called(ctx, f)
+func (m *mockLampUsecase) Garden(ctx context.Context, viewerID int64, f domain.GardenFilter) (*domain.GardenPage, error) {
+	args := m.Called(ctx, viewerID, f)
 	if r := args.Get(0); r != nil {
 		return r.(*domain.GardenPage), args.Error(1)
 	}

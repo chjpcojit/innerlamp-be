@@ -1,8 +1,8 @@
 # Requirements — lamp
 
-Version: 2.0
-Last updated: 2026-10-17
-Status: v1 shipped — `POST /v1/lamps` and `GET /v1/lamps` (domain, usecase, repository, migration `0027`, handler, wiring, OpenAPI) are implemented and covered by unit, repository (real Postgres) and E2E tests. **v2.0 not implemented**: the recipient becomes optional (AC 6, 26), garden items gain `is_mine` (AC 25), account deletion removes lamps (AC 29), and the shared vector files are not run yet (AC 30) — `tasks.md` Phase 6–8, every item `[ ]`. Open: the garden latency target (NFR-LMP-01) and how long expired lamps are kept.
+Version: 2.1
+Last updated: 2026-10-27
+Status: v2.0 implemented (2026-10-27) — `POST /v1/lamps` and `GET /v1/lamps` with an optional recipient (AC 6, 26), `is_mine` on garden items (AC 25), the shared vector files run by `usecase/lamp_vectors_test.go` (AC 30), migration `0040`, OpenAPI 3.0.0; covered by unit, repository (real Postgres) and E2E tests. Account deletion removes lamps through `ON DELETE CASCADE` (AC 29); there is still no delete-account route to exercise it. Open: the garden latency target (NFR-LMP-01) and how long expired lamps are kept.
 Module: `lamp`
 Code: `services/appService/`
 Product spec: `docs/product/lamp/product.md` @ v1.0

@@ -2,6 +2,11 @@
 
 Version history of the spec set `requirements.md` / `design.md` / `flow.md` / `tasks.md` (one shared version at any point in time).
 
+## v2.1 (2026-10-27)
+
+- Implementation of v2.0 (`tasks.md` Phase 6–8, every item `[x]`): migration `0040_lamps_recipient_optional.sql`; `Lamp.Recipient` / `GardenLamp.Recipient` are `*string`, `GardenLamp.IsMine`, `GardenQuery.ViewerID`, `domain.LighterNameAtLighting`; `LampUsecase.Garden(ctx, viewerID, f)`; dedupe with `recipient IS NOT DISTINCT FROM`; `is_mine` computed in SQL; `usecase/lamp_vectors_test.go` runs the three rules files; OpenAPI 2.2.0 → 3.0.0; `erd.mmd`/`erd.svg` updated.
+- `requirements.md`, `design.md`, `flow.md`, `tasks.md`: status lines say v2.0 is implemented; stale known gaps removed (v2.0 not implemented, no `mmdc`, the `usecase` package not compiling). No requirement changed.
+
 ## v2.0 (2026-10-17)
 
 - `requirements.md`: rebased on `docs/product/lamp/product.md` v1.0 — new `Product spec` / `Contract` / `Implements` header, every criterion tagged with its `FR-LMP-*`/`BR-LMP-*`. AC 1–24 keep their numbers; AC 6 changes meaning (the recipient is optional); AC 25–30 are new (`is_mine`, `recipient: null`, anonymous name absent from the garden, no edit/delete route, account deletion removes lamps, vector files). New "Contract changes in v2.0" table. Rewritten in English per the Language policy.

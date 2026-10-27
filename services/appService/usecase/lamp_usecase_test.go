@@ -33,7 +33,7 @@ func newLampUsecase(repo *domain.MockLampRepository) *LampUsecase {
 
 func validLampInput() domain.LampInput {
 	return domain.LampInput{
-		LampType: "OIL_LAMP", Intention: "PEACE", Recipient: "Bà ngoại", DurationDays: 7,
+		LampType: "OIL_LAMP", Intention: "PEACE", Recipient: strPtr("Bà ngoại"), DurationDays: 7,
 	}
 }
 
@@ -57,9 +57,7 @@ func TestLampUsecase_Light_Validation(t *testing.T) {
 		{"lamp type is case sensitive", func(in *domain.LampInput) { in.LampType = "oil_lamp" }, "lamp_type"},
 		{"unknown intention", func(in *domain.LampInput) { in.Intention = "WEALTH" }, "intention"},
 		{"empty intention", func(in *domain.LampInput) { in.Intention = "" }, "intention"},
-		{"empty recipient", func(in *domain.LampInput) { in.Recipient = "" }, "recipient"},
-		{"recipient of only spaces", func(in *domain.LampInput) { in.Recipient = "   \t " }, "recipient"},
-		{"recipient 101 characters", func(in *domain.LampInput) { in.Recipient = strings.Repeat("ạ", 101) }, "recipient"},
+		{"recipient 101 characters", func(in *domain.LampInput) { in.Recipient = strPtr(strings.Repeat("ạ", 101)) }, "recipient"},
 		{"prayer 301 characters", func(in *domain.LampInput) { in.Prayer = strPtr(strings.Repeat("ế", 301)) }, "prayer"},
 		{"duration not allowed", func(in *domain.LampInput) { in.DurationDays = 5 }, "duration_days"},
 		{"duration zero", func(in *domain.LampInput) { in.DurationDays = 0 }, "duration_days"},
@@ -77,6 +75,38 @@ func TestLampUsecase_Light_Validation(t *testing.T) {
 			assert.Nil(t, lamp)
 			assert.False(t, created)
 			repo.AssertNotCalled(t, "Light", mock.Anything, mock.Anything)
+		})
+	}
+}
+
+// v2.0 (BR-LMP-06): a recipient that is absent, empty or only whitespace is not
+// an error; the lamp is stored with no recipient.
+// VI: v2.0: recipient không gửi, rỗng hoặc toàn khoảng trắng không phải lỗi; đèn
+// được lưu không có người nhận.
+func TestLampUsecase_Light_BlankRecipientMeansNone(t *testing.T) {
+	tests := []struct {
+		name      string
+		recipient *string
+	}{
+		{"absent", nil},
+		{"empty", strPtr("")},
+		{"only whitespace", strPtr("   \t ")},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			repo := new(domain.MockLampRepository)
+			var got domain.LightLampParams
+			repo.On("Light", mock.Anything, mock.Anything).
+				Run(func(args mock.Arguments) { got = args.Get(1).(domain.LightLampParams) }).
+				Return(&domain.Lamp{ID: 1}, true, nil)
+			in := validLampInput()
+			in.Recipient = tt.recipient
+
+			_, created, err := newLampUsecase(repo).Light(context.Background(), 7, in)
+
+			require.NoError(t, err)
+			assert.True(t, created)
+			assert.Nil(t, got.Lamp.Recipient)
 		})
 	}
 }
@@ -105,7 +135,7 @@ func TestLampUsecase_Light_LengthBoundaries(t *testing.T) {
 				repo.On("Light", mock.Anything, mock.Anything).Return(&domain.Lamp{ID: 1}, true, nil)
 			}
 			in := validLampInput()
-			in.Recipient = tt.recipient
+			in.Recipient = strPtr(tt.recipient)
 			in.Prayer = tt.prayer
 
 			_, _, err := newLampUsecase(repo).Light(context.Background(), 7, in)
@@ -144,7 +174,7 @@ func TestLampUsecase_Light_LengthLimitsComeFromConfig(t *testing.T) {
 			u := NewLampUsecase(repo, cfg)
 			u.now = func() time.Time { return lampNow }
 			in := validLampInput()
-			in.Recipient = tt.recipient
+			in.Recipient = strPtr(tt.recipient)
 			if tt.prayer != "" {
 				in.Prayer = strPtr(tt.prayer)
 			}
@@ -169,7 +199,7 @@ func TestLampUsecase_Light_PassesNormalizedLampAndPolicy(t *testing.T) {
 		Return(stored, true, nil)
 
 	in := domain.LampInput{
-		LampType: "LOTUS_CANDLE", Intention: "GRATITUDE", Recipient: "  Thầy Minh  ",
+		LampType: "LOTUS_CANDLE", Intention: "GRATITUDE", Recipient: strPtr("  Thầy Minh  "),
 		Prayer: strPtr("  Tri ân  "), DurationDays: 21, IsAnonymous: true,
 	}
 	lamp, created, err := newLampUsecase(repo).Light(context.Background(), 7, in)
@@ -181,7 +211,8 @@ func TestLampUsecase_Light_PassesNormalizedLampAndPolicy(t *testing.T) {
 	assert.Equal(t, int64(7), got.Lamp.UserID)
 	assert.Equal(t, domain.LampTypeLotusCandle, got.Lamp.LampType)
 	assert.Equal(t, domain.IntentionGratitude, got.Lamp.Intention)
-	assert.Equal(t, "Thầy Minh", got.Lamp.Recipient, "recipient is trimmed")
+	require.NotNil(t, got.Lamp.Recipient)
+	assert.Equal(t, "Thầy Minh", *got.Lamp.Recipient, "recipient is trimmed")
 	require.NotNil(t, got.Lamp.Prayer)
 	assert.Equal(t, "Tri ân", *got.Lamp.Prayer, "prayer is trimmed")
 	assert.Equal(t, 21, got.Lamp.DurationDays)
@@ -270,7 +301,7 @@ func TestLampUsecase_Light_RepositoryOutcomes(t *testing.T) {
 // ---- Garden ----
 
 func lampAt(id int64, litAt time.Time) domain.GardenLamp {
-	return domain.GardenLamp{ID: id, LampType: domain.LampTypeOilLamp, Recipient: "r", LitAt: litAt, EndAt: litAt.Add(24 * time.Hour)}
+	return domain.GardenLamp{ID: id, LampType: domain.LampTypeOilLamp, Recipient: strPtr("r"), LitAt: litAt, EndAt: litAt.Add(24 * time.Hour)}
 }
 
 func TestLampUsecase_Garden_FilterValidation(t *testing.T) {
@@ -294,7 +325,7 @@ func TestLampUsecase_Garden_FilterValidation(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			repo := new(domain.MockLampRepository)
 
-			page, err := newLampUsecase(repo).Garden(context.Background(), tt.filter)
+			page, err := newLampUsecase(repo).Garden(context.Background(), 7, tt.filter)
 
 			assert.ErrorIs(t, err, tt.want)
 			assert.Nil(t, page)
@@ -323,7 +354,7 @@ func TestLampUsecase_Garden_QueryPassedToRepository(t *testing.T) {
 				Run(func(args mock.Arguments) { got = args.Get(1).(domain.GardenQuery) }).
 				Return(&domain.GardenPage{}, nil)
 
-			_, err := newLampUsecase(repo).Garden(context.Background(), tt.filter)
+			_, err := newLampUsecase(repo).Garden(context.Background(), 7, tt.filter)
 
 			require.NoError(t, err)
 			assert.Equal(t, tt.wantLimit, got.Limit)
@@ -346,7 +377,7 @@ func TestLampUsecase_Garden_PaginationAndCursorRoundTrip(t *testing.T) {
 		repo.On("Garden", mock.Anything, mock.Anything).Return(&domain.GardenPage{Items: rows, Total: 3}, nil).Once()
 
 		u := newLampUsecase(repo)
-		page, err := u.Garden(context.Background(), domain.GardenFilter{Limit: strPtr("2")})
+		page, err := u.Garden(context.Background(), 7, domain.GardenFilter{Limit: strPtr("2")})
 
 		require.NoError(t, err)
 		require.Len(t, page.Items, 2)
@@ -360,7 +391,7 @@ func TestLampUsecase_Garden_PaginationAndCursorRoundTrip(t *testing.T) {
 		repo.On("Garden", mock.Anything, mock.Anything).
 			Run(func(args mock.Arguments) { got = args.Get(1).(domain.GardenQuery) }).
 			Return(&domain.GardenPage{}, nil).Once()
-		_, err = u.Garden(context.Background(), domain.GardenFilter{Limit: strPtr("2"), Cursor: page.NextCursor})
+		_, err = u.Garden(context.Background(), 7, domain.GardenFilter{Limit: strPtr("2"), Cursor: page.NextCursor})
 
 		require.NoError(t, err)
 		require.NotNil(t, got.After)
@@ -373,7 +404,7 @@ func TestLampUsecase_Garden_PaginationAndCursorRoundTrip(t *testing.T) {
 		rows := []domain.GardenLamp{lampAt(2, t0), lampAt(1, t0.Add(-time.Minute))}
 		repo.On("Garden", mock.Anything, mock.Anything).Return(&domain.GardenPage{Items: rows, Total: 2}, nil)
 
-		page, err := newLampUsecase(repo).Garden(context.Background(), domain.GardenFilter{Limit: strPtr("2")})
+		page, err := newLampUsecase(repo).Garden(context.Background(), 7, domain.GardenFilter{Limit: strPtr("2")})
 
 		require.NoError(t, err)
 		assert.Len(t, page.Items, 2)
@@ -385,7 +416,7 @@ func TestLampUsecase_Garden_PaginationAndCursorRoundTrip(t *testing.T) {
 		repo := new(domain.MockLampRepository)
 		repo.On("Garden", mock.Anything, mock.Anything).Return(&domain.GardenPage{}, nil)
 
-		page, err := newLampUsecase(repo).Garden(context.Background(), domain.GardenFilter{})
+		page, err := newLampUsecase(repo).Garden(context.Background(), 7, domain.GardenFilter{})
 
 		require.NoError(t, err)
 		assert.NotNil(t, page.Items)
@@ -404,7 +435,7 @@ func TestLampUsecase_Garden_PaginationAndCursorRoundTrip(t *testing.T) {
 			Total: 5, Counts: map[domain.LampType]int{domain.LampTypeOilLamp: 5},
 		}, nil)
 
-		page, err := newLampUsecase(repo).Garden(context.Background(), domain.GardenFilter{})
+		page, err := newLampUsecase(repo).Garden(context.Background(), 7, domain.GardenFilter{})
 
 		require.NoError(t, err)
 		assert.Equal(t, 5, page.Counts[domain.LampTypeOilLamp])
@@ -418,8 +449,27 @@ func TestLampUsecase_Garden_RepositoryError(t *testing.T) {
 	boom := errors.New("db down")
 	repo.On("Garden", mock.Anything, mock.Anything).Return(nil, boom)
 
-	page, err := newLampUsecase(repo).Garden(context.Background(), domain.GardenFilter{})
+	page, err := newLampUsecase(repo).Garden(context.Background(), 7, domain.GardenFilter{})
 
 	assert.ErrorIs(t, err, boom)
 	assert.Nil(t, page)
+}
+
+// v2.0 (AC 25): the viewer's id reaches the repository only as ViewerID, which
+// marks is_mine; the query is otherwise unchanged.
+// VI: v2.0: id người xem chỉ được chuyển xuống repository dưới dạng ViewerID để
+// tính is_mine; truy vấn không thay đổi gì khác.
+func TestLampUsecase_Garden_PassesViewerID(t *testing.T) {
+	repo := new(domain.MockLampRepository)
+	var got domain.GardenQuery
+	repo.On("Garden", mock.Anything, mock.Anything).
+		Run(func(args mock.Arguments) { got = args.Get(1).(domain.GardenQuery) }).
+		Return(&domain.GardenPage{}, nil)
+
+	_, err := newLampUsecase(repo).Garden(context.Background(), 42, domain.GardenFilter{})
+
+	require.NoError(t, err)
+	assert.Equal(t, int64(42), got.ViewerID)
+	assert.Nil(t, got.LampType)
+	assert.Equal(t, 12, got.Limit)
 }

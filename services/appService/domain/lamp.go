@@ -63,7 +63,11 @@ type Lamp struct {
 
 	LampType  LampType
 	Intention Intention
-	Recipient string
+	// Recipient is nil when the lamp is dedicated to no one in particular
+	// (clients show "all beings").
+	// VI: Recipient là nil khi đèn không dành riêng cho ai (client hiển thị
+	// "Tất cả chúng sanh").
+	Recipient *string
 	// Prayer is nil when the lighter wrote none.
 	Prayer *string
 
@@ -84,11 +88,14 @@ type Lamp struct {
 func (l Lamp) DisplayName() string { return displayLighterName(l.LighterName) }
 
 // LampInput is what the user submits to light a lamp: the raw request, before
-// validation. Prayer is a pointer so "absent" is distinguishable from "".
+// validation. Recipient and Prayer are pointers so "absent" is distinguishable
+// from ""; both treat absent, empty and whitespace-only alike.
+// VI: Recipient và Prayer là con trỏ để phân biệt "không gửi" với ""; cả hai
+// coi không gửi, rỗng và toàn khoảng trắng là như nhau.
 type LampInput struct {
 	LampType     string
 	Intention    string
-	Recipient    string
+	Recipient    *string
 	Prayer       *string
 	DurationDays int
 	IsAnonymous  bool
@@ -97,9 +104,16 @@ type LampInput struct {
 // GardenLamp is one lamp as the garden shows it to every signed-in user. It
 // deliberately has no intention, prayer or owner: those are not for others.
 type GardenLamp struct {
-	ID        int64
-	LampType  LampType
-	Recipient string
+	ID       int64
+	LampType LampType
+	// Recipient is nil when the lamp has no recipient.
+	// VI: Recipient là nil khi đèn không có người nhận.
+	Recipient *string
+	// IsMine is true when the viewer lit this lamp. It is the only trace of the
+	// owner that leaves the repository: the owner's id is never loaded.
+	// VI: IsMine là true khi người đang xem là người thắp đèn này. Đây là dấu vết
+	// duy nhất về chủ đèn ra khỏi repository: user_id của chủ không bao giờ được đọc.
+	IsMine bool
 	// LighterName is nil for an anonymous lamp or one lit without a dharma name.
 	LighterName *string
 	// LitAt orders the garden and builds the paging cursor; it is not shown.
@@ -109,6 +123,20 @@ type GardenLamp struct {
 
 // DisplayName is the lighter's name as other users see it.
 func (g GardenLamp) DisplayName() string { return displayLighterName(g.LighterName) }
+
+// LighterNameAtLighting is the name copied onto a lamp when it is lit: none for
+// an anonymous lamp, otherwise the lighter's dharma name at that moment (nil
+// when they have none). The account's full name is never used.
+// VI: LighterNameAtLighting là tên được chép lên đèn lúc thắp: không có tên nếu
+// đèn ẩn danh, ngược lại là pháp danh tại thời điểm đó (nil nếu chưa có pháp
+// danh). Không bao giờ dùng họ tên của tài khoản.
+func LighterNameAtLighting(dharmaName *string, anonymous bool) *string {
+	if anonymous || dharmaName == nil || *dharmaName == "" {
+		return nil
+	}
+	name := *dharmaName
+	return &name
+}
 
 func displayLighterName(name *string) string {
 	if name == nil || *name == "" {
@@ -142,6 +170,11 @@ type GardenQuery struct {
 	After *Cursor
 	// Now is the instant that decides which lamps are lit (EndAt > Now).
 	Now time.Time
+	// ViewerID is the signed-in user reading the garden. It only sets
+	// GardenLamp.IsMine and never filters the list.
+	// VI: ViewerID là user đang xem vườn đèn; chỉ dùng để tính GardenLamp.IsMine,
+	// không bao giờ dùng để lọc danh sách.
+	ViewerID int64
 }
 
 // GardenPage is one page of the garden plus the counts of every lit lamp.

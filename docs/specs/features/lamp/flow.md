@@ -1,8 +1,8 @@
 # Flow — lamp
 
-Version: 2.0
-Last updated: 2026-10-17
-Status: v1 flows implemented; v2.0 changes (blank recipient → `nil`, `IS NOT DISTINCT FROM` on the recipient, `is_mine` in the garden query) are design only. 1:1 mirror of `design.md` v2.0.
+Version: 2.1
+Last updated: 2026-10-27
+Status: v1 and v2.0 flows implemented (blank recipient → `nil`, `IS NOT DISTINCT FROM` on the recipient, `is_mine` in the garden query; 2026-10-27). 1:1 mirror of `design.md` v2.0.
 Module: `lamp`
 
 > See `changelog.md` in this folder for the version history of this spec.

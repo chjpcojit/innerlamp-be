@@ -28,7 +28,7 @@ func strp(s string) *string { return &s }
 func sampleLamp() *domain.Lamp {
 	return &domain.Lamp{
 		ID: 9, UserID: 7, LampType: domain.LampTypeLotusCandle, Intention: domain.IntentionGratitude,
-		Recipient: "Thầy", Prayer: strp("Tri ân"), DurationDays: 7, IsAnonymous: false,
+		Recipient: strp("Thầy"), Prayer: strp("Tri ân"), DurationDays: 7, IsAnonymous: false,
 		LighterName: strp("Thích Minh An"),
 		LitAt:       time.Date(2026, 10, 10, 12, 0, 0, 0, time.UTC),
 		EndAt:       time.Date(2026, 10, 17, 12, 0, 0, 0, time.UTC),
@@ -48,7 +48,7 @@ func TestLampHandler_Light_Created(t *testing.T) {
 
 	require.Equal(t, http.StatusCreated, rec.Code, rec.Body.String())
 	assert.Equal(t, domain.LampInput{
-		LampType: "LOTUS_CANDLE", Intention: "GRATITUDE", Recipient: "Thầy", Prayer: strp("Tri ân"), DurationDays: 7,
+		LampType: "LOTUS_CANDLE", Intention: "GRATITUDE", Recipient: strp("Thầy"), Prayer: strp("Tri ân"), DurationDays: 7,
 	}, got)
 
 	body := decode(t, rec)
@@ -94,6 +94,35 @@ func TestLampHandler_Light_NullablesAreJSONNull(t *testing.T) {
 	assert.Equal(t, true, data["is_anonymous"])
 }
 
+// v2.0: recipient may be absent or null in the request, and a lamp without one
+// returns recipient as JSON null, never "".
+// VI: v2.0: request có thể không gửi recipient hoặc gửi null; đèn không có người
+// nhận trả recipient là JSON null, không bao giờ là "".
+func TestLampHandler_Light_WithoutRecipient(t *testing.T) {
+	for name, body := range map[string]string{
+		"absent": `{"lamp_type":"OIL_LAMP","intention":"PEACE","duration_days":1,"is_anonymous":false}`,
+		"null":   `{"lamp_type":"OIL_LAMP","intention":"PEACE","recipient":null,"duration_days":1,"is_anonymous":false}`,
+	} {
+		t.Run(name, func(t *testing.T) {
+			l := sampleLamp()
+			l.Recipient = nil
+			uc := new(mockLampUsecase)
+			var got domain.LampInput
+			uc.On("Light", mock.Anything, int64(7), mock.Anything).
+				Run(func(args mock.Arguments) { got = args.Get(2).(domain.LampInput) }).
+				Return(l, true, nil)
+
+			rec := serve(newLampMux(uc), memorialReq(http.MethodPost, "/v1/lamps", body, "7"))
+
+			require.Equal(t, http.StatusCreated, rec.Code, rec.Body.String())
+			assert.Nil(t, got.Recipient)
+			data := decode(t, rec)["data"].(map[string]any)
+			assert.Contains(t, data, "recipient")
+			assert.Nil(t, data["recipient"], "no recipient is JSON null")
+		})
+	}
+}
+
 func TestLampHandler_Light_Errors(t *testing.T) {
 	tests := []struct {
 		name       string
@@ -115,7 +144,7 @@ func TestLampHandler_Light_Errors(t *testing.T) {
 		{"server owned lighter_name", `{"lighter_name":"x"}`, "7", nil, http.StatusBadRequest, "VALIDATION_ERROR", "", false},
 		{"is_anonymous not a boolean", `{"lamp_type":"OIL_LAMP","is_anonymous":"yes"}`, "7", nil, http.StatusBadRequest, "VALIDATION_ERROR", "is_anonymous", false},
 		{"field rejected by the use case", lampBody, "7",
-			&domain.LampValidationError{Field: "recipient", Message: "recipient is required"},
+			&domain.LampValidationError{Field: "recipient", Message: "recipient must be at most 100 characters"},
 			http.StatusBadRequest, "VALIDATION_ERROR", "recipient", true},
 		{"limit reached", lampBody, "7", domain.ErrLampLimitReached, http.StatusConflict, "LAMP_LIMIT_REACHED", "", true},
 		{"unexpected error", lampBody, "7", errors.New("db down"), http.StatusInternalServerError, "INTERNAL_ERROR", "", true},
@@ -147,9 +176,9 @@ func sampleGarden() *domain.GardenPage {
 	next := "MTc5MDAwMDAwMDAwMDAwMC40MQ"
 	return &domain.GardenPage{
 		Items: []domain.GardenLamp{
-			{ID: 41, LampType: domain.LampTypeLotusCandle, Recipient: "Thầy", LighterName: &name,
+			{ID: 41, LampType: domain.LampTypeLotusCandle, Recipient: strp("Thầy"), LighterName: &name, IsMine: true,
 				LitAt: time.Date(2026, 10, 10, 11, 0, 0, 0, time.UTC), EndAt: time.Date(2026, 10, 17, 18, 0, 0, 0, time.UTC)},
-			{ID: 40, LampType: domain.LampTypeOilLamp, Recipient: "Mẹ", LighterName: nil,
+			{ID: 40, LampType: domain.LampTypeOilLamp, Recipient: nil, LighterName: nil,
 				LitAt: time.Date(2026, 10, 10, 10, 0, 0, 0, time.UTC), EndAt: time.Date(2026, 10, 11, 10, 0, 0, 0, time.UTC)},
 		},
 		Total:   10,
@@ -160,7 +189,7 @@ func sampleGarden() *domain.GardenPage {
 
 func TestLampHandler_Garden_Success(t *testing.T) {
 	uc := new(mockLampUsecase)
-	uc.On("Garden", mock.Anything, mock.Anything).Return(sampleGarden(), nil)
+	uc.On("Garden", mock.Anything, mock.Anything, mock.Anything).Return(sampleGarden(), nil)
 
 	rec := serve(newLampMux(uc), memorialReq(http.MethodGet, "/v1/lamps", "", "7"))
 
@@ -172,9 +201,13 @@ func TestLampHandler_Garden_Success(t *testing.T) {
 	first := items[0].(map[string]any)
 	assert.Equal(t, map[string]any{
 		"id": float64(41), "lamp_type": "LOTUS_CANDLE", "recipient": "Thầy",
-		"lighter_name": "Thích Minh An", "end_at": "2026-10-17T18:00:00Z",
-	}, first, "a garden item carries exactly these five fields")
-	assert.Equal(t, "Vô danh", items[1].(map[string]any)["lighter_name"])
+		"lighter_name": "Thích Minh An", "is_mine": true, "end_at": "2026-10-17T18:00:00Z",
+	}, first, "a garden item carries exactly these six fields")
+	second := items[1].(map[string]any)
+	assert.Equal(t, "Vô danh", second["lighter_name"])
+	assert.Equal(t, false, second["is_mine"])
+	assert.Contains(t, second, "recipient", "no recipient is present as null")
+	assert.Nil(t, second["recipient"])
 
 	assert.Equal(t, float64(10), data["total"])
 	assert.Equal(t, map[string]any{"OIL_LAMP": float64(5), "LOTUS_CANDLE": float64(3), "FLOWER_LANTERN": float64(2)}, data["counts"])
@@ -182,9 +215,21 @@ func TestLampHandler_Garden_Success(t *testing.T) {
 	assert.Equal(t, "MTc5MDAwMDAwMDAwMDAwMC40MQ", data["next_cursor"])
 }
 
+// v2.0 (AC 25): the token's user id reaches the use case so it can mark is_mine.
+// VI: v2.0: user_id trong token được chuyển xuống usecase để đánh dấu is_mine.
+func TestLampHandler_Garden_PassesViewerID(t *testing.T) {
+	uc := new(mockLampUsecase)
+	uc.On("Garden", mock.Anything, int64(7), domain.GardenFilter{}).Return(&domain.GardenPage{}, nil)
+
+	rec := serve(newLampMux(uc), memorialReq(http.MethodGet, "/v1/lamps", "", "7"))
+
+	require.Equal(t, http.StatusOK, rec.Code, rec.Body.String())
+	uc.AssertExpectations(t)
+}
+
 func TestLampHandler_Garden_NeverExposesPrivateFields(t *testing.T) {
 	uc := new(mockLampUsecase)
-	uc.On("Garden", mock.Anything, mock.Anything).Return(sampleGarden(), nil)
+	uc.On("Garden", mock.Anything, mock.Anything, mock.Anything).Return(sampleGarden(), nil)
 
 	rec := serve(newLampMux(uc), memorialReq(http.MethodGet, "/v1/lamps", "", "7"))
 
@@ -195,7 +240,7 @@ func TestLampHandler_Garden_NeverExposesPrivateFields(t *testing.T) {
 
 func TestLampHandler_Garden_EmptyIsEmptyArrayAndZeroCounts(t *testing.T) {
 	uc := new(mockLampUsecase)
-	uc.On("Garden", mock.Anything, mock.Anything).Return(&domain.GardenPage{}, nil)
+	uc.On("Garden", mock.Anything, mock.Anything, mock.Anything).Return(&domain.GardenPage{}, nil)
 
 	rec := serve(newLampMux(uc), memorialReq(http.MethodGet, "/v1/lamps", "", "7"))
 
@@ -223,8 +268,8 @@ func TestLampHandler_Garden_PassesQueryParameters(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			uc := new(mockLampUsecase)
 			var got domain.GardenFilter
-			uc.On("Garden", mock.Anything, mock.Anything).
-				Run(func(args mock.Arguments) { got = args.Get(1).(domain.GardenFilter) }).
+			uc.On("Garden", mock.Anything, mock.Anything, mock.Anything).
+				Run(func(args mock.Arguments) { got = args.Get(2).(domain.GardenFilter) }).
 				Return(&domain.GardenPage{}, nil)
 
 			rec := serve(newLampMux(uc), memorialReq(http.MethodGet, tt.target, "", "7"))
@@ -255,7 +300,7 @@ func TestLampHandler_Garden_Errors(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			uc := new(mockLampUsecase)
 			if tt.callsUC {
-				uc.On("Garden", mock.Anything, mock.Anything).Return(nil, tt.ucErr)
+				uc.On("Garden", mock.Anything, mock.Anything, mock.Anything).Return(nil, tt.ucErr)
 			}
 
 			rec := serve(newLampMux(uc), memorialReq(http.MethodGet, "/v1/lamps", "", tt.userID))
@@ -266,7 +311,7 @@ func TestLampHandler_Garden_Errors(t *testing.T) {
 				assert.Equal(t, tt.wantField, decode(t, rec)["details"].(map[string]any)["field"])
 			}
 			if !tt.callsUC {
-				uc.AssertNotCalled(t, "Garden", mock.Anything, mock.Anything)
+				uc.AssertNotCalled(t, "Garden", mock.Anything, mock.Anything, mock.Anything)
 			}
 		})
 	}

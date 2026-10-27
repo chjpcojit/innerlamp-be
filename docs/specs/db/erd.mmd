@@ -296,7 +296,7 @@ erDiagram
         bigint user_id FK "NOT NULL, REFERENCES users(id) ON DELETE CASCADE (tam thoi), nguoi thap den"
         varchar(16) lamp_type "NOT NULL, CHECK (OIL_LAMP, LOTUS_CANDLE, FLOWER_LANTERN)"
         varchar(20) intention "NOT NULL, CHECK (PEACE, SALVATION, MERIT_DEDICATION, GRATITUDE); chi tra cho nguoi thap"
-        varchar(100) recipient "NOT NULL, danh cho ai"
+        varchar(100) recipient "NULL = khong co nguoi nhan (tat ca chung sanh), 0040"
         varchar(300) prayer "NULL, loi nguyen; chi tra cho nguoi thap"
         smallint duration_days "NOT NULL, > 0; tap gia tri hop le nam o config lamp.durations_days"
         boolean is_anonymous "NOT NULL DEFAULT false"

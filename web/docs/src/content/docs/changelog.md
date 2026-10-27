@@ -5,6 +5,16 @@ description: Lịch sử thay đổi của API.
 
 ## v1 (hiện tại)
 
+**Cập nhật 2026-10-27 — Thắp đèn: người nhận không bắt buộc, `is_mine` trong vườn đèn (`openapi.yaml` 3.0.0):**
+
+Thay đổi **không tương thích ngược** (MAJOR) cho client đang đọc `recipient` của `/v1/lamps` như chuỗi luôn có giá trị.
+
+- `POST /v1/lamps`: `recipient` **không còn bắt buộc**. Vắng, `null`, rỗng hoặc toàn khoảng trắng đều là đèn không có người nhận (dành cho tất cả chúng sanh); trước đây trả `400 VALIDATION_ERROR`. Giới hạn 100 ký tự vẫn áp khi có giá trị.
+- `recipient` trong `Lamp` (response của `POST`) và `GardenLamp` (mục của `GET`) giờ là `string | null`. Client hiển thị "Tất cả chúng sanh" cho `null`, không tự điền chữ đó vào request.
+- `GET /v1/lamps`: mỗi mục thêm `is_mine` (bool), `true` khi người gọi là người thắp, kể cả đèn ẩn danh của chính mình. Client không cần tự nhớ id đèn đã thắp (localStorage, Core Data) để đánh dấu "Đèn của tôi".
+- Bấm đúp hai lần cùng không có người nhận vẫn chỉ tạo một đèn.
+- Xem [Thắp đèn và vườn đèn](/guides/catalogues/lamps/).
+
 **Cập nhật 2026-10-17 — lịch sự kiện công khai, lễ lớn, vía của chư Phật / Bồ Tát (`openapi.yaml` 2.2.0):**
 
 Thay đổi tương thích ngược (MINOR) cho `GET /v1/calendar/events`; client cũ vẫn chạy.

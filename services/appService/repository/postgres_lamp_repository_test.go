@@ -37,7 +37,7 @@ func setDharmaName(t *testing.T, db database.Database, userID int64, name string
 func lampAtTime(userID int64, recipient string, at time.Time, days int) domain.Lamp {
 	return domain.Lamp{
 		UserID: userID, LampType: domain.LampTypeOilLamp, Intention: domain.IntentionPeace,
-		Recipient: recipient, DurationDays: days,
+		Recipient: &recipient, DurationDays: days,
 		LitAt: at, EndAt: at.Add(time.Duration(days) * 24 * time.Hour),
 	}
 }
@@ -73,7 +73,8 @@ func TestLampRepository_Light_StoresLampAndCopiesDharmaName(t *testing.T) {
 	assert.Equal(t, uid, got.UserID)
 	assert.Equal(t, domain.LampTypeLotusCandle, got.LampType)
 	assert.Equal(t, domain.IntentionSalvation, got.Intention)
-	assert.Equal(t, "Bà ngoại", got.Recipient)
+	require.NotNil(t, got.Recipient)
+	assert.Equal(t, "Bà ngoại", *got.Recipient)
 	require.NotNil(t, got.Prayer)
 	assert.Equal(t, prayer, *got.Prayer)
 	assert.Equal(t, 7, got.DurationDays)
@@ -117,7 +118,7 @@ func TestLampRepository_Light_NameRules(t *testing.T) {
 		names := map[string]string{}
 		for _, it := range page.Items {
 			if it.LighterName != nil {
-				names[it.Recipient] = *it.LighterName
+				names[*it.Recipient] = *it.LighterName
 			}
 		}
 		assert.Equal(t, "Thích Minh An", names["before"], "lamp %d keeps the name it was lit with", old.ID)
@@ -155,7 +156,7 @@ func TestLampRepository_Light_DoubleTap(t *testing.T) {
 		require.True(t, created)
 
 		variants := map[string]func(l *domain.Lamp){
-			"recipient": func(l *domain.Lamp) { l.Recipient = "Ông ngoại" },
+			"recipient": func(l *domain.Lamp) { r := "Ông ngoại"; l.Recipient = &r },
 			"type":      func(l *domain.Lamp) { l.LampType = domain.LampTypeFlowerLantern },
 			"intention": func(l *domain.Lamp) { l.Intention = domain.IntentionGratitude },
 			"duration":  func(l *domain.Lamp) { l.DurationDays = 21; l.EndAt = at.Add(time.Second + 21*24*time.Hour) },
@@ -212,7 +213,8 @@ func TestLampRepository_Light_Cap(t *testing.T) {
 		got, created, err := repo.Light(ctx, lightParams(lampAtTime(uid, "r2", lampTestNow.Add(time.Second), 7), 3))
 		require.NoError(t, err)
 		assert.False(t, created)
-		assert.Equal(t, "r2", got.Recipient)
+		require.NotNil(t, got.Recipient)
+		assert.Equal(t, "r2", *got.Recipient)
 	})
 
 	t.Run("another user is unaffected", func(t *testing.T) {
@@ -481,4 +483,114 @@ func countRowsIn(t *testing.T, db database.Database, table string) int {
 	var n int
 	require.NoError(t, db.QueryRow(context.Background(), `SELECT count(*) FROM `+table).Scan(&n))
 	return n
+}
+
+// ---- v2.0: optional recipient and is_mine ----
+
+// noRecipientLamp is lampAtTime without a recipient (dedicated to all beings).
+// VI: noRecipientLamp là lampAtTime nhưng không có người nhận (dành cho tất cả chúng sanh).
+func noRecipientLamp(userID int64, at time.Time, days int) domain.Lamp {
+	l := lampAtTime(userID, "", at, days)
+	l.Recipient = nil
+	return l
+}
+
+func TestLampRepository_Light_WithoutRecipientStoresNull(t *testing.T) {
+	repo, db := newLampRepo(t)
+	ctx := context.Background()
+	uid := insertUser(t, db, "0900000001", "a@example.com")
+
+	got := mustLight(t, repo, noRecipientLamp(uid, lampTestNow, 7))
+
+	assert.Nil(t, got.Recipient)
+	var isNull bool
+	require.NoError(t, db.QueryRow(ctx, `SELECT recipient IS NULL FROM lamps WHERE id = $1`, got.ID).Scan(&isNull))
+	assert.True(t, isNull, "no recipient is stored as NULL, never ''")
+
+	page, err := repo.Garden(ctx, domain.GardenQuery{Limit: 12, Now: lampTestNow, ViewerID: uid})
+	require.NoError(t, err)
+	require.Len(t, page.Items, 1)
+	assert.Nil(t, page.Items[0].Recipient)
+}
+
+// Two identical no-recipient requests inside the window are one lamp: NULL must
+// compare equal to NULL (IS NOT DISTINCT FROM), or a double tap would light two.
+// VI: Hai request giống hệt nhau, không có người nhận, trong cửa sổ bấm đúp chỉ tạo
+// một đèn: NULL phải được coi bằng NULL, nếu không bấm đúp sẽ thắp hai đèn.
+func TestLampRepository_Light_DoubleTapWithoutRecipient(t *testing.T) {
+	repo, db := newLampRepo(t)
+	ctx := context.Background()
+	uid := insertUser(t, db, "0900000001", "a@example.com")
+
+	first := mustLight(t, repo, noRecipientLamp(uid, lampTestNow, 7))
+	again, created, err := repo.Light(ctx, lightParams(noRecipientLamp(uid, lampTestNow.Add(2*time.Second), 7), lampTestMax))
+
+	require.NoError(t, err)
+	assert.False(t, created, "a double tap without a recipient is not a new lamp")
+	assert.Equal(t, first.ID, again.ID)
+	assert.Equal(t, 1, countRowsIn(t, db, "lamps"))
+
+	t.Run("a lamp with a recipient is not a duplicate of one without", func(t *testing.T) {
+		withRecipient, created, err := repo.Light(ctx, lightParams(lampAtTime(uid, "Bà ngoại", lampTestNow.Add(3*time.Second), 7), lampTestMax))
+		require.NoError(t, err)
+		assert.True(t, created)
+		assert.NotEqual(t, first.ID, withRecipient.ID)
+
+		noneAgain, created, err := repo.Light(ctx, lightParams(noRecipientLamp(uid, lampTestNow.Add(4*time.Second), 7), lampTestMax))
+		require.NoError(t, err)
+		assert.False(t, created, "still the first no-recipient lamp")
+		assert.Equal(t, first.ID, noneAgain.ID)
+		assert.Equal(t, 2, countRowsIn(t, db, "lamps"))
+	})
+}
+
+func TestLampRepository_Garden_IsMine(t *testing.T) {
+	repo, db := newLampRepo(t)
+	ctx := context.Background()
+	me := insertUser(t, db, "0900000001", "a@example.com")
+	other := insertUser(t, db, "0900000002", "b@example.com")
+	setDharmaName(t, db, me, "Thích Minh An")
+
+	mine := lightAs(t, repo, me, "mine", domain.LampTypeOilLamp, lampTestNow.Add(-3*time.Minute), 7)
+	theirs := lightAs(t, repo, other, "theirs", domain.LampTypeLotusCandle, lampTestNow.Add(-2*time.Minute), 7)
+	anon := lampAtTime(me, "mine anonymous", lampTestNow.Add(-time.Minute), 7)
+	anon.IsAnonymous = true
+	mineAnon := mustLight(t, repo, anon)
+
+	isMine := func(page *domain.GardenPage) map[int64]bool {
+		out := make(map[int64]bool, len(page.Items))
+		for _, it := range page.Items {
+			out[it.ID] = it.IsMine
+		}
+		return out
+	}
+
+	page, err := repo.Garden(ctx, domain.GardenQuery{Limit: 12, Now: lampTestNow, ViewerID: me})
+	require.NoError(t, err)
+	assert.Equal(t, map[int64]bool{mine.ID: true, theirs.ID: false, mineAnon.ID: true}, isMine(page))
+	for _, it := range page.Items {
+		if it.ID == mineAnon.ID {
+			assert.Nil(t, it.LighterName, "my own anonymous lamp still carries no name")
+		}
+	}
+
+	asOther, err := repo.Garden(ctx, domain.GardenQuery{Limit: 12, Now: lampTestNow, ViewerID: other})
+	require.NoError(t, err)
+	assert.Equal(t, map[int64]bool{mine.ID: false, theirs.ID: true, mineAnon.ID: false}, isMine(asOther))
+
+	t.Run("unchanged by lamp_type, limit and cursor", func(t *testing.T) {
+		oil := domain.LampTypeOilLamp
+		filtered, err := repo.Garden(ctx, domain.GardenQuery{LampType: &oil, Limit: 12, Now: lampTestNow, ViewerID: me})
+		require.NoError(t, err)
+		assert.Equal(t, map[int64]bool{mine.ID: true, mineAnon.ID: true}, isMine(filtered))
+
+		p1, err := repo.Garden(ctx, domain.GardenQuery{Limit: 1, Now: lampTestNow, ViewerID: me})
+		require.NoError(t, err)
+		first := p1.Items[0]
+		assert.True(t, first.IsMine)
+		p2, err := repo.Garden(ctx, domain.GardenQuery{Limit: 1, After: &domain.Cursor{LitAt: first.LitAt, ID: first.ID}, Now: lampTestNow, ViewerID: me})
+		require.NoError(t, err)
+		assert.Equal(t, theirs.ID, p2.Items[0].ID)
+		assert.False(t, p2.Items[0].IsMine)
+	})
 }

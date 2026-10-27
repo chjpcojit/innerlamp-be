@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: InnerLamp API
-  version: 2.2.0
+  version: 3.0.0
   description: |
     API của hai service: **appService** (client: đăng ký/đăng nhập bằng email, quên mật khẩu, hồ sơ cá nhân và ảnh đại diện, attestation thiết bị, danh mục chùa, Phật/Bồ tát và bài viết Phật pháp)
     và **backofficeService** (admin: `/v1/admin/*`). Chọn server tương ứng ở ô Servers.
@@ -1093,7 +1093,7 @@ paths:
         | --- | --- | --- | --- |
         | `lamp_type` | string | có | `OIL_LAMP` (đèn dầu), `LOTUS_CANDLE` (nến sen), `FLOWER_LANTERN` (hoa đăng). |
         | `intention` | string | có | Tâm nguyện: `PEACE` (cầu an), `SALVATION` (cầu siêu), `MERIT_DEDICATION` (hồi hướng), `GRATITUDE` (tri ân). |
-        | `recipient` | string | có | Dành cho ai, văn bản tự do, 1–100 ký tự sau khi cắt khoảng trắng đầu cuối (đếm theo ký tự, không theo byte). Giới hạn là `lamp.recipient_max_chars` (dev: 100). |
+        | `recipient` | string \| null | không | Dành cho ai, văn bản tự do, tối đa 100 ký tự sau khi cắt khoảng trắng đầu cuối (đếm theo ký tự sau NFC, không theo byte). Giới hạn là `lamp.recipient_max_chars` (dev: 100). **Từ 3.0.0 không bắt buộc:** vắng, `null`, rỗng hoặc toàn khoảng trắng đều là đèn không có người nhận, được lưu và trả về là `null` (client hiển thị "Tất cả chúng sanh"). |
         | `prayer` | string | không | Lời nguyện, tối đa 300 ký tự (`lamp.prayer_max_chars`, dev: 300). Rỗng hoặc toàn khoảng trắng được lưu thành `null`. |
         | `duration_days` | int | có | Số ngày đèn sáng: `1`, `7`, `21` hoặc `49` (`lamp.durations_days`). |
         | `is_anonymous` | bool | không | Mặc định `false`. `true` = ẩn tên người thắp trong vườn đèn. |
@@ -1102,7 +1102,7 @@ paths:
         Field lạ (kể cả `id`, `user_id`, `lit_at`, `end_at`, `lighter_name`) bị từ chối `VALIDATION_ERROR`.
 
         **Bấm đúp:** gửi lại đúng nội dung vừa thắp trong vòng 5 giây (`lamp.dedupe_window`) không tạo đèn thứ hai mà trả `200` với đèn đã có
-        (kể cả khi người dùng đang ở mức 20 đèn). Sau 5 giây, cùng nội dung là một ngọn đèn mới.
+        (kể cả khi người dùng đang ở mức 20 đèn). Hai lần gửi cùng không có người nhận cũng là cùng nội dung. Sau 5 giây, cùng nội dung là một ngọn đèn mới.
 
         `lighter_name` là pháp danh **tại thời điểm thắp** (không đổi theo khi người dùng đổi pháp danh); `Vô danh` khi ẩn danh hoặc chưa có pháp danh.
       security:
@@ -1152,7 +1152,7 @@ paths:
               schema: { $ref: '#/components/schemas/ErrorEnvelope' }
               example:
                 success: false
-                error: { code: VALIDATION_ERROR, message: 'recipient: recipient is required', type: validation }
+                error: { code: VALIDATION_ERROR, message: 'recipient: recipient must be at most 100 characters', type: validation }
                 details: { field: recipient }
         '401':
           description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
@@ -1177,10 +1177,12 @@ paths:
       summary: Vườn đèn
       description: |
         Các ngọn đèn **đang sáng** (`end_at` sau thời điểm hiện tại của máy chủ) của **tất cả** người dùng, đèn mới thắp lên đầu
-        (`lit_at` giảm dần, rồi `id` giảm dần). Cần đăng nhập nhưng người gọi không ảnh hưởng kết quả.
+        (`lit_at` giảm dần, rồi `id` giảm dần). Cần đăng nhập; người gọi không lọc kết quả, chỉ quyết định `is_mine`.
 
-        Mỗi mục chỉ có `id`, `lamp_type`, `recipient`, `lighter_name`, `end_at`. Tâm nguyện và lời nguyện **không bao giờ** được trả cho
-        người khác. `lighter_name` là `Vô danh` với đèn ẩn danh hoặc người thắp chưa có pháp danh.
+        Mỗi mục chỉ có `id`, `lamp_type`, `recipient`, `lighter_name`, `is_mine`, `end_at`. Tâm nguyện và lời nguyện **không bao giờ** được trả cho
+        người khác. `lighter_name` là `Vô danh` với đèn ẩn danh hoặc người thắp chưa có pháp danh. `recipient` là `null` khi đèn không có người nhận
+        (từ 3.0.0). `is_mine` (từ 3.0.0) là `true` khi người gọi là người thắp đèn đó, kể cả đèn ẩn danh của chính mình; không có field nào lộ chủ
+        của đèn người khác.
 
         **Phân trang bằng `cursor`** (khác `page` của các danh sách khác, vì vườn đèn đổi liên tục: đèn hết hạn hoặc đèn mới thắp giữa hai
         lần tải không được làm lặp hay sót đèn). Lần đầu không gửi `cursor`; muốn tải thêm thì gửi lại `next_cursor` của trang trước.
@@ -1218,8 +1220,8 @@ paths:
                 success: true
                 data:
                   items:
-                    - { id: 41, lamp_type: LOTUS_CANDLE, recipient: Thầy, lighter_name: Thích Minh An, end_at: '2026-10-17T18:00:00Z' }
-                    - { id: 40, lamp_type: OIL_LAMP, recipient: Mẹ, lighter_name: Vô danh, end_at: '2026-10-11T10:00:00Z' }
+                    - { id: 41, lamp_type: LOTUS_CANDLE, recipient: Thầy, lighter_name: Thích Minh An, is_mine: true, end_at: '2026-10-17T18:00:00Z' }
+                    - { id: 40, lamp_type: OIL_LAMP, recipient: null, lighter_name: Vô danh, is_mine: false, end_at: '2026-10-11T10:00:00Z' }
                   total: 10
                   counts: { OIL_LAMP: 5, LOTUS_CANDLE: 3, FLOWER_LANTERN: 2 }
                   has_more: true
@@ -7041,11 +7043,11 @@ components:
       type: object
       description: Body của `POST /v1/lamps`. Xem bảng field ở mô tả endpoint.
       additionalProperties: false
-      required: [lamp_type, intention, recipient, duration_days]
+      required: [lamp_type, intention, duration_days]
       properties:
         lamp_type: { $ref: '#/components/schemas/LampType' }
         intention: { $ref: '#/components/schemas/LampIntention' }
-        recipient: { type: string, minLength: 1, maxLength: 100, example: Bà ngoại }
+        recipient: { type: [string, 'null'], maxLength: 100, example: Bà ngoại, description: 'Không bắt buộc (từ 3.0.0). Vắng, `null` hoặc trống là đèn không có người nhận.' }
         prayer: { type: [string, 'null'], maxLength: 300, example: Mong bà bình an }
         duration_days: { type: integer, enum: [1, 7, 21, 49], example: 7 }
         is_anonymous: { type: boolean, default: false }
@@ -7057,7 +7059,7 @@ components:
         id: { type: integer, format: int64 }
         lamp_type: { $ref: '#/components/schemas/LampType' }
         intention: { $ref: '#/components/schemas/LampIntention' }
-        recipient: { type: string }
+        recipient: { type: [string, 'null'], description: '`null` khi đèn không có người nhận (từ 3.0.0).' }
         prayer: { type: [string, 'null'] }
         duration_days: { type: integer }
         is_anonymous: { type: boolean }
@@ -7073,12 +7075,13 @@ components:
     GardenLamp:
       type: object
       description: Một ngọn đèn trong vườn đèn. Không có tâm nguyện, lời nguyện, chủ sở hữu.
-      required: [id, lamp_type, recipient, lighter_name, end_at]
+      required: [id, lamp_type, recipient, lighter_name, is_mine, end_at]
       properties:
         id: { type: integer, format: int64 }
         lamp_type: { $ref: '#/components/schemas/LampType' }
-        recipient: { type: string }
+        recipient: { type: [string, 'null'], description: '`null` khi đèn không có người nhận (từ 3.0.0).' }
         lighter_name: { type: string, description: 'Pháp danh lúc thắp, hoặc `Vô danh` (ẩn danh hoặc chưa có pháp danh).' }
+        is_mine: { type: boolean, description: '`true` khi người gọi là người thắp đèn này (từ 3.0.0). Không lộ chủ của đèn người khác.' }
         end_at: { type: string, format: date-time }
     GardenPage:
       type: object

@@ -49,17 +49,20 @@ func (r *lampRepository) Light(ctx context.Context, p domain.LightLampParams) (*
 
 	// An identical lamp lit within the window is the same submission: hand it
 	// back instead of writing a second one. This runs before the cap check so a
-	// double tap at the cap still gets its lamp rather than a 409.
+	// double tap at the cap still gets its lamp rather than a 409. recipient and
+	// prayer may be NULL, so they compare with IS NOT DISTINCT FROM.
+	// VI: recipient và prayer có thể NULL nên so bằng IS NOT DISTINCT FROM; dùng
+	// "=" thì hai lần bấm đúp không có người nhận sẽ tạo hai đèn.
 	existing, err := scanLamp(tx.QueryRowContext(ctx, `
 		SELECT `+lampColumns+` FROM lamps
 		WHERE user_id = $1 AND lit_at > $2
-		  AND lamp_type = $3 AND intention = $4 AND recipient = $5
+		  AND lamp_type = $3 AND intention = $4 AND recipient IS NOT DISTINCT FROM $5
 		  AND prayer IS NOT DISTINCT FROM $6
 		  AND duration_days = $7 AND is_anonymous = $8
 		ORDER BY lit_at DESC, id DESC
 		LIMIT 1`,
 		l.UserID, l.LitAt.Add(-p.DedupeWindow),
-		string(l.LampType), string(l.Intention), l.Recipient, nullableStringPtr(l.Prayer),
+		string(l.LampType), string(l.Intention), nullableStringPtr(l.Recipient), nullableStringPtr(l.Prayer),
 		l.DurationDays, l.IsAnonymous))
 	switch {
 	case err == nil:
@@ -82,18 +85,20 @@ func (r *lampRepository) Light(ctx context.Context, p domain.LightLampParams) (*
 
 	// An anonymous lamp keeps no name; otherwise copy the dharma name (NULL when
 	// the user has none).
-	var name any
-	if !l.IsAnonymous && dharmaName.Valid {
-		name = dharmaName.String
+	// VI: Đèn ẩn danh không lưu tên; ngược lại chép pháp danh (NULL khi chưa có).
+	var dharma *string
+	if dharmaName.Valid {
+		dharma = &dharmaName.String
 	}
+	name := domain.LighterNameAtLighting(dharma, l.IsAnonymous)
 
 	created, err := scanLamp(tx.QueryRowContext(ctx, `
 		INSERT INTO lamps
 			(user_id, lamp_type, intention, recipient, prayer, duration_days, is_anonymous, lighter_name, lit_at, end_at)
 		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
 		RETURNING `+lampColumns,
-		l.UserID, string(l.LampType), string(l.Intention), l.Recipient, nullableStringPtr(l.Prayer),
-		l.DurationDays, l.IsAnonymous, name, l.LitAt, l.EndAt))
+		l.UserID, string(l.LampType), string(l.Intention), nullableStringPtr(l.Recipient), nullableStringPtr(l.Prayer),
+		l.DurationDays, l.IsAnonymous, nullableStringPtr(name), l.LitAt, l.EndAt))
 	if err != nil {
 		return nil, false, fmt.Errorf("insert lamp: %w", err)
 	}
@@ -142,8 +147,11 @@ func (r *lampRepository) Garden(ctx context.Context, q domain.GardenQuery) (*dom
 	}
 	_ = countRows.Close()
 
-	query := `SELECT id, lamp_type, recipient, lighter_name, lit_at, end_at FROM lamps WHERE end_at > $1`
-	args := []any{q.Now}
+	// is_mine is computed in SQL so user_id never leaves the database.
+	// VI: is_mine được tính trong SQL để user_id không bao giờ ra khỏi database.
+	query := `SELECT id, lamp_type, recipient, lighter_name, lit_at, end_at, user_id = $2 AS is_mine
+		FROM lamps WHERE end_at > $1`
+	args := []any{q.Now, q.ViewerID}
 	if q.LampType != nil {
 		args = append(args, string(*q.LampType))
 		query += fmt.Sprintf(" AND lamp_type = $%d", len(args))
@@ -162,14 +170,19 @@ func (r *lampRepository) Garden(ctx context.Context, q domain.GardenQuery) (*dom
 	defer func() { _ = rows.Close() }()
 	for rows.Next() {
 		var (
-			g    domain.GardenLamp
-			t    string
-			name sql.NullString
+			g         domain.GardenLamp
+			t         string
+			recipient sql.NullString
+			name      sql.NullString
 		)
-		if err := rows.Scan(&g.ID, &t, &g.Recipient, &name, &g.LitAt, &g.EndAt); err != nil {
+		if err := rows.Scan(&g.ID, &t, &recipient, &name, &g.LitAt, &g.EndAt, &g.IsMine); err != nil {
 			return nil, fmt.Errorf("scan garden lamp: %w", err)
 		}
 		g.LampType = domain.LampType(t)
+		if recipient.Valid {
+			s := recipient.String
+			g.Recipient = &s
+		}
 		if name.Valid {
 			s := name.String
 			g.LighterName = &s
@@ -188,16 +201,21 @@ func scanLamp(row rowScanner) (*domain.Lamp, error) {
 		l          domain.Lamp
 		lampType   string
 		intention  string
+		recipient  sql.NullString
 		prayer     sql.NullString
 		lighter    sql.NullString
 		litAt, end time.Time
 	)
-	if err := row.Scan(&l.ID, &l.UserID, &lampType, &intention, &l.Recipient, &prayer, &l.DurationDays,
+	if err := row.Scan(&l.ID, &l.UserID, &lampType, &intention, &recipient, &prayer, &l.DurationDays,
 		&l.IsAnonymous, &lighter, &litAt, &end); err != nil {
 		return nil, err
 	}
 	l.LampType = domain.LampType(lampType)
 	l.Intention = domain.Intention(intention)
+	if recipient.Valid {
+		s := recipient.String
+		l.Recipient = &s
+	}
 	if prayer.Valid {
 		s := prayer.String
 		l.Prayer = &s
