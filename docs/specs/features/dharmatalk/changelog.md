@@ -4,6 +4,15 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.1 (2026-11-15)
+
+Seed data only; no acceptance criterion or contract change.
+
+- Added six Archive.org audio talks by Hòa thượng Thích Trí Quảng (CC BY-NC-SA 4.0; uploader rights
+  not independently verified), all `needsReview`, to `assets/data/dharma_talks.json`.
+- Catalogue: 61 talks, 25 hidden, 36 visible; audio 14, video 18, text 29. Counts refreshed in
+  `requirements.md` and `design.md`.
+
 ## v2.0 (2026-10-11)
 
 appService **không còn seed pháp thoại khi khởi động**: việc nạp chuyển sang lệnh seed, `make run` chạy lệnh đó khi bảng rỗng. Hợp đồng HTTP không đổi.
