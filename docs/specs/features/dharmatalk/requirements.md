@@ -1,8 +1,8 @@
 # Requirements — dharmatalk
 
-Version: 2.1
+Version: 2.2
 Last updated: 2026-11-15
-Status: implemented (2026-10-03) — 2 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (testcontainers, 61 bài, 36 hiển thị được); có test usecase, handler, seed parser, repository và E2E. `openapi.yaml` và ERD đã cập nhật. Còn 11 marker `⚠️ Not confirmed` (mọi quyết định sản phẩm vẫn mở).
+Status: implemented (2026-10-03) — 2 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (testcontainers, 67 bài, 48 hiển thị được); có test usecase, handler, seed parser, repository và E2E. `openapi.yaml` và ERD đã cập nhật. Còn 11 marker `⚠️ Not confirmed` (mọi quyết định sản phẩm vẫn mở).
 Module: `content`
 Code: `services/appService/`
 Product spec: `docs/product/dharmatalk/product.md` @ v0.1
@@ -125,18 +125,18 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 > ⚠️ Not confirmed: lượt nghe ("2.4k lượt nghe") — tin nhắn của người dùng bị cụt ở ý này. Backend **chưa** có cột, trường hay route ghi lượt nghe; client ẩn khi không có. Cần chốt có đếm lượt nghe không, đếm khi nào, và route ghi có cần đăng nhập không.
 > ⚠️ Not confirmed: thẻ "Nghe xong, ngồi thiền" — app chưa có entity bài thiền để `meditation_id` trỏ tới nên `follow_up_meditation` luôn `null` trong dữ liệu seed; cần chốt nguồn dữ liệu và ánh xạ pháp thoại → bài thiền.
-> ⚠️ Not confirmed: "Các phần" — dữ liệu seed hiện **không có** mốc thời gian nào (`chapters` rỗng ở cả 61 bài); nguồn có thể là chapter của video YouTube hoặc nghe và ghi tay; chưa có người/ngày làm.
+> ⚠️ Not confirmed: "Các phần" — dữ liệu seed hiện **không có** mốc thời gian nào (`chapters` rỗng ở cả 67 bài); nguồn có thể là chapter của video YouTube hoặc nghe và ghi tay; chưa có người/ngày làm.
 > ⚠️ Not confirmed: `season` (Mùa Vu Lan…) — danh sách dịp hợp lệ và cách gán chưa chốt; hiện là chuỗi tự do, `null` ở mọi bài.
-> ⚠️ Not confirmed: cờ `needs_review` — mặc định tạm là ẩn bài đang bị cờ khỏi mọi route (25/61 bài, trong đó có 3 bài Thông Triệt chưa xác minh nội dung); cần người dùng quyết định giữ hay loại từng bài, và quy trình gỡ cờ (hiện chỉ SQL tay).
-> ⚠️ Not confirmed: audio — 8/61 bài có file mp3 Làng Mai; 6 bài mới trỏ tới một bộ sưu tập Archive.org dưới CC BY-NC-SA 4.0 nhưng quyền của người tải lên chưa xác minh (đang ẩn); 29 bài còn là `text`. Cũng chưa chốt tốc độ phát, nhớ vị trí nghe, nút lưu/chia sẻ — thuộc client, không ảnh hưởng hợp đồng này.
-> ⚠️ Not confirmed: bản quyền — cả 61 bài có `license` là `unknown` hoặc chỉ có dòng copyright của nguồn; chưa xác nhận app được hiển thị tóm tắt/trích dẫn và nhúng video theo điều kiện nào, và có bắt buộc hiển thị nguồn không (UI đã có thẻ nguồn ở cuối).
-> ⚠️ Not confirmed: số lượng — mục tiêu ban đầu 60 bài, hiện 61 (gồm 6 bài Archive.org thêm để duyệt; 5 bài Thích Chân Quang không có nguồn kiểm chứng được; đã bỏ).
+> ⚠️ Not confirmed: cờ `needs_review` — mặc định tạm là ẩn bài đang bị cờ khỏi mọi route (19/67 bài, trong đó có 3 bài Thông Triệt chưa xác minh nội dung); cần người dùng quyết định giữ hay loại từng bài, và quy trình gỡ cờ (hiện chỉ SQL tay).
+> ⚠️ Not confirmed: audio — 8/67 bài có file mp3 Làng Mai; 12 bài trỏ tới một bộ sưu tập Archive.org dưới CC BY-NC-SA 4.0, đã mở theo xác nhận app phi thương mại của chủ sản phẩm, nhưng quyền của người tải lên chưa xác minh; 29 bài còn là `text`. Cũng chưa chốt tốc độ phát, nhớ vị trí nghe, nút lưu/chia sẻ — thuộc client, không ảnh hưởng hợp đồng này.
+> ⚠️ Not confirmed: bản quyền — cả 67 bài có `license` là `unknown` hoặc chỉ có dòng copyright của nguồn; chưa xác nhận app được hiển thị tóm tắt/trích dẫn và nhúng video theo điều kiện nào, và có bắt buộc hiển thị nguồn không (UI đã có thẻ nguồn ở cuối).
+> ⚠️ Not confirmed: số lượng — mục tiêu ban đầu 60 bài, hiện 67 (gồm 12 bài Archive.org; 5 bài Thích Chân Quang không có nguồn kiểm chứng được; đã bỏ).
 > ⚠️ Not confirmed: tên hiển thị giảng sư — `speaker` hiện giữ tiền tố gốc ("Hòa thượng Thích …", "Sư …"); màn hình mockup ghi "Thầy …"; chưa chốt app tự rút gọn hay backend thêm `speaker_display_name`.
 > ⚠️ Not confirmed: quy trình cập nhật nội dung sau lần seed đầu — như `article`, sửa file JSON rồi build lại không đổi DB có sẵn; cần chốt SQL tay, lệnh reseed hay backoffice.
 
 ## Ghi chú kỹ thuật liên quan
 
-- Dữ liệu seed hiện có: 61 bài — 18 `youtube`, 14 `audio`, 29 `text`; 38 bài có ngày; 16 bài có `durationMinutes`; 25 bài `needs_review` nên chỉ 36 bài hiển thị được. `publishedDate` của bài YouTube thường là ngày upload, không phải ngày giảng.
+- Dữ liệu seed hiện có: 67 bài — 18 `youtube`, 20 `audio`, 29 `text`; 38 bài có ngày; 16 bài có `durationMinutes`; 19 bài `needs_review` nên 48 bài hiển thị được. `publishedDate` của bài YouTube thường là ngày upload, không phải ngày giảng.
 - `id` là slug ổn định để client cache id vẫn đúng sau mọi lần nạp lại.
 - `media_type` quyết định biến thể giao diện; seed hiện dùng `video` cho YouTube — parser đổi thành `youtube` (xem `design.md`).
 - Kích thước trang nằm ở block `dharma_talk:` của `config.<env>.yaml` (dev: `page_size: 10`), bắt buộc.

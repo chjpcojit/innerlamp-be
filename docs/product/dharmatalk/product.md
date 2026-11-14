@@ -7,7 +7,7 @@
 | Feature code | `DHT` — IDs are `BR-DHT-NN`, `FR-DHT-NNN`, `NFR-DHT-NN` |
 | Product | InnerLamp |
 | Platforms in scope | Backend, Website, iOS, Android |
-| Version | 0.2 (draft) |
+| Version | 0.3 (draft) |
 | Last updated | 2026-11-15 |
 | Status | draft — written retroactively from an implemented feature whose product decisions are still open; 13 questions in Appendix A |
 | Owner / author | Product owner: anh Đức · written by Claude (`ba-writer`, retroactive from `docs/specs/features/dharmatalk/requirements.md` v2.0) |
@@ -167,7 +167,7 @@ HTTPS, using the shared response and error conventions.
 **BR-DHT-02 — A talk flagged for review is invisible to users**
 - **Rule:** A talk with the review flag set is stored but never returned by any public route; it counts as
   a stored row for seeding.
-- **Examples:** 25 of 61 seeded talks are hidden, leaving 36 visible; a detail request for a hidden talk
+- **Examples:** 19 of 67 seeded talks are hidden, leaving 48 visible; a detail request for a hidden talk
   returns not found.
 - **Computational:** no.
 - **Applies to:** Backend.
@@ -212,7 +212,7 @@ HTTPS, using the shared response and error conventions.
 - **Rule:** The seed command inserts the bundled talks in one transaction only when the catalogue has no talk,
   with the file position as the sort order; running it again changes nothing; the service never reads
   the seed or writes a talk at startup; an existing id is left untouched.
-- **Examples:** a fresh database gets 61 talks; a second run logs "already seeded"; restarting the
+- **Examples:** a fresh database gets 67 talks; a second run logs "already seeded"; restarting the
   service writes nothing.
 - **Computational:** no.
 - **Applies to:** Backend.
@@ -250,16 +250,16 @@ HTTPS, using the shared response and error conventions.
 - **Acceptance criteria:**
   ```gherkin
   Scenario: First page
-    Given 36 visible talks and a page size of 10
+    Given 48 visible talks and a page size of 10
     When a visitor opens the list without choosing a page
     Then the first 10 talks are shown in editorial order
-    And the response reports 36 total and 4 pages
+    And the response reports 48 total and 5 pages
 
   Scenario: Page past the end
-    Given 36 visible talks and a page size of 10
+    Given 48 visible talks and a page size of 10
     When a visitor asks for page 99
     Then the list is empty
-    And the response still reports 36 total and 4 pages
+    And the response still reports 48 total and 5 pages
 
   Scenario: Invalid page
     When a visitor asks for page 0 or a non-numeric page
@@ -370,7 +370,7 @@ HTTPS, using the shared response and error conventions.
   Scenario: First seed
     Given an empty catalogue
     When the seed command runs
-    Then 61 talks are stored
+    Then 67 talks are stored
     And the sort order follows the file
 
   Scenario: Second seed
@@ -446,7 +446,7 @@ product for both public routes and the hidden-talk rule; a content review before
 | ID | Backend | Website | iOS | Android | Note |
 |---|---|---|---|---|---|
 | BR-DHT-01 | done | done | planned | later | |
-| BR-DHT-02 | done | done | planned | later | 25 of 61 hidden |
+| BR-DHT-02 | done | done | planned | later | 19 of 67 hidden |
 | BR-DHT-03 | done | done | planned | later | |
 | BR-DHT-04 | done | done | planned | later | |
 | BR-DHT-05 | done | done | planned | later | Chapters empty in seed |
@@ -491,17 +491,17 @@ product for both public routes and the hidden-talk rule; a content review before
 > ⚠️ Not confirmed: the valid list of seasons and how a talk is assigned one — today it is free text and
 > null everywhere. This blocks season filtering and display.
 
-> ⚠️ Not confirmed: the review flag — 25 of 61 talks are hidden, including three unverified Thông Triệt
+> ⚠️ Not confirmed: the review flag — 19 of 67 talks are hidden, including three unverified Thông Triệt
 > talks; who decides and how a talk is un-flagged (a manual database edit today) is undecided. This blocks release.
 
-> ⚠️ Not confirmed: audio sources — 8 of 61 talks have a valid Làng Mai mp3 and 6 more point at an Archive.org collection under CC BY-NC-SA with unverified rights (hidden); other lawful sources
+> ⚠️ Not confirmed: audio sources — 8 of 67 talks have a valid Làng Mai mp3 and 12 more point at an Archive.org collection under CC BY-NC-SA; the owner confirmed the app is non-commercial, so these are visible, though the uploader's rights are not independently verified; other lawful sources
 > and any permission from temples are not settled. This blocks the audio share of the catalogue.
 
 > ⚠️ Not confirmed: licence — every talk's licence is unknown or only a source copyright line; whether
 > the app may show a summary or quote and embed the video, and whether the source must be shown, is not
 > confirmed. This blocks publishing the catalogue.
 
-> ⚠️ Not confirmed: catalogue size — the target was 60 talks; 61 are stored because six Archive.org audio talks were added for review, 25 hidden
+> ⚠️ Not confirmed: catalogue size — the target was 60 talks; 67 are stored because twelve Archive.org audio talks were added, 19 hidden
 > verified. This blocks declaring the library complete.
 
 > ⚠️ Not confirmed: the speaker's display name — the stored name keeps its title prefix ("Hòa thượng

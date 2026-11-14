@@ -2,6 +2,14 @@
 
 Tracks version history for `docs/product/dharmatalk/product.md`.
 
+## v0.3 — 2026-11-15
+
+- Owner confirmed InnerLamp is non-commercial and charges users nothing. The six Archive.org talks are
+  now visible, and six more were added: twelve CC BY-NC-SA 4.0 talks in total.
+- Catalogue 61 → 67; hidden 25 → 19; visible 36 → 48; audio 14 → 20. Attribution recorded in
+  `docs/legal/dharma-talks-attribution.md`.
+- The uploader's rights are still not independently verified; the licence note keeps that caveat.
+
 ## v0.2 — 2026-11-15
 
 - Data: six Archive.org audio talks by Hòa thượng Thích Trí Quảng added to the seed under

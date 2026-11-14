@@ -4,6 +4,13 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.2 (2026-11-15)
+
+- Owner confirmed the app is non-commercial; the six Archive.org talks are visible and six more were
+  added. Counts: 67 talks, 19 hidden, 48 visible, 20 audio.
+- Added `docs/legal/dharma-talks-attribution.md`; the uploader-rights caveat stays in each row.
+- No acceptance criterion or contract change.
+
 ## v2.1 (2026-11-15)
 
 Seed data only; no acceptance criterion or contract change.

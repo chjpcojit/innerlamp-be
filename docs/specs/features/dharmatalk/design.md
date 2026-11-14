@@ -1,6 +1,6 @@
 # Design — dharmatalk
 
-Version: 2.1
+Version: 2.2
 Last updated: 2026-11-15
 Status: implemented (2026-10-03) — 2 route đọc + seed lần đầu chạy thật qua binary + Postgres; có test usecase/handler/seed parser/repository/E2E. Thiếu: không còn mục kỹ thuật nào mở; OKF concept chưa viết.
 Module: `content`
@@ -31,7 +31,7 @@ Thiết kế bám `article` có chủ đích (code đã viết theo đó): `usec
 | Config | `services/appService/config/config.go`, `config.dev.yaml` | `DharmaTalkConfig{PageSize}`, block `dharma_talk:` (dev: 10). |
 | Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; (từ 2026-10-11 không còn seed lúc khởi động; `cmd/seeddharmatalks` gọi `SeedIfEmpty`); đăng ký 2 route. Không dính khối `⚠️ DEV ONLY` nào. |
 | Migration | `migrations/0014_dharma_talks.sql` | Bảng `dharma_talks` + index `idx_dharma_talks_order (sort_order, id)`. |
-| Data | `assets/data/dharma_talks.json` | 61 bài (sinh bởi phiên nghiên cứu, thêm 6 bài Archive.org để duyệt); đã khớp "Seed JSON" bên dưới, không cần sửa file (`sortOrder` thừa bị bỏ qua). |
+| Data | `assets/data/dharma_talks.json` | 67 bài (sinh bởi phiên nghiên cứu, thêm 12 bài Archive.org đã mở); đã khớp "Seed JSON" bên dưới, không cần sửa file (`sortOrder` thừa bị bỏ qua). |
 | API spec | `docs/specs/api/openapi.yaml`, `web/docs/public/openapi.yaml` | **Đã có** 2 route (tag DharmaTalks) và schema `DharmaTalkSummary`/`DharmaTalkDetail`; hai file giống hệt nhau. |
 
 Ghi chú route: `GET /v1/dharma-talks` và `GET /v1/dharma-talks/{id}` là hai pattern riêng của `ServeMux`; không có route literal nào tranh `{id}` (không có `top`).
@@ -156,7 +156,7 @@ Step 3 — Chèn các bài còn thiếu (repository)
 - Trigger: Step 2 xong
 - Pre-condition: seed hợp lệ
 - Call: DharmaTalkRepository.InsertMissing → INSERT … ON CONFLICT (id) DO NOTHING cho từng bài (kể cả bài needs_review = true)
-    - Success → số dòng thực sự được chèn (61 ở lần đầu), sang Step 4
+    - Success → số dòng thực sự được chèn (67 ở lần đầu), sang Step 4
     - Failure (lỗi DB, kể cả vi phạm CHECK) → rollback toàn bộ → error → log.Fatalf
     - Transaction boundary: mọi INSERT của Step 3 chung MỘT transaction
 
@@ -182,7 +182,7 @@ Vì sao Step 1 không lọc `needs_review`: nếu đếm chỉ các dòng hiển
 - **Chưa có OKF concept** `docs/knowledge/features/dharmatalk.md` (`il-okf-writer`); code, migration, test, E2E, `openapi.yaml` và ERD đã có.
 - **E2E phụ thuộc thời gian khởi động server**: `e2e/harness.go` chờ server sẵn sàng tối đa 10 giây, nhưng lần seed đầu của thư viện kinh (~11 MB) có thể vượt mức đó trên máy chậm, nên cả E2E của dharmatalk lẫn `TestSutraAPI_E2E` thất bại ngẫu nhiên với "did not become ready within 10s". Khi nâng ngưỡng lên 60 giây (tạm thời, đã hoàn lại) thì cả 8 test của dharmatalk đều qua. Ngưỡng này thuộc harness dùng chung, chưa sửa trong lượt này.
 - **Test repository cần Postgres và xoá dữ liệu**: `postgres_dharma_talk_repository_test.go` gọi `connectTestDB` (bỏ qua khi `-short`), helper này `TRUNCATE` nhiều bảng của DB `innerlamp` mặc định; lượt này đã chạy trên DB scratch (`TEST_DB_PORT`, `TEST_DB_NAME`), không phải DB dev.
-- **25/61 bài bị `needs_review`** nên chỉ 36 bài hiện ra khi có code; trong số 36, `audio` chỉ có tối đa 8 bài và nhiều bài không có `duration_minutes`.
+- **19/67 bài bị `needs_review`** nên 48 bài hiện ra khi có code; trong số 48, `audio` có 20 bài và nhiều bài không có `duration_minutes`.
 - **Đếm và lấy trang không cùng snapshot** (như `article`).
 - **Sửa file JSON không cập nhật DB có sẵn** (như `article`).
 - **YouTube nhúng**: video có thể bị gỡ hoặc tắt nhúng sau khi seed; backend không kiểm tra (`youtube_id` chỉ được kiểm định dạng, không kiểm tồn tại).
