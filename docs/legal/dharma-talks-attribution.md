@@ -1,6 +1,7 @@
 # Dharma talks — third-party audio attribution
 
-The twelve audio talks below are streamed from the Internet Archive item
+The twelve audio talks below are mirrored locally for development (see `scripts/fetch-dharma-audio.sh`)
+and come from the Internet Archive item
 [Pháp thoại – HT Trí Quảng mới](https://archive.org/details/phap-thoai-ht-tri-quang-moi), uploaded by
 `thuctinh.vn`.
 

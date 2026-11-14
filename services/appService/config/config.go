@@ -103,6 +103,10 @@ type ServerConfig struct {
 	// /static/images/ so image_url can point here while there is no CDN yet.
 	// Empty (the default) disables it. DEV-ONLY: production serves images from a CDN.
 	StaticImagesDir string `yaml:"static_images_dir"`
+	// StaticAudioDir, when set, makes appService serve that folder at /static/audio/
+	// so audio_url can point here while there is no CDN yet. Empty disables it.
+	// DEV-ONLY: production serves audio from object storage or a CDN.
+	StaticAudioDir string `yaml:"static_audio_dir"`
 	// PublicBaseURL is the origin root-relative image paths ("/static/images/...") are
 	// resolved against in API responses, e.g. "https://cdn.example.com". Empty = the
 	// request's own origin, so a dev machine keeps working after its IP changes.

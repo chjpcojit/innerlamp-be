@@ -170,6 +170,18 @@ Step 4 — Ghi log (cmd/main.go)
 
 Vì sao Step 1 không lọc `needs_review`: nếu đếm chỉ các dòng hiển thị được, một bảng mà mọi bài đều đang bị cờ sẽ bị coi là rỗng và seed lại — ghi đè quyết định duyệt bằng dữ liệu seed.
 
+## Local audio (dev only)
+
+- `server.static_audio_dir` (dev: `assets/audio`) serves the folder at `/static/audio/`, next to the
+  existing `/static/images/` route. `server.static_audio_dir` empty disables it.
+- The twelve Archive.org talks store a root-relative `audio_url` (`/static/audio/dharma-talks/...`).
+  The handler resolves it against `server.public_base_url`, or the request origin when that is empty,
+  so the API still returns an absolute URL and the stored data does not change when the host changes.
+- The mp3 files are gitignored (`assets/audio/**`, about 325 MB). `scripts/fetch-dharma-audio.sh`
+  downloads them once per machine. Production replaces this route with object storage or a CDN.
+- The route uses `http.FileServer` through the same no-listing handler as images, so Range requests
+  (seeking) work and a directory listing is never served.
+
 ## Deliberately stubbed for now (if applicable)
 
 - `follow_up_meditation`: cột, entity và DTO có thật nhưng **không có nguồn dữ liệu** (app chưa có bài thiền) — luôn `NULL` trong seed, API trả `null`.

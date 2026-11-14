@@ -134,8 +134,8 @@ func applySeedMedia(t *domain.DharmaTalk, s sourceDharmaTalk) error {
 		}
 		t.MediaType, t.YouTubeID = domain.MediaYouTube, m[1]
 	case "audio":
-		if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
-			return fmt.Errorf("dharma talk %q: audio mediaUrl %q must be an http(s) URL", s.ID, url)
+		if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") && !strings.HasPrefix(url, "/") {
+			return fmt.Errorf("dharma talk %q: audio mediaUrl %q must be an http(s) URL or a root-relative path", s.ID, url)
 		}
 		t.MediaType, t.AudioURL = domain.MediaAudio, url
 	case "text":

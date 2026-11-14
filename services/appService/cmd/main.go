@@ -419,7 +419,7 @@ func main() {
 	// are stored but never served. Data is loaded by cmd/seeddharmatalks (make ensure-dharma-talks).
 	dharmaTalkRepo := repository.NewDharmaTalkRepository(db)
 	dharmaTalkUsecase := usecase.NewDharmaTalkUsecase(dharmaTalkRepo, cfg.DharmaTalk)
-	dharmaTalkHandler := deliveryhttp.NewDharmaTalkHandler(dharmaTalkUsecase)
+	dharmaTalkHandler := deliveryhttp.NewDharmaTalkHandler(dharmaTalkUsecase, imageBase)
 
 	// Sutra library (kinh / kệ / chú): read-only list / detail / lines, plus the sutras
 	// linked to a deity. Data is loaded by cmd/seedsutras (make seed-sutras), which needs the
@@ -698,6 +698,18 @@ func main() {
 		}
 		mux.Handle("GET /static/images/", http.StripPrefix("/static/images", images))
 		logger.Info("serving static images", "dir", cfg.Server.StaticImagesDir, "route", "/static/images/")
+	}
+
+	// ⚠️ DEV ONLY: audio is served from disk until there is object storage or a CDN.
+	// Enabled by server.static_audio_dir; a configured-but-missing folder stops the
+	// service now instead of leaving every audio_url answering 404.
+	if cfg.Server.StaticAudioDir != "" {
+		audio, err := deliveryhttp.NewStaticFiles(cfg.Server.StaticAudioDir)
+		if err != nil {
+			log.Fatalf("invalid server.static_audio_dir: %v", err)
+		}
+		mux.Handle("GET /static/audio/", http.StripPrefix("/static/audio", audio))
+		logger.Info("serving static audio", "dir", cfg.Server.StaticAudioDir, "route", "/static/audio/")
 	}
 
 	addr := cfg.Server.Addr

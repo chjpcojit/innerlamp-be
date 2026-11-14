@@ -4,6 +4,14 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.3 (2026-11-15)
+
+- Added the dev-only `/static/audio/` route (`server.static_audio_dir`) and root-relative `audio_url`
+  resolution against `server.public_base_url` or the request origin.
+- Twelve mp3s are downloaded locally by `scripts/fetch-dharma-audio.sh` and gitignored; no audio binary
+  is committed.
+- No acceptance criterion or API shape change.
+
 ## v2.2 (2026-11-15)
 
 - Owner confirmed the app is non-commercial; the six Archive.org talks are visible and six more were
