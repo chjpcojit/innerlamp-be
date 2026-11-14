@@ -1,10 +1,13 @@
 # Requirements — dharmatalk
 
-Version: 2.0
-Last updated: 2026-10-11
-Status: implemented (2026-10-03) — 2 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (testcontainers, 55 bài, 36 hiển thị được); có test usecase, handler, seed parser, repository và E2E. `openapi.yaml` và ERD đã cập nhật. Còn 11 marker `⚠️ Not confirmed` (mọi quyết định sản phẩm vẫn mở).
+Version: 2.1
+Last updated: 2026-11-15
+Status: implemented (2026-10-03) — 2 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (testcontainers, 61 bài, 36 hiển thị được); có test usecase, handler, seed parser, repository và E2E. `openapi.yaml` và ERD đã cập nhật. Còn 11 marker `⚠️ Not confirmed` (mọi quyết định sản phẩm vẫn mở).
 Module: `content`
 Code: `services/appService/`
+Product spec: `docs/product/dharmatalk/product.md` @ v0.1
+Contract: `docs/specs/api/openapi.yaml` @ v3.0.0
+Implements: BR-DHT-01…09, FR-DHT-001…007, NFR-DHT-001…003
 
 > See `changelog.md` in this folder for the version history of this spec.
 
@@ -28,11 +31,11 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 ## Acceptance Criteria (EARS notation)
 
-1. WHEN a `GET /v1/dharma-talks` request arrives without `page` (or with an empty `page=`), THE SYSTEM SHALL serve page 1, ordered by `sort_order` ASC then `id` ASC. (Không cần `Authorization`.)
-2. WHEN a page is served, THE SYSTEM SHALL return `data` with `items` (summary shape), `page`, `page_size` (`dharma_talk.page_size`, dev: 10), `total` (số bài **được hiển thị**, xem AC 4) and `total_pages` = `ceil(total / page_size)`.
-3. WHEN `page` is greater than `total_pages`, THE SYSTEM SHALL return `200 OK` with `items: []` and the same `page_size`/`total`/`total_pages` — không phải lỗi.
-4. WHEN listing or reading, THE SYSTEM SHALL only expose talks whose `needs_review` is `false`; talks flagged for review are stored but never returned by any route. (Mặc định tạm — xem `⚠️ Not confirmed` bên dưới.)
-5. WHEN `page` is not a positive integer (`0`, negative, non-numeric, overflows, or larger than 2^31−1), THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`.
+1. WHEN a `GET /v1/dharma-talks` request arrives without `page` (or with an empty `page=`), THE SYSTEM SHALL serve page 1, ordered by `sort_order` ASC then `id` ASC. (Không cần `Authorization`.) (FR-DHT-001)
+2. WHEN a page is served, THE SYSTEM SHALL return `data` with `items` (summary shape), `page`, `page_size` (`dharma_talk.page_size`, dev: 10), `total` (số bài **được hiển thị**, xem AC 4) and `total_pages` = `ceil(total / page_size)`. (FR-DHT-001)
+3. WHEN `page` is greater than `total_pages`, THE SYSTEM SHALL return `200 OK` with `items: []` and the same `page_size`/`total`/`total_pages` — không phải lỗi. (FR-DHT-001)
+4. WHEN listing or reading, THE SYSTEM SHALL only expose talks whose `needs_review` is `false`; talks flagged for review are stored but never returned by any route. (Mặc định tạm — xem `⚠️ Not confirmed` bên dưới.) (FR-DHT-007)
+5. WHEN `page` is not a positive integer (`0`, negative, non-numeric, overflows, or larger than 2^31−1), THE SYSTEM SHALL return `400 INVALID_PAGE` with `details.field = "page"`. (FR-DHT-001)
 
 ## US-DT-02: Mở một bài pháp thoại
 
@@ -44,9 +47,9 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 ## Acceptance Criteria (EARS notation)
 
-6. WHEN a `GET /v1/dharma-talks/{id}` request arrives with an existing, displayable `id`, THE SYSTEM SHALL return `200 OK` with the summary fields plus `key_points`, `quote`, `quote_source`, `language`, `youtube_id`, `audio_url`, `chapters`, `follow_up_meditation`, `source_name`, `source_url` and `license`.
-7. WHEN `{id}` matches no talk, or matches a talk with `needs_review = true`, THE SYSTEM SHALL return `404 DHARMA_TALK_NOT_FOUND`.
-8. WHEN a talk has `media_type = "youtube"`, THE SYSTEM SHALL return a non-empty 11-character `youtube_id` and `audio_url: null`; WHEN `media_type = "audio"`, a non-empty `audio_url` (`http`/`https`) and `youtube_id: null`; WHEN `media_type = "text"`, both `null`. (Không bao giờ trả URL YouTube đầy đủ — client tự ghép khi nhúng.)
+6. WHEN a `GET /v1/dharma-talks/{id}` request arrives with an existing, displayable `id`, THE SYSTEM SHALL return `200 OK` with the summary fields plus `key_points`, `quote`, `quote_source`, `language`, `youtube_id`, `audio_url`, `chapters`, `follow_up_meditation`, `source_name`, `source_url` and `license`. (FR-DHT-002)
+7. WHEN `{id}` matches no talk, or matches a talk with `needs_review = true`, THE SYSTEM SHALL return `404 DHARMA_TALK_NOT_FOUND`. (FR-DHT-002)
+8. WHEN a talk has `media_type = "youtube"`, THE SYSTEM SHALL return a non-empty 11-character `youtube_id` and `audio_url: null`; WHEN `media_type = "audio"`, a non-empty `audio_url` (`http`/`https`) and `youtube_id: null`; WHEN `media_type = "text"`, both `null`. (Không bao giờ trả URL YouTube đầy đủ — client tự ghép khi nhúng.) (FR-DHT-003)
 
 ## US-DT-03: Các phần của bài giảng
 
@@ -58,8 +61,8 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 ## Acceptance Criteria (EARS notation)
 
-9. WHEN a talk has chapters, THE SYSTEM SHALL return `chapters` as an array of `{start_seconds, title}` ordered by `start_seconds` ASC, with `start_seconds` a non-negative integer; WHEN it has none, THE SYSTEM SHALL return `[]` (không phải `null`), để client ẩn mục "Các phần".
-10. WHEN a talk has `media_type = "text"`, THE SYSTEM SHALL return `chapters: []` (không có mốc thời gian để nhảy tới).
+9. WHEN a talk has chapters, THE SYSTEM SHALL return `chapters` as an array of `{start_seconds, title}` ordered by `start_seconds` ASC, with `start_seconds` a non-negative integer; WHEN it has none, THE SYSTEM SHALL return `[]` (không phải `null`), để client ẩn mục "Các phần". (FR-DHT-004)
+10. WHEN a talk has `media_type = "text"`, THE SYSTEM SHALL return `chapters: []` (không có mốc thời gian để nhảy tới). (FR-DHT-004)
 
 ## US-DT-04: Hình dạng dữ liệu nhất quán
 
@@ -71,11 +74,11 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 ## Acceptance Criteria (EARS notation)
 
-11. WHEN a talk has a publication date, THE SYSTEM SHALL return `published_date` as `"YYYY-MM-DD"`; otherwise JSON `null`.
-12. WHEN a talk has a known duration, THE SYSTEM SHALL return `duration_minutes` as a positive integer; otherwise JSON `null` — không trả `0`.
-13. WHEN a talk has no `season` (dịp như Vu Lan, Tết…), THE SYSTEM SHALL return `season: null`; WHEN it has no `follow_up_meditation`, THE SYSTEM SHALL return `follow_up_meditation: null`.
-14. WHEN a talk has no tags or no key points, THE SYSTEM SHALL return `[]` for `tags` / `key_points`, never `null`.
-15. WHEN any dharma-talk route fails, THE SYSTEM SHALL answer in the shared envelope `{"success": false, "error": {code, message, type}, "details"?}`; a non-`GET` request returns `405 METHOD_NOT_ALLOWED` (kèm `Allow: GET, HEAD`) and an infrastructure failure returns `500 INTERNAL_ERROR` without leaking the cause.
+11. WHEN a talk has a publication date, THE SYSTEM SHALL return `published_date` as `"YYYY-MM-DD"`; otherwise JSON `null`. (FR-DHT-005)
+12. WHEN a talk has a known duration, THE SYSTEM SHALL return `duration_minutes` as a positive integer; otherwise JSON `null` — không trả `0`. (FR-DHT-005)
+13. WHEN a talk has no `season` (dịp như Vu Lan, Tết…), THE SYSTEM SHALL return `season: null`; WHEN it has no `follow_up_meditation`, THE SYSTEM SHALL return `follow_up_meditation: null`. (FR-DHT-005)
+14. WHEN a talk has no tags or no key points, THE SYSTEM SHALL return `[]` for `tags` / `key_points`, never `null`. (FR-DHT-005)
+15. WHEN any dharma-talk route fails, THE SYSTEM SHALL answer in the shared envelope `{"success": false, "error": {code, message, type}, "details"?}`; a non-`GET` request returns `405 METHOD_NOT_ALLOWED` (kèm `Allow: GET, HEAD`) and an infrastructure failure returns `500 INTERNAL_ERROR` without leaking the cause. (platform)
 
 ## US-DT-05: Nạp dữ liệu bằng lệnh seed (service không tự nạp)
 
@@ -89,10 +92,10 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 ## Acceptance Criteria (EARS notation)
 
-16. WHEN `cmd/seeddharmatalks` runs AND the `dharma_talks` table has no row (talks flagged `needs_review` count as rows), THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/dharma_talks.json`) and insert every talk in **one transaction**, with `sort_order` equal to the talk's position in the file, then log `seeded dharma talks on first run` with the count.
-17. WHEN the table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row (`cmd/seeddharmatalks` logs `already seeded` and exits 0). WHEN appService starts, THE SYSTEM SHALL NOT read the seed or write any talk.
-18. WHEN a seed insert meets an `id` that already exists, THE SYSTEM SHALL leave that row untouched (`ON CONFLICT (id) DO NOTHING`).
-19. WHEN the seed is invalid, THE SYSTEM SHALL make `cmd/seeddharmatalks` exit non-zero with a fatal log and leave the table unchanged. Invalid means any of: no talk; empty or duplicate `id`; empty `title` or `speaker`; `mediaType` not one of `youtube`/`audio`/`text`; `youtube` without a valid 11-character id, `audio` without an `http(s)` URL, or `text` carrying either; `durationMinutes` ≤ 0; a `publishedDate` that is not `YYYY-MM-DD`; a chapter with a negative `startSeconds`, an empty title, or chapters out of order.
+16. WHEN `cmd/seeddharmatalks` runs AND the `dharma_talks` table has no row (talks flagged `needs_review` count as rows), THE SYSTEM SHALL parse the JSON embedded in the binary (`assets/data/dharma_talks.json`) and insert every talk in **one transaction**, with `sort_order` equal to the talk's position in the file, then log `seeded dharma talks on first run` with the count. (FR-DHT-006)
+17. WHEN the table already has at least one row, THE SYSTEM SHALL NOT parse the seed and SHALL NOT write any row (`cmd/seeddharmatalks` logs `already seeded` and exits 0). WHEN appService starts, THE SYSTEM SHALL NOT read the seed or write any talk. (FR-DHT-006)
+18. WHEN a seed insert meets an `id` that already exists, THE SYSTEM SHALL leave that row untouched (`ON CONFLICT (id) DO NOTHING`). (FR-DHT-006)
+19. WHEN the seed is invalid, THE SYSTEM SHALL make `cmd/seeddharmatalks` exit non-zero with a fatal log and leave the table unchanged. Invalid means any of: no talk; empty or duplicate `id`; empty `title` or `speaker`; `mediaType` not one of `youtube`/`audio`/`text`; `youtube` without a valid 11-character id, `audio` without an `http(s)` URL, or `text` carrying either; `durationMinutes` ≤ 0; a `publishedDate` that is not `YYYY-MM-DD`; a chapter with a negative `startSeconds`, an empty title, or chapters out of order. (FR-DHT-006)
 
 ## API contract (implemented)
 
@@ -122,18 +125,18 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 > ⚠️ Not confirmed: lượt nghe ("2.4k lượt nghe") — tin nhắn của người dùng bị cụt ở ý này. Backend **chưa** có cột, trường hay route ghi lượt nghe; client ẩn khi không có. Cần chốt có đếm lượt nghe không, đếm khi nào, và route ghi có cần đăng nhập không.
 > ⚠️ Not confirmed: thẻ "Nghe xong, ngồi thiền" — app chưa có entity bài thiền để `meditation_id` trỏ tới nên `follow_up_meditation` luôn `null` trong dữ liệu seed; cần chốt nguồn dữ liệu và ánh xạ pháp thoại → bài thiền.
-> ⚠️ Not confirmed: "Các phần" — dữ liệu seed hiện **không có** mốc thời gian nào (`chapters` rỗng ở cả 55 bài); nguồn có thể là chapter của video YouTube hoặc nghe và ghi tay; chưa có người/ngày làm.
+> ⚠️ Not confirmed: "Các phần" — dữ liệu seed hiện **không có** mốc thời gian nào (`chapters` rỗng ở cả 61 bài); nguồn có thể là chapter của video YouTube hoặc nghe và ghi tay; chưa có người/ngày làm.
 > ⚠️ Not confirmed: `season` (Mùa Vu Lan…) — danh sách dịp hợp lệ và cách gán chưa chốt; hiện là chuỗi tự do, `null` ở mọi bài.
-> ⚠️ Not confirmed: cờ `needs_review` — mặc định tạm là ẩn bài đang bị cờ khỏi mọi route (19/55 bài, trong đó có 3 bài Thông Triệt chưa xác minh nội dung); cần người dùng quyết định giữ hay loại từng bài, và quy trình gỡ cờ (hiện chỉ SQL tay).
-> ⚠️ Not confirmed: audio — chỉ 8/55 bài có file mp3 hợp lệ (Làng Mai); nguồn audio hợp lệ khác (Pháp Âm, archive.org, xin phép chùa) chưa tìm; 29 bài còn là `text`. Cũng chưa chốt tốc độ phát, nhớ vị trí nghe, nút lưu/chia sẻ — thuộc client, không ảnh hưởng hợp đồng này.
-> ⚠️ Not confirmed: bản quyền — cả 55 bài có `license` là `unknown` hoặc chỉ có dòng copyright của nguồn; chưa xác nhận app được hiển thị tóm tắt/trích dẫn và nhúng video theo điều kiện nào, và có bắt buộc hiển thị nguồn không (UI đã có thẻ nguồn ở cuối).
-> ⚠️ Not confirmed: số lượng — mục tiêu ban đầu 60 bài, hiện 55 (thiếu 5 bài Thích Chân Quang không có nguồn kiểm chứng được; đã bỏ).
+> ⚠️ Not confirmed: cờ `needs_review` — mặc định tạm là ẩn bài đang bị cờ khỏi mọi route (25/61 bài, trong đó có 3 bài Thông Triệt chưa xác minh nội dung); cần người dùng quyết định giữ hay loại từng bài, và quy trình gỡ cờ (hiện chỉ SQL tay).
+> ⚠️ Not confirmed: audio — 8/61 bài có file mp3 Làng Mai; 6 bài mới trỏ tới một bộ sưu tập Archive.org dưới CC BY-NC-SA 4.0 nhưng quyền của người tải lên chưa xác minh (đang ẩn); 29 bài còn là `text`. Cũng chưa chốt tốc độ phát, nhớ vị trí nghe, nút lưu/chia sẻ — thuộc client, không ảnh hưởng hợp đồng này.
+> ⚠️ Not confirmed: bản quyền — cả 61 bài có `license` là `unknown` hoặc chỉ có dòng copyright của nguồn; chưa xác nhận app được hiển thị tóm tắt/trích dẫn và nhúng video theo điều kiện nào, và có bắt buộc hiển thị nguồn không (UI đã có thẻ nguồn ở cuối).
+> ⚠️ Not confirmed: số lượng — mục tiêu ban đầu 60 bài, hiện 61 (gồm 6 bài Archive.org thêm để duyệt; 5 bài Thích Chân Quang không có nguồn kiểm chứng được; đã bỏ).
 > ⚠️ Not confirmed: tên hiển thị giảng sư — `speaker` hiện giữ tiền tố gốc ("Hòa thượng Thích …", "Sư …"); màn hình mockup ghi "Thầy …"; chưa chốt app tự rút gọn hay backend thêm `speaker_display_name`.
 > ⚠️ Not confirmed: quy trình cập nhật nội dung sau lần seed đầu — như `article`, sửa file JSON rồi build lại không đổi DB có sẵn; cần chốt SQL tay, lệnh reseed hay backoffice.
 
 ## Ghi chú kỹ thuật liên quan
 
-- Dữ liệu seed hiện có: 55 bài — 18 `youtube`, 8 `audio`, 29 `text`; 38 bài có ngày; 16 bài có `durationMinutes`; 19 bài `needs_review` nên chỉ 36 bài hiển thị được. `publishedDate` của bài YouTube thường là ngày upload, không phải ngày giảng.
+- Dữ liệu seed hiện có: 61 bài — 18 `youtube`, 14 `audio`, 29 `text`; 38 bài có ngày; 16 bài có `durationMinutes`; 25 bài `needs_review` nên chỉ 36 bài hiển thị được. `publishedDate` của bài YouTube thường là ngày upload, không phải ngày giảng.
 - `id` là slug ổn định để client cache id vẫn đúng sau mọi lần nạp lại.
 - `media_type` quyết định biến thể giao diện; seed hiện dùng `video` cho YouTube — parser đổi thành `youtube` (xem `design.md`).
 - Kích thước trang nằm ở block `dharma_talk:` của `config.<env>.yaml` (dev: `page_size: 10`), bắt buộc.
