@@ -9,6 +9,8 @@ Tracks version history for `docs/product/dharmatalk/product.md`.
 - Catalogue 61 → 67; hidden 25 → 19; visible 36 → 48; audio 14 → 20. Attribution recorded in
   `docs/legal/dharma-talks-attribution.md`.
 - The uploader's rights are still not independently verified; the licence note keeps that caveat.
+- Licence question updated with the owner's non-commercial confirmation; the remaining open parts are
+  summary/quote rights, video embedding, source display and the uploader's own rights.
 
 ## v0.2 — 2026-11-15
 

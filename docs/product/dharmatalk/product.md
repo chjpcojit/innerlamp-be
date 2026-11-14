@@ -497,12 +497,12 @@ product for both public routes and the hidden-talk rule; a content review before
 > ⚠️ Not confirmed: audio sources — 8 of 67 talks have a valid Làng Mai mp3 and 12 more point at an Archive.org collection under CC BY-NC-SA; the owner confirmed the app is non-commercial, so these are visible, though the uploader's rights are not independently verified; other lawful sources
 > and any permission from temples are not settled. This blocks the audio share of the catalogue.
 
-> ⚠️ Not confirmed: licence — every talk's licence is unknown or only a source copyright line; whether
-> the app may show a summary or quote and embed the video, and whether the source must be shown, is not
-> confirmed. This blocks publishing the catalogue.
+> ⚠️ Not confirmed: licence — the owner confirmed on 2026-11-15 that InnerLamp is non-commercial and
+> charges users nothing, so the twelve CC BY-NC-SA talks are shown with attribution. Still open: whether
+> the app may show a summary or quote and embed the video, whether the source must be shown, and whether
+> the uploader held the rights to license the recordings.
 
-> ⚠️ Not confirmed: catalogue size — the target was 60 talks; 67 are stored because twelve Archive.org audio talks were added, 19 hidden
-> verified. This blocks declaring the library complete.
+> ⚠️ Not confirmed: catalogue size — the target was 60 talks; 67 are stored because twelve Archive.org audio talks were added, 19 hidden. This blocks declaring the library complete.
 
 > ⚠️ Not confirmed: the speaker's display name — the stored name keeps its title prefix ("Hòa thượng
 > Thích …") while the mock says "Thầy …"; whether the app shortens it or the backend adds a display name
