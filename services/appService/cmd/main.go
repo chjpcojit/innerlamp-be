@@ -419,7 +419,7 @@ func main() {
 	// are stored but never served. Data is loaded by cmd/seeddharmatalks (make ensure-dharma-talks).
 	dharmaTalkRepo := repository.NewDharmaTalkRepository(db)
 	dharmaTalkUsecase := usecase.NewDharmaTalkUsecase(dharmaTalkRepo, cfg.DharmaTalk)
-	dharmaTalkHandler := deliveryhttp.NewDharmaTalkHandler(dharmaTalkUsecase, imageBase)
+	dharmaTalkHandler := deliveryhttp.NewDharmaTalkHandler(dharmaTalkUsecase, imageBase, deliveryhttp.WithAudioBase(cfg.Server.AudioBaseURL))
 
 	// Sutra library (kinh / kệ / chú): read-only list / detail / lines, plus the sutras
 	// linked to a deity. Data is loaded by cmd/seedsutras (make seed-sutras), which needs the

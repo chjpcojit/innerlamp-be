@@ -165,6 +165,6 @@ func (h *DharmaTalkHandler) Get(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	detail := newDharmaTalkDetail(*t)
-	detail.AudioURL = h.urls.ptr(r, t.AudioURL)
+	detail.AudioURL = h.urls.audioPtr(r, t.AudioURL)
 	utils.WriteSuccessResponse(w, detail)
 }

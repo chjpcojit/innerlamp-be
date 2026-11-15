@@ -20,7 +20,11 @@ func newDharmaTalkMux(uc *mockDharmaTalkUsecase) *http.ServeMux {
 }
 
 func newDharmaTalkMuxWithBase(uc *mockDharmaTalkUsecase, base string) *http.ServeMux {
-	h := NewDharmaTalkHandler(uc, WithImageBase(base))
+	return newDharmaTalkMuxWithOptions(uc, WithImageBase(base))
+}
+
+func newDharmaTalkMuxWithOptions(uc *mockDharmaTalkUsecase, opts ...ImageOption) *http.ServeMux {
+	h := NewDharmaTalkHandler(uc, opts...)
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /v1/dharma-talks", h.List)
 	mux.HandleFunc("GET /v1/dharma-talks/{id}", h.Get)
@@ -176,6 +180,16 @@ func TestDharmaTalkHandler_Get(t *testing.T) {
 		mux := newDharmaTalkMuxWithBase(uc, "https://cdn.example")
 		data := decode(t, doGet(mux, "/v1/dharma-talks/a"))["data"].(map[string]any)
 		assert.Equal(t, "https://cdn.example/static/audio/dharma-talks/a.mp3", data["audio_url"])
+	})
+
+	t.Run("audio uses its own origin when configured", func(t *testing.T) {
+		tk := sampleDharmaTalk()
+		tk.MediaType, tk.AudioURL = domain.MediaAudio, "/static/audio/dharma-talks/a.mp3"
+		uc := new(mockDharmaTalkUsecase)
+		uc.On("Get", mock.Anything, "a").Return(&tk, nil)
+		mux := newDharmaTalkMuxWithOptions(uc, WithImageBase("https://cdn.example"), WithAudioBase("https://audio.example"))
+		data := decode(t, doGet(mux, "/v1/dharma-talks/a"))["data"].(map[string]any)
+		assert.Equal(t, "https://audio.example/static/audio/dharma-talks/a.mp3", data["audio_url"])
 	})
 
 	t.Run("text talk has neither, and empty chapters and null follow-up", func(t *testing.T) {

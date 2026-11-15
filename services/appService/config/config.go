@@ -10,6 +10,7 @@ import (
 	"context"
 	"fmt"
 	"net"
+	"net/url"
 	"strings"
 	"time"
 
@@ -111,11 +112,42 @@ type ServerConfig struct {
 	// resolved against in API responses, e.g. "https://cdn.example.com". Empty = the
 	// request's own origin, so a dev machine keeps working after its IP changes.
 	PublicBaseURL string `yaml:"public_base_url"`
+	// AudioBaseURL is the origin root-relative audio paths ("/static/audio/...") are
+	// resolved against, e.g. an object-storage or CDN origin. Empty = PublicBaseURL,
+	// then the request's own origin. Keeping it separate lets audio live on a different
+	// host from images while the database keeps one path for every environment.
+	AudioBaseURL string `yaml:"audio_base_url"`
 	// WebAPIKeySecret names the secret resolved into WebAPIKey: the key the web
 	// frontend's server sends in X-API-Key. Empty = no web key configured, so any
 	// presented X-API-Key is rejected.
 	WebAPIKeySecret string `yaml:"web_api_key_secret"`
 	WebAPIKey       string `yaml:"-"`
+}
+
+// Validate rejects a public media origin that a client could not open. A bare
+// "cdn.example.com" would produce URLs without a scheme, and a query or fragment
+// would break the root-relative path appended to it, so both fail at startup
+// instead of shipping broken audio or image URLs to a device.
+func (c ServerConfig) Validate() error {
+	for _, f := range []struct {
+		name  string
+		value string
+	}{
+		{"public_base_url", c.PublicBaseURL},
+		{"audio_base_url", c.AudioBaseURL},
+	} {
+		if f.value == "" {
+			continue
+		}
+		u, err := url.Parse(f.value)
+		if err != nil || u.Host == "" || (u.Scheme != "http" && u.Scheme != "https") {
+			return fmt.Errorf("server.%s %q must be an absolute http(s) URL", f.name, f.value)
+		}
+		if u.RawQuery != "" || u.Fragment != "" {
+			return fmt.Errorf("server.%s %q must not carry a query or a fragment", f.name, f.value)
+		}
+	}
+	return nil
 }
 
 // DatabaseConfig holds Postgres connection settings. PasswordSecret names the
@@ -1090,6 +1122,10 @@ func Load(ctx context.Context, source pkgconfig.LoadSource, sg SecretGetter) (*A
 	var cfg AppConfig
 	if err := pkgconfig.LoadAndUnmarshal(ctx, source, &cfg); err != nil {
 		return nil, fmt.Errorf("load app config: %w", err)
+	}
+
+	if err := cfg.Server.Validate(); err != nil {
+		return nil, fmt.Errorf("validate server config: %w", err)
 	}
 
 	if err := cfg.resolveSecrets(ctx, sg); err != nil {

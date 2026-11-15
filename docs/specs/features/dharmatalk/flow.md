@@ -1,8 +1,8 @@
 # Flow — dharmatalk
 
-Version: 2.0
-Last updated: 2026-10-11
-Status: implemented (2026-10-03) — mirror 1:1 của hai Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số. Code đã implement khớp (E2E kiểm chứng seed lần đầu, lần hai không ghi, và bảng toàn bài bị cờ không bị coi là rỗng).
+Version: 2.1
+Last updated: 2026-11-15
+Status: implemented (2026-10-03) — mirror 1:1 của hai Step-by-step Flow trong `design.md`, mỗi Step ở đây trace về đúng Step cùng số. Code đã implement khớp (E2E kiểm chứng seed lần đầu, lần hai không ghi, và bảng toàn bài bị cờ không bị coi là rỗng). v2.1 thêm sequence phát audio.
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -47,6 +47,35 @@ sequenceDiagram
         R--xU: error bọc %w
         U--xH: error
         H-->>C: 500 INTERNAL_ERROR
+    end
+```
+
+## Sequence — Phát audio (`GET /static/audio/{path}`)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant C as Client (web / iOS / Android / Flutter)
+    participant H as DharmaTalkHandler
+    participant S as Static file handler
+    participant FS as assets/audio (dev) hoặc CDN
+
+    C->>H: GET /v1/dharma-talks/{id}
+    H->>H: audio_url tương đối → audio_base_url / public_base_url / request origin
+    H-->>C: 200 DharmaTalkDetail {audio_url: "https://.../static/audio/..."}
+    C->>S: HEAD audio_url
+    S-->>C: 200 Content-Type, Content-Length, Accept-Ranges: bytes
+    C->>S: GET audio_url (Range: bytes=0-)
+    alt Range hợp lệ
+        S-->>C: 206 Partial Content + Content-Range
+    else Range ngoài file
+        S-->>C: 416 + Content-Range: bytes */<size>
+    else Không có Range
+        S-->>C: 200 toàn file
+    end
+    opt File thiếu
+        S-->>C: 404
+        C->>C: giữ text/nguồn, hiện trạng thái không phát được
     end
 ```
 

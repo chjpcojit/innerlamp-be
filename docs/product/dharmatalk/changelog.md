@@ -2,6 +2,17 @@
 
 Tracks version history for `docs/product/dharmatalk/product.md`.
 
+## v0.4 — 2026-11-15
+
+- Added the cross-client audio delivery contract (`FR-DHT-008`, `NFR-DHT-004`): an absolute public audio
+  URL, `HEAD` and byte ranges, CORS, a one-day cache, and a player-unavailable state when the file is
+  missing.
+- Licensed audio may now be self-hosted (local disk in dev, object storage/CDN through
+  `server.audio_base_url` in production); only extracting audio from YouTube stays out of scope.
+- Added Flutter to the platforms and the traceability matrix (later), alongside Website, iOS and Android.
+- Resolved Appendix A's hosting question; the licence/uploader-rights questions stay open.
+- No catalogue data changed: 67 talks, 19 hidden, 48 visible, 20 audio.
+
 ## v0.3 — 2026-11-15
 
 - Owner confirmed InnerLamp is non-commercial and charges users nothing. The six Archive.org talks are

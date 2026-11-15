@@ -1212,3 +1212,26 @@ func TestAuthRateLimitConfig_Validate(t *testing.T) {
 		t.Error("zero daily_budget must be rejected")
 	}
 }
+
+func TestServerConfig_Validate(t *testing.T) {
+	tests := []struct {
+		name    string
+		cfg     ServerConfig
+		wantErr bool
+	}{
+		{"empty is fine", ServerConfig{}, false},
+		{"https origin", ServerConfig{PublicBaseURL: "https://cdn.x.vn"}, false},
+		{"http with port and path", ServerConfig{AudioBaseURL: "http://192.168.1.9:8082/media"}, false},
+		{"bare host", ServerConfig{PublicBaseURL: "cdn.x.vn"}, true},
+		{"wrong scheme", ServerConfig{AudioBaseURL: "ftp://cdn.x.vn"}, true},
+		{"query", ServerConfig{PublicBaseURL: "https://cdn.x.vn/?v=1"}, true},
+		{"fragment", ServerConfig{AudioBaseURL: "https://cdn.x.vn/#audio"}, true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if err := tt.cfg.Validate(); (err != nil) != tt.wantErr {
+				t.Fatalf("Validate() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
+}

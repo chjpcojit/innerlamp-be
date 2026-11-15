@@ -1,8 +1,8 @@
 # Tasks — dharmatalk
 
-Version: 2.0
-Last updated: 2026-10-11
-Status: implemented (2026-10-03) cho Phase 1–4 và E2E ở Phase 5; còn `[ ]` cho `erd.svg` (chờ render) và khái niệm OKF. Mọi `⚠️ Not confirmed` trong `requirements.md` vẫn mở.
+Version: 2.3
+Last updated: 2026-11-15
+Status: implemented (2026-10-03) cho Phase 1–4, E2E ở Phase 5 và hợp đồng audio ở Phase 6; còn `[ ]` cho khái niệm OKF và ba client native. Mọi `⚠️ Not confirmed` trong `requirements.md` vẫn mở.
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -49,6 +49,19 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] E2E black-box trong `services/appService/e2e/` (skill `golang-e2e-verification`): hai route, `INVALID_PAGE`, `DHARMA_TALK_NOT_FOUND`, bài `needs_review` không lộ ra, seed lần đầu (khởi động hai lần, lần hai không seed lại)
 - [x] `go build ./...` và `go vet ./...` sạch; `go test -short ./...` xanh
 - [ ] Khái niệm OKF `docs/knowledge/features/dharmatalk.md` (`status: draft`, bởi `il-okf-writer` sau khi code xong)
+
+## Phase 6 — Audio delivery cho mọi client
+
+- [x] Backend: `audio_url` tương đối được ghép thành URL tuyệt đối qua `server.audio_base_url` → `server.public_base_url` → origin request; hỗ trợ `X-Forwarded-Proto`/`X-Forwarded-Host`.
+- [x] Backend: `ServerConfig.Validate()` từ chối base không phải `http(s)` tuyệt đối hoặc có query/fragment.
+- [x] Backend: route `GET/HEAD /static/audio/` trả `Content-Type`, `Accept-Ranges`, `Cache-Control`, `Cross-Origin-Resource-Policy`; Range `206`/`416`; HEAD `200`; không list thư mục.
+- [x] Backend: CORS cho phép `Range`/`If-*` và expose `Accept-Ranges`/`Content-Range`/`Content-Length`/`Content-Type`.
+- [x] Backend tests: URL audio theo base riêng, forwarded host, HEAD, Range 206/416, CORS, config validation; `go build ./...` + `go test -short ./...` xanh.
+- [x] Hợp đồng: `openapi.yaml` + bản copy `web/docs/public/openapi.yaml` mô tả `audio_url` là URL tuyệt đối.
+- [ ] Website: dùng thẳng `audio_url` API trả (không ghép host); đã có player + `preload="metadata"`; thêm trạng thái lỗi file nếu cần.
+- [ ] iOS: model `DharmaTalkDetail` + `AVPlayer` dùng `audio_url`; cần HTTPS hoặc ATS local cho dev.
+- [ ] Android: model + `Media3`/`ExoPlayer` dùng `audio_url`; cần network-security config cho HTTP dev.
+- [ ] Flutter (web/mobile): model + `just_audio`/`audioplayers` dùng `audio_url`; không tự ghép base.
 
 ## Deferred (separate feature, not blocking dharmatalk)
 

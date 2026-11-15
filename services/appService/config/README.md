@@ -26,10 +26,15 @@ Chỉ đúng 1 method — khớp chữ ký của `secrets.Client` (pkg/secrets),
 
 ### `AppConfig` và các struct con
 `AppConfig{Server, Database, JWT, Storage}` — map trực tiếp từ YAML:
-- `ServerConfig{Addr}`
+- `ServerConfig{Addr, StaticImagesDir, StaticAudioDir, PublicBaseURL, AudioBaseURL, WebAPIKeySecret, WebAPIKey}` — `Validate()` từ chối `public_base_url`/`audio_base_url` không phải URL tuyệt đối `http(s)` hoặc có query/fragment.
 - `DatabaseConfig{Host, Port, Username, PasswordSecret, Password, Database, SSLMode}` — `Password` có tag `yaml:"-"`, chỉ được set sau khi `Load` resolve `PasswordSecret`.
 - `JWTConfig{Algorithm, SecretKeySecret, SecretKey, AccessTokenExpiration, RefreshTokenExpiration, Issuer, Audience}` — `SecretKey` cũng `yaml:"-"`, tương tự `Password`.
 - `StorageConfig{Backend, ProjectID, DefaultBucket}`
+
+### `server.public_base_url` / `server.audio_base_url` và `ServerConfig.Validate()`
+- Hai field này là **origin** ghép trước path lưu trong DB (`/static/images/...`, `/static/audio/...`), nhờ vậy đổi host/CDN không phải sửa dữ liệu.
+- `audio_base_url` để trống thì lấy `public_base_url`; cả hai trống thì lấy origin của request (dev trên LAN).
+- `Load()` gọi `ServerConfig.Validate()` trước khi resolve secret: giá trị phải là URL tuyệt đối `http(s)`, có host, không query/fragment. Ví dụ đúng: `https://cdn.example.com`, `https://audio.example.com/media`; sai: `cdn.example.com`.
 
 ### `app`, `mailer`, `otp.dev_fixed_code` và `AppConfig.Validate()` (onboarding AC21)
 - `app.environment` (`AppEnvConfig.Environment`): `dev` / `staging` / `prod`.

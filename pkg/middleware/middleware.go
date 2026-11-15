@@ -22,7 +22,12 @@ func CORS(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS")
-		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+		// Range/If-* are needed when a web page plays audio from another origin and
+		// the browser preflights the media request; the exposed headers let that page
+		// read the size and range it received.
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization, Range, If-Range, If-Modified-Since, If-None-Match")
+		w.Header().Set("Access-Control-Expose-Headers", "Accept-Ranges, Content-Range, Content-Length, Content-Type, ETag, Last-Modified")
+		w.Header().Set("Access-Control-Max-Age", "600")
 
 		// Preflight stops here and goes through the same envelope writer as
 		// every other response, so a client parses OPTIONS with the same

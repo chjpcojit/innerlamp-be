@@ -1,13 +1,13 @@
 # Requirements — dharmatalk
 
-Version: 2.2
+Version: 2.4
 Last updated: 2026-11-15
-Status: implemented (2026-10-03) — 2 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (testcontainers, 67 bài, 48 hiển thị được); có test usecase, handler, seed parser, repository và E2E. `openapi.yaml` và ERD đã cập nhật. Còn 11 marker `⚠️ Not confirmed` (mọi quyết định sản phẩm vẫn mở).
+Status: implemented (2026-10-03) — 2 route đọc công khai + seed lần đầu chạy thật qua binary + Postgres (testcontainers, 67 bài, 48 hiển thị được); có test usecase, handler, seed parser, repository và E2E. Từ v2.4 thêm hợp đồng phát audio cho mọi client (URL tuyệt đối, Range/HEAD, CORS). `openapi.yaml` và ERD đã cập nhật. Còn 11 marker `⚠️ Not confirmed` (mọi quyết định sản phẩm vẫn mở).
 Module: `content`
 Code: `services/appService/`
 Product spec: `docs/product/dharmatalk/product.md` @ v0.1
 Contract: `docs/specs/api/openapi.yaml` @ v3.0.0
-Implements: BR-DHT-01…09, FR-DHT-001…007, NFR-DHT-001…003
+Implements: BR-DHT-01…09, FR-DHT-001…008, NFR-DHT-001…004
 
 > See `changelog.md` in this folder for the version history of this spec.
 
@@ -16,6 +16,8 @@ Spec này được viết **prospectively** (trước khi có code; từ v1.1 đ
 Đây là danh mục **chỉ đọc**, công khai, cùng hình dạng với `article`: danh sách phân trang + trang chi tiết, và seed một lần khi service khởi động lần đầu từ file JSON nhúng trong binary.
 
 Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type`): `youtube` (nhúng video), `audio` (phát file âm thanh) hoặc `text` (chỉ đọc). Màn hình đổi biến thể theo loại này; backend chỉ cung cấp dữ liệu, không quyết định giao diện.
+
+Với loại `audio`, backend chịu trách nhiệm trả một **URL phát được ngay** cho mọi client: tuyệt đối, công khai, hỗ trợ `Range`/`HEAD` và CORS. Client không tự ghép host, không cần tải cả file trước khi phát. Chi tiết ở US-DT-06 và `FR-DHT-008`.
 
 > ⚠️ Not confirmed: mã user story chưa được product chốt — spec tạm đánh `US-DT-01..05` theo tiền lệ `US-ART-01`.
 
@@ -97,6 +99,23 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 18. WHEN a seed insert meets an `id` that already exists, THE SYSTEM SHALL leave that row untouched (`ON CONFLICT (id) DO NOTHING`). (FR-DHT-006)
 19. WHEN the seed is invalid, THE SYSTEM SHALL make `cmd/seeddharmatalks` exit non-zero with a fatal log and leave the table unchanged. Invalid means any of: no talk; empty or duplicate `id`; empty `title` or `speaker`; `mediaType` not one of `youtube`/`audio`/`text`; `youtube` without a valid 11-character id, `audio` without an `http(s)` URL, or `text` carrying either; `durationMinutes` ≤ 0; a `publishedDate` that is not `YYYY-MM-DD`; a chapter with a negative `startSeconds`, an empty title, or chapters out of order. (FR-DHT-006)
 
+## US-DT-06: Nghe audio trên mọi nền tảng khách
+
+## User Story
+
+> Là một **người dùng app hoặc web**,
+> Tôi muốn **mở file audio của bài pháp thoại bằng trình phát của thiết bị**,
+> Để **nghe và tua mà không phải tải cả file trước**.
+
+## Acceptance Criteria (EARS notation)
+
+20. WHEN a talk has `media_type = "audio"` and its stored `audio_url` is root-relative, THE SYSTEM SHALL return `audio_url` as an absolute `http(s)` URL resolved from `server.audio_base_url`, else `server.public_base_url`, else the request origin (including `X-Forwarded-Proto`/`X-Forwarded-Host` from a trusted proxy). (FR-DHT-008)
+21. WHEN a client opens that `audio_url`, THE SYSTEM SHALL serve the file without `Authorization` or a cookie, with `Content-Type: audio/mpeg`, `Accept-Ranges: bytes` and `Cache-Control: public, max-age=86400`. (FR-DHT-008)
+22. WHEN the audio request carries `Range: bytes=...`, THE SYSTEM SHALL answer `206 Partial Content` with `Content-Range`; an unsatisfiable range SHALL be `416` with `Content-Range: bytes */<size>`; a `HEAD` request SHALL be `200` with `Content-Length` and no body. (FR-DHT-008)
+23. WHEN a browser on another origin preflights the media request, THE SYSTEM SHALL allow `Range`, `If-Range`, `If-Modified-Since` and `If-None-Match`, and expose `Accept-Ranges`, `Content-Range`, `Content-Length` and `Content-Type`. (FR-DHT-008)
+24. WHEN the static audio route receives a directory or a path segment beginning with `.`, THE SYSTEM SHALL answer `404` and SHALL NOT list the folder. (FR-DHT-008)
+25. WHEN the file behind `audio_url` is missing or unreachable, THE SYSTEM SHALL keep `GET /v1/dharma-talks/{id}` at `200`; the client SHALL keep the text, source and licence visible and show a player-unavailable state instead of failing the page. (FR-DHT-008)
+
 ## API contract (implemented)
 
 Đọc từ handler và `cmd/main.go`, đã kiểm bằng E2E chạy binary thật. Đã có trong `docs/specs/api/openapi.yaml` (tag DharmaTalks) và `web/docs/public/openapi.yaml`.
@@ -105,15 +124,19 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 |---|---|---|---|---|
 | GET | `/v1/dharma-talks?page=N` | public | `200` `{items, page, page_size, total, total_pages}` | 400 `INVALID_PAGE`, 405, 500 |
 | GET | `/v1/dharma-talks/{id}` | public | `200` `DharmaTalkDetail` | 404 `DHARMA_TALK_NOT_FOUND`, 405, 500 |
+| GET/HEAD | `/static/audio/{path}` | public | `200` file, `206` khi có `Range` | 404, 416 |
+
+`audio_url` trong `DharmaTalkDetail` là **URL tuyệt đối** (`http(s)://host/...`), không bao giờ là path tương đối và không cần header xác thực. Route `/static/audio/` là dev-only, bật bằng `server.static_audio_dir`; production trỏ `server.audio_base_url` vào object storage/CDN phục vụ cùng path.
 
 `DharmaTalkSummary`: `id` (slug), `title`, `speaker`, `speaker_initials`, `category`, `season` (string | `null`), `published_date` (`"YYYY-MM-DD"` | `null`), `duration_minutes` (int | `null`), `summary`, `tags` (`[string]`), `media_type` (`youtube` | `audio` | `text`).
 
-`DharmaTalkDetail` = `DharmaTalkSummary` + `key_points` (`[string]`), `quote`, `quote_source`, `language` (`vi`), `youtube_id` (string | `null`), `audio_url` (string | `null`), `chapters` (`[{start_seconds: int, title: string}]`), `follow_up_meditation` (`{title: string, minutes: int, meditation_id: string | null}` | `null`), `source_name`, `source_url`, `license`.
+`DharmaTalkDetail` = `DharmaTalkSummary` + `key_points` (`[string]`), `quote`, `quote_source`, `language` (`vi`), `youtube_id` (string | `null`), `audio_url` (absolute string | `null`), `chapters` (`[{start_seconds: int, title: string}]`), `follow_up_meditation` (`{title: string, minutes: int, meditation_id: string | null}` | `null`), `source_name`, `source_url`, `license`.
 
 ## Out of scope (this feature boundary, not tracked here)
 
 - Tạo/sửa/xoá pháp thoại qua API hoặc backoffice — chỉ SQL trực tiếp trên bảng.
-- Trích xuất audio từ video YouTube hoặc tự lưu/phân phối lại file media: YouTube chỉ được **nhúng** qua `youtube_id`; điều khoản YouTube và bản quyền không cho tách audio. Không có file media trong repo hay GCS.
+- Trích xuất audio từ video YouTube: YouTube chỉ được **nhúng** qua `youtube_id`; điều khoản YouTube và bản quyền không cho tách audio.
+- Tự lưu/phân phối file audio **có giấy phép** thì nằm trong phạm vi: 12 bài Archive.org dùng file local khi dev và CDN/object storage khi production (xem `docs/legal/dharma-talks-attribution.md`).
 - Tìm kiếm, lọc theo `category`/`tag`/`season`, bookmark, đánh dấu đã nghe.
 - Route `top` (nổi bật) — màn hình mockup không cần; thêm khi màn chủ cần.
 - Đăng nhập: cả hai route công khai như `article`.
@@ -128,7 +151,7 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 > ⚠️ Not confirmed: "Các phần" — dữ liệu seed hiện **không có** mốc thời gian nào (`chapters` rỗng ở cả 67 bài); nguồn có thể là chapter của video YouTube hoặc nghe và ghi tay; chưa có người/ngày làm.
 > ⚠️ Not confirmed: `season` (Mùa Vu Lan…) — danh sách dịp hợp lệ và cách gán chưa chốt; hiện là chuỗi tự do, `null` ở mọi bài.
 > ⚠️ Not confirmed: cờ `needs_review` — mặc định tạm là ẩn bài đang bị cờ khỏi mọi route (19/67 bài, trong đó có 3 bài Thông Triệt chưa xác minh nội dung); cần người dùng quyết định giữ hay loại từng bài, và quy trình gỡ cờ (hiện chỉ SQL tay).
-> ⚠️ Not confirmed: audio — 8/67 bài có file mp3 Làng Mai; 12 bài trỏ tới một bộ sưu tập Archive.org dưới CC BY-NC-SA 4.0, đã mở theo xác nhận app phi thương mại của chủ sản phẩm, nhưng quyền của người tải lên chưa xác minh; 29 bài còn là `text`. Cũng chưa chốt tốc độ phát, nhớ vị trí nghe, nút lưu/chia sẻ — thuộc client, không ảnh hưởng hợp đồng này.
+> ⚠️ Not confirmed: audio — 8/67 bài có file mp3 Làng Mai; 12 bài trỏ tới một bộ sưu tập Archive.org dưới CC BY-NC-SA 4.0, đã mở theo xác nhận app phi thương mại của chủ sản phẩm, nhưng quyền của người tải lên chưa xác minh; 29 bài còn là `text`. 12 file đã tải về local cho dev; production cần object storage/CDN qua `server.audio_base_url`. Cũng chưa chốt tốc độ phát, nhớ vị trí nghe, nút lưu/chia sẻ — thuộc client, không ảnh hưởng hợp đồng này.
 > ⚠️ Not confirmed: bản quyền — cả 67 bài có `license` là `unknown` hoặc chỉ có dòng copyright của nguồn; chưa xác nhận app được hiển thị tóm tắt/trích dẫn và nhúng video theo điều kiện nào, và có bắt buộc hiển thị nguồn không (UI đã có thẻ nguồn ở cuối).
 > ⚠️ Not confirmed: số lượng — mục tiêu ban đầu 60 bài, hiện 67 (gồm 12 bài Archive.org; 5 bài Thích Chân Quang không có nguồn kiểm chứng được; đã bỏ).
 > ⚠️ Not confirmed: tên hiển thị giảng sư — `speaker` hiện giữ tiền tố gốc ("Hòa thượng Thích …", "Sư …"); màn hình mockup ghi "Thầy …"; chưa chốt app tự rút gọn hay backend thêm `speaker_display_name`.
@@ -137,6 +160,8 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 ## Ghi chú kỹ thuật liên quan
 
 - Dữ liệu seed hiện có: 67 bài — 18 `youtube`, 20 `audio`, 29 `text`; 38 bài có ngày; 16 bài có `durationMinutes`; 19 bài `needs_review` nên 48 bài hiển thị được. `publishedDate` của bài YouTube thường là ngày upload, không phải ngày giảng.
+- 12 bài audio Archive.org lưu `audio_url` tương đối `/static/audio/dharma-talks/...`; handler ghép origin mỗi lần trả, nên đổi máy chủ/CDN chỉ là đổi `server.audio_base_url`, không sửa DB.
+- File mp3 nằm ở `assets/audio/` (gitignored, ~325 MB), tải bằng `scripts/fetch-dharma-audio.sh`; repo chỉ giữ metadata và đường dẫn.
 - `id` là slug ổn định để client cache id vẫn đúng sau mọi lần nạp lại.
 - `media_type` quyết định biến thể giao diện; seed hiện dùng `video` cho YouTube — parser đổi thành `youtube` (xem `design.md`).
 - Kích thước trang nằm ở block `dharma_talk:` của `config.<env>.yaml` (dev: `page_size: 10`), bắt buộc.
