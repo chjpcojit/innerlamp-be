@@ -4,6 +4,35 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v2.4 (2026-11-15)
+
+- Added the cross-client audio delivery contract: `audio_url` is always an absolute `http(s)` URL,
+  resolved from `server.audio_base_url` → `server.public_base_url` → the request origin (honouring
+  `X-Forwarded-Proto`/`X-Forwarded-Host`).
+- `/static/audio/` now documents and tests `HEAD`, byte ranges (`206`/`416`), `Content-Type: audio/mpeg`,
+  `Accept-Ranges`, a one-day cache, `Cross-Origin-Resource-Policy`, and CORS headers for `Range`/`If-*`.
+- Added AC 20–25, `FR-DHT-008` and `NFR-DHT-004`; `design.md` gains the header table, `flow.md` gains the
+  playback sequence, and `tasks.md` gains Phase 6 with the four client tasks.
+- `openapi.yaml` (and its `web/docs/public` copy) now describes `audio_url` as absolute; no path, field or
+  error code changed, so `info.version` stays 3.0.0.
+- `ServerConfig.Validate()` refuses a base that is not an absolute `http(s)` URL or that carries a
+  query/fragment.
+
+## v2.3 (2026-11-15)
+
+- Added the dev-only `/static/audio/` route (`server.static_audio_dir`) and root-relative `audio_url`
+  resolution against `server.public_base_url` or the request origin.
+- Twelve mp3s are downloaded locally by `scripts/fetch-dharma-audio.sh` and gitignored; no audio binary
+  is committed.
+- No acceptance criterion or API shape change.
+
+## v2.2 (2026-11-15)
+
+- Owner confirmed the app is non-commercial; the six Archive.org talks are visible and six more were
+  added. Counts: 67 talks, 19 hidden, 48 visible, 20 audio.
+- Added `docs/legal/dharma-talks-attribution.md`; the uploader-rights caveat stays in each row.
+- No acceptance criterion or contract change.
+
 ## v2.1 (2026-11-15)
 
 Seed data only; no acceptance criterion or contract change.

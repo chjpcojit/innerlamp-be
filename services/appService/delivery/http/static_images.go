@@ -7,18 +7,23 @@ import (
 	"strings"
 )
 
-// NewStaticImages serves the files under dir (assets/images in dev) so image_url can
-// point at this service while there is no object store / CDN yet. It lists no
-// directories and refuses any path segment that starts with "." (.gitignore, ...).
-// Mount it behind http.StripPrefix so a request path maps onto dir.
-// DEV-ONLY by intent: enabled only when server.static_images_dir is set in config.
-func NewStaticImages(dir string) (http.Handler, error) {
+// NewStaticFiles serves media files under dir (assets/images and assets/audio in
+// dev) so image_url and audio_url can point at this service while there is no
+// object store / CDN yet. It lists no directories and refuses any path segment
+// that starts with "." (.gitignore, ...). Mount it behind http.StripPrefix so a
+// request path maps onto dir.
+//
+// Range and HEAD are handled by http.FileServer, so a player can seek and an
+// iOS/Android player can probe the file before playing. The extra headers make
+// the same files usable from a web page on another origin. DEV-ONLY by intent:
+// enabled only when server.static_images_dir / static_audio_dir is set.
+func NewStaticFiles(dir string) (http.Handler, error) {
 	st, err := os.Stat(dir)
 	if err != nil {
-		return nil, fmt.Errorf("static images dir: %w", err)
+		return nil, fmt.Errorf("static files dir: %w", err)
 	}
 	if !st.IsDir() {
-		return nil, fmt.Errorf("static images dir %q is not a directory", dir)
+		return nil, fmt.Errorf("static files dir %q is not a directory", dir)
 	}
 
 	files := http.FileServer(noListingFS{http.Dir(dir)})
@@ -29,10 +34,16 @@ func NewStaticImages(dir string) (http.Handler, error) {
 				return
 			}
 		}
+		w.Header().Set("Accept-Ranges", "bytes")
 		w.Header().Set("Cache-Control", "public, max-age=86400")
+		w.Header().Set("Cross-Origin-Resource-Policy", "cross-origin")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
 		files.ServeHTTP(w, r)
 	}), nil
 }
+
+// NewStaticImages is NewStaticFiles, kept for the image route.
+func NewStaticImages(dir string) (http.Handler, error) { return NewStaticFiles(dir) }
 
 // noListingFS answers a directory as not-found so http.FileServer never renders an
 // index of the folder.

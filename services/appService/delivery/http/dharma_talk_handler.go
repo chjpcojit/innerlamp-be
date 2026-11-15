@@ -21,11 +21,12 @@ type dharmaTalkUsecase interface {
 // public: browsing needs no account.
 type DharmaTalkHandler struct {
 	usecase dharmaTalkUsecase
+	urls    imageHost
 }
 
 // NewDharmaTalkHandler wires the handler.
-func NewDharmaTalkHandler(usecase dharmaTalkUsecase) *DharmaTalkHandler {
-	return &DharmaTalkHandler{usecase: usecase}
+func NewDharmaTalkHandler(usecase dharmaTalkUsecase, opts ...ImageOption) *DharmaTalkHandler {
+	return &DharmaTalkHandler{usecase: usecase, urls: newImageHost(opts)}
 }
 
 // dharmaTalkSummaryResponse is the card shape of the list. published_date
@@ -163,5 +164,7 @@ func (h *DharmaTalkHandler) Get(w http.ResponseWriter, r *http.Request) {
 		writeDomainError(w, err)
 		return
 	}
-	utils.WriteSuccessResponse(w, newDharmaTalkDetail(*t))
+	detail := newDharmaTalkDetail(*t)
+	detail.AudioURL = h.urls.audioPtr(r, t.AudioURL)
+	utils.WriteSuccessResponse(w, detail)
 }

@@ -19,11 +19,11 @@ info:
     Nguồn: `services/{appService,backofficeService}/delivery/http` và `cmd/main.go` của từng service.
     Khi đổi handler hoặc route, cập nhật file này.
 servers:
-  - url: http://localhost:8080
+  - url: http://localhost:8082
     description: appService, dev (chạy local)
-  - url: http://localhost:8081
+  - url: http://localhost:8083
     description: backofficeService, dev (chạy local)
-  - url: http://{lan_ip}:8080
+  - url: http://{lan_ip}:8082
     description: |
       appService, dev trên thiết bị thật. Điện thoại không gọi được `localhost`, nên dùng IP LAN của máy chạy server
       (cùng mạng Wi-Fi). IP đổi theo mạng; chạy `make lan-urls` để URL ảnh trong dữ liệu khớp IP hiện tại.
@@ -58,7 +58,7 @@ tags:
       **chùa quy y hiện tại** của người dùng trong token (không có route nào nhận id chùa hay id người dùng). Một công tắc `receive` cho mỗi người dùng, dùng chung mọi thiết bị:
       tắt thì danh sách luôn rỗng. Không có trạng thái đã đọc/chưa đọc. Có giới hạn **60 request mỗi phút mỗi tài khoản** (dev; `temple_announcement.rate_limit`),
       tách riêng khỏi giới hạn của nhóm Profile; vượt thì `429 RATE_LIMITED` kèm `Retry-After`. Response kèm `Cache-Control: no-store`.
-      Sáu route quản trị (đăng, sửa, thu hồi, xem, và quản lý đơn vị phát hành) ở backofficeService `:8081`, role `admin` hoặc `content_editor`.
+      Sáu route quản trị (đăng, sửa, thu hồi, xem, và quản lý đơn vị phát hành) ở backofficeService `:8083`, role `admin` hoặc `content_editor`.
   - name: AdministrativeUnits
     description: |
       Đơn vị hành chính Việt Nam theo **hai hệ** và chuyển đổi giữa chúng. Chỉ đọc, công khai (không cần đăng nhập, gọi được ở màn đăng ký).
@@ -122,7 +122,7 @@ tags:
   - name: Images
     description: Ảnh tĩnh (chùa, Phật/Bồ tát, ảnh nhỏ bài viết) do appService phục vụ ở môi trường dev; production dùng CDN.
   - name: Admin
-    description: backofficeService (server `:8081`). Đăng nhập admin, đổi mật khẩu, quản lý tài khoản.
+    description: backofficeService (server `:8083`). Đăng nhập admin, đổi mật khẩu, quản lý tài khoản.
 
 paths:
   /v1/auth/register/request-otp:
@@ -2496,8 +2496,8 @@ paths:
                       name: Chùa Bích Động
                       type: CHUA
                       region: north
-                      thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg
-                      image_url: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg
+                      thumbnail_url: http://192.168.1.186:8082/static/images/temples/thumb/temple_north_011.jpg
+                      image_url: http://192.168.1.186:8082/static/images/temples/full/temple_north_011.jpg
                       sect: BẮC_TÔNG
                       heritage_rank: DI_SAN_THE_GIOI
                       established_year: 1428
@@ -2506,8 +2506,8 @@ paths:
                       name: Chùa Cầu Hội An
                       type: CHUA
                       region: central
-                      thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_central_007.jpg
-                      image_url: http://192.168.1.186:8080/static/images/temples/full/temple_central_007.jpg
+                      thumbnail_url: http://192.168.1.186:8082/static/images/temples/thumb/temple_central_007.jpg
+                      image_url: http://192.168.1.186:8082/static/images/temples/full/temple_central_007.jpg
                       sect: TIN_NGUONG_DANG_GIAN
                       heritage_rank: DI_SAN_THE_GIOI
                       established_year: 1593
@@ -2614,8 +2614,8 @@ paths:
                       name: Chùa Bích Động
                       type: CHUA
                       region: north
-                      thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg
-                      image_url: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg
+                      thumbnail_url: http://192.168.1.186:8082/static/images/temples/thumb/temple_north_011.jpg
+                      image_url: http://192.168.1.186:8082/static/images/temples/full/temple_north_011.jpg
                       sect: BẮC_TÔNG
                       heritage_rank: DI_SAN_THE_GIOI
                       established_year: 1428
@@ -2666,8 +2666,8 @@ paths:
                   name: Chùa Bích Động
                   type: CHUA
                   region: north
-                  thumbnail_url: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg
-                  image_url: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg
+                  thumbnail_url: http://192.168.1.186:8082/static/images/temples/thumb/temple_north_011.jpg
+                  image_url: http://192.168.1.186:8082/static/images/temples/full/temple_north_011.jpg
                   sect: BẮC_TÔNG
                   heritage_rank: DI_SAN_THE_GIOI
                   established_year: 1428
@@ -2894,8 +2894,8 @@ paths:
                       name_sanskrit: Śākyamuni Buddha
                       name_chinese: 釋迦牟尼佛
                       title_honorific: Bổn Sư Thích Ca Mâu Ni Phật
-                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp
-                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/buddha_shakyamuni.webp
+                      thumbnail_url: http://192.168.1.186:8082/static/images/buddhas/thumbnails/buddha_shakyamuni.webp
+                      image_url: http://192.168.1.186:8082/static/images/buddhas/full/buddha_shakyamuni.webp
                       core_virtue: Toàn Giác (Bậc Thầy giác ngộ chỉ đường giải thoát khỏi luân hồi cõi Ta Bà)
                       pure_land: Cõi Ta Bà (Saha World)
                     - id: bodhisattva_avalokiteshvara
@@ -2904,8 +2904,8 @@ paths:
                       name_sanskrit: Avalokiteśvara Bodhisattva
                       name_chinese: 觀世音菩薩
                       title_honorific: Đại Bi Quán Thế Âm Bồ Tát
-                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
-                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+                      thumbnail_url: http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+                      image_url: http://192.168.1.186:8082/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
                       core_virtue: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát)
                       pure_land: Phổ Đà Lạc Ca Sơn (Potalaka) / Thị giả cõi Tây Phương Cực Lạc
         '500': { $ref: '#/components/responses/ServerError' }
@@ -2945,8 +2945,8 @@ paths:
                       name_sanskrit: Avalokiteśvara Bodhisattva
                       name_chinese: 觀世音菩薩
                       title_honorific: Đại Bi Quán Thế Âm Bồ Tát
-                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
-                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+                      thumbnail_url: http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+                      image_url: http://192.168.1.186:8082/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
                       core_virtue: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát)
                       pure_land: Phổ Đà Lạc Ca Sơn (Potalaka) / Thị giả cõi Tây Phương Cực Lạc
                     - id: bodhisattva_manjushri
@@ -2955,8 +2955,8 @@ paths:
                       name_sanskrit: Mañjuśrī Bodhisattva
                       name_chinese: 文殊師利菩薩
                       title_honorific: Đại Trí Văn Thù Sư Lợi Bồ Tát
-                      thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_manjushri.webp
-                      image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_manjushri.webp
+                      thumbnail_url: http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_manjushri.webp
+                      image_url: http://192.168.1.186:8082/static/images/buddhas/full/bodhisattva_manjushri.webp
                       core_virtue: Đại Trí (Trí tuệ Bát Nhã thực tướng đoạn diệt vô minh)
                       pure_land: Thanh Lương Sơn (Núi Ngũ Đài Sơn) / Thị giả tả biên Phật Thích Ca
                   page: 1
@@ -3013,8 +3013,8 @@ paths:
                   name_sanskrit: Avalokiteśvara Bodhisattva
                   name_chinese: 觀世音菩薩
                   title_honorific: Đại Bi Quán Thế Âm Bồ Tát
-                  thumbnail_url: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
-                  image_url: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+                  thumbnail_url: http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+                  image_url: http://192.168.1.186:8082/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
                   core_virtue: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát)
                   pure_land: Phổ Đà Lạc Ca Sơn (Potalaka) / Thị giả cõi Tây Phương Cực Lạc
                   canonical_source: Kinh Diệu Pháp Liên Hoa (Phẩm Phổ Môn), Kinh Lăng Nghiêm
@@ -3072,7 +3072,7 @@ paths:
                 data:
                   date: '2026-10-07'
                   id: buddha_034
-                  image_url: http://192.168.1.186:8080/static/images/home-calendar/buddha_034.jpg
+                  image_url: http://192.168.1.186:8082/static/images/home-calendar/buddha_034.jpg
                   author: Judgefloro
                   license: Public domain
                   license_url: https://commons.wikimedia.org/wiki/File:0395jfWisdom_Park_Namo_Amitabha_Buddha_New_Manila_Quezon_Cityfvf_06.jpg
@@ -3202,8 +3202,8 @@ paths:
                       type: CHUA
                       title: Chùa Một Cột
                       location: Hà Nội, Việt Nam
-                      thumbnail_url: http://192.168.1.186:8080/static/images/gallery/thumb/gallery_001.jpg
-                      image_url: http://192.168.1.186:8080/static/images/gallery/full/gallery_001.jpg
+                      thumbnail_url: http://192.168.1.186:8082/static/images/gallery/thumb/gallery_001.jpg
+                      image_url: http://192.168.1.186:8082/static/images/gallery/full/gallery_001.jpg
         '500': { $ref: '#/components/responses/ServerError' }
 
   /v1/gallery:
@@ -3239,8 +3239,8 @@ paths:
                       type: THIEN
                       title: Thiền định
                       location: Việt Nam
-                      thumbnail_url: http://192.168.1.186:8080/static/images/gallery/thumb/gallery_063.jpg
-                      image_url: http://192.168.1.186:8080/static/images/gallery/full/gallery_063.jpg
+                      thumbnail_url: http://192.168.1.186:8082/static/images/gallery/thumb/gallery_063.jpg
+                      image_url: http://192.168.1.186:8082/static/images/gallery/full/gallery_063.jpg
                   page: 1
                   page_size: 20
                   total: 12
@@ -3327,7 +3327,7 @@ paths:
                           "vô thường"
                         ],
                         "image_url": "https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp",
-                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp"
+                        "thumbnail_url": "http://192.168.1.186:8082/static/images/articles/thumb/vipassana-nghe-thuat-song.webp"
                       },
                       {
                         "id": "xu-so-cua-giay-phut-hien-tai",
@@ -3345,7 +3345,7 @@ paths:
                           "tăng thân"
                         ],
                         "image_url": "https://langmai.org/wp-content/uploads/2017/09/ThayinShambhala.png",
-                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/xu-so-cua-giay-phut-hien-tai.webp"
+                        "thumbnail_url": "http://192.168.1.186:8082/static/images/articles/thumb/xu-so-cua-giay-phut-hien-tai.webp"
                       }
                     ]
                   }
@@ -3393,7 +3393,7 @@ paths:
                           "vô thường"
                         ],
                         "image_url": "https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp",
-                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp"
+                        "thumbnail_url": "http://192.168.1.186:8082/static/images/articles/thumb/vipassana-nghe-thuat-song.webp"
                       },
                       {
                         "id": "xu-so-cua-giay-phut-hien-tai",
@@ -3411,7 +3411,7 @@ paths:
                           "tăng thân"
                         ],
                         "image_url": "https://langmai.org/wp-content/uploads/2017/09/ThayinShambhala.png",
-                        "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/xu-so-cua-giay-phut-hien-tai.webp"
+                        "thumbnail_url": "http://192.168.1.186:8082/static/images/articles/thumb/xu-so-cua-giay-phut-hien-tai.webp"
                       }
                     ],
                     "page": 1,
@@ -3473,7 +3473,7 @@ paths:
                       "vô thường"
                     ],
                     "image_url": "https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp",
-                    "thumbnail_url": "http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp",
+                    "thumbnail_url": "http://192.168.1.186:8082/static/images/articles/thumb/vipassana-nghe-thuat-song.webp",
                     "body_paragraphs": [
                       "Con người ai cũng muốn tìm sự an vui và hòa hợp, nhưng giận dữ, lo âu và phiền muộn khiến ta khổ và cũng làm xáo trộn những người quanh mình.",
                       "Cố đè nén cảm xúc tiêu cực hoặc tìm cách đánh lạc hướng không giải quyết được gốc rễ. Những xung đột ấy lắng xuống tầng vô thức rồi có thể bùng lên mạnh hơn về sau."
@@ -3557,12 +3557,14 @@ paths:
         | `quote`, `quote_source` | string | Câu trích ngắn và nguồn của câu trích. |
         | `language` | string | Hiện là `vi`. |
         | `youtube_id` | string \| null | Mã 11 ký tự của video YouTube; chỉ có khi `media_type = youtube`. Client tự ghép khi nhúng player. Không bao giờ là URL đầy đủ. |
-        | `audio_url` | string \| null | URL file âm thanh; chỉ có khi `media_type = audio`. |
+        | `audio_url` | string \| null | URL **tuyệt đối** `http(s)://...` của file âm thanh, mở được không cần `Authorization`; chỉ có khi `media_type = audio`. Client truyền thẳng URL này cho trình phát, không ghép host. |
         | `chapters` | object[] | Các phần `{start_seconds, title}` theo `start_seconds` tăng dần. `[]` khi không có (client ẩn mục "Các phần"); luôn `[]` với `media_type = text`. |
         | `follow_up_meditation` | object \| null | Thẻ "ngồi thiền sau khi nghe": `{title, minutes, meditation_id}` (`meditation_id` có thể `null`). `null` khi không có (hiện là `null` ở mọi bài). |
         | `source_name`, `source_url`, `license` | string | Nguồn gốc; cần hiển thị thẻ nguồn ở cuối trang. |
 
         `media_type` quyết định giao diện: `youtube` (nhúng video), `audio` (trình phát âm thanh) hoặc `text` (chỉ đọc). Bài đang chờ duyệt (`needs_review`) trả `404`.
+
+        **Phát audio trên mọi client.** `audio_url` là URL tuyệt đối, công khai, không cần cookie. Máy chủ trả file với `Content-Type: audio/mpeg`, `Accept-Ranges: bytes`, `Cache-Control: public, max-age=86400`; `HEAD` trả `200` kèm `Content-Length`; `Range` trả `206` + `Content-Range` (range ngoài file: `416`). CORS cho phép `Range`/`If-*` và expose `Accept-Ranges`/`Content-Range`/`Content-Length`/`Content-Type`. Dev phục vụ ở `/static/audio/` khi bật `server.static_audio_dir`; production trỏ `server.audio_base_url` vào object storage/CDN phục vụ cùng path. File thiếu trả `404` ở URL audio nhưng route chi tiết vẫn `200`; client giữ phần chữ/nguồn và hiện trạng thái không phát được.
       parameters:
         - name: id
           in: path
@@ -3703,7 +3705,7 @@ paths:
                             "deity_id": "bodhisattva_avalokiteshvara",
                             "role": "SPEAKER",
                             "name_vi": "Quán Thế Âm Bồ Tát",
-                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
+                            "thumbnail_url": "http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
                           }
                         ],
                         "translations": [
@@ -3787,7 +3789,7 @@ paths:
                             "deity_id": "buddha_shakyamuni",
                             "role": "SPEAKER",
                             "name_vi": "Thích Ca Mâu Ni Phật",
-                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
+                            "thumbnail_url": "http://192.168.1.186:8082/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
                           }
                         ],
                         "translations": [
@@ -3841,7 +3843,7 @@ paths:
                             "deity_id": "bodhisattva_avalokiteshvara",
                             "role": "SUBJECT",
                             "name_vi": "Quán Thế Âm Bồ Tát",
-                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
+                            "thumbnail_url": "http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
                           }
                         ],
                         "translations": [
@@ -3931,7 +3933,7 @@ paths:
                         "deity_id": "buddha_shakyamuni",
                         "role": "SPEAKER",
                         "name_vi": "Thích Ca Mâu Ni Phật",
-                        "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
+                        "thumbnail_url": "http://192.168.1.186:8082/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
                       }
                     ],
                     "translations": [
@@ -4130,13 +4132,13 @@ paths:
                             "deity_id": "bodhisattva_avalokiteshvara",
                             "role": "SUBJECT",
                             "name_vi": "Quán Thế Âm Bồ Tát",
-                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
+                            "thumbnail_url": "http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp"
                           },
                           {
                             "deity_id": "buddha_shakyamuni",
                             "role": "SPEAKER",
                             "name_vi": "Thích Ca Mâu Ni Phật",
-                            "thumbnail_url": "http://192.168.1.186:8080/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
+                            "thumbnail_url": "http://192.168.1.186:8082/static/images/buddhas/thumbnails/buddha_shakyamuni.webp"
                           }
                         ],
                         "translations": [
@@ -4217,10 +4219,10 @@ paths:
       operationId: adminLogin
       summary: Đăng nhập admin
       description: |
-        **Server `:8081`.** Chỉ cấp access token (không có refresh). Nếu `must_change_password` là `true`,
+        **Server `:8083`.** Chỉ cấp access token (không có refresh). Nếu `must_change_password` là `true`,
         token chỉ dùng được ở `change-password`, các route khác trả `PASSWORD_CHANGE_REQUIRED`.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       requestBody:
         required: true
         content:
@@ -4246,10 +4248,10 @@ paths:
       operationId: adminChangePassword
       summary: Đổi mật khẩu admin
       description: |
-        **Server `:8081`.** Mật khẩu mới tối thiểu 12 ký tự và phải khác mật khẩu hiện tại.
+        **Server `:8083`.** Mật khẩu mới tối thiểu 12 ký tự và phải khác mật khẩu hiện tại.
         Route duy nhất chấp nhận token đang buộc đổi mật khẩu. Trả token mới với `must_change_password = false`.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       requestBody:
@@ -4277,10 +4279,10 @@ paths:
       operationId: adminMe
       summary: Thông tin admin hiện tại
       description: |
-        **Server `:8081`.** Trả từ claim của token, không đọc DB. Mọi role đều gọi được,
+        **Server `:8083`.** Trả từ claim của token, không đọc DB. Mọi role đều gọi được,
         nhưng token đang buộc đổi mật khẩu bị từ chối `PASSWORD_CHANGE_REQUIRED`.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       responses:
@@ -4298,10 +4300,10 @@ paths:
       operationId: adminCreateUser
       summary: Tạo tài khoản admin
       description: |
-        **Server `:8081`, role `admin`.** Mật khẩu tạm được gửi qua email, không trả trong response.
+        **Server `:8083`, role `admin`.** Mật khẩu tạm được gửi qua email, không trả trong response.
         Tài khoản mới luôn phải đổi mật khẩu ở lần đăng nhập đầu.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       requestBody:
@@ -4335,10 +4337,10 @@ paths:
       operationId: adminResetPassword
       summary: Reset mật khẩu admin
       description: |
-        **Server `:8081`, role `admin`.** Đặt mật khẩu tạm mới, gửi qua email và buộc đổi ở lần đăng nhập sau.
+        **Server `:8083`, role `admin`.** Đặt mật khẩu tạm mới, gửi qua email và buộc đổi ở lần đăng nhập sau.
         Không tự reset chính mình (`CANNOT_RESET_SELF`).
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4377,11 +4379,11 @@ paths:
       operationId: adminListTempleSuggestions
       summary: Hàng chờ đề xuất chùa
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`** (`viewer` bị `403`). Mặc định chỉ liệt kê `pending`,
+        **Server `:8083`, role `admin` hoặc `content_editor`** (`viewer` bị `403`). Mặc định chỉ liệt kê `pending`,
         cũ nhất trước (`created_at`, `id`). Trang vượt `total_pages` trả `200` với `items: []`.
         `province_code`/`ward_code`/`ward` là `null` ở đề xuất gửi trước khi địa chỉ có cấu trúc; khi đó `province` là chuỗi người dùng đã gõ.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4413,10 +4415,10 @@ paths:
       operationId: adminGetTempleSuggestion
       summary: Chi tiết một đề xuất chùa
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`.** Trả các field của hàng chờ cộng kết quả duyệt:
+        **Server `:8083`, role `admin` hoặc `content_editor`.** Trả các field của hàng chờ cộng kết quả duyệt:
         `temple_id` (chỉ khi `created`), `reviewed_by`, `reviewed_at`, `reject_reason`. Form tạo chùa tự điền sẵn từ response này.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4444,14 +4446,14 @@ paths:
       operationId: adminCreateTempleFromSuggestion
       summary: Tạo chùa chính thức từ đề xuất
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`; đề xuất đã `rejected` chỉ `admin`** (`content_editor` nhận `403`).
+        **Server `:8083`, role `admin` hoặc `content_editor`; đề xuất đã `rejected` chỉ `admin`** (`content_editor` nhận `403`).
         Trong **một transaction**: chèn một dòng `temples` và đánh dấu đề xuất `created` (kèm `temple_id`, `reviewed_by`, `reviewed_at`).
         Mọi field của chùa lấy từ body, không sao chép từ đề xuất. Địa chỉ gồm `province_code` + `ward_code` (hệ mới, lấy từ
         `GET /v1/administrative-units/new/...`) và `address` (phần dưới cấp xã). `province` và `ward` của chùa luôn lấy từ bộ dữ liệu hành chính,
         không bao giờ từ request. `id` chùa do server sinh, dạng `temple_<region>_<NNN>`; `heritage_priority` suy từ `heritage_rank`.
         Lỗi bất kỳ thì không có chùa nào được tạo và đề xuất giữ nguyên trạng thái.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4496,7 +4498,7 @@ paths:
       operationId: adminPublishTempleAnnouncement
       summary: Đăng thông báo của chùa
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`** (`viewer` bị `403`). `{id}` là id chùa (vd `temple_north_011`).
+        **Server `:8083`, role `admin` hoặc `content_editor`** (`viewer` bị `403`). `{id}` là id chùa (vd `temple_north_011`).
         Server đặt `source = admin`, `published_at` = lúc gọi (không hẹn giờ), `created_by` = id tài khoản gọi; `id` do server sinh, dạng `tann_<uuid>`.
         Thông báo hiện ngay cho người dùng có chùa quy y là chùa này.
 
@@ -4509,7 +4511,7 @@ paths:
 
         Field lạ bị từ chối cả request (`VALIDATION_ERROR`). Giá trị title/body được lưu đúng như gửi (không cắt khoảng trắng).
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4557,14 +4559,14 @@ paths:
       operationId: adminListTempleAnnouncements
       summary: Danh sách thông báo của một chùa (mọi trạng thái)
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`.** Trả cả thông báo `ACTIVE`, `EXPIRED` và `REVOKED`, mới đăng trước (`published_at` giảm dần, rồi `id`).
+        **Server `:8083`, role `admin` hoặc `content_editor`.** Trả cả thông báo `ACTIVE`, `EXPIRED` và `REVOKED`, mới đăng trước (`published_at` giảm dần, rồi `id`).
         `state` được **suy ra** mỗi lần đọc, không lưu: `REVOKED` nếu đã thu hồi (thắng mọi trạng thái khác); ngược lại `ACTIVE` khi bây giờ còn trước `expires_at`,
         và `EXPIRED` từ đúng lúc `expires_at`.
 
         `page` mặc định 1; `page_size` mặc định `temple_announcement.page_size` (dev: 20), lớn hơn `max_page_size` (dev: 100) thì bị chặn.
         `page_size=0` hoặc bỏ trống là mặc định. Trang vượt `total_pages` trả `200` với `items: []`.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4605,13 +4607,13 @@ paths:
       operationId: adminEditTempleAnnouncement
       summary: Sửa thông báo
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`.** Cập nhật **từng phần**: chỉ gửi field muốn đổi trong `title`, `body`, `issuing_body_id`, `expires_at`;
+        **Server `:8083`, role `admin` hoặc `content_editor`.** Cập nhật **từng phần**: chỉ gửi field muốn đổi trong `title`, `body`, `issuing_body_id`, `expires_at`;
         vắng mặt = giữ nguyên. Cùng luật kiểm tra như khi đăng (`issuing_body_id` phải thuộc chùa của thông báo; `expires_at` phải trong tương lai và không quá `max_validity_days`).
         Giữ nguyên `published_at` và `source`. `expires_at` rỗng hoặc `null` bị từ chối (`INVALID_ANNOUNCEMENT`), không xoá được hạn.
         Thông báo đã thu hồi không sửa được (`409`). Thông báo đã **hết hạn** vẫn sửa được; đặt `expires_at` mới ở tương lai thì nó hiện lại.
         `{id}` thông báo không có thì `404` trước mọi kiểm tra field.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4655,10 +4657,10 @@ paths:
       operationId: adminRevokeTempleAnnouncement
       summary: Thu hồi thông báo
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`.** Không có body. Đặt `revoked_at` **một lần**; gọi lại trên thông báo đã thu hồi vẫn trả `200`
+        **Server `:8083`, role `admin` hoặc `content_editor`.** Không có body. Đặt `revoked_at` **một lần**; gọi lại trên thông báo đã thu hồi vẫn trả `200`
         với `revoked_at` ban đầu (idempotent). Thông báo biến mất khỏi người dùng ngay. Không có xoá cứng và không có "bỏ thu hồi".
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4686,10 +4688,10 @@ paths:
       operationId: adminCreateIssuingBody
       summary: Tạo đơn vị phát hành của chùa
       description: |
-        **Server `:8081`, role `admin` hoặc `content_editor`.** Đơn vị phát hành (ban) là danh sách **riêng của từng chùa**, vd "Ban Trị sự", "Ban Hoằng pháp".
+        **Server `:8083`, role `admin` hoặc `content_editor`.** Đơn vị phát hành (ban) là danh sách **riêng của từng chùa**, vd "Ban Trị sự", "Ban Hoằng pháp".
         `id` do server sinh, dạng `tib_<uuid>`. Tên trùng trong cùng chùa (không phân biệt hoa thường) bị `409`. Chưa có đổi tên, tắt hay xoá.
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -4738,9 +4740,9 @@ paths:
       tags: [Admin, TempleAnnouncements]
       operationId: adminListIssuingBodies
       summary: Danh sách đơn vị phát hành của chùa
-      description: '**Server `:8081`, role `admin` hoặc `content_editor`.** Không phân trang; sắp theo tên rồi `id`. Chùa chưa có đơn vị nào trả `items: []`.'
+      description: '**Server `:8083`, role `admin` hoặc `content_editor`.** Không phân trang; sắp theo tên rồi `id`. Chùa chưa có đơn vị nào trả `items: []`.'
       servers:
-        - url: http://localhost:8081
+        - url: http://localhost:8083
       security:
         - adminBearerAuth: []
       parameters:
@@ -6545,8 +6547,8 @@ components:
           description: 'Loại cơ sở: `CHUA`, `THIEN_VIEN`, `DAO_TRANG`, `TINH_XA`, `THIEN_XA`. Coi như enum mở.'
           example: CHUA
         region: { type: string, description: '`north`, `central` hoặc `south`.', example: north }
-        thumbnail_url: { type: [string, 'null'], description: 'URL ảnh nhỏ (JPEG), phục vụ bởi `GET /static/images/temples/thumb/{id}.jpg`. `null` khi chưa có ảnh (hiện cả 93 chùa đều có). Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.', example: http://192.168.1.186:8080/static/images/temples/thumb/temple_north_011.jpg }
-        image_url: { type: [string, 'null'], description: 'URL ảnh lớn (JPEG, khoảng 1 MB), phục vụ bởi `GET /static/images/temples/full/{id}.jpg`. `null` khi chưa có ảnh.', example: http://192.168.1.186:8080/static/images/temples/full/temple_north_011.jpg }
+        thumbnail_url: { type: [string, 'null'], description: 'URL ảnh nhỏ (JPEG), phục vụ bởi `GET /static/images/temples/thumb/{id}.jpg`. `null` khi chưa có ảnh (hiện cả 93 chùa đều có). Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.', example: http://192.168.1.186:8082/static/images/temples/thumb/temple_north_011.jpg }
+        image_url: { type: [string, 'null'], description: 'URL ảnh lớn (JPEG, khoảng 1 MB), phục vụ bởi `GET /static/images/temples/full/{id}.jpg`. `null` khi chưa có ảnh.', example: http://192.168.1.186:8082/static/images/temples/full/temple_north_011.jpg }
         sect:
           type: string
           description: 'Hệ phái: `BẮC_TÔNG`, `TRUC_LAM_YEN_TU`, `KHAT_SI`, `NAM_TONG_KHMER`, `HOA_TONG`, `NAM_TONG`, `TIN_NGUONG_DANG_GIAN`, `MINH_SU_DAO`. Coi như enum mở.'
@@ -6664,8 +6666,8 @@ components:
         type: { type: string, description: '`CHUA`, `TUONG_PHAT`, `THIEN` hoặc `LE_HOI`. Coi là enum mở: gặp giá trị lạ thì hiển thị như mục thường.', example: CHUA }
         title: { type: string, description: Tiêu đề ảnh., example: Chùa Một Cột }
         location: { type: string, description: Nơi chụp., example: 'Hà Nội, Việt Nam' }
-        thumbnail_url: { type: string, description: 'URL ảnh nhỏ (jpg 500px), phục vụ bởi `GET /static/images/gallery/thumb/{id}.jpg`. Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.', example: 'http://192.168.1.186:8080/static/images/gallery/thumb/gallery_001.jpg' }
-        image_url: { type: string, description: 'URL ảnh lớn (jpg 1280px), phục vụ bởi `GET /static/images/gallery/full/{id}.jpg`. Host như `thumbnail_url`.', example: 'http://192.168.1.186:8080/static/images/gallery/full/gallery_001.jpg' }
+        thumbnail_url: { type: string, description: 'URL ảnh nhỏ (jpg 500px), phục vụ bởi `GET /static/images/gallery/thumb/{id}.jpg`. Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.', example: 'http://192.168.1.186:8082/static/images/gallery/thumb/gallery_001.jpg' }
+        image_url: { type: string, description: 'URL ảnh lớn (jpg 1280px), phục vụ bởi `GET /static/images/gallery/full/{id}.jpg`. Host như `thumbnail_url`.', example: 'http://192.168.1.186:8082/static/images/gallery/full/gallery_001.jpg' }
     GalleryDetail:
       allOf:
         - $ref: '#/components/schemas/GallerySummary'
@@ -6886,11 +6888,11 @@ components:
         thumbnail_url:
           type: string
           description: 'URL ảnh nhỏ (WebP), phục vụ bởi `GET /static/images/buddhas/thumbnails/{id}.webp`. Cả 20 mục đều có.'
-          example: http://192.168.1.186:8080/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
+          example: http://192.168.1.186:8082/static/images/buddhas/thumbnails/bodhisattva_avalokiteshvara.webp
         image_url:
           type: string
           description: 'URL ảnh lớn (WebP), phục vụ bởi `GET /static/images/buddhas/full/{id}.webp`. Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về.'
-          example: http://192.168.1.186:8080/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
+          example: http://192.168.1.186:8082/static/images/buddhas/full/bodhisattva_avalokiteshvara.webp
         core_virtue: { type: string, description: Hạnh nguyện cốt lõi., example: Đại Bi (Lắng nghe âm thanh cứu khổ tìm đến giải thoát) }
         pure_land: { type: string, description: Cõi Tịnh độ / trú xứ., example: Phổ Đà Lạc Ca Sơn (Potalaka) }
     MemorialDay:
@@ -6980,7 +6982,7 @@ components:
         summary: { type: string, description: Đoạn tóm tắt. }
         tags: { type: array, items: { type: string }, description: Nhãn. Mảng rỗng khi không có., example: [thiền, vipassana] }
         image_url: { type: [string, 'null'], description: 'URL ảnh bìa (hotlink tới trang nguồn, không do appService host nên có thể tải lỗi). `null` khi chưa có ảnh (hiện cả 60 bài đều có).', example: https://image.giacngo.vn/1200x630/Uploaded/2026/estnselxslt/2024_12_04/untitled-1-7308.jpg.webp }
-        thumbnail_url: { type: [string, 'null'], description: 'URL ảnh nhỏ (WebP vuông 360x360, khoảng 15 KB) cho thẻ trong danh sách, do appService host tại `GET /static/images/articles/thumb/{id}.webp` (cùng cách với ảnh chùa và Phật/Bồ tát). `null` khi chưa có (hiện cả 60 bài đều có). Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về. Nếu null, dùng `image_url`.', example: http://192.168.1.186:8080/static/images/articles/thumb/vipassana-nghe-thuat-song.webp }
+        thumbnail_url: { type: [string, 'null'], description: 'URL ảnh nhỏ (WebP vuông 360x360, khoảng 15 KB) cho thẻ trong danh sách, do appService host tại `GET /static/images/articles/thumb/{id}.webp` (cùng cách với ảnh chùa và Phật/Bồ tát). `null` khi chưa có (hiện cả 60 bài đều có). Host là máy chạy server nên đổi theo môi trường: dùng nguyên URL server trả về. Nếu null, dùng `image_url`.', example: http://192.168.1.186:8082/static/images/articles/thumb/vipassana-nghe-thuat-song.webp }
     ArticleDetail:
       description: ArticleSummary cộng nội dung và thông tin nguồn.
       allOf:
@@ -7617,7 +7619,7 @@ components:
             quote_source: { type: string, description: Nguồn của câu trích. }
             language: { type: string, description: 'Ngôn ngữ, hiện là `vi`.', example: vi }
             youtube_id: { type: [string, 'null'], description: 'Mã video YouTube 11 ký tự; chỉ có khi `media_type = youtube`.', example: sudE6IR71FU }
-            audio_url: { type: [string, 'null'], description: 'URL file âm thanh; chỉ có khi `media_type = audio`.', example: null }
+            audio_url: { type: [string, 'null'], format: uri, description: 'URL tuyệt đối (http/https) của file âm thanh, công khai, hỗ trợ HEAD và Range; chỉ có khi `media_type = audio`. Client dùng thẳng, không ghép host.', example: 'https://audio.example.com/static/audio/dharma-talks/001-an-lac.mp3' }
             chapters:
               type: array
               description: Các phần theo `start_seconds` tăng dần. Mảng rỗng khi không có; luôn rỗng với `media_type = text`.

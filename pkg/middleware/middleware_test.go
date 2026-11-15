@@ -11,9 +11,11 @@ import (
 
 // corsHeaders is the exact set CORS hardcodes on every response (AC3).
 var corsHeaders = map[string]string{
-	"Access-Control-Allow-Origin":  "*",
-	"Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
-	"Access-Control-Allow-Headers": "Content-Type, Authorization",
+	"Access-Control-Allow-Origin":   "*",
+	"Access-Control-Allow-Methods":  "GET, POST, PUT, PATCH, DELETE, OPTIONS",
+	"Access-Control-Allow-Headers":  "Content-Type, Authorization, Range, If-Range, If-Modified-Since, If-None-Match",
+	"Access-Control-Expose-Headers": "Accept-Ranges, Content-Range, Content-Length, Content-Type, ETag, Last-Modified",
+	"Access-Control-Max-Age":        "600",
 }
 
 func assertCORSHeaders(t *testing.T, h http.Header) {

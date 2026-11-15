@@ -1,8 +1,8 @@
 # Design — dharmatalk
 
-Version: 2.1
+Version: 2.3
 Last updated: 2026-11-15
-Status: implemented (2026-10-03) — 2 route đọc + seed lần đầu chạy thật qua binary + Postgres; có test usecase/handler/seed parser/repository/E2E. Thiếu: không còn mục kỹ thuật nào mở; OKF concept chưa viết.
+Status: implemented (2026-10-03) — 2 route đọc + seed lần đầu chạy thật qua binary + Postgres; có test usecase/handler/seed parser/repository/E2E. v2.3 thêm hợp đồng phát audio (URL tuyệt đối, `Range`/`HEAD`, CORS) đã có test. Thiếu: OKF concept chưa viết.
 Module: `content`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -25,13 +25,15 @@ Thiết kế bám `article` có chủ đích (code đã viết theo đó): `usec
 | Repository | `services/appService/repository/postgres_dharma_talk_repository.go` | SQL cho `dharma_talks`; `InsertMissing` một transaction, `ON CONFLICT (id) DO NOTHING`; `NULL` ↔ `nil`/`0`/`""`; `pq.Array` cho `key_points`/`tags`; `chapters` và `follow_up_meditation` là `JSONB`. **`SeedIfEmpty` đếm cả dòng `needs_review = true`** — xem Step 1 của flow seed. |
 | Repository / Seed parser | `services/appService/repository/dharma_talk_seed.go` | `ParseDharmaTalkSeed`: giải mã `{"talks":[…]}`, kiểm hợp lệ (AC 19), đổi `video` → `youtube` và rút `youtube_id` từ `mediaUrl`, gán `SortOrder` = vị trí. |
 | Embedded data | `assets/embed.go`, `assets/data/dharma_talks.json` | Thêm `//go:embed data/dharma_talks.json` → biến `DharmaTalksJSON`. |
-| Delivery / Handler | `services/appService/delivery/http/dharma_talk_handler.go` | `List`, `Get`; parse `page`; DTO summary/detail; `published_date` định dạng `2006-01-02`; `0` → `null` cho `duration_minutes`; `nonNil` cho mảng. |
+| Delivery / Handler | `services/appService/delivery/http/dharma_talk_handler.go` | `List`, `Get`; parse `page`; DTO summary/detail; `published_date` định dạng `2006-01-02`; `0` → `null` cho `duration_minutes`; `nonNil` cho mảng; `audio_url` đi qua `imageHost.audioURL` để luôn tuyệt đối. |
+| Delivery / Media URL | `services/appService/delivery/http/image_url.go` | `imageHost` ghép path tương đối với `server.audio_base_url` → `server.public_base_url` → origin của request; đọc `X-Forwarded-Proto`/`X-Forwarded-Host` (giá trị đầu tiên). Ảnh dùng `url`, audio dùng `audioURL`. |
+| Delivery / Static audio | `services/appService/delivery/http/static_images.go`, `cmd/main.go` | `NewStaticFiles` phục vụ file, chặn listing và segment `.`; thêm `Accept-Ranges`, `Content-Type` theo đuôi, `Cache-Control`, `Cross-Origin-Resource-Policy`. Mount `GET /static/audio/` khi `server.static_audio_dir` được đặt. |
 | Delivery / DTO | `delivery/http/dharma_talk_handler.go` | `dharmaTalkSummaryResponse`, `dharmaTalkDetailResponse` (nhúng summary), `dharmaTalkListResponse`, `chapterResponse`, `followUpMeditationResponse` — JSON tag chỉ nằm ở đây. |
 | Delivery / Error map | `delivery/http/errors.go` | `ErrDharmaTalkNotFound` → `404 DHARMA_TALK_NOT_FOUND`; `ErrInvalidPage` đã có. |
-| Config | `services/appService/config/config.go`, `config.dev.yaml` | `DharmaTalkConfig{PageSize}`, block `dharma_talk:` (dev: 10). |
+| Config | `services/appService/config/config.go`, `config.dev.yaml` | `DharmaTalkConfig{PageSize}`, block `dharma_talk:` (dev: 10); `ServerConfig{StaticAudioDir, PublicBaseURL, AudioBaseURL}` với `Validate()` cho hai origin. |
 | Wiring | `services/appService/cmd/main.go` | Dựng repo → usecase → handler; (từ 2026-10-11 không còn seed lúc khởi động; `cmd/seeddharmatalks` gọi `SeedIfEmpty`); đăng ký 2 route. Không dính khối `⚠️ DEV ONLY` nào. |
 | Migration | `migrations/0014_dharma_talks.sql` | Bảng `dharma_talks` + index `idx_dharma_talks_order (sort_order, id)`. |
-| Data | `assets/data/dharma_talks.json` | 61 bài (sinh bởi phiên nghiên cứu, thêm 6 bài Archive.org để duyệt); đã khớp "Seed JSON" bên dưới, không cần sửa file (`sortOrder` thừa bị bỏ qua). |
+| Data | `assets/data/dharma_talks.json` | 67 bài (sinh bởi phiên nghiên cứu, thêm 12 bài Archive.org đã mở); đã khớp "Seed JSON" bên dưới, không cần sửa file (`sortOrder` thừa bị bỏ qua). |
 | API spec | `docs/specs/api/openapi.yaml`, `web/docs/public/openapi.yaml` | **Đã có** 2 route (tag DharmaTalks) và schema `DharmaTalkSummary`/`DharmaTalkDetail`; hai file giống hệt nhau. |
 
 Ghi chú route: `GET /v1/dharma-talks` và `GET /v1/dharma-talks/{id}` là hai pattern riêng của `ServeMux`; không có route literal nào tranh `{id}` (không có `top`).
@@ -156,7 +158,7 @@ Step 3 — Chèn các bài còn thiếu (repository)
 - Trigger: Step 2 xong
 - Pre-condition: seed hợp lệ
 - Call: DharmaTalkRepository.InsertMissing → INSERT … ON CONFLICT (id) DO NOTHING cho từng bài (kể cả bài needs_review = true)
-    - Success → số dòng thực sự được chèn (61 ở lần đầu), sang Step 4
+    - Success → số dòng thực sự được chèn (67 ở lần đầu), sang Step 4
     - Failure (lỗi DB, kể cả vi phạm CHECK) → rollback toàn bộ → error → log.Fatalf
     - Transaction boundary: mọi INSERT của Step 3 chung MỘT transaction
 
@@ -170,6 +172,47 @@ Step 4 — Ghi log (cmd/main.go)
 
 Vì sao Step 1 không lọc `needs_review`: nếu đếm chỉ các dòng hiển thị được, một bảng mà mọi bài đều đang bị cờ sẽ bị coi là rỗng và seed lại — ghi đè quyết định duyệt bằng dữ liệu seed.
 
+## Audio delivery contract (all clients)
+
+The database keeps one root-relative value per audio talk (`/static/audio/dharma-talks/...`). The handler
+resolves it on every response in this order:
+
+1. `server.audio_base_url` — a dedicated object-storage or CDN origin for audio.
+2. `server.public_base_url` — the general public origin.
+3. The request origin, including `X-Forwarded-Proto` and `X-Forwarded-Host` (first hop of a proxy header).
+
+The result is always an absolute `http(s)` URL, so the web, iOS, Android and Flutter clients decode one
+string and hand it to their player. No client prefixes its own API base, and moving audio to a CDN is a
+config change, not a data migration. `ServerConfig.Validate` refuses a base that is not an absolute
+`http(s)` URL or that carries a query/fragment.
+
+Serving rules for `GET`/`HEAD /static/audio/{path}`:
+
+| Property | Value | Reason |
+|---|---|---|
+| Auth | none; no cookie needed | A media element or native player cannot attach a session header. |
+| `Content-Type` | by extension (`audio/mpeg` for `.mp3`) | Some players refuse `application/octet-stream`. |
+| `Accept-Ranges` | `bytes` | The player knows it may seek. |
+| `Range` | `206` + `Content-Range`; unsatisfiable `416` | Seeking and resuming without downloading the whole file. |
+| `HEAD` | `200` + `Content-Length`, no body | iOS/Android probe duration and size before playing. |
+| `Cache-Control` | `public, max-age=86400` | One day of cache; files are content-addressed by name. |
+| `Cross-Origin-Resource-Policy` | `cross-origin` | A web page on another origin may embed the file. |
+| CORS | `Allow-Origin: *`; allow `Range`, `If-Range`, `If-Modified-Since`, `If-None-Match`; expose `Accept-Ranges`, `Content-Range`, `Content-Length`, `Content-Type` | A browser can preflight a media request and read the response headers. |
+| Listing / dot paths | `404`, no directory index | The folder is never browsable. |
+
+`server.static_audio_dir` (dev: `assets/audio`) enables the local route; empty disables it. The mp3 files
+are gitignored (`assets/audio/**`, about 325 MB) and `scripts/fetch-dharma-audio.sh` downloads them once
+per machine. Production sets `server.audio_base_url` to object storage or a CDN that serves the same
+relative paths, and leaves `server.static_audio_dir` empty.
+
+A missing file returns `404` from the media route but does **not** fail `GET /v1/dharma-talks/{id}`
+(which stays `200`). The client keeps the text, source and licence visible and shows a player-unavailable
+state; this is the only graceful degradation every platform implements.
+
+Mobile note: production must use `https`. A dev server on `http://<lan-ip>:8082` only plays when the
+platform allows local cleartext (iOS `NSAllowsLocalNetworking` / Android network-security config);
+otherwise point the app at an HTTPS dev tunnel or the CDN origin.
+
 ## Deliberately stubbed for now (if applicable)
 
 - `follow_up_meditation`: cột, entity và DTO có thật nhưng **không có nguồn dữ liệu** (app chưa có bài thiền) — luôn `NULL` trong seed, API trả `null`.
@@ -182,7 +225,7 @@ Vì sao Step 1 không lọc `needs_review`: nếu đếm chỉ các dòng hiển
 - **Chưa có OKF concept** `docs/knowledge/features/dharmatalk.md` (`il-okf-writer`); code, migration, test, E2E, `openapi.yaml` và ERD đã có.
 - **E2E phụ thuộc thời gian khởi động server**: `e2e/harness.go` chờ server sẵn sàng tối đa 10 giây, nhưng lần seed đầu của thư viện kinh (~11 MB) có thể vượt mức đó trên máy chậm, nên cả E2E của dharmatalk lẫn `TestSutraAPI_E2E` thất bại ngẫu nhiên với "did not become ready within 10s". Khi nâng ngưỡng lên 60 giây (tạm thời, đã hoàn lại) thì cả 8 test của dharmatalk đều qua. Ngưỡng này thuộc harness dùng chung, chưa sửa trong lượt này.
 - **Test repository cần Postgres và xoá dữ liệu**: `postgres_dharma_talk_repository_test.go` gọi `connectTestDB` (bỏ qua khi `-short`), helper này `TRUNCATE` nhiều bảng của DB `innerlamp` mặc định; lượt này đã chạy trên DB scratch (`TEST_DB_PORT`, `TEST_DB_NAME`), không phải DB dev.
-- **25/61 bài bị `needs_review`** nên chỉ 36 bài hiện ra khi có code; trong số 36, `audio` chỉ có tối đa 8 bài và nhiều bài không có `duration_minutes`.
+- **19/67 bài bị `needs_review`** nên 48 bài hiện ra khi có code; trong số 48, `audio` có 20 bài và nhiều bài không có `duration_minutes`.
 - **Đếm và lấy trang không cùng snapshot** (như `article`).
 - **Sửa file JSON không cập nhật DB có sẵn** (như `article`).
 - **YouTube nhúng**: video có thể bị gỡ hoặc tắt nhúng sau khi seed; backend không kiểm tra (`youtube_id` chỉ được kiểm định dạng, không kiểm tồn tại).

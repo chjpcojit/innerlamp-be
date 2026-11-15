@@ -29,7 +29,7 @@ func TestParseDharmaTalkSeed_EmbeddedDataIsValid(t *testing.T) {
 			assert.Len(t, tk.YouTubeID, 11, tk.ID)
 			assert.Empty(t, tk.AudioURL, tk.ID)
 		case domain.MediaAudio:
-			assert.True(t, strings.HasPrefix(tk.AudioURL, "http"), tk.ID)
+			assert.True(t, strings.HasPrefix(tk.AudioURL, "http") || strings.HasPrefix(tk.AudioURL, "/"), tk.ID)
 			assert.Empty(t, tk.YouTubeID, tk.ID)
 		case domain.MediaText:
 			assert.Empty(t, tk.YouTubeID+tk.AudioURL, tk.ID)
@@ -51,6 +51,7 @@ func TestParseDharmaTalkSeed_MapsMedia(t *testing.T) {
 		{"youtube watch url with extra params", `"mediaType":"video","mediaUrl":"https://www.youtube.com/watch?v=Ue9ZSOTr7R8&t=30s"`, domain.MediaYouTube, "Ue9ZSOTr7R8", ""},
 		{"youtu.be short url", `"mediaType":"video","mediaUrl":"https://youtu.be/gkKS6-5Nz8U"`, domain.MediaYouTube, "gkKS6-5Nz8U", ""},
 		{"audio", `"mediaType":"audio","mediaUrl":"https://example.org/a.mp3"`, domain.MediaAudio, "", "https://example.org/a.mp3"},
+		{"audio root-relative", `"mediaType":"audio","mediaUrl":"/static/audio/dharma-talks/a.mp3"`, domain.MediaAudio, "", "/static/audio/dharma-talks/a.mp3"},
 		{"text ignores mediaUrl", `"mediaType":"text","mediaUrl":"https://example.org/page"`, domain.MediaText, "", ""},
 		{"text without mediaUrl", `"mediaType":"text","mediaUrl":null`, domain.MediaText, "", ""},
 	}

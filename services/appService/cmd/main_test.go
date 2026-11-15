@@ -37,9 +37,11 @@ func serve(mux *http.ServeMux, method, path string) *httptest.ResponseRecorder {
 func assertCORSHeaders(t *testing.T, h http.Header) {
 	t.Helper()
 	for name, want := range map[string]string{
-		"Access-Control-Allow-Origin":  "*",
-		"Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
-		"Access-Control-Allow-Headers": "Content-Type, Authorization",
+		"Access-Control-Allow-Origin":   "*",
+		"Access-Control-Allow-Methods":  "GET, POST, PUT, PATCH, DELETE, OPTIONS",
+		"Access-Control-Allow-Headers":  "Content-Type, Authorization, Range, If-Range, If-Modified-Since, If-None-Match",
+		"Access-Control-Expose-Headers": "Accept-Ranges, Content-Range, Content-Length, Content-Type, ETag, Last-Modified",
+		"Access-Control-Max-Age":        "600",
 	} {
 		if got := h.Get(name); got != want {
 			t.Errorf("header %s = %q, want %q", name, got, want)
