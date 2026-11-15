@@ -58,7 +58,7 @@ Mọi mục dưới đây trace về một hàng của bảng "Layers & componen
 - [x] Backend: CORS cho phép `Range`/`If-*` và expose `Accept-Ranges`/`Content-Range`/`Content-Length`/`Content-Type`.
 - [x] Backend tests: URL audio theo base riêng, forwarded host, HEAD, Range 206/416, CORS, config validation; `go build ./...` + `go test -short ./...` xanh.
 - [x] Hợp đồng: `openapi.yaml` + bản copy `web/docs/public/openapi.yaml` mô tả `audio_url` là URL tuyệt đối.
-- [ ] Website: dùng thẳng `audio_url` API trả (không ghép host); đã có player + `preload="metadata"`; thêm trạng thái lỗi file nếu cần.
+- [x] Website: dùng thẳng `audio_url` API trả (không ghép host); player có `preload="metadata"` và trạng thái lỗi file kèm link mở trực tiếp (PR #32).
 - [ ] iOS: model `DharmaTalkDetail` + `AVPlayer` dùng `audio_url`; cần HTTPS hoặc ATS local cho dev.
 - [ ] Android: model + `Media3`/`ExoPlayer` dùng `audio_url`; cần network-security config cho HTTP dev.
 - [ ] Flutter (web/mobile): model + `just_audio`/`audioplayers` dùng `audio_url`; không tự ghép base.
