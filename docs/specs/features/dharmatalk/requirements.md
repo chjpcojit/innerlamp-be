@@ -19,7 +19,7 @@ Mỗi bài thuộc **đúng một trong ba loại phương tiện** (`media_type
 
 Với loại `audio`, backend chịu trách nhiệm trả một **URL phát được ngay** cho mọi client: tuyệt đối, công khai, hỗ trợ `Range`/`HEAD` và CORS. Client không tự ghép host, không cần tải cả file trước khi phát. Chi tiết ở US-DT-06 và `FR-DHT-008`.
 
-> ⚠️ Not confirmed: mã user story chưa được product chốt — spec tạm đánh `US-DT-01..05` theo tiền lệ `US-ART-01`.
+> ⚠️ Not confirmed: mã user story chưa được product chốt — spec tạm đánh `US-DT-01..06` theo tiền lệ `US-ART-01`.
 
 ---
 
