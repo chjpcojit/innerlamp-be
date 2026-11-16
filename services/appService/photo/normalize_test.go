@@ -277,7 +277,7 @@ func TestNormalize_PngAlphaBecomesWhite(t *testing.T) {
 	assert.InDelta(t, 255, g>>8, 6)
 	assert.InDelta(t, 255, b>>8, 6)
 
-	r, g, b, _ = decoded.At(17, 5).RGBA()
+	r, g, _, _ = decoded.At(17, 5).RGBA()
 	assert.Greater(t, r>>8, uint32(150), "opaque red must survive")
 	assert.Less(t, g>>8, uint32(90))
 }
