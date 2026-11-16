@@ -3,7 +3,7 @@ id: TD-001
 feature: memorial
 title: "Memorial photo upload is not built; blocked on GCS / Chưa làm upload ảnh sổ giỗ; bị chặn bởi GCS"
 severity: medium
-status: open
+status: resolved
 created: 2026-10-07
 owner: ducnguyen-wee
 code: services/appService/cmd/main.go (memorial routes), services/appService/delivery/http/memorial_handler.go (memorialResponse.PhotoURL), migrations/0018_memorials.sql (photo_object_key)
@@ -43,3 +43,9 @@ code: services/appService/cmd/main.go (memorial routes), services/appService/del
 **EN** — About 1–1.5 days once the bucket and signing permission are settled; the bucket decision itself is outside the code.
 
 **VI** — Khoảng 1–1,5 ngày sau khi chốt bucket và quyền ký URL; việc chốt bucket nằm ngoài code.
+
+## 6. Resolution (2026-11-16)
+
+**EN** — Implemented in `feat/memorial-photo`: `MemorialPhotoStore` port + `MemorialPhotoStorage` (pkg/storage), `SetPhoto`/`RemovePhoto` in the use case, `SetPhotoKey` and `Delete ... RETURNING photo_object_key` in the repository, `PUT|DELETE /v1/memorials/{id}/photo` (5 MiB, JPEG/PNG/WebP, ownership checked before the body), 15-minute signed URLs. Bucket decision: the shared `innerlamp-avatars-dev` with prefix `memorials/`; the Cloud Run service account can sign because it holds `serviceAccountTokenCreator` on itself. Orphaned-object cleanup remains deferred ("tính sau").
+
+**VI** — Đã làm trong `feat/memorial-photo`: port `MemorialPhotoStore` + adapter `pkg/storage`, `SetPhoto`/`RemovePhoto`, `SetPhotoKey` và `Delete ... RETURNING photo_object_key`, hai route ảnh (5 MiB, JPEG/PNG/WebP, kiểm quyền trước khi đọc body), URL ký 15 phút. Chốt bucket dùng chung `innerlamp-avatars-dev` với prefix `memorials/`; service account Cloud Run ký được vì có `serviceAccountTokenCreator` trên chính nó. Dọn object mồ côi vẫn để sau.

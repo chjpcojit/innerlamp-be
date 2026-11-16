@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: InnerLamp API
-  version: 3.0.0
+  version: 3.1.0
   description: |
     API của hai service: **appService** (client: đăng ký/đăng nhập bằng email, quên mật khẩu, hồ sơ cá nhân và ảnh đại diện, attestation thiết bị, danh mục chùa, Phật/Bồ tát và bài viết Phật pháp)
     và **backofficeService** (admin: `/v1/admin/*`). Chọn server tương ứng ở ô Servers.
@@ -71,7 +71,7 @@ tags:
     description: |
       Sổ giỗ chạp của người dùng đã đăng nhập. Dữ liệu riêng tư: mọi endpoint cần `Authorization: Bearer <access_token>` và chỉ chủ sở hữu đọc, sửa, xoá được.
       Chủ sở hữu luôn là `user_id` trong token, không có endpoint nào nhận user id từ client.
-      Chưa có ảnh (đang hoãn): `photo_url` luôn là `null`.
+      `photo_url` là URL ký 15 phút khi mục có ảnh, `null` khi chưa có.
   - name: Lamps
     description: |
       Thắp đèn và vườn đèn. Cả hai endpoint cần `Authorization: Bearer <access_token>`: khách chưa đăng nhập không thắp và không xem được.
@@ -1784,6 +1784,92 @@ paths:
                 error: { code: MEMORIAL_NOT_FOUND, message: memorial not found, type: business }
         '500': { $ref: '#/components/responses/ServerError' }
 
+  /v1/memorials/{id}/photo:
+    put:
+      tags: [Memorials]
+      operationId: memorialsUploadPhoto
+      summary: Tải lên hoặc thay ảnh của một mục
+      description: |
+        Gửi `multipart/form-data` với một part tên `photo`. Tối đa **5 MiB**; chỉ nhận `image/jpeg`, `image/png`, `image/webp`
+        (server tự nhận loại bằng 512 byte đầu). Chỉ chủ sở hữu.
+
+        Server kiểm quyền sở hữu **trước khi đọc body**, nên id không tồn tại hoặc của người khác trả `404` mà không nhận upload.
+        Ảnh cũ chỉ bị xoá sau khi database nhận key mới. Response là **Memorial** với `photo_url` là signed URL sống 15 phút.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/MemorialId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [photo]
+              properties:
+                photo:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Đã lưu ảnh. `data` là **Memorial** có `photo_url`.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MemorialEnvelope' }
+        '400':
+          description: '`VALIDATION_ERROR`: thiếu part `photo`, file rỗng, hoặc body không phải multipart.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '404':
+          description: '`MEMORIAL_NOT_FOUND`: không tồn tại hoặc thuộc người khác; body không được đọc.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '413':
+          description: '`PHOTO_TOO_LARGE`: file vượt 5 MiB.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '415':
+          description: '`PHOTO_UNSUPPORTED_TYPE`: không phải JPEG, PNG hoặc WebP.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '500': { $ref: '#/components/responses/ServerError' }
+    delete:
+      tags: [Memorials]
+      operationId: memorialsDeletePhoto
+      summary: Xoá ảnh của một mục
+      description: |
+        Xoá ảnh và trả **Memorial** với `photo_url: null`. Mục chưa có ảnh vẫn trả `200` vì kết quả đã đúng như yêu cầu.
+        Object trên storage bị xoá best-effort sau khi database đã xoá key.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/MemorialId'
+      responses:
+        '200':
+          description: Đã xoá ảnh (hoặc vốn không có ảnh). `photo_url` là `null`.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MemorialEnvelope' }
+        '401':
+          description: '`UNAUTHORIZED`: thiếu token, token sai hoặc hết hạn, hoặc gửi refresh token thay cho access token.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '404':
+          description: '`MEMORIAL_NOT_FOUND`: không tồn tại hoặc thuộc người khác.'
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+        '500': { $ref: '#/components/responses/ServerError' }
   /v1/attestation/challenge:
     post:
       tags: [Attestation]
@@ -7152,7 +7238,7 @@ components:
         death_month: { type: [integer, 'null'], description: 'Có giá trị chỉ khi không biết năm.' }
         death_leap_month: { type: [boolean, 'null'], description: 'Có giá trị chỉ khi không biết năm.' }
         note: { type: [string, 'null'] }
-        photo_url: { type: [string, 'null'], description: '**Luôn `null`** cho tới khi làm tính năng ảnh (đang hoãn). Về sau là signed URL sống 15 phút.', example: null }
+        photo_url: { type: [string, 'null'], description: 'Signed URL sống 15 phút tới ảnh, `null` khi mục chưa có ảnh.', example: null }
         reminder: { oneOf: [{ $ref: '#/components/schemas/MemorialReminder' }, { type: 'null' }] }
         add_to_os_reminder: { type: boolean, description: 'Ý định của người dùng, không phải trạng thái thật trên máy nào.' }
         created_at: { type: string, format: date-time }

@@ -1,8 +1,8 @@
 # Tasks — memorial
 
-Version: 4.2
-Last updated: 2026-10-14
-Status: v1 (Phase 1–5, 5 route CRUD, không ảnh) đã implement và kiểm chứng 2026-10-07. v4.0 thêm Phase 8–10 (contract nhắc, kế hoạch nhắc, job gửi nhắc) — mọi mục `[ ]`; Phase 10 bị chặn bởi feature notification (ADR-0001, chưa có spec). Phase 6 (ảnh/GCS) hoãn (`docs/tech-debt/memorial/TD-001`). Phase 7 (vector `death-date-conversion.json`, mô tả `openapi.yaml`) chưa làm.
+Version: 4.3
+Last updated: 2026-11-16
+Status: v1 (Phase 1–5 CRUD) và Phase 6 (ảnh, 7 route) đã implement và kiểm chứng 2026-11-16. v4.0 thêm Phase 8–10 (contract nhắc, kế hoạch nhắc, job gửi nhắc) — mọi mục `[ ]`; Phase 10 bị chặn bởi feature notification (ADR-0001, chưa có spec).  Phase 7 (vector `death-date-conversion.json`, mô tả `openapi.yaml`) chưa làm.
 Module: `memorial`
 
 > See `changelog.md` in this folder for the version history of this spec.
@@ -46,16 +46,16 @@ Mỗi mục truy về một dòng trong bảng "Layers & components" hoặc mộ
 - [ ] Marker `⚠️ Not confirmed` còn lại (bucket GCS) chỉ cần chốt trước Phase 6; ghi vào `changelog.md` khi chốt
 - [x] Ghi vào changelog: concept OKF `docs/knowledge/features/memorial.md` cần tạo bởi `il-okf-writer` sau khi code được kiểm chứng
 
-## Phase 6 — Ảnh (US-MEM-05) ⏸ HOÃN, chặn bởi GCS
+## Phase 6 — Ảnh (US-MEM-05) — xong 2026-11-16
 
-Chỉ bắt đầu khi GCS dùng được và marker bucket/ký URL đã chốt.
+Chốt: dùng chung bucket `innerlamp-avatars-dev` với prefix `memorials/`; service account Cloud Run đã có `serviceAccountTokenCreator` trên chính nó nên ký URL được (bucket + quyền đã dựng trong `infra/terraform`).
 
-- [ ] `domain/memorial.go`: port `MemorialPhotoStore` (`Put`/`Delete`/`SignedURL`), sentinel `ErrPhotoTooLarge`, `ErrPhotoUnsupportedType`; `domain/mock_memorial_photo_store.go`
-- [ ] `repository/gcs_memorial_photo_store.go` bọc `pkg/storage` (constructor không mở kết nối; `Connect` ở `main`); `SetPhotoKey` trong repo
-- [ ] Usecase `SetPhoto`/`RemovePhoto`, build `photo_url` ở `List`/`Get`, nhánh xoá object ở `Delete` (Step P-1..P-6, D-3); unit tests: thất bại GCS không đổi key trong DB, xoá object lỗi vẫn trả thành công
-- [ ] Handler `UploadPhoto`/`DeletePhoto`: `MaxBytesReader` 5 MB, multipart, sniff content type, 404 trước khi đọc body (AC31); map lỗi 413/415
-- [ ] `MemorialConfig`: `PhotoMaxBytes`, `PhotoURLTTL`, `PhotoBucket`, `PhotoPrefix`; storage client ở `cmd/main.go`; đăng ký 2 route ảnh bọc `authMiddleware.AuthenticateFunc`
-- [ ] `openapi.yaml` (+ bản `web/`) thêm 2 route ảnh; E2E mở rộng cho 7 route
+- [x] `domain/memorial.go`: port `MemorialPhotoStore` (`Put`/`Delete`/`SignedURL`), sentinel `ErrPhotoTooLarge`, `ErrPhotoUnsupportedType`; `domain/mock_memorial_photo_store.go`
+- [x] `repository/gcs_memorial_photo_store.go` bọc `pkg/storage` (constructor không mở kết nối; `Connect` ở `main`); `SetPhotoKey` trong repo
+- [x] Usecase `SetPhoto`/`RemovePhoto`, build `photo_url` ở `List`/`Get`, nhánh xoá object ở `Delete` (Step P-1..P-6, D-3); unit tests: thất bại GCS không đổi key trong DB, xoá object lỗi vẫn trả thành công
+- [x] Handler `UploadPhoto`/`DeletePhoto`: `MaxBytesReader` 5 MB, multipart, sniff content type, 404 trước khi đọc body (AC31); map lỗi 413/415
+- [x] `MemorialConfig`: `PhotoMaxBytes`, `PhotoURLTTL`, `PhotoBucket`, `PhotoPrefix`; storage client ở `cmd/main.go`; đăng ký 2 route ảnh bọc `authMiddleware.AuthenticateFunc`
+- [x] `openapi.yaml` (+ bản `web/`) thêm 2 route ảnh; E2E mở rộng cho 7 route
 - [ ] Cơ chế dọn object mồ côi (đã chốt "tính sau")
 
 ## Phase 7 — Product spec alignment (`docs/product/memorial/product.md`, từ v1.0)
