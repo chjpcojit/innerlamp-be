@@ -271,3 +271,12 @@ genealogy:
   max_spouses: 5
   max_viewers: 20
   invitation_ttl: "720h"
+
+%{ if db_password != "" ~}
+# Only rendered for the one-shot seed job: its commands still use the dev
+# plaintext resolver, so the password must be in the file it reads.
+dev_secrets:
+  innerlamp-db-password: "${db_password}"
+  innerlamp-web-api-key: "${web_api_key}"
+  innerlamp-jwt-secret-key: "${jwt_key}"
+%{ endif ~}

@@ -1,0 +1,14 @@
+#!/bin/sh
+# Seeds every catalogue once, in dependency order:
+#   administrative units -> deities -> temples -> the rest.
+# Every command is an upsert (or a no-op when its table is already loaded), so
+# rerunning the job repairs a wiped table without duplicating rows.
+set -eu
+cd /app
+
+for name in seedadminunits seeddeities seedtemples seedgallery seedcalendarevents seedtempleschedules seedtempleevents seedarticles seeddharmatalks seedsutras; do
+  echo "== $name"
+  "/app/bin/$name"
+done
+
+echo "seed complete"

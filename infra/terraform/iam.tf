@@ -45,6 +45,7 @@ locals {
     jwt         = google_secret_manager_secret.jwt.secret_id
     web_api_key = google_secret_manager_secret.web_api_key.secret_id
     config      = google_secret_manager_secret.app_config.secret_id
+    seed_config = google_secret_manager_secret.seed_config.secret_id
   }
 }
 

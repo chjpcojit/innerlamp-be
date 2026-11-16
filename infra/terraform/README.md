@@ -11,6 +11,7 @@ là identity duy nhất mà workload dùng.
 | Region | `asia-southeast1` | Cloud Run, bucket, registry |
 | Cloud Run service | `innerlamp-app` | scale-to-zero, tối đa 2 instance, CPU chỉ cấp khi có request |
 | Cloud Run job | `innerlamp-migrate` | chạy `migrations/*.sql` một lần mỗi file |
+| Cloud Run job | `innerlamp-seed` | nạp toàn bộ catalogue một lần (idempotent) |
 | Postgres | Neon, `neondb` / `neondb_owner` | host ở `var.neon_host`, TLS bắt buộc (`sslmode=require`) |
 | GCS bucket | `<project_id>-avatars` | private, service tự ký URL |
 | Artifact Registry | `innerlamp` (DOCKER) | chứa image `app` và `migrate` |
@@ -126,20 +127,25 @@ terraform apply -var="app_image=$REG/app:<tag>" -var="migrate_image=$REG/migrate
 
 ## 7. Dữ liệu seed
 
-Service **không tự seed** khi khởi động, nên sau migration API trả danh sách
-rỗng. Seed nằm trong các lệnh `cmd/seed*` (deities → temples → sutras, …) và
-chạy trực tiếp vào Neon từ máy local:
+Service **không tự seed** khi khởi động. Terraform tạo job `innerlamp-seed`
+(image `seed`) chạy đúng thứ tự phụ thuộc: administrative units → deities →
+temples → gallery → calendar events → temple schedules → temple events →
+articles → dharma talks → sutras.
 
 ```bash
-cp services/appService/config/config.dev.yaml /tmp/config.seed.yaml
-# trong /tmp/config.seed.yaml:
-#   database.host = "<neon_host>"
-#   database.username = "neondb_owner"
-#   database.password_secret giữ nguyên, dev_secrets["appservice-db-password"] = "<mật khẩu Neon>"
-#   database.ssl_mode = "require"
+gcloud run jobs execute innerlamp-seed --region asia-southeast1 --wait
+```
 
-CONFIG_PATH=/tmp/config.seed.yaml go run ./services/appService/cmd/seeddeities
-# ... temples, gallery, admin-units, calendar, schedules, events, articles, dharma-talks, sutras
+Job đọc secret `innerlamp-seed-config` (config cloud + `dev_secrets`), vì các
+lệnh `cmd/seed*` vẫn lấy mật khẩu DB từ file cấu hình. Mọi lệnh là upsert hoặc
+no-op khi bảng đã có dữ liệu, nên chạy lại không nhân bản.
+
+Build lại image seed khi dữ liệu nguồn đổi:
+
+```bash
+docker build --platform linux/amd64 -f seeds/Dockerfile -t "$REG/seed:dev" .
+docker push "$REG/seed:dev"
+terraform apply -var="seed_image=$REG/seed:dev"
 ```
 
 ## Chi phí (dev, ước tính)

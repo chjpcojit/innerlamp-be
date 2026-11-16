@@ -84,5 +84,38 @@ resource "google_secret_manager_secret_version" "app_config" {
     db_user        = local.db_user
     db_name        = local.db_name
     db_ssl_mode    = local.db_ssl_mode
+    db_password    = ""
+    web_api_key    = random_password.web_api_key.result
+    jwt_key        = random_password.jwt.result
+  })
+}
+
+# Seed job config: the same cloud config plus dev_secrets, because the
+# cmd/seed* binaries still resolve the DB password from the file they read.
+resource "google_secret_manager_secret" "seed_config" {
+  secret_id = "innerlamp-seed-config"
+  labels    = local.labels
+
+  replication {
+    auto {}
+  }
+
+  depends_on = [google_project_service.enabled]
+}
+
+resource "google_secret_manager_secret_version" "seed_config" {
+  secret = google_secret_manager_secret.seed_config.id
+  secret_data = templatefile("${path.module}/templates/config.cloud.yaml.tftpl", {
+    project_id     = var.project_id
+    region         = var.region
+    avatars_bucket = local.avatars_bucket
+    db_host        = local.db_host
+    db_port        = local.db_port
+    db_user        = local.db_user
+    db_name        = local.db_name
+    db_ssl_mode    = local.db_ssl_mode
+    db_password    = var.neon_password
+    web_api_key    = random_password.web_api_key.result
+    jwt_key        = random_password.jwt.result
   })
 }

@@ -97,3 +97,15 @@ variable "neon_ssl_mode" {
   type        = string
   default     = "require"
 }
+
+variable "seed_image" {
+  description = "Container image with every cmd/seed* binary and the runner."
+  type        = string
+  default     = "asia-southeast1-docker.pkg.dev/innerlamp-dev/innerlamp/seed:latest"
+}
+
+variable "deploy_seed_job" {
+  description = "Create the one-shot Cloud Run job that loads the seed data."
+  type        = bool
+  default     = true
+}

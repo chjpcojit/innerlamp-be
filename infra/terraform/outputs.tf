@@ -27,3 +27,8 @@ output "runtime_service_account" {
   description = "Identity Cloud Run runs as."
   value       = google_service_account.run.email
 }
+
+output "seed_job" {
+  description = "Cloud Run job that loads the catalogue seed (empty when disabled)."
+  value       = var.deploy_seed_job ? google_cloud_run_v2_job.seed[0].name : ""
+}
