@@ -24,9 +24,12 @@ const (
 	MaxEdge = 2048
 	// JPEGQuality is the quality of the re-encoded JPEG.
 	JPEGQuality = 85
-	// MaxPixels caps the decoded bitmap. A 5 MiB file can otherwise expand to
-	// a bitmap large enough to exhaust the process memory.
-	MaxPixels int64 = 50 << 20
+	// MaxPixels caps the bitmap at 24 MP (24 million pixels) before it is
+	// decoded. A 5 MiB file can otherwise declare an enormous bitmap;
+	// 24 MP × 4 B = 96 MB per bitmap, so two concurrent transparent PNGs
+	// (decoded + flattened = 2 × 192 MB) fit a 512 MiB Cloud Run instance
+	// with room for the runtime, the ≤5 MiB source and the re-encoded output.
+	MaxPixels int64 = 24_000_000
 )
 
 var (
@@ -34,8 +37,8 @@ var (
 	// image is corrupt.
 	ErrUnsupported = errors.New("photo: unsupported image")
 
-	// ErrTooLarge means the image decoded, but its pixel count is over
-	// MaxPixels.
+	// ErrTooLarge means the image's header declares more pixels than
+	// MaxPixels. It is returned before the image is decoded.
 	ErrTooLarge = errors.New("photo: image too large")
 )
 
@@ -44,14 +47,17 @@ var (
 // JPEG at JPEGQuality.
 //
 // It returns ErrUnsupported for anything that is not a decodable JPEG, PNG or
-// WebP, and ErrTooLarge for an image over MaxPixels. The returned bytes are
+// WebP, and ErrTooLarge for an image whose header declares more pixels than
+// MaxPixels — checked before the bitmap is decoded. The returned bytes are
 // never derived from the input's metadata, so EXIF/GPS cannot survive.
 func Normalize(data []byte) ([]byte, error) {
 	format, width, height, err := inspect(data)
 	if err != nil {
 		return nil, err
 	}
-	if int64(width)*int64(height) > MaxPixels {
+	// Divide instead of multiply: a header can declare 32-bit dimensions, and
+	// width*height could overflow int64 and let an impossible bitmap through.
+	if int64(width) > MaxPixels/int64(height) {
 		return nil, ErrTooLarge
 	}
 
@@ -98,10 +104,14 @@ func inspect(data []byte) (format string, width, height int, err error) {
 	return format, cfg.Width, cfg.Height, nil
 }
 
-// flattenAlpha draws img over an opaque white background and returns a bitmap
-// with no alpha channel, so a transparent PNG becomes white instead of black
-// once JPEG drops the alpha channel.
-func flattenAlpha(img image.Image) *image.NRGBA {
+// flattenAlpha returns img unchanged when every pixel is already opaque: JPEG
+// ignores alpha, so copying an opaque bitmap would only double peak memory.
+// Otherwise it draws img over an opaque white background, so a transparent PNG
+// becomes white instead of black once JPEG drops the alpha channel.
+func flattenAlpha(img image.Image) image.Image {
+	if opaque, ok := img.(interface{ Opaque() bool }); ok && opaque.Opaque() {
+		return img
+	}
 	b := img.Bounds()
 	dst := image.NewNRGBA(image.Rect(0, 0, b.Dx(), b.Dy()))
 	draw.Draw(dst, dst.Bounds(), image.White, image.Point{}, draw.Src)

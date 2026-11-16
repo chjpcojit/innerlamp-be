@@ -7,6 +7,7 @@ import (
 	"image/color"
 	"image/jpeg"
 	"image/png"
+	"math/rand"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -154,6 +155,83 @@ func TestNormalize_KeepsSmallImage(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, 320, cfg.Width)
 	assert.Equal(t, 240, cfg.Height)
+}
+
+// jpegHeaderOnly builds a JPEG that stops after its SOF0 marker: the JFIF APP0
+// segment makes Go's config reader return at the frame header, so the bytes
+// carry the declared size but no scan data and cannot be fully decoded.
+func jpegHeaderOnly(t *testing.T, w, h uint16) []byte {
+	t.Helper()
+	var buf bytes.Buffer
+	put := func(v any) { require.NoError(t, binary.Write(&buf, binary.BigEndian, v)) }
+
+	buf.Write([]byte{0xFF, 0xD8})             // SOI
+	buf.Write([]byte{0xFF, 0xE0, 0x00, 0x10}) // APP0, length 16
+	buf.WriteString("JFIF\x00\x01\x01\x00\x00\x01\x00\x01\x00\x00")
+	buf.Write([]byte{0xFF, 0xC0, 0x00, 0x11, 0x08}) // SOF0, length 17, 8-bit
+	put(h)
+	put(w)
+	buf.WriteByte(0x03) // three components
+	buf.Write([]byte{1, 0x11, 0x00, 2, 0x11, 0x00, 3, 0x11, 0x00})
+	buf.Write([]byte{0xFF, 0xD9}) // EOI
+	return buf.Bytes()
+}
+
+// newNoisyJPEG encodes a deterministic high-entropy JPEG, the worst case for
+// the re-encode size: fine detail brings the input close to the upload budget.
+func newNoisyJPEG(t *testing.T, w, h int) []byte {
+	t.Helper()
+	img := image.NewRGBA(image.Rect(0, 0, w, h))
+	rnd := rand.New(rand.NewSource(7))
+	for i := 0; i < len(img.Pix); i += 4 {
+		img.Pix[i] = byte(rnd.Intn(256))
+		img.Pix[i+1] = byte(rnd.Intn(256))
+		img.Pix[i+2] = byte(rnd.Intn(256))
+		img.Pix[i+3] = 255
+	}
+	var buf bytes.Buffer
+	require.NoError(t, jpeg.Encode(&buf, img, &jpeg.Options{Quality: 85}))
+	return buf.Bytes()
+}
+
+func TestMaxPixelsAtMost24MP(t *testing.T) {
+	// The cap must stay ≤ 24 MP: at 4 B per pixel a decoded bitmap is
+	// ≤ 96 MB, which keeps two concurrent transparent PNGs inside the
+	// 512 MiB Cloud Run instance.
+	assert.LessOrEqual(t, MaxPixels, int64(24_000_000))
+}
+
+func TestNormalize_RejectsOversizedHeaderBeforeDecode(t *testing.T) {
+	// The header declares 6000×5000 ≈ 28.6 MP, over the 24 MP cap, and the
+	// file carries no scan data. A decoder-first implementation would fail as
+	// unsupported (corrupt JPEG); ErrTooLarge can only come from the header
+	// check, which must run before any full decode.
+	data := jpegHeaderOnly(t, 6000, 5000)
+	cfg, format, err := image.DecodeConfig(bytes.NewReader(data))
+	require.NoError(t, err)
+	require.Equal(t, "jpeg", format)
+	require.Greater(t, int64(cfg.Width)*int64(cfg.Height), MaxPixels)
+
+	out, err := Normalize(data)
+	assert.ErrorIs(t, err, ErrTooLarge)
+	assert.Nil(t, out)
+
+	// The same kind of header under the cap proves the fixture really has no
+	// pixel data: once the size check passes, the decode runs and fails.
+	out, err = Normalize(jpegHeaderOnly(t, 600, 500))
+	assert.ErrorIs(t, err, ErrUnsupported)
+	assert.Nil(t, out)
+}
+
+func TestNormalize_OutputFits5MiB(t *testing.T) {
+	in := newNoisyJPEG(t, 2800, 2100)
+	require.LessOrEqual(t, len(in), 5<<20, "fixture must be an admissible upload")
+	t.Logf("input %d bytes, output budget %d bytes", len(in), 5<<20)
+
+	out, err := Normalize(in)
+	require.NoError(t, err)
+	t.Logf("re-encoded %d bytes", len(out))
+	assert.LessOrEqual(t, len(out), 5<<20, "re-encoded photo must stay within the 5 MiB budget")
 }
 
 func TestNormalize_RejectsGarbage(t *testing.T) {
