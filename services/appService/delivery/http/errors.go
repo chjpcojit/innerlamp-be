@@ -205,6 +205,10 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusRequestEntityTooLarge, "PHOTO_TOO_LARGE", domain.ErrPhotoTooLarge.Error(), nil)
 	case errors.Is(err, domain.ErrPhotoUnsupportedType):
 		utils.WriteBusinessError(w, http.StatusUnsupportedMediaType, "PHOTO_UNSUPPORTED_TYPE", domain.ErrPhotoUnsupportedType.Error(), nil)
+	case errors.Is(err, domain.ErrPhotoURLExpired):
+		// 403, not 400: the client asks for a fresh signed URL instead of
+		// showing the photo as missing.
+		utils.WriteBusinessError(w, http.StatusForbidden, "PHOTO_URL_EXPIRED", domain.ErrPhotoURLExpired.Error(), nil)
 	case errors.Is(err, domain.ErrGenealogyNotFound):
 		utils.WriteBusinessError(w, http.StatusNotFound, "GENEALOGY_NOT_FOUND", domain.ErrGenealogyNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrGenealogyForbidden):

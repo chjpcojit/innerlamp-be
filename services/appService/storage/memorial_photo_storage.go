@@ -65,6 +65,11 @@ func (s *MemorialPhotoStorage) SignedURL(ctx context.Context, key string, ttl ti
 		Expires: ttl,
 	})
 	if err != nil {
+		if pkgstorage.IsExpiredSignatureError(err) {
+			// The store rejected the signature as stale: the caller must get a
+			// fresh URL (403), not "not found".
+			return "", fmt.Errorf("%w: %v", domain.ErrPhotoURLExpired, err)
+		}
 		return "", fmt.Errorf("sign read %q: %w", key, err)
 	}
 	return signed, nil

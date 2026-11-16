@@ -3,6 +3,7 @@ package usecase
 import (
 	"bytes"
 	"context"
+	"errors"
 	"image"
 	"image/color"
 	"image/jpeg"
@@ -120,4 +121,35 @@ func TestMemorialUsecase_DeleteRemovesPhotoObject(t *testing.T) {
 	uc := NewMemorialUsecase(repo, photoConfig()).WithPhotoStore(store)
 	require.NoError(t, uc.Delete(context.Background(), 7, 9))
 	store.AssertExpectations(t)
+}
+
+func TestMemorialUsecase_GetPropagatesExpiredPhotoURL(t *testing.T) {
+	repo := new(domain.MockMemorialRepository)
+	store := new(domain.MockMemorialPhotoStore)
+	key := "memorials/7/9/a.jpg"
+
+	repo.On("FindByIDAndUser", mock.Anything, int64(9), int64(7)).Return(&domain.Memorial{ID: 9, UserID: 7, PhotoObjectKey: &key}, nil)
+	store.On("SignedURL", mock.Anything, key, mock.Anything).Return("", domain.ErrPhotoURLExpired)
+
+	uc := NewMemorialUsecase(repo, photoConfig()).WithPhotoStore(store)
+	_, err := uc.Get(context.Background(), 7, 9)
+
+	require.ErrorIs(t, err, domain.ErrPhotoURLExpired)
+}
+
+// A signing failure that is not an expiry must not hide the memorial: the photo
+// URL is simply absent.
+func TestMemorialUsecase_GetKeepsMemorialWhenSigningFails(t *testing.T) {
+	repo := new(domain.MockMemorialRepository)
+	store := new(domain.MockMemorialPhotoStore)
+	key := "memorials/7/9/a.jpg"
+
+	repo.On("FindByIDAndUser", mock.Anything, int64(9), int64(7)).Return(&domain.Memorial{ID: 9, UserID: 7, PhotoObjectKey: &key}, nil)
+	store.On("SignedURL", mock.Anything, key, mock.Anything).Return("", errors.New("no signing key"))
+
+	uc := NewMemorialUsecase(repo, photoConfig()).WithPhotoStore(store)
+	m, err := uc.Get(context.Background(), 7, 9)
+
+	require.NoError(t, err)
+	assert.Nil(t, m.PhotoURL)
 }

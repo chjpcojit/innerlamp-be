@@ -148,6 +148,11 @@ var (
 
 	// ErrPhotoUnsupportedType — the uploaded bytes are not JPEG, PNG or WebP.
 	ErrPhotoUnsupportedType = errors.New("memorial photo type not supported")
+
+	// ErrPhotoURLExpired — the object store rejected a signed photo URL as
+	// expired. The client must ask for a fresh URL; the answer is 403, not 400,
+	// so a proxy knows to refresh instead of treating the photo as gone.
+	ErrPhotoURLExpired = errors.New("memorial photo url expired")
 )
 
 // MemorialValidationError names the request field that was rejected and why.

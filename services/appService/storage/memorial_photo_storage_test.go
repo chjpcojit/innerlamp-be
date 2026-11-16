@@ -3,13 +3,16 @@ package storage
 import (
 	"bytes"
 	"context"
+	"errors"
 	"io"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
 	pkgstorage "chjpcoj.com.innerlamp/pkg/storage"
+	"chjpcoj.com.innerlamp/services/appService/domain"
 )
 
 // Upload records the options the adapter passed, so a test can assert on the
@@ -44,4 +47,36 @@ func TestMemorialPhotoStorage_PutWrapsUploadError(t *testing.T) {
 	err := s.Put(context.Background(), "memorials/7/9/a.jpg", bytes.NewReader(nil), "image/jpeg", 0)
 	require.Error(t, err)
 	assert.ErrorIs(t, err, pkgstorage.ErrObjectNotFound)
+}
+
+// An expired V4 URL and a signature computed over different parameters both
+// mean "ask for a fresh URL", which the handler answers with 403.
+func TestMemorialPhotoStorage_SignedURLExpiredToken(t *testing.T) {
+	c := &fakeClient{signErr: errors.New("storage: object get: ExpiredToken")}
+	s := NewMemorialPhotoStorage(c, "bucket", "")
+
+	_, err := s.SignedURL(context.Background(), "memorials/7/9/a.jpg", 15*time.Minute)
+
+	require.Error(t, err)
+	assert.ErrorIs(t, err, domain.ErrPhotoURLExpired)
+}
+
+func TestMemorialPhotoStorage_SignedURLSignatureMismatch(t *testing.T) {
+	c := &fakeClient{signErr: errors.New("storage: SignatureDoesNotMatch")}
+	s := NewMemorialPhotoStorage(c, "bucket", "")
+
+	_, err := s.SignedURL(context.Background(), "memorials/7/9/a.jpg", 15*time.Minute)
+
+	require.Error(t, err)
+	assert.ErrorIs(t, err, domain.ErrPhotoURLExpired)
+}
+
+func TestMemorialPhotoStorage_SignedURLOtherErrorStaysGeneric(t *testing.T) {
+	c := &fakeClient{signErr: errors.New("no key")}
+	s := NewMemorialPhotoStorage(c, "bucket", "")
+
+	_, err := s.SignedURL(context.Background(), "memorials/7/9/a.jpg", 15*time.Minute)
+
+	require.Error(t, err)
+	assert.NotErrorIs(t, err, domain.ErrPhotoURLExpired)
 }

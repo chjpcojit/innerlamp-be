@@ -173,6 +173,16 @@ func (g *GCSClient) Upload(ctx context.Context, bucket, objectName string, reade
 }
 
 // Download downloads an object from GCS
+// mapObjectError turns the store's string-coded signed-URL rejections into the
+// package sentinel, so a caller can answer 403 (refresh the URL) instead of a
+// generic 5xx or 400. Everything else is returned unchanged.
+func mapObjectError(err error) error {
+	if storagepkg.IsExpiredSignatureError(err) {
+		return fmt.Errorf("%w: %v", storagepkg.ErrSignatureExpired, err)
+	}
+	return err
+}
+
 func (g *GCSClient) Download(ctx context.Context, bucket, objectName string, writer io.Writer, opts *storagepkg.DownloadOptions) (*storagepkg.ObjectInfo, error) {
 	if !g.connected || g.client == nil {
 		return nil, storagepkg.ErrNotConnected
@@ -200,7 +210,7 @@ func (g *GCSClient) Download(ctx context.Context, bucket, objectName string, wri
 		if errors.Is(err, storage.ErrObjectNotExist) {
 			return nil, storagepkg.ErrObjectNotFound
 		}
-		return nil, fmt.Errorf("%w: %v", storagepkg.ErrDownloadFailed, err)
+		return nil, mapObjectError(fmt.Errorf("%w: %v", storagepkg.ErrDownloadFailed, err))
 	}
 
 	var reader *storage.Reader
@@ -220,12 +230,12 @@ func (g *GCSClient) Download(ctx context.Context, bucket, objectName string, wri
 		if errors.Is(err, storage.ErrObjectNotExist) {
 			return nil, storagepkg.ErrObjectNotFound
 		}
-		return nil, fmt.Errorf("%w: %v", storagepkg.ErrDownloadFailed, err)
+		return nil, mapObjectError(fmt.Errorf("%w: %v", storagepkg.ErrDownloadFailed, err))
 	}
 	defer reader.Close()
 
 	if _, err := io.Copy(writer, reader); err != nil {
-		return nil, fmt.Errorf("%w: %v", storagepkg.ErrDownloadFailed, err)
+		return nil, mapObjectError(fmt.Errorf("%w: %v", storagepkg.ErrDownloadFailed, err))
 	}
 
 	return g.attrsToObjectInfo(attrs), nil
@@ -274,7 +284,7 @@ func (g *GCSClient) GetObjectInfo(ctx context.Context, bucket, objectName string
 		if errors.Is(err, storage.ErrObjectNotExist) {
 			return nil, storagepkg.ErrObjectNotFound
 		}
-		return nil, err
+		return nil, mapObjectError(err)
 	}
 
 	return g.attrsToObjectInfo(attrs), nil

@@ -76,7 +76,7 @@ func (u *MemorialUsecase) Create(ctx context.Context, userID int64, in domain.Me
 	if err != nil {
 		return nil, fmt.Errorf("create memorial: %w", err)
 	}
-	u.attachPhotoURL(ctx, created)
+	_ = u.attachPhotoURL(ctx, created)
 	return created, nil
 }
 
@@ -90,7 +90,7 @@ func (u *MemorialUsecase) List(ctx context.Context, userID int64) ([]domain.Memo
 		items = []domain.Memorial{}
 	}
 	for i := range items {
-		u.attachPhotoURL(ctx, &items[i])
+		_ = u.attachPhotoURL(ctx, &items[i])
 	}
 	return items, nil
 }
@@ -101,7 +101,9 @@ func (u *MemorialUsecase) Get(ctx context.Context, userID, id int64) (*domain.Me
 	if err != nil {
 		return nil, fmt.Errorf("get memorial %d: %w", id, err)
 	}
-	u.attachPhotoURL(ctx, m)
+	if err := u.attachPhotoURL(ctx, m); err != nil {
+		return nil, err
+	}
 	return m, nil
 }
 
@@ -118,7 +120,7 @@ func (u *MemorialUsecase) Update(ctx context.Context, userID, id int64, in domai
 	if err != nil {
 		return nil, fmt.Errorf("update memorial %d: %w", id, err)
 	}
-	u.attachPhotoURL(ctx, updated)
+	_ = u.attachPhotoURL(ctx, updated)
 	return updated, nil
 }
 
@@ -212,9 +214,13 @@ func (u *MemorialUsecase) photoPrefix() string {
 	return "memorials/"
 }
 
-func (u *MemorialUsecase) attachPhotoURL(ctx context.Context, m *domain.Memorial) {
+// attachPhotoURL fills m.PhotoURL with a fresh signed URL. An expired signature
+// is returned so the caller can answer 403 and make the client ask again; any
+// other failure only leaves the URL empty, because a photo that cannot be signed
+// must not hide the rest of the memorial.
+func (u *MemorialUsecase) attachPhotoURL(ctx context.Context, m *domain.Memorial) error {
 	if m == nil || m.PhotoObjectKey == nil || u.photos == nil {
-		return
+		return nil
 	}
 	ttl := u.cfg.PhotoURLTTL.Duration()
 	if ttl <= 0 {
@@ -222,9 +228,13 @@ func (u *MemorialUsecase) attachPhotoURL(ctx context.Context, m *domain.Memorial
 	}
 	url, err := u.photos.SignedURL(ctx, *m.PhotoObjectKey, ttl)
 	if err != nil {
-		return
+		if errors.Is(err, domain.ErrPhotoURLExpired) {
+			return err
+		}
+		return nil
 	}
 	m.PhotoURL = &url
+	return nil
 }
 
 func invalid(field, message string) error {
