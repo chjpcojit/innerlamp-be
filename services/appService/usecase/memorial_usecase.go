@@ -2,11 +2,15 @@ package usecase
 
 import (
 	"context"
+	"errors"
 	"fmt"
+	"io"
 	"regexp"
 	"strings"
 	"time"
 	"unicode/utf8"
+
+	"github.com/google/uuid"
 
 	"chjpcoj.com.innerlamp/services/appService/config"
 	"chjpcoj.com.innerlamp/services/appService/domain"
@@ -39,6 +43,7 @@ var vietnamZone = time.FixedZone("ICT", 7*60*60)
 // repository can enforce ownership.
 type MemorialUsecase struct {
 	memorials domain.MemorialRepository
+	photos    domain.MemorialPhotoStore
 	cfg       config.MemorialConfig
 	now       func() time.Time
 }
@@ -46,6 +51,14 @@ type MemorialUsecase struct {
 // NewMemorialUsecase wires the use case.
 func NewMemorialUsecase(memorials domain.MemorialRepository, cfg config.MemorialConfig) *MemorialUsecase {
 	return &MemorialUsecase{memorials: memorials, cfg: cfg, now: time.Now}
+}
+
+// WithPhotoStore enables the photo routes. Without it SetPhoto and RemovePhoto
+// return an error instead of writing to a nil store, so a deployment that has
+// not configured storage fails loudly rather than silently dropping files.
+func (u *MemorialUsecase) WithPhotoStore(store domain.MemorialPhotoStore) *MemorialUsecase {
+	u.photos = store
+	return u
 }
 
 // Create validates in and stores it as a memorial owned by userID. It returns
@@ -61,6 +74,7 @@ func (u *MemorialUsecase) Create(ctx context.Context, userID int64, in domain.Me
 	if err != nil {
 		return nil, fmt.Errorf("create memorial: %w", err)
 	}
+	u.attachPhotoURL(ctx, created)
 	return created, nil
 }
 
@@ -73,6 +87,9 @@ func (u *MemorialUsecase) List(ctx context.Context, userID int64) ([]domain.Memo
 	if items == nil {
 		items = []domain.Memorial{}
 	}
+	for i := range items {
+		u.attachPhotoURL(ctx, &items[i])
+	}
 	return items, nil
 }
 
@@ -82,6 +99,7 @@ func (u *MemorialUsecase) Get(ctx context.Context, userID, id int64) (*domain.Me
 	if err != nil {
 		return nil, fmt.Errorf("get memorial %d: %w", id, err)
 	}
+	u.attachPhotoURL(ctx, m)
 	return m, nil
 }
 
@@ -98,15 +116,110 @@ func (u *MemorialUsecase) Update(ctx context.Context, userID, id int64, in domai
 	if err != nil {
 		return nil, fmt.Errorf("update memorial %d: %w", id, err)
 	}
+	u.attachPhotoURL(ctx, updated)
 	return updated, nil
 }
 
 // Delete removes one of the user's memorials, or returns domain.ErrMemorialNotFound.
 func (u *MemorialUsecase) Delete(ctx context.Context, userID, id int64) error {
-	if err := u.memorials.Delete(ctx, id, userID); err != nil {
+	key, err := u.memorials.Delete(ctx, id, userID)
+	if err != nil {
 		return fmt.Errorf("delete memorial %d: %w", id, err)
 	}
+	// The row is gone; a leftover object must not turn a successful delete into
+	// an error (tasks.md Phase 6, Step D-3).
+	if key != nil && u.photos != nil {
+		_ = u.photos.Delete(ctx, *key)
+	}
 	return nil
+}
+
+// SetPhoto stores one image and points the memorial at it. The previous object
+// is removed only after the database accepted the new key.
+func (u *MemorialUsecase) SetPhoto(ctx context.Context, userID, id int64, r io.Reader, contentType string, size int64) (*domain.Memorial, error) {
+	if u.photos == nil {
+		return nil, errors.New("memorial photo store is not configured")
+	}
+	maxBytes := u.cfg.PhotoMaxBytes
+	if maxBytes <= 0 {
+		maxBytes = 5 << 20
+	}
+	if size > maxBytes {
+		return nil, domain.ErrPhotoTooLarge
+	}
+	ext, ok := memorialPhotoExt(contentType)
+	if !ok {
+		return nil, domain.ErrPhotoUnsupportedType
+	}
+	// Ownership is checked before the body is read by the handler; this second
+	// lookup keeps the use case safe on its own.
+	if _, err := u.memorials.FindByIDAndUser(ctx, id, userID); err != nil {
+		return nil, fmt.Errorf("get memorial %d: %w", id, err)
+	}
+
+	key := fmt.Sprintf("%s%d/%d/%s%s", u.photoPrefix(), userID, id, uuid.NewString(), ext)
+	if err := u.photos.Put(ctx, key, r, contentType, size); err != nil {
+		return nil, fmt.Errorf("put memorial photo: %w", err)
+	}
+	oldKey, err := u.memorials.SetPhotoKey(ctx, id, userID, &key)
+	if err != nil {
+		_ = u.photos.Delete(ctx, key)
+		return nil, fmt.Errorf("set memorial photo key: %w", err)
+	}
+	if oldKey != nil {
+		_ = u.photos.Delete(ctx, *oldKey)
+	}
+	return u.Get(ctx, userID, id)
+}
+
+// RemovePhoto clears the photo. A memorial without a photo is already in the
+// requested state, so it succeeds.
+func (u *MemorialUsecase) RemovePhoto(ctx context.Context, userID, id int64) (*domain.Memorial, error) {
+	if u.photos == nil {
+		return nil, errors.New("memorial photo store is not configured")
+	}
+	oldKey, err := u.memorials.SetPhotoKey(ctx, id, userID, nil)
+	if err != nil {
+		return nil, fmt.Errorf("clear memorial photo key: %w", err)
+	}
+	if oldKey != nil {
+		_ = u.photos.Delete(ctx, *oldKey)
+	}
+	return u.Get(ctx, userID, id)
+}
+
+func (u *MemorialUsecase) photoPrefix() string {
+	if u.cfg.PhotoPrefix != "" {
+		return u.cfg.PhotoPrefix
+	}
+	return "memorials/"
+}
+
+func (u *MemorialUsecase) attachPhotoURL(ctx context.Context, m *domain.Memorial) {
+	if m == nil || m.PhotoObjectKey == nil || u.photos == nil {
+		return
+	}
+	ttl := u.cfg.PhotoURLTTL.Duration()
+	if ttl <= 0 {
+		ttl = 15 * time.Minute
+	}
+	url, err := u.photos.SignedURL(ctx, *m.PhotoObjectKey, ttl)
+	if err != nil {
+		return
+	}
+	m.PhotoURL = &url
+}
+
+func memorialPhotoExt(contentType string) (string, bool) {
+	switch contentType {
+	case "image/jpeg":
+		return ".jpg", true
+	case "image/png":
+		return ".png", true
+	case "image/webp":
+		return ".webp", true
+	}
+	return "", false
 }
 
 func invalid(field, message string) error {

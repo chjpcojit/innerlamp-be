@@ -135,19 +135,49 @@ func (r *memorialRepository) Update(ctx context.Context, m *domain.Memorial) (*d
 }
 
 // Delete removes the memorial or returns domain.ErrMemorialNotFound.
-func (r *memorialRepository) Delete(ctx context.Context, id, userID int64) error {
-	res, err := r.db.Exec(ctx, `DELETE FROM memorials WHERE id = $1 AND user_id = $2`, id, userID)
+func (r *memorialRepository) Delete(ctx context.Context, id, userID int64) (*string, error) {
+	var key sql.NullString
+	err := r.db.QueryRow(ctx,
+		`DELETE FROM memorials WHERE id = $1 AND user_id = $2 RETURNING photo_object_key`,
+		id, userID).Scan(&key)
+	if errors.Is(err, sql.ErrNoRows) {
+		return nil, domain.ErrMemorialNotFound
+	}
 	if err != nil {
-		return fmt.Errorf("delete memorial: %w", err)
+		return nil, fmt.Errorf("delete memorial: %w", err)
 	}
-	n, err := res.RowsAffected()
+	if key.Valid {
+		return &key.String, nil
+	}
+	return nil, nil
+}
+
+// SetPhotoKey replaces the photo key and returns the previous one. The row is
+// locked first so two concurrent uploads cannot both read the same old key and
+// leave one object undeleted.
+func (r *memorialRepository) SetPhotoKey(ctx context.Context, id, userID int64, key *string) (*string, error) {
+	var old sql.NullString
+	err := r.db.QueryRow(ctx, `
+		WITH old AS (
+			SELECT photo_object_key FROM memorials
+			WHERE id = $1 AND user_id = $2
+			FOR UPDATE
+		)
+		UPDATE memorials m
+		SET photo_object_key = $3, updated_at = now()
+		FROM old
+		WHERE m.id = $1 AND m.user_id = $2
+		RETURNING old.photo_object_key`, id, userID, key).Scan(&old)
+	if errors.Is(err, sql.ErrNoRows) {
+		return nil, domain.ErrMemorialNotFound
+	}
 	if err != nil {
-		return fmt.Errorf("delete memorial rows affected: %w", err)
+		return nil, fmt.Errorf("set memorial photo key: %w", err)
 	}
-	if n == 0 {
-		return domain.ErrMemorialNotFound
+	if old.Valid {
+		return &old.String, nil
 	}
-	return nil
+	return nil, nil
 }
 
 func scanMemorial(s rowScanner) (*domain.Memorial, error) {

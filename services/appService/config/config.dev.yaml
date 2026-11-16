@@ -183,6 +183,12 @@ article:
 # Sổ giỗ chạp. max_per_user is required: zero would mean nobody can add a memorial.
 memorial:
   max_per_user: 100
+  # Ảnh sổ giỗ (US-MEM-05): 5 MiB, URL ký 15 phút, dùng chung bucket avatars với
+  # prefix riêng để không phải tạo thêm bucket ở dev.
+  photo_max_bytes: 5242880
+  photo_url_ttl: "15m"
+  photo_bucket: "innerlamp-avatars-dev"
+  photo_prefix: "memorials/"
 
 # Đề xuất thêm chùa (route công khai, ghi DB). rate_limit is required: Validate rejects zero.
 # trust_forwarded_for stays false locally; set it true only behind a proxy that appends the real client IP (Cloud Run).

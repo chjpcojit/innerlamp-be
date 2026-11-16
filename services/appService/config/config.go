@@ -607,6 +607,16 @@ type ArticleConfig struct {
 type MemorialConfig struct {
 	// MaxPerUser is how many memorials one user may own.
 	MaxPerUser int `yaml:"max_per_user"`
+
+	// PhotoMaxBytes caps one uploaded memorial photo (5 MiB by default).
+	PhotoMaxBytes int64 `yaml:"photo_max_bytes"`
+	// PhotoURLTTL is how long a signed photo URL stays valid.
+	PhotoURLTTL Duration `yaml:"photo_url_ttl"`
+	// PhotoBucket is the GCS bucket holding memorial photos. Empty falls back
+	// to profile.bucket, so dev needs no second bucket.
+	PhotoBucket string `yaml:"photo_bucket"`
+	// PhotoPrefix is the key prefix inside the bucket (default "memorials/").
+	PhotoPrefix string `yaml:"photo_prefix"`
 }
 
 // LampConfig holds the thắp đèn / vườn đèn limits (docs/specs/features/lamp).

@@ -51,6 +51,19 @@ func (m *MockMemorialRepository) Update(ctx context.Context, mem *Memorial) (*Me
 }
 
 // Delete mocks the Delete method.
-func (m *MockMemorialRepository) Delete(ctx context.Context, id, userID int64) error {
-	return m.Called(ctx, id, userID).Error(0)
+func (m *MockMemorialRepository) Delete(ctx context.Context, id, userID int64) (*string, error) {
+	args := m.Called(ctx, id, userID)
+	if r := args.Get(0); r != nil {
+		return r.(*string), args.Error(1)
+	}
+	return nil, args.Error(1)
+}
+
+// SetPhotoKey mocks the SetPhotoKey method.
+func (m *MockMemorialRepository) SetPhotoKey(ctx context.Context, id, userID int64, key *string) (*string, error) {
+	args := m.Called(ctx, id, userID, key)
+	if r := args.Get(0); r != nil {
+		return r.(*string), args.Error(1)
+	}
+	return nil, args.Error(1)
 }

@@ -1,8 +1,10 @@
 package http
 
 import (
+	"bytes"
 	"context"
 	"errors"
+	"io"
 	"net/http"
 	"strconv"
 	"time"
@@ -20,6 +22,8 @@ type memorialUsecase interface {
 	Get(ctx context.Context, userID, id int64) (*domain.Memorial, error)
 	Update(ctx context.Context, userID, id int64, in domain.MemorialInput) (*domain.Memorial, error)
 	Delete(ctx context.Context, userID, id int64) error
+	SetPhoto(ctx context.Context, userID, id int64, r io.Reader, contentType string, size int64) (*domain.Memorial, error)
+	RemovePhoto(ctx context.Context, userID, id int64) (*domain.Memorial, error)
 }
 
 // MemorialHandler serves a user's own death-anniversary book. Every route must be
@@ -27,11 +31,22 @@ type memorialUsecase interface {
 // never from the path or body.
 type MemorialHandler struct {
 	usecase memorialUsecase
+	// photoMaxBytes caps one upload; 5 MiB unless the composition root sets it
+	// from memorial.photo_max_bytes.
+	photoMaxBytes int64
 }
 
 // NewMemorialHandler wires the handler.
 func NewMemorialHandler(usecase memorialUsecase) *MemorialHandler {
-	return &MemorialHandler{usecase: usecase}
+	return &MemorialHandler{usecase: usecase, photoMaxBytes: 5 << 20}
+}
+
+// WithPhotoLimit sets the upload cap from config.
+func (h *MemorialHandler) WithPhotoLimit(maxBytes int64) *MemorialHandler {
+	if maxBytes > 0 {
+		h.photoMaxBytes = maxBytes
+	}
+	return h
 }
 
 // reminderRequest / reminderResponse are the reminder object on the wire.
@@ -94,7 +109,7 @@ func newMemorialResponse(m *domain.Memorial) memorialResponse {
 	r := memorialResponse{
 		ID: m.ID, FullName: m.FullName, Relationship: string(m.Relationship), DeathCalendar: string(m.DeathCalendar),
 		DeathDay: m.DeathDay, DeathMonth: m.DeathMonth, DeathLeapMonth: m.DeathLeapMonth, Note: m.Note,
-		AddToOSReminder: m.AddToOSReminder, CreatedAt: m.CreatedAt, UpdatedAt: m.UpdatedAt,
+		AddToOSReminder: m.AddToOSReminder, PhotoURL: m.PhotoURL, CreatedAt: m.CreatedAt, UpdatedAt: m.UpdatedAt,
 	}
 	if m.DeathDate != nil {
 		d := m.DeathDate.Format(time.DateOnly)
@@ -141,6 +156,82 @@ func currentUserID(w http.ResponseWriter, r *http.Request) (int64, bool) {
 
 // memorialID parses the {id} path value. Anything that is not a positive integer
 // is reported as 404 — the same answer as an id that does not exist.
+// UploadPhoto serves PUT /v1/memorials/{id}/photo. Ownership is checked before
+// the body is read, so a caller cannot probe ids by upload size (AC31).
+func (h *MemorialHandler) UploadPhoto(w http.ResponseWriter, r *http.Request) {
+	userID, ok := currentUserID(w, r)
+	if !ok {
+		return
+	}
+	id, ok := memorialID(w, r)
+	if !ok {
+		return
+	}
+	if _, err := h.usecase.Get(r.Context(), userID, id); err != nil {
+		writeDomainError(w, err)
+		return
+	}
+
+	r.Body = http.MaxBytesReader(w, r.Body, h.photoMaxBytes)
+	if err := r.ParseMultipartForm(h.photoMaxBytes); err != nil {
+		var tooLarge *http.MaxBytesError
+		if errors.As(err, &tooLarge) {
+			writeDomainError(w, domain.ErrPhotoTooLarge)
+			return
+		}
+		utils.WriteValidationError(w, "photo", "expected multipart/form-data with a photo part", nil)
+		return
+	}
+	file, _, err := r.FormFile("photo")
+	if err != nil {
+		utils.WriteValidationError(w, "photo", "a photo part is required", nil)
+		return
+	}
+	defer func() { _ = file.Close() }()
+
+	data, err := io.ReadAll(file)
+	if err != nil {
+		var tooLarge *http.MaxBytesError
+		if errors.As(err, &tooLarge) {
+			writeDomainError(w, domain.ErrPhotoTooLarge)
+			return
+		}
+		utils.WriteValidationError(w, "photo", "photo could not be read", nil)
+		return
+	}
+	if len(data) == 0 {
+		utils.WriteValidationError(w, "photo", "photo is empty", nil)
+		return
+	}
+	contentType := http.DetectContentType(data)
+
+	m, err := h.usecase.SetPhoto(r.Context(), userID, id, bytes.NewReader(data), contentType, int64(len(data)))
+	if err != nil {
+		writeDomainError(w, err)
+		return
+	}
+	utils.WriteSuccessResponse(w, newMemorialResponse(m))
+}
+
+// DeletePhoto serves DELETE /v1/memorials/{id}/photo. Removing a photo that is
+// already absent succeeds (AC30).
+func (h *MemorialHandler) DeletePhoto(w http.ResponseWriter, r *http.Request) {
+	userID, ok := currentUserID(w, r)
+	if !ok {
+		return
+	}
+	id, ok := memorialID(w, r)
+	if !ok {
+		return
+	}
+	m, err := h.usecase.RemovePhoto(r.Context(), userID, id)
+	if err != nil {
+		writeDomainError(w, err)
+		return
+	}
+	utils.WriteSuccessResponse(w, newMemorialResponse(m))
+}
+
 func memorialID(w http.ResponseWriter, r *http.Request) (int64, bool) {
 	id, err := strconv.ParseInt(r.PathValue("id"), 10, 64)
 	if err != nil || id < 1 {
