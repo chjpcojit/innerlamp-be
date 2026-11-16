@@ -180,15 +180,18 @@ func TestMemorialRepository_Delete(t *testing.T) {
 	created, err := repo.Create(ctx, fullDateMemorial(owner, "A"), 100)
 	require.NoError(t, err)
 
-	assert.ErrorIs(t, repo.Delete(ctx, created.ID, other), domain.ErrMemorialNotFound, "not yours")
+	_, err = repo.Delete(ctx, created.ID, other)
+	assert.ErrorIs(t, err, domain.ErrMemorialNotFound, "not yours")
 	_, err = repo.FindByIDAndUser(ctx, created.ID, owner)
 	require.NoError(t, err, "still there after a refused delete")
 
-	require.NoError(t, repo.Delete(ctx, created.ID, owner))
+	_, err = repo.Delete(ctx, created.ID, owner)
+	require.NoError(t, err)
 	_, err = repo.FindByIDAndUser(ctx, created.ID, owner)
 	assert.ErrorIs(t, err, domain.ErrMemorialNotFound)
 
-	assert.ErrorIs(t, repo.Delete(ctx, created.ID, owner), domain.ErrMemorialNotFound, "second delete")
+	_, err = repo.Delete(ctx, created.ID, owner)
+	assert.ErrorIs(t, err, domain.ErrMemorialNotFound, "second delete")
 }
 
 func TestMemorialRepository_Create_LimitIsPerUser(t *testing.T) {
