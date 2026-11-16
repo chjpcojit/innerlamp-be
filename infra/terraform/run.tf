@@ -37,6 +37,11 @@ resource "google_cloud_run_v2_service" "app" {
       }
 
       resources {
+        # Request-based billing: CPU is allocated only while a request runs.
+        # Without this the provider leaves cpu_idle = false and every live
+        # instance bills CPU for its whole keep-alive window.
+        cpu_idle = true
+
         limits = {
           cpu    = "1"
           memory = "512Mi"
