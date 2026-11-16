@@ -22,7 +22,7 @@ type memorialUsecase interface {
 	Get(ctx context.Context, userID, id int64) (*domain.Memorial, error)
 	Update(ctx context.Context, userID, id int64, in domain.MemorialInput) (*domain.Memorial, error)
 	Delete(ctx context.Context, userID, id int64) error
-	SetPhoto(ctx context.Context, userID, id int64, r io.Reader, contentType string, size int64) (*domain.Memorial, error)
+	SetPhoto(ctx context.Context, userID, id int64, r io.Reader) (*domain.Memorial, error)
 	RemovePhoto(ctx context.Context, userID, id int64) (*domain.Memorial, error)
 }
 
@@ -203,9 +203,9 @@ func (h *MemorialHandler) UploadPhoto(w http.ResponseWriter, r *http.Request) {
 		utils.WriteValidationError(w, "photo", "photo is empty", nil)
 		return
 	}
-	contentType := http.DetectContentType(data)
-
-	m, err := h.usecase.SetPhoto(r.Context(), userID, id, bytes.NewReader(data), contentType, int64(len(data)))
+	// The upload is decoded and re-encoded inside the use case; the client's
+	// own content type is never trusted or stored.
+	m, err := h.usecase.SetPhoto(r.Context(), userID, id, bytes.NewReader(data))
 	if err != nil {
 		writeDomainError(w, err)
 		return

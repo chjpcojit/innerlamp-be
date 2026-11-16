@@ -28,6 +28,9 @@ type fakeClient struct {
 	deleted      []string
 	deleteErr    error
 	seenInfoCall string
+	uploaded     *pkgstorage.UploadOptions
+	uploadedBody []byte
+	uploadErr    error
 }
 
 type signedCall struct {

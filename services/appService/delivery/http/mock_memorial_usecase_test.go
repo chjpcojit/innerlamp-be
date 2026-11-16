@@ -50,8 +50,8 @@ func (m *mockMemorialUsecase) Delete(ctx context.Context, userID, id int64) erro
 	return m.Called(ctx, userID, id).Error(0)
 }
 
-func (m *mockMemorialUsecase) SetPhoto(ctx context.Context, userID, id int64, r io.Reader, contentType string, size int64) (*domain.Memorial, error) {
-	args := m.Called(ctx, userID, id, r, contentType, size)
+func (m *mockMemorialUsecase) SetPhoto(ctx context.Context, userID, id int64, r io.Reader) (*domain.Memorial, error) {
+	args := m.Called(ctx, userID, id, r)
 	if v := args.Get(0); v != nil {
 		return v.(*domain.Memorial), args.Error(1)
 	}

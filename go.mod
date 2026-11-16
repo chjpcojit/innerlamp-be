@@ -13,6 +13,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.107.2
 	github.com/aws/aws-sdk-go-v2/service/secretsmanager v1.44.6
 	github.com/aws/smithy-go v1.27.8
+	github.com/disintegration/imaging v1.6.2
 	github.com/fxamacker/cbor/v2 v2.9.3
 	github.com/go-playground/validator/v10 v10.30.3
 	github.com/go-sql-driver/mysql v1.10.0
@@ -31,7 +32,8 @@ require (
 	go.opentelemetry.io/otel/sdk v1.45.0
 	go.opentelemetry.io/otel/trace v1.45.0
 	golang.org/x/crypto v0.54.0
-	golang.org/x/text v0.40.0
+	golang.org/x/image v0.45.0
+	golang.org/x/text v0.41.0
 	google.golang.org/api v0.293.0
 	google.golang.org/genproto/googleapis/api v0.0.0-20260817212433-ac3dfec99bb1
 	google.golang.org/grpc v1.83.0

@@ -1,6 +1,7 @@
 package usecase
 
 import (
+	"bytes"
 	"context"
 	"errors"
 	"fmt"
@@ -14,6 +15,7 @@ import (
 
 	"chjpcoj.com.innerlamp/services/appService/config"
 	"chjpcoj.com.innerlamp/services/appService/domain"
+	"chjpcoj.com.innerlamp/services/appService/photo"
 )
 
 // Field limits fixed by the spec / the memorials schema (VARCHAR lengths, CHECK
@@ -134,9 +136,13 @@ func (u *MemorialUsecase) Delete(ctx context.Context, userID, id int64) error {
 	return nil
 }
 
-// SetPhoto stores one image and points the memorial at it. The previous object
-// is removed only after the database accepted the new key.
-func (u *MemorialUsecase) SetPhoto(ctx context.Context, userID, id int64, r io.Reader, contentType string, size int64) (*domain.Memorial, error) {
+// SetPhoto decodes one uploaded image, stores the normalised JPEG and points
+// the memorial at it. The previous object is removed only after the database
+// accepted the new key.
+//
+// The client's content type is never trusted: the format is taken from the
+// bytes themselves, and what is stored is the re-encoded copy, not the upload.
+func (u *MemorialUsecase) SetPhoto(ctx context.Context, userID, id int64, r io.Reader) (*domain.Memorial, error) {
 	if u.photos == nil {
 		return nil, errors.New("memorial photo store is not configured")
 	}
@@ -144,21 +150,32 @@ func (u *MemorialUsecase) SetPhoto(ctx context.Context, userID, id int64, r io.R
 	if maxBytes <= 0 {
 		maxBytes = 5 << 20
 	}
-	if size > maxBytes {
-		return nil, domain.ErrPhotoTooLarge
-	}
-	ext, ok := memorialPhotoExt(contentType)
-	if !ok {
-		return nil, domain.ErrPhotoUnsupportedType
-	}
-	// Ownership is checked before the body is read by the handler; this second
-	// lookup keeps the use case safe on its own.
+	// Ownership comes before the body: the handler already checks it, and this
+	// second lookup keeps the use case safe when it is called directly, so an
+	// id the caller does not own never reaches the decoder.
 	if _, err := u.memorials.FindByIDAndUser(ctx, id, userID); err != nil {
 		return nil, fmt.Errorf("get memorial %d: %w", id, err)
 	}
 
-	key := fmt.Sprintf("%s%d/%d/%s%s", u.photoPrefix(), userID, id, uuid.NewString(), ext)
-	if err := u.photos.Put(ctx, key, r, contentType, size); err != nil {
+	// One byte over the cap is enough to know the body is too large, without
+	// buffering an unbounded upload.
+	data, err := io.ReadAll(io.LimitReader(r, maxBytes+1))
+	if err != nil {
+		return nil, fmt.Errorf("read memorial photo: %w", err)
+	}
+	if int64(len(data)) > maxBytes {
+		return nil, domain.ErrPhotoTooLarge
+	}
+	normalized, err := photo.Normalize(data)
+	if err != nil {
+		if errors.Is(err, photo.ErrTooLarge) {
+			return nil, domain.ErrPhotoTooLarge
+		}
+		return nil, domain.ErrPhotoUnsupportedType
+	}
+
+	key := fmt.Sprintf("%s%d/%d/%s.jpg", u.photoPrefix(), userID, id, uuid.NewString())
+	if err := u.photos.Put(ctx, key, bytes.NewReader(normalized), "image/jpeg", int64(len(normalized))); err != nil {
 		return nil, fmt.Errorf("put memorial photo: %w", err)
 	}
 	oldKey, err := u.memorials.SetPhotoKey(ctx, id, userID, &key)
@@ -208,18 +225,6 @@ func (u *MemorialUsecase) attachPhotoURL(ctx context.Context, m *domain.Memorial
 		return
 	}
 	m.PhotoURL = &url
-}
-
-func memorialPhotoExt(contentType string) (string, bool) {
-	switch contentType {
-	case "image/jpeg":
-		return ".jpg", true
-	case "image/png":
-		return ".png", true
-	case "image/webp":
-		return ".webp", true
-	}
-	return "", false
 }
 
 func invalid(field, message string) error {

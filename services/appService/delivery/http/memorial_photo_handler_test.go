@@ -36,7 +36,7 @@ func photoUploadRequest(t *testing.T, userID string, content []byte) *http.Reque
 func TestMemorialHandler_UploadPhoto(t *testing.T) {
 	uc := new(mockMemorialUsecase)
 	uc.On("Get", mock.Anything, int64(7), int64(9)).Return(sampleMemorial(), nil)
-	uc.On("SetPhoto", mock.Anything, int64(7), int64(9), mock.Anything, "image/png", int64(8)).Return(sampleMemorial(), nil)
+	uc.On("SetPhoto", mock.Anything, int64(7), int64(9), mock.Anything).Return(sampleMemorial(), nil)
 
 	rec := serve(newMemorialMux(uc), photoUploadRequest(t, "7", []byte("\x89PNG\r\n\x1a\n")))
 
@@ -51,13 +51,13 @@ func TestMemorialHandler_UploadPhoto_NotFoundBeforeReadingBody(t *testing.T) {
 	rec := serve(newMemorialMux(uc), photoUploadRequest(t, "7", []byte("anything")))
 
 	assert.Equal(t, http.StatusNotFound, rec.Code)
-	uc.AssertNotCalled(t, "SetPhoto", mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything, mock.Anything)
+	uc.AssertNotCalled(t, "SetPhoto", mock.Anything, mock.Anything, mock.Anything, mock.Anything)
 }
 
 func TestMemorialHandler_UploadPhoto_UnsupportedType(t *testing.T) {
 	uc := new(mockMemorialUsecase)
 	uc.On("Get", mock.Anything, int64(7), int64(9)).Return(sampleMemorial(), nil)
-	uc.On("SetPhoto", mock.Anything, int64(7), int64(9), mock.Anything, "text/plain; charset=utf-8", int64(5)).Return(nil, domain.ErrPhotoUnsupportedType)
+	uc.On("SetPhoto", mock.Anything, int64(7), int64(9), mock.Anything).Return(nil, domain.ErrPhotoUnsupportedType)
 
 	rec := serve(newMemorialMux(uc), photoUploadRequest(t, "7", []byte("hello")))
 
