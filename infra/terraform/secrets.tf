@@ -27,7 +27,7 @@ resource "google_secret_manager_secret" "db_password" {
 
 resource "google_secret_manager_secret_version" "db_password" {
   secret      = google_secret_manager_secret.db_password.id
-  secret_data = random_password.db.result
+  secret_data = var.neon_password
 }
 
 resource "google_secret_manager_secret" "jwt" {
@@ -76,9 +76,13 @@ resource "google_secret_manager_secret" "app_config" {
 resource "google_secret_manager_secret_version" "app_config" {
   secret = google_secret_manager_secret.app_config.id
   secret_data = templatefile("${path.module}/templates/config.cloud.yaml.tftpl", {
-    project_id          = var.project_id
-    region              = var.region
-    sql_connection_name = local.sql_connection_name
-    avatars_bucket      = local.avatars_bucket
+    project_id     = var.project_id
+    region         = var.region
+    avatars_bucket = local.avatars_bucket
+    db_host        = local.db_host
+    db_port        = local.db_port
+    db_user        = local.db_user
+    db_name        = local.db_name
+    db_ssl_mode    = local.db_ssl_mode
   })
 }

@@ -8,11 +8,6 @@ output "artifact_registry" {
   value       = "${var.region}-docker.pkg.dev/${var.project_id}/${google_artifact_registry_repository.app.repository_id}"
 }
 
-output "sql_connection_name" {
-  description = "Cloud SQL connection name (project:region:instance)."
-  value       = local.sql_connection_name
-}
-
 output "avatars_bucket" {
   description = "GCS bucket that stores avatar images."
   value       = google_storage_bucket.avatars.name

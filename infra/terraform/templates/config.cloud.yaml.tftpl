@@ -32,12 +32,12 @@ server:
   web_api_key_secret: "innerlamp-web-api-key"
 
 database:
-  host: "/cloudsql/${sql_connection_name}"
-  port: 5432
-  username: "innerlamp"
+  host: "${db_host}"
+  port: ${db_port}
+  username: "${db_user}"
   password_secret: "innerlamp-db-password"
-  database: "innerlamp"
-  ssl_mode: "disable"
+  database: "${db_name}"
+  ssl_mode: "${db_ssl_mode}"
 
 jwt:
   algorithm: "HS256"

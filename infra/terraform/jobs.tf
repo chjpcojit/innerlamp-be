@@ -19,23 +19,23 @@ resource "google_cloud_run_v2_job" "migrate" {
 
         env {
           name  = "PGHOST"
-          value = "/cloudsql/${local.sql_connection_name}"
+          value = var.neon_host
         }
         env {
           name  = "PGPORT"
-          value = "5432"
+          value = tostring(var.neon_port)
         }
         env {
           name  = "PGUSER"
-          value = "innerlamp"
+          value = var.neon_user
         }
         env {
           name  = "PGDATABASE"
-          value = "innerlamp"
+          value = var.neon_database
         }
         env {
           name  = "PGSSLMODE"
-          value = "disable"
+          value = var.neon_ssl_mode
         }
         env {
           name = "PGPASSWORD"
@@ -45,18 +45,6 @@ resource "google_cloud_run_v2_job" "migrate" {
               version = "latest"
             }
           }
-        }
-
-        volume_mounts {
-          name       = "cloudsql"
-          mount_path = "/cloudsql"
-        }
-      }
-
-      volumes {
-        name = "cloudsql"
-        cloud_sql_instance {
-          instances = [local.sql_connection_name]
         }
       }
     }

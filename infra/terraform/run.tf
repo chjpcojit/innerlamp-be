@@ -52,11 +52,6 @@ resource "google_cloud_run_v2_service" "app" {
         name       = "config"
         mount_path = "/app/config"
       }
-
-      volume_mounts {
-        name       = "cloudsql"
-        mount_path = "/cloudsql"
-      }
     }
 
     volumes {
@@ -67,13 +62,6 @@ resource "google_cloud_run_v2_service" "app" {
           version = "latest"
           path    = "config.cloud.yaml"
         }
-      }
-    }
-
-    volumes {
-      name = "cloudsql"
-      cloud_sql_instance {
-        instances = [local.sql_connection_name]
       }
     }
   }

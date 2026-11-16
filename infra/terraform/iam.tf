@@ -9,7 +9,6 @@ resource "google_service_account" "run" {
 
 locals {
   run_project_roles = [
-    "roles/cloudsql.client",
     "roles/cloudtrace.agent",
     "roles/logging.logWriter",
     "roles/monitoring.metricWriter",

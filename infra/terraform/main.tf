@@ -1,6 +1,13 @@
 locals {
-  sql_connection_name = "${var.project_id}:${var.region}:${var.sql_instance_name}"
-  avatars_bucket      = var.avatars_bucket != "" ? var.avatars_bucket : "${var.project_id}-avatars"
+  avatars_bucket = var.avatars_bucket != "" ? var.avatars_bucket : "${var.project_id}-avatars"
+
+  # External Postgres (Neon). Empty host keeps the old Cloud SQL path during
+  # the transition; the config template always reads db_*.
+  db_host     = var.neon_host != "" ? var.neon_host : "127.0.0.1"
+  db_port     = var.neon_port
+  db_user     = var.neon_user
+  db_name     = var.neon_database
+  db_ssl_mode = var.neon_ssl_mode
   labels = {
     app        = "innerlamp"
     env        = var.environment

@@ -33,18 +33,6 @@ variable "migrate_image" {
   default     = "asia-southeast1-docker.pkg.dev/innerlamp-dev/innerlamp/migrate:latest"
 }
 
-variable "sql_instance_name" {
-  description = "Cloud SQL instance name. The connection name is project:region:instance."
-  type        = string
-  default     = "innerlamp-pg"
-}
-
-variable "sql_tier" {
-  description = "Cloud SQL machine tier. db-f1-micro is the cheapest shared-core tier for dev."
-  type        = string
-  default     = "db-f1-micro"
-}
-
 variable "avatars_bucket" {
   description = "GCS bucket for avatar images. Empty = <project_id>-avatars."
   type        = string
@@ -67,4 +55,45 @@ variable "deploy_migrate_job" {
   description = "Create the Cloud Run job that applies migrations/*.sql."
   type        = bool
   default     = true
+}
+
+# ---------------------------------------------------------------------------
+# Postgres bên ngoài (Neon). Cloud SQL chỉ còn trong lúc chuyển đổi; xem
+# README "Chuyển sang Neon".
+# ---------------------------------------------------------------------------
+variable "neon_host" {
+  description = "Postgres host (Neon: ep-...ap-southeast-1.aws.neon.tech)."
+  type        = string
+  default     = ""
+}
+
+variable "neon_port" {
+  description = "Postgres port."
+  type        = number
+  default     = 5432
+}
+
+variable "neon_user" {
+  description = "Postgres role the service connects as."
+  type        = string
+  default     = "neondb_owner"
+}
+
+variable "neon_database" {
+  description = "Postgres database name."
+  type        = string
+  default     = "neondb"
+}
+
+variable "neon_password" {
+  description = "Postgres password. Stored in Secret Manager, never in the repo."
+  type        = string
+  sensitive   = true
+  default     = ""
+}
+
+variable "neon_ssl_mode" {
+  description = "libpq sslmode for the external database (Neon requires TLS)."
+  type        = string
+  default     = "require"
 }

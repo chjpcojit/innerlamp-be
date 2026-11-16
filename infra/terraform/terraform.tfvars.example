@@ -1,13 +1,19 @@
 # Copy to terraform.tfvars (git-ignored) and adjust.
-project_id = "innerlamp-dev"
-region     = "asia-southeast1"
-environment = "dev"
+project_id    = "innerlamp-dev"
+region        = "asia-southeast1"
+environment   = "dev"
+max_instances = 2
+
+# Postgres on Neon. Keep the password out of git: terraform.tfvars is ignored.
+neon_host     = "ep-...ap-southeast-1.aws.neon.tech"
+neon_port     = 5432
+neon_user     = "neondb_owner"
+neon_database = "neondb"
+neon_password = "<password>"
+neon_ssl_mode = "require"
 
 # default: <project_id>-avatars
 # avatars_bucket = "innerlamp-dev-avatars"
-
-# Keep 2 while rate limiting uses the in-memory store; raise only with Redis.
-max_instances = 2
 
 # Dev project with no real users: OTP is the fixed dev code 111111.
 allow_unauthenticated = true
