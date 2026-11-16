@@ -100,3 +100,10 @@ vendor
 docs/HANDOFF.md
 docs/HANDOFF.prev.md
 docs/handoff/
+
+# Terraform (never commit state or variable files with real values)
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.*
+infra/terraform/terraform.tfvars
+infra/terraform/crash.log

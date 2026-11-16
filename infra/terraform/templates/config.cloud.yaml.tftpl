@@ -1,0 +1,273 @@
+# Cloud Run configuration for appService, rendered by Terraform.
+# Values written as dollar-brace placeholders are Terraform template variables. No secret value lives here:
+# database.password_secret, jwt.secret_key_secret and server.web_api_key_secret
+# are names resolved from Secret Manager at startup (SECRETS_PROVIDER=gcp).
+# Local/dev configuration for appService.
+#
+# Non-sensitive settings are plain values below. Sensitive fields
+# (database.password_secret, jwt.secret_key_secret) name a secret to resolve
+# at startup instead of storing the value here — see dev_secrets at the
+# bottom for how the *dev-only* mock resolver satisfies those names.
+#
+# ⚠️ DEV ONLY: dev_secrets stores literal secret values in plaintext.
+# Recorded debt: docs/tech-debt/config/TD-001 (policy: AGENTS.md §5.3).
+# Point Load() at a real secrets.Client (GCP Secret Manager, etc.) in any
+# non-local environment instead of the mock resolver.
+
+# Deployment environment. Only "dev" may use the dev shortcuts below
+# (otp.dev_fixed_code, mailer.provider "log") — Validate refuses them
+# anywhere else (onboarding AC21).
+app:
+  environment: "dev"
+
+server:
+  addr: ":8080"
+  # ⚠️ DEV ONLY: serve assets/images at /static/images/ (no CDN yet). Path is relative to the
+  # working directory, so run from the repo root (make run does). Leave empty in production.
+  static_images_dir: ""
+  # Origin prepended to "/static/images/..." paths in responses. Empty = derive from the request
+  # Host (fine on a LAN); set to the CDN/public origin in production.
+  public_base_url: ""
+  # Shared key the web frontend's server sends as X-API-Key. Resolved from dev_secrets below.
+  web_api_key_secret: "innerlamp-web-api-key"
+
+database:
+  host: "/cloudsql/${sql_connection_name}"
+  port: 5432
+  username: "innerlamp"
+  password_secret: "innerlamp-db-password"
+  database: "innerlamp"
+  ssl_mode: "disable"
+
+jwt:
+  algorithm: "HS256"
+  secret_key_secret: "innerlamp-jwt-secret-key"
+  access_token_expiration: "15m"
+  refresh_token_expiration: "168h"
+  issuer: "innerlamp"
+  audience: "innerlamp_users"
+
+storage:
+  backend: "gcs"
+  project_id: "${project_id}"
+  default_bucket: "${avatars_bucket}"
+  timeout: "30s"
+  # ⚠️ DEV ONLY: the storage emulator from docker-compose.yml (make up / make run). While this is
+  # set, avatar URLs are NOT signed and the store enforces no size/type/expiry. Must be empty in
+  # any deployed config; real signing is TD-001.
+  emulator_host: ""
+
+# ⚠️ DEV ONLY: "log" writes the whole email (code included) to the service log
+# instead of sending it; refused outside app.environment "dev" (AC21). A real
+# provider ships once the sending domain exists (onboarding design.md "Mailer").
+mailer:
+  provider: "log"
+  from: "no-reply@innerlamp.local"
+  # Emails per UTC day across all instances (login AC33); 100 = the free tier of
+  # the provider ADR-0003 recommends.
+  daily_budget: 100
+
+# OTP policy for the registration flow. Every key here is required — a missing
+# one decodes to the Go zero value, and a zero TTL means "already expired"
+# rather than "use a sensible default".
+otp:
+  ttl: "600s"
+  send_cooldown: "60s"
+  max_send_attempts: 3
+  send_lock_duration: "30m"
+  max_attempts: 3
+  lock_duration: "30m"
+  # v5.1: decoupled from ttl (was 90s). The pending payload must outlive the
+  # 30-minute send lock so an attempt can be resumed by resending. Cleanup is
+  # the (deferred) job's responsibility; this is the backstop.
+  pending_registration_ttl: "24h"
+  # ⚠️ DEV ONLY: every issued code is this value so a developer can register
+  # without reading mail. Empty = crypto/rand. Refused outside app.environment
+  # "dev" (AC21).
+  dev_fixed_code: "111111"
+
+# Login brute-force policy (AC7). Every key is required, for the same reason
+# the otp block's are: a missing one decodes to the Go zero value, and a zero
+# lock duration means "locked for no time at all".
+login:
+  max_failed_attempts: 5
+  lock_duration: "15m"
+  failure_reset_window: "15m"
+
+# Per-IP budgets of every /v1/auth/* route (login AC31). Counted in
+# rate_limit_store below. logout is not limited.
+# trust_forwarded_for stays false locally; set it true only behind a proxy that appends the real client IP (Cloud Run).
+auth_rate_limit:
+  send:    { max: 10,  window: "1h" }
+  verify:  { max: 30,  window: "1h" }
+  login:   { max: 30,  window: "15m" }
+  refresh: { max: 120, window: "15m" }
+  trust_forwarded_for: true
+
+# Forgot-password (login AC25): request-otp never answers sooner than this,
+# so sending mail (only for an email with an account) is not observable.
+password_reset:
+  min_response_time: "1500ms"
+
+# Attestation (Play Integrity + App Attest). Each platform selects its own
+# driver — "mock" in dev (fakes results), "playintegrity"/"appattest" in a real
+# deployment. package_name / app_id are placeholders to fill when the app is
+# published; credentials_secret (optional) names the Play Integrity service
+# account once one exists.
+attestation:
+  challenge_ttl: "5m"
+  freshness_window: "5m"
+  android:
+    provider: "mock"
+    package_name: "com.innerlamp.app"
+    required_app_recognition_verdict: "PLAY_RECOGNIZED"
+    # credentials_secret: "attestation-play-integrity-service-account"
+  ios:
+    provider: "mock"
+    app_id: "TEAMID.com.innerlamp.app"
+
+# Temple catalogue paging. All keys are required (>= 1): zero would mean empty
+# pages. options_page_size is the page of GET /v1/temples/options (registration
+# pick-list), larger than page_size because each item has only three fields.
+temple:
+  top_limit: 10
+  page_size: 20
+  options_page_size: 100
+
+# Phật / Bồ tát catalogue paging. Both keys are required: zero would mean empty pages.
+deity:
+  top_limit: 10
+  page_size: 20
+
+# Ảnh đẹp Phật giáo (gallery) paging. Both keys are required: zero would mean empty pages.
+gallery:
+  top_limit: 10
+  page_size: 20
+
+# Ảnh Phật theo ngày cho màn Lịch âm. timezone is required (the "today" used when the request has no date).
+# ⚠️ DEV ONLY: empty image_base_url builds image_url from the request's host; set a CDN URL in production.
+# default_language / events_cache_max_age / events_rate_limit are required by GET /v1/calendar/events (sự kiện lịch).
+calendar:
+  timezone: "Asia/Ho_Chi_Minh"
+  image_base_url: ""
+  default_language: "vi"
+  events_cache_max_age: "24h"
+  # GET /v1/calendar/events is public (no JWT): per-IP limit, skipped for the valid web API key.
+  events_rate_limit:
+    max: 60
+    window: "1m"
+    trust_forwarded_for: true
+
+# Sự kiện của chùa (GET /v1/temples/{id}/events). All three keys are required.
+temple_event:
+  timezone: "Asia/Ho_Chi_Minh"
+  default_window_months: 3
+  max_window_months: 3
+
+# Thông báo của chùa (GET /v1/users/me/temple-announcements). All keys are required.
+# rate_limit is per account and separate from profile.rate_limit.
+temple_announcement:
+  page_size: 20
+  max_page_size: 50
+  rate_limit:
+    max: 60
+    window: "1m"
+
+# Bài viết Phật pháp paging. Both keys are required: zero would mean empty pages.
+article:
+  top_limit: 5
+  page_size: 10
+
+# Sổ giỗ chạp. max_per_user is required: zero would mean nobody can add a memorial.
+memorial:
+  max_per_user: 100
+
+# Đề xuất thêm chùa (route công khai, ghi DB). rate_limit is required: Validate rejects zero.
+# trust_forwarded_for stays false locally; set it true only behind a proxy that appends the real client IP (Cloud Run).
+temple_suggestion:
+  rate_limit:
+    max: 5
+    window: "1h"
+    trust_forwarded_for: true
+
+# Store behind every rate limiter (docs/knowledge/packages/ratelimit.md). "redis" counts across
+# all instances; "memory" counts per instance (tests, or one instance only). No default: a missing
+# block stops the service. Redis runs in docker-compose.yml (make up); a Redis error at request time
+# falls back to a per-instance count, never to "no limit".
+# ⚠️ DEV CONFIG: plain TCP to the compose Redis; TLS to the server is not wired yet (TD ratelimit/TD-001).
+rate_limit_store:
+  backend: "memory"
+  redis:
+    addr: "localhost:6379"
+    password_secret: ""
+    db: 0
+    key_prefix: "innerlamp:app:rl:"
+    dial_timeout: "1s"
+    # On the request path: past this the check falls back to the per-instance count.
+    op_timeout: "100ms"
+
+# Administrative units (tỉnh/huyện/xã, hệ cũ và mới): public read-only lookups, also used
+# during registration. rate_limit is the only abuse brake besides the web API key (a caller may
+# simply omit the key header); all routes share one per-IP budget. cache_max_age is sent as
+# Cache-Control max-age: the data changes only when an operator loads a new dataset version.
+# trust_forwarded_for stays false locally; set it true only behind a proxy that appends the real client IP.
+administrative_units:
+  rate_limit:
+    max: 60
+    window: "1m"
+    trust_forwarded_for: true
+  cache_max_age: "24h"
+
+# Pháp thoại paging. page_size is required: zero would mean empty pages.
+dharma_talk:
+  page_size: 10
+
+# Kinh / kệ / chú paging. All three keys are required and must be >= 1:
+# lines_page_size is the default lines per page of GET /v1/sutras/{id}/lines and
+# lines_max_page_size caps a caller-supplied page_size.
+sutra:
+  page_size: 20
+  lines_page_size: 200
+  lines_max_page_size: 500
+
+# Thắp đèn / vườn đèn. Every value is required: Validate rejects anything below 1.
+# max_active_per_user caps one user's lit lamps; page_size is the garden page (and the most limit may ask for);
+# dedupe_window is how long an identical lamp counts as one double-tapped submission.
+# recipient_max_chars / prayer_max_chars are in characters and may be lowered but not raised past the
+# VARCHAR(100) / VARCHAR(300) columns of lamps (Validate rejects it).
+lamp:
+  max_active_per_user: 20
+  page_size: 12
+  dedupe_window: "5s"
+  durations_days: [1, 7, 21, 49]
+  recipient_max_chars: 100
+  prayer_max_chars: 300
+
+# Hồ sơ cá nhân. dharma_name_max_chars counts characters (not bytes) after trim + NFC and
+# is shared by registration and the profile edit. It can be lowered freely but not raised past
+# the VARCHAR(255) column of users.dharma_name (Validate rejects it).
+profile:
+  dharma_name_max_chars: 255
+  full_name_max_chars: 300
+  avatar_max_bytes: 5242880          # 5 MiB
+  avatar_content_types: ["image/jpeg", "image/png", "image/webp"]
+  upload_url_ttl: "5m"
+  avatar_read_url_ttl: "15m"
+  # ⚠️ DEV CONFIG: dev bucket / emulator (TD-001: signed URLs only verified on the emulator).
+  bucket: "${avatars_bucket}"
+  avatar_tmp_prefix: "avatars/tmp/"
+  avatar_prefix: "avatars/"
+  # Per account (user id of the access token), reads included.
+  rate_limit:
+    max: 10
+    window: "1m"
+
+# Gia phả. Every value is required: Validate rejects anything below 1.
+# max_viewers counts viewers plus pending invitations; invitation_ttl is 30 days.
+genealogy:
+  max_per_user: 10
+  max_members: 5000
+  max_generation: 60
+  max_spouses: 5
+  max_viewers: 20
+  invitation_ttl: "720h"

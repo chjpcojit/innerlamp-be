@@ -1,0 +1,13 @@
+# Copy to terraform.tfvars (git-ignored) and adjust.
+project_id = "innerlamp-dev"
+region     = "asia-southeast1"
+environment = "dev"
+
+# default: <project_id>-avatars
+# avatars_bucket = "innerlamp-dev-avatars"
+
+# Keep 2 while rate limiting uses the in-memory store; raise only with Redis.
+max_instances = 2
+
+# Dev project with no real users: OTP is the fixed dev code 111111.
+allow_unauthenticated = true

@@ -332,9 +332,17 @@ Grafana yêu cầu đăng nhập (`admin` / `admin` mặc định, hoặc mật 
 
 ### Vì sao không gộp appService vào compose
 
-`postgres` publish `5432:5432`, nên process trên host vẫn kết nối được qua `localhost:5432` — đúng như `config.dev.yaml` khai báo. Việc app nằm trong Docker hay không **không** quyết định nó có chạm được Postgres hay không. Giữ app trên host để vòng lặp sửa–chạy nhanh (`go run` restart vài giây thay vì rebuild image mỗi lần sửa một dòng), và vì repo chưa có Dockerfile nào. Hệ quả duy nhất là log phải `tee` ra file cho Alloy tail, như ở trên.
+`postgres` publish `5432:5432`, nên process trên host vẫn kết nối được qua `localhost:5432` — đúng như `config.dev.yaml` khai báo. Việc app nằm trong Docker hay không **không** quyết định nó có chạm được Postgres hay không. Giữ app trên host để vòng lặp sửa–chạy nhanh (`go run` restart vài giây thay vì rebuild image mỗi lần sửa một dòng), và vì image (Dockerfile ở repo root) chỉ dùng cho deploy, không phải vòng lặp local. Hệ quả duy nhất là log phải `tee` ra file cho Alloy tail, như ở trên.
 
 Kiểm thử nhanh không cần Docker: `go test -short ./...` (bỏ qua e2e dùng testcontainers).
+
+---
+
+### Deploy lên GCP
+
+Stack dev (Cloud Run + Cloud SQL + Secret Manager + GCS + Artifact Registry) nằm
+trong `infra/terraform/`, kèm hướng dẫn apply, build image `linux/amd64`, chạy
+migration job và ước tính chi phí: xem `infra/terraform/README.md`.
 
 ---
 
