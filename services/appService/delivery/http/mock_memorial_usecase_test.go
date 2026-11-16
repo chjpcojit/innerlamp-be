@@ -2,6 +2,7 @@ package http
 
 import (
 	"context"
+	"io"
 
 	"github.com/stretchr/testify/mock"
 
@@ -47,4 +48,20 @@ func (m *mockMemorialUsecase) Update(ctx context.Context, userID, id int64, in d
 
 func (m *mockMemorialUsecase) Delete(ctx context.Context, userID, id int64) error {
 	return m.Called(ctx, userID, id).Error(0)
+}
+
+func (m *mockMemorialUsecase) SetPhoto(ctx context.Context, userID, id int64, r io.Reader, contentType string, size int64) (*domain.Memorial, error) {
+	args := m.Called(ctx, userID, id, r, contentType, size)
+	if v := args.Get(0); v != nil {
+		return v.(*domain.Memorial), args.Error(1)
+	}
+	return nil, args.Error(1)
+}
+
+func (m *mockMemorialUsecase) RemovePhoto(ctx context.Context, userID, id int64) (*domain.Memorial, error) {
+	args := m.Called(ctx, userID, id)
+	if v := args.Get(0); v != nil {
+		return v.(*domain.Memorial), args.Error(1)
+	}
+	return nil, args.Error(1)
 }

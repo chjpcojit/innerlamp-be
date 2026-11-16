@@ -431,8 +431,13 @@ func main() {
 
 	// memorials (sổ giỗ chạp): per-user data, so every route below is wrapped by authMiddleware.
 	memorialRepo := repository.NewMemorialRepository(db)
-	memorialUsecase := usecase.NewMemorialUsecase(memorialRepo, cfg.Memorial)
-	memorialHandler := deliveryhttp.NewMemorialHandler(memorialUsecase)
+	memorialBucket := cfg.Memorial.PhotoBucket
+	if memorialBucket == "" {
+		memorialBucket = cfg.Profile.Bucket
+	}
+	memorialPhotoStore := avatarstorage.NewMemorialPhotoStorage(storageClient, memorialBucket, cfg.Storage.EmulatorHost)
+	memorialUsecase := usecase.NewMemorialUsecase(memorialRepo, cfg.Memorial).WithPhotoStore(memorialPhotoStore)
+	memorialHandler := deliveryhttp.NewMemorialHandler(memorialUsecase).WithPhotoLimit(cfg.Memorial.PhotoMaxBytes)
 
 	// profile (hồ sơ cá nhân): the token's user only, no route takes a user id. Avatars go
 	// straight to storage by signed URL; the backend never receives the bytes.
@@ -567,12 +572,15 @@ func main() {
 	mux.HandleFunc("POST /v1/auth/logout", webAPIKey.WrapFunc(authMiddleware.AuthenticateFunc(loginHandler.Logout)))
 
 	// memorials: private to the logged-in user. The owner is the access token's user_id claim;
-	// there is no route that takes a user id. The photo routes are not here yet (TD-001, memorial).
+	// there is no route that takes a user id. The two photo routes upload through the server
+	// (5 MiB, image/*) and sign short-lived read URLs.
 	mux.HandleFunc("POST /v1/memorials", authed(memorialHandler.Create))
 	mux.HandleFunc("GET /v1/memorials", authed(memorialHandler.List))
 	mux.HandleFunc("GET /v1/memorials/{id}", authed(memorialHandler.Get))
 	mux.HandleFunc("PUT /v1/memorials/{id}", authed(memorialHandler.Update))
 	mux.HandleFunc("DELETE /v1/memorials/{id}", authed(memorialHandler.Delete))
+	mux.HandleFunc("PUT /v1/memorials/{id}/photo", authed(memorialHandler.UploadPhoto))
+	mux.HandleFunc("DELETE /v1/memorials/{id}/photo", authed(memorialHandler.DeletePhoto))
 
 	// profile: five routes under /v1/users/me, each auth → per-account limit → no-store.
 	registerProfileRoutes(mux, authed, profileLimit, noStore, profileHandler)

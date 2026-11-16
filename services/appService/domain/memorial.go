@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"io"
 	"time"
 )
 
@@ -82,9 +83,13 @@ type Memorial struct {
 
 	// Note is nil when there is none.
 	Note *string
-	// PhotoObjectKey is nil when there is no photo. Always nil until the photo
-	// feature (tasks.md Phase 6) exists.
+	// PhotoObjectKey is the object key in the photo bucket; nil when there is
+	// no photo.
 	PhotoObjectKey *string
+
+	// PhotoURL is a short-lived download URL derived from PhotoObjectKey. It is
+	// filled by the use case on read and never stored.
+	PhotoURL *string
 
 	// Reminder is nil when the user set no reminder.
 	Reminder *Reminder
@@ -137,6 +142,12 @@ var (
 	// ErrMemorialInvalid — a submitted field is not allowed. Use
 	// MemorialValidationError to say which one; errors.Is still matches this.
 	ErrMemorialInvalid = errors.New("invalid memorial")
+
+	// ErrPhotoTooLarge — the uploaded photo is over the configured limit.
+	ErrPhotoTooLarge = errors.New("memorial photo too large")
+
+	// ErrPhotoUnsupportedType — the uploaded bytes are not JPEG, PNG or WebP.
+	ErrPhotoUnsupportedType = errors.New("memorial photo type not supported")
 )
 
 // MemorialValidationError names the request field that was rejected and why.
@@ -176,6 +187,24 @@ type MemorialRepository interface {
 	// It never touches the owner, created_at or the photo.
 	Update(ctx context.Context, m *Memorial) (*Memorial, error)
 
-	// Delete removes the memorial or returns ErrMemorialNotFound.
-	Delete(ctx context.Context, id, userID int64) error
+	// Delete removes the memorial and returns its photo object key (nil when
+	// there was no photo), or ErrMemorialNotFound.
+	Delete(ctx context.Context, id, userID int64) (*string, error)
+
+	// SetPhotoKey replaces the photo object key (nil clears it) and returns the
+	// previous key, or ErrMemorialNotFound. It never touches the other fields.
+	SetPhotoKey(ctx context.Context, id, userID int64, key *string) (*string, error)
+}
+
+// MemorialPhotoStore is the object store behind a memorial photo. The adapter
+// owns the bucket and prefix; the use case passes the full object key.
+type MemorialPhotoStore interface {
+	// Put writes size bytes from r at key with contentType.
+	Put(ctx context.Context, key string, r io.Reader, contentType string, size int64) error
+
+	// Delete removes key. Deleting a missing key is not an error.
+	Delete(ctx context.Context, key string) error
+
+	// SignedURL returns a GET URL for key valid for ttl.
+	SignedURL(ctx context.Context, key string, ttl time.Duration) (string, error)
 }

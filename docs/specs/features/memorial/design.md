@@ -2,7 +2,7 @@
 
 Version: 4.2
 Last updated: 2026-10-14
-Status: v1 (5 route CRUD, Step C-1..C-4 bản v1 và D-1/D-2/D-4) đã implement và kiểm chứng 2026-10-07. **v4.0 (chưa implement):** contract nhắc mới, kế hoạch nhắc dẫn xuất (Step C-3 mở rộng, flow Sửa, flow Báo múi giờ) và job gửi nhắc hằng giờ (flow J-1..J-8). Phần ảnh/GCS (⏸ Phase 6) vẫn hoãn, nợ ở `docs/tech-debt/memorial/TD-001`. Marker mở: bucket GCS (Step P-2), feature notification chưa có spec (Step J-5, J-7).
+Status: v1 (5 route CRUD, Step C-1..C-4 bản v1 và D-1/D-2/D-4) đã implement và kiểm chứng 2026-10-07. **v4.0 (chưa implement):** contract nhắc mới, kế hoạch nhắc dẫn xuất (Step C-3 mở rộng, flow Sửa, flow Báo múi giờ) và job gửi nhắc hằng giờ (flow J-1..J-8). Phần ảnh/GCS (Phase 6) **đã implement 2026-11-16**: bucket `innerlamp-avatars-dev`, prefix `memorials/`, signed URL 15 phút. Marker mở: bucket GCS (Step P-2), feature notification chưa có spec (Step J-5, J-7).
 Module: `memorial`
 
 > See `changelog.md` in this folder for the version history of this spec.

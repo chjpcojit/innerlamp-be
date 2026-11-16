@@ -4,6 +4,12 @@ Tracks version history for `requirements.md`, `design.md`, `flow.md`, and `tasks
 All four files share one changelog since they change together as one spec unit. Newest version
 first.
 
+## v4.3 (2026-11-16)
+
+- Phase 6 (ảnh sổ giỗ) implemented: `MemorialPhotoStore` + GCS adapter, `SetPhoto`/`RemovePhoto`, `SetPhotoKey`/`Delete ... RETURNING`, two routes `PUT|DELETE /v1/memorials/{id}/photo`, config `photo_max_bytes|photo_url_ttl|photo_bucket|photo_prefix`, OpenAPI 3.1.0 (2 path mới, `photo_url` không còn "luôn null").
+- Chốt bucket: dùng chung `innerlamp-avatars-dev`, prefix `memorials/`; Cloud Run SA ký được signed URL. `TD-001` resolved.
+- `tasks.md` Phase 6 đánh dấu xong, trừ cơ chế dọn object mồ côi (vẫn để "tính sau"). Phase 7–10 không đổi.
+
 ## v4.2 (2026-10-14)
 
 - Bước 4 của đợt viết lại tài liệu: xoá `docs/assumptions/memorial/A-001-heic-client-converts.md` (product FR-MEM-011 đã ghi quyết định HEIC → JPEG). `requirements.md` (câu hỏi đã resolved về HEIC) và `docs/tech-debt/memorial/TD-001` giờ trỏ tới FR-MEM-011. Không đổi hành vi; `design.md`, `flow.md`, `tasks.md` chỉ đổi version.

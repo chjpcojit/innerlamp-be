@@ -78,6 +78,8 @@ func TestMemorialFlow_E2E(t *testing.T) {
 		{http.MethodGet, "/v1/memorials/1"},
 		{http.MethodPut, "/v1/memorials/1"},
 		{http.MethodDelete, "/v1/memorials/1"},
+		{http.MethodPut, "/v1/memorials/1/photo"},
+		{http.MethodDelete, "/v1/memorials/1/photo"},
 	}
 
 	t.Run("AC2: every route is behind the access-token middleware", func(t *testing.T) {

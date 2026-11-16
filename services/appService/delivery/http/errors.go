@@ -201,6 +201,10 @@ func writeDomainError(w http.ResponseWriter, err error) {
 		utils.WriteBusinessError(w, http.StatusNotFound, "MEMORIAL_NOT_FOUND", domain.ErrMemorialNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrMemorialLimitReached):
 		utils.WriteBusinessError(w, http.StatusConflict, "MEMORIAL_LIMIT_REACHED", domain.ErrMemorialLimitReached.Error(), nil)
+	case errors.Is(err, domain.ErrPhotoTooLarge):
+		utils.WriteBusinessError(w, http.StatusRequestEntityTooLarge, "PHOTO_TOO_LARGE", domain.ErrPhotoTooLarge.Error(), nil)
+	case errors.Is(err, domain.ErrPhotoUnsupportedType):
+		utils.WriteBusinessError(w, http.StatusUnsupportedMediaType, "PHOTO_UNSUPPORTED_TYPE", domain.ErrPhotoUnsupportedType.Error(), nil)
 	case errors.Is(err, domain.ErrGenealogyNotFound):
 		utils.WriteBusinessError(w, http.StatusNotFound, "GENEALOGY_NOT_FOUND", domain.ErrGenealogyNotFound.Error(), nil)
 	case errors.Is(err, domain.ErrGenealogyForbidden):

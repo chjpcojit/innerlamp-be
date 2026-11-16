@@ -332,13 +332,13 @@ func TestMemorialUsecase_Update(t *testing.T) {
 func TestMemorialUsecase_Delete(t *testing.T) {
 	t.Run("deleted", func(t *testing.T) {
 		repo := new(domain.MockMemorialRepository)
-		repo.On("Delete", mock.Anything, int64(5), int64(7)).Return(nil)
+		repo.On("Delete", mock.Anything, int64(5), int64(7)).Return(nil, nil)
 
 		require.NoError(t, newMemorialUsecase(repo).Delete(context.Background(), 7, 5))
 	})
 	t.Run("not found", func(t *testing.T) {
 		repo := new(domain.MockMemorialRepository)
-		repo.On("Delete", mock.Anything, int64(5), int64(8)).Return(domain.ErrMemorialNotFound)
+		repo.On("Delete", mock.Anything, int64(5), int64(8)).Return(nil, domain.ErrMemorialNotFound)
 
 		err := newMemorialUsecase(repo).Delete(context.Background(), 8, 5)
 

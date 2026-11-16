@@ -28,6 +28,8 @@ func newMemorialMux(uc *mockMemorialUsecase) *http.ServeMux {
 	mux.HandleFunc("GET /v1/memorials/{id}", h.Get)
 	mux.HandleFunc("PUT /v1/memorials/{id}", h.Update)
 	mux.HandleFunc("DELETE /v1/memorials/{id}", h.Delete)
+	mux.HandleFunc("PUT /v1/memorials/{id}/photo", h.UploadPhoto)
+	mux.HandleFunc("DELETE /v1/memorials/{id}/photo", h.DeletePhoto)
 	return mux
 }
 
