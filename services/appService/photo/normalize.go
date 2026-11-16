@@ -24,12 +24,14 @@ const (
 	MaxEdge = 2048
 	// JPEGQuality is the quality of the re-encoded JPEG.
 	JPEGQuality = 85
-	// MaxPixels caps the bitmap at 24 MP (24 million pixels) before it is
+	// MaxPixels caps the bitmap at 16 MP (16 million pixels) before it is
 	// decoded. A 5 MiB file can otherwise declare an enormous bitmap;
-	// 24 MP × 4 B = 96 MB per bitmap, so two concurrent transparent PNGs
-	// (decoded + flattened = 2 × 192 MB) fit a 512 MiB Cloud Run instance
-	// with room for the runtime, the ≤5 MiB source and the re-encoded output.
-	MaxPixels int64 = 24_000_000
+	// 16 MP × 4 B = 64 MiB per bitmap. Two concurrent transparent PNGs hold
+	// about 2 × (5 MiB source + 64 MiB decoded + 64 MiB flattened + 16 MiB
+	// 2048² resize + 2 MiB JPEG) = 302 MiB of buffers; with the Go runtime and
+	// GC headroom the peak is roughly 390 MiB, leaving about 120 MiB of the
+	// 512 MiB Cloud Run instance free.
+	MaxPixels int64 = 16_000_000
 )
 
 var (

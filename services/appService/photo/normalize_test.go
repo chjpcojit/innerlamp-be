@@ -194,15 +194,15 @@ func newNoisyJPEG(t *testing.T, w, h int) []byte {
 	return buf.Bytes()
 }
 
-func TestMaxPixelsAtMost24MP(t *testing.T) {
-	// The cap must stay ≤ 24 MP: at 4 B per pixel a decoded bitmap is
-	// ≤ 96 MB, which keeps two concurrent transparent PNGs inside the
-	// 512 MiB Cloud Run instance.
-	assert.LessOrEqual(t, MaxPixels, int64(24_000_000))
+func TestMaxPixelsAtMost16MP(t *testing.T) {
+	// The cap must stay ≤ 16 MP: at 4 B per pixel a decoded bitmap is
+	// ≤ 64 MiB, which keeps two concurrent transparent PNGs and their
+	// flatten/resize buffers inside the 512 MiB Cloud Run instance.
+	assert.LessOrEqual(t, MaxPixels, int64(16_000_000))
 }
 
 func TestNormalize_RejectsOversizedHeaderBeforeDecode(t *testing.T) {
-	// The header declares 6000×5000 ≈ 28.6 MP, over the 24 MP cap, and the
+	// The header declares 6000×5000 ≈ 28.6 MP, over the 16 MP cap, and the
 	// file carries no scan data. A decoder-first implementation would fail as
 	// unsupported (corrupt JPEG); ErrTooLarge can only come from the header
 	// check, which must run before any full decode.
@@ -219,6 +219,27 @@ func TestNormalize_RejectsOversizedHeaderBeforeDecode(t *testing.T) {
 	// The same kind of header under the cap proves the fixture really has no
 	// pixel data: once the size check passes, the decode runs and fails.
 	out, err = Normalize(jpegHeaderOnly(t, 600, 500))
+	assert.ErrorIs(t, err, ErrUnsupported)
+	assert.Nil(t, out)
+}
+
+func TestNormalize_PixelCapBoundary(t *testing.T) {
+	// 5000×4000 = 20 MP, over the 16 MP cap: rejected from the header, before
+	// any decode.
+	out, err := Normalize(jpegHeaderOnly(t, 5000, 4000))
+	assert.ErrorIs(t, err, ErrTooLarge)
+	assert.Nil(t, out)
+
+	// 4000×4000 = exactly 16 MP: the header check must let it through. The
+	// fixture has no scan data, so the next step (decode) fails as unsupported
+	// — that proves the cap did not reject it.
+	data := jpegHeaderOnly(t, 4000, 4000)
+	cfg, _, err := image.DecodeConfig(bytes.NewReader(data))
+	require.NoError(t, err)
+	require.Equal(t, int64(16_000_000), int64(cfg.Width)*int64(cfg.Height))
+
+	out, err = Normalize(data)
+	assert.NotErrorIs(t, err, ErrTooLarge)
 	assert.ErrorIs(t, err, ErrUnsupported)
 	assert.Nil(t, out)
 }
