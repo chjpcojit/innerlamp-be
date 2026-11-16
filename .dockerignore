@@ -1,0 +1,17 @@
+.git
+vendor
+/cmd
+.gitignore
+.terraform
+**/.terraform
+**/*.tfstate
+**/*.tfstate.*
+infra/terraform/terraform.tfvars
+node_modules
+web
+docs
+observability/logs
+assets/audio
+**/*_test.go
+.claude
+.vscode

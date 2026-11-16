@@ -64,12 +64,13 @@ func main() {
 		log.Fatalf("failed to load config %s: %v", configPath, err)
 	}
 
-	// ⚠️ DEV ONLY: resolves *_secret names against config.dev.yaml's
-	// dev_secrets map. Swap for pkg/secrets/gcp (or aws) in real environments.
-	secretGetter, err := appConfig.NewMockSecretGetterFromYAML(rawConfig)
+	// SECRETS_PROVIDER=gcp resolves *_secret names from Secret Manager (the
+	// deployed path); unset keeps the dev-only plaintext map in config.dev.yaml.
+	secretGetter, releaseSecrets, err := newSecretGetter(connectCtx, rawConfig)
 	if err != nil {
-		log.Fatalf("failed to load dev secrets from %s: %v", configPath, err)
+		log.Fatalf("failed to build secret resolver for %s: %v", configPath, err)
 	}
+	defer releaseSecrets()
 
 	cfg, err := appConfig.Load(connectCtx, configSource, secretGetter)
 	if err != nil {

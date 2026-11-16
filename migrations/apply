@@ -1,0 +1,43 @@
+#!/bin/sh
+# Applies every migrations/*.sql once, in filename order.
+#
+# Each applied file is recorded in schema_migrations, so rerunning the job is
+# safe and only new files run. A file that fails stops the job (ON_ERROR_STOP)
+# before it is recorded; the failure is visible in the job's logs.
+set -eu
+
+: "${PGHOST:?PGHOST is required}"
+: "${PGUSER:?PGUSER is required}"
+: "${PGDATABASE:?PGDATABASE is required}"
+
+echo "waiting for ${PGHOST}/${PGDATABASE}"
+i=0
+until pg_isready -q; do
+  i=$((i + 1))
+  if [ "$i" -ge 30 ]; then
+    echo "database not ready after 30 attempts" >&2
+    exit 1
+  fi
+  sleep 2
+done
+
+psql -v ON_ERROR_STOP=1 <<'SQL'
+CREATE TABLE IF NOT EXISTS schema_migrations (
+    filename   text PRIMARY KEY,
+    applied_at timestamptz NOT NULL DEFAULT now()
+);
+SQL
+
+for file in /migrations/*.sql; do
+  name=$(basename "$file")
+  applied=$(psql -tA -c "SELECT 1 FROM schema_migrations WHERE filename = '$name'")
+  if [ "$applied" = "1" ]; then
+    echo "skip $name (already applied)"
+    continue
+  fi
+  echo "applying $name"
+  psql -v ON_ERROR_STOP=1 -f "$file"
+  psql -v ON_ERROR_STOP=1 -c "INSERT INTO schema_migrations (filename) VALUES ('$name')"
+done
+
+echo "migrations up to date"
