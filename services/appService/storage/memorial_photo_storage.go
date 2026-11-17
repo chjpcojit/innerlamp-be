@@ -30,10 +30,16 @@ func NewMemorialPhotoStorage(client pkgstorage.Client, bucket, emulatorHost stri
 }
 
 // Put writes size bytes of r at key.
+//
+// The object is private and only ever reached through a 15-minute signed URL,
+// so a shared cache must not store or transform it: private, max-age=900 (the
+// signed URL lifetime) and no-transform keep proxies and the app's own HTTP
+// cache from serving one user's photo to another.
 func (s *MemorialPhotoStorage) Put(ctx context.Context, key string, r io.Reader, contentType string, size int64) error {
 	if _, err := s.client.Upload(ctx, s.bucket, key, r, &pkgstorage.UploadOptions{
-		ContentType: contentType,
-		Metadata:    map[string]string{"size": fmt.Sprintf("%d", size)},
+		ContentType:  contentType,
+		CacheControl: "private, max-age=900, no-transform",
+		Metadata:     map[string]string{"size": fmt.Sprintf("%d", size)},
 	}); err != nil {
 		return fmt.Errorf("upload %q: %w", key, err)
 	}
@@ -59,6 +65,11 @@ func (s *MemorialPhotoStorage) SignedURL(ctx context.Context, key string, ttl ti
 		Expires: ttl,
 	})
 	if err != nil {
+		if pkgstorage.IsExpiredSignatureError(err) {
+			// The store rejected the signature as stale: the caller must get a
+			// fresh URL (403), not "not found".
+			return "", fmt.Errorf("%w: %v", domain.ErrPhotoURLExpired, err)
+		}
 		return "", fmt.Errorf("sign read %q: %w", key, err)
 	}
 	return signed, nil

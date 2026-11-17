@@ -13,29 +13,36 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"strings"
 	"time"
 )
 
 // Common errors
 var (
-	ErrUnsupportedBackend   = errors.New("unsupported storage backend")
-	ErrNotConnected         = errors.New("storage client not connected")
-	ErrInvalidConfig        = errors.New("invalid storage configuration")
-	ErrConnectionFailed     = errors.New("failed to connect to storage")
-	ErrBucketNotFound       = errors.New("bucket not found")
-	ErrObjectNotFound       = errors.New("object not found")
-	ErrBucketAlreadyExists  = errors.New("bucket already exists")
-	ErrAccessDenied         = errors.New("access denied")
-	ErrInvalidObjectName    = errors.New("invalid object name")
-	ErrUploadFailed         = errors.New("upload failed")
-	ErrDownloadFailed       = errors.New("download failed")
-	ErrDeleteFailed         = errors.New("delete failed")
-	ErrListFailed           = errors.New("list operation failed")
-	ErrOperationTimeout     = errors.New("operation timed out")
-	ErrInvalidContentType   = errors.New("invalid content type")
-	ErrFileTooLarge         = errors.New("file exceeds maximum allowed size")
-	ErrEmptyObjectName      = errors.New("object name cannot be empty")
-	ErrEmptyBucketName      = errors.New("bucket name cannot be empty")
+	ErrUnsupportedBackend  = errors.New("unsupported storage backend")
+	ErrNotConnected        = errors.New("storage client not connected")
+	ErrInvalidConfig       = errors.New("invalid storage configuration")
+	ErrConnectionFailed    = errors.New("failed to connect to storage")
+	ErrBucketNotFound      = errors.New("bucket not found")
+	ErrObjectNotFound      = errors.New("object not found")
+	ErrBucketAlreadyExists = errors.New("bucket already exists")
+	ErrAccessDenied        = errors.New("access denied")
+	ErrInvalidObjectName   = errors.New("invalid object name")
+	ErrUploadFailed        = errors.New("upload failed")
+	ErrDownloadFailed      = errors.New("download failed")
+	ErrDeleteFailed        = errors.New("delete failed")
+	ErrListFailed          = errors.New("list operation failed")
+	ErrOperationTimeout    = errors.New("operation timed out")
+	ErrInvalidContentType  = errors.New("invalid content type")
+	ErrFileTooLarge        = errors.New("file exceeds maximum allowed size")
+	ErrEmptyObjectName     = errors.New("object name cannot be empty")
+	ErrEmptyBucketName     = errors.New("bucket name cannot be empty")
+
+	// ErrSignatureExpired means the request reached the object store with a
+	// signed URL whose signature or token is no longer valid. GCS reports this
+	// as "ExpiredToken" (an expired V4 URL) or "SignatureDoesNotMatch" (a
+	// signature computed over different parameters).
+	ErrSignatureExpired     = errors.New("signature expired")
 	ErrSignedURLFailed      = errors.New("failed to generate signed URL")
 	ErrCopyFailed           = errors.New("copy operation failed")
 	ErrMetadataUpdateFailed = errors.New("metadata update failed")
@@ -595,4 +602,16 @@ func MergeMetadata(maps ...map[string]string) map[string]string {
 		}
 	}
 	return result
+}
+
+// IsExpiredSignatureError reports whether err came from an object store
+// rejecting a signed URL as expired. The stores report it as a string code, so
+// the check is on the text: "ExpiredToken" for a V4 URL past its expiry, and
+// "SignatureDoesNotMatch" when the expiry moved the signed parameters.
+func IsExpiredSignatureError(err error) bool {
+	if err == nil {
+		return false
+	}
+	msg := err.Error()
+	return strings.Contains(msg, "ExpiredToken") || strings.Contains(msg, "SignatureDoesNotMatch")
 }

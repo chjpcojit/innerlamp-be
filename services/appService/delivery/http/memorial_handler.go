@@ -22,9 +22,13 @@ type memorialUsecase interface {
 	Get(ctx context.Context, userID, id int64) (*domain.Memorial, error)
 	Update(ctx context.Context, userID, id int64, in domain.MemorialInput) (*domain.Memorial, error)
 	Delete(ctx context.Context, userID, id int64) error
-	SetPhoto(ctx context.Context, userID, id int64, r io.Reader, contentType string, size int64) (*domain.Memorial, error)
+	SetPhoto(ctx context.Context, userID, id int64, r io.Reader) (*domain.Memorial, error)
 	RemovePhoto(ctx context.Context, userID, id int64) (*domain.Memorial, error)
 }
+
+// photoMultipartOverhead is the room the request body gets on top of the file
+// cap, for the multipart boundary and part headers.
+const photoMultipartOverhead = 1 << 20
 
 // MemorialHandler serves a user's own death-anniversary book. Every route must be
 // wrapped by the JWT auth middleware: the owner is read from the token's claims,
@@ -172,40 +176,45 @@ func (h *MemorialHandler) UploadPhoto(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	r.Body = http.MaxBytesReader(w, r.Body, h.photoMaxBytes)
+	// The body cap is wider than the file cap: the multipart boundary, part
+	// headers and the trailing boundary are not part of the photo, so capping
+	// the body at exactly photoMaxBytes would reject a file of exactly the
+	// allowed size. The real limit is applied to the part below.
+	r.Body = http.MaxBytesReader(w, r.Body, h.photoMaxBytes+photoMultipartOverhead)
 	if err := r.ParseMultipartForm(h.photoMaxBytes); err != nil {
 		var tooLarge *http.MaxBytesError
 		if errors.As(err, &tooLarge) {
 			writeDomainError(w, domain.ErrPhotoTooLarge)
 			return
 		}
-		utils.WriteValidationError(w, "photo", "expected multipart/form-data with a photo part", nil)
+		utils.WriteValidationError(w, "VALIDATION_ERROR", "expected multipart/form-data with a photo part", map[string]any{"field": "photo"})
 		return
 	}
 	file, _, err := r.FormFile("photo")
 	if err != nil {
-		utils.WriteValidationError(w, "photo", "a photo part is required", nil)
+		utils.WriteValidationError(w, "VALIDATION_ERROR", "a photo part is required", map[string]any{"field": "photo"})
 		return
 	}
 	defer func() { _ = file.Close() }()
 
-	data, err := io.ReadAll(file)
+	// One byte over the file cap tells us the file itself is too large, which
+	// is different from a body that ran into the multipart allowance.
+	data, err := io.ReadAll(io.LimitReader(file, h.photoMaxBytes+1))
 	if err != nil {
-		var tooLarge *http.MaxBytesError
-		if errors.As(err, &tooLarge) {
-			writeDomainError(w, domain.ErrPhotoTooLarge)
-			return
-		}
-		utils.WriteValidationError(w, "photo", "photo could not be read", nil)
+		utils.WriteValidationError(w, "VALIDATION_ERROR", "photo could not be read", map[string]any{"field": "photo"})
+		return
+	}
+	if int64(len(data)) > h.photoMaxBytes {
+		writeDomainError(w, domain.ErrPhotoTooLarge)
 		return
 	}
 	if len(data) == 0 {
-		utils.WriteValidationError(w, "photo", "photo is empty", nil)
+		utils.WriteValidationError(w, "VALIDATION_ERROR", "photo is empty", map[string]any{"field": "photo"})
 		return
 	}
-	contentType := http.DetectContentType(data)
-
-	m, err := h.usecase.SetPhoto(r.Context(), userID, id, bytes.NewReader(data), contentType, int64(len(data)))
+	// The upload is decoded and re-encoded inside the use case; the client's
+	// own content type is never trusted or stored.
+	m, err := h.usecase.SetPhoto(r.Context(), userID, id, bytes.NewReader(data))
 	if err != nil {
 		writeDomainError(w, err)
 		return
