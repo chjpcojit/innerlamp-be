@@ -4,8 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"image"
+	"image/color"
+	"image/png"
 	"io"
+	"mime/multipart"
 	"net/http"
+	"net/url"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -47,6 +52,49 @@ func memorialBody(name string) map[string]any {
 	}
 }
 
+// uploadPhoto sends multipart/form-data with exactly one file part named
+// `photo`, the shape AC25 documents. The content type is sniffed by the server,
+// so the part's declared type and filename do not matter.
+func (c *apiClient) uploadPhoto(path, filename string, data []byte, bearer string) *apiResponse {
+	c.t.Helper()
+	var body bytes.Buffer
+	w := multipart.NewWriter(&body)
+	part, err := w.CreateFormFile("photo", filename)
+	require.NoError(c.t, err)
+	_, err = part.Write(data)
+	require.NoError(c.t, err)
+	require.NoError(c.t, w.Close())
+
+	req, err := http.NewRequest(http.MethodPut, c.baseURL+path, &body)
+	require.NoError(c.t, err)
+	req.Header.Set("Content-Type", w.FormDataContentType())
+	req.Header.Set("Authorization", "Bearer "+bearer)
+	resp, err := c.http.Do(req)
+	require.NoError(c.t, err)
+	defer func() { _ = resp.Body.Close() }()
+	raw, err := io.ReadAll(resp.Body)
+	require.NoError(c.t, err)
+
+	res := &apiResponse{t: c.t, status: resp.StatusCode, header: resp.Header, contentType: resp.Header.Get("Content-Type"), raw: string(raw)}
+	require.NoErrorf(c.t, json.Unmarshal(raw, &res.envelope), "PUT %s: body is not the JSON envelope: %q", path, raw)
+	return res
+}
+
+// testPNG encodes a small but real PNG, so the upload path decodes and
+// re-encodes an image instead of accepting arbitrary bytes.
+func testPNG(t *testing.T, width, height int) []byte {
+	t.Helper()
+	img := image.NewRGBA(image.Rect(0, 0, width, height))
+	for y := 0; y < height; y++ {
+		for x := 0; x < width; x++ {
+			img.Set(x, y, color.RGBA{R: uint8(x * 7), G: uint8(y * 7), B: 180, A: 255})
+		}
+	}
+	var buf bytes.Buffer
+	require.NoError(t, png.Encode(&buf, img))
+	return buf.Bytes()
+}
+
 type memorialData struct {
 	ID             int64          `json:"id"`
 	FullName       string         `json:"full_name"`
@@ -63,11 +111,12 @@ type memorialData struct {
 }
 
 // TestMemorialFlow_E2E drives the sổ giỗ chạp spec (docs/specs/features/memorial/,
-// v1 without photos) against the real binary and a fresh Postgres.
+// v1 CRUD and the photo routes) against the real binary and a fresh Postgres.
 //
 // What is here and not in the per-layer tests: that cmd/main.go wraps every
 // memorial route in the access-token middleware, that ownership holds across
-// real users and real DB rows, and the 100-per-user cap from the running config.
+// real users and real DB rows, the 100-per-user cap from the running config,
+// and the photo round trip through the storage emulator.
 func TestMemorialFlow_E2E(t *testing.T) {
 	baseURL, client := newE2EServer(t)
 	api := &apiClient{t: t, baseURL: baseURL, http: client}
@@ -126,7 +175,7 @@ func TestMemorialFlow_E2E(t *testing.T) {
 		assert.Equal(t, "2015-03-04", *first.DeathDate)
 		assert.Equal(t, "lunar", first.DeathCalendar)
 		assert.Nil(t, first.DeathDay)
-		assert.Nil(t, first.PhotoURL, "photo is deferred (TD-001): always null")
+		assert.Nil(t, first.PhotoURL, "a new entry has no photo")
 		assert.Equal(t, map[string]any{"days_before": float64(3), "time": "07:30", "timezone": "Asia/Ho_Chi_Minh"}, first.Reminder)
 		assert.True(t, first.AddToOS)
 
@@ -285,5 +334,93 @@ func TestMemorialFlow_E2E(t *testing.T) {
 
 		res = api.do(http.MethodPost, "/v1/memorials", memorialBody("someone else is unaffected"), other)
 		assert.Equal(t, http.StatusCreated, res.status, res.raw)
+	})
+
+	t.Run("AC25-AC32: upload, replace, read and remove a photo over real HTTP", func(t *testing.T) {
+		api.t = t
+		tok := api.login(api.registerUser(), deviceA).AccessToken
+
+		res := api.do(http.MethodPost, "/v1/memorials", memorialBody("Có di ảnh"), tok)
+		require.Equal(t, http.StatusCreated, res.status, res.raw)
+		var m memorialData
+		res.data(&m)
+		assert.Nil(t, m.PhotoURL)
+		photoPath := fmt.Sprintf("/v1/memorials/%d/photo", m.ID)
+
+		// AC25: the upload stores the object and returns the full memorial with a
+		// signed URL.
+		up := api.uploadPhoto(photoPath, "di-anh.png", testPNG(t, 16, 16), tok)
+		require.Equal(t, http.StatusOK, up.status, up.raw)
+		var withPhoto memorialData
+		up.data(&withPhoto)
+		require.NotNil(t, withPhoto.PhotoURL, "AC25: upload returns photo_url")
+		decoded, err := url.PathUnescape(*withPhoto.PhotoURL)
+		require.NoError(t, err)
+		assert.Contains(t, decoded, "memorials/")
+
+		// AC16 photo branch: a read returns the same stored photo.
+		res = api.do(http.MethodGet, fmt.Sprintf("/v1/memorials/%d", m.ID), nil, tok)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		var read memorialData
+		res.data(&read)
+		require.NotNil(t, read.PhotoURL)
+		assert.Equal(t, *withPhoto.PhotoURL, *read.PhotoURL)
+
+		// AC29: a replacement is a new object, so its URL differs.
+		up = api.uploadPhoto(photoPath, "di-anh-2.png", testPNG(t, 24, 24), tok)
+		require.Equal(t, http.StatusOK, up.status, up.raw)
+		var replaced memorialData
+		up.data(&replaced)
+		require.NotNil(t, replaced.PhotoURL)
+		assert.NotEqual(t, *withPhoto.PhotoURL, *replaced.PhotoURL, "AC29: the object name is always new")
+
+		// AC18: replacing the fields keeps the photo.
+		res = api.do(http.MethodPut, fmt.Sprintf("/v1/memorials/%d", m.ID), memorialBody("Đổi tên"), tok)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		var renamed memorialData
+		res.data(&renamed)
+		assert.Equal(t, "Đổi tên", renamed.FullName)
+		require.NotNil(t, renamed.PhotoURL, "AC18: PUT of the fields does not drop the photo")
+
+		// AC27: the content type is sniffed, so a text file named .png is refused.
+		up = api.uploadPhoto(photoPath, "not-an-image.png", []byte("plain text, not an image"), tok)
+		assert.Equal(t, http.StatusUnsupportedMediaType, up.status, up.raw)
+		assert.Equal(t, "PHOTO_UNSUPPORTED_TYPE", up.errorCode())
+
+		// AC28: no photo part is a validation error naming the part.
+		empty := api.do(http.MethodPut, photoPath, nil, tok)
+		assert.Equal(t, http.StatusBadRequest, empty.status, empty.raw)
+		assert.Equal(t, "VALIDATION_ERROR", empty.errorCode())
+		assert.Equal(t, "photo", empty.details()["field"])
+
+		// AC26: a file over 5 MB is refused before storage.
+		tooBig := api.uploadPhoto(photoPath, "big.png", bytes.Repeat([]byte{0x89}, 7<<20), tok)
+		assert.Equal(t, http.StatusRequestEntityTooLarge, tooBig.status, tooBig.raw)
+		assert.Equal(t, "PHOTO_TOO_LARGE", tooBig.errorCode())
+
+		// AC31: a stranger's 7 MB upload answers 404, not 413 — the ownership check
+		// runs before the body is read, so the route cannot be used to fill the bucket.
+		stranger := api.login(api.registerUser(), deviceA).AccessToken
+		probe := api.uploadPhoto(photoPath, "big.png", bytes.Repeat([]byte{0x89}, 7<<20), stranger)
+		assert.Equal(t, http.StatusNotFound, probe.status, probe.raw)
+		assert.Equal(t, "MEMORIAL_NOT_FOUND", probe.errorCode())
+
+		// AC30: removing clears the photo; removing again is still 200.
+		res = api.do(http.MethodDelete, photoPath, nil, tok)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		var removed memorialData
+		res.data(&removed)
+		assert.Nil(t, removed.PhotoURL, "AC30: photo_url is null after removal")
+		res = api.do(http.MethodDelete, photoPath, nil, tok)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+
+		// AC23 photo branch: deleting the entry takes its photo with it; the entry
+		// itself is then a plain 404.
+		up = api.uploadPhoto(photoPath, "di-anh-3.png", testPNG(t, 8, 8), tok)
+		require.Equal(t, http.StatusOK, up.status, up.raw)
+		res = api.do(http.MethodDelete, fmt.Sprintf("/v1/memorials/%d", m.ID), nil, tok)
+		require.Equal(t, http.StatusOK, res.status, res.raw)
+		res = api.do(http.MethodGet, fmt.Sprintf("/v1/memorials/%d", m.ID), nil, tok)
+		assert.Equal(t, http.StatusNotFound, res.status)
 	})
 }
