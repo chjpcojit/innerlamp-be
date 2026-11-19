@@ -338,6 +338,11 @@ func writeTempConfig(t *testing.T, dbHost, dbPort, appPort string, overrides con
 	imagesDir, err := filepath.Abs("../../../assets/images")
 	require.NoError(t, err)
 	server["static_images_dir"] = imagesDir
+	// static_audio_dir has the same problem: the dev config names it relative to
+	// the repo root, while the binary starts in this package's directory.
+	audioDir, err := filepath.Abs("../../../assets/audio")
+	require.NoError(t, err)
+	server["static_audio_dir"] = audioDir
 	doc["server"] = server
 
 	// config.dev.yaml points storage at the compose emulator on localhost:4443. A test must
